@@ -35649,9 +35649,567 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "EN3-PZPG",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-creatures",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a8699c90977922e5213a1c4a8915cf8b7c892ecb467c0c6141c92f2d64b06a33",
+      "started": "2026-10-03T00:35:00.934191+00:00",
+      "ended": "2026-10-03T00:40:58.374595+00:00",
+      "minutes": 5.957298138182765,
+      "image_calls": 4,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-73d8d6f6-20e4-47ba-b3cb-6df215e288ab.png",
+            "sha256": "9da3195bbd94c21782c34b8c0ad6ebeb0f6f0dd5bd8271e9eb6dce1ec8af7a09"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-825cb6b0-52dc-4081-bc98-e9fe2ab14df3.png",
+            "sha256": "7d676f8ce77dabb32e9fcfb25d3bde587558ee59fd72ac2b7290f39a0969ab5e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-d6040642-dfc1-4d78-bcb9-949f0e43dfcf.png",
+            "sha256": "a89d9885c797eb3b4010b2e2564921572452aace8d9648dd2b3968b19c9f91ab"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-f340f52c-d138-4cde-8555-cfcc65636821.png",
+            "sha256": "59527bd7a024c088a39a8ff15bf9f4947ba76107b1f16d38ad8574801bae059a"
+          }
+        ]
+      },
+      "receipt_sha256": "f50cf76917f659c56e3a44c0658bc224b8071936a2018f4197b79bcc42d2e36b",
+      "artifacts": [
+        {
+          "name": "EN3-PZPG_a.png",
+          "sha256": "7d676f8ce77dabb32e9fcfb25d3bde587558ee59fd72ac2b7290f39a0969ab5e"
+        },
+        {
+          "name": "EN3-PZPG_b.png",
+          "sha256": "9da3195bbd94c21782c34b8c0ad6ebeb0f6f0dd5bd8271e9eb6dce1ec8af7a09"
+        },
+        {
+          "name": "exec-73d8d6f6-20e4-47ba-b3cb-6df215e288ab.provenance.json",
+          "sha256": "3e55026b00fb3709a28b91ec55f8bea98edf781bcc5d8278b77f769ab9db1d61"
+        },
+        {
+          "name": "exec-825cb6b0-52dc-4081-bc98-e9fe2ab14df3.provenance.json",
+          "sha256": "c58e8f3287edff72c399aa3964d76340d977e17f46fcf4325b975742e7ab5de1"
+        },
+        {
+          "name": "exec-d6040642-dfc1-4d78-bcb9-949f0e43dfcf.provenance.json",
+          "sha256": "0e100b07c86af34401ac87b7b84be8871b4b61ae6a5c708c11fec8717d35406d"
+        },
+        {
+          "name": "exec-f340f52c-d138-4cde-8555-cfcc65636821.provenance.json",
+          "sha256": "b5137ad125a84335e37c18a495e9d28b50b904615dde03cd002e5d0bfcd8e200"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-73d8d6f6-20e4-47ba-b3cb-6df215e288ab.png",
+          "sha256": "9da3195bbd94c21782c34b8c0ad6ebeb0f6f0dd5bd8271e9eb6dce1ec8af7a09"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-825cb6b0-52dc-4081-bc98-e9fe2ab14df3.png",
+          "sha256": "7d676f8ce77dabb32e9fcfb25d3bde587558ee59fd72ac2b7290f39a0969ab5e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-d6040642-dfc1-4d78-bcb9-949f0e43dfcf.png",
+          "sha256": "a89d9885c797eb3b4010b2e2564921572452aace8d9648dd2b3968b19c9f91ab"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff2f-8ba5-7ec3-8932-70ebf5f04ca4/exec-f340f52c-d138-4cde-8555-cfcc65636821.png",
+          "sha256": "59527bd7a024c088a39a8ff15bf9f4947ba76107b1f16d38ad8574801bae059a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-EPA",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "7ba24afd339f52a58e3cde2b974be4bc06a6c40cf47504dac594974c5a01a780",
+      "started": "2026-10-03T00:42:25.241338+00:00",
+      "ended": "2026-10-03T00:46:37.738672+00:00",
+      "minutes": 4.207970835417897,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7281-9fb8-59e40ee6affb/exec-3ac3c71f-c783-4a0f-8724-37b3ae79e5bf.png",
+            "sha256": "c3f5ed1ac000960e67d149789906a6aaa8c6789693071c4025a38f7ba7058792"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7281-9fb8-59e40ee6affb/exec-e1be2aab-5e4d-48de-a1e0-f19e6deed05b.png",
+            "sha256": "85896267af223ddbaee0b79e1c920ceea74ea7f7e9e1ecfb23515db5d9317cd6"
+          }
+        ]
+      },
+      "receipt_sha256": "5544aca9a4aae0d75c6039ecf5eae243abefdca05fd7f0e513e2d98bd6065666",
+      "artifacts": [
+        {
+          "name": "EN2-EPA_a.png",
+          "sha256": "85896267af223ddbaee0b79e1c920ceea74ea7f7e9e1ecfb23515db5d9317cd6"
+        },
+        {
+          "name": "EN2-EPA_b.png",
+          "sha256": "c3f5ed1ac000960e67d149789906a6aaa8c6789693071c4025a38f7ba7058792"
+        },
+        {
+          "name": "exec-3ac3c71f-c783-4a0f-8724-37b3ae79e5bf.provenance.json",
+          "sha256": "4e467b103b8e299af00298e09617279d1b0f63da7f2da6e150ea0dbcd9728764"
+        },
+        {
+          "name": "exec-e1be2aab-5e4d-48de-a1e0-f19e6deed05b.provenance.json",
+          "sha256": "fd5e7f86637d6d793c880a8cd43cd628b99c7e9e2ef5b17e33dd4ed3c15b4bc1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7281-9fb8-59e40ee6affb/exec-3ac3c71f-c783-4a0f-8724-37b3ae79e5bf.png",
+          "sha256": "c3f5ed1ac000960e67d149789906a6aaa8c6789693071c4025a38f7ba7058792"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7281-9fb8-59e40ee6affb/exec-e1be2aab-5e4d-48de-a1e0-f19e6deed05b.png",
+          "sha256": "85896267af223ddbaee0b79e1c920ceea74ea7f7e9e1ecfb23515db5d9317cd6"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-LPA",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "06763186fa14dc3af960a5584235304f6f5015279fe44b2ddb4d0554e4a9164b",
+      "started": "2026-10-03T00:42:25.241337+00:00",
+      "ended": "2026-10-03T00:46:53.822438+00:00",
+      "minutes": 4.476027989583478,
+      "image_calls": 2,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7cf3-8d24-8653052621e8/exec-85ddb41f-2e89-4da5-9c25-0cb2a1b908de.png",
+            "sha256": "e0bb6221e082ac615590a028d638df5c7fab8ac2bc85af7dfeda1ae89f107ec1"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7cf3-8d24-8653052621e8/exec-aaf5e3dd-ed9d-46ab-acad-637a8221f2e7.png",
+            "sha256": "d1c3e8123bc4805dae50997f7e55652f4781a01be4f644165ee604976a2209de"
+          }
+        ]
+      },
+      "receipt_sha256": "35c58905a4d73cdb7a443965de2a553c22c5974e92ad433706c012fbe9569345",
+      "artifacts": [
+        {
+          "name": "EN2-LPA_a.png",
+          "sha256": "d1c3e8123bc4805dae50997f7e55652f4781a01be4f644165ee604976a2209de"
+        },
+        {
+          "name": "EN2-LPA_b.png",
+          "sha256": "e0bb6221e082ac615590a028d638df5c7fab8ac2bc85af7dfeda1ae89f107ec1"
+        },
+        {
+          "name": "exec-85ddb41f-2e89-4da5-9c25-0cb2a1b908de.provenance.json",
+          "sha256": "ddb26b0fb47769604e06c021f0cc25b0bfb99c00d8a1ac779ae5249f7de7594f"
+        },
+        {
+          "name": "exec-aaf5e3dd-ed9d-46ab-acad-637a8221f2e7.provenance.json",
+          "sha256": "11207b4ad3c8e3bccb9582c09789d59e3053c423157117f59f0bdcf094ed29fe"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7cf3-8d24-8653052621e8/exec-85ddb41f-2e89-4da5-9c25-0cb2a1b908de.png",
+          "sha256": "e0bb6221e082ac615590a028d638df5c7fab8ac2bc85af7dfeda1ae89f107ec1"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7cf3-8d24-8653052621e8/exec-aaf5e3dd-ed9d-46ab-acad-637a8221f2e7.png",
+          "sha256": "d1c3e8123bc4805dae50997f7e55652f4781a01be4f644165ee604976a2209de"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-XPA",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "71b464a7c0c7602b9a74495c5121d9de35cf7013ccd2cdd4acf186deb7c8e0ae",
+      "started": "2026-10-03T00:42:25.241730+00:00",
+      "ended": "2026-10-03T00:48:46.397861+00:00",
+      "minutes": 6.352254313884381,
+      "image_calls": 4,
+      "tool_calls": 6,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 6,
+        "tools_seen": {
+          "command_execution": 6
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-757f5cc9-02e3-49b5-9792-1d46b882aaaa.png",
+            "sha256": "76068c2938667b513d772d12963ef7dbd7a6440d3b864d512ba3c5cccb5b5e90"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-ab9a6a96-8d36-439f-98d6-6b664495b0c1.png",
+            "sha256": "d00c727de90efa0b58f253741769ad247607e6127877ddfaa06dd2288c147557"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-cf809944-93a6-4272-92ff-f2e76b364b85.png",
+            "sha256": "9881b195a1288ee003c1f46447f5ef2ee6a155fc2b6bbac1753cc29eb9a87ce1"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-e6344916-ca2d-4a5b-822f-60701d077391.png",
+            "sha256": "3cdd3f10cb69b55884e16df517610307683c78cc784fe5923acf6507a117685d"
+          }
+        ]
+      },
+      "receipt_sha256": "b2a6d2606cae3e9d43dccd14526187f461ed8463116d0ece7a5c6ca9b305260d",
+      "artifacts": [
+        {
+          "name": "EN2-XPA_a.png",
+          "sha256": "d00c727de90efa0b58f253741769ad247607e6127877ddfaa06dd2288c147557"
+        },
+        {
+          "name": "EN2-XPA_b.png",
+          "sha256": "76068c2938667b513d772d12963ef7dbd7a6440d3b864d512ba3c5cccb5b5e90"
+        },
+        {
+          "name": "exec-757f5cc9-02e3-49b5-9792-1d46b882aaaa.provenance.json",
+          "sha256": "7a5b45eff7adbf6ebac396991d08446af01bf57e015aa8b81a1edf53ba2776eb"
+        },
+        {
+          "name": "exec-ab9a6a96-8d36-439f-98d6-6b664495b0c1.provenance.json",
+          "sha256": "85e0ca12f31ce7f5e7614b693bd2b3a9e3c375450370e6be0064b7cbe2f397ae"
+        },
+        {
+          "name": "exec-cf809944-93a6-4272-92ff-f2e76b364b85.provenance.json",
+          "sha256": "e79e89185cca858b2f472ed99b188f34aeed4dcf70b4ad38cb5682b592df72a4"
+        },
+        {
+          "name": "exec-e6344916-ca2d-4a5b-822f-60701d077391.provenance.json",
+          "sha256": "f510011dcbf4d0c53610141338fb7de7b4f27ce259ab9f35ce73188d271e10b0"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-757f5cc9-02e3-49b5-9792-1d46b882aaaa.png",
+          "sha256": "76068c2938667b513d772d12963ef7dbd7a6440d3b864d512ba3c5cccb5b5e90"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-ab9a6a96-8d36-439f-98d6-6b664495b0c1.png",
+          "sha256": "d00c727de90efa0b58f253741769ad247607e6127877ddfaa06dd2288c147557"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-cf809944-93a6-4272-92ff-f2e76b364b85.png",
+          "sha256": "9881b195a1288ee003c1f46447f5ef2ee6a155fc2b6bbac1753cc29eb9a87ce1"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7b31-bd41-48bf89c55b78/exec-e6344916-ca2d-4a5b-822f-60701d077391.png",
+          "sha256": "3cdd3f10cb69b55884e16df517610307683c78cc784fe5923acf6507a117685d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-DPA",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "5ba311b154d6f1ead6f0cd51ee342557e4dbb04dd54994a52295e4ca9fadbf11",
+      "started": "2026-10-03T00:42:25.241336+00:00",
+      "ended": "2026-10-03T00:48:52.025867+00:00",
+      "minutes": 6.4460630632005635,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-002bda06-4224-494a-bad5-30eddc681fd6.png",
+            "sha256": "678a489433102c3c8dbc835c7c35422d3a39b1f68de49f9d016bdcd314b620d9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-53c99381-ea2e-40df-bacb-991351c607fd.png",
+            "sha256": "dddec69bdccc10b2d722767df0fa449996c63c073d8f01997c0917d9ebe65214"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-9b88a6ad-6d45-45af-97ec-35a02b627050.png",
+            "sha256": "60eb6dcbb97bcbc68932e64085a2fe3cbbc2607ad62c2c384877383f331e39ed"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-d1fd0e73-7b93-45c8-81e0-82d08f079f2b.png",
+            "sha256": "0918a7214b503a33a93eada5700711f83f41c0208306be838cfb02de78af9d91"
+          }
+        ]
+      },
+      "receipt_sha256": "792c2488496b25641b8234ead58d40da5ba1716380345186e3c78a3fc5b2f21f",
+      "artifacts": [
+        {
+          "name": "EN2-DPA_a.png",
+          "sha256": "0918a7214b503a33a93eada5700711f83f41c0208306be838cfb02de78af9d91"
+        },
+        {
+          "name": "EN2-DPA_b.png",
+          "sha256": "678a489433102c3c8dbc835c7c35422d3a39b1f68de49f9d016bdcd314b620d9"
+        },
+        {
+          "name": "exec-002bda06-4224-494a-bad5-30eddc681fd6.provenance.json",
+          "sha256": "e0ac8c9e12724b34dd9398be6feeda14a4c1feb504cf735ae6107616dbae47e0"
+        },
+        {
+          "name": "exec-53c99381-ea2e-40df-bacb-991351c607fd.provenance.json",
+          "sha256": "db6c0153bda57ac9eef224f2fc1d8a3a5eb2bef62eb58f799ad9ec699ca6babd"
+        },
+        {
+          "name": "exec-9b88a6ad-6d45-45af-97ec-35a02b627050.provenance.json",
+          "sha256": "f1a85676e84ce1dc67f981719fecc6f4cf1251cbe4bf3603de094d7f3621d50a"
+        },
+        {
+          "name": "exec-d1fd0e73-7b93-45c8-81e0-82d08f079f2b.provenance.json",
+          "sha256": "51543887d487c693ba20968f1152df60b2e2a35777ef98af95c066c14a1a65d3"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-002bda06-4224-494a-bad5-30eddc681fd6.png",
+          "sha256": "678a489433102c3c8dbc835c7c35422d3a39b1f68de49f9d016bdcd314b620d9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-53c99381-ea2e-40df-bacb-991351c607fd.png",
+          "sha256": "dddec69bdccc10b2d722767df0fa449996c63c073d8f01997c0917d9ebe65214"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-9b88a6ad-6d45-45af-97ec-35a02b627050.png",
+          "sha256": "60eb6dcbb97bcbc68932e64085a2fe3cbbc2607ad62c2c384877383f331e39ed"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-71f2-8f9f-435170aae9bd/exec-d1fd0e73-7b93-45c8-81e0-82d08f079f2b.png",
+          "sha256": "0918a7214b503a33a93eada5700711f83f41c0208306be838cfb02de78af9d91"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "EN2-UPA",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-enemies",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "c60e2369fc65be439666b4ac945453f9013b69c6cec0315539d4299b4dbf8b8e",
+      "started": "2026-10-03T00:42:25.241654+00:00",
+      "ended": "2026-10-03T00:49:21.098846+00:00",
+      "minutes": 6.93059705416672,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-2e30b9e2-1e9a-40a3-836e-16d6db46b409.png",
+            "sha256": "d8fc96fadc391b883d1d4f61426082cdc262e113c09ec891304f88253465cdab"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-426e2dcb-4796-43a5-95bd-5922a58ece26.png",
+            "sha256": "0852c21ebbc46903e96152b2e22e875878f1363cda1ff577f475e15114358abd"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-89ddeb42-d2e6-4534-99af-73ba278dd2e3.png",
+            "sha256": "09cdab4593748f6bdf258ffa028dbd092df9799705d39bfa0bbc5405aab11b1c"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-912ac936-322f-4540-aaa0-5786a6ae4cc2.png",
+            "sha256": "bbd805b4a6362f188f151e0784e1cedc67ee8258469a1b886b1e194ed746e24d"
+          }
+        ]
+      },
+      "receipt_sha256": "1ae53f68fc7ab6689ffc82cd77a73e9fd5b8c901046218b77c04363ebd8af0f0",
+      "artifacts": [
+        {
+          "name": "EN2-UPA_a.png",
+          "sha256": "09cdab4593748f6bdf258ffa028dbd092df9799705d39bfa0bbc5405aab11b1c"
+        },
+        {
+          "name": "EN2-UPA_b.png",
+          "sha256": "d8fc96fadc391b883d1d4f61426082cdc262e113c09ec891304f88253465cdab"
+        },
+        {
+          "name": "exec-2e30b9e2-1e9a-40a3-836e-16d6db46b409.provenance.json",
+          "sha256": "94a342f60cbdcd714fc142066443ea71e2260226af6865f05595dc330b250eaf"
+        },
+        {
+          "name": "exec-426e2dcb-4796-43a5-95bd-5922a58ece26.provenance.json",
+          "sha256": "ec1b4532bb96ef073cad9b4f2115ea4e6c1e5da78b3a7b6753444a6c4f761159"
+        },
+        {
+          "name": "exec-89ddeb42-d2e6-4534-99af-73ba278dd2e3.provenance.json",
+          "sha256": "4ddfebadfef6268734fc99908b958052a20f72c10c72c105fa17d3458e7f5e18"
+        },
+        {
+          "name": "exec-912ac936-322f-4540-aaa0-5786a6ae4cc2.provenance.json",
+          "sha256": "bcf3f2d2bb7fe05733fb6a59005c4ff95af5430968134bc7e058e43fe73d6a5c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-2e30b9e2-1e9a-40a3-836e-16d6db46b409.png",
+          "sha256": "d8fc96fadc391b883d1d4f61426082cdc262e113c09ec891304f88253465cdab"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-426e2dcb-4796-43a5-95bd-5922a58ece26.png",
+          "sha256": "0852c21ebbc46903e96152b2e22e875878f1363cda1ff577f475e15114358abd"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-89ddeb42-d2e6-4534-99af-73ba278dd2e3.png",
+          "sha256": "09cdab4593748f6bdf258ffa028dbd092df9799705d39bfa0bbc5405aab11b1c"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff36-534e-7430-9ef6-7db81c15beca/exec-912ac936-322f-4540-aaa0-5786a6ae4cc2.png",
+          "sha256": "bbd805b4a6362f188f151e0784e1cedc67ee8258469a1b886b1e194ed746e24d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1056,
+  "images_used": 1076,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -36711,6 +37269,29 @@
       "lane": "BV3 (drax)",
       "ts": "2026-10-03T00:40:00Z",
       "note": "R-C9-144 round 2 on the Fjord Headland (BV3-2), 2 bursts BV3r2-A/B (GENERATE, 1 image each, 0 retries; Astra 2 of a 4 cap). No ring around the site; the edges are the land itself (N barrow slope, W shingle/wreck shore into sea ice, S cliff-top with sea-cave steps, E/SE half-burned palisade around the burnt hall yard); a small broken 7-9 stone circle near the centre; a large irregular frozen mere NW with reeds and cracks; blended mini-biomes. A = one continuous floor; B = with bites (SW sea inlet between wreck and cave, rock outcrop between cave and hall, mere bank toward the barrow). Both on-brief. Weak points: A's mere stream comes in from the NW edge rather than clearly off the barrow, and its sea cave sits SSW; B still reads mostly as one plaza with bites at its rim, not fully separate areas; the barrow's north edge shows little deep drift in both. refs_guard OK; ref = artifacts/T10BF-2_0 (style only). Outputs: runs/C-9/barrow_v2/sites/BV3r2-{A,B}.png + BV3r2_contact.png."
+    },
+    {
+      "id": "M-C9-SO-R138-A",
+      "topic": "R-C9-138/140 (a): the arena sorceress (orb staff + shield, ss134f) measured, then fixed as so_mx/export/ss138a -- orb staff aimed along her facing, calmer idle, hood hides hair (lane SO drax, collab f2859b67e)",
+      "result": "MEASURED (glTF, facing +Z): the GRIP was already right -- the haft runs through the fist (1.4 deg off the hand's width axis, 0.3 cm from the fist centre) in every state; the wand variant's mount reads the same, so Matt's 'through the palm' there is its carry pose. The AIM was the shared defect: orb elevation/azimuth idle +41/-2, walk +48/+50, run +52/+75 (sideways; the staff through her head in 6 walk frames by parity), hit -20/-31, block_idle -25/-40, Fire Ball at release -2/+78, Meteor at release +1/+37. IDLE (the D7 idle body): torso -5.9 deg (leaning back; rest -2.6; Mixamo idles +3.6..+8.7), pelvis -8.6, chin -18.8. FIX (accessor patches, r138_02_edit.py): RightHand + half the twist on RightForeArm re-keyed so the haft points along her facing (swing <= 30, twist <= 100 deg); weapon_r untouched; idle/block spine pitch (Spine02 +12, neck -10, Head -12). AFTER: idle +30/0 (torso +2.8, chin -8.8, knees unchanged 26); walk +38/+5; run +40/-1; hit +1/-9; block_idle +3/-38 (the hanging block hand cannot reach forward within the wrist limits); Fire Ball at release +46/0 (the orb leads); Meteor at release +1/0. Staff through body (so07 parity): walk/run 0; Fire Ball 1 frame (unchanged); Meteor 1 frame/2 verts. Joint lint all PASS (the Meteor was 13 frames FAIL before); forearm twist INFO to 126.5. Releases unchanged 0.2667/1.80 s. IDLE PICK by measurement: A (the D7 idle, lean fixed: +2.8, calm straight legs) over B (Mixamo sword-and-shield idle 4: +6.9, knees 46, a combat crouch) -- both ship in the GLB; B is reachable on the page. R-C9-140: hood_hair morph (32,637 hair verts: crown, face strands, braid) pulled to their bone's centre inside her; morph_rules hood_hair: hood.",
+      "stills": [
+        "so_mx/look/R-C9-138_before_after.jpg",
+        "so_mx/look/R-C9-138_idle_candidates.jpg",
+        "so_mx/look/R-C9-138_more_states.jpg",
+        "so_mx/look/R-C9-140_hood_hair.jpg"
+      ],
+      "ts": "2026-10-03T00:43:02Z"
+    },
+    {
+      "id": "M-C9-EN2-P2-BOSS-PAINT",
+      "ts": "2026-10-03T00:51:21Z",
+      "note": "EN-E2 Phase 2 (collab 3ebb1cc6b): the four bosses PAINTED (D7 A+B paint pass, Astra 26 images) as NEW pack roots join1_pack/en-warden_p, en-magister_p, en-witch_p, en-mindtaker_p (56/56 each), SUPERSEDING the PROVISIONAL roots en-warden, en-magister, en-witch, en-mindtaker (kept; source bodies at en_e2/export/final_<g>_v1). Warden + magister idle/walk/run now the Pro Melee Axe UNARMED set (measured: every Pro Magic idle returns to the raised right hand at its seam and the pack has one, raised-arm, walk); R arm elevation idle 60 -> 15 deg mean. Heights 2.63 / 2.54 / 2.07 / 1.80 m, true_size blocks carried. Releases: warden + magister cast_bolt r4 0.800 s, cast_area r6 1.2667 s; witch + mindtaker cast_bolt r3 0.5333 s, cast_area r9 1.800 s. Sockets <= 0.09 mm, manifest lint 0 (neg controls 1), resample 0.000 deg. Warden first render hit the J1 watchdog at 371 PNGs (Godot idle, cause unknown; a kill was permission-denied and not worked around); the retry rendered 704."
+    },
+    {
+      "id": "M-C9-SO-R138-C",
+      "topic": "R-C9-138/140 (c): the sorceress JOIN-1 pack re-rendered from ss138a at a NEW root, join1_pack_v4/d2-fire-sorc-bm (DRAFT); join1_pack_v3/d2-fire-sorc-bm untouched and SUPERSEDED (lane SO drax)",
+      "result": "64/64 cells COMPLETE, 744 frames, 0 EDGE_TOUCH flags; index matrix_index.json sha256_16 8251d92cef21ed92; h_model 1.7004 m (head_end, unchanged); kit join1_render/kits/d2-fire-sorc-bm_v4.json (morphs + hood_hair 1: the hood is worn in every cell, hair off), manifest manifests/d2-fire-sorc-bm_v4_clips.json. States: idle 12 (T 2.3333, closure MAD 0.000), walk 12 (1.1, 0.130), run 12 (0.7, 0.004), cast_fireball 12 (release r=3 at 0.2667 s), cast_meteor 16 (release r=9 at 1.8000 s), block 5, hit 8, death 16. Releases re-measured on the orb tip (so25): unchanged from v3 -- the thrust ends at full extension at 0.2667 s (Fire Ball, the orb now 46 deg up and dead ahead) and the orb reaches the floor at 1.80 s (Meteor). validate_sockets worst 0.0575 m (cast_fireball main_tip, frame 2 at 0.1778 s: the hand's fast twist ramp between the runtime's 30 fps bake keys; the release frame 0.0000); walk 0.0056, run 0.0020, Meteor 0.0025, others <= 0.00002. Manifest lint 19 clips 0 mismatches exit 0; 3 negative controls (release, prose, spin) each exit 1. Contact sheet join1_pack_v4/d2-fire-sorc-bm_contact_sheet_1x.png.",
+      "ts": "2026-10-03T00:52:18Z"
     }
   ],
   "halts": [

@@ -1,0 +1,41 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/work/raw_d2-fire-sorc-bm_v4.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/d2-fire-sorc-bm_v4.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 480
+  },
+  "walk": {
+   "worst_m": 0.00561,
+   "samples": 480
+  },
+  "run": {
+   "worst_m": 0.00198,
+   "samples": 480
+  },
+  "cast_fireball": {
+   "worst_m": 0.0575,
+   "samples": 480
+  },
+  "cast_meteor": {
+   "worst_m": 0.00251,
+   "samples": 640
+  },
+  "block": {
+   "worst_m": 1e-05,
+   "samples": 200
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 320
+  },
+  "death": {
+   "worst_m": 2e-05,
+   "samples": 640
+  }
+ },
+ "samples": 3720,
+ "worst_m": 0.0575
+}
