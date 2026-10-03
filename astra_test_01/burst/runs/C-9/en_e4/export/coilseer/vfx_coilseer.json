@@ -1,0 +1,173 @@
+{
+ "creature": "coilseer",
+ "effects": [
+  {
+   "id": "coilseer_claw_impact",
+   "atlas": "coilseer_claw_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    256,
+    256
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.1733,
+    1.1733
+   ],
+   "px_per_m": 218.182,
+   "plane": "billboard",
+   "pivot": "centre = the right hand claw tip (claw_R) at contact",
+   "ability": "basic claw rake (melee)",
+   "trigger": "attack_claw contact f13",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "coilseer_bolt_orb",
+   "atlas": "coilseer_bolt_orb.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    128,
+    128
+   ],
+   "fps": 20,
+   "duration_s": 0.4,
+   "cell_m": [
+    0.4855,
+    0.4855
+   ],
+   "px_per_m": 263.636,
+   "plane": "billboard",
+   "pivot": "centre = the bolt in flight (leaves cast_hand_R)",
+   "ability": "the record family bolts: lightning orb / toxic spittle / chain bolt (projectile)",
+   "trigger": "cast_bolt release f25 at cast_hand_R",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "coilseer_bolt_impact",
+   "atlas": "coilseer_bolt_impact.png",
+   "frames": 8,
+   "grid": [
+    4,
+    2
+   ],
+   "cell_px": [
+    192,
+    192
+   ],
+   "fps": 30,
+   "duration_s": 0.2667,
+   "cell_m": [
+    1.7455,
+    1.7455
+   ],
+   "px_per_m": 110.0,
+   "plane": "billboard",
+   "pivot": "centre = the impact point",
+   "ability": "bolt impact",
+   "trigger": "on bolt impact",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "coilseer_poison_nova",
+   "atlas": "coilseer_poison_nova.png",
+   "frames": 12,
+   "grid": [
+    4,
+    3
+   ],
+   "cell_px": [
+    384,
+    384
+   ],
+   "fps": 24,
+   "duration_s": 0.5,
+   "cell_m": [
+    8.3478,
+    8.3478
+   ],
+   "px_per_m": 46.0,
+   "plane": "ground",
+   "pivot": "centre = the root",
+   "ability": "poison nova (projectile ring, 14 metres per second) / frost ring variants (recolour at runtime)",
+   "trigger": "cast_nova release f30",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "coilseer_tidal_wave",
+   "atlas": "coilseer_tidal_wave.png",
+   "frames": 20,
+   "grid": [
+    4,
+    5
+   ],
+   "cell_px": [
+    1024,
+    320
+   ],
+   "fps": 24,
+   "duration_s": 0.8333,
+   "cell_m": [
+    11.3778,
+    3.5556
+   ],
+   "px_per_m": 90.0,
+   "plane": "ground",
+   "pivot": "left-middle (the tail-slam point, projected; the wave runs forward 10 m, 2 -> 3 m wide)",
+   "ability": "tidal wave (wave 10 m x 2-3 m, over 2800 ms)",
+   "trigger": "attack_taillash release f23",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": false,
+   "blend": "normal (painted register: no additive glow)"
+  },
+  {
+   "id": "coilseer_disease_aura",
+   "atlas": "coilseer_disease_aura.png",
+   "frames": 16,
+   "grid": [
+    4,
+    4
+   ],
+   "cell_px": [
+    320,
+    320
+   ],
+   "fps": 12,
+   "duration_s": 1.3333,
+   "cell_m": [
+    8.3117,
+    8.3117
+   ],
+   "px_per_m": 38.5,
+   "plane": "ground",
+   "pivot": "centre = the root (aura r 4 m, toggled at spawn on the lead record)",
+   "ability": "disease cloud aura (lead record initial skill)",
+   "trigger": "always on (loop)",
+   "alpha": "straight",
+   "colorspace": "sRGB",
+   "loop": true,
+   "blend": "normal (painted register: no additive glow)"
+  }
+ ]
+}

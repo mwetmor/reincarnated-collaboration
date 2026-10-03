@@ -1,1 +1,51 @@
-heavy_lock: waiting — held by {"pid": 74420, "run": "KC2-PLAY-legacy", "ts": "2026-10-03T01:02:30Z", "cmd": "/Applications/Godot.app/Contents/MacOS/Go
+heavy_lock: waiting — held by {"pid": 86211, "run": "C-9", "ts": "2026-10-03T01:25:20Z", "cmd": "zsh -c \nblender -b -noaudio --python scripts/n22_rig
+heavy_lock: acquired after 432s (C-9)
+== bake
+wrote work/surface_gloamwing.npz
+wrote work/tex_gloamwing_G.png
+{"on_mesh_texels": 2034846, "share_from_sheetA": 0.5202, "share_from_tripo": 0.4798, "nz_ramp": [0.3, 0.6]}
+== rig export
+clip idle           {'frames': 49, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (28, [0.198, -0.789, 0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk           {'frames': 29, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0957, 'worst_frame_vertex': (19, [-0.205, -0.669, -0.096]), 'penetration_frames': 3, 'loop_seam_max_vert_m': 0.0, 'footlock_max_slide_m': 0.0, 'stance_runs': 6}
+clip run            {'frames': 25, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0929, 'worst_frame_vertex': (18, [-0.212, -0.623, -0.093]), 'penetration_frames': 4, 'loop_seam_max_vert_m': 0.0, 'footlock_max_slide_m': 0.1, 'stance_runs': 5}
+clip attack_claw    {'frames': 22, 'ik_residual_max_m': 0.0001, 'min_z_m': 0.0, 'worst_frame_vertex': (20, [0.198, -0.789, 0.0]), 'penetration_frames': 0}
+clip attack_peck    {'frames': 26, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.0, 'worst_frame_vertex': (8, [0.198, -0.789, -0.0]), 'penetration_frames': 0}
+clip cast_breath    {'frames': 101, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (16, [0.198, -0.789, 0.0]), 'penetration_frames': 0}
+clip cast_roar      {'frames': 46, 'ik_residual_max_m': 0.0, 'min_z_m': 0.0, 'worst_frame_vertex': (12, [0.198, -0.823, 0.0]), 'penetration_frames': 0}
+clip emerge         {'frames': 51, 'ik_residual_max_m': 0.0, 'min_z_m': -0.0046, 'worst_frame_vertex': (26, [-0.201, -0.878, -0.005]), 'penetration_frames': 0}
+clip hit            {'frames': 14, 'ik_residual_max_m': 0.0, 'min_z_m': -0.0, 'worst_frame_vertex': (3, [0.198, -0.789, -0.0]), 'penetration_frames': 0}
+clip death          {'frames': 31, 'ik_residual_max_m': 0.0001, 'min_z_m': -0.007, 'worst_frame_vertex': (8, [-0.416, 0.66, -0.007]), 'penetration_frames': 0}
+wrote export/gloamwing/gloamwing.glb
+{"glb": "export/gloamwing/gloamwing.glb", "s_fit": 1.0094, "s_with_margin": 0.9613, "binding": "emerge f0 heading6", "margin": 0.05}
+manifest export/gloamwing/gloamwing_clips.json clips 10 missing [] texture_embedded True h 1.9604 len 3.8081
+states_gloamwing ok
+wrote /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-gloamwing.json and /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-gloamwing_clips.json
+en-gloamwing {"records": {"hypporaven_h01 (hero, w158 p05)": {"scale": 1.15, "true_length_m": 3.6, "factor": 1.471, "monster_actor_radius_m": 1.0}, "hypporaven_h02 (hero, w158 p05)": {"scale": 1.15, "true_length_m": 3.6, "factor": 1.471, "monster_actor_radius_m": 1.0}, "hypporaven_h03 (hero, w158 p05)": {"scale": 1.15, "true_length_m": 3.6, "factor": 1.471, "monster_actor_radius_m": 1.0}, "hypporaven_h04 (hero, w158 p05)": {"scale": 1.15, "true_length_m": 3.6, "factor": 1.471, "monster_actor_radius_m": 1.0}}}
+sheet work/look_gloamwing_final.png (2048, 1088)
+== cells
+[j1] death          SE 16 frames  anchor [384.0, 448.0]  facing root 45.0000 hips 45.00
+[j1] 1120 frames rendered
+== index_cells
+matrix_index.json: 80 of 80 cells COMPLETE
+  idle           N=12 T=1.6000 s  closure MAD 0.000
+  walk           N=12 T=0.9333 s  closure MAD 0.002
+  run            N=12 T=0.8000 s  closure MAD 0.000
+  attack_claw    N=12 T=0.7000 s  release r=6 at 0.4000 s
+  attack_peck    N=12 T=0.8333 s  release r=6 at 0.4333 s
+  cast_breath    N=24 T=3.3333 s  release r=6 at 0.8667 s
+  cast_roar      N=16 T=1.5000 s  release r=4 at 0.4000 s
+  emerge         N=16 T=1.6667 s  
+  hit            N= 8 T=0.4333 s  
+  death          N=16 T=1.0000 s  
+contact sheet: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-gloamwing_contact_sheet_1x.png (6262x6216, 1x ppm_render)
+== validate_sockets
+  death           worst 0.00001 m over 512 socket samples
+wrote work/validate_sockets_en-gloamwing.json: worst 0.00553 m over 4480 samples
+== runtime_resample worst-0 count
+0
+== lint exit 0 exit 1 exit 1
+== stills8
+sheet film/gloamwing_stills_8heading.png (2560, 1718)
+[chk] glb gloamwing.glb skeleton bones 28 meshes 1
+[chk] texture_embedded true
+== FINAL DONE gloamwing

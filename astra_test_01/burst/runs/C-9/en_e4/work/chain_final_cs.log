@@ -1,1 +1,49 @@
-heavy_lock: waiting — held by {"pid": 74420, "run": "KC2-PLAY-legacy", "ts": "2026-10-03T01:02:30Z", "cmd": "/Applications/Godot.app/Contents/MacOS/Go
+heavy_lock: waiting — held by {"pid": 85475, "run": "C-9", "ts": "2026-10-03T01:19:23Z", "cmd": "bash -c /private/tmp/claude-501/-Users-admin-Games-re
+heavy_lock: acquired after 242s (C-9)
+== bake
+wrote work/surface_coilseer.npz
+wrote work/tex_coilseer_G.png
+{"on_mesh_texels": 2467738, "share_from_sheetA": 0.7068, "share_from_tripo": 0.2932, "nz_ramp": [0.3, 0.6]}
+== rig export
+clip idle             {'frames': 57, 'min_z_m': -0.0002, 'worst_frame_vertex': (43, [-0.078, 0.229, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0}
+clip walk             {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (4, [-0.096, 0.222, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.1367), 'path_slip_body_m': np.float64(0.1367), 'path_slip_ramp_m': np.float64(0.0897), 'ramp_len_m': 0.803, 'wavelength_m': 1.3333}
+clip run              {'frames': 25, 'min_z_m': -0.0002, 'worst_frame_vertex': (23, [-0.108, 0.215, -0.0]), 'penetration_frames': 0, 'loop_seam_max_vert_m': 0.0, 'path_slip_m': np.float64(0.1679), 'path_slip_body_m': np.float64(0.0986), 'path_slip_ramp_m': np.float64(0.1306), 'ramp_len_m': 0.803, 'wavelength_m': 2.056}
+clip attack_claw      {'frames': 41, 'min_z_m': -0.0002, 'worst_frame_vertex': (39, [-0.077, 0.225, -0.0]), 'penetration_frames': 0}
+clip cast_bolt        {'frames': 51, 'min_z_m': -0.0002, 'worst_frame_vertex': (50, [-0.077, 0.226, -0.0]), 'penetration_frames': 0}
+clip cast_nova        {'frames': 61, 'min_z_m': -0.0007, 'worst_frame_vertex': (59, [-0.077, 0.226, -0.001]), 'penetration_frames': 0}
+clip attack_taillash  {'frames': 79, 'min_z_m': -0.0002, 'worst_frame_vertex': (27, [-0.059, 0.227, -0.0]), 'penetration_frames': 0}
+clip hit              {'frames': 21, 'min_z_m': -0.0002, 'worst_frame_vertex': (4, [-0.096, 0.321, -0.0]), 'penetration_frames': 0}
+clip death            {'frames': 37, 'min_z_m': -0.0002, 'worst_frame_vertex': (14, [-0.054, 0.226, -0.0]), 'penetration_frames': 0}
+wrote export/coilseer/coilseer.glb
+{"glb": "export/coilseer/coilseer.glb", "s_fit": 1.0786, "s_with_margin": 1.0272, "binding": "hit f3 heading6", "margin": 0.05}
+manifest export/coilseer/coilseer_clips.json clips 9 missing [] texture_embedded True h 2.2006 len 3.1119
+states_coilseer ok
+wrote /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-coilseer.json and /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-coilseer_clips.json
+en-coilseer {"records": {"dc_bounty08 (bounty, lead record)": {"scale": 1.2, "true_height_m": 2.2, "factor": 1.0, "monster_actor_radius_m": 0.72}, "slith_h01/h02/h04/h05/h06 (devotion hero)": {"scale": 1.05, "true_height_m": 1.925, "factor": 0.875, "monster_actor_radius_m": 0.72}, "slith_h03 (devotion hero)": {"scale": 1.05, "true_height_m": 1.925, "factor": 0.875, "monster_actor_radius_m": 0.9}, "slith_h07/h08 (devotion hero)": {"scale": 1.2, "true_height_m": 2.2, "factor": 1.0, "monster_actor_radius_m": 0.45}}}
+sheet work/look_coilseer_final.png (2048, 1088)
+== cells
+[j1] death          SE 16 frames  anchor [384.0, 448.0]  facing root 45.0000 hips 45.00
+[j1] 960 frames rendered
+== index_cells
+matrix_index.json: 72 of 72 cells COMPLETE
+  idle           N=12 T=1.8667 s  closure MAD 0.000
+  walk           N=12 T=1.3333 s  closure MAD 0.000
+  run            N=12 T=0.8000 s  closure MAD 0.000
+  attack_claw    N=12 T=1.3333 s  release r=4 at 0.4333 s
+  cast_bolt      N=16 T=1.6667 s  release r=7 at 0.8333 s
+  cast_nova      N=16 T=2.0000 s  release r=8 at 1.0000 s
+  attack_taillash N=16 T=2.6000 s  release r=4 at 0.7667 s
+  hit            N= 8 T=0.6667 s  
+  death          N=16 T=1.2000 s  
+contact sheet: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/en-coilseer_contact_sheet_1x.png (5878x5359, 1x ppm_render)
+== validate_sockets
+  death           worst 0.00002 m over 768 socket samples
+wrote work/validate_sockets_en-coilseer.json: worst 0.00064 m over 5760 samples
+== runtime_resample worst-0 count
+0
+== lint exit 0 exit 1 exit 1
+== stills8
+sheet film/coilseer_stills_8heading.png (2560, 1718)
+[chk] glb coilseer.glb skeleton bones 21 meshes 1
+[chk] texture_embedded true
+== FINAL DONE coilseer

@@ -1,0 +1,211 @@
+{
+ "kit": "en-gloamwing",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the gloamwing (crucible creature, lane EN-E4, R-C9-137). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-gloamwing_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_claw": {
+   "clip": "attack_claw",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_claw",
+   "release_from": "attacks.attack_claw.release_s",
+   "release_socket": "talon_L",
+   "skill": "the talon rake (melee; the record's SpellAttack clip: vitality wave / gas cloud on h03 / h02)"
+  },
+  "attack_peck": {
+   "clip": "attack_peck",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_peck",
+   "release_from": "attacks.attack_peck.release_s",
+   "release_socket": "maw",
+   "skill": "the beak strike (basic attack b)"
+  },
+  "cast_breath": {
+   "clip": "cast_breath",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 24,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_breath",
+   "release_from": "casts.cast_breath.release_s",
+   "release_socket": "maw",
+   "skill": "DARK BREATH (projectile burst 2-3 sparks, 13 metres per second, area 1 m); release = the first burst; the clip's later bursts are listed in the manifest"
+  },
+  "cast_roar": {
+   "clip": "cast_roar",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_roar",
+   "release_from": "casts.cast_roar.release_s",
+   "release_socket": "chest",
+   "skill": "the aura toggle (BuffSelf clip): the dark aura switches on at the release"
+  },
+  "emerge": {
+   "clip": "emerge",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.emerge",
+   "skill": "the p05 drop-in (1667 ms; shown from frame 1, mortal at the last frame)"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.3885,
+   "_what": "near the beak tip"
+  },
+  "talon_L": {
+   "bone": "leg_FL_3",
+   "along_bone_m": 0.1709,
+   "_what": "the LEFT fore-foot's talon tips"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.1,
+   "local_m": [
+    0.0,
+    0.0,
+    0.15
+   ],
+   "_what": "the crown (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_claw_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_breath_spark.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_breath_puff.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_breath_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_dark_aura.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_dark_wisps.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing_land_dust.png"
+  ]
+ },
+ "watchdog_s": 2400,
+ "true_size": {
+  "basis": "length, beak tip to rump (the tail feathers extend beyond)",
+  "designed_length_m": 3.6,
+  "reference_record": "hypporaven_h03.dbr (lead)",
+  "reference_scale": 1.15,
+  "base_length_m": 2.448,
+  "base_length_note": "shipped beak-to-rump = 3.6 x 0.68 (max-fit: the mesh was built at 5.6 m beak-to-tail-tip and re-prepped at x0.68 to clear the canvas with margin; motion_scale 0.68); the shipped GLB AABB length including the tail is 3.8081 m",
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh sizes are not usable as world size (Lap F).",
+  "radius_source": "reincarnated-engine src/reincarnated/output/kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143/model/monster_offense.json (read-only)",
+  "records": {
+   "hypporaven_h01 (hero, w158 p05)": {
+    "scale": 1.15,
+    "true_length_m": 3.6,
+    "factor": 1.471,
+    "monster_actor_radius_m": 1.0
+   },
+   "hypporaven_h02 (hero, w158 p05)": {
+    "scale": 1.15,
+    "true_length_m": 3.6,
+    "factor": 1.471,
+    "monster_actor_radius_m": 1.0
+   },
+   "hypporaven_h03 (hero, w158 p05)": {
+    "scale": 1.15,
+    "true_length_m": 3.6,
+    "factor": 1.471,
+    "monster_actor_radius_m": 1.0
+   },
+   "hypporaven_h04 (hero, w158 p05)": {
+    "scale": 1.15,
+    "true_length_m": 3.6,
+    "factor": 1.471,
+    "monster_actor_radius_m": 1.0
+   }
+  },
+  "primary": "designed (KC2 relay: designed size primary; the AABB basis kept as a labelled alternate)",
+  "alternate_aabb": {
+   "roster_mesh_aabb_half_xz_meshspace": [
+    7.26681,
+    3.90963
+   ],
+   "roster_mesh_aabb_height_meshspace": 3.7255,
+   "true_length_m_at_1_15": 8.99,
+   "factor": 3.672,
+   "note": "ALTERNATE ONLY: the bind-box depth x scale (the void drone rule) gives ~9.0 m; the Lap F mesh units are unreliable as world size, so this is not the basis of record. KC2 owns the final scaling ruling (KP-222)."
+  },
+  "radius_check": "INFO, no large mismatch: radius 1.0 m (2.0 m circle) against the designed 3.6 m beak-to-rump and ~1.6 m width with the wings folded; the head and tail overhang the circle front and back, as a horse-sized quadruped does. Under the AABB alternate (~9 m) the circle would be badly undersized -- one more reason the designed basis is primary."
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/work/raw_en-coilseer.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-coilseer.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 576
+  },
+  "walk": {
+   "worst_m": 1e-05,
+   "samples": 576
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 576
+  },
+  "attack_claw": {
+   "worst_m": 0.00064,
+   "samples": 576
+  },
+  "cast_bolt": {
+   "worst_m": 2e-05,
+   "samples": 768
+  },
+  "cast_nova": {
+   "worst_m": 1e-05,
+   "samples": 768
+  },
+  "attack_taillash": {
+   "worst_m": 1e-05,
+   "samples": 768
+  },
+  "hit": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "death": {
+   "worst_m": 2e-05,
+   "samples": 768
+  }
+ },
+ "samples": 5760,
+ "worst_m": 0.00064
+}

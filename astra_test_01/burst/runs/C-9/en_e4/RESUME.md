@@ -34,3 +34,6 @@ Astra 16/30 (EN4-SL 4, EN4-GR 4, EN4-SLPG 4, EN4-GRPG 4; no usage-limit message)
 ## Scratch to list for Matt (no deletions by the lane)
 - `/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/60f6998b-1e28-4199-bab2-9be52893d328/scratchpad/` (~1 GB, EN3_TMP render temp)
 - intermediate rigs `builds/coilseer_rig_v1.glb`, `_v2`, `_v3`, `builds/gloamwing_rig_v1.glb`, `_v2`, `_v3` (keep the Tripo GLBs)
+
+## UPDATE — both packs DONE (lane closed)
+Disk cleared by Matt; both final chains ran. `join1_pack/en-coilseer` 72/72 cells, `join1_pack/en-gloamwing` 80/80 cells, EDGE_TOUCH 0 both. Gloamwing fit accepted at raw 1.0094 (conductor ruling (a); wing_open 0.75 NOT run). Runtime resample needed `en_e4/film_rt` (copied from en_e3; it was missing) and was re-run under the lock: 0.000 deg everywhere. Ledger: M-C9-EN4-CS, M-C9-EN4-GW; H-C9-2 RESOLVED. Nothing further queued.

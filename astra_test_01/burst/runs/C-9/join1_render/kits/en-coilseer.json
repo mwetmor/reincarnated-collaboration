@@ -1,0 +1,199 @@
+{
+ "kit": "en-coilseer",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the coilseer (crucible creature, lane EN-E4, R-C9-137). One body, no gear, no layers, no morphs. The body is a skinned GLB with an embedded painted texture; the mouth interior is its second surface.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer.glb",
+  "pieces": [],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/en-coilseer_clips.json",
+  "loadout": {
+   "main_hand": null,
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "body"
+ },
+ "camera": {},
+ "morphs": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "attack_claw": {
+   "clip": "attack_claw",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "manifest_entry": "attacks.attack_claw",
+   "release_from": "attacks.attack_claw.release_s",
+   "release_socket": "claw_R",
+   "skill": "the roster's basic claw rake (melee); release = the right hand's contact (RightHandHit)"
+  },
+  "cast_bolt": {
+   "clip": "cast_bolt",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_bolt",
+   "release_from": "casts.cast_bolt.release_s",
+   "release_socket": "cast_hand_R",
+   "skill": "the record family's bolts (lightning orb, toxic spittle, chain bolts); the bolt leaves the right palm"
+  },
+  "cast_nova": {
+   "clip": "cast_nova",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.cast_nova",
+   "release_from": "casts.cast_nova.release_s",
+   "release_socket": "chest",
+   "skill": "poison nova / aura toggles / frost ring (the buff-cast clip); the ring leaves the body"
+  },
+  "attack_taillash": {
+   "clip": "attack_taillash",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "manifest_entry": "casts.attack_taillash",
+   "release_from": "casts.attack_taillash.release_s",
+   "release_socket": "tail_tip",
+   "skill": "the tail lash: the black-water wave (10 m x 2-3 m) rolls out at the slam"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "manifest_entry": "clips.death",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.192,
+   "_what": "near the jaw tip"
+  },
+  "claw_R": {
+   "bone": "arm_R_3",
+   "along_bone_m": 0.1862,
+   "_what": "the RIGHT hand's claw tips (wrist -> tip, measured)"
+  },
+  "cast_hand_R": {
+   "bone": "arm_R_3",
+   "along_bone_m": 0.0931,
+   "_what": "the RIGHT palm (the bolt spawn)"
+  },
+  "tail_tip": {
+   "bone": "seg_b8",
+   "along_bone_m": 0.2905,
+   "_what": "the serpent body's tip"
+  },
+  "head_top": {
+   "bone": "head",
+   "along_bone_m": 0.05,
+   "local_m": [
+    0.0,
+    0.0,
+    0.08
+   ],
+   "_what": "the crown (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ },
+ "vfx_runtime": {
+  "manifest_block": "vfx_runtime",
+  "atlases": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_claw_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_bolt_orb.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_bolt_impact.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_poison_nova.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_tidal_wave.png",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_disease_aura.png"
+  ]
+ },
+ "watchdog_s": 2400,
+ "true_size": {
+  "base_height_m": 2.2006,
+  "designed_height_m": 2.2,
+  "reference_record": "dc_bounty08.dbr",
+  "reference_scale": 1.2,
+  "basis": "height, ground to crown (upright upper body); the serpent body lies ~2.3 m behind the torso base",
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh sizes are not usable as world size (Lap F).",
+  "radius_source": "reincarnated-engine src/reincarnated/output/kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143/model/monster_offense.json (read-only)",
+  "records": {
+   "dc_bounty08 (bounty, lead record)": {
+    "scale": 1.2,
+    "true_height_m": 2.2,
+    "factor": 1.0,
+    "monster_actor_radius_m": 0.72
+   },
+   "slith_h01/h02/h04/h05/h06 (devotion hero)": {
+    "scale": 1.05,
+    "true_height_m": 1.925,
+    "factor": 0.875,
+    "monster_actor_radius_m": 0.72
+   },
+   "slith_h03 (devotion hero)": {
+    "scale": 1.05,
+    "true_height_m": 1.925,
+    "factor": 0.875,
+    "monster_actor_radius_m": 0.9
+   },
+   "slith_h07/h08 (devotion hero)": {
+    "scale": 1.2,
+    "true_height_m": 2.2,
+    "factor": 1.0,
+    "monster_actor_radius_m": 0.45
+   }
+  },
+  "radius_check": "INFO, no large mismatch: the 0.72 m radius (1.44 m circle) covers the upright torso and the arms (half-width 0.85 m at rest); the serpent body extends ~2.3 m behind it outside the circle by design (a tail, like the void drone). slith_h07/h08 carry radius 0.45 at the SAME scale 1.2 as dc_bounty08 (0.72): the same sprite, a smaller collision circle -- record data, flagged so KC2 does not read it as a size difference."
+ }
+}

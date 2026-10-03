@@ -1,0 +1,257 @@
+{
+ "what": "JOIN-1 clip manifest for the coilseer (crucible creature, roster rig slith01) -- lane EN-E4 (drax, R-C9-137), read off en_e4/export/coilseer/coilseer.glb",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer.glb",
+  "sha256_16": "bebd07b88417da1a",
+  "height_m": 2.2006,
+  "length_m": 3.1119
+ },
+ "clips": {
+  "idle": {
+   "seconds": 1.86667,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: roster idle_01 57f; ours 56 intervals: a weave on the coil, one tongue-taste jaw flick"
+  },
+  "walk": {
+   "seconds": 1.33333,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: roster walk_01 49f; walkSpeed 0.6 has no stated base -- 1.0 metres per second INFERRED"
+  },
+  "run": {
+   "seconds": 0.8,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: roster run_01 35f; lead record characterRunSpeed 0.8 x K4-0 3.209 = 2.57 metres per second"
+  },
+  "attack_claw": {
+   "seconds": 1.33333,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: attack_01 41f RightHandHit f13"
+  },
+  "cast_bolt": {
+   "seconds": 1.66667,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: cast_attack_01 51f RightHandHit f25 (bolts, spittle, chain lightning)"
+  },
+  "cast_nova": {
+   "seconds": 2,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: cast_buff_01 / cast_roarpoison_01 61f hit f30 (poison nova, auras, frost ring)"
+  },
+  "attack_taillash": {
+   "seconds": 2.6,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: attack_special_01 (TailLash) 79f hit f23 (the black-water wave)"
+  },
+  "hit": {
+   "seconds": 0.66667,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: hit_react_01 21f"
+  },
+  "death": {
+   "seconds": 1.2,
+   "source": "procedural, hand-keyed in Blender (en_e4/scripts); roster ref: death_01 37f"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.0,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  },
+  "run": {
+   "speed_m_s": 2.57,
+   "from": "n10: the stance foot moves back at exactly this speed (measured foot slide 0.000 m in the world at this speed); clip in place, root stripped"
+  }
+ },
+ "attacks": {
+  "attack_claw": {
+   "release_s": 0.4333,
+   "frame": 13,
+   "definition": "the bite CONTACT: the jaw at full gape, the frame the roster puts the hit on (30 fps key 13)"
+  }
+ },
+ "casts": {
+  "cast_bolt": {
+   "release_s": 0.8333,
+   "frame": 25,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 25)"
+  },
+  "cast_nova": {
+   "release_s": 1.0,
+   "frame": 30,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 30)"
+  },
+  "attack_taillash": {
+   "release_s": 0.7667,
+   "frame": 23,
+   "definition": "the RELEASE the roster sets for this ability (30 fps key 23)"
+  }
+ },
+ "death": {
+  "root": "root never moves; the body rolls and settles on the ground (n10 ground solve); last frame held"
+ },
+ "vfx_runtime": {
+  "note": "RUNTIME effects, NOT in the cells (contract 2.2: no VFX baked). Flipbook atlases, straight alpha, sizes in metres.",
+  "effects": [
+   {
+    "id": "coilseer_claw_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_claw_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.1733,
+     1.1733
+    ],
+    "px_per_m": 218.182,
+    "plane": "billboard",
+    "pivot": "centre = the right hand claw tip (claw_R) at contact",
+    "ability": "basic claw rake (melee)",
+    "trigger": "attack_claw contact f13",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_bolt_orb",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_bolt_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.4855,
+     0.4855
+    ],
+    "px_per_m": 263.636,
+    "plane": "billboard",
+    "pivot": "centre = the bolt in flight (leaves cast_hand_R)",
+    "ability": "the record family bolts: lightning orb / toxic spittle / chain bolt (projectile)",
+    "trigger": "cast_bolt release f25 at cast_hand_R",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_bolt_impact",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_bolt_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.7455,
+     1.7455
+    ],
+    "px_per_m": 110.0,
+    "plane": "billboard",
+    "pivot": "centre = the impact point",
+    "ability": "bolt impact",
+    "trigger": "on bolt impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_poison_nova",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_poison_nova.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     8.3478,
+     8.3478
+    ],
+    "px_per_m": 46.0,
+    "plane": "ground",
+    "pivot": "centre = the root",
+    "ability": "poison nova (projectile ring, 14 metres per second) / frost ring variants (recolour at runtime)",
+    "trigger": "cast_nova release f30",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_tidal_wave",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_tidal_wave.png",
+    "frames": 20,
+    "grid": [
+     4,
+     5
+    ],
+    "cell_px": [
+     1024,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.8333,
+    "cell_m": [
+     11.3778,
+     3.5556
+    ],
+    "px_per_m": 90.0,
+    "plane": "ground",
+    "pivot": "left-middle (the tail-slam point, projected; the wave runs forward 10 m, 2 -> 3 m wide)",
+    "ability": "tidal wave (wave 10 m x 2-3 m, over 2800 ms)",
+    "trigger": "attack_taillash release f23",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_disease_aura",
+    "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer_disease_aura.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 12,
+    "duration_s": 1.3333,
+    "cell_m": [
+     8.3117,
+     8.3117
+    ],
+    "px_per_m": 38.5,
+    "plane": "ground",
+    "pivot": "centre = the root (aura r 4 m, toggled at spawn on the lead record)",
+    "ability": "disease cloud aura (lead record initial skill)",
+    "trigger": "always on (loop)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ }
+}

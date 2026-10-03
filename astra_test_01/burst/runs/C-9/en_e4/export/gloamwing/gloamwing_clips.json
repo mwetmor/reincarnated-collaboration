@@ -1,0 +1,690 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "gloamwing",
+ "roster_type_id": "gryphon01a",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/gloamwing/gloamwing.glb",
+ "glb_sha256": "e2b8b1e81fad94644fc837d96d72323e2ad5bcb39081db44152edc524699c008",
+ "glb_bytes": 2821204,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 1.9604,
+ "length_m": 3.8081,
+ "width_m": 1.0784,
+ "skin_joints": 28,
+ "materials": [
+  {
+   "name": "tripo_material_dd33b41f-6e95-4ae1-ba2f-89f519898448",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": false
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 49,
+   "duration_s": 1.6,
+   "fps": 30,
+   "source": "roster idle_a01 79f; ours 48 intervals: breathing, a head turn, one beak snap, the wings settling",
+   "lint": {
+    "frames": 49,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.0,
+    "worst_frame_vertex": [
+     28,
+     [
+      0.198,
+      -0.789,
+      0.0
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 48 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 29,
+   "duration_s": 0.93333,
+   "fps": 30,
+   "source": "roster walk_a01 28f; walkSpeed 1.4 has no stated base -- 1.6 m/s INFERRED",
+   "lint": {
+    "frames": 29,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0957,
+    "worst_frame_vertex": [
+     19,
+     [
+      -0.205,
+      -0.669,
+      -0.096
+     ]
+    ],
+    "penetration_frames": 3,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.0,
+    "stance_runs": 6
+   },
+   "loop": "closing key == first key (frames 0..N, N = 28 intervals)",
+   "ground_speed_m_s": 1.6,
+   "stride_m_per_cycle": 1.4933
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 25,
+   "duration_s": 0.8,
+   "fps": 30,
+   "source": "roster run_a01 31f; characterRunSpeed 1.0 x K4-0 = 3.209 m/s (h01-h04)",
+   "lint": {
+    "frames": 25,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0929,
+    "worst_frame_vertex": [
+     18,
+     [
+      -0.212,
+      -0.623,
+      -0.093
+     ]
+    ],
+    "penetration_frames": 4,
+    "loop_seam_max_vert_m": 0.0,
+    "footlock_max_slide_m": 0.1,
+    "stance_runs": 5
+   },
+   "loop": "closing key == first key (frames 0..N, N = 24 intervals)",
+   "ground_speed_m_s": 3.21,
+   "stride_m_per_cycle": 2.568
+  },
+  "attack_claw": {
+   "kind": "oneshot",
+   "frames": 22,
+   "duration_s": 0.7,
+   "fps": 30,
+   "source": "attack_a01 22f RightHandHit f12 (also the SpellAttack clip)",
+   "lint": {
+    "frames": 22,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": 0.0,
+    "worst_frame_vertex": [
+     20,
+     [
+      0.198,
+      -0.789,
+      0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 12,
+   "contact_s": 0.4
+  },
+  "attack_peck": {
+   "kind": "oneshot",
+   "frames": 26,
+   "duration_s": 0.83333,
+   "fps": 30,
+   "source": "attack_b01 26f RightHandHit f13",
+   "lint": {
+    "frames": 26,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.0,
+    "worst_frame_vertex": [
+     8,
+     [
+      0.198,
+      -0.789,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 13,
+   "contact_s": 0.4333
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "frames": 101,
+   "duration_s": 3.33333,
+   "fps": 30,
+   "source": "attackspecial_b01 (BreathShadow) 101f, *Hit f26 / f50 / f70",
+   "lint": {
+    "frames": 101,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.0,
+    "worst_frame_vertex": [
+     16,
+     [
+      0.198,
+      -0.789,
+      0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 26,
+   "release_s": 0.8667
+  },
+  "cast_roar": {
+   "kind": "oneshot",
+   "frames": 46,
+   "duration_s": 1.5,
+   "fps": 30,
+   "source": "attackspecial_a01 (BuffSelf) 46f RightHandHit f12",
+   "lint": {
+    "frames": 46,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": 0.0,
+    "worst_frame_vertex": [
+     12,
+     [
+      0.198,
+      -0.823,
+      0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 12,
+   "release_s": 0.4
+  },
+  "emerge": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "spawn_b01 51f (p05 emergence 1.667 s; show f1, mortal f50)",
+   "lint": {
+    "frames": 51,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0046,
+    "worst_frame_vertex": [
+     26,
+     [
+      -0.201,
+      -0.878,
+      -0.005
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 14,
+   "duration_s": 0.43333,
+   "fps": 30,
+   "source": "no take-hit clip in the record's anim table; ours 14f for the runtime",
+   "lint": {
+    "frames": 14,
+    "ik_residual_max_m": 0.0,
+    "min_z_m": -0.0,
+    "worst_frame_vertex": [
+     3,
+     [
+      0.198,
+      -0.789,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 31,
+   "duration_s": 1,
+   "fps": 30,
+   "source": "death_a01 31f",
+   "lint": {
+    "frames": 31,
+    "ik_residual_max_m": 0.0001,
+    "min_z_m": -0.007,
+    "worst_frame_vertex": [
+     8,
+     [
+      -0.416,
+      0.66,
+      -0.007
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "gloamwing",
+  "effects": [
+   {
+    "id": "gloamwing_claw_impact",
+    "atlas": "gloamwing_claw_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.4933,
+     1.4933
+    ],
+    "px_per_m": 171.429,
+    "plane": "billboard",
+    "pivot": "centre = between the talons at contact",
+    "ability": "talon rake (melee; also the record SpellAttack clip)",
+    "trigger": "attack_claw contact f12",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gloamwing_breath_spark",
+    "atlas": "gloamwing_breath_spark.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.5517,
+     0.5517
+    ],
+    "px_per_m": 232.0,
+    "plane": "billboard",
+    "pivot": "centre = the shadow spark in flight (body r 0.1 m; 2-3 per burst fanned over 55 deg; 13 metres per second)",
+    "ability": "dark breath (projectile burst, area 1 m)",
+    "trigger": "cast_breath releases f26, f50, f70 at the beak (maw)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gloamwing_breath_puff",
+    "atlas": "gloamwing_breath_puff.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     512,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.6667,
+    "cell_m": [
+     3.4684,
+     1.7342
+    ],
+    "px_per_m": 147.619,
+    "plane": "ground",
+    "pivot": "left-middle (the beak, projected to the ground)",
+    "ability": "dark breath: the gout at the beak",
+    "trigger": "cast_breath f26, f50, f70",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gloamwing_breath_impact",
+    "atlas": "gloamwing_breath_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     2.1818,
+     2.1818
+    ],
+    "px_per_m": 88.0,
+    "plane": "billboard",
+    "pivot": "centre = the impact point (area 1 m)",
+    "ability": "dark breath impact",
+    "trigger": "on spark impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gloamwing_dark_aura",
+    "atlas": "gloamwing_dark_aura.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 12,
+    "duration_s": 1.3333,
+    "cell_m": [
+     4.5714,
+     4.5714
+    ],
+    "px_per_m": 70.0,
+    "plane": "ground",
+    "pivot": "centre = the root (the self-loop haze; the debuff radius 20 m is data, not drawn)",
+    "ability": "dark aura (toggled radius debuff, every record h01-h04)",
+    "trigger": "always on (loop), from spawn / cast_roar release",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gloamwing_dark_wisps",
+    "atlas": "gloamwing_dark_wisps.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 12,
+    "duration_s": 1.3333,
+    "cell_m": [
+     3.3574,
+     3.3574
+    ],
+    "px_per_m": 76.25,
+    "plane": "billboard",
+    "pivot": "bottom-centre = the root (wisps rising off the body)",
+    "ability": "dark aura: the body smokes",
+    "trigger": "always on (loop), layered over the ground haze",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "gloamwing_land_dust",
+    "atlas": "gloamwing_land_dust.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     2.9377,
+     2.9377
+    ],
+    "px_per_m": 87.143,
+    "plane": "billboard",
+    "pivot": "bottom-centre = the landing point (root)",
+    "ability": "p05 drop-in landing",
+    "trigger": "emerge f27 (touch-down)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 1.9604557752609253,
+  "y_snout": -1.499645709991455,
+  "y_tail": 2.308485984802246,
+  "z_belly": 0.15617264866828917,
+  "z_shoulder": 0.8203090999126436,
+  "z_hip": 0.6632065913677215,
+  "y_head_base": -0.9284259557724,
+  "z_lip": 1.5820109963417053,
+  "y_hinge": -1.042669906616211,
+  "feet": {
+   "FL": {
+    "x": 0.2317855954170227,
+    "y": -0.6696874499320984,
+    "toe_y": -0.805000696182251,
+    "heel_y": -0.3464173436164856
+   },
+   "BL": {
+    "x": 0.31964510679244995,
+    "y": 0.7992929220199585,
+    "toe_y": 0.645697808265686,
+    "heel_y": 0.8932823407649993
+   },
+   "FR": {
+    "x": -0.23369038105010986,
+    "y": -0.8096465468406677,
+    "toe_y": -0.9428684151172638,
+    "heel_y": -0.5675217449665071
+   },
+   "BR": {
+    "x": -0.31392887234687805,
+    "y": 0.793218731880188,
+    "toe_y": 0.6445291006565094,
+    "heel_y": 0.8918023133277893
+   }
+  },
+  "leg_FL": {
+   "joint": [
+    0.17383919656276703,
+    -0.6496874499320984,
+    0.8203090999126436
+   ],
+   "knee": [
+    0.2132427477836609,
+    -0.5996874499320983,
+    0.4701545499563218
+   ],
+   "ankle": [
+    0.2317855954170227,
+    -0.6396874499320984,
+    0.12
+   ],
+   "toe": [
+    0.2317855954170227,
+    -0.785000696182251,
+    0.03
+   ],
+   "chain_len": 0.7088,
+   "rest_reach": 0.7028,
+   "pole_angle_deg": 94.0,
+   "pole_rest_err": 0.02962
+  },
+  "leg_FR": {
+   "joint": [
+    -0.1752677857875824,
+    -0.7896465468406677,
+    0.8203090999126436
+   ],
+   "knee": [
+    -0.21499515056610108,
+    -0.7396465468406677,
+    0.4701545499563218
+   ],
+   "ankle": [
+    -0.23369038105010986,
+    -0.7796465468406677,
+    0.12
+   ],
+   "toe": [
+    -0.23369038105010986,
+    -0.9228684151172638,
+    0.03
+   ],
+   "chain_len": 0.7089,
+   "rest_reach": 0.7028,
+   "pole_angle_deg": 86.0,
+   "pole_rest_err": 0.03127
+  },
+  "leg_BL": {
+   "joint": [
+    0.23973383009433746,
+    0.7792929220199585,
+    0.6632065913677215
+   ],
+   "knee": [
+    0.294073498249054,
+    0.7292929220199584,
+    0.39160329568386076
+   ],
+   "ankle": [
+    0.31964510679244995,
+    0.8292929220199585,
+    0.12
+   ],
+   "toe": [
+    0.31964510679244995,
+    0.665697808265686,
+    0.03
+   ],
+   "chain_len": 0.572,
+   "rest_reach": 0.5513,
+   "pole_angle_deg": -76.0,
+   "pole_rest_err": 0.01593
+  },
+  "leg_BR": {
+   "joint": [
+    -0.23544665426015854,
+    0.773218731880188,
+    0.6632065913677215
+   ],
+   "knee": [
+    -0.2888145625591278,
+    0.7232187318801879,
+    0.39160329568386076
+   ],
+   "ankle": [
+    -0.31392887234687805,
+    0.823218731880188,
+    0.12
+   ],
+   "toe": [
+    -0.31392887234687805,
+    0.6645291006565094,
+    0.03
+   ],
+   "chain_len": 0.5718,
+   "rest_reach": 0.5511,
+   "pole_angle_deg": -104.0,
+   "pole_rest_err": 0.0283
+  },
+  "wing_L": [
+   [
+    0.18,
+    -0.5476127862930298,
+    1.5253756761550903
+   ],
+   [
+    0.3976534628868103,
+    0.0178947703838348,
+    1.534532856941223
+   ],
+   [
+    0.3085815125703812,
+    0.5834023270606994,
+    1.4141092538833617
+   ],
+   [
+    0.1696891286969185,
+    1.1660464763641354,
+    1.1362696409225463
+   ]
+  ],
+  "wing_R": [
+   [
+    -0.18,
+    -0.5476127862930298,
+    1.5469674587249755
+   ],
+   [
+    -0.40261847019195557,
+    0.0178947703838348,
+    1.5332895040512085
+   ],
+   [
+    -0.3071864718198776,
+    0.5834023270606994,
+    1.4172567844390869
+   ],
+   [
+    -0.18157853424549103,
+    1.1660464763641354,
+    1.1065236568450927
+   ]
+  ],
+  "mouth_cut_edges": 79,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, top 4",
+   "jaw_verts": 987,
+   "unweighted_verts": 0,
+   "groups": 28
+  },
+  "texture": {
+   "path": "work/tex_gloamwing_GT.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "leg_FL_1",
+   "leg_FL_2",
+   "leg_FL_3",
+   "leg_FR_1",
+   "leg_FR_2",
+   "leg_FR_3",
+   "wing_L_1",
+   "wing_L_2",
+   "wing_L_3",
+   "wing_R_1",
+   "wing_R_2",
+   "wing_R_3",
+   "tail1",
+   "tail2",
+   "tail3",
+   "leg_BL_1",
+   "leg_BL_2",
+   "leg_BL_3",
+   "leg_BR_1",
+   "leg_BR_2",
+   "leg_BR_3"
+  ]
+ }
+}

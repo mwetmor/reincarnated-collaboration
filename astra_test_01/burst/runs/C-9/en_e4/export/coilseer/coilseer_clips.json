@@ -1,0 +1,550 @@
+{
+ "schema": "en3-creature-clips/1",
+ "creature": "coilseer",
+ "roster_type_id": "slith01",
+ "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/export/coilseer/coilseer.glb",
+ "glb_sha256": "bebd07b88417da1a946a6e7b011bdede0e6c8e15358adea00697b8c404d01b19",
+ "glb_bytes": 2381492,
+ "frame": "glTF: +Y up, creature faces +Z (Blender -Y), metres; root = ground origin under the body; root motion STRIPPED",
+ "h_model_m": 2.2006,
+ "length_m": 3.1119,
+ "width_m": 1.6925,
+ "skin_joints": 21,
+ "materials": [
+  {
+   "name": "tripo_material_c901be01-4d3a-4b64-b0c4-9619c3a168d8",
+   "double_sided": true,
+   "has_texture": true
+  },
+  {
+   "name": "maw_interior",
+   "double_sided": true,
+   "has_texture": false
+  }
+ ],
+ "texture_embedded": true,
+ "texture_mime": "image/jpeg",
+ "clips": {
+  "idle": {
+   "kind": "loop",
+   "frames": 57,
+   "duration_s": 1.86667,
+   "fps": 30,
+   "source": "roster idle_01 57f; ours 56 intervals: a weave on the coil, one tongue-taste jaw flick",
+   "lint": {
+    "frames": 57,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     43,
+     [
+      -0.078,
+      0.229,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0
+   },
+   "loop": "closing key == first key (frames 0..N, N = 56 intervals)"
+  },
+  "walk": {
+   "kind": "loop",
+   "frames": 41,
+   "duration_s": 1.33333,
+   "fps": 30,
+   "source": "roster walk_01 49f; walkSpeed 0.6 has no stated base -- 1.0 m/s INFERRED",
+   "lint": {
+    "frames": 41,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     4,
+     [
+      -0.096,
+      0.222,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "path_slip_m": 0.1367,
+    "path_slip_body_m": 0.1367,
+    "path_slip_ramp_m": 0.0897,
+    "ramp_len_m": 0.803,
+    "wavelength_m": 1.3333
+   },
+   "loop": "closing key == first key (frames 0..N, N = 40 intervals)",
+   "ground_speed_m_s": 1.0,
+   "stride_m_per_cycle": 1.3333
+  },
+  "run": {
+   "kind": "loop",
+   "frames": 25,
+   "duration_s": 0.8,
+   "fps": 30,
+   "source": "roster run_01 35f; lead record characterRunSpeed 0.8 x K4-0 3.209 = 2.57 m/s",
+   "lint": {
+    "frames": 25,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     23,
+     [
+      -0.108,
+      0.215,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0,
+    "loop_seam_max_vert_m": 0.0,
+    "path_slip_m": 0.1679,
+    "path_slip_body_m": 0.0986,
+    "path_slip_ramp_m": 0.1306,
+    "ramp_len_m": 0.803,
+    "wavelength_m": 2.056
+   },
+   "loop": "closing key == first key (frames 0..N, N = 24 intervals)",
+   "ground_speed_m_s": 2.57,
+   "stride_m_per_cycle": 2.056
+  },
+  "attack_claw": {
+   "kind": "oneshot",
+   "frames": 41,
+   "duration_s": 1.33333,
+   "fps": 30,
+   "source": "attack_01 41f RightHandHit f13",
+   "lint": {
+    "frames": 41,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     39,
+     [
+      -0.077,
+      0.225,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "contact_frame": 13,
+   "contact_s": 0.4333
+  },
+  "cast_bolt": {
+   "kind": "oneshot",
+   "frames": 51,
+   "duration_s": 1.66667,
+   "fps": 30,
+   "source": "cast_attack_01 51f RightHandHit f25 (bolts, spittle, chain lightning)",
+   "lint": {
+    "frames": 51,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     50,
+     [
+      -0.077,
+      0.226,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 25,
+   "release_s": 0.8333
+  },
+  "cast_nova": {
+   "kind": "oneshot",
+   "frames": 61,
+   "duration_s": 2,
+   "fps": 30,
+   "source": "cast_buff_01 / cast_roarpoison_01 61f hit f30 (poison nova, auras, frost ring)",
+   "lint": {
+    "frames": 61,
+    "min_z_m": -0.0007,
+    "worst_frame_vertex": [
+     59,
+     [
+      -0.077,
+      0.226,
+      -0.001
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 30,
+   "release_s": 1.0
+  },
+  "attack_taillash": {
+   "kind": "oneshot",
+   "frames": 79,
+   "duration_s": 2.6,
+   "fps": 30,
+   "source": "attack_special_01 (TailLash) 79f hit f23 (the black-water wave)",
+   "lint": {
+    "frames": 79,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     27,
+     [
+      -0.059,
+      0.227,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "release_frame": 23,
+   "release_s": 0.7667
+  },
+  "hit": {
+   "kind": "oneshot",
+   "frames": 21,
+   "duration_s": 0.66667,
+   "fps": 30,
+   "source": "hit_react_01 21f",
+   "lint": {
+    "frames": 21,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     4,
+     [
+      -0.096,
+      0.321,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   }
+  },
+  "death": {
+   "kind": "oneshot",
+   "frames": 37,
+   "duration_s": 1.2,
+   "fps": 30,
+   "source": "death_01 37f",
+   "lint": {
+    "frames": 37,
+    "min_z_m": -0.0002,
+    "worst_frame_vertex": [
+     14,
+     [
+      -0.054,
+      0.226,
+      -0.0
+     ]
+    ],
+    "penetration_frames": 0
+   },
+   "hold_last": true
+  }
+ },
+ "vfx": {
+  "creature": "coilseer",
+  "effects": [
+   {
+    "id": "coilseer_claw_impact",
+    "atlas": "coilseer_claw_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     256,
+     256
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.1733,
+     1.1733
+    ],
+    "px_per_m": 218.182,
+    "plane": "billboard",
+    "pivot": "centre = the right hand claw tip (claw_R) at contact",
+    "ability": "basic claw rake (melee)",
+    "trigger": "attack_claw contact f13",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_bolt_orb",
+    "atlas": "coilseer_bolt_orb.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     128,
+     128
+    ],
+    "fps": 20,
+    "duration_s": 0.4,
+    "cell_m": [
+     0.4855,
+     0.4855
+    ],
+    "px_per_m": 263.636,
+    "plane": "billboard",
+    "pivot": "centre = the bolt in flight (leaves cast_hand_R)",
+    "ability": "the record family bolts: lightning orb / toxic spittle / chain bolt (projectile)",
+    "trigger": "cast_bolt release f25 at cast_hand_R",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_bolt_impact",
+    "atlas": "coilseer_bolt_impact.png",
+    "frames": 8,
+    "grid": [
+     4,
+     2
+    ],
+    "cell_px": [
+     192,
+     192
+    ],
+    "fps": 30,
+    "duration_s": 0.2667,
+    "cell_m": [
+     1.7455,
+     1.7455
+    ],
+    "px_per_m": 110.0,
+    "plane": "billboard",
+    "pivot": "centre = the impact point",
+    "ability": "bolt impact",
+    "trigger": "on bolt impact",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_poison_nova",
+    "atlas": "coilseer_poison_nova.png",
+    "frames": 12,
+    "grid": [
+     4,
+     3
+    ],
+    "cell_px": [
+     384,
+     384
+    ],
+    "fps": 24,
+    "duration_s": 0.5,
+    "cell_m": [
+     8.3478,
+     8.3478
+    ],
+    "px_per_m": 46.0,
+    "plane": "ground",
+    "pivot": "centre = the root",
+    "ability": "poison nova (projectile ring, 14 metres per second) / frost ring variants (recolour at runtime)",
+    "trigger": "cast_nova release f30",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_tidal_wave",
+    "atlas": "coilseer_tidal_wave.png",
+    "frames": 20,
+    "grid": [
+     4,
+     5
+    ],
+    "cell_px": [
+     1024,
+     320
+    ],
+    "fps": 24,
+    "duration_s": 0.8333,
+    "cell_m": [
+     11.3778,
+     3.5556
+    ],
+    "px_per_m": 90.0,
+    "plane": "ground",
+    "pivot": "left-middle (the tail-slam point, projected; the wave runs forward 10 m, 2 -> 3 m wide)",
+    "ability": "tidal wave (wave 10 m x 2-3 m, over 2800 ms)",
+    "trigger": "attack_taillash release f23",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": false,
+    "blend": "normal (painted register: no additive glow)"
+   },
+   {
+    "id": "coilseer_disease_aura",
+    "atlas": "coilseer_disease_aura.png",
+    "frames": 16,
+    "grid": [
+     4,
+     4
+    ],
+    "cell_px": [
+     320,
+     320
+    ],
+    "fps": 12,
+    "duration_s": 1.3333,
+    "cell_m": [
+     8.3117,
+     8.3117
+    ],
+    "px_per_m": 38.5,
+    "plane": "ground",
+    "pivot": "centre = the root (aura r 4 m, toggled at spawn on the lead record)",
+    "ability": "disease cloud aura (lead record initial skill)",
+    "trigger": "always on (loop)",
+    "alpha": "straight",
+    "colorspace": "sRGB",
+    "loop": true,
+    "blend": "normal (painted register: no additive glow)"
+   }
+  ]
+ },
+ "landmarks": {
+  "H": 2.2003698348999023,
+  "y_snout": -0.8114733099937439,
+  "y_tail": 2.300462007522583,
+  "z_base": 0.3,
+  "z_shoulder": 1.5842662811279296,
+  "z_lip": 1.9408372163772583,
+  "y_hinge": -0.5714733099937439,
+  "y_col": -0.033307865262031555,
+  "arms": {
+   "L": {
+    "sh": [
+     0.2,
+     -0.033307865262031555,
+     1.5542662811279295
+    ],
+    "el": [
+     0.48861733078956604,
+     -0.06291310489177704,
+     0.9660881161689758
+    ],
+    "wr": [
+     0.7476696968078613,
+     -0.10028526932001114,
+     0.5005952417850494
+    ],
+    "tip": [
+     0.8101376891136169,
+     -0.046718206256628036,
+     0.3301662504673004
+    ]
+   },
+   "R": {
+    "sh": [
+     -0.2,
+     -0.033307865262031555,
+     1.5542662811279295
+    ],
+    "el": [
+     -0.49614226818084717,
+     -0.050718292593955994,
+     0.9748833775520325
+    ],
+    "wr": [
+     -0.7628859877586365,
+     -0.08836568146944046,
+     0.5033509135246277
+    ],
+    "tip": [
+     -0.8245343565940857,
+     -0.11877146363258362,
+     0.33028843998908997
+    ]
+   }
+  },
+  "centreline": [
+   [
+    0.0,
+    0.0,
+    0.3
+   ],
+   [
+    -0.026374071836471558,
+    0.2838077509403229,
+    0.27448060832102783
+   ],
+   [
+    -0.03684961423277855,
+    0.5676155018806458,
+    0.2833797065541148
+   ],
+   [
+    -0.02945299819111824,
+    0.8514232528209686,
+    0.27730419859290123
+   ],
+   [
+    -0.04328569769859314,
+    1.1352310037612916,
+    0.26138664223253727
+   ],
+   [
+    0.031172318384051323,
+    1.4190387547016146,
+    0.2525683864951134
+   ],
+   [
+    -9.273859905079007e-05,
+    1.7028465056419373,
+    0.23209664970636368
+   ],
+   [
+    0.003412300953641534,
+    1.9866542565822602,
+    0.19761499762535095
+   ],
+   [
+    -0.012601220048964024,
+    2.270462007522583,
+    0.1377457156777382
+   ]
+  ],
+  "mouth_cut_edges": 41,
+  "unweighted_fallback_verts": 0,
+  "weights_method": "geometric: gated inverse-distance^4 to bone segments, edge-smoothed, top 4",
+  "weights": {
+   "method": "geometric: gated inverse-distance^4 to bone segments, edge-smoothed, top 4",
+   "jaw_verts": 223,
+   "unweighted_verts": 0,
+   "groups": 21
+  },
+  "texture": {
+   "path": "work/tex_coilseer_GT.png",
+   "nodes": 1
+  },
+  "deform_bones": [
+   "root",
+   "Hips",
+   "spine",
+   "chest",
+   "neck",
+   "head",
+   "jaw",
+   "arm_L_1",
+   "arm_L_2",
+   "arm_L_3",
+   "arm_R_1",
+   "arm_R_2",
+   "arm_R_3",
+   "seg_b1",
+   "seg_b2",
+   "seg_b3",
+   "seg_b4",
+   "seg_b5",
+   "seg_b6",
+   "seg_b7",
+   "seg_b8"
+  ]
+ }
+}

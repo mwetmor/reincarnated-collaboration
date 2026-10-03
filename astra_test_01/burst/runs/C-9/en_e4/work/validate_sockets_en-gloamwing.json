@@ -1,0 +1,49 @@
+{
+ "what": "the renderer's sockets against the glTF pose at the pack's own t_s, every state, direction and frame, in the port frame",
+ "pack_raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e4/work/raw_en-gloamwing.json",
+ "kit": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/en-gloamwing.json",
+ "states": {
+  "idle": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "walk": {
+   "worst_m": 0.00013,
+   "samples": 384
+  },
+  "run": {
+   "worst_m": 1e-05,
+   "samples": 384
+  },
+  "attack_claw": {
+   "worst_m": 2e-05,
+   "samples": 384
+  },
+  "attack_peck": {
+   "worst_m": 0.00017,
+   "samples": 384
+  },
+  "cast_breath": {
+   "worst_m": 3e-05,
+   "samples": 768
+  },
+  "cast_roar": {
+   "worst_m": 1e-05,
+   "samples": 512
+  },
+  "emerge": {
+   "worst_m": 0.00553,
+   "samples": 512
+  },
+  "hit": {
+   "worst_m": 0.00011,
+   "samples": 256
+  },
+  "death": {
+   "worst_m": 1e-05,
+   "samples": 512
+  }
+ },
+ "samples": 4480,
+ "worst_m": 0.00553
+}
