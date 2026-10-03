@@ -1,4 +1,6 @@
 # JOIN-1 RUN — charter v0.4.1 (LAUNCH SHEET RULED; GATE-1 GO; LAUNCHES AT THE SEAL)
+> **v0.6.3, 2026-10-03 (KC2 KP-286): REFERENT-v1 IS SEALED.** Tags: engine `kc2/referent-v1-sealed-oracle` → `969fbd8d`; godot `kc2/referent-v1-sealed-runtime` → `d7ad7b6` (runtime `3e2359a6`). J-P1 is met. The oracle-side J0-F/J-S8 freeze (KP-245, MANIFEST `f82807fb…`) stands on the same oracle commit. **Owed now:** the PORT half of J-S8 at the sealed runtime (drax; bit-equality, KP-246 WARN-3; the hit-chance grid already passes on the port, KP-272), then J2 rulebook v0. The Sorceress joins first (v0.6.2).
+>
 > **v0.6.2, 2026-10-02 (Matt, ELICITOR, KC2 KP-251): KIT ORDER SWAPPED: THE D2 FIRE SORCERESS JOINS FIRST (J4b runs before J4a),** following Matt's playtest order R-C9-135 (Warlord → Sorceress → Barbarian → barrow-fit arena). The D2 adapter is built for her and then extended for the Barbarian. **B0-N (the numeric self-join on J-S4b) stays the binder's positive control, owed before ANY D2 kit is graded**, i.e. now at the start of J4b. Each kit's denominator anchor is unchanged (the Sorceress at her J0 Gate-2 freeze, the Barbarian at launch). Where the text below says "the Barbarian first", this line GOVERNS. Wording in § 0 / § 4.5 is otherwise left as ruled.
 >
 
