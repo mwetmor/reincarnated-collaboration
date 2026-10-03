@@ -135,6 +135,52 @@ def main():
                       dtype=np.float32) / 255.0
     # soften only on the floor (the seams blend); the outside keeps its hard edges
     rgb = np.where(floor[..., None], soft, rgb)
+    shade = np.ones(X.shape)
+    sc = L.get("sculpt")
+    if sc:
+        # R-C9-149a: the ground outside the floor is coloured from the sculpted terrain (snow, rock on steep
+        # faces, grass/heather on the mound, shingle beach, shore ice, ledges, water); the floor is mottled
+        hf = sc["heightfield"]
+        H = np.fromfile(os.path.join(ROOT, hf["file"]), dtype="<f4").reshape(hf["shape"])
+        hp = hf["px_per_m"]
+        fx = np.clip((X - EXT["x0"]) * hp, 0, H.shape[1] - 1.001)
+        fy = np.clip((Y - EXT["y0"]) * hp, 0, H.shape[0] - 1.001)
+        i0, j0 = fx.astype(int), fy.astype(int)
+        tx, ty = fx - i0, fy - j0
+        Hs = (H[j0, i0] * (1 - tx) + H[j0, i0 + 1] * tx) * (1 - ty) + (H[j0 + 1, i0] * (1 - tx) + H[j0 + 1, i0 + 1] * tx) * ty
+        gyy, gxx = np.gradient(Hs, 1.0 / ppm)
+        slope = np.hypot(gxx, gyy)
+        rng = np.random.default_rng(7)
+        nz = np.asarray(Image.fromarray((rng.random((X.shape[0] // 8 + 1, X.shape[1] // 8 + 1)) * 255).astype(np.uint8)).resize(
+            (X.shape[1], X.shape[0]), Image.BICUBIC), dtype=np.float32) / 255.0 - 0.5
+        nz2 = np.asarray(Image.fromarray((rng.random((X.shape[0] // 2 + 1, X.shape[1] // 2 + 1)) * 255).astype(np.uint8)).resize(
+            (X.shape[1], X.shape[0]), Image.BILINEAR), dtype=np.float32) / 255.0 - 0.5
+        out = np.zeros(X.shape + (3,), dtype=np.float32)
+        out[:] = np.stack([0.91 + 0.05 * nz, 0.91 + 0.05 * nz, 0.89 + 0.05 * nz], -1)          # snow
+        rock = np.stack([0.47 + 0.10 * nz2, 0.45 + 0.09 * nz2, 0.41 + 0.08 * nz2], -1)
+        rw = np.clip((slope - 0.7) / 1.0, 0, 1)[..., None]
+        out = out * (1 - rw) + rock * rw
+        mo = next(f for f in L["features"] if f["kind"] == "mound")["footprint"]
+        in_mound = poly_mask(mo, X, Y)
+        mound_m = in_mound & (Hs > 0.3) & ((nz > -0.25) | (Hs < 4.5)) & (slope < 1.6)
+        tus = (~in_mound) & (Hs > 0.4) & (nz2 > 0.28) & (slope < 1.2)
+        out[tus] = (0.6 * out + 0.4 * np.stack([0.66, 0.60, 0.50]))[tus]
+        grass = np.stack([0.60 + 0.08 * nz2, 0.53 + 0.07 * nz2, 0.38 + 0.06 * nz2], -1)
+        out[mound_m] = (0.35 * out + 0.65 * grass)[mound_m]
+        beach = (Hs < -0.05) & (Hs > -0.42) & (slope < 0.5)
+        out[beach] = np.stack([0.60 + 0.08 * nz2, 0.61 + 0.08 * nz2, 0.62 + 0.08 * nz2], -1)[beach]
+        icem = (Hs <= -0.40) & (Hs > -0.6)
+        out[icem] = np.stack([0.76 + 0.06 * nz2, 0.84 + 0.04 * nz2, 0.91 + 0.03 * nz2], -1)[icem]
+        ledge = (Hs < -1.0) & (Hs > -4.4)
+        out[ledge] = rock[ledge] * 0.95
+        sea = Hs <= -4.4
+        out[sea] = np.array([0.19, 0.26, 0.33])
+        land_out = ~floor
+        rgb = np.where(land_out[..., None], out, rgb * (1 + 0.06 * nz[..., None]))
+        lx, ly, lz = -0.45, -0.55, 0.70                        # light from the north-west, high
+        nrm = np.stack([-gxx, -gyy, np.ones_like(gxx)], -1)
+        nrm /= np.linalg.norm(nrm, axis=-1, keepdims=True)
+        shade = np.clip(0.55 + 0.6 * (nrm[..., 0] * lx + nrm[..., 1] * ly + nrm[..., 2] * lz), 0.35, 1.15)
     img = Image.fromarray((np.clip(rgb, 0, 1) * 255).astype(np.uint8))
     dr = ImageDraw.Draw(img, "RGBA")
 
@@ -158,14 +204,23 @@ def main():
     import matplotlib.pyplot as plt
     from matplotlib.patches import Polygon as MPoly, Rectangle, Circle
     fig, ax = plt.subplots(figsize=(14, 14.6), dpi=150)
-    ax.imshow(np.asarray(img), extent=[EXT["x0"], EXT["x1"], EXT["y1"], EXT["y0"]], interpolation="bilinear")
+    ax.imshow(np.clip(np.asarray(img, dtype=np.float32) / 255.0 * shade[..., None], 0, 1),
+              extent=[EXT["x0"], EXT["x1"], EXT["y1"], EXT["y0"]], interpolation="bilinear")
     kind_col = {"mound": "#8c8a6a", "door": "#3a2a1a", "standing_stone": "#6d6d6d", "wreck": "#6b4a2b", "mast": "#4a3220",
                 "rock": "#777", "hall": "#4b3b2e", "gable": "#5a4030", "palisade": "#5b4632", "cliff": "#8a8378", "cave": "#111",
-                "fallen_stone": "#9a968c", "grave_marker": "#6a6058", "driftwood": "#8a7050", "beam": "#2e2622"}
+                "fallen_stone": "#9a968c", "grave_marker": "#6a6058", "driftwood": "#8a7050", "beam": "#2e2622",
+                "tree": "#c8c0b0", "juniper": "#334433", "floe": "#dde8f0", "porch": "#6a4a2a", "stone": "#6d6d6d",
+                "drift_berm": "#ffffff", "ash_heap": "#333", "pressure_ridge": "#e8f4ff", "heather": "#7a4a5a",
+                "rock_slab": "#888", "scree": "#777", "shingle_tongue": "#99a", "pebble": "#888", "trodden_snow": "#ccc", "stream_bank": "#eee"}
     for f in L["features"]:
         poly = f["footprint"]
-        ax.add_patch(MPoly(poly, closed=True, fc=kind_col.get(f["kind"], "#999"), ec="black" if f["blocks_movement"] else "none",
-                           lw=0.6, alpha=0.55 if f["kind"] == "mound" else 0.9))
+        if f["kind"] == "mound":
+            ax.add_patch(MPoly(poly, closed=True, fill=False, ec="#4a4a30", lw=0.8, ls=(0, (3, 2))))
+            continue
+        if not f["blocks_movement"]:          # walk-over detail: drawn faintly
+            ax.add_patch(MPoly(poly, closed=True, fc=kind_col.get(f["kind"], "#bbb"), ec="none", lw=0, alpha=0.35))
+            continue
+        ax.add_patch(MPoly(poly, closed=True, fc=kind_col.get(f["kind"], "#999"), ec="black", lw=0.5, alpha=0.85))
     S = L["stair"]
     for part, colr in (("top_landing", "#c9b48a"), ("flight", "#d9c79a"), ("bottom_landing", "#b29f78")):
         ax.add_patch(MPoly(S[part]["polygon"], closed=True, fc=colr, ec="#5a4020", lw=1.0))
@@ -176,7 +231,8 @@ def main():
         a = [fl3[0][0] + t * (fl3[3][0] - fl3[0][0]), fl3[0][1] + t * (fl3[3][1] - fl3[0][1])]
         b = [fl3[1][0] + t * (fl3[2][0] - fl3[1][0]), fl3[1][1] + t * (fl3[2][1] - fl3[1][1])]
         ax.plot([a[0], b[0]], [a[1], b[1]], color="#5a4020", lw=0.4)
-    ax.add_patch(MPoly(L["floor"]["polygon"], closed=True, fill=False, ec="black", lw=2.2))
+    ax.add_patch(MPoly(L["floor"]["polygon"], closed=True, fill=False, ec="black", lw=2.0))
+    ax.add_patch(MPoly(L["floor"]["min_disc_hull"]["polygon"], closed=True, fill=False, ec="#666", lw=0.7, ls=(0, (1, 2))))
     ax.plot(*zip(*L["land"]["cliff_lip"]), color="#3a2c20", lw=1.0, ls="-")
     for a in L["anchors"]["points"]:
         ax.plot([0, a["x"]], [0, a["y"]], color="#a06010", lw=0.9, ls=(0, (4, 3)))
@@ -217,7 +273,7 @@ def main():
     ax.set_ylabel("y (m, SOUTH)  -- north is up")
     fa = L["floor"]
     ax.set_title(f"barrow_v2 'Fjord Headland' greybox plan -- walkable floor {fa['extents']['width_x']:.1f} x {fa['extents']['depth_y']:.1f} m, "
-                 f"{fa['area_m2']:.0f} m2 (black) = exactly the hull of the six 8 m discs + 1 m (layout v2)\n"
+                 f"{fa['area_m2']:.0f} m2 (black, ORGANIC edge, R-C9-149a) around the disc-hull minimum {fa['min_disc_hull']['area_m2']:.0f} m2 (grey dotted)\n"
                  "gold: the 8 m scatter discs (the oracle's polar law), dashed lines: open lines to the start; blue dashed: the 25 x 18 m camera windows",
                  fontsize=9.5)
     fig.tight_layout()

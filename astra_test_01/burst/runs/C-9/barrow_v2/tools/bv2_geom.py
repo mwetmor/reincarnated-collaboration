@@ -202,3 +202,105 @@ def rnd(v, k=4):
     if isinstance(v, (list, tuple)):
         return [rnd(e, k) for e in v]
     return round(float(v), k)
+
+
+# ---------------------------------------------------------------- R-C9-149a: non-convex (organic) floor support
+def triangulate(poly):
+    """Ear clipping for a simple polygon (any orientation). Returns a list of triangles."""
+    pts = [tuple(p) for p in poly]
+    if signed_area(pts) < 0:
+        pts = list(reversed(pts))
+    idx = list(range(len(pts)))
+    tris = []
+    guard = 0
+    while len(idx) > 3 and guard < 100000:
+        guard += 1
+        n = len(idx)
+        ear = False
+        for k in range(n):
+            i0, i1, i2 = idx[k - 1], idx[k], idx[(k + 1) % n]
+            a, b, c = pts[i0], pts[i1], pts[i2]
+            if cross(a, b, c) <= 1e-12:
+                continue
+            ok = True
+            for j in idx:
+                if j in (i0, i1, i2):
+                    continue
+                p = pts[j]
+                if cross(a, b, p) >= 0 and cross(b, c, p) >= 0 and cross(c, a, p) >= 0:
+                    ok = False
+                    break
+            if ok:
+                tris.append((a, b, c))
+                idx.pop(k)
+                ear = True
+                break
+        if not ear:          # degenerate remainder: drop a collinear vertex
+            idx.pop(0)
+    if len(idx) == 3:
+        tris.append(tuple(pts[i] for i in idx))
+    return tris
+
+
+def bbox(poly):
+    xs = [p[0] for p in poly]
+    ys = [p[1] for p in poly]
+    return (min(xs), min(ys), max(xs), max(ys))
+
+
+def seg_crosses_poly(a, b, poly):
+    """True if segment ab properly crosses (or touches) any edge of poly."""
+    n = len(poly)
+    for i in range(n):
+        if segs_intersect(a, b, poly[i], poly[(i + 1) % n]):
+            return True
+    return False
+
+
+def is_simple(poly):
+    """No two non-adjacent edges intersect (O(n^2) with a bbox prefilter)."""
+    n = len(poly)
+    E = [(poly[i], poly[(i + 1) % n]) for i in range(n)]
+    B = [(min(a[0], b[0]), min(a[1], b[1]), max(a[0], b[0]), max(a[1], b[1])) for a, b in E]
+    order = sorted(range(n), key=lambda i: B[i][0])
+    active = []
+    bad = 0
+    for i in order:
+        active = [j for j in active if B[j][2] >= B[i][0]]
+        for j in active:
+            if abs(i - j) in (1, n - 1):
+                continue
+            if B[j][1] > B[i][3] or B[i][1] > B[j][3]:
+                continue
+            if segs_intersect(E[i][0], E[i][1], E[j][0], E[j][1]):
+                bad += 1
+        active.append(i)
+    return bad == 0, bad
+
+
+def longest_straight_run(poly, tol=0.08):
+    """Longest boundary stretch (metres, along the boundary) whose points all lie within `tol` of the chord
+    joining its ends. A greybox edge 'reads straight' over such a stretch."""
+    n = len(poly)
+    best = (0.0, None)
+    seg = [math.dist(poly[i], poly[(i + 1) % n]) for i in range(n)]
+    for i in range(n):
+        Ls = 0.0
+        j = i
+        while Ls < 60.0:
+            j2 = (j + 1) % n
+            Ls2 = Ls + seg[j]
+            a, b = poly[i], poly[j2]
+            ok = True
+            k = (i + 1) % n
+            while k != j2:
+                if dist_point_seg(poly[k], a, b) > tol:
+                    ok = False
+                    break
+                k = (k + 1) % n
+            if not ok:
+                break
+            Ls, j = Ls2, j2
+        if Ls > best[0]:
+            best = (Ls, poly[i])
+    return best

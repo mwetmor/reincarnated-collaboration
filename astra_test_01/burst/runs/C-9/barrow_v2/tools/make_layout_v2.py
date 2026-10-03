@@ -14,6 +14,8 @@ sha256 is written into the layout; nothing is typed by hand.
 import glob
 import hashlib
 import json
+
+import numpy as np
 import math
 import os
 import sys
@@ -21,6 +23,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import bv2_geom as G  # noqa: E402
+import sculpt_v2 as SC  # noqa: E402
 
 ROOT = os.path.dirname(HERE)                                   # runs/C-9/barrow_v2
 ENGINE = os.path.expanduser("~/Games/reincarnated-engine")
@@ -152,8 +155,31 @@ def main():
     # the six 8 m scatter DISCS + 1 m. The oracle rolls a polar disc (spawn_structure.py:295,
     # ScatterLaw.POLAR_UNIFORM_RHO: theta = 2 pi u1, rho = 8 u2); the pack's box prose is a logged erratum.
     # n = 360 keeps the chord sag at 9 * (1 - cos 0.5 deg) = 0.00034 m.
-    floor = G.offset_hull(list(A.values()), h + FLOOR_MARGIN_M, n=360)
+    disc_hull = G.offset_hull(list(A.values()), h + FLOOR_MARGIN_M, n=360)
     box_floor = G.offset_hull(box_corners, FLOOR_MARGIN_M, n=96)
+    # R-C9-149a (Matt) BIOME-SCULPT: the walkable edge becomes ORGANIC. The disc hull + 1 m is the INNER
+    # bound; the edge bulges outward per biome (sculpt_v2.organic_floor). It stays flush (cap 0) where the
+    # stair lands and the cave sits; the bulge is capped small at the deliverers so their doors stay close.
+    _p3 = A["p03"]
+    _R9 = h + FLOOR_MARGIN_M
+
+    def _arc(beta_deg, r=_R9):
+        return (_p3[0] + r * math.cos(math.radians(beta_deg)), _p3[1] + r * math.sin(math.radians(beta_deg)))
+    _p4, _p6 = A["p04"], A["p06"]
+    _ax = unit(_p6[0] - _p4[0], _p6[1] - _p4[1])
+    _nT = (-_ax[1], _ax[0])
+    if _nT[0] * _p4[0] + _nT[1] * _p4[1] < 0:
+        _nT = (-_nT[0], -_nT[1])
+    _cw = _nT[0] * _p4[0] + _nT[1] * _p4[1] + _R9
+
+    def _onedge(pid):
+        d_ = unit(*A[pid])
+        return along((0, 0), d_, _cw / (d_[0] * _nT[0] + d_[1] * _nT[1]))
+    protect = [(*_arc(STAIR["tangent_beta_deg"]), 7.5, 0.0), (*_arc(106.0), 3.5, 0.0), (*_arc(110.0), 4.0, 0.0),
+               (*along((0, 0), unit(*A["p02"]), ray_exit(disc_hull, unit(*A["p02"]))), 9.0, 0.5),
+               (*along((0, 0), unit(*A["p01"]), ray_exit(disc_hull, unit(*A["p01"]))), 4.0, 0.5),
+               (*_onedge("p04"), 4.5, 0.35), (*_onedge("p06"), 4.0, 0.4)]
+    floor, bulge, organic_info = SC.organic_floor(disc_hull, protect, _p3)
 
     # ---------------- the edge features, each placed on its anchor's ray ----------------
     feats = []
@@ -177,7 +203,14 @@ def main():
     door_c = along((0, 0), d2, e2 + 1.4)
     mound_c = along((0, 0), d2, e2 + 1.5 + 10.0)
     rot2 = math.degrees(math.atan2(n2[1], n2[0]))
-    feat("barrow_mound", "mound", G.ellipse_poly(*mound_c, 15.0, 10.0, rot2, 64), 0.0, 7.0, True,
+    _cr, _sr = math.cos(math.radians(rot2)), math.sin(math.radians(rot2))
+    mound_outline = []
+    for k in range(96):
+        th = G.TAU * k / 96
+        rr = 1.0 + 0.07 * math.sin(3 * th + 0.4) + 0.05 * math.sin(5 * th + 1.9) + 0.03 * math.sin(9 * th)
+        uu, vv = rr * math.cos(th) * 15.0, rr * math.sin(th) * 10.0
+        mound_outline.append((mound_c[0] + uu * _cr - vv * _sr, mound_c[1] + uu * _sr + vv * _cr))
+    feat("barrow_mound", "mound", mound_outline, 0.0, 7.0, True,
          "the King's barrow: grass/heather mound, kerbed; its near toe 1.5 m beyond the floor edge on p02's ray",
          shape={"type": "ellipsoid_cap", "centre": G.rnd(mound_c), "semi_axes_m": [15.0, 10.0], "rot_deg": G.rnd(rot2), "rise_m": 7.0})
     feat("barrow_door", "door", G.rect_poly(*door_c, 3.2, 1.2, rot2), 0.0, 3.2, True,
@@ -239,6 +272,18 @@ def main():
     feat("hall_great_door", "door", G.rect_poly(*along(D, nT, 0.3), 3.6, 0.6, rot_ax), 0.0, 3.8, True,
          "the hall's great door (p04: out of smoke), in the long west wall on p04's ray",
          faces_deg=G.rnd(G.compass_deg(-nT[0], -nT[1]), 2))
+    # the great door's gabled PORCH (folded in from lane BVP's tools/bvp_porch.py: 3.6 x 2.4 m, centred
+    # 0.8 m NE of the door station, projecting toward p04's patch; eaves 3.4 m, ridge 5.0 m running OUT)
+    PORCH = {"width": 3.6, "depth": 2.4, "shift_ne": 0.8, "eave": 3.4, "ridge": 5.0}
+    _pc = along(D, ax_ne, PORCH["shift_ne"])
+    _nin = (-nT[0], -nT[1])
+    _hw = PORCH["width"] / 2
+    porch_fp = [along(_pc, ax_ne, -_hw), along(_pc, ax_ne, _hw), along(along(_pc, ax_ne, _hw), _nin, PORCH["depth"]),
+                along(along(_pc, ax_ne, -_hw), _nin, PORCH["depth"])]
+    feat("hall_porch", "porch", porch_fp, 0.0, PORCH["ridge"], True,
+         "the great door's gabled porch (conductor ruling; spec from lane BVP's bvp_porch.py): at zero yaw the hall's floor-facing wall faces away from the camera, so the porch's own roof, its ridge running OUT toward p04's patch, marks the entrance above the hall's silhouette; the double doors stand open; smoke rolls out (p04: out of smoke)",
+         eave_z_m=PORCH["eave"], ridge_z_m=PORCH["ridge"], mouth_centre=G.rnd(along(_pc, _nin, PORCH["depth"])),
+         faces_deg=G.rnd(G.compass_deg(*_nin), 2), source="lane BVP tools/bvp_porch.py (folded in by BX, option a)")
     feat("fallen_gable", "gable", hall_rect(-GABLE_BACK, GABLE_FWD, Gp), 0.0, 2.8, True,
          "the hall's OWN collapsed south-west end (p06: up out of ash): the gable fallen outward, leaning on its rubble; on p06's ray, 1.5 m beyond the floor edge")
     # the palisade, pulled back: it wraps the hall from OUTSIDE; its arms stop 1.5 m short of the floor edge
@@ -378,7 +423,9 @@ def main():
             poly, ht, form = G.rect_poly(*c, 0.6, 0.5, i * 23), 0.35, "low stump (snapped off at the base)"
         else:
             poly, ht, form = G.rect_poly(*c, 1.8, 0.75, math.degrees(ang) + 90 + 25 * ((i % 3) - 1)), 0.30, "fallen, lying flat"
-        stones.append(feat(f"circle_stone_{i + 1}", "fallen_stone", poly, 0.0, ht, False, form, blocks=False))
+        stones.append(feat(f"circle_stone_{i + 1}", "fallen_stone", poly, 0.0, ht, False, form, blocks=False,
+                           sculpt_stone={"c": G.rnd(c), "len": 0.6 if i in (2, 5) else 1.8, "wid": 0.5 if i in (2, 5) else 0.75,
+                                         "rot": G.rnd(i * 23 if i in (2, 5) else math.degrees(ang) + 90 + 25 * ((i % 3) - 1), 2)}))
     # grave-ground markers, low
     for i, (x, y) in enumerate(((2.0, -24.0), (5.5, -21.5), (13.5, -22.5), (17.0, -25.0), (-2.5, -28.0), (6.5, -27.0), (19.5, -20.0))):
         feat(f"grave_marker_{i + 1}", "grave_marker", G.rect_poly(x, y, 0.5, 0.25, 8 * i - 20), 0.0, 0.30, False,
@@ -426,40 +473,50 @@ def main():
     # carries on outward (SE) under the gable and the byre.
     # (v2, disc hull: no flat south edge any more) the lip ends at the floor vertex nearest compass
     # 150 deg, between p03 (166) and p06 (131): east of the stair, where the hall yard begins.
-    iw = min(range(len(floor)), key=lambda i: (floor[i][0], -floor[i][1]))
-    ymax = max(p[1] for p in floor)
-    # (R-C9-148) the lip runs from the westmost vertex round the south to Q, the floor edge at compass
-    # 145 deg: east of the stair's top landing, west of the hall's fallen gable. East of Q the land
-    # carries on outward under the hall yard.
-    uq = unit(math.sin(math.radians(145.0)), -math.cos(math.radians(145.0)))
-    Q = along((0, 0), uq, ray_exit(floor, uq))
-    lip = [floor[iw]]
-    i = iw
-    for step in (1, -1):
-        out = [floor[iw]]
-        i = iw
-        ok = False
-        for _ in range(len(floor)):
-            i = (i + step) % len(floor)
-            v = floor[i]
-            if v[1] > 0 and G.compass_deg(*v) < 145.0:
-                ok = True
-                break
-            out.append(v)
-        if ok and max(p[1] for p in out) >= ymax - 1e-6:
-            lip = out + [Q]
-            break
-    xw, yw = lip[0]
-    xe, ye = lip[-1]
-    n36 = unit(-(A["p06"][1] - A["p03"][1]), A["p06"][0] - A["p03"][0])
-    if n36[0] * Q[0] + n36[1] * Q[1] < 0:
-        n36 = (-n36[0], -n36[1])
-    q_out = along(Q, n36, 9.0)
-    land = lip + [q_out, (66.0, q_out[1]), (66.0, -74.0), (-46.0, -74.0), (-46.0, yw)]
-    # the cliff lip is the S part of that chain (compass 100..250 from the origin), the shore W of it
-    shore_ice = [(-46.0, -60.0), (-46.0, yw), (xw, yw)] + [p for p in lip if G.compass_deg(*p) >= 235.0] + \
-        [(-30.0, 46.0), (-62.0, 46.0), (-62.0, -60.0)]
+    # R-C9-149a: the coastline is organic too. The land is star-shaped about the start: sampled every
+    # 0.5 deg of compass, its radius is
+    #   S (145..215 deg): the floor's own edge -- the broken cliff lip;
+    #   W (215..335): the floor's edge + a ragged shingle beach (3-8 m), with the shore ice beyond;
+    #   N/E (335..100): far (the barrow slopes, the groves);
+    #   SE (100..145): the hall yard's headland, closing in to the lip at Q (145 deg) along a ragged coast.
+    _rng = np.random.default_rng(1492)
+    _ph = _rng.uniform(0, G.TAU, 8)
 
+    def _floor_r(cdeg):
+        uu = unit(math.sin(math.radians(cdeg)), -math.cos(math.radians(cdeg)))
+        return ray_exit(floor, uu), uu
+
+    def _wrap(d):
+        return d % 360.0
+    land, lip, ice_outer, ice_inner = [], [], [], []
+    for k in range(720):
+        cdeg = k * 0.5
+        rf, uu = _floor_r(cdeg)
+        t = math.radians(cdeg)
+        if 145.0 <= cdeg <= 215.0:
+            r = rf
+        elif 215.0 < cdeg < 345.0:
+            ramp = min(1.0, (cdeg - 215.0) / 12.0)
+            beach = 5.5 + 1.8 * math.sin(7 * t + _ph[0]) + 1.0 * math.sin(17 * t + _ph[1]) + 0.5 * math.sin(41 * t + _ph[2])
+            sweep = 0.0 if cdeg < 298.0 else 95.0 * ((cdeg - 298.0) / 47.0) ** 1.3 * (1 + 0.08 * math.sin(23 * t + _ph[7]))
+            r = rf + ramp * beach + sweep
+            iw_ = (18.0 + 6.0 * math.sin(5 * t + _ph[3]) + 3.0 * math.sin(13 * t + _ph[4])) * (1 + 1.5 * max(0.0, (cdeg - 298.0) / 47.0))
+            ice_outer.append(along((0, 0), uu, r + iw_ * min(1.0, (cdeg - 215.0) / 8.0)))
+            ice_inner.append(along((0, 0), uu, r - 0.05))
+        elif 95.0 < cdeg < 145.0:
+            f_ = (145.0 - cdeg) / 40.0
+            coast = 95.0 * min(1.0, f_) ** 1.0 * (1 + 0.10 * math.sin(19 * t + _ph[6])) + \
+                (2.0 + 1.5 * math.sin(11 * t + _ph[5]) + 0.8 * math.sin(29 * t + _ph[6])) * min(1.0, f_ * 6)
+            r = rf + coast
+        else:
+            r = 130.0
+        pt = along((0, 0), uu, r)
+        land.append(pt)
+        if 145.0 <= cdeg <= 215.0:
+            lip.append(pt)
+    lip = list(reversed(lip))                     # W -> E, as before (215 -> 145 deg)
+    shore_ice = ice_outer + list(reversed(ice_inner))
+    xw, yw = lip[0]
     zones = {
         "_how": "soft colour zones on the floor; the ground class map (greybox/ground_class_map.png, 4 px/m) is the paint + crater-v5 surface driver. Priority: mere > stream > circle > path (overlay) > the seeded biomes (nearest weighted seed, blended over blend_m at the seams)",
         "blend_m": 3.0,
@@ -529,7 +586,11 @@ def main():
                        for a in anchors],
         },
         "floor": {
-            "rule": "WHOLE and convex: EXACTLY the convex hull of the six 8 m scatter discs + 1 m (each anchor buffered 9 m, sampled at 1 deg)",
+            "rule": "WHOLE (one simple polygon, no holes) and ORGANIC (R-C9-149a): it CONTAINS the convex hull of the six 8 m scatter discs + 1 m (the minimum, the conductor's ruling) and bulges outward from it per biome; nothing inside it blocks",
+            "min_disc_hull": {"rule": "the convex hull of the six 8 m discs + 1 m (each anchor buffered 9 m, sampled at 1 deg): the floor's INNER bound",
+                              "polygon": G.rnd(disc_hull), "area_m2": G.rnd(G.area(disc_hull), 2),
+                              "extents": {k: G.rnd(v, 3) for k, v in G.extents(disc_hull).items()}},
+            "organic": organic_info,
             "polygon": G.rnd(floor),
             "z_m": 0.0,
             "area_m2": G.rnd(G.area(floor), 2),
@@ -560,6 +621,72 @@ def main():
                                 G.rnd(A["p05"]), G.rnd(along(A["p01"], d1, -2.0)), [-12.0, 22.0],
                                 G.rnd(along((0, 0), d3, e3 - 1.0)), [18.0, 18.0], G.rnd(along(A["p04"], d4, -2.0)), [0.0, 0.0]],
                       "speed_mps": 8.0, "camera": "ZOOM-GD window, following the walker"},
+    }
+    # ================= R-C9-149a BIOME-SCULPT: terrain, rocks, groves, ruined man-made pieces, ground detail =================
+    def _rect_mid(fp):
+        return (((fp[0][0] + fp[3][0]) / 2, (fp[0][1] + fp[3][1]) / 2), ((fp[1][0] + fp[2][0]) / 2, (fp[1][1] + fp[2][1]) / 2))
+    _hall_sw = along(Gp, ax_ne, -GABLE_BACK)
+    _hall_len = L_GD + NE_PAST_DOOR + GABLE_BACK
+    _pad = [along(along(_hall_sw, ax_ne, -2.5), nT, -0.5), along(along(_hall_sw, ax_ne, _hall_len + 2.5), nT, -0.5),
+            along(along(_hall_sw, ax_ne, _hall_len + 2.5), nT, HALL_D + 2.5), along(along(_hall_sw, ax_ne, -2.5), nT, HALL_D + 2.5)]
+    _foot = []
+    for cdeg in list(range(172, 250, 9)) + [124, 132]:
+        uu = unit(math.sin(math.radians(cdeg)), -math.cos(math.radians(cdeg)))
+        _foot.append(along((0, 0), uu, ray_exit(floor, uu) + 3.6))
+    ctx = {
+        "bank_gaps": [along(_pc, _nin, PORCH["depth"]), along(Gp, ax_ne, 1.0)],
+        "mound": {"c": mound_c, "a": 15.0, "b": 10.0, "rot": rot2, "rise": 7.0},
+        "passage": {"c": door_c, "door": door_c, "u": d2, "v": n2, "half_w": 1.1, "len": 5.0},
+        "hall_pad": _pad,
+        "wall_rock": wall_rock,
+        "rock_clusters": [(-25, -40, 6, 1.2), (30, -38, 5, 1.4), (-8, -57, 4, 1.6), (41, -23, 5, 1.1), (52, -48, 6, 1.5),
+                          (62, 10, 5, 1.3), (58, 41, 4, 1.2), (-40, -21, 5, 1.2), (-30, -56, 4, 1.4), (-52, -8, 5, 0.9),
+                          (-50, 30, 4, 1.0), (24, -62, 4, 1.3), (64, -34, 4, 1.2), (-44, -36, 3, 1.0)],
+        "cliff_foot_rocks": _foot,
+        "floes": [(-35, 48), (-25, 55), (-12, 58), (-45, 52), (-55, 47), (30, 54), (45, 52), (56, 50), (5, 60), (-20, 46)],
+        "groves": [(34, -52, "birch", 8, 4.0), (-14, -63, "birch", 7, 4.0), (63, -18, "birch", 6, 3.0), (20, -60, "juniper", 6, 3.0),
+                   (-33, -37, "juniper", 5, 2.5), (50, -31, "juniper", 5, 3.0), (61, 31, "juniper", 4, 2.5), (-44, -48, "juniper", 4, 2.0),
+                   (46, -10, "juniper", 3, 1.5)],
+        "standing_stones": [(G.rnd(tuple(sum(q[i] for q in f["footprint"]) / 4 for i in (0, 1))), f["z_top_m"]) for f in feats if f["kind"] == "standing_stone"],
+        "wreck": {"c": hull_c, "rot": 90.0 - 12.0, "length": 17.0, "z": -0.25},
+        "hall": {"sw": _hall_sw, "ane": ax_ne, "nT": nT, "door": D, "length": _hall_len, "depth": HALL_D,
+                 "gable_len": GABLE_BACK + GABLE_FWD, "door_s": GABLE_BACK + L_GD, "porch": PORCH},
+        "palisade_runs": [_rect_mid(f["footprint"]) for f in feats if f["kind"] == "palisade"],
+        "circle_stones": [dict(f["sculpt_stone"], z_top_m=f["z_top_m"]) for f in feats if "sculpt_stone" in f],
+    }
+    B = SC.Builder(layout, ctx)
+    Hf = B.terrain()
+    hf_rel = "godot/data/terrain_h.f32"
+    SC.write_heightfield(B.H, os.path.join(ROOT, hf_rel))
+    B.dressing()
+    # the simple interior pieces re-made organic (their validator footprints are unchanged)
+    for f in feats:
+        fp = f["footprint"]
+        cx_ = sum(q[0] for q in fp) / len(fp)
+        cy_ = sum(q[1] for q in fp) / len(fp)
+        if f["kind"] == "grave_marker":
+            B.blob("stone", (cx_, cy_), 0.32, 0.17, f["z_top_m"], -0.2, float(B.rng.uniform(0, 180)), (0.46, 0.44, 0.41), "rock")
+        elif f["kind"] in ("driftwood", "beam"):
+            (a_, b_) = _rect_mid(fp)
+            col = (0.55, 0.47, 0.37) if f["kind"] == "driftwood" else (0.14, 0.12, 0.11)
+            B.beam((a_[0], a_[1], 0.12), (b_[0], b_[1], 0.14), 0.32, 0.22, col, f["kind"])
+        elif f["kind"] == "rock":
+            r_ = max(math.dist(fp[0], (cx_, cy_)), 0.6) * 0.9
+            B.blob("rock", (cx_, cy_), r_, r_ * 0.8, f["z_top_m"], -0.5, float(B.rng.uniform(0, 180)), (0.50, 0.49, 0.47), "rock")
+    gd_counts = B.ground_detail()
+    SCULPT_KINDS = {"mound", "door", "standing_stone", "wreck", "mast", "rock", "hall", "gable", "palisade", "fallen_stone",
+                    "grave_marker", "driftwood", "beam", "porch"}
+    for f in feats:
+        f["render"] = "sculpt" if f["kind"] in SCULPT_KINDS else "prism"
+    feats.extend(B.features)
+    layout["sculpt"] = {
+        "_what": "R-C9-149a BIOME-SCULPT (tools/sculpt_v2.py): the greybox's real shape. Rendered by godot/scripts/barrow_v2_greybox.gd; proved by tools/validate_layout_v2.py (beams/blobs taller than walk-over lie outside the floor; the heightfield is exactly 0 on it).",
+        "heightfield": {"file": hf_rel, "format": "float32 little-endian, row-major, rows y0 -> y1 (north -> south), cols x0 -> x1",
+                        "px_per_m": SC.HF_PPM, "shape": [int(B.H.shape[0]), int(B.H.shape[1])], "extent_sim_m": SC.EXT,
+                        "sha256": sha256(os.path.join(ROOT, hf_rel)), "sea_floor_z_m": SC.SEA_FLOOR_Z},
+        "blobs": B.blobs, "beams": B.beams,
+        "ground_detail_counts": gd_counts,
+        "counts": {"blobs": len(B.blobs), "beams": len(B.beams), "sculpt_features": len(B.features)},
     }
     out = os.path.join(ROOT, "layout_v2.json")
     with open(out, "w") as f:

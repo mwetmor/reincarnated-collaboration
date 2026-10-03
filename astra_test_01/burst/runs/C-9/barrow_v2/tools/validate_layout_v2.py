@@ -11,9 +11,11 @@ The rules (oracle + KC2 KP-253 + R-C9-145):
   R2  every 8 m scatter disc (the oracle's polar law, spawn_structure.py:295) is 100% on the floor with
       >= 1 m clearance (v2). The 8 m box (the pack's stale prose) is reported as INFO only.
   R3  the open straight line from (0, 0) to every anchor is on the floor and touches no blocker
-  R4  the floor is WHOLE and convex, and IS the hull of the six discs + 1 m (contains it; no larger than it)
+  R4  the floor is WHOLE (one simple polygon) and ORGANIC (R-C9-149a), and CONTAINS the hull of the six
+      discs + 1 m (the minimum); no straight run of edge longer than 6 m
   R5  no interior blocker: every movement/sight blocker has ZERO area inside the floor; every
-      interior feature is walk-over (z_top <= walkover_max_h_m)
+      interior feature is walk-over (z_top <= walkover_max_h_m); and (R-C9-149a) everything the greybox
+      renders -- sculpt blobs, beams, the terrain heightfield -- obeys the same rule
   R6  the stair (R-C9-148): width >= 2.5 m; a walkable slope (<= 35 deg, under Godot's 45 deg floor
       limit); top landing flush with the floor at the p03 patch; open on the sea side, the cliff face its
       wall; it climbs FROM the sea-level ledge, and the cave is at its foot (the run's angle to the
@@ -85,9 +87,62 @@ def clip_convex(subject, clip):
     return out
 
 
-def overlap_area(poly, convex):
-    c = clip_convex(poly, convex)
+def _area_clip(subject, convex_clip):
+    c = clip_convex(subject, convex_clip)
     return G.area(c) if len(c) >= 3 else 0.0
+
+
+def overlap_area(P, Q):
+    """Exact intersection area of two simple polygons (either may be non-convex: R-C9-149a's organic floor).
+    Sutherland-Hodgman is exact when the CLIP polygon is convex, so a non-convex pair is split into
+    triangles first."""
+    P = [tuple(p) for p in P]
+    Q = [tuple(q) for q in Q]
+    bp, bq = G.bbox(P), G.bbox(Q)
+    if bp[2] < bq[0] or bq[2] < bp[0] or bp[3] < bq[1] or bq[3] < bp[1]:
+        return 0.0
+    if G.is_convex(Q):
+        return _area_clip(P, Q)
+    if G.is_convex(P):
+        return _area_clip(Q, P)
+    return sum(_area_clip(Q, list(t)) for t in G.triangulate(P))
+
+
+class FloorIndex:
+    """Fast exact queries against the (non-convex) floor: a centroid-distance prefilter decides the easy
+    cases (wholly inside / wholly outside) and only polygons near the edge are clipped."""
+
+    def __init__(self, floor):
+        import numpy as np
+        self.np = np
+        self.F = [tuple(p) for p in floor]
+        A = np.array(self.F)
+        self.ax, self.ay = A[:, 0], A[:, 1]
+        B = np.roll(A, -1, axis=0)
+        self.dx, self.dy = B[:, 0] - A[:, 0], B[:, 1] - A[:, 1]
+        self.L2 = np.maximum(self.dx ** 2 + self.dy ** 2, 1e-18)
+        self.bx, self.by = B[:, 0], B[:, 1]
+
+    def dist(self, p):
+        np = self.np
+        t = np.clip(((p[0] - self.ax) * self.dx + (p[1] - self.ay) * self.dy) / self.L2, 0, 1)
+        return float(np.min(np.hypot(p[0] - (self.ax + t * self.dx), p[1] - (self.ay + t * self.dy))))
+
+    def inside(self, p):
+        np = self.np
+        cond = (self.ay > p[1]) != (self.by > p[1])
+        with np.errstate(divide="ignore", invalid="ignore"):
+            xi = self.ax + (p[1] - self.ay) * self.dx / np.where(self.dy == 0, 1e-18, self.dy)
+        return bool(np.count_nonzero(cond & (xi > p[0])) % 2)
+
+    def overlap(self, P):
+        P = [tuple(p) for p in P]
+        c = (sum(p[0] for p in P) / len(P), sum(p[1] for p in P) / len(P))
+        r = max(math.dist(c, p) for p in P)
+        d = self.dist(c)
+        if d > r + 1e-9:
+            return G.area(P) if self.inside(c) else 0.0
+        return overlap_area(P, self.F)
 
 
 def disc_poly(c, r, n=512):
@@ -121,6 +176,7 @@ def validate(L, check_provenance=True):
     h = L["anchors"]["scatter"]["half_width_m"]
     r_disc = L["anchors"]["scatter"]["disc_radius_m_brief"]
     feats = L["features"]
+    FI = FloorIndex(floor)
 
     # ---------------- R1 provenance ----------------
     if check_provenance:
@@ -144,7 +200,8 @@ def validate(L, check_provenance=True):
                 "ScatterLaw.POLAR_UNIFORM_RHO" in line and sha256(sp) == lp["sha256"], line_295=line.strip())
 
     # ---------------- R4 the floor ----------------
-    R.check("R4", "floor polygon is convex", G.is_convex(floor), n_vertices=len(floor))
+    simple, n_bad = G.is_simple(floor)
+    R.check("R4", "floor is WHOLE: one simple polygon (no self-intersections, no holes)", simple, n_vertices=len(floor), self_intersections=n_bad)
     ar = G.area(floor)
     ex = G.extents(floor)
     R.check("R4", "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
@@ -152,23 +209,28 @@ def validate(L, check_provenance=True):
             area_m2=round(ar, 2), width_x_m=round(ex["width_x"], 3), depth_y_m=round(ex["depth_y"], 3),
             x=[round(ex["x_min"], 3), round(ex["x_max"], 3)], y=[round(ex["y_min"], 3), round(ex["y_max"], 3)])
     hull_min = G.offset_hull([(a["x"], a["y"]) for a in anchors], r_disc + 1.0, n=192)
-    worst = min(G.signed_clearance(p, floor) for p in hull_min)
-    R.check("R4", "floor contains the hull of the six discs + 1 m (every vertex of that hull inside)",
-            worst >= -1e-3, worst_vertex_clearance_m=round(worst, 4), hull_min_area_m2=round(G.area(hull_min), 2))
-    R.check("R4", "floor is the EXACT bound: no larger than the disc hull + 1 m (area within 1 m2)",
-            ar <= G.area(hull_min) + 1.0, floor_area_m2=round(ar, 2), excess_m2=round(ar - G.area(hull_min), 3))
+    worst = min((FI.dist(p) if FI.inside(p) else -FI.dist(p)) for p in hull_min)
+    worst_out = max(G.signed_clearance(p, hull_min) for p in floor)
+    R.check("R4", "floor contains the hull of the six discs + 1 m, the MINIMUM (every hull vertex on the floor; no floor vertex strictly inside the hull)",
+            worst >= -1e-3 and worst_out <= 1e-3, worst_hull_vertex_clearance_m=round(worst, 4),
+            deepest_floor_vertex_inside_hull_m=round(worst_out, 4), hull_min_area_m2=round(G.area(hull_min), 2),
+            floor_minus_hull_m2=round(ar - G.area(hull_min), 2))
+    run, at = G.longest_straight_run(floor, tol=0.08)
+    R.check("R4", "the edge is ORGANIC (R-C9-149a): no straight run longer than 6 m (points within 0.08 m of a chord)",
+            run <= 6.0, longest_straight_run_m=round(run, 2), at=[round(at[0], 2), round(at[1], 2)] if at else None,
+            bulge_m=L["floor"].get("organic", {}).get("bulge_m"))
 
     # ---------------- R2 discs and boxes ----------------
     for a in anchors:
         c = (a["x"], a["y"])
         clr = G.disc_clearance(c, r_disc, floor)
         dp = disc_poly(c, r_disc)
-        frac = overlap_area(dp, floor) / G.area(dp)
+        frac = FI.overlap(dp) / G.area(dp)
         R.check("R2", f"{a['id']} 8 m disc 100% on the floor with >= 1 m clearance", clr >= 1.0 - 1e-3 and frac >= 1.0 - 1e-9,
                 disc_on_floor_pct=round(100 * frac, 6), edge_clearance_m=round(clr, 4))
         box = [(c[0] + sx * h, c[1] + sy * h) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
         bclr = min(G.signed_clearance(p, floor) for p in box)
-        bfrac = overlap_area(box, floor) / G.area(box)
+        bfrac = FI.overlap(box) / G.area(box)
         R.info("R2", f"{a['id']} 8 m box (the pack's stale prose; not the oracle's law) coverage",
                box_on_floor_pct=round(100 * bfrac, 3), corner_clearance_m=round(bclr, 4))
 
@@ -180,7 +242,7 @@ def validate(L, check_provenance=True):
             clearance_m=round(G.signed_clearance(o, floor), 4))
     for a in anchors:
         c = (a["x"], a["y"])
-        on_floor = G.signed_clearance(c, floor) > 0 and G.signed_clearance(o, floor) > 0 and G.is_convex(floor)
+        on_floor = FI.inside(c) and FI.inside(o) and not G.seg_crosses_poly(o, c, floor)
         gaps = [(G.seg_poly_dist(o, c, [tuple(p) for p in f["footprint"]]), f["id"]) for f in blockers]
         gmin = min(gaps) if gaps else (float("inf"), None)
         R.check("R3", f"line (0,0) -> {a['id']} on the floor and clear of every blocker",
@@ -189,20 +251,66 @@ def validate(L, check_provenance=True):
 
     # ---------------- R5 no interior blocker ----------------
     worst = (0.0, None)
+    ov = {f["id"]: FI.overlap(f["footprint"]) for f in feats}
     for f in blockers:
-        oa = overlap_area([tuple(p) for p in f["footprint"]], floor)
+        oa = ov[f["id"]]
         if oa > worst[0]:
             worst = (oa, f["id"])
-    gaps = sorted((G.poly_poly_gap([tuple(p) for p in f["footprint"]], floor) if overlap_area([tuple(p) for p in f["footprint"]], floor) <= TOL else 0.0, f["id"]) for f in blockers)
+    gaps = sorted((min(FI.dist(tuple(p)) for p in f["footprint"]) if ov[f["id"]] <= TOL else 0.0, f["id"]) for f in blockers)
     R.check("R5", "every blocker (blocks movement or sight, or taller than walk-over) has zero area inside the floor",
             worst[0] <= TOL, n_blockers=len(blockers), worst_overlap_m2=round(worst[0], 6), worst_id=worst[1],
             closest_blocker_gap_m=round(gaps[0][0], 3) if gaps else None, closest_blocker=gaps[0][1] if gaps else None)
-    interior = [f for f in feats if overlap_area([tuple(p) for p in f["footprint"]], floor) > TOL]
+    interior = [f for f in feats if ov[f["id"]] > TOL]
     tall = [(f["id"], f["z_top_m"]) for f in interior if f["z_top_m"] > wmax or f["blocks_movement"] or f["blocks_sight"]]
     R.check("R5", f"every interior feature is walk-over (z_top <= {wmax} m, blocks nothing)", not tall,
             n_interior=len(interior), tallest_interior_m=max((f["z_top_m"] for f in interior), default=0.0), offenders=tall)
     for key in ("mere", "stream", "path"):
         R.check("R5", f"{key} is walkable and flush (z 0)", L[key]["walkable"] and abs(L[key]["z_m"]) <= TOL)
+    # R-C9-149a: everything the greybox RENDERS is proved too -- the sculpt's blobs and beams, and the terrain
+    sc = L.get("sculpt")
+    if sc:
+        bad_b = []
+        for b in sc["blobs"]:
+            if b["top"] > wmax:
+                fp = G.ellipse_poly(b["c"][0], b["c"][1], b["r"][0], b["r"][1], b["rot"], 16)
+                if FI.overlap(fp) > TOL:
+                    bad_b.append((b["k"], b["c"], b["top"]))
+        R.check("R5", f"sculpt: every blob taller than walk-over ({wmax} m) lies outside the floor", not bad_b,
+                n_blobs=len(sc["blobs"]), n_tall=sum(b["top"] > wmax for b in sc["blobs"]), offenders=bad_b[:5])
+        bad_m = []
+        for bm in sc["beams"]:
+            a_, b_ = bm["a"], bm["b"]
+            for k in range(11):
+                t = k / 10
+                x_, y_, z_ = (a_[0] + t * (b_[0] - a_[0]), a_[1] + t * (b_[1] - a_[1]), a_[2] + t * (b_[2] - a_[2]))
+                half = max(bm["w"], bm["t"]) / 2
+                if z_ + half > wmax and (FI.inside((x_, y_)) or FI.dist((x_, y_)) < half):
+                    if FI.inside((x_, y_)):
+                        bad_m.append((bm["k"], [round(x_, 2), round(y_, 2), round(z_, 2)]))
+                        break
+        R.check("R5", f"sculpt: no beam rises above walk-over ({wmax} m) over the floor", not bad_m,
+                n_beams=len(sc["beams"]), offenders=bad_m[:5])
+        import numpy as np
+        hf = sc["heightfield"]
+        Hh = np.fromfile(os.path.join(ROOT, hf["file"]), dtype="<f4").reshape(hf["shape"])
+        ex_ = hf["extent_sim_m"]
+        gx = ex_["x0"] + np.arange(Hh.shape[1]) / hf["px_per_m"]
+        gy = ex_["y0"] + np.arange(Hh.shape[0]) / hf["px_per_m"]
+        X, Y = np.meshgrid(gx, gy)
+        insideF = np.zeros(X.shape, dtype=bool)
+        n = len(floor)
+        for i in range(n):
+            x0, y0 = floor[i]
+            x1, y1 = floor[(i + 1) % n]
+            if y0 == y1:
+                continue
+            cond = (y0 > Y) != (y1 > Y)
+            xi = x0 + (Y - y0) * (x1 - x0) / (y1 - y0)
+            insideF ^= cond & (xi > X)
+        dev = float(np.max(np.abs(Hh[insideF]))) if insideF.any() else 0.0
+        R.check("R5", "terrain: the heightfield is exactly 0 at every sample on the floor (the sim's plane); relief only outside",
+                dev <= 1e-6 and hashlib.sha256(open(os.path.join(ROOT, hf["file"]), "rb").read()).hexdigest() == hf["sha256"],
+                samples_on_floor=int(insideF.sum()), max_abs_z_on_floor_m=dev, relief_outside_max_m=round(float(Hh[~insideF].max()), 3))
 
     # ---------------- R6 the stair ----------------
     S = L["stair"]
@@ -231,7 +339,7 @@ def validate(L, check_provenance=True):
     p3 = next(a for a in anchors if a["id"] == "p03")
     north = [tuple(p) for p in S["top_landing"]["boundary_edge"]]
     on_bd = max(G.dist_to_boundary(p, floor) for p in north)
-    in_floor = overlap_area(land, floor)
+    in_floor = FI.overlap(land)
     box3 = [(p3["x"] + sx * h, p3["y"] + sy * h) for sx, sy in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
     to_patch = min(G.seg_poly_dist(north[i], north[i + 1], box3) for i in range(len(north) - 1))
     to_disc = min(G.dist_point_seg((p3["x"], p3["y"]), north[i], north[i + 1]) for i in range(len(north) - 1)) - r_disc
@@ -242,8 +350,8 @@ def validate(L, check_provenance=True):
             landing_north_edge_len_m=round(sum(math.dist(north[i], north[i + 1]) for i in range(len(north) - 1)), 3))
     for part in ("top_landing", "flight", "bottom_landing"):
         poly = [tuple(p) for p in S[part]["polygon"]]
-        R.check("R6", f"stair {part} lies OUTSIDE the floor (zero overlap)", overlap_area(poly, floor) <= TOL,
-                overlap_m2=round(overlap_area(poly, floor), 6))
+        R.check("R6", f"stair {part} lies OUTSIDE the floor (zero overlap)", FI.overlap(poly) <= TOL,
+                overlap_m2=round(FI.overlap(poly), 6))
     # open side: nothing blocking within 1.0 m of the flight's SEA-side edge (outside the flight)
     east_edge = (fl[1], fl[2])
     near_e = [(G.seg_poly_dist(east_edge[0], east_edge[1], [tuple(p) for p in f["footprint"]]), f["id"]) for f in blockers]
@@ -271,7 +379,7 @@ def validate(L, check_provenance=True):
         cp = [tuple(p) for p in cave["footprint"]]
         g_foot = G.seg_poly_dist(fl[2], fl[3], cp)
         on_ledge = overlap_area(cp, ledge) > 0.0 or G.poly_poly_gap(cp, ledge) <= 0.05
-        to_lip = G.poly_poly_gap(cp, floor)
+        to_lip = min(FI.dist(p) for p in cp) if FI.overlap(cp) <= TOL else 0.0
         R.check("R6", "the cave is at the stair's foot: on the ledge, within 4 m of the foot, at the ledge's z, in the cliff face under the lip (<= 0.5 m out)",
                 on_ledge and g_foot <= 4.0 and abs(cave["z_bottom_m"] - S["bottom_landing"]["z_m"]) <= TOL and to_lip <= 0.5,
                 cave_to_foot_m=round(g_foot, 3), cave_to_lip_m=round(to_lip, 3), cave_z_m=[cave["z_bottom_m"], cave["z_top_m"]])
@@ -291,7 +399,7 @@ def validate(L, check_provenance=True):
             n_in += G.point_in_poly((x, y), mere)
     R.check("R7", "the mere covers p05's 8 m disc 100%", clr5 >= 0.0, disc_edge_clearance_m=round(clr5, 4))
     R.info("R7", "p05's box (stale prose) under the mere", p05_box_covered_pct=round(100 * n_in / n_all, 2))
-    mere_in_floor = overlap_area(mere, floor) / G.area(mere)
+    mere_in_floor = FI.overlap(mere) / G.area(mere)
     R.check("R7", "the mere is on the floor (walkable ice, flush)", mere_in_floor >= 0.999,
             mere_area_m2=round(G.area(mere), 2), mere_on_floor_pct=round(100 * mere_in_floor, 3))
     cc = L["stone_circle"]["centre"]
@@ -322,7 +430,7 @@ def validate(L, check_provenance=True):
             ppm_zoom_gd=round(ppm, 4), window_zoom_gd_m=[round(v, 3) for v in cam["window_zoom_gd_1920x1080_m"]])
 
     # ---------------- R10 the deliverers ----------------
-    deliver = {"p02": ["barrow_door"], "p01": ["wreck_hull"], "p04": ["hall_great_door"], "p06": ["fallen_gable"],
+    deliver = {"p02": ["barrow_door"], "p01": ["wreck_hull"], "p04": ["hall_great_door", "hall_porch"], "p06": ["fallen_gable"],
                "p03": ["sea_cave_mouth"]}
     for pid, ids in deliver.items():
         for fid in ids:
@@ -331,8 +439,8 @@ def validate(L, check_provenance=True):
                 R.check("R10", f"{pid}: {fid} exists", False)
                 continue
             poly = [tuple(p) for p in f["footprint"]]
-            oa = overlap_area(poly, floor)
-            gap = G.poly_poly_gap(poly, floor) if oa <= TOL else 0.0
+            oa = FI.overlap(poly)
+            gap = min(FI.dist(p) for p in poly) if oa <= TOL else 0.0
             limit = 22.0 if pid == "p03" else 3.0
             R.check("R10", f"{pid}: {fid} is outside the walkable edge and within {limit} m of it", oa <= TOL and gap <= limit,
                     overlap_m2=round(oa, 6), gap_to_floor_m=round(gap, 3))
@@ -352,6 +460,10 @@ def broken_copy(L):
     B["features"].append({"id": "NC_standing_stone", "kind": "standing_stone",
                           "footprint": G.rect_poly(4.0, -13.0, 1.0, 0.8, 0.0), "z_bottom_m": 0.0, "z_top_m": 2.4,
                           "blocks_movement": True, "blocks_sight": True, "placement": "INSIDE (deliberately)", "note": "negative control"})
+    # (b2) R5: a tall sculpt blob (a 'boulder') dropped on the floor
+    if "sculpt" in B:
+        B["sculpt"]["blobs"].append({"k": "rock", "c": [-6.0, 12.0], "cz": 0.0, "r": [1.2, 1.0, 1.4], "rot": 0.0,
+                                     "rgb": [0.5, 0.5, 0.5], "proto": "rock", "top": 1.4})
     # (c) R6: a narrow, steep stair
     S = B["stair"]
     fl3 = S["flight"]["polygon"]

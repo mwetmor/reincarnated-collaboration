@@ -52,7 +52,11 @@ func _ready() -> void:
 		push_error("barrow_v2: cannot read layout at " + path)
 		return
 	_build_environment()
-	_build_ground()
+	if layout.has("sculpt"):
+		_build_terrain()
+		_build_sculpt()
+	else:
+		_build_ground()
 	_build_features()
 	_build_stair()
 	_build_labels()
@@ -176,6 +180,8 @@ func _build_ground() -> void:
 
 func _build_features() -> void:
 	for f in layout["features"]:
+		if String(f.get("render", "prism")) == "sculpt":
+			continue
 		var kind: String = f["kind"]
 		var col: Color = KIND_RGB.get(kind, Color(0.5, 0.5, 0.5))
 		if kind == "mound":
@@ -209,6 +215,162 @@ func _build_features() -> void:
 		_prism(f["footprint"], float(f["z_bottom_m"]), float(f["z_top_m"]), _mat(col))
 
 
+# ---------------------------------------------------------------- R-C9-149a: the sculpted terrain + dressing
+func _build_terrain() -> void:
+	var hf: Dictionary = layout["sculpt"]["heightfield"]
+	var path := ProjectSettings.globalize_path("res://").path_join("../" + String(hf["file"]).trim_prefix("godot/")).simplify_path()
+	path = ProjectSettings.globalize_path("res://" + String(hf["file"]).trim_prefix("godot/"))
+	var bytes := FileAccess.get_file_as_bytes(path)
+	var H := bytes.to_float32_array()
+	var rows: int = int(hf["shape"][0])
+	var cols: int = int(hf["shape"][1])
+	var ppm_h: float = float(hf["px_per_m"])
+	var ex: Dictionary = hf["extent_sim_m"]
+	var verts := PackedVector3Array()
+	var uvs := PackedVector2Array()
+	verts.resize(rows * cols)
+	uvs.resize(rows * cols)
+	for j in rows:
+		for i in cols:
+			var x := float(ex["x0"]) + float(i) / ppm_h
+			var y := float(ex["y0"]) + float(j) / ppm_h
+			verts[j * cols + i] = Vector3(x, H[j * cols + i], y)
+			uvs[j * cols + i] = _uv(Vector2(x, y))
+	var idx := PackedInt32Array()
+	for j in rows - 1:
+		for i in cols - 1:
+			var a := j * cols + i
+			var b := a + 1
+			var c := a + cols
+			var d := c + 1
+			if H[a] < -4.7 and H[b] < -4.7 and H[c] < -4.7 and H[d] < -4.7:
+				continue
+			idx.append_array(PackedInt32Array([a, b, c, b, d, c]))
+	var nrm := PackedVector3Array()
+	nrm.resize(rows * cols)
+	for t in range(0, idx.size(), 3):
+		var p0 := verts[idx[t]]
+		var fn := (verts[idx[t + 2]] - p0).cross(verts[idx[t + 1]] - p0)
+		for q in 3:
+			nrm[idx[t + q]] += fn
+	for v in nrm.size():
+		nrm[v] = nrm[v].normalized() if nrm[v].length() > 0.0 else Vector3.UP
+	var arr := []
+	arr.resize(Mesh.ARRAY_MAX)
+	arr[Mesh.ARRAY_VERTEX] = verts
+	arr[Mesh.ARRAY_NORMAL] = nrm
+	arr[Mesh.ARRAY_TEX_UV] = uvs
+	arr[Mesh.ARRAY_INDEX] = idx
+	var am := ArrayMesh.new()
+	am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+	var img := Image.load_from_file(ProjectSettings.globalize_path("res://data/ground_colour.png"))
+	var gm := StandardMaterial3D.new()
+	gm.albedo_texture = ImageTexture.create_from_image(img)
+	gm.roughness = 1.0
+	gm.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var mi := MeshInstance3D.new()
+	mi.mesh = am
+	mi.material_override = gm
+	mi.name = "Terrain"
+	add_child(mi)
+	var sea_z := float(layout["sea"]["z_m"])
+	var sm := _mat(Color(0.19, 0.26, 0.33))
+	sm.roughness = 0.35
+	_prism([[-140, -140], [140, -140], [140, 140], [-140, 140]], sea_z, sea_z, sm, false, false)
+
+
+var _protos := {}
+var _mats := {}
+
+
+func _proto(kind: String, variant: int) -> Mesh:
+	var key := "%s_%d" % [kind, variant]
+	if _protos.has(key):
+		return _protos[key]
+	var m: Mesh
+	if kind == "box":
+		var bx := BoxMesh.new()
+		bx.size = Vector3(2, 2, 2)
+		m = bx
+	else:
+		var sp := SphereMesh.new()
+		sp.radius = 1.0
+		sp.height = 2.0
+		var seg := {"rock": [7, 4], "slab": [8, 3], "crown": [8, 5], "blob": [14, 7], "tall": [6, 6]}
+		var sg: Array = seg.get(kind, [10, 5])
+		sp.radial_segments = sg[0]
+		sp.rings = sg[1]
+		var st := SurfaceTool.new()
+		st.create_from(sp, 0)
+		st.deindex()
+		var arrs := st.commit_to_arrays()
+		var vv: PackedVector3Array = arrs[Mesh.ARRAY_VERTEX]
+		if kind != "blob":
+			var r := RandomNumberGenerator.new()
+			r.seed = 1000 + variant * 31 + kind.length()
+			var jit := {}
+			for i in vv.size():
+				var k := "%.3f,%.3f,%.3f" % [vv[i].x, vv[i].y, vv[i].z]
+				if not jit.has(k):
+					jit[k] = 1.0 + r.randf_range(-0.22, 0.18)
+				vv[i] = vv[i] * jit[k]
+		var st2 := SurfaceTool.new()
+		st2.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for i in vv.size():
+			st2.add_vertex(vv[i])
+		if kind == "blob":
+			st2.index()
+		st2.generate_normals()
+		m = st2.commit()
+	_protos[key] = m
+	return m
+
+
+func _cmat(rgb: Array) -> StandardMaterial3D:
+	var key := "%.2f_%.2f_%.2f" % [snappedf(float(rgb[0]), 0.02), snappedf(float(rgb[1]), 0.02), snappedf(float(rgb[2]), 0.02)]
+	if not _mats.has(key):
+		_mats[key] = _mat(Color(float(rgb[0]), float(rgb[1]), float(rgb[2])))
+	return _mats[key]
+
+
+func _build_sculpt() -> void:
+	var sc: Dictionary = layout["sculpt"]
+	var n := 0
+	for b in sc["blobs"]:
+		var mi := MeshInstance3D.new()
+		mi.mesh = _proto(String(b["proto"]), n % 6)
+		mi.material_override = _cmat(b["rgb"])
+		var r: Array = b["r"]
+		var bas := Basis(Vector3.UP, -deg_to_rad(float(b["rot"]))).scaled(Vector3(float(r[0]), float(r[2]), float(r[1])))
+		mi.transform = Transform3D(bas, Vector3(float(b["c"][0]), float(b["cz"]), float(b["c"][1])))
+		add_child(mi)
+		n += 1
+	var unit_box := BoxMesh.new()
+	unit_box.size = Vector3.ONE
+	for bm in sc["beams"]:
+		var a := Vector3(float(bm["a"][0]), float(bm["a"][2]), float(bm["a"][1]))
+		var b := Vector3(float(bm["b"][0]), float(bm["b"][2]), float(bm["b"][1]))
+		var dvec := b - a
+		var ln := dvec.length()
+		if ln < 0.01:
+			continue
+		var z := dvec / ln
+		var x: Vector3
+		if bm.has("xh"):
+			x = Vector3(float(bm["xh"][0]), 0, float(bm["xh"][1]))
+			x = (x - z * x.dot(z)).normalized()
+		else:
+			x = Vector3.UP.cross(z)
+			x = Vector3.RIGHT if x.length() < 0.05 else x.normalized()
+		var y := z.cross(x).normalized()
+		var mi2 := MeshInstance3D.new()
+		mi2.mesh = unit_box
+		mi2.material_override = _cmat(bm["rgb"])
+		mi2.transform = Transform3D(Basis(x * float(bm["w"]), y * float(bm["t"]), z * ln), (a + b) / 2.0)
+		add_child(mi2)
+	print("[bv2] sculpt: %d blobs, %d beams, %d prototypes, %d materials" % [sc["blobs"].size(), sc["beams"].size(), _protos.size(), _mats.size()])
+
+
 func _centroid(poly: Array) -> Vector2:
 	var c := Vector2.ZERO
 	for p in poly:
@@ -218,7 +380,7 @@ func _centroid(poly: Array) -> Vector2:
 
 func _build_stair() -> void:
 	var S: Dictionary = layout["stair"]
-	var stone := _mat(Color(0.74, 0.69, 0.58))
+	var stone := _mat(Color(0.55, 0.53, 0.49))
 	_prism(S["top_landing"]["polygon"], float(S["flight"]["z_bottom_m"]) - 0.3, 0.0, stone)
 	_prism(S["bottom_landing"]["polygon"], float(S["flight"]["z_bottom_m"]) - 0.3, float(S["bottom_landing"]["z_m"]), stone)
 	var fl: Array = S["flight"]["polygon"]   # W_top, E_top, E_foot, W_foot
@@ -232,17 +394,23 @@ func _build_stair() -> void:
 	var tread := float(S["flight"]["step_tread_m"])
 	var w := float(S["width_m"])
 	var z_bot := float(S["flight"]["z_bottom_m"]) - 0.3
-	var step_mats := [_mat(Color(0.78, 0.73, 0.62)), _mat(Color(0.70, 0.65, 0.55))]
+	# R-C9-149a: a ROUGH-CUT rock stair -- still straight and 3 m wide, but every tread is its own hewn
+	# block (width, set-back, tilt and tone jittered a little); the walkable ramp under the nosings is unchanged.
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 149
 	for k in n:
-		var top_z := -float(k + 1) * rise
+		var top_z := -float(k + 1) * rise + rng.randf_range(-0.025, 0.02)
 		var h := top_z - z_bot
 		var bm := BoxMesh.new()
-		bm.size = Vector3(w, h, tread)
+		bm.size = Vector3(w + rng.randf_range(-0.25, 0.05), h, tread + rng.randf_range(0.0, 0.06))
 		var mi := MeshInstance3D.new()
 		mi.mesh = bm
-		mi.material_override = step_mats[k % 2]
+		var tone := rng.randf_range(-0.05, 0.05)
+		mi.material_override = _mat(Color(0.56 + tone, 0.53 + tone, 0.48 + tone))
 		var c2 := top_mid + d2 * (tread * (float(k) + 0.5))
-		mi.transform = Transform3D(Basis(across, Vector3.UP, along), Vector3(c2.x, z_bot + h / 2.0, c2.y))
+		var off := Vector3(across.x, 0, across.z) * rng.randf_range(-0.08, 0.08)
+		var bas := Basis(across, Vector3.UP, along).rotated(Vector3.UP, deg_to_rad(rng.randf_range(-2.5, 2.5)))
+		mi.transform = Transform3D(bas, Vector3(c2.x, z_bot + h / 2.0, c2.y) + off)
 		add_child(mi)
 
 

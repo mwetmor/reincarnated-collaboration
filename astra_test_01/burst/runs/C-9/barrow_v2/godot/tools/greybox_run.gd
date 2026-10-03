@@ -38,6 +38,8 @@ func _process(delta: float) -> bool:
 	scene.free_cam = true
 	if mode == "views":
 		return _views()
+	if mode == "establish":
+		return _establish()
 	return _film(delta)
 
 
@@ -47,14 +49,21 @@ func _views() -> bool:
 	for v in views:
 		shots.append({"id": v["id"], "t": Vector2(float(v["target"][0]), float(v["target"][1])), "gd": true})
 	shots.append({"id": "V0_start_plate_scale", "t": Vector2.ZERO, "gd": false})
+	# R-C9-149a: one wide establishing still of the whole site at the game pitch (zero yaw), for direct
+	# comparison with sketch A; ortho size 78 m of view height = ~98 m of ground depth, labels off
+
 	if vi >= shots.size():
 		print("[bv2] views done: %d" % shots.size())
 		return true
 	var s: Dictionary = shots[vi]
 	if wait == 0:
 		scene.set_zoom(s["gd"])
+		if s.has("size"):
+			scene.cam.size = float(s["size"])
+		for lb in scene.labels:
+			lb.visible = not s.has("nolabels")
 		scene.place_camera(s["t"])
-		scene.set_walker(s["t"] + Vector2(0.0, 1.5), Vector2(0, 1))
+		scene.set_walker(s["t"] + Vector2(0.0, 1.5) if not s.has("size") else Vector2.ZERO, Vector2(0, 1))
 	wait += 1
 	if wait < settle:
 		return false
@@ -62,9 +71,50 @@ func _views() -> bool:
 	var p: String = out_dir.path_join("%s.png" % s["id"])
 	img.save_png(p)
 	print("[bv2] view %s target %s ppm %.4f cam.size %.5f -> %s (%dx%d)" % [s["id"], s["t"], scene.ppm, scene.cam.size, p, img.get_width(), img.get_height()])
+	if s.has("size"):
+		scene.set_zoom(false)
 	vi += 1
 	wait = 0
 	return false
+
+
+## R-C9-149a: the whole site at the game pitch (zero yaw) in one frame, for comparison with sketch A.
+## Run at --resolution 1800x1440 so the frame's width stays inside the 128 m terrain extent.
+var _sv: SubViewport
+
+
+func _establish() -> bool:
+	# rendered through a 1800 x 1440 SubViewport sharing the scene's world, so the frame is independent of
+	# the window (the project's 16:9 stretch lock would otherwise letterbox it)
+	if wait == 0:
+		for lb in scene.labels:
+			lb.visible = false
+		scene.set_walker(Vector2.ZERO, Vector2(0, 1))
+		_sv = SubViewport.new()
+		_sv.size = Vector2i(1800, 1440)
+		_sv.world_3d = root.world_3d
+		_sv.msaa_3d = Viewport.MSAA_4X
+		_sv.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+		var c := Camera3D.new()
+		c.projection = Camera3D.PROJECTION_ORTHOGONAL
+		c.keep_aspect = Camera3D.KEEP_HEIGHT
+		c.size = 93.0
+		c.near = 0.5
+		c.far = 600.0
+		c.rotation_degrees = Vector3(-scene.ALPHA_DEG, 0.0, 0.0)
+		var a := deg_to_rad(scene.ALPHA_DEG)
+		c.position = Vector3(0.5, 0.0, -3.0) + Vector3(0.0, sin(a), cos(a)) * 250.0
+		_sv.add_child(c)
+		root.add_child(_sv)
+		c.make_current()
+	wait += 1
+	if wait < settle + 4:
+		return false
+	var img := _sv.get_texture().get_image()
+	var p: String = out_dir.path_join("E0_establishing.png")
+	img.save_png(p)
+	print("[bv2] establishing ortho size 93.0 m (zero yaw, pitch %.4f) -> %s (%dx%d)" % [scene.ALPHA_DEG, p, img.get_width(), img.get_height()])
+	return true
 
 
 func _film(delta: float) -> bool:

@@ -1,0 +1,665 @@
+"""barrow_v2 BIOME-SCULPT (R-C9-149a, Matt): the greybox carries the land's real shape.
+
+Matt: "I'm concerned about the grey box.. it doesn't seem to take into account the biomes that will be
+covering it... everything looks man made and square."
+
+This module turns the validated plan into sculpted geometry, deterministically (fixed seeds):
+  * organic_floor()   the walkable edge: the disc hull + 1 m as an INNER bound, bulging outward per biome
+                      (N barrow toe + drifts, W ragged shingle/ice shore, S broken cliff lip with bites and
+                      spurs, E/SE trodden yard edge against snowbanks); zero bulge where the stair lands
+  * build()           the terrain heightfield (0 on the floor, relief outside), rocks, groves, the ruined
+                      man-made pieces as beams/blobs, and the walk-over ground detail inside the floor
+
+Everything that is rendered is emitted as data (layout["sculpt"]) so the validator can prove it: beams
+and blobs taller than walk-over must lie outside the floor; the heightfield must be exactly 0 on it.
+Sim frame: +x east, +y SOUTH, z up.
+"""
+import math
+import os
+
+import numpy as np
+
+import bv2_geom as G
+
+TAU = 2 * math.pi
+EXT = {"x0": -62.0, "x1": 66.0, "y0": -74.0, "y1": 62.0}
+HF_PPM = 2.0                    # heightfield samples per metre (0.5 m grid)
+SEA_FLOOR_Z = -4.8              # under the sea plane (-4.5)
+WALKOVER = 0.35                 # interior ground detail never exceeds this (the validator's limit is 0.40)
+
+
+# ------------------------------------------------------------------ small helpers
+def unit(x, y):
+    L = math.hypot(x, y)
+    return (x / L, y / L)
+
+
+class Noise:
+    """Deterministic smooth 2D value noise as a sum of random-phase plane waves."""
+
+    def __init__(self, seed, n=7, base_wl=9.0):
+        r = np.random.default_rng(seed)
+        self.k = []
+        for i in range(n):
+            wl = base_wl / (1.7 ** i)
+            ang = r.uniform(0, TAU)
+            self.k.append((math.cos(ang) * TAU / wl, math.sin(ang) * TAU / wl, r.uniform(0, TAU), 0.62 ** i))
+        self.norm = sum(k[3] for k in self.k)
+
+    def __call__(self, x, y):
+        s = 0.0
+        for kx, ky, ph, a in self.k:
+            s = s + a * np.sin(kx * x + ky * y + ph)
+        return s / self.norm          # about [-1, 1]
+
+
+def resample(poly, step):
+    out = []
+    n = len(poly)
+    for i in range(n):
+        a, b = poly[i], poly[(i + 1) % n]
+        L = math.dist(a, b)
+        k = max(1, int(math.ceil(L / step)))
+        for j in range(k):
+            t = j / k
+            out.append((a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1])))
+    return out
+
+
+def poly_mask(poly, X, Y):
+    inside = np.zeros(X.shape, dtype=bool)
+    n = len(poly)
+    for i in range(n):
+        x0, y0 = poly[i]
+        x1, y1 = poly[(i + 1) % n]
+        if y0 == y1:
+            continue
+        cond = (y0 > Y) != (y1 > Y)
+        xi = x0 + (Y - y0) * (x1 - x0) / (y1 - y0)
+        inside ^= cond & (xi > X)
+    return inside
+
+
+def dist_to_poly_edges(poly, X, Y):
+    d = np.full(X.shape, np.inf)
+    n = len(poly)
+    for i in range(n):
+        ax, ay = poly[i]
+        bx, by = poly[(i + 1) % n]
+        dx, dy = bx - ax, by - ay
+        L2 = dx * dx + dy * dy or 1e-12
+        t = np.clip(((X - ax) * dx + (Y - ay) * dy) / L2, 0, 1)
+        d = np.minimum(d, np.hypot(X - (ax + t * dx), Y - (ay + t * dy)))
+    return d
+
+
+def polyline_dist(pl, X, Y):
+    d = np.full(np.shape(X), np.inf)
+    for (ax, ay), (bx, by) in zip(pl[:-1], pl[1:]):
+        dx, dy = bx - ax, by - ay
+        t = np.clip(((X - ax) * dx + (Y - ay) * dy) / (dx * dx + dy * dy), 0, 1)
+        d = np.minimum(d, np.hypot(X - (ax + t * dx), Y - (ay + t * dy)))
+    return d
+
+
+def smoothstep(e0, e1, x):
+    t = np.clip((x - e0) / (e1 - e0), 0, 1)
+    return t * t * (3 - 2 * t)
+
+
+def compass(x, y):
+    return (np.degrees(np.arctan2(x, -y)) + 360.0) % 360.0
+
+
+def sector_w(c, lo, hi, feather=18.0):
+    """1 inside the compass sector [lo, hi] (wrapping), falling to 0 over `feather` degrees."""
+    c = np.asarray(c, dtype=float)
+    mid = (lo + (((hi - lo) % 360.0) / 2.0)) % 360.0
+    half = ((hi - lo) % 360.0) / 2.0
+    d = np.abs(((c - mid) + 180.0) % 360.0 - 180.0)
+    return np.clip(1.0 - (d - half) / feather, 0.0, 1.0)
+
+
+# ------------------------------------------------------------------ 1. the organic walkable edge
+def organic_floor(disc_hull, protect_pts, p03, seed=149):
+    """Bulge the disc hull OUTWARD per biome. `protect_pts`: list of (x, y, radius_m, cap_m) where the bulge
+    is capped (cap 0 = flush with the hull: the stair's landing; small caps at the deliverers' doors).
+    Returns (polygon, offsets, info)."""
+    pts = resample(disc_hull, 0.5)
+    n = len(pts)
+    # outward vertex normals (the hull is CCW in raw numbers; outward = right of the travel direction)
+    nrm = []
+    for i in range(n):
+        a, b = pts[i - 1], pts[(i + 1) % n]
+        tx, ty = b[0] - a[0], b[1] - a[1]
+        L = math.hypot(tx, ty) or 1.0
+        nx, ny = ty / L, -tx / L
+        if nx * pts[i][0] + ny * pts[i][1] < 0:
+            nx, ny = -nx, -ny
+        nrm.append((nx, ny))
+    s = np.arange(n) * 0.5
+    P = np.array(pts)
+    c = compass(P[:, 0], P[:, 1])
+    r = np.random.default_rng(seed)
+    ph = r.uniform(0, TAU, 12)
+    north = np.clip(1.3 + 0.9 * np.sin(s / 6.5 + ph[0]) + 0.5 * np.sin(s / 2.4 + ph[1]) + 0.25 * np.sin(s / 1.1 + ph[2]), 0.15, None)
+    west = np.clip(1.6 + 1.0 * np.sin(s / 3.3 + ph[3]) + 0.75 * np.sin(s / 1.35 + ph[4]) + 0.45 * np.sin(s / 0.62 + ph[5]), 0.1, None)
+    sq = np.sin(s / 2.9 + ph[6])
+    south = np.clip(1.2 + 1.5 * np.sign(sq) * np.abs(sq) ** 0.35 + 0.5 * np.sin(s / 1.05 + ph[7]) + 0.3 * np.sin(s / 0.55 + ph[8]), 0.0, None)
+    east = np.clip(0.28 + 0.18 * np.sin(s / 1.8 + ph[9]) + 0.12 * np.sin(s / 0.8 + ph[10]), 0.02, None)
+    wN = sector_w(c, 300, 60)
+    wW = sector_w(c, 205, 300)
+    wS = sector_w(c, 150, 205)
+    wE = sector_w(c, 60, 150)
+    wsum = wN + wW + wS + wE + 1e-9
+    f = (north * wN + west * wW + south * wS + east * wE) / wsum
+    # protection: within radius R of a protect point the bulge is capped, feathered over 4 m of arc
+    for (px, py, R, cap) in protect_pts:
+        d = np.hypot(P[:, 0] - px, P[:, 1] - py)
+        w = np.clip(1.0 - (d - R) / 4.0, 0.0, 1.0)
+        f = f * (1 - w) + np.minimum(f, cap) * w
+    # light smoothing (3-tap), never inward
+    f = np.clip((np.roll(f, 1) + 2 * f + np.roll(f, -1)) / 4.0, 0.0, None)
+    for (px, py, R, cap) in protect_pts:
+        d = np.hypot(P[:, 0] - px, P[:, 1] - py)
+        f = np.where(d <= R, np.minimum(f, cap), f)
+    out = [(pts[i][0] + nrm[i][0] * f[i], pts[i][1] + nrm[i][1] * f[i]) for i in range(n)]
+    info = {"resample_m": 0.5, "n_vertices": n, "bulge_m": {"min": round(float(f.min()), 3), "max": round(float(f.max()), 3),
+                                                            "mean": round(float(f.mean()), 3)},
+            "biomes": {"N": "barrow toe and drifts: 0.15-2.8 m", "W": "ragged shingle/ice shore, high-frequency: 0.1-3.5 m",
+                       "S": "broken cliff lip, square-wave bites and spurs: 0-3.4 m", "E/SE": "trodden hall-yard edge: 0.02-0.58 m"},
+            "protected": [{"at": [round(px, 3), round(py, 3)], "radius_m": R, "cap_m": cap} for (px, py, R, cap) in protect_pts]}
+    return out, f, info
+
+
+# ------------------------------------------------------------------ 2. the build
+class Builder:
+    def __init__(self, L, ctx):
+        self.L = L
+        self.ctx = ctx
+        self.blobs = []
+        self.beams = []
+        self.features = []
+        self.rng = np.random.default_rng(1491)
+        w = int(round((EXT["x1"] - EXT["x0"]) * HF_PPM)) + 1
+        hgt = int(round((EXT["y1"] - EXT["y0"]) * HF_PPM)) + 1
+        self.gx = EXT["x0"] + np.arange(w) / HF_PPM
+        self.gy = EXT["y0"] + np.arange(hgt) / HF_PPM
+        self.X, self.Y = np.meshgrid(self.gx, self.gy)
+        self.H = None
+
+    # ---- feature/geometry emitters ----
+    def feat(self, fid, kind, poly, z0, z1, blocks, note, **kw):
+        d = {"id": fid, "kind": kind, "footprint": G.rnd(poly), "z_bottom_m": round(float(z0), 4), "z_top_m": round(float(z1), 4),
+             "blocks_movement": blocks, "blocks_sight": blocks and z1 > 0.4, "render": "sculpt", "note": note,
+             "placement": "OUTSIDE the walkable edge" if blocks else "INSIDE the floor (walk-over)"}
+        d.update(kw)
+        self.features.append(d)
+
+    def blob(self, kind, c, rx, ry, top, base, rot, rgb, proto="rock", fid=None, blocks=None, note=""):
+        """An ellipsoid (rx, ry horizontal) whose visible part runs from `base` to `top`; centre sits
+        so the ellipsoid's equator is at max(base, top - 2*rz) (half-buried for low ground detail)."""
+        rz = max(0.02, (top - base))
+        cz = top - rz if kind not in ("crown",) else top - rz
+        b = {"k": kind, "c": [round(c[0], 3), round(c[1], 3)], "cz": round(float(cz), 3), "r": [round(rx, 3), round(ry, 3), round(float(rz), 3)],
+             "rot": round(rot, 2), "rgb": [round(v, 3) for v in rgb], "proto": proto, "top": round(float(top), 3)}
+        self.blobs.append(b)
+        if fid:
+            poly = G.ellipse_poly(c[0], c[1], rx, ry, rot, 16)
+            self.feat(fid, kind, poly, base, top, top > WALKOVER if blocks is None else blocks, note)
+        return b
+
+    def beam(self, a, b, w, t, rgb, kind="timber", xh=None):
+        """A box from a to b (its length axis), w across (horizontal, perpendicular to the length; or along
+        the hint `xh` for vertical members), t the remaining (roughly vertical) extent."""
+        d = {"k": kind, "a": [round(v, 3) for v in a], "b": [round(v, 3) for v in b], "w": round(w, 3), "t": round(t, 3),
+             "rgb": [round(v, 3) for v in rgb]}
+        if xh is not None:
+            d["xh"] = [round(xh[0], 4), round(xh[1], 4)]
+        self.beams.append(d)
+
+    def hz(self, x, y):
+        fx = (x - EXT["x0"]) * HF_PPM
+        fy = (y - EXT["y0"]) * HF_PPM
+        i0 = int(np.clip(math.floor(fx), 0, self.H.shape[1] - 2))
+        j0 = int(np.clip(math.floor(fy), 0, self.H.shape[0] - 2))
+        tx, ty = fx - i0, fy - j0
+        h00, h10 = self.H[j0, i0], self.H[j0, i0 + 1]
+        h01, h11 = self.H[j0 + 1, i0], self.H[j0 + 1, i0 + 1]
+        return float((h00 * (1 - tx) + h10 * tx) * (1 - ty) + (h01 * (1 - tx) + h11 * tx) * ty)
+
+    # ---- the heightfield ----
+    def terrain(self):
+        L, c = self.L, self.ctx
+        X, Y = self.X, self.Y
+        floor = L["floor"]["polygon"]
+        inF = poly_mask(floor, X, Y)
+        dF = dist_to_poly_edges(floor, X, Y)
+        dout = np.where(inF, 0.0, dF)
+        land = poly_mask(L["land"]["polygon"], X, Y)
+        ice = poly_mask(L["shore_ice"]["polygon"], X, Y) & ~land
+        cmp_ = compass(X, Y)
+        n1, n2, n3 = Noise(11, 7, 26.0), Noise(12, 6, 9.0), Noise(13, 5, 3.5)
+        wN = sector_w(cmp_, 300, 60, 25)
+        wW = sector_w(cmp_, 205, 300, 20)
+        wE = sector_w(cmp_, 60, 150, 20)
+        # rolling snow slopes rising away from the edge, with wind-sculpted drifts
+        roll = smoothstep(0.0, 18.0, dout) * (3.2 + 2.4 * n1(X, Y) + 0.8 * n2(X, Y))
+        drift_dir = np.sin((X * 0.42 + Y * 0.91) / 2.6 + 2.0 * n2(X, Y))
+        drifts = 0.75 * np.clip(drift_dir, 0, None) ** 3 * smoothstep(0.6, 4.0, dout)
+        hN = roll + drifts
+        # the west: shingle beach falling to the shore ice
+        hW = -0.45 * smoothstep(0.0, 6.0, dout) + 0.08 * n3(X, Y) * smoothstep(0.0, 2.0, dout)
+        # the east: the yard -- a trodden flat with a snowbank berm against the edge, then slopes
+        bank = 0.95 * np.exp(-((dout - 1.9) / 0.85) ** 2) * (0.75 + 0.25 * n3(X, Y))
+        for gx_, gy_ in c["bank_gaps"]:
+            bank = bank * np.clip((np.hypot(X - gx_, Y - gy_) - 4.0) / 2.5, 0, 1)
+        hE = 0.12 * n3(X, Y) * smoothstep(0, 2, dout) + bank + smoothstep(14.0, 30.0, dout) * (2.4 + 1.4 * n1(X, Y))
+        ws = wN + wW + wE + 1e-9
+        H = (hN * wN + hW * wW + hE * wE) / ws
+        H = np.where(land, H, SEA_FLOOR_Z)
+        # the barrow: a weathered grassy mound with an irregular outline and a cut passage
+        m = c["mound"]
+        dx, dy = X - m["c"][0], Y - m["c"][1]
+        cr, sr = math.cos(math.radians(m["rot"])), math.sin(math.radians(m["rot"]))
+        u = (dx * cr + dy * sr) / m["a"]
+        v = (-dx * sr + dy * cr) / m["b"]
+        th = np.arctan2(v, u)
+        rad = 1.0 + 0.07 * np.sin(3 * th + 0.4) + 0.05 * np.sin(5 * th + 1.9) + 0.03 * np.sin(9 * th)
+        rho = np.hypot(u, v) / rad
+        mound = m["rise"] * np.clip(1 - rho ** 2, 0, None) ** 0.55 * (1 + 0.06 * n2(X, Y)) + 0.25 * np.clip(1 - rho, 0, 1) * n3(X, Y)
+        H = np.where(land, np.maximum(H, mound), H)
+        # the passage: cut into the mound behind the door
+        pd = c["passage"]
+        du = (X - pd["c"][0]) * pd["u"][0] + (Y - pd["c"][1]) * pd["u"][1]
+        dv = (X - pd["c"][0]) * pd["v"][0] + (Y - pd["c"][1]) * pd["v"][1]
+        cut = (np.abs(dv) <= pd["half_w"]) & (du >= -0.6) & (du <= pd["len"])
+        H = np.where(cut, np.minimum(H, 0.0), H)
+        # the hall stands on a levelled yard
+        hall = poly_mask(c["hall_pad"], X, Y)
+        H = np.where(hall & land, np.minimum(H, 0.05), H)
+        # shore ice (W): a shelf at -0.45 with pressure texture, its seaward edge breaking down to the water
+        # over ~7 m (no vertical ice wall); and the land's own coast (outside the S cliff) slopes into the sea
+        ice_poly = L["shore_ice"]["polygon"]
+        d_ice_edge = dist_to_poly_edges(ice_poly, X, Y)
+        d_land_edge = dist_to_poly_edges(L["land"]["polygon"], X, Y)
+        ice_h = -0.45 + 0.05 * n3(X, Y) - 3.9 * (1 - smoothstep(0.0, 7.0, d_ice_edge)) * smoothstep(1.5, 4.0, d_land_edge)
+        H = np.where(ice, ice_h, H)
+        coast = land & ~inF & ~((cmp_ > 140) & (cmp_ < 220))
+        H = np.where(coast, SEA_FLOOR_Z + (H - SEA_FLOOR_Z) * smoothstep(0.0, 7.0, d_land_edge), H)
+        # the south: a broken cliff. Sea cells near the lip get ledges at random tiers (fractured faces)
+        sea_near = (~land) & (~ice) & (dout < 2.2) & (cmp_ > 105) & (cmp_ < 250)
+        tier = n2(X * 0.6, Y * 0.6) + 0.25 * n3(X * 0.5, Y * 0.5)      # broad, contiguous ledges (not per-cell teeth)
+        ledge_h = np.where(tier > 0.35, -1.3, np.where(tier > -0.1, -2.7, SEA_FLOOR_Z))
+        ledge_h = np.where(dout < 1.2, ledge_h, np.where(tier > 0.55, -3.4, SEA_FLOOR_Z))
+        H = np.where(sea_near, ledge_h, H)
+        # the stair: the ledge at sea level, the flight and landing carved out (their own geometry fills them)
+        st = L["stair"]
+        led = poly_mask(st["bottom_landing"]["polygon"], X, Y)
+        H = np.where(led, st["bottom_landing"]["z_m"], H)
+        for part in ("flight", "top_landing"):
+            msk = poly_mask(st[part]["polygon"], X, Y)
+            H = np.where(msk, SEA_FLOOR_Z, H)
+        wall = poly_mask(c["wall_rock"], X, Y)
+        H = np.where(wall, SEA_FLOOR_Z, H)
+        # the floor and a 0.35 m apron are exactly flat at 0 (the sim's plane)
+        flat = inF | (dF <= 0.35)
+        H = np.where(flat & (land | inF), 0.0, H)
+        H = np.where(inF, 0.0, H)
+        self.H = H.astype(np.float32)
+        self.inF = inF
+        self.land = land
+        return H
+
+    # ---- dressing ----
+    def rock(self, c, size, top_frac, rgb, fid, note, z0=None, sink=0.35, proto="rock"):
+        z0 = self.hz(*c) if z0 is None else z0
+        rx = size * self.rng.uniform(0.75, 1.25)
+        ry = size * self.rng.uniform(0.6, 1.0)
+        top = z0 + size * top_frac
+        base = z0 - size * sink
+        self.blob("rock", c, rx, ry, top, base, float(self.rng.uniform(0, 180)), rgb, proto, fid, True, note)
+
+    def outside_ok(self, c, r, margin=1.0):
+        """True when a disc of radius r + margin at c is clear of the floor."""
+        floor = self.L["floor"]["polygon"]
+        return G.disc_clearance(c, r + margin, floor) < 0 and not G.point_in_poly(c, floor) and \
+            G.dist_to_boundary(c, floor) > r + margin
+
+    def dressing(self):
+        L, c, rng = self.L, self.ctx, self.rng
+        floor = L["floor"]["polygon"]
+        ROCK = (0.50, 0.49, 0.47)
+        DARK = (0.17, 0.14, 0.12)
+        TIMBER = (0.34, 0.25, 0.17)
+        CHAR = (0.13, 0.11, 0.10)
+        # -- rock outcrops and boulder clusters on the slopes (outside the floor) --
+        k = 0
+        for (cx, cy, n, size) in c["rock_clusters"]:
+            for j in range(n):
+                p = (cx + rng.normal(0, size * 1.3), cy + rng.normal(0, size * 1.3))
+                s_ = size * rng.uniform(0.45, 1.1)
+                if not self.outside_ok(p, s_ * 1.3, 1.0):
+                    continue
+                k += 1
+                self.rock(p, s_, rng.uniform(0.5, 1.1), tuple(np.clip(np.array(ROCK) + rng.normal(0, 0.035), 0, 1)),
+                          f"rock_{k}", "rock outcrop / boulder cluster on the slopes, outside the edge")
+        # -- the cliff foot: fallen boulders at sea level --
+        st = L["stair"]
+        keep = [st[k]["polygon"] for k in ("flight", "top_landing", "bottom_landing")]
+
+        def clear_of_stair(p, r):
+            return all((not G.point_in_poly(p, q)) and G.dist_to_boundary(p, q) > r + 2.5 for q in keep)
+        for (px, py) in c["cliff_foot_rocks"]:
+            s_ = rng.uniform(0.6, 1.4)
+            if self.outside_ok((px, py), s_ * 1.3, 0.3) and clear_of_stair((px, py), s_ * 1.3):
+                k += 1
+                self.rock((px, py), s_, 0.8, ROCK, f"rock_{k}", "fallen boulder at the cliff foot", z0=-4.5)
+        # -- ice floes off the shelf --
+        for i, (px, py) in enumerate(c["floes"]):
+            self.blob("floe", (px, py), rng.uniform(1.0, 2.6), rng.uniform(0.8, 2.0), -4.25, -4.6, float(rng.uniform(0, 180)),
+                      (0.80, 0.86, 0.92), "slab", f"floe_{i + 1}", True, "ice floe on the open water")
+        # -- groves: birch (pale trunks, twiggy crowns) and juniper masses --
+        t = 0
+        for (gx_, gy_, kind, n, spread) in c["groves"]:
+            for j in range(n):
+                p = (gx_ + rng.normal(0, spread), gy_ + rng.normal(0, spread))
+                cr_ = 1.8 if kind == "birch" else rng.uniform(0.9, 1.6)
+                if not self.outside_ok(p, cr_, 2.5):
+                    continue
+                t += 1
+                z0 = self.hz(*p)
+                if kind == "birch":
+                    ht = rng.uniform(6.0, 9.0)
+                    lean = rng.normal(0, 0.25, 2)
+                    self.beam((p[0], p[1], z0 - 0.3), (p[0] + lean[0], p[1] + lean[1], z0 + ht), 0.28, 0.28, (0.86, 0.84, 0.80), "birch")
+                    for q in range(3):
+                        zc = z0 + ht * rng.uniform(0.62, 0.95)
+                        o = rng.normal(0, 0.5, 2)
+                        rr = rng.uniform(1.1, 1.9)
+                        self.blob("crown", (p[0] + lean[0] * 0.8 + o[0], p[1] + lean[1] * 0.8 + o[1]), rr, rr * 0.9, zc + rr * 0.8, zc - rr * 0.8,
+                                  float(rng.uniform(0, 180)), (0.55, 0.47, 0.40), "crown")
+                    self.feat(f"birch_{t}", "tree", G.ellipse_poly(p[0], p[1], cr_ + 0.6, cr_ + 0.6, 0, 16), z0, z0 + ht, True,
+                              "birch (bare winter crown), outside the edge")
+                else:
+                    ht = rng.uniform(1.2, 2.6)
+                    self.blob("juniper", p, cr_, cr_ * rng.uniform(0.7, 1.0), z0 + ht, z0 - 0.2, float(rng.uniform(0, 180)),
+                              (0.20, 0.27, 0.20), "crown", f"juniper_{t}", True, "juniper mass, outside the edge")
+        # -- the barrow: stone door (posts + lintel), the dark passage, kerb stones, standing stones --
+        pd = c["passage"]
+        dc = pd["door"]
+        u, v = pd["u"], pd["v"]
+        for sgn in (-1, 1):
+            b0 = (dc[0] + v[0] * sgn * 1.25, dc[1] + v[1] * sgn * 1.25)
+            self.beam((b0[0], b0[1], -0.2), (b0[0] + u[0] * 0.15, b0[1] + u[1] * 0.15, 2.9), 0.7, 0.6, (0.46, 0.45, 0.42), "stone")
+        l0 = (dc[0] - v[0] * 1.9, dc[1] - v[1] * 1.9, 3.15)
+        l1 = (dc[0] + v[0] * 1.9, dc[1] + v[1] * 1.9, 3.05)
+        self.beam(l0, l1, 0.8, 0.7, (0.42, 0.41, 0.38), "stone")
+        self.blob("dark", (dc[0] + u[0] * 1.6, dc[1] + u[1] * 1.6), 1.0, 1.6, 2.6, -0.1, math.degrees(math.atan2(u[1], u[0])), DARK, "box")
+        m = c["mound"]
+        for i in range(22):
+            th = TAU * i / 22 + rng.normal(0, 0.05)
+            cr_, sr_ = math.cos(math.radians(m["rot"])), math.sin(math.radians(m["rot"]))
+            uu, vv = math.cos(th) * m["a"] * 1.0, math.sin(th) * m["b"] * 1.0
+            p = (m["c"][0] + uu * cr_ - vv * sr_, m["c"][1] + uu * sr_ + vv * cr_)
+            if self.outside_ok(p, 0.8, 0.8) and math.dist(p, dc) > 2.6:
+                self.rock(p, rng.uniform(0.5, 0.8), 0.9, (0.47, 0.47, 0.45), f"kerb_{i + 1}", "kerb stone round the mound's toe")
+        for i, (p, ht) in enumerate(c["standing_stones"]):
+            z0 = self.hz(*p)
+            self.blob("stone", p, 0.55, 0.42, z0 + ht, z0 - 0.4, float(rng.uniform(0, 180)), (0.44, 0.44, 0.43), "tall",
+                      f"standing_stone_{i + 1}", True, "standing stone on the barrow slope (stands up, so outside the edge)")
+        # -- the wreck: heeled, broken, ice-locked --
+        w = c["wreck"]
+        ax_ = (math.cos(math.radians(w["rot"])), math.sin(math.radians(w["rot"])))
+        lat = (-ax_[1], ax_[0])
+        if lat[0] < 0:
+            lat = (-lat[0], -lat[1])          # +lat = toward the floor (east): the high, rail side
+        heel = math.radians(18.0)
+        Lh = w["length"]
+
+        def hullpt(s_, side, hfrac):
+            """s_ in [0,1] bow->stern; side -1 low (west) / +1 high (east); hfrac in [0,1] keel->gunwale."""
+            half = 2.3 * math.sqrt(max(0.0, 1 - (2 * s_ - 1) ** 2)) ** 0.8
+            y_l = side * half * math.sin(hfrac * math.pi / 2)
+            z_l = 1.7 * hfrac - 0.2
+            yl2 = y_l * math.cos(heel) - z_l * math.sin(heel) * -1
+            zl2 = y_l * math.sin(heel) + z_l * math.cos(heel)
+            a_ = (s_ - 0.5) * Lh
+            return (w["c"][0] + ax_[0] * a_ + lat[0] * yl2, w["c"][1] + ax_[1] * a_ + lat[1] * yl2, w["z"] + zl2)
+        self.beam(hullpt(0.02, 0, 0), hullpt(0.98, 0, 0), 0.35, 0.35, TIMBER, "keel")
+        for i in range(13):
+            s_ = 0.06 + i * 0.07
+            broken = i >= 10 and i % 2 == 0
+            for side in (-1, 1):
+                p0, p1, p2 = hullpt(s_, side, 0), hullpt(s_, side, 0.55), hullpt(s_, side, 1.0 if not broken else 0.7)
+                self.beam(p0, p1, 0.18, 0.2, TIMBER, "rib")
+                self.beam(p1, p2, 0.16, 0.18, TIMBER, "rib")
+        for hf in (0.35, 0.7):
+            for s0, s1 in ((0.04, 0.45), (0.5, 0.78)):
+                self.beam(hullpt(s0, -1, hf), hullpt(s1, -1, hf), 0.08, 0.32, (0.38, 0.28, 0.19), "plank")
+        self.beam(hullpt(0.05, 1, 1.0), hullpt(0.62, 1, 1.0), 0.2, 0.22, (0.40, 0.29, 0.19), "rail")
+        bow = hullpt(0.0, 0, 0.2)
+        self.beam(bow, (bow[0] - ax_[0] * 0.9, bow[1] - ax_[1] * 0.9, bow[2] + 2.4), 0.3, 0.3, TIMBER, "stem")
+        self.blob("head", (bow[0] - ax_[0] * 1.2, bow[1] - ax_[1] * 1.2), 0.45, 0.3, bow[2] + 3.0, bow[2] + 2.2, 0, (0.30, 0.20, 0.13), "rock")
+        mid = hullpt(0.45, 0, 0)
+        self.beam(mid, (mid[0] - lat[0] * 1.5 + ax_[0] * 1.0, mid[1] - lat[1] * 1.5 + ax_[1] * 1.0, mid[2] + 5.0), 0.26, 0.26, TIMBER, "mast")
+        for i in range(9):
+            s_ = rng.uniform(0, 1)
+            p = hullpt(s_, rng.choice([-1, 1]), 0)
+            self.blob("ice", (p[0] + rng.normal(0, 0.8), p[1] + rng.normal(0, 0.8)), rng.uniform(1.0, 2.0), rng.uniform(0.7, 1.4), -0.15, -0.6,
+                      float(rng.uniform(0, 180)), (0.82, 0.88, 0.93), "slab")
+        # -- the hall: a charred, sagging, half-fallen timber frame, ONE building; porch on the great door --
+        hl = c["hall"]
+        A0, ane, nT, Dp = hl["sw"], hl["ane"], hl["nT"], hl["door"]
+        Lhall, Dd = hl["length"], hl["depth"]
+
+        def hp(s_, d_, z):          # s_ along the hall from its SW end, d_ outward from the west wall
+            return (A0[0] + ane[0] * s_ + nT[0] * d_, A0[1] + ane[1] * s_ + nT[1] * d_, z)
+        bays = np.arange(hl["gable_len"], Lhall + 0.01, 2.6)
+        ridge_z = []
+        for i, s_ in enumerate(bays):
+            sag = 0.9 * math.sin(math.pi * (s_ - bays[0]) / (bays[-1] - bays[0] + 1e-9))
+            fallen = s_ < hl["gable_len"] + 7.5            # the SW third has lost its roof
+            for d_ in (0.0, Dd):
+                hpost = 3.3 - (rng.uniform(0.6, 1.8) if (fallen and rng.uniform() < 0.6) else rng.uniform(0, 0.25))
+                lean = rng.normal(0, 0.12, 2)
+                self.beam(hp(s_, d_, -0.1), (hp(s_, d_, 0)[0] + lean[0], hp(s_, d_, 0)[1] + lean[1], hpost), 0.32, 0.32, CHAR, "post")
+            rz = 6.4 - sag
+            ridge_z.append(rz)
+            if not fallen or i % 3 == 0:
+                for d_ in (0.0, Dd):
+                    self.beam(hp(s_, d_, 3.2), hp(s_, Dd / 2, rz), 0.22, 0.26, CHAR, "rafter")
+            elif rng.uniform() < 0.7:          # fallen rafters, lying askew in the hall
+                self.beam(hp(s_ + rng.normal(0, 0.4), 1.0, 0.15), hp(s_ + rng.normal(0, 0.8), Dd - 1.2, rng.uniform(0.4, 1.6)), 0.22, 0.24, CHAR, "fallen")
+        for d_ in (0.0, Dd):
+            self.beam(hp(bays[0] + 7.5, d_, 3.25), hp(bays[-1], d_, 3.15), 0.26, 0.3, CHAR, "plate")
+        k0 = int(np.searchsorted(bays, hl["gable_len"] + 7.5))
+        for i in range(k0, len(bays) - 1):
+            self.beam(hp(bays[i], Dd / 2, ridge_z[i]), hp(bays[i + 1], Dd / 2, ridge_z[i + 1]), 0.28, 0.3, CHAR, "ridge")
+        # surviving roof boards on the SE (camera-facing) slope of the NE bays, burnt through in patches
+        for i in range(k0, len(bays) - 1):
+            for j in range(5):
+                if rng.uniform() < 0.35:
+                    continue
+                f0 = j / 5
+                z_a = 3.2 + (ridge_z[i] - 3.2) * (1 - f0)
+                d_a = Dd / 2 + (Dd / 2) * f0
+                self.beam(hp(bays[i] + 0.1, d_a, z_a), hp(bays[i + 1] - 0.1, d_a, z_a), Dd / 2 / 5 * 1.25, 0.06, (0.22, 0.18, 0.14), "board")
+        # back wall planks (SE wall, faces the camera), gappy and charred
+        for s_ in np.arange(bays[0] + 7.5, Lhall, 0.55):
+            if rng.uniform() < 0.3:
+                continue
+            ht = rng.uniform(1.4, 3.1)
+            self.beam(hp(s_, Dd + 0.05, -0.1), hp(s_, Dd + 0.05, ht), 0.5, 0.12, (0.20, 0.16, 0.13), "plank", xh=ane)
+        # the porch on the great door (folded in from lane BVP's bvp_porch.py spec): a gabled porch 3.6 x 2.4 m,
+        # centred 0.8 m NE of the door station, eaves 3.4 m, ridge 5.0 m running OUT from the wall toward
+        # p04's patch so the roof clears the hall's silhouette on screen; the double doors stand open at the wall.
+        nin = (-nT[0], -nT[1])
+        pc = hl["porch"]
+        s_p = hl["door_s"] + pc["shift_ne"]
+        hw, dep = pc["width"] / 2, pc["depth"]
+        for sv in (-hw, hw):
+            for dd in (0.25, dep - 0.2):
+                b0 = hp(s_p + sv * 0.92, -dd, 0.0)
+                self.beam((b0[0], b0[1], -0.1), (b0[0], b0[1], pc["eave"]), 0.34, 0.34, TIMBER, "porch_post")
+            fr = hp(s_p + sv * 0.92, -(dep - 0.2), 0.0)
+            self.blob("finial", (fr[0], fr[1]), 0.26, 0.26, pc["eave"] + 0.75, pc["eave"] - 0.05, 0, (0.30, 0.21, 0.13), "rock")
+            self.beam(hp(s_p + sv, 0.0, pc["eave"]), hp(s_p + sv, -dep - 0.3, pc["eave"]), 0.22, 0.26, TIMBER, "porch_eave")
+        self.beam(hp(s_p, 0.0, pc["ridge"]), hp(s_p, -dep - 0.3, pc["ridge"]), 0.26, 0.28, TIMBER, "porch_ridge")
+        for sv in (-1, 1):
+            for dd in np.linspace(0.0, dep + 0.3, 6):
+                self.beam(hp(s_p + sv * hw, -dd, pc["eave"]), hp(s_p, -dd, pc["ridge"]), 0.52, 0.06, (0.31, 0.23, 0.15), "porch_board")
+        # the doorway in the wall, dark, and the two door leaves swung open into the porch
+        dd_ = hp(s_p, 0.02, 0.0)
+        self.blob("dark", (dd_[0], dd_[1]), 1.15, 0.10, 3.0, -0.1, math.degrees(math.atan2(ane[1], ane[0])), DARK, "box")
+        for sv in (-1, 1):
+            hinge = hp(s_p + sv * 1.15, -0.05, 0.0)
+            leaf_end = hp(s_p + sv * 1.25, -1.1, 0.0)
+            self.beam((hinge[0], hinge[1], 1.5), (leaf_end[0], leaf_end[1], 1.5), 0.10, 2.9, (0.36, 0.25, 0.15), "door_leaf")
+        # the fallen gable: the hall's own SW end, the A-frame fallen outward and lying on its rubble
+        gl = hl["gable_len"]
+        for d_ in (0.4, Dd - 0.4):
+            self.beam(hp(gl * 0.2, d_, 0.2), hp(gl * 0.95, Dd / 2, 2.6), 0.3, 0.3, CHAR, "gable_rafter")
+        for zf in (0.6, 1.2, 1.8):
+            self.beam(hp(gl * 0.3 + zf * 0.6, 0.7 + zf * 0.6, zf * 0.9), hp(gl * 0.3 + zf * 0.6, Dd - 0.7 - zf * 0.6, zf * 0.9), 0.2, 0.25, CHAR, "gable_collar")
+        for i in range(10):
+            p = hp(rng.uniform(0.3, gl), rng.uniform(0.6, Dd - 0.6), 0)
+            self.blob("rubble", (p[0], p[1]), rng.uniform(0.6, 1.2), rng.uniform(0.4, 0.9), rng.uniform(0.4, 1.1), -0.2, float(rng.uniform(0, 180)),
+                      (0.16, 0.13, 0.11), "rock")
+        # -- the palisade: leaning, gapped stakes along each run --
+        for (a_, b_) in c["palisade_runs"]:
+            Lr = math.dist(a_, b_)
+            n_ = int(Lr / 0.48)
+            for i in range(n_):
+                if rng.uniform() < 0.22:
+                    continue
+                t_ = (i + 0.5) / n_
+                p = (a_[0] + t_ * (b_[0] - a_[0]), a_[1] + t_ * (b_[1] - a_[1]))
+                z0 = self.hz(*p)
+                ht = rng.uniform(1.9, 3.2)
+                lean = rng.normal(0, 0.18, 2)
+                self.beam((p[0], p[1], z0 - 0.3), (p[0] + lean[0], p[1] + lean[1], z0 + ht), 0.22, 0.22, (0.27, 0.20, 0.14), "stake")
+        # -- the stone circle: weathered, sunken stones (replace the slabs) --
+        for s in c["circle_stones"]:
+            ht = s["z_top_m"]
+            cx_, cy_ = s["c"]
+            self.blob("stone", (cx_, cy_), s["len"] / 2, s["wid"] / 2, ht, -0.25, s["rot"], (0.55, 0.55, 0.52), "rock")
+
+    # ---- walk-over ground detail inside the floor ----
+    def ground_detail(self):
+        L, c, rng = self.L, self.ctx, self.rng
+        floor = L["floor"]["polygon"]
+        mere = L["mere"]["polygon"]
+        stream = L["stream"]["polyline"]
+        Z = L["zones"]["classes"]
+        names = ["grave_ground", "shore_shingle", "cliff_top_rock", "hall_yard_ash", "snow_field"]
+
+        def zone(p):
+            if G.point_in_poly(p, mere):
+                return "mere_ice"
+            if polyline_dist(stream, np.array([p[0]]), np.array([p[1]]))[0] <= 1.3:
+                return "stream_ice"
+            cc = Z["circle"]["disc"]
+            if math.dist(p, cc["centre"]) <= cc["r_m"]:
+                return "circle"
+            best, bn = 1e9, None
+            for nm in names:
+                for sx, sy in Z[nm]["seeds"]:
+                    d = math.dist(p, (sx, sy)) * (1.25 if nm == "snow_field" else 1.0)
+                    if d < best:
+                        best, bn = d, nm
+            return bn
+        x0, x1 = min(q[0] for q in floor), max(q[0] for q in floor)
+        y0, y1 = min(q[1] for q in floor), max(q[1] for q in floor)
+        counts = {}
+        k = 0
+        tries = 0
+        target = 230
+        WIND = 28.0                                   # drifts and ridges align with the prevailing wind
+        while k < target and tries < 20000:
+            tries += 1
+            p = (rng.uniform(x0, x1), rng.uniform(y0, y1))
+            if not G.point_in_poly(p, floor) or G.dist_to_boundary(p, floor) < 0.8:
+                continue
+            if math.hypot(*p) < 1.2:
+                continue                          # the start stays clean
+            zn = zone(p)
+            rot = float(rng.uniform(0, 180))
+            if zn == "snow_field":
+                r_ = rng.uniform(1.5, 4.0)
+                spec = ("drift_berm", r_, r_ * rng.uniform(0.22, 0.38), rng.uniform(0.12, 0.30), (0.92, 0.92, 0.90), "drift", "blob")
+                rot = WIND + float(rng.normal(0, 12))
+            elif zn == "grave_ground":
+                if rng.uniform() < 0.6:
+                    r_ = rng.uniform(0.4, 0.9)
+                    spec = ("heather", r_, r_ * 0.8, rng.uniform(0.15, 0.28), (0.45, 0.30, 0.33), "heather/grass clump", "crown")
+                else:
+                    r_ = rng.uniform(1.2, 2.5)
+                    spec = ("drift_berm", r_, r_ * 0.35, rng.uniform(0.10, 0.22), (0.90, 0.88, 0.88), "drift", "blob")
+                    rot = WIND + float(rng.normal(0, 12))
+            elif zn == "shore_shingle":
+                if rng.uniform() < 0.55:
+                    r_ = rng.uniform(1.2, 3.0)
+                    spec = ("shingle_tongue", r_, r_ * 0.35, rng.uniform(0.05, 0.12), (0.58, 0.60, 0.62), "shingle tongue", "slab")
+                else:
+                    r_ = rng.uniform(0.2, 0.45)
+                    spec = ("pebble", r_, r_ * 0.8, rng.uniform(0.08, 0.2), (0.48, 0.49, 0.50), "shore cobble", "rock")
+            elif zn == "cliff_top_rock":
+                u_ = rng.uniform()
+                if u_ < 0.4:
+                    r_ = rng.uniform(1.0, 2.6)
+                    spec = ("rock_slab", r_, r_ * rng.uniform(0.5, 0.9), rng.uniform(0.08, 0.2), (0.56, 0.55, 0.52), "exposed rock slab", "slab")
+                else:
+                    r_ = rng.uniform(0.15, 0.4)
+                    spec = ("scree", r_, r_ * 0.8, rng.uniform(0.06, 0.18), (0.50, 0.49, 0.47), "scree", "rock")
+            elif zn == "hall_yard_ash":
+                u_ = rng.uniform()
+                if u_ < 0.45:
+                    r_ = rng.uniform(0.7, 1.8)
+                    spec = ("ash_heap", r_, r_ * 0.8, rng.uniform(0.12, 0.30), (0.36, 0.34, 0.32), "ash heap", "blob")
+                else:
+                    r_ = rng.uniform(0.6, 1.4)
+                    spec = ("trodden_snow", r_, r_ * 0.6, rng.uniform(0.05, 0.12), (0.72, 0.70, 0.68), "trodden snow ridge", "blob")
+            elif zn == "mere_ice":
+                r_ = rng.uniform(1.5, 4.0)
+                spec = ("pressure_ridge", r_, 0.22, rng.uniform(0.08, 0.20), (0.80, 0.88, 0.95), "ice pressure ridge", "slab")
+                rot = WIND + 90 + float(rng.normal(0, 25))
+            elif zn == "stream_ice":
+                r_ = rng.uniform(0.5, 1.0)
+                spec = ("stream_bank", r_, r_ * 0.6, rng.uniform(0.12, 0.25), (0.88, 0.89, 0.88), "the frozen stream's bank", "blob")
+            else:          # circle
+                r_ = rng.uniform(0.3, 0.6)
+                spec = ("trodden_snow", r_, r_ * 0.7, 0.06, (0.80, 0.78, 0.74), "trodden snow", "blob")
+            kind, rx, ry, top, rgb, note, proto = spec
+            top = min(top, WALKOVER)
+            if not all(G.point_in_poly(q, floor) for q in G.ellipse_poly(p[0], p[1], rx, ry, rot, 8)):
+                continue
+            k += 1
+            counts[kind] = counts.get(kind, 0) + 1
+            # tinted toward the biome's own ground colour so detail reads as relief, not confetti
+            zrgb = np.array(Z[zn]["rgb"]) if zn in Z else np.array(rgb)
+            if kind in ("drift_berm", "trodden_snow", "stream_bank", "pressure_ridge"):
+                mix = 0.55 * np.clip(zrgb + 0.07, 0, 1) + 0.45 * np.array(rgb)
+            else:
+                mix = 0.45 * zrgb + 0.55 * np.array(rgb)
+            self.blob(kind, p, rx, ry, top, -0.15, rot, tuple(np.clip(mix + rng.normal(0, 0.015), 0, 1)), proto,
+                      f"gd_{k}", False, note)
+        # the frozen stream's banks: low snow-and-reed berms on both sides wherever it crosses the floor
+        for (ax_, ay_), (bx_, by_) in zip(stream[:-1], stream[1:]):
+            Ls = math.dist((ax_, ay_), (bx_, by_))
+            tx_, ty_ = (bx_ - ax_) / Ls, (by_ - ay_) / Ls
+            for t_ in np.arange(0.6, Ls, 1.3):
+                for side in (-1, 1):
+                    p = (ax_ + tx_ * t_ - ty_ * side * 1.75, ay_ + ty_ * t_ + tx_ * side * 1.75)
+                    if not G.point_in_poly(p, floor) or G.point_in_poly(p, mere) or G.dist_to_boundary(p, floor) < 0.8:
+                        continue
+                    k += 1
+                    counts["stream_bank"] = counts.get("stream_bank", 0) + 1
+                    self.blob("stream_bank", p, rng.uniform(0.7, 1.1), rng.uniform(0.35, 0.55), rng.uniform(0.15, 0.28), -0.15,
+                              math.degrees(math.atan2(ty_, tx_)), (0.86, 0.86, 0.82), "blob", f"gd_{k}", False, "the frozen stream's bank")
+        return counts
+
+
+def write_heightfield(H, path):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    H.astype("<f4").tofile(path)
