@@ -38723,6 +38723,13 @@
         "join1_vfx/eor_overlay/previews/eor_overlay_red_S-E-NW_x_loop5-22-43.png",
         "join1_vfx/eor_overlay/previews/eor_overlay_original_S-E-NW_x_loop5-22-43.png"
       ]
+    },
+    {
+      "id": "M-C9-EOR2-R152-CORRECTION",
+      "lane": "EOR2 (drax)",
+      "ts": "2026-10-03T12:22:58Z",
+      "corrects": "M-C9-EOR2-R152-OVERLAY",
+      "note": "WITHDRAWN: the 'web export omitted data/vfx/eor_kc2/' finding. SO's tools/build_web_painted.sh already carries data/vfx/eor_kc2/* in INC_WL (R-C9-143) and the live deploy d069c4b's warlord.pck contains it; my private build used a script copy derived before that line landed. The perf numbers stand (they are from the private build WITH the line). Lane parked per conductor; held: the 5 s eortint=original film with the new sparks, the MultiMesh root cause."
     }
   ],
   "halts": [
