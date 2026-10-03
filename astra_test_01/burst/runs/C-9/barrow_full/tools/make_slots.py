@@ -154,6 +154,56 @@ sk["main_tip"] = dict(sk["main_tip"], along_bone_m=0.39,
 sk["cast_hand_R"] = {"bone": "RightHand", "along_bone_m": 0.07, "what": "the wand hand's palm: the mirrored Fire Ball's spawn (R-C9-119)"}
 jsave("sockets_so_bm.json", sk)
 
+# ---- SORCERESS: the ARENA KIT of record (R-C9-133/134), FIXED by R-C9-138/140 -- so_mx/export/ss138a -----------------
+# orb staff (right) + shield (left) on the Mixamo Pro Sword and Shield clips; the calmer idle (spine pitch), the staff aimed
+# along her facing (hand + forearm twist, the grip untouched), the Fire Ball's orb leading; hood_hair: hood on = hair off.
+# ?armor=bm134 (the slot so_bm134); ?armor=bm134&soidle=ss4 the alternate idle (Mixamo sword-and-shield idle 4)
+SS = C9 / "so_mx/export/ss138a"
+d = MV / "so_bm134"
+body = put(SS / "so-body_ss138.glb", d / "so-body_ss138.glb")
+BM134 = ["gown", "legs", "under_legs", "breastplate", "hood", "gauntlets", "orbstaff", "shield"]
+for p_ in BM134:
+    put(SS / f"{p_}.glb", d / f"{p_}.glb")
+man = copy.deepcopy(herm)
+man["_note"] = "R-C9-138: the arena battle mage (so_mx/export/ss138a: orb staff + shield on the Mixamo sword-and-shield clips), in her manifest's shape (tools/make_slots.py)"
+man["body"] = "so-body_ss138.glb"
+man["body_sha256"] = ""
+man["body_shape_keys"] = ["grip_R", "grip_L", "under_battlemage", "hood_hair"]
+man["pieces"] = [{"piece": p_, "mode": "skin", "glb": f"{p_}.glb"} for p_ in BM134]
+man["layer_order"] = ["body", "gown", "legs", "under_legs", "breastplate", "hood", "gauntlets", "orbstaff", "shield"]
+man["shape_key_rules"] = {"grip_R": "1 while the orb staff is worn", "grip_L": "1 while the shield is worn",
+                          "under_battlemage": "1 while the gown is worn", "hood_hair": "R-C9-140: 1 while the hood is worn -- the hair pulled inside her"}
+JM = jload(C9 / "join1_render/manifests/d2-fire-sorc-bm_clips.json")
+man["locomotion_in_place"] = {"rule": "locomotion ships IN PLACE; drive at the foot-lock speed (s18_footlock_contact, the JOIN-1 manifest)",
+                              "walk": {"seconds": JM["clips"]["walk"]["seconds"], "speed_m_s": JM["locomotion_in_place"]["walk"]["speed_m_s"]},
+                              "run": {"seconds": JM["clips"]["run"]["seconds"], "speed_m_s": JM["locomotion_in_place"]["run"]["speed_m_s"]},
+                              "_source": "join1_render/manifests/d2-fire-sorc-bm_clips.json (the walk and run clips are ss134f's, unchanged in their legs)"}
+jsave("gear_so_bm134.json", man)
+ss = jload(C9 / "so_mx/work/character_sorceress_ss138.json")
+for alt, idle in (("", "idle"), ("_ss4", "idle_ss4")):
+    ch = copy.deepcopy(ss)
+    ch["model"] = "res://models/variants/so_bm134/so-body_ss138.glb"
+    ch["gear_dir"] = "res://models/variants/so_bm134"
+    ch["gear_manifest"] = "res://data/slots/gear_so_bm134.json"
+    full = ["gown", "legs", "under_legs", "breastplate", "hood", "gauntlets", "orbstaff", "shield"]
+    ch["gear_stacks"] = [[], ["gown", "legs", "under_legs"], ["gown", "legs", "under_legs", "breastplate"],
+                         ["gown", "legs", "under_legs", "breastplate", "hood", "gauntlets"], [p_ for p_ in full if p_ != "hood"], full]
+    # the page starts her on the LAST stack: the full kit, hood ON (hair off); G steps base -> ... -> hood off -> full again
+    ch["gear_stack_names"] = ["base", "gown + legs", "+ breastplate", "+ hood + gauntlets", "armed, hood off", "full kit (+orb staff +shield)"]
+    ch["sockets"] = "res://data/slots/sockets_so_bm134.json"
+    ch["clips"] = dict(ch["clips"], idle=idle)
+    ch["clips_armed"] = dict(ch["clips_armed"], idle=idle)
+    ch.pop("clips_alt_idle", None)
+    ch["_idle"] = idle
+    jsave(f"so_bm134{alt}.json", ch)
+OUT["so_bm134"] = {"body_md5": body, "pieces": BM134}
+sk = jload(G / "data/sockets_sorceress.json")
+ORB = {"bone": "weapon_r", "along_bone_m": -0.5689,
+       "what": "the ORB: weapon_r - 0.5689 m along +Y (the JOIN-1 kit d2-fire-sorc-bm's main_tip, measured off orbstaff.glb): the Fire Ball's spawn and the Meteor's call"}
+sk["main_tip"] = dict(ORB)
+sk["orb_tip"] = dict(ORB)
+jsave("sockets_so_bm134.json", sk)
+
 # ---- BARBARIAN: the freed champion, C (painted + grade) and B (painted) --------------------------------------
 him = jload(G / "data/character.json")
 himm = jload(G / "data/gear_manifest.json")
@@ -212,7 +262,7 @@ assert OUT["barb_t1211"]["body_md5"] == "3e32a9fc" and OUT["barb_f25l"]["body_md
 
 # ---- THE DARK KNIGHT (c=warlord) --------------------------------------------------------------------------------
 WD = G / "models/warlord"
-FH = C9 / "wl_e1/export/final_k_eor2"  # R-C9-132/133: final_k_eor with the EXTENDED-ARM spin clips (E1 f734570d2: the fists 0.80 m out, the haft slid 0.20 m through them, the head 1.93 m out). Before, R-C9-127/128: final_k (Mixamo Great Sword set on the narrowed base, painted + graded, bind order = the body; 29faf3a42) + the Eye of Reckoning spin clips eor_spin_start / eor_spin_loop (08abac31b). Before: final_j2 (bind-order fix), final_j (stage J)
+FH = C9 / "wl_e1/export/final_k_eor3"  # R-C9-141: eor3 (E1b cf004d7c2) = eor2 with ONLY the body's head crown tucked under the helm shell (POSITION data; every piece byte-identical). Before, R-C9-132/133: final_k_eor with the EXTENDED-ARM spin clips (E1 f734570d2: the fists 0.80 m out, the haft slid 0.20 m through them, the head 1.93 m out). Before, R-C9-127/128: final_k (Mixamo Great Sword set on the narrowed base, painted + graded, bind order = the body; 29faf3a42) + the Eye of Reckoning spin clips eor_spin_start / eor_spin_loop (08abac31b). Before: final_j2 (bind-order fix), final_j (stage J)
 for f in ("wl_body.glb", "wl_mace.glb", "wl_chest.glb", "wl_pauldrons.glb", "wl_helm.glb", "wl_helm_ice.glb", "wl_cape.glb"):
     put(FH / f, WD / f)
 wl = jload(C9 / "wl_e1/work/character_wl.json")
@@ -229,7 +279,7 @@ man["shape_key_rules"] = {}
 WLM = jload(FH / "wl_manifest.json")
 FL = WLM["foot_lock_m_per_s"]          # R-C9-127: final_k's foot-lock speeds (walk 1.073, run 4.062)
 man["locomotion_in_place"] = {"rule": "locomotion ships IN PLACE; drive at the foot-lock speed", "walk": {"speed_m_s": FL["walk"]},
-                              "run": {"speed_m_s": FL["run"]}, "_source": "wl_e1/export/final_k_eor2/wl_manifest.json foot_lock_m_per_s"}
+                              "run": {"speed_m_s": FL["run"]}, "_source": "wl_e1/export/final_k_eor3/wl_manifest.json foot_lock_m_per_s"}
 jsave("gear_warlord.json", man)
 # the eye colour (wl_manifest.json eye_variant): ONE helm loaded -- violet (the default) or ice, the piece keeps its name
 mani = copy.deepcopy(man)

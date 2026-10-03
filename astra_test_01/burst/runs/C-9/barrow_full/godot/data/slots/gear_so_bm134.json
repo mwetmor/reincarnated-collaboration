@@ -1,0 +1,92 @@
+{
+ "_note": "R-C9-138: the arena battle mage (so_mx/export/ss138a: orb staff + shield on the Mixamo sword-and-shield clips), in her manifest's shape (tools/make_slots.py)",
+ "body": "so-body_ss138.glb",
+ "body_sha256": "",
+ "height_m": 1.6995,
+ "scale_applied": 1.0,
+ "facing": "-Y (Blender) = +Z in Godot/glTF",
+ "his_right": "-X",
+ "up": "+Z (Blender) = +Y in Godot/glTF",
+ "body_shape_keys": [
+  "grip_R",
+  "grip_L",
+  "under_battlemage",
+  "hood_hair"
+ ],
+ "layer_order": [
+  "body",
+  "gown",
+  "legs",
+  "under_legs",
+  "breastplate",
+  "hood",
+  "gauntlets",
+  "orbstaff",
+  "shield"
+ ],
+ "world_scale_rule": {
+  "factor": 1.25178,
+  "world_height_m": 2.1274,
+  "_note": "HIS world factor applied to her, as the scene does: she renders at her own 1.6995 m times the same factor, i.e. 2.127 m against his 2.316 m"
+ },
+ "pieces": [
+  {
+   "piece": "gown",
+   "mode": "skin",
+   "glb": "gown.glb"
+  },
+  {
+   "piece": "legs",
+   "mode": "skin",
+   "glb": "legs.glb"
+  },
+  {
+   "piece": "under_legs",
+   "mode": "skin",
+   "glb": "under_legs.glb"
+  },
+  {
+   "piece": "breastplate",
+   "mode": "skin",
+   "glb": "breastplate.glb"
+  },
+  {
+   "piece": "hood",
+   "mode": "skin",
+   "glb": "hood.glb"
+  },
+  {
+   "piece": "gauntlets",
+   "mode": "skin",
+   "glb": "gauntlets.glb"
+  },
+  {
+   "piece": "orbstaff",
+   "mode": "skin",
+   "glb": "orbstaff.glb"
+  },
+  {
+   "piece": "shield",
+   "mode": "skin",
+   "glb": "shield.glb"
+  }
+ ],
+ "shape_key_rules": {
+  "grip_R": "1 while the orb staff is worn",
+  "grip_L": "1 while the shield is worn",
+  "under_battlemage": "1 while the gown is worn",
+  "hood_hair": "R-C9-140: 1 while the hood is worn -- the hair pulled inside her"
+ },
+ "locomotion_in_place": {
+  "rule": "locomotion ships IN PLACE; drive at the foot-lock speed (s18_footlock_contact, the JOIN-1 manifest)",
+  "walk": {
+   "seconds": 1.1,
+   "speed_m_s": 1.368
+  },
+  "run": {
+   "seconds": 0.7,
+   "speed_m_s": 3.646
+  },
+  "_source": "join1_render/manifests/d2-fire-sorc-bm_clips.json (the walk and run clips are ss134f's, unchanged in their legs)"
+ }
+}

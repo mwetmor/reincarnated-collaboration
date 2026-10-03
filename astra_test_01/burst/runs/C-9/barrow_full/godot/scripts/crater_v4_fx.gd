@@ -115,13 +115,14 @@ var _warm := 0
 var _collapsed := Transform3D(Basis(Vector3.ZERO, Vector3.ZERO, Vector3.ZERO), Vector3.ZERO)
 var _emit_slot := -1
 var _no_embers := false
-# R-C9-118 CRATER v5, each part its own toggle until Matt looks (?v5=abc, any subset; desktop -- --v5 abc):
-#   a  the fall stops on the first object it hits (meteor_fx: the proxies), no bowl there, a scorch at its base
+# R-C9-118 CRATER v5 (?v5=b; desktop -- --v5 b):
 #   b  the crater by the ground it lands on: snow (v4), ice, earth (the splat)
+#   (a, the fall stopping on the first object, was RETIRED by R-C9-142 (Matt: "without the crater visible on the objects
+#    surface, it's not obvious where the meteor landed"; the small-object / slope / side cases "just don't look right"):
+#    the Meteor always lands on the targeted ground point; what stands near it is scorched by scorch_fx.gd)
 #   (c, the dressing burning, was tried and dropped: R-C9-118, Matt "if burning is not feasible, let's skip it" --
 #    +0.72 ms a frame with 4 impacts on the phone renderer after one focused cut (1.85 ms first); take/build/crater_v5.json)
 var v5 := ""
-var scorch = null                   # (a): crater_fx.gd's draped skin, scorch only, depth-tested: hidden where the object stands
 var _no_smoke := false
 var _smoke_sheet := false              # R-C9-128: ?smoke=sheet -- the painted wisp sheet (before)
 ## R-C9-128 smoke puffs (wwcr-style dust): count, life, size, peak alpha, the Barrow's shadow grey-lilac
@@ -170,14 +171,6 @@ func setup(p_scene, p_cam: Camera3D, noise: Texture2D, level: int = 20) -> bool:
 		slots.append({"mi": mi, "mat": mat, "age": 1e9, "live": false, "fade_from": -1.0, "variant": i % variants.size()})
 	_build_particles()
 	_build_debris()
-	if Slots.arg("v5").contains("a"):
-		scorch = load("res://scripts/crater_fx.gd").new()
-		scorch.name = "CraterScorch"
-		add_child(scorch)
-		scorch.setup(scene, cam, noise, Vector3(0.5, 0.7, 0.5), 0.75)
-		scorch.dent = false
-		for sl2 in scorch.slots:
-			(sl2["mat"] as ShaderMaterial).set_shader_parameter("scorch_only", 1.0)
 	_warm = 4
 	var a := OS.get_cmdline_user_args()
 	_no_embers = a.has("--v4-no-embers")
@@ -382,7 +375,7 @@ func _build_debris() -> void:
 	add_child(mmi)
 
 
-func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
+func start(target: Vector3, surf := "snow") -> Dictionary:
 	"""A crater at target: the oldest skin taken when all are live, a random painted variant (never rotated), the
 	snow pressed, the bowl scaled to the snow's depth, the debris thrown, the embers and smoke moved here."""
 	var t0 := Time.get_ticks_usec()
@@ -396,7 +389,7 @@ func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
 			oldest = float(slots[i]["age"])
 			pick = i
 	var sl: Dictionary = slots[pick]
-	# (b) a variant of THIS ground (snow if it has none); (a) on an object, no bowl: a scorch at its base instead
+	# (b) a variant of THIS ground (snow if it has none)
 	var pool_v := []
 	for i in variants.size():
 		if String(variants[i]["surf"]) == surf:
@@ -417,21 +410,17 @@ func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
 	var snow = scene.snow if scene != null else null
 	var D := 0.0
 	var base_y := target.y
-	var on_obj := not obj.is_empty()
 	if snow != null:
 		D = float(snow.depth_at(Vector2(target.x, target.z)))
 		base_y = float(snow.surface_y(Vector2(target.x, target.z)))
-		if surf == "snow" and not on_obj:
+		if surf == "snow":
 			snow._stamp(Vector2(target.x, target.z), Vector2(0, 1), 0.9, 0.9, 0.25, 0.6)      # the real dent under the bowl
 	# the mesh at its full shape (the painting was made of it); the depth bias puts it over the snow
 	var ys := 1.0
 	mi.transform = Transform3D(Basis.IDENTITY.scaled(Vector3(1.0, ys, 1.0)), Vector3(target.x, base_y + 0.01, target.z))
-	mi.visible = not on_obj
-	if on_obj and scorch != null:
-		scorch.start(Vector3(target.x, base_y, target.z), func(p): return float(snow.surface_y(Vector2(p.x, p.z))) if snow != null else base_y)
+	mi.visible = true
 	sl["live"] = true
-	var burn_at: Vector3 = obj["at"] if on_obj else target
-	sl["burn_at"] = burn_at
+	sl["burn_at"] = target
 	sl["age"] = 0.0
 	sl["fade_from"] = -1.0
 	(sl["mat"] as ShaderMaterial).set_shader_parameter("fade", 1.0)
@@ -449,8 +438,8 @@ func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
 	if live == POOL and old_i >= 0 and float(slots[old_i]["fade_from"]) < 0.0:
 		slots[old_i]["fade_from"] = float(slots[old_i]["age"])
 	# the particles move to the newest crater
-	embers.global_position = Vector3(target.x, base_y + 0.03, target.z) if not on_obj else (obj["at"] as Vector3)
-	smoke.global_position = Vector3(target.x, base_y + 0.05, target.z) if not on_obj else (obj["at"] as Vector3)
+	embers.global_position = Vector3(target.x, base_y + 0.03, target.z)
+	smoke.global_position = Vector3(target.x, base_y + 0.05, target.z)
 	# (b) ice: steam, not smoke -- the same painted wisp, white, quicker and shorter; shards for debris
 	var spm := smoke.process_material as ParticleProcessMaterial
 	spm.initial_velocity_min = 0.6 if surf == "ice" else 0.25
@@ -476,7 +465,7 @@ func start(target: Vector3, surf := "snow", obj := {}) -> Dictionary:
 		_debris.append({"slot": pick, "k": k, "pos": Vector3(target.x, base_y + 0.15, target.z),
 			"vel": Vector3(cos(a) * sp, randf_range(1.6, 3.0), sin(a) * sp), "landed": false,
 			"size": randf_range(0.06, 0.13), "ground": base_y})
-	var rec := {"slot": pick, "variant": int(variants[vi]["seed"]), "surf": surf, "on_object": String(obj.get("id", "")), "snow_D": snippet(D), "bowl_scale": snippet(ys),
+	var rec := {"slot": pick, "variant": int(variants[vi]["seed"]), "surf": surf, "snow_D": snippet(D), "bowl_scale": snippet(ys),
 		"start_us": Time.get_ticks_usec() - t0}
 	report["last_start"] = rec
 	return rec

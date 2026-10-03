@@ -2,7 +2,7 @@ extends RefCounted
 class_name Slots
 ## C-9 R-C9-117 -- WHICH SLOT WALKS THE PAINTED BARROW, from the select page's query (or the desktop's args). drax.
 ##   ?c=barbarian|sorceress|warlord      ?eye=violet|ice (the dark knight's helm)
-##   ?armor=   sorceress: cur | bmc | bmd           barbarian: viking | gladc | gladb
+##   ?armor=   sorceress: cur | bmc | bmd | bm134 (the arena kit; &soidle=ss4 its alternate idle)           barbarian: viking | gladc | gladb
 ##   ?hold=    barbarian with the viking set: (absent: the page's own T12_10) | t1211 | f25l | f40l   (web only)
 ## (?fb, ?meteor, ?fall are read where they always were.) A variant's models are their own pack, fetched by the page
 ## only for that variant (variant_<slot>.pck); on the desktop the files are already under res://.
@@ -12,6 +12,10 @@ const SLOTS := {
 		"sockets": "res://data/slots/sockets_so_bm.json", "label": "battle mage C (painted)"},
 	"so_bmd": {"who": "sorceress", "path": "res://data/slots/so_bmd.json", "script": "res://scripts/slot_knight.gd",
 		"sockets": "res://data/slots/sockets_so_bm.json", "label": "battle mage D (painted + steel pass)"},
+	"so_bm134": {"who": "sorceress", "path": "res://data/slots/so_bm134.json", "script": "res://scripts/slot_knight.gd",
+		"sockets": "res://data/slots/sockets_so_bm134.json", "pack": "so_bm134", "label": "battle mage, orb staff + shield (arena kit)"},
+	"so_bm134_ss4": {"who": "sorceress", "path": "res://data/slots/so_bm134_ss4.json", "script": "res://scripts/slot_knight.gd",
+		"sockets": "res://data/slots/sockets_so_bm134.json", "pack": "so_bm134", "label": "arena kit, sword-and-shield idle"},
 	"barb_gladc": {"who": "barbarian", "path": "res://data/slots/barb_gladc.json", "script": "res://scripts/slot_knight_him.gd",
 		"label": "champion gladiator C (painted + colour)"},
 	"barb_gladb": {"who": "barbarian", "path": "res://data/slots/barb_gladb.json", "script": "res://scripts/slot_knight_him.gd",
@@ -44,6 +48,8 @@ static func choose(who: String) -> String:
 		return "warlord_ice" if arg("eye") == "ice" else "warlord"      # R-C9-121: ?eye=violet|ice (one helm loaded)
 	var armor := arg("armor")
 	if who == "sorceress":
+		if armor == "bm134":                                             # R-C9-138: the arena kit; ?soidle=ss4 its alternate idle
+			return "so_bm134_ss4" if arg("soidle") == "ss4" else "so_bm134"
 		return {"bmc": "so_bmc", "bmd": "so_bmd"}.get(armor, "")
 	if armor in ["gladc", "gladb"]:
 		return "barb_" + armor
@@ -62,7 +68,7 @@ static func fetch_pack(host: Node, slot: String) -> Dictionary:
 	if s.is_empty() or FileAccess.file_exists(String(s["path"])) or not OS.has_feature("web"):
 		return {"pack": "in main" if FileAccess.file_exists(String(s.get("path", ""))) else "none"}
 	var base := str(JavaScriptBridge.eval("document.baseURI", true))
-	var nm := "variant_%s.pck" % slot
+	var nm := "variant_%s.pck" % String(s.get("pack", slot))     # R-C9-138: two slots can share one pack
 	var url := base.get_base_dir() + "/" + nm if not base.ends_with("/") else base + nm
 	var http := HTTPRequest.new()
 	host.add_child(http)

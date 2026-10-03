@@ -85,6 +85,7 @@ var ground_mat: ShaderMaterial
 var world_mats: Array[ShaderMaterial] = []
 var _prop_inks: Array = []
 var _char_saved := {}
+var charlight := {"mode": "current"}    # R-C9-139 (scripts/char_light.gd)
 var nodes := {}                    # placement id -> root Node3D
 var built := {}                    # placement id -> what the build step knows about it
 var report := {}
@@ -175,6 +176,8 @@ func _ready() -> void:
 	if painted:
 		_dress_painted()
 		set_crucible_visible(false)
+		# R-C9-139: CHARACTER LIGHT (?charlight=a|b|c; empty = the shipped light, nothing runs) -- scripts/char_light.gd
+		charlight = CharLight.apply(self, CharLight.mode_of(Slots.arg("charlight")))
 	_build_hud()
 	if painted and (PaintStack.is_web() or DisplayServer.is_touchscreen_available()):
 		# THE THUMB STICK AND THE FOUR STRIKES (the installed Barrow's barrow_touch.gd), through the
@@ -223,7 +226,7 @@ func _ready() -> void:
 				"depth-only+stencil" if PaintStack.is_compatibility() else "full",
 				str(cl.get("ramp_materials_set", "-")), str(cl.get("painted_no_ambient_by_design", "-")),
 				JSON.stringify(paint.get("compat_color", {})), int(get_viewport().msaa_3d),
-				get_viewport().scaling_3d_scale] + _her_line())
+				get_viewport().scaling_3d_scale] + _her_line() + " " + CharLight.word(charlight))
 	get_viewport().size_changed.connect(_sync_post_scale)
 	if "--frame-cost" in OS.get_cmdline_user_args():
 		_frame_cost_mode()

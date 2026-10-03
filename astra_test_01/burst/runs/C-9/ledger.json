@@ -38235,6 +38235,21 @@
       ],
       "spend": "Astra 0 / cap 8; Meshy 0; fal 0; heavy lock not taken (no Godot/Blender job: numpy/PIL + one ffmpeg encode); disk 14 MB of the 0.6 GiB allotment; df 44 GiB.",
       "open": "Placeholder bodies and greybox only: the look must be re-judged over the barrow_v2 paint; p03's anchor lies above the V7 frame, so only the lip spray and the southern half of the patch show."
+    },
+    {
+      "id": "M-C9-SO-R138-B",
+      "topic": "R-C9-138/139/140/141/142 (b): the combined Barrow web build -- sorceress arena kit option, character-light toggle, meteor scorch, dark knight eor3 + EOR2's EoR re-port -- loadout 973edfb COMMITTED, NOT PUSHED (lane SO drax + two forks)",
+      "result": "Every build_web_painted.sh fence ok (incl. new: variant so_bm134, ?soidle=ss4, ?v5=b scorch on/off, ?charlight a/b/c on all three, texture provenance 66/66, bind order 72/72). SELECT PAGE: sorceress Armour 'Battle mage · orb-staff + shield (arena kit)' = ?armor=bm134 (variant_so_bm134.pck 33.4 MB); 'Arena kit idle': 'Calm standing (fixed lean)' (default) / 'Sword-and-shield stance' = &soidle=ss4; she starts hood ON (hair off), G reaches 'armed, hood off'. Shared row 'Character light (all three)': Current / Brighter sun / Sun + fill / Ambient lift = charlight= / a / b / c (default current; the fork recommends b). Crater v5: one checkbox 'Ice / earth craters + scorch on stones & trees' = v5=b (part (a) retired). select_check 18/18 at phone size. R-C9-139 numbers (ratio body/ground, the real cliffside3d barbarian 0.455): barbarian current 0.340 / a 0.425 / b 0.457 / c 0.407; sorceress 0.276/0.344/0.372/0.330; dark knight 0.237/0.297/0.316/0.280; 0 px differ outside the silhouette; b - current -0.23/-0.005/-0.09 ms/frame (noise 0.65). R-C9-142: meteor always lands on the target; scorch shell on up to 6 pieces within 2.2 m, embers+chips, 3.5 cm/0.2 s shake on birches/cairns/posts only; 4 meteors by stones and birches +0.134 ms/frame, worst 12.87 ms, 0 frames > 20 ms (one cold run had a single 23.0 ms frame not at a cast). R-C9-141: warlord body final_k_eor3 (7dca71221bafc976), stills violet + ice. EOR2: its eor_kc2 data added to the warlord pack's include filter (preloads were not followed; warlord.pck had failed to parse). OPEN: EOR2 had UNCOMMITTED edits to eor_kc2_fx.gd + two shaders at build time; the conductor decides rebuild-then-push or push as is.",
+      "stills": [
+        "barrow_full/take/build/r138_barrow_arena_kit.jpg",
+        "barrow_full/take/build/charlight_sidebyside.jpg",
+        "barrow_full/take/build/r141_helm_violet.jpg",
+        "barrow_full/take/build/r141_helm_ice.jpg",
+        "barrow_full/take/build/r142_stone.jpg",
+        "barrow_full/take/build/r142_birches.jpg",
+        "barrow_full/take/build/r142_ice.jpg"
+      ],
+      "ts": "2026-10-03T02:31:43Z"
     }
   ],
   "halts": [

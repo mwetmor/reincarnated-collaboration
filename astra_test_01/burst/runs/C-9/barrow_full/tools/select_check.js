@@ -19,8 +19,12 @@ const base = process.argv[2]; const out = process.argv[3]; fs.mkdirSync(out, { r
     ['sorceress', {}, 'c=sorceress'],
     ['sorceress', { s_armor: 'bmc', s_meteor: 'mix3' }, 'c=sorceress&armor=bmc&meteor=mix3'],
     ['sorceress', { s_armor: 'bmd', s_fb: 'full', s_fall: '2.4' }, 'c=sorceress&armor=bmd&fb=full&fall=2.4'],
-    ['sorceress', { s_v5: 'ab' }, 'c=sorceress&v5=ab'],
     ['sorceress', { s_v5: 'b' }, 'c=sorceress&v5=b'],
+    ['sorceress', { s_armor: 'bm134' }, 'c=sorceress&armor=bm134'],                                   // R-C9-138
+    ['sorceress', { s_armor: 'bm134', s_idle: 'ss4' }, 'c=sorceress&armor=bm134&soidle=ss4'],
+    ['sorceress', { s_armor: 'bm134', charlight: 'b' }, 'c=sorceress&armor=bm134&charlight=b'],       // R-C9-139
+    ['barbarian', { charlight: 'a' }, 'c=barbarian&hold=t1211&charlight=a'],
+    ['warlord', { charlight: 'c' }, 'c=warlord&charlight=c'],
     ['warlord', {}, 'c=warlord'],
     ['warlord', { w_eye: 'ice' }, 'c=warlord&eye=ice'],
     ['warlord', { w_eor: 'original' }, 'c=warlord&eortint=original'],

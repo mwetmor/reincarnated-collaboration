@@ -1,0 +1,229 @@
+{
+ "_what": "R-C9-142 (Matt): crater v5 part (a) RETIRED; the Meteor always lands on the targeted ground point; pieces within 2.2 m of the impact are scorched on the side facing it (shell of the piece's own mesh, unshaded, depth-tested, never the painted ground), kicked (4 embers + 3 chips each), and LIGHT props (birch, cairn, post) shaken 3.5 cm for 0.2 s. drax, 2026-10-02.",
+ "flag": {
+  "query": "?v5=b (any v5 value containing b, so old ?v5=ab links still work; the 'a' letter is ignored)",
+  "control": "?scorch=0 (desktop -- --scorch 0): v5 craters without the scorch; not on the select page",
+  "log_line": "[crater_v5] crater_v5=on(b) scorch=on(objects=83,light=38,r=2.2)  (also appended to the [meteor_b] armed line, plus scorch_warmed=true)"
+ },
+ "code": {
+  "new": "godot/scripts/scorch_fx.gd",
+  "removed": [
+   "meteor_fx.gd: _build_proxies, first_hit, s['obj'] interception, burst at the hit height",
+   "crater_v4_fx.gd: the (a) scorch node, the obj parameter of start(), the no-bowl / particles-at-object branch",
+   "crater_fx.gd: the scorch_only shader branch (byte-identical to before R-C9-118 (a))"
+  ]
+ },
+ "stills": {
+  "files": [
+   "take/build/r142_stone.jpg",
+   "take/build/r142_birches.jpg",
+   "take/build/r142_ice.jpg"
+  ],
+  "raw_png_dir": "take/build/r142_stills/",
+  "record": {
+   "renderer": "gl_compatibility",
+   "scorch": {
+    "blast_r": 2.2,
+    "kick_pool": 84,
+    "last_hit": {
+     "objects": [],
+     "target": [
+      -5.55,
+      0.0,
+      13.36
+     ],
+     "us": 48
+    },
+    "light": 38,
+    "max_obj": 6,
+    "objects": 83,
+    "shells": 16,
+    "twin_shaders": 1
+   },
+   "shots": {
+    "birches": {
+     "crater": {
+      "bowl_scale": 1.0,
+      "slot": 1,
+      "snow_D": 0.003,
+      "start_us": 272,
+      "surf": "earth",
+      "variant": 201
+     },
+     "ground": "earth",
+     "scorch_hit": {
+      "objects": [
+       {
+        "cls": "birch",
+        "d_m": 0.0,
+        "id": "G1_birch_1",
+        "shake": true,
+        "shells": 1
+       },
+       {
+        "cls": "birch",
+        "d_m": 0.0,
+        "id": "G1_birch_2",
+        "shake": true,
+        "shells": 1
+       },
+       {
+        "cls": "birch",
+        "d_m": 1.41,
+        "id": "G1_birch_4",
+        "shake": true,
+        "shells": 1
+       },
+       {
+        "cls": "birch",
+        "d_m": 1.43,
+        "id": "G1_birch_5",
+        "shake": true,
+        "shells": 1
+       }
+      ],
+      "target": [
+       11.52,
+       0.0,
+       1.85
+      ],
+      "us": 702
+     },
+     "target": [
+      11.52,
+      1.85
+     ]
+    },
+    "ice": {
+     "crater": {
+      "bowl_scale": 1.0,
+      "slot": 2,
+      "snow_D": 0.0,
+      "start_us": 180,
+      "surf": "ice",
+      "variant": 101
+     },
+     "ground": "ice",
+     "scorch_hit": {
+      "objects": [],
+      "target": [
+       -5.55,
+       0.0,
+       13.36
+      ],
+      "us": 48
+     },
+     "target": [
+      -5.55,
+      13.36
+     ]
+    },
+    "stone": {
+     "crater": {
+      "bowl_scale": 1.0,
+      "slot": 0,
+      "snow_D": 0.119,
+      "start_us": 677,
+      "surf": "snow",
+      "variant": 23
+     },
+     "ground": "snow",
+     "scorch_hit": {
+      "objects": [
+       {
+        "cls": "stone_tall",
+        "d_m": 0.6,
+        "id": "ring_p155",
+        "shake": false,
+        "shells": 1
+       },
+       {
+        "cls": "cairn",
+        "d_m": 1.47,
+        "id": "cairn_1",
+        "shake": true,
+        "shells": 1
+       }
+      ],
+      "target": [
+       8.08,
+       0.12,
+       2.34
+      ],
+      "us": 161
+     },
+     "target": [
+      8.08,
+      2.34
+     ]
+    }
+   },
+   "size": [
+    1280,
+    720
+   ],
+   "v5_word": "crater_v5=on(b) scorch=on(objects=83,light=38,r=2.2)"
+  }
+ },
+ "perf_phone_size_compat": {
+  "renderer": "gl_compatibility",
+  "size": [
+   844,
+   390
+  ],
+  "spots": [
+   [
+    8.01,
+    2.27
+   ],
+   [
+    9.03,
+    5.0
+   ],
+   [
+    11.52,
+    1.85
+   ],
+   [
+    13.86,
+    1.84
+   ]
+  ],
+  "method": "4 Meteors 1.2 s apart by ring_p155, cairn_1 and the G1 birches; one discarded prime block, then ABBA x2 scorch on vs the matched control (same casts, scorch detached); 11 s per block, every frame's own time; vsync off",
+  "mean_on_ms": 7.08703397621372,
+  "mean_off_ms": 6.95333163341075,
+  "delta_ms": 0.133702342802967,
+  "max_on_ms": 12.872,
+  "max_off_ms": 14.583,
+  "frames_over_20_on": 0.0,
+  "frames_over_20_off": 0.0,
+  "cold_first_block": {
+   "on1": {
+    "max_ms": 23.041,
+    "frames_over_16": [
+     [
+      5.945,
+      23.04
+     ]
+    ]
+   },
+   "off1": {
+    "max_ms": 14.235,
+    "frames_over_16": []
+   },
+   "on2": {
+    "max_ms": 15.04,
+    "frames_over_16": []
+   },
+   "off2": {
+    "max_ms": 11.156,
+    "frames_over_16": []
+   }
+  },
+  "first_run_before_warm_fix": {
+   "max_on_ms": 220.67,
+   "note": "the first-ever 4 casts (scorch on) hit one 220.7 ms frame: shells first drawn over meshes the warm had not covered; warm now draws a shell over a birch, cairn, post, standing stone and outcrop + the birch shake twin; after it the cold block max is 11.8-15.0 ms (one 23.0 ms frame in one of two cold runs at 5.9 s, not at a cast or impact)"
+  },
+  "raw": "work/r142/perf_scorch2.json, cold_*.json, perf_scorch.json (pre-fix)"
+ }
+}

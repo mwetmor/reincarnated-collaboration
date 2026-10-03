@@ -86,6 +86,14 @@ def rows():
                 [GS / "sorceress_battlemage/paint" / other])
         for p in ("wand", "grimoire"):
             add(G / f"variants/{v}/{p}.glb", "own", GS / "sorceress_battlemage" / exp / f"{p}.glb", "battlemage paint/scenes.json: not dressed")
+    # R-C9-138: the ARENA KIT (so_bm134 = so_mx/export/ss138a, from ss134f): her painted body bake; the battle-mage armour on
+    # the GRADED atlas (D's steel pass: measured nearest, 2.27 vs 4.01 for C's); orb staff and shield keep their own textures
+    add(G / "variants/so_bm134/so-body_ss138.glb", "painted", C9 / "so_d7/work/tex_final.png", "so_mx ss134f/ss138a body: body119's bake")
+    for p in ("breastplate", "gauntlets", "gown", "hood", "legs"):
+        add(G / f"variants/so_bm134/{p}.glb", "painted", GS / "sorceress_battlemage/paint/tex_armour_graded.png", "so_mx ss134 pieces (bmd120's graded set)",
+            [GS / "sorceress_battlemage/paint/tex_armour_final.png"])
+    for p in ("orbstaff", "shield", "under_legs"):
+        add(G / f"variants/so_bm134/{p}.glb", "own", C9 / f"so_mx/export/ss134f/{p}.glb", "so_mx R-C9-134 props (Tripo, unpainted by design)")
     # the champion B (painted) / C (painted + graded)
     for v, body, bimg, aimg, exp in (("barb_gladb", "nb-body_champion_painted.glb", "tex_body_final.png", "tex_armour_final.png", "export_painted"),
                                      ("barb_gladc", "nb-body_champion_graded.glb", "tex_body_graded.png", "tex_armour_graded.png", "export_graded")):
@@ -102,7 +110,7 @@ def rows():
     add(G / "warlord/wl_body.glb", "painted", WL / "work/tex_final_graded.png", "wl_e1 final_k wl_manifest.json: painted + value-graded body",
         [WL / "work/tex_final.png"])
     for p in ("wl_mace", "wl_chest", "wl_pauldrons", "wl_helm", "wl_helm_ice", "wl_cape"):
-        add(G / f"warlord/{p}.glb", "own", WL / f"export/final_k_eor2/{p}.glb", "wl_e1 final_k_eor2 wl_manifest.json: pieces keep their own materials")
+        add(G / f"warlord/{p}.glb", "own", WL / f"export/final_k_eor3/{p}.glb", "wl_e1 final_k_eor3 (R-C9-141) wl_manifest.json: pieces keep their own materials")
     return R
 
 

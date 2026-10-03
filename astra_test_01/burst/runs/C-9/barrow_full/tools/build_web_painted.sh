@@ -130,15 +130,16 @@ FILES_HER=$(list_files her)
 FILES_WL=$(list_files wl)
 # R-C9-117: A VARIANT PACK PER SLOT (the select page's armor / hold), fetched by the page only for that slot
 vfiles() { (cd "$DEST" && ls models/variants/$1/*.glb | sed 's|^|"res://|; s|$|"|' | paste -sd, -); }
-VARIANTS="so_bmc so_bmd barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l"  # R-C9-127: N25/N40 dropped
+VARIANTS="so_bmc so_bmd so_bm134 barb_gladc barb_gladb barb_t1211 barb_f25l barb_f40l"  # R-C9-127: N25/N40 dropped
 vinc() { case "$1" in
+  so_bm134) echo "data/slots/so_bm134.json,data/slots/so_bm134_ss4.json,data/slots/gear_so_bm134.json,data/slots/sockets_so_bm134.json";;  # R-C9-138
   so_*) echo "data/slots/$1.json,data/slots/gear_$1.json,data/slots/sockets_so_bm.json";;
   barb_glad*) echo "data/slots/$1.json,data/slots/gear_$1.json";;
   barb_n*) echo "data/slots/$1.json,data/slots/gear_t12d.json";;
   *) echo "data/slots/$1.json,data/slots/gear_t12.json";; esac; }
 INC_COMMON="data/barrow_full_layout.json,data/barrow_full_splat.bin,data/painted_web/*.json,data/painted_web/*.bin,data/painted_web/bakes/*.bin"
 INC_HIM="$INC_COMMON,data/character.json,data/gear_manifest.json"
-INC_WL="$INC_COMMON,data/slots/warlord.json,data/slots/gear_warlord.json,data/slots/warlord_ice.json,data/slots/gear_warlord_ice.json,data/slots/warlord_eyes.json"
+INC_WL="$INC_COMMON,data/slots/warlord.json,data/slots/gear_warlord.json,data/slots/warlord_ice.json,data/slots/gear_warlord_ice.json,data/slots/warlord_eyes.json,data/vfx/eor_kc2/*"  # R-C9-143: EOR2's preloads (textures + shaders) are not followed by the resources filter
 INC_HER="$INC_COMMON,data/character_sorceress.json,data/gear_manifest_sorceress.json,data/sockets_sorceress.json,data/vfx/fire_ball/*.json,data/vfx/fire_ball/*.bin,data/vfx/meteor_mix2/*.json,data/vfx/meteor_mix2/*.bin,data/vfx/crater_v4/*,data/meteor/*.bin,data/meteor/*.json"
 cat > "$DEST/build/.preset_options" <<'OPTS'
 [preset.0.options]
@@ -375,11 +376,17 @@ echo "$M4LINE" | grep -q "meteor=mix4(fall=lane_b_core,impact=lane_a,burn=crater
   && ck 0 "?meteor=mix4: crater v4 armed (3 variants from her pack), the fall at 0.82 s" || ck 1 "?meteor=mix4 (got: $(echo "$M4LINE" | grep -o 'meteor=[^ ]*'))"
 grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_meteor_mix4.log" && ck 1 "?meteor=mix4 launch errors" || ck 0 "?meteor=mix4 launch free of script and shader errors"
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -c "^data/vfx/crater_v4/" | grep -q -v "^0$" && ck 0 "crater v4's meshes and paintings in her pack" || ck 1 "crater v4's data missing from her pack"
-# R-C9-118 CRATER v5 (a) object impact + (b) ground-aware craters, behind ?v5=ab until Matt's look
+# R-C9-118 CRATER v5 (b) ground-aware craters + R-C9-142 the object SCORCH (part (a), the meteor stopping on objects, RETIRED),
+# behind ?v5=b; ?scorch=0 the scorch off (a measurement switch, not on the page)
 "$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
-  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --v5 ab > "$LOG/launch_v5.log" 2>&1 || true
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --v5 b > "$LOG/launch_v5.log" 2>&1 || true
 grep -a -q '^\[barrow_painted\] web:' "$LOG/launch_v5.log" && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_v5.log" \
-  && ck 0 "?v5=ab: crater v5 (object impact, ice/earth craters) launches clean" || ck 1 "?v5=ab launch"
+  && grep -a -q '^\[crater_v5\] crater_v5=on(b) scorch=on(objects=' "$LOG/launch_v5.log" \
+  && ck 0 "?v5=b: ground-aware craters + object scorch launch clean" || ck 1 "?v5=b launch (got: $(grep -a '^\[crater_v5\]' "$LOG/launch_v5.log" | head -1 | cut -c1-120))"
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --v5 b --scorch 0 > "$LOG/launch_v5_noscorch.log" 2>&1 || true
+grep -a -q '^\[crater_v5\] crater_v5=on(b) scorch=off' "$LOG/launch_v5_noscorch.log" && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_v5_noscorch.log" \
+  && ck 0 "?v5=b&scorch=0: the scorch off" || ck 1 "?v5=b&scorch=0"
 python3 "$SRC/../tools/pck_list.py" "$W/sorceress.pck" | grep -c "^data/vfx/crater_v4/crater_\(101\|102\|201\|202\)" | grep -q "^[1-9]" \
   && ck 0 "crater v5's ice and earth variants in her pack" || ck 1 "crater v5's ice/earth variants missing from her pack"
 # ?fb=c75 (R-C9-110): her Fire Ball's burst tightened to 0.75; the default stays as it was until Matt's look
@@ -427,6 +434,31 @@ for v in $VARIANTS; do
     ck 0 "variant $v: launches from $MP + variant_$v.pck ($(( $(stat -f %z "$W/variant_$v.pck") / 1000000 )) MB), no script or shader error"
   else ck 1 "variant $v (got: $(echo "$VLINE" | cut -c1-120); errors: $(grep -a -c -E 'SCRIPT ERROR|SHADER ERROR' "$LOG/launch_variant_$v.log"))"; fi
 done
+# R-C9-138: the arena kit's alternate idle (?armor=bm134&soidle=ss4) from the same variant pack
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --armor bm134 --soidle ss4 --variant-pack "$W/variant_so_bm134.pck" > "$LOG/launch_variant_so_bm134_ss4.log" 2>&1 || true
+grep -a '^\[barrow_painted\] web:' "$LOG/launch_variant_so_bm134_ss4.log" | head -1 | grep -q "who=sorceress slot=so_bm134_ss4 " \
+  && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_variant_so_bm134_ss4.log" \
+  && ck 0 "?armor=bm134&soidle=ss4: the arena kit with the sword-and-shield idle, from variant_so_bm134.pck" || ck 1 "?armor=bm134&soidle=ss4"
+# R-C9-139: CHARACTER LIGHT (?charlight=a|b|c, scripts/char_light.gd: the characters' own ramp materials only; no light added)
+echo "$SLINE" | grep -q "charlight=current" && ck 0 "no ?charlight: the shipped light (charlight=current)" || ck 1 "default charlight (got: $(echo "$SLINE" | grep -o 'charlight=[^ ]*'))"
+"$GODOT" --main-pack "$W/sorceress.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c sorceress --charlight b --v5 b > "$LOG/launch_charlight_b_her.log" 2>&1 || true
+grep -a '^\[barrow_painted\] web:' "$LOG/launch_charlight_b_her.log" | head -1 | grep -q "charlight=b(" \
+  && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_charlight_b_her.log" \
+  && ck 0 "?c=sorceress&charlight=b&v5=b: sun + fill on her, the Meteor's fire shaders and the scorch clean" || ck 1 "?charlight=b (sorceress)"
+for CL in a c; do
+"$GODOT" --main-pack "$W/warlord.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --c warlord --charlight $CL > "$LOG/launch_charlight_${CL}_wl.log" 2>&1 || true
+grep -a '^\[barrow_painted\] web:' "$LOG/launch_charlight_${CL}_wl.log" | head -1 | grep -q "charlight=${CL}(" \
+  && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_charlight_${CL}_wl.log" \
+  && ck 0 "?c=warlord&charlight=$CL clean" || ck 1 "?charlight=$CL (warlord)"
+done
+"$GODOT" --main-pack "$W/index.pck" --rendering-method gl_compatibility --rendering-driver opengl3_angle \
+  --resolution 640x360 --quit-after 900 -- --as-web --charlight b > "$LOG/launch_charlight_b_him.log" 2>&1 || true
+grep -a '^\[barrow_painted\] web:' "$LOG/launch_charlight_b_him.log" | head -1 | grep -q "charlight=b(" \
+  && ! grep -a -q -E "SCRIPT ERROR|SHADER ERROR|Parse Error" "$LOG/launch_charlight_b_him.log" \
+  && ck 0 "barbarian ?charlight=b clean" || ck 1 "?charlight=b (barbarian)"
 # TEXTURE PROVENANCE (the coordinator, after the E1 lane's flat-texture finding): every body and gear GLB the packs carry
 # against its intended source (the painted / graded atlas its lane's record names, or its own lane export where no painted
 # atlas exists) -- tools/texture_provenance.py; the shipped final_i dark knight body (Tripo's flat texture) is its

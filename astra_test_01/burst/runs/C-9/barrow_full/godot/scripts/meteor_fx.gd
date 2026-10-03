@@ -485,6 +485,17 @@ func _attach(sc) -> void:
 			sc.add_child(c4)
 			if c4.setup(sc, cam, noise):
 				crater4 = c4
+				# R-C9-142: with crater v5 on (?v5=b), the pieces near the impact are scorched; ?scorch=0 the A/B control
+				if c4.v5.contains("b") and Slots.arg("scorch") != "0":
+					var sz = load("res://scripts/scorch_fx.gd").new()
+					sz.name = "MeteorScorch"
+					sc.add_child(sz)
+					if sz.setup(sc, cam, noise):
+						scorch = sz
+				var v5w := "crater_v5=%s scorch=%s" % ["on(b)" if c4.v5.contains("b") else "off",
+					("on(objects=%d,light=%d,r=%.1f)" % [int(scorch.report["objects"]), int(scorch.report["light"]), float(scorch.report["blast_r"])]) if scorch != null else "off"]
+				report["v5_word"] = v5w
+				print("[crater_v5] " + v5w)
 			report["mix"] = {"version": 4, "fall": "lane_b_core", "impact": "lane_a_painted" if burst_a != null else "FAILED(%s)" % String(ba.report.get("error", "?")),
 				"burn": "crater_v4" if crater4 != null else "FAILED(%s)" % String(c4.report.get("error", "?")), "warp": "post", "ring": "off", "rock_shadow": shadow_on}
 		elif mix3:
@@ -512,8 +523,6 @@ func _attach(sc) -> void:
 			_mix1_fall(sc)
 	_setup()
 	force_at = Slots.arg("meteorat")
-	if mix4:
-		_build_proxies()
 	if mix2:
 		for sl in pool:
 			var mr: ShaderMaterial = sl["m_rock"]
@@ -630,6 +639,8 @@ func _arm() -> void:
 		str(report.get("warm_ms")), str(release_s), String(report.get("placeholder_meteor")),
 		String(report.get("fire_ball")), POOL, str((sun.light_cull_mask & FX_LAYER) == 0)]
 	line += " swaps=%s" % JSON.stringify(swap_report)
+	if report.has("v5_word"):
+		line += " " + String(report["v5_word"]) + (" scorch_warmed=%s" % str(scorch.warmed) if scorch != null else "")
 	report["armed"] = line
 	print("[meteor_b] armed " + line)
 
@@ -985,8 +996,12 @@ func warm_up(at: Vector3) -> void:
 		for _f in 2:
 			await get_tree().process_frame
 	_fx_shaders(true)
+	if scorch != null:
+		scorch.warm(at + Vector3(0, 0.8, 0), true)
 	for _f in 3:
 		await get_tree().process_frame
+	if scorch != null:
+		scorch.warm(at, false)
 	for s in pool:
 		for key in ["flare", "burst", "comet", "flash", "rock"]:
 			var mi: MeshInstance3D = s[key]
@@ -1046,76 +1061,7 @@ func socket_point(nm: String) -> Vector3:
 
 
 var force_at := ""                   # ?meteorat=x,z (desktop -- --meteorat x,z): the films' and probes' spot
-var proxies: Array = []              # R-C9-118 (a): [{id, kind "box"|"cyl", aabb, c, r, top}] -- the dressing the fall can hit
-
-
-func _build_proxies() -> void:
-	"""(a) ONE PROXY PER PLACED PIECE, built once: a box (its world bounds, 0.85 of the footprint: the painted silhouette is
-	rounder than its bounds) for stones, outcrops, cairns, posts, the lintel and the logs; a trunk cylinder (0.14 m) for a
-	birch. No physics bodies: the fall is one segment, tested against ~80 shapes once per cast."""
-	proxies.clear()
-	if scene == null or not ("nodes" in scene):
-		return
-	for e in scene.layout["placements"]:
-		var id := String(e["id"])
-		var cls := String(e.get("class", ""))
-		if id == "mound" or not scene.nodes.has(id) or cls in ["shield", "raven", ""]:
-			continue
-		var n: Node3D = scene.nodes[id]
-		var wb: AABB = n.global_transform * scene._node_aabb(n)
-		if wb.size.y < 0.25:
-			continue
-		var c := wb.get_center()
-		if cls == "birch":
-			proxies.append({"id": id, "kind": "cyl", "c": Vector2(c.x, c.z), "r": 0.14, "y0": wb.position.y, "top": wb.end.y})
-		else:
-			var sh := Vector3(wb.size.x * 0.85, wb.size.y, wb.size.z * 0.85)
-			proxies.append({"id": id, "kind": "box", "aabb": AABB(c - sh * 0.5, sh), "top": wb.end.y})
-	report["proxies"] = proxies.size()
-
-
-func first_hit(a: Vector3, b: Vector3) -> Dictionary:
-	"""(a) The first proxy the segment a->b meets: {id, t, at} or {}."""
-	var best := {}
-	var bt := 2.0
-	var d := b - a
-	for p in proxies:
-		var t := -1.0
-		if p["kind"] == "box":
-			var bx: AABB = p["aabb"]
-			var t0 := 0.0
-			var t1 := 1.0
-			var ok := true
-			for k in 3:
-				if absf(d[k]) < 1e-6:
-					if a[k] < bx.position[k] or a[k] > bx.end[k]:
-						ok = false
-						break
-				else:
-					var ta := (bx.position[k] - a[k]) / d[k]
-					var tb := (bx.end[k] - a[k]) / d[k]
-					t0 = maxf(t0, minf(ta, tb))
-					t1 = minf(t1, maxf(ta, tb))
-			if ok and t0 <= t1:
-				t = t0
-		else:
-			# a vertical cylinder: the segment's xz against a circle, then its height
-			var c: Vector2 = p["c"]
-			var o := Vector2(a.x, a.z) - c
-			var dd := Vector2(d.x, d.z)
-			var qa := dd.dot(dd)
-			var qb := 2.0 * o.dot(dd)
-			var qc := o.dot(o) - float(p["r"]) * float(p["r"])
-			var disc := qb * qb - 4.0 * qa * qc
-			if qa > 1e-9 and disc >= 0.0:
-				var tt := (-qb - sqrt(disc)) / (2.0 * qa)
-				var y := a.y + d.y * tt
-				if tt >= 0.0 and tt <= 1.0 and y >= float(p["y0"]) and y <= float(p["top"]):
-					t = tt
-		if t >= 0.0 and t < bt:
-			bt = t
-			best = {"id": p["id"], "t": t, "at": a + d * t}
-	return best
+var scorch = null                    # R-C9-142: scorch_fx.gd -- what stands near the impact is charred, kicked, (light props) shaken
 
 
 func cast(target: Vector3) -> Dictionary:
@@ -1132,13 +1078,6 @@ func cast(target: Vector3) -> Dictionary:
 	s["target"] = target
 	s["start"] = target + _to_sun * FALL_L
 	s["hit"] = target + Vector3(0, ROCK_R * 0.6, 0)
-	s["obj"] = {}
-	if crater4 != null and crater4.v5.contains("a"):
-		# (a) THE FALL STOPS ON THE FIRST THING IT MEETS: the burst plays there, at its height; no bowl
-		var h := first_hit(s["start"], s["hit"])
-		if not h.is_empty():
-			s["hit"] = h["at"]
-			s["obj"] = h
 	s["impacted"] = false
 	s["spin_axis"] = Vector3(0.3, 1.0, -0.6).normalized().rotated(Vector3.UP, float(report["casts"].size()) * 1.7)
 	s["shed_acc"] = 0.0
@@ -1315,16 +1254,16 @@ func _step(s: Dictionary, dt: float) -> void:
 		(s["scraps"] as MultiMeshInstance3D).visible = not mix2
 		if mix2:
 			if burst_a != null:
-				var obj: Dictionary = s.get("obj", {})
-				s["ba"] = burst_a.burst(target if obj.is_empty() else (obj["at"] as Vector3))
+				s["ba"] = burst_a.burst(target)
 			if cinders != null:
 				cinders.start(target, BURN_R, _ground_y)
 			if crater != null and owner:
 				s["crater"] = crater.start(target, _ground_y)
 			if crater4 != null and owner:
-				var obj2: Dictionary = s.get("obj", {})
 				var surf := String(scene.ground_class(target)) if scene.has_method("ground_class") and crater4.v5.contains("b") else "snow"
-				s["crater"] = crater4.start(target, surf, obj2)
+				s["crater"] = crater4.start(target, surf)
+			if scorch != null and owner:
+				s["scorch"] = scorch.hit(target)
 		for k in (0 if mix2 else 18):
 			var a := TAU * float(k) / 18.0 + randf_range(-0.2, 0.2)
 			var out := Vector3(cos(a), 0.0, sin(a))
