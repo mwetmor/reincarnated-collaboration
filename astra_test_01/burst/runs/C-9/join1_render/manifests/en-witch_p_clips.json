@@ -1,0 +1,194 @@
+{
+ "what": "JOIN-1 clip manifest for the BETRAYER WITCH (the two w156 witches share this mesh; the bone-hand pauldron is costume) (crucible boss mesh, roster rig heroine01_unarmed) -- lane EN-E2 round 7 group 2 (drax, R-C9-132/133) + C-9 Phase 2 paint pass, read off en_e2/export/final_j",
+ "painted_texture": {
+  "status": "PAINTED (D7 method)",
+  "supersedes": "join1_pack/en-witch (provisional Tripo texture; source body kept at export/final_j_v1)",
+  "method": "D7 camera-painted bake: sheet A (10 low views) + sheet B (game camera, 52.95 deg) Astra EDIT paint-overs projected back onto the rigged mesh (en32_tex.sh: t5_01 canvases, 06a surface, 06b bake, 14 canvas fill)",
+  "sheet_A": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-W1PA/EN2-W1PA_b.png",
+  "sheet_B": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-W1PB/EN2-W1PB_a.png",
+  "picked_by": "05_register (mean at-zero/peak ratio, higher wins)",
+  "atlas": "en_e2/work/j_tex_final.png",
+  "grade": "none (see painted_texture.grade)"
+ },
+ "rig": {
+  "method": "Meshy auto-rig (5 credits, round-7 ledger)",
+  "task": "01a0fd0b-a019-72c7-958e-ebd490876883"
+ },
+ "sheet": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/EN2-W1/EN2-W1_a.png",
+ "body": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/export/final_j/en_j_body.glb",
+  "sha256_16": "8ba78431b8f9c9ba",
+  "height_m": 2.07
+ },
+ "clips": {
+  "walk": {
+   "seconds": 1.1333,
+   "source": "standing walk forward (Mixamo Pro Magic Pack)"
+  },
+  "run": {
+   "seconds": 0.7333,
+   "source": "standing run forward (Mixamo Pro Magic Pack)"
+  },
+  "cast_bolt": {
+   "seconds": 2.2,
+   "source": "standing 1h magic attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "cast_area": {
+   "seconds": 3.1333,
+   "source": "standing 2h magic area attack 02 (Mixamo Pro Magic Pack)"
+  },
+  "hit": {
+   "seconds": 1.1667,
+   "source": "standing react small from front (Mixamo Pro Magic Pack)"
+  },
+  "death": {
+   "seconds": 3.6667,
+   "source": "standing react death forward (Mixamo Pro Magic Pack)"
+  },
+  "idle": {
+   "seconds": 1.8,
+   "source": "standing idle (Mixamo Pro Magic Pack)"
+  }
+ },
+ "locomotion_in_place": {
+  "walk": {
+   "speed_m_s": 1.829,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  },
+  "run": {
+   "speed_m_s": 4.305,
+   "from": "en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)"
+  }
+ },
+ "casts": {
+  "cast_bolt": {
+   "release_s": 0.5333,
+   "hand": "RightHand",
+   "definition": "peak forward (+Z) hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 16"
+  },
+  "cast_area": {
+   "release_s": 1.8,
+   "hand": "RightHand",
+   "definition": "peak 3D hand speed, the key that ENDS the fastest interval, on the clip's own 30 fps key 54"
+  }
+ },
+ "death": {
+  "root": "de-rooted at source (+deroot); hips ground track max 0.553 m from the origin, ends 0.017 m"
+ },
+ "roster": {
+  "rig": "heroine01_unarmed",
+  "attack_mix": "projectile 65 % / aura 12 % / melee 12 % (the rig, BUILD_PRIORITY.md)",
+  "melee": "the rig's melee share has no clip in this caster set (as the acolytes); the runtime may play cast_bolt"
+ },
+ "vfx_runtime": {
+  "blight": {
+   "atlas": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_j_blight_atlas.png",
+   "frames": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/en_e2/vfx/en_j_blight_frames.json",
+   "atlas_px": [
+    4096,
+    1516
+   ],
+   "atlas_sha256": "4af8384816f7bac134ee762896fc4b03f6907100306b274ec1b73c2e0ee03c31",
+   "baked_px_per_m": 100.617553710938,
+   "blend": "premultiplied: out = rgb + ground * (1 - a)",
+   "sizes_m": {
+    "bolt_body_r_m": 0.22,
+    "burst_r_m": 1.8,
+    "ring_r_m": 3.5,
+    "seed": 151,
+    "palette": "blight"
+   },
+   "phases": {
+    "bolt": {
+     "fps": 20,
+     "frames": 8,
+     "plane": "billboard",
+     "loop": true,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      93,
+      59
+     ]
+    },
+    "cast": {
+     "fps": 20,
+     "frames": 6,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      96,
+      96
+     ]
+    },
+    "burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 100.617554,
+     "max_frame_px": [
+      416,
+      416
+     ]
+    },
+    "ring_tele": {
+     "fps": 15,
+     "frames": 12,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      388,
+      396
+     ]
+    },
+    "ring_burst": {
+     "fps": 20,
+     "frames": 10,
+     "plane": "ground",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      396,
+      396
+     ]
+    },
+    "ring_smoke": {
+     "fps": 12,
+     "frames": 10,
+     "plane": "billboard",
+     "loop": false,
+     "px_per_m": 50.308777,
+     "max_frame_px": [
+      407,
+      212
+     ]
+    }
+   },
+   "telegraph_lead_s": 0.8,
+   "note": "RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax."
+  }
+ },
+ "true_size": {
+  "base_height_m": 2.07,
+  "designed_height_m": 1.8,
+  "reference_record": "ghost_a01.dbr",
+  "reference_scale": 1.0,
+  "note": "conductor size call: one shipped base mesh; the runtime scales each record by factor = true/shipped when the per-kit ppm allows (KC2 side, KP-222). true = designed height x scale(record) / scale(reference record): the roster SCALE is DATAMINED; the roster mesh heights are not usable (Lap F).",
+  "records": {
+   "witch_larria (boss)": {
+    "scale": 1.0,
+    "true_height_m": 1.8,
+    "factor": 0.87,
+    "e_bodies": 0.5
+   },
+   "witch_janaxia (boss)": {
+    "scale": 1.15,
+    "true_height_m": 2.07,
+    "factor": 1.0,
+    "e_bodies": 1.0
+   }
+  }
+ }
+}

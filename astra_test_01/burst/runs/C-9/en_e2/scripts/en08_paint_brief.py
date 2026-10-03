@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); import importlib; B = importlib.import_module('en01_briefs')
 G, NAME, CANVAS = sys.argv[1], sys.argv[2], sys.argv[3]
 L = json.load(open(os.path.join(ROOT, "work", "layout_%s%s.json" % (G, NAME))))
-P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"), b=("its", "it", "it", "figure"), c=("his", "him", "he", "man"), i=("its", "it", "it", "figure"), g=("its", "it", "it", "figure"), n=("its", "it", "it", "figure"), y=("its", "it", "it", "figure"), v=("its", "it", "it", "figure"), s=("its", "it", "it", "figure"), o=("its", "it", "it", "figure"))[G]
+P = dict(m=("his", "him", "he", "man"), f=("her", "her", "she", "woman"), w=("its", "it", "it", "figure"), r=("its", "it", "it", "figure"), b=("its", "it", "it", "figure"), c=("his", "him", "he", "man"), i=("its", "it", "it", "figure"), g=("its", "it", "it", "figure"), n=("its", "it", "it", "figure"), y=("its", "it", "it", "figure"), v=("its", "it", "it", "figure"), s=("its", "it", "it", "figure"), o=("its", "it", "it", "figure"), h=("its", "it", "it", "figure"), k=("his", "him", "he", "man"), j=("her", "her", "she", "woman"), q=("her", "her", "she", "woman"), l=("his", "him", "he", "man"), u=("his", "him", "he", "man"), x=("its", "it", "it", "figure"), d=("its", "it", "it", "figure"), e=("its", "it", "it", "figure"))[G]
 WORD = dict(S="FACING THE VIEWER (south)", N="seen from BEHIND (north)", E="facing the viewer's RIGHT in profile (east)",
             W="facing the viewer's LEFT in profile (west)", SE="facing the lower right (south-east)", SW="facing the lower left (south-west)",
             NE="facing away to the upper right (north-east)", NW="facing away to the upper left (north-west)",
@@ -19,8 +19,8 @@ desc = " ".join("%s row, left to right: %s." % (rn, "; ".join(WORD[k] for _, k i
 GD = pathlib.Path(B.A) / "CS9-guides"; dst = GD / ("en2_%s_canvas_%s.png" % (G, NAME)); shutil.copy(CANVAS, dst)
 man = json.load(open(GD / "manifest.json")); man[dst.name] = hashlib.sha256(dst.read_bytes()).hexdigest()
 json.dump(man, open(GD / "manifest.json", "w"), indent=1)
-TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R", b="EN2-B", c="EN2-C", i="EN2-I", g="EN2-G", n="EN2-N", y="EN2-Y", v="EN2-V", s="EN2-S", o="EN2-O")[G]
-PICK = dict(m="a", f="a", w="b", r="a", b="b_r1", c="a", i="b", g="a", n="a", y="a", v="a", s="a", o="a")[G]   # round 3: the wraith's sheet of record is b
+TID = dict(m="EN2-M", f="EN2-F", w="EN2-W", r="EN2-R", b="EN2-B", c="EN2-C", i="EN2-I", g="EN2-G", n="EN2-N", y="EN2-Y", v="EN2-V", s="EN2-S", o="EN2-O", h="EN2-H1", k="EN2-H2", j="EN2-W1", q="EN2-W2", l="EN2-L", u="EN2-U", x="EN2-X", d="EN2-D", e="EN2-E")[G]
+PICK = dict(m="a", f="a", w="b", r="a", b="b_r1", c="a", i="b", g="a", n="a", y="a", v="a", s="a", o="a", h="a", k="a", j="a", q="a_r1", l="a_r1", u="a_r1", x="a_r1", d="a_r1", e="a_r1")[G]   # round 3: the wraith's sheet of record is b
 LOOK = dict(path=B.A + "%s/%s_%s.png" % (TID, TID, PICK), role="IMAGE %%d -- %s approved model sheet (%s_%s): the look" % (P[0], TID, PICK))
 STY = dict(B.STYLE, role="IMAGE %d -- STYLE reference ONLY (Matt-supplied, R-C9-69): the HAND to copy; never its character, costume, hood, robe, staff or pose")
 WHO = dict(
@@ -73,19 +73,50 @@ WHO = dict(
        "sundial fin rising from its LEFT shoulder plate only"),
     o=("a bone golem: a towering hunched construct of fused old ivory-grey bones, ribcages stacked into a barrel chest, long bones bundled into the limbs, "
        "skulls packed into the shoulders and back, bound with rusted brass bands and iron chain, tattered grey burial cloth, a horned skull head with "
-       "pale blue-white points in the sockets; and ONE cracked brass bell on a short chain at its LEFT wrist only"))[G]
+       "pale blue-white points in the sockets; and ONE cracked brass bell on a short chain at its LEFT wrist only"),
+    h=("an armoured warden: full heavy plate armour of tarnished brass with deep lapis-blue enamel panels engraved with hour-marks, a great helm whose visor "
+       "is a clock-face (a brass ring of numerals round a dark slit) with two thin pale blue-white points behind it, a long torn lapis tabard to the knee "
+       "embroidered with a brass hour-ring, a tattered ivory half-cape from the right shoulder, armoured gauntlets with open hands; and ONE round brass "
+       "clock-face shield strapped to its LEFT forearm only"),
+    k=("a tall gaunt scholar-mage: an ivory under-robe to the ankle, a deep lapis over-robe with a tall stiff collar rising behind the head, broad "
+       "brass-embroidered bands of star-charts and hour-marks along every hem, a long pale grey-blue face with hollow cheeks and a long thin white beard, "
+       "pale blue-white eyes, a crown of broken brass astrolabe rings standing up in an open lattice, a heavy brass chain of office with a large engraved "
+       "disc on the chest; and ONE palm-sized brass astrolabe disc strapped into the palm of his LEFT hand only"),
+    j=("a tall imperious seeress: flowing ritual robes of deep madder-red and faded ivory, layered and torn into ragged points at the knee, a high open "
+       "collar of stiff bone-ivory lace behind the head, a dark leather corset laced with brass, pale grey skin, a bone-white half-mask carved with an "
+       "hour-ring over the upper face, long loose silver-grey hair to the waist, strings of small brass hourglasses and bone beads at the belt and "
+       "wrists; and ONE carved bone hand fixed as a pauldron on her LEFT shoulder only"),
+    q=("a tall, very thin sorceress: a long close gown of pale violet-grey silk torn into points at the knee, wound with strips of faded lapis cloth round "
+       "the waist and arms, a shaved head of pale grey-violet skin, her eyes bound with a band of lapis cloth, a thin cruel mouth, a brass circlet of long "
+       "thin brass needles standing out round the skull like a crown of spines, long thin fingers with brass-capped nails; and ONE ring of brass needles "
+       "(a spiked bracelet) around her LEFT wrist only"),
+    l=("a gaunt flesh-shaping sorcerer: a bald pale grey-green head with grafted flesh patches held by brass staples, pale green-white eyes, a split "
+       "ivory and faded lapis robe torn to the knee and stitched with dark sutures, a leather apron hung with small brass hooks and clamps, thin pale aether-green "
+       "seams under the skin of the hands and neck; and ONE larger grafted grey-violet LEFT forearm bound with a brass ring at the elbow"),
+    u=("an ascended fire zealot-priest: cracked charcoal-grey skin with thin pale ember-orange cracks, a heavy brow and short burnt beard, pale ember-orange eyes, "
+       "a crown of three long curved dark horns behind the head, a tattered oxblood-red and soot-black robe open at the chest and torn to the knee, a broad belt "
+       "of tarnished brass plates, a brass censer-chain across the chest; and ONE large brass sun-disc pauldron on his LEFT shoulder only"),
+    x=("a skeletal vigil-lord: old ivory-grey bone, dark eye sockets with small pale blue-white points, a high-collared hooded mantle of faded lapis and "
+       "charcoal edged with brass hour-marks, a ribbed tarnished brass breastplate with an hour-ring, a belt of brass links, ragged dark cloth to the knee, a "
+       "thin brass circlet of hour-hand spikes; and ONE small brass lantern on a short chain at its LEFT wrist only"),
+    d=("a towering stitched flesh hulk: sickly pale grey-violet flesh with darker purple-grey bruising, each part a different shade, joined by thick dark "
+       "stitched seams and brass staples, pale aether-green crystal shards growing from the seams on the shoulders and back, an iron-and-brass collar with a "
+       "broken chain, a torn leather loincloth, brass forearm bands, a small bald stitched head; and ONE rusted brass clock-gear riveted into its LEFT shoulder only"),
+    e=("a giant crystal colossus: dark slate-grey stone in great cracked slabs, the cracks pale aether-green, jagged clusters of pale green-white crystal "
+       "growing from the shoulders, back and forearms, tarnished brass bands and broken hour-ring fragments set in the chest and thighs, a heavy stone brow "
+       "with two small pale green-white eyes; and its LEFT shoulder crystal cluster HUGE, rising above the head"))[G]
 MARK = dict(m="THE BRASS BRACER is on his LEFT forearm ONLY", f="THE CLOCK-FACE DISC hangs at her LEFT hip ONLY",
             w="THE LAPIS CLOTH STRIP is tied around its LEFT upper arm ONLY", r="THE BRASS BRACER is on its LEFT forearm ONLY",
             b="THE SWOLLEN ARM is its RIGHT arm and THE BRASS GEAR is fused into its LEFT shoulder", c="THE BONE BRACELET is on his LEFT wrist ONLY",
             i="THE BRASS RING is on its LEFT upper arm ONLY", g="THE RUSTED CHAIN is wrapped around its LEFT forearm ONLY",
-            n="THE BROKEN ANTLER STUMP is its LEFT antler ONLY", y="THE SHACKLE is on its LEFT wrist ONLY", v="THE BRASS RING is on its LEFT horn ONLY", s="THE SUNDIAL FIN is on its LEFT shoulder ONLY", o="THE BRASS BELL hangs at its LEFT wrist ONLY")[G]
+            n="THE BROKEN ANTLER STUMP is its LEFT antler ONLY", y="THE SHACKLE is on its LEFT wrist ONLY", v="THE BRASS RING is on its LEFT horn ONLY", s="THE SUNDIAL FIN is on its LEFT shoulder ONLY", o="THE BRASS BELL hangs at its LEFT wrist ONLY", h="THE CLOCK-FACE SHIELD is on its LEFT forearm ONLY", k="THE ASTROLABE DISC is in his LEFT palm ONLY", j="THE BONE-HAND PAULDRON is on her LEFT shoulder ONLY", q="THE NEEDLE BRACELET is on her LEFT wrist ONLY", l="THE GRAFTED ARM is his LEFT forearm ONLY", u="THE SUN-DISC PAULDRON is on his LEFT shoulder ONLY", x="THE LANTERN hangs at its LEFT wrist ONLY", d="THE CLOCK-GEAR is in its LEFT shoulder ONLY", e="THE HUGE CRYSTAL CLUSTER is on its LEFT shoulder ONLY")[G]
 SKIN = dict(m="", f="Her skin is ASHEN: a cold grey-blue, the colour of the dead, never warm or rosy (the conductor's note); ",
             w="Its skin is a cold pale grey-blue and the shroud is thin, pale and cold; ", r="The bone is old ivory-grey, cracked and stained darker in the joints; ",
             b="The flesh is sickly pale grey-violet, bruised and stitched, never a healthy pink; ",
             c="His skin is a bog-mud GREEN-GREY with algae and silt tones, darkest on the shins, feet and hands (the conductor's note), never a healthy tan; ",
             i="Its skin is a pale grey-violet with violet blotches, never pink; ", g="The mud is wet and dark, the moss a cool deep green; ",
             n="Its skin is a cold frost-blue-grey, never warm; ", y="The fur is a cool pale grey-white, never yellow; ",
-            v="The violet skin is never a flat black: pale highlights on every ridge; ", s="The stone is pale and cool, never yellow; ", o="The bone is old ivory-grey, stained darker in the joints; ")[G]
+            v="The violet skin is never a flat black: pale highlights on every ridge; ", s="The stone is pale and cool, never yellow; ", o="The bone is old ivory-grey, stained darker in the joints; ", h="The brass is tarnished ochre-brown and the enamel a clear deep lapis blue: the two must read apart, never one brown; ", k="His skin is a cold pale grey-blue, never warm; the lapis over-robe stays a clear deep blue and the ivory stays pale; ", j="Her skin is a cold pale grey, never rosy; the madder red is deep and the ivory pale, kept apart; ", q="Her skin is a cold pale grey-violet, never warm; the gown pale violet-grey, the cloth strips a deeper lapis; ", l="His skin is a sickly cold grey-green, never warm; ", u="His skin is dark charcoal, never a flat black: pale grey highlights on every ridge and the ember cracks pale orange; ", x="The bone is old ivory-grey, stained darker in the joints; ", d="The flesh is sickly pale grey-violet, bruised and stitched, never a healthy pink; ", e="The stone is dark slate-grey, never a flat black: pale highlights on every slab edge; the crystal pale green-white; ")[G]
 RULES = ("Paint the SURFACE, not the lighting: soft even light; no cast shadows, no dark side, no rim light, no glow, no shading that belongs to one "
          "viewpoint. " + SKIN + "The darks are hatching and layered transparent washes with pale paper highlights, never a flat black fill. Brass is a "
          "tarnished ochre-brown wash with pale highlights. Stay inside every outline; change no outline, pose, hand or foot. Add NOTHING the look sheet "

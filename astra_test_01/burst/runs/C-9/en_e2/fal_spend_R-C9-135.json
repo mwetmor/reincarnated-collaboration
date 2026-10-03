@@ -1,0 +1,79 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $3.00 (EN-E2 Phase 2 lane, conductor dispatch after R-C9-135).",
+ "_basis": "tripo $0.40 per build; birefnet at wall-clock seconds x $0.0008/s (upper bound).",
+ "_starts_after": "Opened 2026-10-02T18:55:23.",
+ "budget_usd": 3.0,
+ "entries": [
+  {
+   "ts": "2026-10-02T23:26:00+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-L_a_r1.png",
+   "usd": 0.00614,
+   "wall_s": 7.67
+  },
+  {
+   "ts": "2026-10-02T23:26:20+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-U_a_r1.png",
+   "usd": 0.00123,
+   "wall_s": 1.54
+  },
+  {
+   "ts": "2026-10-02T23:26:42+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-X_a_r1.png",
+   "usd": 0.00564,
+   "wall_s": 7.05
+  },
+  {
+   "ts": "2026-10-02T23:26:58+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-D_a_r1.png",
+   "usd": 0.00094,
+   "wall_s": 1.17
+  },
+  {
+   "ts": "2026-10-02T23:27:02+00:00",
+   "endpoint": "fal-ai/birefnet/v2",
+   "what": "EN2 matte EN2-E_a_r1.png",
+   "usd": 0.00085,
+   "wall_s": 1.06
+  },
+  {
+   "ts": "2026-10-02T23:30:04+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_l_tripo",
+   "usd": 0.4,
+   "wall_s": 166.76
+  },
+  {
+   "ts": "2026-10-02T23:30:06+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_u_tripo",
+   "usd": 0.4,
+   "wall_s": 168.18
+  },
+  {
+   "ts": "2026-10-02T23:30:06+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_x_tripo",
+   "usd": 0.4,
+   "wall_s": 168.18
+  },
+  {
+   "ts": "2026-10-02T23:30:37+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_d_tripo",
+   "usd": 0.4,
+   "wall_s": 199.39
+  },
+  {
+   "ts": "2026-10-02T23:30:38+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "EN2 build en_e_tripo",
+   "usd": 0.4,
+   "wall_s": 199.95
+  }
+ ],
+ "running_usd": 2.0148
+}

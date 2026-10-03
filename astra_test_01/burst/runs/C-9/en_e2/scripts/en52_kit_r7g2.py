@@ -3,11 +3,15 @@
 # clip set: idle, walk, run, cast_bolt, cast_area, hit, death), numbers re-read from the shipped body (en09 measure, en34 tips, the
 # death ground track, the VFX frame table). Every pack is PROVISIONAL TEXTURE: Tripo's own texture, embedded, until the Astra reset.
 #   python3 scripts/en52_kit_r7g2.py <h|k|j|q>  -> join1_render/manifests/<kid>_clips.json + join1_render/kits/<kid>.json
+#   python3 scripts/en52_kit_r7g2.py <h|k|j|q> --painted [--paint-json work/<g>_paint.json]
+#     C-9 Phase 2: the D7 PAINT PASS. A NEW pack root <kid>_p (pack roots are immutable; the provisional root is superseded, its
+#     source body snapshotted at export/final_<g>_v1). The provisional block is replaced by a painted_texture record.
 import json, os, sys, hashlib
 import numpy as np
 g = sys.argv[1]; E = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); J = os.path.join(os.path.dirname(E), 'join1_render')
 sys.path.insert(0, os.path.join(E, 'scripts')); C = __import__('s17_loop_closure')
-KID = dict(h='en-warden', k='en-magister', j='en-witch', q='en-mindtaker')[g]
+PAINTED = '--painted' in sys.argv
+KID0 = dict(h='en-warden', k='en-magister', j='en-witch', q='en-mindtaker')[g]; KID = KID0 + ('_p' if PAINTED else '')
 WHO = dict(h='the WARDEN (armoured champion of the order; the clock-face shield is costume, rigged unarmed)',
            k='the ARCH-MAGISTER (scholar-mage; the robe is weighted to the thighs and shins and travels as a skirt)',
            j='the BETRAYER WITCH (the two w156 witches share this mesh; the bone-hand pauldron is costume)',
@@ -44,9 +48,15 @@ else:
 prov = dict(status='PROVISIONAL TEXTURE', texture='Tripo H3.1 own texture (work/%s_tripo_tex.png), embedded; no paint pass, no grade' % g,
             why='the Astra image limit: the D7 paint (sheets A/B, register, region grade) waits for the reset, 2026-10-03 20:32 local',
             replace='paint A/B (en08 + en32 bake) -> en17/en19 grade -> en10_final -> en21 cells -> index; geometry, rig and clips stay')
+if PAINTED:
+    PJ = json.load(open(os.path.join(E, 'work/%s_paint.json' % g)))
+    prov = None
+    painted = dict(status='PAINTED (D7 method)', supersedes='join1_pack/%s (provisional Tripo texture; source body kept at export/final_%s_v1)' % (KID0, g), **PJ)
 casts = {c: dict(release_s=v['release_s'], hand=v['hand'], definition='%s, the key that ENDS the fastest interval, on the clip\'s own 30 fps key %d' % (v['rule'], v['key']))
          for c, v in M['release'].items()}
-def src(c): return os.path.basename(GR[c]['source']).replace('.glb', '').replace('_', ' ') + ' (Mixamo Pro Magic Pack)'
+def src(c):
+    b = os.path.basename(GR[c]['source']).replace('.glb', '')
+    return (b[4:] if b.startswith('axe_') else b).replace('_', ' ') + (' (Mixamo Pro Melee Axe Pack, unarmed)' if b.startswith('axe_') else ' (Mixamo Pro Magic Pack)')
 def vfx(vid):
     V = json.load(open(os.path.join(E, 'vfx/%s_frames.json' % vid)))
     return dict(atlas=os.path.join(E, 'vfx', V['atlas']), frames=os.path.join(E, 'vfx/%s_frames.json' % vid), atlas_px=V['atlas_size'], atlas_sha256=V['sha256'],
@@ -56,8 +66,8 @@ def vfx(vid):
                 telegraph_lead_s=round(V['phases']['ring_tele']['n'] / V['phases']['ring_tele']['fps'], 4),
                 note='RUNTIME effects, NOT in the cells (contract 2.2). For the KC2 drax.')
 loco = {c: dict(speed_m_s=M['speeds'][c]['m_per_s'], **{'from': 'en09: the Mixamo source root travel x the export scale / the shipped clip length (in place at source)'}) for c in ('walk', 'run')}
-man = dict(what='JOIN-1 clip manifest for %s (crucible boss mesh, roster rig %s) -- lane EN-E2 round 7 group 2 (drax, R-C9-132/133), read off en_e2/export/final_%s' % (WHO, RIG, g),
-           provisional_texture=prov, rig=rig, sheet=os.path.join(os.path.dirname(E), SHEET),
+man = dict(what='JOIN-1 clip manifest for %s (crucible boss mesh, roster rig %s) -- lane EN-E2 round 7 group 2 (drax, R-C9-132/133)%s, read off en_e2/export/final_%s' % (WHO, RIG, ' + C-9 Phase 2 paint pass' if PAINTED else '', g),
+           **(dict(painted_texture=painted) if PAINTED else dict(provisional_texture=prov)), rig=rig, sheet=os.path.join(os.path.dirname(E), SHEET),
            body=dict(file=body, sha256_16=sha16, height_m=H['target_m']),
            clips={c: dict(seconds=M['clip_len_s'][c], source=src(c)) for c in M['clip_len_s']},
            locomotion_in_place=loco, casts=casts,
@@ -82,9 +92,9 @@ states = dict(idle=st('idle', 'loop', 'locomotion_idle', 12, 'loop', manifest_en
 sockets = dict(cast_hand=dict(bone='RightHand', along_bone_m=TIP, _what='the right hand\'s TIP (+%.4f m along +Y, measured, en34); every release in this kit is right-handed (en09)' % TIP),
                chest=dict(bone='Spine', _what='the chest: Meshy\'s "Spine" is the TOP spine joint (Spine02 is the lowest)'),
                head_top=dict(bone='head_end', _what='the top of the head'))
-kit = dict(kit=KID, _what='Per-kit config for the JOIN-1 sprite-cell renderer: %s; one body, no gear, %.2f m. No layers, no morphs. PROVISIONAL TEXTURE (Tripo\'s own) until the Astra reset.'
-           % (WHO, H['target_m']),
-           provisional_texture=prov,
+kit = dict(kit=KID, _what='Per-kit config for the JOIN-1 sprite-cell renderer: %s; one body, no gear, %.2f m. No layers, no morphs. %s'
+           % (WHO, H['target_m'], 'PAINTED (D7 paint pass, C-9 Phase 2); supersedes %s.' % KID0 if PAINTED else 'PROVISIONAL TEXTURE (Tripo\'s own) until the Astra reset.'),
+           **(dict(painted_texture=painted) if PAINTED else dict(provisional_texture=prov)),
            contract=dict(doc='reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md', commit='d95e1df', schema='join1-sprite-cells/1'),
            source=dict(body=body, pieces=[], clip_manifest=mp, loadout=dict(main_hand=None, main_side='R', off_hand=None, weapsel=0)),
            h_model=dict(method='rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres', mesh_name_contains='char1'),

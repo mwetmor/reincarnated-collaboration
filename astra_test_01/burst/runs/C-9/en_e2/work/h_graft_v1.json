@@ -1,7 +1,7 @@
 {
  "clips": {
   "idle": {
-   "source": "mixamo/glb/axe_unarmed_idle.glb",
+   "source": "mixamo/glb/standing_idle.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
     0.03333333507180214,
@@ -17,50 +17,24 @@
     "loop"
    ],
    "source_travel_m": [
-    0.0004,
-    -0.0013
+    -0.0007,
+    0.001
    ],
-   "grounded_by_m": 0.02003,
+   "grounded_by_m": 0.02833,
    "feet_span_m": [
     0.0,
-    0.0014
+    0.0053
    ]
   },
   "walk": {
-   "source": "mixamo/glb/axe_unarmed_walk_forward.glb",
+   "source": "mixamo/glb/standing_walk_forward.glb",
    "source_anim": "Armature|mixamo.com|Layer0",
    "window": [
     0.03333333507180214,
-    1.399999976158142
+    1.1666666269302368
    ],
-   "keys": 42,
-   "length_s": 1.36666664108634,
-   "joints": 22,
-   "rest_match": 0.96701,
-   "hip_ratio": 0.88857,
-   "flags": [
-    "deroot",
-    "loop"
-   ],
-   "source_travel_m": [
-    0.0,
-    1.2353
-   ],
-   "grounded_by_m": 0.03466,
-   "feet_span_m": [
-    0.0,
-    0.0256
-   ]
-  },
-  "run": {
-   "source": "mixamo/glb/axe_unarmed_run_forward.glb",
-   "source_anim": "Armature|mixamo.com|Layer0",
-   "window": [
-    0.03333333507180214,
-    0.8333333134651184
-   ],
-   "keys": 25,
-   "length_s": 0.7999999783933163,
+   "keys": 35,
+   "length_s": 1.1333332918584347,
    "joints": 22,
    "rest_match": 0.96701,
    "hip_ratio": 0.88857,
@@ -70,12 +44,38 @@
    ],
    "source_travel_m": [
     -0.0,
-    1.942
+    1.6801
    ],
-   "grounded_by_m": 0.02058,
+   "grounded_by_m": 0.01997,
    "feet_span_m": [
     0.0,
-    0.038
+    0.0168
+   ]
+  },
+  "run": {
+   "source": "mixamo/glb/standing_run_forward.glb",
+   "source_anim": "Armature|mixamo.com|Layer0",
+   "window": [
+    0.03333333507180214,
+    0.7666666507720947
+   ],
+   "keys": 23,
+   "length_s": 0.7333333157002926,
+   "joints": 22,
+   "rest_match": 0.96701,
+   "hip_ratio": 0.88857,
+   "flags": [
+    "deroot",
+    "loop"
+   ],
+   "source_travel_m": [
+    0.0,
+    2.5583
+   ],
+   "grounded_by_m": 0.02233,
+   "feet_span_m": [
+    0.0,
+    0.0701
    ]
   },
   "cast_bolt": {
@@ -182,6 +182,6 @@
  "lint": {
   "verdict": "WARN",
   "fails": [],
-  "warns": 4
+  "warns": 7
  }
 }
