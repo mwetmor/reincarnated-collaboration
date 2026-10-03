@@ -36967,9 +36967,98 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "EN3-RHPG",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-creatures",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a7501c06f34d07b71fbb2d38bc86552339c83b3cfcf4a9449f44cf8cae06c681",
+      "started": "2026-10-03T02:08:13.038717+00:00",
+      "ended": "2026-10-03T02:14:18.566712+00:00",
+      "minutes": 6.092145803467914,
+      "image_calls": 3,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 3,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff84-e669-78b1-a9f1-b4359b99335f/exec-05a4a8b5-ef64-4f6b-b3f3-e563461825ef.png",
+            "sha256": "4ab874c5e504efa21e6c4bfec7af7b6bb7dc733e28e26e788d1bc8ab912eb04a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff84-e669-78b1-a9f1-b4359b99335f/exec-57753c5f-9fb5-4eb4-ac40-e9c0dd3e96e9.png",
+            "sha256": "b16d5eee0ee1de56311fa0449842531f833257e54f0695067bd0f8b75ba04e02"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a0ff84-e669-78b1-a9f1-b4359b99335f/exec-fe0d75af-0b8d-4fe4-ad64-7eb68e2f187e.png",
+            "sha256": "cf621dc153f791ddbf67c0c5ea0f9a876b86d194012bfbf40b895ac85463f356"
+          }
+        ]
+      },
+      "receipt_sha256": "480e4c4e826a4bd80696773516e83f568857eecff85b1b02a6722233bc9c0819",
+      "artifacts": [
+        {
+          "name": "EN3-RHPG_a.png",
+          "sha256": "b16d5eee0ee1de56311fa0449842531f833257e54f0695067bd0f8b75ba04e02"
+        },
+        {
+          "name": "EN3-RHPG_b.png",
+          "sha256": "4ab874c5e504efa21e6c4bfec7af7b6bb7dc733e28e26e788d1bc8ab912eb04a"
+        },
+        {
+          "name": "exec-05a4a8b5-ef64-4f6b-b3f3-e563461825ef.provenance.json",
+          "sha256": "6a4be798a95f6cb7fec63db8cd73e05840219908e1df89cd334ee3019a50aa54"
+        },
+        {
+          "name": "exec-57753c5f-9fb5-4eb4-ac40-e9c0dd3e96e9.provenance.json",
+          "sha256": "f9f56226d486b03ecf73191a992b394544a09e704b32fb7682006c968977624a"
+        },
+        {
+          "name": "exec-fe0d75af-0b8d-4fe4-ad64-7eb68e2f187e.provenance.json",
+          "sha256": "843245e3a8df49970087a2e712a9d27744b43e0b365f1f66e20a0b01f4afec9b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff84-e669-78b1-a9f1-b4359b99335f/exec-05a4a8b5-ef64-4f6b-b3f3-e563461825ef.png",
+          "sha256": "4ab874c5e504efa21e6c4bfec7af7b6bb7dc733e28e26e788d1bc8ab912eb04a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff84-e669-78b1-a9f1-b4359b99335f/exec-57753c5f-9fb5-4eb4-ac40-e9c0dd3e96e9.png",
+          "sha256": "b16d5eee0ee1de56311fa0449842531f833257e54f0695067bd0f8b75ba04e02"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a0ff84-e669-78b1-a9f1-b4359b99335f/exec-fe0d75af-0b8d-4fe4-ad64-7eb68e2f187e.png",
+          "sha256": "cf621dc153f791ddbf67c0c5ea0f9a876b86d194012bfbf40b895ac85463f356"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1104,
+  "images_used": 1107,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -38124,6 +38213,28 @@
       "ts": "2026-10-03T02:08:23Z",
       "topic": "barrow_v2 greybox, layout_v2.json v3 (lane BX drax): conductor ruling floor = DISC hull + 1 m; R-C9-148 (Matt, from the walk film) sea cave + stair rebuilt, hall + gable made one building",
       "result": "FLOOR (conductor ruling): exactly the convex hull of the six 8 m discs + 1 m, 4026.59 m2, 83.624 x 81.769 m (x -43.409..40.215, y -40.707..41.062); scatter law cited engine:src/reincarnated/simulation/kc2/spawn_structure.py:295 ScatterLaw.POLAR_UNIFORM_RHO (theta 2 pi u1, rho 8 u2; sha 431539ffd670b785); the pack's presentation_defaults box prose recorded as a pack erratum for star-lord (v1's box-hull floor 4,670.8 m2 superseded). R-C9-148 STAIR: the sea cave is in the MAIN south face under p03's patch on a sea-level rock ledge (z -4.2; sea -4.5, cliff lowered from 7.3); a straight 3.0 m stair climbs FROM the ledge up the face, 28 x 0.15 rise / 0.30 tread, 8.4 m run, 4.2 m, 26.57 deg (ramp), the cliff face its wall, open on the sea side; top landing flush (north edge on the floor boundary, 1.0 m from p03's disc); run compass 70.0 deg up, climbers turn 91.3 deg toward the centre on the landing (alignment rule dropped by R-C9-148). R-C9-148 HALL: one longhall angled NE->SW along the floor edge p04<->p06 (axis 222.99 deg SW), long west wall facing the floor 1.5 m beyond the edge, great door on p04's ray, the fallen gable = the hall's own collapsed SW end on p06's ray; byre removed; palisade re-fitted outside the edge (arms at 62 and 140 deg). Validator 50/50 PASS + 8 INFO (box coverage, the run's turn angle) -> validator_report.json; negative control CAUGHT (R2 R3 R4 R5 R6 R7 R10). Godot stills V0..V7 + plan_topdown.png + barrow_v2_greybox_walk.mp4 (26.6 s, 4.0 MB) re-rendered under the heavy lock (df 45 GiB). FINDING: at zero yaw the great door faces NW, away from the camera, and is hidden by the hall's own mass; the paint needs a door cue on the visible faces."
+    },
+    {
+      "id": "M-C9-DV-SPAWN-VFX",
+      "lane": "DV (drax)",
+      "ts": "2026-10-03T02:15:24Z",
+      "rulings": [
+        "R-C9-145",
+        "R-C9-147",
+        "R-C9-143"
+      ],
+      "topic": "barrow_v2 per-source SPAWN-DELIVERY VFX atlases for KC2 P1(e) (join1_vfx/barrow_v2_spawn/)",
+      "result": "6 sources, 18 segments, one manifest per source + spawn_vfx_index.json (event contract) + shaders/spawn_crack_reveal.gdshader. Procedural particle systems in sim metres, projected with the JOIN-1 law (ortho, pitch 52.9535, zero yaw); the approved Meteor puff hand (soft radial (1-d)^2.1, drag, swell 0.7->1.35, (1-u)^0.55 fade) with a pooled rim; cool winter palette, warm only for p04/p06 embers and sparks. Per ring point (p01-p04, p06): DOOR at the deliverer (intro once + seamless loop, stretchable to EV_POINT_RELEASE_DONE + 0.8 s, y-sorted at the deliverer), GROUND over the 8 m disc (seamless loop, or p01's 0.9 s crack-race reveal map, layer under actors), ARRIVAL one-shot per body on EV_BODY_SPAWN (frame 0 dense to cover the pop-in). p05: hold cracks = a reveal map at exactly 4.0 s from EV_AMBUSH_HOLD_START; p05_burst on each EV_AMBUSH_ARRIVAL (0.75 s, fits inside the shortest D_long 0.867 s); p05_hole looped until EV_AM5_TIMEOUT = arrival + D_long_s(record) (waves.json am3, 0.867-4.9 s). Scale: px_per_m declared per segment (151.337/2 for arrivals, bursts and cracks = 1:1 at ZOOM-GD; /3 and /4 for soft door smoke; /5 for ground pools); runtime s = proj.ppm / px_per_m. Decoded RGBA8 total 104.4 MiB (VRAM-compressed import acceptable for the soft door/ground atlases). Preview: stills sheets per source + overview + a 39 s film over the BX greybox views (re-rendered v2 stills; view targets read from layout_v2.json, anchor markers within 4 px), mocked timeline labelled.",
+      "commit": "784203923",
+      "files": [
+        "join1_vfx/barrow_v2_spawn/spawn_vfx_index.json",
+        "join1_vfx/barrow_v2_spawn/p0*/vfx_p0*.json",
+        "join1_vfx/barrow_v2_spawn/p0*/*.png (on disk; astra_test_01 ignores *.png)",
+        "join1_vfx/barrow_v2_spawn/shaders/spawn_crack_reveal.gdshader",
+        "join1_vfx/barrow_v2_spawn/preview/*_stills.jpg, spawn_vfx_overview.jpg (committed); spawn_vfx_preview.mp4 (1.4 MB, on disk, not committed)"
+      ],
+      "spend": "Astra 0 / cap 8; Meshy 0; fal 0; heavy lock not taken (no Godot/Blender job: numpy/PIL + one ffmpeg encode); disk 14 MB of the 0.6 GiB allotment; df 44 GiB.",
+      "open": "Placeholder bodies and greybox only: the look must be re-judged over the barrow_v2 paint; p03's anchor lies above the V7 frame, so only the lip spray and the southern half of the patch show."
     }
   ],
   "halts": [
