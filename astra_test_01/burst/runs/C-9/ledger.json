@@ -38260,6 +38260,12 @@
       "id": "M-C9-MX-P2-AUDITION",
       "ts": "2026-10-03T02:42:37Z",
       "note": "MX lane (drax, audition only) -- R-C9-149 (recorded per the conductor's dispatch): Matt downloaded four new Mixamo packs into reincarnated-godot/animations/mixamo/ (gitignored; raw FBX never committed): Not So Scary Zombie Pack, Scary Zombie Pack, Creature Pack, Creature NPC Pack (zombie walk/stumble/run/idle/attack/bite/punch/headbutt/death/crawl, zombie stand up x3; mutant idle/breathing/walk/run/swipe/punch/roar/jump attack/flex/dying). AUDITION in runs/C-9/mx_audition/: 44 clips converted (en_e2 e40a, batched, one Blender per heavy-lock), grafted (e40b) onto COPIES of the shipped bodies next to the clips of record (self-check: re-grafted axe walk == shipped walk, 0.0000 m); joint lint (j_joint_lint, ref hit), s6 foot slide vs drive speed, foot creep, arm elevation, hips excursion; 8-heading stills sheets (play camera ortho 52.95 deg) record-vs-Mixamo and 1x side-by-side films. NO pack root, kit or manifest touched. RECOMMENDATIONS (one per body): en-fleshhulk = HYBRID mutant breathing idle + mutant walk + mutant run + mutant punch (attack), keep record slam/lob/hit/death (walk slide 5.0 vs 8.8 %, all picks lint PASS; swipe FAIL 7/73 + 1.05 m lunge, jump attack FAIL 34/112 + 5.61 m peak, dying FAIL 2/105 + 0.37 m sink: rejected); en-colossus = the same set + mutant roaring for roar (PASS 0/162; 5.37 s natural vs 2.83); en-revenant = keep the record set, adopt only Scary 'zombie idle' (arms 26/14 vs 34/62 deg, PASS; zombie walks carry 0.33/0.54 m/s vs the record 1.61 = 4.9x/3.0x playback; stumbling travels sideways 2.75 m); en-wretch = HYBRID zombie idle + Scary 'zombie attack' for swipe (PASS 0/76, hips 0.11 vs 0.67 m, creep 0.05 vs 0.21 m) + zombie reaction hit, keep walk/run/throw/buff/death; EMERGE = Not So Scary 'zombie stand up' (first) for the golem p05 emerge AND the revenant barrow-door rise: starts LYING at the snow line (t0 head 0.12-0.18 of standing, lowest +0.06/-0.20 m), lint golem PASS 0/94 / revenant FAIL 2/94 (wrist), natural 3.133 s vs am3 window D 3.533 (golem) / 3.467 (voidlord) = 1.12-1.14x; natural lengths: stand up 3.133 s, stand up (2) 5.833 s, stand up (3) 6.033 s, zombie crawl 5.167 s (crawl rejected as an emerge: belly locomotion, lint FAIL 42-85/155). Summary: mx_audition/summary.json + sheets/mx_audition_summary.png. Matt picks from the sheets; any adoption is a new pack root (EN-E2 lane). Spend: Astra 0, Meshy 0, fal $0. Lane output 0.24 GiB of 0.5; df 43 GiB."
+    },
+    {
+      "id": "M-C9-BX-GREYBOX-V4-SCULPT",
+      "ts": "2026-10-03T02:53:36Z",
+      "topic": "R-C9-149a BIOME-SCULPT (Matt): barrow_v2 greybox carries the land's real shape before any painting (lane BX drax); BVP porch folded in (option a)",
+      "result": "Floor ORGANIC around the disc-hull minimum (4,026.5 m2, the inner bound): 4222.6 m2, 84.63 x 82.27 m, bulge 0-3.60 m by biome (N barrow toe/drifts, W ragged shingle/ice shore, S broken cliff lip with bites/spurs, E/SE trodden yard edge), flush at the stair landing and cave; longest straight edge run 5.98 m. Terrain heightfield godot/data/terrain_h.f32 (0.5 m grid; exactly 0 on all 16885 floor samples): rolling snow slopes + wind drifts to ~6 m, the barrow as an irregular grassy mound with a cut passage, organic coastline, shingle beach into shore ice breaking down to the water, broad cliff ledges, snowbanks against the yard. Dressing (tools/sculpt_v2.py): 472 blobs + 318 beams -- boulder clusters, birch + juniper groves, kerb + standing stones, charred sagging half-fallen hall frame with the great-door porch (BVP bvp_porch.py spec 3.6 x 2.4 m, eaves 3.4, ridge 5.0 running out, doors open; V4 shows roof + open leaves), the hall's collapsed SW gable on rubble, leaning gapped palisade stakes, heeled broken ice-locked wreck, sunken circle stones, rough-cut 3 m stair; walk-over ground detail inside the floor {\"drift_berm\": 58, \"pebble\": 21, \"pressure_ridge\": 36, \"shingle_tongue\": 16, \"trodden_snow\": 29, \"ash_heap\": 24, \"rock_slab\": 16, \"heather\": 11, \"scree\": 19, \"stream_bank\": 2} (all <= 0.35 m). Validator 54/54 PASS + 8 INFO (R4 now: simple + organic + contains the disc hull; R5 adds sculpt blobs, beams and heightfield) -> validator_report.json; negative control CAUGHT (R2 R3 R4 R5 R6 R7 R10, incl. a tall blob on the floor). Re-rendered plan, V0-V7, E0_establishing.png (1800x1440, whole site) + E0_establishing_vs_sketchA.png, walk film 26.5 s 6.0 MB. Known limit: the 0.5 m heightfield leaves sawtooth teeth along the south cliff face (V7); a cliff mesh/kit would fix it."
     }
   ],
   "halts": [
@@ -39581,6 +39587,15 @@
         "I added two creature packs and two zombie packs to Mixamo animations"
       ],
       "ts": "2026-10-03T02:13:28Z"
+    },
+    {
+      "id": "R-C9-150",
+      "by": "Matt",
+      "ruling": "Mixamo Creature/Zombie audition (MX, M-C9-MX-P2-AUDITION) ACCEPTED in full: fleshhulk + colossus = Creature Pack mutant breathing idle / walk / run / punch(attack) (+ mutant roaring for the colossus roar), keep record slam/lob/hit/death; wretch = Scary Zombie idle + zombie attack(swipe) + zombie reaction hit, keep walk/run/throw/buff/death; revenant = Scary Zombie idle only; emerge = Not So Scary 'zombie stand up' (1) for the p05 golem and the barrow-door revenant rise. Built as NEW pack roots by EN-E2 after the barrow_v2 paint (R-C9-147 order), keeping each record's true_size and the KP-256 radius check.",
+      "verbatim": [
+        "(AskUserQuestion) Mixamo: \"Accept all (Recommended)\""
+      ],
+      "ts": "2026-10-03T03:04:20Z"
     }
   ],
   "grok_calls": [
