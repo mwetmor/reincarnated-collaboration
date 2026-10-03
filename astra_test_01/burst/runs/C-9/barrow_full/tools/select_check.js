@@ -25,6 +25,7 @@ const base = process.argv[2]; const out = process.argv[3]; fs.mkdirSync(out, { r
     ['sorceress', { s_armor: 'bm134', charlight: 'b' }, 'c=sorceress&armor=bm134&charlight=b'],       // R-C9-139
     ['barbarian', { charlight: 'a' }, 'c=barbarian&hold=t1211&charlight=a'],
     ['warlord', { charlight: 'c' }, 'c=warlord&charlight=c'],
+    ['warlord', { w_smoke: '3' }, 'c=warlord&eorsmoke=3'],                                            // R-C9-152
     ['warlord', {}, 'c=warlord'],
     ['warlord', { w_eye: 'ice' }, 'c=warlord&eye=ice'],
     ['warlord', { w_eor: 'original' }, 'c=warlord&eortint=original'],

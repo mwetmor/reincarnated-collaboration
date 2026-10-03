@@ -100,6 +100,18 @@ func _ready() -> void:
 		for p in st: all_pieces[String(p)] = true
 	for p in all_pieces:
 		_bind("%s/%s.glb" % [exp, p], String(p))
+	# R-C9-152: env GS_CULL_BACK=1 renders every character surface BACK-FACE CULLED, as the painted Barrow's character
+	# shader does (paint_stack.gd CHAR_SHADER: cull_back) -- the glTF body is double-sided, the Barrow's is not
+	if OS.get_environment("GS_CULL_BACK") == "1":
+		for mi in piece_of:
+			var mesh: Mesh = (mi as MeshInstance3D).mesh
+			for s in mesh.get_surface_count():
+				var m0 = mesh.surface_get_material(s)
+				if m0 is BaseMaterial3D:
+					var m1 := (m0 as BaseMaterial3D).duplicate() as BaseMaterial3D
+					m1.cull_mode = BaseMaterial3D.CULL_BACK
+					(mi as MeshInstance3D).set_surface_override_material(s, m1)
+		print("[gs] cull_back on every character surface (the Barrow's)")
 	for mi in piece_of:
 		orig[mi] = (mi as MeshInstance3D).material_override
 	if OS.has_environment("GS_CLASS_TEX"):

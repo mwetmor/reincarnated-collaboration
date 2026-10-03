@@ -52,6 +52,16 @@ mkdir -p "$DEST" "$LOG"
 rsync -a --delete --exclude '.godot/' --exclude 'build/' --exclude 'export_presets.cfg' \
   --exclude 'tools/' --exclude 'data/painted/' "$SRC"/ "$DEST"/
 touch "$DEST/build/.gdignore"
+# PIN (conductor, R-C9-152): build another lane's files from a COMMIT, not from its live working copy -- e.g.
+#   PIN_SHA=e98bda6bf PIN_PATHS="scripts/eor_kc2_fx.gd scripts/whirlwind_channel.gd" tools/build_web_painted.sh
+# writes `git show $PIN_SHA:<godot>/<path>` over the MIRROR's copy only (the source tree is never touched) and records it
+if [ -n "${PIN_SHA:-}" ]; then
+  REPO=$(git -C "$SRC" rev-parse --show-toplevel); REL=$(python3 -c "import os,sys;print(os.path.relpath(sys.argv[1],sys.argv[2]))" "$SRC" "$REPO")
+  for p in ${PIN_PATHS:-}; do
+    git -C "$REPO" show "$PIN_SHA:$REL/$p" > "$DEST/$p" || { echo "PIN failed: $PIN_SHA:$REL/$p" >&2; exit 3; }
+    echo "   pinned $p @ $PIN_SHA ($(shasum -a 256 "$DEST/$p" | cut -c1-16))"
+  done
+fi
 
 echo "== the mirror opens on the painted Barrow"
 python3 - "$DEST" <<'MAINSCENE'

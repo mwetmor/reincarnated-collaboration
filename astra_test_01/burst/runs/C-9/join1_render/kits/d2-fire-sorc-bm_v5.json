@@ -1,0 +1,147 @@
+{
+ "kit": "d2-fire-sorc-bm",
+ "_what": "Per-kit config for the JOIN-1 sprite-cell renderer: the SORCERESS BATTLE MAGE (orb staff on weapon_r, shield on weapon_l), v5 = R-C9-152 (Matt): body + pieces so_mx/export/ss152b -- v4's ss138a with the R-C9-140 hood_hair morph WITHDRAWN (it pulled the hair inside her and left the open hood see-through at the top and back); the face and front hair unchanged; the hood piece carries a CAP over the back/top hair (r152_02) and the hood_braid morph tucks the braid in (the hood is worn in every cell). A NEW pack root join1_pack_v5/d2-fire-sorc-bm; join1_pack_v4/d2-fire-sorc-bm untouched and superseded.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/so-body_ss152.glb",
+  "pieces": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/gown.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/legs.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/breastplate.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/hood.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/gauntlets.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/orbstaff.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/shield.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/so_mx/export/ss152b/under_legs.glb"
+  ],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/d2-fire-sorc-bm_v5_clips.json",
+  "loadout": {
+   "main_hand": "orb staff (one-handed)",
+   "main_side": "R",
+   "off_hand": "shield",
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the top of the head bone (head_end) above the ground plane, metres -- her body mesh (char1) is cut where the costume covers it (it spans only 0.70-1.15 m, h 0.4524), so a mesh extent is not her height (Matt 2026-10-02)",
+  "crown_bone": "head_end",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "states": {
+  "idle": {
+   "clip": "idle",
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.idle"
+  },
+  "walk": {
+   "clip": "walk",
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.walk",
+   "stride_from": "locomotion_in_place.walk"
+  },
+  "run": {
+   "clip": "run",
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop",
+   "manifest_entry": "clips.run",
+   "stride_from": "locomotion_in_place.run"
+  },
+  "cast_fireball": {
+   "clip": "cast_fireball_m",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.cast_fireball_m.release_s",
+   "release_socket": "main_tip",
+   "manifest_entry": "casts.cast_fireball_m",
+   "skill": "Skills.txt Id 47 (Fire Ball)"
+  },
+  "cast_meteor": {
+   "clip": "cast_meteor",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_from": "casts.cast_meteor.release_s",
+   "release_socket": "main_tip",
+   "manifest_entry": "casts.cast_meteor",
+   "skill": "Skills.txt Id 56 (Meteor), the gesture"
+  },
+  "block": {
+   "clip": "block",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 5,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "block",
+   "skill": "D2 BL, 5 frames (the timing packet); the shield raised and held"
+  },
+  "hit": {
+   "clip": "hit",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends",
+   "manifest_entry": "clips.hit"
+  },
+  "death": {
+   "clip": "death",
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true,
+   "manifest_entry": "clips.death"
+  }
+ },
+ "morphs": {
+  "grip_R": 1,
+  "grip_L": 1,
+  "under_battlemage": 1,
+  "hood_braid": 1,
+  "_what": "the fists closed on the staff and the shield; the gown's under-morph; R-C9-152 hood_braid (the braid tucked under the hood/armour; the hood piece's own cap covers the back/top hair)"
+ },
+ "sockets": {
+  "main_grip": {
+   "bone": "weapon_r",
+   "_what": "the staff grip"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": -0.5689,
+   "_what": "the ORB TIP: the staff's orb end, weapon_r - 0.5689 m along +Y (the orb, radius 0.09 m, sits at -0.40..-0.57; measured off orbstaff.glb) -- the projectile spawn"
+  },
+  "shield_centre": {
+   "bone": "weapon_l",
+   "local_m": [
+    0.1034,
+    0.0598,
+    -0.0219
+   ],
+   "_what": "the shield's centre: its bounding-box middle in weapon_l's frame (measured off shield.glb)"
+  },
+  "head_top": {
+   "bone": "head_end"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest: Meshy's \"Spine\" is the TOP spine joint (parent of neck and both shoulders; Spine02 is the LOWEST, child of Hips). Was Spine02 (belly height) until the socket fix of 2026-10-02"
+  }
+ },
+ "watchdog_s": 2400
+}
