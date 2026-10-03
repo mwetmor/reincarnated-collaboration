@@ -40339,6 +40339,11 @@
       "id": "N-C9-BV2-FLOOR-WHOLE",
       "note": "Sim Session (KC2 conductor) on barrow_v2 floor bites: option (c) -- first build keeps the walkable floor WHOLE (variant A); it is made to feel smaller by art only: non-blocking ground variation (scree, drifts, tide-wet stone, low grass), tall elements outside the walkable edge so the boundary reads close, mist/vignette at far edges, a flat/walk-over central feature at (0,0). (a) rejected: a monster crossing water/rock reads as a bug; (b) rejected for now: blocking bites change engagement paths = REFERENT-v2 question (logged by the Sim Session). Play zoom shows ~34x24 m around the hero (pending the double-zoom check). Variant B sketch kept as a REFERENT-v2 reference only.",
       "ts": "2026-10-03T00:30:47Z"
+    },
+    {
+      "id": "N-C9-CLEANUP-M13-E2",
+      "note": "Matt authorized ('let's do the 2 you recommended'): cleanup manifest 13 (old conductor scratch 7b4d3123 + godot harness_logs/tmp >3 days) and EN-E2 bake intermediates. Conductor parsed full paths (10 m13 entries contain spaces; the handoff's awk $NF command would have mis-targeted them), vetted every path (allowed prefixes, not git-tracked, godot tmp/kc2 and anything touched <3 days excluded): 407 planned, 406 deleted, 1 error -- reincarnated-godot/harness_logs/s2c_rows12_2026-08-25b: Permission denied on clip_bl_arena_f0031.png (not worked around; left for Matt). Log: cleanup/deletions_m13_en_e2_2026-10-03.log.gz. Free disk 28 -> 46 GiB. Disk halts H-C9-2 / H-C9-EN2-P2-DISK / H-C9-EN3-P2-DISK resolved.",
+      "ts": "2026-10-03T01:21:04Z"
     }
   ]
 }
