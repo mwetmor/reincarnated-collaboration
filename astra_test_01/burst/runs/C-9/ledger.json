@@ -43697,6 +43697,11 @@
       "ts": "2026-10-06T22:51:37Z",
       "topic": "R-C9-159: barrow_v2 SW re-proved as a LEVEL of the v1 Barrow (barrow_full scenes/barrow_v2_sw.tscn, scripts/barrow_v2_sw.gd extends barrow_full.gd) at v1's camera (pitch 52.95354, yaw 47) (lane BS drax)",
       "result": "Inherits all v1 systems (his rig/controls, two-sun painted light, paint_stack pen+paper, SnowField footprints, BarrowHeather sprays+gust wind, snowfall). Ground painted GROUND-ONLY (no plants/objects; models shadow-only in the guide): 8 tiles at half plate density (2816x3328, 50.3 px/m) + ONE master (BV2L-master), every tile fed its painted neighbours, colour-matched to the master (low-frequency transfer, sigma 40 px) and feathered; seams 2.4-6.3/255. Each Tripo model painted ONCE on itself (4-view sheet -> Astra -> t5_06b bake on its own UVs): cliffplain, crag, cavecliff, staircliff, wreck2; v1 kit (cairn, stones, log) wear v1's own bakes; models drawn as painted albedo under v1's ramp (one bake, many yaws), pen in the bake. Plants never painted: 1,032 v1 heather sprays (heather + paler 'grass' class) off floor/lanes/wreck. Water: animated painted-style shader (paint-projected base, drifting swell bands, ripple strokes, foam lace on a floe distance field), floes bob. Lagoon/sea split KEPT (one sea level still cannot work: floor flat at 0, cliff 7.5 m). Cave cliff turned to face south (v1 camera saw it edge-on), 16 m, floor-clear. Wreck redone: BVM-wreck2 sheet (b) -> Tripo ($0.40) -> 20k tris -> normalised 17x10.03x6.42, half-sunk z -2.1, heeled 20 deg, 0.9 m seaward of the slot; repainted dark (BV2L-m-wreck2b). Astra 30 images (cap 60); fal $0.40 (cap $3). Look: barrow_v2/section_v1cam/look/ (3 sheets vs sketch A vs v1, 2 films 65 s)."
+    },
+    {
+      "id": "M-C9-P2-SESSION-AAB928-HANDOFF",
+      "note": "Conductor session aab928 closed out: session record + session-2 handoff written (R-C9-160). Delivered: playtest 1 (dressed warlord in the KC2 arena; REFERENT-v1 sealed r2), all w151-160 enemy packs, warlord eor3 + EoR overlay, Barrow deploy d069c4b. barrow_v2 continues in a fresh session.",
+      "ts": "2026-10-06T23:24:46Z"
     }
   ],
   "halts": [
@@ -45118,6 +45123,15 @@
         "(AskUserQuestion) Approach: \"Yes, plus v1's camera angle\"; The boat: \"Sketch A's wreck (Recommended)\""
       ],
       "ts": "2026-10-06T22:00:42Z"
+    },
+    {
+      "id": "R-C9-160",
+      "by": "Matt",
+      "ruling": "The R-C9-159 barrow_v2 SW section (a level in the v1 engine) still is not up to barrow v1's standards. Document everything done in this conductor session and write a session handoff; continue barrow_v2 in a FRESH session from the handoff for a fresh perspective. Written: agentic_orchestration/gandalf/notes/2026-10-06-c9-phase2-session-record.md and 2026-10-06-c9-phase2-session2-handoff.md (fresh-session prompt in its section 7). All lanes idle.",
+      "verbatim": [
+        "The barrow_v2 still isn't up to the same standards as barrow_v1. I think it's a good time to document everything that we did this session. Once completed write a session hand off doc. We will plan to start a fresh session to continue the barrow_v2 work afterwards using the hand off doc for a fresh perspective."
+      ],
+      "ts": "2026-10-06T23:24:46Z"
     }
   ],
   "grok_calls": [
@@ -46098,6 +46112,11 @@
       "id": "N-C9-KC2-SEALED-R2",
       "note": "KC2 (Sim Session): REFERENT-v1 SEALED r2 (KP-302). Matt replayed the DRESSED warlord build (PLAY on the graded rules) and died in w160 as in his GD video -- playtest priority (1) delivered with C-9's packs + EoR overlay. Tags: godot kc2/referent-v1-sealed-r2-runtime -> 534febc (runtime 5b5a539e); engine ...-sealed-r2-oracle -> 969fbd8d; earlier seal tags withdrawn. KC2 post-seal cleanup freed ~12 GB (36 GiB free). C-9 step 2 (barrow_v2 true 3D, R-C9-156/159) unblocked; manifest 14 (3.73 GiB) + 14b pending Matt.",
       "ts": "2026-10-06T22:15:39Z"
+    },
+    {
+      "id": "N-C9-CLEANUP-M14",
+      "note": "Manifest 14 run by Matt 2026-10-06 (2,576 entries, 3.73 GiB; conductor verified 0 remaining). Manifest 14b (10 entries, 1.94 GiB) prepared at 9f49cfd23, not yet run.",
+      "ts": "2026-10-06T23:24:46Z"
     }
   ]
 }
