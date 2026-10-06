@@ -1,0 +1,222 @@
+{
+ "approx_ceiling": "APPROX-CEILING: J-S4b mapping grade NULL (owed at J4a) -> every B0-N figure carries the charter s4.2 APPROX ceiling",
+ "reference": "J-S8 MANIFEST f82807fb6de68a6cee4eff69bb7028457143b4951fe9abccee94caa735c4d217",
+ "run": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/b0n/NCB2/run",
+ "run_status": "DRY-RUN \u00b7 NOT THE FIXTURE",
+ "obs1": null,
+ "grains": {
+  "G1": {
+   "rows_ref": 56511,
+   "rows_run": 56146,
+   "rowset_ref": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+   "rowset_run": "c8443898e752f46e28286f2e7b262b6481062636702123fb48733c5821dbed56",
+   "rowset_equal": false,
+   "only_ref": 613,
+   "only_run": 248,
+   "common_value_diff": 1200,
+   "field_diff_counts": {
+    "da_used": 645,
+    "pth_raw": 645,
+    "pth_used": 581,
+    "pth_effective": 581,
+    "damage_multiplier": 164,
+    "roll": 723,
+    "crit_tier": 353,
+    "hit": 26
+   },
+   "cells_differing": 20,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2-NULL|0": 4181,
+    "M-POL-2-NULL|1": 878,
+    "M-POL-2-NULL|3": 2098,
+    "M-POL-2-NULL|4": 4786,
+    "M-POL-2|0": 1425,
+    "M-POL-2|1": 3362,
+    "M-POL-2|3": 4391,
+    "M-POL-2|4": 4064,
+    "M0|0": 4181,
+    "M0|1": 878,
+    "M0|3": 2098,
+    "M0|4": 4786,
+    "W1-NULL|0": 1425,
+    "W1-NULL|1": 3362,
+    "W1-NULL|3": 4391,
+    "W1-NULL|4": 4064,
+    "W1|0": 1425,
+    "W1|1": 3362,
+    "W1|3": 4571,
+    "W1|4": 4064
+   }
+  },
+  "G2": {
+   "rows_ref": 105045,
+   "rows_run": 104245,
+   "rowset_ref": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+   "rowset_run": "564a2772c9aebad2f7e54fb590716c226bf4dbbfa89e33adeeef882d5bd5cf63",
+   "rowset_equal": false,
+   "only_ref": 1168,
+   "only_run": 368,
+   "common_value_diff": 288,
+   "field_diff_counts": {
+    "resist_used_frac": 223,
+    "after_stage_2": 223,
+    "applied": 288,
+    "attribution": 275,
+    "pre_mitigation": 15,
+    "after_stage_1": 65
+   },
+   "cells_differing": 20,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2-NULL|0": 4190,
+    "M-POL-2-NULL|1": 879,
+    "M-POL-2-NULL|3": 2098,
+    "M-POL-2-NULL|4": 4786,
+    "M-POL-2|0": 1434,
+    "M-POL-2|1": 3362,
+    "M-POL-2|3": 4396,
+    "M-POL-2|4": 4065,
+    "M0|0": 4190,
+    "M0|1": 879,
+    "M0|3": 2098,
+    "M0|4": 4786,
+    "W1-NULL|0": 1434,
+    "W1-NULL|1": 3362,
+    "W1-NULL|3": 4396,
+    "W1-NULL|4": 4065,
+    "W1|0": 1434,
+    "W1|1": 3362,
+    "W1|3": 4571,
+    "W1|4": 4065
+   }
+  },
+  "G3": {
+   "rows_ref": 250,
+   "rows_run": 250,
+   "rowset_ref": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+   "rowset_run": "e092116076e68af1738598c0dbc9ca69bc51b1cd3ce0bd33d32f074777ecdf88",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 0,
+   "common_value_diff": 201,
+   "field_diff_counts": {
+    "intake_hp": 173,
+    "heal_hp": 201,
+    "n_leech_events": 6,
+    "n_bodies_hit": 8
+   },
+   "cells_differing": 25,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2-NULL|0": 151,
+    "M-POL-2-NULL|1": 151,
+    "M-POL-2-NULL|2": 151,
+    "M-POL-2-NULL|3": 151,
+    "M-POL-2-NULL|4": 151,
+    "M-POL-2|0": 151,
+    "M-POL-2|1": 151,
+    "M-POL-2|2": 151,
+    "M-POL-2|3": 151,
+    "M-POL-2|4": 151,
+    "M0|0": 151,
+    "M0|1": 151,
+    "M0|2": 151,
+    "M0|3": 151,
+    "M0|4": 151,
+    "W1-NULL|0": 151,
+    "W1-NULL|1": 151,
+    "W1-NULL|2": 151,
+    "W1-NULL|3": 151,
+    "W1-NULL|4": 151,
+    "W1|0": 151,
+    "W1|1": 151,
+    "W1|2": 151,
+    "W1|3": 151,
+    "W1|4": 151
+   },
+   "heal_hp_sum_ref": 21843286.033435244,
+   "heal_hp_sum_run": 21679819.004815046
+  },
+  "G4": {
+   "rows_ref": 117695,
+   "rows_run": 117254,
+   "rowset_ref": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+   "rowset_run": "22b7423c498146dd5265ddbc3160af3e44e1173ce4bd3f1dd641bb8a1456826d",
+   "rowset_equal": false,
+   "only_ref": 513,
+   "only_run": 72,
+   "common_value_diff": 724,
+   "field_diff_counts": {
+    "n_bodies_in_disc": 292,
+    "min_body_distance_m": 722,
+    "n_bodies_halted": 238
+   },
+   "cells_differing": 8,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2-NULL|1": 4379,
+    "M-POL-2|3": 5035,
+    "M-POL-2|4": 4099,
+    "M0|1": 4379,
+    "W1-NULL|3": 5035,
+    "W1-NULL|4": 4099,
+    "W1|3": 4707,
+    "W1|4": 4099
+   },
+   "n_bodies_in_disc_sum_ref": 149821,
+   "n_bodies_in_disc_sum_run": 148800
+  },
+  "G5": {
+   "rows_ref": 25,
+   "rows_run": 25,
+   "rowset_ref": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+   "rowset_run": "aaba58d88e852902ede2b4ce05b1c3289853cc611cd6e57855f19dc1d36fd970",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 0,
+   "common_value_diff": 6,
+   "field_diff_counts": {
+    "final_hp": 6,
+    "n_ticks": 4,
+    "terminal_reason": 1,
+    "death_tick": 1
+   },
+   "cells_differing": 6,
+   "first_divergent_tick_per_cell": {},
+   "terminal_wave_flips": 0,
+   "terminal_reason_flips": 1
+  },
+  "G6": {
+   "rows_ref": 0,
+   "rows_run": 0,
+   "rowset_ref": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "rowset_run": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "rowset_equal": true
+  },
+  "G7": {
+   "rows_ref": 250,
+   "rows_run": 250,
+   "rowset_ref": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+   "rowset_run": "b0ca8ed960ffd13e83574e14aecac2f1eddd9e1a02f5cabd816edcd6e9c3c5a0",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 0,
+   "common_value_diff": 4,
+   "field_diff_counts": {
+    "n_ticks": 4,
+    "wave_end_tick": 4
+   },
+   "cells_differing": 4,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2|4": 160,
+    "W1-NULL|4": 160,
+    "W1|3": 160,
+    "W1|4": 160
+   }
+  }
+ },
+ "executes_set": {
+  "TA-X-07 (conservation; G2 offered/applied chain)": false,
+  "TA-X-20 (hit-test predicate + multiplicity; G4 occupancy, bound radius)": false,
+  "TA-X-29 (global-magnitude fold; G2 pre_mitigation)": false,
+  "TA-X-30 (pursuit halt; G4 halt counters)": false
+ },
+ "reproduces_all_7": false
+}

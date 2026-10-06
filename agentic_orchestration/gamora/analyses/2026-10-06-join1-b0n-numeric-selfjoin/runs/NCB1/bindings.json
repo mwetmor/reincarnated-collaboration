@@ -1,0 +1,351 @@
+{
+ "tag": "NC-B1",
+ "kit": "gd-eor-warlord-referent",
+ "corpus": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/b0n/corpus2/corpus_laneP_NCB1_radius3p1.db",
+ "bindings": [
+  {
+   "id": "B-01",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "EOR_RADIUS_M",
+   "key": null,
+   "value": 3.1
+  },
+  {
+   "id": "B-02",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "TIME_BETWEEN_ATTACKS_RAW",
+   "key": null,
+   "value": 200.0
+  },
+  {
+   "id": "B-03",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "BASE_TICK_PERIOD_S",
+   "key": null,
+   "value": 0.16
+  },
+  {
+   "id": "B-04",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "EOR_EFFECT_DURATION_S",
+   "key": null,
+   "value": 0.25
+  },
+  {
+   "id": "B-05",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "EOR_ROTATION_SPEED_MULT",
+   "key": null,
+   "value": 0.35
+  },
+  {
+   "id": "B-06",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "SKILL_MANA_COST_R26",
+   "key": null,
+   "value": 16.0
+  },
+  {
+   "id": "B-07",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "ENERGY_COST_FACTOR",
+   "key": null,
+   "value": 0.9
+  },
+  {
+   "id": "B-08",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "CLIENT_DRAIN_PER_S",
+   "key": null,
+   "value": 176.4
+  },
+  {
+   "id": "B-09",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "EOR_TOTAL_RANK",
+   "key": null,
+   "value": 26.0
+  },
+  {
+   "id": "B-10",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "WEAPON_DAMAGE_PCT_BASE",
+   "key": null,
+   "value": 50.0
+  },
+  {
+   "id": "B-11",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "WEAPON_DAMAGE_PCT_GUTSMASHER",
+   "key": null,
+   "value": 14.0
+  },
+  {
+   "id": "B-12",
+   "kind": "func",
+   "module": "player_sustain",
+   "name": "eor_leech_fraction",
+   "key": null,
+   "value": 0.57
+  },
+  {
+   "id": "B-13",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "FIRE_TO_PHYSICAL_CONVERSION_PCT",
+   "key": null,
+   "value": 100.0
+  },
+  {
+   "id": "B-14",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "FLAT_PHYSICAL_BASE_MIN",
+   "key": null,
+   "value": 162.0
+  },
+  {
+   "id": "B-15",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "FLAT_PHYSICAL_BASE_MAX",
+   "key": null,
+   "value": 182.0
+  },
+  {
+   "id": "B-16",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "FLAT_FIRE_POINT",
+   "key": null,
+   "value": 138.0
+  },
+  {
+   "id": "B-17",
+   "kind": "attr",
+   "module": "secondary_streams",
+   "name": "BLEED_FLAT",
+   "key": null,
+   "value": 540.0
+  },
+  {
+   "id": "B-17",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "BLEED_TOTAL_PRE_MOD",
+   "key": null,
+   "value": 540.0
+  },
+  {
+   "id": "B-18",
+   "kind": "attr",
+   "module": "secondary_streams",
+   "name": "BLEED_BASE_DURATION_S",
+   "key": null,
+   "value": 3.0
+  },
+  {
+   "id": "B-18",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "BLEED_DURATION_S",
+   "key": null,
+   "value": 3.0
+  },
+  {
+   "id": "B-19",
+   "kind": "attr",
+   "module": "secondary_streams",
+   "name": "EOR_SCOPED_BLEED_MODIFIER_PCT",
+   "key": null,
+   "value": 50.0
+  },
+  {
+   "id": "B-20a",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "SOULFIRE_PERIOD_S",
+   "key": null,
+   "value": 0.2
+  },
+  {
+   "id": "B-21",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "SOULFIRE_EXPLOSION_RADIUS_M",
+   "key": null,
+   "value": 0.2
+  },
+  {
+   "id": "B-22",
+   "kind": "attr",
+   "module": "secondary_streams",
+   "name": "SOULFIRE_PROJECTILES",
+   "key": null,
+   "value": 1.0
+  },
+  {
+   "id": "B-23",
+   "kind": "attr",
+   "module": "secondary_streams",
+   "name": "SOULFIRE_FLAT_LIGHTNING",
+   "key": null,
+   "value": 229.0
+  },
+  {
+   "id": "B-24",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "FIXTURE_ATTACK_SPEED_PCT",
+   "key": null,
+   "value": 196.0
+  },
+  {
+   "id": "B-25",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "MO_PLAYER_HP_MAX",
+   "key": null,
+   "value": 20005.0
+  },
+  {
+   "id": "B-25",
+   "kind": "attr",
+   "module": "threat",
+   "name": "PLAYER_HP_MAX",
+   "key": null,
+   "value": 20005.0
+  },
+  {
+   "id": "B-26",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "ENERGY_MAX",
+   "key": null,
+   "value": 2576.0
+  },
+  {
+   "id": "B-27",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "ENERGY_REGEN_PER_S",
+   "key": null,
+   "value": 75.37
+  },
+  {
+   "id": "B-28",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "MO_ENERGY_CEILING",
+   "key": null,
+   "value": 1594.0
+  },
+  {
+   "id": "B-29",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "MO_ENERGY_RESERVATION",
+   "key": null,
+   "value": 982.0
+  },
+  {
+   "id": "B-30",
+   "kind": "attr",
+   "module": "threat",
+   "name": "PLAYER_DA",
+   "key": null,
+   "value": 2591.0
+  },
+  {
+   "id": "B-31",
+   "kind": "attr",
+   "module": "threat",
+   "name": "PLAYER_ARMOR",
+   "key": null,
+   "value": 3557.0
+  },
+  {
+   "id": "B-31",
+   "kind": "attr",
+   "module": "intake",
+   "name": "SHEET_ARMOR_RATING",
+   "key": null,
+   "value": 3557.0
+  },
+  {
+   "id": "B-32",
+   "kind": "attr",
+   "module": "threat",
+   "name": "PLAYER_ADCTH_PCT",
+   "key": null,
+   "value": 21.0
+  },
+  {
+   "id": "B-32",
+   "kind": "attr",
+   "module": "player_sustain",
+   "name": "ADCTH_PCT",
+   "key": null,
+   "value": 21.0
+  },
+  {
+   "id": "B-33",
+   "kind": "attr",
+   "module": "threat",
+   "name": "PLAYER_REGEN_HP_PER_S",
+   "key": null,
+   "value": 129.38
+  },
+  {
+   "id": "B-33",
+   "kind": "attr",
+   "module": "player_sustain",
+   "name": "REGEN_HP_PER_S_SHEET",
+   "key": null,
+   "value": 129.38
+  },
+  {
+   "id": "B-34",
+   "kind": "dictitem",
+   "module": "threat",
+   "name": "RESIST_PCT",
+   "key": "Physical",
+   "value": 16.0
+  },
+  {
+   "id": "B-35",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "V_REF_M_PER_S",
+   "key": null,
+   "value": 4.0
+  },
+  {
+   "id": "B-36",
+   "kind": "cited",
+   "module": "locomotion",
+   "name": "PLAYER_RUN_SPEED_MULTIPLIER",
+   "key": null,
+   "value": 1.35
+  },
+  {
+   "id": "B-37",
+   "kind": "cited",
+   "module": "fixture",
+   "name": "FIXTURE_RUN_SPEED_PCT",
+   "key": null,
+   "value": 135.0
+  }
+ ]
+}

@@ -1,0 +1,346 @@
+[
+{
+"id": "B-01",
+"site": "fixture.EOR_RADIUS_M",
+"kind": "cited",
+"oracle_value": "3.0",
+"bound_value": "3.1",
+"bit_equal": false
+},
+{
+"id": "B-02",
+"site": "fixture.TIME_BETWEEN_ATTACKS_RAW",
+"kind": "cited",
+"oracle_value": "200",
+"bound_value": "200",
+"bit_equal": true
+},
+{
+"id": "B-03",
+"site": "fixture.BASE_TICK_PERIOD_S",
+"kind": "cited",
+"oracle_value": "0.16",
+"bound_value": "0.16",
+"bit_equal": true
+},
+{
+"id": "B-04",
+"site": "fixture.EOR_EFFECT_DURATION_S",
+"kind": "cited",
+"oracle_value": "0.25",
+"bound_value": "0.25",
+"bit_equal": true
+},
+{
+"id": "B-05",
+"site": "fixture.EOR_ROTATION_SPEED_MULT",
+"kind": "cited",
+"oracle_value": "0.35",
+"bound_value": "0.35",
+"bit_equal": true
+},
+{
+"id": "B-06",
+"site": "fixture.SKILL_MANA_COST_R26",
+"kind": "cited",
+"oracle_value": "16.0",
+"bound_value": "16.0",
+"bit_equal": true
+},
+{
+"id": "B-07",
+"site": "fixture.ENERGY_COST_FACTOR",
+"kind": "cited",
+"oracle_value": "0.9",
+"bound_value": "0.9",
+"bit_equal": true
+},
+{
+"id": "B-08",
+"site": "fixture.CLIENT_DRAIN_PER_S",
+"kind": "cited",
+"oracle_value": "176.4",
+"bound_value": "176.4",
+"bit_equal": true
+},
+{
+"id": "B-09",
+"site": "fixture.EOR_TOTAL_RANK",
+"kind": "cited",
+"oracle_value": "26",
+"bound_value": "26",
+"bit_equal": true
+},
+{
+"id": "B-10",
+"site": "fixture.WEAPON_DAMAGE_PCT_BASE",
+"kind": "cited",
+"oracle_value": "50.0",
+"bound_value": "50.0",
+"bit_equal": true
+},
+{
+"id": "B-11",
+"site": "fixture.WEAPON_DAMAGE_PCT_GUTSMASHER",
+"kind": "cited",
+"oracle_value": "14.0",
+"bound_value": "14.0",
+"bit_equal": true
+},
+{
+"id": "B-13",
+"site": "fixture.FIRE_TO_PHYSICAL_CONVERSION_PCT",
+"kind": "cited",
+"oracle_value": "100.0",
+"bound_value": "100.0",
+"bit_equal": true
+},
+{
+"id": "B-14",
+"site": "fixture.FLAT_PHYSICAL_BASE_MIN",
+"kind": "cited",
+"oracle_value": "162.0",
+"bound_value": "162.0",
+"bit_equal": true
+},
+{
+"id": "B-15",
+"site": "fixture.FLAT_PHYSICAL_BASE_MAX",
+"kind": "cited",
+"oracle_value": "182.0",
+"bound_value": "182.0",
+"bit_equal": true
+},
+{
+"id": "B-16",
+"site": "fixture.FLAT_FIRE_POINT",
+"kind": "cited",
+"oracle_value": "138.0",
+"bound_value": "138.0",
+"bit_equal": true
+},
+{
+"id": "B-17",
+"site": "fixture.BLEED_TOTAL_PRE_MOD",
+"kind": "cited",
+"oracle_value": "540.0",
+"bound_value": "540.0",
+"bit_equal": true
+},
+{
+"id": "B-18",
+"site": "fixture.BLEED_DURATION_S",
+"kind": "cited",
+"oracle_value": "3.0",
+"bound_value": "3.0",
+"bit_equal": true
+},
+{
+"id": "B-20a",
+"site": "fixture.SOULFIRE_PERIOD_S",
+"kind": "cited",
+"oracle_value": "0.2",
+"bound_value": "0.2",
+"bit_equal": true
+},
+{
+"id": "B-21",
+"site": "fixture.SOULFIRE_EXPLOSION_RADIUS_M",
+"kind": "cited",
+"oracle_value": "0.2",
+"bound_value": "0.2",
+"bit_equal": true
+},
+{
+"id": "B-24",
+"site": "fixture.FIXTURE_ATTACK_SPEED_PCT",
+"kind": "cited",
+"oracle_value": "196.0",
+"bound_value": "196.0",
+"bit_equal": true
+},
+{
+"id": "B-25",
+"site": "fixture.MO_PLAYER_HP_MAX",
+"kind": "cited",
+"oracle_value": "20005.0",
+"bound_value": "20005.0",
+"bit_equal": true
+},
+{
+"id": "B-26",
+"site": "fixture.ENERGY_MAX",
+"kind": "cited",
+"oracle_value": "2576.0",
+"bound_value": "2576.0",
+"bit_equal": true
+},
+{
+"id": "B-27",
+"site": "fixture.ENERGY_REGEN_PER_S",
+"kind": "cited",
+"oracle_value": "75.37",
+"bound_value": "75.37",
+"bit_equal": true
+},
+{
+"id": "B-28",
+"site": "fixture.MO_ENERGY_CEILING",
+"kind": "cited",
+"oracle_value": "1594.0",
+"bound_value": "1594.0",
+"bit_equal": true
+},
+{
+"id": "B-29",
+"site": "fixture.MO_ENERGY_RESERVATION",
+"kind": "cited",
+"oracle_value": "982.0",
+"bound_value": "982.0",
+"bit_equal": true
+},
+{
+"id": "B-35",
+"site": "fixture.V_REF_M_PER_S",
+"kind": "cited",
+"oracle_value": "4.0",
+"bound_value": "4.0",
+"bit_equal": true
+},
+{
+"id": "B-37",
+"site": "fixture.FIXTURE_RUN_SPEED_PCT",
+"kind": "cited",
+"oracle_value": "135.0",
+"bound_value": "135.0",
+"bit_equal": true
+},
+{
+"id": "B-12",
+"site": "player_sustain.eor_leech_fraction",
+"kind": "func",
+"oracle_value": "0.57",
+"bound_value": "0.57",
+"bit_equal": true
+},
+{
+"id": "B-17",
+"site": "secondary_streams.BLEED_FLAT",
+"kind": "attr",
+"oracle_value": "540.0",
+"bound_value": "540.0",
+"bit_equal": true
+},
+{
+"id": "B-18",
+"site": "secondary_streams.BLEED_BASE_DURATION_S",
+"kind": "attr",
+"oracle_value": "3.0",
+"bound_value": "3.0",
+"bit_equal": true
+},
+{
+"id": "B-19",
+"site": "secondary_streams.EOR_SCOPED_BLEED_MODIFIER_PCT",
+"kind": "attr",
+"oracle_value": "50.0",
+"bound_value": "50.0",
+"bit_equal": true
+},
+{
+"id": "B-22",
+"site": "secondary_streams.SOULFIRE_PROJECTILES",
+"kind": "attr",
+"oracle_value": "1",
+"bound_value": "1",
+"bit_equal": true
+},
+{
+"id": "B-23",
+"site": "secondary_streams.SOULFIRE_FLAT_LIGHTNING",
+"kind": "attr",
+"oracle_value": "229.0",
+"bound_value": "229.0",
+"bit_equal": true
+},
+{
+"id": "B-25",
+"site": "threat.PLAYER_HP_MAX",
+"kind": "attr",
+"oracle_value": "20005.0",
+"bound_value": "20005.0",
+"bit_equal": true
+},
+{
+"id": "B-30",
+"site": "threat.PLAYER_DA",
+"kind": "attr",
+"oracle_value": "2591.0",
+"bound_value": "2591.0",
+"bit_equal": true
+},
+{
+"id": "B-31",
+"site": "threat.PLAYER_ARMOR",
+"kind": "attr",
+"oracle_value": "3557.0",
+"bound_value": "3557.0",
+"bit_equal": true
+},
+{
+"id": "B-31",
+"site": "intake.SHEET_ARMOR_RATING",
+"kind": "attr",
+"oracle_value": "3557.0",
+"bound_value": "3557.0",
+"bit_equal": true
+},
+{
+"id": "B-32",
+"site": "threat.PLAYER_ADCTH_PCT",
+"kind": "attr",
+"oracle_value": "21.0",
+"bound_value": "21.0",
+"bit_equal": true
+},
+{
+"id": "B-32",
+"site": "player_sustain.ADCTH_PCT",
+"kind": "attr",
+"oracle_value": "21.0",
+"bound_value": "21.0",
+"bit_equal": true
+},
+{
+"id": "B-33",
+"site": "threat.PLAYER_REGEN_HP_PER_S",
+"kind": "attr",
+"oracle_value": "129.38",
+"bound_value": "129.38",
+"bit_equal": true
+},
+{
+"id": "B-33",
+"site": "player_sustain.REGEN_HP_PER_S_SHEET",
+"kind": "attr",
+"oracle_value": "129.38",
+"bound_value": "129.38",
+"bit_equal": true
+},
+{
+"id": "B-34",
+"site": "threat.RESIST_PCT[Physical]",
+"kind": "dictitem",
+"oracle_value": "16.0",
+"bound_value": "16.0",
+"bit_equal": true
+},
+{
+"id": "B-36",
+"site": "locomotion.PLAYER_RUN_SPEED_MULTIPLIER",
+"kind": "cited",
+"oracle_value": "1.35",
+"bound_value": "1.35",
+"bit_equal": true
+}
+]

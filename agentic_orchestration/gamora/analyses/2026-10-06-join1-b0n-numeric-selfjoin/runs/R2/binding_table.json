@@ -1,0 +1,1032 @@
+{
+ "tag": "R2",
+ "approx_ceiling": "APPROX-CEILING: J-S4b mapping grade NULL (owed at J4a) -> every B0-N figure carries the charter s4.2 APPROX ceiling",
+ "corpus_FILE_sha256": "2c7d434e98ff7f663b24f4bcc172f84d24ac732d961ff6715dd72cecfa5050cc",
+ "omit": [
+  "B-20b"
+ ],
+ "override": {},
+ "leech_row": "eor_weapon_damage_pct_oracle_leech_r20",
+ "C-01": {
+  "id": "C-01",
+  "compiled_dominant_element": "physical",
+  "basis": "court",
+  "oracle_player_stream": "physical (player_offense physical path; FIRE_TO_PHYSICAL_CONVERSION_PCT = 100)",
+  "pass": true,
+  "pre_KC1_counterfactual": "fire",
+  "pre_KC1_would_pass": false
+ },
+ "compiled": {
+  "dominant_element": "physical",
+  "eor_geometry_params": {
+   "radius": 3.0
+  },
+  "notes": [],
+  "gap_excluded": [
+   "base_foi_damage (R-K5 GAP, T4 pending)"
+  ]
+ },
+ "derived_check_rows": {
+  "eor_tick_period_s": {
+   "source_value": 0.0816326530612245,
+   "rdr_value": 0.0816326530612245,
+   "rule_id": "R-T2",
+   "source_scale": "gd_seconds"
+  },
+  "eor_ticks_per_s": {
+   "source_value": 12.25,
+   "rdr_value": null,
+   "rule_id": null,
+   "source_scale": "gd_per_second"
+  }
+ },
+ "bindings": [
+  {
+   "id": "B-01",
+   "record_rows": [
+    "eor_radius_m"
+   ],
+   "bound_value": 3.0,
+   "value_source": "compiled kit geometry_params.radius (KC-3) <- rdr_value (R-CTX-GEO)",
+   "via": "compiled",
+   "sites": [
+    "fixture.EOR_RADIUS_M"
+   ],
+   "compiler_carries": true,
+   "compiler_note": null
+  },
+  {
+   "id": "B-02",
+   "record_rows": [
+    "eor_time_between_attacks_db"
+   ],
+   "bound_value": 200.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.TIME_BETWEEN_ATTACKS_RAW"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-03",
+   "record_rows": [
+    "eor_period_at_100pct_as_s"
+   ],
+   "bound_value": 0.16,
+   "value_source": "rdr_value (R-T2)",
+   "via": "record",
+   "sites": [
+    "fixture.BASE_TICK_PERIOD_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-04",
+   "record_rows": [
+    "eor_channel_tail_s"
+   ],
+   "bound_value": 0.25,
+   "value_source": "rdr_value (R-T2)",
+   "via": "record",
+   "sites": [
+    "fixture.EOR_EFFECT_DURATION_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-05",
+   "record_rows": [
+    "eor_rotation_speed_multiplier"
+   ],
+   "bound_value": 0.35,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.EOR_ROTATION_SPEED_MULT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-06",
+   "record_rows": [
+    "eor_mana_cost_per_tick_r26"
+   ],
+   "bound_value": 16.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.SKILL_MANA_COST_R26"
+   ],
+   "compiler_carries": false,
+   "compiler_note": "compiler emits energy_cost 10.0 (gd default; KC-3 residual); binder reads the record row"
+  },
+  {
+   "id": "B-07",
+   "record_rows": [
+    "eor_energy_cost_factor"
+   ],
+   "bound_value": 0.9,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.ENERGY_COST_FACTOR"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-08",
+   "record_rows": [
+    "eor_drain_per_s"
+   ],
+   "bound_value": 176.4,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.CLIENT_DRAIN_PER_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-09",
+   "record_rows": [
+    "eor_rank_total"
+   ],
+   "bound_value": 26.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.EOR_TOTAL_RANK"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-10",
+   "record_rows": [
+    "eor_weapon_damage_pct_skill_r26"
+   ],
+   "bound_value": 50.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.WEAPON_DAMAGE_PCT_BASE"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-11",
+   "record_rows": [
+    "eor_weapon_damage_pct_gutsmasher_mod"
+   ],
+   "bound_value": 14.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.WEAPON_DAMAGE_PCT_GUTSMASHER"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-12",
+   "record_rows": [
+    "eor_weapon_damage_pct_oracle_leech_r20"
+   ],
+   "bound_value": 0.57,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention) / 100",
+   "via": "record",
+   "sites": [
+    "player_sustain.eor_leech_fraction"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-13",
+   "record_rows": [
+    "eor_fire_to_physical_conversion_pct"
+   ],
+   "bound_value": 100.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.FIRE_TO_PHYSICAL_CONVERSION_PCT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-14",
+   "record_rows": [
+    "eor_flat_physical_min_r26"
+   ],
+   "bound_value": 162.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.FLAT_PHYSICAL_BASE_MIN"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-15",
+   "record_rows": [
+    "eor_flat_physical_max_r26"
+   ],
+   "bound_value": 182.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.FLAT_PHYSICAL_BASE_MAX"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-16",
+   "record_rows": [
+    "eor_flat_fire_min_r26"
+   ],
+   "bound_value": 138.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.FLAT_FIRE_POINT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-17",
+   "record_rows": [
+    "eor_bleed_flat_gutsmasher",
+    "eor_bleed_flat_sandreaver"
+   ],
+   "bound_value": 540.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention) + source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "secondary_streams.BLEED_FLAT",
+    "fixture.BLEED_TOTAL_PRE_MOD"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-18",
+   "record_rows": [
+    "eor_bleed_base_duration_s"
+   ],
+   "bound_value": 3.0,
+   "value_source": "rdr_value (R-T2)",
+   "via": "record",
+   "sites": [
+    "secondary_streams.BLEED_BASE_DURATION_S",
+    "fixture.BLEED_DURATION_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-19",
+   "record_rows": [
+    "eor_bleed_modifier_pct_eor_scoped"
+   ],
+   "bound_value": 50.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "secondary_streams.EOR_SCOPED_BLEED_MODIFIER_PCT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-20a",
+   "record_rows": [
+    "soulfire_period_s"
+   ],
+   "bound_value": 0.2,
+   "value_source": "rdr_value (R-T2)",
+   "via": "record",
+   "sites": [
+    "fixture.SOULFIRE_PERIOD_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-20b",
+   "omitted": true,
+   "record_rows": [
+    "soulfire_period_s"
+   ]
+  },
+  {
+   "id": "B-21",
+   "record_rows": [
+    "soulfire_explosion_radius_m"
+   ],
+   "bound_value": 0.2,
+   "value_source": "rdr_value (R-CTX-GEO)",
+   "via": "record",
+   "sites": [
+    "fixture.SOULFIRE_EXPLOSION_RADIUS_M"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-22",
+   "record_rows": [
+    "soulfire_projectiles_per_proc"
+   ],
+   "bound_value": 1.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "secondary_streams.SOULFIRE_PROJECTILES"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-23",
+   "record_rows": [
+    "soulfire_flat_lightning"
+   ],
+   "bound_value": 229.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "secondary_streams.SOULFIRE_FLAT_LIGHTNING"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-24",
+   "record_rows": [
+    "player_attack_speed_pct"
+   ],
+   "bound_value": 196.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.FIXTURE_ATTACK_SPEED_PCT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-25",
+   "record_rows": [
+    "player_hp_max"
+   ],
+   "bound_value": 20005.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.MO_PLAYER_HP_MAX",
+    "threat.PLAYER_HP_MAX"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-26",
+   "record_rows": [
+    "player_energy_max"
+   ],
+   "bound_value": 2576.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.ENERGY_MAX"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-27",
+   "record_rows": [
+    "player_energy_regen_per_s"
+   ],
+   "bound_value": 75.37,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.ENERGY_REGEN_PER_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-28",
+   "record_rows": [
+    "player_energy_usable_ceiling"
+   ],
+   "bound_value": 1594.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.MO_ENERGY_CEILING"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-29",
+   "record_rows": [
+    "player_energy_reserved"
+   ],
+   "bound_value": 982.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.MO_ENERGY_RESERVATION"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-30",
+   "record_rows": [
+    "player_defensive_ability"
+   ],
+   "bound_value": 2591.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "threat.PLAYER_DA"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-31",
+   "record_rows": [
+    "player_armor_rating_sheet"
+   ],
+   "bound_value": 3557.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "threat.PLAYER_ARMOR",
+    "intake.SHEET_ARMOR_RATING"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-32",
+   "record_rows": [
+    "player_adcth_pct"
+   ],
+   "bound_value": 21.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "threat.PLAYER_ADCTH_PCT",
+    "player_sustain.ADCTH_PCT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-33",
+   "record_rows": [
+    "player_hp_regen_per_s"
+   ],
+   "bound_value": 129.38,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "threat.PLAYER_REGEN_HP_PER_S",
+    "player_sustain.REGEN_HP_PER_S_SHEET"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-34",
+   "record_rows": [
+    "player_resist_physical_pct"
+   ],
+   "bound_value": 16.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "threat.RESIST_PCT[Physical]"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-35",
+   "record_rows": [
+    "player_v_ref_m_per_s"
+   ],
+   "bound_value": 4.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.V_REF_M_PER_S"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-36",
+   "record_rows": [
+    "player_run_speed_cap_pct"
+   ],
+   "bound_value": 1.35,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention) / 100",
+   "via": "record",
+   "sites": [
+    "locomotion.PLAYER_RUN_SPEED_MULTIPLIER"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  },
+  {
+   "id": "B-37",
+   "record_rows": [
+    "player_run_speed_pct"
+   ],
+   "bound_value": 135.0,
+   "value_source": "source_value PROVISIONAL-UNSTAMPED (RDR-unit IDENTITY convention)",
+   "via": "record",
+   "sites": [
+    "fixture.FIXTURE_RUN_SPEED_PCT"
+   ],
+   "compiler_carries": false,
+   "compiler_note": null
+  }
+ ],
+ "record_rows_unbound": [
+  {
+   "numeric_key": "eor_rank_allocated",
+   "class": "NO-SITE",
+   "why": "INERT: the oracle reads no allocated rank (fixture.EOR_TOTAL_RANK is the rank pin, B-09)",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "eor_weapon_damage_pct_total_r26",
+   "class": "NO-SITE",
+   "why": "INERT: feeds DamageBasis.weapon_damage_pct, which nothing reads (KP-243 V2-EOR-WD-DEAD); the leech reads the r20 row (B-12)",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "player_cast_speed_pct",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "player_attacks_per_second",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "weapon_attacks_per_second",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "player_offensive_ability",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "player_critical_damage_pct",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "player_level",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "player_attack_speed_cap_pct",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "pc_base_attack_speed",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "pc_base_cast_speed",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "gutsmasher_base_attack_speed",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "gutsmasher_physical_min",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "gutsmasher_physical_max",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "gutsmasher_chaos_to_physical_pct",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "gutsmasher_lightning_to_physical_pct",
+   "class": "NO-SITE",
+   "why": "the oracle reads no site for this sheet/item quantity on the V311-FULL path",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "vires_might_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "vires_might_rank_effective",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "vires_might_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "vires_might_mana_cost_r2",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "vires_might_target_radius_m",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_rank_effective",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_mana_cost_r16",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_radius_m_r16",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_duration_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "war_cry_damage_reduction_pct",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "blitz_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "blitz_rank_effective",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "blitz_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "blitz_mana_cost_r5",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "ascension_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "ascension_rank_effective",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "ascension_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "ascension_mana_cost_r2",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "ascension_duration_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "ascension_absorb_points",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "violent_delights_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "violent_delights_mana_cost_r1",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "violent_delights_weapon_damage_pct",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "violent_delights_target_radius_m",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_rank_effective",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_pet_limit_r2",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "deathstalker_cooldown_s",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "deathstalker_mana_cost_r1",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "deathstalker_pet_limit",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "blindside_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "blindside_mana_cost_r5",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "tectonic_shift_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "tectonic_shift_mana_cost_r2",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "break_morale_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "break_morale_mana_cost_r16",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "clarity_of_purpose_rank_allocated",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "clarity_of_purpose_mana_cost_r2",
+   "class": "NO-SITE",
+   "why": "V2-KIT-SCOPE (KP-243) or CSV-sourced through counterplay.Kit / per_cast_energy (pm4g_defensive_actives.csv): no operand slot a binder can reach without editing the oracle",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "numeric_key": "devotion_level_assassins_mark",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "devotion_level_tip_the_scales",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "devotion_level_maul",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "devotion_level_arcane_barrier",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "devotion_level_turtle_shell",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "devotion_level_ulzaads_decree",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  },
+  {
+   "numeric_key": "devotion_level_shifting_sands",
+   "class": "NO-SITE",
+   "why": "INERT: AC-9.1, the sim emits no devotion proc events (KP-243 (6))",
+   "disposition": "permanent, recorded"
+  }
+ ],
+ "unbound_oracle_operands": [
+  {
+   "operand": "fixture.EOR_COOLDOWN_S",
+   "why": "skillCooldownTime ABSENT -> 0; the record carries no EoR cooldown row",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.FLAT_PHYSICAL_SANDREAVER",
+   "why": "Sandreaver flat physical 24; record carries only its bleed (210)",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.WEAPON_DAMAGE_PCT_WARBORN",
+   "why": "Warborn set %WD, gated off (0)",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.CRIT_DAMAGE_PCT",
+   "why": "Visor crit-damage modifier 12; the record's 57 % is the sheet total (different quantity)",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.MO_CYCLE_FLOOR_S",
+   "why": "measured cycle floor; not a kit datum",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "operand": "fixture.MO_PLAYER_HP_MAX_BASIS",
+   "why": "string basis tag",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "operand": "fixture.SOULFIRE_DAMAGE_TYPE",
+   "why": "'lightning' (type, not a numeric row)",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.SOULFIRE_LIGHTNING_MIN",
+   "why": "246 at rank 15; the record's 229 (rank 13, S13-SF-FLAT) is bound at B-23",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.TIP_THE_SCALES_*",
+   "why": "devotion proc operands; record carries the level only",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.AURA_RESERVES[7]",
+   "why": "per-aura reserves; the record carries the total (982, B-29)",
+   "disposition": "schema-change-owed"
+  },
+  {
+   "operand": "fixture.MANA_LIMIT_RESERVE_MODIFIER",
+   "why": "0 corpus-wide",
+   "disposition": "closes-in-J2"
+  },
+  {
+   "operand": "CSV operands (pm4l_*, pm4p_attack_kit, pm2 sheet, pm4g_*, d6)",
+   "why": "per-hit, modifier-stack, sheet and active-skill tables the oracle reads directly; J2's FORM/OPERAND split names their slots",
+   "disposition": "closes-in-J2"
+  }
+ ],
+ "counts": {
+  "record_rows": 104,
+  "bound_record_rows": 38,
+  "bound_provisional_unstamped": 32,
+  "derived_check": 2,
+  "unbound": 64
+ }
+}
