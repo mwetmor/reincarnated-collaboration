@@ -1,0 +1,429 @@
+{
+  "arm": "M0",
+  "census": {
+    "D_oracle": 4527,
+    "D_port": 4527,
+    "PRE_FIGHT_oracle": 10,
+    "PRE_FIGHT_port": 10,
+    "equal": true,
+    "oracle": {
+      "CHANNELLING": 55,
+      "CHANNELLING_AND_MOVING": 4468,
+      "IDLE": 4,
+      "PRE_FIGHT": 10
+    },
+    "oracle_instrument": "actor_state._player_rows per wave, summed over the ladder (= player_census)",
+    "oracle_present": true,
+    "port": {
+      "CHANNELLING": 55,
+      "CHANNELLING_AND_MOVING": 4468,
+      "IDLE": 4,
+      "PRE_FIGHT": 10
+    }
+  },
+  "census_equal": true,
+  "contact_solver": {
+    "contact_solver": "shadow",
+    "native_build_id": "kc2rt_contact_native/3 · separate_overlaps_converging (sequential_projection) + place_body (G12-LAW-PLACE) + pathfail_goal (KP-261) · clang 17.0.0 (clang-1700.0.13.5) · arm64 · fp-contract off (pragma + -ffp-contract=off) · no fast-math · FLT_EVAL_METHOD 0",
+    "native_lib_sha256": "74360ffae1a434ba0de85708009c8129c6b39c4ca03898a3e4be01641e27467f",
+    "note": "",
+    "petpath_shadow_calls": 44707,
+    "petpath_shadow_first_mismatch": "",
+    "petpath_shadow_goal_hits": 277,
+    "petpath_shadow_mismatch_calls": 0,
+    "place_shadow_calls": 449,
+    "place_shadow_first_mismatch": "",
+    "place_shadow_mismatch_calls": 0,
+    "shadow_first_mismatch": "",
+    "shadow_mismatch_ticks": 0,
+    "shadow_mismatch_values": 0,
+    "shadow_ticks_compared": 0,
+    "shadow_values_compared": 0
+  },
+  "control_term": {
+    "equal": true,
+    "oracle": 4,
+    "oracle_operand": "the oracle trace's control `channel` entries on leg A (v1.13 DRAFT § C.9.5a)",
+    "port": 4
+  },
+  "death": {
+    "equal": true,
+    "oracle": [
+      160,
+      225
+    ],
+    "oracle_survived_to": null,
+    "port": [
+      160,
+      225
+    ],
+    "port_reason": "death"
+  },
+  "decision_by_class": {
+    "alive_set": 0,
+    "board": 0,
+    "channel": 0,
+    "dmg_sources": 0,
+    "drive_target": 0,
+    "pet_set": 0,
+    "wave_end": 0,
+    "wave_length": 0
+  },
+  "decision_divergences": 0,
+  "draw_mismatches": 0,
+  "ge_fold": {
+    "engagement": true,
+    "flags": {
+      "crowd": true,
+      "land_out_of_reach": false,
+      "persist": true,
+      "pets": true,
+      "rfa": true,
+      "slots": true
+    },
+    "n_choose": 5148,
+    "n_default_profiles_added": 67,
+    "n_default_radius_fallback": 11,
+    "n_fire": {
+      "basic": 253,
+      "chain_initial": 38,
+      "default": 68,
+      "special": 369,
+      "tree_attack": 207
+    },
+    "n_no_pause_record": 16,
+    "n_no_skill": 0,
+    "n_pause_binds": 116,
+    "n_step_pursue": 25233,
+    "n_step_stand": 9798,
+    "n_swings": 292,
+    "rows": {
+      "engagement": "IC7-A-V311-0337",
+      "fire_range_csv": "IC7-F-V311-02",
+      "gd_tables": "V311-OI-03",
+      "swing_pause": "IC7-A-V311-0355"
+    },
+    "swing_pause": true,
+    "telemetry": {
+      "crowd_displaced_moving": 17915.0,
+      "crowd_displaced_standing": 0.0,
+      "crowd_overlap_pairs": 27588.0,
+      "crowd_ticks": 4537.0,
+      "lost_slot": 164.0,
+      "pathfail_goal_P": 13.0,
+      "pathfail_goal_R": 37.0,
+      "pathfail_goal_W": 5.0,
+      "pathfail_stuck_P": 9.0,
+      "pathfail_stuck_R": 22.0,
+      "pathfail_stuck_W": 1.0,
+      "persist_fire_out_of_reach_ranged": 1.0,
+      "persist_whiff": 3.0,
+      "pet_attack_to_pursue": 67.0,
+      "pet_eop_out_of_range": 41.0,
+      "pet_lost_slot": 305.0,
+      "pet_pathfail_goal_P": 45.0,
+      "pet_pathfail_goal_R": 146.0,
+      "pet_pathfail_goal_W": 31.0,
+      "pet_pathfail_stuck_R": 1.0,
+      "pet_rfa_exit": 147.0,
+      "pet_wta_exit_slot": 194.0,
+      "pursue_entries": 692.0,
+      "pursue_eop_out_of_range": 68.0,
+      "rfa_attack": 9.0,
+      "rfa_entries": 381.0,
+      "rfa_exit_arrive": 69.0,
+      "rfa_exit_timer": 39.0,
+      "rfa_pet_pursue_pathfail": 45.0,
+      "rfa_pet_wta": 213.0,
+      "rfa_pursue_pathfail": 22.0,
+      "rfa_rolls": 54.0,
+      "rfa_ticks": 11528.0,
+      "rfa_wta": 92.0,
+      "slot_free": 617.0,
+      "slot_none": 1150.0,
+      "slot_override": 479.0,
+      "slot_override_by_pet": 311.0,
+      "slot_override_pet_robbed": 315.0,
+      "slot_requests": 2246.0,
+      "wta_entries": 630.0,
+      "wta_eop": 109.0,
+      "wta_exit_point": 49.0,
+      "wta_exit_slot": 58.0,
+      "wta_no_slot": 521.0,
+      "wta_roams": 660.0,
+      "wta_ticks": 1111.0
+    }
+  },
+  "injected": [],
+  "oracle_complete": {
+    "complete": true,
+    "non_clearing_non_death": [],
+    "rule": "v1.14 § C.9.9: w151..w160 banked (death_continued), each wave cleared or player_death",
+    "waves": [
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160
+    ]
+  },
+  "oracle_leg_a": {
+    "t_into_wave_s": 18.367,
+    "wave": 160
+  },
+  "oracle_only_streams": [
+    "player_kit_residual.py:286|1372827945",
+    "spawn_structure.py:344|0"
+  ],
+  "oracle_trace_arm": "M0",
+  "port_only_streams": [],
+  "relabelled_streams": {
+    "run.py:1150|751008": "run.py:1214|751008",
+    "run.py:1150|752008": "run.py:1214|752008",
+    "run.py:1150|753008": "run.py:1214|753008",
+    "run.py:1150|754008": "run.py:1214|754008",
+    "run.py:1150|755008": "run.py:1214|755008",
+    "run.py:1150|756008": "run.py:1214|756008",
+    "run.py:1150|757008": "run.py:1214|757008",
+    "run.py:1150|758008": "run.py:1214|758008",
+    "run.py:1150|759008": "run.py:1214|759008",
+    "run.py:1150|760008": "run.py:1214|760008",
+    "threat.py:1541|7361495": "threat.py:1593|7361495",
+    "threat.py:1541|7362351": "threat.py:1593|7362351",
+    "threat.py:1541|7363335": "threat.py:1593|7363335",
+    "threat.py:1541|7381943": "threat.py:1593|7381943",
+    "threat.py:1541|7382927": "threat.py:1593|7382927",
+    "threat.py:1541|7384039": "threat.py:1593|7384039",
+    "threat.py:1541|7385087": "threat.py:1593|7385087",
+    "threat.py:1541|7386735": "threat.py:1593|7386735",
+    "threat.py:1541|7387719": "threat.py:1593|7387719",
+    "threat.py:1541|7388767": "threat.py:1593|7388767"
+  },
+  "salt": 3,
+  "ta_x_08_counters": {
+    "equal": true,
+    "oracle": {
+      "n_control_suppressed": 4,
+      "n_control_suppressed_channelling": 4,
+      "n_control_suppressed_pre_fight": 0,
+      "n_control_suppressed_released": 0,
+      "n_released": 0,
+      "n_released_pre_fight": 0,
+      "n_ticks_released": 0
+    },
+    "oracle_fold_present": false,
+    "oracle_hook_alignment_ok": true,
+    "oracle_hook_equals_fold_own_counters": true,
+    "oracle_instrument": "kc2rt_g3_oracle_trace.py control_suppression: _player_rows × ControlApplicationFold.tick _cc[channel] × ChannelPolicyFold._verdict at observe; n_ticks_released = the fold's own counter deltas",
+    "oracle_present": true,
+    "port": {
+      "n_control_suppressed": 4,
+      "n_control_suppressed_channelling": 4,
+      "n_control_suppressed_pre_fight": 0,
+      "n_control_suppressed_released": 0,
+      "n_released": 0,
+      "n_released_pre_fight": 0,
+      "n_ticks_released": 0
+    }
+  },
+  "ta_x_16": {
+    "equal": true,
+    "keys": "each value is [port, oracle]; -1 = absent on the port, -2 = absent on the oracle",
+    "per_wave_port_vs_oracle": [
+      {
+        "n_p06_keys_filtered": [
+          0,
+          0
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 151
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 152
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 153
+      },
+      {
+        "n_p06_keys_filtered": [
+          0,
+          0
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          4,
+          4
+        ],
+        "wave": 154
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          4,
+          4
+        ],
+        "wave": 155
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 156
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 157
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 158
+      },
+      {
+        "n_p06_keys_filtered": [
+          0,
+          0
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          5,
+          5
+        ],
+        "wave": 159
+      },
+      {
+        "n_p06_keys_filtered": [
+          1,
+          1
+        ],
+        "n_spawn_point_6_keys_rolled": [
+          0,
+          0
+        ],
+        "pool_picks": [
+          4,
+          4
+        ],
+        "wave": 160
+      }
+    ],
+    "waves_played": 10
+  },
+  "trace_sha256": "cd4761123fc71126e83a51aa92e81fc7242d243afc67b96e3be3188287ddaabb",
+  "v3p11": {
+    "composition": {
+      "bound": true,
+      "chaos_aether_dot_divisor": true,
+      "f_unmapped": -0.44,
+      "lapm_wave": 160,
+      "magical_dur_divisor": 200.0,
+      "n_dot_rows": 606,
+      "n_dot_rows_a_dur_undecoded": 0,
+      "n_dot_rows_chaos_aether_decoded": 0,
+      "n_inst_rows": 3353,
+      "n_phys_clamped_restored": 132,
+      "n_phys_factor_unmapped": 37,
+      "n_phys_unclamped": 703,
+      "phys_limb": "LO",
+      "rows": {
+        "CHAOS_AETHER_DOT_TYPES": "IC7-K-V311-0002",
+        "DOT_LEECH_TYPES": "IC7-K-V311-0003",
+        "LAPM_WAVE": "IC7-K-V311-0006",
+        "a8": "IC7-A-V311-0334",
+        "divisor": "V39-DC1-2",
+        "lapm_table": "IC7-F-40",
+        "wave_phys": "IC7-F-V311-05"
+      }
+    },
+    "oracle_level": "V311-FULL",
+    "rows": {
+      "acquisition_scan": "IC7-A-V311-0349",
+      "c11b": "IC7-A-V311-0338",
+      "composition": "IC7-A-V311-0334",
+      "hunt_pilot_disarmed": "IC7-A-V311-0340",
+      "initial_self_cast": "IC7-A-V311-0341",
+      "lineup": "IC7-A-V311-0352",
+      "mutators": "IC7-A-V311-0347",
+      "pilot_move": "IC7-A-V311-0350"
+    }
+  }
+}
