@@ -23,6 +23,8 @@
 
 **The appended clause** (verbatim head): *"⚑ CONFIRMED jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc), 2026-10-06; conductor KP-307: the gd_metres scope amendment above is CONFIRMED and supersedes its 'ACCEPTED PROVISIONALLY, pending jack-ryan JOIN-1 B0-N Gate-2' wording (kept as history)…"*. **Appended, not replaced.** Gate-2 condition 1 says *"corrigenda-forward … the 'ACCEPTED PROVISIONALLY … pending' text stays as history"*. The conductor's KP-307 message said "replacing the 'pending' wording". I followed the gate's condition: the new clause names the provisional wording as superseded, and the history is preserved. The divergence is flagged to the conductor. If a literal strike is wanted, it is a one-statement corrigendum, and it does not touch the ROWSET either.
 
+**⚑ DISPOSITION (conductor, after KP-307):** RATIFIED corrigenda-forward. The provisional text stays as history, the CONFIRMED clause supersedes it, and nothing is struck. No further corrigendum is owed.
+
 **Scope limits recorded on the rule's face** (Gate-2 conditions 2 and 3):
 - **Skill radii only.** `gd_metres_per_second` (`player_v_ref_m_per_s`), and any other `gd_metres` quantity that is not a skill radius, needs its own amendment.
 - **The confirmation certifies the unit identity, not the values.** `war_cry_radius_m_r16` 16.8 vs the oracle's 16.0 (r12; KP-241 (4)) **remains an open value disagreement.**
