@@ -1,0 +1,16 @@
+{
+ "_what": "fal.ai spend under a hard-stop budget of $3.00 (fal_spend_R-C9-159).",
+ "_basis": "tripo $0.40 per build (40 credits at $0.01); birefnet at wall-clock seconds x $0.0008/s, an upper bound on billed compute seconds.",
+ "_starts_after": "lane BS R-C9-159 wreck2",
+ "budget_usd": 3.0,
+ "entries": [
+  {
+   "ts": "2026-10-06T22:13:49+00:00",
+   "endpoint": "tripo3d/h3.1/multiview-to-3d",
+   "what": "build wreck2",
+   "usd": 0.4,
+   "wall_s": null
+  }
+ ],
+ "running_usd": 0.4
+}

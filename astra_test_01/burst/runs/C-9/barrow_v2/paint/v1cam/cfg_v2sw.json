@@ -1,0 +1,27 @@
+{
+ "prefix": "BV2M",
+ "name": "barrow_v2 SW at the first Barrow's camera: the GROUND ONLY, painted over its 3D render",
+ "guide": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/guide2/v2sw_guide.png",
+ "cols": 2,
+ "rows": 4,
+ "skip": [],
+ "experiment": "R-C9-159-v2sw-ground",
+ "run_tag": "Run C-9 Phase 2 lane BS",
+ "ruling": "R-C9-159",
+ "geo": "IMAGE 1 is a RENDER of the GROUND of a real 3D game level -- the south-west coast of a snowy northern headland -- seen from the game's fixed high three-quarter ORTHOGRAPHIC camera (53 degrees down). ONLY THE GROUND IS IN IT: every cliff, standing rock, cairn, standing stone, driftwood log, the wrecked ship and every plant are SEPARATE 3D OBJECTS that stand on this ground in the game and are NOT in this picture -- only their SHADOWS fall on it (the soft dark blue-grey shapes). WHAT IS WHAT: the large flat pale ground = open snow on the headland's flat top; the PALE BLUE ribbon = a frozen stream; the round pale blue area = a frozen mere (flat ice); the grey-brown speckled slope = a shingle beach of grey pebbles under patchy snow; the WHITE irregular PLATES = sea ice, broken floes and shore-fast ice plates, with small loose ice blocks; the DARK NAVY between them = open water; the grey vertical walls = the hidden backs of sea cliffs (rock in deep shadow); the dark flat shapes = cast shadows.",
+ "rules": "Paint this GROUND, and only the ground, in the hand of IMAGE 2 (the approved first Barrow: its cream-white granular snow, its soft transparent watercolour washes, its paper grain, its lapis ice with pale cell cracks, its warm grey rock) -- IMAGE 2's PLANTS, ROCKS AND STONES ARE NOT TO BE COPIED: this picture has NONE. Keep every shape, edge and shadow exactly where the render puts them (the 3D world is built from this same render). Snow: cream-white like IMAGE 2, NOT peach and NOT grey, with soft blue-violet shadows exactly where the render's shadows are. Ice: white-and-lapis plates with ragged edges and a little snow; water between them dark blue-black with small wavelets. Shingle: grey pebbles with snow in the hollows. Rock walls: dark weathered rock. A SOFT HAND: watercolour wash and paper texture, at most a very thin, faint pencil line -- NO heavy ink outlines (the game draws its own ink). ABSOLUTELY NO PLANTS (no heather, no grass, no shrubs, no tufts), NO standing rocks, boulders, cairns, stones, logs, ships, footprints of creatures, buildings, people or text: ground surfaces only. No sky, no horizon, no border.",
+ "refs": [
+  [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10BF-0_1/T10BF-0_1.png",
+   "the APPROVED first Barrow's painting (a panel of it): its hand, snow colour, ice and wash ONLY -- not its plants or rocks"
+  ]
+ ],
+ "fill_phrase": "paint over the ground render, in place",
+ "retry_extra": "anything stands on the ground that the render does not have (a plant, a rock, a ship), the colour departs from the master, ",
+ "unpainted_phrase": "render areas remain unpainted",
+ "master": {
+  "image": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/paint/v1cam/master.png",
+  "role": "the MASTER painting of this whole section, cropped to this panel's place and enlarged: MATCH ITS COLOUR, VALUES AND LIGHT exactly (the panels are joined into one picture)"
+ },
+ "chunk_notes": {}
+}

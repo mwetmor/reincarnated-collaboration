@@ -30,7 +30,7 @@ import fal_ledger as FL  # noqa: E402
 VIEWS = ["front", "right", "back", "left"]
 TRIPO_ORDER = ["front", "left", "back", "right"]
 SHEETS = {"hall": ("2x2", ["hall"]), "porch": ("2x2", ["porch"]), "gable": ("2x2", ["gable"]),
-          "barrow": ("2x2", ["barrow"]), "wreck": ("2x2", ["wreck"]),
+          "barrow": ("2x2", ["barrow"]), "wreck": ("2x2", ["wreck"]), "wreck2": ("2x2", ["wreck2"]),
           "cliffs": ("4x2", ["cavecliff", "staircliff"]), "rocks": ("4x2", ["cliffplain", "crag"])}
 for d in ("work", "cells", "placed", "builds", "reduced"):
     (M / d).mkdir(exist_ok=True)

@@ -191,6 +191,15 @@ Z = Z - gully
 S = L["stair"]
 Z[Path(np.array(S["top_landing"]["polygon"])).contains_points(P).reshape(ny, nx)] = 0.0
 MODELS = {m["id"]: m for m in L["models"]}
+# R-C9-159: AT V1'S CAMERA (yaw 47, looking north-west) the layout's cave, facing 207.6 deg, is seen almost edge-on
+# (its face . the view = 0.27) and its arch does not read. Turned to face due SOUTH (0.68), 16 m wide, 1 m seaward,
+# still 0.66 m clear of the floor at every point (checked here) -- the level places it from this override.
+import copy as _copy
+MODELS = _copy.deepcopy(MODELS)
+_cc = MODELS["cave_cliff"]
+_cc.update({"pos": [-1.3, 42.6], "godot_rot_y_deg": 0.0, "faces_compass_deg": 180.0,
+            "size_m": {"w_local_x": 16.0, "d_local_z": 2.0, "h": _cc["size_m"]["h"]},
+            "footprint": [[-9.3, 41.6], [6.7, 41.6], [6.7, 43.6], [-9.3, 43.6]], "_override": "R-C9-159 (v1 camera)"})
 for mid in ("cave_cliff", "stair_cliff"):
     fp = np.array(MODELS[mid]["footprint"], float)
     c = fp.mean(0)
@@ -802,6 +811,7 @@ doc = {
     "pebbles": pebbles, "heather": heather, "grass": grass,
     "stream": {"polyline": STREAM.tolist(), "ribbon": rib},
     "checks": checks,
+    "cave_override": {k: MODELS["cave_cliff"][k] for k in ("pos", "godot_rot_y_deg", "size_m", "footprint", "z")},
     "film_route": route, "stills_targets": STILL_T, "paint_skip": skip,
     "counts": {k: len(v) for k, v in inst.items()} | {"floes": len(floes), "ridges": len(ridges), "pebbles": len(pebbles), "heather": len(heather), "grass": len(grass)},
 }

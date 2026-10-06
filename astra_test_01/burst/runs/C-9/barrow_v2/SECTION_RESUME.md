@@ -28,3 +28,12 @@ The south-west proof section: the wreck (p01), the coast and cliff, the sea cave
 ## State
 
 The live state is in the ledger milestone `M-C9-BS-SECTION-SW` and in the hand-back.
+
+## R-C9-159: the same corner as a LEVEL OF THE V1 BARROW (v1 camera, yaw 47)
+
+- **Level:** `barrow_full/godot/scenes/barrow_v2_sw.tscn` + `scripts/barrow_v2_sw.gd` (extends barrow_full.gd). Data: `barrow_full/godot/data/barrow_v2_sw/` (built by `barrow_v2/tools/v2sw_prep.py`, after `section_sw_build.py`).
+- **Runner:** `barrow_full/godot/tools/v2sw_run.gd -- guide|lit|stills|v1stills|film`.
+- **Ground paint:** `tools/v2sw_paintcfg.py master|master_extract|tiles` -> `tools/v2sw_drive.sh` (painter `v2sw_paint.py`, prefix BV2M on guide2) -> `tools/v2sw_stitch.py`.
+- **Model bakes:** `tools/v2sw_model_bake.py views|bake`, briefs by `tools/v2sw_model_brief.py`.
+- **Wreck build:** `models/tools/bvm_build.py` (`wreck2`); fal ledger `models/fal_spend_R-C9-159.json`.
+- **Look:** `section_v1cam/look/` (`tools/v2sw_sheets.py`).
