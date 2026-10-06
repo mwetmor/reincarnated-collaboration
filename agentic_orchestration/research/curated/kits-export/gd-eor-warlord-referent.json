@@ -1295,7 +1295,7 @@
       "rdr_value": 3.0,
       "rule_id": "R-CTX-GEO",
       "rule_version_applied": 1,
-      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
+      "rule_stamp_status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value."
     },
     {
       "numeric_key": "eor_tick_period_s",
@@ -1966,7 +1966,7 @@
       "rdr_value": 0.2,
       "rule_id": "R-CTX-GEO",
       "rule_version_applied": 1,
-      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
+      "rule_stamp_status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value."
     },
     {
       "numeric_key": "soulfire_projectiles_per_proc",
@@ -2785,7 +2785,7 @@
       "rdr_value": 2.2,
       "rule_id": "R-CTX-GEO",
       "rule_version_applied": 1,
-      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
+      "rule_stamp_status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value."
     },
     {
       "numeric_key": "war_cry_rank_allocated",
@@ -2922,7 +2922,7 @@
       "rdr_value": 16.8,
       "rule_id": "R-CTX-GEO",
       "rule_version_applied": 1,
-      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
+      "rule_stamp_status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value."
     },
     {
       "numeric_key": "war_cry_duration_s",
@@ -3323,7 +3323,7 @@
       "rdr_value": 2.0,
       "rule_id": "R-CTX-GEO",
       "rule_version_applied": 1,
-      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
+      "rule_stamp_status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value."
     },
     {
       "numeric_key": "guardian_of_empyrion_rank_allocated",
@@ -4234,15 +4234,30 @@
       "war_cry_cooldown_s",
       "war_cry_duration_s"
     ],
-    "R-CTX-GEO_provisional": [
+    "unstamped": 85,
+    "rdr_equals_source_on_every_stamped_row": true,
+    "R-CTX-GEO_confirmed": [
       "eor_radius_m",
       "soulfire_explosion_radius_m",
       "violent_delights_target_radius_m",
       "vires_might_target_radius_m",
       "war_cry_radius_m_r16"
     ],
-    "R-CTX-GEO_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL",
-    "unstamped": 85,
-    "rdr_equals_source_on_every_stamped_row": true
+    "R-CTX-GEO_status_history": [
+      {
+        "date": "2026-10-06",
+        "status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
+      },
+      {
+        "date": "2026-10-06",
+        "status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value.",
+        "by": "jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; agentic_orchestration/qa/findings/2026-10-06-join1-b0n-gate2.md s5)"
+      }
+    ],
+    "R-CTX-GEO_status": "CONFIRMED: R-CTX-GEO v1 (IDENTITY), gd_metres scope amendment confirmed by jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc; conductor KP-307). Scope: skill radii only. Certifies the unit identity, not the value.",
+    "R-CTX-GEO_scope_limits": [
+      "skill radii only: gd_metres_per_second (player_v_ref_m_per_s) and any other non-radius gd_metres quantity need their own amendment",
+      "certifies the unit identity, not the values: war_cry_radius_m_r16 16.8 vs the oracle's 16.0 (r12; KP-241 (4)) remains an open value disagreement"
+    ]
   }
 }

@@ -7,6 +7,42 @@
 
 ---
 
+## join1-rctxgeo-gd-metres-confirmed-2026-10-06 — R-CTX-GEO `gd_metres` scope amendment CONFIRMED (jack-ryan JOIN-1 B0-N Gate-2); the provisional label on the 5 J-S4b radii is lifted — 2026-10-06 — **APPLIED 2026-10-06T23:33Z**
+
+**Authority:** jack-ryan JOIN-1 B0-N Gate-2, PASS-WITH-FINDINGS (collab `6371fe6cc`, `qa/findings/2026-10-06-join1-b0n-gate2.md` § 5: **CONFIRMED**, three conditions); conductor KP-307. ADR-002 within-seam, **DATA-ONLY, no DDL. Nothing reverts.**
+
+**Script:** `research/scripts/corpus_rctxgeo_confirm_2026_10_06.py` (`--dry-run` on an in-memory copy, then `--apply`).
+
+| Step | FILE sha256 | Result |
+|---|---|---|
+| refuse-gate | `corpus.db` = `639acb20…32ea` (the J-S4b stamping post-apply) | held |
+| backup | `corpus.db.pre-rctxgeo-confirm-20261006T233355Z-backup` = `639acb20…32ea` | copied, digest asserted |
+| apply | `639acb20…32ea` → **`37635bad392181fea7c77ddd8ad96b5ceae4d8dd193405ef03e7f4768ddecd5b`** | PASS |
+
+**Writes:** `normalization_rule` R-CTX-GEO `description` gains an appended clause; `rule_version` (1), `source_scale` and `status` are unchanged (asserted). `corpus_schema_meta` gains one row, 40 → 41 (`join1-rctxgeo-gd-metres-confirmed-2026-10-06`).
+
+**The appended clause** (verbatim head): *"⚑ CONFIRMED jack-ryan JOIN-1 B0-N Gate-2 (collab 6371fe6cc), 2026-10-06; conductor KP-307: the gd_metres scope amendment above is CONFIRMED and supersedes its 'ACCEPTED PROVISIONALLY, pending jack-ryan JOIN-1 B0-N Gate-2' wording (kept as history)…"*. **Appended, not replaced.** Gate-2 condition 1 says *"corrigenda-forward … the 'ACCEPTED PROVISIONALLY … pending' text stays as history"*. The conductor's KP-307 message said "replacing the 'pending' wording". I followed the gate's condition: the new clause names the provisional wording as superseded, and the history is preserved. The divergence is flagged to the conductor. If a literal strike is wanted, it is a one-statement corrigendum, and it does not touch the ROWSET either.
+
+**Scope limits recorded on the rule's face** (Gate-2 conditions 2 and 3):
+- **Skill radii only.** `gd_metres_per_second` (`player_v_ref_m_per_s`), and any other `gd_metres` quantity that is not a skill radius, needs its own amendment.
+- **The confirmation certifies the unit identity, not the values.** `war_cry_radius_m_r16` 16.8 vs the oracle's 16.0 (r12; KP-241 (4)) **remains an open value disagreement.**
+
+**Guards:**
+- J-S4b ROWSET **`c3e0f121…` before and after.** `normalization_rule` is not a ROWSET table; asserted inside the transaction, which would have aborted had it moved.
+- Full-row digest of **all** `kit_numeric` rows unchanged. Sibling `gd-eor-warlord` ROWSET unchanged.
+- Every other `normalization_rule` row unchanged. Every table's row count unchanged except `corpus_schema_meta` +1.
+- `integrity_check` ok; `foreign_key_check` empty (re-verified on a re-opened connection).
+
+**The 5 rows, now CONFIRMED:** `eor_radius_m, soulfire_explosion_radius_m, vires_might_target_radius_m, war_cry_radius_m_r16, violent_delights_target_radius_m`. The PROVISIONAL label of `join1-js4b-rule-stamping-2026-10-06` (above) is lifted. That entry's revert statement is retained as history only; per the Gate-2 it would now be owed only if Matt overturned the confirmation.
+
+**Artifacts:**
+- `kits-export/gd-eor-warlord-referent.json` (FILE `f6eb1ebf3f3fff7fb867f37cd023a4c56b91733eeeed79eac771a48902cb651f`): the 5 rows' `rule_stamp_status` reads CONFIRMED. The `rule_stamping` block has `R-CTX-GEO_confirmed`, `R-CTX-GEO_status` + `_status_history` (provisional → confirmed) and `R-CTX-GEO_scope_limits`.
+- Manifest: a new `revisions[]` entry; `corpus_db.current_FILE_sha256 = 37635bad…`.
+
+**Reversibility:** restore the backup (digest above), or strip the appended clause.
+
+---
+
 ## join1-js4b-rule-stamping-2026-10-06 — JOIN-1 B0-N: gamora's J-S4b rule stamping applied (14 R-T2 + 5 R-CTX-GEO ⚑ PROVISIONAL) + the agreement check re-run under a DECLARED tolerance (AGREE-TOL-v1) — 2026-10-06 — **APPLIED 2026-10-06T23:16Z**
 
 **Authority:** KC2/JOIN-1 ledger KP-304 (stamping built; R-CTX-GEO gd_metres amendment ACCEPTED PROVISIONALLY by the conductor) and KP-305 (routing: elrond applies both SQLs and declares the agreement-check tolerance). Rule owner gamora; package at `agentic_orchestration/gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/stamping/` (collab `9a90660f8`). Conductor gandalf. ADR-002 within-seam, **DATA-ONLY, no DDL.** The superseded `…_PROPOSED_2026_10_06.sql` was not read.

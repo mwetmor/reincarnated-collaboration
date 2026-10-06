@@ -6,7 +6,7 @@
   "files": {
     "export": {
       "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
-      "sha256": "3585d61d4ffc0f30332c08ce98a57c7678275ce0ca51dafa3e47f27da3c4bab6",
+      "sha256": "f6eb1ebf3f3fff7fb867f37cd023a4c56b91733eeeed79eac771a48902cb651f",
       "kind": "FILE",
       "sha256_at_mint_2026_10_02": "4a16f94af09e6fb7a109de7991694d4593011baa57926aa54ed6a4e81a7ec46d"
     },
@@ -155,7 +155,7 @@
   "corpus_db": {
     "pre_FILE_sha256": "dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473",
     "post_FILE_sha256": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07",
-    "current_FILE_sha256": "639acb2033e09b522793e1138a36c9144dc23af05be0ebe6944955fd4a9432ea"
+    "current_FILE_sha256": "37635bad392181fea7c77ddd8ad96b5ceae4d8dd193405ef03e7f4768ddecd5b"
   },
   "pack_digest_of_record": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
   "revisions": [
@@ -215,6 +215,41 @@
       },
       "tolerance_policy": "AGREE-TOL-v1",
       "reclassified_checks": 1
+    },
+    {
+      "date": "2026-10-06",
+      "by": "elrond",
+      "event": "R-CTX-GEO gd_metres amendment CONFIRMED (jack-ryan B0-N Gate-2); provisional label lifted",
+      "corpus_db": {
+        "pre_FILE_sha256": "639acb2033e09b522793e1138a36c9144dc23af05be0ebe6944955fd4a9432ea",
+        "post_FILE_sha256": "37635bad392181fea7c77ddd8ad96b5ceae4d8dd193405ef03e7f4768ddecd5b",
+        "backup": "corpus.db.pre-rctxgeo-confirm-20261006T233355Z-backup"
+      },
+      "rowset": {
+        "pre": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+        "post": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+        "unchanged": true
+      },
+      "confirmed_rows": [
+        "eor_radius_m",
+        "soulfire_explosion_radius_m",
+        "vires_might_target_radius_m",
+        "war_cry_radius_m_r16",
+        "violent_delights_target_radius_m"
+      ],
+      "gate": "collab 6371fe6cc; agentic_orchestration/qa/findings/2026-10-06-join1-b0n-gate2.md s5",
+      "files": {
+        "confirm_script": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/corpus_rctxgeo_confirm_2026_10_06.py",
+          "sha256": "6095a4195c1eb9a0357f1d22cae96860cc4b9c5278ed403dab0c6eb178622b5b",
+          "kind": "FILE"
+        },
+        "export": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
+          "sha256": "f6eb1ebf3f3fff7fb867f37cd023a4c56b91733eeeed79eac771a48902cb651f",
+          "kind": "FILE"
+        }
+      }
     }
   ]
 }
