@@ -194,3 +194,124 @@ Three further limits:
 - **Collab:**
   - charter KP-289 … KP-294;
   - my prior gate `2026-10-02-kc2-attempt4-candidate-h3-h5.md` (incl. the 2026-10-03 delta).
+
+---
+---
+
+# ⚑ DELTA · 2026-10-06 (later) · KP-298 / KP-299 re-gate: runtime `892bb1c2 → 5b5a539e`
+
+**Severity: PASS-WITH-FINDINGS** (0 BLOCK · 0 WARN · 4 INFO). **BLOCK-1 is closed.** I verified the closure by reading, by the evidence, and by my own mutation run. **The re-replay counts from this gate's side.**
+
+**Matt's ruling (KP-298):** in PLAY his keys drive War Cry and the potion; the counterplay layer keeps only the procs.
+
+**Target:** runtime FILE **`5b5a539e3bc7474e3d1e7e9220b37944e326dbae33fa80a38dd1dc19368788e9`** (107 members).
+- I re-derived it over `git archive adb3f55`; `MANIFEST.json` is byte-equal. `kc2_runtime/` is unchanged through `534febc`.
+- Library `74360ffa…` is unchanged.
+- Runtime delta: **ecf758f** + **adb3f55** (MANIFEST). 7 files: `play/kc2play_driver.gd`, `play/kc2play_session.gd`, `sim/kc2rt_config.gd`, `sim/kc2rt_fight.gd`, booking census, loader smoke.
+- Outside the digest: **ddb9166**, **95b44b2** (`kc2_play/tools`), **534febc** (evidence).
+- On disk, read-only: the vendored PLAY runtime reads `5b5a539e`, and the `.app` was built 15:57.
+
+**Instruments:** `2026-10-06-kc2-kp290-play-graded-rules-gate/kp298-5b5a539e/`; the folder `SHA256SUMS` is regenerated.
+
+## R.1 · ORACLE identity: PASS
+
+**By reading.** Every change on a graded path is either neutral or gated on `play_driver`:
+- `cp_warcry_auto = cp_potion_auto = (play_driver == null)` in `_loop_layer_open` (`fight.gd:4345-4351`). So **every graded path keeps the oracle's cadence**.
+- `_cp_cast_warcry` / `_cp_drink_potion` are the old inline statements **extracted verbatim**: `_cp_fire`, then the until-stamp or instant, then `_cp_count`, in the same order.
+- `cp_warcry_cut_total` is accounting only; it draws nothing and gates nothing.
+- The removed `play_incoming_mult` branch was dead on graded paths (×1.0).
+
+**By re-run** (heavy lock, my own frozen-oracle traces):
+- **G3, contact=shadow:** M0 s3 [160,225], W1 s2 [160,161], M-POL-2 s2 [160,221]. 0 decision divergences, 0 draw mismatches, 0 shadow mismatches. **The summaries are byte-identical in every key to mine at `0eacae1`**, and equal drax's KP-290b filed ones except `trace_sha256`.
+- **My own T-A pre_read** at `5b5a539e`: **25/25 cell digests equal attempt 4's and the KP-290b pre_read's, and all 25 `cell.json` files are byte-equal to drax's KP-290b emission.** The single emission failure is `runtime_header`: there is no `.app` in my scratch archive.
+
+## R.2 · BLOCK-1 closed
+
+**With a driver** (`kc2play_session.gd:169` attaches it **before** `play_open` at `:172`, so `_loop_layer_open` sees it):
+- **The layer's War Cry auto-cast and threshold potion are off.** `_cp_begin_tick` / `_cp_heals` take the `cp_*_auto` branch only when it is true.
+- **The procs stay on, unchanged:** Turtle Shell, Arcane Barrier, Ascension, Menhir's Will, gated on `cp_on`.
+- **The keys go through the oracle's own routines.**
+  - `_resolve_press` → `fight.cp_request` queues a request only when the layer is key-driven and the active is ready at this tick's clock.
+  - The request is honoured **at the oracle's own cast site and gates**: War Cry at the top of the attack phase under `refuse_actives` and cooldown; the potion in the heal slot on a survived tick.
+  - It then runs `_cp_cast_warcry` / `_cp_drink_potion`. Magnitude, duration, cooldown and the HoT come from `cp_kit`, the pack's V13 rows.
+- **Gone:** `play_incoming_mult` (no references left in `kc2_runtime`), `_fire_warcry`, `_fire_potion`, the PLAY HoT window (ABS-POTION-HOT-WINDOW retired) and the charge counter. **The only HP write left in the driver is the pool bite (DR-2).**
+- **Stacking is impossible by construction:**
+  - `cp_request` returns false whenever the active is auto;
+  - when the active is not auto, the auto branch never runs;
+  - one routine either way.
+
+**Evidence (drax), re-read.** The §4.7 **arena-ablated intent leg** feeds ORACLE M0's own War Cry and potion cast ticks as key presses:
+- On all 5 seeds PLAY's cast counts equal ORACLE's: [47,1], [59,1], [52,2], [60,2], [56,2].
+- The terminal and tick count are equal.
+- **Every channel except energy stays bit-equal for the whole run.** Energy parts at tick 1, on the first press's per-cast cost (DR-13).
+- So the key path produces the oracle's War Cry and potion **to the bit** in magnitude, duration and cooldown.
+- **Without keys:** PLAY casts neither (`[0, 0]`), and the divergence is DR-15.
+
+**Mutation check (mine, `kp298-5b5a539e/mutant/`).** In a scratch `kc2_play` built from `534febc` with the vendored runtime `5b5a539e`, I re-armed the automatic War Cry in PLAY (`cp_warcry_auto = true`):
+- **The config audit goes RED** (exit 1, row `cp_warcry_auto`).
+- **The §4.7 plain-ablated leg goes RED** (exit 1, "⛔ PLAY CAST WITHOUT A KEY", PLAY [47, 0]).
+- The unmutated control runs GREEN on both.
+
+## R.3 · The register
+
+- **DR-6:** corrected. War Cry is removed from this row and pointed to DR-15; the "OFF under ORACLE" text is retired, with a corrigendum note.
+- **DR-10:** now points at `_walkable`, with the stop applied at the float64 tick-start.
+- **DR-12:** corrected. The ORACLE column is now the layer's threshold drink; the PLAY column is the same routine on the key; and the false "absent" is named in the corrigendum.
+- **DR-15:** present and accurate. It covers:
+  - the oracle's cadence against the key trigger;
+  - the same routines, sites and gates;
+  - a refused press costs nothing;
+  - a War Cry request lost to `refuse_actives` is counted;
+  - the procs listed;
+  - the removed PLAY paths named;
+  - `tested_by` names the audit rows and the §4.7 legs, which both exist.
+- **DR-9:** the text now matches the measured residue. With the verdict held, the two energy steps agree to the bit. They part on a tick the **control fold switches the channel off**: the oracle still charges income + cost, PLAY charges regen only. Their +6.2367 is cost − tip/hz.
+  - That corrects my KP-290 wording ("with the channel held every tick"): the verdict was held, but the control fold overrode it.
+  - The harness now **checks** DR-9 against PLAY's own law on the first energy divergence, and an energy residue that fails the law is UNREGISTERED. It was exercised once (plain leg) and held.
+- **INFO-R1 · Ascension.** DR-15 itself declares that Ascension is gated by `refuse_actives` in the oracle, like War Cry, but stays automatic as a proc (an absorb pool). That is a defensible reading of "the procs stay automatic", and it is registered. The conductor should confirm the classification with Matt in one line, since the oracle's own gate groups it with the actives.
+
+## R.4 · Audit controls and the honesty of the intent leg
+
+**Config audit: PASS.** The rows `loop_layer_on`, `cp_procs` (`cp_on`), `cp_warcry_auto` and `cp_potion_auto` are added.
+- The expected inversion for the two auto flags is explicit (`PLAY_EXPECTED` false, `ORACLE_EXPECTED` true), so the verdict is not a plain equality on those rows.
+- **Each single-row control flips one field and must read exactly that one row RED, or the run exits 1.** The five controls are `loop_layer_on`, `cp_on`, `cp_warcry_auto`, `cp_potion_auto` and `mut_fold`.
+- A restore check follows. The pre-KP-290 wholesale control is kept (19 rows RED).
+- My mutant shows the isolation works: with `cp_warcry_auto` already wrong, the other single-row controls report **"NOT SEEN ALONE"**, so the audit refuses to pass a control that does not isolate.
+
+**§4.7 intent leg: HONEST.**
+- The schedule is ORACLE's own per-tick cast-count steps; presses are fed on the same ticks.
+- DR-15 is **inadmissible** on the intent leg, so an `actives` divergence there with no upstream cause is UNREGISTERED.
+- 95b44b2 lets `actives` **inherit only from xy / HP / bodies / wave / draws, never from energy**. On the arena-ablated intent leg (where only DR-13 energy parts) the proof therefore stays strict.
+- On the plain intent leg, presses scheduled by the oracle's ticks stop fitting once PLAY has already parted on the floor or pools. Inheriting from those is correct.
+
+**Does any rule make divergences unreadable, the way the old energy auto-attribution did? Bounded, and not on any channel that matters to the proof:**
+- **INFO-R2:**
+  - After the first press, energy's first divergence is DR-13 (direct). The harness names only the first divergence per channel, so **later energy behaviour on the intent leg is not read**, and the DR-9 law check never runs there.
+  - Also, DR-13's `EVIDENCE.moves` still lists `player_hp`, `bodies` and `player_xy`. So an HP or position divergence **on a press tick** would be attributed to DR-13 directly, although a War Cry or potion press moves HP only through the layer's routine.
+  - **The filed runs show no such case:** every non-energy channel is bit-equal to the end on the ablated intent leg.
+  - Fix (drax, non-blocking): on the intent leg, restrict DR-13 to `energy` for `war_cry` / `potion` presses, and check energy against PLAY's own law (DR-9 plus each press's cost) on every tick, not only the first.
+
+## R.5 · My KP-290 WARN/INFO items
+
+| item | at `5b5a539e` |
+|---|---|
+| WARN-1 (harness proved only the no-input path) | **DISCHARGED**: the intent leg, the DR-9 law check, and the no-intent actives assertion |
+| WARN-2 (DR-10 → `_walkable`) | **DISCHARGED** |
+| INFO-1 (audit: single-fold control, counterplay rows) | **DISCHARGED** |
+| § 5 windowed self-test owed | **DISCHARGED**: `b_build.txt` at tree `5b5a539e` runs the windowed self-test on a pinned borderless 1920×1080 window on the 3440×1440 screen, **SELFTEST GREEN · 85 checks**, before export |
+| INFO-3 (float32 radius counter in `drive()`) | still present (`kc2play_driver.gd:646`); counter only. **INFO-R3**, carried |
+| INFO-4 (DR rows outside `register_sha256`) | unchanged (`453231e0`, 15 → 16 lineage rows); pinned by the tree digest. **INFO-R4**, carried |
+
+## Re-gate verdict
+
+**PASS-WITH-FINDINGS on `5b5a539e`.**
+- ORACLE byte-identity holds: G3 3/3 mine, identical to `0eacae1`; my pre_read is 25/25 byte-equal.
+- BLOCK-1 is closed. There is one mechanism with a different trigger, no stacking path, the PLAY-only magnitudes are gone, and the key path reproduces ORACLE M0 to the bit, except DR-13 energy.
+- The register is corrected and complete for what PLAY now does.
+- The audit's single-row controls work, and the intent leg is honest.
+- **Matt's re-replay on this build counts from this gate's side** (H-8). INFO-R1 to R4 do not block.
+
+## Re-gate action
+
+- [ ] **gandalf:** record PASS-WITH-FINDINGS at `5b5a539e` with BLOCK-1 closed; confirm INFO-R1 (Ascension as a proc) with Matt in one line.
+- [ ] **drax (non-blocking, next change):** INFO-R2 (intent-leg DR-13 scope; per-tick energy law), INFO-R3.

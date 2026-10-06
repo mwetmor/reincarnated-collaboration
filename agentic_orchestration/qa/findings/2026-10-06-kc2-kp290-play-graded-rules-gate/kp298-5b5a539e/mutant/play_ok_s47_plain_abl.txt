@@ -1,0 +1,13 @@
+[s4.7] seed 0 · ORACLE M0: death w160 t4317 · PLAY(P-MOVE in the seat): death w157 t3068 · ticks 4317 / 3068
+[s4.7]   PLAY arm M0 · board.is_oracle true · solver native · P-MOVE steps 3068 (ORACLE 4317) · floor stops 0 · pool ticks 0
+[s4.7]   actives (War Cry, potion): ORACLE [47, 1] · PLAY [0, 0] · presses fed 0 · PLAY cast NEITHER without keys
+[s4.7]   actives      first tick 1      (oracle 151:1 / play 151:1) -> DR-15-active-cadence · direct (the War Cry / potion cast counts part: the oracle's scripted cadence vs the keys)
+[s4.7]   player_hp    first tick 72     (oracle 151:72 / play 151:72) -> DR-15-active-cadence · inherited from actives @ tick 1
+[s4.7]   bodies       first tick 92     (oracle 151:92 / play 151:92) -> DR-15-active-cadence · inherited from actives @ tick 1
+[s4.7]   player_xy    first tick 153    (oracle 151:153 / play 151:153) -> DR-15-active-cadence · inherited from player_hp @ tick 72
+[s4.7]   draws        first tick 153    (oracle 151:153 / play 151:153) -> DR-15-active-cadence · inherited from actives @ tick 1
+[s4.7]   wave_k       first tick 308    (oracle 151:308 / play 152:1) -> DR-15-active-cadence · inherited from actives @ tick 1
+[s4.7]   energy       first tick 308    (oracle 151:308 / play 152:1) -> DR-15-active-cadence · inherited from wave_k @ tick 308
+[s4.7]   channel      first tick 525    (oracle 152:157 / play 152:218) -> DR-15-active-cadence · inherited from bodies @ tick 92
+[s4.7]   seed 0 GREEN
+[s4.7] S4.7 GREEN

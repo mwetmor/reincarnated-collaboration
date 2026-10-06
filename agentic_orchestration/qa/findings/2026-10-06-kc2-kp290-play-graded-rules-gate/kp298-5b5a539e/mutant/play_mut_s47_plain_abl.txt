@@ -1,0 +1,8 @@
+[s4.7] seed 0 · ORACLE M0: death w160 t4317 · PLAY(P-MOVE in the seat): death w160 t4316 · ticks 4317 / 4316
+[s4.7]   PLAY arm M0 · board.is_oracle true · solver native · P-MOVE steps 4316 (ORACLE 4317) · floor stops 0 · pool ticks 0
+[s4.7]   actives (War Cry, potion): ORACLE [47, 1] · PLAY [47, 0] · presses fed 0 · ⛔ PLAY CAST WITHOUT A KEY (the automatic actives are not off)
+[s4.7]   actives      first tick 4300   (oracle 160:98 / play 160:98) -> DR-15-active-cadence · direct (the War Cry / potion cast counts part: the oracle's scripted cadence vs the keys)
+[s4.7]   player_hp    first tick 4300   (oracle 160:98 / play 160:98) -> DR-15-active-cadence · inherited from actives @ tick 4300
+[s4.7]   terminal_tick first tick 4316   (oracle  / play ) -> DR-15-active-cadence · inherited from actives
+[s4.7]   seed 0 RED (an UNREGISTERED divergence)
+[s4.7] S4.7 RED

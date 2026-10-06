@@ -1,0 +1,41 @@
+[audit] seed 0 · arm M0 · n 1
+[audit] === (1) FOLD ARMING (both after the w151 wave head) ===
+[audit]   fight.arm                                      PLAY M0                           ORACLE M0
+[audit]   fight.is_oracle                                PLAY true                         ORACLE true
+[audit]   board.is_oracle                                PLAY true                         ORACLE true
+[audit]   oracle_level                                   PLAY V311-FULL                    ORACLE V311-FULL
+[audit]   C1 line-up (lineup_fold / board.lineup_fold)   PLAY [true, true]                 ORACLE [true, true]
+[audit]   C2 mutators (mut_fold)                         PLAY true                         ORACLE true
+[audit]   B4 engagement (ge_fold.ge_on)                  PLAY true                         ORACLE true
+[audit]   B4 reposition (ge_fold.persist, set only by GdRepositionFold) PLAY true                         ORACLE true
+[audit]   B1 swing pause (ge_fold.sp_on)                 PLAY true                         ORACLE true
+[audit]   A5 CompositionFold (comp_fold)                 PLAY true                         ORACLE true
+[audit]   B3 dc1 (init_fold_on · emerge_scan_s)          PLAY [true, "0.2"]                ORACLE [true, "0.2"]
+[audit]   B2 C-11b (global_magnitude.c11b_b)             PLAY 1.1                          ORACLE 1.1
+[audit]   P-MOVE (pmove_fold constructed · steps taken)  PLAY [true, 0]                    ORACLE [true, 0]
+[audit]   walls_armed (arena fold)                       PLAY false                        ORACLE false
+[audit]   channel_policy_armed                           PLAY false                        ORACLE false
+[audit]   p05 emergence (bodies with an am3 window)      PLAY 4                            ORACLE 4
+[audit]   v3.8 present (v3p8)                            PLAY true                         ORACLE true
+[audit]   v3p11_fold_rows                                PLAY { "composition": "IC7-A-V311 ORACLE { "composition": "IC7-A-V311-0334", "acquisition_scan": "IC7-A-V311-0349", "initial_self_cast": "IC7-A-V311-0341", "c11b
+[audit]   loop_layer_on                                  PLAY true                         ORACLE true
+[audit]   cp_procs (cp_on: Turtle / Barrier / Ascension / Menhir) PLAY true                         ORACLE true
+[audit]   cp_warcry_auto (War Cry on the scripted cadence) PLAY true                         ORACLE true
+[audit]   cp_potion_auto (potion at the threshold)       PLAY false                        ORACLE true
+[audit]   walls_armed for M0: PLAY false · ORACLE false
+[audit] === (0) VERDICT: every fold PLAY == ORACLE M0 ===
+[audit]   RED  cp_warcry_auto (War Cry on the scripted cadence)
+[audit]   fold rows compared 21 · differing 1 · w151 roll equal true
+[audit]   NEGATIVE CONTROL (pre-KP-290 PLAY-HUMAN arm): 19 rows RED (fight.is_oracle fight.is_oracle, board.is_oracle board.is_oracle, oracle_level oracle_level, C1 line-up, C2 mutators, B4 engagement, B4 reposition, B1 swing, A5 CompositionFold, B3 dc1, B2 C-11b, p05 emergence, v3p11_fold_rows v3p11_fold_rows, loop_layer_on loop_layer_on, cp_procs (cp_on:, cp_warcry_auto (War, cp_potion_auto (potion, P-MOVE (pmove_fold, w151 roll) -> the comparator SEES an unarmed PLAY
+[audit]   SINGLE-ROW CONTROL loop_layer_on = false                                      -> RED ["loop_layer_on", "cp_warcry_auto (War Cry on the scripted cadence)"] ⛔ NOT SEEN ALONE
+[audit]   SINGLE-ROW CONTROL cp_on = false                                              -> RED ["cp_procs (cp_on: Turtle / Barrier / Ascension / Menhir)", "cp_warcry_auto (War Cry on the scripted cadence)"] ⛔ NOT SEEN ALONE
+[audit]   SINGLE-ROW CONTROL cp_warcry_auto = true                                      -> RED ["cp_warcry_auto (War Cry on the scripted cadence)"] ok
+[audit]   SINGLE-ROW CONTROL cp_potion_auto = true                                      -> RED ["cp_warcry_auto (War Cry on the scripted cadence)", "cp_potion_auto (potion at the threshold)"] ⛔ NOT SEEN ALONE
+[audit]   SINGLE-ROW CONTROL mut_fold = <null>                                          -> RED ["C2 mutators (mut_fold)", "cp_warcry_auto (War Cry on the scripted cadence)"] ⛔ NOT SEEN ALONE
+[audit]   ⛔ a control did not restore cleanly
+[audit]   CONFIG-AUDIT RED
+[audit] === (3) THE WAVE-151 ROLL, SAME SEED ===
+[audit]   PLAY w151: 24 bodies · ORACLE w151: 24 bodies
+[audit]   FIRST DIVERGENCE: none (equal)
+[audit] === (2) WHICH RIGS EACH BOARD SPAWNS, w151-160, 1 seeds ===
+[audit] CONFIG-AUDIT RED (exit 1)
