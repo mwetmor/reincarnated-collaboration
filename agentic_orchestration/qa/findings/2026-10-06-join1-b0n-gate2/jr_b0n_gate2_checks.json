@@ -1,0 +1,318 @@
+{
+ "js8_manifest_FILE_sha256": "f82807fb6de68a6cee4eff69bb7028457143b4951fe9abccee94caa735c4d217",
+ "corpora": {
+  "pre_stamp_backup": {
+   "FILE_sha256": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07",
+   "js4b_ROWSET": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7",
+   "sibling_ROWSET": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
+   "rctxgeo_desc_has_amendment": false,
+   "js4b_stamped_rows": []
+  },
+  "reviewer_laneP": {
+   "FILE_sha256": "11857ebf9331047bedef9bb7e8c7785a6090a1e4772084265c9e206e6449bdfd",
+   "js4b_ROWSET": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+   "sibling_ROWSET": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
+   "rctxgeo_desc_has_amendment": true,
+   "js4b_stamped_rows": [
+    [
+     "R-CTX-GEO",
+     5
+    ],
+    [
+     "R-T2",
+     14
+    ]
+   ]
+  },
+  "gamora_laneP": {
+   "FILE_sha256": "2c7d434e98ff7f663b24f4bcc172f84d24ac732d961ff6715dd72cecfa5050cc",
+   "js4b_ROWSET": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+   "sibling_ROWSET": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
+   "rctxgeo_desc_has_amendment": true,
+   "js4b_stamped_rows": [
+    [
+     "R-CTX-GEO",
+     5
+    ],
+    [
+     "R-T2",
+     14
+    ]
+   ]
+  },
+  "LIVE_corpus_of_record": {
+   "FILE_sha256": "639acb2033e09b522793e1138a36c9144dc23af05be0ebe6944955fd4a9432ea",
+   "js4b_ROWSET": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+   "sibling_ROWSET": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
+   "rctxgeo_desc_has_amendment": true,
+   "js4b_stamped_rows": [
+    [
+     "R-CTX-GEO",
+     5
+    ],
+    [
+     "R-T2",
+     14
+    ]
+   ]
+  }
+ },
+ "coverage": {
+  "record_rows": 104,
+  "bound": 38,
+  "unbound": 64,
+  "derived": 2,
+  "union_equals_record": true,
+  "overlaps": 0,
+  "unbound_dispositions": {
+   "permanent, recorded": 23,
+   "closes-in-J2": 41
+  },
+  "UNDISPOSED": []
+ },
+ "reviewer_runs": {
+  "R2": {
+   "reproduces_all_7": true,
+   "grain_rowset_equal_to_JS8": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "manifest_obs1": {
+    "n_complete": 25,
+    "n_cells": 25,
+    "truncated_or_failed": []
+   },
+   "rowset_equal_to_gamora_run": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "bindings_identical_to_gamora": true
+  },
+  "NCB1": {
+   "reproduces_all_7": false,
+   "grain_rowset_equal_to_JS8": {
+    "G1": false,
+    "G2": false,
+    "G3": false,
+    "G4": false,
+    "G5": false,
+    "G6": true,
+    "G7": false
+   },
+   "manifest_obs1": {
+    "n_complete": 25,
+    "n_cells": 25,
+    "truncated_or_failed": []
+   },
+   "rowset_equal_to_gamora_run": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "bindings_identical_to_gamora": true,
+   "G4": {
+    "cells_differing": 25,
+    "n_bodies_in_disc_sum_run": 145961,
+    "terminal_wave_flips": null,
+    "terminal_reason_flips": null
+   },
+   "G5": {
+    "cells_differing": 25,
+    "n_bodies_in_disc_sum_run": null,
+    "terminal_wave_flips": 0,
+    "terminal_reason_flips": 6
+   }
+  },
+  "R3F32": {
+   "reproduces_all_7": true,
+   "grain_rowset_equal_to_JS8": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "manifest_obs1": {
+    "n_complete": 25,
+    "n_cells": 25,
+    "truncated_or_failed": []
+   }
+  }
+ },
+ "ncb1_first_divergence_direction": {
+  "up": 22,
+  "equal": 3
+ },
+ "P4": {
+  "predicted_reached_hit": [
+   "B-01",
+   "B-03",
+   "B-12",
+   "B-24",
+   "B-25",
+   "B-34"
+  ],
+  "predicted_reached_miss": [
+   "B-14",
+   "B-15",
+   "B-17",
+   "B-31",
+   "B-35"
+  ],
+  "predicted_not_reached_held": [
+   "B-09",
+   "B-10",
+   "B-11",
+   "B-08",
+   "B-28",
+   "B-29"
+  ],
+  "probe_reached_all": [
+   "B-01",
+   "B-03",
+   "B-12",
+   "B-22",
+   "B-24",
+   "B-25",
+   "B-30",
+   "B-32",
+   "B-33",
+   "B-34"
+  ],
+  "score": "6/11"
+ },
+ "s47_canonical": {
+  "reviewer_sealed_969fbd8d": "f066a254b8dc4b769efd3adefe8b2da27bff7b11422a585fb4d46b48eabaff47",
+  "reviewer_HEAD": "f066a254b8dc4b769efd3adefe8b2da27bff7b11422a585fb4d46b48eabaff47",
+  "gamora_sealed": "f066a254b8dc4b769efd3adefe8b2da27bff7b11422a585fb4d46b48eabaff47",
+  "gamora_HEAD_faf59dd2": "f066a254b8dc4b769efd3adefe8b2da27bff7b11422a585fb4d46b48eabaff47",
+  "pass4_artifact_of_record": "cbc20fbf1065be598539f486345ae72e485147f7948957cb14b5cff0e539f0ae"
+ },
+ "s47_reviewer_HEAD_closure": {
+  "n_reincarnated_modules": 141,
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 352,
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "HEAD": "758ebe4b1a7238e7797efdb8a5bd9b6f4db0a9b8",
+  "seal": "969fbd8d3cb7d07d05c22c80ee925dd34444118c"
+ },
+ "s47_instrument_verdict_field": "NOT SHOWN -- HALT to Matt",
+ "kc1_compile_diff": {
+  "n_records": 591,
+  "n_differ": 7,
+  "moved": {
+   "d2-wl-echoing-strike": {
+    "element": [
+     "physical?",
+     "physical"
+    ],
+    "notes_len": [
+     0,
+     0
+    ]
+   },
+   "gd-belgothian-blademaster": {
+    "element": [
+     "pierce",
+     "physical"
+    ],
+    "notes_len": [
+     0,
+     0
+    ]
+   },
+   "gd-blade-arc-warder": {
+    "element": [
+     "bleed",
+     "physical"
+    ],
+    "notes_len": [
+     0,
+     0
+    ]
+   },
+   "gd-blade-trap": {
+    "element": [
+     "pierce",
+     "physical"
+    ],
+    "notes_len": [
+     0,
+     0
+    ]
+   },
+   "gd-eor-warlord": {
+    "element": [
+     "fire",
+     "fire"
+    ],
+    "notes_len": [
+     0,
+     1
+    ]
+   },
+   "gd-eor-warlord-referent": {
+    "element": [
+     "fire",
+     "physical"
+    ],
+    "notes_len": [
+     0,
+     1
+    ]
+   },
+   "gd-wendigo-totem-ritualist": {
+    "element": [
+     "bleed",
+     "physical"
+    ],
+    "notes_len": [
+     0,
+     0
+    ]
+   }
+  },
+  "compile_errors": [
+   0,
+   0
+  ]
+ },
+ "sealed_RESIST_PCT": {
+  "Physical": 16.0,
+  "Pierce": 80.0,
+  "Bleeding": 85.0,
+  "Fire": 80.0
+ },
+ "G2_physical_armour": {
+  "branch": {
+   "all_absorb": 18105,
+   "any_overflow": 6511
+  },
+  "distinct_region_armour_values": [
+   "chest=3968.6400000000003",
+   "feet=2715.96",
+   "hands=2714.4",
+   "head=3591.12",
+   "legs=3521.0447999999997",
+   "shoulders=3591.12"
+  ],
+  "aggregate_3557_used_as_a_region_value": false
+ }
+}
