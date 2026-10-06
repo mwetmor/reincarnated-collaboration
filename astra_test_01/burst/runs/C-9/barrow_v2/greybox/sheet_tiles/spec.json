@@ -1,0 +1,140 @@
+{
+ "camera": {
+  "source": "reincarnated-godot/kc2_runtime/play/kc2play_projection.gd",
+  "source_sha256": "9b74f15063550666d427ecc86eb805337258a38109621324a5463e1203585a78",
+  "law": "screen_x = ppm*x ; screen_y = ppm*sin(a)*y - ppm*cos(a)*z ; zero yaw (x screen-right, +y toward camera = screen-down)",
+  "pitch_deg": 52.9535411256029,
+  "yaw_deg": 0.0,
+  "projection": "orthographic",
+  "ppm_plate": 100.617553710938,
+  "ppm_zoom_gd": 75.66840334752658,
+  "window_zoom_gd_1920x1080_m": [
+   25.373866965077973,
+   17.88241454908826
+  ],
+  "window_plate_1920x1080_m": [
+   19.082157428672204,
+   13.448287172787731
+  ],
+  "godot_camera": "Camera3D orthographic, keep_aspect KEEP_HEIGHT, size = viewport_rows / ppm, rotation_degrees = (-pitch, 0, 0), placed at target + D*(0, sin(pitch), cos(pitch)) in Godot axes (X = x, Y = up, Z = y)"
+ },
+ "tiles": [
+  {
+   "id": "hall",
+   "slot": "longhall",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/longhall.glb",
+   "W": 35.215,
+   "D": 8.0,
+   "H": 6.5,
+   "variant": "as built"
+  },
+  {
+   "id": "porch",
+   "slot": "hall_porch",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/hall_porch.glb",
+   "W": 13.207,
+   "D": 3.0,
+   "H": 11.3,
+   "variant": "as built"
+  },
+  {
+   "id": "gable",
+   "slot": "fallen_gable",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/fallen_gable.glb",
+   "W": 6.0,
+   "D": 8.0,
+   "H": 2.8,
+   "variant": "as built"
+  },
+  {
+   "id": "barrow",
+   "slot": "barrow_front",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/barrow.glb",
+   "W": 26.683,
+   "D": 18.029,
+   "H": 21.708,
+   "variant": "after"
+  },
+  {
+   "id": "barrow_before",
+   "slot": "barrow_front",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/before_tufts/barrow.glb",
+   "W": 26.683,
+   "D": 18.029,
+   "H": 21.708,
+   "variant": "before"
+  },
+  {
+   "id": "wreck",
+   "slot": "wreck",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/wreck.glb",
+   "W": 17.0,
+   "D": 4.6,
+   "H": 8.0,
+   "variant": "as built"
+  },
+  {
+   "id": "cavecliff",
+   "slot": "cave_cliff",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/cavecliff.glb",
+   "W": 19.5,
+   "D": 2.0,
+   "H": 13.527,
+   "variant": "after"
+  },
+  {
+   "id": "cavecliff_before",
+   "slot": "cave_cliff",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/before_tufts/cavecliff.glb",
+   "W": 19.5,
+   "D": 2.0,
+   "H": 13.527,
+   "variant": "before"
+  },
+  {
+   "id": "staircliff",
+   "slot": "stair_cliff",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/staircliff.glb",
+   "W": 15.8,
+   "D": 5.0,
+   "H": 7.45,
+   "variant": "as built"
+  },
+  {
+   "id": "cliffplain",
+   "slot": "cliff_faces",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/cliffplain.glb",
+   "W": 8.416,
+   "D": 6.0,
+   "H": 7.601,
+   "variant": "after"
+  },
+  {
+   "id": "cliffplain_before",
+   "slot": "cliff_faces",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/before_tufts/cliffplain.glb",
+   "W": 8.416,
+   "D": 6.0,
+   "H": 7.601,
+   "variant": "before"
+  },
+  {
+   "id": "crag",
+   "slot": "rock_outcrop_1",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/crag.glb",
+   "W": 5.457,
+   "D": 4.184,
+   "H": 3.946,
+   "variant": "after"
+  },
+  {
+   "id": "crag_before",
+   "slot": "rock_outcrop_1",
+   "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/godot/models/build/before_tufts/crag.glb",
+   "W": 5.457,
+   "D": 4.184,
+   "H": 3.946,
+   "variant": "before"
+  }
+ ]
+}
