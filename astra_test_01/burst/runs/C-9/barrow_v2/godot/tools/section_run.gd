@@ -98,8 +98,9 @@ func _guide() -> bool:
 
 
 const STILLS := [
-	{"id": "S1_V3_wreck", "t": [-38.7439, 10.7813], "hero": [-37.6, 12.6], "face": [-1, 0.2]},
-	{"id": "S2_coast", "t": [-23.0, 27.5], "hero": [-24.5, 28.6], "face": [0.3, 1]},
+	# V3's window, shifted 5 m west so the wreck and its shore ice sit in frame (the layout's V3 target leaves them on the edge)
+	{"id": "S1_V3_wreck", "t": [-44.0, 12.0], "hero": [-40.6, 13.2], "face": [-1, 0.1]},
+	{"id": "S2_coast", "t": [-27.0, 32.0], "hero": [-26.0, 26.4], "face": [0.2, 1]},
 	{"id": "S3_V7_cave_stair", "t": [5.79, 42.6977], "hero": [13.8, 35.4], "face": [0.2, 1]},
 ]
 
@@ -131,7 +132,7 @@ func _film(delta: float) -> bool:
 	var p0 := Vector2(float(route[0][0]), float(route[0][1]))
 	if frame < settle:
 		scene.set_hero(p0, Vector2(float(route[1][0]), float(route[1][1])) - p0, "run")
-		scene.place_camera(p0)
+		scene.place_camera(_lead(p0))
 		if frame == settle - 1:
 			print('[sw] film {"trim_frames":%d}' % settle)
 		return false
@@ -152,7 +153,7 @@ func _film(delta: float) -> bool:
 		L = a.distance_to(b)
 	var p := a.lerp(b, seg_t / L)
 	scene.set_hero(p, b - a, "run")
-	scene.place_camera(p)
+	scene.place_camera(_lead(p))
 	return false
 
 
@@ -187,3 +188,12 @@ func _overview() -> bool:
 	sv.get_texture().get_image().save_png(out_dir.path_join("overview.png"))
 	print("[sw] overview saved")
 	return true
+
+
+## the game camera never turns; for the pan it LEADS toward the coast (west at the wreck, south along the cliff) so the
+## shore fills the window, and it is clamped so the window never leaves the painted frame (x -57.5 .. 21.37 m)
+func _lead(p: Vector2) -> Vector2:
+	var off := Vector2(-6.0, 1.0).lerp(Vector2(-1.0, 5.5), clampf((p.y - 8.0) / 16.0, 0.0, 1.0))
+	var t := p + off
+	t.x = clampf(t.x, -44.7, 8.6)
+	return t

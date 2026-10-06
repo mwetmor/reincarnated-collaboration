@@ -36,13 +36,16 @@ def sk_crop(x, y, w_m=25.37, h_m=17.88, ppm_sk=11.2):
     return SKA.crop((int(u - cw / 2), int(v - ch / 2), int(u + cw / 2), int(v + ch / 2))).resize((960, 540), Image.LANCZOS)
 
 
-targets = SEC["stills_targets"]
+targets = [(-44.0, 12.0), (-27.0, 32.0), (5.79, 42.6977)]
+# sketch A's matching areas, read by eye off sites/BV3r2-A.png (1536 x 1024): the wreck on its ice; the cliff west of
+# the cave with the floes below; the cave and its stair. Sketch A is not to scale, so these are areas, not windows.
+SK_BOX = {"S1_V3_wreck": (0, 270, 520, 563), "S2_coast": (150, 560, 670, 853), "S3_V7_cave_stair": (380, 560, 900, 853)}
 for (sid, label), t in zip(STILLS, targets):
     g = Image.open(SD / "stills_guide" / f"{sid}.png").convert("RGB").resize((960, 540), Image.LANCZOS)
     p = Image.open(SD / "stills_painted" / f"{sid}.png").convert("RGB")
     p.save(LOOK / f"R-C9-158_{sid}_painted_1920.jpg", quality=92)
     p = p.resize((960, 540), Image.LANCZOS)
-    s = sk_crop(*t)
+    s = SKA.crop(SK_BOX[sid]).resize((960, 540), Image.LANCZOS)
     W = Image.new("RGB", (960 * 3 + 40, 540 + 90), (246, 244, 238))
     d = ImageDraw.Draw(W)
     d.text((12, 10), f"R-C9-158 barrow_v2 SECTION SW -- {label}   (game camera: ortho, pitch 52.95, yaw 0; ZOOM-GD 25.4 x 17.9 m window)", fill=(20, 30, 60), font=FONT)
