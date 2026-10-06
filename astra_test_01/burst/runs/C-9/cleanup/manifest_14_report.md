@@ -427,3 +427,27 @@ The working files are in the conductor scratchpad, `60f6998b…/scratchpad/m14/`
 - `check.py` (all checks);
 - `gen.py` (manifest writer);
 - `tierd_*`, `d3_*` and `named_*` (Tier D grep outputs).
+
+## Addendum: manifest 14b, the conductor scratchpad extras (conductor request, 2026-10-06 about 18:15)
+
+**File:** `runs/C-9/cleanup/manifest_scratch_prune_14b.txt`. It uses the same format, and its lines are tagged `14b:`. It has **10 entries, 1.94 GiB (2,030,600 KiB)**. Every entry passed the same checks as manifest 14 (run at 18:16).
+
+| Entry | KiB | Basis |
+|---|---:|---|
+| `scratchpad/web_eor2/` | 1,410,796 | EOR2's private build mirror. EOR2 is parked, and its final code is committed at `b4de84e65` (verified present: "R-C9-152 -- sparks that read…"). The folder contains no symlinks. |
+| `scratchpad/ov_raw/`, `ov_raw2/`, `ov_raw3/` | 417,796 | Raw overlay renders. The **final atlas `join1_vfx/eor_overlay/` is complete.** Every frame its `manifest.json` lists is present, and each file's sha256 matches: **1,678 of 1,678** (red 839 + original 839), 0 missing, 0 mismatched. |
+| `scratchpad/frames1/`..`frames4/` | 174,852 | JPG frame dumps from Oct 2. |
+| `scratchpad/r138_idles.glb` | 27,148 | **Byte-identical (sha256) to `C-9/so_mx/work/r138_idles.glb`.** |
+| `/private/tmp/tmp_unused` | 8 | My own stray `du` listing (disclosed above). The 2-hour rule is waived for this file only: the conductor named it, and no lane owns it. |
+
+**Lane BS check:**
+- `lsof` showed no open handle on any entry.
+- `SECTION_RESUME.md` names `tools/`, `godot/data/section_sw/`, `paint/section_sw/` and `section_sw/look/`, plus `SCRATCH=<scratch>` for its film tool.
+- BS's film scratch in this scratchpad is `section_sw_film_*.avi` (`section_sw/film.log`), and that stays excluded.
+- No BS tool or log names `web_eor2`, `ov_raw*`, `frames*` or the GLBs.
+
+**Excluded from 14b: the other eight about-26 MB GLBs (211,400 KiB).** These are `b`, `h1`, `pA`, `pA6`, `pA8`, `pA10`, `t1` and `t2`. A sha256 compare over every same-size `.glb` in `runs/C-9/` and `reincarnated-godot/` found **no byte-identical copy** of any of them. They date from Oct 2 19:42–19:49, alongside lane SO's R-C9-138/140 work, so they look like probe variants rather than copies. Listing them needs lane SO or the conductor to confirm they are dead.
+
+**Manifest 14 + 14b together:** 2,586 entries, **5.67 GiB**.
+
+Run 14b exactly as manifest 14, with the path swapped to `manifest_scratch_prune_14b.txt` (dry run prints 10).
