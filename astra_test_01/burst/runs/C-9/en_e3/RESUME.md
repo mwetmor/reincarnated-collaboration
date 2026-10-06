@@ -14,7 +14,10 @@ All heavy work goes through `runs/C-7/conductor_scripts/heavy_lock.py C-9 -- <cm
 
 - **en-abomination** (rift horror, kc_bounty13): pack `join1_pack/en-abomination`, 72/72, true_size factor 1.2 (base 2.0 m). Chain `work/chain_rh_c.sh`. DONE 2026-10-03 (abomination-only resume).
 
-## Next, in order (hellhound + worm_p still PAUSED by the conductor)
+- **en-burrowworm_p**: DONE 2026-10-03 (R-C9-157), 32/32, commit 7285a3cea.
+- **en-hellhound** (rime wolf): DONE 2026-10-06, 64/64, factor 1.047; chain `work/chain_rw_e.sh` (RW_VAR=a). Open: the left-foreleg brass band barely reads at 1x.
+
+## Next: nothing queued in this lane (all R-C9-157 items landed). Older notes below are historical.
 1. **en-burrowworm_p** — everything up to the kit is done (`export/worm_p/worm.glb` with the n22 emerge fix and the
    painted `work/tex_worm_PG.png`; kit + manifest written; the kit's `supersedes` pins `join1_pack/en-burrowworm`
    index sha 08bdc4fc4d13). Remaining: the Godot cell render + index_cells + validate_sockets + j_runtime_resample +

@@ -1,0 +1,85 @@
+{
+ "states": {
+  "idle": {
+   "kind": "loop",
+   "role": "locomotion_idle",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "walk": {
+   "kind": "loop",
+   "role": "locomotion_walk",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "run": {
+   "kind": "loop",
+   "role": "locomotion_run",
+   "frames": 12,
+   "sampling": "loop"
+  },
+  "attack_snap": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "basic melee bite"
+  },
+  "attack_bigbite": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "the roster's rending big bite (sunder, melee)"
+  },
+  "cast_breath": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 16,
+   "sampling": "release",
+   "release_socket": "maw",
+   "skill": "the roster's freezing breath cone (aoe); the clip holds the breath"
+  },
+  "hit": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 8,
+   "sampling": "ends"
+  },
+  "death": {
+   "kind": "oneshot",
+   "role": "oneshot_hold",
+   "frames": 16,
+   "sampling": "ends",
+   "hold_last": true
+  }
+ },
+ "sockets": {
+  "maw": {
+   "bone": "jaw",
+   "along_bone_m": 0.5622,
+   "_what": "the jaw tip"
+  },
+  "claw_FL": {
+   "bone": "leg_FL_3",
+   "along_bone_m": 0.1755,
+   "_what": "the left fore-paw"
+  },
+  "head_top": {
+   "bone": "chest",
+   "along_bone_m": 0.0,
+   "local_m": [
+    0.0,
+    0.0,
+    0.6
+   ],
+   "_what": "above the shoulder ruff (HUD anchor)"
+  },
+  "chest": {
+   "bone": "chest",
+   "_what": "the chest bone's head"
+  }
+ }
+}

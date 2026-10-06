@@ -39065,9 +39065,110 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "EN3-RWPG",
+      "type": "GENERATE",
+      "experiment": "R-C9-132-crucible-creatures",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "0be0233e6f10f4dbd59db71ed9cedc9ccf36d6e32b7f72e160b7f780385c84c3",
+      "started": "2026-10-03T15:16:12.322565+00:00",
+      "ended": "2026-10-03T15:23:32.342236+00:00",
+      "minutes": 7.333552960417,
+      "image_calls": 4,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 4,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-414e7682-f854-480f-8601-115568ff7c7a.png",
+            "sha256": "3c5e3766d08cd137ddb59a9c2568c9a139997e5c52e4d184d1d01c6616d17bc0"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-58115b89-41f0-475e-a65b-326b0f27f0fa.png",
+            "sha256": "0ed9bd34dd6254c8ef39a9ff092ba7c0da554d4e223d4464a1f578e60bd53b4a"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-5ddab884-100b-4fde-890a-02e48bceba3c.png",
+            "sha256": "f3da955a63e69b212223b37495b971f56232206971e9af1a58d7020368f0c283"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-653b67b6-4dc2-4e66-a0ff-841f835af879.png",
+            "sha256": "4a878e26d9d0e70adb4c8919d1a2d4201a80ec57fc780cfda3e9445ea43e3ee7"
+          }
+        ]
+      },
+      "receipt_sha256": "6abdd92acb445b4f6aa37a1aedf53070abdfeb3c6aea09216d5efa713be5ebba",
+      "artifacts": [
+        {
+          "name": "EN3-RWPG_a.png",
+          "sha256": "0ed9bd34dd6254c8ef39a9ff092ba7c0da554d4e223d4464a1f578e60bd53b4a"
+        },
+        {
+          "name": "EN3-RWPG_b.png",
+          "sha256": "3c5e3766d08cd137ddb59a9c2568c9a139997e5c52e4d184d1d01c6616d17bc0"
+        },
+        {
+          "name": "exec-414e7682-f854-480f-8601-115568ff7c7a.provenance.json",
+          "sha256": "4de3d5f8ba1e17c5f36efdaf67d933746ee42493477286aff5ebcd972e215588"
+        },
+        {
+          "name": "exec-58115b89-41f0-475e-a65b-326b0f27f0fa.provenance.json",
+          "sha256": "f51684354229ee1579342cf333a8d76c27d2291f33d1f4c406e0952d3f04e859"
+        },
+        {
+          "name": "exec-5ddab884-100b-4fde-890a-02e48bceba3c.provenance.json",
+          "sha256": "6c17d75f474bcac935b2af953ad5f7cdb44b843c69a34c01664bb0d0a5b37ae2"
+        },
+        {
+          "name": "exec-653b67b6-4dc2-4e66-a0ff-841f835af879.provenance.json",
+          "sha256": "284259db47fa68a1f51c96cd758450ffb108ac2cb647c8f7c815283fcea45064"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-414e7682-f854-480f-8601-115568ff7c7a.png",
+          "sha256": "3c5e3766d08cd137ddb59a9c2568c9a139997e5c52e4d184d1d01c6616d17bc0"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-58115b89-41f0-475e-a65b-326b0f27f0fa.png",
+          "sha256": "0ed9bd34dd6254c8ef39a9ff092ba7c0da554d4e223d4464a1f578e60bd53b4a"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-5ddab884-100b-4fde-890a-02e48bceba3c.png",
+          "sha256": "f3da955a63e69b212223b37495b971f56232206971e9af1a58d7020368f0c283"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a10256-557d-7fe3-81e7-523097179529/exec-653b67b6-4dc2-4e66-a0ff-841f835af879.png",
+          "sha256": "4a878e26d9d0e70adb4c8919d1a2d4201a80ec57fc780cfda3e9445ea43e3ee7"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1170,
+  "images_used": 1174,
   "images_cap": 1500,
   "experiments": {},
   "milestones": [
@@ -40335,6 +40436,21 @@
       "id": "M-C9-EN3-WORM-P",
       "ts": "2026-10-03T15:13:46Z",
       "note": "EN-E3 PACK en-burrowworm_p (R-C9-157; aetherialworm_b01-b04 summons; supersedes en-burrowworm, index sha 08bdc4fc4d13 pinned): painted (EN3-PZPG a + worm grade), n22 emerge fix in. 32/32 cells, 416 PNG, 32 MiB; h_model 0.7346 m, length 2.80 m; true_size scale 1.2, factor 1.0. Releases: attack_bite r=5 0.3667 s; emerge 0.9667 s (12 frames), idle 1.3333 s (MAD 0.000), death 0.9667 s. Sockets worst 0.00006 m / 1248; resample 4/4; lint manifest 0, neg_release(attack) 0 = known gap, neg_prose 1. KP-256 radius: roster actorRadius 0.52 x 1.2 = 0.62 m vs drawn rest half-width 0.39 m / half-length 1.40 m (a long body over a round collider; ratio within GD presentation). Emerge E-heading AFTER still: en_e3/artifacts/strip_worm_emerge_E_after.png (no fold-back at f20/f25)."
+    },
+    {
+      "id": "M-C9-EN2-P2-FLESHHULK",
+      "ts": "2026-10-03T15:19:52Z",
+      "note": "EN-E2 Phase 2 (collab 90ddfdd61): join1_pack/en-fleshhulk -- 64/64 COMPLETE, h_model 2.0947 m, margin 8.5 % (fit x1.069). SIZE CALL max-fit 3.00 -> 2.10 m (x0.70): the record slam and lob lift both arms overhead and the record death falls sideways; death centred (en42); at 3.00 / 2.60 m 20 / 9 of 64 cells edge-touched; en63 geometric fit (calibrated within 4 px) set 2.10. true_size: aetherial_fleshhulk_mine 1.429, fleshhulk_h01-h04 1.363. CLIPS: mutant breathing idle (4.0333 s), mutant walking (1.4333 s, 1.867 m/s at 3.00 m), mutant run (0.8667 s), mutant punch as attack (1.10 s) adopted (en60); record slam / lob / hit / death kept byte-identical; joint lint 0 fails on all 8 (no 63 fix needed); loop seams idle/walk/run closed to 0.0000 m (58 blend; run blend moves joints <= 0.36 % of hips-to-head). Releases: slam r=4 at 0.8333 s, attack (punch) r=2 at 0.2333 s, lob r=5 at 1.1333 s. Sockets <= 0.97 mm (3072), manifest lint exit 0 + both negative controls exit 1, runtime resample 0.000 deg. KP-256: drawn half-width 0.773 m x factor vs actor radius 1.088-1.14 m, ratio 0.97 PASS. stills8 en_e2/artifacts/en_d_stills8.png. Output ~86 MB."
+    },
+    {
+      "id": "M-C9-EN2-P2-COLOSSUS",
+      "ts": "2026-10-03T15:21:36Z",
+      "note": "EN-E2 Phase 2 (collab f2726ef91): join1_pack/en-colossus -- 72/72 COMPLETE, h_model 2.4915 m, margin 6.9 % (fit x1.037). SIZE CALL max-fit 3.20 -> 2.50 m (x0.781): the record lob and slam lift both arms overhead; the record death centred (en42); en63 geometric fit x0.975 at 2.60 m. true_size: aetherialcolossus_galakros 1.28, heroes 1.138. CLIPS: mutant breathing idle, walking, run, punch as attack, ROARING as roar at its NATURAL 5.3667 s (KC2 warps one-shots) adopted (en60); record lob / slam / hit / death kept byte-identical; joint lint 0 fails on all 9; loop seams closed to 0.0000 m. Releases: lob r=5 at 1.1333 s, attack (punch) r=2 at 0.2333 s, slam r=4 at 0.8333 s, roar r=3 at 0.9000 s (peak hand speed rule; the roar's sound/VFX cue is the runtime's). Sockets <= 0.90 mm (3584), manifest lint exit 0 + both negative controls exit 1 (the first lint run caught an ambiguous size_call sentence, reworded), runtime resample 0.000 deg. KP-256: ratio 0.63-0.71 PASS. stills8 en_e2/artifacts/en_e_stills8.png. Output ~110 MB."
+    },
+    {
+      "id": "M-C9-EN3-HELLHOUND",
+      "ts": "2026-10-06T05:45:34Z",
+      "note": "EN-E3 PACK en-hellhound (rime wolf; direwolf_frozenwastes_01, w156 p02+p03 alternate; R-C9-157). Prep 4.2 m with --flip (rig v1 faced backwards: the volume test took the bushy tail for the head) + n04b ghost-leg cull (a far-leg pair under the belly) + motion_scale 0.94 -> n17 s_with_margin 1.002 (binding attack_snap f11). Paint EN3-RWPG a (4 image calls; sheetA share 0.65); variant a chosen over b because b put a band on a wrong foreleg in some views; a carries no right-foreleg band, but the LEFT-foreleg band is barely legible at 1x (open). 64/64 cells, 832 PNG, 148 MiB; h_model 1.9977 m, length 4.2008 m; true_size scale 1.5, designed 4.4 m, factor 1.047. Releases: attack_snap r=5 0.3333 s (f10 inferred), attack_bigbite r=11 1.8667 s (roster f56), cast_breath r=4 0.8667 s (roster f26; the clip holds to 3.0 s). Sockets worst 0.00056 m / 3328; resample 8/8 exact; lint manifest 0, neg_release(attack) 0 = known gap, neg_release_cast 1, neg_prose 1. KP-256: actor radius 1.25 x 1.5 = 1.875 m vs drawn rest half-width 0.539 x 1.047 = 0.56 m and half-length 2.10 x 1.047 = 2.20 m -> the collision circle is ~3.3x the drawn half-width but 0.85x the drawn half-length: a long body inside a round collider (diameter 3.75 m ~ body length 4.4 m); flagged for the P1(e) check, not gross. Spend: Astra lane 27 (run images_used 1174), Meshy 0, fal $1.21."
     }
   ],
   "halts": [
