@@ -739,6 +739,26 @@ for r in range(ROWS):
         if not hit:
             skip.append(f"{c}_{r}")
 
+# ---------------------------------------------------------------- POST-FIXES (applied after every random placement,
+# so the random stream -- and with it every floe, pebble and tuft -- is byte-identical to the build the paint began on)
+# no gap-fill plug may stand in or behind the cave's mouth (the cave model is a thin shell: a rock behind it shows
+# through the arch). Filtered AFTER placement so the random stream -- and every other placement -- is unchanged.
+_cfp = Path(np.array(MODELS["cave_cliff"]["footprint"], float))
+inst["crag"] = [it for it in inst["crag"] if not ("gap fill" in it["note"] and it["pos"][0] > -9.0 and (_cfp.contains_point(it["pos"], radius=-2.5) or _cfp.contains_point(it["pos"], radius=2.5)))]
+inst["cliff"].append(dict(pos=[6.0, 39.8], z=round(DEEP - 0.2, 3), yaw=-4.0, size=[6.4, round(0.5 - DEEP + 0.2, 3), 4.4], r=3.2, note="cliff face (cave/stair notch)"))
+# the stair's flush top (terrain only; placement above used the pre-fix ground)
+STAIR_SHELF = Path(np.array([[5.0, 35.0], [22.5, 32.5], [22.5, 39.2], [20.52, 39.0], [5.07, 42.29], [3.6, 38.6]]))
+_shelf = STAIR_SHELF.contains_points(P).reshape(ny, nx) & ~inside & (wb > 0.999)
+Z[_shelf] = 0.0
+# the stair cliff's BACK (north) third is solid rock top, not a pit: level it with the shelf; the front keeps its
+# clearance for the carved flight
+_sfp = np.array(MODELS["stair_cliff"]["footprint"], float)      # back-W, back-E, front-E, front-W
+_back = _sfp[0] + (_sfp[1] - _sfp[0]) * 0.0
+_ax = _sfp[3] - _sfp[0]
+_dep = ((P - _sfp[0]) @ _ax) / (_ax @ _ax)
+_in = Path(_sfp).contains_points(P) & (_dep < 0.38)
+Z[_in.reshape(ny, nx) & (wb > 0.999)] = np.maximum(Z[_in.reshape(ny, nx) & (wb > 0.999)], -0.35)
+
 # ---------------------------------------------------------------- the checks, then write
 checks = {}
 bad = []
