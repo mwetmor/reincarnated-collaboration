@@ -52,7 +52,7 @@ STAIR = {"width_m": 5.0, "drop_m": 7.2, "step_rise_m": 0.18, "step_tread_m": 0.2
 BARROW = {"open_w": 5.0, "open_h": 6.5, "post_w": 1.4, "post_d": 1.8, "lintel_t": 1.3, "forecourt": 2.6,
           "mound_a": 20.0, "mound_b": 13.5, "rise": 10.5, "passage_len": 9.0,
           "sized_for": "yeti nemesis, ~5.6 m tall (the bosses' door)"}
-PORCH = {"open_w": 4.5, "open_h": 4.5, "width": 6.4, "depth": 3.0, "eave": 5.1, "ridge": 7.8, "apron": 1.4,
+PORCH = {"open_w": 4.5, "open_h": 4.5, "width": 13.25, "depth": 3.0, "eave": 5.1, "ridge": 7.8, "apron": 1.4,   # R-C9-156: width = the Tripo porch scaled so its see-through opening is 4.5 m
          "sized_for": "colossus 3.2 m; statues ~3.5 m; crab heroes up to ~3.4 m wide"}
 
 
@@ -836,7 +836,7 @@ def main():
         _foot.append(along((0, 0), uu, ray_exit(floor, uu) + 3.6))
     ctx = {
         "bank_gaps": [along(_pc, _nin, PORCH["depth"]), along(Gp, ax_ne, 1.0)],
-        "mound": {"c": mound_c, "a": BARROW["mound_a"], "b": BARROW["mound_b"], "rot": rot2, "rise": BARROW["rise"]},
+        "mound": {"c": mound_c, "a": BARROW["mound_a"], "b": BARROW["mound_b"], "rot": rot2, "rise": 1.2},   # R-C9-156: the model is the mound
         "passage": {"c": along((0, 0), d2, door_plane), "door": along((0, 0), d2, door_plane), "u": d2, "v": n2,
                     "half_w": BARROW["open_w"] / 2 + 0.1, "len": BARROW["passage_len"] + BARROW["post_d"],
                     "forecourt_back": BARROW["forecourt"] + 0.3, "forecourt_half_w": _bw / 2 + 0.6, "barrow": BARROW},
@@ -990,6 +990,119 @@ def main():
                            placeholder="procedural",
                            instances=[box_inst(r_["c"], (math.cos(math.radians(r_["rot"])), math.sin(math.radians(r_["rot"]))), 2 * r_["r"][0], 2 * r_["r"][1],
                                                r_["top"] - r_["cz"] + r_["r"][2], r_["cz"] - r_["r"][2]) for r_ in rocks]))
+    # ================= R-C9-156: TRUE-3D -- the 9 Tripo builds placed into their slots =================
+    # Each build was reduced to 10k tris and normalised (front -> local +Z, origin = footprint centre on the ground)
+    # by models/tools/bx_normalise_all.sh. Godot fits each model's AABB per axis to the slot's size, so the sizes
+    # below ARE the placement. Openings were MEASURED on the normalised models' front stills (models/stills) and
+    # each model is scaled so its opening meets R-C9-154.
+    BUILD = "godot/models/build/"
+    MEAS = {  # name: (W, H) at normalisation, opening w, h, bottom-above-base, centre x offset (m, front still)
+        "barrow": ((22.2, 17.3), 4.16, 5.18, 3.22, 0.35), "porch": ((8.1, 11.3), 2.76, 4.87, 0.0, 0.0),
+        "cavecliff": ((19.5, 9.9), 10.31, 5.05, 2.10, -0.34), "hall": ((24.0, 6.5), 2.97, 2.43, 0.12, 5.08)}
+
+    def xdir(face):
+        th = math.atan2(face[0], face[1])
+        return (math.cos(th), -math.sin(th))
+
+    def set_box(m, centre, face, W, D, H, z, glb, note=None):
+        X = xdir(face)
+        f = unit(*face)
+        m["pos"] = G.rnd(centre)
+        m["z"] = G.rnd(z, 3)
+        m["godot_rot_y_deg"] = _yaw(face)
+        m["faces_compass_deg"] = G.rnd(G.compass_deg(*face), 2)
+        m["size_m"] = {"w_local_x": G.rnd(W, 3), "d_local_z": G.rnd(D, 3), "h": G.rnd(H, 3)}
+        m["footprint"] = G.rnd([along(along(centre, X, sx * W / 2), f, sz * D / 2) for sx, sz in ((-1, -1), (1, -1), (1, 1), (-1, 1))])
+        m["glb"] = glb
+        m["status"] = "PLACED (Tripo build, lane BVP; reduced 10k tris, normalised by BX)"
+        m.pop("instances", None)
+        m["placeholder"] = "massing"
+        if note:
+            m["fit_note"] = note
+    MS = {m["id"]: m for m in models}
+    # the porch: scaled so its see-through opening (between the open leaves) is 4.5 m wide; its mouth line unchanged
+    (W0, H0), ow, oh, ob, ox = MEAS["porch"]
+    Wp = W0 * PORCH["open_w"] / ow
+    Hp = max(H0, H0 * PORCH["open_h"] / oh)
+    set_box(MS["hall_porch"], along(_pc, _nin, PORCH["depth"] / 2), _nin, Wp, PORCH["depth"], Hp, 0.0, BUILD + "hall_porch.glb",
+            "scaled %.2fx so the see-through opening between the open leaves is %.1f m (it was %.2f m at the slot's 8.1 m)" % (Wp / W0, PORCH["open_w"], ow))
+    MS["hall_porch"]["opening"].update({"w": G.rnd(ow * Wp / W0, 3), "h": G.rnd(oh * Hp / H0, 3), "measured": "models/stills/porch_front.png"})
+    # the longhall: its own (small) door aligned under the porch
+    (W0, H0), ow, oh, ob, ox = MEAS["hall"]
+    Lb = L_GD + NE_PAST_DOOR - GABLE_FWD
+    off = ox * Lb / W0
+    Xh = xdir(_nin)
+    set_box(MS["longhall"], along(along(D, nT, HALL_D / 2), Xh, -off), _nin, Lb, HALL_D, 6.5, 0.0, BUILD + "longhall.glb",
+            "the model's own door (%.1f x %.1f m, %.1f m off-centre) is aligned under the porch; the great door's 4.5 m clear opening is the porch's" % (ow * Lb / W0, oh, off))
+    MS["longhall"]["opening"]["openings"][0]["model_own_door_m"] = [G.rnd(ow * Lb / W0, 2), G.rnd(oh, 2)]
+    set_box(MS["fallen_gable"], _cen(MS["fallen_gable"]["footprint"]), _nin, GABLE_BACK + GABLE_FWD, HALL_D, 2.8, 0.0, BUILD + "fallen_gable.glb")
+    set_box(MS["wreck"], hull_c, _lat_w, 17.0, 4.6, 8.0, -0.45, BUILD + "wreck.glb", "height includes the raked mast")
+    # the barrow: the Tripo build IS the mound with its door; scaled so the door is 5.0 x 6.5 m, sunk so its threshold is at 0
+    (W0, H0), ow, oh, ob, ox = MEAS["barrow"]
+    sw_, sh_ = BARROW["open_w"] / ow, BARROW["open_h"] / oh
+    Wb, Hb, Db = W0 * sw_, H0 * sh_, 15.0 * sw_
+    fb = (-d2[0], -d2[1])
+    cb = along(along((0, 0), d2, door_plane + Db / 2), xdir(fb), -ox * sw_)
+    set_box(MS["barrow_front"], cb, fb, Wb, Db, Hb, -ob * sh_, BUILD + "barrow.glb",
+            "the build is the whole mound with its door: %.1f x %.1f x %.1f m, sunk %.2f m so the threshold meets the forecourt" % (Wb, Db, Hb, ob * sh_))
+    MS["barrow_front"]["opening"].update({"w": G.rnd(ow * sw_, 3), "h": G.rnd(oh * sh_, 3), "measured": "models/stills/barrow_front.png"})
+    MS["barrow_front"]["kind"] = "barrow"
+    # the cave cliff: on the cave's chord, its back face just outside the floor; scaled so the mouth is >= 9 x 6.9 m
+    (W0, H0), ow, oh, ob, ox = MEAS["cavecliff"]
+    sh_c = STAIR["cave_h_m"] / oh
+    Wc, Hc, Dc = W0, H0 * sh_c, 2.0
+    c0_, c1_ = cave_s[0][0], cave_s[-1][0]
+    chord = unit(c1_[0] - c0_[0], c1_[1] - c0_[1])
+    nc = (-chord[1], chord[0])
+    midc = ((c0_[0] + c1_[0]) / 2, (c0_[1] + c1_[1]) / 2)
+    if nc[0] * midc[0] + nc[1] * midc[1] < 0:
+        nc = (-nc[0], -nc[1])
+    reach = max((q[0] - midc[0]) * nc[0] + (q[1] - midc[1]) * nc[1] for q in floor if math.dist(q, midc) < Wc / 2 + 2.0)
+    cc = along(along(midc, nc, reach + 0.12 + Dc / 2), xdir(nc), -ox)
+    models.append(slot("cave_cliff", "cliff", [(0, 0), (1, 0), (1, 1)], (Wc, Dc, Hc), nc, "", None))
+    set_box(models[-1], cc, nc, Wc, Dc, Hc, ledge_z - ob * sh_c, BUILD + "cavecliff.glb",
+            "mouth %.1f x %.1f m, its sill on the ledge; the model rises %.1f m above the floor as a rock rim outside the edge" % (ow, oh * sh_c, ledge_z - ob * sh_c + Hc))
+    models[-1]["opening"] = {"w": G.rnd(ow, 3), "h": G.rnd(oh * sh_c, 3), "kind": "sea-cave mouth", "measured": "models/stills/cavecliff_front.png"}
+    # the stair cliff: occupies the flight (wall line -> sea line), foot to landing end; top just under the floor
+    Ws, Ds, Hs = run + TL, w, STAIR["drop_m"] + 0.25
+    cs = along(((B_n[0] + along(T_n, u, TL)[0]) / 2, (B_n[1] + along(T_n, u, TL)[1]) / 2), nh, Ds / 2)
+    models.append(slot("stair_cliff", "cliff", [(0, 0), (1, 0), (1, 1)], (Ws, Ds, Hs), nh, "", None))
+    set_box(models[-1], cs, nh, Ws, Ds, Hs, -0.05 - Hs, BUILD + "staircliff.glb",
+            "the rock the 5 m stair climbs; its own carved stair stands in for the procedural steps (the walkable flight is unchanged in the layout)")
+    # cliff faces along the rest of the south lip: cliffplain, rotated and scaled for variety; tops just under the floor
+    crng = np.random.default_rng(156)
+    cw_deg = G.compass_deg(*c1_)
+    insts = []
+    for cdeg in np.arange(cw_deg + 7.0, 213.0, 8.5):
+        uu = unit(math.sin(math.radians(cdeg)), -math.cos(math.radians(cdeg)))
+        P_ = along((0, 0), uu, ray_exit(floor, uu))
+        Wi, Hi, Di = float(crng.uniform(8.0, 11.0)), STAIR["drop_m"] + 0.4 + float(crng.uniform(0, 0.3)), 6.0
+        fi = unit(math.cos(math.atan2(uu[1], uu[0]) + math.radians(crng.normal(0, 8))), math.sin(math.atan2(uu[1], uu[0]) + math.radians(crng.normal(0, 8))))
+        insts.append(box_inst(along(P_, fi, 0.7 - Di / 2), fi, Wi, Di, Hi, -0.05 - Hi))
+    models.append(slot("cliff_faces", "cliff", [tuple(G.rnd(i["pos"])) for i in insts[:3]] if len(insts) >= 3 else [(0, 0), (1, 0), (1, 1)],
+                       (9.0, 6.0, 7.6), (0, 1), "PLACED (Tripo cliffplain, rotated/scaled per instance)", BUILD + "cliffplain.glb",
+                       instances=insts, placeholder="massing"))
+    # rock outcrops: one crag per cluster (rotated/scaled for variety), replacing the procedural boulders
+    gone = set()
+    for m in models:
+        if m["kind"] != "outcrop":
+            continue
+        ci = int(m["id"].rsplit("_", 1)[1]) - 1
+        rocks = B.cluster_rocks.get(ci, [])
+        if not rocks:
+            continue
+        cxr = sum(r_["c"][0] for r_ in rocks) / len(rocks)
+        cyr = sum(r_["c"][1] for r_ in rocks) / len(rocks)
+        spread = max(math.dist((cxr, cyr), tuple(r_["c"])) + r_["r"][0] for r_ in rocks)
+        Wr = max(3.5, min(9.0, 1.6 * spread))
+        ang = float(crng.uniform(0, G.TAU))
+        Hr = float(crng.uniform(2.2, 4.2))
+        m["instances"] = [box_inst((cxr, cyr), (math.sin(ang), math.cos(ang)), Wr, Wr * float(crng.uniform(0.7, 0.95)), Hr, B.hz(cxr, cyr) - 0.5)]
+        m["glb"] = BUILD + "crag.glb"
+        m["status"] = "PLACED (Tripo crag, rotated/scaled per cluster)"
+        m["placeholder"] = "massing"
+        gone.update(id(r_) for r_ in rocks)
+    B.blobs[:] = [b_ for b_ in B.blobs if id(b_) not in gone]
     layout["models"] = models
     layout["models_rule"] = ("R-C9-155: every structure is a REAL 3D model in a slot (id, kind, pos, z, faces/yaw, size, footprint, opening); "
                              "REUSE names a v1 Barrow GLB; BUILD = lane BVP (Astra sheet -> Tripo) hands BX the GLB at `glb`. "

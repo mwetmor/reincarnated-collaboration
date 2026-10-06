@@ -1,16 +1,101 @@
-heavy_lock: waiting — held by {"pid": 51183, "run": "KC2-PLAY", "ts": "2026-10-03T12:41:12Z", "cmd": "/Applications/Godot.app/Contents/MacOS/Godot --h
-heavy_lock: acquired after 102s (C-9)
+heavy_lock: acquired after 0s (C-9)
 Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M2 (Apple8)
 
-[bv2] sculpt: 511 blobs, 390 beams, 30 prototypes, 116 materials
-[bv2] built: 437 features, floor 4225.1 m2, ppm 100.6176 (plate), ppm_gd 75.6684
+[bv2] sculpt: 449 blobs, 0 beams, 19 prototypes, 32 materials
+[bv2] models: 210 GLB instances loaded, 2 placeholders, missing ["godot/models/build/brazier.glb"]
+[bv2] built: 550 features, floor 4225.2 m2, ppm 100.6176 (plate), ppm_gd 75.6684
 [bv2] view V1_start target (0.0, 0.0) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V1_start.png (1726x971)
 [bv2] view V2_p02_barrow_door target (12.8687, -42.8647) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V2_p02_barrow_door.png (1726x971)
 [bv2] view V3_p01_wreck target (-38.7439, 10.7813) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V3_p01_wreck.png (1726x971)
-[bv2] view V4_p04_hall_door target (41.2636, 1.1582) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V4_p04_hall_door.png (1726x971)
+[bv2] view V4_p04_hall_door target (43.4797, -1.2191) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V4_p04_hall_door.png (1726x971)
 [bv2] view V5_p06_fallen_gable target (24.81, 21.4183) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V5_p06_fallen_gable.png (1726x971)
 [bv2] view V6_p05_mere target (-11.245, -8.825) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V6_p05_mere.png (1726x971)
 [bv2] view V7_p03_stair_top target (5.79, 42.6977) ppm 75.6684 cam.size 14.27280 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V7_p03_stair_top.png (1726x971)
 [bv2] view V0_start_plate_scale target (0.0, 0.0) ppm 100.6176 cam.size 10.73371 -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/greybox/V0_start_plate_scale.png (1726x971)
 [bv2] views done: 8
+ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceSurfaceDataCacheE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:169)
+ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceForwardClusteredE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:169)
+ERROR: 1 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1056)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 15 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 15 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 15 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 27 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 30 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 30 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:7505)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+ERROR: 15 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 15 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 15 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 15 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.

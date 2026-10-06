@@ -55,10 +55,10 @@ func _ready() -> void:
 	if layout.has("sculpt"):
 		_build_terrain()
 		_build_sculpt()
-	if layout.has("models"):
-		_build_models()
 	else:
 		_build_ground()
+	if layout.has("models"):
+		_build_models()
 	_build_features()
 	_build_stair()
 	_build_labels()
@@ -183,6 +183,9 @@ func _build_ground() -> void:
 func _build_features() -> void:
 	for f in layout["features"]:
 		if String(f.get("render", "prism")) == "sculpt":
+			continue
+		# R-C9-156: the cave and the stair's wall rock are the Tripo cliffs now
+		if (f["id"] == "sea_cave_mouth" and _placed.has("cave_cliff")) or (f["id"] == "stair_wall_rock" and _placed.has("stair_cliff")):
 			continue
 		var kind: String = f["kind"]
 		var col: Color = KIND_RGB.get(kind, Color(0.5, 0.5, 0.5))
@@ -376,6 +379,7 @@ func _build_sculpt() -> void:
 
 # ---------------------------------------------------------------- R-C9-155: MODEL SLOTS (the v1 method)
 var _glb_cache := {}
+var _placed := {}
 var model_report := {"loaded": 0, "placeholders": 0, "missing": []}
 
 
@@ -528,6 +532,7 @@ func _build_models() -> void:
 			if node != null:
 				_place_box(node, pos, float(m["z"]), float(m["godot_rot_y_deg"]), Vector3(float(sz["w_local_x"]), float(sz["h"]), float(sz["d_local_z"])))
 				model_report["loaded"] += 1
+				_placed[sid] = true
 			elif String(m.get("placeholder", "massing")) != "procedural":
 				_placeholder_box(sid, kind, pos, float(m["z"]), float(m["godot_rot_y_deg"]),
 					Vector3(float(sz["w_local_x"]), float(sz["h"]), float(sz["d_local_z"])), m.get("opening", {}))
@@ -541,6 +546,7 @@ func _build_models() -> void:
 					if node2 != null:
 						_place_box(node2, ip, float(ins["z"]), float(ins["godot_rot_y_deg"]), s3)
 						model_report["loaded"] += 1
+						_placed[sid] = true
 					elif String(m.get("placeholder", "massing")) != "procedural":
 						_placeholder_box(sid, kind, ip, float(ins["z"]), float(ins["godot_rot_y_deg"]), s3, {})
 				else:
@@ -564,7 +570,8 @@ func _build_models() -> void:
 						mi.transform = Transform3D(Basis(xx * th, yy * th, zz * (b - a).length()), (a + b) / 2.0)
 						add_child(mi)
 						model_report["placeholders"] += 1
-		_slot_label(sid, pos, float(sz["h"]) + float(m["z"]), String(m["status"]))
+		if not _placed.has(sid) and String(m["status"]).begins_with("BUILD") and String(m.get("placeholder", "")) != "procedural":
+			_slot_label(sid, pos, float(sz["h"]) + float(m["z"]), String(m["status"]))
 	print("[bv2] models: %d GLB instances loaded, %d placeholders, missing %s" % [model_report["loaded"], model_report["placeholders"], str(model_report["missing"])])
 
 
@@ -578,7 +585,8 @@ func _centroid(poly: Array) -> Vector2:
 func _build_stair() -> void:
 	var S: Dictionary = layout["stair"]
 	var stone := _mat(Color(0.55, 0.53, 0.49))
-	_prism(S["top_landing"]["polygon"], float(S["flight"]["z_bottom_m"]) - 0.3, 0.0, stone)
+	# with the Tripo stair cliff placed, the landing is just its flush top slab (the cliff is the mass below it)
+	_prism(S["top_landing"]["polygon"], (-0.6 if _placed.has("stair_cliff") else float(S["flight"]["z_bottom_m"]) - 0.3), 0.0, stone)
 	_prism(S["bottom_landing"]["polygon"], float(S["flight"]["z_bottom_m"]) - 0.3, float(S["bottom_landing"]["z_m"]), stone)
 	var fl: Array = S["flight"]["polygon"]   # W_top, E_top, E_foot, W_foot
 	var top_mid := (Vector2(float(fl[0][0]), float(fl[0][1])) + Vector2(float(fl[1][0]), float(fl[1][1]))) / 2.0
@@ -595,6 +603,8 @@ func _build_stair() -> void:
 	# block (width, set-back, tilt and tone jittered a little); the walkable ramp under the nosings is unchanged.
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 149
+	if _placed.has("stair_cliff"):
+		n = 0                  # R-C9-156: the Tripo stair cliff's own carved stair stands in for the procedural steps
 	for k in n:
 		var top_z := -float(k + 1) * rise + rng.randf_range(-0.025, 0.02)
 		var h := top_z - z_bot

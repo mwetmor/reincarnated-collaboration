@@ -1,6 +1,6 @@
 {
   "layout": "layout_v2.json",
-  "layout_sha256": "caeab5f9b04f45a0afdad319c49c1f71b5c7775c7e0f8f39cdacff6774778fb7",
+  "layout_sha256": "5565160ba76ea06d6cf52ca91e0d659f97cb582276193c39d93da5979b89888c",
   "pass": true,
   "checks": [
     {
@@ -44,12 +44,12 @@
       "rule": "R4",
       "check": "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
       "PASS": true,
-      "area_m2": 4224.91,
-      "width_x_m": 84.628,
+      "area_m2": 4225.18,
+      "width_x_m": 84.642,
       "depth_y_m": 82.269,
       "x": [
         -44.098,
-        40.531
+        40.544
       ],
       "y": [
         -41.207,
@@ -63,7 +63,7 @@
       "worst_hull_vertex_clearance_m": -0.0004,
       "deepest_floor_vertex_inside_hull_m": 0.0,
       "hull_min_area_m2": 4026.52,
-      "floor_minus_hull_m2": 198.39
+      "floor_minus_hull_m2": 198.67
     },
     {
       "rule": "R4",
@@ -77,7 +77,7 @@
       "bulge_m": {
         "min": 0.0,
         "max": 3.602,
-        "mean": 0.681
+        "mean": 0.683
       }
     },
     {
@@ -137,7 +137,7 @@
       "check": "p04 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
       "severity": "INFO",
-      "box_on_floor_pct": 97.265,
+      "box_on_floor_pct": 97.326,
       "corner_clearance_m": -2.1675
     },
     {
@@ -238,8 +238,8 @@
       "rule": "R5",
       "check": "every interior feature is walk-over (z_top <= 0.4 m, blocks nothing)",
       "PASS": true,
-      "n_interior": 356,
-      "tallest_interior_m": 0.1483,
+      "n_interior": 357,
+      "tallest_interior_m": 0.1494,
       "offenders": []
     },
     {
@@ -261,8 +261,8 @@
       "rule": "R5",
       "check": "sculpt: every blob taller than walk-over (0.4 m) lies outside the floor",
       "PASS": true,
-      "n_blobs": 512,
-      "n_tall": 96,
+      "n_blobs": 449,
+      "n_tall": 49,
       "offenders": []
     },
     {
@@ -276,9 +276,9 @@
       "rule": "R5",
       "check": "terrain: the heightfield is exactly 0 at every sample on the floor (the sim's plane); relief only outside",
       "PASS": true,
-      "samples_on_floor": 16895,
+      "samples_on_floor": 16897,
       "max_abs_z_on_floor_m": 0.0,
-      "relief_outside_max_m": 10.75
+      "relief_outside_max_m": 6.17
     },
     {
       "rule": "R6",
@@ -448,7 +448,7 @@
       "check": "p04: hall_porch is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 1.479
+      "gap_to_floor_m": 1.364
     },
     {
       "rule": "R10",
@@ -480,14 +480,14 @@
       "door_h_m": 4.5,
       "porch_opening": [
         4.5,
-        4.5
+        4.87
       ]
     },
     {
       "rule": "R11",
       "check": "the porch rises ABOVE the hall's roofline (slot heights)",
       "PASS": true,
-      "porch_h_m": 9.0,
+      "porch_h_m": 11.3,
       "hall_h_m": 6.5
     },
     {
@@ -528,9 +528,9 @@
       "PASS": true,
       "width_min_m": 4.6,
       "required_m": 4.5,
-      "length_m": 9.526,
+      "length_m": 12.555,
       "starts_at_opening": true,
-      "on_disc_m2": 10.83,
+      "on_disc_m2": 10.63,
       "obstructions": [],
       "terrain_max_z_m": 0.05
     },

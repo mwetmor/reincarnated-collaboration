@@ -32,8 +32,10 @@ ob = bpy.context.view_layer.objects.active
 bpy.ops.object.parent_clear(type="CLEAR_KEEP_TRANSFORM")
 bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
 # Blender is Z-up after glTF import (glTF +Z front -> Blender -Y). Rotate the raw build by yaw_fix about the up axis.
-ob.rotation_euler = (0, 0, math.radians(YAW))
-bpy.ops.object.transform_apply(rotation=True)
+# (BX fix, R-C9-156: transform_apply silently left the rotation unapplied on these imports -- rotate the mesh data)
+from mathutils import Matrix
+ob.data.transform(Matrix.Rotation(math.radians(YAW), 4, "Z"))
+ob.data.update()
 vs = [ob.matrix_world @ v.co for v in ob.data.vertices]
 mn = Vector((min(v.x for v in vs), min(v.y for v in vs), min(v.z for v in vs)))
 mx = Vector((max(v.x for v in vs), max(v.y for v in vs), max(v.z for v in vs)))
@@ -49,7 +51,6 @@ bpy.ops.export_scene.gltf(filepath=dst, export_format="GLB", export_image_format
 
 # ---- stills
 sc = bpy.context.scene
-sc.render.engine = "BLENDER_EEVEE_NEXT" if "BLENDER_EEVEE_NEXT" in bpy.types.RenderEngine.bl_rna.properties["bl_idname"].enum_items.keys() else "BLENDER_EEVEE"
 try:
     sc.render.engine = "BLENDER_EEVEE_NEXT"
 except Exception:
