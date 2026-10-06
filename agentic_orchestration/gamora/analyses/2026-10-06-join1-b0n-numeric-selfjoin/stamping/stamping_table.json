@@ -1,0 +1,870 @@
+{
+ "kit_id": "gd-eor-warlord-referent",
+ "corpus_db_FILE_sha256_in": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07",
+ "js4b_ROWSET_in": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7",
+ "coverage_test": "math note s3: (i) scale == rule.source_scale or named in the rule's own 'Covers' enumeration (parsed from normalization_rule.description); (ii) kind check (KIND_OK)",
+ "counts": {
+  "STAMP-UNDER-AMENDMENT": 5,
+  "STAMP": 14,
+  "NO-RULE": 85
+ },
+ "rows": [
+  {
+   "numeric_key": "eor_radius_m",
+   "source_scale": "gd_metres",
+   "source_value": 3.0,
+   "verdict": "STAMP-UNDER-AMENDMENT",
+   "rule_id": "R-CTX-GEO",
+   "why": "R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304, pending jack-ryan B0-N Gate-2): gd_metres skill radius falls in the rule's declared prose scope 'skill radii in yards/metres'; IDENTITY. Before the amendment: no active rule's source_scale or 'Covers' enumeration names gd_metres (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "eor_tick_period_s",
+   "source_scale": "gd_seconds",
+   "source_value": 0.0816326530612245,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "eor_ticks_per_s",
+   "source_scale": "gd_per_second",
+   "source_value": 12.25,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_per_second"
+  },
+  {
+   "numeric_key": "eor_time_between_attacks_db",
+   "source_scale": "gd_ms_quanta",
+   "source_value": 200.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_ms_quanta"
+  },
+  {
+   "numeric_key": "eor_period_at_100pct_as_s",
+   "source_scale": "gd_seconds",
+   "source_value": 0.16,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "eor_channel_tail_s",
+   "source_scale": "gd_seconds",
+   "source_value": 0.25,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "eor_rotation_speed_multiplier",
+   "source_scale": "gd_ratio",
+   "source_value": 0.35,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_ratio"
+  },
+  {
+   "numeric_key": "eor_mana_cost_per_tick_r26",
+   "source_scale": "gd_energy",
+   "source_value": 16.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "eor_energy_cost_factor",
+   "source_scale": "gd_ratio",
+   "source_value": 0.9,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_ratio"
+  },
+  {
+   "numeric_key": "eor_drain_per_s",
+   "source_scale": "gd_energy_per_second",
+   "source_value": 176.4,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy_per_second"
+  },
+  {
+   "numeric_key": "eor_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 15.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "eor_rank_total",
+   "source_scale": "gd_rank",
+   "source_value": 26.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "eor_weapon_damage_pct_skill_r26",
+   "source_scale": "gd_pct",
+   "source_value": 50.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "eor_weapon_damage_pct_gutsmasher_mod",
+   "source_scale": "gd_pct",
+   "source_value": 14.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "eor_weapon_damage_pct_total_r26",
+   "source_scale": "gd_pct",
+   "source_value": 64.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "eor_weapon_damage_pct_oracle_leech_r20",
+   "source_scale": "gd_pct",
+   "source_value": 57.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "eor_fire_to_physical_conversion_pct",
+   "source_scale": "gd_pct",
+   "source_value": 100.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "eor_flat_physical_min_r26",
+   "source_scale": "gd_flat_damage",
+   "source_value": 162.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "eor_flat_physical_max_r26",
+   "source_scale": "gd_flat_damage",
+   "source_value": 182.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "eor_flat_fire_min_r26",
+   "source_scale": "gd_flat_damage",
+   "source_value": 138.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "eor_bleed_flat_gutsmasher",
+   "source_scale": "gd_flat_damage",
+   "source_value": 330.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "eor_bleed_flat_sandreaver",
+   "source_scale": "gd_flat_damage",
+   "source_value": 210.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "eor_bleed_base_duration_s",
+   "source_scale": "gd_seconds",
+   "source_value": 3.0,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "eor_bleed_modifier_pct_eor_scoped",
+   "source_scale": "gd_pct",
+   "source_value": 50.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "soulfire_period_s",
+   "source_scale": "gd_seconds",
+   "source_value": 0.2,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "soulfire_explosion_radius_m",
+   "source_scale": "gd_metres",
+   "source_value": 0.2,
+   "verdict": "STAMP-UNDER-AMENDMENT",
+   "rule_id": "R-CTX-GEO",
+   "why": "R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304, pending jack-ryan B0-N Gate-2): gd_metres skill radius falls in the rule's declared prose scope 'skill radii in yards/metres'; IDENTITY. Before the amendment: no active rule's source_scale or 'Covers' enumeration names gd_metres (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "soulfire_projectiles_per_proc",
+   "source_scale": "gd_count",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_count (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "soulfire_flat_lightning",
+   "source_scale": "gd_flat_damage",
+   "source_value": 229.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "player_attack_speed_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 196.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_cast_speed_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 184.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_run_speed_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 135.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_attacks_per_second",
+   "source_scale": "gd_per_second",
+   "source_value": 2.66,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_per_second"
+  },
+  {
+   "numeric_key": "weapon_attacks_per_second",
+   "source_scale": "gd_per_second",
+   "source_value": 1.46,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_per_second"
+  },
+  {
+   "numeric_key": "player_offensive_ability",
+   "source_scale": "gd_points",
+   "source_value": 3259.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_points (nearest by unit: R-A2)"
+  },
+  {
+   "numeric_key": "player_critical_damage_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 57.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_level",
+   "source_scale": "gd_level",
+   "source_value": 100.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "player_hp_max",
+   "source_scale": "gd_hp",
+   "source_value": 20005.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_hp (nearest by unit: R-A2, R-N1)"
+  },
+  {
+   "numeric_key": "player_energy_max",
+   "source_scale": "gd_energy",
+   "source_value": 2576.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "player_energy_regen_per_s",
+   "source_scale": "gd_energy_per_second",
+   "source_value": 75.37,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy_per_second"
+  },
+  {
+   "numeric_key": "player_energy_usable_ceiling",
+   "source_scale": "gd_energy",
+   "source_value": 1594.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "player_defensive_ability",
+   "source_scale": "gd_points",
+   "source_value": 2591.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_points (nearest by unit: R-A2)"
+  },
+  {
+   "numeric_key": "player_armor_rating_sheet",
+   "source_scale": "gd_points",
+   "source_value": 3557.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_points (nearest by unit: R-A2)"
+  },
+  {
+   "numeric_key": "player_adcth_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 21.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_hp_regen_per_s",
+   "source_scale": "gd_hp_per_second",
+   "source_value": 129.38,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_hp_per_second"
+  },
+  {
+   "numeric_key": "player_resist_physical_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 16.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_energy_reserved",
+   "source_scale": "gd_energy",
+   "source_value": 982.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "player_v_ref_m_per_s",
+   "source_scale": "gd_metres_per_second",
+   "source_value": 4.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_metres_per_second"
+  },
+  {
+   "numeric_key": "player_attack_speed_cap_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 200.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "player_run_speed_cap_pct",
+   "source_scale": "gd_pct_sheet",
+   "source_value": 135.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct_sheet"
+  },
+  {
+   "numeric_key": "pc_base_attack_speed",
+   "source_scale": "gd_ratio",
+   "source_value": 1.25,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_ratio"
+  },
+  {
+   "numeric_key": "pc_base_cast_speed",
+   "source_scale": "gd_ratio",
+   "source_value": 1.25,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_ratio"
+  },
+  {
+   "numeric_key": "gutsmasher_base_attack_speed",
+   "source_scale": "gd_ratio",
+   "source_value": -0.18,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_ratio"
+  },
+  {
+   "numeric_key": "gutsmasher_physical_min",
+   "source_scale": "gd_flat_damage",
+   "source_value": 144.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "gutsmasher_physical_max",
+   "source_scale": "gd_flat_damage",
+   "source_value": 740.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_flat_damage"
+  },
+  {
+   "numeric_key": "gutsmasher_chaos_to_physical_pct",
+   "source_scale": "gd_pct",
+   "source_value": 50.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "gutsmasher_lightning_to_physical_pct",
+   "source_scale": "gd_pct",
+   "source_value": 50.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "vires_might_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "vires_might_rank_effective",
+   "source_scale": "gd_rank",
+   "source_value": 2.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "vires_might_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 3.6,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "vires_might_mana_cost_r2",
+   "source_scale": "gd_energy",
+   "source_value": 26.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "vires_might_target_radius_m",
+   "source_scale": "gd_metres",
+   "source_value": 2.2,
+   "verdict": "STAMP-UNDER-AMENDMENT",
+   "rule_id": "R-CTX-GEO",
+   "why": "R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304, pending jack-ryan B0-N Gate-2): gd_metres skill radius falls in the rule's declared prose scope 'skill radii in yards/metres'; IDENTITY. Before the amendment: no active rule's source_scale or 'Covers' enumeration names gd_metres (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "war_cry_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 12.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "war_cry_rank_effective",
+   "source_scale": "gd_rank",
+   "source_value": 16.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "war_cry_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 7.5,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "war_cry_mana_cost_r16",
+   "source_scale": "gd_energy",
+   "source_value": 50.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "war_cry_radius_m_r16",
+   "source_scale": "gd_metres",
+   "source_value": 16.8,
+   "verdict": "STAMP-UNDER-AMENDMENT",
+   "rule_id": "R-CTX-GEO",
+   "why": "R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304, pending jack-ryan B0-N Gate-2): gd_metres skill radius falls in the rule's declared prose scope 'skill radii in yards/metres'; IDENTITY. Before the amendment: no active rule's source_scale or 'Covers' enumeration names gd_metres (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "war_cry_duration_s",
+   "source_scale": "gd_seconds",
+   "source_value": 7.5,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "war_cry_damage_reduction_pct",
+   "source_scale": "gd_pct",
+   "source_value": 29.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "blitz_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "blitz_rank_effective",
+   "source_scale": "gd_rank",
+   "source_value": 5.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "blitz_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 3.5,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "blitz_mana_cost_r5",
+   "source_scale": "gd_energy",
+   "source_value": 42.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "ascension_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "ascension_rank_effective",
+   "source_scale": "gd_rank",
+   "source_value": 2.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "ascension_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 24.0,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "ascension_mana_cost_r2",
+   "source_scale": "gd_energy",
+   "source_value": 36.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "ascension_duration_s",
+   "source_scale": "gd_seconds",
+   "source_value": 10.0,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "ascension_absorb_points",
+   "source_scale": "gd_points",
+   "source_value": 30.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_points (nearest by unit: R-A2)"
+  },
+  {
+   "numeric_key": "violent_delights_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 2.5,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "violent_delights_mana_cost_r1",
+   "source_scale": "gd_energy",
+   "source_value": 66.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "violent_delights_weapon_damage_pct",
+   "source_scale": "gd_pct",
+   "source_value": 240.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_pct (nearest by unit: R-A2, R-C2, R-K4, R-M5)"
+  },
+  {
+   "numeric_key": "violent_delights_target_radius_m",
+   "source_scale": "gd_metres",
+   "source_value": 2.0,
+   "verdict": "STAMP-UNDER-AMENDMENT",
+   "rule_id": "R-CTX-GEO",
+   "why": "R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304, pending jack-ryan B0-N Gate-2): gd_metres skill radius falls in the rule's declared prose scope 'skill radii in yards/metres'; IDENTITY. Before the amendment: no active rule's source_scale or 'Covers' enumeration names gd_metres (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_rank_effective",
+   "source_scale": "gd_rank",
+   "source_value": 2.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 20.0,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "guardian_of_empyrion_pet_limit_r2",
+   "source_scale": "gd_count",
+   "source_value": 2.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_count (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "deathstalker_cooldown_s",
+   "source_scale": "gd_seconds",
+   "source_value": 15.0,
+   "verdict": "STAMP",
+   "rule_id": "R-T2",
+   "why": "R-T2: seconds: cast/tick interval, duration or cooldown -> RDR cadence (IDENTITY)"
+  },
+  {
+   "numeric_key": "deathstalker_mana_cost_r1",
+   "source_scale": "gd_energy",
+   "source_value": 200.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "deathstalker_pet_limit",
+   "source_scale": "gd_count",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_count (nearest by unit: R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "blindside_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "blindside_mana_cost_r5",
+   "source_scale": "gd_energy",
+   "source_value": 5.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "tectonic_shift_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "tectonic_shift_mana_cost_r2",
+   "source_scale": "gd_energy",
+   "source_value": 3.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "break_morale_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 12.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "break_morale_mana_cost_r16",
+   "source_scale": "gd_energy",
+   "source_value": 50.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "clarity_of_purpose_rank_allocated",
+   "source_scale": "gd_rank",
+   "source_value": 1.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_rank"
+  },
+  {
+   "numeric_key": "clarity_of_purpose_mana_cost_r2",
+   "source_scale": "gd_energy",
+   "source_value": 5.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_energy (nearest by unit: R-A1, R-A2)"
+  },
+  {
+   "numeric_key": "devotion_level_assassins_mark",
+   "source_scale": "gd_level",
+   "source_value": 25.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "devotion_level_tip_the_scales",
+   "source_scale": "gd_level",
+   "source_value": 20.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "devotion_level_maul",
+   "source_scale": "gd_level",
+   "source_value": 20.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "devotion_level_arcane_barrier",
+   "source_scale": "gd_level",
+   "source_value": 20.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "devotion_level_turtle_shell",
+   "source_scale": "gd_level",
+   "source_value": 25.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "devotion_level_ulzaads_decree",
+   "source_scale": "gd_level",
+   "source_value": 20.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  },
+  {
+   "numeric_key": "devotion_level_shifting_sands",
+   "source_scale": "gd_level",
+   "source_value": 15.0,
+   "verdict": "NO-RULE",
+   "rule_id": null,
+   "why": "no active rule's source_scale or 'Covers' enumeration names gd_level (nearest by unit: R-A1, R-A2, R-CTX-GEO)"
+  }
+ ],
+ "lane_S": {
+  "scratch_db": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/b0n/corpus2/corpus_laneS.db",
+  "guards": [
+   "GUARD pre: OTHER kits stamped-row count=456 / sum(rdr)=69976.6066877567",
+   "GUARD pre: J-S4b unstamped rows (expect 104)=104",
+   "GUARD post: J-S4b rows stamped (expect 14)=14",
+   "GUARD post: J-S4b stamped rows with rdr_value <> source_value (expect 0)=0",
+   "GUARD post: OTHER kits stamped-row count (must equal the pre value)=456 / sum(rdr)=69976.6066877567"
+  ],
+  "js4b_ROWSET_post": "e53ff212ead3f130333115e9743000c41a8cdcd3223c5f24c7af5aa89b8d319f",
+  "other_kits_ROWSET_sample_unchanged": true
+ },
+ "lane_P": {
+  "scratch_db": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/b0n/corpus2/corpus_laneP.db",
+  "guards": [
+   "GUARD pre: OTHER kits stamped-row count=456 / sum(rdr)=69976.6066877567",
+   "GUARD pre: J-S4b unstamped rows (expect 104)=104",
+   "GUARD post: J-S4b rows stamped (expect 14)=14",
+   "GUARD post: J-S4b stamped rows with rdr_value <> source_value (expect 0)=0",
+   "GUARD post: OTHER kits stamped-row count (must equal the pre value)=456 / sum(rdr)=69976.6066877567",
+   "GUARD post: gd_metres rows stamped (expect 5)=5"
+  ],
+  "js4b_ROWSET_post": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+  "other_kits_ROWSET_sample_unchanged": true
+ }
+}
