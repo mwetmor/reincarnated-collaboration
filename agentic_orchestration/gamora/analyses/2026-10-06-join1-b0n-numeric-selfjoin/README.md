@@ -118,3 +118,36 @@ The oracle operands the record does not carry (12 groups) are listed with dispos
   - the CSV-sourced kit operands.
 
 `runs/<R>/` holds, per run: `bindings.json`, `binding_table.json`, `compare.json`, `run_manifest.json` and a `bindlog_sample.json`. `runs/R2/probes.json` holds the reach probes. The grain files (about 46 MB per run) stay in the scratchpad and are not committed; each run's manifest pins their FILE and ROWSET digests.
+
+---
+
+## CORRIGENDUM 2026-10-06, after jack-ryan's B0-N Gate-2 (PASS-WITH-FINDINGS, collab `6371fe6cc`; conductor KP-307)
+
+**Appended. Nothing above is rewritten. Where this section and the text above disagree, this section governs.** The verdict (PASS-BY-DISPOSITION, APPROX ceiling) stands.
+
+1. **P4 is 6/11, not 7/11 (WARN-2).**
+   - Predicted REACHED and reached: B-01, B-03, B-12, B-24, B-25, B-34 (6).
+   - Predicted REACHED and missed: **B-14, B-15, B-17, B-31, B-35 (5)**. B-35 is the fifth miss. The sentence above that lists four misses and then mentions B-35 separately was internally contradictory.
+   - All 6 predicted NOT-REACHED held.
+   - Unpredicted REACHED: B-22, B-30, B-32, B-33.
+   - In the "REACHED (11)" row above, B-20b is **reached by R1, not probed**. The probes reached 10 bindings.
+2. **P0 is disclosed-concurrent, not a blind hit (INFO-1).** BASELINE finished at 18:43:00. The pre-registration `cb063d86` was committed at 18:44:00. Math note § 0 disclosed the run, and its output was not opened before the commit. P0 is instrument-only.
+3. **P2's direction clause is unscored (INFO-2).** The RED was scored. "Procs land no later; proc count ≥ baseline" cannot be scored, because J-S8 has no Soulfire proc grain. P2 is scored as RED-HIT with its direction clause UNSCORED, not as a full HIT.
+4. **G6 is empty in J-S8 (0 rows) on every run, including BASELINE, R1, R2, NC-B1 and NC-B2 (INFO-6).** "G6 =" in the table above is not evidence on any row. Read every G6 cell as "= (empty)".
+5. **§ 4.7: the instrument now computes the verdict (WARN-3).** `simulation/scripts/gamora_join1_b0n_s47_evidence_2026_10_06.py` v2 (engine, the commit after `4f6a8443`) writes `s47/s47_evidence_v2.json`:
+   - **LIMB A (governs), sealed vs HEAD:** `graded V311-FULL` run on the sealed worktree (`969fbd8d`, sealed src only, clean before and after) and at HEAD `4f6a8443`. They are canonical-identical with `wall_s` excluded: `f04ef6d0…` on both sides.
+   - **LIMB B, import closure:** no `kit_compiler` module loaded; 0 files changed between the seal and HEAD; 0 dirty.
+   - **LIMB C (reported), vs the pre-seal pass-4 artifact:** a declared, closed exception list of 10 derivation-filename renames (20 differing key paths). All 10 carry identical values, and the outputs are equal after the declared exceptions.
+   - **Verdict, computed: `ORACLE BYTE-IDENTICAL`.** HEAD `4f6a8443` contains KC-1b, so § 4.7 is also re-proved for that change.
+   - ⚑ **The v1 file `s47/s47_evidence.json` is not edited.** Its `"verdict": "NOT SHOWN -- HALT to Matt"` came from comparing only against the pre-seal artifact (the LIMB C question, with no exception list). **It is superseded by `s47_evidence_v2.json` and is not a § 4.7 result.**
+6. **KC-1b (WARN-1).** KC-1 over-moved 4 bucket records and silently resolved one hedge. `resolve_element` now requires an evidenced conversion row (`<original>_to_physical[_conversion]_pct`), whose presence is checked and whose value is not read. That restores `gd-blade-trap`, `gd-belgothian-blademaster` (pierce), `gd-blade-arc-warder`, `gd-wendigo-totem-ritualist` (bleed) and `d2-wl-echoing-strike` (`physical?`).
+   - Engine `6f25b139` (math note § 7, committed alone) and `4f6a8443` (code + tests).
+   - Fail-first: 10 RED / 22 green → 32/32.
+   - **Re-run over all 591 records:** exactly the referent moves (fire → physical; radius 3.0 now carried live, since elrond applied the stamping; corpus FILE `639acb20…`), plus the KC-3 radius note on `gd-eor-warlord`.
+   - **B0-N is unaffected.** `runs/R1-v2/bindings.json` re-prepared after KC-1b is identical to R1's, and C-01 is still `physical`.
+7. **Harness hygiene (INFO-3/4/5)**, in the same engine commit as item 5:
+   - `prepare` refuses `--override` on compiled-lane keys.
+   - `compare` now prints OBS-1 from `n_complete`/`n_cells` (`runs/R2/compare_v2.json`: 25/25, still 7/7).
+   - `player_offensive_ability` and `player_critical_damage_pct` are re-classed **CSV-WITNESS** ("read from `pm2_measured_player_sheet.csv` as a witness, not an operand slot"), now `closes-in-J2` instead of `permanent, recorded` (`runs/R1-v2/binding_table.json`).
+   - Gate-2 § 6 notes are carried on B-14/15/17/18/19/23/31. **B-31's `player_armor_rating_sheet` is the sheet aggregate, not the live operand** (six per-region armour values), so it is `schema-change-owed` for the per-region rows.
+8. **The Gate-2's statement of coverage governs any quoting of this run.** R2's 7/7 is demonstrated through 10 probed operands plus the Soulfire period. B0-N says nothing about whether the record's bleed or Soulfire-lightning values are right (those four bindings are import-frozen until J2).
