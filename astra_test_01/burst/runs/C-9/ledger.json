@@ -40451,6 +40451,12 @@
       "id": "M-C9-EN3-HELLHOUND",
       "ts": "2026-10-06T05:45:34Z",
       "note": "EN-E3 PACK en-hellhound (rime wolf; direwolf_frozenwastes_01, w156 p02+p03 alternate; R-C9-157). Prep 4.2 m with --flip (rig v1 faced backwards: the volume test took the bushy tail for the head) + n04b ghost-leg cull (a far-leg pair under the belly) + motion_scale 0.94 -> n17 s_with_margin 1.002 (binding attack_snap f11). Paint EN3-RWPG a (4 image calls; sheetA share 0.65); variant a chosen over b because b put a band on a wrong foreleg in some views; a carries no right-foreleg band, but the LEFT-foreleg band is barely legible at 1x (open). 64/64 cells, 832 PNG, 148 MiB; h_model 1.9977 m, length 4.2008 m; true_size scale 1.5, designed 4.4 m, factor 1.047. Releases: attack_snap r=5 0.3333 s (f10 inferred), attack_bigbite r=11 1.8667 s (roster f56), cast_breath r=4 0.8667 s (roster f26; the clip holds to 3.0 s). Sockets worst 0.00056 m / 3328; resample 8/8 exact; lint manifest 0, neg_release(attack) 0 = known gap, neg_release_cast 1, neg_prose 1. KP-256: actor radius 1.25 x 1.5 = 1.875 m vs drawn rest half-width 0.539 x 1.047 = 0.56 m and half-length 2.10 x 1.047 = 2.20 m -> the collision circle is ~3.3x the drawn half-width but 0.85x the drawn half-length: a long body inside a round collider (diameter 3.75 m ~ body length 4.4 m); flagged for the P1(e) check, not gross. Spend: Astra lane 27 (run images_used 1174), Meshy 0, fal $1.21."
+    },
+    {
+      "id": "M-C9-BX-TRUE3D-V1",
+      "ts": "2026-10-06T11:43:51Z",
+      "topic": "R-C9-156: TRUE-3D barrow_v2 -- the 9 Tripo models placed (lane BX drax)",
+      "result": "Commit 443150261. 9 builds reduced to 10k tris and normalised (front -90 deg fix) into godot/models/build. Openings measured off the 3D stills and scaled to R-C9-154: barrow 26.7x18x21.7 m sunk 4.0 m (door 5.0x6.5), porch 13.2 m wide (4.5 m see-through opening; porch + great door now 8 m NE of p04's ray), cave cliff mouth 10.3x6.9 m. Also placed: stair cliff, cliffplain cliff faces, crag per outcrop, v1 reuse (stones, shields, logs, stakes, birches). 210 GLB instances; brazier still a placeholder. Validator 66/66 + negative control caught. Renders: greybox/V0-V7, E0_establishing(_vs_sketchA), barrow_v2_greybox_walk.mp4, models_sheet_gamecam.png."
     }
   ],
   "halts": [
