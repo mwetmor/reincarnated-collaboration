@@ -1285,12 +1285,17 @@
         {
           "pack_row": "player_kit.json::channel.radius_m (PRV-BATON-V1)",
           "pack_value": 3.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": "V17-HITTEST-1: a TRUE UNIFORM DISC re-centred every tick; no angular gate, no target cap",
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 3.0,
+      "rule_id": "R-CTX-GEO",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
     },
     {
       "numeric_key": "eor_tick_period_s",
@@ -1307,12 +1312,17 @@
         {
           "pack_row": "rng_contract.json::tick.tick_period_s (PRV-MPOL2-SEAL)",
           "pack_value": 0.0816326530612245,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 0.0816326530612245,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "eor_ticks_per_s",
@@ -1329,12 +1339,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-1 note ('16.0 x 12.25 x 0.90 = 176.4')",
           "pack_value": 12.25,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_time_between_attacks_db",
@@ -1351,7 +1366,9 @@
       "pack_checks": [],
       "note": "x0.8 quantum (200 -> 0.16 s) holds on 9 channel skills (PE-1 s1.3); WHY is UNKNOWN",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_period_at_100pct_as_s",
@@ -1367,8 +1384,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 0.16,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "eor_channel_tail_s",
@@ -1386,12 +1405,17 @@
         {
           "pack_row": "player_kit.json::channel.channel_tail_s (PRV-BATON-V1)",
           "pack_value": 0.25,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 0.25,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "eor_rotation_speed_multiplier",
@@ -1409,12 +1433,17 @@
         {
           "pack_row": "player_kit.json::channel.rotation_speed_multiplier (PRV-BATON-V1)",
           "pack_value": 0.35,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_mana_cost_per_tick_r26",
@@ -1432,12 +1461,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-6",
           "pack_value": 16.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_energy_cost_factor",
@@ -1455,12 +1489,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-7 (MEASURED-EXACT-SOURCE-UNLOCATED)",
           "pack_value": 0.9,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_drain_per_s",
@@ -1477,17 +1516,25 @@
         {
           "pack_row": "player_kit.json::channel.drain_rate_per_s (PRV-EOR-SPIN)",
           "pack_value": 176.4,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-1",
           "pack_value": 176.4,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_rank_allocated",
@@ -1505,12 +1552,17 @@
         {
           "pack_row": "player_kit.json::channel.rank (PRV-LAP-2D-SAVE)",
           "pack_value": 15,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_rank_total",
@@ -1528,22 +1580,33 @@
         {
           "pack_row": "player_kit.json::fixture.eor_rank_total",
           "pack_value": 26,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "pack-source pm4g_played_kit.csv eyeofreckoning1 rank_effective (PRV played kit)",
           "pack_value": 16.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         },
         {
           "pack_row": "oracle-source pm4l eor_rank_effective (the oracle's run-of-record rank)",
           "pack_value": 20.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_weapon_damage_pct_skill_r26",
@@ -1559,7 +1622,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_weapon_damage_pct_gutsmasher_mod",
@@ -1577,7 +1642,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_weapon_damage_pct_total_r26",
@@ -1595,17 +1662,25 @@
         {
           "pack_row": "player_kit.json::channel.weapon_damage_pct (PRV-PLAYER-SHEET)",
           "pack_value": 64,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "math_rules.json::v3p2_rows.v1_leech_ladder V1-WD-1 oracle_reads (rank 20; HONEST-FAIL ABS-EOR-RANK-OF-RECORD)",
           "pack_value": 57.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_weapon_damage_pct_oracle_leech_r20",
@@ -1622,12 +1697,17 @@
         {
           "pack_row": "math_rules.json::v3p2_rows.v1_leech_ladder V1-WD-1 value.oracle_reads.pct",
           "pack_value": 57.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": "recorded so B0-N can reproduce the oracle exactly; it is NOT the rank-of-record value",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_fire_to_physical_conversion_pct",
@@ -1646,7 +1726,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_flat_physical_min_r26",
@@ -1662,7 +1744,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_flat_physical_max_r26",
@@ -1678,7 +1762,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_flat_fire_min_r26",
@@ -1694,7 +1780,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_bleed_flat_gutsmasher",
@@ -1712,12 +1800,17 @@
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-BL-FLAT components[mace2h_d107_eyeofreckoning]",
           "pack_value": 330.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_bleed_flat_sandreaver",
@@ -1734,12 +1827,17 @@
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-BL-FLAT components[hands_d206_eyeofreckoning]",
           "pack_value": 210.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "eor_bleed_base_duration_s",
@@ -1757,12 +1855,17 @@
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-BL-BASE-DUR",
           "pack_value": 3.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 3.0,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "eor_bleed_modifier_pct_eor_scoped",
@@ -1780,12 +1883,17 @@
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-BL-MOD-EOR",
           "pack_value": 50.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "soulfire_period_s",
@@ -1803,22 +1911,34 @@
         {
           "pack_row": "player_kit.json::channel.soulfire.period_s",
           "pack_value": 0.2,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-SF-PERIOD",
-          "pack_value": 0.2,
-          "agree": true
+          "pack_value": 0.20000000298023224,
+          "class": "F32-SAME-DATUM",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true,
+          "pack_value_as_printed_2026_10_02": 0.2
         },
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-8",
           "pack_value": 0.2,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 0.2,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "soulfire_explosion_radius_m",
@@ -1836,12 +1956,17 @@
         {
           "pack_row": "player_kit.json::channel.soulfire.explosion_radius_m",
           "pack_value": 0.2,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 0.2,
+      "rule_id": "R-CTX-GEO",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
     },
     {
       "numeric_key": "soulfire_projectiles_per_proc",
@@ -1859,12 +1984,17 @@
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-SF-PROJ",
           "pack_value": 1,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "soulfire_flat_lightning",
@@ -1881,12 +2011,17 @@
         {
           "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-SF-FLAT",
           "pack_value": 229.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_attack_speed_pct",
@@ -1904,17 +2039,25 @@
         {
           "pack_row": "player_kit.json::channel.attack_speed_pct (PRV-PLAYER-SHEET)",
           "pack_value": 196,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "pm2 attack_speed (the PRV-PLAYER-SHEET source row)",
           "pack_value": 196.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": "the sheet's own APS/weapon-APS ratio implies 182.19% (pm4l attack_speed_implied_by_APS); the pack runs 196",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_cast_speed_pct",
@@ -1930,7 +2073,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_run_speed_pct",
@@ -1946,7 +2091,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_attacks_per_second",
@@ -1962,7 +2109,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "weapon_attacks_per_second",
@@ -1978,7 +2127,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_offensive_ability",
@@ -1994,7 +2145,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_critical_damage_pct",
@@ -2010,7 +2163,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_level",
@@ -2026,7 +2181,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_hp_max",
@@ -2044,12 +2201,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v16_player_fixture V16-1",
           "pack_value": 20005.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_energy_max",
@@ -2067,12 +2229,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-3",
           "pack_value": 2576.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_energy_regen_per_s",
@@ -2090,12 +2257,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-2",
           "pack_value": 75.37,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_energy_usable_ceiling",
@@ -2113,12 +2285,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-5",
           "pack_value": 1594.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_defensive_ability",
@@ -2136,12 +2313,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v2_player_defensive_sheet V2-SHEET-02",
           "pack_value": 2591.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_armor_rating_sheet",
@@ -2159,12 +2341,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v2_player_defensive_sheet V2-SHEET-03",
           "pack_value": 3557.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_adcth_pct",
@@ -2182,12 +2369,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v2_player_defensive_sheet V2-SHEET-05",
           "pack_value": 21.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_hp_regen_per_s",
@@ -2205,12 +2397,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v2_player_defensive_sheet V2-SHEET-06",
           "pack_value": 129.38,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_resist_physical_pct",
@@ -2228,12 +2425,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v2_player_defensive_sheet V2-RESIST-11",
           "pack_value": 16.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_energy_reserved",
@@ -2250,12 +2452,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v15_energy V15-4",
           "pack_value": 982.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_v_ref_m_per_s",
@@ -2272,12 +2479,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v16_player_fixture V16-4 (DECLARED-FREE-PARAMETER)",
           "pack_value": 4.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": "NOT a measurement: the pack labels it a free parameter",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_attack_speed_cap_pct",
@@ -2293,7 +2505,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "player_run_speed_cap_pct",
@@ -2309,7 +2523,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "pc_base_attack_speed",
@@ -2325,7 +2541,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "pc_base_cast_speed",
@@ -2341,7 +2559,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "gutsmasher_base_attack_speed",
@@ -2357,7 +2577,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "gutsmasher_physical_min",
@@ -2375,7 +2597,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "gutsmasher_physical_max",
@@ -2393,7 +2617,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "gutsmasher_chaos_to_physical_pct",
@@ -2410,7 +2636,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "gutsmasher_lightning_to_physical_pct",
@@ -2427,7 +2655,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "vires_might_rank_allocated",
@@ -2443,7 +2673,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "vires_might_rank_effective",
@@ -2461,12 +2693,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.total_rank",
           "pack_value": 2.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "vires_might_cooldown_s",
@@ -2484,17 +2721,25 @@
         {
           "pack_row": "player_kit.json::binding_model.bindings[vires_might].cooldown_s (PRV-LAP-2D-SAVE)",
           "pack_value": 3.6,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.cooldown_s",
           "pack_value": 3.1,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 3.6,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "vires_might_mana_cost_r2",
@@ -2512,12 +2757,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.parent_skillManaCost",
           "pack_value": 26.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "vires_might_target_radius_m",
@@ -2532,8 +2782,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 2.2,
+      "rule_id": "R-CTX-GEO",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
     },
     {
       "numeric_key": "war_cry_rank_allocated",
@@ -2549,7 +2801,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "war_cry_rank_effective",
@@ -2567,12 +2821,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-4.value.total_rank",
           "pack_value": 16.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "war_cry_cooldown_s",
@@ -2590,17 +2849,25 @@
         {
           "pack_row": "player_kit.json::binding_model.bindings[war_cry].cooldown_s (PRV-LAP-2D-SAVE)",
           "pack_value": 7.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-4.value.cooldown_s",
           "pack_value": 7.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 7.5,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "war_cry_mana_cost_r16",
@@ -2618,12 +2885,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-4.value.parent_skillManaCost",
           "pack_value": 50.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "war_cry_radius_m_r16",
@@ -2640,12 +2912,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v13_potion_and_warcry V13-WARCRY-1 value.skill_target_radius_m",
           "pack_value": 16.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "presentation-scale only in the oracle (legolas open question 5)",
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 16.8,
+      "rule_id": "R-CTX-GEO",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
     },
     {
       "numeric_key": "war_cry_duration_s",
@@ -2662,12 +2939,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v13_potion_and_warcry V13-WARCRY-1 value.duration_s",
           "pack_value": 7.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 7.5,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "war_cry_damage_reduction_pct",
@@ -2684,12 +2966,17 @@
         {
           "pack_row": "player_kit.json::v3p2_rows.v13_potion_and_warcry V13-WARCRY-1 value.reduction_pct",
           "pack_value": 29.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "blitz_rank_allocated",
@@ -2705,7 +2992,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "blitz_rank_effective",
@@ -2723,12 +3012,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-0.value.total_rank",
           "pack_value": 5.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "blitz_cooldown_s",
@@ -2746,17 +3040,25 @@
         {
           "pack_row": "player_kit.json::binding_model.bindings[blitz].cooldown_s (PRV-LAP-2D-SAVE)",
           "pack_value": 3.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-0.value.cooldown_s",
           "pack_value": 3.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 3.5,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "blitz_mana_cost_r5",
@@ -2774,12 +3076,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-0.value.parent_skillManaCost",
           "pack_value": 42.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "ascension_rank_allocated",
@@ -2795,7 +3102,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "ascension_rank_effective",
@@ -2811,7 +3120,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "ascension_cooldown_s",
@@ -2829,12 +3140,17 @@
         {
           "pack_row": "math_rules.json::v3p2_rows V12-K6 value.cooldown_s",
           "pack_value": 24.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 24.0,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "ascension_mana_cost_r2",
@@ -2850,7 +3166,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "ascension_duration_s",
@@ -2868,12 +3186,17 @@
         {
           "pack_row": "math_rules.json::v3p2_rows V12-K6 value.duration_s",
           "pack_value": 10.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 10.0,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "ascension_absorb_points",
@@ -2890,12 +3213,17 @@
         {
           "pack_row": "math_rules.json::v3p2_rows V12-K6 value.absorb_points",
           "pack_value": 30.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "violent_delights_cooldown_s",
@@ -2913,17 +3241,25 @@
         {
           "pack_row": "player_kit.json::binding_model.bindings[rune_of_rush].cooldown_s (PRV-LAP-2D-SAVE)",
           "pack_value": 2.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         },
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-1.value.cooldown_s",
           "pack_value": 2.5,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 2.5,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "violent_delights_mana_cost_r1",
@@ -2941,12 +3277,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-1.value.parent_skillManaCost",
           "pack_value": 66.0,
-          "agree": true
+          "class": "EXACT",
+          "agree": true,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": true
         }
       ],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "violent_delights_weapon_damage_pct",
@@ -2962,7 +3303,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "violent_delights_target_radius_m",
@@ -2977,8 +3320,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 2.0,
+      "rule_id": "R-CTX-GEO",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL"
     },
     {
       "numeric_key": "guardian_of_empyrion_rank_allocated",
@@ -2994,7 +3339,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "guardian_of_empyrion_rank_effective",
@@ -3010,7 +3357,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "guardian_of_empyrion_cooldown_s",
@@ -3025,8 +3374,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 20.0,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "guardian_of_empyrion_pet_limit_r2",
@@ -3042,7 +3393,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "deathstalker_cooldown_s",
@@ -3057,8 +3410,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null
+      "rdr_value": 15.0,
+      "rule_id": "R-T2",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-T2 v1, IDENTITY; covers gd_seconds by its own Covers enumeration)"
     },
     {
       "numeric_key": "deathstalker_mana_cost_r1",
@@ -3074,7 +3429,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "deathstalker_pet_limit",
@@ -3090,7 +3447,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "blindside_rank_allocated",
@@ -3106,7 +3465,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "blindside_mana_cost_r5",
@@ -3124,12 +3485,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-0.value.modifier_skillManaCost (Blindside)",
           "pack_value": 6.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "tectonic_shift_rank_allocated",
@@ -3145,7 +3511,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "tectonic_shift_mana_cost_r2",
@@ -3163,12 +3531,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.modifier_skillManaCost (Tectonic Shift)",
           "pack_value": 5.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "break_morale_rank_allocated",
@@ -3184,7 +3557,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "break_morale_mana_cost_r16",
@@ -3202,12 +3577,17 @@
         {
           "pack_row": "player_kit.json::v3p4_rows.x1 X1-4.value.modifier_skillManaCost (Break Morale)",
           "pack_value": 68.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "clarity_of_purpose_rank_allocated",
@@ -3223,7 +3603,9 @@
       "pack_checks": [],
       "note": null,
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "clarity_of_purpose_mana_cost_r2",
@@ -3239,7 +3621,9 @@
       "pack_checks": [],
       "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_assassins_mark",
@@ -3256,12 +3640,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-assassins_mark.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_tip_the_scales",
@@ -3278,12 +3667,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-tip_the_scales.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_maul",
@@ -3300,12 +3694,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-maul.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_arcane_barrier",
@@ -3322,12 +3721,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-arcane_barrier.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_turtle_shell",
@@ -3344,12 +3748,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-turtle_shell.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_ulzaads_decree",
@@ -3366,12 +3775,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-ulzaads_decree.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     },
     {
       "numeric_key": "devotion_level_shifting_sands",
@@ -3388,12 +3802,17 @@
         {
           "pack_row": "player_kit.json::devotion_procs.rows DP-shifting_sands.value.devotion_level",
           "pack_value": 0.0,
-          "agree": false
+          "class": "DISAGREE",
+          "agree": false,
+          "tolerance_policy": "AGREE-TOL-v1",
+          "agree_2026_10_02": false
         }
       ],
       "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g",
       "rdr_value": null,
-      "rule_id": null
+      "rule_id": null,
+      "rule_version_applied": null,
+      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
     }
   ],
   "agreement_check": {
@@ -3408,6 +3827,7 @@
         "record_value": 26.0,
         "pack_row": "pack-source pm4g_played_kit.csv eyeofreckoning1 rank_effective (PRV played kit)",
         "pack_value": 16.0,
+        "class": "DISAGREE",
         "note": null
       },
       {
@@ -3415,6 +3835,7 @@
         "record_value": 26.0,
         "pack_row": "oracle-source pm4l eor_rank_effective (the oracle's run-of-record rank)",
         "pack_value": 20.0,
+        "class": "DISAGREE",
         "note": null
       },
       {
@@ -3422,6 +3843,7 @@
         "record_value": 64.0,
         "pack_row": "math_rules.json::v3p2_rows.v1_leech_ladder V1-WD-1 oracle_reads (rank 20; HONEST-FAIL ABS-EOR-RANK-OF-RECORD)",
         "pack_value": 57.0,
+        "class": "DISAGREE",
         "note": null
       },
       {
@@ -3429,6 +3851,7 @@
         "record_value": 3.6,
         "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.cooldown_s",
         "pack_value": 3.1,
+        "class": "DISAGREE",
         "note": null
       },
       {
@@ -3436,6 +3859,7 @@
         "record_value": 16.8,
         "pack_row": "player_kit.json::v3p2_rows.v13_potion_and_warcry V13-WARCRY-1 value.skill_target_radius_m",
         "pack_value": 16.0,
+        "class": "DISAGREE",
         "note": "presentation-scale only in the oracle (legolas open question 5)"
       },
       {
@@ -3443,6 +3867,7 @@
         "record_value": 5.0,
         "pack_row": "player_kit.json::v3p4_rows.x1 X1-0.value.modifier_skillManaCost (Blindside)",
         "pack_value": 6.0,
+        "class": "DISAGREE",
         "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)"
       },
       {
@@ -3450,6 +3875,7 @@
         "record_value": 3.0,
         "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.modifier_skillManaCost (Tectonic Shift)",
         "pack_value": 5.0,
+        "class": "DISAGREE",
         "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)"
       },
       {
@@ -3457,6 +3883,7 @@
         "record_value": 50.0,
         "pack_row": "player_kit.json::v3p4_rows.x1 X1-4.value.modifier_skillManaCost (Break Morale)",
         "pack_value": 68.0,
+        "class": "DISAGREE",
         "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)"
       },
       {
@@ -3464,6 +3891,7 @@
         "record_value": 25.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-assassins_mark.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       },
       {
@@ -3471,6 +3899,7 @@
         "record_value": 20.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-tip_the_scales.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       },
       {
@@ -3478,6 +3907,7 @@
         "record_value": 20.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-maul.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       },
       {
@@ -3485,6 +3915,7 @@
         "record_value": 20.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-arcane_barrier.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       },
       {
@@ -3492,6 +3923,7 @@
         "record_value": 25.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-turtle_shell.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       },
       {
@@ -3499,6 +3931,7 @@
         "record_value": 20.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-ulzaads_decree.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       },
       {
@@ -3506,6 +3939,7 @@
         "record_value": 15.0,
         "pack_row": "player_kit.json::devotion_procs.rows DP-shifting_sands.value.devotion_level",
         "pack_value": 0.0,
+        "class": "DISAGREE",
         "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
       }
     ],
@@ -3524,16 +3958,170 @@
         "pack_value": "0 on all seven",
         "note": "the pack copied the HOST skill row's devotion_level field from pm4g; the power rows of the same CSV carry 25/20/15"
       }
-    ]
+    ],
+    "tolerance_policy": {
+      "id": "AGREE-TOL-v1",
+      "declared": "2026-10-06 (elrond; occasioned by gamora KP-304 finding, conductor routing KP-305)",
+      "classes": {
+        "EXACT": "record == pack as IEEE-754 binary64 values, as read; no rounding of either side",
+        "F32-SAME-DATUM": "not EXACT; at least one side is exactly a binary32 value widened to binary64, and both sides round to the identical binary32 bit pattern -- two representations of ONE float32 datum (widened vs shortest-decimal). Admits at most half a float32 ulp, only where one side is provably float32-origin.",
+        "DISAGREE": "anything else; no other tolerance exists"
+      },
+      "agree_means": "class in {EXACT, F32-SAME-DATUM}",
+      "pack_values": "read raw (no f32 presentation rounding of the comparand)",
+      "supersedes": "the 2026-10-02 mint check: math.isclose(rel_tol=1e-6, abs_tol=1e-6) (undeclared) + f32() applied to the S13-SF-PERIOD pack value before comparison (undeclared transformation of the comparand)"
+    },
+    "n_rows_all_checks_exact": 44,
+    "checks_by_class": {
+      "EXACT": 54,
+      "F32-SAME-DATUM": 1,
+      "DISAGREE": 15
+    },
+    "reclassified_2026_10_06": [
+      {
+        "numeric_key": "soulfire_period_s",
+        "record_value": 0.2,
+        "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-SF-PERIOD",
+        "pack_value_raw": 0.20000000298023224,
+        "was": "agree",
+        "was_basis": "math.isclose rel/abs 1e-6 (undeclared) on an f32-presented comparand",
+        "now": "F32-SAME-DATUM",
+        "now_agree": true,
+        "record_f32_exact": false,
+        "pack_f32_exact": true,
+        "f32_bits_record": "0x3E4CCCCD",
+        "f32_bits_pack": "0x3E4CCCCD"
+      }
+    ],
+    "comparand_fixes_2026_10_06": [
+      {
+        "numeric_key": "soulfire_period_s",
+        "pack_row": "player_kit.json::v3p6p1_rows.s13 S13-SF-PERIOD",
+        "printed_2026_10_02": 0.2,
+        "raw_pack_value": 0.20000000298023224
+      }
+    ],
+    "as_of_2026_10_02": {
+      "n_rows_all_checks_agree": 45,
+      "disagreements": [
+        {
+          "numeric_key": "eor_rank_total",
+          "record_value": 26.0,
+          "pack_row": "pack-source pm4g_played_kit.csv eyeofreckoning1 rank_effective (PRV played kit)",
+          "pack_value": 16.0,
+          "note": null
+        },
+        {
+          "numeric_key": "eor_rank_total",
+          "record_value": 26.0,
+          "pack_row": "oracle-source pm4l eor_rank_effective (the oracle's run-of-record rank)",
+          "pack_value": 20.0,
+          "note": null
+        },
+        {
+          "numeric_key": "eor_weapon_damage_pct_total_r26",
+          "record_value": 64.0,
+          "pack_row": "math_rules.json::v3p2_rows.v1_leech_ladder V1-WD-1 oracle_reads (rank 20; HONEST-FAIL ABS-EOR-RANK-OF-RECORD)",
+          "pack_value": 57.0,
+          "note": null
+        },
+        {
+          "numeric_key": "vires_might_cooldown_s",
+          "record_value": 3.6,
+          "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.cooldown_s",
+          "pack_value": 3.1,
+          "note": null
+        },
+        {
+          "numeric_key": "war_cry_radius_m_r16",
+          "record_value": 16.8,
+          "pack_row": "player_kit.json::v3p2_rows.v13_potion_and_warcry V13-WARCRY-1 value.skill_target_radius_m",
+          "pack_value": 16.0,
+          "note": "presentation-scale only in the oracle (legolas open question 5)"
+        },
+        {
+          "numeric_key": "blindside_mana_cost_r5",
+          "record_value": 5.0,
+          "pack_row": "player_kit.json::v3p4_rows.x1 X1-0.value.modifier_skillManaCost (Blindside)",
+          "pack_value": 6.0,
+          "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)"
+        },
+        {
+          "numeric_key": "tectonic_shift_mana_cost_r2",
+          "record_value": 3.0,
+          "pack_row": "player_kit.json::v3p4_rows.x1 X1-2.value.modifier_skillManaCost (Tectonic Shift)",
+          "pack_value": 5.0,
+          "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)"
+        },
+        {
+          "numeric_key": "break_morale_mana_cost_r16",
+          "record_value": 50.0,
+          "pack_row": "player_kit.json::v3p4_rows.x1 X1-4.value.modifier_skillManaCost (Break Morale)",
+          "pack_value": 68.0,
+          "note": "modifier cost is an INCREASE on the parent (X1 composition, INFERRED)"
+        },
+        {
+          "numeric_key": "devotion_level_assassins_mark",
+          "record_value": 25.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-assassins_mark.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        },
+        {
+          "numeric_key": "devotion_level_tip_the_scales",
+          "record_value": 20.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-tip_the_scales.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        },
+        {
+          "numeric_key": "devotion_level_maul",
+          "record_value": 20.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-maul.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        },
+        {
+          "numeric_key": "devotion_level_arcane_barrier",
+          "record_value": 20.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-arcane_barrier.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        },
+        {
+          "numeric_key": "devotion_level_turtle_shell",
+          "record_value": 25.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-turtle_shell.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        },
+        {
+          "numeric_key": "devotion_level_ulzaads_decree",
+          "record_value": 20.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-ulzaads_decree.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        },
+        {
+          "numeric_key": "devotion_level_shifting_sands",
+          "record_value": 15.0,
+          "pack_row": "player_kit.json::devotion_procs.rows DP-shifting_sands.value.devotion_level",
+          "pack_value": 0.0,
+          "note": "the pack's DP row carries the HOST skill row's devotion_level field from pm4g"
+        }
+      ],
+      "basis": "the 2026-10-02 mint check: math.isclose(rel_tol=1e-6, abs_tol=1e-6) (undeclared) + f32() applied to the S13-SF-PERIOD pack value before comparison (undeclared transformation of the comparand)"
+    },
+    "corpus_source_anchor_note": "kit_numeric.source_anchor still carries the 2026-10-02 'AGREES/DISAGREES' text (and prints S13-SF-PERIOD's pack value as 0.2). It was NOT edited: any edit moves the J-S4b ROWSET off the pinned c3e0f121. This block is the classification of record; an anchor refresh awaits a conductor ruling."
   },
   "unknowns": [
     {
-      "what": "EoR mapping grade (EXACT/CLOSE/APPROX/GAPPED)",
-      "settle": "the J4a deconfound re-grade against the sealed pack (charter s4.2); not a data-steward call"
+      "what": "rdr_value for the 85 unstamped kit_numeric rows",
+      "settle": "the normalization-rule owner (gamora): no active rule covers their scales (gd_energy, gd_rank, gd_pct_sheet, gd_pct, gd_flat_damage, ...); per-row reasons in stamping_table.json"
     },
     {
-      "what": "rdr_value for every kit_numeric row",
-      "settle": "the normalization-rule owner (gamora) stamps rules; no rule yet covers gd_metres, gd_energy, gd_rank, gd_pct_sheet, etc. R-T2 names gd_seconds but its derivation SQL is kit-scoped"
+      "what": "EoR mapping grade (EXACT/CLOSE/APPROX/GAPPED)",
+      "settle": "the J4a deconfound re-grade against the sealed pack (charter s4.2); not a data-steward call"
     },
     {
       "what": "EoR rank of record for the ORACLE's operands (15 vs 20 vs 26)",
@@ -3588,7 +4176,7 @@
       "skill_geometry_band",
       "verify_ledger"
     ],
-    "digest": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7",
+    "digest": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
     "row_counts": {
       "canon_corpus": 1,
       "kit_mapping": 1,
@@ -3603,7 +4191,19 @@
       "skill_geometry_band": 0,
       "verify_ledger": 0
     },
-    "sibling_gd_eor_warlord_rowset_unchanged": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
+    "sibling_gd_eor_warlord_rowset_unchanged": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
+    "history": [
+      {
+        "date": "2026-10-02",
+        "digest": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7",
+        "event": "mint"
+      },
+      {
+        "date": "2026-10-06",
+        "digest": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+        "event": "rule stamping (14 R-T2 + 5 R-CTX-GEO provisional)"
+      }
+    ]
   },
   "_row_counts": {
     "canon_corpus": 1,
@@ -3612,5 +4212,37 @@
     "citations": 0,
     "dossier_facts": 0,
     "verify_claims": 0
+  },
+  "rule_stamping": {
+    "applied": "2026-10-06",
+    "by": "elrond (corpus.db steward)",
+    "rule_owner": "gamora",
+    "package": "agentic_orchestration/gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/stamping/ (collab 9a90660f8)",
+    "R-T2": [
+      "ascension_cooldown_s",
+      "ascension_duration_s",
+      "blitz_cooldown_s",
+      "deathstalker_cooldown_s",
+      "eor_bleed_base_duration_s",
+      "eor_channel_tail_s",
+      "eor_period_at_100pct_as_s",
+      "eor_tick_period_s",
+      "guardian_of_empyrion_cooldown_s",
+      "soulfire_period_s",
+      "violent_delights_cooldown_s",
+      "vires_might_cooldown_s",
+      "war_cry_cooldown_s",
+      "war_cry_duration_s"
+    ],
+    "R-CTX-GEO_provisional": [
+      "eor_radius_m",
+      "soulfire_explosion_radius_m",
+      "violent_delights_target_radius_m",
+      "vires_might_target_radius_m",
+      "war_cry_radius_m_r16"
+    ],
+    "R-CTX-GEO_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL",
+    "unstamped": 85,
+    "rdr_equals_source_on_every_stamped_row": true
   }
 }

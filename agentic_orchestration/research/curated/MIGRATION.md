@@ -7,6 +7,68 @@
 
 ---
 
+## join1-js4b-rule-stamping-2026-10-06 — JOIN-1 B0-N: gamora's J-S4b rule stamping applied (14 R-T2 + 5 R-CTX-GEO ⚑ PROVISIONAL) + the agreement check re-run under a DECLARED tolerance (AGREE-TOL-v1) — 2026-10-06 — **APPLIED 2026-10-06T23:16Z**
+
+**Authority:** KC2/JOIN-1 ledger KP-304 (stamping built; R-CTX-GEO gd_metres amendment ACCEPTED PROVISIONALLY by the conductor) and KP-305 (routing: elrond applies both SQLs and declares the agreement-check tolerance). Rule owner gamora; package at `agentic_orchestration/gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/stamping/` (collab `9a90660f8`). Conductor gandalf. ADR-002 within-seam, **DATA-ONLY, no DDL.** The superseded `…_PROPOSED_2026_10_06.sql` was not read.
+
+**Script:** `research/scripts/corpus_js4b_rule_stamping_apply_2026_10_06.py` (`--dry-run` on an in-memory copy, then `--apply`). It runs the two package files in order, statement by statement (`sqlite3.complete_statement`, so the `;` inside the R-CTX-GEO description literal does not split a statement), inside **one enclosing transaction**; the package's own `BEGIN TRANSACTION`/`COMMIT` lines are logged and not executed, so both files commit together or not at all. Package guard SELECTs are printed verbatim, but the gate is the script's own independent guards.
+
+Package FILE sha256: R-T2 SQL `070a44b9…9bba` · amendment SQL `673031b4…42ff` · `stamping_table.json` `13dca99f…998e`.
+
+| Step | FILE sha256 | Result |
+|---|---|---|
+| refuse-gate | `corpus.db` = `0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07` (= the J-S4b mint post-apply) | held |
+| backup | `corpus.db.pre-js4b-stamping-20261006T231654Z-backup` = `0d73475a…5d07` | copied, digest asserted |
+| apply | `0d73475a…5d07` → **`639acb2033e09b522793e1138a36c9144dc23af05be0ebe6944955fd4a9432ea`** | PASS |
+
+**Guards (dry-run and apply identical; re-verified after commit on a re-opened connection):**
+- pre: J-S4b ROWSET `66250f2d…` · 104 J-S4b rows unstamped · other kits 456 stamped rows, TOTAL(rdr) `69976.60668775669`.
+- after file 1: 14 rows stamped, all `R-T2`, all `gd_seconds`; ROWSET **`e53ff212…`** (= gamora lane S).
+- after file 2: 5 rows `R-CTX-GEO`, all `gd_metres`; 19 stamped / 85 unstamped; the three key sets equal `stamping_table.json`'s STAMP / STAMP-UNDER-AMENDMENT / NO-RULE sets exactly; **0 rows with `rdr_value IS NOT source_value`**; `rule_version_applied = 1` on all 19.
+- other kits: 456 rows, same TOTAL, **and** a full-row digest of every other-kit `kit_numeric` row unchanged (`a6400b12…`); sibling `gd-eor-warlord` ROWSET `1819fd0c…` unchanged; `normalization_rule` unchanged except the R-CTX-GEO description suffix; every table's row count unchanged except `corpus_schema_meta` 39 → 40.
+- **J-S4b ROWSET after = `c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597`** (= gamora lane P, the conductor's expected value).
+- `integrity_check` ok; `foreign_key_check` empty.
+
+**Rows stamped.** R-T2 v1 (IDENTITY; covers `gd_seconds` by its own Covers enumeration): `eor_tick_period_s, eor_period_at_100pct_as_s, eor_channel_tail_s, eor_bleed_base_duration_s, soulfire_period_s, vires_might_cooldown_s, war_cry_cooldown_s, war_cry_duration_s, blitz_cooldown_s, ascension_cooldown_s, ascension_duration_s, violent_delights_cooldown_s, guardian_of_empyrion_cooldown_s, deathstalker_cooldown_s`.
+
+**⚑ PROVISIONAL — R-CTX-GEO v1 (IDENTITY), stamped under the conductor's provisional scope amendment (KP-304), pending jack-ryan's JOIN-1 B0-N Gate-2:** `eor_radius_m, soulfire_explosion_radius_m, vires_might_target_radius_m, war_cry_radius_m_r16, violent_delights_target_radius_m`. The label is carried where it does not move the pinned ROWSET: the `corpus_schema_meta` row `join1-js4b-rule-stamping-2026-10-06` (names the 5 rows and the revert), the R-CTX-GEO description suffix `⚑ SCOPE AMENDMENT 2026-10-06 … pending jack-ryan JOIN-1 B0-N Gate-2`, the export (`rule_stamp_status` per row + `rule_stamping` block) and the manifest revision. **If the Gate-2 rejects the amendment, revert =** `UPDATE kit_numeric SET rdr_value=NULL, rule_id=NULL, rule_version_applied=NULL WHERE kit_id='gd-eor-warlord-referent' AND source_scale='gd_metres' AND rule_id='R-CTX-GEO';` plus removing the description suffix. That returns the J-S4b ROWSET to `e53ff212…` (verifiable).
+
+**85 rows remain unstamped** (NO-RULE; per-row reasons in `stamping_table.json`).
+
+**Caught in dry-run, not on the corpus:** the first dry-run parsed `COMMIT;` with its semicolon, so it did not recognise the package's COMMIT and executed it inside the in-memory copy. The next statement then failed on "no transaction is active", and the run aborted. `corpus.db` was unchanged (`0d73475a…` re-hashed). Fixed by normalising the statement head and asserting `con.in_transaction` before every package statement. This is the same family as gamora's scratch-apply splitter defect (KP-304).
+
+### Finding (KP-304 → elrond): the J-S4b agreement check's undeclared tolerance — re-run under AGREE-TOL-v1
+
+**Script:** `research/scripts/corpus_js4b_agreement_tolerance_rerun_2026_10_06.py`. It is read-only on corpus.db. It re-runs the mint's own `load_sources()` (which re-asserts the v3.11 pack digest `99711727…` and the save digest), then runs `build()` twice. The first run is as minted: all 104 record values and **all 104 `source_anchor` strings reproduce the corpus bit-for-bit**, which proves these are the mint's inputs. The second run sets `f32 = identity`, so the pack side is read raw.
+
+**What the 2026-10-02 check actually did:** two undeclared mechanisms, not one.
+- (M1) `close()` = `math.isclose(rel_tol=1e-6, abs_tol=1e-6)`, declared nowhere.
+- (M2) The **pack** value of S13-SF-PERIOD went through `f32()` (7-significant-digit presentation) *before* the comparison. The export and the corpus anchor therefore print the pack value as `0.2`, while the pack holds `0.20000000298023224`. This is a silent transformation of the comparand. M2 produced the "agree": after M2 the comparison was 0.2 = 0.2, so M1 was never exercised on any check. Every other check that "agreed" is bit-exact.
+
+**The policy, declared (named on the face of every check as `tolerance_policy: AGREE-TOL-v1`):**
+- **EXACT:** record == pack as IEEE-754 binary64 values, as read.
+- **F32-SAME-DATUM:** not EXACT, but (a) at least one side is *exactly* a binary32 value widened to binary64, and (b) both sides round to the identical binary32 bit pattern. That is, two representations of one float32 datum (widened form vs shortest decimal). It admits at most half a float32 ulp, and only where one side is provably float32-origin.
+- **DISAGREE:** anything else. No other tolerance exists.
+- "agree" = EXACT or F32-SAME-DATUM. Pack values are read raw.
+
+**Re-classification (70 checks over 59 compared rows):** EXACT 54 · F32-SAME-DATUM 1 · DISAGREE 15 (unchanged from 2026-10-02: the same 15). Rows all-agree 45 (unchanged), of which 44 are all-EXACT. **One check re-classified:**
+
+| numeric_key | pack row | record | pack (raw) | was | now |
+|---|---|---|---|---|---|
+| `soulfire_period_s` | `player_kit.json::v3p6p1_rows.s13 S13-SF-PERIOD` | `0.2` (binary64; not a float32 widening) | `0.20000000298023224` (= float32 `0x3E4CCCCD` widened) | agree (M1 + M2, undeclared; comparand printed as 0.2) | **F32-SAME-DATUM** (both → `0x3E4CCCCD`) |
+
+Under pure bit-exactness this check would be DISAGREE (16 disagreements). The same row is **EXACT** against `channel.soulfire.period_s` (0.2) and `V15-8` (0.2). The pack therefore holds this quantity in two representations at different sites, which is the record-side face of gamora's **D-1** (`closes-in-J2`). It is recorded here and not resolved here.
+
+**One comparand fix:** S13-SF-PERIOD's pack value is now printed raw (`0.20000000298023224`). The 2026-10-02 print is kept beside it as `pack_value_as_printed_2026_10_02`.
+
+**⚑ Not done, and why:** `kit_numeric.source_anchor` still carries the 2026-10-02 `-> AGREES` text and prints S13-SF-PERIOD as `= 0.2`. Editing it would move the J-S4b ROWSET off the pinned `c3e0f121…`. The export's `agreement_check` is the classification of record. Whether to refresh the anchor (which mints a new ROWSET for J-S4 to re-pin) is routed to the conductor.
+
+**Artifacts:** `kits-export/gd-eor-warlord-referent.json` (FILE `3585d61d4ffc0f30332c08ce98a57c7678275ce0ca51dafa3e47f27da3c4bab6`): per-row `rdr_value`/`rule_id`/`rule_version_applied`/`rule_stamp_status`, `pack_checks` with `class`/`tolerance_policy`/`agree_2026_10_02`, `agreement_check.tolerance_policy` + `reclassified_2026_10_06` + `as_of_2026_10_02`, `rule_stamping` block, `corpus_rowset.digest = c3e0f121…` with history. `kits-export/gd-eor-warlord-referent.manifest.json` gains a `revisions[]` entry (corpus pre/post FILE, backup, the three ROWSETs, package + script + export FILE digests) and `corpus_db.current_FILE_sha256 = 639acb20…`.
+
+**Reversibility:** restore the backup (digest above). Or, for the provisional part alone, run the revert statement above. **ADR-004:** no engine file written.
+
+---
+
 ## join1-js4b-referent-mint-2026-10-02 — JOIN-1 J-S4b: the KC2 referent Warlord's own corpus record (`gd-eor-warlord-referent`) — 2026-10-02 — **APPLIED 2026-10-02T21:20Z**
 
 **Authority:** Matt-approved addition to the launch-frozen § 1 substrate (KC2 ledger KP-237; JOIN-1 charter v0.6.1). Occasioned by jack-ryan J0/J1 Gate-2 (`qa/findings/2026-10-02-join1-j0-j1-gate2.md`) EL-1 (the corpus record is a sibling build), EL-2 (`original_element` semantics + export fields), EL-3 (no numeric rows; in-seam curation, not J-L4). Conductor gandalf. ADR-002 within-seam, **DATA-ONLY, no DDL.**

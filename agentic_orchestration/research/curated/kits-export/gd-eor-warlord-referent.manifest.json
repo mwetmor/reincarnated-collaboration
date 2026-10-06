@@ -6,8 +6,9 @@
   "files": {
     "export": {
       "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
-      "sha256": "4a16f94af09e6fb7a109de7991694d4593011baa57926aa54ed6a4e81a7ec46d",
-      "kind": "FILE"
+      "sha256": "3585d61d4ffc0f30332c08ce98a57c7678275ce0ca51dafa3e47f27da3c4bab6",
+      "kind": "FILE",
+      "sha256_at_mint_2026_10_02": "4a16f94af09e6fb7a109de7991694d4593011baa57926aa54ed6a4e81a7ec46d"
     },
     "sibling_export_unchanged": {
       "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord.json",
@@ -112,7 +113,7 @@
   },
   "rowsets": {
     "gd-eor-warlord-referent": {
-      "digest": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7",
+      "digest": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
       "counts": {
         "canon_corpus": 1,
         "kit_mapping": 1,
@@ -127,7 +128,8 @@
         "skill_geometry_band": 0,
         "verify_ledger": 0
       },
-      "kind": "ROWSET"
+      "kind": "ROWSET",
+      "digest_at_mint_2026_10_02": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7"
     },
     "gd-eor-warlord": {
       "digest": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
@@ -152,7 +154,67 @@
   "rowset_law": "ROWSET digest law (J-S4 pin): for each table in ROWSET_TABLES, every row WHERE kit_id = ?, ordered by\n    rowid, serialised as json.dumps(dict(row), sort_keys=True, separators=(',',':'), ensure_ascii=False);\n    lines '<table>\\t<json>' joined by '\\n' in ROWSET_TABLES order; sha256 of the UTF-8 bytes.",
   "corpus_db": {
     "pre_FILE_sha256": "dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473",
-    "post_FILE_sha256": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07"
+    "post_FILE_sha256": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07",
+    "current_FILE_sha256": "639acb2033e09b522793e1138a36c9144dc23af05be0ebe6944955fd4a9432ea"
   },
-  "pack_digest_of_record": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788"
+  "pack_digest_of_record": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+  "revisions": [
+    {
+      "date": "2026-10-06",
+      "by": "elrond",
+      "event": "J-S4b rule stamping applied + agreement check re-run under AGREE-TOL-v1",
+      "corpus_db": {
+        "pre_FILE_sha256": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07",
+        "post_FILE_sha256": "639acb2033e09b522793e1138a36c9144dc23af05be0ebe6944955fd4a9432ea",
+        "backup": "corpus.db.pre-js4b-stamping-20261006T231654Z-backup"
+      },
+      "rowset": {
+        "pre": "66250f2d138be8b13e780c2f3ab6d35f637998ef7faa3f45f2ed31a8f69665b7",
+        "after_R-T2_only": "e53ff212ead3f130333115e9743000c41a8cdcd3223c5f24c7af5aa89b8d319f",
+        "post": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597"
+      },
+      "provisional_rows": [
+        "eor_radius_m",
+        "soulfire_explosion_radius_m",
+        "violent_delights_target_radius_m",
+        "vires_might_target_radius_m",
+        "war_cry_radius_m_r16"
+      ],
+      "provisional_status": "PROVISIONAL: R-CTX-GEO scope amendment ACCEPTED PROVISIONALLY (conductor KP-304), pending jack-ryan JOIN-1 B0-N Gate-2; revert sets rdr_value/rule_id/rule_version_applied to NULL",
+      "files": {
+        "stamping_sql_R-T2": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/stamping/corpus_js4b_rule_stamping_2026_10_06.sql",
+          "sha256": "070a44b9867dda23e80cc6bc16c29262c4a455a61ba9e40d9568f9b0a2889bba",
+          "kind": "FILE"
+        },
+        "stamping_sql_R-CTX-GEO_amendment": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/stamping/corpus_js4b_rctxgeo_gd_metres_amendment_2026_10_06.sql",
+          "sha256": "673031b436455edcb22dfb8f1345f3671451ee4f0e850311f55eddb12eca42ff",
+          "kind": "FILE"
+        },
+        "stamping_table": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/stamping/stamping_table.json",
+          "sha256": "13dca99f02c5a379c14d67e2a807b3c6990761432628cb5342e9edcd1d93998e",
+          "kind": "FILE"
+        },
+        "apply_script": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/corpus_js4b_rule_stamping_apply_2026_10_06.py",
+          "sha256": "546442fb3e53e417bb0596a4ec0558169c3b0bc559bd257c737d0ea68293575a",
+          "kind": "FILE"
+        },
+        "tolerance_rerun_script": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/corpus_js4b_agreement_tolerance_rerun_2026_10_06.py",
+          "sha256": "fce76694bfcff8c8a0bc77705f6b888e601fcc7a8718baa9e23893ef2fedb8a6",
+          "kind": "FILE"
+        },
+        "export": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
+          "sha256": "3585d61d4ffc0f30332c08ce98a57c7678275ce0ca51dafa3e47f27da3c4bab6",
+          "kind": "FILE"
+        }
+      },
+      "tolerance_policy": "AGREE-TOL-v1",
+      "reclassified_checks": 1
+    }
+  ]
 }
