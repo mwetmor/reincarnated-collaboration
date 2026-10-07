@@ -161,3 +161,88 @@
   - `pc/{control_shas.json, bf_status_before.txt}`
   - `RESUME_LV.md`
 - Under `astra_test_01/burst/runs/C-9/barrow_full/godot/`: `scripts/bv2f/bv2f_level.gd:263-274`, `scripts/barrow_full.gd:938-1020`.
+
+---
+
+## Re-check — 2026-10-07 — G2P1-B1 fold (R-C9-180, R-C9-181)
+
+**Reviewer:** jack-ryan (DEV-MODE, re-check of own BLOCK)
+**Targets:** PH `45fb5eaac` · `48dab5e17` · `44fb98a66` · `bc29572c3`; conductor `bacf8e6c9` (R-C9-181) · `df7e81348`; LV `a6328ddb2` · `9601add8a`; PT `e1a996bc8`.
+**Verdict:** **FOLD NOT DISCHARGED, scoped to one sub-reading: the R11 per-region reading inside P6′ extent (G2P1-RB1).** Everything else in B1 and W1–W4 is discharged. **M1 is not fit to send until RB1 folds.** The fold costs 0 images and $0.
+
+### What I found
+
+**1. Pre-registration came first, in commit order and in content. DISCHARGED.**
+- The ancestry chain is linear and verified: `45fb5eaac` < `48dab5e17` < `44fb98a66` < `9601add8a` < `bc29572c3` < `df7e81348`.
+- § 15 is append-only after `45fb5eaac`. Every later `calibration.md` diff is a pure append at the end of the file.
+- The calibration commit touched v7c's **layout** only: it built the constructed shrunk-gable RED and ran the validator on an unshrunk copy as a sanity check. B1 anticipated both. Neither is a P6′ measurement of v7c geometry.
+- The bars come from v1 (containment 0.7872) or from written rules (0 missing or extra, hidden ≤ 0.50, anisotropy ≤ 1.10, R1–R13). None was read off v7c.
+
+**2. The calibration REDs are genuine for each component as registered. DISCHARGED for the registered readings.**
+- presence: v7c at `2a913e7af`;
+- placement: shift of 1.5 m, 85 of 86 below the bar;
+- scale: v6 porch at 1.63;
+- extent: shrunk gable, R10;
+- v1 PASS on all four.
+- The harness changed between calibration and the v7c run (`44fb98a66`: beams placed as `_place_beam` places them; "extra" now excludes the non-model prefixes that § 15 scope names). § 17 does not disclose this change (I-R1). The change conforms to § 15, leaves the v1 path untouched, and is stricter, not looser.
+- Presence and scale went from RED to PASS through **real geometry changes**: logs seated, every real model placed by one uniform scale, 0 of 148 over 1.10, and PH's cross-check agrees with LV's record with 0 mismatches.
+
+**3. G2P1-RB1. The R11 per-region reading, applied after a RED, is not discharged.** I measured this myself with PH's own `v7c_components()` placed geometry:
+- **The hall mesh did not change.** Its last commit is `70ed0b922`. So extent went from RED to PASS **with zero geometry change**: only the reading and a region changed.
+- **The PASS depends on a region the builder drew after the RED.** `hall_porch.r11_region_footprint` is new in LV's `9601add8a`. It is 10.6 m wide and **16.5 m deep, the full depth of the hall**. The registered `hall_porch` footprint, which predates § 15, is 1.287 m deep.
+- **Read against the registered porch footprint, R11 FAILS.** The mesh inside that footprint reaches **5.10 m** (49 vertices), against a body of 13.117 m. Read against LV's region it PASSES: 13.117 against 12.143. **The choice of region decides the verdict.**
+- **What the geometry actually is.** Every vertex above body + 0.5 m (77 of them, z > 12.643) lies **3.3–7.0 m behind the porch's inner face**, at 2.6–6.8 m along its 10.6 m width. It is a raised roof bay set back over the door axis. It is not a porch front at the door.
+- **The reading has no RED of its own.** R-C9-181 asked PH to show the reading "still fails" on the v6 porch. PH correctly notes that a height reading cannot change a fit scale, so that RED stands on **scale**. The shrunk-gable RED stands on **R10**. **No input has been shown to make R11-per-region go RED** (#80).
+
+**4. "Hidden by design" for circle stones #2, #4 and #5 is legitimate. It is not a loophole, and it is not a new look question.**
+- The burial predates both measurement and pre-registration. At `d4c59061f` the layout already records circle_stones as "laid flat, sunk flush: top 0.12 m".
+- The burial is required by R13 (FLAT = 0.15 m), which comes from Matt's clean-floor ruling R-C9-155.
+- It is declared uniformly on all 8 stones, not only on the 3 that needed it.
+- **Provenance defect (I-R2):** PH's acceptance test is "the declaration is new in `9601add8a`". That is the wrong test, because a new declaration is weaker evidence than an old one. The citation should be the `d4c59061f` status line plus R-C9-155.
+- **Look:** before and after the refit, the ring is flush floor marks under a rule Matt set. It does not need a fourth ask on the cover (cap 3).
+
+**5. M1 packet. Fit in form, but not to send.**
+- The cover meets W-4: one screen, three asks, one recommendation each, v7b marked comparison-only, the R-C9-148 reversal stated, P6′ shown.
+- **But its P6′ line, "PASS on all four parts (… layout rules)", currently rests on RB1.**
+- `M1_README.md`'s top still reads "P6′ result: _(the conductor fills this slot …)_", which is stale against the cover (I-R3, #73).
+
+**6. W1–W4 are discharged.**
+- W1: `pc/results_phase1_close.json` shows T1–T3 PASS at both the pin and HEAD.
+- W2: `placed_fit_v7c.json` exists.
+- W3: DEV-16 is registered at charter § 14, and its measurement is owed before the first take.
+- W4: see item 5.
+
+### Rationale
+- **RB1:**
+  - #80: a reading is evidence only once it has gone RED and GREEN on its own measure.
+  - #75 cl. 6: a new reading does not inherit the calibration of the reading it replaced.
+  - #11: verified by measurement, not by report.
+  - § 15's own rule: "a P6′ RED … is a HALT for an LV fix, never a bar move." A post-RED region authored by the builder is the decisive parameter here, so it falls under that rule.
+  - Principle 4: R-C9-181's "show it still fails" condition is unmet for the reading it introduced.
+- **I-R1–I-R3:** #9, #73.
+
+### Action
+- [ ] **Conductor, RB1(a).** Rule the R11 porch region from the design, in words written without reference to the mesh numbers, and record it in the ledger.
+  - The porch-above-roofline clause is the conductor's own extension inside R-C9-154, so this is conductor authority.
+  - One example: "the porch-width strip over the great door, from the porch's outer face to the ridge line."
+  - Either rule that, or adopt LV's 16.5 m strip with a stated reason.
+- [ ] **PH, RB1(b).**
+  - Re-run R11 under the ruled region.
+  - Construct an R11 RED under that same reading (e.g. the in-region mesh clipped to ≤ body + 0.5 m), which must FAIL.
+  - Report the registered-footprint reading (5.10 m, FAIL) as non-binding beside it.
+- [ ] **Conductor or LV, RB1(c), before sending M1.** Add one clause to the cover. Fold it into ask 2 (the burnt hall), not a fourth ask: *"the tall entrance is a raised roof bay set back about 4–7 m behind the great door; at the door itself the porch stands 5.1 m."* Matt judges the look from the stills.
+- [ ] **PH, I-R1 and I-R2.** Add one line to § 17 disclosing the `44fb98a66` harness change. Re-cite the by-design provenance as `d4c59061f` plus R-C9-155.
+- [ ] **LV, I-R3.** Replace the stale P6′ line in the README.
+- [ ] **Matt:** no decision is required by this re-check. **On RB1(a–c) folding, M1 is fit to send.** No further jack-ryan pass is needed if (b) shows the ruled reading RED on the constructed input and PASS on v7c; the conductor confirms in the ledger.
+
+### References
+- Under `astra_test_01/burst/runs/C-9/barrow_v2/fid/`:
+  - `ph/calibration.md` §§ 15–18;
+  - `ph/harness/p6prime.py` (`placed_vertices`, `r11_per_region`, `run_v7c`);
+  - `ph/results/{p6prime_calibration.json, p6prime_v7c.json, p6prime_reds_r181.json}`;
+  - `lv/layout_v7c.json` at `d4c59061f` and at `9601add8a` (`hall_porch`, `circle_stones`);
+  - `lv/tools/validate_layout_v7.py:466-473, 487, 592-620`;
+  - `lv/M1/{M1_cover.jpg, M1_README.md}`;
+  - `pc/results_phase1_close.json`.
+- Ledger: R-C9-154, R-C9-155, R-C9-180, R-C9-181.
+- Charter v0.4 § 14.
