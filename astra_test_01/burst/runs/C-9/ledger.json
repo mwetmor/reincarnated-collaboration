@@ -46359,6 +46359,13 @@
       "ruling": "BV2F pilot with R-C9-159's foam field (PT 8fd69fafc; PH 4ec1c5bc8): P9 FLOW = 3.444 on the same water mask (R-C9-198) -> PASS vs 2.064 (the instrument's alternative per-run mask reads 1.914 because it excludes the moving foam -- noted, not adopted; the pre-registered mask governs). P2 20/20 PASS. P10: start view p99 17.32 ms FAIL, a repeat 16.03 PASS; sea view 13.87 PASS. No repeat rule was pre-registered, so the conductor does not pick the better run: P10 = FAIL. RULED: (1) PH pre-registers a STRICTER repeat rule before re-measuring: 3 runs of the same film segment, the WORST p99 must be <= 16.7 ms; (2) PT recovers performance headroom in the build without changing the look (profile first; candidates: foam/water shader cost, foam field resolution, heather instancing/LOD, shadow settings on lit movers), since Phase 3' will be heavier; v1's own frame budget figures are the reference. Then Gate-2.",
       "verbatim": [],
       "ts": "2026-10-07T17:51:35Z"
+    },
+    {
+      "id": "R-C9-200",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F P10 headroom (PT 789618d45): profile found the bv2f dress casting the WHOLE terrain into the sun shadow map, which v1's ground does not; v1's rule restored (shadow-casting primitives 3.28M -> 2.25M, mean -1.1 ms); look unchanged (12-still diff 0.10 < same-build noise 0.19). Start view, 3 runs: before 22.15/16.34/16.25, after 18.14/15.26/15.41 ms. Run 1 in both sets is the COLD SHADER COMPILE (max 32 ms). RULED: the pre-registered rule (s34: 3 fresh runs, worst p99 <= 16.7) STANDS -- PT's proposed discarded warm-up run is NOT adopted (it would change the rule after seeing data); P10 = FAIL (18.14). A cold-compile hitch is also a real player-facing stutter, so the FIX goes in the BUILD: a load-time shader/pipeline warm-up (each pilot material and the water/foam/heather/snow shaders rendered once off-screen during level load, before control is given), then 3 fresh runs under the s34 rule. The remaining costs (pen 3.0, snow 1.7, paint-sun shadow 1.0, heather 0.9 ms) ARE v1's look and are not cut.",
+      "verbatim": [],
+      "ts": "2026-10-07T18:02:40Z"
     }
   ],
   "grok_calls": [
