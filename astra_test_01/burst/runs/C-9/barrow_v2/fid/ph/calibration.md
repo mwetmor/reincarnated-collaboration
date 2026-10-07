@@ -552,3 +552,27 @@ The other 5 circle stones (all 8 carry the declaration) are within 0.50 even wit
 
 **Reported, non-binding:** IoU against the slot prism, median **0.472**, beside v1's like-for-like **0.635**.
 
+
+## 19. R11 PORCH-REGION READING, PRE-REGISTERED (ruling R-C9-182, on jack-ryan's G2P1-RB1). Committed BEFORE measuring.
+
+**The ruled region, in the conductor's words:** "the porch-width strip over the great door, from the porch's OUTER FACE back to the hall's RIDGE LINE"; the BODY is the rest of the hall roof. LV's 16.5 m `r11_region_footprint` is **not** used.
+
+**Its construction.** Only layout fields that predate § 15 are used: `hall_porch.footprint` and `longhall.pos / godot_rot_y_deg`, identical at `45fb5eaac` and at HEAD.
+- **Porch outer face:** the edge of `hall_porch.footprint` farthest from the longhall slot centre, with endpoints P1 and P2 (10.6 m apart, the porch width).
+- **Ridge line:** the line through the longhall slot centre (`pos`) along the hall's long axis. That axis is the slot's local x, which `_place_box` maps to sim (cos t, −sin t) with t = `godot_rot_y_deg`.
+- **Region:** the quadrilateral P1, P2, foot(P2), foot(P1), where each foot is the perpendicular projection onto the ridge line.
+
+**The reading.** Over the longhall's placed mesh (vertices as `bv2f_level.gd` places them, PH's `placed_vertices`, z relative to the slot z):
+- porch_h = max z inside the region;
+- body_h = max z outside it;
+- **R11 PASS iff porch_h > body_h + 0.5** (the validator's own margin).
+
+**Constructed RED under the same reading:** the in-region vertices' z clipped to ≤ body_h + 0.5. This must FAIL.
+
+**Reported beside it, non-binding:** the registered 1.287 m `hall_porch.footprint` reading (jack-ryan measured 5.10 m: FAIL).
+
+**For the cover clause** (not part of the verdict):
+- where the vertices above body_h + 0.5 sit, in metres behind the outer face and in metres along the porch width;
+- the porch's height at the door, the max z inside the registered 1.287 m footprint.
+
+**If v7c fails under the ruled region, it is reported as a failure; the region does not move.**
