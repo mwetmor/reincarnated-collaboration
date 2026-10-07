@@ -1,0 +1,59 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8d",
+ "head": {
+  "end": "62b6e48e2e3a655aa01f3252666dd9acb1b9e05c",
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "62b6e48e2e3a655aa01f3252666dd9acb1b9e05c"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "afad35428be7f5687f21bd12ce2308a6dc600432806d8252304ee75079f7a3e5",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "62b6e48e2e3a655aa01f3252666dd9acb1b9e05c",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [
+   {
+    "file": "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py",
+    "sha256": "f3c03b7ec2e1a9bcd89f127f9200b2d51bf9be1fbf22f4ffd74e93f79f613c05"
+   }
+  ],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 281,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 142,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [
+    [
+     "sitecustomize",
+     "customize module other than the pinned witness"
+    ]
+   ],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    82396
+   ],
+   "n_pids": 1,
+   "pass": false,
+   "tree_ok": false
+  },
+  "witness_hits": []
+ },
+ "prediction": "B' RED: HEAD child sitecustomize = join1_b0n_hook (path hit); witness coverage 1 child of 2",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)"
+}
