@@ -628,3 +628,19 @@ The three terrain-hidden instances (above 0.50), none declared by design:
 
 **Reported, non-binding:** IoU against the slot prism, median 0.475, beside v1's 0.635.
 
+## 22. W-4(2): the minimum pilot window for a 40-trial content-controlled P11 (home ground), bv2art 5 × 5 grid
+
+Tool: `harness/p11_window.py` → `results/p11_window_bv2art.json`. The fixed ABX generator's own selection logic was run without images:
+- **v1 pool:** the real v1 crops (v1ref + PT's six).
+- **Candidate pool:** classes from LV's class map and ID render at the same pixels. The build-specific exclusions of R-C9-171 apply (sea; char/ash/passage_dark; wreck, longhall, fallen_gable, cliff_faces).
+- **Stills:** the window is covered by play-camera stills with the generator's centre exclusion.
+- **Classes:** snow, ice and heather only. Rock, stone and wood cannot be class-matched, because v1's stills carry no class mask.
+
+**The home ground** (the start, the 5 ring stones and 3 fallen stones, the mere polygon, the barrow door) spans plate px x 590–3722, y 349–2144.
+
+**Minimum window = 3x3 canvases (9): cols 0–2, rows 0–2, plate px [0, 0, 4096, 2560].** It gives 40 trials and 10 repeats (snow 23, ice 7, heather 10), from 9 stills.
+
+**The binding constraint is the home ground's own extent, not the trial count.** Every 2 × 2 and 2 × 3 sub-block in that corner also reaches 40 + 10, but none contains all four home-ground features. (The mere's west shore at x 590, together with the barrow door at x ≈ 3540, needs three columns.)
+
+**Caveat.** The candidate classes come from the class map, not from painted pixels. Once the pilot is painted, the real generator must be re-run on its stills; the UNDERPOWERED guard applies before any judge.
+

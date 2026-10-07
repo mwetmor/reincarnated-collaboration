@@ -1,0 +1,221 @@
+{
+ "_what": "W-4(2): the minimum pilot window for a 40-trial content-controlled P11 (home ground), bv2art 5x5 grid",
+ "home_ground_px_bbox": [
+  590,
+  349,
+  3722,
+  2144
+ ],
+ "ring_placements": [
+  "stone_0",
+  "stone_1",
+  "stone_2",
+  "stone_3",
+  "stone_4",
+  "fallen_stone_0",
+  "fallen_stone_1",
+  "fallen_stone_2"
+ ],
+ "v1_pool": {
+  "heather": 353,
+  "snow": 429,
+  "ice": 61
+ },
+ "windows_tried": [
+  {
+   "canvases": 9,
+   "cols": [
+    0,
+    2
+   ],
+   "rows": [
+    0,
+    2
+   ],
+   "dims": "3x3",
+   "rect_px": [
+    0,
+    0,
+    4096,
+    2560
+   ],
+   "stills": 9,
+   "cand_pool": {
+    "ice": 328,
+    "heather": 152,
+    "snow": 252
+   },
+   "trials": 40,
+   "repeats": 10,
+   "by_class": {
+    "snow": 23,
+    "ice": 7,
+    "heather": 10
+   },
+   "ok": true
+  },
+  {
+   "canvases": 12,
+   "cols": [
+    0,
+    2
+   ],
+   "rows": [
+    0,
+    3
+   ],
+   "dims": "3x4",
+   "rect_px": [
+    0,
+    0,
+    4096,
+    3328
+   ],
+   "stills": 12,
+   "cand_pool": {
+    "ice": 328,
+    "heather": 167,
+    "snow": 311
+   },
+   "trials": 40,
+   "repeats": 10,
+   "by_class": {
+    "snow": 21,
+    "heather": 15,
+    "ice": 4
+   },
+   "ok": true
+  }
+ ],
+ "minimum": {
+  "canvases": 9,
+  "cols": [
+   0,
+   2
+  ],
+  "rows": [
+   0,
+   2
+  ],
+  "dims": "3x3",
+  "rect_px": [
+   0,
+   0,
+   4096,
+   2560
+  ],
+  "stills": 9,
+  "cand_pool": {
+   "ice": 328,
+   "heather": 152,
+   "snow": 252
+  },
+  "trials": 40,
+  "repeats": 10,
+  "by_class": {
+   "snow": 23,
+   "ice": 7,
+   "heather": 10
+  },
+  "ok": true
+ },
+ "caveat": "candidate classes come from the class map, not painted pixels; the painted pilot must be re-checked with the real generator (UNDERPOWERED guard) before the judge",
+ "smaller_windows_not_containing_all_home_ground_info": [
+  {
+   "cols": [
+    0,
+    1
+   ],
+   "rows": [
+    0,
+    1
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    1,
+    2
+   ],
+   "rows": [
+    0,
+    1
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    0,
+    1
+   ],
+   "rows": [
+    1,
+    2
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    1,
+    2
+   ],
+   "rows": [
+    1,
+    2
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    0,
+    1
+   ],
+   "rows": [
+    0,
+    2
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    1,
+    2
+   ],
+   "rows": [
+    0,
+    2
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    0,
+    2
+   ],
+   "rows": [
+    0,
+    1
+   ],
+   "trials": 40,
+   "repeats": 10
+  },
+  {
+   "cols": [
+    0,
+    2
+   ],
+   "rows": [
+    1,
+    2
+   ],
+   "trials": 40,
+   "repeats": 10
+  }
+ ]
+}

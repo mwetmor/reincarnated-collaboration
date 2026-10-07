@@ -69,3 +69,11 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - Re-run after LV's fix: `cd fid/ph/harness && python3 p6prime.py v7c`. The bars are frozen in `results/p6prime_calibration.json`; do not re-run `calibrate` unless re-registering.
 - [x] Re-run on the R-C9-181 refit (9601add8a): **P6′ = PASS** on all four components (calibration.md § 18). Bars unchanged. Hidden-by-design accepted only for circle_stones #2, #4, #5 (declared in 9601add8a). The calibration REDs still fail under the same readings. IoU 0.472 reported against 0.635.
 - [x] R-C9-182: R11 porch region pre-registered (§ 19, `904ac6dc0`), then measured (§ 20). Ruled region: PASS (13.117 vs body 12.273). Constructed RED: FAIL. Registered 1.287 m reading: 5.10 m, FAIL (non-binding). Cover clause: the tall part sits 4.8–8.1 m behind the outer face; the porch is 5.10 m at the door. I-R1 and I-R2 folded (§§ 17, 18).
+
+## § 15 art-first (R-C9-185/186)
+- [x] I-4 constructed 1.5 m-shift RED on bv2art: FAIL, 5 of 10 objects below the bar (calibration.md § 21).
+- [x] P6′ on the bv2art blockout (frozen bars): placement PASS, scale PASS; **presence RED**, reported, not adjusted (HALT for an LV fix):
+  - crag #2 and log #3 sit wholly below the sea surface;
+  - slope stone #4 is at the frame edge (13 px in frame).
+  - Re-run: `python3 harness/p6prime_art.py`.
+- [x] W-4(2): the minimum pilot window is 3 × 3 (cols 0–2, rows 0–2; 40 trials, 10 repeats). The home ground's extent decides it (§ 22). The conductor rules the pilot.
