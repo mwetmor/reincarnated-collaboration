@@ -1,0 +1,2939 @@
+{
+ "cells_reported": 25,
+ "class": "EVIDENCE",
+ "compare": {
+  "G1": true,
+  "G2": true,
+  "G3": true,
+  "G4": true,
+  "G5": true,
+  "G6": true,
+  "G7": true
+ },
+ "ctl_spec": null,
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 31.6,
+  "head": "8861f2488f22c914456ee25db7676dd43f25ea17",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "19218755bd2a4f9676a9c7b0bb0fbb367da65ec8",
+     "blob_live": "19218755bd2a4f9676a9c7b0bb0fbb367da65ec8",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "480cdb17e7839fd9b0dec0cf1b38fc3d1f1466f9",
+     "blob_live": "480cdb17e7839fd9b0dec0cf1b38fc3d1f1466f9",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "392717d83e86e666a871425af419809ea2b1c2b4",
+     "blob_live": "392717d83e86e666a871425af419809ea2b1c2b4",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "env_stripped_before_setting_join_keys": [],
+ "executes_set_A10": {
+  "TA-X-07 (conservation; G2 offered/applied chain)": true,
+  "TA-X-20 (hit-test predicate + multiplicity; G4 occupancy, bound radius)": true,
+  "TA-X-29 (global-magnitude fold; G2 pre_mitigation)": true,
+  "TA-X-30 (pursuit halt; G4 halt counters)": true
+ },
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 31.775657653808594,
+ "head_fixed": true,
+ "instrument_pinned": true,
+ "join_records": {
+  "bind_log": [
+   {
+    "bound_bits": "f64:3fc99999a0000000",
+    "kind": "cited-pre-import",
+    "row": 24,
+    "sealed_bits": "f64:3fc999999999999a",
+    "target": "fixture.SOULFIRE_PERIOD_S"
+   },
+   {
+    "bound_bits": "f64:3fc99999a0000000",
+    "kind": "attr",
+    "row": 25,
+    "sealed_bits": "f64:3fc99999a0000000",
+    "target": "secondary_streams.SOULFIRE_PERIOD_S"
+   },
+   {
+    "bits": "f64:3fc99999a0000000",
+    "kind": "read-back",
+    "row": 24,
+    "target": "energy.SoulfireCostTerm.interval_s (default)"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.resolve_hit",
+    "kind": "transcribed",
+    "row": 2,
+    "sealed": "reincarnated.simulation.kc2.threat:resolve_hit",
+    "target": "threat.resolve_hit"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.mitigate",
+    "kind": "transcribed",
+    "row": 3,
+    "sealed": "reincarnated.simulation.kc2.threat:mitigate",
+    "target": "threat.mitigate"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.physical_applied",
+    "kind": "transcribed",
+    "row": 4,
+    "sealed": "reincarnated.simulation.kc2.intake:physical_applied",
+    "target": "intake.physical_applied"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.applied_damage",
+    "kind": "dispatch-then-delegate",
+    "row": 5,
+    "sealed": "reincarnated.simulation.kc2.player_offense:applied_damage",
+    "target": "player_offense.applied_damage"
+   },
+   {
+    "kind": "alias-rebind",
+    "row": 6,
+    "target": "player_sustain._applied_damage",
+    "to": "player_offense.applied_damage"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.mitigation_at",
+    "kind": "transcribed",
+    "row": 7,
+    "sealed": "reincarnated.simulation.kc2.player_offense:mitigation_at",
+    "target": "player_offense.mitigation_at"
+   },
+   {
+    "kind": "alias-rebind",
+    "row": 6,
+    "target": "player_sustain._mitigation_at",
+    "to": "player_offense.mitigation_at"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.defence_of",
+    "kind": "transcribed",
+    "row": 8,
+    "sealed": "reincarnated.simulation.kc2.summon_offense:defence_of",
+    "target": "summon_offense.defence_of"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.resist_column_for",
+    "kind": "transcribed",
+    "row": 9,
+    "sealed": "reincarnated.simulation.kc2.summon_offense:resist_column_for",
+    "target": "summon_offense.resist_column_for"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.applied_for",
+    "kind": "transcribed",
+    "row": 10,
+    "sealed": "reincarnated.simulation.kc2.summon_offense:applied_for",
+    "target": "summon_offense.applied_for"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.soulfire_applied",
+    "kind": "transcribed",
+    "row": 11,
+    "sealed": "reincarnated.simulation.kc2.secondary_streams:SecondaryStreams.soulfire_applied",
+    "target": "secondary_streams.SecondaryStreams.soulfire_applied"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.bleed_dps_against",
+    "kind": "transcribed",
+    "row": 12,
+    "sealed": "reincarnated.simulation.kc2.secondary_streams:SecondaryStreams.bleed_dps_against",
+    "target": "secondary_streams.SecondaryStreams.bleed_dps_against"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.pth_for",
+    "kind": "dispatch-then-delegate",
+    "row": 14,
+    "sealed": "reincarnated.simulation.kc2.measured_board:MeasuredBoardFold.pth_for",
+    "target": "measured_board.MeasuredBoardFold.pth_for"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.stop_where_close_enough (staticmethod)",
+    "kind": "transcribed",
+    "row": 16,
+    "sealed": "reincarnated.simulation.kc2.gd_reposition:GdRepositionFold._stop_where_close_enough",
+    "target": "gd_reposition.GdRepositionFold._stop_where_close_enough"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.__post_init__",
+    "kind": "dispatch-then-delegate",
+    "row": 31,
+    "sealed": "reincarnated.simulation.kc2.player_offense:PlayerOffense.__post_init__",
+    "target": "player_offense.PlayerOffense.__post_init__"
+   },
+   {
+    "installed": [
+     "gd_reposition.GdRepositionFold._stop_where_close_enough",
+     "intake.physical_applied",
+     "measured_board.MeasuredBoardFold.pth_for",
+     "player_offense.PlayerOffense.__post_init__",
+     "player_offense.applied_damage",
+     "player_offense.mitigation_at",
+     "secondary_streams.SecondaryStreams.bleed_dps_against",
+     "secondary_streams.SecondaryStreams.soulfire_applied",
+     "summon_offense.applied_for",
+     "summon_offense.defence_of",
+     "summon_offense.resist_column_for",
+     "threat.mitigate",
+     "threat.resolve_hit"
+    ],
+    "kind": "summary",
+    "n_installed": 13,
+    "row": null
+   }
+  ],
+  "bind_log_identical_across_pids": true,
+  "hits": [
+   [
+    1468,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1468,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1468,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1468,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1468,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1476,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1497,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1551,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1570,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1590,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1612,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1634,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1656,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1672,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1693,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1734,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1751,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1773,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1799,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1822,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1844,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1869,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1889,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1922,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    1982,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2010,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2026,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2047,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2095,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "arena_fold.ArenaFold.clamp_body",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "disc.MovingDisc.resolve_tick",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough",
+    "foreign",
+    null
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "gd_reposition.GdRepositionFold.waypoint",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "intake.IntakeFold.physical",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "locomotion.Mover.step",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "measured_board.MeasuredBoardFold.pth_for",
+    "foreign",
+    null
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "player_offense.PlayerOffense.__post_init__",
+    "foreign",
+    null
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.__post_init__",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "player_sustain.PlayerSustainFold.heal_from_pool",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.bleed_dps_against",
+    "foreign",
+    null
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "secondary_streams.SecondaryStreams.soulfire_applied",
+    "foreign",
+    null
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.due",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "summon_offense.SummonOffenseFold.swing",
+    "emitter-wrapper",
+    "foreign"
+   ],
+   [
+    2121,
+    "fingerprint class not allowed",
+    "threat.ThreatEngine.resolve_attack",
+    "emitter-wrapper",
+    "foreign"
+   ]
+  ],
+  "n_records": 26,
+  "pass": false,
+  "tree": {
+   "duplicates": [],
+   "emitter_pids": [
+    1468
+   ],
+   "expected_n_cells": 25,
+   "extra": [],
+   "grid_equal": true,
+   "launcher_pid": 1438,
+   "missing": [],
+   "mode": "emitter",
+   "n_cells": 25,
+   "n_pids": 26,
+   "pass": false,
+   "tree_ok": true,
+   "unexpected": []
+  },
+  "tree_ok": true
+ },
+ "launcher_pid": 1438,
+ "mode": "join",
+ "pass": false,
+ "prediction": "P-J2-2 GOLDEN MASTER: J-S8 7/7 ROWSET-equal to f82807fb with the rulebook installed at GD INCLUDING the D-1 binding (C-1(a), = R3-F32); TA-X-07/20/29/30 reported equal; 25 cells foreign_reads=0; exact tree over 26 join-hook records; every pid's bind log installs the same 13 rows + rows 24/25 and reads back interval_s = 0x3fc99999a0000000; (E3b amendment, before this mode's run) every NON-substituted census symbol present in a pid is EQUAL to the sealed census or an EMITTER WRAPPER of a sealed kc2 object, and every substituted symbol is owned by join2_rulebook or is an EMITTER WRAPPER of a join2_rulebook object",
+ "profile": "gd",
+ "rehome": null,
+ "reproduces_7_of_7": true,
+ "start": {
+  "free_gib": 31.8,
+  "head": "8861f2488f22c914456ee25db7676dd43f25ea17",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "19218755bd2a4f9676a9c7b0bb0fbb367da65ec8",
+     "blob_live": "19218755bd2a4f9676a9c7b0bb0fbb367da65ec8",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "480cdb17e7839fd9b0dec0cf1b38fc3d1f1466f9",
+     "blob_live": "480cdb17e7839fd9b0dec0cf1b38fc3d1f1466f9",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "392717d83e86e666a871425af419809ea2b1c2b4",
+     "blob_live": "392717d83e86e666a871425af419809ea2b1c2b4",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ }
+}

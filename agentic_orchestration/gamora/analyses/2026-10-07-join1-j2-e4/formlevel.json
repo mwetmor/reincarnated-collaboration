@@ -1,0 +1,36 @@
+{
+ "A13-div": {
+  "pass": true,
+  "red": 146,
+  "rulebook_equals_sealed_twin_row_for_row": true
+ },
+ "NC-J2-1": {
+  "pass": true,
+  "pth_effective_only": 77,
+  "red": 140,
+  "return_differs": 63,
+  "rows_at_55_green": true
+ },
+ "NC-J2-11a": {
+  "above_2_ulp": 0,
+  "differing": 46830,
+  "max_ulp": 2.0,
+  "pairs": 158000,
+  "pass": true
+ },
+ "NC-J2-11b": {
+  "limb1_physical_bit_exact": 170,
+  "limb1_physical_mismatch": 0,
+  "limb2_all_absorb_max_ulp": 1.0,
+  "limb2_over2_equals_overflow_set": true,
+  "limb2_over_2ulp": 138,
+  "limb2_overflow_bearing": 138,
+  "n_nonphys": 505,
+  "n_physical": 170,
+  "nonphys_max_ulp": 1.0,
+  "nonphys_unverifiable": 0,
+  "nonphys_verifiable": 505,
+  "pass": true
+ },
+ "rulebook_pkg": "/Users/admin/Games/reincarnated-engine-join2-rb/src/join2_rulebook"
+}

@@ -1,0 +1,316 @@
+{
+ "cells": {
+  "M-POL-2:0": {
+   "foreign_reads": {
+    "JOIN": 0,
+    "ORACLE": 0
+   },
+   "grains_row_equal": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "pass": true,
+   "readback": {
+    "JOIN": {
+     "PlayerOffense._acc.hits_per_tick (live instances)": [],
+     "energy.SoulfireCostTerm.interval_s (default)": "3fc99999a0000000",
+     "secondary_streams.SOULFIRE_PERIOD_S": "3fc99999a0000000"
+    },
+    "ORACLE": {
+     "PlayerOffense._acc.hits_per_tick (live instances)": [],
+     "energy.SoulfireCostTerm.interval_s (default)": "3fc999999999999a",
+     "secondary_streams.SOULFIRE_PERIOD_S": "3fc99999a0000000"
+    }
+   },
+   "readback_pass": true,
+   "sites": {
+    "gd_reposition.GdRepositionFold._stop_where_close_enough": {
+     "class": "T",
+     "join_form": 15463,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 15463,
+     "pass": true,
+     "row": 16
+    },
+    "intake.physical_applied": {
+     "class": "T",
+     "join_form": 6606,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 6606,
+     "pass": true,
+     "row": 4
+    },
+    "measured_board.MeasuredBoardFold.pth_for": {
+     "class": "D",
+     "join_form": 1634,
+     "join_sealed": 1634,
+     "join_sealed_by_caller": {
+      "join2_rulebook/forms.py:bind.<locals>.pth_for_": 1634
+     },
+     "oracle_sealed": 1634,
+     "pass": true,
+     "row": 14
+    },
+    "player_offense.PlayerOffense.__post_init__": {
+     "class": "D",
+     "join_form": 16,
+     "join_sealed": 16,
+     "join_sealed_by_caller": {
+      "join2_rulebook/forms.py:bind.<locals>.post_init_": 16
+     },
+     "oracle_sealed": 16,
+     "pass": true,
+     "row": 31
+    },
+    "player_offense.applied_damage": {
+     "class": "D",
+     "join_form": 22905,
+     "join_sealed": 24062,
+     "join_sealed_by_caller": {
+      "join2_rulebook/families.py:summon_applied": 1157,
+      "join2_rulebook/forms.py:bind.<locals>.applied_damage_": 22905
+     },
+     "oracle_sealed": 24062,
+     "pass": true,
+     "row": 5
+    },
+    "player_offense.mitigation_at": {
+     "class": "T",
+     "join_form": 85462,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 85462,
+     "pass": true,
+     "row": 7
+    },
+    "secondary_streams.SecondaryStreams.bleed_dps_against": {
+     "class": "T",
+     "join_form": 14318,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 14318,
+     "pass": true,
+     "row": 12
+    },
+    "secondary_streams.SecondaryStreams.soulfire_applied": {
+     "class": "T",
+     "join_form": 10403,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 10403,
+     "pass": true,
+     "row": 11
+    },
+    "summon_offense.applied_for": {
+     "class": "T",
+     "join_form": 2314,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 2314,
+     "pass": true,
+     "row": 10
+    },
+    "summon_offense.defence_of": {
+     "class": "T",
+     "join_form": 1157,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 1157,
+     "pass": true,
+     "row": 8
+    },
+    "summon_offense.resist_column_for": {
+     "class": "S",
+     "join_form": 0,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 2314,
+     "pass": true,
+     "row": 9
+    },
+    "threat.mitigate": {
+     "class": "T",
+     "join_form": 4659,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 4659,
+     "pass": true,
+     "row": 3
+    },
+    "threat.resolve_hit": {
+     "class": "T",
+     "join_form": 2791,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 2791,
+     "pass": true,
+     "row": 2
+    }
+   }
+  },
+  "W1-NULL:3": {
+   "foreign_reads": {
+    "JOIN": 0,
+    "ORACLE": 0
+   },
+   "grains_row_equal": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "pass": true,
+   "readback": {
+    "JOIN": {
+     "PlayerOffense._acc.hits_per_tick (live instances)": [],
+     "energy.SoulfireCostTerm.interval_s (default)": "3fc99999a0000000",
+     "secondary_streams.SOULFIRE_PERIOD_S": "3fc99999a0000000"
+    },
+    "ORACLE": {
+     "PlayerOffense._acc.hits_per_tick (live instances)": [],
+     "energy.SoulfireCostTerm.interval_s (default)": "3fc999999999999a",
+     "secondary_streams.SOULFIRE_PERIOD_S": "3fc99999a0000000"
+    }
+   },
+   "readback_pass": true,
+   "sites": {
+    "gd_reposition.GdRepositionFold._stop_where_close_enough": {
+     "class": "T",
+     "join_form": 16890,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 16890,
+     "pass": true,
+     "row": 16
+    },
+    "intake.physical_applied": {
+     "class": "T",
+     "join_form": 8376,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 8376,
+     "pass": true,
+     "row": 4
+    },
+    "measured_board.MeasuredBoardFold.pth_for": {
+     "class": "D",
+     "join_form": 2017,
+     "join_sealed": 2017,
+     "join_sealed_by_caller": {
+      "join2_rulebook/forms.py:bind.<locals>.pth_for_": 2017
+     },
+     "oracle_sealed": 2017,
+     "pass": true,
+     "row": 14
+    },
+    "player_offense.PlayerOffense.__post_init__": {
+     "class": "D",
+     "join_form": 16,
+     "join_sealed": 16,
+     "join_sealed_by_caller": {
+      "join2_rulebook/forms.py:bind.<locals>.post_init_": 16
+     },
+     "oracle_sealed": 16,
+     "pass": true,
+     "row": 31
+    },
+    "player_offense.applied_damage": {
+     "class": "D",
+     "join_form": 23937,
+     "join_sealed": 25070,
+     "join_sealed_by_caller": {
+      "join2_rulebook/families.py:summon_applied": 1133,
+      "join2_rulebook/forms.py:bind.<locals>.applied_damage_": 23937
+     },
+     "oracle_sealed": 25070,
+     "pass": true,
+     "row": 5
+    },
+    "player_offense.mitigation_at": {
+     "class": "T",
+     "join_form": 88443,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 88443,
+     "pass": true,
+     "row": 7
+    },
+    "secondary_streams.SecondaryStreams.bleed_dps_against": {
+     "class": "T",
+     "join_form": 14918,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 14918,
+     "pass": true,
+     "row": 12
+    },
+    "secondary_streams.SecondaryStreams.soulfire_applied": {
+     "class": "T",
+     "join_form": 10868,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 10868,
+     "pass": true,
+     "row": 11
+    },
+    "summon_offense.applied_for": {
+     "class": "T",
+     "join_form": 2266,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 2266,
+     "pass": true,
+     "row": 10
+    },
+    "summon_offense.defence_of": {
+     "class": "T",
+     "join_form": 1133,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 1133,
+     "pass": true,
+     "row": 8
+    },
+    "summon_offense.resist_column_for": {
+     "class": "S",
+     "join_form": 0,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 2266,
+     "pass": true,
+     "row": 9
+    },
+    "threat.mitigate": {
+     "class": "T",
+     "join_form": 5839,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 5839,
+     "pass": true,
+     "row": 3
+    },
+    "threat.resolve_hit": {
+     "class": "T",
+     "join_form": 3150,
+     "join_sealed": 0,
+     "join_sealed_by_caller": {},
+     "oracle_sealed": 3150,
+     "pass": true,
+     "row": 2
+    }
+   }
+  }
+ },
+ "engine_head": "8861f2488f22c914456ee25db7676dd43f25ea17",
+ "pass": true
+}

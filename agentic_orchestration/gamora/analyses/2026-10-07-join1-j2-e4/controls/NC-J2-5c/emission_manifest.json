@@ -1,0 +1,5467 @@
+{
+ "fixture_id": "join1-gm-fixture-v1",
+ "side": "oracle",
+ "status": "DRY-RUN · NOT THE FIXTURE",
+ "referent_status": "REFERENT-v1 CANDIDATE at the FROZEN v3.11 oracle (Matt Q102; charter v0.6; KC2 ledger KP-235); RE-FROZEN, never amended, if the T-A attempt forces an oracle change, or if Matt's T-C moves the reference",
+ "emission_is_not_a_graded_run": true,
+ "graded_run_definition_quoted": "one execution of the 5 x 5 matrix producing a conforming verdict file",
+ "control": null,
+ "config": "ORACLE",
+ "composition": "gamora_kc2_play_v3p11_oracle_2026_10_02.run_one('V311-FULL', (salt,), c11a._period(), arm=arm): the v3.10 oracle of record (Folds310 V310-FULL) + ReferentLineupFold + MutatorFold(all six), under V8.graded_arm(arm) on the graded call only (period_s given): M0 seat=False; M-POL-2 the seat; M-POL-2-NULL the seat with ChannelPolicyFold constructed armed=False; W1 seat + ArenaFold(armed=True, avoidance=True); W1-NULL seat + ArenaFold(armed=False). The v3.11 oracle FROZEN per Matt Q102 (charter v0.6); one fresh interpreter per (arm, salt).",
+ "scope": {
+  "arms": [
+   "M0",
+   "M-POL-2",
+   "M-POL-2-NULL",
+   "W1",
+   "W1-NULL"
+  ],
+  "salts": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "window": "151..terminal_wave per cell (Leg A, R-SCOPE ADDENDUM-2 § B1); terminal_wave = first wave with a player death, else 160",
+  "window_bounds_waves": [
+   151,
+   160
+  ],
+  "leg_b_note": "an exception raised in a Leg-B continuation wave, past the Leg-A terminal, still sets terminal_reason raised:<T> (conservative; jack-ryan INFO-2)"
+ },
+ "oracle_tag": "kc2/referent-v1-oracle-candidate-v311",
+ "oracle_tag_object": "edf10186175d9c6f3c0389da690f602361a6d683",
+ "oracle_composition_config": "V311-FULL",
+ "superseded_oracle_tag": "kc2/referent-v1-oracle-candidate (-> 22cd2288)",
+ "oracle_commit": "969fbd8d3cb7d07d05c22c80ee925dd34444118c",
+ "oracle_kc2_tree_oid": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+ "oracle_kc2_tree_oid_label": "GIT TREE OID",
+ "substrate": {
+  "model": {
+   "dir": "kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+   "ROWSET_pack_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "manifest_pack_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "n_members": 21,
+   "member_failures": [],
+   "manifest_FILE_sha256": "7549e8f7689071777f164da5002ed650ffb1e093a5e5e85c6944ec9314f03cc3",
+   "cross_pin_model_pack_digest": null,
+   "self_consistent": true
+  },
+  "reference": {
+   "dir": "kc2-reference-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143",
+   "ROWSET_pack_digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+   "manifest_pack_digest": "af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+   "n_members": 7,
+   "member_failures": [],
+   "manifest_FILE_sha256": "159be540bf6326c3f2b02d07a27d212cc2e2db662c06b3dadf9c9cbb70b718eb",
+   "cross_pin_model_pack_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+   "self_consistent": true
+  },
+  "cross_pin_verified": true
+ },
+ "substrate_epoch": "v3.11 / model 997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788 / reference af58ef4009029c99a618586f1bfccbd05a91fb381d49bd5483b7dce6eefeac1c",
+ "emitter": {
+  "path": "src/reincarnated/simulation/scripts/gamora_join1_gm_emit_2026_09_29.py",
+  "FILE_sha256": "00e8edf440bb2714377112439d809084c2fbc19bc35a45889fc4b2d4264bfe03"
+ },
+ "normaliser": {
+  "path": "src/reincarnated/simulation/scripts/join1_stdout_normalise.sed",
+  "FILE_sha256": "da5d148aff98113c736be70354c0e3252d9d6867f74dd42c7abe69beaae75c3c"
+ },
+ "interpreter": {
+  "python": "3.12.0",
+  "PYTHONHASHSEED": "0",
+  "PYTHONDONTWRITEBYTECODE": "1"
+ },
+ "readings": {
+  "R-SCOPE": {
+   "status": "RULED",
+   "text": "§ B1 (conductor): Leg A both sides -- waves 151..terminal_wave (first death, else 160); the composition's Leg-B continuation is run verbatim and not emitted."
+  },
+  "R-TICK": {
+   "status": "RULED",
+   "text": "§ B1: tick = RUN tick (run_tick_base + k); wave 151's base is 0; G2's tick is the CAST tick."
+  },
+  "R-G1-PTH": {
+   "status": "RULED",
+   "text": "§ B2 (conductor): pth_raw = probability_to_hit's return (the equation); pth_used = the value handed to resolve_hit (board.pth_for where it substitutes); pth_effective = max(pth_used, threat.PTH_MINIMUM) read live -- RECOMPUTED."
+  },
+  "R-G1-POP": {
+   "status": "RULED",
+   "text": "§ B2 (conductor): one row per resolve_hit call; population = monster (ThreatEngine.resolve_attack) | summon (SummonOffenseFold.swing, one per target)."
+  },
+  "R-G2-GRAIN": {
+   "status": "RULED",
+   "text": "§ B3: one row per threat.mitigate call inside resolve_attack (one damage row); applied = Mitigation.applied; dropped/voided (application-grain deferral fates) and after_global_flat (an operand table, not a stage) NOT emitted."
+  },
+  "R-G2-STAGES": {
+   "status": "RULED",
+   "text": "§ B3: six regions in REGIONS order, observed from the primary physical_applied call's armour_branch calls; A->R after_stage_2 RECOMPUTED with the oracle's expression and listed in `recomputed`."
+  },
+  "R-G3": {
+   "status": "RULED",
+   "text": "§ B4: intake_hp, heal_hp, n_leech_events (PlayerSustainFold.n_heal_events delta), n_bodies_hit (sum of heal_from_pool's n_bodies); leech_per_body, n_leech_target_caps_applied, n_leech_tick_caps_applied DROPPED (no oracle code path)."
+  },
+  "R-G4": {
+   "status": "RULED",
+   "text": "§ B5 (conductor: the TA-X-30(b) law): n_bodies_halted = player-targeted steps with Mover.mech_ring_halt_step; n_bodies_halted_beyond_d_engage = player-targeted steps STOPPED by ArenaFold.clamp_body with pre-step dist > the step's d_engage_m; max_halt_distance_m over those (dist RECOMPUTED as the step's hypot); blocker- and alert-hold stops excluded."
+  },
+  "R-G5": {
+   "status": "RULED",
+   "text": "§ B6: terminal_reason in {player_death, survived_window, raised:<T>, harness_error:<T>}; raised = any exception escaping threat.mitigate / run.simulate_wave (a 'runs' FAIL, charter § 4.5)."
+  },
+  "R-G6": {
+   "status": "RULED",
+   "text": "§ B6: no oracle code path puts a status on a monster; G6 named and empty, UNEXERCISED-IN-REFERENT-V1."
+  },
+  "R-G7": {
+   "status": "RULED",
+   "text": "§ B6: tick_period_s (the oracle's own period) REPLACES tick_rate_hz (#12, named); phase_offset = wave 151's run_tick_base."
+  },
+  "R-ROWSET-SEP": {
+   "status": "RULED",
+   "text": "§ B6: ROWSET_LAW above, printed verbatim on the manifest."
+  },
+  "R-G4-V311": {
+   "status": "RULED",
+   "text": "ADDENDUM-3 § C2 (the § B5 law bound to the v3.11 mechanics; ACCEPTED at the J0-F Gate-2, collab 608eaef56), rationale RESTATED by ADDENDUM-5 § E1: a step aimed at a GdRepositionFold WAYPOINT (waypoint() returned non-None for that body, that tick) is NOT a player-targeted pursuit step, whatever mech_is_player_target_step says (run.py hands the waypoint in the player_xy slot) -- prereg v1.15 (b') draws the same line (non-waypoint); most waypoints are INTERCEPTS placed where the body first comes within reach R, and the halt AT the player is observed one tick later as the GD Attack stand. The step's own d_engage_m (gd_engagement.halt_for: the chosen reach, or the current distance in Attack) is the law's operand, literally; a STATIONARY body is counted when the ring clip binds; an EMERGING body is not player-targeted (oracle verdict). CENSUS IDENTITY (ADDENDUM-5 § E1): an Attack-stand step always counts (dist - op = 0 exactly), every pursue-branch step is waypoint-aimed, and the no-state 2.4 m branch is the only other route, so on the V311-FULL baseline n_bodies_halted is a per-tick count of roster bodies in GD's Attack state (M-POL-2/0: 9,032 = 9,032); the field name is frozen and NOT renamed."
+  }
+ },
+ "readings_authority": {
+  "addendum_2": {
+   "path": "src/reincarnated/simulation/math/kc2-join1-golden-master-instrument-2026-09-29-ADDENDUM-2.md",
+   "FILE_sha256": "b482f58086459178138f4055cd59e26125f87e5cefd570b34ad4cc0e4ad57fe4"
+  },
+  "addendum_3": {
+   "path": "src/reincarnated/simulation/math/kc2-join1-golden-master-instrument-2026-09-29-ADDENDUM-3.md",
+   "FILE_sha256": "69e3d7ab47bb544aa068da8a9a13b8d6a5a2ca2f7884ed6b7620a376da078b0c"
+  },
+  "addendum_5": {
+   "path": "src/reincarnated/simulation/math/kc2-join1-golden-master-instrument-2026-09-29-ADDENDUM-5.md",
+   "FILE_sha256": "ff1d55ae85d3dbe0ed2106f10b900c5dbe2506221974ead67992d86c5b6ca5fa"
+  },
+  "jack_ryan_recheck": null,
+  "jack_ryan_recheck_scope": "ADDENDUM-2 readings (at 22cd2288); the ADDENDUM-3 v3.11 bindings (R-G4-V311) are checked at the J0-F Gate-2; a rejection RE-FREEZES, never amends"
+ },
+ "rowset_law": "ROWSET = sha256 over UTF-8 bytes of the rows joined by exactly one '\\n' (no trailing newline). Rows sorted ascending by the grain's KEY tuple, compared element-wise: integers numerically, strings by Unicode code point. Each row is the JSON array (separators ',' and ':', no spaces, ensure_ascii=false) of the row's fields in SCHEMA order (key fields first, then value fields), where every float64 is replaced by the string 'f64:' + its big-endian IEEE-754 bit pattern as 16 lowercase hex digits (ADDENDUM-1 § A5; Python struct.pack('>d', x).hex()); null, true, false, integers and strings are JSON literals; a list is a JSON array under the same rules.",
+ "file_digest_law": "sha256 over the stored file's bytes (.jsonl, or .jsonl.gz when compressed), exactly as shasum -a 256 reports",
+ "size_rule": "ADDENDUM-1 § A4 (closed before any diff): a grain file over 50 MB (50 x 10^6 bytes) is stored gzipped (level 9, mtime 0, no name); FILE digest over the .jsonl.gz bytes, ROWSET over the uncompressed canonical rows; uncompressed_sha256 also printed",
+ "schema": {
+  "G1": {
+   "key": [
+    "arm",
+    "salt",
+    "tick",
+    "attacker_id",
+    "slot",
+    "attempt_ord"
+   ],
+   "fields": [
+    "population",
+    "oa_folded",
+    "da_used",
+    "pth_raw",
+    "pth_used",
+    "pth_effective",
+    "roll",
+    "hit",
+    "damage_multiplier",
+    "crit_tier"
+   ]
+  },
+  "G2": {
+   "key": [
+    "arm",
+    "salt",
+    "tick",
+    "source_id",
+    "packet_ord"
+   ],
+   "fields": [
+    "family",
+    "pre_mitigation",
+    "resist_used_frac",
+    "stage_order",
+    "regions",
+    "after_stage_1",
+    "after_stage_2",
+    "recomputed",
+    "armour_branch",
+    "applied",
+    "attribution"
+   ]
+  },
+  "G3": {
+   "key": [
+    "arm",
+    "salt",
+    "wave"
+   ],
+   "fields": [
+    "intake_hp",
+    "heal_hp",
+    "n_leech_events",
+    "n_bodies_hit"
+   ]
+  },
+  "G4": {
+   "key": [
+    "arm",
+    "salt",
+    "tick"
+   ],
+   "fields": [
+    "n_bodies_in_disc",
+    "min_body_distance_m",
+    "n_bodies_halted",
+    "n_bodies_halted_beyond_d_engage",
+    "max_halt_distance_m"
+   ]
+  },
+  "G5": {
+   "key": [
+    "arm",
+    "salt"
+   ],
+   "fields": [
+    "terminal_wave",
+    "terminal_reason",
+    "death_tick",
+    "final_hp",
+    "n_ticks"
+   ]
+  },
+  "G6": {
+   "key": [
+    "arm",
+    "salt",
+    "tick",
+    "target_id",
+    "status_id"
+   ],
+   "fields": [
+    "event",
+    "stacks",
+    "expiry_tick"
+   ]
+  },
+  "G7": {
+   "key": [
+    "arm",
+    "salt",
+    "wave"
+   ],
+   "fields": [
+    "tick_period_s",
+    "phase_offset",
+    "n_ticks",
+    "wave_start_tick",
+    "wave_end_tick"
+   ]
+  }
+ },
+ "grains": {
+  "G1": {
+   "rows": 99982,
+   "file": "G1.jsonl",
+   "bytes": 36931284,
+   "uncompressed_bytes": 36931284,
+   "uncompressed_sha256": "f83601695fabae77af004ceb782c623e0bcefda331571d8c1f270d33e9e44e20",
+   "file_sha256": "f83601695fabae77af004ceb782c623e0bcefda331571d8c1f270d33e9e44e20",
+   "rowset_sha256": "7219124059055efed869493772548b3c24d8e28923d5399b1947cb0217a1d89d",
+   "compressed": false
+  },
+  "G2": {
+   "rows": 158676,
+   "file": "G2.jsonl.gz",
+   "bytes": 2911151,
+   "uncompressed_bytes": 87801781,
+   "uncompressed_sha256": "edd032b53eaa55e8e06d2256e15e904107d2cfa9360f715b2378b335a41a1034",
+   "file_sha256": "9849d968efe5188a460ba744038782eb36e7a0b6ac3d5d172db26dbb4d41804f",
+   "rowset_sha256": "3ff04498d85010a7db896e6425713a2457a2c19445225aca4235c68c000c392a",
+   "compressed": true
+  },
+  "G3": {
+   "rows": 250,
+   "file": "G3.jsonl",
+   "bytes": 37217,
+   "uncompressed_bytes": 37217,
+   "uncompressed_sha256": "d099e70f010f2a1cad27896ff52bae2b7b0511f4ef2add680d1cc5261851b090",
+   "file_sha256": "d099e70f010f2a1cad27896ff52bae2b7b0511f4ef2add680d1cc5261851b090",
+   "rowset_sha256": "a4ff8ab8376b338fdcf5f292869f39d19830c1167ba424e1ce350c176a5a948a",
+   "compressed": false
+  },
+  "G4": {
+   "rows": 151755,
+   "file": "G4.jsonl",
+   "bytes": 29930221,
+   "uncompressed_bytes": 29930221,
+   "uncompressed_sha256": "619fefebbccbb675a11802df5a70d121451c7068326e3b4cfebd59a099316029",
+   "file_sha256": "619fefebbccbb675a11802df5a70d121451c7068326e3b4cfebd59a099316029",
+   "rowset_sha256": "5e5ed4247127d3f96204bedcff16f01c1cf1a052d40a4199261a6fcfdd8ec4ad",
+   "compressed": false
+  },
+  "G5": {
+   "rows": 25,
+   "file": "G5.jsonl",
+   "bytes": 3669,
+   "uncompressed_bytes": 3669,
+   "uncompressed_sha256": "b350153a7aefec49191f49100fb2a1ed19dc5be232a11c1bb1ea9b339b75cf1c",
+   "file_sha256": "b350153a7aefec49191f49100fb2a1ed19dc5be232a11c1bb1ea9b339b75cf1c",
+   "rowset_sha256": "ffd3f72ba3f36336ec9ebd11b981e81ef5702bc64f6c1f8c8c680927a32f6b47",
+   "compressed": false
+  },
+  "G6": {
+   "rows": 0,
+   "file": "G6.jsonl",
+   "bytes": 0,
+   "uncompressed_bytes": 0,
+   "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "rowset_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "compressed": false
+  },
+  "G7": {
+   "rows": 250,
+   "file": "G7.jsonl",
+   "bytes": 40390,
+   "uncompressed_bytes": 40390,
+   "uncompressed_sha256": "cb24d37f93706cbca43c20c918eb5ee8e3156b8f84646fdd0c8e5b47978e7bd5",
+   "file_sha256": "cb24d37f93706cbca43c20c918eb5ee8e3156b8f84646fdd0c8e5b47978e7bd5",
+   "rowset_sha256": "4a73546ba1ea472b46a236b594fd5c583b3ba3c5c4cb3dfe4774838b2aab84ce",
+   "compressed": false
+  }
+ },
+ "unexercised": {
+  "G6": "UNEXERCISED-IN-REFERENT-V1 (R-G6)",
+  "G1_floor_and_sub_threshold_branch": "PARTIAL: the sub-threshold branch is exercised (326 attempts with pth_used < 70) but the floor limb (PTH_MINIMUM = 55) is UNEXERCISED-IN-REFERENT-V1: min pth_used 67.26147111046399; a floor change <= min pth_used, or removing the floor, is INVISIBLE to J-S8.",
+  "G4_beyond_and_max_halt": "UNEXERCISED-IN-REFERENT-V1 (ADDENDUM-5 § E2, jack-ryan WARN-B): n_bodies_halted_beyond_d_engage = 0 and max_halt_distance_m = null on all 151755 G4 rows, every cell; a port that hard-codes them passes J-S8 on both fields. J-S8 is not TA-X-30(b') evidence: cite as 'vacuous outside W1; 5/5 W1 salts distinct'.",
+  "G1_floor_grid": "the floor limb is witnessed OUTSIDE this fixture by the supplementary grid join1-hitchance-grid-v1 (ADDENDUM-6), not by any cell here"
+ },
+ "g4_constant_fields_check": {
+  "n_rows": 151755,
+  "n_beyond_nonzero": 0,
+  "n_max_halt_non_null": 0
+ },
+ "distinct_trajectories": 15,
+ "w1_armed_vs_null_distinct_salts": {
+  "n_distinct": 5,
+  "n_pairs": 5
+ },
+ "trajectory_classes": [
+  [
+   "M-POL-2-NULL|0",
+   "M0|0"
+  ],
+  [
+   "M-POL-2-NULL|1",
+   "M0|1"
+  ],
+  [
+   "M-POL-2-NULL|2",
+   "M0|2"
+  ],
+  [
+   "M-POL-2-NULL|3",
+   "M0|3"
+  ],
+  [
+   "M-POL-2-NULL|4",
+   "M0|4"
+  ],
+  [
+   "M-POL-2|0",
+   "W1-NULL|0"
+  ],
+  [
+   "M-POL-2|1",
+   "W1-NULL|1"
+  ],
+  [
+   "M-POL-2|2",
+   "W1-NULL|2"
+  ],
+  [
+   "M-POL-2|3",
+   "W1-NULL|3"
+  ],
+  [
+   "M-POL-2|4",
+   "W1-NULL|4"
+  ],
+  [
+   "W1|0"
+  ],
+  [
+   "W1|1"
+  ],
+  [
+   "W1|2"
+  ],
+  [
+   "W1|3"
+  ],
+  [
+   "W1|4"
+  ]
+ ],
+ "trajectory_census_law": "per cell: sha256 over every row of every grain in SCHEMA order, KEY-sorted, the `arm` field removed, each row the ROWSET canonical JSON array + '\\n', each grain closed by 0x1e + its name; equal digests = one trajectory (ADDENDUM-5 § E2). Do not count cells as independent witnesses.",
+ "reproduction": "LOCATION-SENSITIVE (ADDENDUM-5 § E3, jack-ryan INFO-1): the oracle resolves its 14 content-pinned Lap Z inputs from reincarnated-collaboration RELATIVE TO THE SEALED WORKTREE'S PARENT DIRECTORY; the worktree must sit beside reincarnated-collaboration (or beside a symlink of that name to it), else every cell refuses with RingSubstrateError: Lap Z artifact ABSENT.",
+ "warn1_recheck_v311": {
+  "n_attempts": 99982,
+  "n_monster": 52499,
+  "n_summon": 47483,
+  "min_pth_used": 67.26147111046399,
+  "min_pth_raw": 66.80545402122416,
+  "n_pth_raw_below_70": 946,
+  "n_pth_used_below_70": 326,
+  "n_pth_used_below_55_floor_binds": 0
+ },
+ "limb_c_exception_list": "EMPTY for join1-gm-fixture-v1 (jack-ryan WARN-3): J-P2 § 4's one closed exception names G2's global-magnitude chain `om`, which is NOT emitted; om reaches the fixture only inside pre_mitigation, which is under Limb B (IEEE-754 bit-equality). Stated at freeze, before any diff: no tolerance may be granted to pre_mitigation after a diff exists (the WARN-16 shape). Consequence named: the port's 1-2 ulp pre_mitigation differences (KP-204 finding 2) are Limb-B RED against this fixture, not covered by Limb C.",
+ "warn2_nc4b": "NC-4b (jack-ryan WARN-2): a refusal first raised inside a recorded wave after 151; predicted in writing in ADDENDUM-3 § C3 BEFORE its run; it runs against this frozen fixture and its result is recorded in the freeze record (ledger), never on this manifest (frozen, never amended).",
+ "inertness_bare_vs_hooked": null,
+ "obs1_guard_of_record": {
+  "module": "src/reincarnated/simulation/scripts/gamora_join1_obs1_guard_2026_10_02.py",
+  "module_commit": "9c756081",
+  "FILE_sha256": "5f3f4f1e29d147e528709ef317b20ae226edc04c60534d9d506e987d5a3b54d2",
+  "function": "cell_check(res, (salt,), period_s), applied per (arm, salt) cell, verbatim",
+  "clauses_applied": {
+   "G1": "the salt banked exactly 10 rows, waves 151..160 in order, each row's RAW outcome (captured by c11._capture before upn4 rewrites a death) in {cleared, player_death}",
+   "G2": "w160 did not end at the tick cap (max_ticks read from simulate_wave's own signature default, 4000 ticks x tick_period_s)",
+   "G3": "9N rows on w151..159 (N = 1 salt per cell here, so 9)"
+  },
+  "clause_not_applied": {
+   "G4": "the summed w151..159 time vs a summary's t_s_151_159: N/A, because this harness has NO summary layer -- it reads the composition's per-wave rows directly (cell_check is called with summary=None), so there is no second figure to reconcile against"
+  },
+  "plus": "this emitter's own clause: all 10 recorded simulate_wave calls returned",
+  "authority": "jack-ryan J0/J1 Gate-2 OBS-1 (collab 29124a46e § 4.2 item 2); conductor KP-242"
+ },
+ "supersedes": {
+  "manifest_sha256": "7088cd541ebb848236abaf122eb9536bbaff204973a2736f7ce016ff187c818f",
+  "commit": "f4a9948e",
+  "why": "RE-FROZEN, not amended (conductor KP-242): 7088cd54 was frozen under the emitter's own two-clause completeness guard (10 rows + all calls returned), not the shared OBS-1 guard of record; the manifest must name the guard actually applied. Grain ROWSETs are required equal to 7088cd54's; only the manifest moves. Nothing downstream pinned 7088cd54."
+ },
+ "obs1_completeness": {
+  "rule": "OBS-1 guard (jack-ryan J0/J1 Gate-2, collab 29124a46e § 4.2 item 2): the SHARED guard gamora_join1_obs1_guard_2026_10_02.cell_check (engine 9c756081) -- G1 10 rows w151..160 with raw outcome in {cleared, player_death}; G2 w160 not at the tick cap (max_ticks read from the oracle); G3 9N rows on w151..159; G4 N/A (no summary layer) -- plus: all 10 recorded simulate_wave calls returned. Otherwise TRUNCATED -> harness_error:TruncatedSalt, and a freeze refuses",
+  "guard_file": {
+   "path": "src/reincarnated/simulation/scripts/gamora_join1_obs1_guard_2026_10_02.py",
+   "FILE_sha256": "5f3f4f1e29d147e528709ef317b20ae226edc04c60534d9d506e987d5a3b54d2"
+  },
+  "n_complete": 25,
+  "n_cells": 25,
+  "truncated_or_failed": [],
+  "per_salt": {
+   "M-POL-2|0": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 158.0408,
+    "complete": true
+   },
+   "M-POL-2|1": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 45.9592,
+    "complete": true
+   },
+   "M-POL-2|2": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.8367,
+    "complete": true
+   },
+   "M-POL-2|3": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 10.5306,
+    "complete": true
+   },
+   "M-POL-2|4": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 90.0408,
+    "complete": true
+   },
+   "M-POL-2-NULL|0": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 79.0204,
+    "complete": true
+   },
+   "M-POL-2-NULL|1": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 82.0408,
+    "complete": true
+   },
+   "M-POL-2-NULL|2": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.6735,
+    "complete": true
+   },
+   "M-POL-2-NULL|3": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 12.9796,
+    "complete": true
+   },
+   "M-POL-2-NULL|4": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 65.9592,
+    "complete": true
+   },
+   "M0|0": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 79.0204,
+    "complete": true
+   },
+   "M0|1": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 82.0408,
+    "complete": true
+   },
+   "M0|2": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.6735,
+    "complete": true
+   },
+   "M0|3": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 12.9796,
+    "complete": true
+   },
+   "M0|4": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 65.9592,
+    "complete": true
+   },
+   "W1|0": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 16.3265,
+    "complete": true
+   },
+   "W1|1": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 42.9388,
+    "complete": true
+   },
+   "W1|2": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 14.7755,
+    "complete": true
+   },
+   "W1|3": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 12.2449,
+    "complete": true
+   },
+   "W1|4": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 66.0408,
+    "complete": true
+   },
+   "W1-NULL|0": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 158.0408,
+    "complete": true
+   },
+   "W1-NULL|1": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 45.9592,
+    "complete": true
+   },
+   "W1-NULL|2": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.8367,
+    "complete": true
+   },
+   "W1-NULL|3": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 10.5306,
+    "complete": true
+   },
+   "W1-NULL|4": {
+    "n_composition_rows": 10,
+    "n_waves_played": 10,
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 90.0408,
+    "complete": true
+   }
+  }
+ },
+ "cells": {
+  "M-POL-2|0": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "d5701c4e753c7d37621197202637b773343a97fc5875fa996f4c6ef0f516aa04",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 41755,
+    "n_at_2.4": 1217,
+    "n_at_2.5": 0,
+    "n_zero": 24265,
+    "n_other": 16273,
+    "n_waypoint_steps": 24265,
+    "n_waypoint_ring_flag_excluded": 45,
+    "n_stationary_halted_counted": 576,
+    "n_emerging_steps": 1049,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 158.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "0": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 5312,
+    "G2": 8715,
+    "G3": 10,
+    "G4": 7081,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2|1": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "1149299a76a1938c83d06ae0c66269c0b410c459eceaa730a49adcb84bd99ba4",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 36191,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 20407,
+    "n_other": 14576,
+    "n_waypoint_steps": 20407,
+    "n_waypoint_ring_flag_excluded": 76,
+    "n_stationary_halted_counted": 358,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 45.9592,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "1": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3910,
+    "G2": 6329,
+    "G3": 10,
+    "G4": 5917,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2|2": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 11.837
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "c77e1fd16518df43b3cdb3b201519ea265f3c234b4ddf7af03303868a0d300d5",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 43719,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 30027,
+    "n_other": 12484,
+    "n_waypoint_steps": 30027,
+    "n_waypoint_ring_flag_excluded": 68,
+    "n_stationary_halted_counted": 743,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.8367,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "2": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3133,
+    "G2": 4856,
+    "G3": 10,
+    "G4": 5633,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2|3": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 10.531
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "1e15bded93ba9484c57d8ed6e7a90584325e37b0e0586bfd914ab2d6eeec9570",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 46301,
+    "n_at_2.4": 1152,
+    "n_at_2.5": 0,
+    "n_zero": 30158,
+    "n_other": 14991,
+    "n_waypoint_steps": 30158,
+    "n_waypoint_ring_flag_excluded": 82,
+    "n_stationary_halted_counted": 205,
+    "n_emerging_steps": 985,
+    "n_halted_counted_at_2.4": 1,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 10.5306,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "3": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3697,
+    "G2": 5689,
+    "G3": 10,
+    "G4": 5985,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2|4": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "b9cf96610261f6dafe933c9a62d2a42df98bc47d4ee2363a0959302d9fa106f6",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 39390,
+    "n_at_2.4": 1188,
+    "n_at_2.5": 0,
+    "n_zero": 23226,
+    "n_other": 14976,
+    "n_waypoint_steps": 23226,
+    "n_waypoint_ring_flag_excluded": 107,
+    "n_stationary_halted_counted": 293,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 90.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "4": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4964,
+    "G2": 8000,
+    "G3": 10,
+    "G4": 6885,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2-NULL|0": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "a7a43486e3bbe08a231623a96916f4556dab7c27247383fef38d381179ff5fb3",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 39316,
+    "n_at_2.4": 1217,
+    "n_at_2.5": 0,
+    "n_zero": 25387,
+    "n_other": 12712,
+    "n_waypoint_steps": 25387,
+    "n_waypoint_ring_flag_excluded": 71,
+    "n_stationary_halted_counted": 619,
+    "n_emerging_steps": 1049,
+    "n_halted_counted_at_2.4": 1,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 79.0204,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "0": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4045,
+    "G2": 6040,
+    "G3": 10,
+    "G4": 5476,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2-NULL|1": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "83d0af453dbcbdebd4c488b7ba174d2013ee62ead5198aa5d966644f428d2261",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 38242,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 21186,
+    "n_other": 15848,
+    "n_waypoint_steps": 21186,
+    "n_waypoint_ring_flag_excluded": 80,
+    "n_stationary_halted_counted": 339,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 82.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "1": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4594,
+    "G2": 7580,
+    "G3": 10,
+    "G4": 6530,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2-NULL|2": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 11.673
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "01c4acd0946a30f0b258e7666be78b5604fdbb5d67d2541f7ef4e01440437164",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 41501,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 27063,
+    "n_other": 13230,
+    "n_waypoint_steps": 27063,
+    "n_waypoint_ring_flag_excluded": 83,
+    "n_stationary_halted_counted": 592,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.6735,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "2": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3228,
+    "G2": 5197,
+    "G3": 10,
+    "G4": 5852,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2-NULL|3": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 12.98
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "8ecb155b20450a70b3dc650dde4a0a1b9a1256f9c03a3ee3050e9f9bab6280e8",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 43175,
+    "n_at_2.4": 1187,
+    "n_at_2.5": 0,
+    "n_zero": 28726,
+    "n_other": 13262,
+    "n_waypoint_steps": 28726,
+    "n_waypoint_ring_flag_excluded": 48,
+    "n_stationary_halted_counted": 340,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 12.9796,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "3": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3453,
+    "G2": 5525,
+    "G3": 10,
+    "G4": 5807,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M-POL-2-NULL|4": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "5788f90c39279a6b03bf7e9035196d11aff6ccf2e9f798778c6ed0b143d1f180",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 38997,
+    "n_at_2.4": 1188,
+    "n_at_2.5": 0,
+    "n_zero": 24345,
+    "n_other": 13464,
+    "n_waypoint_steps": 24345,
+    "n_waypoint_ring_flag_excluded": 87,
+    "n_stationary_halted_counted": 364,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 65.9592,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "4": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4116,
+    "G2": 6289,
+    "G3": 10,
+    "G4": 5880,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M0|0": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "a7a43486e3bbe08a231623a96916f4556dab7c27247383fef38d381179ff5fb3",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 39316,
+    "n_at_2.4": 1217,
+    "n_at_2.5": 0,
+    "n_zero": 25387,
+    "n_other": 12712,
+    "n_waypoint_steps": 25387,
+    "n_waypoint_ring_flag_excluded": 71,
+    "n_stationary_halted_counted": 619,
+    "n_emerging_steps": 1049,
+    "n_halted_counted_at_2.4": 1,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 79.0204,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "0": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4045,
+    "G2": 6040,
+    "G3": 10,
+    "G4": 5476,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M0|1": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "83d0af453dbcbdebd4c488b7ba174d2013ee62ead5198aa5d966644f428d2261",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 38242,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 21186,
+    "n_other": 15848,
+    "n_waypoint_steps": 21186,
+    "n_waypoint_ring_flag_excluded": 80,
+    "n_stationary_halted_counted": 339,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 82.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "1": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4594,
+    "G2": 7580,
+    "G3": 10,
+    "G4": 6530,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M0|2": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 11.673
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "01c4acd0946a30f0b258e7666be78b5604fdbb5d67d2541f7ef4e01440437164",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 41501,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 27063,
+    "n_other": 13230,
+    "n_waypoint_steps": 27063,
+    "n_waypoint_ring_flag_excluded": 83,
+    "n_stationary_halted_counted": 592,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.6735,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "2": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3228,
+    "G2": 5197,
+    "G3": 10,
+    "G4": 5852,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M0|3": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 12.98
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "8ecb155b20450a70b3dc650dde4a0a1b9a1256f9c03a3ee3050e9f9bab6280e8",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 43175,
+    "n_at_2.4": 1187,
+    "n_at_2.5": 0,
+    "n_zero": 28726,
+    "n_other": 13262,
+    "n_waypoint_steps": 28726,
+    "n_waypoint_ring_flag_excluded": 48,
+    "n_stationary_halted_counted": 340,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 12.9796,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "3": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3453,
+    "G2": 5525,
+    "G3": 10,
+    "G4": 5807,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "M0|4": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "5788f90c39279a6b03bf7e9035196d11aff6ccf2e9f798778c6ed0b143d1f180",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 38997,
+    "n_at_2.4": 1188,
+    "n_at_2.5": 0,
+    "n_zero": 24345,
+    "n_other": 13464,
+    "n_waypoint_steps": 24345,
+    "n_waypoint_ring_flag_excluded": 87,
+    "n_stationary_halted_counted": 364,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 65.9592,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "4": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4116,
+    "G2": 6289,
+    "G3": 10,
+    "G4": 5880,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1|0": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 16.327
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "b06e89fe854b9ef64a32208b9e0f61ea5275b6c47c69415d45c587e9e891a8f8",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 38763,
+    "n_at_2.4": 1217,
+    "n_at_2.5": 0,
+    "n_zero": 25488,
+    "n_other": 12058,
+    "n_waypoint_steps": 25488,
+    "n_waypoint_ring_flag_excluded": 86,
+    "n_stationary_halted_counted": 576,
+    "n_emerging_steps": 1049,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 16.3265,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "0": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3434,
+    "G2": 5403,
+    "G3": 10,
+    "G4": 5174,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1|1": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "d58ea4ba019c17c910ddb7664108c839dd9a8f6511b201a58b80fc77a101fbf7",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 36195,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 20376,
+    "n_other": 14611,
+    "n_waypoint_steps": 20376,
+    "n_waypoint_ring_flag_excluded": 75,
+    "n_stationary_halted_counted": 358,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 42.9388,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "1": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3915,
+    "G2": 6335,
+    "G3": 10,
+    "G4": 5880,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1|2": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 14.776
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "e44a67aaefb055b863cb7017d691f4017673ec21432990b744ea705c8c12f427",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 41069,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 26975,
+    "n_other": 12886,
+    "n_waypoint_steps": 26975,
+    "n_waypoint_ring_flag_excluded": 74,
+    "n_stationary_halted_counted": 743,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 14.7755,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "2": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3476,
+    "G2": 5410,
+    "G3": 10,
+    "G4": 5706,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1|3": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 12.245
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "c33c515c87197a4b6f7c6bcdfbe4e8fed0b5a91bcc035bfccd6af50275adedc3",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 46676,
+    "n_at_2.4": 1152,
+    "n_at_2.5": 0,
+    "n_zero": 29515,
+    "n_other": 16009,
+    "n_waypoint_steps": 29515,
+    "n_waypoint_ring_flag_excluded": 111,
+    "n_stationary_halted_counted": 205,
+    "n_emerging_steps": 985,
+    "n_halted_counted_at_2.4": 1,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 12.2449,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "3": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3621,
+    "G2": 5836,
+    "G3": 10,
+    "G4": 6312,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1|4": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "73f25dcb02c39ed1c3c63ea58a286f4bb5c8d94049ec35ed75913647cf72f843",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 38764,
+    "n_at_2.4": 1188,
+    "n_at_2.5": 0,
+    "n_zero": 23163,
+    "n_other": 14413,
+    "n_waypoint_steps": 23163,
+    "n_waypoint_ring_flag_excluded": 101,
+    "n_stationary_halted_counted": 293,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 66.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "4": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4632,
+    "G2": 7252,
+    "G3": 10,
+    "G4": 6591,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1-NULL|0": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "d5701c4e753c7d37621197202637b773343a97fc5875fa996f4c6ef0f516aa04",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 41755,
+    "n_at_2.4": 1217,
+    "n_at_2.5": 0,
+    "n_zero": 24265,
+    "n_other": 16273,
+    "n_waypoint_steps": 24265,
+    "n_waypoint_ring_flag_excluded": 45,
+    "n_stationary_halted_counted": 576,
+    "n_emerging_steps": 1049,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 158.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "0": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 5312,
+    "G2": 8715,
+    "G3": 10,
+    "G4": 7081,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1-NULL|1": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "1149299a76a1938c83d06ae0c66269c0b410c459eceaa730a49adcb84bd99ba4",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 36191,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 20407,
+    "n_other": 14576,
+    "n_waypoint_steps": 20407,
+    "n_waypoint_ring_flag_excluded": 76,
+    "n_stationary_halted_counted": 358,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 45.9592,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "1": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3910,
+    "G2": 6329,
+    "G3": 10,
+    "G4": 5917,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1-NULL|2": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 11.837
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "c77e1fd16518df43b3cdb3b201519ea265f3c234b4ddf7af03303868a0d300d5",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 43719,
+    "n_at_2.4": 1208,
+    "n_at_2.5": 0,
+    "n_zero": 30027,
+    "n_other": 12484,
+    "n_waypoint_steps": 30027,
+    "n_waypoint_ring_flag_excluded": 68,
+    "n_stationary_halted_counted": 743,
+    "n_emerging_steps": 1039,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 11.8367,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "2": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3133,
+    "G2": 4856,
+    "G3": 10,
+    "G4": 5633,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1-NULL|3": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": 160,
+    "t_into_wave_s": 10.531
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "1e15bded93ba9484c57d8ed6e7a90584325e37b0e0586bfd914ab2d6eeec9570",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 46301,
+    "n_at_2.4": 1152,
+    "n_at_2.5": 0,
+    "n_zero": 30158,
+    "n_other": 14991,
+    "n_waypoint_steps": 30158,
+    "n_waypoint_ring_flag_excluded": 82,
+    "n_stationary_halted_counted": 205,
+    "n_emerging_steps": 985,
+    "n_halted_counted_at_2.4": 1,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "player_death"
+    ],
+    "w160_t_s": 10.5306,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "3": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 3697,
+    "G2": 5689,
+    "G3": 10,
+    "G4": 5985,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  },
+  "W1-NULL|4": {
+   "raised": null,
+   "waves_played": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "waves_emitted": [
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "leg_a_terminal_composition": {
+    "wave": null,
+    "survived_to": 160
+   },
+   "ledger_present_all": true,
+   "n_reincarnated_modules_swept": [
+    138,
+    140
+   ],
+   "n_reads": 1179,
+   "external_pinned_inputs": [
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_findings.md",
+     "FILE_sha256": "c223dfb04653a7e8682d5c1dd42356fc2a8398b06951372445d235a6eff224ea"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-r-locomotion-contact/pm4r_movement_episodes.csv",
+     "FILE_sha256": "dc3173ae53c2a371d9336e95db79c25c4deb04834cebdd4c9318f554d9f576cc"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-14-kc2-pm4-lap-u-ramp-decode/pm4u_findings.md",
+     "FILE_sha256": "f1a34cb11c6015d83169bd2ebbb7fd3ee7ba15bbc20622756f37fbb75fbec6ce"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_findings.md",
+     "FILE_sha256": "5450e1567fe58337827c20719ec477ee56a40351cbd7c49ab823d0896ca1b895"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v-roster-decode/pm4v_roster_arithmetic.csv",
+     "FILE_sha256": "991f75cfdb43ddff06fb01fbd16c81693af020a56f7dfe315e87e11e4db4a93c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_contribution.json",
+     "FILE_sha256": "9c3b3db20ac8ce2b0f3a3b31adb6161b68990518fcc20ec25f8c306c95a8ac05"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-v2-proxyambush-decode/pm4v2_findings.md",
+     "FILE_sha256": "3aeccfe9ec8b38ba486212ae78e84b1a0aeb3493d838d3d90c5a80ac9601b7c1"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-w-p06-election/pm4w_findings.md",
+     "FILE_sha256": "96333f0dcae4a5694134ba0c455af84d73b820d036b66920c5ec81cc4709a42c"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-15-kc2-pm4-lap-x-mitigation-decode/pm4x_ttk_by_body.csv",
+     "FILE_sha256": "2b0a8f1ac85accfdfd92aead64c5a6c3fc67d18f409b5258fb8990b54c1d5991"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_placement_law.json",
+     "FILE_sha256": "55506b697f1df1e09afdc1aabc04bc537d6d8531544642ce83c3c014b23d6ad9"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-aa-referent-spawn-structure/pm4aa_spawn_structure.json",
+     "FILE_sha256": "69b698966839622f15c6c78a9fdcf6724d9f60bd2a51dad29ac54e82bc87470b"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_boundary_arithmetic.csv",
+     "FILE_sha256": "3a9cac943d61ee42d51041fc6ec6ea48443116da2f9042bcfb9acd4e912f3563"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_findings.md",
+     "FILE_sha256": "283cf38b25b9c2ad9444fed9e8f1c972b82f80fd0ccfc6258f389b77dd75ee26"
+    },
+    {
+     "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/notes/2026-08-16-kc2-pm4-lap-z-ring-operand/pm4z_operand.json",
+     "FILE_sha256": "6e689f8a3930dca5b132ae250810f7035273d75515db61f383a7f11b967d1802"
+    }
+   ],
+   "control_note": null,
+   "composition_sha256": "b9cf96610261f6dafe933c9a62d2a42df98bc47d4ee2363a0959302d9fa106f6",
+   "sim_errors": [],
+   "harness_error": null,
+   "step_d_engage_m_summary": {
+    "n_steps": 39390,
+    "n_at_2.4": 1188,
+    "n_at_2.5": 0,
+    "n_zero": 23226,
+    "n_other": 14976,
+    "n_waypoint_steps": 23226,
+    "n_waypoint_ring_flag_excluded": 107,
+    "n_stationary_halted_counted": 293,
+    "n_emerging_steps": 1019,
+    "n_halted_counted_at_2.4": 0,
+    "n_halted_counted_at_2.5": 0
+   },
+   "completeness": {
+    "guard": "gamora_join1_obs1_guard_2026_10_02.cell_check (G1+raw outcome, G2, G3; G4 N/A: no summary layer) + all 10 recorded simulate_wave calls returned",
+    "n_composition_rows": 10,
+    "composition_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "composition_outcomes": [
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared",
+     "cleared"
+    ],
+    "w160_t_s": 90.0408,
+    "max_ticks": 4000,
+    "n_waves_played": 10,
+    "expected_waves": [
+     151,
+     152,
+     153,
+     154,
+     155,
+     156,
+     157,
+     158,
+     159,
+     160
+    ],
+    "shared_guard": {
+     "complete": true,
+     "truncated_salts": [],
+     "cell_reasons": [],
+     "per_salt": {
+      "4": {
+       "complete": true,
+       "n_rows": 10,
+       "last_wave": 160,
+       "stop": null,
+       "reasons": []
+      }
+     },
+     "tick_cap_s": 326.531,
+     "max_ticks": 4000
+    },
+    "all_simulate_wave_returned": true,
+    "complete": true
+   },
+   "per_cell_rows": {
+    "G1": 4964,
+    "G2": 8000,
+    "G3": 10,
+    "G4": 6885,
+    "G5": 1,
+    "G6": 0,
+    "G7": 10
+   }
+  }
+ },
+ "port": {
+  "repo": "reincarnated-godot",
+  "port_commit": null,
+  "port_tree_digest": null,
+  "port_manifest_sidecar_path": null,
+  "port_manifest_sidecar_file_sha256": null,
+  "note": "filled by the conductor's fold from drax's sidecar; no cross-repo write"
+ }
+}
