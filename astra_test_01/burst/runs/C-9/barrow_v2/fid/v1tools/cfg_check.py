@@ -35,6 +35,12 @@ if cfg.get("_guide_sha256"):
         fail.append("guide %s sha %s != the cfg's _guide_sha256 %s (the guide moved under the cfg)" % (cfg["guide"], gs[:12], cfg["_guide_sha256"][:12]))
 else:
     fail.append("cfg has no _guide_sha256: the guide it paints from is not pinned")
+if cfg.get("_geo_sha256"):
+    graw = open(cfg["_geo_file"], "rb").read()
+    if hashlib.sha256(graw).hexdigest() != cfg["_geo_sha256"]:
+        fail.append("geo file %s sha != the cfg's _geo_sha256 (the geo of record moved)" % cfg["_geo_file"])
+    elif cfg.get("geo") != graw.decode("utf-8").rstrip("\n"):
+        fail.append("cfg geo text != the geo of record %s" % cfg["_geo_file"])
 if fail:
     for f in fail:
         print("[cfg_check] HALT:", f)

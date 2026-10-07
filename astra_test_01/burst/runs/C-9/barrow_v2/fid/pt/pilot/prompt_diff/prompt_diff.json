@@ -1,0 +1,43 @@
+{
+ "_what": "R-C9-190(3): chunk 0_0 brief assembled by the FROZEN tools without writing to briefs/ (pt/tools/brief_preview.py): v1 = Tier-A guided_paint.py + v1 cfg_t10bf.json; pilot = Tier-B guided_paint.py (DEV-10 field) + cfg_bv2a_pilot.json (no chunk_notes)",
+ "pilot_text_equals_v1_text_with_only_{geo,rules,run_tag,name,ruling,burst_id}_swapped": true,
+ "differences": {
+  "geo": "replaced by fid/pt/geo_bv2art.txt (geo of record, R-C9-190)",
+  "rules": "DEV-12 only (2 substitutions)",
+  "head metadata": "burst id, run_tag, name, ruling (cfg identity fields)"
+ },
+ "rules_diff": [
+  "- Keep the ring's centre, the path, the cutting and the tarn OPEN:",
+  "+ Keep the stone ring's centre, the path, the barrow door's approach and the mere OPEN:",
+  "- cold blue-white snow, warm grey granite, rust heather, dark juniper, lapis ice;",
+  "+ cold blue-white snow, warm grey granite, rust heather, dark juniper, lapis ice, dark slate-blue sea with pale floes, grey shingle, weathered grey-brown timber, soot-black charred timber and ash;"
+ ],
+ "references_v1": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/T10BF-0_0_canvas.png",
+   "role": "IMAGE 1 \u2014 the canvas to EDIT (painted neighbour strips + layout guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10C-barrow/T10C-barrow_a.png",
+   "role": "IMAGE 2 \u2014 the APPROVED Frost King's Barrow concept (Matt's pick): palette, light, snow, stone carving and painted hand ONLY -- NOT its layout"
+  }
+ ],
+ "references_pilot": [
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/CS9-guides/BV2A-0_0_canvas.png",
+   "role": "IMAGE 1 \u2014 the canvas to EDIT (painted neighbour strips + layout guide)"
+  },
+  {
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10C-barrow/T10C-barrow_a.png",
+   "role": "IMAGE 2 \u2014 the APPROVED Frost King's Barrow concept (Matt's pick): palette, light, snow, stone carving and painted hand ONLY -- NOT its layout"
+  }
+ ],
+ "refs_role_IMAGE2_identical": true,
+ "caps_identical": {
+  "image_cap": true,
+  "minutes_cap": true,
+  "tool_call_cap": true,
+  "effort": true
+ },
+ "no_notes_in_pilot": true
+}
