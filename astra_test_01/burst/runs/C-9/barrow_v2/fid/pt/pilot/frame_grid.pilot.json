@@ -1,0 +1,63 @@
+{
+ "_what": "BV2F PT pilot frame/grid: the bv2art frame (fid/lv/art/frame_grid.bv2art.json) narrowed to the PILOT window (cols 0-2 x rows 0-2: plate px [0,0,4096,2560]); scene = PT's bv2f_pilot.tscn, whose guide_window IS the pilot window",
+ "name": "barrow_v2 art PILOT",
+ "scene": "res://scenes/bv2f_pilot.tscn",
+ "guide_px": [
+  4096,
+  2560
+ ],
+ "px_per_m_across": 100.617553710938,
+ "pitch_deg": 52.95354112560294,
+ "yaw_deg": 47.0,
+ "walk_grid": {
+  "u": [
+   -1.0,
+   1.0
+  ],
+  "v": [
+   -1.0,
+   1.0
+  ],
+  "step": 0.1
+ },
+ "topdown": {
+  "px": [
+   2400,
+   2240
+  ],
+  "px_per_m": 30.0
+ },
+ "painting": null,
+ "painting_sha_prefix": null,
+ "grid_informational": {
+  "cols": 5,
+  "rows": 5,
+  "canvas_px": [
+   1536,
+   1024
+  ],
+  "stride_px": [
+   1280,
+   768
+  ],
+  "source": "layout_bv2art.json window"
+ },
+ "env": {
+  "BV2F_VARIANT": "art",
+  "BV2F_UNGROUP": "1"
+ },
+ "guide_window_uv": {
+  "centre": [
+   -0.5,
+   -3.132
+  ],
+  "u": [
+   -33.57573954303182,
+   32.57573954303182
+  ],
+  "v": [
+   -28.633937157286354,
+   22.36993715728635
+  ]
+ }
+}

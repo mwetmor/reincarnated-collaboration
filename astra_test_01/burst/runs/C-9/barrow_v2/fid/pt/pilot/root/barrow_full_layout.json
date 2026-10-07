@@ -1,0 +1,10 @@
+{
+ "_what": "BV2F PT pilot root: the MINIMUM of v1's layout schema that the frozen heather_instances.py reads (frame.camera yaw/pitch, frame.world_from_uv) -- v1's own values (the pilot is in v1's frame)",
+ "frame": {
+  "camera": {
+   "yaw_deg": 47.0,
+   "pitch_deg": 52.95354112560294
+  },
+  "world_from_uv": "x = u*cos47 - v*sin47; z = -u*sin47 - v*cos47; y = height above the floor"
+ }
+}
