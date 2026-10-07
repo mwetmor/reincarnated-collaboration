@@ -1,6 +1,6 @@
 # Run C-9 Phase 2 · BV2-FID: barrow_v2 at barrow v1's fidelity, then the w151–160 arena inside it — charter v0.1
 
-**STATUS:** v0.4 — **Phase 1 Gate-2 BLOCK-narrow on P6 (§ 14, R-C9-180); M1 held until P6′ folds.** Prior v0.3 — **Phase 0 CLOSED (Gate-2 PASS-WITH-FOLDS, § 13, R-C9-173); Phase 1 OPEN.** Prior: v0.2 — **Gate-1 = GO-WITH-FOLDS** (jack-ryan, `qa/findings/2026-10-06-bv2f-charter-gate1.md`, `a4fde16b6`); every finding folded at § 12 (R-C9-163). M0 ruled (R-C9-162). Phase 0 running. **A Gate BLOCK halts the steps the reviewer scopes it to** (a BLOCK-narrow halts only its named step).
+**STATUS:** v1.0 — **RE-SCOPED ART-FIRST (§ 15, Matt R-C9-185): arena spec retired; compact sketch-A blockout → M1′.** Prior v0.4 — **Phase 1 Gate-2 BLOCK-narrow on P6 (§ 14, R-C9-180); M1 held until P6′ folds.** Prior v0.3 — **Phase 0 CLOSED (Gate-2 PASS-WITH-FOLDS, § 13, R-C9-173); Phase 1 OPEN.** Prior: v0.2 — **Gate-1 = GO-WITH-FOLDS** (jack-ryan, `qa/findings/2026-10-06-bv2f-charter-gate1.md`, `a4fde16b6`); every finding folded at § 12 (R-C9-163). M0 ruled (R-C9-162). Phase 0 running. **A Gate BLOCK halts the steps the reviewer scopes it to** (a BLOCK-narrow halts only its named step).
 **Authored:** 2026-10-06, gandalf (RUN-CONDUCTOR), fresh session per R-C9-160.
 **Course of record:** `2026-10-06-barrow-v2-fidelity-run-architecture.md` ("the plan"). This charter makes the plan executable: it adds lanes, caps, HALTs, decidable target-states, the ARCHITECT gate and three conductor corrections (§ 9). **Where the charter and the plan disagree, the charter governs; the ledger governs both.**
 **Parent run:** Run C-9 (`2026-09-26-illuminated-archive-run-C-9-charter.md`). Ruling IDs continue the C-9 series from **R-C9-161**. Ledger: `astra_test_01/burst/runs/C-9/ledger.json`.
@@ -221,6 +221,22 @@ Matt is on Remote Control (phone). The conductor sends: one short line per phase
 - **DEV-16 (W3):** ID grouping under v1 `capture_ids`' 256-colour limit (v7c: 43 grouped IDs) — a usage change, not a code patch. Measurement owed before the first Phase-2 take: on one grouped ID, the take yields per-instance cutouts equal to v1's per-piece behaviour.
 - **M1 cover (W4):** one phone screen first, ≤ 3 asks, one recommendation each — (1) v7c (recommended; v7b "comparison only: fails check (a)"; states plainly that v7c separates the gable again, reversing the merged hall Matt saw after R-C9-148); (2) open burnt-hall sides wanted or not (R-C9-175); (3) the walk: `.command` now, or `.app` after more disk is freed. P6′ result shown on the cover.
 - **§ 6 sub-cap re-base recorded:** Ph1 4 → 6 images (R-C9-176, from reserve 16 → 14).
+
+## § 15 — RE-SCOPE: ART-FIRST barrow_v2 (Matt R-C9-185). GOVERNS over every section above where they conflict.
+
+**Intent (Matt):** *"throw out all the grey box and arena specs and just focus on a beautiful barrow_v2"* — built like barrow_v1, for artistic purposes; the arena is fitted afterwards.
+
+**Retired for the scene:** the sealed spawn anchors, 8 m discs, layout_v2/v7 + validator R1–R13, exit lanes, the clean-floor rule (R13), check (a) as a gate, P6′'s *extent* component, P7 (clean floor), DEV-4 (site rotation — the new blockout is authored directly in v1's camera-aligned frame, as v1 was), and both sketch-vs-oracle divergences. **No gameplay constraint at all** (Matt chose this over the conductor's light-floor recommendation; noted risk: gameplay fit is worked out after the scene exists).
+
+**Kept:** v1's frozen two-tier toolchain (§ 12/§ 13), the positive control at pin `f1aa715ac`, the parity harness quality rows (P1–P5, P11, P6′ presence/placement/scale vs the blockout as geometry of record), principles 1–4 and 6–7 of § 2, the deviation register discipline, the kit v3 models (wreck, barrow front, hall, gable) and v1's stones, all HALT rules except the retired rows. Check (a) (entrances visible from the camera) is reported as INFO on packets — an art read, not a gate.
+
+**Revised phases:**
+- **Phase 1′ — art blockout (0 new images expected; ≤ 2 from reserve if a kit piece is missing, conductor ruling):** a COMPACT site at about v1's footprint (~55–65 m across), composed from **sketch A literally** (wreck heeled in shore ice W; sea cave + stair SW; barrow mound + monumental door N with the stream down to the mere; the stone ring near the start; the burnt hall facing the start E with the fallen gable its own ruin SE; palisade; coast, ice, cliffs), at v1's camera and zoom, judged screen by screen at the play camera. Guide recipe as v1 (class tints, one sun, pen, no plants). **M1′: Matt walks the blockout** (stills beside sketch A, map, `.command` walk) before any paint.
+- **Phase 2′ — paint, pilot first:** one v1-size pilot window (the home ground: start, ring, mere, barrow door), harness + Gate-2 → **M2′**; then the rest of the canvases (~16–25 total, v1 wavefront).
+- **Phase 3′ — take, build, life** (heather from painted tufts, snow, water, two-sun law) → walk film → **M3′: Matt walks the level.**
+- **Phase 4 — the arena: DECIDED LATER** (Matt), after M3′. Matt's stated direction: fit a greybox to the finished scene and make a new arena of his own, spawns in real doorways, stairs that work out of doors. Any KC2/oracle consequence is a Sim Session ruling then.
+
+**Budget:** run cap ~250 stands as a guard; expected Ph1′ 0–2, Ph2′+3′ ~40–70 images (compact site); fal ≤ $10 total (spent $1.20).
 
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.
