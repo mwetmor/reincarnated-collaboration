@@ -39,6 +39,9 @@ func _process(_delta: float) -> bool:
 			for c in scene.get_children():
 				if c is CanvasLayer:
 					(c as CanvasLayer).visible = false
+			# v1's camera clamp to the painted window (barrow_full.gd _clamp_aim): the pilot's window IS the pilot plate,
+			# so the frame never shows ground the pilot did not paint
+			scene.clamp_on = true
 			scene.place_knight(ROUTE[0].x, ROUTE[0].y, "W")
 			phase = "hold_in"
 			t_phase = 0

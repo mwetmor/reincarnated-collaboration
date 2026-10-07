@@ -47,7 +47,14 @@ Git: commit only your own paths: `git add -- <new paths>`, `git status --porcela
 - To rule: (1) the pilot window CONTAINS the wreck (0_1,1_1,0_2,1_2) and the barrow front (2_0) — R-C9-189 W-5 schedules the DEV-3/11 plate A/B for the first chunk with the wreck/cave, which is this pilot; (2) cols/rows = 3 → 2_1 and 2_2 are painted without v1's top-right paste (3_0/3_1 not yet painted) — the cost of a kept origin pilot; (3) DEV-10 notes ON in the cfg, but DEV-10's with/without A/B does not fit the 18-image cap — run with notes, or drop `chunk_notes` for v1's brief.
 - **R-C9-190 applied:** cfg geo = geo of record `pt/geo_bv2art.txt` (sha 5aa045dc33b8; cfg_check pins `_geo_file`/`_geo_sha256`); no hero plates (DEV-3/11 A/B → first Phase-3' cave chunk); DEV-10 notes OFF (no `chunk_notes`); 2_1/2_2 without top-right paste accepted. Prompt proof `pt/pilot/prompt_diff/` (pt/tools/brief_preview.py, frozen tools, no write to briefs/): pilot 0_0 brief == v1 0_0 brief with only geo + DEV-12 (2 substitutions) + cfg identity fields swapped; IMAGE 2, caps, retry clause identical.
 - **Release gate:** conductor releases the first pilot burst after LV's sea-cave hand-back AND `python3 fid/pt/tools/pilot_pins_check.py` green. Burst: `bash fid/v1tools/tierB/conductor_scripts/t10bf_drive.sh fid/pt/pilot/cfg_bv2a_pilot.json` (absolute paths).
-Next step: STAND BY — Phase 0 closed (R-C9-173); no PT work until the conductor resumes PT for Phase 2.
+## Phase 2' PILOT -- BUILT (R-C9-191)
+- Painted: 9/9 BV2F-PT-* chunks, all exit 0 first attempt, **18 images (cap 18)**; stitched by v1 guided_stitch (painting sha 901f3087799e; overlap MAD 5.29-11.97 vs v1 2.7-13.1). Pinned guide copy (pins check green; LV knight drift known-inert R-C9-191).
+- Take (fid/pt/tools/bv2f_take.py: v1 take (a)+(b) verbatim, adaptations stated): 18 plates, 334 tufts. **DEV-16 NOT OPENED: 124 ids ungrouped site-wide (<= 256), 31 in the pilot.**
+- Bakes: 18/18 real models, frozen t5_06b via v1run (self-test 99.93-100%; unseen after fill median ~32%).
+- Build: barrow_full/godot/scenes/bv2f_pilot_painted.tscn (scripts/bv2f/bv2f_pilot.gd, allowlisted): v1's _dress_painted rules, projection frame re-bound to the pilot plate; 3D heather (266, v1 counts + greedy cover, flat land) and snow field (flat ground) -- v1 assumed a flat floor; the mound flank/shore keep their painted tufts.
+- PH inputs + 12 stills with class masks: see fid/pt/pilot/pilot_record.json. Pre-checks: P2 20/20; P3 baked 11.9 / ground 0.29 (bar 15.5).
+- M2': fid/pt/m2/M2p_pilot_beside_v1.jpg; film fid/pt/pilot/film/*.mp4 (37 s, sha c2b8bd8031ce, NOT committed: 57 MB).
+Next step: STAND BY for M2' / PH's harness results.
 
 ### 0.3 findings (first-layout notes; superseded by v1tools/PROVENANCE.md)
 - 10 tools + reference (`make_layout.py`, `cfg_t10bf.json` — the latter carries v1's `geo`/`rules`/`refs` brief, W3) copied mirroring source dirs; `SHA256SUMS` 12 files; `verify.sh` exit 0 on HEAD, exit 1 on a tampered copy and on an unlisted file (scratch tests).

@@ -1,0 +1,93 @@
+heavy_lock: waiting — held by {"pid": 32814, "run": "KC2-PLAY", "ts": "2026-10-07T14:47:35Z", "cmd": "/Applications/Godot.app/Contents/MacOS/Godot --h
+heavy_lock: acquired after 76s (C-9)
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M2 (Apple8)
+
+Movie Maker mode enabled, recording movie in 1920×1080 @ 24 FPS...
+manifest speeds (canvas px/s at the reference scale): { "run_armed": 412.47690524972, "strafe_L_armed": 91.1507332526864, "strafe_R_armed": 39.0448076666198 }
+de-rooted attack_chop      0.7519 m over 7.6667 s = 0.098 m/s removed, heading (0.63, 0.0, -0.77) (+140.8 deg off +Z)
+de-rooted chop_overhead_92 0.4333 m over 0.8667 s = 0.500 m/s removed, heading (-0.12, 0.0, 0.99) (-6.7 deg off +Z)
+character: nb-body.glb  clips ["attack", "attack_chop", "axe_guard_R", "axe_guard_R_bash", "axe_guard_R_block", "axe_guard_R_chop", "block", "chop_overhead_92", "idle", "idle_armed", "idle_guard", "run", "run_armed", "run_armed_L", "run_armed_R", "run_armed_diagblend_REJECTED", "run_armed_locked", "shield_bash", "shield_carry_L", "shield_guard_L", "strafe_L_armed", "strafe_R_armed", "walk", "walk_armed", "walk_armed_unarmedsrc"] -> { "chop": "", "block": "", "bash": "", "strafe_l": "", "strafe_r": "", "idle": "idle", "walk": "walk", "run": "run", "attack": "attack" }
+gear: {"axe":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"axe.glb","manifest_bones":["RightHand"],"manifest_mode":"socket","manifest_offset_m":0.0,"markers":["axe_edge"],"meshes":1,"near_empty_objects":0,"triangles":9000},"bracers":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"bracers.glb","manifest_bones":["RightForeArm","LeftForeArm"],"manifest_mode":"bone","manifest_offset_m":0.002,"markers":[],"meshes":2,"near_empty_objects":0,"triangles":11982},"byrnie":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"byrnie.glb","manifest_bones":["skinned"],"manifest_mode":"skin","manifest_offset_m":0.005,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":25999},"helmet":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"helmet.glb","manifest_bones":["Head"],"manifest_mode":"bone","manifest_offset_m":0.0,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":12000},"mantle":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"mantle.glb","manifest_bones":["skinned"],"manifest_mode":"skin","manifest_offset_m":0.008,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":23999},"shield":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"shield.glb","manifest_bones":["LeftHand"],"manifest_mode":"socket","manifest_offset_m":0.0,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":9000}}
+anim tree: left-toe contact at phase 0.320 of the walk and 0.333 of the run
+anim tree: unarmed | sync group walk 1.0333 s / run 0.6333 s at 161.1/517.3 px/s | strikes ["os_slash", "os_chop", "os_bash"] at 0.10/0.25 s | arm layer 'shield_guard_L' filtered to 8 of 50 tracks | block ''
+character: nb-body.glb  clips ["attack", "attack_chop", "axe_guard_R", "axe_guard_R_bash", "axe_guard_R_block", "axe_guard_R_chop", "block", "chop_overhead_92", "idle", "idle_armed", "idle_guard", "run", "run_armed", "run_armed_L", "run_armed_R", "run_armed_diagblend_REJECTED", "run_armed_locked", "shield_bash", "shield_carry_L", "shield_guard_L", "strafe_L_armed", "strafe_R_armed", "walk", "walk_armed", "walk_armed_unarmedsrc"] -> { "chop": "chop_overhead_92", "block": "block", "bash": "shield_bash", "strafe_l": "strafe_L_armed", "strafe_r": "strafe_R_armed", "idle": "idle_guard", "walk": "walk", "run": "run", "attack": "attack" }
+block: raise 0.794 -> 1.169 s of 'block', played in 0.18 s (x2.09), lowered in 0.20 s
+upper layer: ON | walk 'walk_armed' (1.7333 s, contact 0.690) run 'run_armed' (0.6667 s, contact 0.312) | 31 tracks on 16 bones
+axe guard layer: 'axe_guard_R' at weight 0.85, 4 tracks
+strike release: pose 'axe_guard_R', 5 bone paths, 3 strikes, swing ends {"attack":0.75,"chop_overhead_92":0.578}, over 0.08 s, guard throughout ["shield_bash"]
+clip set -> ARMED: idle 'idle_guard' walk 'walk' (1.0333 s, 161.1 px/s) run 'run' (0.6333 s, 517.3 px/s) layer 'shield_guard_L'
+[bv2f_pilot] painted: files_ok=21 bad=[] projected=106 baked=18 (meshes 18) bakes_missing=[] rebound=21
+[barrow_full] built placements=124 splat_ok=false build_ms=8047
+[barrow_full] view stretch=canvas_items aspect=keep base=1920x1080
+[barrow_painted] who=barbarian slot=own loaded_from_pck files_sha_ok=21/21 painting_ok=false ground=?(as_painted)_ok=false lit_ok=false snow_grid_ok=false | plates: bakes=0/25 on the real models, painting on primitives=0/29 (the mound + 28) | birches=0 inks_hidden=183 heather=266 snow=true ms=2430
+[film] {"trim_frames":72}
+[film] {"frames":969,"reached":[[1,[-14.96,1.75],213],[2,[-13.18,-3.48],322],[3,[-4.57,-2.56],530],[4,[-0.44,0.66],647],[5,[0.56,6.42],804],[6,[1.43,13.04],933]],"route_uv":[[-10.16,3.93],[-10.39,3.82],[-10.62,3.72],[-10.86,3.61],[-11.09,3.5],[-11.33,3.4],[-11.56,3.29],[-11.8,3.18],[-12.03,3.08],[-12.26,2.97],[-12.5,2.86],[-12.73,2.76],[-12.97,2.65],[-13.2,2.54],[-13.44,2.44],[-13.67,2.33],[-13.9,2.23],[-14.14,2.12],[-14.37,2.01],[-14.61,1.91],[-14.84,1.8],[-14.9,1.6],[-14.81,1.31],[-14.71,1.02],[-14.61,0.74],[-14.51,0.45],[-14.42,0.16],[-14.32,-0.12],[-14.22,-0.41],[-14.12,-0.7],[-14.02,-0.99],[-13.93,-1.27],[-13.83,-1.56],[-13.73,-1.85],[-13.63,-2.14],[-13.54,-2.42],[-13.44,-2.71],[-13.34,-3.0],[-13.24,-3.29],[-13.09,-3.47],[-12.85,-3.44],[-12.6,-3.42],[-12.35,-3.39],[-12.1,-3.36],[-11.85,-3.34],[-11.6,-3.31],[-11.36,-3.28],[-11.11,-3.26],[-10.86,-3.23],[-10.61,-3.2],[-10.36,-3.18],[-10.11,-3.15],[-9.87,-3.12],[-9.62,-3.1],[-9.37,-3.07],[-9.12,-3.05],[-8.87,-3.02],[-8.62,-2.99],[-8.37,-2.97],[-8.13,-2.94],[-7.88,-2.91],[-7.63,-2.89],[-7.38,-2.86],[-7.13,-2.83],[-6.88,-2.81],[-6.64,-2.78],[-6.39,-2.75],[-6.14,-2.73],[-5.89,-2.7],[-5.64,-2.67],[-5.39,-2.65],[-5.15,-2.62],[-4.9,-2.6],[-4.65,-2.57],[-4.42,-2.45],[-4.21,-2.29],[-4.0,-2.12],[-3.79,-1.96],[-3.58,-1.79],[-3.37,-1.62],[-3.15,-1.46],[-2.94,-1.29],[-2.73,-1.13],[-2.52,-0.96],[-2.31,-0.8],[-2.1,-0.63],[-1.88,-0.47],[-1.67,-0.3],[-1.46,-0.14],[-1.25,0.03],[-1.04,0.19],[-0.83,0.36],[-0.61,0.52],[-0.43,0.71],[-0.39,1.02],[-0.34,1.33],[-0.3,1.63],[-0.25,1.94],[-0.21,2.25],[-0.16,2.55],[-0.09,2.78],[0.04,2.82],[0.15,2.85],[0.26,2.89],[0.36,2.92],[0.46,2.95],[0.55,2.98],[0.63,3.01],[0.76,3.08],[0.86,3.32],[0.83,3.63],[0.8,3.94],[0.77,4.25],[0.74,4.56],[0.71,4.87],[0.68,5.18],[0.65,5.49],[0.62,5.8],[0.59,6.11],[0.56,6.42],[0.6,6.73],[0.64,7.03],[0.68,7.34],[0.72,7.65],[0.76,7.96],[0.8,8.27],[0.84,8.58],[0.88,8.88],[0.92,9.19],[0.96,9.5],[1.0,9.81],[1.04,10.12],[1.08,10.42],[1.12,10.73],[1.16,11.04],[1.2,11.35],[1.25,11.66],[1.29,11.97],[1.33,12.27],[1.37,12.58],[1.41,12.89]],"skipped":[]}
+ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceSurfaceDataCacheE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:169)
+ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceForwardClusteredE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:169)
+ERROR: 1 shaders of type SceneForwardClusteredShaderRD were never freed
+   at: ~ShaderRD (servers/rendering/renderer_rd/shader_rd.cpp:1056)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 9 RIDs of type "UniformBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 9 RIDs of type "IndexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 9 RIDs of type "IndexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 14 RIDs of type "VertexArray" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 18 RIDs of type "VertexBuffer" were leaked.
+   at: _free_rids (servers/rendering/rendering_device.cpp:7295)
+WARNING: 18 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:7505)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)
+--------------------------------------------------------------------------------
+Done recording movie at path: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/pilot_walk2.avi
+969 frames at 24 FPS (movie length: 00:00:40:09), recorded in 00:01:05 (61% of real-time speed).
+CPU render time: 0.16 seconds (average: 0.16 ms/frame)
+GPU render time: 0.00 seconds (average: 0.00 ms/frame)
+Encoding time: 11.59 seconds (average: 11.96 ms/frame)
+--------------------------------------------------------------------------------
+ERROR: 9 RID allocations of type 'N10RendererRD11MeshStorage4MeshE' were leaked at exit.
+ERROR: 9 RID allocations of type 'N10RendererRD15MaterialStorage8MaterialE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N10RendererRD15MaterialStorage6ShaderE' were leaked at exit.
+ERROR: 9 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
+ERROR: 9 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.

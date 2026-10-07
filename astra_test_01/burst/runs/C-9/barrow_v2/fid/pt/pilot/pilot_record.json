@@ -1,0 +1,60 @@
+{
+ "_what": "BV2F PT Phase 2' pilot: what exists, where (R-C9-191)",
+ "images_used": 18,
+ "cap": 18,
+ "bursts": [
+  "BV2F-PT-0_0",
+  "BV2F-PT-1_0",
+  "BV2F-PT-2_0",
+  "BV2F-PT-0_1",
+  "BV2F-PT-1_1",
+  "BV2F-PT-2_1",
+  "BV2F-PT-0_2",
+  "BV2F-PT-1_2",
+  "BV2F-PT-2_2"
+ ],
+ "bursts_all_first_attempt_exit0": true,
+ "painting": {
+  "file": "fid/pt/pilot/painting.png",
+  "sha256": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03",
+  "stitch": "fid/pt/pilot/stitch_record.json (overlap MAD 5.29-11.97; v1 2.7-13.1)"
+ },
+ "take": {
+  "plates": 18,
+  "tufts": 334,
+  "ids": "124 ungrouped site-wide, 31 in the pilot -> DEV-16 NOT OPENED"
+ },
+ "bakes": "18/18 (frozen t5_06b via v1run; self-test 99.93-100%); fid/pt/pilot/bake_report.json",
+ "build": "barrow_full/godot/scenes/bv2f_pilot_painted.tscn (scripts/bv2f/bv2f_pilot.gd): 21 data files sha-checked, 106 projected pieces, 18 baked, 266 heather sprays, snow field (flat ground), v1 snowfall + wind + two suns",
+ "ph_inputs": {
+  "painting": "fid/pt/pilot/painting.png",
+  "canvases": "runs/C-9/artifacts/BV2F-PT-<c>_<r>/ (stitch_record.json)",
+  "lineage": "fid/pt/pilot/lineage.json (PH p2 pre-check 20/20 PASS)",
+  "bake_report": "fid/pt/pilot/bake_report.json",
+  "guide_camera_render": "fid/pt/pilot/render_guide.png + heather_mask.png (+ heather_colour.png)",
+  "ids_built": "fid/pt/pilot/ids_built.png (+ ids_built/ids.json)",
+  "stills": "fid/pt/pilot_stills/pilot_01..12.png + .classes.png/.classes.json + views.json"
+ },
+ "prechecks": {
+  "P2_lineage": "20/20 resolve (PH p2_lineage.py --spec)",
+  "P3_render_vs_painting": {
+   "baked real models": 11.9,
+   "ground + primitives": 0.29,
+   "whole frame (heather excluded)": 1.21,
+   "v1_unlit_bar": 15.5,
+   "v1_overlay_static_stones": 11.38
+  }
+ },
+ "m2": {
+  "sheet": "fid/pt/m2/M2p_pilot_beside_v1.jpg (6 pairs, same zoom ortho 10.7337)",
+  "film": {
+   "file": "fid/pt/pilot/film/BV2F pilot - walk from the mere past the wreck through the stones to the barrow door.mp4",
+   "sha256": "c2b8bd8031ce5eafbe8f93706c8a24eb1b50a626ed26818e7767d165527c3a85",
+   "bytes": 56703404,
+   "frames": 897,
+   "fps": 24,
+   "route": "mere -> wreck/shingle -> stone ring -> barrow door, 6/6 waypoints reached, v1 camera clamp on",
+   "committed": false
+  }
+ }
+}
