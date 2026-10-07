@@ -43764,6 +43764,12 @@
       "ts": "2026-10-07T03:18:51Z",
       "status": "closed",
       "what": "LV 0.2 I-2 bearing check FAIL on p03 (+59.4 deg, pack data vs sketch). Disposed R-C9-165: frame accepted; bearing table re-instrumented as Phase 1 divergence report; p03 registered sketch-vs-oracle divergence."
+    },
+    {
+      "id": "H-C9-BV2F-LV-P1-1",
+      "ts": "2026-10-07T03:34:31Z",
+      "status": "closed",
+      "what": "LV Phase 1: hall orientation v7a (sketch A) infeasible under validator R10 without bending a rule -- oracle p06 lies screen lower-LEFT of p04 while sketch A draws it lower-right; with the gable on p06's ray (R-C9-148) every heading putting the gable at the screen lower-right end fails (best: gable 12.39 m from the floor edge vs 3.0 m); v6's heading feasible (0.47 m). fid/lv/v7a_feasibility.py/.json, collab f2c42aa3a. Disposed R-C9-174."
     }
   ],
   "rulings": [
@@ -45258,6 +45264,13 @@
       "ruling": "BV2F Phase 0 Gate-2 = PASS-WITH-FOLDS (jack-ryan 91a2feee6): Phase 0 CLOSED, split frozen, Phase 1 OPEN. Folded at charter v0.3 s13: G2-B1 P6a triage protocol (declared-opening overlay is the reference, invented beyond half-width + 1.0 m, ambiguous = FAIL, per-candidate jsonl record, MATERIAL sheet to Matt at M2; fresh judge re-calibrated with overlay may become primary reader); G2-B2 P11 needs v1-vs-v1 PASS + half-density FAIL on the fixed generator before counting in W-A/W-B; UNDERPOWERED = VOID; W-4 control-drift comparator = Phase 0 values at pin f1aa715ac, re-measured at the pin each Gate-2, HEAD drift a HALT disposed by ruling; four BV2F HALTs appended to halts[] (closed, with dispositions). Lane folds owed: PT W-1/W-2 before the first paint burst; PH W-3 + G2-B1 overlay tooling + G2-B2 sets before W-A judging. Phase 1 launches now (lane LV): model kit v3 incl. the M0(b) wreck, hall orientation option for M1, class-tinted guide, M1 packet. Budget Ph1: <= 4 Astra images, <= $8 fal.",
       "verbatim": [],
       "ts": "2026-10-07T03:18:51Z"
+    },
+    {
+      "id": "R-C9-174",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F Phase 1 HALT H-C9-BV2F-LV-P1-1 disposed: option (a) -- ONLY v7b (v6's hall heading) goes to M1. The sketch-A hall orientation is ORACLE-FORCED out, exactly as R-C9-148 already found ('the fallen gable sits left of the great door -- forced by the anchors'; Matt accepted the angled-longhall fix then). Registered as sketch-vs-oracle divergence #2 (after p03, R-C9-165). No rule is bent: the validator and R-C9-148 stand; the R-C9-165 'v7a RECOMMENDED' option is withdrawn by evidence (feasibility sweep, every 2 deg, best case 12.39 m vs 3.0 m). Within v7b, LV may compose the porch/great door to face the start as far as R1-R13 allow (one variable, validator green). Cliffs and crags take v1's `rock` tint (same material as v1's outcrops; one class, one tint). DEV-12 substitution proposal (fid/lv/DEV12_proposal.json) is RECEIVED and ruled before Phase 2, after M1. barrow_full untracked paths checked: identical to the Phase 0 baseline (fid/pc/bf_status_before.txt) -- no drift, not LV's.",
+      "verbatim": [],
+      "ts": "2026-10-07T03:34:31Z"
     }
   ],
   "grok_calls": [
