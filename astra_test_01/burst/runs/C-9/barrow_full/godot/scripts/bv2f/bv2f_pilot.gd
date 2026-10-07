@@ -10,6 +10,7 @@ extends "res://scripts/bv2f/bv2f_level.gd"
 ## v1's projection is uniform-driven (PaintedWorld.PROJ_UNIFORMS): v1's frame constants are re-bound to the pilot's.
 
 var water_mat_pt: ShaderMaterial = null   # BV2F-PT DEV-5
+const SETTLE_FRAMES := 30   # BV2F-PT R-C9-201
 const PILOT_U0 := -33.57573954303182
 const PILOT_V1 := 22.36993715728635
 const PILOT_PX := Vector2(4096.0, 2560.0)
@@ -378,3 +379,69 @@ func _warm_pipelines() -> Dictionary:
 			n_draws += 1
 	unpark_camera()
 	return {"views": views.size(), "draws": n_draws, "ms": Time.get_ticks_msec() - t0}
+
+
+# --- R-C9-201: the load tail and the first footprint, absorbed BEFORE control ----------------------------------------
+func _ready() -> void:
+	"""v1's _ready runs unchanged (it ends by setting ready_done). The pilot then takes control back for a short SETTLE
+	of real frames before handing over: the first presented frames after a 10 s load carry the load's tail (55-95 ms in
+	the R-C9-201 trace), his first footsteps (stamp + trail upload) took 18-24 ms, and PH saw 28-31 ms when he first
+	stopped. All of it runs here first, hidden, off his screen. No look change."""
+	await super._ready()
+	if not painted or PaintStack.is_web():
+		return
+	ready_done = false
+	var t0 := Time.get_ticks_msec()
+	var n := 0
+	# R-C9-201 (PH's cluster at ~3.3 s, first fresh run: the moment he first STOPS): every first-time path of his
+	# movement runs here, HIDDEN, east of the pilot window (uv 11.5..15.5, 15.5: snow, flat, in the snow field; outside
+	# the window, every P11 still, the start loop and the film), while the presented frames show the start view --
+	# walk, run, stop, walk, stop -- his locomotion blends, foot locks, real footprints and puffs (they refill in 60 s).
+	# Then he is back at spawn, as v1 placed him.
+	var k = knight
+	if k != null:
+		var sp: Array = layout["knight"]["spawn_uv"]
+		var spawn := Vector2(float(sp[0]), float(sp[1]))
+		park_camera(uv_to_world(spawn.x, spawn.y), 1.0)
+		var was_phys: bool = k.is_physics_processing()
+		k.set_physics_process(false)
+		k.visible = false
+		place_knight(11.5, 15.5, "E")   # snow, flat, in the snow field, OUTSIDE the pilot window, every still, the start loop and the film
+		var dt := 1.0 / 60.0
+		var plan := [[Vector2(1, 0), false, 20], [Vector2(1, 0), true, 20], [Vector2.ZERO, false, 15],
+					 [Vector2(1, 0), false, 30], [Vector2.ZERO, false, 15]]
+		for step in plan:
+			for f in int(step[2]):
+				k.drive_dir((step[0] as Vector2).normalized() if step[0] != Vector2.ZERO else Vector2.ZERO, bool(step[1]), dt)
+				await get_tree().physics_frame
+				await get_tree().process_frame
+				n += 1
+		place_knight(spawn.x, spawn.y, String(layout["knight"].get("spawn_facing", "S")))
+		for f in 90:   # every locomotion blend back to v1's idle
+			k.drive_dir(Vector2.ZERO, false, dt)
+			await get_tree().physics_frame
+			await get_tree().process_frame
+			n += 1
+		# his DRIVE STATE back to knight.gd's initial values (_move_dir persists after a stop and re-derives `facing`
+		# on every drive -- the settle's east walk would otherwise turn him east at spawn)
+		k.set("_move_dir", Vector2(0, 1))
+		k.set("_speed", 0.0)
+		k.set("_strafing", false)
+		k.set("_strafe_w", 0.0)
+		k.set("_strafe_side", "l")
+		k.set("_yaw_init", false)
+		place_knight(spawn.x, spawn.y, String(layout["knight"].get("spawn_facing", "S")))
+		for f in 10:
+			k.drive_dir(Vector2.ZERO, false, dt)
+			await get_tree().physics_frame
+			await get_tree().process_frame
+			n += 1
+		k.visible = true
+		k.set_physics_process(was_phys)
+		unpark_camera()
+	for i in SETTLE_FRAMES:
+		await get_tree().process_frame
+		n += 1
+	report["settle"] = {"frames": n, "ms": Time.get_ticks_msec() - t0}
+	print("[bv2f_pilot] settle: " + JSON.stringify(report["settle"]))
+	ready_done = true

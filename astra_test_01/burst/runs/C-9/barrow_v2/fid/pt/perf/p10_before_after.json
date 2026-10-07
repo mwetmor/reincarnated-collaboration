@@ -122,5 +122,40 @@
   "worst_p99_ms": 15.314,
   "bar": "3 fresh runs, worst p99 <= 16.7 ms (s34)",
   "look": "fid/pt/perf/still_diff_warmup.json"
+ },
+ "r_c9_201": {
+  "reconcile": {
+   "command_and_segment": "identical to PH's run_p10_rule.sh: Godot --path barrow_full/godot --resolution 1920x1080 --script fid/ph/harness/godot/ph_life.gd -- perf res://scenes/bv2f_pilot_painted.tscn OUT uv:0,0 (BV2F_VARIANT=art, heavy lock); segment = 180 lead-in frames after ready_done, then 900 measured frames. Traced twin: fid/pt/tools/perf_trace_runs.sh (godot/tools/bv2f/pt_perf_trace.gd = the same loop + every frame from scene creation, markers ready_done / control_start / measure_start / measure_end)",
+   "findings": [
+    "the frame at control_start (~30 ms) is the HARNESS: ph_life switches vsync off and teleports him in that frame (DisplayServer.window_set_vsync_mode) -- not a player event",
+    "with the warm-up only: the first frame after ready_done carried the load tail (55-95 ms), his first footsteps 18-24 ms (first stamp + trail upload), and PH's first-run cluster (28-31 ms at ~3.3 s, after control) sits where he first STOPS at the start loop's blocked waypoint (uv 3.5, 0.7 -- he never reaches (4, 1))"
+   ],
+   "fix": "bv2f_pilot.gd _ready: after v1's _ready, ready_done is held for a SETTLE before control -- he walks, runs, stops, walks, stops HIDDEN east of the pilot window (uv 11.5..15.5, 15.5: in the snow field, outside the window, every P11 still, the start loop and the film) with the camera parked on the start view, 90 idle frames, his drive state reset to knight.gd's initial values, then spawn; +30 frames. ~3.5 s more load.",
+   "after_ph_tool_p99_ms": [
+    15.026,
+    14.864,
+    15.035
+   ],
+   "after_ph_tool_max_ms": [
+    15.312,
+    15.554,
+    16.168
+   ],
+   "after_trace_p99_ms": [
+    15.178,
+    15.0,
+    14.934
+   ],
+   "after_trace_after_control_frames_over_16_7_excluding_harness": [
+    2,
+    1,
+    0
+   ],
+   "look": "fid/pt/perf/still_diff_settle.json: him identical (idle, facing S); the remaining difference is time phase (water/foam, wind, snowfall: the load is ~3.5 s longer)",
+   "run1_traces": [
+    "fid/pt/perf/trace_warmup/trace_run1/trace.json (before)",
+    "fid/pt/perf/trace_settle3/trace_run1/trace.json (after)"
+   ]
+  }
  }
 }
