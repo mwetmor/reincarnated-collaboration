@@ -107,3 +107,6 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P9c pre-registered (§ 31, 3888c0d74) + A1 (depth-test-off drew nothing -> sea hidden for marker shots; 96509f727), then measured (§ 32): rest-pose 0.010 PASS, swimming RED 1.766 FAIL -> P9c SHOWN; binding is the conductor's call.
 - [x] P9 flow 1.551 (paint_mix 0.75) < 2.064 -> FAIL on the frozen bar (paint_mix was not the driver; open water vs v159's surf). P10 PASS p99 16.20 / 14.49 ms.
 - Runner: `harness/run_p9c_godot.sh p9c flow perf` -> ph/renders/pilot3/.
+
+## PT 8fd69fafc (foam)
+- [x] P9 flow same mask 3.444 PASS (own-mask 1.914: foam leaks into floe/heather exclusions; marker-floe mask 4.092); P10 start run1 17.32 FAIL / repeat 16.03 PASS (ruling); sea 13.87; P2 20/20. calibration.md § 33.

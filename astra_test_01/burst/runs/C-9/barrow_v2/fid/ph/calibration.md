@@ -957,3 +957,20 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 - **Pilot sea:** mostly calm. Per-pixel |Δ| has median 0.33 and p90 11.7, and 18% of px exceed 2.
 - **R-C9-159's sea (6.48):** median 0.67, p90 63, and 39% of px exceed 2. It was a smaller water region (131 k px against 851 k) that was mostly foamy shore.
 - **So the difference is the sea's composition** in the measured view (open water against surf), not the shader's mix. No bar moved; the next build or view decision is the conductor's.
+
+## 33. PT 8fd69fafc (R-C9-159's foam field ported; paint_mix 0.75): P9 flow, P10, P2. `results/pilot4/p9_flow_p10_p2.json`; renders `renders/pilot4/`
+
+| Row | Measured | Bar | Verdict |
+|---|---|---|---|
+| P9 flow, **the same water mask** (pilot3's mask, 651 295 px, applied to the 8fd69fafc frames) | **3.444**; hidden-water RED 0.067 | ≥ 2.064 and ≥ 3× noise (0.152) | **PASS** |
+| P9 flow, the instrument re-deriving its mask from this run's frames | 1.914 over 623 581 px | same | FAIL (read below) |
+| P10 | start: run 1 p99 **17.32** (max 24.14), repeat **16.03** (max 16.48); sea: 13.87, repeat 14.11 | p99 ≤ 16.7 | **run 1 FAIL / repeat PASS**, see below |
+| P2 | 20/20 at 8fd69fafc | 100% | PASS |
+
+**Why the two flow readings differ (an instrument leak, not the water).** `sway()` re-derives its exclusions from shots taken at different instants: floes from floe_m0 against hide_floe, heather from f0 against hide_heather. With the foam now animated, the foam moving between those shots is classed as floe or heather and dropped from the water mask.
+- **Dropped:** 61 140 px fall out of the mask (49 572 as "floe", 10 083 as "heather").
+- **Their motion:** 20.8 mean |Δ|. These are the surf the row exists to see.
+- **Confirmation:** taking the floes from the marker's geometry instead (R − B > 40, P9c) gives 4.092 over 757 811 px.
+- **Binding reading:** the conductor asked for the same water mask, so 3.444 PASS is the binding reading. The leak is recorded for a re-instrument ruling: exclusions should come from geometry (the marker, ID renders), not cross-time differences.
+
+**P10, read.** The start view's first run had p99 17.32 with one long tail (max 24.14). The repeat on the same build gives 16.03 / max 16.48, so the build costs about 0.1–0.6 ms more than 9c53bc067 (16.20). The frozen protocol is a single 900-frame run; it never specified what a repeat means. I report both and flag the ruling: run 1 as the binding FAIL, or a pre-registered repeat rule. Bars unchanged.

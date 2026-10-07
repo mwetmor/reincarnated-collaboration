@@ -5,7 +5,7 @@ C9=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9
 G=/Applications/Godot.app/Contents/MacOS/Godot
 LOCK=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py
 H=$C9/barrow_v2/fid/ph/harness/godot
-R=$C9/barrow_v2/fid/ph/renders/pilot3
+R=$C9/barrow_v2/fid/ph/renders/${PH_RDIR:-pilot3}
 S=res://scenes/bv2f_pilot_painted.tscn
 export BV2F_VARIANT=art
 gate() { FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); if [ "$FREE" -lt 21 ]; then echo "HALT: ${FREE} GiB free < 21"; exit 9; fi; }

@@ -1,0 +1,70 @@
+{
+ "build": "8fd69fafc (foam field ported; paint_mix 0.75)",
+ "p9_flow": {
+  "heather_px": 29466,
+  "sway": 25.294,
+  "noise": 0.152,
+  "water_px": 623581,
+  "flow": 1.914,
+  "flow_static_sea_RED": 0.067,
+  "noise_static_sea": 0.001,
+  "dt_ms": 888,
+  "bar": 2.064,
+  "pass_": false
+ },
+ "p9_flow_on_pilot3_mask": {
+  "px": 651295,
+  "flow": 3.444,
+  "pass": true,
+  "mask": "pilot3/life_sea water mask (sway() definition, incl. its floe/heather exclusions), applied to pilot4 frames"
+ },
+ "p10_perf": {
+  "p50_ms": 14.66,
+  "p99_ms": 17.32,
+  "max_ms": 24.14,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": false
+ },
+ "p10_perf_sea": {
+  "p50_ms": 12.46,
+  "p99_ms": 13.87,
+  "max_ms": 14.27,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": true
+ },
+ "p2": {
+  "value": 1.0,
+  "n": 20,
+  "unresolved": [],
+  "pass": true
+ },
+ "p9_flow_marker_floe_mask": {
+  "px": 757811,
+  "flow": 4.092,
+  "mask": "pilot4 own, floes from the P9c marker geometry (R-B>40) instead of the floe_m0-vs-hide_floe difference"
+ },
+ "p9_flow_mask_leak": {
+  "excluded_as_floe_or_heather_in_pilot4_not_pilot3": 61140,
+  "of_which_floe_mask": 49572,
+  "heather_mask": 10083,
+  "flow_in_those_px": 20.82
+ },
+ "p10_perf_repeat": {
+  "p50_ms": 14.59,
+  "p99_ms": 16.03,
+  "max_ms": 16.48,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": true
+ },
+ "p10_perf_sea_repeat": {
+  "p50_ms": 12.62,
+  "p99_ms": 14.11,
+  "max_ms": 14.83,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": true
+ }
+}
