@@ -847,3 +847,37 @@ func _build_bounds() -> void:
 			_box_rot(body, (p + q) * 0.5, d.length() + 0.3, 0.3, float(bd["inner_wall_z_m"][0]), float(bd["inner_wall_z_m"][1]), atan2(d.y, d.x))
 			nin += 1
 	report["bounds"] = {"edges": poly.size(), "perimeter_m": snappedf(total, 0.01), "inner_walls": nin, "wall_z_m": [z0, z1]}
+
+
+func freeze_pose(on: bool) -> void:
+	## R-C9-191: the GUIDE's scale-knight pose is DETERMINISTIC. v1's freeze only stops the animation where it happens to
+	## be -- and how far his AnimationTree has run when the frozen capture freezes him depends on how many physics ticks
+	## the load took (two renders of one scene differed by 2939 px on him). Frozen here = ONE fixed frame: his idle clip
+	## (character roles "idle") at t = 0.0 straight off the AnimationPlayer (the tree and the foot-lock IK set aside);
+	## unfrozen = v1's own tree back on.
+	super.freeze_pose(on)
+	if knight == null:
+		return
+	var anim = knight.get("_anim")
+	var tree = knight.get("_tree")
+	var fl = knight.get("_foot_lock")
+	if anim == null:
+		return
+	if on:
+		if tree != null:
+			(tree as AnimationTree).active = false
+		if fl != null:
+			(fl as SkeletonModifier3D).active = false
+		var clip := String((knight.get("_roles") as Dictionary).get("idle", "idle"))
+		var ap := anim as AnimationPlayer
+		ap.active = true
+		ap.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+		ap.play(clip)
+		ap.seek(0.0, true)
+		report["guide_knight_pose"] = {"clip": clip, "t_s": 0.0, "rule": "R-C9-191 fixed frame"}
+	else:
+		(anim as AnimationPlayer).active = false
+		if tree != null:
+			(tree as AnimationTree).active = true
+		if fl != null:
+			(fl as SkeletonModifier3D).active = true
