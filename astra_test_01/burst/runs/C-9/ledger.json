@@ -42394,9 +42394,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LV-wreck",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1-model-kit-v3",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a4adbce6d261557425d78e2820987f0171d780c9295f31f8f40d9d1fb5d23a0d",
+      "started": "2026-10-07T03:37:54.532905+00:00",
+      "ended": "2026-10-07T03:41:04.874796+00:00",
+      "minutes": 3.1724131826505375,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11470-72a3-7e82-81b7-aa9e38dc1b02/exec-1401d9e5-a068-4ae7-b7d4-0e15d31127fd.png",
+            "sha256": "6b08bd9e42438d15e1abe3cd9d05533a57eb689b8187079b89e4e511398ac3b7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11470-72a3-7e82-81b7-aa9e38dc1b02/exec-e1445f3f-2d79-4e78-b058-40014557d288.png",
+            "sha256": "33fa19703bd3c60a6de3d120f1e42b44c2d1852670f9a3f1911c59426957be9b"
+          }
+        ]
+      },
+      "receipt_sha256": "50e2fee2890cf2778c027e9ce2d5104021575676ea46cc0702c6e55fb7705cef",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-wreck.png",
+          "sha256": "33fa19703bd3c60a6de3d120f1e42b44c2d1852670f9a3f1911c59426957be9b"
+        },
+        {
+          "name": "exec-1401d9e5-a068-4ae7-b7d4-0e15d31127fd.provenance.json",
+          "sha256": "f1469d46cdc2821f7930fce627c7549ff6c43ee2d2d093290388e60d0c38d933"
+        },
+        {
+          "name": "exec-e1445f3f-2d79-4e78-b058-40014557d288.provenance.json",
+          "sha256": "15ba5e2c7acec56233b6cfb1887b5dde2a6f54048dd61ce3a9cc9e17858adee9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11470-72a3-7e82-81b7-aa9e38dc1b02/exec-1401d9e5-a068-4ae7-b7d4-0e15d31127fd.png",
+          "sha256": "6b08bd9e42438d15e1abe3cd9d05533a57eb689b8187079b89e4e511398ac3b7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11470-72a3-7e82-81b7-aa9e38dc1b02/exec-e1445f3f-2d79-4e78-b058-40014557d288.png",
+          "sha256": "33fa19703bd3c60a6de3d120f1e42b44c2d1852670f9a3f1911c59426957be9b"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1251,
+  "images_used": 1253,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -45271,6 +45344,13 @@
       "ruling": "BV2F Phase 1 HALT H-C9-BV2F-LV-P1-1 disposed: option (a) -- ONLY v7b (v6's hall heading) goes to M1. The sketch-A hall orientation is ORACLE-FORCED out, exactly as R-C9-148 already found ('the fallen gable sits left of the great door -- forced by the anchors'; Matt accepted the angled-longhall fix then). Registered as sketch-vs-oracle divergence #2 (after p03, R-C9-165). No rule is bent: the validator and R-C9-148 stand; the R-C9-165 'v7a RECOMMENDED' option is withdrawn by evidence (feasibility sweep, every 2 deg, best case 12.39 m vs 3.0 m). Within v7b, LV may compose the porch/great door to face the start as far as R1-R13 allow (one variable, validator green). Cliffs and crags take v1's `rock` tint (same material as v1's outcrops; one class, one tint). DEV-12 substitution proposal (fid/lv/DEV12_proposal.json) is RECEIVED and ruled before Phase 2, after M1. barrow_full untracked paths checked: identical to the Phase 0 baseline (fid/pc/bf_status_before.txt) -- no drift, not LV's.",
       "verbatim": [],
       "ts": "2026-10-07T03:34:31Z"
+    },
+    {
+      "id": "R-C9-175",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F Phase 0 Gate-2 blocks DISCHARGED by fresh blind galadriel judges on neutral copies (PH sets 8a65bf4c8). G2-B2 (P11 v1 GREEN): v1 record-time vs v1 HEAD ABX 22/40 = 55% (repeat inconsistency 0.10) -> PASS (chance level; HEAD's lit drift is NOT visible to a fresh eye, so the P11 reference pool may mix record-time and HEAD v1 stills); v1 vs half-density on the fixed, content-controlled generator 33/40 = 82.5% (0.20) -> FAIL (correct). P11 now counts in W-A/W-B (40-trial sets; UNDERPOWERED = VOID). G2-B1 (P6a): the overlay-referenced judge caught BOTH invented features (brazier doorway, gable-end opening) and did not flag the declared door, but answered yes on 5/15 material items (open burnt-hall sides, window recesses, a roof gap) and no on the flat black stamp (which it reasonably read as not door-like) -> acceptance NOT met; the judge does NOT become a reader. The conductor reads every in-structure candidate under the written charter s13 protocol (overlay reference, half-width + 1.0 m from the declared opening's centre, ambiguous = FAIL, jsonl record, MATERIAL sheet to Matt at M2). Observation carried to M1/M2: a fresh eye reads a burnt ruin's open sides as 'openings'; whether open hall sides are wanted is a look question for Matt, not a P6a defect (R-C9-155's concern was doors that imply delivery).",
+      "verbatim": [],
+      "ts": "2026-10-07T03:42:08Z"
     }
   ],
   "grok_calls": [
