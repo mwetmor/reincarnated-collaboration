@@ -1,0 +1,140 @@
+{
+ "_what": "R-C9-191: PH's independent verification of LV's sea-cave walkability + constructed REDs",
+ "inputs": {
+  "walk_check_sha256": "8e5187f34ae5384e8b44a97e3d9b4b147c7cd7a47225f5fe8c48117916bb7493",
+  "walk_spec_sha256": "06dec7b6b0d6dd5e3afd5962824dcfb6c5c49612bf7b38d4edcfa3533a8b3459",
+  "layout_bv2art_sha256": "0f69e2c1a5e3ac86381a11b1de231c1bef913622263f48eac68a3f912ea8f2f3",
+  "lv_commit": "52e099d05"
+ },
+ "step_height": {
+  "r_m": 0.349999994039536,
+  "floor_max_angle_deg": 45.0,
+  "derived_m": 0.1025,
+  "lv_reported_m": 0.1025
+ },
+ "step_height_agrees": true,
+ "knight_script_check": "knight.gd: CapsuleShape3D radius 0.35 x figure scale (lines 149-153, 808-812); one move_and_slide() (line 1145); no floor_max_angle / floor_block_on_wall / step-up code -> Godot's default 45 deg",
+ "design_numbers": {
+  "riser_x_count_m": 5.0,
+  "shelf_to_landing_drop_m": 5.0,
+  "agree": true,
+  "atan_riser_over_tread_deg": 33.48,
+  "stair_pitch_deg": 33.48,
+  "pitch_agree": true,
+  "visual_riser_vs_step_m": [
+   0.17857,
+   "the 0.179 m visual riser is above the 0.1025 m step: the walk surface is the nosing RAMP (33.48 deg <= 35), the treads are under it"
+  ]
+ },
+ "ph_analysis": {
+  "segments": {
+   "cave": {
+    "n": 58,
+    "max_slope": 0.0,
+    "max_dz": 0.0
+   },
+   "shelf": {
+    "n": 224,
+    "max_slope": 0.0,
+    "max_dz": 0.0129
+   },
+   "stair": {
+    "n": 151,
+    "max_slope": 33.4797,
+    "max_dz": 0.0331
+   },
+   "landing": {
+    "n": 76,
+    "max_slope": 0.0,
+    "max_dz": 0.0
+   },
+   "clifftop": {
+    "n": 50,
+    "max_slope": 0.0,
+    "max_dz": 0.0
+   }
+  },
+  "breaks": [],
+  "n_breaks": 0,
+  "stair_min_clear_m": 5.25,
+  "shelf_min_clear_m": 6.15,
+  "mouth": {
+   "kind": "cave",
+   "clear_m": 6.0,
+   "headroom_m": 7.0
+  },
+  "bars": {
+   "continuous": true,
+   "stair_slope_le_35": true,
+   "shelf_slope_le_10": true,
+   "riser_le_step": true,
+   "stair_width_ge_5": true,
+   "shelf_width_ge_6": true,
+   "mouth_headroom_ge_6p9": true,
+   "drive_reached": true
+  },
+  "pass": true
+ },
+ "lv_tool_verdict": "PASS",
+ "constructed_reds": {
+  "riser_0p6m": {
+   "ph": {
+    "pass": false,
+    "failed_bars": [
+     "continuous",
+     "riser_le_step"
+    ],
+    "first_breaks": [
+     [
+      156,
+      "shelf",
+      "riser 0.600"
+     ]
+    ]
+   },
+   "lv_tool": {
+    "verdict": "FAIL",
+    "failed_bars": [
+     "continuous walk surface, cave -> clifftop (every 0.05 m)",
+     "no riser above v1's step height (0.103 m)"
+    ]
+   }
+  },
+  "gap_1m": {
+   "ph": {
+    "pass": false,
+    "failed_bars": [
+     "continuous"
+    ],
+    "first_breaks": [
+     [
+      157,
+      "shelf",
+      "no floor"
+     ],
+     [
+      158,
+      "shelf",
+      "no floor"
+     ],
+     [
+      159,
+      "shelf",
+      "no floor"
+     ]
+    ]
+   },
+   "lv_tool": {
+    "verdict": "FAIL",
+    "failed_bars": [
+     "continuous walk surface, cave -> clifftop (every 0.05 m)"
+    ]
+   }
+  }
+ },
+ "red_meta": {
+  "shelf_mid_sample": 157,
+  "shelf_samples": 262
+ },
+ "verified": true
+}

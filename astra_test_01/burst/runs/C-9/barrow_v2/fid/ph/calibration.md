@@ -674,3 +674,31 @@ Inputs: ids_art `aeaecf49ce26…` (= manifest), layout_bv2art `c30e0d449dfa…`,
 - **Class masks:** each still has an ID-render class mask (`<name>.classes.png/.json`), so the content control can exclude sea, wreck, hall and cliff by mask.
 - **Verified with the fixed generator** on exactly these frames: **40 trials + 10 repeats** (snow 24, heather 13, ice 3), from a candidate pool of {'ice': 607, 'heather': 280, 'snow': 463}. The class-map caveat stands: re-run on the real painted stills before the judge.
 
+
+## 25. Sea-cave walkability: PH's independent verification (R-C9-191; LV `52e099d05`). `harness/walk_verify.py` → `results/walk_verify_r191.json`
+
+**What is independent.** PH re-derives every bar with its own code from LV's RAW Godot survey (`fid/lv/walk/walk_check.json`): down-ray hits, slopes, body-in-collider flags, free runs to colliders, and the driven track against the level's own colliders. PH does not reuse LV's `analyse()`. Segments come from the layout's own route polygons, not LV's labels; the stair includes the nosing ramp's foot, one tread past the flight polygon, and that is recorded. **Limit:** PH ran no second Godot survey; the down-ray data is LV's instrument.
+
+**Step height.** `knight.gd` is a CapsuleShape3D with r = 0.35 × figure scale (lines 149–153, 808–812) and a single plain `move_and_slide()` (line 1145). It has no floor_max_angle, floor_block_on_wall or step-up code, so Godot's default of 45° applies. A capsule's lower hemisphere meets an edge of height h with its contact normal at acos((r − h) / r) from up. That contact is a floor only while the angle is ≤ 45°, so **h ≤ r (1 − cos 45°) = 0.1025 m. This matches LV's 0.103 m; the derivation is confirmed.**
+
+**Design numbers.** 28 risers × 0.179 m = 5.00 m, which equals the shelf-to-landing drop; atan(riser / tread) = 33.48°, which equals the stated pitch. The 0.179 m visual riser exceeds the step height, but the walk surface is the nosing ramp (33.48°), and the treads lie under it.
+
+**PH's verdict: PASS on all 8 bars.**
+- continuous, cave → clifftop: 559 of 559 samples, 0 breaks;
+- stair slope 33.48° ≤ 35°;
+- shelf slope 0° ≤ 10°;
+- maximum riser 0.033 m ≤ 0.1025 m;
+- stair clear width minimum 5.25 m ≥ 5;
+- shelf clear width minimum 6.15 m ≥ 6;
+- cave mouth 6.0 m wide with 7.0 m headroom;
+- the drive reaches the clifftop with 0 frames off the floor.
+
+This agrees with LV's tool (PASS).
+
+**Constructed REDs** on the same raw survey, run through PH's analysis and through LV's own tool. **Both FAIL in both tools:**
+- **a 0.6 m riser on the shelf:** PH fails continuous + riser; LV fails continuous + riser;
+- **a 1 m gap in the shelf floor** (20 samples): PH fails continuous; LV fails continuous.
+
+These are data-level REDs; the knight was not re-driven over them.
+
+**This does not gate the pilot** (R-C9-191).

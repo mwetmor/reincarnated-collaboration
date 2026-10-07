@@ -82,4 +82,5 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 ## Phase 2′ pilot (R-C9-188/189)
 - [x] (1) Run plan: `fid/ph/pilot_run_plan.json` (calibration.md § 24).
 - [x] (2) P11 still spec: `fid/ph/pilot_p11_spec.json`, 12 stills plus class masks; verified 40 + 10.
-- [ ] (3) Sea-cave walkability: waiting for LV's check. Then verify it independently (continuous surface; slope ≤ 35° on the stair, ≤ 10° on the shelf; riser ≤ v1 step; width ≥ 5 m / 6 m) and construct a RED (a 0.6 m step or a gap).
+- [x] (3) Sea-cave walkability verified independently (calibration.md § 25): PASS 8/8, step height 0.1025 m derivation confirmed; REDs (0.6 m riser, 1 m gap) FAIL in PH's analysis and in LV's tool.
+- [ ] STAND BY for PT's pilot inputs (`fid/ph/pilot_run_plan.json` requested_from_PT), then run the pilot harness per the plan.
