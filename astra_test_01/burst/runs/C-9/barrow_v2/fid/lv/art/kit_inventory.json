@@ -1,0 +1,25 @@
+{
+ "_what": "BV2F LV Phase 1' FIRST STEP (R-C9-186 I-5 a/b): sketch A's features against the kit, and the 2D footprint fit. Every hero at ONE uniform scale (per-instance scales in layout_bv2art.json placements[].scale and placed_fit_bv2art.json).",
+ "features": [
+  {"feature": "wreck (W), heeled, half-sunk, prow up", "source": "kit-v3 (BV2F-LV-wreck)", "scale": "1.0 (13.0 m, sketch A's own wreck length)"},
+  {"feature": "barrow front + monumental carved door (N)", "source": "kit-v3 (BV2F-LV-barrow)", "scale": "0.45 (11.6 m wide; door 2.6 x 3.0 m)"},
+  {"feature": "barrow mound", "source": "procedural terrain (heightfield dome, forecourt cut)", "scale": "-"},
+  {"feature": "burnt hall + great door facing the start (E)", "source": "kit-v3 (BV2F-LV-hall: body + porch, one build)", "scale": "0.571 (18.5 m long, sketch A's hall length)"},
+  {"feature": "fallen gable, its own ruin (SE)", "source": "R-C9-155 build (BVP gable)", "scale": "uniform to 8.0 m"},
+  {"feature": "sea cave in the cliff face (SW)", "source": "terrain cliff face + dark mouth (procedural); the R-C9-155 cavecliff build stays trimmed (it hid the mouth, R-C9-177)", "scale": "-"},
+  {"feature": "straight open-sided stair, ledge to clifftop", "source": "procedural treads at true size (0.18 rise, 0.27 tread, 2.2 m wide)", "scale": "-"},
+  {"feature": "S coast cliff faces", "source": "R-C9-155 build (cliffplain, re-normalised uniformly)", "scale": "uniform, 7.4-9.0 m tall"},
+  {"feature": "crags on the beach and plateau edges", "source": "R-C9-155 build (crag, re-normalised uniformly)", "scale": "uniform, 2.0-3.0 m tall"},
+  {"feature": "the broken stone ring at the start; barrow-slope standing stones", "source": "v1 pieces (stone_tall / stone_mid / stone_short)", "scale": "uniform, 1.4-2.4 m"},
+  {"feature": "palisade around the hall and gable", "source": "procedural posts at true size (0.22 m, 2.4-3.1 m)", "scale": "-"},
+  {"feature": "yard beams, driftwood", "source": "procedural logs at true size (0.34 m)", "scale": "-"},
+  {"feature": "frozen mere (NW), stream from the barrow", "source": "terrain class (ice / stream)", "scale": "-"},
+  {"feature": "shore ice, beach shingle, floes, open sea", "source": "terrain classes + floe slabs (procedural); one sea level -6 m", "scale": "-"},
+  {"feature": "heather / shrub zones", "source": "tint only (no plants)", "scale": "-"},
+  {"feature": "bare trees (SE, NE)", "source": "v1 birch exists; NOT placed (no plants in the guide)", "scale": "-"},
+  {"feature": "yard props (barrels, shields)", "source": "v1 kit shield exists; not placed in Phase 1' (minor, sketch detail)", "scale": "-"}
+ ],
+ "missing": [],
+ "footprint_fit": {"window_m": [66.2, 51.0], "placed_extent_m": {"u": 65.9, "v": 58.2, "_": "the v extent includes the cliff faces down to the sea below the window's bottom edge"},
+                   "target": "~55-65 m across (R-C9-185)", "note": "at sketch A's own scale (24 px/m) the composition is 64 m across; the kit fits by uniform rescale of the barrow front (0.45) and the hall (0.571)"}
+}

@@ -28,7 +28,8 @@ lvl = json.load(open(os.path.join(BF, "level.json")))
 CLASSES = lvl["classes"]
 ENV = lvl["frame"]["envelope"]
 W, H = ENV["px"]
-CAN, STRIDE, COLS, ROWS = (1536, 1024), (1280, 768), 9, 11
+CAN, STRIDE = (1536, 1024), (1280, 768)
+COLS, ROWS = (W - CAN[0]) // STRIDE[0] + 1, (H - CAN[1]) // STRIDE[1] + 1      # 9 x 11 (v7*), 5 x 5 (art)
 PAL = {"none": (0, 0, 0), "snow": (235, 232, 224), "path": (150, 120, 90), "ice": (140, 190, 235), "shrub": (130, 140, 70),
        "rock": (110, 110, 112), "mound": (200, 190, 150), "shingle": (175, 160, 125), "shore_ice": (205, 230, 245),
        "stream": (90, 150, 230), "char": (45, 38, 34), "sea": (35, 60, 95), "wood": (150, 105, 65), "passage_dark": (15, 15, 15), "ash": (120, 112, 107)}
@@ -62,12 +63,13 @@ def main():
         ids_g[y0:y0 + local.shape[0], x0:x0 + local.shape[1]] = local
     gp = os.path.join(GD, "guide_%s.png" % VAR)
     guide.save(gp)
-    os.makedirs(os.path.join(GD, "tiles"), exist_ok=True)
+    TD = "tiles" if VAR != "art" else "tiles_%dx%d" % (COLS, ROWS)
+    os.makedirs(os.path.join(GD, TD), exist_ok=True)
     tiles = []
     for r in range(ROWS):
         for c in range(COLS):
             x, y = c * STRIDE[0], r * STRIDE[1]
-            p = os.path.join(GD, "tiles", f"guide_r{r:02d}_c{c:02d}.png")
+            p = os.path.join(GD, TD, f"guide_r{r:02d}_c{c:02d}.png")
             guide.crop((x, y, x + CAN[0], y + CAN[1])).save(p)
             tiles.append({"row": r, "col": c, "px": [x, y], "file": os.path.relpath(p, LV), "sha256": sha(p)})
     # ID image: 24-bit global id

@@ -1,0 +1,1587 @@
+{
+ "_what": "barrow_v2 ART-FIRST layout of record (Matt R-C9-185; charter v1.0 s 15): sketch A literally, in v1's camera-aligned (u, v) frame, v1's layout practice. Built by fid/lv/tools/make_bv2art.py.",
+ "frame": {
+  "units": "metres",
+  "u_hat_world": [
+   0.682,
+   0.0,
+   -0.7314
+  ],
+  "v_hat_world": [
+   -0.7314,
+   0.0,
+   -0.682
+  ],
+  "world_from_uv": "x = u*cos47 - v*sin47; z = -u*sin47 - v*cos47 (v1's own)",
+  "sketch_map": "u = (x - 780) / 24, v = (452 - y - z*24*cos(pitch)) / (24*sin(pitch)), sketch A px (x, y)"
+ },
+ "window": {
+  "guide_px": [
+   6656,
+   4096
+  ],
+  "centre_uv": [
+   -0.5,
+   -3.132
+  ],
+  "u": [
+   -33.57573954303182,
+   32.57573954303182
+  ],
+  "v": [
+   -28.633937157286354,
+   22.36993715728635
+  ],
+  "chunks": {
+   "cols": 5,
+   "rows": 5,
+   "canvas_px": [
+    1536,
+    1024
+   ],
+   "stride_px": [
+    1280,
+    768
+   ]
+  }
+ },
+ "tints_srgb": {
+  "snow": [
+   0.86,
+   0.84,
+   0.8
+  ],
+  "path": [
+   0.58,
+   0.52,
+   0.45
+  ],
+  "rock": [
+   0.56,
+   0.555,
+   0.55
+  ],
+  "shrub": [
+   0.52,
+   0.515,
+   0.39
+  ],
+  "ice": [
+   0.7,
+   0.775,
+   0.84
+  ],
+  "hero_grey": [
+   0.6,
+   0.59,
+   0.57
+  ],
+  "primitive_grey": [
+   0.5,
+   0.48,
+   0.46
+  ],
+  "mound": [
+   0.745,
+   0.725,
+   0.665
+  ],
+  "passage_dark": [
+   0.12,
+   0.11,
+   0.105
+  ],
+  "rune": [
+   0.45,
+   0.78,
+   1.0
+  ],
+  "boss": [
+   0.95,
+   0.52,
+   0.2
+  ],
+  "station": [
+   0.98,
+   0.96,
+   0.9
+  ],
+  "wood": [
+   0.55,
+   0.42,
+   0.3
+  ],
+  "char": [
+   0.22,
+   0.19,
+   0.17
+  ],
+  "shingle": [
+   0.66,
+   0.61,
+   0.52
+  ],
+  "shore_ice": [
+   0.8,
+   0.87,
+   0.92
+  ],
+  "sea": [
+   0.2,
+   0.3,
+   0.4
+  ],
+  "stream": [
+   0.58,
+   0.7,
+   0.86
+  ],
+  "ash": [
+   0.47,
+   0.44,
+   0.42
+  ]
+ },
+ "sea_z_m": -6.0,
+ "regions": {
+  "mere": [
+   [
+    -27.708,
+    16.027
+   ],
+   [
+    -22.083,
+    17.749
+   ],
+   [
+    -15.833,
+    15.766
+   ],
+   [
+    -9.167,
+    14.826
+   ],
+   [
+    -6.583,
+    11.172
+   ],
+   [
+    -8.0,
+    6.995
+   ],
+   [
+    -13.542,
+    6.108
+   ],
+   [
+    -19.083,
+    7.831
+   ],
+   [
+    -23.958,
+    9.397
+   ],
+   [
+    -27.292,
+    12.007
+   ]
+  ],
+  "stream": [
+   [
+    -5.208,
+    19.942
+   ],
+   [
+    -6.75,
+    17.593
+   ],
+   [
+    -8.125,
+    15.766
+   ],
+   [
+    -9.167,
+    14.617
+   ]
+  ],
+  "coast_chain": [
+   [
+    -25.208,
+    26.729
+   ],
+   [
+    -25.625,
+    17.332
+   ],
+   [
+    -26.25,
+    13.155
+   ],
+   [
+    -25.208,
+    9.762
+   ],
+   [
+    -21.875,
+    6.891
+   ],
+   [
+    -18.125,
+    2.976
+   ],
+   [
+    -18.125,
+    -0.94
+   ],
+   [
+    -20.417,
+    -4.333
+   ],
+   [
+    -23.333,
+    -5.899
+   ],
+   [
+    -20.0,
+    -9.814
+   ],
+   [
+    -15.0,
+    -8.353
+   ],
+   [
+    -10.833,
+    -7.726
+   ],
+   [
+    -7.5,
+    -9.814
+   ],
+   [
+    -3.333,
+    -12.32
+   ],
+   [
+    1.667,
+    -13.886
+   ],
+   [
+    7.083,
+    -15.818
+   ],
+   [
+    11.25,
+    -17.906
+   ],
+   [
+    15.417,
+    -21.038
+   ],
+   [
+    20.0,
+    -24.693
+   ],
+   [
+    24.167,
+    -27.825
+   ],
+   [
+    28.333,
+    -30.435
+   ],
+   [
+    34.167,
+    -33.828
+   ]
+  ],
+  "mound": {
+   "centre_uv": [
+    2.083,
+    24.118
+   ],
+   "semi_m": [
+    15.0,
+    8.5
+   ],
+   "rise_m": 5.5
+  },
+  "shingle": [
+   [
+    -26.25,
+    13.155
+   ],
+   [
+    -25.0,
+    9.762
+   ],
+   [
+    -21.667,
+    6.891
+   ],
+   [
+    -17.917,
+    3.132
+   ],
+   [
+    -17.833,
+    -0.94
+   ],
+   [
+    -20.167,
+    -4.49
+   ],
+   [
+    -23.125,
+    -6.056
+   ],
+   [
+    -20.417,
+    -7.726
+   ],
+   [
+    -16.042,
+    -4.072
+   ],
+   [
+    -14.583,
+    1.148
+   ],
+   [
+    -16.667,
+    5.847
+   ],
+   [
+    -22.083,
+    10.023
+   ],
+   [
+    -24.167,
+    13.678
+   ]
+  ],
+  "hall_yard_ash": [
+   [
+    13.542,
+    3.498
+   ],
+   [
+    21.667,
+    6.369
+   ],
+   [
+    31.042,
+    -0.94
+   ],
+   [
+    30.0,
+    -10.336
+   ],
+   [
+    19.583,
+    -10.858
+   ],
+   [
+    15.0,
+    -4.855
+   ]
+  ],
+  "paths": [
+   [
+    [
+     1.583,
+     14.461
+    ],
+    [
+     0.833,
+     7.935
+    ],
+    [
+     0.208,
+     0.626
+    ]
+   ],
+   [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     -2.5,
+     -5.638
+    ],
+    [
+     -4.667,
+     -9.814
+    ]
+   ]
+  ],
+  "shore_ice": "W of the shore line: beach 4 m, grounded ice shelf at -0.5 to 13 m out, one sea level -6"
+ },
+ "placements": [
+  {
+   "id": "wreck",
+   "piece": "wreck",
+   "class": "wood",
+   "kind": "model",
+   "glb": "data/bv2f/models/wreck.glb",
+   "uv": [
+    -24.0625,
+    1.6705
+   ],
+   "z": -1.6,
+   "facing_uv": [
+    -0.5933,
+    -0.805
+   ],
+   "scale": 1.0,
+   "lying": false,
+   "size_m": {
+    "w": 13.0,
+    "d": 4.627,
+    "h": 7.463
+   },
+   "note": "sketch A: prow upper-left, stern lower-right, half-sunk"
+  },
+  {
+   "id": "barrow_front",
+   "piece": "barrow_front",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/barrow.glb",
+   "uv": [
+    1.5833,
+    19.4525
+   ],
+   "z": 0.0,
+   "facing_uv": [
+    0.0,
+    -1.0
+   ],
+   "scale": 0.44961,
+   "lying": false,
+   "size_m": {
+    "w": 11.6,
+    "d": 8.114,
+    "h": 5.869
+   },
+   "note": "the monumental carved door; door 2.61 x 3.00 m"
+  },
+  {
+   "id": "longhall",
+   "piece": "longhall",
+   "class": "wood",
+   "kind": "model",
+   "glb": "data/bv2f/models/hall.glb",
+   "uv": [
+    25.8672,
+    2.3352
+   ],
+   "z": 0.0,
+   "facing_uv": [
+    -0.6517,
+    -0.7585
+   ],
+   "scale": 0.57099,
+   "lying": false,
+   "size_m": {
+    "w": 18.5,
+    "d": 9.43,
+    "h": 7.489
+   },
+   "note": "the burnt hall as sketch A draws it: long side and great door facing the start"
+  },
+  {
+   "id": "fallen_gable",
+   "piece": "fallen_gable",
+   "class": "char",
+   "kind": "model",
+   "glb": "data/bv2f/models/gable.glb",
+   "uv": [
+    27.0833,
+    -6.9432
+   ],
+   "z": -0.013,
+   "facing_uv": [
+    -0.9687,
+    0.2483
+   ],
+   "scale": 0.73093,
+   "lying": false,
+   "size_m": {
+    "w": 8.0,
+    "d": 7.984,
+    "h": 2.605
+   },
+   "note": "its own collapsed ruin (R-C9-177/185)"
+  },
+  {
+   "id": "slope_stone_0",
+   "piece": "slope_stone_0",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    -7.5,
+    21.5081
+   ],
+   "z": 3.596,
+   "facing_uv": [
+    0.7508,
+    -0.6605
+   ],
+   "scale": 2.39648,
+   "lying": false,
+   "size_m": {
+    "w": 0.92,
+    "d": 1.295,
+    "h": 2.4
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_1",
+   "piece": "slope_stone_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    -10.8333,
+    18.1149
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.2002,
+    -0.9798
+   ],
+   "scale": 1.79827,
+   "lying": false,
+   "size_m": {
+    "w": 0.765,
+    "d": 1.07,
+    "h": 1.8
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_2",
+   "piece": "slope_stone_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    -3.75,
+    13.9385
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    -0.9608,
+    -0.2773
+   ],
+   "scale": 1.99808,
+   "lying": false,
+   "size_m": {
+    "w": 0.85,
+    "d": 1.189,
+    "h": 2.0
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_3",
+   "piece": "slope_stone_3",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    6.0417,
+    14.1996
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.3415,
+    -0.9399
+   ],
+   "scale": 2.19677,
+   "lying": false,
+   "size_m": {
+    "w": 0.843,
+    "d": 1.187,
+    "h": 2.2
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_4",
+   "piece": "slope_stone_4",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    14.5833,
+    21.5081
+   ],
+   "z": 1.806,
+   "facing_uv": [
+    0.6413,
+    -0.7673
+   ],
+   "scale": 1.99808,
+   "lying": false,
+   "size_m": {
+    "w": 0.85,
+    "d": 1.189,
+    "h": 2.0
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_5",
+   "piece": "slope_stone_5",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    17.0833,
+    18.8979
+   ],
+   "z": -0.054,
+   "facing_uv": [
+    -0.7931,
+    -0.6091
+   ],
+   "scale": 2.29663,
+   "lying": false,
+   "size_m": {
+    "w": 0.881,
+    "d": 1.241,
+    "h": 2.3
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_6",
+   "piece": "slope_stone_6",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_short.glb",
+   "uv": [
+    -16.6667,
+    4.5418
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    -0.1383,
+    -0.9904
+   ],
+   "scale": 1.56319,
+   "lying": false,
+   "size_m": {
+    "w": 1.099,
+    "d": 1.562,
+    "h": 1.4
+   },
+   "note": ""
+  },
+  {
+   "id": "slope_stone_7",
+   "piece": "slope_stone_7",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_short.glb",
+   "uv": [
+    6.25,
+    -12.9467
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.9388,
+    -0.3445
+   ],
+   "scale": 1.7865,
+   "lying": false,
+   "size_m": {
+    "w": 1.256,
+    "d": 1.785,
+    "h": 1.6
+   },
+   "note": ""
+  },
+  {
+   "id": "stone_0",
+   "piece": "stone_0",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    -3.75,
+    -0.1566
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.0,
+    -1.0
+   ],
+   "scale": 2.19677,
+   "lying": false,
+   "size_m": {
+    "w": 0.843,
+    "d": 1.187,
+    "h": 2.2
+   },
+   "note": ""
+  },
+  {
+   "id": "stone_1",
+   "piece": "stone_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    -2.4167,
+    -2.7668
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.6524,
+    -0.7579
+   ],
+   "scale": 1.69836,
+   "lying": false,
+   "size_m": {
+    "w": 0.722,
+    "d": 1.011,
+    "h": 1.7
+   },
+   "note": ""
+  },
+  {
+   "id": "stone_2",
+   "piece": "stone_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    0.0,
+    3.4977
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    -0.954,
+    -0.2997
+   ],
+   "scale": 1.89721,
+   "lying": false,
+   "size_m": {
+    "w": 0.728,
+    "d": 1.025,
+    "h": 1.9
+   },
+   "note": ""
+  },
+  {
+   "id": "stone_3",
+   "piece": "stone_3",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    3.4167,
+    1.6705
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.4949,
+    -0.869
+   ],
+   "scale": 2.09798,
+   "lying": false,
+   "size_m": {
+    "w": 0.892,
+    "d": 1.249,
+    "h": 2.1
+   },
+   "note": ""
+  },
+  {
+   "id": "stone_4",
+   "piece": "stone_4",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    2.75,
+    -2.0882
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.1864,
+    -0.9825
+   ],
+   "scale": 1.99707,
+   "lying": false,
+   "size_m": {
+    "w": 0.766,
+    "d": 1.079,
+    "h": 2.0
+   },
+   "note": ""
+  },
+  {
+   "id": "fallen_stone_0",
+   "piece": "fallen_stone_0",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    -1.5833,
+    1.4095
+   ],
+   "z": -0.15,
+   "facing_uv": [
+    0.4226,
+    -0.9063
+   ],
+   "scale": 1.39795,
+   "lying": true,
+   "size_m": {
+    "w": 1.4,
+    "d": 0.755,
+    "h": 0.536
+   },
+   "note": ""
+  },
+  {
+   "id": "fallen_stone_1",
+   "piece": "fallen_stone_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    1.0417,
+    -3.1323
+   ],
+   "z": -0.15,
+   "facing_uv": [
+    -0.2588,
+    -0.9659
+   ],
+   "scale": 1.39795,
+   "lying": true,
+   "size_m": {
+    "w": 1.4,
+    "d": 0.755,
+    "h": 0.536
+   },
+   "note": ""
+  },
+  {
+   "id": "fallen_stone_2",
+   "piece": "fallen_stone_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    2.0833,
+    -4.333
+   ],
+   "z": -0.15,
+   "facing_uv": [
+    0.866,
+    -0.5
+   ],
+   "scale": 1.39795,
+   "lying": true,
+   "size_m": {
+    "w": 1.4,
+    "d": 0.755,
+    "h": 0.536
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_0",
+   "piece": "crag_0",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    -11.0417,
+    -7.7262
+   ],
+   "z": -8.669,
+   "facing_uv": [
+    0.0,
+    -1.0
+   ],
+   "scale": 0.68869,
+   "lying": false,
+   "size_m": {
+    "w": 4.132,
+    "d": 2.651,
+    "h": 3.0
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_1",
+   "piece": "crag_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    -21.4583,
+    -7.7262
+   ],
+   "z": -9.4,
+   "facing_uv": [
+    0.7041,
+    -0.7101
+   ],
+   "scale": 0.59686,
+   "lying": false,
+   "size_m": {
+    "w": 3.581,
+    "d": 2.298,
+    "h": 2.6
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_2",
+   "piece": "crag_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    -25.2083,
+    -9.8144
+   ],
+   "z": -9.4,
+   "facing_uv": [
+    -0.2476,
+    -0.9689
+   ],
+   "scale": 0.50504,
+   "lying": false,
+   "size_m": {
+    "w": 3.03,
+    "d": 1.944,
+    "h": 2.2
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_3",
+   "piece": "crag_3",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    -14.1667,
+    -9.8144
+   ],
+   "z": -9.4,
+   "facing_uv": [
+    -0.6794,
+    -0.7338
+   ],
+   "scale": 0.55095,
+   "lying": false,
+   "size_m": {
+    "w": 3.306,
+    "d": 2.121,
+    "h": 2.4
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_4",
+   "piece": "crag_4",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    18.9583,
+    14.4606
+   ],
+   "z": -0.4,
+   "facing_uv": [
+    0.443,
+    -0.8965
+   ],
+   "scale": 0.45912,
+   "lying": false,
+   "size_m": {
+    "w": 2.755,
+    "d": 1.767,
+    "h": 2.0
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_5",
+   "piece": "crag_5",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    30.0,
+    4.8028
+   ],
+   "z": -0.4,
+   "facing_uv": [
+    0.624,
+    -0.7814
+   ],
+   "scale": 0.55095,
+   "lying": false,
+   "size_m": {
+    "w": 3.306,
+    "d": 2.121,
+    "h": 2.4
+   },
+   "note": ""
+  },
+  {
+   "id": "crag_6",
+   "piece": "crag_6",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/crag.glb",
+   "uv": [
+    -30.0,
+    13.6775
+   ],
+   "z": -0.9,
+   "facing_uv": [
+    -0.5734,
+    -0.8193
+   ],
+   "scale": 0.59686,
+   "lying": false,
+   "size_m": {
+    "w": 3.581,
+    "d": 2.298,
+    "h": 2.6
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_0",
+   "piece": "cliff_0",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    -23.3709,
+    -9.871
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    -0.7614,
+    -0.6482
+   ],
+   "scale": 0.82251,
+   "lying": false,
+   "size_m": {
+    "w": 7.403,
+    "d": 4.146,
+    "h": 7.38
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_1",
+   "piece": "cliff_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    -14.615,
+    -10.9526
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    0.2806,
+    -0.9598
+   ],
+   "scale": 0.95046,
+   "lying": false,
+   "size_m": {
+    "w": 8.554,
+    "d": 4.791,
+    "h": 8.528
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_2",
+   "piece": "cliff_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    3.0203,
+    -17.133
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    -0.3359,
+    -0.9419
+   ],
+   "scale": 0.89562,
+   "lying": false,
+   "size_m": {
+    "w": 8.061,
+    "d": 4.515,
+    "h": 8.036
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_3",
+   "piece": "cliff_3",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    9.1407,
+    -19.7611
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    -0.448,
+    -0.894
+   ],
+   "scale": 0.84079,
+   "lying": false,
+   "size_m": {
+    "w": 7.567,
+    "d": 4.238,
+    "h": 7.544
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_4",
+   "piece": "cliff_4",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    14.3598,
+    -23.5253
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    -0.6234,
+    -0.7819
+   ],
+   "scale": 0.96873,
+   "lying": false,
+   "size_m": {
+    "w": 8.719,
+    "d": 4.883,
+    "h": 8.692
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_5",
+   "piece": "cliff_5",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    19.9172,
+    -27.8874
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    -0.6009,
+    -0.7993
+   ],
+   "scale": 0.9139,
+   "lying": false,
+   "size_m": {
+    "w": 8.225,
+    "d": 4.607,
+    "h": 8.2
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_6",
+   "piece": "cliff_6",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffplain.glb",
+   "uv": [
+    25.8626,
+    -31.9594
+   ],
+   "z": -7.6,
+   "facing_uv": [
+    -0.5309,
+    -0.8474
+   ],
+   "scale": 0.85907,
+   "lying": false,
+   "size_m": {
+    "w": 7.732,
+    "d": 4.33,
+    "h": 7.708
+   },
+   "note": ""
+  }
+ ],
+ "procedural": {
+  "palisade_posts": 49,
+  "logs": 5,
+  "stair_steps": 31,
+  "floes": 17
+ },
+ "openings": [
+  {
+   "id": "wreck_hull",
+   "point": "W",
+   "model": "wreck",
+   "centre_sim": [
+    -24.0625,
+    -1.6705
+   ],
+   "z0": 0.0,
+   "w": null,
+   "h": null,
+   "faces_deg": null,
+   "dark": false,
+   "probe": {
+    "type": "h_rect",
+    "centre": [
+     -24.0625,
+     -1.6705
+    ],
+    "rot_deg": 36.39,
+    "L": 9.1,
+    "W": 2.082,
+    "z": 0.3,
+    "frontal_m2": 18.948
+   }
+  },
+  {
+   "id": "barrow_door",
+   "point": "N",
+   "model": "barrow_front",
+   "centre_sim": [
+    1.5833,
+    -15.7657
+   ],
+   "z0": 0.0,
+   "w": 2.612,
+   "h": 2.999,
+   "faces_deg": 180.0,
+   "curtain_inset_m": 0.8,
+   "dark": true,
+   "probe": {
+    "type": "v",
+    "centre": [
+     1.5833,
+     -15.7657
+    ],
+    "faces_deg": 180.0,
+    "w": 2.612,
+    "h": 2.999,
+    "z0": 0.0,
+    "frontal_m2": 7.833
+   }
+  },
+  {
+   "id": "hall_great_door",
+   "point": "E",
+   "model": "longhall",
+   "centre_sim": [
+    21.25,
+    -0.1044
+   ],
+   "z0": 0.0,
+   "w": 2.598,
+   "h": 2.712,
+   "faces_deg": 220.667,
+   "curtain_inset_m": 0.9135801608634116,
+   "dark": true,
+   "probe": {
+    "type": "v",
+    "centre": [
+     21.25,
+     -0.1044
+    ],
+    "faces_deg": 220.667,
+    "w": 2.598,
+    "h": 2.712,
+    "z0": 0.0,
+    "frontal_m2": 7.046
+   }
+  },
+  {
+   "id": "gable_breach",
+   "point": "SE",
+   "model": "fallen_gable",
+   "centre_sim": [
+    27.0833,
+    6.9432
+   ],
+   "z0": 0.0,
+   "w": null,
+   "h": null,
+   "faces_deg": null,
+   "dark": false,
+   "probe": {
+    "type": "h_rect",
+    "centre": [
+     25.5335,
+     6.5458
+    ],
+    "rot_deg": 104.379,
+    "L": 4.0,
+    "W": 4.0,
+    "z": 1.302,
+    "frontal_m2": 16.0
+   }
+  },
+  {
+   "id": "sea_cave_mouth",
+   "point": "SW",
+   "model": "cliff",
+   "centre_sim": [
+    -9.1667,
+    13.0771
+   ],
+   "z0": -5.6,
+   "w": 4.4,
+   "h": 3.6,
+   "faces_deg": 180.0,
+   "curtain_inset_m": -0.1,
+   "dark": true,
+   "probe": {
+    "type": "v",
+    "centre": [
+     -9.1667,
+     13.0771
+    ],
+    "faces_deg": 180.0,
+    "w": 4.4,
+    "h": 3.6,
+    "z0": -5.6,
+    "frontal_m2": 15.84
+   }
+  },
+  {
+   "id": "mere_ice",
+   "point": "NW",
+   "model": "mere",
+   "centre_sim": [
+    -17.325,
+    -11.7877
+   ],
+   "z0": 0.0,
+   "w": null,
+   "h": null,
+   "faces_deg": null,
+   "dark": false,
+   "probe": {
+    "type": "poly",
+    "polygon": [
+     [
+      -27.708,
+      -16.027
+     ],
+     [
+      -22.083,
+      -17.749
+     ],
+     [
+      -15.833,
+      -15.766
+     ],
+     [
+      -9.167,
+      -14.826
+     ],
+     [
+      -6.583,
+      -11.172
+     ],
+     [
+      -8.0,
+      -6.995
+     ],
+     [
+      -13.542,
+      -6.108
+     ],
+     [
+      -19.083,
+      -7.831
+     ],
+     [
+      -23.958,
+      -9.397
+     ],
+     [
+      -27.292,
+      -12.007
+     ]
+    ],
+    "z": 0.03,
+    "frontal_m2": 163.981
+   }
+  }
+ ],
+ "knight": {
+  "spawn_uv": [
+   0.0,
+   0.0
+  ],
+  "spawn_facing": "S",
+  "guide_uv": [
+   0.0,
+   0.0
+  ],
+  "guide_facing": "S",
+  "gear_stack": 4
+ },
+ "bounds": {
+  "polygon_uv": [
+   [
+    -25.208,
+    26.729
+   ],
+   [
+    -25.625,
+    17.332
+   ],
+   [
+    -26.25,
+    13.155
+   ],
+   [
+    -25.208,
+    9.762
+   ],
+   [
+    -21.875,
+    6.891
+   ],
+   [
+    -18.125,
+    2.976
+   ],
+   [
+    -18.125,
+    -0.94
+   ],
+   [
+    -20.417,
+    -4.333
+   ],
+   [
+    -23.333,
+    -5.899
+   ],
+   [
+    -20.0,
+    -9.814
+   ],
+   [
+    -15.0,
+    -8.353
+   ],
+   [
+    -10.833,
+    -7.726
+   ],
+   [
+    -7.5,
+    -9.814
+   ],
+   [
+    -3.333,
+    -12.32
+   ],
+   [
+    1.667,
+    -13.886
+   ],
+   [
+    7.083,
+    -15.818
+   ],
+   [
+    11.25,
+    -17.906
+   ],
+   [
+    15.417,
+    -21.038
+   ],
+   [
+    20.0,
+    -24.693
+   ],
+   [
+    24.167,
+    -27.825
+   ],
+   [
+    28.333,
+    -30.435
+   ],
+   [
+    34.167,
+    -33.828
+   ],
+   [
+    32.576,
+    -33.828
+   ],
+   [
+    32.576,
+    22.37
+   ],
+   [
+    -25.208,
+    22.37
+   ]
+  ]
+ },
+ "classes": [
+  "none",
+  "snow",
+  "path",
+  "ice",
+  "shrub",
+  "rock",
+  "mound",
+  "shingle",
+  "shore_ice",
+  "stream",
+  "char",
+  "sea",
+  "wood",
+  "passage_dark",
+  "ash"
+ ],
+ "class_counts": {
+  "none": 445984,
+  "snow": 654257,
+  "path": 9423,
+  "ice": 41832,
+  "shrub": 51413,
+  "rock": 20929,
+  "mound": 99910,
+  "shingle": 52036,
+  "shore_ice": 112714,
+  "stream": 3680,
+  "ash": 56110
+ }
+}

@@ -1,0 +1,596 @@
+{
+ "_what": "BV2F LV Phase 1.3 class-tinted guide of layout art  (frozen Tier-B capture_blockout + capture_ids via godot_run.sh)",
+ "envelope": {
+  "u": [
+   -33.57573954303182,
+   32.57573954303182
+  ],
+  "v": [
+   -28.633937157286354,
+   22.36993715728635
+  ],
+  "px": [
+   6656,
+   4096
+  ],
+  "centre_uv": [
+   -0.5,
+   -3.132
+  ]
+ },
+ "canvas": [
+  1536,
+  1024
+ ],
+ "stride": [
+  1280,
+  768
+ ],
+ "cols": 5,
+ "rows": 5,
+ "guide": {
+  "file": "guide_art/guide_art.png",
+  "sha256": "961dfb24497de1d4807749055e959de38da04ad607411f45ff87536f9ef33c70",
+  "px": [
+   6656,
+   4096
+  ]
+ },
+ "ids": {
+  "file": "guide_art/ids_art.png",
+  "sha256": "1b902715b6e809500a0d35b31bc507e7bfd89b1f2d6590df5f2aee571f7def79",
+  "code": "R<<16 | G<<8 | B = global id (table below); 0 = nothing (sky / none)"
+ },
+ "class": {
+  "file": "guide_art/class_art.png",
+  "sha256": "f8a6578d85e6870e40a8c01c34b205596e988fc5d386e1c2b98530c9edf29397",
+  "classes": [
+   "none",
+   "snow",
+   "path",
+   "ice",
+   "shrub",
+   "rock",
+   "mound",
+   "shingle",
+   "shore_ice",
+   "stream",
+   "char",
+   "sea",
+   "wood",
+   "passage_dark",
+   "ash"
+  ],
+  "shares": {
+   "snow": 0.37308,
+   "path": 0.01065,
+   "ice": 0.04859,
+   "shrub": 0.0554,
+   "rock": 0.11834,
+   "mound": 0.02771,
+   "shingle": 0.04704,
+   "shore_ice": 0.05768,
+   "stream": 0.00497,
+   "char": 0.01087,
+   "sea": 0.14276,
+   "wood": 0.06368,
+   "passage_dark": 0.00497,
+   "ash": 0.03426
+  },
+  "unassigned_share": 0.0
+ },
+ "tints_srgb": {
+  "snow": [
+   0.86,
+   0.84,
+   0.8
+  ],
+  "path": [
+   0.58,
+   0.52,
+   0.45
+  ],
+  "rock": [
+   0.56,
+   0.555,
+   0.55
+  ],
+  "shrub": [
+   0.52,
+   0.515,
+   0.39
+  ],
+  "ice": [
+   0.7,
+   0.775,
+   0.84
+  ],
+  "hero_grey": [
+   0.6,
+   0.59,
+   0.57
+  ],
+  "primitive_grey": [
+   0.5,
+   0.48,
+   0.46
+  ],
+  "mound": [
+   0.745,
+   0.725,
+   0.665
+  ],
+  "passage_dark": [
+   0.12,
+   0.11,
+   0.105
+  ],
+  "rune": [
+   0.45,
+   0.78,
+   1.0
+  ],
+  "boss": [
+   0.95,
+   0.52,
+   0.2
+  ],
+  "station": [
+   0.98,
+   0.96,
+   0.9
+  ],
+  "wood": [
+   0.55,
+   0.42,
+   0.3
+  ],
+  "char": [
+   0.22,
+   0.19,
+   0.17
+  ],
+  "shingle": [
+   0.66,
+   0.61,
+   0.52
+  ],
+  "shore_ice": [
+   0.8,
+   0.87,
+   0.92
+  ],
+  "sea": [
+   0.2,
+   0.3,
+   0.4
+  ],
+  "stream": [
+   0.58,
+   0.7,
+   0.86
+  ],
+  "ash": [
+   0.47,
+   0.44,
+   0.42
+  ]
+ },
+ "id_table": {
+  "1": {
+   "id": "barrow_front",
+   "class": "rock",
+   "piece": "model"
+  },
+  "2": {
+   "id": "door_post_R",
+   "class": "none",
+   "piece": "v1-instrument-stub"
+  },
+  "3": {
+   "id": "fallen_gable",
+   "class": "char",
+   "piece": "model"
+  },
+  "4": {
+   "id": "ground_ash",
+   "class": "ash",
+   "piece": "ground"
+  },
+  "5": {
+   "id": "ground_ice",
+   "class": "ice",
+   "piece": "ground"
+  },
+  "6": {
+   "id": "ground_mound",
+   "class": "mound",
+   "piece": "ground"
+  },
+  "7": {
+   "id": "ground_path",
+   "class": "path",
+   "piece": "ground"
+  },
+  "8": {
+   "id": "ground_rock",
+   "class": "rock",
+   "piece": "ground"
+  },
+  "9": {
+   "id": "ground_sea",
+   "class": "sea",
+   "piece": "ground"
+  },
+  "10": {
+   "id": "ground_shingle",
+   "class": "shingle",
+   "piece": "ground"
+  },
+  "11": {
+   "id": "ground_shore_ice",
+   "class": "shore_ice",
+   "piece": "ground"
+  },
+  "12": {
+   "id": "blobs_shore_ice",
+   "class": "shore_ice",
+   "piece": "group"
+  },
+  "13": {
+   "id": "ground_shrub",
+   "class": "shrub",
+   "piece": "ground"
+  },
+  "14": {
+   "id": "ground_snow",
+   "class": "snow",
+   "piece": "ground"
+  },
+  "15": {
+   "id": "ground_stream",
+   "class": "stream",
+   "piece": "ground"
+  },
+  "16": {
+   "id": "logs",
+   "class": "wood",
+   "piece": "group"
+  },
+  "17": {
+   "id": "longhall",
+   "class": "wood",
+   "piece": "model"
+  },
+  "18": {
+   "id": "palisade",
+   "class": "wood",
+   "piece": "group"
+  },
+  "19": {
+   "id": "ring_stones",
+   "class": "rock",
+   "piece": "group"
+  },
+  "20": {
+   "id": "slope_stones",
+   "class": "rock",
+   "piece": "group"
+  },
+  "21": {
+   "id": "stair_steps",
+   "class": "rock",
+   "piece": "procedural"
+  },
+  "22": {
+   "id": "wreck",
+   "class": "wood",
+   "piece": "model"
+  },
+  "23": {
+   "id": "cliff_faces",
+   "class": "rock",
+   "piece": "group"
+  },
+  "24": {
+   "id": "crags",
+   "class": "rock",
+   "piece": "group"
+  },
+  "25": {
+   "id": "curtain_barrow_door",
+   "class": "passage_dark",
+   "piece": "declared_opening"
+  },
+  "26": {
+   "id": "curtain_hall_great_door",
+   "class": "passage_dark",
+   "piece": "declared_opening"
+  },
+  "27": {
+   "id": "curtain_sea_cave_mouth",
+   "class": "passage_dark",
+   "piece": "declared_opening"
+  },
+  "28": {
+   "id": "door_lintel",
+   "class": "none",
+   "piece": "v1-instrument-stub"
+  },
+  "29": {
+   "id": "door_post_L",
+   "class": "none",
+   "piece": "v1-instrument-stub"
+  }
+ },
+ "tiles": [
+  {
+   "row": 0,
+   "col": 0,
+   "px": [
+    0,
+    0
+   ],
+   "file": "guide_art/tiles_5x5/guide_r00_c00.png",
+   "sha256": "f4f9502ac74352d563eb718e3c3e2f59f436671402b61f84d617cd718280a324"
+  },
+  {
+   "row": 0,
+   "col": 1,
+   "px": [
+    1280,
+    0
+   ],
+   "file": "guide_art/tiles_5x5/guide_r00_c01.png",
+   "sha256": "7594429819d20a9fcb09861e2386bdb69a5541ba386cfee7f92a637c7459faad"
+  },
+  {
+   "row": 0,
+   "col": 2,
+   "px": [
+    2560,
+    0
+   ],
+   "file": "guide_art/tiles_5x5/guide_r00_c02.png",
+   "sha256": "511fb702965d43a27354100cc622a31b6751172274520ff88605b90fc8a549a2"
+  },
+  {
+   "row": 0,
+   "col": 3,
+   "px": [
+    3840,
+    0
+   ],
+   "file": "guide_art/tiles_5x5/guide_r00_c03.png",
+   "sha256": "eae0f27f9cf8d5dfbcad6c4721f31ac6af4505a085007582cef1136f172da162"
+  },
+  {
+   "row": 0,
+   "col": 4,
+   "px": [
+    5120,
+    0
+   ],
+   "file": "guide_art/tiles_5x5/guide_r00_c04.png",
+   "sha256": "339aca1bff187ddef060a29a78bd16eeeabcbedce8b8bdf0f2858d4d1f88a92f"
+  },
+  {
+   "row": 1,
+   "col": 0,
+   "px": [
+    0,
+    768
+   ],
+   "file": "guide_art/tiles_5x5/guide_r01_c00.png",
+   "sha256": "205f5822fd1449c1e8c11039e69224da206768bd4becf42a3eab5c9f91b2e8a8"
+  },
+  {
+   "row": 1,
+   "col": 1,
+   "px": [
+    1280,
+    768
+   ],
+   "file": "guide_art/tiles_5x5/guide_r01_c01.png",
+   "sha256": "457c170e0127aeb65b88f9de9fa70f4b192f6af424eb63e989b203be1f86f694"
+  },
+  {
+   "row": 1,
+   "col": 2,
+   "px": [
+    2560,
+    768
+   ],
+   "file": "guide_art/tiles_5x5/guide_r01_c02.png",
+   "sha256": "a283076663c3e6fd63d40619a008bda67200fcf436a52bd02a7086c7c3a44115"
+  },
+  {
+   "row": 1,
+   "col": 3,
+   "px": [
+    3840,
+    768
+   ],
+   "file": "guide_art/tiles_5x5/guide_r01_c03.png",
+   "sha256": "545c4fc66af6234fc3ea9caeeb22e97ae2892dcdc1432b563d87ad1c6d4c7cbe"
+  },
+  {
+   "row": 1,
+   "col": 4,
+   "px": [
+    5120,
+    768
+   ],
+   "file": "guide_art/tiles_5x5/guide_r01_c04.png",
+   "sha256": "bb69d4f34058bf069d725b82c5f7246c4264d6498188d6f548f7eb89fb503c3b"
+  },
+  {
+   "row": 2,
+   "col": 0,
+   "px": [
+    0,
+    1536
+   ],
+   "file": "guide_art/tiles_5x5/guide_r02_c00.png",
+   "sha256": "48fec7ba41815f78a5a7a36735f48b42b769b34468cc61eb7621cade46c7d765"
+  },
+  {
+   "row": 2,
+   "col": 1,
+   "px": [
+    1280,
+    1536
+   ],
+   "file": "guide_art/tiles_5x5/guide_r02_c01.png",
+   "sha256": "d322ab9ba8dff254386ed2fde1b1ea5526c66a36ba208cfc00b6d2c7491f3675"
+  },
+  {
+   "row": 2,
+   "col": 2,
+   "px": [
+    2560,
+    1536
+   ],
+   "file": "guide_art/tiles_5x5/guide_r02_c02.png",
+   "sha256": "a0149cf43b0fc4d389efb15fdc48c7974282099504c041a2dbf508b233dec0d5"
+  },
+  {
+   "row": 2,
+   "col": 3,
+   "px": [
+    3840,
+    1536
+   ],
+   "file": "guide_art/tiles_5x5/guide_r02_c03.png",
+   "sha256": "a04af99b4be75614579a4a0c36c1f22296779b15bbbf91fa2a925021dcde18db"
+  },
+  {
+   "row": 2,
+   "col": 4,
+   "px": [
+    5120,
+    1536
+   ],
+   "file": "guide_art/tiles_5x5/guide_r02_c04.png",
+   "sha256": "2995f08732eeb96c710c90874df8922eeb8440a1ebe8d1eabe84e454f81ba1a1"
+  },
+  {
+   "row": 3,
+   "col": 0,
+   "px": [
+    0,
+    2304
+   ],
+   "file": "guide_art/tiles_5x5/guide_r03_c00.png",
+   "sha256": "f1db6e888e8012dfedb5ab2f5ae04f9799a1cec9dac4e939ec83b348c2a67f86"
+  },
+  {
+   "row": 3,
+   "col": 1,
+   "px": [
+    1280,
+    2304
+   ],
+   "file": "guide_art/tiles_5x5/guide_r03_c01.png",
+   "sha256": "ce89e7455f0ab58a6ea7aca57da358c23e3f87178a5d0cf390087e59d0704701"
+  },
+  {
+   "row": 3,
+   "col": 2,
+   "px": [
+    2560,
+    2304
+   ],
+   "file": "guide_art/tiles_5x5/guide_r03_c02.png",
+   "sha256": "2fe59a24dcb274d66be171a54997b1bda1d0b4712b2a7b651f3b055f7d383b9a"
+  },
+  {
+   "row": 3,
+   "col": 3,
+   "px": [
+    3840,
+    2304
+   ],
+   "file": "guide_art/tiles_5x5/guide_r03_c03.png",
+   "sha256": "16581b1df426bcb5a3c2d6e976ca6b3061f23130406d732cf9c20bded7627f9d"
+  },
+  {
+   "row": 3,
+   "col": 4,
+   "px": [
+    5120,
+    2304
+   ],
+   "file": "guide_art/tiles_5x5/guide_r03_c04.png",
+   "sha256": "dbcdbc73ab8db665b39d065d2560042fd63c07d57108622f63b1bcc04982c26e"
+  },
+  {
+   "row": 4,
+   "col": 0,
+   "px": [
+    0,
+    3072
+   ],
+   "file": "guide_art/tiles_5x5/guide_r04_c00.png",
+   "sha256": "dde8cb6f284a589a528d9cf14c0f1b5a5d1fc3e0f913a460ec6444947680b7e3"
+  },
+  {
+   "row": 4,
+   "col": 1,
+   "px": [
+    1280,
+    3072
+   ],
+   "file": "guide_art/tiles_5x5/guide_r04_c01.png",
+   "sha256": "5fc7dd9068f10978c80b3f0830b7bc6791cb5ee5eac5fffcf84a4cc1b7028e18"
+  },
+  {
+   "row": 4,
+   "col": 2,
+   "px": [
+    2560,
+    3072
+   ],
+   "file": "guide_art/tiles_5x5/guide_r04_c02.png",
+   "sha256": "85d277ee29a3e7ed1b176b3acf9aaf4d8f800f53b8bf278a0f853fa75df93947"
+  },
+  {
+   "row": 4,
+   "col": 3,
+   "px": [
+    3840,
+    3072
+   ],
+   "file": "guide_art/tiles_5x5/guide_r04_c03.png",
+   "sha256": "e92a80b0d713d260eafb0087af9ae5ac6459bcdc90f28067e71b8e855ca06579"
+  },
+  {
+   "row": 4,
+   "col": 4,
+   "px": [
+    5120,
+    3072
+   ],
+   "file": "guide_art/tiles_5x5/guide_r04_c04.png",
+   "sha256": "970c4551879fef14a12d7bfc7b976064a98bf4f37039be4ec29a9d83f1782164"
+  }
+ ],
+ "sections": {
+  "s00": {
+   "guide_sha256": "63e0a1f4272cebdddd28b9e4bbc7eaa638e266ab204cecf8a6fd0e5f9e60ff32",
+   "ids_sha256": "65849538a5fe3cab6804e48aa6958dfa28542177df9d0e19e372eea1c7af3297"
+  },
+  "s01": {
+   "guide_sha256": "f53b0242dba720181bcfa975111906c1b51b1dc500b0cef283d7c510d1bf761c",
+   "ids_sha256": "ed53e3c6ae3ff75bddef4ef01dd7aae67bbdf334af5d91433e870dd6a5278a99"
+  },
+  "s10": {
+   "guide_sha256": "0b80c3ab41dc161fef2a25c32956bed0e1c5bf14f1d659b7541af5fef9c53c1f",
+   "ids_sha256": "c23ca6264d2ddb195b26f2effc83cafcd877fd5e412fc31be00165d04373131b"
+  },
+  "s11": {
+   "guide_sha256": "4f1b71f0e1348c40d31ac5979f52bbdb8747813439625ded87f20677258586c5",
+   "ids_sha256": "ac73bf757e5766fb2cf213792df5d6e5cbb30d418cd349503949176715b2761d"
+  }
+ }
+}

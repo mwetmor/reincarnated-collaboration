@@ -36,6 +36,41 @@ func _initialize() -> void:
 		waited += 1
 	scene.set_hud_visible(false)
 	var k = scene.knight
+	var id_table := {}
+	if OS.get_environment("M1_IDS") == "1":
+		# Phase 1' hero coverage: the SAME stills as an ID render (unshaded flat colour per placed node, as capture_ids codes them)
+		scene.set_stack(false)
+		var env: Environment = scene.env_node.environment
+		env.background_mode = Environment.BG_COLOR
+		env.background_color = Color(0, 0, 0)
+		env.fog_enabled = false
+		env.glow_enabled = false
+		env.adjustment_enabled = false
+		env.tonemap_mode = Environment.TONE_MAPPER_LINEAR
+		var black := StandardMaterial3D.new()
+		black.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		black.albedo_color = Color(0, 0, 0)
+		for n in scene.find_children("*", "GeometryInstance3D", true, false):
+			var gi := n as GeometryInstance3D
+			if gi is GPUParticles3D or gi is Label3D or String(gi.name).ends_with("_ink"):
+				gi.visible = false
+				continue
+			gi.material_override = black
+		var order: Array = scene.nodes.keys()
+		order.sort()
+		var idx := 0
+		for id in order:
+			idx += 1
+			var col := Color8((idx % 16) * 16 + 8, int(idx / 16) * 16 + 8, 200)
+			var m := StandardMaterial3D.new()
+			m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			m.albedo_color = col
+			m.cull_mode = BaseMaterial3D.CULL_DISABLED
+			for mi in (scene.nodes[id] as Node).find_children("*", "GeometryInstance3D", true, false):
+				if String(mi.name).ends_with("_ink") or mi is Label3D or mi is GPUParticles3D:
+					continue
+				(mi as GeometryInstance3D).material_override = m
+			id_table[str(idx)] = {"id": id, "rgb": [col.r8, col.g8, col.b8]}
 	var rep := []
 	for s in spec:
 		if s.has("topdown"):
@@ -69,10 +104,10 @@ func _initialize() -> void:
 		RenderingServer.force_draw()
 		await process_frame
 		var img: Image = vp.get_texture().get_image()
-		img.save_png("%s/%s.png" % [out_dir, s["name"]])
+		img.save_png("%s/%s%s.png" % [out_dir, s["name"], "_ids" if not id_table.is_empty() else ""])
 		rep.append({"name": s["name"], "uv": s["uv"], "him_uv": [scene.knight_uv().x, scene.knight_uv().y]})
 		print("[m1] %s" % s["name"])
-	var f := FileAccess.open("%s/stills.json" % out_dir, FileAccess.WRITE)
-	f.store_string(JSON.stringify({"camera": "v1 play camera (barrow_full.gd), 1920x1080, park_camera(_camera_aim)", "stills": rep}, " "))
+	var f := FileAccess.open("%s/stills%s.json" % [out_dir, "_ids" if not id_table.is_empty() else ""], FileAccess.WRITE)
+	f.store_string(JSON.stringify({"camera": "v1 play camera (barrow_full.gd), 1920x1080, park_camera(_camera_aim)", "stills": rep, "id_table": id_table}, " "))
 	f.close()
 	quit(0)

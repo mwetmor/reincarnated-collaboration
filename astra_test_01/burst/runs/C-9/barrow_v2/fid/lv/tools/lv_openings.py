@@ -30,7 +30,16 @@ def faces_camera(probe):
 def main():
     out = []
     for o in lvl["sim"]["openings"]:
-        if o["faces_deg"] is None:      # the mere: a surface, not a framed opening (check (a) only)
+        if o["faces_deg"] is None:
+            if o["id"].startswith("mere"):   # the mere: a surface, not an opening
+                continue
+            # an opening OPEN TO THE SKY (the wreck's hull, the ruin's breach heap): its probe patch, projected
+            pr = o["probe"]
+            cx, cy = pr["centre"]
+            out.append({"id": o["id"], "point": o["point"], "model": o["model"], "kind": "open_to_sky", "patch_m": [pr.get("L"), pr.get("W")],
+                        "centre_sim_xy": [cx, cy], "z_m": pr.get("z"), "centre_px": px(cx, cy, pr.get("z", 0.0)),
+                        "p6a_match_radius_m": round(max(pr.get("L", 4), pr.get("W", 4)) / 2 + 1.0, 3),
+                        "check_a_probe": pr["type"], "check_a_faces_camera": True})
             continue
         t = math.radians(o["faces_deg"])
         f = (math.sin(t), -math.cos(t))
@@ -48,7 +57,7 @@ def main():
     json.dump({"_what": __doc__.strip().splitlines()[0], "envelope": env, "projection": "x = (u - u0) * 100.6176; y = (v1 - v) * 80.3076 - z * 60.6137 (u = sim x, v = -sim y)",
                "openings": out}, open(os.path.join(LV, "guide" if VAR == "v7b" else "guide_" + VAR, "declared_openings.json"), "w"), indent=1)
     for o in out:
-        print(o["id"], o["w_m"], o["h_m"], o["faces_deg"], o["centre_px"], "frame faces camera" if o["frame_faces_camera"] else "frame faces away", "| check(a) probe", o["check_a_probe"], o["check_a_faces_camera"])
+        print(o["id"], o.get("kind", "framed"), o["centre_px"], o.get("frame_faces_camera"), o["check_a_probe"])
 
 
 if __name__ == "__main__":

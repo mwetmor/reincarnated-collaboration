@@ -1,0 +1,2896 @@
+{
+ "_what": "BV2F lane LV Phase 1': barrow_v2 ART blockout (sketch A, v1 practice) as a level of the v1 Barrow; read by scripts/bv2f/bv2f_level.gd; written by fid/lv/tools/make_bv2art.py",
+ "tints_srgb": {
+  "snow": [
+   0.86,
+   0.84,
+   0.8
+  ],
+  "path": [
+   0.58,
+   0.52,
+   0.45
+  ],
+  "rock": [
+   0.56,
+   0.555,
+   0.55
+  ],
+  "shrub": [
+   0.52,
+   0.515,
+   0.39
+  ],
+  "ice": [
+   0.7,
+   0.775,
+   0.84
+  ],
+  "hero_grey": [
+   0.6,
+   0.59,
+   0.57
+  ],
+  "primitive_grey": [
+   0.5,
+   0.48,
+   0.46
+  ],
+  "mound": [
+   0.745,
+   0.725,
+   0.665
+  ],
+  "passage_dark": [
+   0.12,
+   0.11,
+   0.105
+  ],
+  "rune": [
+   0.45,
+   0.78,
+   1.0
+  ],
+  "boss": [
+   0.95,
+   0.52,
+   0.2
+  ],
+  "station": [
+   0.98,
+   0.96,
+   0.9
+  ],
+  "wood": [
+   0.55,
+   0.42,
+   0.3
+  ],
+  "char": [
+   0.22,
+   0.19,
+   0.17
+  ],
+  "shingle": [
+   0.66,
+   0.61,
+   0.52
+  ],
+  "shore_ice": [
+   0.8,
+   0.87,
+   0.92
+  ],
+  "sea": [
+   0.2,
+   0.3,
+   0.4
+  ],
+  "stream": [
+   0.58,
+   0.7,
+   0.86
+  ],
+  "ash": [
+   0.47,
+   0.44,
+   0.42
+  ]
+ },
+ "classes": [
+  "none",
+  "snow",
+  "path",
+  "ice",
+  "shrub",
+  "rock",
+  "mound",
+  "shingle",
+  "shore_ice",
+  "stream",
+  "char",
+  "sea",
+  "wood",
+  "passage_dark",
+  "ash"
+ ],
+ "knight": {
+  "spawn_uv": [
+   0.0,
+   0.0
+  ],
+  "spawn_facing": "S",
+  "guide_uv": [
+   0.0,
+   0.0
+  ],
+  "guide_facing": "S",
+  "gear_stack": 4
+ },
+ "frame": {
+  "guide_window": {
+   "centre_uv": [
+    -17.03786977151591,
+    9.618968578643175
+   ],
+   "u": [
+    -34.21181145732089,
+    0.13607191428907228
+   ],
+   "v": [
+    -3.9289355361651985,
+    23.16687269345155
+   ]
+  },
+  "envelope": {
+   "u": [
+    -33.57573954303182,
+    32.57573954303182
+   ],
+   "v": [
+    -28.633937157286354,
+    22.36993715728635
+   ],
+   "px": [
+    6656,
+    4096
+   ],
+   "centre_uv": [
+    -0.5,
+    -3.132
+   ]
+  },
+  "sections": [
+   {
+    "id": "s00",
+    "px_origin": [
+     0,
+     0
+    ],
+    "px": [
+     3328,
+     2048
+    ],
+    "centre_uv": [
+     -17.03786977151591,
+     9.618968578643175
+    ],
+    "u": [
+     -34.21181145732089,
+     0.13607191428907228
+    ],
+    "v": [
+     -3.9289355361651985,
+     23.16687269345155
+    ]
+   },
+   {
+    "id": "s01",
+    "px_origin": [
+     3328,
+     0
+    ],
+    "px": [
+     3328,
+     2048
+    ],
+    "centre_uv": [
+     16.037869771515908,
+     9.618968578643175
+    ],
+    "u": [
+     -1.1360719142890758,
+     33.21181145732089
+    ],
+    "v": [
+     -3.9289355361651985,
+     23.16687269345155
+    ]
+   },
+   {
+    "id": "s10",
+    "px_origin": [
+     0,
+     2048
+    ],
+    "px": [
+     3328,
+     2048
+    ],
+    "centre_uv": [
+     -17.03786977151591,
+     -15.88296857864318
+    ],
+    "u": [
+     -34.21181145732089,
+     0.13607191428907228
+    ],
+    "v": [
+     -29.430872693451555,
+     -2.335064463834806
+    ]
+   },
+   {
+    "id": "s11",
+    "px_origin": [
+     3328,
+     2048
+    ],
+    "px": [
+     3328,
+     2048
+    ],
+    "centre_uv": [
+     16.037869771515908,
+     -15.88296857864318
+    ],
+    "u": [
+     -1.1360719142890758,
+     33.21181145732089
+    ],
+    "v": [
+     -29.430872693451555,
+     -2.335064463834806
+    ]
+   }
+  ]
+ },
+ "camera_clamp_default": false,
+ "regions": {
+  "ice": {
+   "centre_uv": [
+    -17.325,
+    11.788
+   ],
+   "axes_m": [
+    20.0,
+    9.0
+   ]
+  }
+ },
+ "placements": [
+  {
+   "id": "mound",
+   "kind": "structure",
+   "uv": [
+    0.0,
+    60.0
+   ],
+   "semi_axes": [
+    1.0,
+    1.0
+   ],
+   "rise_m": 0.0,
+   "exponent": 1.0,
+   "toe_rho": 0.2,
+   "cutting": {
+    "half_w": 0.0,
+    "v_facade": -999.0
+   },
+   "passage": {
+    "half_w": 0.0,
+    "v0": 0.0,
+    "v_end": 0.0,
+    "risers_v": [],
+    "riser_m": 0.0
+   },
+   "_": "STUB for the frozen capture tool's walk-grid statistics (v1's mound spec); the art mound is terrain"
+  }
+ ],
+ "bounds": {
+  "polygon_uv": [
+   [
+    -25.208,
+    26.729
+   ],
+   [
+    -25.625,
+    17.332
+   ],
+   [
+    -26.25,
+    13.155
+   ],
+   [
+    -25.208,
+    9.762
+   ],
+   [
+    -21.875,
+    6.891
+   ],
+   [
+    -18.125,
+    2.976
+   ],
+   [
+    -18.125,
+    -0.94
+   ],
+   [
+    -20.417,
+    -4.333
+   ],
+   [
+    -23.333,
+    -5.899
+   ],
+   [
+    -20.0,
+    -9.814
+   ],
+   [
+    -15.0,
+    -8.353
+   ],
+   [
+    -10.833,
+    -7.726
+   ],
+   [
+    -7.5,
+    -9.814
+   ],
+   [
+    -3.333,
+    -12.32
+   ],
+   [
+    1.667,
+    -13.886
+   ],
+   [
+    7.083,
+    -15.818
+   ],
+   [
+    11.25,
+    -17.906
+   ],
+   [
+    15.417,
+    -21.038
+   ],
+   [
+    20.0,
+    -24.693
+   ],
+   [
+    24.167,
+    -27.825
+   ],
+   [
+    28.333,
+    -30.435
+   ],
+   [
+    34.167,
+    -33.828
+   ],
+   [
+    32.576,
+    -33.828
+   ],
+   [
+    32.576,
+    22.37
+   ],
+   [
+    -25.208,
+    22.37
+   ]
+  ]
+ },
+ "crucible": {
+  "eye_height_m": 1.6,
+  "station": {
+   "uv": [
+    0.0,
+    0.0
+   ]
+  },
+  "boss_gate": {
+   "uv": [
+    1.583,
+    15.766
+   ]
+  },
+  "spawns": []
+ },
+ "sim": {
+  "heightfield": {
+   "file": "terrain_h.f32",
+   "shape": [
+    289,
+    337
+   ],
+   "px_per_m": 4.0,
+   "extent_sim_m": {
+    "x0": -42.0,
+    "x1": 42.0,
+    "y0": -36.0,
+    "y1": 36.0
+   },
+   "sha256": "f2a8c47c5d1948fa8e4688f1eee24e57dd28003db505798c746a72544ded4347"
+  },
+  "classes_png": {
+   "file": "classes_png.bin",
+   "px_per_m": 16.0,
+   "extent_sim_m": {
+    "x0": -42.0,
+    "x1": 42.0,
+    "y0": -36.0,
+    "y1": 36.0
+   },
+   "sha256": "a3c18beaf27ee7b145d694b7bc80cdc8f3de68f9e67186a3d16db99bf9f20597"
+  },
+  "sea_z": -6.0,
+  "models": [
+   {
+    "id": "wreck",
+    "kind": "wreck",
+    "pos": [
+     -24.0625,
+     -1.6705
+    ],
+    "z": -1.6,
+    "godot_rot_y_deg": -36.39,
+    "size_m": {
+     "w_local_x": 13.0,
+     "d_local_z": 4.6271,
+     "h": 7.4633
+    },
+    "glb": "data/bv2f/ext/data__bv2f__models__wreck.glb.bin"
+   },
+   {
+    "id": "barrow_front",
+    "kind": "barrow",
+    "pos": [
+     1.5833,
+     -19.4525
+    ],
+    "z": 0.0,
+    "godot_rot_y_deg": 0.0,
+    "size_m": {
+     "w_local_x": 11.6,
+     "d_local_z": 8.1138,
+     "h": 5.8693
+    },
+    "glb": "data/bv2f/ext/data__bv2f__models__barrow.glb.bin"
+   },
+   {
+    "id": "longhall",
+    "kind": "building",
+    "pos": [
+     25.8672,
+     -2.3352
+    ],
+    "z": 0.0,
+    "godot_rot_y_deg": -40.667,
+    "size_m": {
+     "w_local_x": 18.5,
+     "d_local_z": 9.4296,
+     "h": 7.4895
+    },
+    "glb": "data/bv2f/ext/data__bv2f__models__hall.glb.bin"
+   },
+   {
+    "id": "fallen_gable",
+    "kind": "ruin",
+    "pos": [
+     27.0833,
+     6.9432
+    ],
+    "z": -0.013,
+    "godot_rot_y_deg": -104.379,
+    "size_m": {
+     "w_local_x": 8.0,
+     "d_local_z": 7.9843,
+     "h": 2.6046
+    },
+    "glb": "data/bv2f/ext/data__bv2f__models__gable.glb.bin"
+   },
+   {
+    "id": "slope_stones",
+    "kind": "stones",
+    "pos": [
+     0,
+     0
+    ],
+    "z": 0,
+    "godot_rot_y_deg": 0,
+    "size_m": {
+     "w_local_x": 1,
+     "d_local_z": 1,
+     "h": 1
+    },
+    "instances": [
+     {
+      "type": "box",
+      "pos": [
+       -7.5,
+       -21.5081
+      ],
+      "z": 3.596,
+      "godot_rot_y_deg": 48.66,
+      "size_m": [
+       0.9197,
+       1.2948,
+       2.4
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 2.39648
+     },
+     {
+      "type": "box",
+      "pos": [
+       -10.8333,
+       -18.1149
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 11.548,
+      "size_m": [
+       0.7649,
+       1.0702,
+       1.8
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+      "uniform_scale": 1.79827
+     },
+     {
+      "type": "box",
+      "pos": [
+       -3.75,
+       -13.9385
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": -73.902,
+      "size_m": [
+       0.8499,
+       1.1891,
+       2.0
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+      "uniform_scale": 1.99808
+     },
+     {
+      "type": "box",
+      "pos": [
+       6.0417,
+       -14.1996
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 19.966,
+      "size_m": [
+       0.8431,
+       1.1869,
+       2.2
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 2.19677
+     },
+     {
+      "type": "box",
+      "pos": [
+       14.5833,
+       -21.5081
+      ],
+      "z": 1.806,
+      "godot_rot_y_deg": 39.887,
+      "size_m": [
+       0.8499,
+       1.1891,
+       2.0
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+      "uniform_scale": 1.99808
+     },
+     {
+      "type": "box",
+      "pos": [
+       17.0833,
+       -18.8979
+      ],
+      "z": -0.054,
+      "godot_rot_y_deg": -52.479,
+      "size_m": [
+       0.8814,
+       1.2409,
+       2.3
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 2.29663
+     },
+     {
+      "type": "box",
+      "pos": [
+       -16.6667,
+       -4.5418
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": -7.948,
+      "size_m": [
+       1.099,
+       1.5619,
+       1.4
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_short.glb.bin",
+      "uniform_scale": 1.56319
+     },
+     {
+      "type": "box",
+      "pos": [
+       6.25,
+       12.9467
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 69.848,
+      "size_m": [
+       1.256,
+       1.785,
+       1.6
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_short.glb.bin",
+      "uniform_scale": 1.7865
+     }
+    ],
+    "glb": null
+   },
+   {
+    "id": "ring_stones",
+    "kind": "stones",
+    "pos": [
+     0,
+     0
+    ],
+    "z": 0,
+    "godot_rot_y_deg": 0,
+    "size_m": {
+     "w_local_x": 1,
+     "d_local_z": 1,
+     "h": 1
+    },
+    "instances": [
+     {
+      "type": "box",
+      "pos": [
+       -3.75,
+       0.1566
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 0.0,
+      "size_m": [
+       0.8431,
+       1.1869,
+       2.2
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 2.19677
+     },
+     {
+      "type": "box",
+      "pos": [
+       -2.4167,
+       2.7668
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 40.722,
+      "size_m": [
+       0.7224,
+       1.0107,
+       1.7
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+      "uniform_scale": 1.69836
+     },
+     {
+      "type": "box",
+      "pos": [
+       0.0,
+       -3.4977
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": -72.561,
+      "size_m": [
+       0.7281,
+       1.0251,
+       1.9
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 1.89721
+     },
+     {
+      "type": "box",
+      "pos": [
+       3.4167,
+       -1.6705
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 29.661,
+      "size_m": [
+       0.8924,
+       1.2485,
+       2.1
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+      "uniform_scale": 2.09798
+     },
+     {
+      "type": "box",
+      "pos": [
+       2.75,
+       2.0882
+      ],
+      "z": -0.1,
+      "godot_rot_y_deg": 10.742,
+      "size_m": [
+       0.7664,
+       1.079,
+       2.0
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 1.99707
+     },
+     {
+      "type": "box",
+      "pos": [
+       -1.5833,
+       -1.4095
+      ],
+      "z": -0.15,
+      "godot_rot_y_deg": 25.0,
+      "size_m": [
+       1.4,
+       0.7553,
+       0.5365
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 1.39795,
+      "lie_z90": true
+     },
+     {
+      "type": "box",
+      "pos": [
+       1.0417,
+       3.1323
+      ],
+      "z": -0.15,
+      "godot_rot_y_deg": -15.0,
+      "size_m": [
+       1.4,
+       0.7553,
+       0.5365
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 1.39795,
+      "lie_z90": true
+     },
+     {
+      "type": "box",
+      "pos": [
+       2.0833,
+       4.333
+      ],
+      "z": -0.15,
+      "godot_rot_y_deg": 60.0,
+      "size_m": [
+       1.4,
+       0.7553,
+       0.5365
+      ],
+      "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+      "uniform_scale": 1.39795,
+      "lie_z90": true
+     }
+    ],
+    "glb": null
+   },
+   {
+    "id": "crags",
+    "kind": "outcrop",
+    "pos": [
+     0,
+     0
+    ],
+    "z": 0,
+    "godot_rot_y_deg": 0,
+    "size_m": {
+     "w_local_x": 1,
+     "d_local_z": 1,
+     "h": 1
+    },
+    "instances": [
+     {
+      "type": "box",
+      "pos": [
+       -11.0417,
+       7.7262
+      ],
+      "z": -8.669,
+      "godot_rot_y_deg": 0.0,
+      "size_m": [
+       4.1321,
+       2.6511,
+       3.0
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.68869
+     },
+     {
+      "type": "box",
+      "pos": [
+       -21.4583,
+       7.7262
+      ],
+      "z": -9.4,
+      "godot_rot_y_deg": 44.76,
+      "size_m": [
+       3.5812,
+       2.2977,
+       2.6
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.59686
+     },
+     {
+      "type": "box",
+      "pos": [
+       -25.2083,
+       9.8144
+      ],
+      "z": -9.4,
+      "godot_rot_y_deg": -14.335,
+      "size_m": [
+       3.0302,
+       1.9442,
+       2.2
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.50504
+     },
+     {
+      "type": "box",
+      "pos": [
+       -14.1667,
+       9.8144
+      ],
+      "z": -9.4,
+      "godot_rot_y_deg": -42.794,
+      "size_m": [
+       3.3057,
+       2.1209,
+       2.4
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.55095
+     },
+     {
+      "type": "box",
+      "pos": [
+       18.9583,
+       -14.4606
+      ],
+      "z": -0.4,
+      "godot_rot_y_deg": 26.295,
+      "size_m": [
+       2.7547,
+       1.7674,
+       2.0
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.45912
+     },
+     {
+      "type": "box",
+      "pos": [
+       30.0,
+       -4.8028
+      ],
+      "z": -0.4,
+      "godot_rot_y_deg": 38.607,
+      "size_m": [
+       3.3057,
+       2.1209,
+       2.4
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.55095
+     },
+     {
+      "type": "box",
+      "pos": [
+       -30.0,
+       -13.6775
+      ],
+      "z": -0.9,
+      "godot_rot_y_deg": -34.987,
+      "size_m": [
+       3.5812,
+       2.2977,
+       2.6
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+      "uniform_scale": 0.59686
+     }
+    ],
+    "glb": null
+   },
+   {
+    "id": "cliff_faces",
+    "kind": "cliff",
+    "pos": [
+     0,
+     0
+    ],
+    "z": 0,
+    "godot_rot_y_deg": 0,
+    "size_m": {
+     "w_local_x": 1,
+     "d_local_z": 1,
+     "h": 1
+    },
+    "instances": [
+     {
+      "type": "box",
+      "pos": [
+       -23.3709,
+       9.871
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": -49.59,
+      "size_m": [
+       7.4026,
+       4.1462,
+       7.38
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.82251
+     },
+     {
+      "type": "box",
+      "pos": [
+       -14.615,
+       10.9526
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": 16.296,
+      "size_m": [
+       8.5541,
+       4.7912,
+       8.528
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.95046
+     },
+     {
+      "type": "box",
+      "pos": [
+       3.0203,
+       17.133
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": -19.626,
+      "size_m": [
+       8.0606,
+       4.5148,
+       8.036
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.89562
+     },
+     {
+      "type": "box",
+      "pos": [
+       9.1407,
+       19.7611
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": -26.618,
+      "size_m": [
+       7.5671,
+       4.2383,
+       7.544
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.84079
+     },
+     {
+      "type": "box",
+      "pos": [
+       14.3598,
+       23.5253
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": -38.565,
+      "size_m": [
+       8.7186,
+       4.8833,
+       8.692
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.96873
+     },
+     {
+      "type": "box",
+      "pos": [
+       19.9172,
+       27.8874
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": -36.934,
+      "size_m": [
+       8.2251,
+       4.6069,
+       8.2
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.9139
+     },
+     {
+      "type": "box",
+      "pos": [
+       25.8626,
+       31.9594
+      ],
+      "z": -7.6,
+      "godot_rot_y_deg": -32.065,
+      "size_m": [
+       7.7316,
+       4.3305,
+       7.708
+      ],
+      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+      "uniform_scale": 0.85907
+     }
+    ],
+    "glb": null
+   },
+   {
+    "id": "palisade",
+    "kind": "palisade",
+    "pos": [
+     0,
+     0
+    ],
+    "z": 0,
+    "godot_rot_y_deg": 0,
+    "size_m": {
+     "w_local_x": 1,
+     "d_local_z": 1,
+     "h": 1
+    },
+    "instances": [
+     {
+      "type": "beam",
+      "a": [
+       11.042,
+       -4.15,
+       -0.3
+      ],
+      "b": [
+       11.042,
+       -4.27,
+       2.1
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       11.458,
+       -4.411,
+       -0.3
+      ],
+      "b": [
+       11.559,
+       -4.443,
+       2.31
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       11.875,
+       -4.672,
+       -0.3
+      ],
+      "b": [
+       11.984,
+       -4.569,
+       2.52
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       13.125,
+       -5.455,
+       -0.3
+      ],
+      "b": [
+       13.142,
+       -5.368,
+       2.73
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       13.542,
+       -5.716,
+       -0.3
+      ],
+      "b": [
+       13.451,
+       -5.773,
+       2.24
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       13.941,
+       -5.969,
+       -0.3
+      ],
+      "b": [
+       13.826,
+       -6.086,
+       2.45
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       14.323,
+       -6.212,
+       -0.3
+      ],
+      "b": [
+       14.289,
+       -6.219,
+       2.66
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       14.705,
+       -6.456,
+       -0.3
+      ],
+      "b": [
+       14.784,
+       -6.342,
+       2.17
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       15.087,
+       -6.7,
+       -0.3
+      ],
+      "b": [
+       15.206,
+       -6.632,
+       2.38
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       15.469,
+       -6.943,
+       -0.3
+      ],
+      "b": [
+       15.518,
+       -7.021,
+       2.59
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       23.611,
+       -10.963,
+       -0.3
+      ],
+      "b": [
+       23.546,
+       -11.072,
+       2.1
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       24.074,
+       -10.824,
+       -0.3
+      ],
+      "b": [
+       23.954,
+       -10.804,
+       2.31
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       24.537,
+       -10.684,
+       -0.3
+      ],
+      "b": [
+       24.473,
+       -10.565,
+       2.52
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       25.0,
+       -10.545,
+       -0.3
+      ],
+      "b": [
+       25.05,
+       -10.501,
+       2.73
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       25.463,
+       -10.406,
+       -0.3
+      ],
+      "b": [
+       25.582,
+       -10.502,
+       2.24
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       25.926,
+       -10.267,
+       -0.3
+      ],
+      "b": [
+       26.004,
+       -10.362,
+       2.45
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       26.389,
+       -10.128,
+       -0.3
+      ],
+      "b": [
+       26.354,
+       -10.083,
+       2.66
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       27.708,
+       -9.621,
+       -0.3
+      ],
+      "b": [
+       27.593,
+       -9.502,
+       2.17
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       28.125,
+       -9.423,
+       -0.3
+      ],
+      "b": [
+       28.035,
+       -9.404,
+       2.38
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       28.542,
+       -9.224,
+       -0.3
+      ],
+      "b": [
+       28.56,
+       -9.333,
+       2.59
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       28.958,
+       -9.026,
+       -0.3
+      ],
+      "b": [
+       29.068,
+       -9.104,
+       2.1
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       29.375,
+       -8.828,
+       -0.3
+      ],
+      "b": [
+       29.475,
+       -8.76,
+       2.31
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       29.792,
+       -8.629,
+       -0.3
+      ],
+      "b": [
+       29.791,
+       -8.516,
+       2.52
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       30.208,
+       -8.431,
+       -0.3
+      ],
+      "b": [
+       30.107,
+       -8.438,
+       2.73
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       15.547,
+       5.85,
+       -0.3
+      ],
+      "b": [
+       15.438,
+       5.733,
+       2.24
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       15.807,
+       6.274,
+       -0.3
+      ],
+      "b": [
+       15.791,
+       6.218,
+       2.45
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       16.068,
+       6.698,
+       -0.3
+      ],
+      "b": [
+       16.159,
+       6.786,
+       2.66
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       16.328,
+       7.123,
+       -0.3
+      ],
+      "b": [
+       16.443,
+       7.225,
+       2.17
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       16.589,
+       7.547,
+       -0.3
+      ],
+      "b": [
+       16.621,
+       7.515,
+       2.38
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       16.849,
+       7.971,
+       -0.3
+      ],
+      "b": [
+       16.769,
+       7.851,
+       2.59
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       17.109,
+       8.395,
+       -0.3
+      ],
+      "b": [
+       16.991,
+       8.363,
+       2.1
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       17.951,
+       9.597,
+       -0.3
+      ],
+      "b": [
+       17.903,
+       9.7,
+       2.31
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       18.252,
+       9.974,
+       -0.3
+      ],
+      "b": [
+       18.318,
+       10.061,
+       2.52
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       18.553,
+       10.351,
+       -0.3
+      ],
+      "b": [
+       18.673,
+       10.295,
+       2.73
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       18.854,
+       10.728,
+       -0.3
+      ],
+      "b": [
+       18.918,
+       10.611,
+       2.24
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       19.155,
+       11.105,
+       -0.294
+      ],
+      "b": [
+       19.104,
+       11.099,
+       2.456
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       19.456,
+       11.482,
+       -0.277
+      ],
+      "b": [
+       19.337,
+       11.596,
+       2.683
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       19.757,
+       11.859,
+       -0.264
+      ],
+      "b": [
+       19.68,
+       11.926,
+       2.206
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       20.9,
+       12.492,
+       -0.209
+      ],
+      "b": [
+       20.936,
+       12.414,
+       2.471
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       21.362,
+       12.536,
+       -0.2
+      ],
+      "b": [
+       21.477,
+       12.428,
+       2.69
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       21.823,
+       12.581,
+       -0.182
+      ],
+      "b": [
+       21.912,
+       12.601,
+       2.218
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       22.284,
+       12.626,
+       -0.163
+      ],
+      "b": [
+       22.265,
+       12.745,
+       2.447
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       22.746,
+       12.671,
+       -0.146
+      ],
+      "b": [
+       22.636,
+       12.715,
+       2.674
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       23.207,
+       12.715,
+       -0.13
+      ],
+      "b": [
+       23.107,
+       12.62,
+       2.9
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       23.668,
+       12.76,
+       -0.115
+      ],
+      "b": [
+       23.67,
+       12.665,
+       2.425
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       25.052,
+       12.894,
+       -0.088
+      ],
+      "b": [
+       25.154,
+       12.939,
+       2.662
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       25.513,
+       12.939,
+       -0.08
+      ],
+      "b": [
+       25.622,
+       13.058,
+       2.88
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       25.975,
+       12.984,
+       -0.075
+      ],
+      "b": [
+       25.99,
+       13.003,
+       2.395
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       26.436,
+       13.029,
+       -0.072
+      ],
+      "b": [
+       26.344,
+       12.92,
+       2.608
+      ],
+      "thickness_m": 0.22,
+      "procedural": "post",
+      "glb": null
+     }
+    ],
+    "glb": null
+   },
+   {
+    "id": "logs",
+    "kind": "debris",
+    "pos": [
+     0,
+     0
+    ],
+    "z": 0,
+    "godot_rot_y_deg": 0,
+    "size_m": {
+     "w_local_x": 1,
+     "d_local_z": 1,
+     "h": 1
+    },
+    "instances": [
+     {
+      "type": "beam",
+      "a": [
+       24.583,
+       -9.919,
+       0.17
+      ],
+      "b": [
+       27.708,
+       -7.831,
+       0.17
+      ],
+      "thickness_m": 0.34,
+      "procedural": "log",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       19.583,
+       5.899,
+       0.17
+      ],
+      "b": [
+       22.917,
+       8.875,
+       0.28
+      ],
+      "thickness_m": 0.34,
+      "procedural": "log",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       21.667,
+       9.031,
+       0.235
+      ],
+      "b": [
+       25.208,
+       10.858,
+       0.388
+      ],
+      "thickness_m": 0.34,
+      "procedural": "log",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       -31.458,
+       1.723,
+       -8.83
+      ],
+      "b": [
+       -28.333,
+       2.767,
+       -8.83
+      ],
+      "thickness_m": 0.34,
+      "procedural": "log",
+      "glb": null
+     },
+     {
+      "type": "beam",
+      "a": [
+       23.125,
+       -0.626,
+       0.17
+      ],
+      "b": [
+       25.625,
+       1.201,
+       0.17
+      ],
+      "thickness_m": 0.34,
+      "procedural": "log",
+      "glb": null
+     }
+    ],
+    "glb": null
+   }
+  ],
+  "features": [],
+  "blobs": [
+   {
+    "k": "floe",
+    "c": [
+     -30.833,
+     5.285
+    ],
+    "cz": -6.1,
+    "r": [
+     1.2,
+     0.96,
+     0.35
+    ],
+    "rot": 0,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -27.917,
+     7.896
+    ],
+    "cz": -6.1,
+    "r": [
+     1.56,
+     1.2480000000000002,
+     0.35
+    ],
+    "rot": 37,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -30.0,
+     11.55
+    ],
+    "cz": -6.1,
+    "r": [
+     1.92,
+     1.536,
+     0.35
+    ],
+    "rot": 74,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -26.25,
+     11.55
+    ],
+    "cz": -6.1,
+    "r": [
+     1.38,
+     1.1039999999999999,
+     0.35
+    ],
+    "rot": 111,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -22.917,
+     14.682
+    ],
+    "cz": -6.1,
+    "r": [
+     1.74,
+     1.3920000000000001,
+     0.35
+    ],
+    "rot": 148,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -27.917,
+     16.77
+    ],
+    "cz": -6.1,
+    "r": [
+     1.2,
+     0.96,
+     0.35
+    ],
+    "rot": 5,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -20.0,
+     17.814
+    ],
+    "cz": -6.1,
+    "r": [
+     1.56,
+     1.2480000000000002,
+     0.35
+    ],
+    "rot": 42,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -24.167,
+     20.425
+    ],
+    "cz": -6.1,
+    "r": [
+     1.92,
+     1.536,
+     0.35
+    ],
+    "rot": 79,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -16.667,
+     21.991
+    ],
+    "cz": -6.1,
+    "r": [
+     1.38,
+     1.1039999999999999,
+     0.35
+    ],
+    "rot": 116,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -12.5,
+     24.079
+    ],
+    "cz": -6.1,
+    "r": [
+     1.74,
+     1.3920000000000001,
+     0.35
+    ],
+    "rot": 153,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -31.25,
+     18.859
+    ],
+    "cz": -6.1,
+    "r": [
+     1.2,
+     0.96,
+     0.35
+    ],
+    "rot": 10,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -31.667,
+     1.109
+    ],
+    "cz": -6.1,
+    "r": [
+     1.56,
+     1.2480000000000002,
+     0.35
+    ],
+    "rot": 47,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -20.417,
+     24.079
+    ],
+    "cz": -6.1,
+    "r": [
+     1.92,
+     1.536,
+     0.35
+    ],
+    "rot": 84,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -15.0,
+     18.859
+    ],
+    "cz": -6.1,
+    "r": [
+     1.38,
+     1.1039999999999999,
+     0.35
+    ],
+    "rot": 121,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -31.25,
+     -12.464
+    ],
+    "cz": -6.1,
+    "r": [
+     1.74,
+     1.3920000000000001,
+     0.35
+    ],
+    "rot": 158,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -31.458,
+     -8.288
+    ],
+    "cz": -6.1,
+    "r": [
+     1.2,
+     0.96,
+     0.35
+    ],
+    "rot": 15,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   },
+   {
+    "k": "floe",
+    "c": [
+     -31.042,
+     -16.118
+    ],
+    "cz": -6.1,
+    "r": [
+     1.56,
+     1.2480000000000002,
+     0.35
+    ],
+    "rot": 52,
+    "rgb": [
+     0.85,
+     0.9,
+     0.95
+    ],
+    "proto": "slab",
+    "top": -5.75
+   }
+  ],
+  "openings": [
+   {
+    "id": "wreck_hull",
+    "point": "W",
+    "model": "wreck",
+    "centre_sim": [
+     -24.0625,
+     -1.6705
+    ],
+    "z0": 0.0,
+    "w": null,
+    "h": null,
+    "faces_deg": null,
+    "dark": false,
+    "probe": {
+     "type": "h_rect",
+     "centre": [
+      -24.0625,
+      -1.6705
+     ],
+     "rot_deg": 36.39,
+     "L": 9.1,
+     "W": 2.082,
+     "z": 0.3,
+     "frontal_m2": 18.948
+    }
+   },
+   {
+    "id": "barrow_door",
+    "point": "N",
+    "model": "barrow_front",
+    "centre_sim": [
+     1.5833,
+     -15.7657
+    ],
+    "z0": 0.0,
+    "w": 2.612,
+    "h": 2.999,
+    "faces_deg": 180.0,
+    "curtain_inset_m": 0.8,
+    "dark": true,
+    "probe": {
+     "type": "v",
+     "centre": [
+      1.5833,
+      -15.7657
+     ],
+     "faces_deg": 180.0,
+     "w": 2.612,
+     "h": 2.999,
+     "z0": 0.0,
+     "frontal_m2": 7.833
+    }
+   },
+   {
+    "id": "hall_great_door",
+    "point": "E",
+    "model": "longhall",
+    "centre_sim": [
+     21.25,
+     -0.1044
+    ],
+    "z0": 0.0,
+    "w": 2.598,
+    "h": 2.712,
+    "faces_deg": 220.667,
+    "curtain_inset_m": 0.9135801608634116,
+    "dark": true,
+    "probe": {
+     "type": "v",
+     "centre": [
+      21.25,
+      -0.1044
+     ],
+     "faces_deg": 220.667,
+     "w": 2.598,
+     "h": 2.712,
+     "z0": 0.0,
+     "frontal_m2": 7.046
+    }
+   },
+   {
+    "id": "gable_breach",
+    "point": "SE",
+    "model": "fallen_gable",
+    "centre_sim": [
+     27.0833,
+     6.9432
+    ],
+    "z0": 0.0,
+    "w": null,
+    "h": null,
+    "faces_deg": null,
+    "dark": false,
+    "probe": {
+     "type": "h_rect",
+     "centre": [
+      25.5335,
+      6.5458
+     ],
+     "rot_deg": 104.379,
+     "L": 4.0,
+     "W": 4.0,
+     "z": 1.302,
+     "frontal_m2": 16.0
+    }
+   },
+   {
+    "id": "sea_cave_mouth",
+    "point": "SW",
+    "model": "cliff",
+    "centre_sim": [
+     -9.1667,
+     13.0771
+    ],
+    "z0": -5.6,
+    "w": 4.4,
+    "h": 3.6,
+    "faces_deg": 180.0,
+    "curtain_inset_m": -0.1,
+    "dark": true,
+    "probe": {
+     "type": "v",
+     "centre": [
+      -9.1667,
+      13.0771
+     ],
+     "faces_deg": 180.0,
+     "w": 4.4,
+     "h": 3.6,
+     "z0": -5.6,
+     "frontal_m2": 15.84
+    }
+   },
+   {
+    "id": "mere_ice",
+    "point": "NW",
+    "model": "mere",
+    "centre_sim": [
+     -17.325,
+     -11.7877
+    ],
+    "z0": 0.0,
+    "w": null,
+    "h": null,
+    "faces_deg": null,
+    "dark": false,
+    "probe": {
+     "type": "poly",
+     "polygon": [
+      [
+       -27.708,
+       -16.027
+      ],
+      [
+       -22.083,
+       -17.749
+      ],
+      [
+       -15.833,
+       -15.766
+      ],
+      [
+       -9.167,
+       -14.826
+      ],
+      [
+       -6.583,
+       -11.172
+      ],
+      [
+       -8.0,
+       -6.995
+      ],
+      [
+       -13.542,
+       -6.108
+      ],
+      [
+       -19.083,
+       -7.831
+      ],
+      [
+       -23.958,
+       -9.397
+      ],
+      [
+       -27.292,
+       -12.007
+      ]
+     ],
+     "z": 0.03,
+     "frontal_m2": 163.981
+    }
+   }
+  ],
+  "stair_steps": [
+   {
+    "c_sim": [
+     -12.0572,
+     12.8533
+    ],
+    "z_top": -5.42,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -11.7875,
+     12.8393
+    ],
+    "z_top": -5.24,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -11.5179,
+     12.8252
+    ],
+    "z_top": -5.06,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -11.2483,
+     12.8112
+    ],
+    "z_top": -4.88,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -10.9786,
+     12.7971
+    ],
+    "z_top": -4.7,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -10.709,
+     12.783
+    ],
+    "z_top": -4.52,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -10.4394,
+     12.769
+    ],
+    "z_top": -4.34,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -10.1697,
+     12.7549
+    ],
+    "z_top": -4.16,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -9.9001,
+     12.7409
+    ],
+    "z_top": -3.98,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -9.6305,
+     12.7268
+    ],
+    "z_top": -3.8,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -9.3608,
+     12.7128
+    ],
+    "z_top": -3.62,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -9.0912,
+     12.6987
+    ],
+    "z_top": -3.44,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -8.8216,
+     12.6846
+    ],
+    "z_top": -3.26,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -8.5519,
+     12.6706
+    ],
+    "z_top": -3.08,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -8.2823,
+     12.6565
+    ],
+    "z_top": -2.9,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -8.0127,
+     12.6425
+    ],
+    "z_top": -2.72,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -7.743,
+     12.6284
+    ],
+    "z_top": -2.54,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -7.4734,
+     12.6144
+    ],
+    "z_top": -2.36,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -7.2038,
+     12.6003
+    ],
+    "z_top": -2.18,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -6.9341,
+     12.5863
+    ],
+    "z_top": -2.0,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -6.6645,
+     12.5722
+    ],
+    "z_top": -1.82,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -6.3949,
+     12.5581
+    ],
+    "z_top": -1.64,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -6.1252,
+     12.5441
+    ],
+    "z_top": -1.46,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -5.8556,
+     12.53
+    ],
+    "z_top": -1.28,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -5.586,
+     12.516
+    ],
+    "z_top": -1.1,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -5.3163,
+     12.5019
+    ],
+    "z_top": -0.92,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -5.0467,
+     12.4879
+    ],
+    "z_top": -0.74,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -4.7771,
+     12.4738
+    ],
+    "z_top": -0.56,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -4.5074,
+     12.4597
+    ],
+    "z_top": -0.38,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -4.2378,
+     12.4457
+    ],
+    "z_top": -0.2,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   },
+   {
+    "c_sim": [
+     -3.9682,
+     12.4316
+    ],
+    "z_top": -0.02,
+    "w": 2.2,
+    "tread": 0.27,
+    "yaw_deg": 92.984
+   }
+  ],
+  "stair": null,
+  "skip_models": [],
+  "glb_copies": {
+   "data__bv2f__models__wreck.glb.bin": {
+    "from": "data/bv2f/models/wreck.glb",
+    "sha256": "7fd196abcd533f4782be69a3cf3fae91a107e0ba6b6a79bbf0a8ee9dcaa07c04"
+   },
+   "data__bv2f__models__barrow.glb.bin": {
+    "from": "data/bv2f/models/barrow.glb",
+    "sha256": "a5cb78e50e4da67dd6c291dddca92b59d8730127fadd4f363cef23cdfd229a2a"
+   },
+   "data__bv2f__models__hall.glb.bin": {
+    "from": "data/bv2f/models/hall.glb",
+    "sha256": "0ec60fa64d89cc23b4fd9a2512d32b781a10e94033bc36baf4cc837302ddf836"
+   },
+   "data__bv2f__models__gable.glb.bin": {
+    "from": "data/bv2f/models/gable.glb",
+    "sha256": "e24617a99c83710a6912440a8d82a1abf28fb66303dd3e1282c0b0f0f77493a6"
+   },
+   "runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin": {
+    "from": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+    "sha256": "b717700be8deda3de5e535094426c5283c149128c3c3c6c946ccdfe879533575"
+   },
+   "runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin": {
+    "from": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+    "sha256": "429f6edb9d9c2c11288798c886556d1b1bd8c992e532027e627c0b5961f35892"
+   },
+   "runs__C-9__barrow_full__web_painted__models__barrow__stone_short.glb.bin": {
+    "from": "runs/C-9/barrow_full/web_painted/models/barrow/stone_short.glb",
+    "sha256": "5a0682a9f4638005875b81cf40718737eeab9224326ad43ef3b476cbb9fd2a09"
+   },
+   "data__bv2f__models__crag.glb.bin": {
+    "from": "data/bv2f/models/crag.glb",
+    "sha256": "7247e9f2afa96bbc3c66067c473737e74cabfb6232a222909771fc027e51f8f9"
+   },
+   "data__bv2f__models__cliffplain.glb.bin": {
+    "from": "data/bv2f/models/cliffplain.glb",
+    "sha256": "5053a43985fb412bdda687185e2b58d9d261683248fab84e722537da427aae42"
+   }
+  },
+  "glb_missing": [],
+  "model_class": {
+   "wreck": "wood",
+   "barrow_front": "rock",
+   "longhall": "wood",
+   "fallen_gable": "char",
+   "ring_stones": "rock",
+   "slope_stones": "rock",
+   "crags": "rock",
+   "cliff_faces": "rock",
+   "palisade": "wood",
+   "logs": "wood"
+  },
+  "blob_class": {
+   "floe": "shore_ice"
+  },
+  "colliders": true,
+  "_frame": "sim (x, y) = (u, -v): the Level node's local frame IS v1's (u, v) -- no site rotation (R-C9-185)"
+ }
+}

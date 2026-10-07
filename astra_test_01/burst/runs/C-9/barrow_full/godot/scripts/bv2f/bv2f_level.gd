@@ -17,7 +17,7 @@ extends "res://scripts/barrow_full.gd"
 ## Run a guide SECTION by env BV2F_SECTION=s00|s01|s10|s11 (the frame's guide_window is that section's).
 
 ## the layout VARIANT (data/bv2f/<variant>/): env BV2F_VARIANT, default v7c (R-C9-177)
-var BV2F_DATA := "res://data/bv2f/" + (OS.get_environment("BV2F_VARIANT") if OS.get_environment("BV2F_VARIANT") != "" else "v7c") + "/"
+var BV2F_DATA := "res://data/bv2f/" + (OS.get_environment("BV2F_VARIANT") if OS.get_environment("BV2F_VARIANT") != "" else "art") + "/"
 var lvl := {}
 var sim := {}
 var class_meshes := {}
@@ -270,6 +270,19 @@ func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, 
 		"model_aabb_m": [ab.size.x, ab.size.y, ab.size.z], "slot_size_m": [size.x, size.y, size.z]})
 	model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
 	holder.add_child(model)
+	if bool(sim.get("colliders", false)):
+		# Phase 1' walk: a box collider of the uniformly scaled model (85 % of its footprint), on its own body
+		var body := StaticBody3D.new()
+		body.collision_layer = TERRAIN_BIT
+		body.collision_mask = 0
+		var cs := CollisionShape3D.new()
+		var bx := BoxShape3D.new()
+		bx.size = Vector3(size.x * 0.85, size.y, size.z * 0.85)
+		cs.shape = bx
+		cs.position = _S(pos.x, z + size.y / 2.0, pos.y)
+		cs.rotation = Vector3(0.0, deg_to_rad(yaw_deg), 0.0)
+		body.add_child(cs)
+		level.add_child(body)
 	if group != "":
 		_group(group, cls).add_child(holder)
 		_dress(holder, cls)
@@ -440,6 +453,10 @@ func _prism(id: String, cls: String, poly: Array, z0: float, z1: float) -> void:
 
 
 func _build_stair() -> void:
+	if sim.has("stair_steps"):
+		_build_steps()
+	if sim.get("stair") == null:
+		return
 	var S: Dictionary = sim["stair"]
 	_prism("stair_top_landing", "path", S["top_landing"]["polygon"], -0.6, 0.0)
 	_prism("stair_ledge", "rock", S["bottom_landing"]["polygon"], float(S["flight"]["z_bottom_m"]) - 0.3, float(S["bottom_landing"]["z_m"]))
@@ -605,3 +622,33 @@ func _place_primitive_beam(id: String, cls: String, ins: Dictionary, group: Stri
 		"_": "procedural primitive at true dimensions: no model, no fit (P6' scale N/A)"})
 	_group(group, cls).add_child(holder)
 	_dress(holder, cls)
+
+
+func _build_steps() -> void:
+	## Phase 1' (art): the straight open-sided stair as procedural treads at TRUE size (rise/tread/width), each a block
+	## down to the ledge -- v1's slab practice; walkable (each tread a collider)
+	var root := Node3D.new()
+	root.name = "stair_steps"
+	level.add_child(root)
+	var body := _body(root, "stair_body")
+	var n := 0
+	for st in sim["stair_steps"]:
+		var c := Vector2(float(st["c_sim"][0]), float(st["c_sim"][1]))
+		var zt := float(st["z_top"])
+		var z0 := float(sim["sea_z"]) - 0.5
+		var mi := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		bm.size = Vector3(float(st["w"]), zt - z0, float(st["tread"]) + 0.02)
+		mi.mesh = bm
+		mi.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(float(st["yaw_deg"]))), _S(c.x, (zt + z0) / 2.0, c.y))
+		root.add_child(mi)
+		var cs := CollisionShape3D.new()
+		var bx := BoxShape3D.new()
+		bx.size = bm.size
+		cs.shape = bx
+		cs.transform = mi.transform
+		body.add_child(cs)
+		n += 1
+	_dress(root, "rock")
+	_register("stair_steps", root, "rock", "procedural")
+	report["stair_steps"] = n

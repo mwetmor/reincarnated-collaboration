@@ -1,0 +1,208 @@
+{
+ "_what": "BV2F LV Phase 1' DONE item (R-C9-186 W-3): the HERO-COVERAGE table, mechanical, from the ID render of the M1' stills",
+ "min_px": 5000,
+ "pass": true,
+ "heroes": {
+  "wreck": {
+   "visible_in": [
+    "02_wreck_mere",
+    "03_wreck",
+    "06_mere"
+   ],
+   "with_neighbour_in": [
+    "02_wreck_mere",
+    "03_wreck",
+    "06_mere"
+   ],
+   "PASS": true
+  },
+  "cave_stair": {
+   "visible_in": [
+    "07_ring_stair",
+    "08_cave_stair"
+   ],
+   "with_neighbour_in": [
+    "07_ring_stair"
+   ],
+   "PASS": true
+  },
+  "barrow_door": {
+   "visible_in": [
+    "04_mere_barrow",
+    "05_barrow_door"
+   ],
+   "with_neighbour_in": [
+    "04_mere_barrow",
+    "05_barrow_door"
+   ],
+   "PASS": true
+  },
+  "mere": {
+   "visible_in": [
+    "02_wreck_mere",
+    "03_wreck",
+    "04_mere_barrow",
+    "05_barrow_door",
+    "06_mere",
+    "12_ring_mere"
+   ],
+   "with_neighbour_in": [
+    "02_wreck_mere",
+    "03_wreck",
+    "04_mere_barrow",
+    "05_barrow_door",
+    "06_mere",
+    "12_ring_mere"
+   ],
+   "PASS": true
+  },
+  "ring": {
+   "visible_in": [
+    "01_start_ring",
+    "07_ring_stair",
+    "12_ring_mere"
+   ],
+   "with_neighbour_in": [
+    "07_ring_stair",
+    "12_ring_mere"
+   ],
+   "PASS": true
+  },
+  "hall_door": {
+   "visible_in": [
+    "09_hall_door",
+    "10_hall_gable",
+    "11_gable"
+   ],
+   "with_neighbour_in": [
+    "09_hall_door",
+    "10_hall_gable",
+    "11_gable"
+   ],
+   "PASS": true
+  },
+  "gable": {
+   "visible_in": [
+    "09_hall_door",
+    "10_hall_gable",
+    "11_gable"
+   ],
+   "with_neighbour_in": [
+    "09_hall_door",
+    "10_hall_gable",
+    "11_gable"
+   ],
+   "PASS": true
+  }
+ },
+ "px_per_still": {
+  "01_start_ring": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 12,
+   "ring": 73824,
+   "hall_door": 808,
+   "gable": 0
+  },
+  "02_wreck_mere": {
+   "wreck": 235046,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 421649,
+   "ring": 0,
+   "hall_door": 0,
+   "gable": 0
+  },
+  "03_wreck": {
+   "wreck": 243938,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 50985,
+   "ring": 9,
+   "hall_door": 2,
+   "gable": 0
+  },
+  "04_mere_barrow": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 254876,
+   "mere": 262340,
+   "ring": 0,
+   "hall_door": 0,
+   "gable": 0
+  },
+  "05_barrow_door": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 377684,
+   "mere": 11010,
+   "ring": 0,
+   "hall_door": 0,
+   "gable": 0
+  },
+  "06_mere": {
+   "wreck": 19939,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 1264325,
+   "ring": 0,
+   "hall_door": 0,
+   "gable": 0
+  },
+  "07_ring_stair": {
+   "wreck": 0,
+   "cave_stair": 28170,
+   "barrow_door": 0,
+   "mere": 0,
+   "ring": 36307,
+   "hall_door": 503,
+   "gable": 0
+  },
+  "08_cave_stair": {
+   "wreck": 0,
+   "cave_stair": 305475,
+   "barrow_door": 0,
+   "mere": 0,
+   "ring": 0,
+   "hall_door": 0,
+   "gable": 0
+  },
+  "09_hall_door": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 0,
+   "ring": 0,
+   "hall_door": 1149145,
+   "gable": 29493
+  },
+  "10_hall_gable": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 0,
+   "ring": 0,
+   "hall_door": 655027,
+   "gable": 267633
+  },
+  "11_gable": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 0,
+   "ring": 0,
+   "hall_door": 295342,
+   "gable": 292239
+  },
+  "12_ring_mere": {
+   "wreck": 0,
+   "cave_stair": 0,
+   "barrow_door": 0,
+   "mere": 443437,
+   "ring": 28774,
+   "hall_door": 258,
+   "gable": 0
+  }
+ }
+}

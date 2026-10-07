@@ -135,10 +135,11 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
 **Ask PH** (via files/hand-back to me) for P6′ presence/placement/scale vs YOUR blockout as geometry of record (extent retired).
 
 ## Phase 1′ state
-- [ ] read v1's make_layout.py + barrow_full_layout.json; layout_bv2art.json in v1's frame
-- [ ] blockout level (bv2f paths) + guide/ID/class render
-- [ ] composition pass at the play camera
-- [ ] M1′ packet
+- [x] read v1's make_layout.py + barrow_full_layout.json; `lv/art/layout_bv2art.json` in v1's (u, v) frame from `lv/tools/make_bv2art.py` (sketch A px → (u, v) at 24 px/m); kit inventory `lv/art/kit_inventory.json` (nothing MISSING); `lv/art/frame_grid.bv2art.json`
+- [x] blockout level (`data/bv2f/art/`, `BV2F_VARIANT=art`, now the default) + guide/ID/class via godot_run.sh → `lv/guide_art/` (25 tiles, 5×5); declared openings; placed_fit_bv2art.json (max anisotropy 1.0001)
+- [x] composition pass at the play camera: 12 hero-framed stills; hero coverage 7/7 PASS (`lv/M1p/hero_coverage.*`); check (a) INFO 6/6 visible
+- [x] M1′ packet `lv/M1p/` (README lists each file). Next: PH P6′ presence/placement/scale vs layout_bv2art.json + placed_fit_bv2art.json + guide_art/ids_art.png; Gate-2; M1′ to Matt.
+- Note: `lv/guide_art/tiles/` holds stale 9×11-grid tiles from a first stitch (my `rm` was denied; untracked PNGs). The real tiles are in `lv/guide_art/tiles_5x5/`.
 
 ## Phase 1′ additions (re-scope Gate-1 folds, charter § 15.1, R-C9-186) — GOVERN
 - **FIRST STEP (I-5):** (a) kit inventory against sketch A's features, each marked {kit-v3 / R-C9-155 build (cavecliff, staircliff, cliffplain, crag) / v1 piece (stones, groves) / procedural (palisade, stream) / MISSING}; (b) a top-down 2D footprint fit at current scales into ~55–65 m. Hall 32.4 m + barrow front 25.8 m + wreck 13 m is tight: a UNIFORM kit rescale is allowed (no door-size rule binds now) — record scale per instance. MISSING items or a non-fit → HALT to me.

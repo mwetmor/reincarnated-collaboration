@@ -1,0 +1,68 @@
+{
+ "_what": "BV2F Phase 1' frame/grid config for the barrow_v2 ART blockout, v1tools-compatible (--frame-grid for the Tier-B GD tools / $BV2F_FRAME_GRID for the python ones). Authored in v1's OWN camera-aligned (u, v) frame (no site rotation, DEV-4 retired, R-C9-185/186). The guide is rendered in 2 x 2 padded sections (fid/lv/art/frame_grid_s??.json, each this file plus its section window) and stitched.",
+ "name": "barrow_v2 art (bv2art)",
+ "scene": "res://scenes/bv2f_barrow_v2.tscn",
+ "guide_px": [
+  6656,
+  4096
+ ],
+ "px_per_m_across": 100.617553710938,
+ "pitch_deg": 52.95354112560294,
+ "yaw_deg": 47.0,
+ "walk_grid": {
+  "u": [
+   -1.0,
+   1.0
+  ],
+  "v": [
+   -1.0,
+   1.0
+  ],
+  "step": 0.1
+ },
+ "topdown": {
+  "px": [
+   2400,
+   2240
+  ],
+  "px_per_m": 30.0
+ },
+ "painting": null,
+ "painting_sha_prefix": null,
+ "grid_informational": {
+  "cols": 5,
+  "rows": 5,
+  "canvas_px": [
+   1536,
+   1024
+  ],
+  "stride_px": [
+   1280,
+   768
+  ],
+  "source": "layout_bv2art.json window"
+ },
+ "env": {
+  "BV2F_VARIANT": "art"
+ },
+ "guide_window_uv": {
+  "centre": [
+   -0.5,
+   -3.132
+  ],
+  "u": [
+   -33.57573954303182,
+   32.57573954303182
+  ],
+  "v": [
+   -28.633937157286354,
+   22.36993715728635
+  ]
+ },
+ "sections": [
+  "fid/lv/art/frame_grid_s00.json",
+  "fid/lv/art/frame_grid_s01.json",
+  "fid/lv/art/frame_grid_s10.json",
+  "fid/lv/art/frame_grid_s11.json"
+ ]
+}
