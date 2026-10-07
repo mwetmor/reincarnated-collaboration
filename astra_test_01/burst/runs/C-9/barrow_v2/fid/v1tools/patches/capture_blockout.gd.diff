@@ -1,0 +1,70 @@
+--- a/barrow_full/godot/tools/capture_blockout.gd (v1 @ 0f8f73697)
++++ b/barrow_full/godot/tools/capture_blockout.gd (BV2F Tier-B)
+@@ -23,16 +23,17 @@
+ ##   still_door.png        1920 x 1080, him on the centre line where the door first shows whole
+ ##   topdown.png           the map's base render, straight down, 40 px/m
+ 
+-const GUIDE := Vector2i(5376, 3328)
++var GUIDE := Vector2i(5376, 3328)        # BV2F Tier-B: was const; --frame-grid guide_px
++var SCENE := "res://scenes/barrow_full.tscn"   # BV2F Tier-B: --frame-grid scene
+ const PLAY := Vector2i(1920, 1080)
+ const CRUCIBLE_SHOT := Vector2i(2400, 1500)
+-const TOP_PX_PER_M := 40.0
+-const TOP := Vector2i(2296, 1816)
++var TOP_PX_PER_M := 40.0                 # BV2F Tier-B: was const; --frame-grid topdown.px_per_m
++var TOP := Vector2i(2296, 1816)          # BV2F Tier-B: was const; --frame-grid topdown.px
+ const DT := 1.0 / 60.0
+ const TERRAIN_BIT := 1 << 1
+-const GRID_STEP := 0.1
+-const GRID_U := Vector2(-21.0, 18.0)
+-const GRID_V := Vector2(-19.0, 12.0)
++var GRID_STEP := 0.1                     # BV2F Tier-B: was const; --frame-grid walk_grid.step
++var GRID_U := Vector2(-21.0, 18.0)       # BV2F Tier-B: was const; --frame-grid walk_grid.u
++var GRID_V := Vector2(-19.0, 12.0)       # BV2F Tier-B: was const; --frame-grid walk_grid.v
+ 
+ var out_dir := ""
+ var do_walks := true
+@@ -57,6 +58,8 @@
+ 			atlas = int(args[i + 1])
+ 		if args[i] == "--painted":
+ 			painted = true
++		if args[i] == "--frame-grid" and i + 1 < args.size():   # BV2F Tier-B
++			_bv2f_frame_grid(args[i + 1])
+ 	if out_dir == "":
+ 		print("[capture] HALT: --out DIR is required")
+ 		quit(2)
+@@ -68,7 +71,7 @@
+ 	vp.msaa_3d = Viewport.MSAA_4X
+ 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+ 	root.add_child(vp)
+-	scene = load("res://scenes/barrow_full.tscn").instantiate()
++	scene = load(SCENE).instantiate()   # BV2F Tier-B: was the literal res://scenes/barrow_full.tscn
+ 	scene.painted = painted
+ 	vp.add_child(scene)
+ 	var waited := 0
+@@ -626,3 +629,25 @@
+ 	var f := FileAccess.open("%s/%s" % [out_dir, nm], FileAccess.WRITE)
+ 	f.store_string(JSON.stringify(d, " "))
+ 	f.close()
++
++
++# ---- BV2F Tier-B patch (fid/v1tools/ALLOWLIST.md): frame/grid/scene from --frame-grid JSON; ----
++# ---- with no --frame-grid every value is v1's own, so v1's behaviour is unchanged.            ----
++func _bv2f_frame_grid(p: String) -> void:
++	var fg = JSON.parse_string(FileAccess.get_file_as_string(p))
++	if typeof(fg) != TYPE_DICTIONARY:
++		push_error("[bv2f] cannot read --frame-grid %s" % p)
++		quit(5)
++		return
++	if fg.has("guide_px"):
++		GUIDE = Vector2i(int(fg["guide_px"][0]), int(fg["guide_px"][1]))
++	if fg.has("scene"):
++		SCENE = String(fg["scene"])
++	if fg.has("topdown"):
++		TOP = Vector2i(int(fg["topdown"]["px"][0]), int(fg["topdown"]["px"][1]))
++		TOP_PX_PER_M = float(fg["topdown"]["px_per_m"])
++	if fg.has("walk_grid"):
++		GRID_U = Vector2(float(fg["walk_grid"]["u"][0]), float(fg["walk_grid"]["u"][1]))
++		GRID_V = Vector2(float(fg["walk_grid"]["v"][0]), float(fg["walk_grid"]["v"][1]))
++		GRID_STEP = float(fg["walk_grid"]["step"])
++	print("[bv2f] frame-grid %s: guide %dx%d scene %s" % [p, GUIDE.x, GUIDE.y, SCENE])

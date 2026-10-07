@@ -1,0 +1,14 @@
+{
+ "_what": "BV2F frame/grid config, v1's OWN values (barrow_full). The Tier-B tools read this via --frame-grid (GD) or $BV2F_FRAME_GRID (python); with no config they use these same values. Grid cols/rows and the brief live in the paint cfg (cfg_t10bf.json), not here.",
+ "name": "barrow_full v1",
+ "scene": "res://scenes/barrow_full.tscn",
+ "guide_px": [5376, 3328],
+ "px_per_m_across": 100.617553710938,
+ "pitch_deg": 52.95354112560294,
+ "yaw_deg": 47.0,
+ "walk_grid": {"u": [-21.0, 18.0], "v": [-19.0, 12.0], "step": 0.1},
+ "topdown": {"px": [2296, 1816], "px_per_m": 40.0},
+ "painting": "paint/barrow_full_painted.png",
+ "painting_sha_prefix": "eecb42661af490dd",
+ "grid_informational": {"cols": 4, "rows": 4, "canvas_px": [1536, 1024], "stride_px": [1280, 768], "source": "cfg_t10bf.json cols/rows; guided_paint.py:25-26 and guided_stitch.py:12 (Tier A, canvas/stride unchanged in BV2F)"}
+}

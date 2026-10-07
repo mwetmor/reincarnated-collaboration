@@ -1,0 +1,14 @@
+[v1tools] FAIL: shipped sha ./tierA/barrow_full/tools/hero_surface.py: d416dc0d386a != 44fc5bf92288
+red1 exit=1
+[v1tools] FAIL: shipped sha ./tierB/conductor_scripts/t10bf_drive.sh: 7e4bbd4fb7d3 != 43a0a93d94b2
+[v1tools] FAIL: patch(v1) != shipped: ./tierB/conductor_scripts/t10bf_drive.sh
+23:  zsh /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/conductor_scripts/wave.sh $wl ${specs[@]}
+[v1tools] FAIL: driver names a v1-original tool path
+[v1tools] FAIL: driver call outside v1tools: zsh /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/conductor_scripts/wave.sh
+red2 exit=1
+[v1tools] FAIL: shipped sha ./tierB/conductor_scripts/t10bf_drive.sh: 1e44112d7669 != 43a0a93d94b2
+[v1tools] FAIL: patch(v1) != shipped: ./tierB/conductor_scripts/t10bf_drive.sh
+18:    if ! python3 $C/refs_guard.py briefs/C-9/$P-$k$suf.task.json >> $LOG 2>&1; then
+[v1tools] FAIL: driver references $C/ (v1 conductor_scripts)
+[v1tools] FAIL: driver call outside v1tools: python3 $C/refs_guard.py
+red3 exit=1

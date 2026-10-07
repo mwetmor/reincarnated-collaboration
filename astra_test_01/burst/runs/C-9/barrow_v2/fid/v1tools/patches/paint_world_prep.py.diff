@@ -1,0 +1,30 @@
+--- a/barrow_full/tools/paint_world_prep.py (v1 @ 0f8f73697)
++++ b/barrow_full/tools/paint_world_prep.py (BV2F Tier-B)
+@@ -30,9 +30,11 @@
+ from PIL import Image
+ from scipy import ndimage
+ 
++# BV2F Tier-B (fid/v1tools/ALLOWLIST.md): frame + painting from $BV2F_FRAME_GRID; unset = v1's own values.
++_FG = json.load(open(os.environ["BV2F_FRAME_GRID"])) if os.environ.get("BV2F_FRAME_GRID") else {}
+ BF = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+-PAINTING = os.path.join(BF, "paint", "barrow_full_painted.png")
+-PAINT_SHA_PREFIX = "eecb42661af490dd"
++PAINTING = os.path.join(BF, _FG.get("painting", os.path.join("paint", "barrow_full_painted.png")))   # BV2F Tier-B
++PAINT_SHA_PREFIX = _FG.get("painting_sha_prefix", "eecb42661af490dd")   # BV2F Tier-B
+ LIT = os.path.join(BF, "work", "light", "lit_guide.png")
+ OUT = os.path.join(BF, "godot", "data", "painted")
+ TAKE = os.path.join(BF, "take")
+@@ -40,10 +42,10 @@
+ GW = L["frame"]["guide_window"]
+ U0, V1 = GW["u"][0], GW["v"][1]
+ W, H = GW["px"]
+-PPM = 100.617553710938
+-PITCH = math.radians(52.95354112560294)
++PPM = float(_FG.get("px_per_m_across", 100.617553710938))   # BV2F Tier-B
++PITCH = math.radians(float(_FG.get("pitch_deg", 52.95354112560294)))   # BV2F Tier-B
+ PXV, PXH = PPM * math.sin(PITCH), PPM * math.cos(PITCH)
+-C47, S47 = math.cos(math.radians(47.0)), math.sin(math.radians(47.0))
++C47, S47 = math.cos(math.radians(float(_FG.get("yaw_deg", 47.0)))), math.sin(math.radians(float(_FG.get("yaw_deg", 47.0))))   # BV2F Tier-B (name kept: v1 yaw 47)
+ # the installed Barrow's snow per ground class (barrow_world.SNOW_BY_CLASS), unchanged
+ SNOW_BY_CLASS = {"snow": (1.00, 0.00, 0.00), "path": (0.36, 0.12, 0.85), "rock": (0.45, 0.46, 0.00),
+                  "heather": (0.22, 0.70, 0.00), "ice": (0.00, 0.00, 0.00)}

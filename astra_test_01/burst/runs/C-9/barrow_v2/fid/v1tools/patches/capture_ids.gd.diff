@@ -1,0 +1,61 @@
+--- a/barrow_full/godot/tools/capture_ids.gd (v1 @ 0f8f73697)
++++ b/barrow_full/godot/tools/capture_ids.gd (BV2F Tier-B)
+@@ -20,7 +20,8 @@
+ ##               placement's ground point projected by the camera against the layout's own
+ ##               px_from_uv formula (the two must agree to a fraction of a pixel)
+ 
+-const GUIDE := Vector2i(5376, 3328)
++var GUIDE := Vector2i(5376, 3328)        # BV2F Tier-B: was const; --frame-grid guide_px
++var SCENE := "res://scenes/barrow_full.tscn"   # BV2F Tier-B: --frame-grid scene
+ 
+ var out_dir := ""
+ var vp: SubViewport
+@@ -32,6 +33,8 @@
+ 	for i in args.size():
+ 		if args[i] == "--out" and i + 1 < args.size():
+ 			out_dir = args[i + 1]
++		if args[i] == "--frame-grid" and i + 1 < args.size():   # BV2F Tier-B
++			_bv2f_frame_grid(args[i + 1])
+ 	if out_dir == "":
+ 		print("[ids] HALT: --out DIR is required")
+ 		quit(2)
+@@ -44,7 +47,7 @@
+ 	vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+ 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+ 	root.add_child(vp)
+-	scene = load("res://scenes/barrow_full.tscn").instantiate()
++	scene = load(SCENE).instantiate()   # BV2F Tier-B: was the literal res://scenes/barrow_full.tscn
+ 	scene.skip_character = true
+ 	vp.add_child(scene)
+ 	var waited := 0
+@@ -142,12 +145,27 @@
+ 	img.save_png("%s/ids.png" % out_dir)
+ 	var f := FileAccess.open("%s/ids.json" % out_dir, FileAccess.WRITE)
+ 	f.store_string(JSON.stringify({
+-		"_what": "C-9 T10-2 step 3: the guide view (5376 x 3328, capture_blockout's camera) as an ID render",
++		"_what": "C-9 T10-2 step 3: the guide view (%d x %d, capture_blockout's camera) as an ID render" % [GUIDE.x, GUIDE.y],   # BV2F Tier-B
+ 		"code": "R = (i % 16) * 16 + 8, G = (i / 16) * 16 + 8, B = 200; ground and everything else 0",
+ 		"placements": ids,
+ 		"instrument_check": {"placements_checked": n_chk, "worst_px_camera_vs_formula": snappedf(worst, 0.001),
+ 			"formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0"},
+ 	}, " "))
+-	print("[ids] ids.png 5376x3328, %d placements, camera vs px_from_uv worst %.3f px over %d points" % [
+-		idx, worst, n_chk])
++	print("[ids] ids.png %dx%d, %d placements, camera vs px_from_uv worst %.3f px over %d points" % [
++		GUIDE.x, GUIDE.y, idx, worst, n_chk])   # BV2F Tier-B
+ 	quit(0)
++
++
++# ---- BV2F Tier-B patch (fid/v1tools/ALLOWLIST.md): frame/grid/scene from --frame-grid JSON; ----
++# ---- with no --frame-grid every value is v1's own, so v1's behaviour is unchanged.            ----
++func _bv2f_frame_grid(p: String) -> void:
++	var fg = JSON.parse_string(FileAccess.get_file_as_string(p))
++	if typeof(fg) != TYPE_DICTIONARY:
++		push_error("[bv2f] cannot read --frame-grid %s" % p)
++		quit(5)
++		return
++	if fg.has("guide_px"):
++		GUIDE = Vector2i(int(fg["guide_px"][0]), int(fg["guide_px"][1]))
++	if fg.has("scene"):
++		SCENE = String(fg["scene"])
++	print("[bv2f] frame-grid %s: guide %dx%d scene %s" % [p, GUIDE.x, GUIDE.y, SCENE])

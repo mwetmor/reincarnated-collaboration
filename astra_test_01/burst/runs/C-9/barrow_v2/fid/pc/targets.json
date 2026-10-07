@@ -1,5 +1,5 @@
 {
- "_what": "BV2F Phase 0.1 positive-control targets, written BEFORE measuring (RESUME_PT / charter v0.2 § 12, R-C9-163). Every record path is relative to runs/C-9/barrow_full/. Every tool runs UNMODIFIED from an APFS clone of barrow_full at HEAD (scratchpad v1c/C-9/barrow_full, `cp -Rc`), so no output lands in barrow_full/. Godot runs under heavy_lock.py C-9.",
+ "_what": "BV2F Phase 0.1 positive-control targets, written BEFORE measuring (RESUME_PT / charter v0.2 \u00a7 12, R-C9-163). Every record path is relative to runs/C-9/barrow_full/. Every tool runs UNMODIFIED from an APFS clone of barrow_full at HEAD (scratchpad v1c/C-9/barrow_full, `cp -Rc`), so no output lands in barrow_full/. Godot runs under heavy_lock.py C-9.",
  "head_commit_collab": "f1aa715ac (barrow_full tracked files clean; untracked additions only)",
  "godot": "/Applications/Godot.app/Contents/MacOS/Godot (4.6.3 per the v1 record)",
  "targets": [
@@ -7,9 +7,21 @@
    "id": "T1",
    "name": "ID self-test (camera vs the layout's px_from_uv formula)",
    "record": [
-    {"file": "take/ids/ids.json", "field": "instrument_check.worst_px_camera_vs_formula", "value": 0.004},
-    {"file": "take/ids/ids.json", "field": "instrument_check.placements_checked", "value": 86},
-    {"file": "take/take_report.json", "field": "cell_formula_check", "value": "54 plates x 20 random points land on the camera's px to 0.0007 px"}
+    {
+     "file": "take/ids/ids.json",
+     "field": "instrument_check.worst_px_camera_vs_formula",
+     "value": 0.004
+    },
+    {
+     "file": "take/ids/ids.json",
+     "field": "instrument_check.placements_checked",
+     "value": 86
+    },
+    {
+     "file": "take/take_report.json",
+     "field": "cell_formula_check",
+     "value": "54 plates x 20 random points land on the camera's px to 0.0007 px"
+    }
    ],
    "tool_args": [
     "Godot --path godot --resolution 640x360 --script tools/capture_ids.gd -- --out <clone>/take/ids   (take_report.json `regenerate`)",
@@ -22,59 +34,129 @@
    "id": "T2",
    "name": "Rendered-vs-painting residual of the baked heroes, unlit and lit",
    "record": [
-    {"file": "take/build/mini_overlay.json", "field": "summary.unlit_mean_abs", "value": 15.5},
-    {"file": "take/build/mini_overlay.json", "field": "summary.lit_mean_abs", "value": 40.7},
-    {"file": "take/build_plan.md", "field": "table at lines 209-216 (per piece unlit 12.6/15.0/15.2/19.1, lit 40.9/32.1/43.6/46.3)"}
+    {
+     "file": "take/build/mini_overlay.json",
+     "field": "summary.unlit_mean_abs",
+     "value": 15.5
+    },
+    {
+     "file": "take/build/mini_overlay.json",
+     "field": "summary.lit_mean_abs",
+     "value": 40.7
+    },
+    {
+     "file": "take/build_plan.md",
+     "field": "table at lines 209-216 (per piece unlit 12.6/15.0/15.2/19.1, lit 40.9/32.1/43.6/46.3)"
+    }
    ],
    "tool_args": [
     "Godot --path godot --resolution 640x360 --script tools/mini_overlay.gd -- --out <clone>/work/overlay --ids ring_p155,door_lintel,grave_marker_W,fallen_tree_log_A --bakes <clone>/work/bakes",
     "python3 tools/mini_overlay.py   (reads work/overlay, writes take/build/mini_overlay.json in the clone)"
    ],
    "config": "guide camera; the 4 pieces named in build_plan.md; bakes = v1's work/bakes (25 files, 3b8a4fbfd)",
-   "pass": "unlit within 15.5 +/- 0.5 (charter § 5 row 0.1); lit within 40.7 +/- 0.5 (same tolerance applied; the record gives no spread)"
+   "pass": "GATING: unlit within 15.5 +/- 0.5 (charter \u00a7 5 row 0.1). Lit is INFORMATIONAL (R-C9-166): re-based at HEAD = 36.2 (record 40.7 at 3b8a4fbfd); the lit path's paint_stack.gd / barrow_full.gd changed in 17 commits from 111c85f5d; not bisected."
   },
   {
    "id": "T3",
    "name": "Heather on painted tufts",
    "record": [
-    {"file": "take/build/overlay_check.json", "line": 1781, "field": "variants.as_painted.whole_window['heather + shrub tufts'].precision_drawn_on_painted", "value": 0.5221},
-    {"file": "take/build/overlay_check.json", "field": "variants.as_painted.whole_window['heather + shrub tufts'].coverage", "value": 0.3407},
-    {"file": "take/build/overlay_check.json", "line": 92, "field": "variants.as_painted.per_chunk['0_0']['heather + shrub tufts'].precision_drawn_on_painted", "value": 0.4653},
-    {"file": "take/build/overlay_check.json", "line": 210, "field": "variants.as_painted.per_chunk['1_0']['heather + shrub tufts'].precision_drawn_on_painted", "value": 0.4476},
-    {"file": "take/build/painted_prep.json", "line": 127, "field": "heather.placement.heather.tuft_cells_covered_share", "value": 0.4379},
-    {"file": "take/build/painted_prep.json", "line": 118, "field": "heather.placement.shrub.tuft_cells_covered_share", "value": 0.1596}
+    {
+     "file": "take/build/overlay_check.json",
+     "line": 1781,
+     "field": "variants.as_painted.whole_window['heather + shrub tufts'].precision_drawn_on_painted",
+     "value": 0.5221
+    },
+    {
+     "file": "take/build/overlay_check.json",
+     "field": "variants.as_painted.whole_window['heather + shrub tufts'].coverage",
+     "value": 0.3407
+    },
+    {
+     "file": "take/build/overlay_check.json",
+     "line": 92,
+     "field": "variants.as_painted.per_chunk['0_0']['heather + shrub tufts'].precision_drawn_on_painted",
+     "value": 0.4653
+    },
+    {
+     "file": "take/build/overlay_check.json",
+     "line": 210,
+     "field": "variants.as_painted.per_chunk['1_0']['heather + shrub tufts'].precision_drawn_on_painted",
+     "value": 0.4476
+    },
+    {
+     "file": "take/build/painted_prep.json",
+     "line": 127,
+     "field": "heather.placement.heather.tuft_cells_covered_share",
+     "value": 0.4379
+    },
+    {
+     "file": "take/build/painted_prep.json",
+     "line": 118,
+     "field": "heather.placement.shrub.tuft_cells_covered_share",
+     "value": 0.1596
+    }
    ],
-   "note": "0.4653 and 0.4476 (the RESUME's figures) are PER-CHUNK values (chunks 0_0 and 1_0); the whole-window value in the same file is 0.5221 (line 1781; inpainted variant line 3583 identical). All are reproduced and reported; none is chosen here.",
+   "note": "R-C9-166 W-2 corrigendum: the target is the whole-window record 0.5221; 0.4653/0.4476 are per-chunk (chunks 0_0, 1_0).",
    "tool_args": [
     "Godot --path godot --resolution 640x360 --script tools/capture_painted.gd -- --out <clone>/captures/painted --guide --variants inpainted,as_painted",
     "python3 tools/overlay_check.py --capture <clone>/captures/painted --out <pc>/run/overlay",
     "python3 tools/paint_world_prep.py   (in the clone, LAST: rewrites the clone's godot/data/painted; painted_prep.json placement shares; output shas compared with v1's)"
    ],
    "config": "guide camera, wind held still, as_painted ground (the shipped variant)",
-   "pass": "each reproduced value within the record +/- 0.02 (the charter's 2-pt band); per-chunk values reported for all 16 chunks"
+   "pass": "GATING (R-C9-166): whole-window as_painted precision_drawn_on_painted (overlay_check.json:1781) = 0.5221. Tolerance from the record's own spread: v1's two ground variants agree to 4 dp (as_painted :1781 = inpainted :3583 = 0.5221) and the placement is seeded, so the record has zero spread at its precision -> |d| <= 0.0005 (half the last digit). Also reported against the charter's 2-pt band. Reported alongside (not gating): coverage 0.3407, painted_prep.json:127 tuft_cells_covered_share 0.4379, per-chunk values."
   },
   {
    "id": "T4",
    "name": "Desktop frame time, the shipped (painted) level",
    "record": [
-    {"file": "take/build/painted_captures.json", "line": 234, "field": "exported_app_frame_cost.app_frame_cost_painted_1", "value": "10.93 ms, render 1726x971, window 1920x971"},
-    {"file": "take/build/painted_captures.json", "line": 235, "field": "exported_app_frame_cost.app_frame_cost_painted_2", "value": "10.97 ms, render 1728x972"},
-    {"file": "take/build/painted_captures.json", "line": 236, "field": "exported_app_frame_cost.app_frame_cost_painted_fullscreen", "value": "12.40 ms, render 1920x1080, window 1920x1080"},
-    {"file": "barrow_full_layout.json", "line": 20269, "field": "acceptance.frame_cost_ms (the BLOCKOUT, unpainted: play 8.55, exported windowed 8.91/8.92, fullscreen ultrawide 14.79/14.84, instrument 19.35, unlocked 21.31)"},
-    {"file": "git 5f96ba0fe message", "field": "desktop app restaged after the trail polish: fullscreen 12.8-12.9 ms (was 12.4)"}
+    {
+     "file": "take/build/painted_captures.json",
+     "line": 234,
+     "field": "exported_app_frame_cost.app_frame_cost_painted_1",
+     "value": "10.93 ms, render 1726x971, window 1920x971"
+    },
+    {
+     "file": "take/build/painted_captures.json",
+     "line": 235,
+     "field": "exported_app_frame_cost.app_frame_cost_painted_2",
+     "value": "10.97 ms, render 1728x972"
+    },
+    {
+     "file": "take/build/painted_captures.json",
+     "line": 236,
+     "field": "exported_app_frame_cost.app_frame_cost_painted_fullscreen",
+     "value": "12.40 ms, render 1920x1080, window 1920x1080"
+    },
+    {
+     "file": "barrow_full_layout.json",
+     "line": 20269,
+     "field": "acceptance.frame_cost_ms (the BLOCKOUT, unpainted: play 8.55, exported windowed 8.91/8.92, fullscreen ultrawide 14.79/14.84, instrument 19.35, unlocked 21.31)"
+    },
+    {
+     "file": "git 5f96ba0fe message",
+     "field": "desktop app restaged after the trail polish: fullscreen 12.8-12.9 ms (was 12.4)"
+    }
    ],
    "configuration_named": "The shipped level is the PAINTED app (scenes/barrow_painted.tscn); the layout's frame_cost_ms is the unpainted blockout, so none of its configurations is the shipped level. Matched configuration: the painted app, rebuilt at HEAD by tools/build_app_painted.sh (STAGE redirected to scratch), run `<app>/Contents/MacOS/<exe> -- --frame-cost`, render 1920x1080 (= the record's 12.40 row's render size). On today's 3440x1440 display the default window gives render 1920x1080. The layout's blockout windowed 1920x1080 (8.91/8.92) is also re-measured as a second control with the blockout app.",
    "tool_args": [
     "STAGE=<scratch> bash tools/build_app_painted.sh   (in the clone)",
     "'<clone>/app/build/C-9 Barrow painted.app/Contents/MacOS/C-9 Barrow painted' -- --frame-cost   (x2)"
    ],
-   "pass": "within the record's repeat spread: painted render-1920x1080 row 12.40 (single run; the windowed repeats differ by 0.04 ms) -> 12.40 +/- 0.05 ms; also reported against 12.8-12.9 (5f96ba0fe, post-polish, the state at HEAD)"
+   "pass": "Record painted_captures.json:234-236: 10.93 / 10.97 ms windowed (render ~1726x971), 12.40 ms fullscreen (render 1920x1080). Configuration reproduced: the painted app rebuilt at HEAD, default window on today's 3440x1440 display (render 1920x1080), compared with the 12.40 row (same render size); tolerance from the record's repeat spread (10.93 vs 10.97: 0.04 ms) -> 12.40 +/- 0.05 ms. Also reported against 12.8-12.9 (5f96ba0fe, the restaged post-trail-polish figure)."
   },
   {
    "id": "S",
    "name": "v1 play-camera stills for PH (not a pass/fail target)",
    "output": "fid/pc/v1_stills/<view>.png 1920x1080 + views.json (camera positions)",
-   "views": ["start", "barrow_door", "mere", "stone_ring", "outcrop_field", "shore"]
+   "views": [
+    "start",
+    "barrow_door",
+    "mere",
+    "stone_ring",
+    "outcrop_field",
+    "shore"
+   ]
   }
- ]
+ ],
+ "_amended": "2026-10-06 per R-C9-166 (after T1/T2 measured; T3/T4 not yet measured): T2 lit made informational; T3/T4 pass lines restated from the records. Original pass lines in git 648c83813."
 }

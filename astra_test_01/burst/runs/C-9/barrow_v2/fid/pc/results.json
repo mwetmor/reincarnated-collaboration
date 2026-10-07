@@ -1,19 +1,63 @@
 {
  "_what": "BV2F 0.1 positive-control results so far (lane PT). Targets: targets.json (committed before measuring). Run from an APFS clone of barrow_full at HEAD; control_shas.json before == after; barrow_full git status unchanged.",
- "T1": {"verdict": "PASS",
-  "measured": {"worst_px_camera_vs_formula": 0.004, "placements_checked": 86, "ids_png_sha256_12": "ed9cfcd207c1", "ids_png_vs_v1": "byte-identical", "ids_json_vs_v1": "byte-identical",
-   "take_from_paint": "take_report.json, plates.json, tufts.json, density_uv.png, ground_uv.png, splat_world.png byte-identical to v1; cell formula 0.0007 px"},
-  "record": "take/ids/ids.json instrument_check 0.004 / 86; take_report.json cell_formula_check 0.0007"},
- "T2": {"verdict": "unlit PASS, lit MISS -> HALT",
-  "measured": {"unlit_mean_abs": 15.5, "lit_mean_abs": 36.2,
-   "per_piece_unlit": {"door_lintel": 12.6, "fallen_tree_log_A": 15.0, "grave_marker_W": 15.2, "ring_p155": 19.1},
-   "per_piece_lit": {"door_lintel": 35.9, "fallen_tree_log_A": 32.1, "grave_marker_W": 34.2, "ring_p155": 42.7}},
-  "record": {"file": "take/build/mini_overlay.json", "unlit_mean_abs": 15.5, "lit_mean_abs": 40.7,
-   "per_piece_unlit": {"door_lintel": 12.6, "fallen_tree_log_A": 15.0, "grave_marker_W": 15.2, "ring_p155": 19.1},
-   "per_piece_lit": {"door_lintel": 40.9, "fallen_tree_log_A": 32.1, "grave_marker_W": 43.6, "ring_p155": 46.3}},
+ "T1": {
+  "verdict": "PASS",
+  "measured": {
+   "worst_px_camera_vs_formula": 0.004,
+   "placements_checked": 86,
+   "ids_png_sha256_12": "ed9cfcd207c1",
+   "ids_png_vs_v1": "byte-identical",
+   "ids_json_vs_v1": "byte-identical",
+   "take_from_paint": "take_report.json, plates.json, tufts.json, density_uv.png, ground_uv.png, splat_world.png byte-identical to v1; cell formula 0.0007 px"
+  },
+  "record": "take/ids/ids.json instrument_check 0.004 / 86; take_report.json cell_formula_check 0.0007"
+ },
+ "T2": {
+  "verdict": "PASS (unlit, gating). Lit informational: re-based at HEAD 36.2 (R-C9-166)",
+  "measured": {
+   "unlit_mean_abs": 15.5,
+   "lit_mean_abs": 36.2,
+   "per_piece_unlit": {
+    "door_lintel": 12.6,
+    "fallen_tree_log_A": 15.0,
+    "grave_marker_W": 15.2,
+    "ring_p155": 19.1
+   },
+   "per_piece_lit": {
+    "door_lintel": 35.9,
+    "fallen_tree_log_A": 32.1,
+    "grave_marker_W": 34.2,
+    "ring_p155": 42.7
+   }
+  },
+  "record": {
+   "file": "take/build/mini_overlay.json",
+   "unlit_mean_abs": 15.5,
+   "lit_mean_abs": 40.7,
+   "per_piece_unlit": {
+    "door_lintel": 12.6,
+    "fallen_tree_log_A": 15.0,
+    "grave_marker_W": 15.2,
+    "ring_p155": 19.1
+   },
+   "per_piece_lit": {
+    "door_lintel": 40.9,
+    "fallen_tree_log_A": 32.1,
+    "grave_marker_W": 43.6,
+    "ring_p155": 46.3
+   }
+  },
   "reading": "Unlit reproduces exactly per piece (the bake/projection path is unchanged). Lit is 4.5 lighter on the mean; three pieces lighter by 3.6-9.4, the log identical. The lit render is the blockout ramp material under the blockout sun (mini_overlay.gd), and paint_stack.gd / barrow_full.gd were changed by 17 commits after the record (3b8a4fbfd; first 111c85f5d, which replaced paint_stack.gd with the installed one). Not bisected: one Godot run per candidate commit would be needed. The charter row 0.1 gates on unlit 15.5 only ('lit was 40.7' is context); targets.json registered lit as gating, so this is reported as a miss and the lane HALTs per RESUME.",
-  "outputs": "fid/pc/run/mini_overlay.json, run/t2_mini_overlay.log"},
- "T3": {"verdict": "NOT RUN (halted)"},
- "T4": {"verdict": "NOT RUN (halted)"},
- "S": {"verdict": "NOT RUN (halted); script ready at fid/pc/tools/pc_stills.gd"}
+  "outputs": "fid/pc/run/mini_overlay.json, run/t2_mini_overlay.log",
+  "ruling": "R-C9-166: lit not gating; HALT H-C9-BV2F-PT-1 disposed; no bisect"
+ },
+ "T3": {
+  "verdict": "NOT RUN (halted)"
+ },
+ "T4": {
+  "verdict": "NOT RUN (halted)"
+ },
+ "S": {
+  "verdict": "NOT RUN (halted); script ready at fid/pc/tools/pc_stills.gd"
+ }
 }
