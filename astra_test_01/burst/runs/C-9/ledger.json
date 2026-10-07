@@ -46352,6 +46352,13 @@
       "ruling": "BV2F pilot (PH 291a54992, s31): P9c re-instrumented and pre-registered BEFORE measuring (marker shots hide the sea; amendment A1 also pre-registered): rest-pose 0.010 px PASS, swimming RED 1.766 px FAIL -> P9c ADOPTED as BINDING. P10 PASS (p99 16.20 / 14.49 ms). P9 FLOW at paint_mix 0.75 = 1.551, still < the frozen 2.064 floor: paint_mix was NOT the cause (the R-C9-197 hypothesis is withdrawn); the pilot's view is CALM OPEN SEA, R-C9-159's measured view was SURF at the ice edge. RULED: the bar stands; one build change -- add R-C9-159's own foam/surf motion where the sea meets the shore ice, the cliff foot and around each floe (159 had foam round floes; the pilot's water has the motion layer but no edge surf), then re-measure flow over the same water mask. If flow still fails after that, the water's liveliness becomes an explicit M2' look question for Matt with the film, not a bar move.",
       "verbatim": [],
       "ts": "2026-10-07T17:42:25Z"
+    },
+    {
+      "id": "R-C9-199",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F pilot with R-C9-159's foam field (PT 8fd69fafc; PH 4ec1c5bc8): P9 FLOW = 3.444 on the same water mask (R-C9-198) -> PASS vs 2.064 (the instrument's alternative per-run mask reads 1.914 because it excludes the moving foam -- noted, not adopted; the pre-registered mask governs). P2 20/20 PASS. P10: start view p99 17.32 ms FAIL, a repeat 16.03 PASS; sea view 13.87 PASS. No repeat rule was pre-registered, so the conductor does not pick the better run: P10 = FAIL. RULED: (1) PH pre-registers a STRICTER repeat rule before re-measuring: 3 runs of the same film segment, the WORST p99 must be <= 16.7 ms; (2) PT recovers performance headroom in the build without changing the look (profile first; candidates: foam/water shader cost, foam field resolution, heather instancing/LOD, shadow settings on lit movers), since Phase 3' will be heavier; v1's own frame budget figures are the reference. Then Gate-2.",
+      "verbatim": [],
+      "ts": "2026-10-07T17:51:35Z"
     }
   ],
   "grok_calls": [
