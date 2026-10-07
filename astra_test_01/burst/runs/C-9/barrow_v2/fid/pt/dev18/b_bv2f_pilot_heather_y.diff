@@ -43,7 +43,7 @@
 +			var r: Array = rows[i]
 +			# [x, z, height_m, class (0 heather, 1 shrub), mul r, g, b]
 +			var hh := float(r[2]) * (0.85 + 0.30 * fposmod(float(i) * 0.6180339, 1.0))
-+			mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3.ONE * hh), Vector3(float(r[0]), (float(r[7]) if r.size() > 7 else 0.0) - 0.01, float(r[1]))   # BV2F-PT DEV-18: the spray on its ground height))
++			mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3.ONE * hh), Vector3(float(r[0]), (float(r[7]) if r.size() > 7 else 0.0) - 0.01, float(r[1]))))   # BV2F-PT DEV-18: the spray on its ground height
 +			mm.set_instance_custom_data(k, Color(float(r[4]), float(r[5]), float(r[6]), 1.0))
 +			mm.set_instance_color(k, Color(1, 1, 1, 1))
 +			thin.append({"c": Vector2(float(r[0]), float(r[1])), "r": maxf(ab.size.x, ab.size.z) * hh * 0.5 * 0.8,

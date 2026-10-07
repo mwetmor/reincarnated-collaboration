@@ -9,12 +9,15 @@ extends "res://scripts/bv2f/bv2f_level.gd"
 ##       unlit on LAYER_PAINTED under the paint sun; him and the 3D heather / snow lit by the sun; v1's wind and snowfall.
 ## v1's projection is uniform-driven (PaintedWorld.PROJ_UNIFORMS): v1's frame constants are re-bound to the pilot's.
 
+var water_mat_pt: ShaderMaterial = null   # BV2F-PT DEV-5
 const PILOT_U0 := -33.57573954303182
 const PILOT_V1 := 22.36993715728635
 const PILOT_PX := Vector2(4096.0, 2560.0)
 ## the pilot's painted data, RELATIVE to PaintedWorld.data_dir() (res://data/painted/) so v1's loaders read it unchanged
 const PILOT_REL := "../bv2f/pilot/painted/"
 const PILOT_MANIFEST := "res://data/bv2f/pilot/painted/manifest.json"
+const SNOW_TERRAIN := preload("res://scripts/bv2f/snow_field_terrain.gd")   # BV2F-PT DEV-18
+const PT_WATER := preload("res://scripts/bv2f/pt_water.gd")   # BV2F-PT DEV-5
 
 
 func _pilot_window() -> Dictionary:
@@ -134,6 +137,7 @@ func _dress_painted() -> void:
 	for ink in _prop_inks:
 		(ink as MeshInstance3D).visible = false
 		n["inks_hidden"] += 1
+	_dress_water(man, painting, lit, shadow_mul, loads, n)   # BV2F-PT DEV-5
 	# THE TWO SUNS -- v1's code, verbatim in effect (barrow_full.gd _dress_painted)
 	var paint_layers := PaintedWorld.LAYER_PAINTED | PaintedWorld.LAYER_ON_PAINT
 	var dyn := PaintedWorld.ALL_LAYERS & ~paint_layers
@@ -154,6 +158,8 @@ func _dress_painted() -> void:
 	vman["heather"]["file"] = PILOT_REL + String(man["heather"]["file"])
 	if vman.has("snow"):
 		vman["snow"]["grid"]["file"] = PILOT_REL + String(man["snow"]["grid"]["file"])
+		if (man["snow"] as Dictionary).has("ground_h"):   # BV2F-PT DEV-18
+			vman["snow"]["ground_h"]["file"] = PILOT_REL + String(man["snow"]["ground_h"]["file"])
 	_build_painted_heather(vman, lit, shadow_mul)
 	if vman.has("snow"):
 		_build_painted_snow(vman, painting, lit, shadow_mul)
@@ -174,5 +180,160 @@ func _dress_painted() -> void:
 	paint["files_bad"] = bad
 	paint["ms"] = Time.get_ticks_msec() - t0
 	report["painted"] = paint
-	print("[bv2f_pilot] painted: files_ok=%d bad=%s projected=%d baked=%d (meshes %d) bakes_missing=%s rebound=%d" % [
-		ok, str(bad), n["projected"], n["baked"], n["baked_meshes"], str(n["bakes_missing"]), n["frame_rebound_materials"]])
+	print("[bv2f_pilot] painted: files_ok=%d bad=%s projected=%d baked=%d (meshes %d) bakes_missing=%s rebound=%d water=%s snow_ground_h=%s" % [
+		ok, str(bad), n["projected"], n["baked"], n["baked_meshes"], str(n["bakes_missing"]), n["frame_rebound_materials"],
+		str(n.get("water")), str(snow != null and snow.get("ground_h_tex") != null)])
+
+
+# --- DEV-18 (R-C9-193, applied): v1's _build_painted_heather (barrow_full.gd:2292-2346) COPIED, ONE line changed (marked) ------
+func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3) -> void:
+	"""The 954 heather sprays and 23 shrub clumps (take/build/heather_instances.json, placed FROM
+	the painting's tufts), as BarrowHeather's generated sprays in six MultiMeshes -- one per
+	variant, variant and +-15% height by index as the installed Barrow picks them. Each carries
+	the painting beneath it as its colour (INSTANCE_CUSTOM)."""
+	var hj = JSON.parse_string(FileAccess.get_file_as_string(PaintedWorld.data_dir() + String(man["heather"]["file"])))
+	var rows: Array = hj["rows"] if typeof(hj) == TYPE_DICTIONARY else []
+	var am: Array = man["heather"]["albedo_mul"]
+	heather_mat = PaintedWorld.heather_material(fbm, Vector3(float(am[0]), float(am[1]), float(am[2])),
+		lit, shadow_mul, u_hat, v_hat)
+	heather_mat.set_shader_parameter("wind_dir", WIND.normalized())
+	var by_var := []
+	for v in BarrowHeather.VARIANTS:
+		by_var.append([])
+	for i in rows.size():
+		by_var[int(fposmod(float(i) * 7.0 + 3.0, float(BarrowHeather.VARIANTS)))].append(i)
+	var thin := []
+	var tris := 0
+	for v in BarrowHeather.VARIANTS:
+		var mesh := BarrowHeather.spray_mesh(v)
+		var ab := mesh.get_aabb()
+		var mm := MultiMesh.new()
+		mm.transform_format = MultiMesh.TRANSFORM_3D
+		mm.use_custom_data = true
+		# INSTANCE COLOURS ON, EVERY ONE WHITE. The phone's renderer reads a MultiMesh's vertex COLOR as
+		# BLACK when it has no instance colours (tools/probe_mm_custom.gd: Compatibility 0/0/0 where
+		# Forward+ reads the vertex's own; with white instance colours both read the vertex's) -- and
+		# a spray's whole colour, stem to sprig, is in its vertices: every spray drew black on the web
+		mm.use_colors = true
+		mm.mesh = mesh
+		mm.instance_count = (by_var[v] as Array).size()
+		for k in (by_var[v] as Array).size():
+			var i: int = by_var[v][k]
+			var r: Array = rows[i]
+			# [x, z, height_m, class (0 heather, 1 shrub), mul r, g, b]
+			var hh := float(r[2]) * (0.85 + 0.30 * fposmod(float(i) * 0.6180339, 1.0))
+			mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3.ONE * hh), Vector3(float(r[0]), (float(r[7]) if r.size() > 7 else 0.0) - 0.01, float(r[1]))))   # BV2F-PT DEV-18: the spray on its ground height
+			mm.set_instance_custom_data(k, Color(float(r[4]), float(r[5]), float(r[6]), 1.0))
+			mm.set_instance_color(k, Color(1, 1, 1, 1))
+			thin.append({"c": Vector2(float(r[0]), float(r[1])), "r": maxf(ab.size.x, ab.size.z) * hh * 0.5 * 0.8,
+						 "feather": 0.18, "max_d": hh * HEATHER_SNOW_FRAC})
+		var mmi := MultiMeshInstance3D.new()
+		mmi.name = "Heather_%d" % v
+		mmi.multimesh = mm
+		mmi.material_override = heather_mat
+		mmi.layers = PaintedWorld.LAYER_ON_PAINT
+		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(mmi)
+		_heather_mmi.append(mmi)
+		tris += mesh.surface_get_array_index_len(0) / 3 * mm.instance_count
+	paint["heather"] = {"instances": rows.size(), "multimeshes": _heather_mmi.size(), "tris": tris,
+						"albedo_mul": am}
+	paint["_thin_zones"] = thin
+
+
+func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:  # BV2F-PT DEV-18: v1's barrow_full.gd _build_painted_snow COPIED, marked lines changed
+	"""THE INSTALLED SNOW FIELD, flat: his ankle-deep layer where the painting's ground is snow,
+	thinner on the path and the heather, none on the ice (the depth grid, from the painted splat);
+	no windrows, piles or skirts -- a drift the painting does not show would hide his legs in snow
+	that looks flat. It wears the ground's painting (PaintedWorld.snow_shader_code): untouched, it
+	IS the painting; where he walks, his prints take the ramp."""
+	var sn: Dictionary = man["snow"]
+	var g: Dictionary = sn["grid"]
+	var buf := PaintedWorld.load_f32_bin(String(g["file"]), String(g["sha256"]), paint["loads"])
+	var nx := int(g["nx"])
+	var nz := int(g["nz"])
+	if buf.size() != 2 * nx * nz:
+		push_error("barrow_painted: the snow grid is %d floats, not %d" % [buf.size(), 2 * nx * nz])
+		paint["snow_error"] = "grid size"
+		return
+	var go: Array = g["origin_xz"]
+	snow = SNOW_TERRAIN.new()   # BV2F-PT DEV-18: v1's SnowField, on the terrain (scripts/bv2f/snow_field_terrain.gd)
+	var ghd: Dictionary = sn.get("ground_h", {})   # BV2F-PT DEV-18
+	if not ghd.is_empty():   # BV2F-PT DEV-18
+		var ghb := PaintedWorld.load_f32_bin(String(ghd["file"]), String(ghd["sha256"]), paint["loads"])   # BV2F-PT DEV-18
+		snow.set_ground_height(ghb, Vector2(float(go[0]), float(go[1])), float(g["cell_m"]), nx, nz)   # BV2F-PT DEV-18
+	snow.name = "SnowField"
+	snow.fbm_tex = fbm
+	snow.field_px = int(sn["field_px"])
+	snow.trail_px = int(sn["trail_px"])
+	snow.windrow_count = 0
+	snow.pile_count = 0
+	snow.cast_shadows = false
+	snow.depth_grid = {"origin": Vector2(float(go[0]), float(go[1])), "cell_m": float(g["cell_m"]),
+					   "nx": nx, "nz": nz, "mul": buf.slice(0, nx * nz), "trod": buf.slice(nx * nz, 2 * nx * nz)}
+	snow.thin_zones = paint.get("_thin_zones", [])
+	paint.erase("_thin_zones")
+	snow.shader_code_override = PaintedWorld.snow_shader_code()
+	var ar: Array = sn["area_xz"]
+	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, [], WIND)
+	add_child(snow)
+	if knight != null:
+		snow.track(knight)
+	var smat := snow.material()
+	smat.set_shader_parameter("paint_tex", ground_tex)
+	PaintedWorld.bind_projection(smat, lit, shadow_mul, u_hat, v_hat)
+	snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
+	if heather_mat != null:
+		BarrowHeather.bind_snow(heather_mat, snow, WIND)
+	var br := snow.bake_report()
+	paint["snow"] = {"area_xz": ar, "field_px": snow.field_px, "trail_px": snow.trail_px,
+					 "bare_frac_under_cut": br.get("bare_frac_under_cut"), "mean_depth_m": br.get("mean_depth_m"),
+					 "thin_zones": br.get("thin_zones"), "bake_ms": br.get("ms", br.get("bake_ms"))}
+
+
+# --- DEV-5 (R-C9-194): the animated water over the painted sea, the floes riding the swell -------------------------
+func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_mul: Vector3, loads: Dictionary, n: Dictionary) -> void:
+	if not man.has("water") or not nodes.has("ground_sea"):
+		n["water"] = "none"
+		return
+	var w: Dictionary = man["water"]
+	var sdf := PaintedWorld.load_png_bin(PILOT_REL + String(w["sdf"]["file"]), String(w["sdf"]["sha256"]), false, loads)
+	var wm := ShaderMaterial.new()
+	var sh := Shader.new()
+	sh.code = PT_WATER.WATER_SHADER
+	wm.shader = sh
+	wm.set_shader_parameter("paint_tex", painting)
+	wm.set_shader_parameter("noise_tex", fbm)
+	wm.set_shader_parameter("water_sdf", sdf)
+	var r: Array = w["sdf"]["rect_xz"]
+	wm.set_shader_parameter("sdf_rect", Vector4(float(r[0]), float(r[1]), float(r[2]), float(r[3])))
+	wm.set_shader_parameter("g_u_hat", u_hat)
+	wm.set_shader_parameter("g_v_hat", v_hat)
+	var p := deg_to_rad(PaintedWorld.PITCH_DEG)
+	wm.set_shader_parameter("g_frame", Vector3(PILOT_U0, PILOT_V1, PPM))
+	wm.set_shader_parameter("g_px_per", Vector2(PPM * sin(p), PPM * cos(p)))
+	wm.set_shader_parameter("g_size", PILOT_PX)
+	wm.set_shader_parameter("paint_mix", 1.0)          # base = the painting (R-C9-194)
+	var ns := 0
+	for mi in _meshes(nodes["ground_sea"]):
+		mi.material_override = wm
+		mi.layers = PaintedWorld.LAYER_PAINTED
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		ns += 1
+	var fsh := PaintedWorld._shader("bv2f_floes", PT_WATER.floe_shader_code())
+	var nf := 0
+	for id in nodes:
+		if not String(id).begins_with("blobs_shore_ice__"):
+			continue
+		var fm := ShaderMaterial.new()
+		fm.shader = fsh
+		fm.set_shader_parameter("paint_tex", painting)
+		fm.set_shader_parameter("project_uv", true)
+		fm.set_shader_parameter("painted_mark", PaintedWorld.PAINTED_MARK)
+		PaintedWorld.bind_projection(fm, lit, shadow_mul, u_hat, v_hat)
+		fm.set_shader_parameter("bob_phase", fposmod(float(nf) * 0.6180339, 1.0))
+		for mi in _meshes(nodes[id]):
+			_paint_mesh(mi, fm, false)
+		nf += 1
+	water_mat_pt = wm
+	n["water"] = {"sea_meshes": ns, "floes_bobbing": nf}

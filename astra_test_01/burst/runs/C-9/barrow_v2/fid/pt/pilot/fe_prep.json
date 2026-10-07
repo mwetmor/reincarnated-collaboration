@@ -124,5 +124,9 @@
  "manifest_what": "what the painted pilot wears (godot/data/bv2f/pilot/painted/), every file's sha256 -- the scene checks each as it loads it",
  "painting_note": "the stitched pilot paint-over's own PNG bytes",
  "heather_what": "the pilot's 3D heather: v1's counts (heather_instances.py) RE-PLACED on the painted flat-land tufts (v1's greedy cover), each coloured by the painting beneath it",
- "snow_note": "v1's SNOW_BY_CLASS on the bv2art class map, flat ground only; the field covers the pilot window + 1.5 m (world xz, square)"
+ "snow_note": "v1's SNOW_BY_CLASS on the bv2art class map, flat ground only; the field covers the pilot window + 1.5 m (world xz, square)",
+ "heather_on_terrain": true,
+ "snow_on_terrain": true,
+ "_dev18": "R-C9-193: heather_on_terrain + snow_on_terrain (fid/pt/dev18 proposal (a)); counts stay v1's",
+ "water_floes": true
 }

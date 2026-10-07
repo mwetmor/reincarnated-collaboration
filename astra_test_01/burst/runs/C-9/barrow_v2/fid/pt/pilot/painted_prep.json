@@ -80,7 +80,7 @@
      54.9,
      64.8
     ],
-    "tuft_cells_covered_share": 0.2925
+    "tuft_cells_covered_share": 0.2285
    },
    "heather": {
     "placed": 236,
@@ -89,37 +89,37 @@
      47.1,
      55.5
     ],
-    "tuft_cells_covered_share": 0.3756
+    "tuft_cells_covered_share": 0.3708
    }
   },
   "painted_mean_linear": [
-   0.24146,
-   0.10802,
-   0.04656
+   0.24599,
+   0.121,
+   0.0583
   ],
   "painted_mean_srgb": [
-   135,
-   92,
-   61
+   136,
+   98,
+   68
   ],
   "rel_mul_p10_p50_p90": [
    [
-    0.673,
-    1.092,
-    1.161
+    0.591,
+    0.976,
+    1.222
    ],
    [
-    0.837,
-    1.003,
-    1.161
+    0.736,
+    0.896,
+    1.248
    ],
    [
-    0.788,
-    0.95,
-    1.32
+    0.629,
+    0.89,
+    1.319
    ]
   ],
-  "tuft_px_per_spray_median": 1408,
+  "tuft_px_per_spray_median": 1194,
   "tufts_on_flat_land_share": 0.6678
  },
  "snow": {
@@ -130,7 +130,14 @@
    54.513
   ],
   "grid_cells": 299209,
-  "mean_mul": 0.2935,
-  "bare_share_mul_under_0.125": 0.689
+  "mean_mul": 0.3581,
+  "bare_share_mul_under_0.125": 0.5956
+ },
+ "water": {
+  "floes": 17,
+  "sdf_px": [
+   180,
+   197
+  ]
  }
 }
