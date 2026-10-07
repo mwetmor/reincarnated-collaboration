@@ -974,3 +974,16 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 - **Binding reading:** the conductor asked for the same water mask, so 3.444 PASS is the binding reading. The leak is recorded for a re-instrument ruling: exclusions should come from geometry (the marker, ID renders), not cross-time differences.
 
 **P10, read.** The start view's first run had p99 17.32 with one long tail (max 24.14). The repeat on the same build gives 16.03 / max 16.48, so the build costs about 0.1–0.6 ms more than 9c53bc067 (16.20). The frozen protocol is a single 900-frame run; it never specified what a repeat means. I report both and flag the ruling: run 1 as the binding FAIL, or a pre-registered repeat rule. Bars unchanged.
+
+## 34. P10 REPEAT RULE, PRE-REGISTERED (R-C9-199). Committed BEFORE any re-measure.
+
+**Ruling.** On 8fd69fafc, P10 = **FAIL**: 17.32 ms, the first run, as measured. The repeat (16.03) is not used.
+
+**Rule, from the next P10 measurement on:**
+- **Runs.** 3 runs of the SAME segment: `ph_life.gd perf` at uv (0, 0), the scripted 4-point walk loop, 900 frames, vsync off, uncapped, 1920 × 1080, `bv2f_pilot_painted.tscn`, `BV2F_VARIANT=art`.
+  - Each run is a fresh Godot process under the heavy lock, run back to back (`run_p10_rule.sh`).
+- **Statistic.** The **WORST** p99 of the three. **PASS iff worst p99 ≤ 16.7 ms.** This is stricter than a single run, never looser.
+- **Reporting.** All three runs are reported (p50, p99, max). No run is discarded or re-taken.
+  - If a run crashes or writes no perf.json, P10 is VOID for that build, and the three are re-run as a set.
+- **Sea view.** The sea view (uv −29, −5.5) is measured under the same 3-run worst-p99 rule and reported. It binds under the same bar.
+- **RED unchanged.** The 20 ms burn must FAIL; it is a single run.

@@ -110,3 +110,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 
 ## PT 8fd69fafc (foam)
 - [x] P9 flow same mask 3.444 PASS (own-mask 1.914: foam leaks into floe/heather exclusions; marker-floe mask 4.092); P10 start run1 17.32 FAIL / repeat 16.03 PASS (ruling); sea 13.87; P2 20/20. calibration.md § 33.
+- [x] P10 repeat rule pre-registered (§ 34): 3 fresh runs, worst p99 <= 16.7 binds (start + sea); 8fd69fafc P10 = FAIL (17.32). [ ] on PT hand-back: `PH_RDIR=<dir> harness/run_p10_rule.sh`.
