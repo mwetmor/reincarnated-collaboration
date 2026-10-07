@@ -46733,6 +46733,15 @@
         "The cairn stones in the center. It seems like we've used 3D models for each of the stones, even those that are uh, collapsed onto the ground. But as we saw with the shipwrecked boat, uh, using a full 3D model uh, didn't work, whereas making a 3D model of a portion of the ship that is sticking up is the way to go. ... we should also change it so that we're only using We're only creating a 3D model for the portion of the cairn stones as sketch A illustrated that are sticking up. This will also allow a little bit more movement uh, within those cairn stones and not such a, a blocked out area. My second point that I was wondering is, what does sketch A show for the stairway? Is it rocks that do not have snow on them or is it Um, rock stairs that are covered in snow uh, to a degree."
       ],
       "ts": "2026-10-07T22:46:07Z"
+    },
+    {
+      "id": "R-C9-216",
+      "by": "Matt",
+      "ruling": "(1) STAIR: keep sketch A's final look but with TRUE 3D SNOW on the treads that shows footprints (PT: per-tread snow patches from LV's tread polygons, DEV-22). (2) STONE RING: sketch A has too many stones -- stood up they would exceed five and not form a symmetrical druidic circle; implement a true stone circle of five or six stones with one or two fallen, and model only the portion of a fallen stone that juts up from the ground. Conductor's pick within Matt's range: 6 evenly spaced positions on the current small circle, 4 standing + 2 fallen at non-adjacent positions; extra loose stones removed. Matt can adjust at the next look.",
+      "verbatim": [
+        "Great. For the stairs, let's make sure that we maintain that final look, uh, but with true 3D snow that we can show steps on. And for the cairn stones, uh, as I look at the sketch A, it actually seems like there are too many stones. If we stood all of those stones up, there would be more than five, and not a symmetrical circle as we would expect in Druidic style stones. So we should actually implement it so that a stone circle, maybe five or six stones, existed, and maybe one or two fell over. And if we do show those that fell over, only create the portion of the model that is jutting up from the ground, uh, not the full model."
+      ],
+      "ts": "2026-10-07T22:47:34Z"
     }
   ],
   "grok_calls": [
