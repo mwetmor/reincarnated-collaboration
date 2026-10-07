@@ -16,7 +16,8 @@ extends "res://scripts/barrow_full.gd"
 ##
 ## Run a guide SECTION by env BV2F_SECTION=s00|s01|s10|s11 (the frame's guide_window is that section's).
 
-const BV2F_DATA := "res://data/bv2f/"
+## the layout VARIANT (data/bv2f/<variant>/): env BV2F_VARIANT, default v7c (R-C9-177)
+var BV2F_DATA := "res://data/bv2f/" + (OS.get_environment("BV2F_VARIANT") if OS.get_environment("BV2F_VARIANT") != "" else "v7c") + "/"
 var lvl := {}
 var sim := {}
 var class_meshes := {}
@@ -51,6 +52,21 @@ func _class_mat(cls: String) -> ShaderMaterial:
 	var m := PaintStack.world_material(fbm, _tint_of(cls), _flat_params())
 	world_mats.append(m)
 	return m
+
+
+var _groups := {}
+
+
+func _group(gid: String, cls: String) -> Node3D:
+	## ONE id per slot / per blob class: v1's ID code (capture_ids, frozen) has 256 distinct colours (R = (i % 16) * 16 + 8,
+	## G = (i / 16) * 16 + 8) -- instanced slots (181 palisade stakes) would overflow it
+	if not _groups.has(gid):
+		var g := Node3D.new()
+		g.name = gid
+		level.add_child(g)
+		_groups[gid] = g
+		_register(gid, g, cls, "group")
+	return _groups[gid]
 
 
 func _register(id: String, root: Node3D, cls: String, piece: String, uv_at = null) -> void:
@@ -244,7 +260,7 @@ func _dress(root: Node3D, cls: String) -> void:
 		_prop_inks.append(s["mi"])
 
 
-func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, yaw_deg: float, size: Vector3) -> void:
+func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, yaw_deg: float, size: Vector3, group := "") -> void:
 	var ab := _aabb_of(model, model.transform.affine_inverse())
 	var holder := Node3D.new()
 	holder.name = id
@@ -252,13 +268,17 @@ func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, 
 	holder.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(yaw_deg)) * Basis.from_scale(sc), _S(pos.x, z, pos.y))
 	model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
 	holder.add_child(model)
+	if group != "":
+		_group(group, cls).add_child(holder)
+		_dress(holder, cls)
+		return
 	level.add_child(holder)
 	_dress(holder, cls)
 	_register(id, holder, cls, "model", [pos.x, -pos.y] if absf(z) < 0.01 else null)
 	built[id]["fit_scale"] = _v3(sc)
 
 
-func _place_beam(id: String, cls: String, model: Node3D, a: Vector3, b: Vector3, th: float, fit_height := false) -> void:
+func _place_beam(id: String, cls: String, model: Node3D, a: Vector3, b: Vector3, th: float, fit_height := false, group := "") -> void:
 	var ab := _aabb_of(model, model.transform.affine_inverse())
 	var holder := Node3D.new()
 	holder.name = id
@@ -287,6 +307,10 @@ func _place_beam(id: String, cls: String, model: Node3D, a: Vector3, b: Vector3,
 		holder.transform = Transform3D(Basis(cols[0], cols[1], cols[2]), (a + b) / 2.0)
 		model.position = -(ab.position + ab.size / 2.0)
 	holder.add_child(model)
+	if group != "":
+		_group(group, cls).add_child(holder)
+		_dress(holder, cls)
+		return
 	level.add_child(holder)
 	_dress(holder, cls)
 	_register(id, holder, cls, "model")
@@ -329,16 +353,17 @@ func _build_placements() -> void:
 			if String(ins["type"]) == "box":
 				var ip := Vector2(float(ins["pos"][0]), float(ins["pos"][1]))
 				var s3 := Vector3(float(ins["size_m"][0]), float(ins["size_m"][2]), float(ins["size_m"][1]))
-				_place_box(iid, cls, node2, ip, float(ins["z"]), float(ins["godot_rot_y_deg"]), s3)
+				_place_box(iid, cls, node2, ip, float(ins["z"]), float(ins["godot_rot_y_deg"]), s3, sid)
 			else:
 				var a := _S(float(ins["a"][0]), float(ins["a"][2]), float(ins["a"][1]))
 				var b := _S(float(ins["b"][0]), float(ins["b"][2]), float(ins["b"][1]))
-				_place_beam(iid, cls, node2, a, b, float(ins["thickness_m"]), String(ins.get("fit", "")) == "height")
+				_place_beam(iid, cls, node2, a, b, float(ins["thickness_m"]), String(ins.get("fit", "")) == "height", sid)
 			model_report["loaded"] += 1
 			n += 1
 	_build_stair()
 	_build_blobs()
 	_build_curtains()
+	_build_probes()
 	# v1's door-visibility instrument (capture_blockout) asks for v1's three door pieces by id: barrow_v2's King's door is
 	# ONE build (barrow_front), so these are EMPTY stand-ins -- the instrument reads nothing (no meshes), it does not fail
 	for did in ["door_lintel", "door_post_L", "door_post_R"]:
@@ -403,9 +428,8 @@ func _build_blobs() -> void:
 		mi.transform = Transform3D(Basis(Vector3.UP, -deg_to_rad(float(b["rot"]))).scaled(Vector3(float(r[0]), float(r[2]), float(r[1]))),
 			_S(float(b["c"][0]), float(b["cz"]), float(b["c"][1])))
 		root.add_child(mi)
-		level.add_child(root)
+		_group("blobs_" + cls, cls).add_child(root)
 		_dress(root, cls)
-		_register("blob_%d" % n, root, cls, "blob")
 		n += 1
 	report["blobs"] = n
 
@@ -441,3 +465,61 @@ func _build_curtains() -> void:
 		_register("curtain_" + String(o["id"]), root, "passage_dark", "declared_opening")
 		n += 1
 	report["curtains"] = n
+
+
+func _build_probes() -> void:
+	## R-C9-177 CHECK (a): env BV2F_PROBES = "with" (each deliverer opening's probe among everything -- what the play camera
+	## sees of it) or "only" (the probes alone -- the unoccluded reference). Unset: no probes (the guide never has them).
+	var mode := OS.get_environment("BV2F_PROBES")
+	if mode == "":
+		return
+	if mode == "only":
+		for ch in level.get_children():
+			(ch as Node3D).visible = false
+	for o in sim["openings"]:
+		if not o.has("probe"):
+			continue
+		var pr: Dictionary = o["probe"]
+		var V := PackedVector3Array()
+		var N := PackedVector3Array()
+		var t := String(pr["type"])
+		if t == "v":
+			var a := deg_to_rad(float(pr["faces_deg"]))
+			var f := Vector2(sin(a), -cos(a))
+			var tg := Vector2(-f.y, f.x)
+			var c := Vector2(float(pr["centre"][0]), float(pr["centre"][1])) + f * 0.4   # in front of a face-mounted curtain (a 0.3 m box centred 0.1 out)
+			var hw := float(pr["w"]) / 2.0
+			var z0 := float(pr["z0"])
+			var z1 := z0 + float(pr["h"])
+			var p0 := c - tg * hw
+			var p1 := c + tg * hw
+			var nr := Vector3(f.x, 0.0, f.y)
+			_tri(V, N, _S(p0.x, z0, p0.y), _S(p1.x, z0, p1.y), _S(p1.x, z1, p1.y), nr)
+			_tri(V, N, _S(p0.x, z0, p0.y), _S(p1.x, z1, p1.y), _S(p0.x, z1, p0.y), nr)
+		elif t == "h_rect":
+			var r := deg_to_rad(float(pr["rot_deg"]))
+			var ax := Vector2(cos(r), sin(r))
+			var ay := Vector2(-ax.y, ax.x)
+			var c2 := Vector2(float(pr["centre"][0]), float(pr["centre"][1]))
+			var l2 := float(pr["L"]) / 2.0
+			var w2 := float(pr["W"]) / 2.0
+			var z := float(pr["z"])
+			var q := [c2 - ax * l2 - ay * w2, c2 + ax * l2 - ay * w2, c2 + ax * l2 + ay * w2, c2 - ax * l2 + ay * w2]
+			_tri(V, N, _S(q[0].x, z, q[0].y), _S(q[1].x, z, q[1].y), _S(q[2].x, z, q[2].y), Vector3.UP)
+			_tri(V, N, _S(q[0].x, z, q[0].y), _S(q[2].x, z, q[2].y), _S(q[3].x, z, q[3].y), Vector3.UP)
+		else:
+			var p2 := PackedVector2Array()
+			for pp in pr["polygon"]:
+				p2.append(Vector2(float(pp[0]), float(pp[1])))
+			var idx := Geometry2D.triangulate_polygon(p2)
+			var z2 := float(pr["z"])
+			for k in range(0, idx.size(), 3):
+				_tri(V, N, _S(p2[idx[k]].x, z2, p2[idx[k]].y), _S(p2[idx[k + 1]].x, z2, p2[idx[k + 1]].y), _S(p2[idx[k + 2]].x, z2, p2[idx[k + 2]].y), Vector3.UP)
+		var root := Node3D.new()
+		root.name = "probe_" + String(o["id"])
+		var m := StandardMaterial3D.new()
+		m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		m.albedo_color = Color(1, 0, 1)
+		_mesh(V, N, m, "mesh", root, false)
+		level.add_child(root)
+		_register("probe_" + String(o["id"]), root, "probe", "check_a")

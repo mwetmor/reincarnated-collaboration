@@ -66,6 +66,7 @@ STAIR = {"width_m": 5.0, "drop_m": 7.2, "step_rise_m": 0.18, "step_tread_m": 0.2
 BARROW = {"open_w": 5.0, "open_h": 6.5, "post_w": 1.4, "post_d": 1.8, "lintel_t": 1.3, "forecourt": 2.6,
           "mound_a": 20.0, "mound_b": 13.5, "rise": 10.5, "passage_len": 9.0,
           "sized_for": "yeti nemesis, ~5.6 m tall (the bosses' door)"}
+V7C = os.environ.get("LV_VARIANT", "v7b") == "v7c"   # BV2F-LV R-C9-177: v7c = the gable its OWN building; the hall turned to face the camera
 BF_OPEN = (5.81, 6.67)        # BV2F-LV: the model-kit-v3 barrow front's door, measured at its uniform scale (lv/models/stills/barrow_front.png)
 PORCH = {"open_w": 4.5, "open_h": 4.5, "width": 13.25, "depth": 3.0, "eave": 5.1, "ridge": 7.8, "apron": 1.4,   # R-C9-156: width = the Tripo porch scaled so its see-through opening is 4.5 m
          "sized_for": "colossus 3.2 m; statues ~3.5 m; crab heroes up to ~3.4 m wide"}
@@ -262,6 +263,64 @@ def main():
     PORCH["centre0"] = along(along(best_[4], _ane, HK["door_ne"]), _nT, -HK["proud"])        # the porch's mouth (door line)
     print("[v7b] hall kit: front-wall offset %.2f m, gable slide %.2f; hull gaps gable %.2f porch %.2f; opening %.2f x %.2f m" % (
         best_[1], best_[2], best_[5], best_[6], HK["open"][0], HK["open"][1]))
+    if V7C:
+        # BV2F-LV v7c (R-C9-177): the HALL on the p02 <-> p04 edge (the floor's NE side), its front wall -- with the porch
+        # and the great door -- facing SW: toward the floor AND toward the camera; it serves p04 by its exit lane. The
+        # GABLE is its OWN collapsed building on p06's ray (BVP's build, uniform), its breach turned toward the camera.
+        _p2 = A["p02"]
+        _axh = unit(_p4[0] - _p2[0], _p4[1] - _p2[1])
+        _nTh = (-_axh[1], _axh[0])
+        if _nTh[0] * _p4[0] + _nTh[1] * _p4[1] < 0:
+            _nTh = (-_nTh[0], -_nTh[1])
+        _cwh = _nTh[0] * _p4[0] + _nTh[1] * _p4[1] + _R9
+        _ninh = (-_nTh[0], -_nTh[1])
+        _thh = math.atan2(_ninh[0], _ninh[1])
+        _Xh = (math.cos(_thh), -math.sin(_thh))                          # the build's local +X in sim (xdir)
+        _ud = (-_Xh[0], -_Xh[1])                                          # the build's door lies at -X: toward _ud
+        _q4 = along(_p4, _nTh, _cwh - (_nTh[0] * _p4[0] + _nTh[1] * _p4[1]))
+        bestc = None
+        for wk in range(0, 81):
+            w_ = 0.25 * wk
+            for tk in range(-90, 41):
+                t_ = 0.5 * tk
+                H0 = along(along(_q4, _nTh, w_), _ud, t_)
+                hfp = [along(along(H0, _ud, s0), _nTh, d0) for s0, d0 in ((-HK["L"] / 2, -HK["proud"]), (HK["L"] / 2, -HK["proud"]),
+                                                                          (HK["L"] / 2, HK["front"] + 8.26 * _k), (-HK["L"] / 2, HK["front"] + 8.26 * _k))]
+                if min(q[1] for q in hfp) < -36.0 or _clr(hfp) < 0.75:
+                    continue
+                pfp = [along(along(H0, _ud, s0), _nTh, d0) for s0, d0 in ((HK["porch_ne"][0], -(HK["proud"] + PORCH["apron"])), (HK["porch_ne"][1], -(HK["proud"] + PORCH["apron"])),
+                                                                          (HK["porch_ne"][1], 0.0), (HK["porch_ne"][0], 0.0))]
+                cp = _clr(pfp)
+                if cp < 0.75:
+                    continue
+                door = along(along(H0, _ud, HK["door_ne"]), _nTh, -HK["proud"])
+                key = (round(cp, 1), math.dist(door, _p4))
+                if bestc is None or key < bestc[0]:
+                    bestc = (key, w_, t_, H0, cp, door)
+        assert bestc is not None, "BV2F-LV HALT (v7c): no placement of the hall on the NE edge clears the floor"
+        HK.update({"wall_off": bestc[1], "H0": bestc[3], "gap_porch_hull": bestc[4], "t_along": bestc[2]})
+        PORCH["centre0"] = bestc[5]
+        _nin0 = _ninh
+        # the gable: its OWN building, BVP's collapsed-end build at ONE uniform scale (square, GS m), on p06's ray, its
+        # breach facing compass GF (toward the camera, as near to the start's bearing as the camera allows)
+        _gdm = json.load(open(os.path.join(LV, "models", "stills", "gable_dims.json")))
+        GS = 8.0
+        GF = 250.0
+        _fg = (math.sin(math.radians(GF)), -math.cos(math.radians(GF)))
+        _d6 = unit(*A["p06"])
+        bestg = None
+        for tk in range(0, 160):
+            Gc = along((0, 0), _d6, h + 1.0 + 0.25 * tk)
+            gfp = G.rect_poly(*Gc, GS, GS, math.degrees(math.atan2(_fg[1], _fg[0])))
+            cg = _clr(gfp)
+            if cg >= 0.75:
+                bestg = (Gc, cg, gfp)
+                break
+        assert bestg is not None, "BV2F-LV HALT (v7c): no gable station on p06's ray"
+        GK = {"c": bestg[0], "gap_hull": bestg[1], "fp": bestg[2], "S": GS, "H": _gdm["H_m"] * GS / _gdm["W_m"], "face": _fg, "face_deg": GF,
+              "breach": along(bestg[0], _fg, GS / 2), "scale": _gdm["uniform_scale"] * GS / _gdm["W_m"]}
+        print("[v7c] hall on the NE edge: wall offset %.2f m, %.1f m along; porch hull gap %.2f; door->p04 %.1f m | gable on p06's ray: hull gap %.2f" % (
+            bestc[1], bestc[2], bestc[4], bestc[0][1], bestg[1]))
     _p3arc = lambda b_: _arc(b_)
     protect = [(*_arc(STAIR["tangent_beta_deg"]), 6.5, 0.0), (*_arc(46.0), 2.5, 0.0), (*_arc(22.0), 4.0, 0.3), (*_arc(121.0), 7.0, 0.6),
                (*along(PORCH["centre0"], _nin0, PORCH["depth"] + PORCH["apron"]), 8.0, 0.35),   # BV2F-LV: at the deep porch's apron
@@ -384,6 +443,16 @@ def main():
     L_GD = math.dist(Gp, D)
     NE_PAST_DOOR = HK["L"] / 2 - HK["door_ne"]                  # BV2F-LV: the body is exactly the build's length
     rot_ax = math.degrees(math.atan2(ax_ne[1], ax_ne[0]))
+    if V7C:   # BV2F-LV v7c: the hall's own frame (the NE edge); the gable is not on its wall
+        nT = _nTh
+        ax_ne = _ud
+        HALL_D = HK["full_d"]
+        D = along(along(HK["H0"], ax_ne, HK["door_ne"]), nT, 0.0)
+        Gp = along(HK["H0"], ax_ne, -HK["L"] / 2)                   # the hall's far end (no gable on this wall)
+        GABLE_BACK, GABLE_FWD = 0.0, 0.0
+        L_GD = HK["L"] / 2 + HK["door_ne"]
+        NE_PAST_DOOR = HK["L"] / 2 - HK["door_ne"]
+        rot_ax = math.degrees(math.atan2(ax_ne[1], ax_ne[0]))
     feat("longhall", "hall", hall_rect(GABLE_FWD, L_GD + NE_PAST_DOOR, Gp), 0.0, HK["H_roof"], True,
          "the burnt longhall WITH its shallow grand porch (BV2F-LV: ONE build, BV2F-LV-hall, at ONE uniform scale, %.1f x %.1f x %.1f m): angled NE -> SW along the floor edge between p04 and p06; its front wall %.2f m beyond the disc hull; roof half fallen" % (HK["L"], HK["D"], HK["H_porch"], HK["wall_off"]),
          axis_compass_deg_sw=G.rnd(G.compass_deg(*ax_sw), 2), length_m=G.rnd(L_GD + NE_PAST_DOOR + GABLE_BACK, 2), depth_m=HALL_D)
@@ -418,7 +487,7 @@ def main():
         braziers.append(bc_)
         feat(f"brazier_{'sw' if sv < 0 else 'ne'}", "brazier", G.ellipse_poly(*bc_, 0.55, 0.55, 0, 12), 0.0, 2.3, True,
              "a fire brazier beside the porch")
-    feat("fallen_gable", "gable", hall_rect(-GABLE_BACK, GABLE_FWD, Gp), 0.0, HK["GH"], True,
+    feat("fallen_gable", "gable", GK["fp"] if V7C else hall_rect(-GABLE_BACK, GABLE_FWD, Gp), 0.0, GK["H"] if V7C else HK["GH"], True,
          "the hall's OWN collapsed south-west end (p06: up out of ash): the gable fallen outward, leaning on its rubble; on p06's ray, 1.5 m beyond the floor edge")
     # the palisade, pulled back: it wraps the hall from OUTSIDE; its arms stop 1.5 m short of the floor edge
     pal = []
@@ -430,7 +499,11 @@ def main():
     south_arm_end = arm(140.0)
     pts = [north_arm_start, along(D, ax_ne, NE_PAST_DOOR + 5.0), along(along(D, ax_ne, NE_PAST_DOOR + 5.0), nT, HALL_D + 3.5),
            along(along(Gp, ax_ne, -GABLE_BACK - 4.0), nT, HALL_D + 3.5), along(Gp, ax_ne, -GABLE_BACK - 4.0), south_arm_end]
-    gaps = {2, 3}   # two burnt-through gaps (segment index); the yard itself stays open to the floor
+    if V7C:   # BV2F-LV v7c: a U behind the hall, 4 m off its ends and back, its arms stopping 3 m short of the front wall
+        _e0 = along(HK["H0"], ax_ne, -HK["L"] / 2 - 4.0)
+        _e1 = along(HK["H0"], ax_ne, HK["L"] / 2 + 4.0)
+        pts = [along(_e0, nT, 3.0), along(_e0, nT, HALL_D + 4.0), along(_e1, nT, HALL_D + 4.0), along(_e1, nT, 3.0)]
+    gaps = {1} if V7C else {2, 3}   # burnt-through gaps (segment index); the yard itself stays open to the floor
     for i in range(len(pts) - 1):
         a, b = pts[i], pts[i + 1]
         L = math.hypot(b[0] - a[0], b[1] - a[1])
@@ -851,7 +924,7 @@ def main():
                 "length_m": G.rnd(Ltot, 3), "leaves_opening_straight_m": straight, "surface": "trodden ground (natural edge)", "note": note}
     _lat_w = _wfloor                                            # BV2F-LV: the floor side of the diagonal hull
     _w_rail = along(along(hull_c, _wax, WRECK["L"] * 0.22), _lat_w, WRECK["B"] / 2)   # the broken after half's rail
-    _gable_front = along(Gp, ax_ne, (GABLE_FWD - GABLE_BACK) / 2)
+    _gable_front = GK["breach"] if V7C else along(Gp, ax_ne, (GABLE_FWD - GABLE_BACK) / 2)
     _land_mid = ((landing_bd[0][0] + landing_bd[-1][0]) / 2, (landing_bd[0][1] + landing_bd[-1][1]) / 2)
     _land_in = unit(A["p03"][0] - _land_mid[0], A["p03"][1] - _land_mid[1])
     lanes = [
@@ -859,7 +932,7 @@ def main():
                   "from the King's door, straight out across the forecourt, to p02's disc"),
         make_lane("lane_p04_hall", "p04", "hall_porch", along(_pc, _nin, PORCH["depth"]), _nin, max(4.5, PORCH["open_w"]),
                   "the porch's door opens STRAIGHT onto it (3 m straight out), then across the yard to p04's disc"),
-        make_lane("lane_p06_gable", "p06", "fallen_gable", _gable_front, _nin, 4.0,
+        make_lane("lane_p06_gable", "p06", "fallen_gable", _gable_front, GK["face"] if V7C else _nin, 4.0,
                   "from the breach of the fallen gable end to p06's disc"),
         make_lane("lane_p03_stair", "p03", "sea_cave_stair", _land_mid, _land_in, STAIR["width_m"],
                   "from the stair's top landing (its 5 m floor edge) to p03's disc", inset=0.6, straight=1.5),
@@ -908,7 +981,7 @@ def main():
         uu = unit(math.sin(math.radians(cdeg)), -math.cos(math.radians(cdeg)))
         _foot.append(along((0, 0), uu, ray_exit(floor, uu) + 3.6))
     ctx = {
-        "bank_gaps": [along(_pc, _nin, PORCH["depth"]), along(Gp, ax_ne, 1.0)],
+        "bank_gaps": [along(_pc, _nin, PORCH["depth"]), _gable_front if V7C else along(Gp, ax_ne, 1.0)],
         "mound": {"c": mound_c, "a": BARROW["mound_a"], "b": BARROW["mound_b"], "rot": rot2, "rise": 1.2},   # R-C9-156: the model is the mound
         "passage": {"c": along((0, 0), d2, door_plane), "door": along((0, 0), d2, door_plane), "u": d2, "v": n2,
                     "half_w": BARROW["open_w"] / 2 + 0.1, "len": BARROW["passage_len"] + BARROW["post_d"],
@@ -929,14 +1002,15 @@ def main():
         "standing_stones": [(G.rnd(tuple(sum(q[i] for q in f["footprint"]) / 4 for i in (0, 1))), f["z_top_m"]) for f in feats if f["kind"] == "standing_stone"],
         "wreck": {"c": hull_c, "rot": WRECK["rot"], "length": WRECK["L"], "z": -0.25},   # BV2F-LV
         "hall": {"sw": _hall_sw, "ane": ax_ne, "nT": nT, "door": D, "length": _hall_len, "depth": HALL_D,
-                 "gable_len": GABLE_BACK + GABLE_FWD, "door_s": GABLE_BACK + L_GD, "porch": PORCH},
+                 "gable_len": max(1.0, GABLE_BACK + GABLE_FWD), "door_s": GABLE_BACK + L_GD, "porch": PORCH},
         "palisade_runs": [_rect_mid(f["footprint"]) for f in feats if f["kind"] == "palisade"],
         "circle_stones": [dict(f["sculpt_stone"], z_top_m=f["z_top_m"]) for f in feats if "sculpt_stone" in f],
     }
     B = SC.Builder(layout, ctx)
     Hf = B.terrain()
-    hf_rel = "fid/lv/v7b/terrain_h.f32"                         # BV2F-LV
-    os.makedirs(os.path.join(ROOT, "fid", "lv", "v7b"), exist_ok=True)
+    _vv = "v7c" if V7C else "v7b"
+    hf_rel = "fid/lv/%s/terrain_h.f32" % _vv                       # BV2F-LV
+    os.makedirs(os.path.join(ROOT, "fid", "lv", _vv), exist_ok=True)
     SC.write_heightfield(B.H, os.path.join(ROOT, hf_rel))
     B.dressing()
     # shore rocks stay procedural (dressing); the rest of the simple pieces are model slots (R-C9-155)
@@ -995,7 +1069,7 @@ def main():
              opening={"w": PORCH["open_w"], "h": PORCH["open_h"], "centre": G.rnd(along(_pc, _nin, PORCH["depth"])),
                       "faces_compass_deg": G.rnd(G.compass_deg(*_nin), 2), "opens_onto": "lane_p04_hall"},
              brief="gabled porch, eaves %.1f m, ridge %.1f m running OUT (above the hall's roofline), carved crossed finials; the great door's two leaves stand OPEN against the porch walls, not across the lane" % (PORCH["eave"], PORCH["ridge"])),
-        slot("fallen_gable", "ruin", hall_rect(-GABLE_BACK, GABLE_FWD, Gp), (GABLE_BACK + GABLE_FWD, HALL_D, 2.8), _nin, "BUILD (lane BVP)",
+        slot("fallen_gable", "ruin", GK["fp"] if V7C else hall_rect(-GABLE_BACK, GABLE_FWD, Gp), (GK["S"], GK["S"], GK["H"]) if V7C else (GABLE_BACK + GABLE_FWD, HALL_D, 2.8), GK["face"] if V7C else _nin, "BUILD (lane BVP)",
              "godot/models/build/fallen_gable.glb",
              opening={"w": 4.0, "h": 2.8, "centre": G.rnd(_gable_front), "kind": "breach", "opens_onto": "lane_p06_gable"},
              brief="the hall's own collapsed SW end: the A-frame fallen outward on its rubble; a clear breach on the floor side"),
@@ -1101,7 +1175,7 @@ def main():
     _gd = json.load(open(os.path.join(LV, "models", "stills", "gable_dims.json")))
     Xh = xdir(_nin)
     _door_side = Xh[0] * ax_ne[0] + Xh[1] * ax_ne[1]
-    assert _door_side < 0, "BV2F-LV HALT: the hall build's door would sit SW of its centre (the build would need mirroring)"
+    assert _door_side < 0 or V7C, "BV2F-LV HALT: the hall build's door would sit SW of its centre (the build would need mirroring)"
     _hall_c = along(HK["H0"], nT, HK["front"] + (8.257 * _k - 8.233 * _k) / 2)    # the build's AABB centre
     set_box(MS["longhall"], _hall_c, _nin, _dd["W_m"], _dd["D_m"], _dd["H_m"], 0.0, BV2F + "hall.glb",
             "BV2F-LV: ONE build (BV2F-LV-hall, body + shallow porch) at ONE uniform scale %.3f (lv/models/stills/hall_dims.json); its own great door, %.2f x %.2f m, %.2f m NE of centre, measured on lv/models/measure/hall_elev_front.png" % (
@@ -1119,8 +1193,13 @@ def main():
                              "fit_note": "the porch is the longhall build's own; its ridge/finials %.2f m vs the body roof %.2f m" % (HK["H_porch"], HK["H_roof"])})
     MS["hall_porch"]["opening"].update({"w": G.rnd(HK["open"][0], 3), "h": G.rnd(HK["open"][1], 3), "centre": G.rnd(along(D, _nin, HK["proud"])),
                                         "measured": "fid/lv/models/measure/hall_elev_front.png (orthographic elevation, 40 px/m)"})
-    set_box(MS["fallen_gable"], along(Gp, nT, HK["GL"] / 2), _nin, _gd["W_m"], _gd["D_m"], _gd["H_m"], 0.0, BV2F + "gable.glb",
-            "BV2F-LV: BVP's collapsed-end build at ONE uniform scale %.3f (square; side = the body's depth)" % _gd["uniform_scale"])
+    if V7C:
+        set_box(MS["fallen_gable"], GK["c"], GK["face"], GK["S"], GK["S"] * _gd["D_m"] / _gd["W_m"], GK["H"], 0.0, BV2F + "gable.glb",
+                "BV2F-LV v7c: the gable as its OWN collapsed building -- BVP's build at ONE uniform scale %.3f (%.1f m square), its breach toward compass %.0f (the camera side)" % (GK["scale"], GK["S"], GK["face_deg"]))
+        MS["fallen_gable"]["opening"].update({"centre": G.rnd(GK["breach"]), "faces_compass_deg": GK["face_deg"]})
+    else:
+        set_box(MS["fallen_gable"], along(Gp, nT, HK["GL"] / 2), _nin, _gd["W_m"], _gd["D_m"], _gd["H_m"], 0.0, BV2F + "gable.glb",
+                "BV2F-LV: BVP's collapsed-end build at ONE uniform scale %.3f (square; side = the body's depth)" % _gd["uniform_scale"])
     MS["fallen_gable"]["status"] = "PLACED (BVP build, lane LV uniform scale)"
     set_box(MS["wreck"], hull_c, _wface, WRECK["L"], WRECK["B"], WRECK["H"], -WRECK["sink"], "data/bv2f/models/wreck.glb",
             "BV2F-LV model kit v3: ONE uniform scale %.3f (lv/models/stills/wreck_dims.json); front (low side, open hull) faces SW to the camera; sunk %.1f m into the shore ice; height includes the snapped mast" % (_wd["uniform_scale"], WRECK["sink"]))
@@ -1154,6 +1233,18 @@ def main():
     set_box(models[-1], cc, nc, Wc, Dc, Hc, ledge_z - ob * sh_c, BUILD + "cavecliff.glb",
             "mouth %.1f x %.1f m, its sill on the ledge; the model rises %.1f m above the floor as a rock rim outside the edge" % (ow, oh * sh_c, ledge_z - ob * sh_c + Hc))
     models[-1]["opening"] = {"w": G.rnd(ow, 3), "h": G.rnd(oh * sh_c, 3), "kind": "sea-cave mouth", "measured": "models/stills/cavecliff_front.png"}
+    if V7C and os.environ.get("LV_CAVE_TRIM", "1") == "1":
+        # BV2F-LV v7c (R-C9-177 c): the cave-cliff build is TRIMMED (not placed). It stood as a 13.5 m rock wall 1-2 m in
+        # front of the declared mouth and hid it from the play camera (check (a): 2.4 % visible). The mouth is the terrain's
+        # own south face under the lip (sculpt) with its dark opening; the stair cliff is unchanged (R-C9-148).
+        models[-1]["glb"] = None
+        models[-1]["placeholder"] = "procedural"
+        models[-1]["status"] = "TRIMMED in v7c (R-C9-177 c): it hid the mouth; the mouth is the terrain face"
+    elif V7C and os.environ.get("LV_CAVE_FLIP", "0") == "1":
+        # BV2F-LV v7c (R-C9-177 c): the cave cliff build is turned 180 deg about its centre -- at v6's yaw the play camera saw
+        # its BACK (a blank rock face hiding the declared mouth); turned, its own arch faces the camera over the mouth
+        models[-1]["godot_rot_y_deg"] = G.rnd(models[-1]["godot_rot_y_deg"] + 180.0, 3)
+        models[-1]["fit_note"] += "; v7c: turned 180 deg (its arch to the camera)"
     # the stair cliff: occupies the flight (wall line -> sea line), foot to landing end; top just under the floor
     Ws, Ds, Hs = run + TL, w, STAIR["drop_m"] + 0.25
     cs = along(((B_n[0] + along(T_n, u, TL)[0]) / 2, (B_n[1] + along(T_n, u, TL)[1]) / 2), nh, Ds / 2)
@@ -1200,6 +1291,22 @@ def main():
     _n0 = len(B.blobs)
     B.blobs[:] = [b_ for b_ in B.blobs if not (b_["k"] == "ice" and any(G.point_in_poly(b_["c"], q) or G.dist_to_boundary(b_["c"], q) < max(b_["r"][0], b_["r"][1]) for q in _lp))]
     print("[v7b] ice slabs dropped from lanes:", _n0 - len(B.blobs))
+    if V7C:
+        # BV2F-LV v7c (R-C9-177 c): the sea in front of the mouth is kept CLEAR of the cliff-foot boulders (they hid a
+        # quarter of it): rock blobs whose centre lies within 7 m south of the mouth's chord, across its width + 2 m
+        _cv = next(f for f in feats if f["id"] == "sea_cave_mouth")
+        _cvc = (sum(q[0] for q in _cv["footprint"]) / len(_cv["footprint"]), sum(q[1] for q in _cv["footprint"]) / len(_cv["footprint"]))
+        _ct = math.radians(_cv["faces_deg"])
+        _cf = (math.sin(_ct), -math.cos(_ct))
+        _cg = (-_cf[1], _cf[0])
+        _hw = _cv["opening"]["clear_w_m"] / 2 + 2.0
+        _n1 = len(B.blobs)
+
+        def _in_front(b_):
+            dx, dy = b_["c"][0] - _cvc[0], b_["c"][1] - _cvc[1]
+            return b_["k"] == "rock" and abs(dx * _cg[0] + dy * _cg[1]) <= _hw + max(b_["r"][0], b_["r"][1]) and -1.0 <= dx * _cf[0] + dy * _cf[1] <= 7.0
+        B.blobs[:] = [b_ for b_ in B.blobs if not _in_front(b_)]
+        print("[v7c] cliff-foot rocks cleared from the mouth's front:", _n1 - len(B.blobs))
     layout["models"] = models
     layout["models_rule"] = ("R-C9-155: every structure is a REAL 3D model in a slot (id, kind, pos, z, faces/yaw, size, footprint, opening); "
                              "REUSE names a v1 Barrow GLB; BUILD = lane BVP (Astra sheet -> Tripo) hands BX the GLB at `glb`. "
@@ -1213,7 +1320,7 @@ def main():
         "ground_detail_counts": gd_counts,
         "counts": {"blobs": len(B.blobs), "beams": len(B.beams), "sculpt_features": len(B.features)},
     }
-    out = os.path.join(LV, os.environ.get("LV_OUT", "layout_v7b.json"))   # BV2F-LV
+    out = os.path.join(LV, os.environ.get("LV_OUT", "layout_v7c.json" if V7C else "layout_v7b.json"))   # BV2F-LV
     with open(out, "w") as f:
         json.dump(layout, f, indent=2, ensure_ascii=False)
         f.write("\n")

@@ -78,3 +78,21 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
   - The exported .app is NOT built: disk is at 22 GiB, and the mirror + import + export needs about 5 GB, which would cross the 21 GiB gate. The script is ready in `barrow_full/godot/tools/bv2f/build_app_v7b.sh` (builds outside the repo).
 - Budget used Phase 1: Astra 6/6 (BV2F-LV-wreck 2, -barrow 2, -hall 2); fal $1.20/$8.
 - NEXT: the conductor runs Gate-2 + PH P6 on the guide (against the layout_v7b polygons), then sends M1 to Matt.
+
+## R-C9-177: M1 held; v7c + check (a)
+- [x] (a) check (a) tool `lv/tools/lv_check_openings.py --render`.
+  - It runs capture_ids through `godot_run.sh` with the level's opening probes in two modes: `BV2F_PROBES=with` (everything drawn) and `only` (the probes alone).
+  - Results go to `lv/guide*/check_a.{json,md}`. A door facing away from the camera scores 0.
+  - **v7c PASS** (6/6). **v7b FAIL** (the great door faces away; the cave is 3.7 % visible).
+  - ID instrument fix: v1's capture_ids has only 256 distinct colours, so the level now groups instanced slots and blobs (one id each; 48 ids in v7c).
+  - **The earlier v7b `ids_v7b.png` (308 ids) has colour collisions and is SUPERSEDED.** The v7b guide image itself is fine.
+- [x] (b) layout v7c, `LV_VARIANT=v7c python3 lv/tools/make_layout_v7.py` → `lv/layout_v7c.json`; validator 66/66 (`lv/v7c/validator_v7c.json`).
+  - Hall on the p02–p04 (NE) edge, found by search: wall 3.5 m beyond the hull; door faces 240.6° (SW, toward the camera and p04); porch hull gap 0.81 m; door 11.2 m from p04.
+  - Gable: its own building, BVP's build at uniform 8 m, on p06's ray with a hull gap of 0.92 m; its breach faces 250°.
+- [x] (c) sea cave (v7c): the cave_cliff instance is TRIMMED (it stood as a 13.5 m wall in front of the mouth).
+  - 6 cliff-foot rocks are cleared from the mouth's front.
+  - The dark curtain now sits on the terrain face. Mouth visibility is 54.8 % of unoccluded. The stair is unchanged.
+- [x] (d) stills re-framed on the hero object, him at the disc edge (`lv/tools/lv_m1_spec.py`; `m1_stills.gd` `aim_uv`): 14 stills per variant.
+- [x] (e) guide + ID re-rendered for v7c only → `lv/guide_v7c/` (99 tiles, ids/class maps, declared_openings.json). M1 packet rebuilt (v7c, plus a v7c|v7b|sketch sheet for the hall and gable).
+- Data: one dir per variant, `barrow_full/godot/data/bv2f/{v7b,v7c}/` (env `BV2F_VARIANT`, default v7c). No .app export (disk); the .command launcher is kept.
+- Re-run v7c: `LV_VARIANT=v7c python3 lv/tools/make_layout_v7.py && python3 lv/tools/validate_layout_v7.py lv/layout_v7c.json && python3 lv/tools/bv2f_level_prep.py lv/layout_v7c.json && LV_VARIANT=v7c bash lv/tools/lv_guide_run.sh && LV_VARIANT=v7c python3 lv/tools/lv_guide_stitch.py && LV_VARIANT=v7c python3 lv/tools/lv_openings.py && LV_VARIANT=v7c python3 lv/tools/lv_check_openings.py --render`

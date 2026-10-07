@@ -59,7 +59,11 @@ func _initialize() -> void:
 			k.drive_dir(Vector2.ZERO, false, DT)
 			await physics_frame
 		scene.freeze_pose(true)
-		scene.park_camera(scene._camera_aim(), 1.0)
+		if s.has("aim_uv"):        # R-C9-177 (d): the frame ON the hero object, him at the disc edge for scale
+			var au: Array = s["aim_uv"]
+			scene.park_camera(scene.uv_to_world(float(au[0]), float(au[1]), float(s.get("aim_h", 0.0))), 1.0)
+		else:
+			scene.park_camera(scene._camera_aim(), 1.0)
 		for i in 8:
 			await process_frame
 		RenderingServer.force_draw()

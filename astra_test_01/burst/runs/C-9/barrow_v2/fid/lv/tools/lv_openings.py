@@ -6,7 +6,8 @@ radius (half-width + 1.0 m). Source: data/bv2f/level.json `sim.openings` (bv2f_l
     python3 fid/lv/tools/lv_openings.py   -> fid/lv/guide/declared_openings.json"""
 import json, math, os
 HERE = os.path.dirname(os.path.abspath(__file__)); LV = os.path.dirname(HERE)
-BF = os.path.normpath(os.path.join(LV, "..", "..", "..", "barrow_full", "godot", "data", "bv2f"))
+VAR = os.environ.get("LV_VARIANT", "v7b")
+BF = os.path.normpath(os.path.join(LV, "..", "..", "..", "barrow_full", "godot", "data", "bv2f", VAR))
 lvl = json.load(open(os.path.join(BF, "level.json")))
 PPM = 100.617553710938
 P = math.radians(52.95354112560294)
@@ -20,6 +21,8 @@ def px(x, y, z):
 
 out = []
 for o in lvl["sim"]["openings"]:
+    if o["faces_deg"] is None:      # the mere: a surface, not a framed opening (check (a) only)
+        continue
     t = math.radians(o["faces_deg"])
     f = (math.sin(t), -math.cos(t))
     tg = (-f[1], f[0])
@@ -32,6 +35,6 @@ for o in lvl["sim"]["openings"]:
                 "p6a_match_radius_m": round(hw + 1.0, 3),
                 "faces_camera": bool(-math.cos(t) > 0.05), "note": "faces_camera = the opening's facing has a component toward the camera (screen-down); False = seen from behind/edge-on at the play camera"})
 json.dump({"_what": __doc__.strip().splitlines()[0], "envelope": env, "projection": "x = (u - u0) * 100.6176; y = (v1 - v) * 80.3076 - z * 60.6137 (u = sim x, v = -sim y)",
-           "openings": out}, open(os.path.join(LV, "guide", "declared_openings.json"), "w"), indent=1)
+           "openings": out}, open(os.path.join(LV, "guide" if VAR == "v7b" else "guide_" + VAR, "declared_openings.json"), "w"), indent=1)
 for o in out:
     print(o["id"], o["w_m"], o["h_m"], o["faces_deg"], o["centre_px"], "faces camera" if o["faces_camera"] else "FACES AWAY")

@@ -6,14 +6,16 @@ set -uo pipefail
 F=$(cd "$(dirname "$0")/../.." && pwd)            # fid/
 G=$(cd "$F/../../barrow_full/godot" && pwd)
 SECS=${*:-s00 s01 s10 s11}
+VAR=${LV_VARIANT:-v7b}; GD=guide; [ "$VAR" = v7b ] || GD=guide_$VAR
+export BV2F_VARIANT=$VAR
 for s in $SECS; do
-  O=$F/lv/guide/$s; mkdir -p "$O"
-  BV2F_SECTION=$s bash "$F/v1tools/godot_run.sh" "$G" tierB/barrow_full/godot/tools/capture_blockout.gd -- --out "$O" --no-walks --no-cost \
-    --frame-grid "$F/lv/v7b/frame_grid_$s.json" > "$O/capture.log" 2>&1; rc=$?
+  O=$F/lv/$GD/${BV2F_OUT_SUFFIX:-}$s; mkdir -p "$O"
+  if [ -z "${IDS_ONLY:-}" ]; then BV2F_SECTION=$s bash "$F/v1tools/godot_run.sh" "$G" tierB/barrow_full/godot/tools/capture_blockout.gd -- --out "$O" --no-walks --no-cost \
+    --frame-grid "$F/lv/$VAR/frame_grid_$s.json" > "$O/capture.log" 2>&1; rc=$?
   echo "[lv_guide] $s capture rc=$rc $(grep -c 'SCRIPT ERROR' "$O/capture.log") script errors"
-  [ $rc -eq 0 ] || exit $rc
+  [ $rc -eq 0 ] || exit $rc; fi
   BV2F_SECTION=$s bash "$F/v1tools/godot_run.sh" "$G" tierB/barrow_full/godot/tools/capture_ids.gd -- --out "$O" \
-    --frame-grid "$F/lv/v7b/frame_grid_$s.json" > "$O/ids.log" 2>&1; rc=$?
+    --frame-grid "$F/lv/$VAR/frame_grid_$s.json" > "$O/ids.log" 2>&1; rc=$?
   echo "[lv_guide] $s ids rc=$rc $(grep '\[ids\] ids.png' "$O/ids.log")"
   [ $rc -eq 0 ] || exit $rc
 done

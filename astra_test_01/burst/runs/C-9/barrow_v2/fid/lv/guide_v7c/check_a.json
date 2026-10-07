@@ -1,0 +1,92 @@
+{
+ "_what": "BV2F LV, R-C9-177 CHECK (a) (Phase 1 DoD): every deliverer opening must have VISIBLE projected area at the play camera.",
+ "variant": "v7c",
+ "pass": true,
+ "rows": [
+  {
+   "opening": "barrow_door",
+   "anchor": "p02",
+   "probe": "v",
+   "faces_camera": true,
+   "visible_px": 226420,
+   "reference_px": 226420,
+   "visible_m2": 22.36,
+   "reference_m2": 22.36,
+   "pct_of_unoccluded": 100.0,
+   "frontal_m2": 38.753,
+   "pct_of_frontal": 57.7,
+   "PASS": true
+  },
+  {
+   "opening": "hall_great_door",
+   "anchor": "p04",
+   "probe": "v",
+   "faces_camera": true,
+   "visible_px": 64243,
+   "reference_px": 64791,
+   "visible_m2": 6.35,
+   "reference_m2": 6.4,
+   "pct_of_unoccluded": 99.2,
+   "frontal_m2": 21.613,
+   "pct_of_frontal": 29.4,
+   "PASS": true
+  },
+  {
+   "opening": "sea_cave_mouth",
+   "anchor": "p03",
+   "probe": "v",
+   "faces_camera": true,
+   "visible_px": 218219,
+   "reference_px": 398182,
+   "visible_m2": 21.55,
+   "reference_m2": 39.33,
+   "pct_of_unoccluded": 54.8,
+   "frontal_m2": 65.309,
+   "pct_of_frontal": 33.0,
+   "PASS": true
+  },
+  {
+   "opening": "fallen_gable_breach",
+   "anchor": "p06",
+   "probe": "h_rect",
+   "faces_camera": true,
+   "visible_px": 111160,
+   "reference_px": 129288,
+   "visible_m2": 10.98,
+   "reference_m2": 12.77,
+   "pct_of_unoccluded": 86.0,
+   "frontal_m2": 16.0,
+   "pct_of_frontal": 68.6,
+   "PASS": true
+  },
+  {
+   "opening": "wreck_rail",
+   "anchor": "p01",
+   "probe": "h_rect",
+   "faces_camera": true,
+   "visible_px": 108329,
+   "reference_px": 153093,
+   "visible_m2": 10.7,
+   "reference_m2": 15.12,
+   "pct_of_unoccluded": 70.8,
+   "frontal_m2": 18.948,
+   "pct_of_frontal": 56.5,
+   "PASS": true
+  },
+  {
+   "opening": "mere_ice",
+   "anchor": "p05",
+   "probe": "poly",
+   "faces_camera": true,
+   "visible_px": 3782419,
+   "reference_px": 3787194,
+   "visible_m2": 373.61,
+   "reference_m2": 374.08,
+   "pct_of_unoccluded": 99.9,
+   "frontal_m2": 468.692,
+   "pct_of_frontal": 79.7,
+   "PASS": true
+  }
+ ],
+ "units": "m2 = projected (screen) square metres at the play camera (px / 100.6^2); frontal = the opening's own area"
+}

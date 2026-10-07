@@ -54,7 +54,10 @@ def uv(p):
 
 
 def main():
+    global OUT
     lp = sys.argv[1] if len(sys.argv) > 1 else os.path.join(LV, "layout_v7b.json")
+    VAR = "v7c" if "v7c" in os.path.basename(lp) else "v7b"          # BV2F-LV R-C9-177: one data dir per variant
+    OUT = os.path.join(BF, "data", "bv2f", VAR)
     L = json.load(open(lp))
     os.makedirs(OUT, exist_ok=True)
     tints = dict(V1_TINTS)
@@ -169,13 +172,13 @@ def main():
             sections.append({"id": f"s{j}{i}", "px_origin": [sw * i, sh * j], "px": [sw, sh], "centre_uv": c,
                              "u": [c[0] - (sw / 2 + PAD) / PPM, c[0] + (sw / 2 + PAD) / PPM], "v": [c[1] - (sh / 2 + PAD) / PX_V, c[1] + (sh / 2 + PAD) / PX_V],
                              "_uv": "the RENDERED window: the section + PAD px all round (cropped by lv_guide_stitch.py)"})
-    os.makedirs(os.path.join(LV, "v7b"), exist_ok=True)
+    os.makedirs(os.path.join(LV, VAR), exist_ok=True)
     for s in sections:
-        json.dump({"_what": "BV2F LV Tier-B --frame-grid for guide section %s of layout v7b" % s["id"], "name": "barrow_v2 v7b " + s["id"],
+        json.dump({"_what": "BV2F LV Tier-B --frame-grid for guide section %s of layout %s" % (s["id"], VAR), "name": "barrow_v2 %s %s" % (VAR, s["id"]), "variant": VAR,
                    "scene": "res://scenes/bv2f_barrow_v2.tscn", "guide_px": [s["px"][0] + 2 * PAD, s["px"][1] + 2 * PAD], "pad_px": PAD, "px_per_m_across": PPM,
                    "pitch_deg": 52.95354112560294, "yaw_deg": 47.0, "walk_grid": {"u": [-1.0, 1.0], "v": [-1.0, 1.0], "step": 0.1},
                    "topdown": {"px": [2400, 2240], "px_per_m": 18.0}, "section": s["id"]},
-                  open(os.path.join(LV, "v7b", f"frame_grid_{s['id']}.json"), "w"), indent=1)
+                  open(os.path.join(LV, VAR, f"frame_grid_{s['id']}.json"), "w"), indent=1)
 
     # ---------------- level.json ----------------
     mere = np.array(L["mere"]["polygon"])
@@ -195,13 +198,39 @@ def main():
     cv = F["sea_cave_mouth"]
     openings.append({"id": "sea_cave_mouth", "point": "p03", "model": "cave_cliff", "centre_sim": [round(sum(q[0] for q in cv["footprint"]) / len(cv["footprint"]), 4),
                      round(sum(q[1] for q in cv["footprint"]) / len(cv["footprint"]), 4)], "z0": cv["z_bottom_m"], "w": cv["opening"]["clear_w_m"],
-                     "h": cv["opening"]["clear_h_m"], "faces_deg": cv["faces_deg"], "curtain_inset_m": 1.2, "dark": True})
+                     "h": cv["opening"]["clear_h_m"], "faces_deg": cv["faces_deg"], "curtain_inset_m": 1.2 if M["cave_cliff"].get("glb") else -0.1, "dark": True})   # v7c (cave cliff trimmed): the dark sits ON the terrain face
     go = M["fallen_gable"]["opening"]
     openings.append({"id": "fallen_gable_breach", "point": "p06", "model": "fallen_gable", "centre_sim": go["centre"], "z0": 0.0, "w": go["w"], "h": go["h"],
                      "faces_deg": M["fallen_gable"]["faces_compass_deg"], "dark": False})
     wo = M["wreck"]["opening"]
     openings.append({"id": "wreck_rail", "point": "p01", "model": "wreck", "centre_sim": wo["centre"], "z0": 0.0, "w": wo["w"], "h": wo["h"],
                      "faces_deg": round((M["wreck"]["faces_compass_deg"] + 180.0) % 360.0, 2), "dark": False})
+    # BV2F-LV R-C9-177 CHECK (a) probes: each deliverer opening's PROBE shape at the play camera (vertical door planes; the
+    # open hull, the ruin's breach heap and the mere's ice are open to the sky, so their probes are horizontal)
+    for o in openings:
+        if o["id"] in ("barrow_door", "hall_great_door", "sea_cave_mouth"):
+            o["probe"] = {"type": "v", "centre": o["centre_sim"], "faces_deg": o["faces_deg"], "w": o["w"], "h": o["h"], "z0": o["z0"],
+                          "frontal_m2": round(o["w"] * o["h"], 3)}
+    _wm = M["wreck"]
+    _wf = next(f for f in L["features"] if f["id"] == "wreck_hull")
+    _wl, _wb = _wm["size_m"]["w_local_x"], _wm["size_m"]["d_local_z"]
+    next(o for o in openings if o["id"] == "wreck_rail")["probe"] = {"type": "h_rect", "centre": _wm["pos"], "rot_deg": _wf["axis_rot_deg"],
+        "L": round(0.7 * _wl, 3), "W": round(0.45 * _wb, 3), "z": 0.4, "frontal_m2": round(0.7 * _wl * 0.45 * _wb, 3),
+        "_": "the OPEN HULL (bodies come up through the shore ice / over the rail): its interior, 70 % of the length x 45 % of the beam, 0.4 m up"}
+    _gm = M["fallen_gable"]
+    _gt = math.radians(_gm["faces_compass_deg"])
+    _gfv = (math.sin(_gt), -math.cos(_gt))
+    _gs = _gm["size_m"]["w_local_x"]
+    _gc = (_gm["pos"][0] + _gfv[0] * _gs * 0.2, _gm["pos"][1] + _gfv[1] * _gs * 0.2)
+    next(o for o in openings if o["id"] == "fallen_gable_breach")["probe"] = {"type": "h_rect", "centre": [round(_gc[0], 4), round(_gc[1], 4)],
+        "rot_deg": round(_gm["faces_compass_deg"], 3),          # the L axis runs ACROSS the facing: (cos t, sin t) for compass t
+        "L": 4.0, "W": round(0.5 * _gs, 3), "z": round(0.5 * _gm["size_m"]["h"], 3), "frontal_m2": round(4.0 * 0.5 * _gs, 3),
+        "_": "the BREACH heap (up out of ash): 4 m wide x half the ruin deep on its breach side, at half the ruin's height"}
+    import bv2_geom as _G
+    openings.append({"id": "mere_ice", "point": "p05", "model": "mere", "centre_sim": [round(float(mere[:, 0].mean()), 4), round(float(mere[:, 1].mean()), 4)],
+                     "z0": 0.0, "w": None, "h": None, "faces_deg": None, "dark": False,
+                     "probe": {"type": "poly", "polygon": L["mere"]["polygon"], "z": 0.03, "frontal_m2": round(_G.area([tuple(q) for q in L["mere"]["polygon"]]), 3),
+                               "_": "p05's dead burst up through the mere's ice: the ice surface itself"}})
     level = {
         "_what": "BV2F lane LV: barrow_v2 layout v7b as a level of the v1 Barrow (read by scripts/bv2f/bv2f_level.gd); written by fid/lv/tools/bv2f_level_prep.py",
         "layout": os.path.relpath(lp, C9), "layout_sha256": sha(lp),
@@ -236,7 +265,7 @@ def main():
     # SELF-CONTAINED for an export (the walkable app): every GLB the level uses is copied into data/bv2f/ext/ as RAW bytes
     # named .glb.bin (an export's include_filter ships non-resource files as themselves; a .glb would ship as its import),
     # and the classes PNG likewise; the level reads them with append_from_buffer / load_png_from_buffer.
-    ext_dir = os.path.join(OUT, "ext")
+    ext_dir = os.path.join(BF, "data", "bv2f", "ext")
     os.makedirs(ext_dir, exist_ok=True)
     RUNS = os.path.dirname(C9)
 
