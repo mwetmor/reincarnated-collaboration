@@ -44673,8 +44673,8 @@
     {
       "id": "H-C9-BV2F-DISK-1",
       "ts": "2026-10-07T16:51:56Z",
-      "status": "open",
-      "what": "Shared disk 18 GiB free (< 20 GiB gate; lanes halt at 21), raised by the Sim Session conductor. Largest consumer: this conductor session's scratchpad (45 GB logical): superseded barrow_full APFS clones (v1c, v1c2, d17, d17r, pc2_*, pc3_*), pilot paint staging, raw walk AVIs. Manifest 16 (cleanup/manifest_bv2f_scratch_16.txt, 12 entries, 44.6 GiB logical; f0e8d3ef3) put to Matt; Matt runs deletions. PH's Godot queue stopped before any render."
+      "status": "closed",
+      "what": "Shared disk 18 GiB free (< 20 GiB gate; lanes halt at 21), raised by the Sim Session conductor. Largest consumer: this conductor session's scratchpad (45 GB logical): superseded barrow_full APFS clones (v1c, v1c2, d17, d17r, pc2_*, pc3_*), pilot paint staging, raw walk AVIs. Manifest 16 (cleanup/manifest_bv2f_scratch_16.txt, 12 entries, 44.6 GiB logical; f0e8d3ef3) put to Matt; Matt runs deletions. PH's Godot queue stopped before any render. | CLOSED: disk recovered to 24-29 GiB (other deletions); manifest 16 still offered to Matt."
     }
   ],
   "rulings": [
@@ -46338,6 +46338,13 @@
       "ruling": "BV2F rebuilt pilot (PT f36284352/2d95cfe5b/0b72461db: DEV-19 bakes at 2048 via frozen hero_surface.py --size = usage; DEV-5 water + 17 floes; DEV-18 applied; lineage refreshed) re-measured by PH before the DISK HALT (37193eb63, s29): P1 PASS (all static surfaces display at the painting's density; bake 117.6 >= painting 100.6 px/m), P2 PASS 20/20, P3 PASS 11.53, P9 trail coverage PASS 1.000. P8: as delivered chunk 0_2 = 0.000 because PT's heather_mask counted the animated sea as heather -- an INPUT defect, not a row result: PT re-renders the heather mask with the water layer hidden (PH's sea-excluded 0.5302 is NOT adopted as the measurement; the fixed input is). P9c floe drift: PH finds the calibrated instrument cannot see texture motion -> re-instrument with a constructed RED (floe texture swimming with the bob, i.e. world-space UVs) that must FAIL and the rest-pose build that must PASS, before P9c binds; it stays non-binding until then. Pending after the disk recovers: P9 sway/flow/floe, P10, P8 on the fixed mask. PT's slip (three headless parse checks run without the heavy lock) recorded; no harm, lock discipline restated. Heavy work resumes only above 21 GiB.",
       "verbatim": [],
       "ts": "2026-10-07T16:51:56Z"
+    },
+    {
+      "id": "R-C9-197",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F rebuilt pilot, PH s30 (2fa1f5229): P8 PASS (min 0.5302 on PT's fixed mask 8df01abcd; PH's sea exclusion withdrawn), P9 sway PASS 6.10, P9 trail PASS 1.000, P10 PASS (p99 16.54 ms at the start / 15.18 at the sea -- only 0.16 ms headroom: a Phase-3' risk, carried to the full-site plan). P9 FLOW = 1.52 (> 0, 9x noise) FAILS the frozen 2.064 floor. Cause: PT's water runs paint_mix 1.0 (pure painting) where R-C9-159's shader -- the water Matt accepted as 'moving' -- ran 0.75. RULED: fix the BUILD, not the bar -- set paint_mix to R-C9-159's 0.75 (the DEV-5 water motion layer as Matt saw it; static surfaces unaffected, the water layer is DEV-5-exempt from P2) and re-measure flow against the same 2.064 floor. P9c: the swimming-texture RED fails (0.64) as required, but the rest-pose build reads 0.53 px 2-D because the waterline clips the floe silhouette vertically (horizontal drift 0.015 px); RULED: re-instrument with PH's depth-test-off marker shot, pre-registered before measuring, RED must still FAIL and rest-pose must PASS; P9c stays non-binding until then. Then jack-ryan pilot Gate-2, then M2'.",
+      "verbatim": [],
+      "ts": "2026-10-07T17:34:38Z"
     }
   ],
   "grok_calls": [
