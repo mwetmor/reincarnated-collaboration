@@ -1008,7 +1008,7 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 | Row | Binds | Final reading | Bar | Verdict | Build measured | PH commit (§) |
 |---|---|---|---|---|---|---|
 | P1 texel density | yes | all 1.000 (DEV-19 bakes 117.6–163.1 px/m) | ≤ 1.05 | **PASS** | f36284352 bakes; re-read c578db842 | 37193eb63 (§ 29); this commit |
-| P2 lineage | yes | 20/20 | 100% | **PASS** | c578db842 | this commit (§ 35) |
+| P2 lineage | yes | 20/20 | 100% | **PASS** | 186743b58 | § 37 |
 | P3 render vs painting | yes | worst 11.53 (wood, baked); sea 5.73 with the DEV-5 motion layers removed (painted base only); lit-plane RED 22.87 | ≤ 15.5 per class | **PASS** (R-C9-201: water is a mover; § 36) | c578db842 | § 36 (R-C9-201 commit) |
 | P4 texture | yes | ice 0.61–0.67 (bar 0.126); snow 0_2/1_2 0.40 (bar 0.281) | v1 LOO maxima | **FAIL** (origin: the paint transfer, § 27) | painting 901f3087 (unchanged) | 4bd299a18 (§ 26), 55099e701 (§ 27) |
 | P5 seams | yes | MAD 11.97; seam 0.585 | ≤ 13.09; ≤ 0.799 | **PASS** | painting 901f3087 | 4bd299a18 (§ 26) |
@@ -1019,7 +1019,7 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 | P9 flow | yes | **3.444** on the pre-registered mask; hidden-water RED 0.067 | ≥ 2.064 | **PASS** (R-C9-199) | 8fd69fafc | 4ec1c5bc8 (§ 33) |
 | P9 trail | yes | 1.000 (flat 759 m², not-flat 178 m²) | ≥ 0.99 | **PASS** | 0b72461db | 37193eb63 (§ 29) |
 | P9c floe drift | **yes** (BINDING since R-C9-198; corrected R-C9-201) | rest-pose 0.010 px; swimming RED 1.766 px | ≤ 0.25 | **PASS** (RED fails) | 9c53bc067 | 3888c0d74, 96509f727, 291a54992 (§§ 31–32) |
-| P10 frame time | yes | start worst p99 **19.40**; sea 13.40; burn RED fails | worst of 3 ≤ 16.7 (§ 34) | **FAIL** | c578db842 | 02de8260f (§ 34); this commit |
+| P10 frame time | yes | start worst p99 **16.54** (15.23, 15.06); sea worst 13.10; burn RED fails | worst of 3 ≤ 16.7 (§ 34) | **PASS** (0.16 ms headroom; c578db842 was FAIL at 19.40) | 186743b58 | 02de8260f (§ 34); § 37 |
 | P11 ABX | yes | judge 1 27/40, inconsistency 0.50; judge 2 24/40, 0.40 | ≤ 26/40; inconsistency ≤ 0.25 | **VOID × 2**; the void rule needs re-instrumenting (§ 28) | 47bb1a054 stills | f3af8d82c (§ 28) |
 | P7 floor/scatter | no | — | — | retired (charter § 15) | — | — |
 | P6′ extent | no | — | — | retired (charter § 15) | — | — |
@@ -1061,4 +1061,34 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 - **Binding P3 on that capture:** every class ≤ 15.5. The worst is 11.53 (wood, baked), the same as before; the swap touched only the sea. **P3 PASS.**
 - **Why "at rest" still fails:** holding TIME still freezes the layers but does not remove them. The swell darkening, crest bands and foam lace are drawn over the painted base, so the static frame still differs from the painting by 21.6. The base-only read is the one that isolates the painting's own sea.
 
-**(3) Table corrected (§ 35).** P9c has been BINDING since R-C9-198, so it reads PASS: 0.010 px, with the swimming RED failing at 1.766. P3 now reads PASS per (2). Remaining binding FAILs on the pilot: **P4** (paint transfer, § 27) and **P10** (19.40, real stutter after control). P11 is VOID × 2 pending the void-rule ruling (§ 28).
+**(3) Table corrected (§ 35).** P9c has been BINDING since R-C9-198, so it reads PASS: 0.010 px, with the swimming RED failing at 1.766. P3 now reads PASS per (2). Remaining binding FAILs on the pilot (as of § 36): **P4** (paint transfer, § 27) and **P10** (19.40, real stutter after control; superseded by § 37: P10 PASS on 186743b58). P11 is VOID × 2 pending the void-rule ruling (§ 28).
+
+## 37. PT 186743b58 (stutter fix): P10 under § 34, measured independently with PH's tool; the still diff; P2; THE FINAL TABLE (§ 35, as corrected) for Gate-2. `results/pilot7/p10_rule_still_p2.json`
+
+**P10 (§ 34; `ph_life.gd perf` with `trace.json`; `renders/pilot7/p10_rule/`).**
+
+| View | Run 1 p99 / max | Run 2 | Run 3 | Worst p99 | Verdict |
+|---|---|---|---|---|---|
+| start | **16.54** / 28.58 | 15.23 / 18.24 | 15.06 / 18.89 | **16.54** | **PASS** (0.16 ms headroom) |
+| sea | 13.01 / 13.81 | 13.10 / 18.77 | 13.10 / 13.51 | 13.10 | PASS |
+
+- **Burn RED:** 21.68, FAIL as required. **P2:** 20/20 at 186743b58.
+
+**PT's vsync claim, checked against PH's traces.**
+- `ph_life` switches vsync off at the start of `_perf`, before the 180-frame pre-roll. Every run's largest pre-roll frame (28–30 ms) is **pre-roll frame 0**, the switch, outside the measured window. This is so on 186743b58, and it was already so on c578db842 (§ 36 traces: frame 0 or 1).
+- So the ~30 ms control-start frame PT names was never measured by PH. **No exclusion is used, and none is needed.**
+- On c578db842 the pre-roll also had 68–81 ms frames at pre-roll frames 21–23 (first footsteps). On 186743b58 they are gone; PT moved them into load.
+- **What still sits on the bar's edge is not the vsync frame.** Start run 1 has a window cluster of 7 frames (16.9–28.6 ms) at 12.35–12.48 s after ready_done, mid-walk. That stutter after control survives, and it is why the start view passes with only 0.16 ms of headroom.
+
+**Look unchanged (still diff, 0 images).** `ph_p3_sea.gd` rg_base on 186743b58 against c578db842, same guide camera, wind held, snow hidden, water base only:
+- 48 782 px differ, 23 334 by more than 8 levels;
+- of those, 91% are the bobbing floes (`blobs_shore_ice`, 21 334) and 7% the sea around them (1 747). The floes' bob runs on TIME, so the two captures catch a different phase;
+- the remaining 2% are shore-ice edges (217), path (34) and snow (2); heather 0.
+
+This is a time-phase difference, not a look change.
+
+**FINAL ROW TABLE: § 35, as corrected by §§ 36–37.**
+- **Binding PASS:** P1, P2, P3, P5, P6a, P6′, P8, P9 sway, P9 flow, P9 trail, P9c, P10.
+- **Binding FAIL:** **P4** (texture: the ice and the coastal snow; their origin is the paint transfer, not the guide, § 27).
+- **VOID:** **P11** × 2, pending the void-rule ruling (§ 28).
+- **Retired / not in plan:** P7, P6′ extent, P6b.

@@ -1,0 +1,182 @@
+{
+ "build": "186743b58",
+ "rule": "calibration.md s34",
+ "start": {
+  "runs": [
+   {
+    "p50_ms": 13.51,
+    "p99_ms": 16.54,
+    "max_ms": 28.58,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_window_frames": [
+     [
+      360,
+      18.5,
+      7.32
+     ],
+     [
+      733,
+      16.9,
+      12.35
+     ],
+     [
+      734,
+      19.7,
+      12.37
+     ],
+     [
+      735,
+      28.6,
+      12.4
+     ],
+     [
+      736,
+      26.3,
+      12.42
+     ],
+     [
+      737,
+      19.9,
+      12.44
+     ],
+     [
+      738,
+      20.6,
+      12.46
+     ],
+     [
+      739,
+      17.2,
+      12.48
+     ]
+    ],
+    "preroll_max": 29.9,
+    "preroll_max_idx": 0,
+    "window_start_rel_ready_s": 2.44
+   },
+   {
+    "p50_ms": 13.44,
+    "p99_ms": 15.23,
+    "max_ms": 18.24,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_window_frames": [
+     [
+      777,
+      17.6,
+      12.92
+     ],
+     [
+      778,
+      18.2,
+      12.94
+     ]
+    ],
+    "preroll_max": 30.5,
+    "preroll_max_idx": 0,
+    "window_start_rel_ready_s": 2.46
+   },
+   {
+    "p50_ms": 13.43,
+    "p99_ms": 15.06,
+    "max_ms": 18.89,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_window_frames": [
+     [
+      619,
+      18.2,
+      10.78
+     ],
+     [
+      620,
+      18.9,
+      10.79
+     ]
+    ],
+    "preroll_max": 29.4,
+    "preroll_max_idx": 0,
+    "window_start_rel_ready_s": 2.45
+   }
+  ],
+  "worst_p99": 16.54,
+  "pass": true
+ },
+ "sea": {
+  "runs": [
+   {
+    "p50_ms": 11.47,
+    "p99_ms": 13.01,
+    "max_ms": 13.81,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_window_frames": [],
+    "preroll_max": 28.9,
+    "preroll_max_idx": 0,
+    "window_start_rel_ready_s": 1.97
+   },
+   {
+    "p50_ms": 11.48,
+    "p99_ms": 13.1,
+    "max_ms": 18.77,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_window_frames": [
+     [
+      848,
+      18.8,
+      11.48
+     ]
+    ],
+    "preroll_max": 28.0,
+    "preroll_max_idx": 0,
+    "window_start_rel_ready_s": 1.97
+   },
+   {
+    "p50_ms": 11.58,
+    "p99_ms": 13.1,
+    "max_ms": 13.51,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_window_frames": [],
+    "preroll_max": 30.3,
+    "preroll_max_idx": 0,
+    "window_start_rel_ready_s": 1.96
+   }
+  ],
+  "worst_p99": 13.1,
+  "pass": true
+ },
+ "burn_RED": {
+  "p50_ms": 20.91,
+  "p99_ms": 21.68,
+  "max_ms": 87.19,
+  "burn_ms": 20.0,
+  "renderer": "forward_plus",
+  "pass": false
+ },
+ "still_diff_rg_base_vs_c578db842": {
+  "px_differing_gt_0": 48782,
+  "px_gt_8": 23334,
+  "max": 203.0,
+  "mean": 0.0702,
+  "bbox_gt_8": [
+   0,
+   1,
+   3421,
+   2559
+  ]
+ },
+ "p2": {
+  "value": 1.0,
+  "n": 20,
+  "pass": true
+ }
+}
