@@ -172,6 +172,7 @@ func _dress_painted() -> void:
 	snowfall.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(snowfall)
 	n["frame_rebound_materials"] = _rebind_frame(self)
+	n["warmup"] = _warm_pipelines()   # BV2F-PT R-C9-200
 	var ok := 0
 	var bad := []
 	for k in loads:
@@ -187,6 +188,7 @@ func _dress_painted() -> void:
 	print("[bv2f_pilot] painted: files_ok=%d bad=%s projected=%d baked=%d (meshes %d) bakes_missing=%s rebound=%d water=%s snow_ground_h=%s" % [
 		ok, str(bad), n["projected"], n["baked"], n["baked_meshes"], str(n["bakes_missing"]), n["frame_rebound_materials"],
 		str(n.get("water")), str(snow != null and snow.get("ground_h_tex") != null)])
+	print("[bv2f_pilot] warmup: " + JSON.stringify(n.get("warmup", {})))
 
 
 # --- DEV-18 (R-C9-193, applied): v1's _build_painted_heather (barrow_full.gd:2292-2346) COPIED, ONE line changed (marked) ------
@@ -341,3 +343,38 @@ func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_m
 		nf += 1
 	water_mat_pt = wm
 	n["water"] = {"sea_meshes": ns, "floes_bobbing": nf}
+
+
+# --- R-C9-200: the load-time pipeline warm-up -------------------------------------------------------------------
+func _warm_pipelines() -> Dictionary:
+	"""Every pilot pipeline drawn ONCE during load, before control: the play camera swept over the pilot window (each
+	material, the water + foam, the floes, the heather, the snow, the pen, both suns' shadow passes, him) with
+	RenderingServer.force_draw(false) -- frames rendered and never presented -- so no first-sight compile lands in
+	play (R-C9-199 run 1: cold pipelines, a real stutter). Also one snow puff of each kind (its particle pipeline)
+	under the camera. Desktop only (the web page has warm_veil.gd). The camera returns to following him after."""
+	if PaintStack.is_web() or cam == null:
+		return {"skipped": true}
+	var t0 := Time.get_ticks_msec()
+	var p := deg_to_rad(PaintedWorld.PITCH_DEG)
+	var w := PILOT_PX.x / PPM
+	var h := PILOT_PX.y / (PPM * sin(p))
+	var views := []
+	var nu := int(ceil(w / 14.0))
+	var nv := int(ceil(h / 7.5))
+	for j in nv + 1:
+		for i in nu + 1:
+			views.append(Vector2(PILOT_U0 + w * float(i) / float(nu), PILOT_V1 - h * float(j) / float(nv)))
+	if knight != null:
+		views.append(knight_uv())
+	var n_draws := 0
+	for v in views:
+		park_camera(uv_to_world(v.x, v.y), 1.0)
+		if snow != null and snow.has_method("_puff") and v == views[0]:   # one of each, at the window's far corner (off his screen)
+			var at := uv_to_world(v.x, v.y, floor_y_at(v.x, v.y))
+			snow._puff(at, Vector2(0, 1), 0.05, false)
+			snow._puff(at, Vector2(0, 1), 0.4, true)
+		for k in 2:
+			RenderingServer.force_draw(false, 0.0)
+			n_draws += 1
+	unpark_camera()
+	return {"views": views.size(), "draws": n_draws, "ms": Time.get_ticks_msec() - t0}

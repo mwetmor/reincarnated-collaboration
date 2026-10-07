@@ -1,0 +1,183 @@
+{
+ "adapter": "Apple M2 (Apple8)",
+ "configs": {
+  "base": {
+   "draw_calls": 90,
+   "gpu_ms": 0.0,
+   "mean_ms": 13.42,
+   "p50_ms": 13.37,
+   "p99_ms": 15.15,
+   "physics_ms": 0.42,
+   "primitives": 2245644,
+   "process_ms": 14.82,
+   "render_cpu_ms": 0.16
+  },
+  "base_again": {
+   "draw_calls": 90,
+   "gpu_ms": 0.0,
+   "mean_ms": 13.3,
+   "p50_ms": 13.22,
+   "p99_ms": 14.62,
+   "physics_ms": 0.38,
+   "primitives": 2245644,
+   "process_ms": 14.73,
+   "render_cpu_ms": 0.13
+  },
+  "no_baked_models": {
+   "draw_calls": 53,
+   "gpu_ms": 0.0,
+   "mean_ms": 12.7,
+   "p50_ms": 12.66,
+   "p99_ms": 14.22,
+   "physics_ms": 0.4,
+   "primitives": 2003830,
+   "process_ms": 14.07,
+   "render_cpu_ms": 0.12
+  },
+  "no_floes": {
+   "draw_calls": 90,
+   "gpu_ms": 0.0,
+   "mean_ms": 13.33,
+   "p50_ms": 13.28,
+   "p99_ms": 14.94,
+   "physics_ms": 0.47,
+   "primitives": 2245644,
+   "process_ms": 14.8,
+   "render_cpu_ms": 0.16
+  },
+  "no_heather": {
+   "draw_calls": 84,
+   "gpu_ms": 0.0,
+   "mean_ms": 12.57,
+   "p50_ms": 12.51,
+   "p99_ms": 14.13,
+   "physics_ms": 0.49,
+   "primitives": 2063944,
+   "process_ms": 14.08,
+   "render_cpu_ms": 0.15
+  },
+  "no_paint_sun_shadows": {
+   "draw_calls": 89,
+   "gpu_ms": 0.0,
+   "mean_ms": 12.53,
+   "p50_ms": 12.47,
+   "p99_ms": 14.35,
+   "physics_ms": 1.55,
+   "primitives": 2243475,
+   "process_ms": 14.13,
+   "render_cpu_ms": 0.24
+  },
+  "no_pen": {
+   "draw_calls": 89,
+   "gpu_ms": 0.0,
+   "mean_ms": 10.38,
+   "p50_ms": 10.35,
+   "p99_ms": 11.59,
+   "physics_ms": 0.53,
+   "primitives": 2245642,
+   "process_ms": 11.98,
+   "render_cpu_ms": 0.14
+  },
+  "no_snow_field": {
+   "draw_calls": 79,
+   "gpu_ms": 0.0,
+   "mean_ms": 11.66,
+   "p50_ms": 11.64,
+   "p99_ms": 13.0,
+   "physics_ms": 0.4,
+   "primitives": 2058906,
+   "process_ms": 13.11,
+   "render_cpu_ms": 0.12
+  },
+  "no_snowfall": {
+   "draw_calls": 89,
+   "gpu_ms": 0.0,
+   "mean_ms": 13.28,
+   "p50_ms": 13.17,
+   "p99_ms": 14.92,
+   "physics_ms": 0.54,
+   "primitives": 2242244,
+   "process_ms": 14.64,
+   "render_cpu_ms": 0.17
+  },
+  "no_sun_shadows": {
+   "draw_calls": 66,
+   "gpu_ms": 0.0,
+   "mean_ms": 13.13,
+   "p50_ms": 13.07,
+   "p99_ms": 14.61,
+   "physics_ms": 0.65,
+   "primitives": 1888479,
+   "process_ms": 14.44,
+   "render_cpu_ms": 0.25
+  },
+  "no_water": {
+   "draw_calls": 89,
+   "gpu_ms": 0.0,
+   "mean_ms": 13.39,
+   "p50_ms": 13.34,
+   "p99_ms": 15.08,
+   "physics_ms": 0.5,
+   "primitives": 2245642,
+   "process_ms": 15.04,
+   "render_cpu_ms": 0.17
+  }
+ },
+ "frames": 600,
+ "render_px": [
+  1551,
+  873
+ ],
+ "renderer": "forward_plus",
+ "saved_vs_base": {
+  "no_baked_models": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.72,
+   "p99_ms_saved": 0.93
+  },
+  "no_floes": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.09,
+   "p99_ms_saved": 0.21
+  },
+  "no_heather": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.85,
+   "p99_ms_saved": 1.02
+  },
+  "no_paint_sun_shadows": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.89,
+   "p99_ms_saved": 0.8
+  },
+  "no_pen": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 3.04,
+   "p99_ms_saved": 3.56
+  },
+  "no_snow_field": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 1.76,
+   "p99_ms_saved": 2.15
+  },
+  "no_snowfall": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.14,
+   "p99_ms_saved": 0.23
+  },
+  "no_sun_shadows": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.29,
+   "p99_ms_saved": 0.54
+  },
+  "no_water": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.03,
+   "p99_ms_saved": 0.07
+  }
+ },
+ "view_uv": [
+  0.0,
+  0.0
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "_what": "R-C9-200 look check: stills with the load-time warm-up vs without (same build otherwise), against the same-build noise floor",
+ "per_still": {
+  "pilot_01": {
+   "warmup_vs_prev": 0.076,
+   "noise": 0.123
+  },
+  "pilot_02": {
+   "warmup_vs_prev": 0.119,
+   "noise": 0.152
+  },
+  "pilot_03": {
+   "warmup_vs_prev": 0.166,
+   "noise": 0.167
+  },
+  "pilot_04": {
+   "warmup_vs_prev": 0.098,
+   "noise": 0.072
+  },
+  "pilot_05": {
+   "warmup_vs_prev": 0.082,
+   "noise": 0.105
+  },
+  "pilot_06": {
+   "warmup_vs_prev": 0.111,
+   "noise": 0.095
+  },
+  "pilot_07": {
+   "warmup_vs_prev": 0.177,
+   "noise": 0.107
+  },
+  "pilot_08": {
+   "warmup_vs_prev": 0.209,
+   "noise": 0.104
+  },
+  "pilot_09": {
+   "warmup_vs_prev": 1.307,
+   "noise": 0.988
+  },
+  "pilot_10": {
+   "warmup_vs_prev": 0.237,
+   "noise": 0.159
+  },
+  "pilot_11": {
+   "warmup_vs_prev": 0.172,
+   "noise": 0.126
+  },
+  "pilot_12": {
+   "warmup_vs_prev": 0.105,
+   "noise": 0.082
+  }
+ },
+ "mean": {
+  "warmup_vs_prev": 0.238,
+  "noise": 0.19
+ },
+ "reading": "the excess over the noise floor is TIME PHASE only: snowflakes, heather sway, his idle pose (pilot_08: 7008 blobs, largest 133 px, none >200 px) -- the warm-up advances the scene clock by its 0.8 s; no surface changed"
+}

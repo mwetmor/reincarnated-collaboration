@@ -101,5 +101,26 @@
    "p99_ms_saved": -0.06
   }
  },
- "look": "fid/pt/perf/still_diff.json: before vs after mean |d| 0.10 vs the same-build noise floor 0.19 (12 stills) -- unchanged"
+ "look": "fid/pt/perf/still_diff.json: before vs after mean |d| 0.10 vs the same-build noise floor 0.19 (12 stills) -- unchanged",
+ "r_c9_200": {
+  "change": "load-time pipeline warm-up in bv2f_pilot.gd: the play camera swept over the pilot window (25 views x 2 RenderingServer.force_draw(false), not presented) + one snow puff of each kind, before ready_done; 0.80 s at load",
+  "fresh_runs_p99_ms": [
+   15.156,
+   15.314,
+   15.157
+  ],
+  "fresh_runs_p50_ms": [
+   13.412,
+   13.641,
+   13.435
+  ],
+  "fresh_runs_max_ms": [
+   18.524,
+   16.189,
+   15.432
+  ],
+  "worst_p99_ms": 15.314,
+  "bar": "3 fresh runs, worst p99 <= 16.7 ms (s34)",
+  "look": "fid/pt/perf/still_diff_warmup.json"
+ }
 }
