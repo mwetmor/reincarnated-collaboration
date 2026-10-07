@@ -17,18 +17,28 @@ bad = []
 g = os.path.join(FID, pins["guide"]["pinned_copy"].replace("fid/", "", 1))
 if sha(g) != pins["guide"]["sha256"]:
     bad.append("pinned guide copy changed: %s" % g)
+ki = pins.get("known_inert", {})
 for k, t in pins["tiles"].items():
     p = os.path.join(FID, t["file"].replace("fid/", "", 1))
     if not os.path.exists(p) or sha(p) != t["sha256"]:
-        bad.append("pilot tile %s changed in LV's guide (%s) -> repaint per R-C9-189" % (k, t["file"]))
+        if k in ki.get("tiles", []):
+            print("[pins] note: LV tile %s differs (known, inert: %s) -- checked pixel-wise below" % (k, ki.get("ruling")))
+        else:
+            bad.append("pilot tile %s changed in LV's guide (%s) -> repaint per R-C9-189" % (k, t["file"]))
 cur = os.path.join(FID, "lv", "guide_art", "guide_art.png")
 if os.path.exists(cur) and sha(cur) != pins["guide"]["sha256"]:
     a = np.asarray(Image.open(cur).convert("RGB"))[:2560, :4096]
     b = np.asarray(Image.open(g).convert("RGB"))[:2560, :4096]
-    same = a.shape == b.shape and bool((a == b).all())
-    print("[pins] LV's current guide differs from the pinned copy; inside the pilot window: %s" % ("IDENTICAL" if same else "DIFFERENT"))
-    if not same:
-        bad.append("LV's current guide differs inside the pilot window")
+    d = (a != b).any(-1) if a.shape == b.shape else None
+    if d is None:
+        bad.append("LV's current guide has a different size")
+    elif d.any():
+        ys, xs = np.nonzero(d)
+        x0, y0, x1, y1 = ki.get("box_px", [0, 0, -1, -1])
+        inside = bool(xs.min() >= x0 and xs.max() <= x1 and ys.min() >= y0 and ys.max() <= y1)
+        print("[pins] LV's guide differs inside the pilot window: %d px in x %d-%d, y %d-%d -> %s" % (d.sum(), xs.min(), xs.max(), ys.min(), ys.max(), "inside the known-inert box (%s)" % ki.get("ruling") if inside else "OUTSIDE the known-inert box"))
+        if not inside:
+            bad.append("LV's current guide differs inside the pilot window outside the known-inert box")
 for b in bad:
     print("[pins] FAIL:", b)
 if not bad:

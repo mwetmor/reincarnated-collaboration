@@ -1,11 +1,11 @@
 {
- "prefix": "BV2A",
+ "prefix": "BV2F-PT",
  "name": "barrow_v2 (art-first, sketch A), PILOT window cols 0-2 x rows 0-2: paint-over of the art blockout (BV2F Phase 2')",
  "guide": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/guide_art_pinned.png",
  "cols": 3,
  "rows": 3,
  "experiment": "BV2F-pilot-paintover",
- "_status": "READY (lane PT) -- geo of record R-C9-190; refs = v1 IMAGE 2 only (no hero plates, R-C9-190); NO burst until the conductor releases after LV's sea-cave hand-back + pilot_pins_check green.",
+ "_status": "RELEASED (R-C9-191): paint from the pinned guide copy; bursts BV2F-PT-<c>_<r>; Ph2' cap 18 images incl. retries.",
  "_guide_sha256": "1883a1bb1e2e38070d28f81a0fdec1ed0b28b6da289a130d888c8c1eda670562",
  "_guide_frame": "6656 x 4096 px = u -33.58..32.58 m, v -28.63..22.37 m at the play camera (orthographic, pitch 52.95354112560294, yaw 47): 100.6176 px per metre across, 80.3076 per ground metre up-screen. PILOT = the 3 x 3 canvases at the grid origin (px 0..4096 x 0..2560 of the 5 x 5 grid); cols/rows = 3 so the wavefront stops at the pilot edge",
  "_pins": "fid/pt/pilot/pins.json (guide + 9 tiles); check: python3 fid/pt/tools/pilot_pins_check.py",
