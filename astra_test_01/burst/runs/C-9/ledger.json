@@ -43926,6 +43926,11 @@
       "id": "M-C9-BV2F-PHASE0",
       "note": "BV2F Phase 0 CLOSED: jack-ryan Gate-2 PASS-WITH-FOLDS (qa/findings/2026-10-07-bv2f-phase0-gate2.md, 91a2feee6). Positive control reproduced at the Phase 0 pin f1aa715ac (T1 0.004 px, T2 unlit 15.5, T3 heather 0.5221 exact); frame fix world=R_y(+47) (3e18d1e07); two-tier v1 toolchain freeze (pin 0f8f73697); parity harness P1-P11 calibrated (v1 PASS, per-row negatives FAIL; P11 ABX). 0 images, $0. Quality/constraint split frozen.",
       "ts": "2026-10-07T03:18:51Z"
+    },
+    {
+      "id": "M-C9-BV2F-PHASE1-GATES",
+      "note": "BV2F Phase 1 gates complete (jack-ryan e852dbf10 + re-check 5cad69d0d; folds R-C9-180..183): layout v7c validator 66/66, check (a) 6/6, P6' PASS (4/4), control unchanged at pin and HEAD. M1 packet to Matt. Spend 6 images, $1.20.",
+      "ts": "2026-10-07T07:11:47Z"
     }
   ],
   "halts": [
@@ -44005,8 +44010,8 @@
     {
       "id": "H-C9-BV2F-PH-P1-2",
       "ts": "2026-10-07T06:44:33Z",
-      "status": "open",
-      "what": "P6' (pre-registered 45fb5eaac, calibrated 48dab5e17: v1 PASS on all four components, each component RED on its constructed/real negative) is RED on v7c (44fb98a66): presence (two yard logs ~half buried, 0.545/0.505), scale (137 of 148 instances anisotropy > 1.10: circle/standing stones, grave markers, crags/outcrops, palisade stakes, logs/beams -- v6-era per-axis box fits), extent (R11 reads the combined hall+porch model's height as the hall's). Placement PASS. IoU-vs-prism 0.46 vs v1 0.635 (non-binding). Disposed R-C9-181."
+      "status": "closed",
+      "what": "P6' (pre-registered 45fb5eaac, calibrated 48dab5e17: v1 PASS on all four components, each component RED on its constructed/real negative) is RED on v7c (44fb98a66): presence (two yard logs ~half buried, 0.545/0.505), scale (137 of 148 instances anisotropy > 1.10: circle/standing stones, grave markers, crags/outcrops, palisade stakes, logs/beams -- v6-era per-axis box fits), extent (R11 reads the combined hall+porch model's height as the hall's). Placement PASS. IoU-vs-prism 0.46 vs v1 0.635 (non-binding). Disposed R-C9-181. | CLOSED R-C9-183: LV refit 9601add8a; P6' PASS bc29572c3 + f99a12973."
     }
   ],
   "rulings": [
@@ -45564,6 +45569,13 @@
       "ruling": "BV2F G2P1-RB1 (jack-ryan re-check 5cad69d0d: B1 + W1-W4 discharged except the R11 per-region reading, which went RED->PASS with no mesh change, on a builder-drawn post-RED region). RB1(a) RULED from design, written without reference to mesh numbers: R11's purpose (the conductor's own clause inside R-C9-154) is that the great door reads as the grand entrance from the play camera -- the porch rises above the hall's roofline ON THE DOOR'S SIDE. Therefore the R11 PORCH REGION is the porch-width strip over the great door, from the porch's outer face back to the hall's RIDGE LINE (the near roof slope seen above the door from the camera); the BODY is the rest of the hall roof. Anything beyond the ridge is the far slope and reads as the hall, not the porch. LV's 16.5 m full-depth strip is NOT adopted (it reaches past the ridge without a design reason). PH RB1(b): re-run R11 under this region; construct an R11 RED under the same reading (in-region mesh clipped to <= body + 0.5 m) which must FAIL; report the registered 1.287 m footprint reading (5.10 m, FAIL) as non-binding beside it. If v7c FAILS under the ruled region: HALT for an LV fix (raise the porch front) -- not a region move. RB1(c): the cover's ask 2 gains one clause stating where the tall entrance part sits relative to the door. I-R1/I-R2/I-R3 to PH/LV. Per jack-ryan, no further pass is needed if (b) shows RED on the constructed input and PASS on v7c; the conductor confirms in the ledger.",
       "verbatim": [],
       "ts": "2026-10-07T07:09:07Z"
+    },
+    {
+      "id": "R-C9-183",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F G2P1-RB1 DISCHARGED (conductor confirmation per jack-ryan's re-check, no further pass required): PH pre-registered the R-C9-182 porch-region reading (904ac6dc0) before measuring; constructed RED (in-region mesh clipped to body + 0.5 m) FAILS; v7c PASSES (porch 13.117 m vs body 12.273 m, margin 0.84) (f99a12973); registered 1.287 m footprint reading 5.10 m reported non-binding; I-R1/I-R2 folded (calibration.md ss17-18). P6' = PASS on presence, placement, scale, extent. PHASE 1 Gate-2 folds complete. Phase 1 closes at M1: the packet (barrow_v2/fid/lv/M1/; cover with three asks) goes to Matt now, with the RB1(c) clause on ask 2 (the tall entrance bay sits ~5-8 m behind the great door; the porch at the door stands ~5 m). Phase 1 spend: 6 Astra images, $1.20 fal.",
+      "verbatim": [],
+      "ts": "2026-10-07T07:11:47Z"
     }
   ],
   "grok_calls": [
