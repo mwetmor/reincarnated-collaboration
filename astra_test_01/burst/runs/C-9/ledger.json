@@ -46345,6 +46345,13 @@
       "ruling": "BV2F rebuilt pilot, PH s30 (2fa1f5229): P8 PASS (min 0.5302 on PT's fixed mask 8df01abcd; PH's sea exclusion withdrawn), P9 sway PASS 6.10, P9 trail PASS 1.000, P10 PASS (p99 16.54 ms at the start / 15.18 at the sea -- only 0.16 ms headroom: a Phase-3' risk, carried to the full-site plan). P9 FLOW = 1.52 (> 0, 9x noise) FAILS the frozen 2.064 floor. Cause: PT's water runs paint_mix 1.0 (pure painting) where R-C9-159's shader -- the water Matt accepted as 'moving' -- ran 0.75. RULED: fix the BUILD, not the bar -- set paint_mix to R-C9-159's 0.75 (the DEV-5 water motion layer as Matt saw it; static surfaces unaffected, the water layer is DEV-5-exempt from P2) and re-measure flow against the same 2.064 floor. P9c: the swimming-texture RED fails (0.64) as required, but the rest-pose build reads 0.53 px 2-D because the waterline clips the floe silhouette vertically (horizontal drift 0.015 px); RULED: re-instrument with PH's depth-test-off marker shot, pre-registered before measuring, RED must still FAIL and rest-pose must PASS; P9c stays non-binding until then. Then jack-ryan pilot Gate-2, then M2'.",
       "verbatim": [],
       "ts": "2026-10-07T17:34:38Z"
+    },
+    {
+      "id": "R-C9-198",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F pilot (PH 291a54992, s31): P9c re-instrumented and pre-registered BEFORE measuring (marker shots hide the sea; amendment A1 also pre-registered): rest-pose 0.010 px PASS, swimming RED 1.766 px FAIL -> P9c ADOPTED as BINDING. P10 PASS (p99 16.20 / 14.49 ms). P9 FLOW at paint_mix 0.75 = 1.551, still < the frozen 2.064 floor: paint_mix was NOT the cause (the R-C9-197 hypothesis is withdrawn); the pilot's view is CALM OPEN SEA, R-C9-159's measured view was SURF at the ice edge. RULED: the bar stands; one build change -- add R-C9-159's own foam/surf motion where the sea meets the shore ice, the cliff foot and around each floe (159 had foam round floes; the pilot's water has the motion layer but no edge surf), then re-measure flow over the same water mask. If flow still fails after that, the water's liveliness becomes an explicit M2' look question for Matt with the film, not a bar move.",
+      "verbatim": [],
+      "ts": "2026-10-07T17:42:25Z"
     }
   ],
   "grok_calls": [
