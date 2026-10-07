@@ -1,0 +1,62 @@
+{
+ "uniform guesser": {
+  "incons_mean": 0.499,
+  "incons_p5_p95": [
+   0.2,
+   0.8
+  ],
+  "P_valid(incons<=0.25)": 0.0534,
+  "P_valid_and_pass(<=26/40)": 0.0523,
+  "acc_mean": 20.0
+ },
+ "position-biased guesser (always A)": {
+  "incons_mean": 1.0,
+  "incons_p5_p95": [
+   1.0,
+   1.0
+  ],
+  "P_valid(incons<=0.25)": 0.0,
+  "P_valid_and_pass(<=26/40)": 0.0,
+  "acc_mean": 19.0
+ },
+ "perceiver p_correct=0.60": {
+  "incons_mean": 0.479,
+  "incons_p5_p95": [
+   0.2,
+   0.7
+  ],
+  "P_valid(incons<=0.25)": 0.0699,
+  "P_valid_and_pass(<=26/40)": 0.0524,
+  "acc_mean": 24.0
+ },
+ "perceiver p_correct=0.65": {
+  "incons_mean": 0.457,
+  "incons_p5_p95": [
+   0.2,
+   0.7
+  ],
+  "P_valid(incons<=0.25)": 0.0896,
+  "P_valid_and_pass(<=26/40)": 0.0424,
+  "acc_mean": 26.0
+ },
+ "perceiver p_correct=0.75": {
+  "incons_mean": 0.376,
+  "incons_p5_p95": [
+   0.1,
+   0.6
+  ],
+  "P_valid(incons<=0.25)": 0.2084,
+  "P_valid_and_pass(<=26/40)": 0.0104,
+  "acc_mean": 30.0
+ },
+ "perceiver p_correct=0.90": {
+  "incons_mean": 0.179,
+  "incons_p5_p95": [
+   0.0,
+   0.4
+  ],
+  "P_valid(incons<=0.25)": 0.744,
+  "P_valid_and_pass(<=26/40)": 0.0,
+  "acc_mean": 36.0
+ }
+}

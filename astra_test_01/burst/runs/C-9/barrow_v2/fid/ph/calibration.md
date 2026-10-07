@@ -776,3 +776,47 @@ The guide snow is (79.2–79.9, 1.2–1.7, 5.0–5.5) in every chunk; v1's is (7
 - Both failing chunks are bottom-row panels whose notes list the shingle beach, the sea cliff and the open sea (0_2). This points to the painter cooling snow in its sea-coast context, but that is a reading from content, not a measured cause.
 
 **Answer.** Both P4 differences originate in the PAINT, not the guide. The guide's ice and snow pixels, tints, light and brief text match v1's. The painter's guide-to-paint transfer differs: ice −4 L\* instead of −18; snow b\* −1.5 to −1.9 instead of about +1 in the two coastal chunks. Bars unchanged.
+
+## 28. P11 on the pilot: VOID × 2 (R-C9-195), plus a void-rule analysis for jack-ryan's Gate-2. No bar change. Evidence `p11/answers/abx_pilot_judge{1,2}.json`; simulation `results/pilot/p11_void_analysis_sim.json`
+
+**Results** (scored by `p11_abx.py score pilot_v1_vs_pilot <answers>`, 40 trials + 10 repeats):
+
+| Judge | Correct | Accuracy | Repeat inconsistency | Verdict |
+|---|---|---|---|---|
+| judge 1 | 27/40 | 0.675 | 0.50 (5/10) | **VOID** (> 0.25). Would have been FAIL (> 26/40) |
+| judge 2 | 24/40 | 0.600 | 0.40 (4/10) | **VOID** (> 0.25). Would have been PASS |
+
+**Every calibration judge on record, on the same scorer.** "Repeat X" is how a repeat trial is built. *Same* means the v0 generator re-used the identical X, so a judge could answer the repeat from recall. *Different* means the fixed generator (R-C9-171) draws a new X from the same build.
+
+| Set | Repeat X | Correct | Repeat inconsistency | A-share |
+|---|---|---|---|---|
+| cal v1 vs 159 | same | 40/40 | 0.00 | 0.48 |
+| cal v1 vs 158 | same | 36/40 | 0.10 | 0.50 |
+| cal v1 vs half-density | same | 37/40 | 0.00 | 0.54 |
+| G2 v1-rec vs v1-head (v1 vs v1) | different | 22/40 | 0.10 | 0.52 |
+| G2 v1 vs half-density | different | 33/40 | 0.20 | 0.48 |
+| pilot judge 1 | different | 27/40 | 0.50 | 0.56 |
+| pilot judge 2 | different | 24/40 | 0.40 | 0.48 |
+
+**What a pure guesser produces under the fixed generator.**
+- **Why a guesser looks inconsistent.** A repeat shows the same A and B with their sides swapped, plus a new X from the same build. Consistency is scored as naming the same BUILD both times.
+- **Guesser.** A guesser's two answers are independent, so inconsistency ~ Bin(10, ½)/10. That is a mean of 0.50 with a 5–95% range of 0.2–0.8. **P(inconsistency ≤ 0.25) = P(≤ 2 of 10) = 56/1024 = 5.5%.** The Monte Carlo on the pilot key (20 000 runs) gives 5.3%.
+- **Position-biased guesser** (always "A"): inconsistency is 1.0 by construction, because the sides swap.
+- **Perceiver.** A judge who picks the correct build with probability p, independently on each trial, shows expected inconsistency 2p(1−p). Monte Carlo on the pilot key:
+
+| p | Mean inconsistency | P(valid) | P(valid and ≤ 26/40) |
+|---|---|---|---|
+| 0.60 | 0.48 | 0.070 | 0.052 |
+| 0.65 | 0.46 | 0.090 | 0.042 |
+| 0.75 | 0.38 | 0.208 | 0.010 |
+| 0.90 | 0.18 | 0.744 | 0.000 |
+
+**Reading (evidence for Gate-2; no bar moved).**
+1. **On the fixed generator, the void gate and the pass bar pull in opposite directions.** A judge validates when it can tell the builds apart. A build passes when the judge cannot.
+   - When the builds are truly indistinguishable, an honest judge is a guesser: **VOID about 95% of the time**.
+   - **No independent-trial judge reaches "valid and PASS" more than about 5% of the time**, at any p.
+   - The pilot's two judges sit where an at-chance-to-modest perceiver lands (inconsistency 0.40–0.50).
+2. **The calibration that cleared the void gate cleared it under conditions that no longer hold.**
+   - **Same-X calibration rows:** the three v0 sets re-used X, so consistency could come from recall. R-C9-171 removed that, after the half-density judge reported answering the repeat from memory.
+   - **G2 v1-vs-v1:** this is the only GREEN on the fixed generator, at 22/40 with inconsistency 0.10. Under pure guessing, P(≤ 1 of 10) = 11/1024 ≈ 1.1%. So that judge was consistent through some stable cue, while being at chance on the build. The cue could be content shared by X and one side, or a consistent preference applied to the A/B pair. Its validity was not the "reliable perceiver" the gate assumes.
+3. **What the gate measures now.** The repeat-consistency check as built measures whether a judge's build preference is stable across a different X. Under the null this is not a reliability property; it is chance. This is a re-instrumentation question (e.g. scoring consistency only on trials the judge got right, a fixed-X control, or more repeats), **not a threshold to tune**. It is for the conductor and jack-ryan to rule; PH changes nothing here.
