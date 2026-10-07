@@ -46689,6 +46689,15 @@
       "ruling": "BV2F pilot repaint release conditions: (1) the stair break-up lies outside the pilot window (cols 0-2, rows 0-2; the cave/stair are on the S coast), so LV's stair work runs in parallel; PT pins the 9 pilot guide tiles from LV's current render (3686cea98) and re-checks the pins after LV's stair re-render (any pilot-tile change = repaint from the newer tiles, not a mix). (2) GEO of record v2 = fid/pt/geo_bv2art_v2.txt (PT's draft + the cave as a dark eroded arch in a rocky headland and the stair as broad irregular boulder steps across the face). (3) Before the first burst: PH runs P6' presence/placement/scale on the new blockout (constructed RED still fails); DEV-12 amended cfg passes cfg_check; v1 control at pin and HEAD. (4) Ph2'' cap 18 images; same frozen method; DEV-21 reeds + reed/heather split + DEV-18 snow fix carried into the take/build. Then the pilot harness (P11 v3 binding), jack-ryan Gate-2, M2''.",
       "verbatim": [],
       "ts": "2026-10-07T21:54:54Z"
+    },
+    {
+      "id": "R-C9-211",
+      "by": "Matt",
+      "ruling": "The area below the steps that connects to the sea cave (the rock shelf) is a rectangle, not formed by nature or erosion. Folded into LV's stair work: a natural sea-worn rock platform -- irregular wave-cut outline following the cliff foot (lobes and bays, no straight edges or right angles), uneven surface with low rock ribs, potholes, boulders and fallen blocks, a ragged seaward edge against the ice, narrowing and widening along the cliff, merging seamlessly into the cave floor and the stair foot; still walkable (>= 6 m clear line cave -> stair foot, <= 10 deg, riser <= v1 step); a rock-kit/terrain sculpt, not a slab. Outside the pilot window.",
+      "verbatim": [
+        "Also the area below the steps that connects to the sea cave is quite unnatural. It is a rectangle and not formed by nature/erosion."
+      ],
+      "ts": "2026-10-07T21:55:25Z"
     }
   ],
   "grok_calls": [
