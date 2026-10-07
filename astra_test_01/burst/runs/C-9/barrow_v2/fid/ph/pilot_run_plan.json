@@ -1,0 +1,107 @@
+{
+ "_what": "PH pilot harness run plan, Phase 2' (R-C9-188/189): the bv2art 5x5 grid, cols 0-2 x rows 0-2, plate px [0,0,4096,2560] at 100.6176 px/m, kept, built in-engine. Bars are FROZEN as calibrated (calibration.md); nothing is re-derived from the pilot.",
+ "window": {
+  "grid": "fid/lv/art/frame_grid.bv2art.json",
+  "cols": [
+   0,
+   2
+  ],
+  "rows": [
+   0,
+   2
+  ],
+  "plate_px": [
+   0,
+   0,
+   4096,
+   2560
+  ],
+  "canvases": 9
+ },
+ "requested_from_PT": {
+  "painting": "fid/pt/pilot/painting.png (the stitched pilot, plate px of the window) + its sha in the stitch record",
+  "canvases": "the 9 raw Astra canvases (artifact prefix + keys c_r) and the stitch's seam record",
+  "lineage": "fid/pt/pilot/lineage.json in the p2_lineage.py schema (every static texture -> producing tool record -> the pilot painting sha)",
+  "bake_report": "fid/pt/pilot/bake_report.json (t5_06b_bake per hero: texels_on_mesh, unseen_before_fill_pct, silhouette_px_in_cell, as v1's take/build/bake_report.json)",
+  "guide_camera_render": "fid/pt/pilot/render_guide.png + heather_mask.png: the built pilot at the guide/paint camera over the window, painted, as played, him absent, falling snow hidden, wind held (v1's capture_painted.gd --guide recipe)",
+  "ids_built": "fid/pt/pilot/ids_built.png: v1 capture_ids at the same camera on the built pilot (for P6' on the build; else the blockout ids_art.png window is used, geometry unchanged)",
+  "stills": "fid/ph/pilot_p11_spec.json (12 stills + class masks)"
+ },
+ "rows": {
+  "P1": {
+   "binds": true,
+   "tool": "harness/p1_density.py (pilot set: painting ppm from the frame + per-hero bake texel density)",
+   "inputs": [
+    "painting",
+    "bake_report",
+    "frame_grid.bv2art.json px_per_m_across"
+   ],
+   "bar": "every static surface ratio <= 1.05"
+  },
+  "P2": {
+   "binds": true,
+   "tool": "harness/p2_lineage.py --spec fid/pt/pilot/lineage.json",
+   "bar": "100% resolve to the pilot painting sha"
+  },
+  "P3": {
+   "binds": true,
+   "tool": "harness/p3_residual.py (pilot inputs: render_guide.png + heather_mask.png; classes from guide_art/class_art.png + ids_art.png cropped to the window)",
+   "bar": "<= 15.5 per class"
+  },
+  "P4": {
+   "binds": true,
+   "tool": "harness/p4_texture.py (pilot chunks = the 9 canvases' stitched rects; classes from class_art)",
+   "bar": "v1 leave-one-out maxima (snow, rock, ice); new classes per the W-5 re-home (advisory until ruled)"
+  },
+  "P5": {
+   "binds": true,
+   "tool": "harness/p5_seams.py (the 9 raw canvases + the stitched pilot)",
+   "bar": "overlap MAD <= 13.09; seam |log2| <= 0.799"
+  },
+  "P6a": {
+   "binds": true,
+   "tool": "harness/p6_geometry.py openings (v0.1, T = 32) + harness/p6_overlay.py triage (layout-projected declared-opening overlay, jsonl record) -> results/p6a_triage_pilot.jsonl; the conductor reads by eye (\u00a7 13 protocol, fallback (a))",
+   "declared_openings_in_window": [
+    "barrow_door (3537.6, 439.5)",
+    "wreck_hull (957.2, 1644.1)"
+   ],
+   "dark_structures_in_window": "none (char/ash share 0 in the window): every candidate that matches no declared opening fails its chunk",
+   "source": "fid/lv/guide_art/declared_openings.json"
+  },
+  "P6prime": {
+   "binds": true,
+   "tool": "harness/p6prime_art.py (presence / placement / scale; frozen bars) on ids_built if supplied, else ids_art",
+   "bar": "0 missing/extra, terrain-hidden <= 0.50, containment >= 0.7872, anisotropy <= 1.10"
+  },
+  "P8": {
+   "binds": true,
+   "tool": "harness/p7_p8_floor_heather.py precision per chunk (heather_mask.png vs the pilot painting's tuft classifier)",
+   "bar": "every chunk with >= 2000 drawn px >= 0.4476"
+  },
+  "P9": {
+   "binds": true,
+   "tool": "harness/godot/ph_life.gd life on res://scenes/bv2f_barrow_v2.tscn (BV2F_VARIANT=art) at a pilot view (the mere edge) + a --no-wind RED; water flow only where open water is in the window (sea 3.5% of the window, W coast); floe drift N/A until DEV-5; snow trail coverage of the pilot's walkable snow",
+   "bar": "sway/flow >= 3x noise and >= 2.06; trail coverage >= 0.99"
+  },
+  "P10": {
+   "binds": true,
+   "tool": "harness/godot/ph_life.gd perf on the art scene, him walking a loop at the start (uv 0,0)",
+   "bar": "p99 <= 16.7 ms"
+  },
+  "P11": {
+   "binds": true,
+   "tool": "harness/p11_abx.py build (SETS -> the 12 pilot stills), the conductor's fresh judge, p11_abx.py score",
+   "bar": "ABX accuracy <= 65% (<= 26/40), judge void if repeat inconsistency > 25%; UNDERPOWERED (< 40) = VOID",
+   "spec": "fid/ph/pilot_p11_spec.json"
+  },
+  "P7": {
+   "binds": false,
+   "why": "retired (charter \u00a7 15)"
+  },
+  "P6prime_extent": {
+   "binds": false,
+   "why": "retired (charter \u00a7 15)"
+  }
+ },
+ "godot_runs": "all behind heavy_lock C-9 and the 21 GiB disk gate (harness/run_godot_queue.sh pattern); ph_capture.gd is v2sw-frame specific and is NOT used for the pilot (P3 input comes from PT's guide-camera render)"
+}

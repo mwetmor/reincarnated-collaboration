@@ -658,3 +658,19 @@ Inputs: ids_art `aeaecf49ce26…` (= manifest), layout_bv2art `c30e0d449dfa…`,
 | scale | **PASS** | 88 instances, 0 over 1.10, 0 record mismatches |
 
 **P6′ = PASS** (presence, placement, scale; extent retired). IoU against the slot prism, reported and non-binding: 0.481 (v1 0.635).
+
+## 24. Phase 2′ pilot prep (R-C9-188/189): run plan + P11 still spec (no image spend)
+
+**Pilot:** the bv2art 5 × 5 grid, cols 0–2 × rows 0–2, plate px [0, 0, 4096, 2560], kept and built in-engine. **All bars are frozen as calibrated.**
+
+**Run plan:** `fid/ph/pilot_run_plan.json`.
+- **Rows that bind:** P1, P2, P3, P4, P5, P6a (v0.1 candidates + layout overlay triage + jsonl, read by the conductor by eye), P6′ presence/placement/scale, P8 (per chunk), P9, P10, P11 (40-trial ABX).
+- **Retired:** P7 and P6′ extent.
+- **Inputs requested from PT:** pilot painting + canvases + seam record; lineage spec; bake report; guide-camera render + heather mask; built ID capture; stills.
+- **P6a in the pilot window:** the declared openings are barrow_door and wreck_hull. There is no char/ash, so any candidate that matches no declared opening fails its chunk.
+
+**P11 still spec:** `fid/ph/pilot_p11_spec.json`.
+- **The stills:** 12 stills (4 × 3) of 1920 × 1080, wholly inside the painted window. They are captured with PT's own v1 still recipe (`fid/pc/tools/pc_stills.gd`), so the test compares builds, not capture settings.
+- **Class masks:** each still has an ID-render class mask (`<name>.classes.png/.json`), so the content control can exclude sea, wreck, hall and cliff by mask.
+- **Verified with the fixed generator** on exactly these frames: **40 trials + 10 repeats** (snow 24, heather 13, ice 3), from a candidate pool of {'ice': 607, 'heather': 280, 'snow': 463}. The class-map caveat stands: re-run on the real painted stills before the judge.
+

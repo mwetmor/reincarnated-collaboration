@@ -1,0 +1,279 @@
+{
+ "_what": "PH -> LV/PT: the play-camera stills of the Phase 2' PILOT that P11 (40-trial content-controlled ABX) needs (R-C9-188/189; generator harness/p11_abx.py with the R-C9-171 fixes). 12 stills.",
+ "pilot_window": {
+  "grid": "bv2art 5x5",
+  "cols": [
+   0,
+   2
+  ],
+  "rows": [
+   0,
+   2
+  ],
+  "plate_px": [
+   0,
+   0,
+   4096,
+   2560
+  ]
+ },
+ "capture": {
+  "recipe": "IDENTICAL to PT's v1 stills (fid/pc/tools/pc_stills.gd -> fid/pc/v1_stills/views.json): the PAINTED, BUILT pilot level as played (take + heather/snow/life), play camera (orthographic, pitch 52.95354, yaw 47, ortho_size = 1080 / 100.6176 m), 1920 x 1080, MSAA 4x, Forward+, HUD off; him standing at knight_uv facing S (the generator excludes the frame centre where he stands), as PT's v1 stills do. Same settings as v1 or the test compares capture settings, not builds.",
+  "frames_wholly_inside_the_painted_window": true,
+  "write": "fid/pt/pilot_stills/<name>.png + views.json (camera block as fid/pc/v1_stills/views.json)"
+ },
+ "class_masks": {
+  "need": "for EVERY still, the ID render at the same camera (v1 capture_ids / LV's guide ID tool), mapped to classes:",
+  "files": "fid/pt/pilot_stills/<name>.classes.png (8-bit, one value per class, 0 = other) + <name>.classes.json",
+  "json_schema": {
+   "ids": {
+    "rock": "int",
+    "standing_stone": "int",
+    "wood": "int",
+    "sea": "int",
+    "wreck": "int",
+    "hall": "int",
+    "cliff": "int",
+    "snow": "int",
+    "ice": "int",
+    "heather": "int"
+   }
+  },
+  "why": "p11_abx.classify_controlled EXCLUDES any crop with sea / wreck / hall / cliff pixels from the mask (R-C9-171 content control); without masks only the pixel classes are drawn and the exclusions rely on colour alone"
+ },
+ "stills": [
+  {
+   "name": "pilot_01",
+   "frame_px_in_plate": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "camera_centre_ground_uv": [
+    -24.0347,
+    15.6458
+   ],
+   "knight_uv": [
+    -24.0347,
+    14.9608
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_02",
+   "frame_px_in_plate": [
+    725,
+    0,
+    2645,
+    1080
+   ],
+   "camera_centre_ground_uv": [
+    -16.8292,
+    15.6458
+   ],
+   "knight_uv": [
+    -16.8292,
+    14.9608
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_03",
+   "frame_px_in_plate": [
+    1451,
+    0,
+    3371,
+    1080
+   ],
+   "camera_centre_ground_uv": [
+    -9.6137,
+    15.6458
+   ],
+   "knight_uv": [
+    -9.6137,
+    14.9608
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_04",
+   "frame_px_in_plate": [
+    2176,
+    0,
+    4096,
+    1080
+   ],
+   "camera_centre_ground_uv": [
+    -2.4082,
+    15.6458
+   ],
+   "knight_uv": [
+    -2.4082,
+    14.9608
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_05",
+   "frame_px_in_plate": [
+    0,
+    740,
+    1920,
+    1820
+   ],
+   "camera_centre_ground_uv": [
+    -24.0347,
+    6.4312
+   ],
+   "knight_uv": [
+    -24.0347,
+    5.7462
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_06",
+   "frame_px_in_plate": [
+    725,
+    740,
+    2645,
+    1820
+   ],
+   "camera_centre_ground_uv": [
+    -16.8292,
+    6.4312
+   ],
+   "knight_uv": [
+    -16.8292,
+    5.7462
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_07",
+   "frame_px_in_plate": [
+    1451,
+    740,
+    3371,
+    1820
+   ],
+   "camera_centre_ground_uv": [
+    -9.6137,
+    6.4312
+   ],
+   "knight_uv": [
+    -9.6137,
+    5.7462
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_08",
+   "frame_px_in_plate": [
+    2176,
+    740,
+    4096,
+    1820
+   ],
+   "camera_centre_ground_uv": [
+    -2.4082,
+    6.4312
+   ],
+   "knight_uv": [
+    -2.4082,
+    5.7462
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_09",
+   "frame_px_in_plate": [
+    0,
+    1480,
+    1920,
+    2560
+   ],
+   "camera_centre_ground_uv": [
+    -24.0347,
+    -2.7833
+   ],
+   "knight_uv": [
+    -24.0347,
+    -3.4683
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_10",
+   "frame_px_in_plate": [
+    725,
+    1480,
+    2645,
+    2560
+   ],
+   "camera_centre_ground_uv": [
+    -16.8292,
+    -2.7833
+   ],
+   "knight_uv": [
+    -16.8292,
+    -3.4683
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_11",
+   "frame_px_in_plate": [
+    1451,
+    1480,
+    3371,
+    2560
+   ],
+   "camera_centre_ground_uv": [
+    -9.6137,
+    -2.7833
+   ],
+   "knight_uv": [
+    -9.6137,
+    -3.4683
+   ],
+   "facing": "S"
+  },
+  {
+   "name": "pilot_12",
+   "frame_px_in_plate": [
+    2176,
+    1480,
+    4096,
+    2560
+   ],
+   "camera_centre_ground_uv": [
+    -2.4082,
+    -2.7833
+   ],
+   "knight_uv": [
+    -2.4082,
+    -3.4683
+   ],
+   "facing": "S"
+  }
+ ],
+ "verification": {
+  "method": "the fixed generator's selection (p11_window.simulate) on these 12 frames, candidate classes from guide_art class/ID maps, v1 pool = v1ref + PT's 6 HEAD stills",
+  "trials": 40,
+  "repeats": 10,
+  "by_class": {
+   "snow": 24,
+   "heather": 13,
+   "ice": 3
+  },
+  "cand_pool": {
+   "ice": 607,
+   "heather": 280,
+   "snow": 463
+  },
+  "enough": true,
+  "caveat": "re-run p11_abx.py build on the REAL painted stills; the UNDERPOWERED guard applies before any judge"
+ }
+}
