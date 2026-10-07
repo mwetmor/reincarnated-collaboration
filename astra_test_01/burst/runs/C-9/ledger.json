@@ -43999,8 +43999,14 @@
     {
       "id": "H-C9-BV2F-PH-P1-1",
       "ts": "2026-10-07T06:26:32Z",
+      "status": "closed",
+      "what": "Phase 1 P6 IoU vs layout_v7c polygons median 0.46 (20 objects) < 0.513 after LV's geometry fixes (d4c59061f); placement exact (containment 1.0; >=96% of ID px inside own GLB silhouette); residual = organic under-fill of layout prisms (unoccluded median 0.57) + occlusion (~0.10). PH 34866394a, calibration.md s14. Routed to jack-ryan Phase 1 Gate-2 as a re-instrumentation question per R-C9-178. | CLOSED by R-C9-180 (re-instrumented as P6') and R-C9-181."
+    },
+    {
+      "id": "H-C9-BV2F-PH-P1-2",
+      "ts": "2026-10-07T06:44:33Z",
       "status": "open",
-      "what": "Phase 1 P6 IoU vs layout_v7c polygons median 0.46 (20 objects) < 0.513 after LV's geometry fixes (d4c59061f); placement exact (containment 1.0; >=96% of ID px inside own GLB silhouette); residual = organic under-fill of layout prisms (unoccluded median 0.57) + occlusion (~0.10). PH 34866394a, calibration.md s14. Routed to jack-ryan Phase 1 Gate-2 as a re-instrumentation question per R-C9-178."
+      "what": "P6' (pre-registered 45fb5eaac, calibrated 48dab5e17: v1 PASS on all four components, each component RED on its constructed/real negative) is RED on v7c (44fb98a66): presence (two yard logs ~half buried, 0.545/0.505), scale (137 of 148 instances anisotropy > 1.10: circle/standing stones, grave markers, crags/outcrops, palisade stakes, logs/beams -- v6-era per-axis box fits), extent (R11 reads the combined hall+porch model's height as the hall's). Placement PASS. IoU-vs-prism 0.46 vs v1 0.635 (non-binding). Disposed R-C9-181."
     }
   ],
   "rulings": [
@@ -45544,6 +45550,13 @@
       "ruling": "BV2F Phase 1 Gate-2 (jack-ryan e852dbf10): BLOCK-narrow on P6 only; validator 66/66, check (a) 6/6, budget and the R-C9-177 revisit accepted. H-C9-BV2F-PH-P1-1 ruled by the ratifier: re-instrumentation LEGITIMATE on provenance evidence independent of v7c's score (the Phase-1 prism-IoU tool was never calibrated; 0.513 was P6b's bar; v1's like-for-like value is 0.635; per-axis box fitting makes prism-IoU blind to C7) under stricter conditions. Folded at charter v0.4 s14: P6' pre-registered by PH BEFORE any v7c re-read (presence, placement, scale anisotropy <= 1.10, extent = R1-R13 on placed models' own footprints/heights), calibrated v1 PASS + four REDs (v7c@2a913e7af presence; 1.5 m shift; >10% squash; shrunk-model R10 break), IoU-vs-prism reported non-binding beside 0.635; P6' RED = HALT for an LV fix. Also: W1 PT control re-measure at pin f1aa715ac; W2 LV per-instance fit_scale + anisotropy; W3 DEV-16 registered (ID grouping, measurement owed before the first take); W4 M1 phone cover with <= 3 asks. ANNOTATIONS (I-1/I-2, corrigenda-forward): R-C9-148's 'one angled longhall ... separate byre removed' was conductor content, not Matt's ruling (Matt asked a question); R-C9-174 ('v7b only') is superseded for the hall/gable by R-C9-177 (v7c separates the gable and turns the door to the camera; v7b remains as comparison only, failing check (a)). Ph1 sub-cap re-base 4->6 recorded in charter s14/s6.",
       "verbatim": [],
       "ts": "2026-10-07T06:35:06Z"
+    },
+    {
+      "id": "R-C9-181",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F P6' adopted as the binding Phase-1+ geometry row on its calibration evidence (v1 PASS on presence/placement/scale/extent; RED on v7c@2a913e7af, 1.5 m shift, v6 3 m porch squash 1.63, shrunk gable R10). PH's disclosed gap-fill A1 (v1 lintel/raven prisms from their own vertices) accepted. v7c is RED -> HALT for an LV FIX, no bar moves. LV fixes (0 images, $0): (1) PRESENCE: seat the two yard logs on the terrain. (2) SCALE (principle 3, C7): every REAL model instance is placed by ONE uniform scale (anisotropy <= 1.10); its layout slot becomes derived from the uniformly scaled model, not the reverse; pieces that are by nature built to size (palisade stakes, beams, logs at a length) are built as PROCEDURAL primitives at true dimensions (v1's practice for its slabs) or use a model whose own proportions fit -- never a stretched model; crags/outcrops/stones vary by uniform scale + rotation only. (3) EXTENT R11 DEFINITION for a single mesh holding two parts: the hall roof height is measured over the hall-body footprint and the porch roof over the porch footprint of the same mesh (per-region max height); this is the rule's meaning applied to one mesh, not a relaxation; PH applies it identically to the constructed RED (v6 porch) to show it still fails. Then: validator R1-R13, check (a) 6/6, PH re-runs P6' against the SAME pre-registered bars, M1 refreshed (cover slot filled with the P6' result), and jack-ryan re-checks the G2P1-B1 fold before M1 goes to Matt.",
+      "verbatim": [],
+      "ts": "2026-10-07T06:44:33Z"
     }
   ],
   "grok_calls": [
