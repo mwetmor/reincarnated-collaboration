@@ -23,6 +23,13 @@ var sim := {}
 var class_meshes := {}
 var _glb_cache := {}
 var model_report := {"loaded": 0, "missing": []}
+# R-C9-188/189: the terrain as the walk surface (floor_y_at + the HeightMapShape3D collider)
+var _hf := PackedFloat32Array()
+var _hf_rows := 0
+var _hf_cols := 0
+var _hf_ppm := 4.0
+var _hf_x0 := 0.0
+var _hf_y0 := 0.0
 
 
 func _read_json(path: String) -> Dictionary:
@@ -181,14 +188,54 @@ func _build_ground() -> void:
 	_tri(SV, SN, _S(-e, sz, -e), _S(e, sz, e), _S(-e, sz, e), Vector3.UP)
 	_mesh(SV, SN, _class_mat("sea"), "mesh", sroot)
 	_register("ground_sea", sroot, "sea", "ground")
-	# the walkable floor's collider: ONE box, top face at y = 0 (v1's), over the whole site
+	_hf = H
+	_hf_rows = hrows
+	_hf_cols = hcols
+	_hf_ppm = hppm
+	_hf_x0 = x0
+	_hf_y0 = y0
 	var body := _body(level, "FloorBody")
 	var cs := CollisionShape3D.new()
-	var bx := BoxShape3D.new()
-	bx.size = Vector3(150.0, 2.0, 150.0)
-	cs.shape = bx
-	cs.position = Vector3(0.0, -1.0, 0.0)
-	body.add_child(cs)
+	var RT: Dictionary = sim.get("route", {})
+	if bool(RT.get("heightfield_collider", false)):
+		# R-C9-188/189: SOUTH of v = hf_collider_v_max the walk surface IS the terrain -- a HeightMapShape3D of the same
+		# heightfield the ground mesh is built from (cell 1/px_per_m m: scaled uniformly by that, heights pre-multiplied),
+		# so the shelf, the cave floor, the stair's landing and the clifftop are walked where they are drawn. NORTH of
+		# v = floor_box_v_min the floor stays v1's own box (top face at 0), cut in two at v = +9 so the box under the
+		# start keeps its centre at the origin: the knight the frozen guide capture draws at the start stands exactly as he did.
+		var vcut := float(RT["hf_collider_v_max"])
+		var j0 := clampi(int(ceil((-vcut - y0) * hppm)), 0, hrows - 2)
+		var rows := hrows - j0
+		var hm := HeightMapShape3D.new()
+		hm.map_width = hcols
+		hm.map_depth = rows
+		var hd := PackedFloat32Array()
+		hd.resize(rows * hcols)
+		for q in rows * hcols:
+			hd[q] = H[j0 * hcols + q] * hppm
+		hm.map_data = hd
+		cs.shape = hm
+		cs.scale = Vector3.ONE / hppm
+		cs.position = _S(x0 + float(hcols - 1) / hppm / 2.0, 0.0, y0 + float(j0) / hppm + float(rows - 1) / hppm / 2.0)
+		body.add_child(cs)
+		var vb := float(RT["floor_box_v_min"])
+		for bb in [[vb, -vb], [-vb, 75.0]]:
+			var c2 := CollisionShape3D.new()
+			var b2 := BoxShape3D.new()
+			b2.size = Vector3(150.0, 2.0, float(bb[1]) - float(bb[0]))
+			c2.shape = b2
+			c2.position = Vector3(0.0, -1.0, -(float(bb[0]) + float(bb[1])) / 2.0)
+			body.add_child(c2)
+		report["ground"]["collider"] = "v >= %.2f: v1's box floor (top 0); v <= %.2f: HeightMapShape3D %d x %d @ %.3f m" % [vb, vcut, hcols, rows, 1.0 / hppm]
+		cs = null
+	else:
+		# the walkable floor's collider: ONE box, top face at y = 0 (v1's), over the whole site
+		var bx := BoxShape3D.new()
+		bx.size = Vector3(150.0, 2.0, 150.0)
+		cs.shape = bx
+		cs.position = Vector3(0.0, -1.0, 0.0)
+	if cs != null:
+		body.add_child(cs)
 	report["ground"]["class_triangles"] = tris
 	report["ground"]["sea_z"] = sz
 
@@ -205,8 +252,29 @@ func _build_crucible() -> void:
 	pass
 
 
-func floor_y_at(_u: float, _v: float) -> float:
-	return 0.0
+func floor_y_at(u: float, v: float) -> float:
+	## R-C9-188/189: the walk surface under (u, v) -- the terrain (bilinear, as the ground mesh), or the stair's ramp
+	if _hf.is_empty():
+		return 0.0
+	var RT: Dictionary = sim.get("route", {})
+	if not RT.has("floor_box_v_min") or v > (float(RT["floor_box_v_min"]) + float(RT["hf_collider_v_max"])) / 2.0:
+		return 0.0                                   # v1's box floor (the knight's spawn as v1 placed him)
+	var fx := (u - _hf_x0) * _hf_ppm
+	var fy := (-v - _hf_y0) * _hf_ppm
+	var i0 := clampi(int(floor(fx)), 0, _hf_cols - 2)
+	var j0 := clampi(int(floor(fy)), 0, _hf_rows - 2)
+	var tx := clampf(fx - float(i0), 0.0, 1.0)
+	var ty := clampf(fy - float(j0), 0.0, 1.0)
+	var z := (_hf[j0 * _hf_cols + i0] * (1.0 - tx) + _hf[j0 * _hf_cols + i0 + 1] * tx) * (1.0 - ty) \
+		+ (_hf[(j0 + 1) * _hf_cols + i0] * (1.0 - tx) + _hf[(j0 + 1) * _hf_cols + i0 + 1] * tx) * ty
+	for rt in (sim.get("route", {}) as Dictionary).get("walk_boxes", []):
+		var d := Vector2(u - float(rt["c_sim"][0]), -v - float(rt["c_sim"][1]))
+		var dir := Vector2(float(rt["dir_sim"][0]), float(rt["dir_sim"][1]))
+		var al := d.dot(dir)
+		var ac := d.dot(Vector2(-dir.y, dir.x))
+		if absf(al) <= float(rt["along_h"]) / 2.0 and absf(ac) <= float(rt["across"]) / 2.0:
+			z = maxf(z, float(rt["z_c"]) - al * tan(deg_to_rad(float(rt["pitch_deg"]))))
+	return z
 
 
 # --- the models (layout v7b's slots), in flat class tints -------------------------------------
@@ -422,6 +490,7 @@ func _build_placements() -> void:
 		stub.name = did
 		level.add_child(stub)
 		_register(did, stub, "none", "v1-instrument-stub")
+	_build_hall_panels()
 	report["placements"] = model_report
 
 
@@ -642,13 +711,139 @@ func _build_steps() -> void:
 		mi.mesh = bm
 		mi.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(float(st["yaw_deg"]))), _S(c.x, (zt + z0) / 2.0, c.y))
 		root.add_child(mi)
-		var cs := CollisionShape3D.new()
-		var bx := BoxShape3D.new()
-		bx.size = bm.size
-		cs.shape = bx
-		cs.transform = mi.transform
-		body.add_child(cs)
+		if not sim.has("route"):
+			var cs := CollisionShape3D.new()
+			var bx := BoxShape3D.new()
+			bx.size = bm.size
+			cs.shape = bx
+			cs.transform = mi.transform
+			body.add_child(cs)
 		n += 1
 	_dress(root, "rock")
 	_register("stair_steps", root, "rock", "procedural")
 	report["stair_steps"] = n
+	if sim.has("route"):
+		_build_route(body)
+
+
+func _build_route(stair_body: StaticBody3D) -> void:
+	## R-C9-188/189. (1) THE STAIR'S WALK SURFACE: one ramp collider through every nosing (the treads above stay visual).
+	## v1's knight (scripts/knight.gd) is a CharacterBody3D capsule (r 0.35, h 1.8, x figure scale) on plain
+	## move_and_slide() under 18 m/s2 of gravity, with no step-up code and Godot's default floor_max_angle (45 deg): a
+	## capsule mounts an edge only while the contact normal is within 45 deg of up, i.e. an edge no higher than
+	## r (1 - cos 45) = 0.10 m -- a 0.179 m riser stops him. The ramp is v6's walk model ("one plane under the step
+	## nosings"), 33.5 deg < 45, flush with the shelf one tread out from the foot and with the landing at the top.
+	## The landing's walk surface is a plate at 0 that meets the ramp's top edge exactly (the terrain under both is lower).
+	var R: Dictionary = sim["route"]
+	var wb := []
+	for rp in R.get("walk_boxes", [R["ramp"]]):
+		var cs := CollisionShape3D.new()
+		var bx := BoxShape3D.new()
+		var th := float(rp["thick"])
+		bx.size = Vector3(float(rp["across"]), th, float(rp["along"]))
+		cs.shape = bx
+		var bas := Basis(Vector3.UP, deg_to_rad(float(rp["yaw_deg"]))) * Basis(Vector3.RIGHT, deg_to_rad(float(rp["pitch_deg"])))
+		var top := _S(float(rp["c_sim"][0]), float(rp["z_c"]), float(rp["c_sim"][1]))
+		cs.transform = Transform3D(bas, top - bas.y.normalized() * th / 2.0)
+		cs.name = String(rp["id"])
+		stair_body.add_child(cs)
+		wb.append({"id": rp["id"], "pitch_deg": rp["pitch_deg"], "across_m": rp["across"], "along_m": rp["along"]})
+	report["walk_boxes"] = wb
+	# (2) THE SEA CAVE HOOD: brow, cheeks, back -- procedural rock at true size, each with its collider; drawn as part of
+	# the cliff (its id is cliff_faces': the hood IS the cliff, and no new id shifts v1's ID colour order)
+	var hb := _body(level, "cave_hood_body")
+	var n := 0
+	for b in R["hood"]:
+		var holder := Node3D.new()
+		holder.name = "cave_" + String(b["id"])
+		var mi := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		var z0 := float(b["z0"])
+		var z1 := float(b["z1"])
+		bm.size = Vector3(float(b["across"]), z1 - z0, float(b["along"]))
+		mi.mesh = bm
+		holder.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(float(b["yaw_deg"]))), _S(float(b["c_sim"][0]), (z0 + z1) / 2.0, float(b["c_sim"][1])))
+		holder.add_child(mi)
+		holder.set_meta("bv2f_fit", {"slot": "cliff_faces", "instance": holder.name, "kind": "procedural_cave_hood",
+			"fit_scale_xyz": [1.0, 1.0, 1.0], "model_aabb_m": [bm.size.x, bm.size.y, bm.size.z], "slot_size_m": [bm.size.x, bm.size.y, bm.size.z],
+			"_": "procedural rock at true dimensions: no model, no fit (P6' scale N/A)"})
+		_group("cliff_faces", "rock").add_child(holder)
+		_dress(holder, "rock")
+		var c2 := CollisionShape3D.new()
+		var b2 := BoxShape3D.new()
+		b2.size = bm.size
+		c2.shape = b2
+		c2.transform = holder.transform
+		hb.add_child(c2)
+		n += 1
+	report["cave_hood"] = n
+
+
+func _build_hall_panels() -> void:
+	## R-C9-188/189 (Matt): the burnt hall CLOSED but for its great door -- a plank panel in the build's own local metres,
+	## a child of the placed build (so it takes the hall's one uniform scale and yaw), dressed in the hall's class
+	var k := 0
+	for pn in sim.get("hall_panels", []):
+		var holder: Node3D = nodes.get(String(pn["model"]), null)
+		if holder == null or holder.get_child_count() == 0:
+			continue
+		var mdl := holder.get_child(0) as Node3D
+		var xa := float(pn["x_m"][0])
+		var xb := float(pn["x_m"][1])
+		var poly := PackedVector2Array()
+		for q in pn["poly_zy_m"]:
+			poly.append(Vector2(float(q[0]), float(q[1])))
+		var V := PackedVector3Array()
+		var N := PackedVector3Array()
+		var idx := Geometry2D.triangulate_polygon(poly)
+		for t in range(0, idx.size(), 3):
+			var a := poly[idx[t]]
+			var b := poly[idx[t + 1]]
+			var c := poly[idx[t + 2]]
+			_tri(V, N, Vector3(xb, a.y, a.x), Vector3(xb, b.y, b.x), Vector3(xb, c.y, c.x), Vector3.RIGHT)
+			_tri(V, N, Vector3(xa, a.y, a.x), Vector3(xa, c.y, c.x), Vector3(xa, b.y, b.x), Vector3.LEFT)
+		for i in poly.size():
+			var p := poly[i]
+			var q := poly[(i + 1) % poly.size()]
+			var e := (q - p)
+			var nr := Vector3(0.0, -e.x, e.y).normalized()
+			_tri(V, N, Vector3(xa, p.y, p.x), Vector3(xb, p.y, p.x), Vector3(xb, q.y, q.x), nr)
+			_tri(V, N, Vector3(xa, p.y, p.x), Vector3(xb, q.y, q.x), Vector3(xa, q.y, q.x), nr)
+		var root := Node3D.new()
+		root.name = "hall_panel_%d" % k
+		var p2 := _flat_params()
+		p2["_two_sided"] = true
+		_mesh(V, N, PaintStack.world_material(fbm, _tint_of(String(pn["class"])), p2), "mesh", root)
+		mdl.add_child(root)
+		_dress(root, String(pn["class"]))
+		k += 1
+	report["hall_panels"] = k
+
+
+func _build_bounds() -> void:
+	## R-C9-188/189: v1's bounds walls (scripts/barrow_full.gd _build_bounds), run from below the sea to 3 m up -- the
+	## walkable route lies under the clifftop -- plus the inner walls on the lip the route runs beneath (open at the landing)
+	var bd: Dictionary = layout["bounds"]
+	if not bd.has("wall_z_m"):
+		super._build_bounds()
+		return
+	var poly: Array = bd["polygon_uv"]
+	var body := _body(level, "Bounds")
+	var z0 := float(bd["wall_z_m"][0])
+	var z1 := float(bd["wall_z_m"][1])
+	var total := 0.0
+	for i in poly.size():
+		var p := Vector2(float(poly[i][0]), float(poly[i][1]))
+		var q := Vector2(float(poly[(i + 1) % poly.size()][0]), float(poly[(i + 1) % poly.size()][1]))
+		var d := q - p
+		_box_rot(body, (p + q) * 0.5, d.length() + 0.3, 0.3, z0, z1, atan2(d.y, d.x))
+		total += d.length()
+	var nin := 0
+	for w in bd.get("inner_walls_uv", []):
+		for i in (w as Array).size() - 1:
+			var p := Vector2(float(w[i][0]), float(w[i][1]))
+			var q := Vector2(float(w[i + 1][0]), float(w[i + 1][1]))
+			var d := q - p
+			_box_rot(body, (p + q) * 0.5, d.length() + 0.3, 0.3, float(bd["inner_wall_z_m"][0]), float(bd["inner_wall_z_m"][1]), atan2(d.y, d.x))
+			nin += 1
+	report["bounds"] = {"edges": poly.size(), "perimeter_m": snappedf(total, 0.01), "inner_walls": nin, "wall_z_m": [z0, z1]}

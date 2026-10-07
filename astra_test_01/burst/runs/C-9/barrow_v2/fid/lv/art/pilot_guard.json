@@ -1,0 +1,109 @@
+{
+ "_what": "BV2F LV (R-C9-189): does a layout change reach the PAINT PILOT window? -- a geometric pre-check, before any render.",
+ "ref_dir": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/ref_art",
+ "ref_sha256": {
+  "level.json": "c98c95d52ed4ba1576e30f4e11206ec5e68c19529b83f0e69c39b5574b8ad3ae",
+  "terrain_h.f32": "f2a8c47c5d1948fa8e4688f1eee24e57dd28003db505798c746a72544ded4347",
+  "classes.png": "a3c18beaf27ee7b145d694b7bc80cdc8f3de68f9e67186a3d16db99bf9f20597"
+ },
+ "pilot_px": {
+  "x_lt": 4096,
+  "y_lt": 2560
+ },
+ "safe_if": {
+  "y_ge": 2584.0,
+  "or_x_ge": 4120.0
+ },
+ "items": [
+  {
+   "what": "heightfield cells changed (2796)",
+   "n_points": 5592,
+   "min_y_px_inside_pilot_columns": 2599.6,
+   "unsafe_points": 0
+  },
+  {
+   "what": "class cells changed (37676)",
+   "n_points": 37676,
+   "min_y_px_inside_pilot_columns": 2602.1,
+   "unsafe_points": 0
+  },
+  {
+   "what": "stair blocks REMOVED (the ref's)",
+   "n_points": 248,
+   "min_y_px_inside_pilot_columns": 2707.3,
+   "unsafe_points": 0
+  },
+  {
+   "what": "stair blocks ADDED",
+   "n_points": 216,
+   "min_y_px_inside_pilot_columns": 2677.0,
+   "unsafe_points": 0
+  },
+  {
+   "what": "sea cave curtain REMOVED (the ref's)",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2963.9,
+   "unsafe_points": 0
+  },
+  {
+   "what": "sea cave curtain ADDED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2762.5,
+   "unsafe_points": 0
+  },
+  {
+   "what": "cave hood brow ADDED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2635.5,
+   "unsafe_points": 0
+  },
+  {
+   "what": "cave hood cheek_w ADDED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2696.1,
+   "unsafe_points": 0
+  },
+  {
+   "what": "cave hood cheek_e ADDED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": null,
+   "unsafe_points": 0
+  },
+  {
+   "what": "cave hood back ADDED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2728.5,
+   "unsafe_points": 0
+  },
+  {
+   "what": "model instance REMOVED cliff_faces/2/data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2866.5,
+   "unsafe_points": 0
+  },
+  {
+   "what": "model instance REMOVED cliff_faces/3/data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 3098.6,
+   "unsafe_points": 0
+  },
+  {
+   "what": "model instance REMOVED cliff_faces/4/data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": null,
+   "unsafe_points": 0
+  },
+  {
+   "what": "hall panel (the whole hall slot)",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": null,
+   "unsafe_points": 0
+  }
+ ],
+ "unsafe_points_total": 0,
+ "worst": {
+  "min_y_px": 2599.6,
+  "what": "heightfield cells changed (2796)"
+ },
+ "verdict": "SAFE: no change projects into the pilot tiles (or their 24 px margin)"
+}

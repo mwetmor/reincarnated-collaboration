@@ -1,68 +1,4 @@
 {
- "_what": "BV2F LV Phase 1': every placed model instance of the ART blockout AS BUILT (barrow_full/godot/tools/bv2f/export_fit.gd, BV2F_VARIANT=art): per-axis fit scale, anisotropy (max/min), the layout's ONE uniform scale per instance, the scene footprint (sim x = u, y = -v) + height. Procedural pieces (palisade posts, logs, stair treads, the cave hood) are primitives at true dimensions (N/A).",
- "layout": "fid/lv/art/layout_bv2art.json",
- "per_slot": {
-  "barrow_front": {
-   "instances": 1,
-   "kind": "box",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "cliff_faces": {
-   "instances": 8,
-   "kind": "mixed: box, procedural_cave_hood, procedural_cave_hood, procedural_cave_hood, procedural_cave_hood",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "crags": {
-   "instances": 7,
-   "kind": "box",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "fallen_gable": {
-   "instances": 1,
-   "kind": "box",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "logs": {
-   "instances": 5,
-   "kind": "procedural_log",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "longhall": {
-   "instances": 1,
-   "kind": "box",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "palisade": {
-   "instances": 49,
-   "kind": "procedural_post",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  },
-  "ring_stones": {
-   "instances": 8,
-   "kind": "box",
-   "anisotropy_max": 1.0001,
-   "over_1_10": 0
-  },
-  "slope_stones": {
-   "instances": 8,
-   "kind": "box",
-   "anisotropy_max": 1.0001,
-   "over_1_10": 0
-  },
-  "wreck": {
-   "instances": 1,
-   "kind": "box",
-   "anisotropy_max": 1.0,
-   "over_1_10": 0
-  }
- },
  "instances": [
   {
    "anisotropy_max_over_min": 1.0,
@@ -8405,6 +8341,5 @@
    "z_min_m": 0.0
   }
  ],
- "r186_presence_fix": "crags #2 and logs #3 moved onto the beach shingle (the shore moved east under them; they had sunk below sea_z); slope_stones #4 moved down the barrow slope inside the paint envelope",
- "r188_189": "the sea-cave route: cliff faces cliff_2/3/4 not placed (the shelf and the cave hood stand there); the cave hood = 4 procedural rock boxes at true size (in slot cliff_faces, kind procedural_cave_hood); the stair = 27 procedural treads 5.5 m wide; the hall's +X gable end closed by a plank panel riding the hall's own uniform scale"
+ "variant": "art"
 }

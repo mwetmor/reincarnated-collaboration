@@ -352,20 +352,28 @@
     -9.814
    ],
    [
-    -3.333,
-    -12.32
+    -7.226,
+    -9.936
    ],
    [
-    1.667,
-    -13.886
+    -9.54,
+    -15.145
    ],
    [
-    7.083,
-    -15.818
+    -1.05,
+    -18.917
    ],
    [
-    11.25,
-    -17.906
+    -2.244,
+    -21.606
+   ],
+   [
+    9.281,
+    -25.732
+   ],
+   [
+    12.035,
+    -18.008
    ],
    [
     15.417,
@@ -399,7 +407,68 @@
     -25.208,
     22.37
    ]
-  ]
+  ],
+  "wall_z_m": [
+   -9.5,
+   3.0
+  ],
+  "inner_walls_uv": [
+   [
+    [
+     -5.134,
+     -10.647
+    ],
+    [
+     1.528,
+     -13.606
+    ]
+   ],
+   [
+    [
+     1.528,
+     -13.606
+    ],
+    [
+     3.06,
+     -14.596
+    ]
+   ],
+   [
+    [
+     3.06,
+     -14.596
+    ],
+    [
+     3.732,
+     -12.712
+    ]
+   ],
+   [
+    [
+     11.644,
+     -15.533
+    ],
+    [
+     10.972,
+     -17.417
+    ]
+   ],
+   [
+    [
+     10.972,
+     -17.417
+    ],
+    [
+     12.102,
+     -17.82
+    ]
+   ]
+  ],
+  "inner_wall_z_m": [
+   0.0,
+   3.0
+  ],
+  "_": "R-C9-188/189: the walls run from below the sea to 3 m up (the route is below the clifftop); the inner walls close the lip the route runs under, open only at the landing"
  },
  "crucible": {
   "eye_height_m": 1.6,
@@ -431,7 +500,7 @@
     "y0": -36.0,
     "y1": 36.0
    },
-   "sha256": "f2a8c47c5d1948fa8e4688f1eee24e57dd28003db505798c746a72544ded4347"
+   "sha256": "2d9fbf243d775dfdfc6ee9ed6a9fe54b1e64a7a3acbcac9aaa6e9960ffdab42b"
   },
   "classes_png": {
    "file": "classes_png.bin",
@@ -442,7 +511,7 @@
     "y0": -36.0,
     "y1": 36.0
    },
-   "sha256": "a3c18beaf27ee7b145d694b7bc80cdc8f3de68f9e67186a3d16db99bf9f20597"
+   "sha256": "786ef7a1cbe8e341a2ac5731fe55fbe8ba113f0a778361cdad37be94bf1fc97b"
   },
   "sea_z": -6.0,
   "models": [
@@ -981,54 +1050,6 @@
       ],
       "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
       "uniform_scale": 0.95046
-     },
-     {
-      "type": "box",
-      "pos": [
-       3.0203,
-       17.133
-      ],
-      "z": -7.6,
-      "godot_rot_y_deg": -19.626,
-      "size_m": [
-       8.0606,
-       4.5148,
-       8.036
-      ],
-      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
-      "uniform_scale": 0.89562
-     },
-     {
-      "type": "box",
-      "pos": [
-       9.1407,
-       19.7611
-      ],
-      "z": -7.6,
-      "godot_rot_y_deg": -26.618,
-      "size_m": [
-       7.5671,
-       4.2383,
-       7.544
-      ],
-      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
-      "uniform_scale": 0.84079
-     },
-     {
-      "type": "box",
-      "pos": [
-       14.3598,
-       23.5253
-      ],
-      "z": -7.6,
-      "godot_rot_y_deg": -38.565,
-      "size_m": [
-       8.7186,
-       4.8833,
-       8.692
-      ],
-      "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
-      "uniform_scale": 0.96873
      },
      {
       "type": "box",
@@ -2435,29 +2456,29 @@
    },
    {
     "id": "sea_cave_mouth",
-    "point": "SW",
-    "model": "cliff",
+    "point": "S",
+    "model": "sea_cave_hood",
     "centre_sim": [
-     -9.1667,
-     13.0771
+     6.4116,
+     17.7017
     ],
-    "z0": -5.6,
-    "w": 4.4,
-    "h": 3.6,
-    "faces_deg": 180.0,
-    "curtain_inset_m": -0.1,
+    "z0": -5.0,
+    "w": 6.0,
+    "h": 7.0,
+    "faces_deg": 199.626,
+    "curtain_inset_m": 3.2,
     "dark": true,
     "probe": {
      "type": "v",
      "centre": [
-      -9.1667,
-      13.0771
+      6.4116,
+      17.7017
      ],
-     "faces_deg": 180.0,
-     "w": 4.4,
-     "h": 3.6,
-     "z0": -5.6,
-     "frontal_m2": 15.84
+     "faces_deg": 199.626,
+     "w": 6.0,
+     "h": 7.0,
+     "z0": -5.0,
+     "frontal_m2": 42.0
     }
    },
    {
@@ -2525,313 +2546,422 @@
   "stair_steps": [
    {
     "c_sim": [
-     -12.0572,
-     12.8533
+     0.2072,
+     16.2471
     ],
-    "z_top": -5.42,
-    "w": 2.2,
+    "z_top": -4.8214,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -11.7875,
-     12.8393
+     -0.0395,
+     16.1375
     ],
-    "z_top": -5.24,
-    "w": 2.2,
+    "z_top": -4.6429,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -11.5179,
-     12.8252
+     -0.2863,
+     16.0279
     ],
-    "z_top": -5.06,
-    "w": 2.2,
+    "z_top": -4.4643,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -11.2483,
-     12.8112
+     -0.533,
+     15.9183
     ],
-    "z_top": -4.88,
-    "w": 2.2,
+    "z_top": -4.2857,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -10.9786,
-     12.7971
+     -0.7798,
+     15.8087
     ],
-    "z_top": -4.7,
-    "w": 2.2,
+    "z_top": -4.1071,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -10.709,
-     12.783
+     -1.0265,
+     15.6991
     ],
-    "z_top": -4.52,
-    "w": 2.2,
+    "z_top": -3.9286,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -10.4394,
-     12.769
+     -1.2733,
+     15.5895
     ],
-    "z_top": -4.34,
-    "w": 2.2,
+    "z_top": -3.75,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -10.1697,
-     12.7549
+     -1.52,
+     15.4799
     ],
-    "z_top": -4.16,
-    "w": 2.2,
+    "z_top": -3.5714,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -9.9001,
-     12.7409
+     -1.7668,
+     15.3703
     ],
-    "z_top": -3.98,
-    "w": 2.2,
+    "z_top": -3.3929,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -9.6305,
-     12.7268
+     -2.0135,
+     15.2607
     ],
-    "z_top": -3.8,
-    "w": 2.2,
+    "z_top": -3.2143,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -9.3608,
-     12.7128
+     -2.2603,
+     15.151
     ],
-    "z_top": -3.62,
-    "w": 2.2,
+    "z_top": -3.0357,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -9.0912,
-     12.6987
+     -2.507,
+     15.0414
     ],
-    "z_top": -3.44,
-    "w": 2.2,
+    "z_top": -2.8571,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -8.8216,
-     12.6846
+     -2.7538,
+     14.9318
     ],
-    "z_top": -3.26,
-    "w": 2.2,
+    "z_top": -2.6786,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -8.5519,
-     12.6706
+     -3.0005,
+     14.8222
     ],
-    "z_top": -3.08,
-    "w": 2.2,
+    "z_top": -2.5,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -8.2823,
-     12.6565
+     -3.2473,
+     14.7126
     ],
-    "z_top": -2.9,
-    "w": 2.2,
+    "z_top": -2.3214,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -8.0127,
-     12.6425
+     -3.494,
+     14.603
     ],
-    "z_top": -2.72,
-    "w": 2.2,
+    "z_top": -2.1429,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -7.743,
-     12.6284
+     -3.7408,
+     14.4934
     ],
-    "z_top": -2.54,
-    "w": 2.2,
+    "z_top": -1.9643,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -7.4734,
-     12.6144
+     -3.9875,
+     14.3838
     ],
-    "z_top": -2.36,
-    "w": 2.2,
+    "z_top": -1.7857,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -7.2038,
-     12.6003
+     -4.2343,
+     14.2742
     ],
-    "z_top": -2.18,
-    "w": 2.2,
+    "z_top": -1.6071,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -6.9341,
-     12.5863
+     -4.481,
+     14.1646
     ],
-    "z_top": -2.0,
-    "w": 2.2,
+    "z_top": -1.4286,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -6.6645,
-     12.5722
+     -4.7278,
+     14.055
     ],
-    "z_top": -1.82,
-    "w": 2.2,
+    "z_top": -1.25,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -6.3949,
-     12.5581
+     -4.9745,
+     13.9453
     ],
-    "z_top": -1.64,
-    "w": 2.2,
+    "z_top": -1.0714,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -6.1252,
-     12.5441
+     -5.2213,
+     13.8357
     ],
-    "z_top": -1.46,
-    "w": 2.2,
+    "z_top": -0.8929,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -5.8556,
-     12.53
+     -5.468,
+     13.7261
     ],
-    "z_top": -1.28,
-    "w": 2.2,
+    "z_top": -0.7143,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -5.586,
-     12.516
+     -5.7148,
+     13.6165
     ],
-    "z_top": -1.1,
-    "w": 2.2,
+    "z_top": -0.5357,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -5.3163,
-     12.5019
+     -5.9615,
+     13.5069
     ],
-    "z_top": -0.92,
-    "w": 2.2,
+    "z_top": -0.3571,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
+    "yaw_deg": 66.049
    },
    {
     "c_sim": [
-     -5.0467,
-     12.4879
+     -6.2083,
+     13.3973
     ],
-    "z_top": -0.74,
-    "w": 2.2,
+    "z_top": -0.1786,
+    "w": 5.5,
     "tread": 0.27,
-    "yaw_deg": 92.984
-   },
-   {
+    "yaw_deg": 66.049
+   }
+  ],
+  "route": {
+   "hood": [
+    {
+     "id": "brow",
+     "c_sim": [
+      7.0497,
+      15.9121
+     ],
+     "z0": 2.0,
+     "z1": 3.0,
+     "across": 3.8,
+     "along": 8.4,
+     "yaw_deg": 70.374
+    },
+    {
+     "id": "cheek_w",
+     "c_sim": [
+      3.6589,
+      14.7029
+     ],
+     "z0": -6.5,
+     "z1": 2.0,
+     "across": 3.8,
+     "along": 1.2,
+     "yaw_deg": 70.374
+    },
+    {
+     "id": "cheek_e",
+     "c_sim": [
+      10.4406,
+      17.1212
+     ],
+     "z0": -6.5,
+     "z1": 2.0,
+     "across": 3.8,
+     "along": 1.2,
+     "yaw_deg": 70.374
+    },
+    {
+     "id": "back",
+     "c_sim": [
+      7.6375,
+      14.2637
+     ],
+     "z0": -5.5,
+     "z1": 2.0,
+     "across": 0.3,
+     "along": 6.0,
+     "yaw_deg": 70.374
+    }
+   ],
+   "ramp": {
+    "id": "stair_ramp",
     "c_sim": [
-     -4.7771,
-     12.4738
+     -2.8772,
+     14.877
     ],
-    "z_top": -0.56,
-    "w": 2.2,
-    "tread": 0.27,
-    "yaw_deg": 92.984
+    "z_c": -2.5,
+    "across": 5.5,
+    "along_h": 7.56,
+    "along": 9.0639,
+    "thick": 0.3,
+    "yaw_deg": 66.0487,
+    "pitch_deg": 33.4797,
+    "dir_sim": [
+     0.913891,
+     0.40596
+    ],
+    "_": "a plane through every nosing: z = 0 at the landing edge, z = shelf one tread out from the foot; local +Z downhill"
    },
+   "walk_boxes": [
+    {
+     "id": "stair_ramp",
+     "c_sim": [
+      -2.8772,
+      14.877
+     ],
+     "z_c": -2.5,
+     "across": 5.5,
+     "along_h": 7.56,
+     "along": 9.0639,
+     "thick": 0.3,
+     "yaw_deg": 66.0487,
+     "pitch_deg": 33.4797,
+     "dir_sim": [
+      0.913891,
+      0.40596
+     ],
+     "_": "a plane through every nosing: z = 0 at the landing edge, z = shelf one tread out from the foot; local +Z downhill"
+    },
+    {
+     "id": "landing_plate",
+     "c_sim": [
+      -7.1644,
+      12.7538
+     ],
+     "z_c": 0.0,
+     "across": 5.9,
+     "along_h": 2.0,
+     "along": 2.0,
+     "thick": 0.3,
+     "yaw_deg": 66.0487,
+     "pitch_deg": 0.0,
+     "dir_sim": [
+      0.913891,
+      0.40596
+     ],
+     "_": "the top landing's walk surface: a plate at 0 meeting the ramp's top edge exactly (the terrain under it is 5 cm lower)"
+    }
+   ],
+   "heightfield_collider": true,
+   "hf_collider_v_max": -8.5,
+   "floor_box_v_min": -9.0,
+   "shelf_z": -5.0,
+   "_": "R-C9-188/189 sea cave hood (procedural rock, colliders) + the stair's walk ramp and landing plate (colliders only); south of v -8.5 the terrain is the walk collider (HeightMapShape3D), north of v -9 v1's box floor at 0 stays"
+  },
+  "hall_panels": [
    {
-    "c_sim": [
-     -4.5074,
-     12.4597
+    "model": "longhall",
+    "x_m": [
+     14.75,
+     15.15
     ],
-    "z_top": -0.38,
-    "w": 2.2,
-    "tread": 0.27,
-    "yaw_deg": 92.984
-   },
-   {
-    "c_sim": [
-     -4.2378,
-     12.4457
+    "poly_zy_m": [
+     [
+      -3.6,
+      0.0
+     ],
+     [
+      6.9,
+      0.0
+     ],
+     [
+      6.9,
+      3.7
+     ],
+     [
+      1.67,
+      9.1
+     ],
+     [
+      -3.6,
+      3.7
+     ]
     ],
-    "z_top": -0.2,
-    "w": 2.2,
-    "tread": 0.27,
-    "yaw_deg": 92.984
-   },
-   {
-    "c_sim": [
-     -3.9682,
-     12.4316
-    ],
-    "z_top": -0.02,
-    "w": 2.2,
-    "tread": 0.27,
-    "yaw_deg": 92.984
+    "class": "wood",
+    "what": "plank infill of the open +X gable end (the hall's SE end)"
    }
   ],
   "stair": null,

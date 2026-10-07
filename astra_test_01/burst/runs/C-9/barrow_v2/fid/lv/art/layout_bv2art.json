@@ -1115,78 +1115,6 @@
    "note": ""
   },
   {
-   "id": "cliff_2",
-   "piece": "cliff_2",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffplain.glb",
-   "uv": [
-    3.0203,
-    -17.133
-   ],
-   "z": -7.6,
-   "facing_uv": [
-    -0.3359,
-    -0.9419
-   ],
-   "scale": 0.89562,
-   "lying": false,
-   "size_m": {
-    "w": 8.061,
-    "d": 4.515,
-    "h": 8.036
-   },
-   "note": ""
-  },
-  {
-   "id": "cliff_3",
-   "piece": "cliff_3",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffplain.glb",
-   "uv": [
-    9.1407,
-    -19.7611
-   ],
-   "z": -7.6,
-   "facing_uv": [
-    -0.448,
-    -0.894
-   ],
-   "scale": 0.84079,
-   "lying": false,
-   "size_m": {
-    "w": 7.567,
-    "d": 4.238,
-    "h": 7.544
-   },
-   "note": ""
-  },
-  {
-   "id": "cliff_4",
-   "piece": "cliff_4",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffplain.glb",
-   "uv": [
-    14.3598,
-    -23.5253
-   ],
-   "z": -7.6,
-   "facing_uv": [
-    -0.6234,
-    -0.7819
-   ],
-   "scale": 0.96873,
-   "lying": false,
-   "size_m": {
-    "w": 8.719,
-    "d": 4.883,
-    "h": 8.692
-   },
-   "note": ""
-  },
-  {
    "id": "cliff_5",
    "piece": "cliff_5",
    "class": "rock",
@@ -1238,7 +1166,7 @@
  "procedural": {
   "palisade_posts": 49,
   "logs": 5,
-  "stair_steps": 31,
+  "stair_steps": 27,
   "floes": 17
  },
  "openings": [
@@ -1350,29 +1278,29 @@
   },
   {
    "id": "sea_cave_mouth",
-   "point": "SW",
-   "model": "cliff",
+   "point": "S",
+   "model": "sea_cave_hood",
    "centre_sim": [
-    -9.1667,
-    13.0771
+    6.4116,
+    17.7017
    ],
-   "z0": -5.6,
-   "w": 4.4,
-   "h": 3.6,
-   "faces_deg": 180.0,
-   "curtain_inset_m": -0.1,
+   "z0": -5.0,
+   "w": 6.0,
+   "h": 7.0,
+   "faces_deg": 199.626,
+   "curtain_inset_m": 3.2,
    "dark": true,
    "probe": {
     "type": "v",
     "centre": [
-     -9.1667,
-     13.0771
+     6.4116,
+     17.7017
     ],
-    "faces_deg": 180.0,
-    "w": 4.4,
-    "h": 3.6,
-    "z0": -5.6,
-    "frontal_m2": 15.84
+    "faces_deg": 199.626,
+    "w": 6.0,
+    "h": 7.0,
+    "z0": -5.0,
+    "frontal_m2": 42.0
    }
   },
   {
@@ -1505,20 +1433,28 @@
     -9.814
    ],
    [
-    -3.333,
-    -12.32
+    -7.226,
+    -9.936
    ],
    [
-    1.667,
-    -13.886
+    -9.54,
+    -15.145
    ],
    [
-    7.083,
-    -15.818
+    -1.05,
+    -18.917
    ],
    [
-    11.25,
-    -17.906
+    -2.244,
+    -21.606
+   ],
+   [
+    9.281,
+    -25.732
+   ],
+   [
+    12.035,
+    -18.008
    ],
    [
     15.417,
@@ -1552,7 +1488,395 @@
     -25.208,
     22.37
    ]
-  ]
+  ],
+  "wall_z_m": [
+   -9.5,
+   3.0
+  ],
+  "inner_walls_uv": [
+   [
+    [
+     -5.134,
+     -10.647
+    ],
+    [
+     1.528,
+     -13.606
+    ]
+   ],
+   [
+    [
+     1.528,
+     -13.606
+    ],
+    [
+     3.06,
+     -14.596
+    ]
+   ],
+   [
+    [
+     3.06,
+     -14.596
+    ],
+    [
+     3.732,
+     -12.712
+    ]
+   ],
+   [
+    [
+     11.644,
+     -15.533
+    ],
+    [
+     10.972,
+     -17.417
+    ]
+   ],
+   [
+    [
+     10.972,
+     -17.417
+    ],
+    [
+     12.102,
+     -17.82
+    ]
+   ]
+  ],
+  "inner_wall_z_m": [
+   0.0,
+   3.0
+  ],
+  "_": "R-C9-188/189: the walls run from below the sea to 3 m up (the route is below the clifftop); the inner walls close the lip the route runs under, open only at the landing"
+ },
+ "route": {
+  "_what": "R-C9-188/189: the walkable route from the sea cave to the clifftop (fid/lv/tools/lv_walkability.py checks it)",
+  "spec": {
+   "lip_stair": [
+    4,
+    6
+   ],
+   "lip_cave": [
+    6,
+    7
+   ],
+   "shelf_z": -5.0,
+   "landing_t": [
+    0.5,
+    2.5
+   ],
+   "stair_w": 5.5,
+   "risers": 28,
+   "tread": 0.27,
+   "shelf_out_s": 8.4,
+   "shelf_in_s": 0.4,
+   "shelf_east_t": 5.2,
+   "mouth_w": 6.0,
+   "mouth_h": 7.0,
+   "cheek_w": 1.2,
+   "brow_top": 3.0,
+   "hood_back_s": -1.8,
+   "floor_back_s": -1.5,
+   "mouth_s": 2.0,
+   "bounds_out_m": 0.2
+  },
+  "riser_m": 0.17857,
+  "treads": 27,
+  "stair_pitch_deg": 33.48,
+  "points_uv": {
+   "cave_back": [
+    7.386,
+    -14.97
+   ],
+   "cave_mouth": [
+    6.412,
+    -17.702
+   ],
+   "shelf_mid": [
+    0.439,
+    -18.969
+   ],
+   "stair_foot": [
+    0.788,
+    -16.505
+   ],
+   "stair_top": [
+    -6.332,
+    -13.342
+   ],
+   "landing": [
+    -7.246,
+    -12.937
+   ],
+   "clifftop": [
+    -5.114,
+    -8.139
+   ]
+  },
+  "polygons_uv": {
+   "landing": [
+    [
+     -7.043,
+     -10.017
+    ],
+    [
+     -5.215,
+     -10.829
+    ],
+    [
+     -7.448,
+     -15.856
+    ],
+    [
+     -9.276,
+     -15.044
+    ]
+   ],
+   "flight": [
+    [
+     -5.215,
+     -10.829
+    ],
+    [
+     1.447,
+     -13.789
+    ],
+    [
+     -0.786,
+     -18.815
+    ],
+    [
+     -7.448,
+     -15.856
+    ]
+   ],
+   "shelf": [
+    [
+     1.447,
+     -13.789
+    ],
+    [
+     -0.786,
+     -18.815
+    ],
+    [
+     -1.98,
+     -21.504
+    ],
+    [
+     9.16,
+     -25.476
+    ],
+    [
+     11.847,
+     -17.941
+    ],
+    [
+     2.993,
+     -14.784
+    ]
+   ],
+   "cave_floor": [
+    [
+     3.631,
+     -12.994
+    ],
+    [
+     11.543,
+     -15.816
+    ],
+    [
+     10.368,
+     -19.112
+    ],
+    [
+     2.456,
+     -16.291
+    ]
+   ],
+   "hood": [
+    [
+     3.732,
+     -12.712
+    ],
+    [
+     11.644,
+     -15.533
+    ],
+    [
+     10.368,
+     -19.112
+    ],
+    [
+     2.456,
+     -16.291
+    ]
+   ]
+  },
+  "frames": {
+   "stair": {
+    "origin_uv": [
+     -7.5,
+     -9.8144
+    ],
+    "along_uv": [
+     0.913891,
+     -0.40596
+    ],
+    "t_landing": [
+     0.5,
+     2.5
+    ],
+    "t_foot": 9.79,
+    "width_m": 5.5
+   },
+   "cave": {
+    "origin_uv": [
+     7.0833,
+     -15.8179
+    ],
+    "along_uv": [
+     0.941905,
+     -0.335879
+    ]
+   },
+   "_": "t along, s seaward (along turned clockwise)"
+  },
+  "ramp": {
+   "id": "stair_ramp",
+   "c_sim": [
+    -2.8772,
+    14.877
+   ],
+   "z_c": -2.5,
+   "across": 5.5,
+   "along_h": 7.56,
+   "along": 9.0639,
+   "thick": 0.3,
+   "yaw_deg": 66.0487,
+   "pitch_deg": 33.4797,
+   "dir_sim": [
+    0.913891,
+    0.40596
+   ],
+   "_": "a plane through every nosing: z = 0 at the landing edge, z = shelf one tread out from the foot; local +Z downhill"
+  },
+  "plate": {
+   "id": "landing_plate",
+   "c_sim": [
+    -7.1644,
+    12.7538
+   ],
+   "z_c": 0.0,
+   "across": 5.9,
+   "along_h": 2.0,
+   "along": 2.0,
+   "thick": 0.3,
+   "yaw_deg": 66.0487,
+   "pitch_deg": 0.0,
+   "dir_sim": [
+    0.913891,
+    0.40596
+   ],
+   "_": "the top landing's walk surface: a plate at 0 meeting the ramp's top edge exactly (the terrain under it is 5 cm lower)"
+  },
+  "hood": [
+   {
+    "id": "brow",
+    "c_sim": [
+     7.0497,
+     15.9121
+    ],
+    "z0": 2.0,
+    "z1": 3.0,
+    "across": 3.8,
+    "along": 8.4,
+    "yaw_deg": 70.374
+   },
+   {
+    "id": "cheek_w",
+    "c_sim": [
+     3.6589,
+     14.7029
+    ],
+    "z0": -6.5,
+    "z1": 2.0,
+    "across": 3.8,
+    "along": 1.2,
+    "yaw_deg": 70.374
+   },
+   {
+    "id": "cheek_e",
+    "c_sim": [
+     10.4406,
+     17.1212
+    ],
+    "z0": -6.5,
+    "z1": 2.0,
+    "across": 3.8,
+    "along": 1.2,
+    "yaw_deg": 70.374
+   },
+   {
+    "id": "back",
+    "c_sim": [
+     7.6375,
+     14.2637
+    ],
+    "z0": -5.5,
+    "z1": 2.0,
+    "across": 0.3,
+    "along": 6.0,
+    "yaw_deg": 70.374
+   }
+  ],
+  "cliff_faces_dropped": [
+   {
+    "id": "cliff_2",
+    "uv": [
+     3.02,
+     -17.133
+    ],
+    "size_m": [
+     8.0606,
+     4.5148,
+     8.036
+    ],
+    "z": -7.6,
+    "yaw": -19.626
+   },
+   {
+    "id": "cliff_3",
+    "uv": [
+     9.141,
+     -19.761
+    ],
+    "size_m": [
+     7.5671,
+     4.2383,
+     7.544
+    ],
+    "z": -7.6,
+    "yaw": -26.618
+   },
+   {
+    "id": "cliff_4",
+    "uv": [
+     14.36,
+     -23.525
+    ],
+    "size_m": [
+     8.7186,
+     4.8833,
+     8.692
+    ],
+    "z": -7.6,
+    "yaw": -38.565
+   }
+  ],
+  "moved_from_sketch_A": "sketch A draws the cave under the lip at u ~ -9 with the stair on its east; the 7 m mouth needs a brow 3 m over the clifftop, which there projects into the paint pilot's tiles (R-C9-189) -- so the stair TOP stays at sketch A's stair top (where the start's path ends) and the flight runs EAST down the face to the shelf and the cave (cave mouth u = 6.4)"
  },
  "classes": [
   "none",
@@ -1572,12 +1896,12 @@
   "ash"
  ],
  "class_counts": {
-  "none": 445984,
-  "snow": 654257,
+  "none": 419712,
+  "snow": 649733,
   "path": 9423,
   "ice": 41832,
   "shrub": 51413,
-  "rock": 20929,
+  "rock": 51725,
   "mound": 99910,
   "shingle": 52036,
   "shore_ice": 112714,

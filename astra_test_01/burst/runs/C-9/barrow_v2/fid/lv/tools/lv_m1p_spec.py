@@ -22,6 +22,7 @@ bdoor = ouv("barrow_door")
 hdoor = ouv("hall_great_door")
 gable = tuple(P["fallen_gable"]["uv"])
 cave = ouv("sea_cave_mouth")
+RP = {k: tuple(v) for k, v in L["route"]["points_uv"].items()}       # R-C9-188/189 the cave-to-clifftop route
 def mid(a, b, f=0.5):
     return (a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f)
 S = [("01_start_ring", (0.0, 0.0), (0.6, -1.6), 0.0, "the start in the broken stone ring", ["ring"]),
@@ -31,7 +32,7 @@ S = [("01_start_ring", (0.0, 0.0), (0.6, -1.6), 0.0, "the start in the broken st
      ("05_barrow_door", (bdoor[0], bdoor[1] + 1.0), (bdoor[0] - 2.0, bdoor[1] - 3.5), 1.5, "the barrow's monumental carved door", ["barrow_door"]),
      ("06_mere", mere_c, (mere_c[0] + 2.0, mere_c[1] - 4.5), 0.0, "the frozen mere and the stream from the barrow", ["mere"]),
      ("07_ring_stair", (-2.0, -6.2), (-1.0, -4.0), -0.5, "from the ring to the clifftop stair", ["ring", "cave_stair"]),
-     ("08_cave_stair", mid(cave, (cave[0] + 4.0, cave[1] + 1.5)), (cave[0] + 6.0, cave[1] + 3.5), -3.0, "the sea cave and the stair up the cliff", ["cave_stair"]),
+     ("08_cave_stair", mid(RP["cave_mouth"], RP["stair_top"]), RP["shelf_mid"], -2.5, "the sea cave, the shelf and the stair up the cliff (R-C9-188/189); him on the shelf", ["cave_stair"]),
      ("09_hall_door", (hdoor[0] + 2.0, hdoor[1] + 1.0), (hdoor[0] - 3.5, hdoor[1] - 2.0), 1.5, "the burnt hall's great door, facing the start", ["hall_door"]),
      ("10_hall_gable", mid(hdoor, gable), (hdoor[0] - 3.0, hdoor[1] - 4.0), 1.0, "the hall and its fallen gable", ["hall_door", "gable"]),
      ("11_gable", gable, (gable[0] - 5.0, gable[1] + 0.5), 0.5, "the fallen gable, its own ruin", ["gable"]),

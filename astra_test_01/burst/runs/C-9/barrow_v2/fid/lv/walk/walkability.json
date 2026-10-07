@@ -1,0 +1,304 @@
+{
+ "knight": {
+  "_step": "no step-up code in knight.gd: an edge is climbed only while the capsule's contact normal is within floor_max_angle of up -> h <= r (1 - cos(floor_max_angle))",
+  "capsule_height_m": 1.85000002384186,
+  "capsule_radius_m": 0.349999994039536,
+  "class": "CharacterBody3D",
+  "collision_mask": 2,
+  "floor_constant_speed": false,
+  "floor_max_angle_deg": 45.0000012522391,
+  "floor_snap_length_m": 0.100000001490116,
+  "floor_stop_on_slope": true,
+  "max_slides": 6,
+  "script": "res://scripts/knight.gd",
+  "step_height_m": 0.102512630247937
+ },
+ "segments": {
+  "cave": {
+   "samples": 58,
+   "walkable": 58,
+   "max_slope_deg": 0.0,
+   "max_dz_m": 0.0,
+   "z": [
+    -5.0,
+    -5.0
+   ],
+   "min_headroom_m": 7.0
+  },
+  "shelf": {
+   "samples": 224,
+   "walkable": 224,
+   "max_slope_deg": 0.0,
+   "max_dz_m": 0.012890815734859729,
+   "z": [
+    -5.0,
+    -5.0
+   ],
+   "min_headroom_m": 7.0
+  },
+  "stair": {
+   "samples": 151,
+   "walkable": 151,
+   "max_slope_deg": 33.4796969106345,
+   "max_dz_m": 0.03308317065238951,
+   "z": [
+    -4.98710918426514,
+    -0.0330832004547119
+   ],
+   "min_headroom_m": 15.0
+  },
+  "landing": {
+   "samples": 75,
+   "walkable": 75,
+   "max_slope_deg": 0.0,
+   "max_dz_m": 0.0,
+   "z": [
+    -2.98023223876953e-08,
+    -2.98023223876953e-08
+   ],
+   "min_headroom_m": 15.0
+  },
+  "clifftop": {
+   "samples": 51,
+   "walkable": 51,
+   "max_slope_deg": 0.0,
+   "max_dz_m": 2.98023223876953e-08,
+   "z": [
+    -2.98023223876953e-08,
+    0.0
+   ],
+   "min_headroom_m": 15.0
+  }
+ },
+ "breaks": [],
+ "sections": [
+  {
+   "id": "stair_00",
+   "kind": "stair",
+   "surface_width_m": 5.5,
+   "free_between_colliders_m": 5.6,
+   "clear_width_m": 5.5,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_01",
+   "kind": "stair",
+   "surface_width_m": 5.45,
+   "free_between_colliders_m": 5.6,
+   "clear_width_m": 5.45,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_02",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.53,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_03",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.49,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_04",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.54,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_05",
+   "kind": "stair",
+   "surface_width_m": 5.4,
+   "free_between_colliders_m": 5.57,
+   "clear_width_m": 5.4,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_06",
+   "kind": "stair",
+   "surface_width_m": 5.4,
+   "free_between_colliders_m": 5.51,
+   "clear_width_m": 5.4,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_07",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.45,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_08",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.39,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_09",
+   "kind": "stair",
+   "surface_width_m": 5.25,
+   "free_between_colliders_m": 5.35,
+   "clear_width_m": 5.25,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_10",
+   "kind": "stair",
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 5.45,
+   "clear_width_m": 5.3,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_11",
+   "kind": "stair",
+   "surface_width_m": 5.4,
+   "free_between_colliders_m": 5.5,
+   "clear_width_m": 5.4,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_12",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.44,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "stair_13",
+   "kind": "stair",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.39,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_00",
+   "kind": "shelf",
+   "surface_width_m": 7.95,
+   "free_between_colliders_m": 8.14,
+   "clear_width_m": 7.95,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_01",
+   "kind": "shelf",
+   "surface_width_m": 7.85,
+   "free_between_colliders_m": 8.06,
+   "clear_width_m": 7.85,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_02",
+   "kind": "shelf",
+   "surface_width_m": 7.7,
+   "free_between_colliders_m": 7.98,
+   "clear_width_m": 7.7,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_03",
+   "kind": "shelf",
+   "surface_width_m": 6.25,
+   "free_between_colliders_m": 6.44,
+   "clear_width_m": 6.25,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_04",
+   "kind": "shelf",
+   "surface_width_m": 6.15,
+   "free_between_colliders_m": 6.44,
+   "clear_width_m": 6.15,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_05",
+   "kind": "shelf",
+   "surface_width_m": 6.2,
+   "free_between_colliders_m": 6.44,
+   "clear_width_m": 6.2,
+   "min_headroom_m": 7.0
+  },
+  {
+   "id": "cave_mouth",
+   "kind": "cave",
+   "surface_width_m": 6.0,
+   "free_between_colliders_m": 6.0,
+   "clear_width_m": 6.0,
+   "min_headroom_m": 7.0
+  }
+ ],
+ "drive": {
+  "reached_last_waypoint": true,
+  "time_s": 17.55,
+  "frames": 1053,
+  "stuck_3s": false,
+  "end_uv": [
+   -5.29742383956909,
+   -8.58566093444824
+  ],
+  "end_z": 0.000935292802751064
+ },
+ "drive_frames_off_floor": 0,
+ "drive_z_range": [
+  -4.999,
+  0.001
+ ],
+ "bars": [
+  {
+   "bar": "continuous walk surface, cave -> clifftop (every 0.05 m)",
+   "measured": "559 of 559 centreline samples walkable; 0 breaks",
+   "pass": true
+  },
+  {
+   "bar": "stair slope <= 35 deg",
+   "measured": "33.48 deg (collider); treads 33.48 deg",
+   "pass": true
+  },
+  {
+   "bar": "shelf slope <= 10 deg",
+   "measured": "0.00 deg",
+   "pass": true
+  },
+  {
+   "bar": "no riser above v1's step height (0.103 m)",
+   "measured": "max 0.033 m between samples 0.05 m apart (treads' visual riser 0.179 m is under the ramp)",
+   "pass": true
+  },
+  {
+   "bar": "stair clear width >= 5 m",
+   "measured": "min 5.25 m over 14 sections",
+   "pass": true
+  },
+  {
+   "bar": "shelf clear width >= 6 m",
+   "measured": "min 6.15 m over 6 sections",
+   "pass": true
+  },
+  {
+   "bar": "cave mouth clear height ~7 m",
+   "measured": "7.00 m headroom; mouth 6.00 m wide",
+   "pass": true
+  },
+  {
+   "bar": "v1's knight driven from inside the cave to the clifftop",
+   "measured": "reached True in 17.6 s (1053 frames, 0 off the floor); ends at uv (-5.30, -8.59) z 0.00",
+   "pass": true
+  }
+ ],
+ "verdict": "PASS",
+ "_what": "R-C9-188/189 walkability of the sea-cave route (lv_walkability.py)"
+}

@@ -79,6 +79,12 @@ def unit(x, y):
 # ============ THE COMPOSITION (sketch A pixels) ============
 WRECK = {"glb": "data/bv2f/models/wreck.glb", "prow": (75, 345), "stern": (330, 495), "len_m": 13.0, "sink": 1.1}
 HALL = {"glb": "data/bv2f/models/hall.glb", "door": (1290, 450), "wall_a": (1170, 395), "wall_b": (1345, 515), "len_m": 18.5}
+# R-C9-188/189 (Matt): the burnt hall is CLOSED but for its one great door. The kit build's +X gable end (toward the fallen
+# gable, SE) is an open burnt frame -- a plank panel closes it, in the build's own local metres (its glTF frame: x along
+# the ridge, y up, z across; the end posts stand at x 14.2-16.2), inside the end frame under the roof line; it rides the
+# hall's one uniform scale (it is a child of the placed build)
+HALL_PANELS = [{"model": "longhall", "x_m": [14.75, 15.15], "poly_zy_m": [[-3.6, 0.0], [6.9, 0.0], [6.9, 3.7], [1.67, 9.1], [-3.6, 3.7]],
+                "class": "wood", "what": "plank infill of the open +X gable end (the hall's SE end)"}]
 GABLE = {"glb": "data/bv2f/models/gable.glb", "centre": (1430, 585), "size_m": 8.0}
 BARROW = {"glb": "data/bv2f/models/barrow.glb", "door": (818, 150), "width_m": 11.6}
 MOUND = {"centre": (830, -10), "semi_m": (15.0, 8.5), "rise_m": 5.5}
@@ -101,10 +107,83 @@ SHRUB = [((470, 330), 70), ((380, 250), 60), ((640, 300), 50), ((600, 455), 45),
          ((720, 220), 50), ((420, 520), 50), ((1000, 650), 45), ((880, 610), 40), ((260, 40), 80), ((470, 60), 60)]
 PALISADE = [[(1040, 375), (1110, 340), (1165, 312)], [(1330, 238), (1430, 262), (1530, 300)], [(1150, 560), (1200, 625), (1265, 690), (1420, 702)]]
 LOGS = [((1370, 262), (1445, 302)), ((1250, 565), (1330, 622)), ((1300, 625), (1385, 660)), ((300, 455), (370, 480)), ((1335, 440), (1395, 475))]
-CAVE = {"mouth_px": (560, 795), "w_m": 4.4, "h_m": 3.6}
-STAIR = {"foot_px": (610, 780), "top_px": (688, 690), "width_m": 2.2, "rise": 0.18, "tread": 0.27}
+# Phase 1' sea cave + stair positions: kept ONLY so the cliff-face instance list (ids, scales, and every pilot-window
+# pixel they make) is exactly as it was -- the cave and stair themselves are ROUTE below (R-C9-188/189)
+LEGACY_CAVE_PX = (560, 795)
+LEGACY_STAIR = {"foot_px": (610, 780), "top_px": (688, 690)}
+# R-C9-188/189 (Matt M1' pass): THE CAVE-TO-CLIFFTOP ROUTE. A natural rock SHELF ~1 m above the water, flush with the cave
+# floor, hugging the cliff foot from the mouth to the stair foot (>= 6 m clear); a STRAIGHT stair across the south face
+# (<= 35 deg, ~5 m wide, open to the sea) to a flush top landing on the clifftop; the cave mouth 7 m clear under a rock
+# brow. Laid along the lip in two straight frames: the stair on lip P4 -> P6, the cave on lip P6 -> P7 (t along, s seaward).
+# PILOT WINDOW (R-C9-189): the paint pilot is guide tiles r00-r02 x c00-c02 (guide px x < 4096, y < 2560); every surface
+# this route adds, moves or removes projects below guide y = 2584 (asserted in main(): PILOT_Y_MIN) -- which is why the
+# stair TOP sits at sketch A's stair top (the path from the start ends there) and the cave is at the stair's FOOT, east:
+# a 7 m mouth under a 5 m cliff needs a brow 3 m above the clifftop, and at sketch A's own cave spot that brow would be
+# drawn inside the pilot tiles.
+ROUTE = {"lip_stair": (4, 6), "lip_cave": (6, 7), "shelf_z": SEA_Z + 1.0, "landing_t": (0.5, 2.5), "stair_w": 5.5,
+         "risers": 28, "tread": 0.27, "shelf_out_s": 8.4, "shelf_in_s": 0.4, "shelf_east_t": 5.2,
+         "mouth_w": 6.0, "mouth_h": 7.0, "cheek_w": 1.2, "brow_top": 3.0, "hood_back_s": -1.8, "floor_back_s": -1.5, "mouth_s": 2.0,
+         "bounds_out_m": 0.2}
+PILOT_Y_MIN = 2584.0           # guide px: the pilot window ends at y = 2560; 24 px of margin for the pen and filtering
 FLOES = [(40, 640), (110, 690), (60, 760), (150, 760), (230, 820), (110, 860), (300, 880), (200, 930), (380, 960), (480, 1000), (30, 900),
          (20, 560), (290, 1000), (420, 900), (30, 300), (25, 380), (35, 230)]
+
+
+def point_in_poly(p, poly):
+    x, y = p
+    inside = False
+    for (ax, ay), (bx, by) in zip(poly, poly[1:] + poly[:1]):
+        if (ay > y) != (by > y) and x < ax + (y - ay) * (bx - ax) / (by - ay):
+            inside = not inside
+    return inside
+
+
+def frame(o, d):
+    """a straight frame on the lip: t along d, s SEAWARD (d turned clockwise: for d heading east, n heads south)"""
+    n = (d[1], -d[0])
+    return lambda t, s: (o[0] + d[0] * t + n[0] * s, o[1] + d[1] * t + n[1] * s)
+
+
+def to_frame(o, d, p):
+    n = (d[1], -d[0])
+    dx, dy = p[0] - o[0], p[1] - o[1]
+    return (dx * d[0] + dy * d[1], dx * n[0] + dy * n[1])
+
+
+def route_geometry(lip):
+    """R-C9-188/189: the shelf, the stair, the cave hood -- every piece in (u, v) metres and z."""
+    R = ROUTE
+    p4, p6 = lip[R["lip_stair"][0]], lip[R["lip_stair"][1]]
+    ds = unit(p6[0] - p4[0], p6[1] - p4[1])                  # the stair descends ALONG ds (west -> east), top at the west
+    st = frame(p4, ds)
+    rise = (0.0 - R["shelf_z"]) / R["risers"]
+    n_tr = R["risers"] - 1                                    # treads between the shelf and the landing
+    t0, t_top = R["landing_t"]
+    t_foot = t_top + n_tr * R["tread"]
+    W = R["stair_w"]
+    c6, c7 = lip[R["lip_cave"][0]], lip[R["lip_cave"][1]]
+    dc = unit(c7[0] - c6[0], c7[1] - c6[1])
+    cv = frame(c7, dc)
+    hw, cw = R["mouth_w"] / 2.0, R["cheek_w"]
+    ns = (ds[1], -ds[0])
+    nc = (dc[1], -dc[0])
+    F_in, F_out = st(t_foot, 0.0), st(t_foot, W)
+    s_fin = to_frame(c7, dc, F_in)[1]
+    lam = (R["shelf_out_s"] - s_fin) / (ns[0] * nc[0] + ns[1] * nc[1])
+    shelf_sw = (F_in[0] + ns[0] * lam, F_in[1] + ns[1] * lam)  # the stair's foot edge carried on to the shelf's outer edge
+    g = {"ds": ds, "dc": dc, "st": st, "cv": cv, "rise": rise, "n_tr": n_tr, "t0": t0, "t_top": t_top, "t_foot": t_foot, "W": W,
+         "hw": hw, "cw": cw, "p4": p4, "c7": c7}
+    g["landing"] = [st(t0, 0.0), st(t_top, 0.0), st(t_top, W), st(t0, W)]
+    g["flight"] = [st(t_top, 0.0), st(t_foot, 0.0), st(t_foot, W), st(t_top, W)]
+    g["shelf"] = [F_in, F_out, shelf_sw, cv(R["shelf_east_t"], R["shelf_out_s"]), cv(R["shelf_east_t"], R["shelf_in_s"]),
+                  cv(-hw - cw, R["shelf_in_s"])]
+    g["cave_floor"] = [cv(-hw - cw, R["floor_back_s"]), cv(hw + cw, R["floor_back_s"]), cv(hw + cw, R["mouth_s"]), cv(-hw - cw, R["mouth_s"])]
+    g["hood"] = [cv(-hw - cw, R["hood_back_s"]), cv(hw + cw, R["hood_back_s"]), cv(hw + cw, R["mouth_s"]), cv(-hw - cw, R["mouth_s"])]
+    g["route_poly"] = [st(t0, 0.0), st(t0, W), F_out, shelf_sw, cv(R["shelf_east_t"], R["shelf_out_s"]),
+                       cv(R["shelf_east_t"], R["shelf_in_s"]), cv(hw + cw, R["hood_back_s"]), cv(-hw - cw, R["hood_back_s"]), F_in, st(t_top, 0.0)]
+    # the nosing line (the walk surface): through every step's nosing, from the shelf one tread out from the foot to the landing
+    g["nosing_z"] = lambda t: R["shelf_z"] + (t_foot + R["tread"] - t) * rise / R["tread"]
+    return g
 
 
 def main():
@@ -165,12 +244,18 @@ def main():
     # gentle snow swells on the land outside the walkable centre (never on the floor around the start)
     swell = 0.35 * np.sin(U / 6.3 + 1.1) * np.sin(V / 5.1 + 0.4) * np.clip((np.hypot(U, V) - 22.0) / 8.0, 0, 1)
     Z = np.where(land & (dome < 0.05), Z + np.maximum(swell, 0), Z)
-    # the stair: a sea-level LEDGE in front of the cave and the stair's foot
-    cave_c = uv(CAVE["mouth_px"], SEA_Z)
-    foot = uv(STAIR["foot_px"], SEA_Z)
-    ledge_poly = [(cave_c[0] - 4.0, cave_c[1] + 0.6), (foot[0] + 2.0, foot[1] + 0.6), (foot[0] + 2.0, foot[1] - 2.2), (cave_c[0] - 4.0, cave_c[1] - 2.2)]
-    led = mask(ledge_poly, U, V, HF_PPM, u0, v1) & south
-    Z = np.where(led, SEA_Z + 0.4, Z)
+    # R-C9-188/189 THE ROUTE: the shelf (flat, rock, ~1 m above the sea), the stair's bed (just under its treads), the flush
+    # top landing (0), the cave floor (flush with the shelf) -- all on the terrain, so its collider walks them
+    rg = route_geometry(lip)
+    Z_before_route = Z.copy()
+    Z = np.where(mask(rg["shelf"], U, V, HF_PPM, u0, v1), ROUTE["shelf_z"], Z)
+    Z = np.where(mask(rg["cave_floor"], U, V, HF_PPM, u0, v1), ROUTE["shelf_z"], Z)
+    Ts = (U - rg["p4"][0]) * rg["ds"][0] + (V - rg["p4"][1]) * rg["ds"][1]
+    Ss = (U - rg["p4"][0]) * rg["ds"][1] + (V - rg["p4"][1]) * -rg["ds"][0]
+    in_w = (Ss >= 0.0) & (Ss <= rg["W"])
+    bed = np.maximum(ROUTE["shelf_z"], rg["nosing_z"](Ts) - rg["rise"] - 0.05)
+    Z = np.where(in_w & (Ts >= rg["t_top"]) & (Ts <= rg["t_foot"]), bed, Z)
+    Z = np.where(in_w & (Ts >= rg["t0"]) & (Ts < rg["t_top"]), -0.05, Z)      # the landing's bed: its walk surface is a plate at 0
     Z = Z.astype("<f4")
     Z.tofile(os.path.join(OUT, "terrain_h.f32"))
     # ---- classes at CLS_PPM ----
@@ -213,7 +298,8 @@ def main():
     C[line_mask([uv(p) for p in STREAM], 1.8)] = names.index("stream")
     southc = ~landc & ~westc
     C[southc & (Zc > SEA_Z + 0.05)] = names.index("rock")
-    C[mask(ledge_poly, Uc, Vc, CLS_PPM, u0, v1)] = names.index("rock")
+    for poly in (rg["shelf"], rg["cave_floor"], rg["landing"], rg["flight"]):
+        C[mask(poly, Uc, Vc, CLS_PPM, u0, v1)] = names.index("rock")
     C[Zc <= SEA_Z + 0.05] = names.index("none")             # under the sea plane
     Image.fromarray(C, "L").save(os.path.join(OUT, "classes.png"))
     shutil.copyfile(os.path.join(OUT, "classes.png"), os.path.join(OUT, "classes_png.bin"))
@@ -343,14 +429,19 @@ def main():
         s_ = ht / ab(gcr)[1]
         crag_insts.append(model("crag_%d" % i, "rock", gcr, c, unit(math.sin(i * 1.7), -1.0), s_, z=hz_min(c, 1.5) - 0.4))
     models.append({"id": "crags", "kind": "outcrop", "pos": [0, 0], "z": 0, "godot_rot_y_deg": 0, "size_m": {"w_local_x": 1, "d_local_z": 1, "h": 1}, "instances": crag_insts, "glb": None})
-    # -- the S cliff: modular cliff faces along the lip (kit cliffplain, uniform, rotation only), out of the cave and stair
+    # -- the S cliff: modular cliff faces along the lip (kit cliffplain, uniform, rotation only). The instance list is
+    # Phase 1''s (its gaps at the Phase 1' cave and stair kept by their LEGACY positions, so ids, scales and the pilot
+    # tiles stay as they were); R-C9-188/189 then drops the faces the new route stands in (by footprint, ids kept)
     cliff_insts = []
     gcl = "data/bv2f/models/cliffplain.glb"
     s_cl = 8.2 / ab(gcl)[1]
-    acc = 0.0
     seglen = [math.dist(a, b) for a, b in zip(lip[:-1], lip[1:])]
     total = sum(seglen)
-    stair_top = uv(STAIR["top_px"])
+    leg_cave = uv(LEGACY_CAVE_PX, SEA_Z)
+    leg_top = uv(LEGACY_STAIR["top_px"])
+    leg_foot = uv(LEGACY_STAIR["foot_px"], SEA_Z)
+    route_poly = rg["route_poly"]
+    dropped = []
     t = 3.0
     k = 0
     while t < total - 2.0:
@@ -364,30 +455,65 @@ def main():
         out = (d_[1], -d_[0])                                        # seaward (S)
         if out[1] > 0:
             out = (-out[0], -out[1])
-        skip = math.dist(p, cave_c) < 4.5 or math.dist(p, stair_top) < 4.0 or math.dist(p, foot) < 3.0
+        skip = math.dist(p, leg_cave) < 4.5 or math.dist(p, leg_top) < 4.0 or math.dist(p, leg_foot) < 3.0
         if not skip:
             cdep = ab(gcl)[2] * s_cl
             cc = (p[0] + out[0] * (cdep / 2 + 0.3), p[1] + out[1] * (cdep / 2 + 0.3))
-            cliff_insts.append(model("cliff_%d" % k, "rock", gcl, cc, out, s_cl * (0.9 + 0.2 * ((k * 37) % 10) / 10), z=SEA_Z - 1.6))
+            sk = s_cl * (0.9 + 0.2 * ((k * 37) % 10) / 10)
+            hwid, hdep = ab(gcl)[0] * sk / 2, ab(gcl)[2] * sk / 2
+            foot_pts = [(cc[0] + d_[0] * a_ * hwid + out[0] * b_ * hdep, cc[1] + d_[1] * a_ * hwid + out[1] * b_ * hdep)
+                        for a_ in (-1, -0.5, 0, 0.5, 1) for b_ in (-1, 0, 1)]
+            ins = model("cliff_%d" % k, "rock", gcl, cc, out, sk, z=SEA_Z - 1.6)
+            if any(point_in_poly(q, route_poly) for q in foot_pts):
+                layout_pl.pop()                                      # the route stands here: this face is not placed
+                dropped.append({"id": "cliff_%d" % k, "uv": [round(cc[0], 3), round(cc[1], 3)], "size_m": ins["size_m"], "z": ins["z"], "yaw": ins["godot_rot_y_deg"]})
+            else:
+                cliff_insts.append(ins)
             k += 1
         t += ab(gcl)[0] * s_cl * 0.85
     models.append({"id": "cliff_faces", "kind": "cliff", "pos": [0, 0], "z": 0, "godot_rot_y_deg": 0, "size_m": {"w_local_x": 1, "d_local_z": 1, "h": 1}, "instances": cliff_insts, "glb": None})
-    # -- the sea cave: its dark mouth on the cliff face under the lip
-    lipn = min(lip, key=lambda q: math.dist(q, cave_c))
-    openings.append({"id": "sea_cave_mouth", "point": "SW", "model": "cliff", "centre_sim": [round(cave_c[0], 4), round(-(cave_c[1] + 0.3), 4)], "z0": SEA_Z + 0.4,
-                     "w": CAVE["w_m"], "h": CAVE["h_m"], "faces_deg": 180.0, "curtain_inset_m": -0.1, "dark": True})
-    # -- the straight open-sided stair: from the sea-level ledge up the face to the clifftop (procedural steps, true size)
-    drop = 0.0 - (SEA_Z + 0.4)
-    n_st = int(round(drop / STAIR["rise"]))
-    run = n_st * STAIR["tread"]
-    sd = unit(stair_top[0] - foot[0], stair_top[1] - foot[1])
-    st_top = stair_top
-    st_foot = (st_top[0] - sd[0] * run, st_top[1] - sd[1] * run)
+    # -- R-C9-188/189 the sea cave: a 6 m x 7 m mouth under a rock BROW (the roof 1 m thick, 3 m above the clifftop) on two
+    # cheeks and a back wall -- procedural rock at true size; its floor the shelf's level; the dark curtain at its back
+    R = ROUTE
+    cv, hw, cw = rg["cv"], rg["hw"], rg["cw"]
+    dc = rg["dc"]
+    z_roof = R["shelf_z"] + R["mouth_h"]
+
+    def rbox(name, t0_, t1_, s0_, s1_, z0_, z1_):
+        c = cv((t0_ + t1_) / 2, (s0_ + s1_) / 2)
+        return {"id": name, "c_sim": [round(c[0], 4), round(-c[1], 4)], "z0": round(z0_, 4), "z1": round(z1_, 4),
+                "across": round(s1_ - s0_, 4), "along": round(t1_ - t0_, 4), "yaw_deg": round(yaw_of(dc), 4)}
+    hood = [rbox("brow", -hw - cw, hw + cw, R["hood_back_s"], R["mouth_s"], z_roof, R["brow_top"]),
+            rbox("cheek_w", -hw - cw, -hw, R["hood_back_s"], R["mouth_s"], SEA_Z - 0.5, z_roof),
+            rbox("cheek_e", hw, hw + cw, R["hood_back_s"], R["mouth_s"], SEA_Z - 0.5, z_roof),
+            rbox("back", -hw, hw, R["hood_back_s"], R["floor_back_s"], R["shelf_z"] - 0.5, z_roof)]
+    mouth_c = cv(0.0, R["mouth_s"])
+    face_uv = (dc[1], -dc[0])                                        # the mouth faces the sea (the frame's +s)
+    openings.append({"id": "sea_cave_mouth", "point": "S", "model": "sea_cave_hood", "centre_sim": [round(mouth_c[0], 4), round(-mouth_c[1], 4)], "z0": R["shelf_z"],
+                     "w": R["mouth_w"], "h": R["mouth_h"], "faces_deg": round(math.degrees(math.atan2(face_uv[0], face_uv[1])) % 360, 3),
+                     "curtain_inset_m": round(R["mouth_s"] - R["floor_back_s"] - 0.3, 3), "dark": True})
+    # -- R-C9-188/189 the straight stair across the face: 28 risers of 0.179 m, 27 treads of 0.27 m (33.5 deg), 5.5 m wide (5.3 m clear),
+    # open to the sea; the treads are true-size blocks to below the sea (visual); the WALK SURFACE is one ramp through
+    # the nosings (v1's knight has no step-up: knight.gd is a CharacterBody3D capsule on plain move_and_slide)
+    sd = rg["ds"]
     steps = []
-    for i in range(n_st):
-        c = (st_foot[0] + sd[0] * STAIR["tread"] * (i + 0.5), st_foot[1] + sd[1] * STAIR["tread"] * (i + 0.5))
-        steps.append({"c_sim": [round(c[0], 4), round(-c[1], 4)], "z_top": round(SEA_Z + 0.4 + STAIR["rise"] * (i + 1), 4),
-                      "w": STAIR["width_m"], "tread": STAIR["tread"], "yaw_deg": round(yaw_of(sd), 3)})
+    for i in range(rg["n_tr"]):
+        tc_ = rg["t_foot"] - R["tread"] * (i + 0.5)
+        c = rg["st"](tc_, rg["W"] / 2)
+        steps.append({"c_sim": [round(c[0], 4), round(-c[1], 4)], "z_top": round(R["shelf_z"] + rg["rise"] * (i + 1), 4),
+                      "w": rg["W"], "tread": R["tread"], "yaw_deg": round(yaw_of(sd), 3)})
+    t_lo, t_hi = rg["t_top"], rg["t_foot"] + R["tread"]
+    run_h = t_hi - t_lo
+    rc = rg["st"]((t_lo + t_hi) / 2, rg["W"] / 2)
+    theta = math.atan2(0.0 - R["shelf_z"], run_h)
+    ramp = {"id": "stair_ramp", "c_sim": [round(rc[0], 4), round(-rc[1], 4)], "z_c": round(R["shelf_z"] / 2, 4), "across": rg["W"],
+            "along_h": round(run_h, 4), "along": round(math.hypot(run_h, R["shelf_z"]), 4), "thick": 0.3, "yaw_deg": round(yaw_of(sd), 4),
+            "pitch_deg": round(math.degrees(theta), 4), "dir_sim": [round(sd[0], 6), round(-sd[1], 6)],
+            "_": "a plane through every nosing: z = 0 at the landing edge, z = shelf one tread out from the foot; local +Z downhill"}
+    lc = rg["st"]((rg["t0"] + rg["t_top"]) / 2, (rg["W"] - 0.4) / 2)      # 0.4 m onto the clifftop: the bed's 5 cm edge lies under it
+    plate = {"id": "landing_plate", "c_sim": [round(lc[0], 4), round(-lc[1], 4)], "z_c": 0.0, "across": rg["W"] + 0.4, "along_h": round(rg["t_top"] - rg["t0"], 4),
+             "along": round(rg["t_top"] - rg["t0"], 4), "thick": 0.3, "yaw_deg": round(yaw_of(sd), 4), "pitch_deg": 0.0, "dir_sim": [round(sd[0], 6), round(-sd[1], 6)],
+             "_": "the top landing's walk surface: a plate at 0 meeting the ramp's top edge exactly (the terrain under it is 5 cm lower)"}
     # -- the palisade (procedural posts at true size) and the yard logs
     post_insts = []
     k_post = 0
@@ -457,6 +583,25 @@ def main():
         bpoly.append(p)
     bpoly = [p for p in coast if wu[0] - 2 <= p[0] <= wu[1] + 2]
     bpoly += [(wu[1], coast[-1][1]), (wu[1], wv[1]), (shore[0][0], wv[1])]
+    # R-C9-188/189: the walkable route joins the land at the landing -- the bounds take its seaward outline (0.2 m out over
+    # the drop, so the wall never narrows the walk), and the lip it leaves inside gets a wall from the clifftop up
+    st_, ob = rg["st"], ROUTE["bounds_out_m"]
+    i4, i_after = coast.index(lip[ROUTE["lip_stair"][0]]), None
+    east_end = cv(ROUTE["shelf_east_t"] + ob, ROUTE["shelf_in_s"])
+    for j in range(i4 + 1, len(coast)):
+        if to_frame(rg["c7"], dc, coast[j])[0] > ROUTE["shelf_east_t"] + ob:
+            i_after = j
+            break
+    lam_sw = to_frame(rg["p4"], rg["ds"], rg["shelf"][2])[1]
+    out_line = [st_(rg["t0"] - ob, 0.0), st_(rg["t0"] - ob, rg["W"] + ob), st_(rg["t_foot"] - ob, rg["W"] + ob), st_(rg["t_foot"] - ob, lam_sw + ob),
+                cv(ROUTE["shelf_east_t"] + ob, ROUTE["shelf_out_s"] + ob), east_end]
+    new_coast = coast[:i4 + 1] + out_line + coast[i_after:]
+    bpoly = [p for p in new_coast if wu[0] - 2 <= p[0] <= wu[1] + 2]
+    bpoly += [(wu[1], new_coast[-1][1]), (wu[1], wv[1]), (shore[0][0], wv[1])]
+    iw = -0.2                                                          # the inner walls stand 0.2 m back on the clifftop: none overhangs the route
+    lip_walls = [[st_(rg["t_top"], iw), st_(rg["t_foot"], iw)], [st_(rg["t_foot"], iw), cv(-hw - cw, ROUTE["shelf_in_s"] + iw)],
+                 [cv(-hw - cw, ROUTE["shelf_in_s"] + iw), cv(-hw - cw, ROUTE["hood_back_s"])],
+                 [cv(hw + cw, ROUTE["hood_back_s"]), cv(hw + cw, ROUTE["shelf_in_s"] + iw)], [cv(hw + cw, ROUTE["shelf_in_s"] + iw), cv(ROUTE["shelf_east_t"] + ob, ROUTE["shelf_in_s"] + iw)]]
     tints = json.load(open(os.path.join(BF, "data", "barrow_full_layout.json")))["tints_srgb"]
     tints.update(json.load(open(os.path.join(LV, "DEV12_proposal.json")))["class_list"]["new_classes_DEV2_provisional"])
     hf = {"file": "terrain_h.f32", "shape": [H, W], "px_per_m": HF_PPM, "extent_sim_m": {"x0": u0, "x1": u1, "y0": -v1, "y1": -v0}, "sha256": sha(os.path.join(OUT, "terrain_h.f32"))}
@@ -471,10 +616,15 @@ def main():
         "placements": [{"id": "mound", "kind": "structure", "uv": [0.0, 60.0], "semi_axes": [1.0, 1.0], "rise_m": 0.0, "exponent": 1.0, "toe_rho": 0.2,
                         "cutting": {"half_w": 0.0, "v_facade": -999.0}, "passage": {"half_w": 0.0, "v0": 0.0, "v_end": 0.0, "risers_v": [], "riser_m": 0.0},
                         "_": "STUB for the frozen capture tool's walk-grid statistics (v1's mound spec); the art mound is terrain"}],
-        "bounds": {"polygon_uv": [[round(p[0], 3), round(p[1], 3)] for p in bpoly]},
+        "bounds": {"polygon_uv": [[round(p[0], 3), round(p[1], 3)] for p in bpoly], "wall_z_m": [SEA_Z - 3.5, 3.0],
+                   "inner_walls_uv": [[[round(q[0], 3), round(q[1], 3)] for q in w] for w in lip_walls], "inner_wall_z_m": [0.0, 3.0],
+                   "_": "R-C9-188/189: the walls run from below the sea to 3 m up (the route is below the clifftop); the inner walls close the lip the route runs under, open only at the landing"},
         "crucible": {"eye_height_m": 1.6, "station": {"uv": [0.0, 0.0]}, "boss_gate": {"uv": [round(bd[0], 3), round(bd[1], 3)]}, "spawns": []},
         "sim": {"heightfield": hf, "classes_png": {"file": "classes_png.bin", "px_per_m": CLS_PPM, "extent_sim_m": hf["extent_sim_m"], "sha256": sha(os.path.join(OUT, "classes_png.bin"))},
                 "sea_z": SEA_Z, "models": models, "features": [], "blobs": blobs, "openings": openings, "stair_steps": steps,
+                "route": {"hood": hood, "ramp": ramp, "walk_boxes": [ramp, plate], "heightfield_collider": True, "hf_collider_v_max": -8.5, "floor_box_v_min": -9.0, "shelf_z": ROUTE["shelf_z"],
+                          "_": "R-C9-188/189 sea cave hood (procedural rock, colliders) + the stair's walk ramp and landing plate (colliders only); south of v -8.5 the terrain is the walk collider (HeightMapShape3D), north of v -9 v1's box floor at 0 stays"},
+                "hall_panels": HALL_PANELS,
                 "stair": None, "skip_models": [], "glb_copies": glb_copies, "glb_missing": [],
                 "model_class": {"wreck": "wood", "barrow_front": "rock", "longhall": "wood", "fallen_gable": "char", "ring_stones": "rock", "slope_stones": "rock", "crags": "rock",
                                 "cliff_faces": "rock", "palisade": "wood", "logs": "wood"},
@@ -495,6 +645,21 @@ def main():
         "placements": layout_pl,
         "procedural": {"palisade_posts": len(post_insts), "logs": len(log_insts), "stair_steps": len(steps), "floes": len(blobs)},
         "openings": openings, "knight": level["knight"], "bounds": level["bounds"],
+        "route": {"_what": "R-C9-188/189: the walkable route from the sea cave to the clifftop (fid/lv/tools/lv_walkability.py checks it)",
+                  "spec": {k: (list(v) if isinstance(v, tuple) else v) for k, v in ROUTE.items()},
+                  "riser_m": round(rg["rise"], 5), "treads": rg["n_tr"], "stair_pitch_deg": round(math.degrees(math.atan2(rg["rise"], ROUTE["tread"])), 3),
+                  "points_uv": {k: [round(q[0], 3), round(q[1], 3)] for k, q in {
+                      "cave_back": cv(0.0, ROUTE["floor_back_s"] + 0.6), "cave_mouth": cv(0.0, ROUTE["mouth_s"]),
+                      "shelf_mid": cv(-hw - cw - 1.0, (ROUTE["mouth_s"] + ROUTE["shelf_out_s"]) / 2), "stair_foot": rg["st"](rg["t_foot"] + 0.5, rg["W"] / 2),
+                      "stair_top": rg["st"](rg["t_top"], rg["W"] / 2), "landing": rg["st"]((rg["t0"] + rg["t_top"]) / 2, rg["W"] / 2),
+                      "clifftop": rg["st"]((rg["t0"] + rg["t_top"]) / 2, -2.5)}.items()},
+                  "polygons_uv": {k: [[round(q[0], 3), round(q[1], 3)] for q in rg[k]] for k in ("landing", "flight", "shelf", "cave_floor", "hood")},
+                  "frames": {"stair": {"origin_uv": [round(rg["p4"][0], 4), round(rg["p4"][1], 4)], "along_uv": [round(rg["ds"][0], 6), round(rg["ds"][1], 6)],
+                                       "t_landing": [rg["t0"], rg["t_top"]], "t_foot": round(rg["t_foot"], 4), "width_m": rg["W"]},
+                             "cave": {"origin_uv": [round(rg["c7"][0], 4), round(rg["c7"][1], 4)], "along_uv": [round(rg["dc"][0], 6), round(rg["dc"][1], 6)]},
+                             "_": "t along, s seaward (along turned clockwise)"},
+                  "ramp": ramp, "plate": plate, "hood": hood, "cliff_faces_dropped": dropped,
+                  "moved_from_sketch_A": "sketch A draws the cave under the lip at u ~ -9 with the stair on its east; the 7 m mouth needs a brow 3 m over the clifftop, which there projects into the paint pilot's tiles (R-C9-189) -- so the stair TOP stays at sketch A's stair top (where the start's path ends) and the flight runs EAST down the face to the shelf and the cave (cave mouth u = %.1f)" % mouth_c[0]},
         "classes": names, "class_counts": {names[k]: int((C == k).sum()) for k in range(len(names)) if (C == k).any()},
     }
     json.dump(layout, open(os.path.join(ART, "layout_bv2art.json"), "w"), indent=1)
