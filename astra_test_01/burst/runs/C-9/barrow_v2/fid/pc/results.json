@@ -72,7 +72,7 @@
   "outputs": "fid/pc/run/overlay/overlay_check.json(+png)"
  },
  "T4": {
-  "verdict": "MISS -> HALT proposed (H-C9-BV2F-PT-2)",
+  "verdict": "INFORMATIONAL (R-C9-169): re-based at HEAD 11.08 / 11.22 ms vs record 10.93 / 10.97 ms; not bisected; P10 (p99 <= 16.7 ms) binds",
   "configuration_reproduced": "the painted app rebuilt at HEAD by build_app_painted.sh in the clone (STAGE -> scratch), run '-- --frame-cost', default window. The app opened 1920x971 / render 1726x971 on the 3440x1440 display, i.e. the record's WINDOWED rows' configuration (painted_captures.json:234-235), not the 12.40 fullscreen row (render 1920x1080) that targets.json pre-registered on the assumption the window would render 1920x1080.",
   "measured_ms": [
    11.08,
@@ -88,7 +88,8 @@
    "restaged_post_trail_polish_fullscreen (5f96ba0fe msg)": "12.8-12.9"
   },
   "vs_record": "+0.11..+0.29 ms over the windowed rows (1.0-2.6%); record repeat spread 0.04 ms -> tolerance 10.89-11.01 -> MISS. Against the pre-registered 12.40 +/- 0.05 also outside (different render size).",
-  "context": "HEAD's barrow_full carries 17+ post-v1 commits (meteor/fire-ball/EoR/sorceress kits; trail polish recorded at +0.4-0.5 ms fullscreen); the HEAD pck is 1.1 GB vs v1's 320 MB. Not bisected. Both runs are well inside the charter's P10 bound (p99 <= 16.7 ms) but this is a mean, not p99."
+  "context": "HEAD's barrow_full carries 17+ post-v1 commits (meteor/fire-ball/EoR/sorceress kits; trail polish recorded at +0.4-0.5 ms fullscreen); the HEAD pck is 1.1 GB vs v1's 320 MB. Not bisected. Both runs are well inside the charter's P10 bound (p99 <= 16.7 ms) but this is a mean, not p99.",
+  "ruling": "R-C9-169: H-C9-BV2F-PT-2 CLOSED. Flag carried to Phase 3: HEAD export pck 1.1 GB vs v1's 320 MB -- the desktop build must ship only the barrow_v2 level's data."
  },
  "S": {
   "verdict": "DONE",

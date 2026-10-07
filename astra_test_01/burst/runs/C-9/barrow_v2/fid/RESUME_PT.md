@@ -30,9 +30,9 @@ Git: commit only your own paths: `git add -- <new paths>`, `git status --porcela
 - [x] 0.1 positive control — T1 PASS (byte-identical); T2 unlit PASS 15.5 (lit 36.2 informational, R-C9-166); T3 PASS exact (0.5221 / 0.3407 / 16 chunks; 0.4379); stills x6 + views.json in `pc/v1_stills/` (PNGs gitignored by astra_test_01/.gitignore:1, on disk, shas in results.json); **T4 MISS: 11.08 / 11.22 ms vs 10.93 / 10.97 windowed (same configuration: render 1726x971) → HALT H-C9-BV2F-PT-2 proposed.** control shas before == after; barrow_full status unchanged.
 - [x] 0.3 two-tier freeze — bf188cb9f (+ proofs 1f73c6775). verify.sh green; RED x3; DEV-15 dry-run exit 7; freeze proofs byte-identical (python via v1run.py, GD by absolute --script + --frame-grid).
 
-## HALT H-C9-BV2F-PT-2 (proposed; conductor appends)
+## HALT H-C9-BV2F-PT-2 — CLOSED by R-C9-169 (T4 re-based at HEAD as informational; P10 p99 <= 16.7 ms binds). Phase-3 flag: HEAD pck 1.1 GB vs v1 320 MB — the desktop build ships only the barrow_v2 level's data.
 0.1 T4 frame time at HEAD 11.08 / 11.22 ms vs record 10.93 / 10.97 ms (painted_captures.json:234-235), same window/render configuration (1920x971 / 1726x971); record repeat spread 0.04 ms → MISS by 0.11-0.29 ms (1.0-2.6%). targets.json pre-registered the 12.40 fullscreen row assuming render 1920x1080; the app opened windowed 1726x971, so the windowed rows are the matched record. HEAD carries the post-v1 kits (pck 1.1 GB vs 320 MB; trail polish recorded +0.4-0.5 ms). Not bisected. **Conductor must rule:** accept as re-based (informational, like lit) or bisect.
-Next step: await ruling. Nothing else outstanding in Phase 0 for PT.
+Next step: STAND BY — Phase 0 closed (R-C9-173); no PT work until the conductor resumes PT for Phase 2.
 
 ### 0.3 findings (first-layout notes; superseded by v1tools/PROVENANCE.md)
 - 10 tools + reference (`make_layout.py`, `cfg_t10bf.json` — the latter carries v1's `geo`/`rules`/`refs` brief, W3) copied mirroring source dirs; `SHA256SUMS` 12 files; `verify.sh` exit 0 on HEAD, exit 1 on a tampered copy and on an unlisted file (scratch tests).
