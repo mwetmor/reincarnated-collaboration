@@ -4,10 +4,10 @@
    - v7c passes check (a): all six openings are visible.
    - v7c separates the fallen gable again as its own ruin. This reverses the merged hall Matt saw after R-C9-148.
    - v7b is **comparison only**: it fails check (a).
-2. **The burnt hall: open sides?** Recommended: **keep the ruin closed-sided except the one declared great door**, so there are no false entrances.
+2. **The burnt hall: open sides?** Recommended: **keep the ruin closed-sided except the one declared great door**, so there are no false entrances. The tall part of the entrance is a raised roof bay set back about 5–8 m behind the great door; at the door itself the porch stands about 5 m.
 3. **The walk:** Recommended: the **.command on the Mac now**. A packaged .app can come later.
 
-P6′ result: _(the conductor fills this slot after PH's re-run)_.
+P6′: PASS on all four parts — presence, placement, scale, extent (PH bc29572c3; R11 under the ruled porch region R-C9-182, f99a12973)
 
 ---
 
