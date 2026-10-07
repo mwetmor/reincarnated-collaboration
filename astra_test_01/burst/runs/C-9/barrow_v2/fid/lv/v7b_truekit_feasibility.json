@@ -1,0 +1,1273 @@
+{
+ "_what": "BV2F LV Phase 1 (v7b, true proportions): which hall headings fit the TRUE-PROPORTION hall kit? (derived from v7a_feasibility.py)",
+ "rules_fixed": [
+  "R1 anchors",
+  "R4 floor >= min disc hull (search uses the min hull: most permissive)",
+  "R5 zero overlap",
+  "R10 <= 3.0 m"
+ ],
+ "positive_control_v6_heading": {
+  "theta_compass_deg": 222,
+  "screen_direction_door_to_gable": "lower-left",
+  "screen_angle_deg_cw_from_right": 138.4,
+  "best_max_gap_m": 0.06,
+  "feasible": true,
+  "best": {
+   "L": 33.0,
+   "D": 11.19,
+   "t": 44.99317873582463,
+   "u": 3.7299999999999995,
+   "v": -2.7975,
+   "s": -5.9,
+   "gap_gable": 0.059776924880795335,
+   "gap_porch": 0.04055817873544498,
+   "gable_c": [
+    34.47,
+    24.76
+   ],
+   "hall_c": [
+    49.26,
+    8.34
+   ]
+  }
+ },
+ "v7a_any_feasible": false,
+ "v7a_best": {
+  "theta_compass_deg": 180,
+  "screen_direction_door_to_gable": "lower-right",
+  "screen_angle_deg_cw_from_right": 90.0,
+  "best_max_gap_m": 18.043,
+  "feasible": false,
+  "best": {
+   "L": 27.0,
+   "D": 9.15,
+   "t": 65.49317873582463,
+   "u": 1.5250000000000004,
+   "v": -4.575,
+   "s": 6.1,
+   "gap_gable": 18.0430363552399,
+   "gap_porch": 0.0038922898337983014,
+   "gable_c": [
+    45.0,
+    41.27
+   ],
+   "hall_c": [
+    45.0,
+    23.2
+   ]
+  }
+ },
+ "feasible_headings": [
+  206,
+  208,
+  210,
+  212,
+  214,
+  216,
+  218,
+  220,
+  222,
+  224,
+  226,
+  228,
+  230,
+  232,
+  234,
+  236,
+  238,
+  240,
+  242,
+  244,
+  246,
+  248,
+  250,
+  252,
+  254,
+  256,
+  258,
+  260,
+  262,
+  264,
+  266,
+  268,
+  270,
+  272
+ ],
+ "per_heading": [
+  {
+   "theta_compass_deg": 180,
+   "screen_direction_door_to_gable": "lower-right",
+   "screen_angle_deg_cw_from_right": 90.0,
+   "best_max_gap_m": 18.043,
+   "feasible": false,
+   "best": {
+    "L": 27.0,
+    "D": 9.15,
+    "t": 65.49317873582463,
+    "u": 1.5250000000000004,
+    "v": -4.575,
+    "s": 6.1,
+    "gap_gable": 18.0430363552399,
+    "gap_porch": 0.0038922898337983014,
+    "gable_c": [
+     45.0,
+     41.27
+    ],
+    "hall_c": [
+     45.0,
+     23.2
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 182,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 92.5,
+   "best_max_gap_m": 17.938,
+   "feasible": false,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 65.99317873582463,
+    "u": 4.07,
+    "v": -4.07,
+    "s": 4.6,
+    "gap_gable": 17.93843164238273,
+    "gap_porch": 0.005581442434577255,
+    "gable_c": [
+     46.03,
+     38.92
+    ],
+    "hall_c": [
+     46.59,
+     22.85
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 184,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 95.0,
+   "best_max_gap_m": 17.821,
+   "feasible": false,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 55.99317873582463,
+    "u": -4.07,
+    "v": 2.035,
+    "s": 4.6,
+    "gap_gable": 17.82116710875902,
+    "gap_porch": 0.009063592945880217,
+    "gable_c": [
+     44.13,
+     40.79
+    ],
+    "hall_c": [
+     45.25,
+     24.76
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 186,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 97.5,
+   "best_max_gap_m": 17.674,
+   "feasible": false,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 57.49317873582463,
+    "u": -1.356666666666667,
+    "v": 2.035,
+    "s": 4.6,
+    "gap_gable": 17.674002036167458,
+    "gap_porch": 0.004346508879150335,
+    "gable_c": [
+     45.4,
+     39.13
+    ],
+    "hall_c": [
+     47.08,
+     23.15
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 188,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 100.0,
+   "best_max_gap_m": 17.532,
+   "feasible": false,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 58.99317873582463,
+    "u": -1.356666666666667,
+    "v": 0.0,
+    "s": 4.6,
+    "gap_gable": 17.531559488650053,
+    "gap_porch": 0.025879703344790173,
+    "gable_c": [
+     44.47,
+     39.89
+    ],
+    "hall_c": [
+     46.7,
+     23.98
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 190,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 102.5,
+   "best_max_gap_m": 17.354,
+   "feasible": false,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 62.49317873582463,
+    "u": -5.085,
+    "v": -5.085,
+    "s": 7.6,
+    "gap_gable": 17.35390823350821,
+    "gap_porch": 0.00817601019855907,
+    "gable_c": [
+     41.41,
+     44.96
+    ],
+    "hall_c": [
+     44.9,
+     25.18
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 192,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 104.9,
+   "best_max_gap_m": 17.118,
+   "feasible": false,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 57.49317873582463,
+    "u": 0.0,
+    "v": 2.035,
+    "s": 4.6,
+    "gap_gable": 17.11784483920377,
+    "gap_porch": 0.0038746966556004736,
+    "gable_c": [
+     45.51,
+     37.99
+    ],
+    "hall_c": [
+     48.85,
+     22.27
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 194,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 107.3,
+   "best_max_gap_m": 16.169,
+   "feasible": false,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 57.99317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 16.168695232526062,
+    "gap_porch": 0.2781986502275693,
+    "gable_c": [
+     50.68,
+     33.82
+    ],
+    "hall_c": [
+     56.03,
+     12.38
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 196,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 109.8,
+   "best_max_gap_m": 14.02,
+   "feasible": false,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 55.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 14.019658269459413,
+    "gap_porch": 0.11506012960281886,
+    "gable_c": [
+     48.93,
+     32.43
+    ],
+    "hall_c": [
+     55.02,
+     11.19
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 198,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 112.2,
+   "best_max_gap_m": 11.377,
+   "feasible": false,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 52.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 11.376627460468622,
+    "gap_porch": 0.09846090319633127,
+    "gable_c": [
+     46.78,
+     30.71
+    ],
+    "hall_c": [
+     53.61,
+     9.7
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 200,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 114.5,
+   "best_max_gap_m": 8.739,
+   "feasible": false,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 49.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 8.738997297970212,
+    "gap_porch": 0.10521266846514266,
+    "gable_c": [
+     44.64,
+     29.0
+    ],
+    "hall_c": [
+     52.19,
+     8.24
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 202,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 116.8,
+   "best_max_gap_m": 6.106,
+   "feasible": false,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 46.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 6.106327546386083,
+    "gap_porch": 0.09223301275223861,
+    "gable_c": [
+     42.48,
+     27.29
+    ],
+    "hall_c": [
+     50.75,
+     6.8
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 204,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 119.2,
+   "best_max_gap_m": 3.478,
+   "feasible": false,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 43.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 3.4781719266415685,
+    "gap_porch": 0.058299581602245354,
+    "gable_c": [
+     40.31,
+     25.59
+    ],
+    "hall_c": [
+     49.3,
+     5.4
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 206,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 121.4,
+   "best_max_gap_m": 1.854,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 41.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -9.9,
+    "gap_gable": 1.853734956165141,
+    "gap_porch": 0.3409721384386284,
+    "gable_c": [
+     38.89,
+     24.54
+    ],
+    "hall_c": [
+     48.58,
+     4.68
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 208,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 123.7,
+   "best_max_gap_m": 1.521,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 43.49317873582463,
+    "u": 5.595,
+    "v": 2.7975000000000003,
+    "s": -9.9,
+    "gap_gable": 1.5207806043142114,
+    "gap_porch": 0.44793511494214044,
+    "gable_c": [
+     38.02,
+     24.79
+    ],
+    "hall_c": [
+     48.39,
+     5.29
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 210,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 125.9,
+   "best_max_gap_m": 1.114,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 39.99317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -8.9,
+    "gap_gable": 1.1143575091780455,
+    "gap_porch": 0.8214080688722536,
+    "gable_c": [
+     37.92,
+     24.09
+    ],
+    "hall_c": [
+     48.96,
+     4.95
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 212,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 128.1,
+   "best_max_gap_m": 0.999,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 39.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -7.9,
+    "gap_gable": 0.9988346630990605,
+    "gap_porch": 0.6436746476941586,
+    "gable_c": [
+     37.6,
+     24.03
+    ],
+    "hall_c": [
+     49.31,
+     5.29
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 214,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 130.2,
+   "best_max_gap_m": 0.847,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 44.49317873582463,
+    "u": 5.595,
+    "v": 0.0,
+    "s": -7.9,
+    "gap_gable": 0.8473217039410557,
+    "gap_porch": 0.6596400786350802,
+    "gable_c": [
+     36.81,
+     24.44
+    ],
+    "hall_c": [
+     49.16,
+     6.12
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 216,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 132.3,
+   "best_max_gap_m": 0.648,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 49.49317873582463,
+    "u": 5.595,
+    "v": -5.595,
+    "s": -6.9,
+    "gap_gable": 0.64787855784658,
+    "gap_porch": 0.09310971696793757,
+    "gable_c": [
+     36.23,
+     24.53
+    ],
+    "hall_c": [
+     49.21,
+     6.65
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 218,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 134.4,
+   "best_max_gap_m": 0.467,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 40.49317873582463,
+    "u": 5.595,
+    "v": 2.7975000000000003,
+    "s": -5.9,
+    "gap_gable": 0.3731859654563632,
+    "gap_porch": 0.4667244826486012,
+    "gable_c": [
+     36.3,
+     23.77
+    ],
+    "hall_c": [
+     49.9,
+     6.36
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 220,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 136.4,
+   "best_max_gap_m": 0.166,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 45.49317873582463,
+    "u": 5.595,
+    "v": -2.7975,
+    "s": -4.9,
+    "gap_gable": 0.16568467617253546,
+    "gap_porch": 0.06891044737183627,
+    "gable_c": [
+     35.89,
+     23.64
+    ],
+    "hall_c": [
+     50.09,
+     6.72
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 222,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 138.4,
+   "best_max_gap_m": 0.06,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 44.99317873582463,
+    "u": 3.7299999999999995,
+    "v": -2.7975,
+    "s": -5.9,
+    "gap_gable": 0.059776924880795335,
+    "gap_porch": 0.04055817873544498,
+    "gable_c": [
+     34.47,
+     24.76
+    ],
+    "hall_c": [
+     49.26,
+     8.34
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 224,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 140.4,
+   "best_max_gap_m": 0.048,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 39.49317873582463,
+    "u": 0.0,
+    "v": 2.7975000000000003,
+    "s": -8.9,
+    "gap_gable": 0.04773139800998827,
+    "gap_porch": 0.00591183323924227,
+    "gable_c": [
+     31.91,
+     27.75
+    ],
+    "hall_c": [
+     47.26,
+     11.86
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 226,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 142.4,
+   "best_max_gap_m": 0.017,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 36.49317873582463,
+    "u": 5.595,
+    "v": 5.595,
+    "s": -2.9000000000000004,
+    "gap_gable": 0.016742242769781868,
+    "gap_porch": 0.014718457936911733,
+    "gable_c": [
+     35.53,
+     23.99
+    ],
+    "hall_c": [
+     51.43,
+     8.64
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 228,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 144.3,
+   "best_max_gap_m": 0.153,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 36.99317873582463,
+    "u": 1.8650000000000002,
+    "v": 5.595,
+    "s": -5.9,
+    "gap_gable": 0.15256842779427693,
+    "gap_porch": 0.06044623566658913,
+    "gable_c": [
+     33.13,
+     27.08
+    ],
+    "hall_c": [
+     49.55,
+     12.3
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 230,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 146.2,
+   "best_max_gap_m": 0.07,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 37.49317873582463,
+    "u": -1.8649999999999998,
+    "v": 5.595,
+    "s": -8.9,
+    "gap_gable": 0.029526471038614943,
+    "gap_porch": 0.07021867985427299,
+    "gable_c": [
+     30.55,
+     29.99
+    ],
+    "hall_c": [
+     47.47,
+     15.78
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 232,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 148.1,
+   "best_max_gap_m": 0.172,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 38.99317873582463,
+    "u": 5.085,
+    "v": 2.5424999999999995,
+    "s": -3.4000000000000004,
+    "gap_gable": 0.004038236218486091,
+    "gap_porch": 0.1724039142313991,
+    "gable_c": [
+     35.09,
+     24.35
+    ],
+    "hall_c": [
+     50.92,
+     11.99
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 234,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 149.9,
+   "best_max_gap_m": 0.137,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 44.99317873582463,
+    "u": 0.0,
+    "v": -2.5425,
+    "s": -6.4,
+    "gap_gable": 0.013070990416228057,
+    "gap_porch": 0.1371400847323212,
+    "gable_c": [
+     32.56,
+     27.34
+    ],
+    "hall_c": [
+     48.81,
+     15.54
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 236,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 151.7,
+   "best_max_gap_m": 0.031,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 47.99317873582463,
+    "u": -1.6949999999999998,
+    "v": -5.085,
+    "s": -6.4,
+    "gap_gable": 0.030382095121854746,
+    "gap_porch": 0.030802735412011728,
+    "gable_c": [
+     32.08,
+     28.09
+    ],
+    "hall_c": [
+     48.73,
+     16.86
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 238,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 153.5,
+   "best_max_gap_m": 0.153,
+   "feasible": true,
+   "best": {
+    "L": 27.0,
+    "D": 9.15,
+    "t": 44.49317873582463,
+    "u": 0.0,
+    "v": -2.2875,
+    "s": -6.9,
+    "gap_gable": 0.1529302606393408,
+    "gap_porch": 0.0502448171957699,
+    "gable_c": [
+     32.47,
+     27.14
+    ],
+    "hall_c": [
+     47.8,
+     17.56
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 240,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 155.3,
+   "best_max_gap_m": 0.09,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 39.49317873582463,
+    "u": 3.3899999999999997,
+    "v": 2.5424999999999995,
+    "s": -2.4000000000000004,
+    "gap_gable": 0.09010267274280537,
+    "gap_porch": 0.0025347234214851966,
+    "gable_c": [
+     34.1,
+     26.31
+    ],
+    "hall_c": [
+     51.5,
+     16.27
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 242,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 157.0,
+   "best_max_gap_m": 0.1,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 42.49317873582463,
+    "u": 1.6950000000000003,
+    "v": 0.0,
+    "s": -2.4000000000000004,
+    "gap_gable": 0.1002051364048615,
+    "gap_porch": 0.09191624222383155,
+    "gable_c": [
+     33.66,
+     26.97
+    ],
+    "hall_c": [
+     51.4,
+     17.54
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 244,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 158.7,
+   "best_max_gap_m": 0.017,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 42.49317873582463,
+    "u": -3.7299999999999995,
+    "v": 2.7975000000000003,
+    "s": -3.9000000000000004,
+    "gap_gable": 0.013282079709151517,
+    "gap_porch": 0.016670750712751925,
+    "gable_c": [
+     30.04,
+     31.92
+    ],
+    "hall_c": [
+     49.9,
+     22.23
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 246,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 160.4,
+   "best_max_gap_m": 0.052,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 43.49317873582463,
+    "u": 5.085,
+    "v": -2.5425,
+    "s": 2.5999999999999996,
+    "gap_gable": 0.051932891660818825,
+    "gap_porch": 0.03354881510364294,
+    "gable_c": [
+     36.53,
+     24.03
+    ],
+    "hall_c": [
+     54.88,
+     15.86
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 248,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 162.1,
+   "best_max_gap_m": 0.065,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 48.99317873582463,
+    "u": 0.0,
+    "v": -5.595,
+    "s": 3.0999999999999996,
+    "gap_gable": 0.0548357528411163,
+    "gap_porch": 0.06493062513944459,
+    "gable_c": [
+     34.99,
+     26.83
+    ],
+    "hall_c": [
+     55.48,
+     18.55
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 250,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 163.8,
+   "best_max_gap_m": 0.037,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 46.49317873582463,
+    "u": 0.0,
+    "v": -2.7975,
+    "s": 3.0999999999999996,
+    "gap_gable": 0.03664968318685524,
+    "gap_porch": 0.028286223798176025,
+    "gable_c": [
+     34.24,
+     27.75
+    ],
+    "hall_c": [
+     55.0,
+     20.2
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 252,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 165.5,
+   "best_max_gap_m": 0.019,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 47.99317873582463,
+    "u": 1.8650000000000002,
+    "v": -5.595,
+    "s": 6.1,
+    "gap_gable": 0.0018211172333799652,
+    "gap_porch": 0.018646356360227045,
+    "gable_c": [
+     36.37,
+     25.46
+    ],
+    "hall_c": [
+     57.39,
+     18.64
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 254,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 167.1,
+   "best_max_gap_m": 0.061,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 43.49317873582463,
+    "u": 0.0,
+    "v": 0.0,
+    "s": 1.5999999999999996,
+    "gap_gable": 0.048229928675592504,
+    "gap_porch": 0.06078272485468972,
+    "gable_c": [
+     32.92,
+     28.42
+    ],
+    "hall_c": [
+     52.23,
+     22.89
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 256,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 168.7,
+   "best_max_gap_m": 0.09,
+   "feasible": true,
+   "best": {
+    "L": 33.0,
+    "D": 11.19,
+    "t": 50.99317873582463,
+    "u": -3.7299999999999995,
+    "v": -5.595,
+    "s": 5.1,
+    "gap_gable": 0.09007190603221105,
+    "gap_porch": 0.015489017874005029,
+    "gable_c": [
+     33.63,
+     28.8
+    ],
+    "hall_c": [
+     55.07,
+     23.45
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 258,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 170.4,
+   "best_max_gap_m": 0.105,
+   "feasible": true,
+   "best": {
+    "L": 27.0,
+    "D": 9.15,
+    "t": 41.99317873582463,
+    "u": -1.525,
+    "v": 2.2875000000000005,
+    "s": 0.09999999999999964,
+    "gap_gable": 0.10548713099123042,
+    "gap_porch": 0.07716802110830656,
+    "gable_c": [
+     30.77,
+     30.0
+    ],
+    "hall_c": [
+     48.45,
+     26.24
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 260,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 172.0,
+   "best_max_gap_m": 0.022,
+   "feasible": true,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 38.99317873582463,
+    "u": 0.0,
+    "v": 4.07,
+    "s": -1.4000000000000004,
+    "gap_gable": 0.021845683649550196,
+    "gap_porch": 0.02167393322791611,
+    "gable_c": [
+     30.22,
+     29.49
+    ],
+    "hall_c": [
+     46.05,
+     26.7
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 262,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 173.6,
+   "best_max_gap_m": 0.018,
+   "feasible": true,
+   "best": {
+    "L": 27.0,
+    "D": 9.15,
+    "t": 39.99317873582463,
+    "u": 4.575,
+    "v": 0.0,
+    "s": 4.1,
+    "gap_gable": 0.004603052862517387,
+    "gap_porch": 0.017965702388144322,
+    "gable_c": [
+     34.8,
+     25.5
+    ],
+    "hall_c": [
+     52.7,
+     22.98
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 264,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 175.2,
+   "best_max_gap_m": 0.036,
+   "feasible": true,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 46.49317873582463,
+    "u": -4.07,
+    "v": -2.035,
+    "s": 0.5999999999999996,
+    "gap_gable": 0.03613207400798224,
+    "gap_porch": 0.01742992776844865,
+    "gable_c": [
+     30.93,
+     28.78
+    ],
+    "hall_c": [
+     46.91,
+     27.1
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 266,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 176.8,
+   "best_max_gap_m": 0.043,
+   "feasible": true,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 47.99317873582463,
+    "u": -4.07,
+    "v": -4.07,
+    "s": 1.5999999999999996,
+    "gap_gable": 0.00017419558109033062,
+    "gap_porch": 0.042629085773214115,
+    "gable_c": [
+     31.98,
+     27.59
+    ],
+    "hall_c": [
+     48.02,
+     26.46
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 268,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 178.4,
+   "best_max_gap_m": 0.128,
+   "feasible": true,
+   "best": {
+    "L": 30.0,
+    "D": 10.17,
+    "t": 42.49317873582463,
+    "u": 1.6950000000000003,
+    "v": 0.0,
+    "s": 7.6,
+    "gap_gable": 0.07545743810839411,
+    "gap_porch": 0.12775615194215995,
+    "gable_c": [
+     33.86,
+     27.71
+    ],
+    "hall_c": [
+     53.93,
+     27.01
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 270,
+   "screen_direction_door_to_gable": "lower-left",
+   "screen_angle_deg_cw_from_right": 180.0,
+   "best_max_gap_m": 0.063,
+   "feasible": true,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 45.99317873582463,
+    "u": -1.356666666666667,
+    "v": -4.07,
+    "s": 3.5999999999999996,
+    "gap_gable": 0.01709739582124037,
+    "gap_porch": 0.06303149409758291,
+    "gable_c": [
+     33.46,
+     25.99
+    ],
+    "hall_c": [
+     49.53,
+     25.99
+    ]
+   }
+  },
+  {
+   "theta_compass_deg": 272,
+   "screen_direction_door_to_gable": "upper-left",
+   "screen_angle_deg_cw_from_right": -178.4,
+   "best_max_gap_m": 0.091,
+   "feasible": true,
+   "best": {
+    "L": 24.0,
+    "D": 8.14,
+    "t": 41.49317873582463,
+    "u": 2.713333333333333,
+    "v": -2.035,
+    "s": 4.6,
+    "gap_gable": 0.026764159925214415,
+    "gap_porch": 0.09102548380218067,
+    "gable_c": [
+     34.19,
+     25.18
+    ],
+    "hall_c": [
+     50.25,
+     25.74
+    ]
+   }
+  }
+ ]
+}

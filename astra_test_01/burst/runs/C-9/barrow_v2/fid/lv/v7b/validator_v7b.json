@@ -1,0 +1,595 @@
+{
+  "layout": "fid/lv/layout_v7b.json",
+  "layout_sha256": "05947a45708417c9d401c081f0c9b5c6d8e686af2abb5c6c7b6874f2fd965a1e",
+  "pass": false,
+  "checks": [
+    {
+      "rule": "R1",
+      "check": "pack arena.json sha256 matches the layout's provenance",
+      "PASS": true,
+      "sha256": "f06f3a64ae9d5a88b3b163433c494dc6881c9f1f0f8195c211867b708aac4c3b"
+    },
+    {
+      "rule": "R1",
+      "check": "six anchors equal the pack's sg1 rows exactly",
+      "PASS": true,
+      "n": 6,
+      "worst_delta_m": 0.0
+    },
+    {
+      "rule": "R1",
+      "check": "scatter half-width equals the pack's placement_extents_m",
+      "PASS": true,
+      "half_width_m": 8.0
+    },
+    {
+      "rule": "R1",
+      "check": "CSV sha256 matches",
+      "PASS": true
+    },
+    {
+      "rule": "R1",
+      "check": "scatter law = polar disc: spawn_structure.py:295 is POLAR_UNIFORM_RHO and its sha matches",
+      "PASS": true,
+      "line_295": "scatter: ScatterLaw = ScatterLaw.POLAR_UNIFORM_RHO"
+    },
+    {
+      "rule": "R4",
+      "check": "floor is WHOLE: one simple polygon (no self-intersections, no holes)",
+      "PASS": true,
+      "n_vertices": 736,
+      "self_intersections": 0
+    },
+    {
+      "rule": "R4",
+      "check": "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
+      "PASS": true,
+      "area_m2": 4224.72,
+      "width_x_m": 84.628,
+      "depth_y_m": 82.269,
+      "x": [
+        -44.098,
+        40.531
+      ],
+      "y": [
+        -41.207,
+        41.062
+      ]
+    },
+    {
+      "rule": "R4",
+      "check": "floor contains the hull of the six discs + 1 m, the MINIMUM (every hull vertex on the floor; no floor vertex strictly inside the hull)",
+      "PASS": true,
+      "worst_hull_vertex_clearance_m": -0.0004,
+      "deepest_floor_vertex_inside_hull_m": 0.0,
+      "hull_min_area_m2": 4026.52,
+      "floor_minus_hull_m2": 198.21
+    },
+    {
+      "rule": "R4",
+      "check": "the edge is ORGANIC (R-C9-149a): no straight run longer than 6 m (points within 0.08 m of a chord)",
+      "PASS": true,
+      "longest_straight_run_m": 5.98,
+      "at": [
+        29.58,
+        -15.57
+      ],
+      "bulge_m": {
+        "min": 0.0,
+        "max": 3.602,
+        "mean": 0.68
+      }
+    },
+    {
+      "rule": "R2",
+      "check": "p01 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 1.1
+    },
+    {
+      "rule": "R2",
+      "check": "p01 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 98.088,
+      "corner_clearance_m": -1.4042
+    },
+    {
+      "rule": "R2",
+      "check": "p02 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 1.1496
+    },
+    {
+      "rule": "R2",
+      "check": "p02 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 97.465,
+      "corner_clearance_m": -1.8137
+    },
+    {
+      "rule": "R2",
+      "check": "p03 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 0.9996
+    },
+    {
+      "rule": "R2",
+      "check": "p03 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 96.94,
+      "corner_clearance_m": -2.3137
+    },
+    {
+      "rule": "R2",
+      "check": "p04 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 1.02
+    },
+    {
+      "rule": "R2",
+      "check": "p04 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 97.196,
+      "corner_clearance_m": -2.1675
+    },
+    {
+      "rule": "R2",
+      "check": "p05 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 9.0305
+    },
+    {
+      "rule": "R2",
+      "check": "p05 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 100.0,
+      "corner_clearance_m": 5.7237
+    },
+    {
+      "rule": "R2",
+      "check": "p06 8 m disc 100% on the floor with >= 1 m clearance",
+      "PASS": true,
+      "disc_on_floor_pct": 100.0,
+      "edge_clearance_m": 1.2548
+    },
+    {
+      "rule": "R2",
+      "check": "p06 8 m box (the pack's stale prose; not the oracle's law) coverage",
+      "PASS": true,
+      "severity": "INFO",
+      "box_on_floor_pct": 98.573,
+      "corner_clearance_m": -1.8193
+    },
+    {
+      "rule": "R3",
+      "check": "the start (0, 0) is on the floor",
+      "PASS": true,
+      "clearance_m": 27.0106
+    },
+    {
+      "rule": "R3",
+      "check": "line (0,0) -> p01 on the floor and clear of every blocker",
+      "PASS": true,
+      "length_m": 35.716,
+      "nearest_blocker": "wreck_hull",
+      "nearest_blocker_gap_m": 10.609
+    },
+    {
+      "rule": "R3",
+      "check": "line (0,0) -> p02 on the floor and clear of every blocker",
+      "PASS": true,
+      "length_m": 33.105,
+      "nearest_blocker": "grave_marker_1",
+      "nearest_blocker_gap_m": 10.801
+    },
+    {
+      "rule": "R3",
+      "check": "line (0,0) -> p03 on the floor and clear of every blocker",
+      "PASS": true,
+      "length_m": 33.101,
+      "nearest_blocker": "stair_wall_rock",
+      "nearest_blocker_gap_m": 9.0
+    },
+    {
+      "rule": "R3",
+      "check": "line (0,0) -> p04 on the floor and clear of every blocker",
+      "PASS": true,
+      "length_m": 31.948,
+      "nearest_blocker": "yard_beam_2",
+      "nearest_blocker_gap_m": 10.507
+    },
+    {
+      "rule": "R3",
+      "check": "line (0,0) -> p05 on the floor and clear of every blocker",
+      "PASS": true,
+      "length_m": 10.095,
+      "nearest_blocker": "grave_marker_5",
+      "nearest_blocker_gap_m": 31.644
+    },
+    {
+      "rule": "R3",
+      "check": "line (0,0) -> p06 on the floor and clear of every blocker",
+      "PASS": true,
+      "length_m": 27.493,
+      "nearest_blocker": "yard_beam_4",
+      "nearest_blocker_gap_m": 11.574
+    },
+    {
+      "rule": "R5",
+      "check": "every blocker (blocks movement or sight, or taller than walk-over) has zero area inside the floor",
+      "PASS": true,
+      "n_blockers": 189,
+      "worst_overlap_m2": 0.0,
+      "worst_id": "stair_wall_rock",
+      "closest_blocker_gap_m": 0.0,
+      "closest_blocker": "stair_wall_rock"
+    },
+    {
+      "rule": "R5",
+      "check": "every interior feature is walk-over (z_top <= 0.4 m, blocks nothing)",
+      "PASS": true,
+      "n_interior": 353,
+      "tallest_interior_m": 0.1494,
+      "offenders": []
+    },
+    {
+      "rule": "R5",
+      "check": "mere is walkable and flush (z 0)",
+      "PASS": true
+    },
+    {
+      "rule": "R5",
+      "check": "stream is walkable and flush (z 0)",
+      "PASS": true
+    },
+    {
+      "rule": "R5",
+      "check": "path is walkable and flush (z 0)",
+      "PASS": true
+    },
+    {
+      "rule": "R5",
+      "check": "sculpt: every blob taller than walk-over (0.4 m) lies outside the floor",
+      "PASS": true,
+      "n_blobs": 441,
+      "n_tall": 47,
+      "offenders": []
+    },
+    {
+      "rule": "R5",
+      "check": "sculpt: no beam rises above walk-over (0.4 m) over the floor",
+      "PASS": true,
+      "n_beams": 0,
+      "offenders": []
+    },
+    {
+      "rule": "R5",
+      "check": "terrain: the heightfield is exactly 0 at every sample on the floor (the sim's plane); relief only outside",
+      "PASS": true,
+      "samples_on_floor": 16894,
+      "max_abs_z_on_floor_m": 0.0,
+      "relief_outside_max_m": 6.17
+    },
+    {
+      "rule": "R6",
+      "check": "stair width >= 2.5 m (measured off the flight polygon)",
+      "PASS": true,
+      "width_m": 5.0
+    },
+    {
+      "rule": "R6",
+      "check": "stair slope walkable: <= 35 deg (and under Godot's default floor_max_angle 45 deg)",
+      "PASS": true,
+      "slope_deg": 34.695,
+      "run_m": 10.4,
+      "drop_m": 7.2,
+      "grade_pct": 69.23
+    },
+    {
+      "rule": "R6",
+      "check": "steps: rise x count = drop, tread x count = run, 2R+T in 0.60-0.65 m",
+      "PASS": true,
+      "n_steps": 40,
+      "rise_m": 0.18,
+      "tread_m": 0.26,
+      "two_r_plus_t_m": 0.62
+    },
+    {
+      "rule": "R6",
+      "check": "the run's angle to the centre (climbers turn on the top landing; the alignment rule was dropped by R-C9-148)",
+      "PASS": true,
+      "severity": "INFO",
+      "turn_on_landing_deg": 98.4
+    },
+    {
+      "rule": "R6",
+      "check": "top landing flush: same z as the floor, its north edge ON the floor boundary, no overlap, abutting the p03 disc across the 1 m margin",
+      "PASS": true,
+      "north_edge_off_boundary_m": 2.1e-05,
+      "landing_overlap_m2": 1e-06,
+      "gap_to_p03_disc_m": 0.9997,
+      "gap_to_p03_box_m_info": 0.0,
+      "landing_north_edge_len_m": 6.492
+    },
+    {
+      "rule": "R6",
+      "check": "stair top_landing lies OUTSIDE the floor (zero overlap)",
+      "PASS": true,
+      "overlap_m2": 1e-06
+    },
+    {
+      "rule": "R6",
+      "check": "stair flight lies OUTSIDE the floor (zero overlap)",
+      "PASS": true,
+      "overlap_m2": 0.0
+    },
+    {
+      "rule": "R6",
+      "check": "stair bottom_landing lies OUTSIDE the floor (zero overlap)",
+      "PASS": true,
+      "overlap_m2": 0.0
+    },
+    {
+      "rule": "R6",
+      "check": "one side open: no blocker within 1 m of the sea-side edge; the cliff face is the wall on the other side",
+      "PASS": true,
+      "sea_side_nearest": "stair_wall_rock",
+      "sea_side_gap_m": 5.0,
+      "wall": "stair_wall_rock",
+      "wall_gap_m": 0.0
+    },
+    {
+      "rule": "R6",
+      "check": "nothing stands on the flight or the top landing",
+      "PASS": true,
+      "offenders": []
+    },
+    {
+      "rule": "R6",
+      "check": "the flight climbs FROM the ledge: its foot edge is on the sea-level ledge, at the ledge's z",
+      "PASS": true,
+      "foot_mid_clearance_in_ledge_m": -0.0,
+      "ledge_z_m": -7.2
+    },
+    {
+      "rule": "R6",
+      "check": "the cave is at the stair's foot: on the ledge, within 4 m of the foot, at the ledge's z, in the cliff face under the lip (<= 0.5 m out)",
+      "PASS": true,
+      "cave_to_foot_m": 1.69,
+      "cave_to_lip_m": 0.059,
+      "cave_z_m": [
+        -7.2,
+        -0.2999999999999998
+      ]
+    },
+    {
+      "rule": "R7",
+      "check": "the mere covers p05's 8 m disc 100%",
+      "PASS": true,
+      "disc_edge_clearance_m": 0.6678
+    },
+    {
+      "rule": "R7",
+      "check": "p05's box (stale prose) under the mere",
+      "PASS": true,
+      "severity": "INFO",
+      "p05_box_covered_pct": 93.75
+    },
+    {
+      "rule": "R7",
+      "check": "the mere is on the floor (walkable ice, flush)",
+      "PASS": true,
+      "mere_area_m2": 468.69,
+      "mere_on_floor_pct": 100.0
+    },
+    {
+      "rule": "R7",
+      "check": "the mere reaches the stone circle (its edge within the ring's radius of the circle centre)",
+      "PASS": true,
+      "mere_edge_to_circle_centre_m": 2.893,
+      "circle_radius_m": 5.2
+    },
+    {
+      "rule": "R7",
+      "check": "the stream runs from outside the edge (the barrow slope) into the mere",
+      "PASS": true,
+      "source_outside_floor_m": 15.302,
+      "mouth_inside_mere_m": 1.744
+    },
+    {
+      "rule": "R8",
+      "check": "stone circle: 7-9 stones, all walk-over",
+      "PASS": true,
+      "n": 8,
+      "tallest_m": 0.12
+    },
+    {
+      "rule": "R8",
+      "check": "the start (0,0) is inside the circle",
+      "PASS": true,
+      "start_to_centre_m": 2.915
+    },
+    {
+      "rule": "R9",
+      "check": "camera = pitch 52.9535411256029 deg, zero yaw IN THE SIM FRAME (the sim camera; world = R_y(+47).sim, DEV-4), orthographic, plate 100.617553710938 px/m, ppm_GD derived",
+      "PASS": true,
+      "ppm_zoom_gd": 75.6684,
+      "window_zoom_gd_m": [
+        25.374,
+        17.882
+      ]
+    },
+    {
+      "rule": "R10",
+      "check": "p02: barrow_door is outside the walkable edge and within 3.5 m of it",
+      "PASS": true,
+      "overlap_m2": 0.0,
+      "gap_to_floor_m": 3.294
+    },
+    {
+      "rule": "R10",
+      "check": "p01: wreck_hull is outside the walkable edge and within 3.0 m of it",
+      "PASS": true,
+      "overlap_m2": 0.0,
+      "gap_to_floor_m": 1.091
+    },
+    {
+      "rule": "R10",
+      "check": "p04: hall_porch is outside the walkable edge and within 3.0 m of it",
+      "PASS": true,
+      "overlap_m2": 0.0,
+      "gap_to_floor_m": 1.786
+    },
+    {
+      "rule": "R10",
+      "check": "p06: fallen_gable is outside the walkable edge and within 3.0 m of it",
+      "PASS": false,
+      "overlap_m2": 0.0,
+      "gap_to_floor_m": 13.245
+    },
+    {
+      "rule": "R10",
+      "check": "p03: sea_cave_mouth is outside the walkable edge and within 0.5 m of it",
+      "PASS": true,
+      "overlap_m2": 0.0,
+      "gap_to_floor_m": 0.059
+    },
+    {
+      "rule": "R11",
+      "check": "p02 barrow_front slot opening >= 5.0 m wide x 6.5 m high (yeti nemesis ~5.6 m)",
+      "PASS": true,
+      "w_m": 5.81,
+      "h_m": 6.67
+    },
+    {
+      "rule": "R11",
+      "check": "p04: the longhall slot has EXACTLY ONE great door, >= 4.5 x 4.5 m, inside the porch; the porch opening >= 4.5 x 4.5 m",
+      "PASS": true,
+      "great_doors": 1,
+      "door_w_m": 4.5,
+      "door_h_m": 4.5,
+      "porch_opening": [
+        4.511,
+        4.728
+      ]
+    },
+    {
+      "rule": "R11",
+      "check": "the porch rises ABOVE the hall's roofline (slot heights)",
+      "PASS": false,
+      "porch_h_m": 10.97,
+      "hall_h_m": 10.509
+    },
+    {
+      "rule": "R11",
+      "check": "p03 sea-cave mouth ~7 m high x >= 9 m wide (servitors 4-8 m long, the 5.6 m nemesis), with rock above it below the floor",
+      "PASS": true,
+      "mouth_w_m": 9.457,
+      "mouth_h_m": 6.9,
+      "rock_lintel_m": 0.3
+    },
+    {
+      "rule": "R12",
+      "check": "a lane exists for each of the five deliverers (barrow door, great door, gable breach, stair landing, wreck rail)",
+      "PASS": true,
+      "lanes": [
+        "barrow_front",
+        "fallen_gable",
+        "hall_porch",
+        "sea_cave_stair",
+        "wreck"
+      ]
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p02_barrow: >= 5.81 m wide, starts at the barrow_front opening, reaches p02's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 6.41,
+      "required_m": 5.81,
+      "length_m": 6.0,
+      "starts_at_opening": true,
+      "on_disc_m2": 12.51,
+      "obstructions": [],
+      "terrain_max_z_m": 0.0
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p04_hall: >= 4.511 m wide, starts at the hall_porch opening, reaches p04's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 4.6,
+      "required_m": 4.511,
+      "length_m": 8.841,
+      "starts_at_opening": true,
+      "on_disc_m2": 10.7,
+      "obstructions": [],
+      "terrain_max_z_m": 0.05
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p06_gable: >= 4.0 m wide, starts at the fallen_gable opening, reaches p06's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 4.1,
+      "required_m": 4.0,
+      "length_m": 17.441,
+      "starts_at_opening": true,
+      "on_disc_m2": 9.48,
+      "obstructions": [],
+      "terrain_max_z_m": 0.05
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p03_stair: >= 5.0 m wide, starts at the sea_cave_stair opening, reaches p03's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 5.1,
+      "required_m": 5.0,
+      "length_m": 3.061,
+      "starts_at_opening": true,
+      "on_disc_m2": 11.13,
+      "obstructions": [],
+      "terrain_max_z_m": 0.0
+    },
+    {
+      "rule": "R12",
+      "check": "lane_p01_wreck: >= 4.0 m wide, starts at the wreck opening, reaches p01's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "PASS": true,
+      "width_min_m": 4.1,
+      "required_m": 4.0,
+      "length_m": 6.032,
+      "starts_at_opening": true,
+      "on_disc_m2": 9.93,
+      "obstructions": [],
+      "terrain_max_z_m": 0.0
+    },
+    {
+      "rule": "R12",
+      "check": "the porch's door opens STRAIGHT onto its lane (lane starts at the porch mouth; first heading within 5 deg of the porch's facing)",
+      "PASS": true,
+      "mouth_to_lane_start_m": 0.0,
+      "heading_vs_facing_deg": 0.0
+    },
+    {
+      "rule": "R13",
+      "check": "CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots",
+      "PASS": true,
+      "offenders": []
+    },
+    {
+      "rule": "R13",
+      "check": "tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)",
+      "PASS": true,
+      "tufts": 63,
+      "cap": 63,
+      "per_100m2": 1.491
+    }
+  ]
+}
