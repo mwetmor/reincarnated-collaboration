@@ -42540,9 +42540,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LV-hall",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1-model-kit-v3",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "fc749421d715eddc1bc8e3215bf77574f213ad1aa716bea795afdeeeaa19084f",
+      "started": "2026-10-07T04:05:16.500658+00:00",
+      "ended": "2026-10-07T04:19:13.514791+00:00",
+      "minutes": 13.94969103471764,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11489-7d87-7ae3-a4cb-b3be011f255b/exec-3bf3e104-de73-4571-ba7d-b3fa7135f5ac.png",
+            "sha256": "5fe9c6d0c55c6383ded8aff5c0fb64861f752514a7ef3bd4b72ee9153b1f56c9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11489-7d87-7ae3-a4cb-b3be011f255b/exec-f51ef385-feae-421d-a630-7d7cc7e689d7.png",
+            "sha256": "c1435ebaf6eaf9e0fcaa213059ccb8e428853dd8735c91b6d26d4839b9e5d1d9"
+          }
+        ]
+      },
+      "receipt_sha256": "4c118c1fb963976cb6a98913923ab06f03063ff3a60f9ab222e76b96534f1825",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-hall.png",
+          "sha256": "c1435ebaf6eaf9e0fcaa213059ccb8e428853dd8735c91b6d26d4839b9e5d1d9"
+        },
+        {
+          "name": "exec-3bf3e104-de73-4571-ba7d-b3fa7135f5ac.provenance.json",
+          "sha256": "7bad7955b039c04d1a92f1486f743d7fc4aa3685b6e85c6c1a2e8c62843a8c88"
+        },
+        {
+          "name": "exec-f51ef385-feae-421d-a630-7d7cc7e689d7.provenance.json",
+          "sha256": "9d11ee89aa597030bf8278cae5cf7556d24defe5f36645a9d461f66450d23ebb"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11489-7d87-7ae3-a4cb-b3be011f255b/exec-3bf3e104-de73-4571-ba7d-b3fa7135f5ac.png",
+          "sha256": "5fe9c6d0c55c6383ded8aff5c0fb64861f752514a7ef3bd4b72ee9153b1f56c9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11489-7d87-7ae3-a4cb-b3be011f255b/exec-f51ef385-feae-421d-a630-7d7cc7e689d7.png",
+          "sha256": "c1435ebaf6eaf9e0fcaa213059ccb8e428853dd8735c91b6d26d4839b9e5d1d9"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1255,
+  "images_used": 1257,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -45437,6 +45510,13 @@
       "ruling": "BV2F H-C9-BV2F-LV-P1-2 disposed: option 1. The Ph1 sub-cap is re-based 4 -> 6 by drawing 2 images from the run reserve (16 -> 14; run cap ~250 unchanged; charter s6 conductor re-base) plus <= $0.40 fal (Ph1 fal total <= $1.20, inside $8), for ONE hall-with-shallow-porch model sheet (one image + its one retry). The fault is in the kit, not the rules: R-C9-154's door (>= 4.5 x 4.5 m) in a porch rising above the roofline does not require an 11.7 m gatehouse, and C7 forbids hiding it by squashing. Options 2 (squashed porch exception) and 3 (relax R10 to 13.5 m) are REJECTED: one breaks the true-proportions principle that C7 names as a 159 failure, the other moves a validator bar to fit a model. Brief constraints: true proportions, one uniform scale; porch shallow (depth a few metres) covering the hall's one great door, clear opening >= 4.5 x 4.5 m, porch roof >= 0.5 m above the hall roof (R11); collapsed SW end = the fallen gable (R-C9-148); 53-deg top view in the sheet; refs_guard. If the rebuilt kit still cannot pass R1-R13 in v7b: HALT, no further variants. Wreck (13.0 m, reads as a ship from 53 deg) and barrow front (door 5.81 x 6.67 m, meets R-C9-154) accepted for M1.",
       "verbatim": [],
       "ts": "2026-10-07T04:04:54Z"
+    },
+    {
+      "id": "R-C9-177",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F M1 packet v7b (LV, collab 70ed0b922/0a9eb7013; hall rebuilt with shallow porch 32.4 m, door 4.55 x 4.75 m; v7b validator 66/66; M0(a) folded: v6's -7.8 m west moat removed, one sea level; guide/ID/class 11,776 x 8,704 in 99 tiles via godot_run.sh; Ph1 spend 6 images, $1.20) is NOT sent to Matt yet. Conductor review: (1) the hall's great door faces away from the play camera (porch back + roof only) -- this contradicts R-C9-149a ('the great-door porch for camera visibility'); (2) the sea-cave mouth is hidden behind the cave-cliff rock (R-C9-148: cave mouth in the main south face, visible); (3) the approach stills are framed on the character over bare floor with the hero object cut off at the frame edge, so they do not show what Matt must judge. RULED, before M1 (0 images, $0): (a) NEW MECHANICAL CHECK for Phase 1 DoD: every one of the six deliverer openings (barrow door, hall great door, sea-cave mouth, wreck rail, gable, mere) has visible projected area at the play camera in the ID render (> 0, reported in m^2 and as a % of its frontal area) -- a delivery the player cannot see is a defect; (b) layout v7c: the R-C9-148 merged-longhall was a CONDUCTOR fix, not a Matt ruling, so it may be revisited -- the fallen gable becomes its own collapsed building on p06's ray (reuse barrow_v2/models/builds/gable.glb at true proportions, uniform scale) and the hall is freed to turn its great door toward the camera and the floor, serving p04 by its exit lane; feasibility sweep + validator R1-R13 + check (a); v7b stays as the alternative; (c) cave mouth re-composed (trim/move the cave-cliff instance) so check (a) passes, stair per R-C9-148; (d) stills re-framed ON the hero object at v1's zoom (object centred, the character at the disc edge for scale); (e) M1 then shows v7c (RECOMMENDED if it passes) beside v7b for the hall/gable views. If v7c cannot pass the validator and check (a): HALT to the conductor; the door-visibility conflict then goes to Matt as a fork. Disk: 23 GiB free on /System/Volumes/Data (lanes halt at 21); the walkable .app export (~5 GB) waits for disk -- Matt has manifest 14b (1.94 GiB) prepared.",
+      "verbatim": [],
+      "ts": "2026-10-07T05:15:40Z"
     }
   ],
   "grok_calls": [
