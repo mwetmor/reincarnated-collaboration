@@ -123,6 +123,34 @@
    "tint_r_vs_paint_r": 0.034,
    "tint_b_vs_paint_b": 0.057,
    "pass": false
-  }
+  },
+  "precision": {
+   "quantity": "overlay_check.py precision_drawn_on_painted (drawn heather px on painted tuft px / drawn heather px)",
+   "record": 0.5221,
+   "record_src": "take/build/overlay_check.json:1781 (as_painted, whole_window)",
+   "v1_chunk_range": [
+    0.4476,
+    0.5783
+   ],
+   "bar_provisional": 0.4567,
+   "bar_rule": "record - half v1's chunk range; RE-BASE on PT's reproduced value when it lands",
+   "v1": {
+    "drawn_px": 934936,
+    "precision": 0.5221,
+    "pass": true
+   },
+   "constructed": {
+    "drawn_px": 934936,
+    "precision": 0.1061,
+    "pass": false,
+    "what": "v1's drawn heather shifted 4 m"
+   },
+   "159": {
+    "drawn_px": 555586,
+    "precision": 0.0212,
+    "pass": false
+   }
+  },
+  "mapping": "share (instance-level: a spray within 24 px of ANY painted tuft) is a placement-validity rate and reads ~1.0 for v1; precision (pixel-level: drawn heather px on painted tuft px) is the RECORDED quantity, 0.52, because a spray's drawn pixels spill past its tuft's painted pixels. They agree on pass/fail for every calibration input; precision is the BINDING form (R-C9-167 (4)), share is reported."
  }
 }

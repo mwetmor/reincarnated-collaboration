@@ -1,6 +1,6 @@
 {
  "_what": "BV2F lane PH -- the v1-parity harness P1-P11, calibrated (Phase 0 task 0.4)",
- "assembled_utc": "2026-10-07T02:27:15Z",
+ "assembled_utc": "2026-10-07T02:41:49Z",
  "rows": [
   {
    "row": "P1",
@@ -223,27 +223,27 @@
    "row": "P8",
    "kind": "constraint",
    "neg": "constructed (RED)",
-   "metric": "share of 3D heather instances on painted tufts (24 px footprint) + tint correlation with the paint under them",
-   "threshold": "share \u2265 0.9 and tint r \u2265 0.874 \u2014 PROVISIONAL (0.90 \u00d7 v1 measured) until PT's reproduced v1 value lands (Gate-1 W-2)",
-   "threshold_source": "v1 heather.json (977) on v1's tuft classifier",
+   "metric": "precision_drawn_on_painted (overlay_check.py's recorded quantity): drawn 3D-heather px on painted tuft px / drawn px, whole window. Reported beside it: instance share on tufts and tint r",
+   "threshold": "\u2265 0.4567 \u2014 record 0.5221 \u2212 half v1's chunk range; RE-BASE on PT's reproduced value (R-C9-167 (4))",
+   "threshold_source": "take/build/overlay_check.json:1781 (0.5221, as_painted, whole_window); reproduced here exactly",
    "cells": {
     "v1": {
-     "value": "1.000 / r 0.97",
+     "value": "0.5221 (share 1.00)",
      "pass": true,
      "note": ""
     },
     "159": {
-     "value": "0.402 / r 0.03",
+     "value": "0.0212 (share 0.40)",
      "pass": false,
      "note": ""
     },
     "constructed": {
-     "value": "0.419 / r 0.05",
+     "value": "0.1061 (share 0.42)",
      "pass": false,
      "note": ""
     }
    },
-   "constructed": "v1's instances displaced 3\u20138 m (placed by noise)"
+   "constructed": "v1's drawn heather shifted 4 m"
   },
   {
    "row": "P9",
@@ -306,39 +306,40 @@
    "row": "P11",
    "kind": "quality",
    "neg": "R-C9-159",
-   "metric": "blind pair test: identification rate of the candidate crop over 30 test pairs (+10 v1-vs-v1 null pairs), fresh judge (C-3)",
-   "threshold": "\u2264 65% (pass if \u2264 19/30)",
-   "threshold_source": "plan \u00a7 4 P11; power table below",
+   "metric": "blind ABX (R-C9-168): 40 trials A | B | X, X from v1 or the candidate; accuracy of 'X is from A's / B's build'; 10 side-swapped repeats for reliability; fresh judge (C-3)",
+   "threshold": "ABX accuracy \u2264 65% (\u2264 26/40); judge void if repeat inconsistency > 25%",
+   "threshold_source": "plan \u00a7 4 P11; R-C9-168; power table in calibration.md",
    "cells": {
-    "cal_v1_vs_159": {
-     "value": null,
-     "pass": null,
-     "note": "built: 40 pairs; NOT JUDGED (conductor spawns the judge)"
+    "159": {
+     "value": "v0.1 directional 100.0% (null FA 0%)",
+     "pass": false,
+     "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"
     },
-    "cal_v1_vs_158": {
-     "value": null,
+    "158": {
+     "value": "v0.1 directional 13.3% (null FA 40%), judge UNRELIABLE",
      "pass": null,
-     "note": "built: 40 pairs; NOT JUDGED (conductor spawns the judge)"
+     "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"
     },
-    "cal_v1_vs_constructed_halfdensity": {
-     "value": null,
-     "pass": null,
-     "note": "built: 40 pairs; NOT JUDGED (conductor spawns the judge)"
+    "constructed": {
+     "value": "v0.1 directional 86.7% (null FA 10%)",
+     "pass": false,
+     "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"
     }
    },
-   "constructed": "v1 stills at half texel density (cal_v1_vs_constructed_halfdensity)",
+   "constructed": "v1 stills at half texel density",
    "power": {
-    "pass_if_identified_le": 19,
-    "of": 30,
-    "P(pass | true identification rate p)": {
-     "0.50": 0.9506,
-     "0.55": 0.865,
-     "0.60": 0.7085,
-     "0.65": 0.4922,
-     "0.70": 0.2696,
-     "0.75": 0.1057,
-     "0.80": 0.0256,
-     "0.90": 0.0001,
+    "pass_if_correct_le": 26,
+    "of": 40,
+    "chance": 0.5,
+    "P(pass | true ABX accuracy p)": {
+     "0.50": 0.9808,
+     "0.55": 0.9249,
+     "0.60": 0.7888,
+     "0.65": 0.5592,
+     "0.70": 0.2968,
+     "0.75": 0.1032,
+     "0.80": 0.0194,
+     "0.90": 0.0,
      "1.00": 0.0
     }
    }

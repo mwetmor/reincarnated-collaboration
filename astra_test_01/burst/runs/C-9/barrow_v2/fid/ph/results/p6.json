@@ -142,6 +142,87 @@
     ],
     "inventions_xy_plate_px": []
    }
+  },
+  "r_c9_167_variants": {
+   "v1_door_frame_contrast": 23.9,
+   "frame_min": 11.9,
+   "variants": {
+    "C0 v0.1 (no prior)": {
+     "v1": 0,
+     "constructed": 1,
+     "BVR hall (T2a, 7_5..8_7)": {
+      "inventions": 18,
+      "invented_door_flagged": true,
+      "other_flags": 17
+     },
+     "BVR barrow door (T2b, 4_0..6_1)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "acceptance": false
+    },
+    "C1 shape prior (h >= 1.8 m, h/w >= 0.8)": {
+     "v1": 0,
+     "constructed": 1,
+     "BVR hall (T2a, 7_5..8_7)": {
+      "inventions": 14,
+      "invented_door_flagged": true,
+      "other_flags": 13
+     },
+     "BVR barrow door (T2b, 4_0..6_1)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "acceptance": false
+    },
+    "C1F shape + lighter frame (>= 11.9)": {
+     "v1": 0,
+     "constructed": 1,
+     "BVR hall (T2a, 7_5..8_7)": {
+      "inventions": 8,
+      "invented_door_flagged": false,
+      "other_flags": 8
+     },
+     "BVR barrow door (T2b, 4_0..6_1)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "acceptance": false
+    },
+    "C2 shape + dark structures (hall/porch/gable/palisade, extruded)": {
+     "v1": 0,
+     "constructed": 1,
+     "BVR hall (T2a, 7_5..8_7)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "BVR barrow door (T2b, 4_0..6_1)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "acceptance": false
+    },
+    "C4 C2 + ash ground dark": {
+     "v1": 0,
+     "constructed": 1,
+     "BVR hall (T2a, 7_5..8_7)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "BVR barrow door (T2b, 4_0..6_1)": {
+      "inventions": 0,
+      "invented_door_flagged": false,
+      "other_flags": 0
+     },
+     "acceptance": false
+    }
+   }
   }
  },
  "iou": {

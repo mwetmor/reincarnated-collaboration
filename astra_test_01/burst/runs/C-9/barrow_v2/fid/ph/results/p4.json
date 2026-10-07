@@ -454,6 +454,245 @@
    }
   }
  },
+ "new_classes_advisory": {
+  "status": "ADVISORY (Phase 2 W-B); BINDING in Phase 3 vs the M2-passed W-B chunks' own distribution (R-C9-167 (3))",
+  "map": {
+   "wood": "v1 lintel + posts + logs",
+   "shingle": "v1 shore_rock",
+   "sea": "v1 tarn ice",
+   "shore ice": "v1 tarn ice"
+  },
+  "bars": {
+   "wood": {
+    "hist": 0.269,
+    "spec": null,
+    "n_pieces": 5,
+    "n_pieces_with_spectrum": 1
+   },
+   "shingle": {
+    "hist": 0.097,
+    "spec": 0.029,
+    "n_pieces": 10,
+    "n_pieces_with_spectrum": 9
+   },
+   "sea / shore ice (tarn ice, chunk LOO)": {
+    "hist": 0.126,
+    "spec": 0.031
+   }
+  },
+  "159": {
+   "wood": {
+    "samples": 3,
+    "within_bar": 0,
+    "rows": [
+     {
+      "chunk": "0_0",
+      "hist": 0.615,
+      "spec": 0.941,
+      "within": false
+     },
+     {
+      "chunk": "1_0",
+      "hist": 0.689,
+      "spec": 0.73,
+      "within": false
+     },
+     {
+      "chunk": "0_1",
+      "hist": 0.688,
+      "spec": null,
+      "within": false
+     }
+    ]
+   },
+   "shingle": {
+    "samples": 11,
+    "within_bar": 0,
+    "rows": [
+     {
+      "chunk": "0_0",
+      "hist": 0.632,
+      "spec": 0.763,
+      "within": false
+     },
+     {
+      "chunk": "1_0",
+      "hist": 0.619,
+      "spec": 0.748,
+      "within": false
+     },
+     {
+      "chunk": "2_0",
+      "hist": 0.62,
+      "spec": 0.657,
+      "within": false
+     },
+     {
+      "chunk": "0_1",
+      "hist": 0.547,
+      "spec": 0.696,
+      "within": false
+     },
+     {
+      "chunk": "0_2",
+      "hist": 0.667,
+      "spec": 0.571,
+      "within": false
+     },
+     {
+      "chunk": "1_2",
+      "hist": 0.636,
+      "spec": 0.521,
+      "within": false
+     },
+     {
+      "chunk": "0_3",
+      "hist": 0.7,
+      "spec": 0.619,
+      "within": false
+     },
+     {
+      "chunk": "1_3",
+      "hist": 0.615,
+      "spec": 0.576,
+      "within": false
+     },
+     {
+      "chunk": "1_4",
+      "hist": 0.593,
+      "spec": 0.572,
+      "within": false
+     },
+     {
+      "chunk": "1_5",
+      "hist": 0.719,
+      "spec": 0.59,
+      "within": false
+     },
+     {
+      "chunk": "2_5",
+      "hist": 0.684,
+      "spec": 0.724,
+      "within": false
+     }
+    ]
+   },
+   "sea": {
+    "samples": 12,
+    "within_bar": 0,
+    "rows": [
+     {
+      "chunk": "0_0",
+      "hist": 0.928,
+      "spec": 0.757,
+      "within": false
+     },
+     {
+      "chunk": "1_0",
+      "hist": 0.972,
+      "spec": 0.579,
+      "within": false
+     },
+     {
+      "chunk": "2_0",
+      "hist": 0.977,
+      "spec": 0.683,
+      "within": false
+     },
+     {
+      "chunk": "0_1",
+      "hist": 0.927,
+      "spec": 0.72,
+      "within": false
+     },
+     {
+      "chunk": "0_2",
+      "hist": 0.953,
+      "spec": 0.545,
+      "within": false
+     },
+     {
+      "chunk": "0_3",
+      "hist": 0.921,
+      "spec": 0.691,
+      "within": false
+     },
+     {
+      "chunk": "1_3",
+      "hist": 0.968,
+      "spec": 0.623,
+      "within": false
+     },
+     {
+      "chunk": "0_4",
+      "hist": 0.944,
+      "spec": 0.69,
+      "within": false
+     },
+     {
+      "chunk": "1_4",
+      "hist": 0.942,
+      "spec": 0.601,
+      "within": false
+     },
+     {
+      "chunk": "0_5",
+      "hist": 0.967,
+      "spec": 0.634,
+      "within": false
+     },
+     {
+      "chunk": "1_5",
+      "hist": 0.922,
+      "spec": 0.608,
+      "within": false
+     },
+     {
+      "chunk": "2_5",
+      "hist": 0.964,
+      "spec": 0.622,
+      "within": false
+     }
+    ]
+   },
+   "shore ice": {
+    "samples": 5,
+    "within_bar": 0,
+    "rows": [
+     {
+      "chunk": "0_0",
+      "hist": 0.673,
+      "spec": null,
+      "within": false
+     },
+     {
+      "chunk": "1_0",
+      "hist": 0.684,
+      "spec": 0.635,
+      "within": false
+     },
+     {
+      "chunk": "2_0",
+      "hist": 0.743,
+      "spec": 0.572,
+      "within": false
+     },
+     {
+      "chunk": "0_1",
+      "hist": 0.632,
+      "spec": null,
+      "within": false
+     },
+     {
+      "chunk": "2_1",
+      "hist": 0.776,
+      "spec": 0.603,
+      "within": false
+     }
+    ]
+   }
+  }
+ },
  "159": {
   "pass": false,
   "models_included": true,
@@ -482,6 +721,10 @@
      },
      "shingle+cliff-back": {
       "px": 170414,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 869961,
       "note": "no v1 class -- cellularity only (W-7)"
      }
     },
@@ -516,6 +759,10 @@
      "shingle+cliff-back": {
       "px": 251440,
       "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 129939,
+      "note": "no v1 class -- cellularity only (W-7)"
      }
     },
     "cellularity_p95": 0.856,
@@ -544,6 +791,10 @@
      },
      "shingle+cliff-back": {
       "px": 362677,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 122671,
       "note": "no v1 class -- cellularity only (W-7)"
      }
     },
@@ -585,6 +836,10 @@
      },
      "shingle+cliff-back": {
       "px": 545934,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 251655,
       "note": "no v1 class -- cellularity only (W-7)"
      }
     },
@@ -657,6 +912,10 @@
      "shingle+cliff-back": {
       "px": 440550,
       "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 816498,
+      "note": "no v1 class -- cellularity only (W-7)"
      }
     },
     "cellularity_p95": 0.82,
@@ -716,6 +975,10 @@
      "shingle+cliff-back": {
       "px": 57190,
       "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 886947,
+      "note": "no v1 class -- cellularity only (W-7)"
      }
     },
     "cellularity_p95": 0.939,
@@ -744,6 +1007,10 @@
      },
      "shingle+cliff-back": {
       "px": 220042,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 371973,
       "note": "no v1 class -- cellularity only (W-7)"
      }
     },
@@ -779,6 +1046,10 @@
       "spec_dist": 0.623,
       "spec_bar": 0.097,
       "pass": false
+     },
+     "sea": {
+      "px": 1097629,
+      "note": "no v1 class -- cellularity only (W-7)"
      }
     },
     "cellularity_p95": 0.86,
@@ -808,6 +1079,10 @@
      "shingle+cliff-back": {
       "px": 83969,
       "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 610878,
+      "note": "no v1 class -- cellularity only (W-7)"
      }
     },
     "cellularity_p95": 0.943,
@@ -834,7 +1109,12 @@
     "pass": false
    },
    "0_5": {
-    "classes": {},
+    "classes": {
+     "sea": {
+      "px": 1525985,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
     "cellularity_p95": null,
     "cell_windows": 0,
     "cellularity_bar": 0.681,
@@ -861,6 +1141,10 @@
      },
      "shingle+cliff-back": {
       "px": 198715,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 1006971,
       "note": "no v1 class -- cellularity only (W-7)"
      }
     },
@@ -890,6 +1174,10 @@
      },
      "shingle+cliff-back": {
       "px": 249779,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "sea": {
+      "px": 109938,
       "note": "no v1 class -- cellularity only (W-7)"
      }
     },

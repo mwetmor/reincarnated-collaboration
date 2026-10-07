@@ -97,13 +97,14 @@ def rows():
                 "cells": {k: {"value": "%.4f / %.4f" % (p7[k]["floor"]["tuft"], p7[k]["floor"]["clutter"]), "pass": p7[k]["pass"], "note": "lanes over: %s" % (p7[k]["lanes_over"] or "none")}
                           for k in ("v1", "159", "constructed") if k in p7},
                 "constructed": "a 3 × 3 m patch of v1 heather ground pasted onto the arena centre"})
+    pr = p8.get("precision", {})
     out.append({"row": "P8", "kind": "constraint", "neg": "constructed (RED)",
-                "metric": "share of 3D heather instances on painted tufts (24 px footprint) + tint correlation with the paint under them",
-                "threshold": "share ≥ %s and tint r ≥ %s — PROVISIONAL (0.90 × v1 measured) until PT's reproduced v1 value lands (Gate-1 W-2)" % (p8.get("bar_provisional"), p8.get("tint_bar_provisional")),
-                "threshold_source": "v1 heather.json (977) on v1's tuft classifier",
-                "cells": {k: {"value": "%.3f / r %.2f" % (p8[k]["share"], min(p8[k]["tint_r_vs_paint_r"] or 0, p8[k]["tint_b_vs_paint_b"] or 0)), "pass": p8[k]["pass"], "note": ""}
-                          for k in ("v1", "159", "constructed") if p8.get(k)},
-                "constructed": "v1's instances displaced 3–8 m (placed by noise)"})
+                "metric": "precision_drawn_on_painted (overlay_check.py's recorded quantity): drawn 3D-heather px on painted tuft px / drawn px, whole window. Reported beside it: instance share on tufts and tint r",
+                "threshold": "≥ %s — record 0.5221 − half v1's chunk range; RE-BASE on PT's reproduced value (R-C9-167 (4))" % pr.get("bar_provisional"),
+                "threshold_source": "take/build/overlay_check.json:1781 (0.5221, as_painted, whole_window); reproduced here exactly",
+                "cells": {k: {"value": "%.4f (share %.2f)" % (pr[k]["precision"], p8[k]["share"]), "pass": pr[k]["pass"], "note": ""}
+                          for k in ("v1", "159", "constructed") if pr.get(k)},
+                "constructed": "v1's drawn heather shifted 4 m"})
     p9 = j("p9_p10.json").get("p9", {})
     sw = p9.get("a_heather_sway", {}).get("rows", {})
     tr = p9.get("d_snow_trail_coverage", {})
@@ -136,12 +137,26 @@ def rows():
                 "cells": {lab: ({"value": p10[k]["p99_ms"], "pass": p10[k]["pass"], "note": "p50 %.2f" % p10[k]["p50_ms"]} if p10.get(k) else {"value": None, "pass": None, "note": "capture pending"})
                           for k, lab in (("v1", "v1"), ("v159", "159"), ("v1_burn", "constructed"))},
                 "constructed": "v1 with a 20 ms busy-wait per frame"})
-    p11 = j("p11_build.json")
+    import p11_pairs as P11v1
+    import p11_abx as ABX
+    c11 = {}
+    lab = {"cal_v1_vs_159": "159", "cal_v1_vs_158": "158", "cal_v1_vs_constructed_halfdensity": "constructed"}
+    for st, nm in lab.items():
+        ap = PH / "p11/answers" / (st + ".json")
+        aa = PH / "p11/answers" / ("abx_" + st + ".json")
+        if aa.exists():
+            r = ABX.score(st, aa)
+            c11[nm] = {"value": "ABX %.0f%% (inconsistency %.0f%%)" % (100 * r["abx_accuracy"], 100 * r["repeat_inconsistency"]),
+                       "pass": r["pass"], "note": "judge VOID" if r["judge_void"] else ""}
+        elif ap.exists():
+            r = P11v1.score(st, ap)
+            c11[nm] = {"value": "v0.1 directional %.1f%% (null FA %.0f%%)%s" % (100 * r["identification"], 100 * r["null_false_alarm"],
+                       "" if r["judge_reliable"] else ", judge UNRELIABLE"), "pass": r["pass"] if r["judge_reliable"] else None,
+                       "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"}
     out.append({"row": "P11", "kind": "quality", "neg": "R-C9-159",
-                "metric": "blind pair test: identification rate of the candidate crop over 30 test pairs (+10 v1-vs-v1 null pairs), fresh judge (C-3)",
-                "threshold": "≤ 65% (pass if ≤ 19/30)", "threshold_source": "plan § 4 P11; power table below",
-                "cells": {k: {"value": None, "pass": None, "note": "built: %d pairs; NOT JUDGED (conductor spawns the judge)" % v["pairs"]} for k, v in p11.get("sets", {}).items()},
-                "constructed": "v1 stills at half texel density (cal_v1_vs_constructed_halfdensity)", "power": p11.get("power")})
+                "metric": "blind ABX (R-C9-168): 40 trials A | B | X, X from v1 or the candidate; accuracy of 'X is from A's / B's build'; 10 side-swapped repeats for reliability; fresh judge (C-3)",
+                "threshold": "ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25%", "threshold_source": "plan § 4 P11; R-C9-168; power table in calibration.md",
+                "cells": c11, "constructed": "v1 stills at half texel density", "power": ABX.power_table()})
     return out
 
 

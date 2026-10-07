@@ -35,14 +35,15 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 
 ## State (keep current at every commit)
 - [x] harness P1–P11 built: `fid/ph/harness/` (README has the run order). Results in `fid/ph/results/`.
-- [x] calibration table: `fid/ph/calibration.md` / `.json`. v1 PASS on every row. R-C9-159 FAIL P1–P4 and P6b. R-C9-158 FAIL P5 and P9. BVR FAIL P6a. Every row's constructed failure is RED (P11 is built, not judged).
-      Only P10 for R-C9-159 (informational) is still queued: `renders/perf_v159`.
-- [x] P11 pair generator + answer key + scorer: `fid/ph/p11/judge_<set>/` (the ONLY thing the judge gets), keys in `fid/ph/p11/keys/`. NOT judged (C-3).
-- Discarded: P4 cellularity (cannot see a constructed patchwork); P9b film instrument. Re-instrumented: P6a (0.1 m smoothing, T = v1 ceiling 32); P5 constructed input (ghost blend).
-- Provisional: P8 bar (0.90 × v1, until PT's reproduced value). No positive control: P9c floe drift (until DEV-5).
-- No HALT. Disk 34 GiB free at last check.
+- [x] calibration: `fid/ph/calibration.md` / `.json`. Rulings R-C9-167 and R-C9-168 are folded in calibration.md § 7.
+- **HALT for ruling, P6a (R-C9-167 (2)):** the priors are implemented, but NO variant meets the acceptance (door flagged, timber ≤ 1, v1 0). The invented door and the timber are inseparable by shape, frame and location; the variant table is in calibration.md § 7. The binding detector stays v0.1. Options (a)/(b)/(c) are listed there.
+- [x] P4 new classes mapped (wood, shingle, sea, shore ice): ADVISORY now, BINDING in Phase 3 vs the W-B distribution.
+- [x] P8 binding = recorded precision quantity, reproduced exactly (0.5221 / 934,936 px); provisional bar 0.4567 until PT's value.
+- [x] P11 v0.1 answers kept in `p11/answers/`. P11 re-instrumented as ABX: `p11/abx_cal_v1_vs_{159,158,constructed_halfdensity}/` await the conductor's judges.
+- [ ] P10 for R-C9-159 (informational): still queued behind the heavy lock (`renders/perf_v159`).
 
 ## Next / re-run
+0. When the ABX answers arrive: copy them to `fid/ph/p11/answers/abx_<set>.json`, then `python3 calibrate.py`, then commit.
 1. When `renders/perf_v159/perf.json` lands: `cd fid/ph/harness && python3 p9_p10_life_perf.py && python3 calibrate.py`, then commit. (A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.)
 2. When PT lands `fid/pc/v1_stills/`: set `OVERLAP = 0.25` in `p11_pairs.py`, `python3 p11_pairs.py build`, `python3 calibrate.py`.
 3. When PT records its reproduced v1 heather value: re-base P8's bar in `p7_p8_floor_heather.py` (currently 0.90 × v1 measured).

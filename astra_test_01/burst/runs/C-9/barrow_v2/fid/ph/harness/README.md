@@ -20,7 +20,9 @@ python3 p6_geometry.py            # -> p6.json         (--part invention | iou)
 python3 p7_p8_floor_heather.py    # -> p7_p8.json
 python3 p9_p10_life_perf.py       # -> p9_p10.json     (needs renders/life_*, perf_*)
 python3 p11_pairs.py build        # -> p11/judge_<set>/ (pairs + JUDGE.md: the ONLY thing the judge sees), p11/keys/<set>.json
-python3 p11_pairs.py score <set> <answers.json>      # after the conductor's fresh judge answers
+python3 p11_pairs.py score <set> <answers.json>      # v0.1 directional test (superseded, R-C9-168; kept for its evidence)
+python3 p11_abx.py build          # P11 v2 ABX: p11/abx_<set>/ (50 trial images + JUDGE.md), keys p11/keys/abx_<set>.json
+python3 p11_abx.py score <set> <answers.json>        # answers {"trial_NN": "A"|"B"}; put them at p11/answers/abx_<set>.json
 python3 calibrate.py              # -> ../calibration.json + the table in ../calibration.md
 ```
 
@@ -40,7 +42,8 @@ Renders and judge PNGs are gitignored (`astra_test_01/.gitignore: *.png`); they 
 | `p6_geometry.py` | P6 invention check + silhouette IoU |
 | `p7_p8_floor_heather.py` | P7 clean floor on the painting; P8 heather from painted tufts |
 | `p9_p10_life_perf.py` | P9 life (sway, water flow, floe drift, trail coverage); P10 p99 frame time |
-| `p11_pairs.py` | P11 blind pair generator, key, scorer, power table |
+| `p11_pairs.py` | P11 v0.1 directional pair test (superseded by ABX, R-C9-168) |
+| `p11_abx.py` | P11 v2 blind ABX: generator, key, scorer (accuracy + repeat reliability), power table |
 | `calibrate.py` | assembles calibration.json and the table |
 | `godot/ph_capture.gd` | paint-frame render + per-group shadow-only masks (a level extending barrow_full.gd) |
 | `godot/ph_life.gd` | static two-frame life pairs, floe checker marker, perf loop |

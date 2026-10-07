@@ -189,6 +189,32 @@ def _disk(r):
     return x * x + y * y <= r * r
 
 
+def precision_v1(shift_px=0):
+    """THE RECORDED QUANTITY (R-C9-167 (4)): overlay_check.py's precision_drawn_on_painted -- of the pixels the 3D heather
+    is DRAWN on (capture_painted.gd --guide heather_mask > 127), the share that are painted-tuft pixels of the painting
+    (tuft_classes on ground, opened 1 iteration -- overlay_check.py:62-64, 91, 136-138), whole window. Recorded 0.5221
+    (take/build/overlay_check.json, as_painted, whole_window)."""
+    P8 = np.asarray(Image.open(PW.PAINTING).convert("RGB"))
+    idx, _ = PW.id_index()
+    heather, shrub = PW.tuft_classes(P8, idx == 0)
+    tufts = ndimage.binary_opening(heather | shrub, iterations=1)
+    HM = np.asarray(Image.open(PH / "renders/v1/heather_mask.png").convert("L")) > 127
+    if shift_px:
+        HM = np.roll(HM, shift_px, axis=1)
+    return {"drawn_px": int(HM.sum()), "precision": round(float((HM & tufts).sum() / max(HM.sum(), 1)), 4)}
+
+
+def precision_159():
+    """the same quantity for R-C9-159 at its paint frame: drawn heather = |render - hide_heather| (PH render), painted
+    tufts = the same classifier on its ground painting (painted with NO plants, R-C9-159 clause 4)."""
+    R = load_rgb(PH / "renders/v159/render.png")
+    HM = np.abs(R - load_rgb(PH / "renders/v159/hide_heather.png")).sum(-1) > 24
+    P8 = np.asarray(Image.open(BF / "godot/data/barrow_v2_sw/painted/ground.png").convert("RGB"))
+    heather, shrub = PW.tuft_classes(P8, np.ones(P8.shape[:2], bool))
+    tufts = ndimage.binary_opening(heather | shrub, iterations=1)
+    return {"drawn_px": int(HM.sum()), "precision": round(float((HM & tufts).sum() / max(HM.sum(), 1)), 4)}
+
+
 def p8_159():
     lvl = jload(BF / "godot/data/barrow_v2_sw/level.json")
     F = lvl["frame"]["paint"]
@@ -234,4 +260,27 @@ if __name__ == "__main__":
     for k in ("v1", "constructed", "159"):
         print("P8 %-12s share %.4f of %d (bar %.4f)  tint r %s b %s -> %s" % (k, p8[k]["share"], p8[k]["instances"], bar,
               p8[k]["tint_r_vs_paint_r"], p8[k]["tint_b_vs_paint_b"], "PASS" if p8[k]["pass"] else "FAIL"))
+    # R-C9-167 (4): the RECORDED quantity, reproduced from PH's own v1 capture; BINDING bar = PT's reproduced v1 value
+    # (fid/pc/, when it lands) with the record's own spread; until then the record 0.5221 stands in, and the tolerance is
+    # v1's chunk-to-chunk spread of the same quantity (overlay_check.json per_chunk, as_painted).
+    rec = jload(BF / "take/build/overlay_check.json")["variants"]["as_painted"]["per_chunk"]
+    ch = [v["heather + shrub tufts"]["precision_drawn_on_painted"] for k, v in rec.items() if k != "whole_window" and "heather + shrub tufts" in v]
+    pr = precision_v1()
+    lo = round(0.5221 - (max(ch) - min(ch)) / 2, 4)
+    p8["precision"] = {"quantity": "overlay_check.py precision_drawn_on_painted (drawn heather px on painted tuft px / drawn heather px)",
+                       "record": 0.5221, "record_src": "take/build/overlay_check.json:1781 (as_painted, whole_window)",
+                       "v1_chunk_range": [min(ch), max(ch)], "bar_provisional": lo,
+                       "bar_rule": "record - half v1's chunk range; RE-BASE on PT's reproduced value when it lands",
+                       "v1": dict(pr, **{"pass": pr["precision"] >= lo})}
+    c2 = precision_v1(shift_px=int(4 * PPM_V1))
+    p8["precision"]["constructed"] = dict(c2, **{"pass": c2["precision"] >= lo, "what": "v1's drawn heather shifted 4 m"})
+    q = precision_159()
+    p8["precision"]["159"] = dict(q, **{"pass": q["precision"] >= lo})
+    p8["mapping"] = ("share (instance-level: a spray within 24 px of ANY painted tuft) is a placement-validity rate and "
+                     "reads ~1.0 for v1; precision (pixel-level: drawn heather px on painted tuft px) is the RECORDED "
+                     "quantity, 0.52, because a spray's drawn pixels spill past its tuft's painted pixels. They agree on "
+                     "pass/fail for every calibration input; precision is the BINDING form (R-C9-167 (4)), share is reported.")
+    for k in ("v1", "constructed", "159"):
+        r = p8["precision"][k]
+        print("P8 precision %-12s %.4f over %d drawn px (bar %.4f) -> %s" % (k, r["precision"], r["drawn_px"], lo, "PASS" if r["pass"] else "FAIL"))
     dump({"p7": p7, "p8": p8}, str(PH / "results/p7_p8.json"))

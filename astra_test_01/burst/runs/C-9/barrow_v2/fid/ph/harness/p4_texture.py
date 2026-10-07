@@ -236,6 +236,9 @@ def v159_samples(render_dir=None):
         static = np.zeros(R.shape[:2], bool)
         for m in M.values():
             static |= m
+        gd = load_rgb(B2 / "section_v1cam/guide2/v2sw_guide.png")
+        Lg = rgb_to_lab(ndimage.gaussian_filter(gd, (4, 4, 0)))[..., 0]
+        M["sea"] = ndimage.binary_erosion(Lg < 40, iterations=4) & ~static     # the painted sea as displayed (advisory)
         have = True
     up = lambda a: np.asarray(Image.fromarray(a.astype(np.uint8)).resize((a.shape[1] * 2, a.shape[0] * 2), Image.BILINEAR), np.float32)
     upm = lambda m: np.asarray(Image.fromarray(m.astype(np.uint8) * 255).resize((m.shape[1] * 2, m.shape[0] * 2), Image.NEAREST)) > 127
@@ -274,6 +277,81 @@ def constructed(per_v1_masks):
     return {"patchwork_rock": A, "relit_rock": B}
 
 
+# ------------------------------------------------------------------ R-C9-167 (3): new classes -> named v1 classes
+# wood -> v1 lintel + posts + logs pooled; shingle -> v1 shore_rock; sea and shore ice -> v1 tarn ice (ground class ice).
+# Bars: wood and shingle by PIECE BOOTSTRAP (resample v1's pieces with replacement, 400 draws; the bar = the 95th
+# percentile of the resample's distance to the full pool); tarn ice by the chunk leave-one-out bar above.
+# Status: ADVISORY in Phase 2 W-B; BINDING in Phase 3 against the M2-passed W-B chunks' OWN distribution (then the
+# reference pool is those chunks, not v1).
+NEW_MAP = {"wood": ("v1 lintel + posts + logs", ("lintel", "post", "log")),
+           "shingle": ("v1 shore_rock", ("shore_rock",))}
+
+
+def v1_piece_pool(classes, P=None):
+    PW = _pw()
+    P = load_rgb(BF / "paint/barrow_full_painted.png") if P is None else P
+    idx, table = PW.id_index()
+    lab = rgb_to_lab(P)
+    gray = luma(P)
+    pieces = []
+    for k, v in table.items():
+        if v["class"] in classes:
+            m = ndimage.binary_erosion(idx == k, iterations=3)
+            if m.sum() >= 1500:
+                pieces.append({"id": v.get("id", k), "px": int(m.sum()), "hist": lab_hist(lab[m]),
+                               "spec": spectrum_shape(gray, windows(m, frac=0.8, step=32))})
+    return pieces
+
+
+def bootstrap_bar(pieces, n=400, seed=167):
+    rng = np.random.default_rng(seed)
+    H = np.array([p["hist"].ravel() * p["px"] for p in pieces])
+    full = H.sum(0) / H.sum()
+    S = [p["spec"] for p in pieces if p["spec"] is not None]
+    fs = np.mean(S, 0) if S else None
+    dh, ds = [], []
+    for _ in range(n):
+        ii = rng.integers(0, len(pieces), len(pieces))
+        h = H[ii].sum(0)
+        dh.append(hellinger(h / h.sum(), full))
+        ss = [pieces[i]["spec"] for i in ii if pieces[i]["spec"] is not None]
+        if ss and fs is not None:
+            ds.append(float(np.sqrt(np.mean((np.mean(ss, 0) - fs) ** 2))))
+    return {"pool_hist": full.reshape((NB,) * 3), "pool_spec": fs, "hist_bar": float(np.percentile(dh, 95)),
+            "spec_bar": float(np.percentile(ds, 95)) if (ds and len(S) >= 3) else None,   # < 3 pieces with windows: no spread
+            "n_pieces": len(pieces), "n_pieces_with_spectrum": len(S)}
+
+
+def advisory_new_classes(s159, per):
+    out = {"status": "ADVISORY (Phase 2 W-B); BINDING in Phase 3 vs the M2-passed W-B chunks' own distribution (R-C9-167 (3))",
+           "map": {"wood": NEW_MAP["wood"][0], "shingle": NEW_MAP["shingle"][0], "sea": "v1 tarn ice", "shore ice": "v1 tarn ice"},
+           "bars": {}, "159": {}}
+    refs = {}
+    for c, (nm, cls) in NEW_MAP.items():
+        b = bootstrap_bar(v1_piece_pool(cls))
+        refs[c] = b
+        out["bars"][c] = {"hist": round(b["hist_bar"], 3), "spec": None if b["spec_bar"] is None else round(b["spec_bar"], 3),
+                          "n_pieces": b["n_pieces"], "n_pieces_with_spectrum": b["n_pieces_with_spectrum"]}
+    ph, ps = pooled(per, "ice")
+    bars = v1_bars(per)
+    refs["tarn"] = {"pool_hist": ph, "pool_spec": ps, "hist_bar": bars["ice"]["hist"], "spec_bar": bars["ice"]["spec"]}
+    out["bars"]["sea / shore ice (tarn ice, chunk LOO)"] = {"hist": round(bars["ice"]["hist"], 3), "spec": round(bars["ice"]["spec"], 3)}
+    src = {"wood": "wood", "shingle": "shingle+cliff-back", "sea": "sea", "shore ice": "ice"}
+    for c, k in src.items():
+        ref = refs["tarn"] if c in ("sea", "shore ice") else refs[c]
+        rows = []
+        for ck, (res, _, _) in s159.items():
+            if k not in res:
+                continue
+            r = res[k]
+            dh = hellinger(r["hist"], ref["pool_hist"])
+            dsp = float(np.sqrt(np.mean((r["spec"] - ref["pool_spec"]) ** 2))) if (r["spec"] is not None and ref["pool_spec"] is not None) else None
+            ok = dh <= ref["hist_bar"] and (dsp is None or ref["spec_bar"] is None or dsp <= ref["spec_bar"])
+            rows.append({"chunk": ck, "hist": round(dh, 3), "spec": None if dsp is None else round(dsp, 3), "within": ok})
+        out["159"][c] = {"samples": len(rows), "within_bar": sum(r["within"] for r in rows), "rows": rows}
+    return out
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--render159", default=str(PH / "renders/v159"))
@@ -288,6 +366,10 @@ if __name__ == "__main__":
     v1rows = {k: score(r, per, bars) for k, r in per.items()}
     out["v1"] = {"pass": all(r["pass"] for r in v1rows.values()), "chunks": v1rows}
     s159, have_models = v159_samples(a.render159)
+    out["new_classes_advisory"] = advisory_new_classes(s159, per)
+    for c, v in out["new_classes_advisory"]["159"].items():
+        print("P4 advisory 159 %-10s within v1-mapped bar %d / %d" % (c, v["within_bar"], v["samples"]))
+    print("P4 advisory bars:", out["new_classes_advisory"]["bars"])
     r159 = {k: score(r, per, bars) for k, r in s159.items()}
     out["159"] = {"pass": all(r["pass"] for r in r159.values()), "models_included": have_models, "chunks": r159}
     for name, img in constructed((masks, static)).items():
@@ -296,7 +378,7 @@ if __name__ == "__main__":
             sub = {c: m[y0:y1, x0:x1] for c, m in masks.items()}
             rows[key] = score(stats(img[y0:y1, x0:x1], sub, static[y0:y1, x0:x1]), per, bars)
         out["constructed_" + name] = {"pass": all(r["pass"] for r in rows.values()), "chunks": rows}
-    for k in [k for k in out if k != "bars_from_v1"]:
+    for k in [k for k in out if "chunks" in out[k]]:
         rows = out[k]["chunks"]
         fails = [(ck, c) for ck, r in rows.items() for c, v in r["classes"].items() if v.get("pass") is False]
         cf = [ck for ck, r in rows.items() if not r["cellularity_pass_DISCARDED_non_binding"]]

@@ -37,17 +37,57 @@ def lstar(img):
     return rgb_to_lab(img)[..., 0]
 
 
-def openings(img, ppm, T):
+def openings(img, ppm, T, prior=None, dark_mask=None):
+    """dark openings. prior (R-C9-167 (2) re-instrumentation) = None (the calibrated v0.1 detector) or a dict:
+         h_min_m   projected opening height >= this (bbox height / vertical px per m)          [R-C9-167: 1.8]
+         aspect    h / w >= this (w = bbox width / px per m across)                            [R-C9-167: 0.8]
+         frame_min ring (0.1-0.3 m around the blob) median L* minus interior mean L* >= this, or None = off
+         surface   optional bool mask (an ID render's wall/cliff faces + ground): the centroid must lie on it
+       dark_mask: optional bool mask of DECLARED-DARK regions (char/ash classes of the guide's class map): a blob
+         whose centroid lies in it is declared dark, not an opening (R-C9-167 (2) hook)."""
     L = ndimage.gaussian_filter(lstar(img), 0.1 * ppm)
     k = max(1, int(round(0.2 * ppm)))
     m = ndimage.binary_opening(L < T, structure=np.ones((k, k)))
     lab, n = ndimage.label(m)
     if n == 0:
         return []
-    sz = ndimage.sum(m, lab, range(1, n + 1))
-    com = ndimage.center_of_mass(m, lab, range(1, n + 1))
-    return [{"xy": (float(c[1]), float(c[0])), "area_m2": float(s) / ppm ** 2}
-            for s, c in zip(sz, com) if s >= 0.5 * ppm ** 2]
+    pv = ppm * 60.6183 / V1_PPM                      # vertical px per metre at this scale
+    out = []
+    for i, sl in enumerate(ndimage.find_objects(lab)):
+        piece = lab[sl] == i + 1
+        a = int(piece.sum())
+        if a < 0.5 * ppm ** 2:
+            continue
+        cy, cx = ndimage.center_of_mass(piece)
+        cy, cx = cy + sl[0].start, cx + sl[1].start
+        h_m = (sl[0].stop - sl[0].start) / pv
+        w_m = (sl[1].stop - sl[1].start) / ppm
+        f = {"xy": (float(cx), float(cy)), "area_m2": a / ppm ** 2, "h_m": round(h_m, 2), "w_m": round(w_m, 2),
+             "aspect": round(h_m / max(w_m, 1e-6), 2)}
+        if prior:
+            y0, y1 = max(sl[0].start - int(0.35 * ppm), 0), sl[0].stop + int(0.35 * ppm)
+            x0, x1 = max(sl[1].start - int(0.35 * ppm), 0), sl[1].stop + int(0.35 * ppm)
+            big = lab[y0:y1, x0:x1] == i + 1
+            ring = ndimage.binary_dilation(big, iterations=max(1, int(0.3 * ppm))) & ~ndimage.binary_dilation(big, iterations=max(1, int(0.1 * ppm)))
+            sub = L[y0:y1, x0:x1]
+            f["frame_contrast"] = round(float(np.median(sub[ring]) - sub[big].mean()), 1) if ring.any() else 0.0
+            why = []
+            if h_m < prior.get("h_min_m", 0):
+                why.append("short")
+            if f["aspect"] < prior.get("aspect", 0):
+                why.append("flat")
+            if prior.get("frame_min") is not None and f["frame_contrast"] < prior["frame_min"]:
+                why.append("no lighter frame")
+            sm = prior.get("surface")
+            if sm is not None and not sm[int(cy), int(cx)]:
+                why.append("off wall/ground")
+            if dark_mask is not None and dark_mask[min(int(cy), dark_mask.shape[0] - 1), min(int(cx), dark_mask.shape[1] - 1)]:
+                why.append("declared dark")
+            f["rejected"] = why
+            if why:
+                continue
+        out.append(f)
+    return out
 
 
 def match(found, declared, ppm):
@@ -146,6 +186,40 @@ def bvr_block(keys, prefix="BVR"):
     return np.asarray(o, np.float32), (x0, y0)
 
 
+# R-C9-167 (2): known-dark classes. For the BVR calibration the class map is the zone map the blocks were painted from
+# (paint/barrow_v2_zonemap.png, 2026-10-03 08:48, + zonemap_legend.json). Its structure MARKS are footprints on the
+# ground plane; a structure's screen region is its footprint EXTRUDED up-screen by its declared height (layout v5
+# z_top_m) -- the stand-in for Phase 1's ID render, which gives that region exactly.
+DARK_STRUCTURES_V5 = {"hall": 6.5, "porch": 9.0, "gable": 2.8, "palisade": 3.0}       # charred: burnt hall family
+DARK_GROUND_V5 = ["hall_yard_ash"]                                                    # ash ground (variant only)
+
+
+def zonemap_dark_mask(rect, scale, structures=DARK_STRUCTURES_V5, ground=()):
+    """bool mask for plate rect (x0, y0, x1, y1) at `scale`: declared-dark structure marks (fill + outline) extruded
+    up-screen by their height, plus any ground zones named in `ground`."""
+    x0, y0, x1, y1 = rect
+    pad = int(max(list(structures.values()) + [0]) * 60.6183) + 8
+    Z = Image.open(B2 / "paint/barrow_v2_zonemap.png").convert("RGB").crop((x0, y0, x1, y1 + pad))
+    Z = np.asarray(Z).astype(np.int32)
+    leg = jload(B2 / "paint/zonemap_legend.json")
+    m = np.zeros(Z.shape[:2], bool)
+    for k, h in structures.items():
+        mk = np.zeros(Z.shape[:2], bool)
+        for c in (leg["marks_rgb"][k]["fill"], leg["marks_rgb"][k]["outline"]):
+            mk |= np.abs(Z - np.array(c)).sum(-1) <= 6
+        hp = int(h * 60.6183)
+        ext = mk.copy()
+        for s_ in range(8, hp + 1, 8):                 # up-screen = toward smaller y
+            ext[:-s_] |= mk[s_:]
+        m |= ext
+    for g in ground:
+        m |= np.abs(Z - np.array(leg["zones_rgb"][g])).sum(-1) <= 6
+    m = m[: y1 - y0]
+    if scale != 1:
+        m = np.asarray(Image.fromarray(m.astype(np.uint8) * 255).resize((int(m.shape[1] * scale), int(m.shape[0] * scale)), Image.NEAREST)) > 127
+    return m
+
+
 BLOCKS = {"BVR hall (T2a, 7_5..8_7)": ["7_5", "8_5", "7_6", "8_6", "7_7", "8_7"],
           "BVR barrow door (T2b, 4_0..6_1)": ["4_0", "5_0", "6_0", "4_1", "5_1", "6_1"]}
 
@@ -178,6 +252,47 @@ def invention_rows(T):
         rows[name] = {"found": len(f), "inventions": len(inv), "declared_in_block": [d["id"] for d in d2],
                       "inventions_xy_plate_px": [(round(i["xy"][0] / SC + x0), round(i["xy"][1] / SC + y0), round(i["area_m2"], 1)) for i in inv]}
     return rows
+
+
+def r167_variants(T):
+    """R-C9-167 (2): the conductor's priors, each variant scored on v1, the constructed stamp and both BVR blocks.
+    Acceptance (R-C9-167): R-C9-155's invented door at plate (10311, 4925) still flagged; BVR hall timber flags <= 1;
+    v1 inventions 0; T unchanged. frame_min = 0.5 x v1's own door frame contrast (v1-derived, fixed before scoring)."""
+    ppm = V1_PPM * SC
+    v1 = v1_painting(SC)
+    dec1 = [dict(d, xy=(d["xy"][0] * SC, d["xy"][1] * SC)) for d in v1_declared()]
+    c = v1.copy()
+    x, y = v1_px(-6.0, 1.0, 1.3)
+    w, h = 2.2 * ppm, 2.6 * 60.6183 * SC
+    c[int(y * SC - h / 2):int(y * SC + h / 2), int(x * SC - w / 2):int(x * SC + w / 2)] = np.array([30, 27, 25], np.float32)
+    v1_frame = openings(v1, ppm, T, prior={"h_min_m": 0})[0]["frame_contrast"]
+    fmin = round(0.5 * v1_frame, 1)
+    shape = {"h_min_m": 1.8, "aspect": 0.8}
+    V = {"C0 v0.1 (no prior)": (None, None), "C1 shape prior (h >= 1.8 m, h/w >= 0.8)": (shape, None),
+         "C1F shape + lighter frame (>= %.1f)" % fmin: (dict(shape, frame_min=fmin), None),
+         "C2 shape + dark structures (hall/porch/gable/palisade, extruded)": (shape, "s"),
+         "C4 C2 + ash ground dark": (shape, "sg")}
+    decl = bvp_declared(PH / "inputs/layout_v2_at_b267b9b00_v5.json")
+    blocks = {}
+    for name, keys in BLOCKS.items():
+        img, (x0, y0) = bvr_block(keys)
+        im = np.asarray(Image.fromarray(img.astype(np.uint8)).resize((img.shape[1] // 4, img.shape[0] // 4), Image.BOX), np.float32)
+        d2 = [dict(d, xy=((d["xy"][0] - x0) * SC, (d["xy"][1] - y0) * SC)) for d in decl]
+        blocks[name] = (im, (x0, y0), d2, (x0, y0, x0 + img.shape[1], y0 + img.shape[0]))
+    out = {"v1_door_frame_contrast": v1_frame, "frame_min": fmin, "variants": {}}
+    for vn, (pr, dm) in V.items():
+        r = {"v1": len(match(openings(v1, ppm, T, prior=pr), dec1, ppm)),
+             "constructed": len(match(openings(c, ppm, T, prior=pr), dec1, ppm))}
+        for name, (im, (x0, y0), d2, rect) in blocks.items():
+            mask = zonemap_dark_mask(rect, SC, ground=DARK_GROUND_V5 if dm == "sg" else ()) if dm else None
+            inv = match(openings(im, ppm, T, prior=pr, dark_mask=mask), d2, ppm)
+            xy = [(round(i["xy"][0] / SC + x0), round(i["xy"][1] / SC + y0)) for i in inv]
+            tgt = any(abs(a - 10311) < 80 and abs(b - 4925) < 80 for a, b in xy)
+            r[name] = {"inventions": len(inv), "invented_door_flagged": tgt, "other_flags": len(inv) - int(tgt)}
+        hall = r["BVR hall (T2a, 7_5..8_7)"]
+        r["acceptance"] = bool(hall["invented_door_flagged"] and hall["other_flags"] <= 1 and r["v1"] == 0 and r["constructed"] >= 1)
+        out["variants"][vn] = r
+    return out
 
 
 # ---- (b) silhouette IoU -------------------------------------------------------------------------------------------
@@ -249,7 +364,13 @@ if __name__ == "__main__":
         dec = [dict(d, xy=(d["xy"][0] * SC, d["xy"][1] * SC)) for d in v1_declared()]
         T, sweep = v1_ceiling(v1_painting(SC), ppm, dec)
         rows = invention_rows(T)
-        res["invention"] = {"T_v1_ceiling": T, "sweep_v1_inventions_by_T": sweep, "rows": rows}
+        res["invention"] = {"T_v1_ceiling": T, "sweep_v1_inventions_by_T": sweep, "rows": rows,
+                            "r_c9_167_variants": r167_variants(T)}
+        for vn, r in res["invention"]["r_c9_167_variants"]["variants"].items():
+            hl = r["BVR hall (T2a, 7_5..8_7)"]
+            print("R-C9-167 %-66s v1 %d  stamp %d  hall: door %s + %2d other  barrow %d  -> acceptance %s" % (
+                vn, r["v1"], r["constructed"], hl["invented_door_flagged"], hl["other_flags"],
+                r["BVR barrow door (T2b, 4_0..6_1)"]["inventions"], r["acceptance"]))
         for k, r in rows.items():
             print("P6a %-34s openings %2d  inventions %2d  -> %s" % (k, r["found"], r["inventions"], "PASS" if r["inventions"] == 0 else "FAIL"))
         print("     T (v1 ceiling) = %s" % T)
