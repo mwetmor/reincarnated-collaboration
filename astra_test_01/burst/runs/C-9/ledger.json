@@ -45609,6 +45609,23 @@
       "ruling": "BV2F Phase 1' (art-first blockout) Gate-2 = PASS-WITH-FOLDS (jack-ryan 1cbfed0b7): P6' presence/placement/scale PASS vs layout_bv2art after the constructed RED (PH 51d955677); hero coverage 7/7; declared openings + char/ash class; v1's own frame (no R_y); verify.sh green; 0 images / $0. Folds: F-2 DEV-1 OPENED (66 x 51 m on a 5x5 grid, 25 canvases, vs v1's 53 x 41 m on 16) -- charter s15.2, cover text corrected; F-3 P6' result on the cover; F-1 PT re-measures the control at pin f1aa715ac and HEAD before Phase 2'. M1' goes to Matt once the cover is corrected.",
       "verbatim": [],
       "ts": "2026-10-07T11:41:11Z"
+    },
+    {
+      "id": "R-C9-188",
+      "by": "Matt",
+      "ruling": "M1' (art-first blockout) PASSED to paint: paint the pilot, after the sea-cave stairs are fixed so monsters can exit the sea cave and walk up the stairs ('full creativity ... rock floor outcrop or small broken dock or hard ice flow ... anything is ok as long as it both works aesthetically and physically'). Ruled: (a) cave exit = a NATURAL ROCK SHELF (sea-worn bench ~1 m above the water, flush with the cave floor, hugging the cliff foot to the stair); (b) stair shape = 'whatever fits the scene and monsters' (delegated); (c) BIG-MONSTER WIDTH (stair ~5 m, shelf ~6 m, cave mouth ~7 m tall). Burnt hall: CLOSED sides except the one great door. Walk: skipped (judged from stills). This is the one gameplay constraint Matt re-adds: the cave-to-clifftop route must be physically walkable.",
+      "verbatim": [
+        "(AskUserQuestion) Paint?: \"Yes, paint the pilot but after we talk through the stairs. We need to adjust them so that the monsters will be able to exit the sea cave and then. Walk up the stairs. You have full creativity jn how to accomplish this whether we need a rock floor outcrop or a small broken dock or a hard ice flow to walk on.. anything is ok as long as it both works aesthetically and physically.\"; Hall sides: \"Closed except the great door (Recommended)\"; Walk: \"Skip the walk\"",
+        "(AskUserQuestion) Cave exit: \"Natural rock shelf (Recommended)\"; Stair: \"Whatever fits the scene and monsters\"; Width: \"Big-monster width (Recommended)\""
+      ],
+      "ts": "2026-10-07T12:20:49Z"
+    },
+    {
+      "id": "R-C9-189",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F Phase 2' opening rulings (re-scope Gate-1 W-4/W-5/W-7 owed before Phase 2'; R-C9-188). STAIR (delegated by Matt): a STRAIGHT flight beside the cave mouth climbing across the south face (sketch A) at <= 35 deg, ~5 m wide, open to the sea, flush top landing; a switchback with one landing ONLY if a straight 5 m flight cannot fit the face. Acceptance = a mechanical WALKABILITY check (LV builds, PH verifies): one continuous walkable surface from inside the cave over the shelf and up the stair to the clifftop; slope <= 35 deg on the stair and <= 10 deg on the shelf; no step riser above v1's character step height; clear width >= 5 m stair / 6 m shelf; cave mouth clear height ~7 m. PILOT (W-4): the 3x3 window cols 0-2, rows 0-2 of the 5x5 grid (PH's 40-trial minimum) sits at the wavefront ORIGIN, so it is KEPT (s12 option i); it includes take + build + heather/snow/life for the window so M2' shows it in-engine beside v1 at the same zoom; its guide tiles are sha-pinned and must be unchanged by LV's stair re-render (a change = repaint). SUB-CAPS (W-7): Ph2' = 18 images (9 chunks x 2); Ph3' = 16 + 3 repairs + 16 retries = 35. COAST OBLIGATIONS (W-5): DEV-3/DEV-11 hero-plate A/B runs on the first Phase-3' chunk containing the wreck or the cave; P4 new classes (sea, shingle, shore ice, wood, char) stay ADVISORY through Phase 3' and are judged by Matt's eye at M3'; P9c floe-drift positive control = DEV-5's first build in Phase 3'. DEV-12 (painter rules substitution): LV's proposal is AMENDED -- the arena-era 'five exit lanes' is not used; the ruled substitution is 'Keep the stone ring's centre, the path, the barrow door's approach and the mere OPEN'; the palette sentence extension (sea, shingle, timber, char/ash) stands; everything else verbatim. The per-site `geo` description is authored fresh for barrow_v2 (v1's practice), reviewed by the conductor before the first burst. DEV-16: closed as NOT OPENED if the bv2art take fits <= 256 IDs ungrouped (PT confirms at the take).",
+      "verbatim": [],
+      "ts": "2026-10-07T12:20:49Z"
     }
   ],
   "grok_calls": [
