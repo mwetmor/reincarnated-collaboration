@@ -7,6 +7,7 @@ extends SnowField
 ##     snow of PaintedWorld.snow_shader_code()); the field's plane UV IS the ground-height grid (the depth grid's layout).
 ##   * _physics_process() / surface_y(): v1's bodies COPIED (barrow_full/godot/scripts/snow_field.gd), floor_y + the
 ##     ground height on the marked lines (the stamp's lift test, the puff, the surface) -- else no print on a slope.
+## The painted snow's undisturbed-surface projection includes the ground height (third swap).
 ## The snow keeps v1's flat-field normal (R-C9-193: the base colour is the painting; only the print relief is affected).
 
 var ground_h_buf := PackedFloat32Array()     # nx * nz metres, row = z (bv2f_prep.py snow_ground_h.bin)
@@ -48,7 +49,14 @@ static func terrain_code(code: String) -> String:
 	assert(code.count("uniform float floor_y;\n") == 1, "snow terrain: floor_y uniform not found once")
 	assert(code.count("\tVERTEX.y += h;\n") == 1, "snow terrain: the vertex lift not found once")
 	code = code.replace("uniform float floor_y;\n", "uniform float floor_y;\nuniform sampler2D ground_h_tex : filter_linear, repeat_disable;   // BV2F-PT DEV-18\nuniform float ground_h_on = 0.0;   // BV2F-PT DEV-18\n")
-	return code.replace("\tVERTEX.y += h;\n", "\tVERTEX.y += h + ground_h_on * texture(ground_h_tex, UV).r;   // BV2F-PT DEV-18\n")
+	code = code.replace("\tVERTEX.y += h;\n", "\tVERTEX.y += h + ground_h_on * texture(ground_h_tex, UV).r;   // BV2F-PT DEV-18\n")
+	# THE PAINTED SNOW (PaintedWorld.snow_shader_code) projects the painting at the UNDISTURBED surface,
+	# floor_y + D: on the terrain that surface is the ground height higher -- else the paint is sampled
+	# h x 60.6 px too low on every slope (seen as streaks on the stream banks and the mound flank)
+	var und := "guide_uv(vec3(v_world.x, floor_y + D, v_world.z))"
+	if code.count(und) == 1:   # the painted path only (v1's SHADER has no projection)
+		code = code.replace(und, "guide_uv(vec3(v_world.x, floor_y + D + ground_h_on * texture(ground_h_tex, v_uv).r, v_world.z))")   # BV2F-PT DEV-18
+	return code
 
 
 func _make_material() -> ShaderMaterial:
