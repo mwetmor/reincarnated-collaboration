@@ -378,5 +378,41 @@
    "to": "6 px misregistered blend (ghosting, (b) 1.250)",
    "why": "v1's partition-of-unity stitch cannot produce a hard seam; ghosting is its failure mode. Scope recorded in p5_seams.py"
   }
- ]
+ ],
+ "p11_v3": {
+  "_what": "P11 v3 (embedded catch trials, calibration.md s38/s39; R-C9-207): CALIBRATED and BINDING",
+  "rule": "VALID iff catch >= 10/12; PASS iff scored <= 26/40; repeat inconsistency diagnostic only",
+  "g2v3_v1rec_vs_v1head": {
+   "scored_correct": 22,
+   "of": 40,
+   "accuracy": 0.55,
+   "catch_correct": 11,
+   "catch_of": 12,
+   "valid": true,
+   "verdict": "PASS",
+   "repeat_inconsistency_diagnostic": 0.2,
+   "rule": "VALID iff catch >= 10/12; PASS iff scored <= 26/40"
+  },
+  "g2v3_v1_vs_halfdensity": {
+   "scored_correct": 35,
+   "of": 40,
+   "accuracy": 0.875,
+   "catch_correct": 12,
+   "catch_of": 12,
+   "valid": true,
+   "verdict": "FAIL",
+   "repeat_inconsistency_diagnostic": 0.2,
+   "rule": "VALID iff catch >= 10/12; PASS iff scored <= 26/40"
+  },
+  "catch_pool": {
+   "correct": 23,
+   "of": 24,
+   "accuracy": 0.9583,
+   "ge_0.95": true
+  },
+  "answers": [
+   "p11/answers/abx3_g2v3_v1rec_vs_v1head.json",
+   "p11/answers/abx3_g2v3_v1_vs_halfdensity.json"
+  ]
+ }
 }

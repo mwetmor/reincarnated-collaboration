@@ -1,0 +1,30 @@
+{
+ "g2v3_v1rec_vs_v1head": {
+  "scored_correct": 22,
+  "of": 40,
+  "accuracy": 0.55,
+  "catch_correct": 11,
+  "catch_of": 12,
+  "valid": true,
+  "verdict": "PASS",
+  "repeat_inconsistency_diagnostic": 0.2,
+  "rule": "VALID iff catch >= 10/12; PASS iff scored <= 26/40"
+ },
+ "g2v3_v1_vs_halfdensity": {
+  "scored_correct": 35,
+  "of": 40,
+  "accuracy": 0.875,
+  "catch_correct": 12,
+  "catch_of": 12,
+  "valid": true,
+  "verdict": "FAIL",
+  "repeat_inconsistency_diagnostic": 0.2,
+  "rule": "VALID iff catch >= 10/12; PASS iff scored <= 26/40"
+ },
+ "catch_pool": {
+  "correct": 23,
+  "of": 24,
+  "accuracy": 0.9583,
+  "ge_0.95": true
+ }
+}

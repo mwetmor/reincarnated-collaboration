@@ -1178,3 +1178,14 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
 - Matt's M2′ ruling named the ice class only, and an ice palette ruling does not clear the snow (jack-ryan P-2). So coastal snow, like all snow, binds against **v1's snow** with the frozen § 3 bars: hist ≤ 0.281, spectrum ≤ 0.097, every snow chunk.
 - **Reported, non-binding diagnostic.** Each coastal chunk's snow Hellinger against the pilot's own **inland** snow pool, made of the chunks without shingle, sea or shore ice in the new class map. This separates a coastal shift from a global one.
 - **Coastal chunks.** Defined from the new guide's class map: any chunk containing shingle, shore_ice or sea ≥ 2% of its px.
+
+## 39. P11 v3 CALIBRATED — BINDING (R-C9-207). `results/p11_abx3_g2_scores.json`; answers `p11/answers/abx3_g2v3_*.json`
+
+| Set | Catch | Valid | Scored | Verdict | Required (§ 38 (c)) | Repeat inconsistency (diagnostic) |
+|---|---|---|---|---|---|---|
+| v1 record-time vs v1 HEAD | **11/12** | yes | **22/40** | **PASS** | valid ∧ PASS ✓ | 0.20 |
+| v1 vs half-density | **12/12** | yes | **35/40** | **FAIL** | valid ∧ FAIL ✓ | 0.20 |
+
+- **(b) Catch pair, pooled over the two fresh judges:** 23/24 = **0.958 ≥ 0.95** ✓. This was the snow-only risk disclosed in § 38; it held.
+- **The gate now behaves as designed:** both judges are valid; the null pair passes and the constructed degradation fails. Under v2 the same pair of conditions was reachable ~5% of the time (§ 28).
+- **What binds from now on:** P11 is **v3**: `p11_abx3.py build3` for the candidate's stills and `score3` for the answers. It binds at M3′ over the whole site. The pilot's v2 answers stay VOID; they are not re-scored.
