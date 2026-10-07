@@ -1,0 +1,46 @@
+{
+ "power": {
+  "pass_if_correct_le": 26,
+  "of": 40,
+  "chance": 0.5,
+  "P(pass | true ABX accuracy p)": {
+   "0.50": 0.9808,
+   "0.55": 0.9249,
+   "0.60": 0.7888,
+   "0.65": 0.5592,
+   "0.70": 0.2968,
+   "0.75": 0.1032,
+   "0.80": 0.0194,
+   "0.90": 0.0,
+   "1.00": 0.0
+  }
+ },
+ "sets": {
+  "g2_v1rec_vs_v1head": {
+   "set": "g2_v1rec_vs_v1head",
+   "trials": 40,
+   "repeats": 10,
+   "images": 50,
+   "UNDERPOWERED": false,
+   "by_class": {
+    "snow": 24,
+    "ice": 4,
+    "heather": 12
+   },
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx_g2_v1rec_vs_v1head"
+  },
+  "g2_v1_vs_halfdensity": {
+   "set": "g2_v1_vs_halfdensity",
+   "trials": 40,
+   "repeats": 10,
+   "images": 50,
+   "UNDERPOWERED": false,
+   "by_class": {
+    "snow": 18,
+    "ice": 3,
+    "heather": 19
+   },
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx_g2_v1_vs_halfdensity"
+  }
+ }
+}

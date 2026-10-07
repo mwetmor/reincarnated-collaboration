@@ -189,6 +189,51 @@ def _disk(r):
     return x * x + y * y <= r * r
 
 
+MIN_DRAWN = 2000      # a chunk with fewer drawn heather px than this has no heather to judge (n/a)
+
+
+def chunk_grid(W, H, cols=None, rows=None):
+    """v1's paint grid law: 1536 x 1024 canvases on a 1280 x 768 stride"""
+    cols = cols or (W - 1536) // 1280 + 1
+    rows = rows or (H - 1024) // 768 + 1
+    return [("%d_%d" % (c, r), (1280 * c, 768 * r, 1280 * c + 1536, 768 * r + 1024)) for r in range(rows) for c in range(cols)]
+
+
+def precision_chunks(HM, tufts):
+    out = {}
+    for k, (x0, y0, x1, y1) in chunk_grid(HM.shape[1], HM.shape[0]):
+        h = HM[y0:y1, x0:x1]
+        n = int(h.sum())
+        out[k] = None if n < MIN_DRAWN else round(float((h & tufts[y0:y1, x0:x1]).sum() / n), 4)
+    return out
+
+
+def p8_like_for_like(bar):
+    """W-3 (Gate-2) re-instrumentation: LIKE FOR LIKE -- each paint chunk's precision against v1's per-chunk
+    distribution. PASS iff every chunk with heather (>= MIN_DRAWN drawn px) is >= v1's minimum chunk."""
+    P8 = np.asarray(Image.open(PW.PAINTING).convert("RGB"))
+    idx, _ = PW.id_index()
+    h, s_ = PW.tuft_classes(P8, idx == 0)
+    tufts = ndimage.binary_opening(h | s_, iterations=1)
+    HM = np.asarray(Image.open(PH / "renders/v1/heather_mask.png").convert("L")) > 127
+    rows = {"v1": precision_chunks(HM, tufts)}
+    for m in (0.1, 0.25, 1.0):
+        rows["constructed_shift_%gm" % m] = precision_chunks(np.roll(HM, int(m * PPM_V1), axis=1), tufts)
+    R = load_rgb(PH / "renders/v159/render.png")
+    HM9 = np.abs(R - load_rgb(PH / "renders/v159/hide_heather.png")).sum(-1) > 24
+    P9 = np.asarray(Image.open(BF / "godot/data/barrow_v2_sw/painted/ground.png").convert("RGB"))
+    h9, s9 = PW.tuft_classes(P9, np.ones(P9.shape[:2], bool))
+    rows["159"] = precision_chunks(HM9, ndimage.binary_opening(h9 | s9, iterations=1))
+    out = {"rule": "every chunk with heather >= %.4f (v1's minimum chunk); like-for-like (W-3)" % bar, "bar": bar, "rows": {}}
+    for k, r in rows.items():
+        vals = [v for v in r.values() if v is not None]
+        below = [c for c, v in r.items() if v is not None and v < bar]
+        out["rows"][k] = {"chunks": r, "n_chunks_judged": len(vals), "min": min(vals) if vals else None,
+                          "median": round(float(np.median(vals)), 4) if vals else None, "chunks_below": below,
+                          "pass": bool(vals) and not below}
+    return out
+
+
 def precision_v1(shift_px=0):
     """THE RECORDED QUANTITY (R-C9-167 (4)): overlay_check.py's precision_drawn_on_painted -- of the pixels the 3D heather
     is DRAWN on (capture_painted.gd --guide heather_mask > 127), the share that are painted-tuft pixels of the painting
@@ -276,6 +321,10 @@ if __name__ == "__main__":
     p8["precision"]["constructed"] = dict(c2, **{"pass": c2["precision"] >= lo, "what": "v1's drawn heather shifted 4 m"})
     q = precision_159()
     p8["precision"]["159"] = dict(q, **{"pass": q["precision"] >= lo})
+    p8["like_for_like"] = p8_like_for_like(lo)
+    for k, r in p8["like_for_like"]["rows"].items():
+        print("P8 per-chunk %-24s min %s median %s  below bar %d/%d -> %s" % (k, r["min"], r["median"], len(r["chunks_below"]),
+              r["n_chunks_judged"], "PASS" if r["pass"] else "FAIL"))
     p8["mapping"] = ("share (instance-level: a spray within 24 px of ANY painted tuft) is a placement-validity rate and "
                      "reads ~1.0 for v1; precision (pixel-level: drawn heather px on painted tuft px) is the RECORDED "
                      "quantity, 0.52, because a spray's drawn pixels spill past its tuft's painted pixels. They agree on "

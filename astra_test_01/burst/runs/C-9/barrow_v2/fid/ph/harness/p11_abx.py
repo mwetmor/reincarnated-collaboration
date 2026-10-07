@@ -41,7 +41,9 @@ N_TRIALS, N_REPEAT = 40, 10
 BAR = 0.65
 GAP = 24
 OVERLAP = 0.5        # max shared area between two crops of one LOCATION (0.25 once PT's v1 stills enlarge the pool)
-X_OVERLAP = 0.25     # an X crop shares <= 25% of its area with ANY crop already used (v0 allowed 50%: trials 06 and 43
+X_OVERLAP = 0.25     # an X crop shares <= 25% of its area with any OTHER X crop (G2-B2 refinement: an X near another
+                     # trial's A/B leaks nothing -- the judge never learns A's build -- so only X-vs-X is guarded)
+                     # (first fix: with ANY crop already used (v0 allowed 50%: trials 06 and 43
                      # of the half-density set had X crops 128 px apart -- near-duplicates a judge can recall)
 OUT = P.P11
 
@@ -112,11 +114,54 @@ def crops_controlled(path):
     return out
 
 
+# WORLD-LOCATION GUARD (G2-B2), WITHIN A TRIAL: different stills of v1 can show the same place (v1ref V1_ring / PT
+# stone_ring). Each still with a known camera centre maps a crop to ground (u, v); within one trial, two crops whose
+# ground centres are within WORLD_SEP_M count as the same place and are never paired. v1ref centres: v2sw_run.gd _v1stills park_camera(uv) (look_at_world centres the aim);
+# PT's: fid/pc/v1_stills/views.json camera.centre_ground_uv.
+WORLD_SEP_M = 3.5          # a 256 px crop spans 2.5 m across, 3.2 m of ground up-screen; its diagonal ~ 4 m
+_CENTRES = None
+
+
+def _centres():
+    global _CENTRES
+    if _CENTRES is None:
+        _CENTRES = {"V1_tarn.png": (-6.0, -7.0), "V1_ring.png": (2.0, 1.0), "V1_door.png": (0.0, 6.5)}
+        vj = FID / "pc/v1_stills/views.json"
+        if vj.exists():
+            for k, v in jload(vj)["views"].items():
+                _CENTRES[v["png"]] = tuple(v["camera"]["centre_ground_uv"])
+    return _CENTRES
+
+
+def _uv(c):
+    n = _loc(c)
+    cen = _centres().get(n)
+    if cen is None:
+        return None
+    if "_wh" not in c:
+        with Image.open(c["src"]) as im:
+            c["_wh"] = im.size
+    W, H = c["_wh"]
+    x, y = c["rect"][0] + P.CROP / 2, c["rect"][1] + P.CROP / 2
+    return (cen[0] + (x - W / 2) / PPM_V1, cen[1] - (y - H / 2) / 80.3076)
+
+
 def _loc(c):
     """the still a crop's LOCATION comes from: a constructed source (half_<name>) shares its original's location space,
     so a v1 crop and a degraded crop of the same place never meet in one trial"""
     n = pathlib.Path(c["src"]).name
     return n[5:] if n.startswith("half_") else n
+
+
+def _same_place(a, b):
+    """WITHIN A TRIAL only: A, B and X are never the same place, even when seen in different stills (then content,
+    not build, would decide the answer). Across trials the per-still overlap rules apply (as calibrated)."""
+    if a is None or b is None:
+        return False
+    if _loc(a) == _loc(b):
+        return _ov(a, b) > 0.0
+    ua, ub = _uv(a), _uv(b)
+    return ua is not None and ub is not None and math.hypot(ua[0] - ub[0], ua[1] - ub[1]) < WORLD_SEP_M
 
 
 def _ov(a, b):
@@ -127,24 +172,26 @@ def _ov(a, b):
     return ox * oy / (P.CROP * P.CROP)
 
 
-def _pick(pool, rng, avoid, limit=None):
+def _pick(pool, rng, avoid, limit=None, trial=()):
     limit = OVERLAP if limit is None else limit
     for i in rng.permutation(len(pool)):
         c = pool[i]
-        if all(_ov(c, u) <= limit for u in avoid):
+        if all(_ov(c, u) <= limit for u in avoid) and not any(_same_place(c, t) for t in trial):
             return c
     return None
 
 
-def build(set_name, cand_paths, seed=168, out_root=None):
+def build(set_name, cand_paths, seed=168, out_root=None, v1_paths=None):
     rng = np.random.default_rng(seed)
-    v1 = [c for p in P.V1_STILLS if p.exists() for c in crops_controlled(p)]
+    v1 = [c for p in (v1_paths or P.V1_STILLS) if p.exists() for c in crops_controlled(p)]
     cd = [c for p in cand_paths for c in crops_controlled(p)]
     by = lambda pool, k: [c for c in pool if c["class"] == k]
     classes = [k for k in ALLOWED if len(by(v1, k)) >= 2 and len(by(cd, k)) >= 2]
     w = np.array([min(len(by(v1, k)), len(by(cd, k))) for k in classes], float)
     w /= w.sum()
-    used_v1, used_cd = [], []
+    used_v1, used_cd = [], []          # A/B crops (OVERLAP among themselves, as calibrated)
+    used_x = []                        # X crops: <= X_OVERLAP against every other X (recall is about X), and never the
+                                       # same place as their own trial's A or B (the within-trial guard)
     trials = []
     xs = ["v1"] * (N_TRIALS // 2) + ["cand"] * (N_TRIALS // 2)
     rng.shuffle(xs)
@@ -153,16 +200,16 @@ def build(set_name, cand_paths, seed=168, out_root=None):
         tries += 1
         k = classes[rng.choice(len(classes), p=w)]
         a = _pick(by(v1, k), rng, used_v1 + used_cd)
-        b = _pick(by(cd, k), rng, used_v1 + used_cd + [a] if a else used_cd)
+        b = _pick(by(cd, k), rng, used_v1 + used_cd + [a] if a else used_cd, trial=(a,))
         if a is None or b is None:
             continue
         xsrc = xs[len(trials)]
-        x = _pick(by(v1, k) if xsrc == "v1" else by(cd, k), rng, used_v1 + used_cd + [a, b], X_OVERLAP)
+        x = _pick(by(v1, k) if xsrc == "v1" else by(cd, k), rng, used_x, X_OVERLAP, trial=(a, b))
         if x is None:
             continue
         used_v1.append(a)
         used_cd.append(b)
-        (used_v1 if xsrc == "v1" else used_cd).append(x)
+        used_x.append(x)
         v1_is_A = bool(rng.integers(2))
         trials.append({"class": k, "v1": a, "cand": b, "x": x, "x_from": xsrc, "v1_is_A": v1_is_A, "repeat_of": None})
     # REPEATS (fix after the R-C9-168 calibration round): the same A and B crops with sides SWAPPED, and a DIFFERENT X
@@ -175,10 +222,10 @@ def build(set_name, cand_paths, seed=168, out_root=None):
             break
         t = dict(trials[i])
         pool = by(v1, t["class"]) if t["x_from"] == "v1" else by(cd, t["class"])
-        x2 = _pick(pool, rng, used_v1 + used_cd + [r["x"] for r in reps], X_OVERLAP)
+        x2 = _pick(pool, rng, used_x, X_OVERLAP, trial=(t["v1"], t["cand"], t["x"]))
         if x2 is None:
             continue
-        (used_v1 if t["x_from"] == "v1" else used_cd).append(x2)
+        used_x.append(x2)
         t["x"] = x2
         t["v1_is_A"] = not t["v1_is_A"]
         t["repeat_of"] = int(i)
@@ -272,11 +319,30 @@ if __name__ == "__main__":
     s = sub.add_parser("score")
     s.add_argument("set")
     s.add_argument("answers")
+    b.add_argument("--g2", action="store_true", help="build the two G2-B2 v1-GREEN sets")
     b.add_argument("--out", help="build into this root instead of fid/ph/p11 (e.g. a dry run; the calibration sets stand)")
     a = ap.parse_args()
     if a.cmd == "score":
         print(json.dumps(score(a.set, a.answers), indent=1))
     else:
+        if a.g2:
+            # G2-B2 (charter § 13): v1 GREEN on the FIXED generator. (i) record-time v1 (v1ref) vs HEAD v1 (PT);
+            # (ii) all v1 stills vs their half-density copies. UNDERPOWERED (< 40 trials) = VOID: not handed out.
+            cdir = OUT / "_constructed_src"
+            cdir.mkdir(parents=True, exist_ok=True)
+            for p in P.V1_STILLS:
+                if p.exists() and not (cdir / ("half_" + p.name)).exists():
+                    im = Image.open(p).convert("RGB")
+                    im.resize((im.width // 2, im.height // 2), Image.BILINEAR).resize(im.size, Image.BILINEAR).save(cdir / ("half_" + p.name))
+            rec = sorted((B2 / "section_v1cam/v1ref").glob("V1_*.png"))
+            head = sorted((FID / "pc/v1_stills").glob("*.png"))
+            out = {"power": power_table(), "sets": {}}
+            out["sets"]["g2_v1rec_vs_v1head"] = build("g2_v1rec_vs_v1head", head, seed=173, v1_paths=rec)
+            out["sets"]["g2_v1_vs_halfdensity"] = build("g2_v1_vs_halfdensity", sorted(cdir.glob("half_*.png")), seed=174)
+            for k, v in out["sets"].items():
+                print("P11-ABX", v)
+            dump(out, str(PH / "results/p11_abx_g2_build.json"))
+            sys.exit(0)
         cdir = OUT / "_constructed_src"           # v1 stills at half texel density (0.5x then 2x, bilinear), as p11_pairs
         cdir.mkdir(parents=True, exist_ok=True)
         for p in P.V1_STILLS:                  # every v1 still in the pool (v1ref + PT's fid/pc/v1_stills)

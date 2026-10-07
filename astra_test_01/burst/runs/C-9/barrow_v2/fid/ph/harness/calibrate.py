@@ -97,14 +97,14 @@ def rows():
                 "cells": {k: {"value": "%.4f / %.4f" % (p7[k]["floor"]["tuft"], p7[k]["floor"]["clutter"]), "pass": p7[k]["pass"], "note": "lanes over: %s" % (p7[k]["lanes_over"] or "none")}
                           for k in ("v1", "159", "constructed") if k in p7},
                 "constructed": "a 3 × 3 m patch of v1 heather ground pasted onto the arena centre"})
-    pr = p8.get("precision", {})
-    out.append({"row": "P8", "kind": "constraint", "neg": "constructed (RED)",
-                "metric": "precision_drawn_on_painted (overlay_check.py's recorded quantity): drawn 3D-heather px on painted tuft px / drawn px, whole window. Reported beside it: instance share on tufts and tint r",
-                "threshold": "≥ %s — v1's minimum chunk value (R-C9-169)" % pr.get("bar"),
-                "threshold_source": "take/build/overlay_check.json per_chunk (16 chunks 0.4476–0.5783; whole window 0.5221), reproduced exactly by PT (fid/pc/results.json T3) and by PH",
-                "cells": {k: {"value": "%.4f (share %.2f)" % (pr[k]["precision"], p8[k]["share"]), "pass": pr[k]["pass"], "note": ""}
-                          for k in ("v1", "159", "constructed") if pr.get(k)},
-                "constructed": "v1's drawn heather shifted 4 m"})
+    lf = p8.get("like_for_like", {}).get("rows", {})
+    out.append({"row": "P8", "kind": "constraint", "neg": "constructed (RED, graded)",
+                "metric": "precision_drawn_on_painted PER PAINT CHUNK (drawn 3D-heather px on painted tuft px / drawn px), like-for-like against v1's per-chunk distribution (W-3 re-instrumentation)",
+                "threshold": "every chunk with heather (≥ 2000 drawn px) ≥ 0.4476 = v1's minimum chunk",
+                "threshold_source": "take/build/overlay_check.json per_chunk (16 chunks 0.4476–0.5783), reproduced exactly by PT (fid/pc/results.json T3) and by PH",
+                "cells": {lab: {"value": "min %s, %d/%d below" % (lf[k]["min"], len(lf[k]["chunks_below"]), lf[k]["n_chunks_judged"]), "pass": lf[k]["pass"], "note": ""}
+                          for k, lab in (("v1", "v1"), ("159", "159"), ("constructed_shift_0.1m", "constructed")) if k in lf},
+                "constructed": "v1's drawn heather shifted 0.1 m (graded: 0.25 m → 13/15 below, 1 m → 15/15)"})
     p9 = j("p9_p10.json").get("p9", {})
     sw = p9.get("a_heather_sway", {}).get("rows", {})
     tr = p9.get("d_snow_trail_coverage", {})
