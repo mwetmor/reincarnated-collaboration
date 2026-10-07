@@ -1,0 +1,278 @@
+{
+ "fixtures": {
+  "jr_reemit": {
+   "all_rowsets_equal_manifest": true,
+   "dir": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/jr_j0f_port/port",
+   "grains": {
+    "G1": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 56511,
+     "rowset_equal": true,
+     "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+     "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0"
+    },
+    "G2": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 105045,
+     "rowset_equal": true,
+     "rowset_manifest": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+     "rowset_rederived": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957"
+    },
+    "G3": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+     "rowset_rederived": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5"
+    },
+    "G4": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 117695,
+     "rowset_equal": true,
+     "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+     "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd"
+    },
+    "G5": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 25,
+     "rowset_equal": true,
+     "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+     "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231"
+    },
+    "G6": {
+     "file_equal": true,
+     "n_cells": 0,
+     "rows": 0,
+     "rowset_equal": true,
+     "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "G7": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+     "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d"
+    }
+   },
+   "manifest": "manifest-port.json",
+   "manifest_sha256": "f1c980358a47a3de9ba868c31033310d037050af33149c7d114c87453f3ebbf3"
+  },
+  "oracle": {
+   "all_rowsets_equal_manifest": true,
+   "dir": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/join1-gm-fixture-v1/oracle",
+   "grains": {
+    "G1": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 56511,
+     "rowset_equal": true,
+     "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+     "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0"
+    },
+    "G2": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 105045,
+     "rowset_equal": true,
+     "rowset_manifest": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+     "rowset_rederived": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957"
+    },
+    "G3": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+     "rowset_rederived": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5"
+    },
+    "G4": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 117695,
+     "rowset_equal": true,
+     "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+     "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd"
+    },
+    "G5": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 25,
+     "rowset_equal": true,
+     "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+     "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231"
+    },
+    "G6": {
+     "file_equal": true,
+     "n_cells": 0,
+     "rows": 0,
+     "rowset_equal": true,
+     "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "G7": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+     "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d"
+    }
+   },
+   "manifest": "manifest.json",
+   "manifest_sha256": "f82807fb6de68a6cee4eff69bb7028457143b4951fe9abccee94caa735c4d217"
+  },
+  "port": {
+   "all_rowsets_equal_manifest": true,
+   "dir": "/Users/admin/Games/reincarnated-godot/evidence/join1/join1-gm-fixture-v1/port",
+   "grains": {
+    "G1": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 56511,
+     "rowset_equal": true,
+     "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+     "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0"
+    },
+    "G2": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 105045,
+     "rowset_equal": true,
+     "rowset_manifest": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+     "rowset_rederived": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957"
+    },
+    "G3": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+     "rowset_rederived": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5"
+    },
+    "G4": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 117695,
+     "rowset_equal": true,
+     "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+     "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd"
+    },
+    "G5": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 25,
+     "rowset_equal": true,
+     "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+     "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231"
+    },
+    "G6": {
+     "file_equal": true,
+     "n_cells": 0,
+     "rows": 0,
+     "rowset_equal": true,
+     "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "G7": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+     "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d"
+    }
+   },
+   "manifest": "manifest-port.json",
+   "manifest_sha256": "5ca44258eaa7be335bd6207b682a78cb5b206284bcd7158d6d06404067795a95"
+  }
+ },
+ "pairs": {
+  "oracle_vs_jr_reemit": {
+   "all_equal": true,
+   "grains": {
+    "G1": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G2": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G3": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G4": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G5": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G6": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G7": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    }
+   }
+  },
+  "port_vs_jr_reemit": {
+   "all_equal": true,
+   "grains": {
+    "G1": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G2": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G3": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G4": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G5": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G6": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G7": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    }
+   }
+  }
+ }
+}

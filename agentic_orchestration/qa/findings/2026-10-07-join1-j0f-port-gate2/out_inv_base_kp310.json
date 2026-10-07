@@ -1,0 +1,84 @@
+{
+ "emitter_rc_post": 0,
+ "red_streams": [],
+ "streams": {
+  "1_fixture_rowsets": {
+   "G1": {
+    "equal": true,
+    "post": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+    "pre": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+    "rows": [
+     56511,
+     56511
+    ]
+   },
+   "G2": {
+    "equal": true,
+    "post": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+    "pre": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+    "rows": [
+     105045,
+     105045
+    ]
+   },
+   "G3": {
+    "equal": true,
+    "post": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+    "pre": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+    "rows": [
+     250,
+     250
+    ]
+   },
+   "G4": {
+    "equal": true,
+    "post": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+    "pre": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+    "rows": [
+     117695,
+     117695
+    ]
+   },
+   "G5": {
+    "equal": true,
+    "post": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+    "pre": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+    "rows": [
+     25,
+     25
+    ]
+   },
+   "G6": {
+    "equal": true,
+    "post": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pre": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rows": [
+     0,
+     0
+    ]
+   },
+   "G7": {
+    "equal": true,
+    "post": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+    "pre": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+    "rows": [
+     250,
+     250
+    ]
+   }
+  },
+  "2_stdout_normalised": {
+   "equal": true,
+   "first_difference": null,
+   "post": "4bb66fcddf04e09ff0458eb966ce81560f4951e205f0f23834317f11df02436a",
+   "pre": "4bb66fcddf04e09ff0458eb966ce81560f4951e205f0f23834317f11df02436a"
+  },
+  "3_stderr_raw": {
+   "equal": true,
+   "first_difference": null,
+   "post": "95c22c828cb5ee7ca481974c8c8736a2b818099307c62f8f4db4081f558f33df",
+   "pre": "95c22c828cb5ee7ca481974c8c8736a2b818099307c62f8f4db4081f558f33df"
+  }
+ },
+ "verdict": "INVARIANCE GREEN"
+}

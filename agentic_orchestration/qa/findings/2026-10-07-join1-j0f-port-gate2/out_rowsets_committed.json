@@ -1,0 +1,552 @@
+{
+ "fixtures": {
+  "oracle": {
+   "all_rowsets_equal_manifest": true,
+   "dir": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/output/join1-gm-fixture-v1/oracle",
+   "grains": {
+    "G1": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 56511,
+     "rowset_equal": true,
+     "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+     "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0"
+    },
+    "G2": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 105045,
+     "rowset_equal": true,
+     "rowset_manifest": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+     "rowset_rederived": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957"
+    },
+    "G3": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+     "rowset_rederived": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5"
+    },
+    "G4": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 117695,
+     "rowset_equal": true,
+     "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+     "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd"
+    },
+    "G5": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 25,
+     "rowset_equal": true,
+     "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+     "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231"
+    },
+    "G6": {
+     "file_equal": true,
+     "n_cells": 0,
+     "rows": 0,
+     "rowset_equal": true,
+     "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "G7": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+     "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d"
+    }
+   },
+   "manifest": "manifest.json",
+   "manifest_sha256": "f82807fb6de68a6cee4eff69bb7028457143b4951fe9abccee94caa735c4d217"
+  },
+  "port": {
+   "all_rowsets_equal_manifest": true,
+   "dir": "/Users/admin/Games/reincarnated-godot/evidence/join1/join1-gm-fixture-v1/port",
+   "grains": {
+    "G1": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 56511,
+     "rowset_equal": true,
+     "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+     "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0"
+    },
+    "G2": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 105045,
+     "rowset_equal": true,
+     "rowset_manifest": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+     "rowset_rederived": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957"
+    },
+    "G3": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+     "rowset_rederived": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5"
+    },
+    "G4": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 117695,
+     "rowset_equal": true,
+     "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+     "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd"
+    },
+    "G5": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 25,
+     "rowset_equal": true,
+     "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+     "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231"
+    },
+    "G6": {
+     "file_equal": true,
+     "n_cells": 0,
+     "rows": 0,
+     "rowset_equal": true,
+     "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "G7": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+     "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d"
+    }
+   },
+   "manifest": "manifest-port.json",
+   "manifest_sha256": "5ca44258eaa7be335bd6207b682a78cb5b206284bcd7158d6d06404067795a95"
+  },
+  "r2": {
+   "all_rowsets_equal_manifest": true,
+   "dir": "/Users/admin/Games/reincarnated-godot/evidence/join1/join1-gm-fixture-v1/port-r2-534febc",
+   "grains": {
+    "G1": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 56511,
+     "rowset_equal": true,
+     "rowset_manifest": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+     "rowset_rederived": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0"
+    },
+    "G2": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 105045,
+     "rowset_equal": true,
+     "rowset_manifest": "5a1e1aa7fb5e66ba6eed9f538f156b11f8f25bb0cf78972df89f8a0b13d12598",
+     "rowset_rederived": "5a1e1aa7fb5e66ba6eed9f538f156b11f8f25bb0cf78972df89f8a0b13d12598"
+    },
+    "G3": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "1bbe76bbe71ac58a2eb7bc3d8c9adc82650480f00688b398db2eb4d31c7b57e4",
+     "rowset_rederived": "1bbe76bbe71ac58a2eb7bc3d8c9adc82650480f00688b398db2eb4d31c7b57e4"
+    },
+    "G4": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 117695,
+     "rowset_equal": true,
+     "rowset_manifest": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+     "rowset_rederived": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd"
+    },
+    "G5": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 25,
+     "rowset_equal": true,
+     "rowset_manifest": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+     "rowset_rederived": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231"
+    },
+    "G6": {
+     "file_equal": true,
+     "n_cells": 0,
+     "rows": 0,
+     "rowset_equal": true,
+     "rowset_manifest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+     "rowset_rederived": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "G7": {
+     "file_equal": true,
+     "n_cells": 25,
+     "rows": 250,
+     "rowset_equal": true,
+     "rowset_manifest": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+     "rowset_rederived": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d"
+    }
+   },
+   "manifest": "manifest-port.json",
+   "manifest_sha256": "8479a2fd9bfd2149efea63921d5c4290727978593fe8ece5d48bc4e3803e40f8"
+  }
+ },
+ "pairs": {
+  "oracle_vs_port": {
+   "all_equal": true,
+   "grains": {
+    "G1": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G2": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G3": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G4": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G5": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G6": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G7": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    }
+   }
+  },
+  "r2_vs_oracle": {
+   "all_equal": false,
+   "grains": {
+    "G1": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G2": {
+     "by_family": {
+      "Aether": 299,
+      "Chaos": 1390,
+      "Cold": 1164,
+      "Elemental": 68,
+      "Fire": 726,
+      "Life": 891,
+      "Lightning": 827,
+      "Physical": 1523,
+      "Pierce": 979,
+      "Poison": 35,
+      "SlowBleeding": 1067,
+      "SlowCold": 120,
+      "SlowFire": 831,
+      "SlowLife": 20,
+      "SlowLightning": 5,
+      "SlowPhysical": 39,
+      "SlowPoison": 272
+     },
+     "by_field": {
+      "after_stage_1": 9510,
+      "after_stage_2": 1254,
+      "applied": 9423,
+      "pre_mitigation": 10256,
+      "regions": 1562
+     },
+     "by_wave": {
+      "151": 2423,
+      "152": 1790,
+      "153": 3756,
+      "154": 1254,
+      "155": 1033
+     },
+     "differing": 10256,
+     "first_A": {
+      "after_stage_1": 167.07599999999996,
+      "after_stage_2": null,
+      "applied": 167.07599999999996,
+      "arm": "M-POL-2",
+      "armour_branch": "non_physical",
+      "attribution": "resist:Cold=80%",
+      "family": "Cold",
+      "packet_ord": 0,
+      "pre_mitigation": 835.38,
+      "recomputed": [],
+      "regions": null,
+      "resist_used_frac": null,
+      "salt": 0,
+      "source_id": "w151_a007",
+      "stage_order": null,
+      "tick": 62
+     },
+     "first_B": {
+      "after_stage_1": 167.07599999999994,
+      "after_stage_2": null,
+      "applied": 167.07599999999994,
+      "arm": "M-POL-2",
+      "armour_branch": "non_physical",
+      "attribution": "resist:Cold=80%",
+      "family": "Cold",
+      "packet_ord": 0,
+      "pre_mitigation": 835.3799999999999,
+      "recomputed": [],
+      "regions": null,
+      "resist_used_frac": null,
+      "salt": 0,
+      "source_id": "w151_a007",
+      "stage_order": null,
+      "tick": 62
+     },
+     "first_key": [
+      "M-POL-2",
+      0,
+      62,
+      "w151_a007",
+      0
+     ],
+     "n_cells": 25,
+     "only_in_A": 0,
+     "only_in_B": 0,
+     "pre_mitigation_ulps_B_minus_A": {
+      "-1": 7358,
+      "-2": 2898
+     }
+    },
+    "G3": {
+     "by_family": {},
+     "by_field": {
+      "heal_hp": 13,
+      "intake_hp": 26
+     },
+     "by_wave": {
+      "151": 9,
+      "152": 8,
+      "153": 12,
+      "154": 5
+     },
+     "differing": 34,
+     "first_A": {
+      "arm": "M-POL-2",
+      "heal_hp": 43310.359306871906,
+      "intake_hp": 43310.35930687215,
+      "n_bodies_hit": 184,
+      "n_leech_events": 130,
+      "salt": 0,
+      "wave": 151
+     },
+     "first_B": {
+      "arm": "M-POL-2",
+      "heal_hp": 43310.359306871906,
+      "intake_hp": 43310.359306872146,
+      "n_bodies_hit": 184,
+      "n_leech_events": 130,
+      "salt": 0,
+      "wave": 151
+     },
+     "first_key": [
+      "M-POL-2",
+      0,
+      151
+     ],
+     "n_cells": 23,
+     "only_in_A": 0,
+     "only_in_B": 0,
+     "pre_mitigation_ulps_B_minus_A": {}
+    },
+    "G4": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G5": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G6": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G7": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    }
+   }
+  },
+  "r2_vs_port": {
+   "all_equal": false,
+   "grains": {
+    "G1": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G2": {
+     "by_family": {
+      "Aether": 299,
+      "Chaos": 1390,
+      "Cold": 1164,
+      "Elemental": 68,
+      "Fire": 726,
+      "Life": 891,
+      "Lightning": 827,
+      "Physical": 1523,
+      "Pierce": 979,
+      "Poison": 35,
+      "SlowBleeding": 1067,
+      "SlowCold": 120,
+      "SlowFire": 831,
+      "SlowLife": 20,
+      "SlowLightning": 5,
+      "SlowPhysical": 39,
+      "SlowPoison": 272
+     },
+     "by_field": {
+      "after_stage_1": 9510,
+      "after_stage_2": 1254,
+      "applied": 9423,
+      "pre_mitigation": 10256,
+      "regions": 1562
+     },
+     "by_wave": {
+      "151": 2423,
+      "152": 1790,
+      "153": 3756,
+      "154": 1254,
+      "155": 1033
+     },
+     "differing": 10256,
+     "first_A": {
+      "after_stage_1": 167.07599999999996,
+      "after_stage_2": null,
+      "applied": 167.07599999999996,
+      "arm": "M-POL-2",
+      "armour_branch": "non_physical",
+      "attribution": "resist:Cold=80%",
+      "family": "Cold",
+      "packet_ord": 0,
+      "pre_mitigation": 835.38,
+      "recomputed": [],
+      "regions": null,
+      "resist_used_frac": null,
+      "salt": 0,
+      "source_id": "w151_a007",
+      "stage_order": null,
+      "tick": 62
+     },
+     "first_B": {
+      "after_stage_1": 167.07599999999994,
+      "after_stage_2": null,
+      "applied": 167.07599999999994,
+      "arm": "M-POL-2",
+      "armour_branch": "non_physical",
+      "attribution": "resist:Cold=80%",
+      "family": "Cold",
+      "packet_ord": 0,
+      "pre_mitigation": 835.3799999999999,
+      "recomputed": [],
+      "regions": null,
+      "resist_used_frac": null,
+      "salt": 0,
+      "source_id": "w151_a007",
+      "stage_order": null,
+      "tick": 62
+     },
+     "first_key": [
+      "M-POL-2",
+      0,
+      62,
+      "w151_a007",
+      0
+     ],
+     "n_cells": 25,
+     "only_in_A": 0,
+     "only_in_B": 0,
+     "pre_mitigation_ulps_B_minus_A": {
+      "-1": 7358,
+      "-2": 2898
+     }
+    },
+    "G3": {
+     "by_family": {},
+     "by_field": {
+      "heal_hp": 13,
+      "intake_hp": 26
+     },
+     "by_wave": {
+      "151": 9,
+      "152": 8,
+      "153": 12,
+      "154": 5
+     },
+     "differing": 34,
+     "first_A": {
+      "arm": "M-POL-2",
+      "heal_hp": 43310.359306871906,
+      "intake_hp": 43310.35930687215,
+      "n_bodies_hit": 184,
+      "n_leech_events": 130,
+      "salt": 0,
+      "wave": 151
+     },
+     "first_B": {
+      "arm": "M-POL-2",
+      "heal_hp": 43310.359306871906,
+      "intake_hp": 43310.359306872146,
+      "n_bodies_hit": 184,
+      "n_leech_events": 130,
+      "salt": 0,
+      "wave": 151
+     },
+     "first_key": [
+      "M-POL-2",
+      0,
+      151
+     ],
+     "n_cells": 23,
+     "only_in_A": 0,
+     "only_in_B": 0,
+     "pre_mitigation_ulps_B_minus_A": {}
+    },
+    "G4": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G5": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G6": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    },
+    "G7": {
+     "differing": 0,
+     "only_in_A": 0,
+     "only_in_B": 0
+    }
+   }
+  }
+ }
+}

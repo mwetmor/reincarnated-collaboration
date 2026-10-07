@@ -1,0 +1,176 @@
+{
+ "KC1_vs_KC1b": {
+  "d2-wl-echoing-strike": {
+   "element": [
+    "physical",
+    "physical?"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-belgothian-blademaster": {
+   "element": [
+    "physical",
+    "pierce"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-blade-arc-warder": {
+   "element": [
+    "physical",
+    "bleed"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-blade-trap": {
+   "element": [
+    "physical",
+    "pierce"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-wendigo-totem-ritualist": {
+   "element": [
+    "physical",
+    "bleed"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element"
+   ]
+  }
+ },
+ "n_compile_errors": [
+  0,
+  0,
+  0
+ ],
+ "n_records": [
+  591,
+  591,
+  591
+ ],
+ "preKC1_vs_KC1": {
+  "d2-wl-echoing-strike": {
+   "element": [
+    "physical?",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-belgothian-blademaster": {
+   "element": [
+    "pierce",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-blade-arc-warder": {
+   "element": [
+    "bleed",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-blade-trap": {
+   "element": [
+    "pierce",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-eor-warlord": {
+   "fields": [
+    "notes"
+   ],
+   "notes_added": [
+    "Eye of Reckoning: eor_radius_m absent or rdr_value NULL (no normalization rule stamped) -> geometry_params radius GAP (flagged, not defaulted; KC-3)"
+   ]
+  },
+  "gd-eor-warlord-referent": {
+   "element": [
+    "fire",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  },
+  "gd-wendigo-totem-ritualist": {
+   "element": [
+    "bleed",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element"
+   ]
+  }
+ },
+ "preKC1_vs_KC1b": {
+  "gd-eor-warlord": {
+   "fields": [
+    "notes"
+   ],
+   "notes_added": [
+    "Eye of Reckoning: eor_radius_m absent or rdr_value NULL (no normalization rule stamped) -> geometry_params radius GAP (flagged, not defaulted; KC-3)"
+   ]
+  },
+  "gd-eor-warlord-referent": {
+   "element": [
+    "fire",
+    "physical"
+   ],
+   "fields": [
+    "asserts",
+    "class_dict",
+    "element",
+    "skills"
+   ]
+  }
+ }
+}
