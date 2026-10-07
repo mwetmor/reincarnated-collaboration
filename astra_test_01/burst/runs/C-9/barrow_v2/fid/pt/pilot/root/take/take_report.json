@@ -1,0 +1,67 @@
+{
+ "_what": "BV2F PT pilot take (fid/pt/tools/bv2f_take.py): v1's take (a)+(b) on the pilot",
+ "painting": {
+  "file": "fid/pt/pilot/painting.png",
+  "sha256": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03",
+  "px": [
+   4096,
+   2560
+  ]
+ },
+ "camera": {
+  "projection": "orthographic",
+  "pitch_deg": 52.953541125602946,
+  "yaw_deg": 47.0,
+  "px_per_m": 100.617553710938,
+  "px_per_ground_m_v": 80.3076,
+  "px_per_vertical_m": 60.6183,
+  "u0": -33.57573954303182,
+  "v1": 22.36993715728635,
+  "screen_right_world": [
+   0.681998,
+   0.0,
+   -0.731354
+  ],
+  "screen_up_world": [
+   -0.583728,
+   0.602462,
+   -0.544335
+  ],
+  "to_camera_world": [
+   0.440613,
+   0.798147,
+   0.410878
+  ],
+  "id_render_check": {
+   "formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0",
+   "placements_checked": 2,
+   "worst_px_camera_vs_formula": 0.001
+  }
+ },
+ "ids": {
+  "total_site_ungrouped": 124,
+  "in_pilot": 31,
+  "dev16": "NOT OPENED: 124 ids ungrouped site-wide <= 256"
+ },
+ "plates": {
+  "count": 18,
+  "missing_in_ids": [],
+  "mesh_extends_outside_the_pilot_plate": [
+   "barrow_front",
+   "cliff_faces__cliff_faces_0"
+  ]
+ },
+ "tufts": {
+  "count": 334,
+  "heather": 262,
+  "shrub": 42,
+  "mixed": 30,
+  "tuft_px_share_of_ground": 0.085,
+  "heather_px": 394100,
+  "shrub_px": 153264,
+  "density_raster_px": [
+   407,
+   319
+  ]
+ }
+}

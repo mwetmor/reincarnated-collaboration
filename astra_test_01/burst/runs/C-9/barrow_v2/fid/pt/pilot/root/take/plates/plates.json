@@ -1,0 +1,1111 @@
+{
+ "_what": "BV2F PT pilot: the hero identity plates, cut from the pilot painting by the ID render (v1 take (a))",
+ "camera": {
+  "projection": "orthographic",
+  "pitch_deg": 52.953541125602946,
+  "yaw_deg": 47.0,
+  "px_per_m": 100.617553710938,
+  "px_per_ground_m_v": 80.3076,
+  "px_per_vertical_m": 60.6183,
+  "u0": -33.57573954303182,
+  "v1": 22.36993715728635,
+  "screen_right_world": [
+   0.681998,
+   0.0,
+   -0.731354
+  ],
+  "screen_up_world": [
+   -0.583728,
+   0.602462,
+   -0.544335
+  ],
+  "to_camera_world": [
+   0.440613,
+   0.798147,
+   0.410878
+  ],
+  "id_render_check": {
+   "formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0",
+   "placements_checked": 2,
+   "worst_px_camera_vs_formula": 0.001
+  }
+ },
+ "plates": {
+  "barrow_front": {
+   "class": "rock",
+   "piece": "model",
+   "id_index": 1,
+   "file": "plates/barrow_front.png",
+   "rect_px": [
+    3092,
+    0,
+    900,
+    560
+   ],
+   "visible_px": 268440,
+   "ring_px": 7537,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    165,
+    143,
+    129
+   ],
+   "touches_in_view": [
+    "curtain_barrow_door",
+    "ground_mound",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3092,
+     0,
+     900,
+     560
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -12.70088,
+     0.0,
+     -14.06822
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    2954.0,
+    -406.1,
+    1167.2,
+    961.1
+   ],
+   "mesh_rect_inside_plate_window": false
+  },
+  "cliff_faces__cliff_faces_0": {
+   "class": "rock",
+   "piece": "instance:cliff_faces",
+   "id_index": 23,
+   "file": "plates/cliff_faces__cliff_faces_0.png",
+   "rect_px": [
+    782,
+    2443,
+    269,
+    117
+   ],
+   "visible_px": 24401,
+   "ring_px": 0,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    157,
+    147,
+    141
+   ],
+   "touches_in_view": [
+    "ground_rock",
+    "ground_sea",
+    "ground_shingle"
+   ],
+   "cell": {
+    "rect": [
+     782,
+     2443,
+     269,
+     117
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -10.26587,
+     0.0,
+     23.88131
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    720.7,
+    2444.7,
+    613.5,
+    854.1
+   ],
+   "mesh_rect_inside_plate_window": false
+  },
+  "crags__crags_2": {
+   "class": "rock",
+   "piece": "instance:crags",
+   "id_index": 29,
+   "file": "plates/crags__crags_2.png",
+   "rect_px": [
+    1348,
+    2055,
+    281,
+    208
+   ],
+   "visible_px": 39072,
+   "ring_px": 468,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    143,
+    132,
+    128
+   ],
+   "touches_in_view": [
+    "ground_shingle",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     1348,
+     2055,
+     281,
+     208
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -9.50789,
+     0.0,
+     16.81502
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    1342.0,
+    2056.8,
+    303.3,
+    246.9
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "crags__crags_6": {
+   "class": "rock",
+   "piece": "instance:crags",
+   "id_index": 33,
+   "file": "plates/crags__crags_6.png",
+   "rect_px": [
+    194,
+    553,
+    302,
+    280
+   ],
+   "visible_px": 54933,
+   "ring_px": 0,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    148,
+    141,
+    135
+   ],
+   "touches_in_view": [
+    "ground_shingle",
+    "ground_shore_ice"
+   ],
+   "cell": {
+    "rect": [
+     194,
+     553,
+     302,
+     280
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -30.6094,
+     0.0,
+     12.67698
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    188.4,
+    555.2,
+    343.3,
+    318.0
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "logs__logs_3": {
+   "class": "wood",
+   "piece": "instance:logs",
+   "id_index": 55,
+   "file": "plates/logs__logs_3.png",
+   "rect_px": [
+    1357,
+    1795,
+    311,
+    126
+   ],
+   "visible_px": 10298,
+   "ring_px": 127,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    133,
+    118,
+    110
+   ],
+   "touches_in_view": [
+    "ground_shingle",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     1357,
+     1795,
+     311,
+     126
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -12.0864,
+     0.0,
+     14.08439
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    1359.0,
+    1797.0,
+    307.5,
+    122.6
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_0": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 107,
+   "file": "plates/ring_stones__ring_stones_0.png",
+   "rect_px": [
+    2954,
+    1672,
+    94,
+    184
+   ],
+   "visible_px": 10942,
+   "ring_px": 1285,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    135,
+    115,
+    104
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     2954,
+     1672,
+     94,
+     184
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -2.85321,
+     0.0,
+     2.46672
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    2958.6,
+    1676.3,
+    84.8,
+    178.8
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_1": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 108,
+   "file": "plates/ring_stones__ring_stones_1.png",
+   "rect_px": [
+    3084,
+    1914,
+    98,
+    146
+   ],
+   "visible_px": 8561,
+   "ring_px": 1019,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    133,
+    116,
+    103
+   ],
+   "touches_in_view": [
+    "ground_path",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3084,
+     1914,
+     98,
+     146
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     0.07235,
+     0.0,
+     3.40105
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3088.0,
+    1918.7,
+    89.4,
+    140.7
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_2": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 109,
+   "file": "plates/ring_stones__ring_stones_2.png",
+   "rect_px": [
+    3324,
+    1387,
+    110,
+    162
+   ],
+   "visible_px": 11351,
+   "ring_px": 1202,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    133,
+    117,
+    107
+   ],
+   "touches_in_view": [
+    "ground_path",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3324,
+     1387,
+     110,
+     162
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -2.98672,
+     0.0,
+     -2.79455
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3328.8,
+    1392.5,
+    99.7,
+    155.1
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_3": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 110,
+   "file": "plates/ring_stones__ring_stones_3.png",
+   "rect_px": [
+    3664,
+    1531,
+    113,
+    182
+   ],
+   "visible_px": 12899,
+   "ring_px": 1281,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    140,
+    118,
+    103
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3664,
+     1531,
+     113,
+     182
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     0.73047,
+     0.0,
+     -3.96898
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3668.9,
+    1535.8,
+    103.3,
+    176.2
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_4": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 111,
+   "file": "plates/ring_stones__ring_stones_4.png",
+   "rect_px": [
+    3610,
+    1842,
+    87,
+    166
+   ],
+   "visible_px": 8970,
+   "ring_px": 1163,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    140,
+    119,
+    106
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3610,
+     1842,
+     87,
+     166
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     3.03573,
+     0.0,
+     -0.90881
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3613.7,
+    1847.2,
+    79.4,
+    159.8
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_5": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 112,
+   "file": "plates/ring_stones__ring_stones_5.png",
+   "rect_px": [
+    3154,
+    1615,
+    147,
+    109
+   ],
+   "visible_px": 7453,
+   "ring_px": 1017,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    143,
+    122,
+    103
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3154,
+     1615,
+     147,
+     109
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -2.17856,
+     0.0,
+     0.01785
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3158.2,
+    1620.2,
+    137.4,
+    99.3
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_6": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 113,
+   "file": "plates/ring_stones__ring_stones_6.png",
+   "rect_px": [
+    3409,
+    2009,
+    154,
+    83
+   ],
+   "visible_px": 7255,
+   "ring_px": 1046,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    146,
+    129,
+    113
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3409,
+     2009,
+     154,
+     83
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     3.04331,
+     0.0,
+     1.37448
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3413.2,
+    2013.5,
+    145.0,
+    77.2
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "ring_stones__ring_stones_7": {
+   "class": "rock",
+   "piece": "instance:ring_stones",
+   "id_index": 114,
+   "file": "plates/ring_stones__ring_stones_7.png",
+   "rect_px": [
+    3543,
+    2060,
+    113,
+    141
+   ],
+   "visible_px": 7534,
+   "ring_px": 946,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    145,
+    123,
+    103
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3543,
+     2060,
+     113,
+     141
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     4.54118,
+     0.0,
+     1.22887
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3547.1,
+    2065.3,
+    104.0,
+    132.8
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "slope_stones__slope_stones_1": {
+   "class": "rock",
+   "piece": "instance:slope_stones",
+   "id_index": 116,
+   "file": "plates/slope_stones__slope_stones_1.png",
+   "rect_px": [
+    2241,
+    227,
+    92,
+    161
+   ],
+   "visible_px": 9110,
+   "ring_px": 1094,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    134,
+    113,
+    98
+   ],
+   "touches_in_view": [
+    "ground_shrub",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     2241,
+     227,
+     92,
+     161
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -20.95699,
+     0.0,
+     -4.71253
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    2246.0,
+    231.8,
+    81.8,
+    154.6
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "slope_stones__slope_stones_2": {
+   "class": "rock",
+   "piece": "instance:slope_stones",
+   "id_index": 117,
+   "file": "plates/slope_stones__slope_stones_2.png",
+   "rect_px": [
+    2939,
+    549,
+    124,
+    169
+   ],
+   "visible_px": 13451,
+   "ring_px": 1264,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    129,
+    116,
+    107
+   ],
+   "touches_in_view": [
+    "ground_shrub",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     2939,
+     549,
+     124,
+     169
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -13.14856,
+     0.0,
+     -7.13385
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    2944.3,
+    553.8,
+    114.1,
+    162.0
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "slope_stones__slope_stones_3": {
+   "class": "rock",
+   "piece": "instance:slope_stones",
+   "id_index": 118,
+   "file": "plates/slope_stones__slope_stones_3.png",
+   "rect_px": [
+    3933,
+    525,
+    99,
+    181
+   ],
+   "visible_px": 11341,
+   "ring_px": 1273,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    140,
+    122,
+    111
+   ],
+   "touches_in_view": [
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     3933,
+     525,
+     99,
+     181
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -6.65975,
+     0.0,
+     -14.42089
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    3938.2,
+    529.5,
+    89.6,
+    174.7
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "slope_stones__slope_stones_6": {
+   "class": "rock",
+   "piece": "instance:slope_stones",
+   "id_index": 121,
+   "file": "plates/slope_stones__slope_stones_6.png",
+   "rect_px": [
+    1641,
+    1326,
+    115,
+    169
+   ],
+   "visible_px": 13021,
+   "ring_px": 205,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    135,
+    117,
+    104
+   ],
+   "touches_in_view": [
+    "ground_shingle",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     1641,
+     1326,
+     115,
+     169
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -14.901,
+     0.0,
+     8.9321
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    1643.3,
+    1328.2,
+    110.6,
+    170.5
+   ],
+   "mesh_rect_inside_plate_window": true
+  },
+  "wreck": {
+   "class": "wood",
+   "piece": "model",
+   "id_index": 124,
+   "file": "plates/wreck.png",
+   "rect_px": [
+    437,
+    994,
+    1048,
+    1029
+   ],
+   "visible_px": 252512,
+   "ring_px": 77,
+   "alpha": "255 = the piece as the ID render sees it, 160 = the 3 px ring the painter's ink and snow may overhang onto the ground, 0 = not this piece",
+   "fill_srgb_for_unseen": [
+    130,
+    112,
+    99
+   ],
+   "touches_in_view": [
+    "ground_shingle",
+    "ground_shore_ice",
+    "ground_snow"
+   ],
+   "cell": {
+    "rect": [
+     437,
+     994,
+     1048,
+     1029
+    ],
+    "px_per_m": 100.617553710938,
+    "screen_right": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "screen_up": [
+     -0.583728,
+     0.602462,
+     -0.544335
+    ],
+    "aim": [
+     -19.0074,
+     0.0,
+     15.12498
+    ],
+    "view_dir": [
+     0.440613,
+     0.798147,
+     0.410878
+    ]
+   },
+   "mesh_screen_rect_px": [
+    439.1,
+    996.2,
+    1043.9,
+    1103.5
+   ],
+   "mesh_rect_inside_plate_window": true
+  }
+ }
+}

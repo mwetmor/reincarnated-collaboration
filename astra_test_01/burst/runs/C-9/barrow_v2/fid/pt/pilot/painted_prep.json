@@ -1,0 +1,95 @@
+{
+ "_what": "BV2F PT pilot: the painted pilot's data, measured (fid/pt/tools/bv2f_prep.py = v1 paint_world_prep main on the pilot)",
+ "painting_sha256": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03",
+ "tufts_self_test": {
+  "heather_px": [
+   394100,
+   394100
+  ],
+  "shrub_px": [
+   153264,
+   153264
+  ],
+  "PASS": true
+ },
+ "shadow": {
+  "painted_shadow_over_painted_light_linear": [
+   0.5061,
+   0.6469,
+   0.9215
+  ],
+  "pixels": {
+   "shadow": 18081,
+   "lit": 2890744
+  },
+  "per_chunk_linear": {
+   "1_0": [
+    0.423,
+    0.533,
+    0.855
+   ],
+   "2_0": [
+    0.606,
+    0.701,
+    0.94
+   ],
+   "2_1": [
+    0.483,
+    0.632,
+    0.96
+   ],
+   "2_2": [
+    0.477,
+    0.626,
+    0.932
+   ]
+  },
+  "v1_value_linear": [
+   0.419,
+   0.548,
+   0.892
+  ]
+ },
+ "bakes": 18,
+ "heather": {
+  "instances": 266,
+  "placement": {
+   "shrub": {
+    "placed": 30,
+    "wanted": 30,
+    "footprint_px": [
+     54.9,
+     64.8
+    ],
+    "tuft_cells_covered_share": 0.2925
+   },
+   "heather": {
+    "placed": 236,
+    "wanted": 236,
+    "footprint_px": [
+     47.1,
+     55.5
+    ],
+    "tuft_cells_covered_share": 0.3756
+   }
+  },
+  "painted_mean_linear": [
+   0.24146,
+   0.10802,
+   0.04656
+  ],
+  "tuft_px_per_spray_median": 1408,
+  "tufts_on_flat_land_share": 0.6678
+ },
+ "snow": {
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "grid_cells": 299209,
+  "mean_mul": 0.2935,
+  "flat_share": 0.4379
+ }
+}

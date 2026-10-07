@@ -2,7 +2,7 @@ extends "res://scripts/bv2f/bv2f_level.gd"
 ## BV2F lane PT, Phase 2' (R-C9-191): THE PILOT -- the bv2art level (LV's bv2f_level.gd, inherited unchanged) with
 ##   (1) the PILOT WINDOW as its guide window (cols 0-2 x rows 0-2 of the 5 x 5 grid: plate px [0, 0, 4096, 2560]),
 ##       so v1's frozen capture tools (capture_ids, ...) frame exactly the pilot painting;
-##   (2) env BV2F_UNGROUP=1: one ID per INSTANCE (LV groups instanced slots into one ID each, for the full site's
+##   (2) ONE ID PER INSTANCE (always; env BV2F_UNGROUP kept for the record) (LV groups instanced slots into one ID each, for the full site's
 ##       256-colour limit; the pilot's take needs every real model's own silhouette -- DEV-16 is decided on this count);
 ##   (3) painted = true: dressed in the PILOT PAINTING by v1's own rule (barrow_full.gd _dress_painted): ground and
 ##       primitives wear the painting by projection, real models wear their game-camera bakes (t5_06b_bake), all
@@ -35,8 +35,9 @@ func _read_json(path: String) -> Dictionary:
 
 func _build_crucible() -> void:
 	super._build_crucible()
-	if OS.get_environment("BV2F_UNGROUP") == "1":
-		_ungroup()
+	# the pilot is ALWAYS one id per instance: its take, its bakes and its painted dress are per instance
+	# (124 ids site-wide <= v1's 256-colour ID code: DEV-16 not opened)
+	_ungroup()
 
 
 func _ungroup() -> void:

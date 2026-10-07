@@ -1,0 +1,174 @@
+{
+ "_what": "what the painted pilot wears (godot/data/bv2f/pilot/painted/), every file's sha256 -- the scene checks each as it loads it",
+ "painting": {
+  "file": "painting.bin",
+  "sha256": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03",
+  "px": [
+   4096,
+   2560
+  ],
+  "_": "the stitched pilot paint-over's own PNG bytes"
+ },
+ "bakes": {
+  "barrow_front": {
+   "file": "bakes/barrow_front.bin",
+   "sha256": "cb5fa812e1e1cbfa9da42dbd2d15772467e16d1602f53bccf51fb7823d5edd7d"
+  },
+  "cliff_faces__cliff_faces_0": {
+   "file": "bakes/cliff_faces__cliff_faces_0.bin",
+   "sha256": "2b60d92f9fe6df1798d0e5564b19ee19c1495fede861c4499bf0645302b46088"
+  },
+  "crags__crags_2": {
+   "file": "bakes/crags__crags_2.bin",
+   "sha256": "3e385df4ce8bb5720b738d89dfab194a3ceb0cc55bc83b73cd6500f1cd81da41"
+  },
+  "crags__crags_6": {
+   "file": "bakes/crags__crags_6.bin",
+   "sha256": "30d89c5987a5c5c5c6bd525cf3e8de5df443046ef027870555b3f1aa4268263c"
+  },
+  "logs__logs_3": {
+   "file": "bakes/logs__logs_3.bin",
+   "sha256": "b8b6e85618d2e2777b5cabdc4ba99f93b71c3cb76b5b838f4a9eab2c1c9ee032"
+  },
+  "ring_stones__ring_stones_0": {
+   "file": "bakes/ring_stones__ring_stones_0.bin",
+   "sha256": "04e87b1d69ab08410e707b6af5bee9a5d02a6e023ca984e5060a2f92ec8143f7"
+  },
+  "ring_stones__ring_stones_1": {
+   "file": "bakes/ring_stones__ring_stones_1.bin",
+   "sha256": "1639e783d6956a0d114bf4b0ed2e718cb3b821842c7cc5f8271e6162716677b7"
+  },
+  "ring_stones__ring_stones_2": {
+   "file": "bakes/ring_stones__ring_stones_2.bin",
+   "sha256": "ee9014cf48c1738eb43b2a7908bcc804c8f9045753c8a4f791aca46b6244e3d4"
+  },
+  "ring_stones__ring_stones_3": {
+   "file": "bakes/ring_stones__ring_stones_3.bin",
+   "sha256": "cbedf2c11f10dadaf8beca7f24fd6352536e3b98edd6a82f290ef23c5873f15d"
+  },
+  "ring_stones__ring_stones_4": {
+   "file": "bakes/ring_stones__ring_stones_4.bin",
+   "sha256": "6353eff58214a379b9c8896b45a1b6ce7eff2ee637242301c5e7d2404c40665f"
+  },
+  "ring_stones__ring_stones_5": {
+   "file": "bakes/ring_stones__ring_stones_5.bin",
+   "sha256": "185517f375516db0c31c1f62c16b791804404cac42fa0742c90d8fbd2caaabc0"
+  },
+  "ring_stones__ring_stones_6": {
+   "file": "bakes/ring_stones__ring_stones_6.bin",
+   "sha256": "61ac9e7b764353ee667b14e3773379e6ae01a00381b771d53efc63bb2b462924"
+  },
+  "ring_stones__ring_stones_7": {
+   "file": "bakes/ring_stones__ring_stones_7.bin",
+   "sha256": "dd5b678313faaf4f427fd910cfd1aa7c2e0a98fbd543d970f25b0075ca0bc68b"
+  },
+  "slope_stones__slope_stones_1": {
+   "file": "bakes/slope_stones__slope_stones_1.bin",
+   "sha256": "19225ee82d28d001ce70600b5dc21b9432c79eaf813d095620660d6eabdb9b62"
+  },
+  "slope_stones__slope_stones_2": {
+   "file": "bakes/slope_stones__slope_stones_2.bin",
+   "sha256": "599f7b03886dfbfde86910949ebcf88859394062dee36c39c6518b7673b4d7d8"
+  },
+  "slope_stones__slope_stones_3": {
+   "file": "bakes/slope_stones__slope_stones_3.bin",
+   "sha256": "003774c1eec4be607f624b7b87cd01476e4cc191638dfaa6f8f583fae131be9c"
+  },
+  "slope_stones__slope_stones_6": {
+   "file": "bakes/slope_stones__slope_stones_6.bin",
+   "sha256": "8169ec3b578fff5cce3e6092a342166b47ce731e7cf3addc3316c1d8d2b38459"
+  },
+  "wreck": {
+   "file": "bakes/wreck.bin",
+   "sha256": "f90a451223365bc62f3296b759daf1d64e176336541d97ba74b64450605ec918"
+  }
+ },
+ "frame": {
+  "u0": -33.57573954303182,
+  "v1": 22.36993715728635,
+  "px": [
+   4096,
+   2560
+  ],
+  "px_per_m": 100.617553710938
+ },
+ "shadow_mul": {
+  "linear": [
+   0.5061,
+   0.6469,
+   0.9215
+  ],
+  "_": "measured: the pilot painting's shadowed flat open snow over its sunlit flat open snow (median, linear)"
+ },
+ "ground_as_painted": {
+  "file": "painting.bin",
+  "sha256": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03",
+  "px": [
+   4096,
+   2560
+  ],
+  "_": "the stitched pilot paint-over's own PNG bytes"
+ },
+ "lit": {
+  "file": "lit.bin",
+  "sha256": "76686b759cd8cc394462e9717cd52c389564e0dbeabbea25a49ce945b764001d",
+  "px": [
+   2048,
+   1280
+  ],
+  "_": "the painting's direct sun as a share of flat sunlit ground's: lit_guide G x min(B / sin 55, 1), 8-bit, half resolution"
+ },
+ "real_models_in_window": [
+  "barrow_front",
+  "cliff_faces__cliff_faces_0",
+  "crags__crags_2",
+  "crags__crags_6",
+  "logs__logs_3",
+  "ring_stones__ring_stones_0",
+  "ring_stones__ring_stones_1",
+  "ring_stones__ring_stones_2",
+  "ring_stones__ring_stones_3",
+  "ring_stones__ring_stones_4",
+  "ring_stones__ring_stones_5",
+  "ring_stones__ring_stones_6",
+  "ring_stones__ring_stones_7",
+  "slope_stones__slope_stones_1",
+  "slope_stones__slope_stones_2",
+  "slope_stones__slope_stones_3",
+  "slope_stones__slope_stones_6",
+  "wreck"
+ ],
+ "heather": {
+  "file": "heather.json",
+  "count": 266,
+  "albedo_mul": [
+   1.2514,
+   1.0106,
+   0.5677
+  ],
+  "_albedo_mul": "v1's calibrated grade (paint_world_prep.py:55), unchanged"
+ },
+ "snow": {
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "field_px": 768,
+  "trail_px": 1024,
+  "grid": {
+   "file": "snow_grid.bin",
+   "sha256": "ed05ee26d1bed180bb107ec362d1dfc32ce0ec38d4f5789cce0c997cf9aa09d4",
+   "origin_xz": [
+    -40.977,
+    -21.973
+   ],
+   "cell_m": 0.1,
+   "nx": 547,
+   "nz": 547,
+   "_layout": "float32 little-endian: nx*nz depth multipliers (row = z), then nx*nz trodden amounts"
+  },
+  "_": "v1's SNOW_BY_CLASS on the bv2art class map, flat ground only; the field covers the pilot window + 1.5 m (world xz, square)"
+ }
+}
