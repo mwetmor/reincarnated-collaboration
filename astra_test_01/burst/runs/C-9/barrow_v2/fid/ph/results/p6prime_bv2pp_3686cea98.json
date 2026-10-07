@@ -1,0 +1,3164 @@
+{
+ "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
+ "inputs": {
+  "layout_bv2art_sha256": "5d64f79e82d1cab3dea01e88810a454cc4c40893d9f97c31a1b036781cb17906",
+  "ids_art_sha256": "5be8c0682e9288e766da8678c67d3c03778e404e73f765fa8e7741a99e36d485",
+  "ids_manifest_sha256": "5be8c0682e9288e766da8678c67d3c03778e404e73f765fa8e7741a99e36d485",
+  "level_art_sha256": "f42004f575e0a8b42afcdaf68fd568faba9822ae500206c3e518b6f4f2c6d418",
+  "placed_fit_sha256": "332c10cc32e152d288dd8ca885b2445f721922042bd57c90b893cedc56aa0958",
+  "frame": "fid/lv/art/frame_grid.bv2art.json"
+ },
+ "bars": {
+  "presence_missing": 0,
+  "presence_extra": 0,
+  "terrain_hidden_share_max": 0.5,
+  "containment_min": 0.7872,
+  "anisotropy_max": 1.1
+ },
+ "slot_crosscheck_vs_layout": {
+  "n_layout_placements": 52,
+  "n_level_box_slots": 52,
+  "mismatches": [],
+  "pass": true
+ },
+ "I4_red_shift_1p5m": {
+  "objects": 12,
+  "below_bar": 6,
+  "values": {
+   "wreck": 0.943,
+   "barrow_front": 0.9996,
+   "longhall": 0.9754,
+   "fallen_gable": 0.9489,
+   "slope_stones": 0.0,
+   "ring_stones": 0.0624,
+   "crags": 0.4563,
+   "cliff_faces": 0.9803,
+   "talus": 0.3284,
+   "sea_stacks": 0.8869,
+   "palisade": 0.1499,
+   "logs": 0.0
+  },
+  "pass": false
+ },
+ "presence": {
+  "missing": [],
+  "extra": [],
+  "terrain_hidden": {
+   "wreck": [
+    [
+     0,
+     0.5579
+    ]
+   ],
+   "ring_stones": [
+    [
+     5,
+     0.9605
+    ],
+    [
+     6,
+     1.0
+    ],
+    [
+     7,
+     1.0
+    ]
+   ]
+  },
+  "terrain_hidden_attribution": {
+   "wreck#0": {
+    "terrain_hidden_share": 0.5579,
+    "visible_share": 0.369,
+    "attribution": [
+     "terrain"
+    ]
+   },
+   "ring_stones#5": {
+    "terrain_hidden_share": 0.9605,
+    "visible_share": 0.0395,
+    "attribution": [
+     "terrain"
+    ]
+   },
+   "ring_stones#6": {
+    "terrain_hidden_share": 1.0,
+    "visible_share": 0.0,
+    "attribution": [
+     "terrain"
+    ]
+   },
+   "ring_stones#7": {
+    "terrain_hidden_share": 1.0,
+    "visible_share": 0.0,
+    "attribution": [
+     "terrain"
+    ]
+   }
+  },
+  "by_design_exclusions": {},
+  "non_model_ids_excluded": [
+   "curtain_barrow_door",
+   "curtain_hall_great_door",
+   "curtain_sea_cave_mouth",
+   "door_lintel",
+   "door_post_L",
+   "door_post_R",
+   "ground_ash",
+   "ground_ice",
+   "ground_mound",
+   "ground_passage_dark",
+   "ground_rock",
+   "ground_sea",
+   "ground_shingle",
+   "ground_shrub",
+   "ground_snow",
+   "stair_side",
+   "stair_snow",
+   "stair_steps",
+   "stair_treads"
+  ],
+  "pass": false
+ },
+ "placement": {
+  "bar": 0.7872,
+  "below_bar": {},
+  "containment": {
+   "wreck": 1.0,
+   "barrow_front": 1.0,
+   "longhall": 1.0,
+   "fallen_gable": 1.0,
+   "slope_stones": 1.0,
+   "ring_stones": 1.0,
+   "crags": 1.0,
+   "cliff_faces": 1.0,
+   "talus": 1.0,
+   "sea_stacks": 1.0,
+   "palisade": 0.9909,
+   "logs": 0.9722
+  },
+  "pass": true
+ },
+ "scale": {
+  "bar": 1.1,
+  "n_instances": 105,
+  "n_over": 0,
+  "record_mismatches_vs_ph": 0,
+  "over": [],
+  "pass": true
+ },
+ "iou_vs_prism_reported": {
+  "wreck": 0.152,
+  "barrow_front": 0.475,
+  "longhall": 0.653,
+  "fallen_gable": 0.397,
+  "slope_stones": 0.486,
+  "ring_stones": 0.241,
+  "crags": 0.181,
+  "cliff_faces": 0.455,
+  "talus": 0.379,
+  "sea_stacks": 0.352,
+  "palisade": 0.753,
+  "logs": 0.521
+ },
+ "objects": {
+  "wreck": {
+   "kind": "wreck",
+   "instances": 1,
+   "id_px": 165339,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [
+    [
+     0,
+     0.5579
+    ]
+   ],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.152
+  },
+  "barrow_front": {
+   "kind": "barrow",
+   "instances": 1,
+   "id_px": 311157,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.475
+  },
+  "longhall": {
+   "kind": "building",
+   "instances": 1,
+   "id_px": 1362414,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.653
+  },
+  "fallen_gable": {
+   "kind": "ruin",
+   "instances": 1,
+   "id_px": 266592,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.397
+  },
+  "slope_stones": {
+   "kind": "stones",
+   "instances": 7,
+   "id_px": 72082,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.486
+  },
+  "ring_stones": {
+   "kind": "stones",
+   "instances": 8,
+   "id_px": 33837,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [
+    [
+     5,
+     0.9605
+    ],
+    [
+     6,
+     1.0
+    ],
+    [
+     7,
+     1.0
+    ]
+   ],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.241
+  },
+  "crags": {
+   "kind": "outcrop",
+   "instances": 2,
+   "id_px": 33764,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.181
+  },
+  "cliff_faces": {
+   "kind": "cliff",
+   "instances": 13,
+   "id_px": 2930824,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.455
+  },
+  "talus": {
+   "kind": "talus",
+   "instances": 15,
+   "id_px": 64210,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.379
+  },
+  "sea_stacks": {
+   "kind": "stack",
+   "instances": 3,
+   "id_px": 247992,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.352
+  },
+  "palisade": {
+   "kind": "palisade",
+   "instances": 49,
+   "id_px": 135965,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 0.9909,
+   "iou_vs_prism_reported": 0.753
+  },
+  "logs": {
+   "kind": "debris",
+   "instances": 4,
+   "id_px": 26205,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 0.9722,
+   "iou_vs_prism_reported": 0.521
+  }
+ },
+ "instances_terrain": {
+  "wreck": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 2.263,
+    "own_px_in_frame": 448020,
+    "terrain_hidden_share": 0.5579,
+    "visible_share": 0.369
+   }
+  ],
+  "barrow_front": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 5.869,
+    "own_px_in_frame": 544059,
+    "terrain_hidden_share": 0.4281,
+    "visible_share": 0.5719
+   }
+  ],
+  "longhall": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 7.489,
+    "own_px_in_frame": 1370853,
+    "terrain_hidden_share": 0.0012,
+    "visible_share": 0.9831
+   }
+  ],
+  "fallen_gable": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 2.592,
+    "own_px_in_frame": 347237,
+    "terrain_hidden_share": 0.1497,
+    "visible_share": 0.7677
+   }
+  ],
+  "slope_stones": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 5.996,
+    "own_px_in_frame": 0
+   },
+   {
+    "i": 1,
+    "type": "box",
+    "z_top": 1.66,
+    "own_px_in_frame": 9646,
+    "terrain_hidden_share": 0.0519,
+    "visible_share": 0.9413
+   },
+   {
+    "i": 2,
+    "type": "box",
+    "z_top": 1.9,
+    "own_px_in_frame": 14034,
+    "terrain_hidden_share": 0.0415,
+    "visible_share": 0.9585
+   },
+   {
+    "i": 3,
+    "type": "box",
+    "z_top": 2.1,
+    "own_px_in_frame": 12016,
+    "terrain_hidden_share": 0.0562,
+    "visible_share": 0.9438
+   },
+   {
+    "i": 4,
+    "type": "box",
+    "z_top": 1.9,
+    "own_px_in_frame": 12548,
+    "terrain_hidden_share": 0.0487,
+    "visible_share": 0.9513
+   },
+   {
+    "i": 5,
+    "type": "box",
+    "z_top": 2.246,
+    "own_px_in_frame": 16353,
+    "terrain_hidden_share": 0.0576,
+    "visible_share": 0.9424
+   },
+   {
+    "i": 6,
+    "type": "box",
+    "z_top": 1.072,
+    "own_px_in_frame": 13756,
+    "terrain_hidden_share": 0.0808,
+    "visible_share": 0.7896
+   }
+  ],
+  "ring_stones": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 4.959,
+    "own_px_in_frame": 11617,
+    "terrain_hidden_share": 0.3378,
+    "visible_share": 0.6622
+   },
+   {
+    "i": 1,
+    "type": "box",
+    "z_top": 6.171,
+    "own_px_in_frame": 9106,
+    "terrain_hidden_share": 0.3884,
+    "visible_share": 0.6116
+   },
+   {
+    "i": 2,
+    "type": "box",
+    "z_top": 3.601,
+    "own_px_in_frame": 12020,
+    "terrain_hidden_share": 0.4058,
+    "visible_share": 0.5942
+   },
+   {
+    "i": 3,
+    "type": "box",
+    "z_top": 3.562,
+    "own_px_in_frame": 13494,
+    "terrain_hidden_share": 0.4489,
+    "visible_share": 0.5511
+   },
+   {
+    "i": 4,
+    "type": "box",
+    "z_top": 5.539,
+    "own_px_in_frame": 9600,
+    "terrain_hidden_share": 0.3754,
+    "visible_share": 0.6246
+   },
+   {
+    "i": 5,
+    "type": "box",
+    "z_top": 0.386,
+    "own_px_in_frame": 7829,
+    "terrain_hidden_share": 0.9605,
+    "visible_share": 0.0395
+   },
+   {
+    "i": 6,
+    "type": "box",
+    "z_top": 0.386,
+    "own_px_in_frame": 7724,
+    "terrain_hidden_share": 1.0,
+    "visible_share": 0.0
+   },
+   {
+    "i": 7,
+    "type": "box",
+    "z_top": 0.386,
+    "own_px_in_frame": 7837,
+    "terrain_hidden_share": 1.0,
+    "visible_share": 0.0
+   }
+  ],
+  "crags": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 1.6,
+    "own_px_in_frame": 43914,
+    "terrain_hidden_share": 0.2527,
+    "visible_share": 0.7473
+   },
+   {
+    "i": 1,
+    "type": "box",
+    "z_top": 2.0,
+    "own_px_in_frame": 58293,
+    "terrain_hidden_share": 0.0295,
+    "visible_share": 0.0162
+   }
+  ],
+  "cliff_faces": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 3.082,
+    "own_px_in_frame": 570898,
+    "terrain_hidden_share": 0.1192,
+    "visible_share": 0.6142
+   },
+   {
+    "i": 1,
+    "type": "box",
+    "z_top": 3.2,
+    "own_px_in_frame": 533099,
+    "terrain_hidden_share": 0.0677,
+    "visible_share": 0.7276
+   },
+   {
+    "i": 2,
+    "type": "box",
+    "z_top": 3.578,
+    "own_px_in_frame": 874909,
+    "terrain_hidden_share": 0.4497,
+    "visible_share": 0.3141
+   },
+   {
+    "i": 3,
+    "type": "box",
+    "z_top": 4.395,
+    "own_px_in_frame": 226877,
+    "terrain_hidden_share": 0.3522,
+    "visible_share": 0.441
+   },
+   {
+    "i": 4,
+    "type": "box",
+    "z_top": 4.191,
+    "own_px_in_frame": 0
+   },
+   {
+    "i": 5,
+    "type": "box",
+    "z_top": 7.274,
+    "own_px_in_frame": 1151455,
+    "terrain_hidden_share": 0.0693,
+    "visible_share": 0.7657
+   },
+   {
+    "i": 6,
+    "type": "box",
+    "z_top": 6.5,
+    "own_px_in_frame": 1103124,
+    "terrain_hidden_share": 0.0742,
+    "visible_share": 0.9206
+   },
+   {
+    "i": 7,
+    "type": "box",
+    "z_top": 6.5,
+    "own_px_in_frame": 883240,
+    "terrain_hidden_share": 0.1043,
+    "visible_share": 0.5804
+   },
+   {
+    "i": 8,
+    "type": "box",
+    "z_top": 2.33,
+    "own_px_in_frame": 274982,
+    "terrain_hidden_share": 0.1562,
+    "visible_share": 0.2452
+   },
+   {
+    "i": 9,
+    "type": "box",
+    "z_top": 1.765,
+    "own_px_in_frame": 13604,
+    "terrain_hidden_share": 0.0094,
+    "visible_share": 0.3564
+   },
+   {
+    "i": 10,
+    "type": "box",
+    "z_top": -3.543,
+    "own_px_in_frame": 15972,
+    "terrain_hidden_share": 0.0141,
+    "visible_share": 0.5582
+   },
+   {
+    "i": 11,
+    "type": "box",
+    "z_top": -2.655,
+    "own_px_in_frame": 43270,
+    "terrain_hidden_share": 0.0011,
+    "visible_share": 0.2589
+   },
+   {
+    "i": 12,
+    "type": "box",
+    "z_top": -1.088,
+    "own_px_in_frame": 124002,
+    "terrain_hidden_share": 0.0123,
+    "visible_share": 0.6122
+   }
+  ],
+  "talus": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": -2.897,
+    "own_px_in_frame": 13302,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.6226
+   },
+   {
+    "i": 1,
+    "type": "box",
+    "z_top": -2.862,
+    "own_px_in_frame": 12674,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.9183
+   },
+   {
+    "i": 2,
+    "type": "box",
+    "z_top": -3.31,
+    "own_px_in_frame": 5612,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.7349
+   },
+   {
+    "i": 3,
+    "type": "box",
+    "z_top": -2.955,
+    "own_px_in_frame": 14149,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.8027
+   },
+   {
+    "i": 4,
+    "type": "box",
+    "z_top": -2.812,
+    "own_px_in_frame": 19297,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.6381
+   },
+   {
+    "i": 5,
+    "type": "box",
+    "z_top": -3.686,
+    "own_px_in_frame": 235,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.8681
+   },
+   {
+    "i": 6,
+    "type": "box",
+    "z_top": -2.863,
+    "own_px_in_frame": 0
+   },
+   {
+    "i": 7,
+    "type": "box",
+    "z_top": -3.341,
+    "own_px_in_frame": 0
+   },
+   {
+    "i": 8,
+    "type": "box",
+    "z_top": -3.48,
+    "own_px_in_frame": 0
+   },
+   {
+    "i": 9,
+    "type": "box",
+    "z_top": -2.6,
+    "own_px_in_frame": 6649,
+    "terrain_hidden_share": 0.0737,
+    "visible_share": 0.6436
+   },
+   {
+    "i": 10,
+    "type": "box",
+    "z_top": -2.825,
+    "own_px_in_frame": 3875,
+    "terrain_hidden_share": 0.3443,
+    "visible_share": 0.6488
+   },
+   {
+    "i": 11,
+    "type": "box",
+    "z_top": -2.45,
+    "own_px_in_frame": 8305,
+    "terrain_hidden_share": 0.0937,
+    "visible_share": 0.8242
+   },
+   {
+    "i": 12,
+    "type": "box",
+    "z_top": -2.75,
+    "own_px_in_frame": 3679,
+    "terrain_hidden_share": 0.0266,
+    "visible_share": 0.8562
+   },
+   {
+    "i": 13,
+    "type": "box",
+    "z_top": -2.3,
+    "own_px_in_frame": 12458,
+    "terrain_hidden_share": 0.3096,
+    "visible_share": 0.6527
+   },
+   {
+    "i": 14,
+    "type": "box",
+    "z_top": -2.9,
+    "own_px_in_frame": 3021,
+    "terrain_hidden_share": 0.0228,
+    "visible_share": 0.5915
+   }
+  ],
+  "sea_stacks": [
+   {
+    "i": 0,
+    "type": "box",
+    "z_top": 1.7,
+    "own_px_in_frame": 198339,
+    "terrain_hidden_share": 0.0108,
+    "visible_share": 0.8235
+   },
+   {
+    "i": 1,
+    "type": "box",
+    "z_top": 0.1,
+    "own_px_in_frame": 113356,
+    "terrain_hidden_share": 0.0331,
+    "visible_share": 0.7469
+   },
+   {
+    "i": 2,
+    "type": "box",
+    "z_top": 0.9,
+    "own_px_in_frame": 0
+   }
+  ],
+  "palisade": [
+   {
+    "i": 0,
+    "type": "beam",
+    "z_top": 2.105,
+    "own_px_in_frame": 3864,
+    "terrain_hidden_share": 0.2645,
+    "visible_share": 0.7355
+   },
+   {
+    "i": 1,
+    "type": "beam",
+    "z_top": 2.311,
+    "own_px_in_frame": 4002,
+    "terrain_hidden_share": 0.2406,
+    "visible_share": 0.7594
+   },
+   {
+    "i": 2,
+    "type": "beam",
+    "z_top": 2.526,
+    "own_px_in_frame": 3945,
+    "terrain_hidden_share": 0.185,
+    "visible_share": 0.815
+   },
+   {
+    "i": 3,
+    "type": "beam",
+    "z_top": 2.733,
+    "own_px_in_frame": 4382,
+    "terrain_hidden_share": 0.2316,
+    "visible_share": 0.7684
+   },
+   {
+    "i": 4,
+    "type": "beam",
+    "z_top": 2.242,
+    "own_px_in_frame": 3953,
+    "terrain_hidden_share": 0.2459,
+    "visible_share": 0.7541
+   },
+   {
+    "i": 5,
+    "type": "beam",
+    "z_top": 2.456,
+    "own_px_in_frame": 4274,
+    "terrain_hidden_share": 0.2089,
+    "visible_share": 0.7911
+   },
+   {
+    "i": 6,
+    "type": "beam",
+    "z_top": 2.66,
+    "own_px_in_frame": 4535,
+    "terrain_hidden_share": 0.2448,
+    "visible_share": 0.7552
+   },
+   {
+    "i": 7,
+    "type": "beam",
+    "z_top": 2.176,
+    "own_px_in_frame": 3553,
+    "terrain_hidden_share": 0.2567,
+    "visible_share": 0.7433
+   },
+   {
+    "i": 8,
+    "type": "beam",
+    "z_top": 2.385,
+    "own_px_in_frame": 3976,
+    "terrain_hidden_share": 0.2316,
+    "visible_share": 0.7684
+   },
+   {
+    "i": 9,
+    "type": "beam",
+    "z_top": 2.593,
+    "own_px_in_frame": 4484,
+    "terrain_hidden_share": 0.2319,
+    "visible_share": 0.7681
+   },
+   {
+    "i": 10,
+    "type": "beam",
+    "z_top": 2.106,
+    "own_px_in_frame": 3910,
+    "terrain_hidden_share": 0.1957,
+    "visible_share": 0.7171
+   },
+   {
+    "i": 11,
+    "type": "beam",
+    "z_top": 2.311,
+    "own_px_in_frame": 3908,
+    "terrain_hidden_share": 0.0942,
+    "visible_share": 0.2114
+   },
+   {
+    "i": 12,
+    "type": "beam",
+    "z_top": 2.524,
+    "own_px_in_frame": 4044,
+    "terrain_hidden_share": 0.0982,
+    "visible_share": 0.272
+   },
+   {
+    "i": 13,
+    "type": "beam",
+    "z_top": 2.732,
+    "own_px_in_frame": 4455,
+    "terrain_hidden_share": 0.0956,
+    "visible_share": 0.3342
+   },
+   {
+    "i": 14,
+    "type": "beam",
+    "z_top": 2.246,
+    "own_px_in_frame": 3986,
+    "terrain_hidden_share": 0.0848,
+    "visible_share": 0.2449
+   },
+   {
+    "i": 15,
+    "type": "beam",
+    "z_top": 2.454,
+    "own_px_in_frame": 4324,
+    "terrain_hidden_share": 0.0946,
+    "visible_share": 0.2655
+   },
+   {
+    "i": 16,
+    "type": "beam",
+    "z_top": 2.662,
+    "own_px_in_frame": 4429,
+    "terrain_hidden_share": 0.0978,
+    "visible_share": 0.2384
+   },
+   {
+    "i": 17,
+    "type": "beam",
+    "z_top": 2.177,
+    "own_px_in_frame": 3526,
+    "terrain_hidden_share": 0.0839,
+    "visible_share": 0.1273
+   },
+   {
+    "i": 18,
+    "type": "beam",
+    "z_top": 2.381,
+    "own_px_in_frame": 4020,
+    "terrain_hidden_share": 0.1159,
+    "visible_share": 0.4729
+   },
+   {
+    "i": 19,
+    "type": "beam",
+    "z_top": 2.594,
+    "own_px_in_frame": 4636,
+    "terrain_hidden_share": 0.1514,
+    "visible_share": 0.6702
+   },
+   {
+    "i": 20,
+    "type": "beam",
+    "z_top": 2.106,
+    "own_px_in_frame": 3706,
+    "terrain_hidden_share": 0.1854,
+    "visible_share": 0.7887
+   },
+   {
+    "i": 21,
+    "type": "beam",
+    "z_top": 2.313,
+    "own_px_in_frame": 3980,
+    "terrain_hidden_share": 0.2716,
+    "visible_share": 0.7284
+   },
+   {
+    "i": 22,
+    "type": "beam",
+    "z_top": 2.524,
+    "own_px_in_frame": 4046,
+    "terrain_hidden_share": 0.2459,
+    "visible_share": 0.7541
+   },
+   {
+    "i": 23,
+    "type": "beam",
+    "z_top": 2.73,
+    "own_px_in_frame": 4541,
+    "terrain_hidden_share": 0.2202,
+    "visible_share": 0.7798
+   },
+   {
+    "i": 24,
+    "type": "beam",
+    "z_top": 2.832,
+    "own_px_in_frame": 4080,
+    "terrain_hidden_share": 0.2561,
+    "visible_share": 0.7439
+   },
+   {
+    "i": 25,
+    "type": "beam",
+    "z_top": 3.147,
+    "own_px_in_frame": 4244,
+    "terrain_hidden_share": 0.2491,
+    "visible_share": 0.7509
+   },
+   {
+    "i": 26,
+    "type": "beam",
+    "z_top": 3.468,
+    "own_px_in_frame": 4368,
+    "terrain_hidden_share": 0.2413,
+    "visible_share": 0.7587
+   },
+   {
+    "i": 27,
+    "type": "beam",
+    "z_top": 3.025,
+    "own_px_in_frame": 3467,
+    "terrain_hidden_share": 0.227,
+    "visible_share": 0.773
+   },
+   {
+    "i": 28,
+    "type": "beam",
+    "z_top": 3.336,
+    "own_px_in_frame": 4113,
+    "terrain_hidden_share": 0.2166,
+    "visible_share": 0.7834
+   },
+   {
+    "i": 29,
+    "type": "beam",
+    "z_top": 3.65,
+    "own_px_in_frame": 4552,
+    "terrain_hidden_share": 0.1887,
+    "visible_share": 0.8113
+   },
+   {
+    "i": 30,
+    "type": "beam",
+    "z_top": 3.258,
+    "own_px_in_frame": 3728,
+    "terrain_hidden_share": 0.2275,
+    "visible_share": 0.7725
+   },
+   {
+    "i": 31,
+    "type": "beam",
+    "z_top": 3.59,
+    "own_px_in_frame": 3763,
+    "terrain_hidden_share": 0.2655,
+    "visible_share": 0.7345
+   },
+   {
+    "i": 32,
+    "type": "beam",
+    "z_top": 3.883,
+    "own_px_in_frame": 4089,
+    "terrain_hidden_share": 0.2404,
+    "visible_share": 0.7596
+   },
+   {
+    "i": 33,
+    "type": "beam",
+    "z_top": 4.118,
+    "own_px_in_frame": 4644,
+    "terrain_hidden_share": 0.2276,
+    "visible_share": 0.7724
+   },
+   {
+    "i": 34,
+    "type": "beam",
+    "z_top": 3.705,
+    "own_px_in_frame": 4037,
+    "terrain_hidden_share": 0.2234,
+    "visible_share": 0.7766
+   },
+   {
+    "i": 35,
+    "type": "beam",
+    "z_top": 3.918,
+    "own_px_in_frame": 4149,
+    "terrain_hidden_share": 0.2376,
+    "visible_share": 0.7624
+   },
+   {
+    "i": 36,
+    "type": "beam",
+    "z_top": 4.222,
+    "own_px_in_frame": 4022,
+    "terrain_hidden_share": 0.1743,
+    "visible_share": 0.8257
+   },
+   {
+    "i": 37,
+    "type": "beam",
+    "z_top": 3.767,
+    "own_px_in_frame": 3622,
+    "terrain_hidden_share": 0.2645,
+    "visible_share": 0.7355
+   },
+   {
+    "i": 38,
+    "type": "beam",
+    "z_top": 4.073,
+    "own_px_in_frame": 4186,
+    "terrain_hidden_share": 0.2487,
+    "visible_share": 0.7513
+   },
+   {
+    "i": 39,
+    "type": "beam",
+    "z_top": 4.274,
+    "own_px_in_frame": 4576,
+    "terrain_hidden_share": 0.2218,
+    "visible_share": 0.7782
+   },
+   {
+    "i": 40,
+    "type": "beam",
+    "z_top": 3.753,
+    "own_px_in_frame": 3697,
+    "terrain_hidden_share": 0.2832,
+    "visible_share": 0.7168
+   },
+   {
+    "i": 41,
+    "type": "beam",
+    "z_top": 3.999,
+    "own_px_in_frame": 3733,
+    "terrain_hidden_share": 0.2475,
+    "visible_share": 0.7525
+   },
+   {
+    "i": 42,
+    "type": "beam",
+    "z_top": 4.18,
+    "own_px_in_frame": 4246,
+    "terrain_hidden_share": 0.2459,
+    "visible_share": 0.7541
+   },
+   {
+    "i": 43,
+    "type": "beam",
+    "z_top": 4.358,
+    "own_px_in_frame": 4713,
+    "terrain_hidden_share": 0.2166,
+    "visible_share": 0.7736
+   },
+   {
+    "i": 44,
+    "type": "beam",
+    "z_top": 3.83,
+    "own_px_in_frame": 4025,
+    "terrain_hidden_share": 0.2676,
+    "visible_share": 0.7324
+   },
+   {
+    "i": 45,
+    "type": "beam",
+    "z_top": 4.042,
+    "own_px_in_frame": 4146,
+    "terrain_hidden_share": 0.1838,
+    "visible_share": 0.7545
+   },
+   {
+    "i": 46,
+    "type": "beam",
+    "z_top": 4.235,
+    "own_px_in_frame": 4206,
+    "terrain_hidden_share": 0.2057,
+    "visible_share": 0.7943
+   },
+   {
+    "i": 47,
+    "type": "beam",
+    "z_top": 3.716,
+    "own_px_in_frame": 3713,
+    "terrain_hidden_share": 0.2682,
+    "visible_share": 0.7318
+   },
+   {
+    "i": 48,
+    "type": "beam",
+    "z_top": 3.896,
+    "own_px_in_frame": 4348,
+    "terrain_hidden_share": 0.2712,
+    "visible_share": 0.7288
+   }
+  ],
+  "logs": [
+   {
+    "i": 0,
+    "type": "beam",
+    "z_top": 0.332,
+    "own_px_in_frame": 12424,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.0
+   },
+   {
+    "i": 1,
+    "type": "beam",
+    "z_top": 0.933,
+    "own_px_in_frame": 14400,
+    "terrain_hidden_share": 0.0418,
+    "visible_share": 0.9582
+   },
+   {
+    "i": 2,
+    "type": "beam",
+    "z_top": 1.189,
+    "own_px_in_frame": 13527,
+    "terrain_hidden_share": 0.0481,
+    "visible_share": 0.9168
+   },
+   {
+    "i": 3,
+    "type": "beam",
+    "z_top": 0.332,
+    "own_px_in_frame": 10444,
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.0
+   }
+  ]
+ },
+ "scale_rows": [
+  {
+   "slot": "wreck",
+   "instance": "wreck",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.0,
+    0.999994456768036,
+    0.999994337558746
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "barrow_front",
+   "instance": "barrow_front",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.449612438678741,
+    0.449610739946365,
+    0.449612677097321
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.4496,
+    0.4496,
+    0.4496
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "longhall",
+   "instance": "longhall",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.570987641811371,
+    0.570990085601807,
+    0.570988178253174
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.571,
+    0.571,
+    0.571
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "fallen_gable",
+   "instance": "fallen_gable",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.730927407741547,
+    0.730924010276794,
+    0.730926752090454
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.7309,
+    0.7309,
+    0.7309
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.39649748802185,
+    2.39648151397705,
+    2.39640784263611
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    2.3965,
+    2.3965,
+    2.3964
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.79831624031067,
+    1.79826831817627,
+    1.79833054542542
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.7983,
+    1.7983,
+    1.7983
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.9981552362442,
+    1.99807596206665,
+    1.99812650680542
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.9982,
+    1.9981,
+    1.9981
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.19689798355103,
+    2.19677472114563,
+    2.19670724868774
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    2.1969,
+    2.1968,
+    2.1967
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_4",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.9981552362442,
+    1.99807596206665,
+    1.99812650680542
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.9982,
+    1.9981,
+    1.9981
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_5",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.29669761657715,
+    2.29662799835205,
+    2.29665017127991
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    2.2967,
+    2.2966,
+    2.2966
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "slope_stones",
+   "instance": "slope_stones_6",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.56318759918213,
+    1.5631912946701,
+    1.5632358789444
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.5632,
+    1.5632,
+    1.5632
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.19689798355103,
+    2.19677472114563,
+    2.19670724868774
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    2.1969,
+    2.1968,
+    2.1967
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.69839668273926,
+    1.69836461544037,
+    1.69834864139557
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.6984,
+    1.6984,
+    1.6983
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.89723801612854,
+    1.8972145318985,
+    1.89724862575531
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.8972,
+    1.8972,
+    1.8972
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.0980749130249,
+    2.09797954559326,
+    2.09794020652771
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    2.0981,
+    2.098,
+    2.0979
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_4",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.99703764915466,
+    1.99706792831421,
+    1.9970064163208
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.997,
+    1.9971,
+    1.997
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_5",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.39794754981995,
+    1.39797842502594,
+    1.39790451526642
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3979,
+    1.398,
+    1.3979
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_6",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.39794754981995,
+    1.39797842502594,
+    1.39790451526642
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3979,
+    1.398,
+    1.3979
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "ring_stones",
+   "instance": "ring_stones_7",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.39794754981995,
+    1.39797842502594,
+    1.39790451526642
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3979,
+    1.398,
+    1.3979
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "crags",
+   "instance": "crags_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.459116697311401,
+    0.459124356508255,
+    0.459117889404297
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.4591,
+    0.4591,
+    0.4591
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "crags",
+   "instance": "crags_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.550950050354004,
+    0.550949275493622,
+    0.550946652889252
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.551,
+    0.5509,
+    0.5509
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.17641115188599,
+    1.17641568183899,
+    1.17642760276794
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.1764,
+    1.1764,
+    1.1764
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.19375562667847,
+    1.19374680519104,
+    1.19374656677246
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.1938,
+    1.1937,
+    1.1937
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.39461266994476,
+    1.39461326599121,
+    1.39460921287537
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3946,
+    1.3946,
+    1.3946
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.36984443664551,
+    1.36984443664551,
+    1.36985290050507
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3698,
+    1.3698,
+    1.3699
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_4",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.33972215652466,
+    1.33972120285034,
+    1.33972907066345
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3397,
+    1.3397,
+    1.3397
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_5",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.13827502727509,
+    1.13827550411224,
+    1.13827550411224
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.1383,
+    1.1383,
+    1.1383
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_6",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.68006658554077,
+    1.6800674200058,
+    1.68005812168121
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.6801,
+    1.6801,
+    1.6801
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_7",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.50322222709656,
+    1.50321817398071,
+    1.50321471691132
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.5032,
+    1.5032,
+    1.5032
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_8",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.83777779340744,
+    0.837778925895691,
+    0.837787508964539
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.8378,
+    0.8378,
+    0.8378
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_9",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.184311106801033,
+    0.184306338429451,
+    0.184305250644684
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.1843,
+    0.1843,
+    0.1843
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_10",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.199999988079071,
+    0.20000171661377,
+    0.199996694922447
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_11",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.330811113119125,
+    0.33081117272377,
+    0.33080980181694
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.3308,
+    0.3308,
+    0.3308
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_12",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.561755537986755,
+    0.561761498451233,
+    0.561759471893311
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.5618,
+    0.5618,
+    0.5618
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.508400022983551,
+    0.508393943309784,
+    0.508379101753235
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.5084,
+    0.5084,
+    0.5084
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.52183336019516,
+    0.521826565265656,
+    0.521821439266205
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.5218,
+    0.5218,
+    0.5218
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.346933335065842,
+    0.346928834915161,
+    0.34690922498703
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.3469,
+    0.3469,
+    0.3469
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.485833317041397,
+    0.485815018415451,
+    0.485813289880753
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.4858,
+    0.4858,
+    0.4858
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_4",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.541366636753082,
+    0.541347682476044,
+    0.541364073753357
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.5414,
+    0.5413,
+    0.5414
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_5",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.200666666030884,
+    0.200671046972275,
+    0.200663179159164
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.2007,
+    0.2007,
+    0.2007
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_6",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.521366655826569,
+    0.521362483501434,
+    0.521389544010162
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.5214,
+    0.5214,
+    0.5214
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_7",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.33500000834465,
+    0.334997773170471,
+    0.334978491067886
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.335,
+    0.335,
+    0.335
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_8",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.28099998831749,
+    0.280994057655334,
+    0.28099325299263
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.281,
+    0.281,
+    0.281
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_9",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.32763335108757,
+    0.327626198530197,
+    0.327636480331421
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.3276,
+    0.3276,
+    0.3276
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_10",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.245733335614204,
+    0.245719626545906,
+    0.245740860700607
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.2457,
+    0.2457,
+    0.2457
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_11",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.38223335146904,
+    0.382230550050735,
+    0.382215589284897
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.3822,
+    0.3822,
+    0.3822
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_12",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.2730333507061,
+    0.273021817207336,
+    0.273003429174423
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.273,
+    0.273,
+    0.273
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_13",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.43683335185051,
+    0.436834931373596,
+    0.436848640441895
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.4368,
+    0.4368,
+    0.4368
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "talus",
+   "instance": "talus_14",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.21843333542347,
+    0.218417465686798,
+    0.218424320220947
+   ],
+   "anisotropy": 1.0001,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.2184,
+    0.2184,
+    0.2184
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "sea_stacks",
+   "instance": "sea_stacks_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.82923328876495,
+    1.82924616336823,
+    1.82923626899719
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.8292,
+    1.8292,
+    1.8292
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "sea_stacks",
+   "instance": "sea_stacks_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.39239990711212,
+    1.39241123199463,
+    1.3923876285553
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.3924,
+    1.3924,
+    1.3924
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "sea_stacks",
+   "instance": "sea_stacks_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.61083328723907,
+    1.61082875728607,
+    1.61081194877625
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.6108,
+    1.6108,
+    1.6108
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_0",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_1",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_2",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_3",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_4",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_5",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_6",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_7",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_8",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_9",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_10",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_11",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_12",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_13",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_14",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_15",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_16",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_17",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_18",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_19",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_20",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_21",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_22",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_23",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_24",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_25",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_26",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_27",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_28",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_29",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_30",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_31",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_32",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_33",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_34",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_35",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_36",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_37",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_38",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_39",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_40",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_41",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_42",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_43",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_44",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_45",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_46",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_47",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_48",
+   "kind": "procedural_post",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "logs",
+   "instance": "logs_0",
+   "kind": "procedural_log",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "logs",
+   "instance": "logs_1",
+   "kind": "procedural_log",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "logs",
+   "instance": "logs_2",
+   "kind": "procedural_log",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  },
+  {
+   "slot": "logs",
+   "instance": "logs_3",
+   "kind": "procedural_log",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
+  }
+ ],
+ "crosscheck_rows": [
+  {
+   "id": "wreck",
+   "slot_group": "wreck",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "barrow_front",
+   "slot_group": "barrow_front",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "longhall",
+   "slot_group": "longhall",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "fallen_gable",
+   "slot_group": "fallen_gable",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_0",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_1",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_2",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_3",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_4",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_5",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "slope_stone_6",
+   "slot_group": "slope_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stone_0",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stone_1",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stone_2",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stone_3",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stone_4",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "fallen_stone_0",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "fallen_stone_1",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "fallen_stone_2",
+   "slot_group": "ring_stones",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "crag_0",
+   "slot_group": "crags",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "crag_1",
+   "slot_group": "crags",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_0",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_0",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_1",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_2",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_1",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_3",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_4",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_2",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_5",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_3",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_6",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_4",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_7",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "talus_8",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cave_arch",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_route_w",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_route_e",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_wall_126",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_wall_184",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_under_stair_123",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_under_stair_137",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "cliff_under_stair_161",
+   "slot_group": "cliff_faces",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "shelf_rock_0",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "shelf_rock_1",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "shelf_rock_2",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "shelf_rock_3",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "shelf_rock_4",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "shelf_rock_5",
+   "slot_group": "talus",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stack_0",
+   "slot_group": "sea_stacks",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stack_1",
+   "slot_group": "sea_stacks",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  },
+  {
+   "id": "stack_2",
+   "slot_group": "sea_stacks",
+   "pos_delta_m": 0.0,
+   "z_ok": true,
+   "size_ok": true
+  }
+ ],
+ "iou_vs_prism_median_reported": 0.426,
+ "P6prime_pass": false
+}

@@ -1189,3 +1189,30 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
 - **(b) Catch pair, pooled over the two fresh judges:** 23/24 = **0.958 ≥ 0.95** ✓. This was the snow-only risk disclosed in § 38; it held.
 - **The gate now behaves as designed:** both judges are valid; the null pair passes and the constructed degradation fails. Under v2 the same pair of conditions was reachable ~5% of the time (§ 28).
 - **What binds from now on:** P11 is **v3**: `p11_abx3.py build3` for the candidate's stills and `score3` for the answers. It binds at M3′ over the whole site. The pilot's v2 answers stay VOID; they are not re-scored.
+
+## 40. P6′ on LV's M1″ blockout (3686cea98; R-C9-210, before the pilot repaint). Frozen bars (§ 16). `results/p6prime_bv2pp_3686cea98.json` (`harness/p6prime_art.py`)
+
+**Inputs.** `layout_bv2art.json`, `placed_fit_bv2art.json`, `ids_art.png` (sha 5be8c068…, matches the manifest), level.json at 3686cea98.
+- The slot crosscheck passes: 52 layout placements against 52 level box slots, 0 mismatches.
+- New pieces are measured as slots of the layout's models: the cliff kit, `talus`, `sea_stacks`, the stair blocks (`stair_*`) and the pack ice (`ice_*`).
+- `ice_*`, `stair_*`, `mere_*`, `ground_*`, `curtain_*` and `door_*` ids are in the non-model / procedural / slab classes, which P6′ excludes as in § 21.
+
+| Component | Result | Bar | Verdict |
+|---|---|---|---|
+| I-4 RED (every slot prism shifted 1.5 m) | 6 of 12 objects below containment 0.7872 | must FAIL | **FAILS, as required** |
+| presence: missing / extra | 0 / 0 | 0 / 0 | ✓ |
+| presence: terrain-hidden ≤ 0.50 unless declared | **ring_stones #5 0.96, #6 1.00, #7 1.00; wreck 0.558** | ≤ 0.50 | **RED** |
+| placement: containment | all ≥ 0.9722 (logs); palisade 0.9909; the other 10 objects 1.000 | ≥ 0.7872 | PASS |
+| scale: anisotropy | 105 instances, 0 over 1.10; 0 record mismatches against PH | ≤ 1.10 | PASS |
+
+**P6′ = RED (presence).** Reported, not adjusted; per § 15 this is a HALT for an LV fix, not a bar move. No hidden-by-design is declared anywhere in the layout (`burial_by_design`: none), so none is accepted.
+
+**Attribution.**
+- **ring_stones #5, #6, #7.** These are the three FALLEN stones (`lie_z90`, slab 1.4 × 0.755 × 0.537 m), still at **z = −0.15**, the old ground level. The R-C9-204 terrain levels raised the ground under them to **3.86 / 5.49 / 4.99 m**, so each lies 3.5–5.1 m under the plateau.
+  - Standing stone #4 was re-seated (z 3.54 against terrain 4.21: 0.67 m sunk, within the bar).
+  - The fallen ones were missed by the re-seat. **Fix: re-seat them on the new terrain.**
+- **wreck.** Seated at **z = −5.2** = ice top − `WRECK["sink"]` 1.0 m (make_bv2art.py:603, "re-seated at the beach foot on the shore ice"). The sloped beach rises around it (terrain −6.5 … −0.6 across its footprint; median −3.38), so the shingle covers the stern side and 55.8% of its silhouette shows ground.
+  - The 1 m sink may be design intent ("heeled and half-sunk in the shore ice" is in the brief), but it is **not declared** in the layout.
+  - **Fix: either declare `burial_by_design` on the wreck with its reason (accepted only as declared, per R-C9-181), or lower the beach under the hull / raise the hull.**
+
+**Harness note.** `p6prime_art.py`'s attribution read `instances` on a single-GLB model and crashed on the wreck. It now uses `PP._instances()`. This is a reporting-path fix; no measurement changed.

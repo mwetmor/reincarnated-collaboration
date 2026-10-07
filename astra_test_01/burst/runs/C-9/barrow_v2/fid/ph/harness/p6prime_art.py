@@ -76,7 +76,7 @@ def run():
     attrib = {}
     for k, lst in hidden.items():
         for i, sh_ in lst:
-            ins = lvlm[k]["instances"][i]
+            ins = PP._instances(lvlm[k])[i]
             row = [r for r in comp["instances"][k] if r["i"] == i][0]
             top = row.get("z_top")
             why = []
