@@ -192,7 +192,7 @@ Matt is on Remote Control (phone). The conductor sends: one short line per phase
 
 **W-7 → instruments.** P2 = **lineage chain** (each texture's input sha through the producing tool's manifest back to the painting sha). P3 = **per class**, labelled "rendered-vs-painting residual" (v1's unlit 15.5 is the reference). Phase-1 P6 is judged against the **layout_v2 polygons**, not the guide's own class map. P4 for new classes (sea, shingle, shore ice): a named nearest v1 class, or the class-agnostic cellularity detector only.
 
-**INFO.** I-1: P11 n = 40 pairs, with v1-vs-v1 null pairs, metadata and filenames stripped, identical crop sizes; the power table is printed on the row. I-2: step 0.2 is decided by the cyclic order of the six anchor bearings matching sketch A, each within ±15°; P9 by water-mask flow > 0, floe UV drift 0 px on a marker, snow-trail coverage % of floor. I-3: folded in § 6. I-4: folded in § 4. I-5: noted.
+**INFO.** I-1: P11 n = 40 pairs, with v1-vs-v1 null pairs, metadata and filenames stripped, identical crop sizes; the power table is printed on the row. I-2: step 0.2 is decided by the sign/reproduction tests; the six-anchor bearing table (cyclic order + ±15°) is a reported layout-vs-sketch divergence table feeding Phase 1, not a 0.2 gate (**re-instrumented, R-C9-165**; p03 is a registered sketch-vs-oracle divergence); P9 by water-mask flow > 0, floe UV drift 0 px on a marker, snow-trail coverage % of floor. I-3: folded in § 6. I-4: folded in § 4. I-5: noted.
 
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.
