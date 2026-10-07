@@ -46366,6 +46366,13 @@
       "ruling": "BV2F P10 headroom (PT 789618d45): profile found the bv2f dress casting the WHOLE terrain into the sun shadow map, which v1's ground does not; v1's rule restored (shadow-casting primitives 3.28M -> 2.25M, mean -1.1 ms); look unchanged (12-still diff 0.10 < same-build noise 0.19). Start view, 3 runs: before 22.15/16.34/16.25, after 18.14/15.26/15.41 ms. Run 1 in both sets is the COLD SHADER COMPILE (max 32 ms). RULED: the pre-registered rule (s34: 3 fresh runs, worst p99 <= 16.7) STANDS -- PT's proposed discarded warm-up run is NOT adopted (it would change the rule after seeing data); P10 = FAIL (18.14). A cold-compile hitch is also a real player-facing stutter, so the FIX goes in the BUILD: a load-time shader/pipeline warm-up (each pilot material and the water/foam/heather/snow shaders rendered once off-screen during level load, before control is given), then 3 fresh runs under the s34 rule. The remaining costs (pen 3.0, snow 1.7, paint-sun shadow 1.0, heather 0.9 ms) ARE v1's look and are not cut.",
       "verbatim": [],
       "ts": "2026-10-07T18:02:40Z"
+    },
+    {
+      "id": "R-C9-201",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F pilot P10 under s34 on the warm-up build c578db842 (PH 7356213b6): start view worst p99 19.40 ms FAIL (runs 2-3 15.2-15.4; the first fresh run still has a tail), sea view 13.40 PASS; PT's own three fresh runs of the same build read 15.16/15.31/15.16. RULED: the two instruments disagree on the same build, so before anything else PH and PT RECONCILE -- the same command, the same film segment, frame-time traces aligned to the level-load timeline; locate the tail frames (before or after ready_done / control). If PH's capture includes load frames, the instrument is measuring loading, not play: fix the capture window to start at ready_done for BOTH tools, pre-registered as a capture definition (not a bar); if the tail is after control, it is a real stutter and the build fixes it. No result is chosen between the two until reconciled. P3 re-read: sea 27.77 FAIL because render_guide includes the animated water. RULED: the DEV-5 water motion layer (and floes' bob) is a MOVER under principle 2, so its exemption extends from P2 to P3 (recorded at DEV-5); P3 for the sea class is read with the motion layers HELD at rest and paint_mix at its static value, i.e. the painted base only; a RED (base replaced by a lit plane) must still FAIL. P9c: binding since R-C9-198 (PH's table to be corrected). P4 (ice palette / coastal snow) and P11 (VOID x2) remain open: P4 goes to Matt at M2' as a look decision; P11's instrument question goes to jack-ryan's pilot Gate-2.",
+      "verbatim": [],
+      "ts": "2026-10-07T18:14:38Z"
     }
   ],
   "grok_calls": [
