@@ -716,7 +716,7 @@ These are data-level REDs; the knight was not re-driven over them.
 | P3 render vs painting | worst 12.46 (wood, baked: the wreck); rock baked 11.60; ground classes 0.00–0.55 | ≤ 15.5 per class | PASS | pilot lit.bin × pilot shadow_mul re-shade: **FAIL** (rock baked 17.85, wood baked 17.74, mound 16.30) |
 | P4 texture (snow, rock, ice) | ice: every ice chunk 0.611–0.671 (bar 0.126); snow: 0_2 0.421, 1_2 0.396 (bar 0.281), 0_0 spectrum 0.102 (bar 0.097); rock all within | v1 LOO maxima | **FAIL (9 chunk-classes)** | (calibrated § 3) |
 | P5 seams | overlap MAD max 11.97; seam max 0.585 | ≤ 13.09; ≤ 0.799 | PASS | (calibrated § 3) |
-| P6a invention | 6 candidates: 1 = barrow_door (0.75 m from its centre, radius 2.31); **5 unmatched, all chunk 0_2** | 0 unmatched outside declared dark structures | **FAIL by the § 11 rule — conductor reads by eye** | (calibrated §§ 2, 9–11) |
+| P6a invention | 6 candidates: 1 = barrow_door (0.75 m from its centre, radius 2.31); 5 in the open sea, chunk 0_2 → **conductor triage R-C9-194: 5 × MATERIAL** (water classes sea/mere = declared dark classes) | 0 invented | **PASS** (after triage) | (calibrated §§ 2, 9–11) |
 | P6′ presence / placement / scale | 7 objects in window: 0 missing, 0 extra, 0 terrain-hidden; containment min 0.974 (logs); 89 instances, 0 over 1.10 | as § 16 | PASS | (§ 16, § 21 I-4) |
 | P8 heather precision | chunks judged 6: min 0.4884 (1_0), 0.4884–0.5878 | each ≥ 0.4476 | PASS | 1 m shift: FAIL (min 0.000) |
 | P9 life — heather sway | 5.967 over 132 304 heather px; noise 0.002 (mere edge, uv −3, 11.7) | ≥ 3× noise and ≥ 2.064 | PASS | --no-wind: sway 0.000, **FAIL** |
@@ -736,3 +736,43 @@ These are data-level REDs; the knight was not re-driven over them.
 **P9, read.** The pilot builds no water mesh: `bv2f_level.gd:179–190` lays the sea as one static plane (`ground_sea`) under the projected painting, so `ph_life.gd`'s hide_water pair cannot run and the calibrated flow instrument's own RED (the sea without its motion layers) is the pilot's state. Measured directly at the W coast (`renders/pilot/life_sea/`, `results/pilot/p9_flow_sea.json`): 0.5 s apart, not one pixel of the frame changes (snowfall is held by ph_life). Floe drift: N/A until DEV-5 (non-binding). Trail coverage reports alongside, non-binding: the field carries snow on 55% of the walkable window (flat ground only, DEV-18 as built). The heather view and perf view used `BV2F_VARIANT=art`, scene `bv2f_pilot_painted.tscn` as committed at 47bb1a054.
 
 **P11.** `p11/abx_pilot_v1_vs_pilot/` (50 PNGs + JUDGE.md, metadata-free), key `p11/keys/abx_pilot_v1_vs_pilot.json` (outside the judge dir). v1 pool: the 9 v1 stills as calibrated. The within-trial same-place guard now also knows the 12 pilot stills' camera centres (`fid/pt/pilot_stills/views.json`). No rock / standing-stone / wood trial: no pilot crop reaches the 0.30 class-mask share with ≥ 2 crops in both pools. Score: `python3 p11_abx.py score pilot_v1_vs_pilot <answers.json>`.
+
+## 27. P4 FORENSIC (R-C9-194): guide or paint? 0 images, no bar changes. `harness/p4_forensic.py` → `results/pilot/p4_forensic.json`, figures `results/pilot/p4_forensic_{ice,snow}.jpg`
+
+**P6a fold.** The conductor's verdicts (`results/p6a_triage_pilot_conductor.jsonl`: 0_2_c001…c005 MATERIAL, "open-sea wave trough… guide class sea") are written into `results/p6a_triage_pilot.jsonl` via `p6_overlay.record`. The rows are marked inside a declared dark class under the R-C9-194 ruling (water classes sea and mere). `results/pilot/p6a.json` now reads PASS: 1 declared, 5 material, 0 invented.
+
+**Masks.** Both sides use P4's own masks, eroded 3 px. The pilot's are the guide class map on ground, less tufts. v1's come from `p4_texture.v1_classes` on v1's guide and painting, which share one frame. Values are medians in L\*a\*b\*.
+
+**Ice: the guide is the same and the paint differs.**
+
+| | guide L\*a\*b\* | painted L\*a\*b\* | paint − guide | painted chroma | P4 Hellinger to the v1 pool |
+|---|---|---|---|---|---|
+| v1 tarn | (73.0, −1.9, −9.9) | (54.7, −1.8, −24.0) | (**−18.3**, +0.1, **−14.2**) | 24.2 | 0.031 |
+| pilot mere | (73.1, −1.5, −9.7) | (68.8, −3.1, −17.7) | (**−4.2**, −1.6, **−8.0**) | 18.1 | 0.616 |
+
+- (a) **The guide matches.**
+  - **Tint:** the class tint is identical, ice (0.70, 0.775, 0.84) in both layouts. The guide pixels agree to within 0.4 in every channel.
+  - **Light:** the guide's own light is the same. Open-snow L\* is 79.7 in v1 and 79.9 in the pilot; ice sits 6.7 / 6.8 L\* below snow in each.
+  - **Brief:** the ice wording ("flat lapis-blue ice with pale cracks") and the IMAGE 2 ref (T10C-barrow_a) are identical in both briefs.
+  - **What differs is size and edge.** The mere covers 163 m² against the tarn's 84 m² (bbox 21.2 × 11.8 m against 15.6 × 11.2 m). The pilot guide's ice edge is stair-stepped at the class-map resolution; v1's render edge is soft.
+- (b) **The difference is the paint.** v1's painter darkened and saturated the guide's ice by −18 L\* and −14 b\*; the pilot's painter did so by −4 L\* and −8 b\*. The figure shows the hand: v1 painted dark lapis cellular plates with white rims; the pilot painted a pale, even wash with thin cracks.
+- (d) **Sketch A's mere** (`sites/BV3r2-A.png`, make_bv2art's MERE polygon, eroded 6 px) has median (71.6, −0.3, −7.4).
+  - **By median it is closer to the pilot's ice:** ΔE76 11.0 against 23.7 to v1's tarn.
+  - **By histogram it is equally far from both:** Hellinger 0.691 to the pilot and 0.685 to v1. The sketch is a different hand and exposure, with reeds, rock and cracks inside the polygon.
+  - So the look of record is pale ice, nearer the pilot than v1. This is an M2′ input, not a bar.
+
+**Snow in 0_2 / 1_2: the guide is the same and the paint differs.**
+
+The guide snow is (79.2–79.9, 1.2–1.7, 5.0–5.5) in every chunk; v1's is (79.7, 1.7, 5.1). The painted b\* shift (paint − guide) is:
+
+| chunk | painted L\*a\*b\* | paint − guide (b\*) | Hellinger | guide lit share > 0.8 |
+|---|---|---|---|---|
+| v1 (whole) | (93.4, 2.7, 7.7) | +2.6 | — | — |
+| 0_0 / 1_0 / 2_0 / 1_1 / 2_1 / 2_2 | (92.4–93.3, 1.8–2.5, 5.4–7.3) | −0.1 … +1.8 | 0.154–0.205 | 0.96–1.00 |
+| **0_2** | (91.3, 2.2, **3.6**) | **−1.9** | 0.399 | 0.80 |
+| **1_2** | (92.9, 2.0, **4.0**) | **−1.5** | 0.394 | 0.94 |
+
+- (c) The same guide snow was painted about 3 b\* cooler in the two failing chunks. Shade does not account for it: 1_2 is 94% lit, and § 26 already showed the lit-only read still fails.
+- Both failing chunks are bottom-row panels whose notes list the shingle beach, the sea cliff and the open sea (0_2). This points to the painter cooling snow in its sea-coast context, but that is a reading from content, not a measured cause.
+
+**Answer.** Both P4 differences originate in the PAINT, not the guide. The guide's ice and snow pixels, tints, light and brief text match v1's. The painter's guide-to-paint transfer differs: ice −4 L\* instead of −18; snow b\* −1.5 to −1.9 instead of about +1 in the two coastal chunks. Bars unchanged.
