@@ -10,6 +10,10 @@ extends "res://scripts/bv2f/bv2f_level.gd"
 ## v1's projection is uniform-driven (PaintedWorld.PROJ_UNIFORMS): v1's frame constants are re-bound to the pilot's.
 
 var water_mat_pt: ShaderMaterial = null   # BV2F-PT DEV-5
+var reed_mat: ShaderMaterial = null   # BV2F-PT DEV-21
+## DEV-21 (R-C9-205): the reeds' wind -- taller and laxer than the heather's sprays, so more sway and a stronger gust
+## (BarrowHeather's heather: sway 0.020 m, gust 0.050 m at ~0.35 m). Stated here, for the conductor's review.
+const REED_WIND := {"sway_amp": 0.030, "sway_hz": 0.35, "gust_amp": 0.090, "tone_jitter": 0.0, "hue_jitter": 0.0}
 const SETTLE_FRAMES := 30   # BV2F-PT R-C9-201
 const PILOT_U0 := -33.57573954303182
 const PILOT_V1 := 22.36993715728635
@@ -166,6 +170,8 @@ func _dress_painted() -> void:
 		if (man["snow"] as Dictionary).has("ground_h"):   # BV2F-PT DEV-18
 			vman["snow"]["ground_h"]["file"] = PILOT_REL + String(man["snow"]["ground_h"]["file"])
 	_build_painted_heather(vman, lit, shadow_mul)
+	if man.has("reeds"):   # BV2F-PT DEV-21
+		_build_painted_reeds(man, lit, shadow_mul, loads)
 	if vman.has("snow"):
 		_build_painted_snow(vman, painting, lit, shadow_mul)
 	var flake := PaintStack.make_flake_texture()
@@ -292,6 +298,8 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
 	if heather_mat != null:
 		BarrowHeather.bind_snow(heather_mat, snow, WIND)
+	if reed_mat != null:   # BV2F-PT DEV-21: his push-aside, the heather's
+		BarrowHeather.bind_snow(reed_mat, snow, WIND)
 	var br := snow.bake_report()
 	paint["snow"] = {"area_xz": ar, "field_px": snow.field_px, "trail_px": snow.trail_px,
 					 "bare_frac_under_cut": br.get("bare_frac_under_cut"), "mean_depth_m": br.get("mean_depth_m"),
@@ -347,6 +355,126 @@ func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_m
 
 
 # --- R-C9-200: the load-time pipeline warm-up -------------------------------------------------------------------
+# --- DEV-21 (R-C9-205 (1)): THE REEDS -- the painting's own reed tufts as cards, on their ground, in the gusts ---------
+static func _swap21(code: String, a: String, b: String, what: String) -> String:
+	assert(code.count(a) == 1, "reed_shader_code: '%s' found %d times, not once" % [what, code.count(a)])
+	return code.replace(a, b)
+
+
+static func reed_shader_code() -> String:
+	"""BarrowHeather's vertex (wind, gusts, his push-aside) UNCHANGED but for three asserted swaps, and the PAINTED
+	surface's fragment + light (PaintedWorld.PAINTED_SHADER): a card IS the painting's own reed pixels (fid/pt/tools/
+	reeds.py), so at rest it draws the painting exactly; only the wind and his wading move it. Times his shadow.
+	  1. render_mode: no ambient, no fog (the painting is the light), both faces;
+	  2. one unit quad for every card: the instance's basis carries the card's size (CAM_RIGHT x w, CAM_UP x h), so the
+	     wind's world offset goes back through the inverse basis (BarrowHeather scales uniformly: d / s);
+	  3. the card's atlas rectangle from INSTANCE_CUSTOM."""
+	var v: String = BarrowHeather._SHADER_FUNCS
+	v = _swap21(v, "	VERTEX += d / s;", "	VERTEX += inverse(mat3(MODEL_MATRIX)) * d;", "vertex offset")
+	v = _swap21(v, "v_col = COLOR.rgb;", "v_col = COLOR.rgb;\n\tUV = mix(INSTANCE_CUSTOM.xy, INSTANCE_CUSTOM.zw, UV);", "uv")
+	var head := _swap21(BarrowHeather._SHADER_HEAD, "render_mode specular_disabled, cull_back;",
+		"render_mode specular_disabled, cull_disabled, ambient_light_disabled, fog_disabled;", "render_mode")
+	return head + PaintStack.RAMP_UNIFORMS + BarrowHeather._SHADER_UNIFORMS + PaintedWorld.PROJ_UNIFORMS \
+		+ "uniform float painted_mark = 0.0;\nuniform bool reed_probe = false;\n" + PaintStack.RAMP_BODY \
+		+ PaintedWorld.PROJ_FUNCS + v + """
+void fragment() {
+	vec4 tx = texture(card_tex, UV);
+	ALBEDO = reed_probe ? vec3(0.0) : tx.rgb;
+	EMISSION = reed_probe ? vec3(8.0, 0.0, 8.0) : vec3(0.0);
+	ALPHA = tx.a;
+	ALPHA_SCISSOR_THRESHOLD = 0.5;
+	ROUGHNESS = painted_mark;
+}
+
+void light() {
+	DIFFUSE_LIGHT += his_shadow(ATTENUATION, v_world);
+}
+"""
+
+
+func _build_painted_reeds(man: Dictionary, lit: Texture2D, shadow_mul: Vector3, loads: Dictionary) -> void:
+	var r: Dictionary = man["reeds"]
+	var atlas := PaintedWorld.load_png_bin(PILOT_REL + String(r["atlas"]["file"]), String(r["atlas"]["sha256"]), true, loads)
+	var jp := PaintedWorld.data_dir() + PILOT_REL + String(r["file"])
+	var ok_sha := FileAccess.get_sha256(jp) == String(r["sha256"])
+	loads[PILOT_REL + String(r["file"])] = {"path": jp, "sha256_ok": ok_sha}
+	var j = JSON.parse_string(FileAccess.get_file_as_string(jp))
+	var rows: Array = j["rows"] if typeof(j) == TYPE_DICTIONARY else []
+	if atlas == null or rows.is_empty() or not ok_sha:
+		push_error("bv2f_pilot: DEV-21 reeds not built (atlas %s, rows %d, json sha %s)" % [str(atlas != null), rows.size(), str(ok_sha)])
+		paint["reeds"] = {"error": true}
+		return
+	var sh := Shader.new()
+	sh.code = reed_shader_code()
+	reed_mat = ShaderMaterial.new()
+	reed_mat.shader = sh
+	reed_mat.set_shader_parameter("card_tex", atlas)
+	reed_mat.set_shader_parameter("gust_noise", fbm)
+	reed_mat.set_shader_parameter("wash_noise", fbm)
+	reed_mat.set_shader_parameter("mottle_noise", fbm)
+	reed_mat.set_shader_parameter("painted_mark", PaintedWorld.PAINTED_MARK)
+	for k in REED_WIND:
+		reed_mat.set_shader_parameter(k, REED_WIND[k])
+	reed_mat.set_shader_parameter("wind_dir", WIND.normalized())
+	# the instrument: BV2F_REED_PROBE=1 draws every card flat magenta (reed_probe), to see where they are and that they draw
+	reed_mat.set_shader_parameter("reed_probe", OS.get_environment("BV2F_REED_PROBE") == "1")
+	PaintedWorld.bind_projection(reed_mat, lit, shadow_mul, u_hat, v_hat)
+	# ONE unit quad, local x across (0..1), y up (0..1); UV2.x the height fraction (the sway's weight)
+	var arr := []
+	arr.resize(Mesh.ARRAY_MAX)
+	arr[Mesh.ARRAY_VERTEX] = PackedVector3Array([Vector3(0, 0, 0), Vector3(1, 0, 0), Vector3(0, 1, 0), Vector3(1, 1, 0)])
+	arr[Mesh.ARRAY_NORMAL] = PackedVector3Array([Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(0, 0, 1)])
+	arr[Mesh.ARRAY_COLOR] = PackedColorArray([Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE])
+	arr[Mesh.ARRAY_TEX_UV] = PackedVector2Array([Vector2(0, 1), Vector2(1, 1), Vector2(0, 0), Vector2(1, 0)])
+	arr[Mesh.ARRAY_TEX_UV2] = PackedVector2Array([Vector2(0, 0), Vector2(0, 0), Vector2(1, 0), Vector2(1, 0)])
+	arr[Mesh.ARRAY_INDEX] = PackedInt32Array([0, 1, 2, 1, 3, 2])
+	var quad := ArrayMesh.new()
+	quad.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+	var mm := MultiMesh.new()
+	mm.transform_format = MultiMesh.TRANSFORM_3D
+	mm.use_custom_data = true
+	mm.use_colors = true
+	mm.mesh = quad
+	mm.instance_count = rows.size()
+	var cr := BarrowHeather.CAM_RIGHT
+	var cu := BarrowHeather.CAM_UP
+	var cf := BarrowHeather.CAM_FWD
+	var thin := []
+	for i in rows.size():
+		var q: Array = rows[i]
+		# [x, z, ground_h, w_m, h_m, base_u, below_m, u0, v0, u1, v1]: the foot on its ground; the card in the camera plane
+		var w := float(q[3])
+		var h := float(q[4])
+		var foot := Vector3(float(q[0]), float(q[2]), float(q[1]))
+		var o := foot - cr * (w * float(q[5])) - cu * float(q[6])
+		mm.set_instance_transform(i, Transform3D(Basis(cr * w, cu * h, cf), o))
+		mm.set_instance_custom_data(i, Color(float(q[7]), float(q[8]), float(q[9]), float(q[10])))
+		mm.set_instance_color(i, Color(1, 1, 1, 1))
+		# v1's heather rule for the snow round a clump (HEATHER_SNOW_FRAC: capped at 20% of its height), on the
+		# card's world height -- uncapped, the field's 3D snow buried all but the cards' tips (first probe render)
+		thin.append({"c": Vector2(foot.x, foot.z), "r": maxf(0.5 * w, 0.15), "feather": 0.18,
+					 "max_d": h * cu.y * HEATHER_SNOW_FRAC})
+	var zones: Array = paint.get("_thin_zones", [])
+	zones.append_array(thin)
+	paint["_thin_zones"] = zones
+	var mmi := MultiMeshInstance3D.new()
+	mmi.name = "Reeds"
+	mmi.multimesh = mm
+	mmi.material_override = reed_mat
+	mmi.layers = PaintedWorld.LAYER_ON_PAINT
+	mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(mmi)
+	paint["reeds"] = {"cards": rows.size(), "wind": REED_WIND}
+	print("[bv2f_pilot] reeds: %d cards (DEV-21), aabb %s" % [rows.size(), str(mm.get_aabb())])
+
+
+func _physics_process(dt: float) -> void:
+	super._physics_process(dt)
+	# DEV-21: the reeds' wind on the snow's clock, as v1 runs the heather's
+	if snow != null and reed_mat != null:
+		reed_mat.set_shader_parameter("wind_time", snow.clock())
+
+
 func _warm_pipelines() -> Dictionary:
 	"""Every pilot pipeline drawn ONCE during load, before control: the play camera swept over the pilot window (each
 	material, the water + foam, the floes, the heather, the snow, the pen, both suns' shadow passes, him) with
@@ -387,8 +515,22 @@ func _ready() -> void:
 	of real frames before handing over: the first presented frames after a 10 s load carry the load's tail (55-95 ms in
 	the R-C9-201 trace), his first footsteps (stamp + trail upload) took 18-24 ms, and PH saw 28-31 ms when he first
 	stopped. All of it runs here first, hidden, off his screen. No look change."""
+	# F-2 (R-C9-205): THE LOAD VEIL -- the presented frames of the load (his rig, the settle) sit under a plain cover
+	# that leaves before control; captures wait for ready_done, which is set only after the veil is gone
+	var veil: CanvasLayer = null
+	if painted and not PaintStack.is_web():
+		veil = CanvasLayer.new()
+		veil.name = "PilotLoadVeil"
+		veil.layer = 127
+		var rect := ColorRect.new()
+		rect.color = Color(0.93, 0.92, 0.89)
+		rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+		veil.add_child(rect)
+		add_child(veil)
 	await super._ready()
 	if not painted or PaintStack.is_web():
+		if veil != null:
+			veil.queue_free()
 		return
 	ready_done = false
 	var t0 := Time.get_ticks_msec()
@@ -424,12 +566,19 @@ func _ready() -> void:
 			n += 1
 		# his DRIVE STATE back to knight.gd's initial values (_move_dir persists after a stop and re-derives `facing`
 		# on every drive -- the settle's east walk would otherwise turn him east at spawn)
-		k.set("_move_dir", Vector2(0, 1))
-		k.set("_speed", 0.0)
-		k.set("_strafing", false)
-		k.set("_strafe_w", 0.0)
-		k.set("_strafe_side", "l")
-		k.set("_yaw_init", false)
+		# F-2: assert the six knight.gd fields exist before resetting them (a knight.gd that renames one must fail loud)
+		var init_vals := {"_move_dir": Vector2(0, 1), "_speed": 0.0, "_strafing": false, "_strafe_w": 0.0,
+						  "_strafe_side": "l", "_yaw_init": false}
+		var missing := []
+		for fld in init_vals:
+			if not (fld in k):
+				missing.append(fld)
+		if missing.is_empty():
+			for fld in init_vals:
+				k.set(fld, init_vals[fld])
+		else:
+			push_error("bv2f_pilot: knight.gd lacks %s -- drive state NOT reset" % str(missing))
+		report["settle_knight_fields_missing"] = missing
 		place_knight(spawn.x, spawn.y, String(layout["knight"].get("spawn_facing", "S")))
 		for f in 10:
 			k.drive_dir(Vector2.ZERO, false, dt)
@@ -442,6 +591,13 @@ func _ready() -> void:
 	for i in SETTLE_FRAMES:
 		await get_tree().process_frame
 		n += 1
+	# F-2: the settle's prints and ploughs (east of the pilot window, ground the full-site painting will cover) are
+	# CLEARED -- the field starts as v1's does, untrodden
+	if snow != null:
+		snow.clear_trail()
+	if veil != null:
+		veil.queue_free()
+		await get_tree().process_frame
 	report["settle"] = {"frames": n, "ms": Time.get_ticks_msec() - t0}
 	print("[bv2f_pilot] settle: " + JSON.stringify(report["settle"]))
 	ready_done = true
