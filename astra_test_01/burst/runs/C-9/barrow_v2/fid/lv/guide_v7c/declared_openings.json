@@ -63,8 +63,10 @@
     ]
    },
    "p6a_match_radius_m": 3.905,
-   "faces_camera": true,
-   "note": "faces_camera = the opening's facing has a component toward the camera (screen-down); False = seen from behind/edge-on at the play camera"
+   "frame_faces_camera": true,
+   "check_a_probe": "v",
+   "check_a_faces_camera": true,
+   "note": "frame_faces_camera = the FRAMED opening's facing has a screen-down component (False = seen from behind/edge-on). check_a_faces_camera = what check (a) uses (lv_check_openings.py imports the same rule): for a horizontal probe (the wreck's open hull, the ruin's heap) it is the probe, open to the sky, that is measured"
   },
   {
    "id": "hall_great_door",
@@ -102,8 +104,10 @@
     ]
    },
    "p6a_match_radius_m": 3.275,
-   "faces_camera": true,
-   "note": "faces_camera = the opening's facing has a component toward the camera (screen-down); False = seen from behind/edge-on at the play camera"
+   "frame_faces_camera": true,
+   "check_a_probe": "v",
+   "check_a_faces_camera": true,
+   "note": "frame_faces_camera = the FRAMED opening's facing has a screen-down component (False = seen from behind/edge-on). check_a_faces_camera = what check (a) uses (lv_check_openings.py imports the same rule): for a horizontal probe (the wreck's open hull, the ruin's heap) it is the probe, open to the sky, that is measured"
   },
   {
    "id": "sea_cave_mouth",
@@ -141,8 +145,10 @@
     ]
    },
    "p6a_match_radius_m": 5.732,
-   "faces_camera": true,
-   "note": "faces_camera = the opening's facing has a component toward the camera (screen-down); False = seen from behind/edge-on at the play camera"
+   "frame_faces_camera": true,
+   "check_a_probe": "v",
+   "check_a_faces_camera": true,
+   "note": "frame_faces_camera = the FRAMED opening's facing has a screen-down component (False = seen from behind/edge-on). check_a_faces_camera = what check (a) uses (lv_check_openings.py imports the same rule): for a horizontal probe (the wreck's open hull, the ruin's heap) it is the probe, open to the sky, that is measured"
   },
   {
    "id": "fallen_gable_breach",
@@ -180,8 +186,10 @@
     ]
    },
    "p6a_match_radius_m": 3.0,
-   "faces_camera": true,
-   "note": "faces_camera = the opening's facing has a component toward the camera (screen-down); False = seen from behind/edge-on at the play camera"
+   "frame_faces_camera": true,
+   "check_a_probe": "h_rect",
+   "check_a_faces_camera": true,
+   "note": "frame_faces_camera = the FRAMED opening's facing has a screen-down component (False = seen from behind/edge-on). check_a_faces_camera = what check (a) uses (lv_check_openings.py imports the same rule): for a horizontal probe (the wreck's open hull, the ruin's heap) it is the probe, open to the sky, that is measured"
   },
   {
    "id": "wreck_rail",
@@ -219,8 +227,10 @@
     ]
    },
    "p6a_match_radius_m": 3.0,
-   "faces_camera": false,
-   "note": "faces_camera = the opening's facing has a component toward the camera (screen-down); False = seen from behind/edge-on at the play camera"
+   "frame_faces_camera": false,
+   "check_a_probe": "h_rect",
+   "check_a_faces_camera": true,
+   "note": "frame_faces_camera = the FRAMED opening's facing has a screen-down component (False = seen from behind/edge-on). check_a_faces_camera = what check (a) uses (lv_check_openings.py imports the same rule): for a horizontal probe (the wreck's open hull, the ruin's heap) it is the probe, open to the sky, that is measured"
   }
  ]
 }

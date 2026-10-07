@@ -46,3 +46,16 @@ v7b — **FAIL**. The great door faces away from the camera, and the cave mouth 
 | mere_ice (p05) | polygon | yes | 373.61 | 99.9 | 468.7 | 79.7 | PASS |
 
 **Anchor bearings against sketch A:** p01 +10.3°, p02 −11.4°, p03 +59.4° (registered divergence #1, R-C9-165), p04 −6.9°, p05 +4.3°, p06 −12.7°.
+
+**R-C9-178 fixes (v7c re-rendered; validator 66/66; check (a) still 6/6):**
+- **Braziers:** no model was ever built. A primitive stand-in (stand + bowl) of the slot's size now shows them.
+- **Standing stones and grave markers:** they had been placed at z 0 on slopes up to 4.2 m, so terrain buried them. Both are now seated on the terrain; the stones show (22k ID px).
+  - The grave markers stay small: they are 0.55 m tall, and 2 of the 7 lie inside the barrow-front model's footprint.
+- **Cliff faces:** they stood inside the terrain's own rock face, centred on the lip and 6 m deep. Each is moved out by half its depth plus 0.5 m, and they now render (1.0M px).
+- **Outcrops 3, 6, 7, 9, 12 and 13:** dropped from v7c because their centres lie outside the paint envelope (reasons in `layout_v7c.json` → `v7c_r178`).
+- **Check (a) numbers:**
+  - My probe figures stand. The probe is the opening's own plane at its mouth: the hall door is **6.35 m²**.
+  - PH's 8.22 m² measured the dark curtain, a 0.3 m-thick box 1.6 m inside the door. Its top and side faces add projected area.
+  - One rule now decides "faces camera" in both files (`lv_openings.faces_camera`, imported by the check):
+    - The wreck rail's frame faces away (`frame_faces_camera: false`).
+    - Check (a) measures the wreck's open hull, which is open to the sky (`check_a_faces_camera: true`).

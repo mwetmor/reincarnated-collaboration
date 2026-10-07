@@ -96,3 +96,8 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
 - [x] (e) guide + ID re-rendered for v7c only → `lv/guide_v7c/` (99 tiles, ids/class maps, declared_openings.json). M1 packet rebuilt (v7c, plus a v7c|v7b|sketch sheet for the hall and gable).
 - Data: one dir per variant, `barrow_full/godot/data/bv2f/{v7b,v7c}/` (env `BV2F_VARIANT`, default v7c). No .app export (disk); the .command launcher is kept.
 - Re-run v7c: `LV_VARIANT=v7c python3 lv/tools/make_layout_v7.py && python3 lv/tools/validate_layout_v7.py lv/layout_v7c.json && python3 lv/tools/bv2f_level_prep.py lv/layout_v7c.json && LV_VARIANT=v7c bash lv/tools/lv_guide_run.sh && LV_VARIANT=v7c python3 lv/tools/lv_guide_stitch.py && LV_VARIANT=v7c python3 lv/tools/lv_openings.py && LV_VARIANT=v7c python3 lv/tools/lv_check_openings.py --render`
+- [x] R-C9-178 (PH P6 findings), v7c only.
+  - Braziers get a primitive stand-in (no GLB). Standing stones and grave markers are seated on the terrain; outcrops keep the generator's own seating.
+  - cliff_faces moved out of the terrain face. Outcrops 3, 6, 7, 9, 12 and 13 dropped: centre outside the paint envelope (`layout_v7c.json` `v7c_r178`).
+  - Check (a): one faces-camera rule (`lv_openings.faces_camera`); the probe numbers stand (hall door 6.35 m²; PH's 8.22 is the curtain box).
+  - Guide/ID re-rendered (43 ids), check (a) 6/6, validator 66/66, v7c stills and M1 sheets refreshed. Next: PH re-measure.

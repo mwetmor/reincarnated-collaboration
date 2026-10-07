@@ -347,6 +347,27 @@ func _build_placements() -> void:
 		for ins in insts:
 			var g := str(ins.get("glb", glb_slot))
 			var node2 := _load_glb(g)
+			if node2 == null and String(m["kind"]) == "prop" and String(ins["type"]) == "box":
+				# R-C9-178 (1): no build exists for the braziers (godot/models/build/brazier.glb was never made) -- a
+				# primitive STAND-IN of the slot's size: a stand and a bowl, so the guide shows the object where it stands
+				node2 = Node3D.new()
+				var st := MeshInstance3D.new()
+				var cy := CylinderMesh.new()
+				cy.top_radius = 0.12
+				cy.bottom_radius = 0.2
+				cy.height = 1.5
+				st.mesh = cy
+				st.position = Vector3(0, 0.75, 0)
+				node2.add_child(st)
+				var bw := MeshInstance3D.new()
+				var bc := CylinderMesh.new()
+				bc.top_radius = 0.55
+				bc.bottom_radius = 0.3
+				bc.height = 0.8
+				bw.mesh = bc
+				bw.position = Vector3(0, 1.9, 0)
+				node2.add_child(bw)
+				model_report["stand_ins"] = int(model_report.get("stand_ins", 0)) + 1
 			if node2 == null:
 				continue
 			var iid := "%s_%d" % [sid, n]

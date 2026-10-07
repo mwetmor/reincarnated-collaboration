@@ -28,6 +28,8 @@ VAR = os.environ.get("LV_VARIANT", "v7b")
 GD = os.path.join(LV, "guide" if VAR == "v7b" else "guide_" + VAR)
 BF = os.path.normpath(os.path.join(LV, "..", "..", "..", "barrow_full", "godot", "data", "bv2f", VAR))
 PPM = 100.617553710938
+sys.path.insert(0, HERE)
+import lv_openings as OPN  # noqa: E402
 
 
 def run(mode):
@@ -68,9 +70,7 @@ def main():
         if pr is None:
             continue
         oid = op["id"]
-        faces = True
-        if pr["type"] == "v":
-            faces = -math.cos(math.radians(pr["faces_deg"])) > 0.05          # a +y (screen-down) component: toward the camera
+        faces = OPN.faces_camera(pr)                                       # ONE rule, shared with declared_openings.json
         vis_px = w.get(oid, 0) if faces else 0
         ref_px = o.get(oid, 0)
         rows.append({"opening": oid, "anchor": op["point"], "probe": pr["type"], "faces_camera": faces,

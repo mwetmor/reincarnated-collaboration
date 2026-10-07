@@ -1307,6 +1307,56 @@ def main():
             return b_["k"] == "rock" and abs(dx * _cg[0] + dy * _cg[1]) <= _hw + max(b_["r"][0], b_["r"][1]) and -1.0 <= dx * _cf[0] + dy * _cf[1] <= 7.0
         B.blobs[:] = [b_ for b_ in B.blobs if not _in_front(b_)]
         print("[v7c] cliff-foot rocks cleared from the mouth's front:", _n1 - len(B.blobs))
+    if V7C:
+        # BV2F-LV v7c, R-C9-178 (PH's P6 findings): (2)/(3) SEAT the small standing pieces ON the sculpted surface (they were
+        # placed at z 0 on slopes up to 4.2 m high -- buried); (3) the cliff faces stood INSIDE the terrain's own rock face
+        # (centred on the lip, 6 m deep): moved out by half their depth + 0.5 m so their face fronts the terrain's;
+        # (4) outcrops whose centre lies outside the paint envelope are DROPPED (nothing is painted there, P6 cannot see them).
+        def _corners(ins):
+            r_ = math.radians(ins["godot_rot_y_deg"])
+            X_ = (math.cos(r_), -math.sin(r_))
+            Z_ = (math.sin(r_), math.cos(r_))
+            w_, d_ = ins["size_m"][0] / 2, ins["size_m"][1] / 2
+            c_ = ins["pos"]
+            return [c_] + [(c_[0] + sx * w_ * X_[0] + sz * d_ * Z_[0], c_[1] + sx * w_ * X_[1] + sz * d_ * Z_[1]) for sx in (-1, 1) for sz in (-1, 1)]
+        SEAT = {"standing_stones": 0.15, "grave_markers": 0.05, "braziers": 0.05}
+        seated = []
+        for m_ in models:
+            if m_["id"] in SEAT:      # (outcrops keep the generator's own seating, B.hz(centre) - 0.5: a corner-min sinks shore crags under the sea)
+                sink = SEAT.get(m_["id"], 0.5)
+                for ins in m_.get("instances") or []:
+                    if ins.get("type") != "box":
+                        continue
+                    hs = [B.hz(*q) for q in _corners(ins)]
+                    z_new = round(min(hs) - sink, 3)
+                    if abs(z_new - ins["z"]) > 0.05:
+                        seated.append([m_["id"], ins["pos"], ins["z"], z_new])
+                    ins["z"] = z_new
+        for m_ in models:
+            if m_["id"] == "cliff_faces":
+                for ins in m_["instances"]:
+                    r_ = math.radians(ins["godot_rot_y_deg"])
+                    f_ = (math.sin(r_), math.cos(r_))
+                    sh_ = ins["size_m"][1] / 2 + 0.5
+                    ins["pos"] = G.rnd((ins["pos"][0] + f_[0] * sh_, ins["pos"][1] + f_[1] * sh_))
+                m_["fit_note"] = m_.get("fit_note", "") + "; v7c (R-C9-178): moved out by half their depth + 0.5 m so they front the terrain's rock face"
+        _fu = [q[0] for q in floor]
+        _fv = [-q[1] for q in floor]
+        _cu, _cv = (min(_fu) + max(_fu)) / 2, (min(_fv) + max(_fv)) / 2
+        _hu, _hv = 11776 / 2 / PPM_PLATE, 8704 / 2 / (PPM_PLATE * math.sin(math.radians(ALPHA_DEG)))
+        dropped = []
+        keep = []
+        for m_ in models:
+            if m_["id"].startswith("rock_outcrop"):
+                c_ = m_["pos"]
+                if not (_cu - _hu <= c_[0] <= _cu + _hu and _cv - _hv <= -c_[1] <= _cv + _hv):
+                    dropped.append({"id": m_["id"], "pos": c_, "reason": "centre outside the paint envelope (u %.1f..%.1f, v %.1f..%.1f): nothing is painted there and the play camera never frames it (R-C9-178)" % (_cu - _hu, _cu + _hu, _cv - _hv, _cv + _hv)})
+                    continue
+            keep.append(m_)
+        models[:] = keep
+        layout["v7c_r178"] = {"seated_on_terrain": seated, "dropped_outside_envelope": dropped,
+                              "cliff_faces": "moved out by half their depth + 0.5 m (they stood inside the terrain's rock face)"}
+        print("[v7c] R-C9-178: seated %d pieces, dropped %s" % (len(seated), [d_["id"] for d_ in dropped]))
     layout["models"] = models
     layout["models_rule"] = ("R-C9-155: every structure is a REAL 3D model in a slot (id, kind, pos, z, faces/yaw, size, footprint, opening); "
                              "REUSE names a v1 Barrow GLB; BUILD = lane BVP (Astra sheet -> Tripo) hands BX the GLB at `glb`. "
