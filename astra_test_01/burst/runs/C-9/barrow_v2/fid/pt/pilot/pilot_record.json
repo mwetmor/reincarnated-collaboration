@@ -49,8 +49,8 @@
   "sheet": "fid/pt/m2/M2p_pilot_beside_v1.jpg (6 pairs, same zoom ortho 10.7337)",
   "film": {
    "file": "fid/pt/pilot/film/BV2F pilot - walk from the mere past the wreck through the stones to the barrow door.mp4",
-   "sha256": "4da1efd994b66e1958f4b0cd5d40cd641054ee0b11ffdc5e0ee3c14cc7388ebf",
-   "bytes": 56386575,
+   "sha256": "684801298bada12fb9af64f55f2b88beb9575137e9288d2386ad592a8ea6576e",
+   "bytes": 55983488,
    "frames": 897,
    "fps": 24,
    "route": "mere -> wreck/shingle -> stone ring -> barrow door, 6/6 waypoints reached, v1 camera clamp on",
@@ -124,5 +124,32 @@
    "sha256": "4da1efd994b66e1958f4b0cd5d40cd641054ee0b11ffdc5e0ee3c14cc7388ebf",
    "bytes": 56386575
   }
+ },
+ "r_c9_202_m2": {
+  "build": "186743b58",
+  "sheets": {
+   "M2p_pilot_beside_v1.jpg": {
+    "file": "fid/pt/m2/M2p_pilot_beside_v1.jpg",
+    "sha256": "2905af9eed2a385a045e43ce3ab3fe11ad8ae94004da692634d28342d96c759b"
+   },
+   "M2p_ice_snow.jpg": {
+    "file": "fid/pt/m2/M2p_ice_snow.jpg",
+    "sha256": "5b255f8979985a841ef3ad139586022232417c8a77180a9f821a2ed0b33d8696"
+   },
+   "M2p_slopes.jpg": {
+    "file": "fid/pt/m2/M2p_slopes.jpg",
+    "sha256": "1ebb61b1431461a427d7f2811c456674393aef92786ea8556f34a40efd0a1072"
+   }
+  },
+  "sheets_tool": "fid/pt/tools/m2_sheets.py fid/pt/perf/stills_settle (the 12 stills rendered from 186743b58)",
+  "film": {
+   "file": "pt/pilot/film/BV2F pilot - walk from the mere past the wreck through the stones to the barrow door.mp4",
+   "sha256": "684801298bada12fb9af64f55f2b88beb9575137e9288d2386ad592a8ea6576e",
+   "bytes": 55983488,
+   "duration_s": 37.4,
+   "route": "mere -> shingle/wreck -> stone ring -> barrow door; v1 camera clamp on"
+  },
+  "f6": "fid/pc/results_phase2p_m2.json: T1-T3 PASS at pin f1aa715ac and barrow_full HEAD 186743b58, identical; control shas unchanged",
+  "look_flag": "M2p_slopes.jpg right panel: on the stream bank's slope the snow layer shows a wavy streak band (the DEV-18 snow on terrain; R-C9-193 look check) -- for the conductor's/Matt's eye"
  }
 }
