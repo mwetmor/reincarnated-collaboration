@@ -1,0 +1,105 @@
+{
+ "_what": "R-C9-199: P10 at the start view (uv 0,0) -- PH's own instrument (ph_life.gd perf, 900 frames, vsync off) x3, before/after; frame split + ablation by fid/pt/... pt_perf_split.gd",
+ "before_p99_ms": [
+  22.153,
+  16.339,
+  16.248
+ ],
+ "after_p99_ms": [
+  18.14,
+  15.259,
+  15.405
+ ],
+ "before_p50_ms": [
+  14.842,
+  14.712,
+  14.603
+ ],
+ "after_p50_ms": [
+  13.434,
+  13.576,
+  13.564
+ ],
+ "before_max_ms": [
+  32.513,
+  16.941,
+  16.655
+ ],
+ "after_max_ms": [
+  32.819,
+  15.939,
+  19.742
+ ],
+ "split_base_before": {
+  "draw_calls": 99,
+  "gpu_ms": 0.0,
+  "mean_ms": 14.57,
+  "p50_ms": 14.53,
+  "p99_ms": 16.14,
+  "physics_ms": 0.47,
+  "primitives": 3282482,
+  "process_ms": 16.06,
+  "render_cpu_ms": 0.17
+ },
+ "split_base_after": {
+  "draw_calls": 90,
+  "gpu_ms": 0.0,
+  "mean_ms": 13.45,
+  "p50_ms": 13.39,
+  "p99_ms": 14.83,
+  "physics_ms": 0.54,
+  "primitives": 2245644,
+  "process_ms": 14.78,
+  "render_cpu_ms": 0.18
+ },
+ "change": "ground pieces do not cast into the sun's shadow map (v1's rule; the mound and every piece still cast): primitives 3.28 M -> 2.25 M, mean frame -1.1 ms",
+ "first_run_outlier": "run 1 of each set carries the cold shader compile after a build change (max 32 ms): a fresh-cache effect, not a level cost -- a discarded warm run before P10 removes it",
+ "remaining_costs_ms_mean_from_ablation": {
+  "no_baked_models": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.71,
+   "p99_ms_saved": 0.51
+  },
+  "no_floes": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.08,
+   "p99_ms_saved": -0.22
+  },
+  "no_heather": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.86,
+   "p99_ms_saved": 0.38
+  },
+  "no_paint_sun_shadows": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 1.09,
+   "p99_ms_saved": 0.91
+  },
+  "no_pen": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 3.04,
+   "p99_ms_saved": 2.93
+  },
+  "no_snow_field": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 1.77,
+   "p99_ms_saved": 1.82
+  },
+  "no_snowfall": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.17,
+   "p99_ms_saved": -0.09
+  },
+  "no_sun_shadows": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.32,
+   "p99_ms_saved": 0.22
+  },
+  "no_water": {
+   "gpu_ms_saved": 0.0,
+   "mean_ms_saved": 0.05,
+   "p99_ms_saved": -0.06
+  }
+ },
+ "look": "fid/pt/perf/still_diff.json: before vs after mean |d| 0.10 vs the same-build noise floor 0.19 (12 stills) -- unchanged"
+}

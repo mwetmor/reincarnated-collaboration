@@ -126,8 +126,12 @@ func _dress_painted() -> void:
 			continue
 		if _is_real_model(root) and bool(man.get("bake_all_real_models", true)) and (man.get("real_models_in_window", []) as Array).has(id):
 			n["bakes_missing"].append(id)
+		# v1's rule (barrow_full.gd _dress_painted): the GROUND does not cast (it is lit by the paint sun only, which takes
+		# no static caster); the mound and every piece do. bv2art registers its terrain class meshes as pieces, so the
+		# first pilot build cast the whole terrain into the sun's shadow map (1.4 M primitives a frame) -- R-C9-199
+		var casts := not (built.has(id) and String(built[id].get("piece", "")) == "ground" and String(id) != "ground_mound")
 		for mi in _meshes(root):
-			_paint_mesh(mi, mat_paint, true)
+			_paint_mesh(mi, mat_paint, casts)
 		n["projected"] += 1
 	# anything static not registered as a piece (the ground class meshes, bounds) wears the painting too
 	for gi in level.find_children("*", "MeshInstance3D", true, false):
