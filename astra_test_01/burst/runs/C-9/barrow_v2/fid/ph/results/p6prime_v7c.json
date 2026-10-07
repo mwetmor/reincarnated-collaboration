@@ -1,0 +1,2579 @@
+{
+ "_what": "P6' on v7c (pre-registered calibration.md \u00a7 15; bars from p6prime_calibration.json)",
+ "inputs": {
+  "ids_sha256": "49adb3d894b209fc829d42ddcd0f325bccc5e5be59f41af3871143c3867226c8",
+  "layout_sha256": "f8e7b5ab88f040db4234d70962caf42a063a3548f3508fea3d0428e3b94a0656",
+  "placed_fit_sha256": "521e89e9029296c068b5ff0e22936a1a7c16dd2052839dfe3db552943ba5f236"
+ },
+ "presence": {
+  "missing": [],
+  "extra": [],
+  "terrain_hidden_not_by_design": {
+   "logs_and_beams": [
+    [
+     5,
+     0.5452
+    ],
+    [
+     6,
+     0.5046
+    ]
+   ]
+  },
+  "by_design_exclusions": {
+   "hall_porch": "no mesh of its own: PART OF the longhall build (BV2F-LV-hall): no separate model",
+   "sea_cave_stair": "no mesh of its own: BUILD (lane BVP: rock kit -- cave-mouth arch + stair-cut rock); the walkable stair geometr",
+   "birch_grove_1": "level skip_models (no plants in the guide)",
+   "birch_grove_2": "level skip_models (no plants in the guide)",
+   "birch_grove_3": "level skip_models (no plants in the guide)",
+   "cave_cliff": "no mesh of its own: TRIMMED in v7c (R-C9-177 c): it hid the mouth; the mouth is the terrain face"
+  },
+  "non_model_ids_excluded": [
+   "blobs_passage_dark",
+   "blobs_path",
+   "blobs_rock",
+   "blobs_shore_ice",
+   "curtain_barrow_door",
+   "curtain_hall_great_door",
+   "curtain_sea_cave_mouth",
+   "door_lintel",
+   "door_post_L",
+   "door_post_R",
+   "ground_ash",
+   "ground_ice",
+   "ground_mound",
+   "ground_path",
+   "ground_rock",
+   "ground_sea",
+   "ground_shingle",
+   "ground_shore_ice",
+   "ground_shrub",
+   "ground_snow",
+   "ground_stream",
+   "stair_cliff",
+   "stair_ledge",
+   "stair_top_landing"
+  ],
+  "pass": false
+ },
+ "placement": {
+  "bar": 0.7872,
+  "below_bar": {},
+  "containment": {
+   "longhall": 1.0,
+   "fallen_gable": 1.0,
+   "barrow_front": 1.0,
+   "wreck": 1.0,
+   "standing_stones": 1.0,
+   "circle_stones": 1.0,
+   "grave_markers": 1.0,
+   "logs_and_beams": 0.9589,
+   "palisade": 0.9811,
+   "braziers": 1.0,
+   "rock_outcrop_1": 1.0,
+   "rock_outcrop_2": 1.0,
+   "rock_outcrop_4": 1.0,
+   "rock_outcrop_5": 1.0,
+   "rock_outcrop_8": 1.0,
+   "rock_outcrop_10": 1.0,
+   "rock_outcrop_11": 1.0,
+   "rock_outcrop_14": 1.0,
+   "stair_cliff": 1.0,
+   "cliff_faces": 1.0
+  },
+  "pass": true
+ },
+ "scale": {
+  "bar": 1.1,
+  "n_instances": 148,
+  "n_over": 137,
+  "over_by_slot": {
+   "standing_stones": [
+    2.338,
+    2.18,
+    2.112,
+    2.378
+   ],
+   "circle_stones": [
+    4.586,
+    4.586,
+    1.705,
+    4.586,
+    4.586,
+    1.705,
+    4.586,
+    4.586
+   ],
+   "grave_markers": [
+    1.975,
+    1.975,
+    1.975,
+    1.975,
+    1.975,
+    1.975,
+    1.975
+   ],
+   "logs_and_beams": [
+    8.07,
+    6.557,
+    5.044,
+    4.54,
+    10.088,
+    8.828,
+    7.565,
+    9.583,
+    7.063
+   ],
+   "palisade": [
+    13.498,
+    10.214,
+    11.445,
+    9.988,
+    11.342,
+    8.996,
+    9.986,
+    12.083,
+    11.771,
+    13.755,
+    11.413,
+    12.473,
+    10.514,
+    9.784,
+    11.727,
+    9.987,
+    13.105,
+    10.274,
+    9.271,
+    10.451,
+    10.201,
+    8.948,
+    12.17,
+    10.727,
+    13.585,
+    9.764,
+    9.341,
+    10.947,
+    11.51,
+    11.954,
+    9.6,
+    10.877,
+    13.097,
+    9.222,
+    11.597,
+    9.41,
+    13.088,
+    13.948,
+    10.325,
+    13.138,
+    9.049,
+    11.791,
+    13.724,
+    10.469,
+    12.364,
+    10.478,
+    12.569,
+    13.765,
+    13.917,
+    12.029,
+    12.324,
+    13.148,
+    10.199,
+    12.152,
+    13.936,
+    10.463,
+    11.883,
+    9.832,
+    12.254,
+    9.644,
+    13.195,
+    10.401,
+    9.653,
+    10.657,
+    13.483,
+    11.369,
+    13.262,
+    9.024,
+    12.432,
+    13.752,
+    10.986,
+    13.896,
+    10.059,
+    8.947,
+    13.933,
+    11.415,
+    12.404,
+    9.061,
+    10.255,
+    12.595,
+    11.352,
+    11.688,
+    13.773,
+    12.128,
+    13.077,
+    10.64,
+    10.355,
+    9.354,
+    11.931,
+    11.66,
+    11.142,
+    9.268,
+    12.706,
+    11.083,
+    11.335,
+    13.728,
+    8.904,
+    13.256,
+    12.252,
+    14.093,
+    11.22,
+    9.807
+   ],
+   "rock_outcrop_1": [
+    1.347
+   ],
+   "rock_outcrop_2": [
+    1.772
+   ],
+   "rock_outcrop_4": [
+    1.414
+   ],
+   "rock_outcrop_5": [
+    1.368
+   ],
+   "rock_outcrop_8": [
+    1.28
+   ],
+   "rock_outcrop_10": [
+    1.153
+   ],
+   "rock_outcrop_11": [
+    1.313
+   ]
+  },
+  "record_mismatches_vs_ph": 0,
+  "pass": false
+ },
+ "extent": {
+  "validator": {
+   "exit": 1,
+   "fails": [
+    {
+     "rule": "R11",
+     "check": "the porch rises ABOVE the hall's roofline (slot heights)"
+    }
+   ],
+   "n_checks": 74,
+   "stdout_tail": [
+    "  PASS  R13  CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots  {\"offenders\": []}",
+    "  PASS  R13  tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)  {\"tufts\": 63, \"cap\": 63, \"per_100m2\": 1.491}",
+    "== 66 checks, 65 PASS, 1 FAIL, plus 8 INFO -> FAIL"
+   ]
+  },
+  "replaced": {
+   "longhall": {
+    "footprint_pts": 24,
+    "h": 13.117,
+    "feature": "longhall"
+   },
+   "fallen_gable": {
+    "footprint_pts": 31,
+    "h": 2.605,
+    "feature": "fallen_gable"
+   },
+   "barrow_front": {
+    "footprint_pts": 37,
+    "h": 13.054
+   },
+   "wreck": {
+    "footprint_pts": 33,
+    "h": 7.463,
+    "feature": "wreck_hull"
+   },
+   "stair_cliff": {
+    "footprint_pts": 25,
+    "h": 7.45
+   }
+  },
+  "pass": false
+ },
+ "iou_vs_prism_reported_non_binding": {
+  "longhall": 0.694,
+  "fallen_gable": 0.51,
+  "barrow_front": 0.647,
+  "wreck": 0.345,
+  "standing_stones": 0.461,
+  "circle_stones": 0.205,
+  "grave_markers": 0.097,
+  "logs_and_beams": 0.232,
+  "palisade": 0.413,
+  "braziers": 0.462,
+  "rock_outcrop_1": 0.46,
+  "rock_outcrop_2": 0.459,
+  "rock_outcrop_4": 0.354,
+  "rock_outcrop_5": 0.643,
+  "rock_outcrop_8": 0.376,
+  "rock_outcrop_10": 0.52,
+  "rock_outcrop_11": 0.347,
+  "rock_outcrop_14": 0.345,
+  "stair_cliff": 0.584,
+  "cliff_faces": 0.531
+ },
+ "iou_vs_prism_median_reported": 0.46,
+ "v1_like_for_like_reported": 0.635,
+ "objects": {
+  "longhall": {
+   "kind": "building",
+   "instances": 1,
+   "id_px": 3697272,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.694
+  },
+  "fallen_gable": {
+   "kind": "ruin",
+   "instances": 1,
+   "id_px": 346562,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.51
+  },
+  "barrow_front": {
+   "kind": "barrow",
+   "instances": 1,
+   "id_px": 1594662,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.647
+  },
+  "wreck": {
+   "kind": "wreck",
+   "instances": 1,
+   "id_px": 366036,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.345
+  },
+  "standing_stones": {
+   "kind": "stones",
+   "instances": 4,
+   "id_px": 22238,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.461
+  },
+  "circle_stones": {
+   "kind": "stones",
+   "instances": 8,
+   "id_px": 22042,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [
+    [
+     0,
+     0.6218
+    ],
+    [
+     1,
+     0.606
+    ],
+    [
+     2,
+     0.6583
+    ],
+    [
+     3,
+     0.6049
+    ],
+    [
+     4,
+     0.6191
+    ],
+    [
+     5,
+     0.6842
+    ],
+    [
+     6,
+     0.5605
+    ],
+    [
+     7,
+     0.6169
+    ]
+   ],
+   "burial_by_design_words": [
+    "sunk",
+    "laid flat"
+   ],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.205
+  },
+  "grave_markers": {
+   "kind": "stones",
+   "instances": 7,
+   "id_px": 1900,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.097
+  },
+  "logs_and_beams": {
+   "kind": "debris",
+   "instances": 9,
+   "id_px": 19938,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [
+    [
+     5,
+     0.5452
+    ],
+    [
+     6,
+     0.5046
+    ]
+   ],
+   "burial_by_design_words": [],
+   "containment": 0.9589,
+   "iou_vs_prism_reported": 0.232
+  },
+  "palisade": {
+   "kind": "palisade",
+   "instances": 102,
+   "id_px": 74486,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 0.9811,
+   "iou_vs_prism_reported": 0.413
+  },
+  "braziers": {
+   "kind": "prop",
+   "instances": 2,
+   "id_px": 23526,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.462
+  },
+  "rock_outcrop_1": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 160539,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.46
+  },
+  "rock_outcrop_2": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 321086,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.459
+  },
+  "rock_outcrop_4": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 130486,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.354
+  },
+  "rock_outcrop_5": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 411629,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.643
+  },
+  "rock_outcrop_8": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 121411,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.376
+  },
+  "rock_outcrop_10": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 105665,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.52
+  },
+  "rock_outcrop_11": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 44802,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.347
+  },
+  "rock_outcrop_14": {
+   "kind": "outcrop",
+   "instances": 1,
+   "id_px": 70911,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.345
+  },
+  "stair_cliff": {
+   "kind": "cliff",
+   "instances": 1,
+   "id_px": 810508,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.584
+  },
+  "cliff_faces": {
+   "kind": "cliff",
+   "instances": 3,
+   "id_px": 1000949,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_words": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.531
+  }
+ },
+ "scale_rows": [
+  {
+   "slot": "longhall",
+   "instance": "longhall",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.0,
+    1.00002360343933,
+    1.00002861022949
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "fallen_gable",
+   "instance": "fallen_gable",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.730927407741547,
+    0.731036305427551,
+    0.730899333953857
+   ],
+   "anisotropy": 1.0002,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.7309,
+    0.731,
+    0.7309
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "barrow_front",
+   "instance": "barrow_front",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.0,
+    0.999986112117767,
+    0.999988913536072
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "wreck",
+   "instance": "wreck",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.0,
+    0.999954164028168,
+    0.999972701072693
+   ],
+   "anisotropy": 1.0,
+   "pass": true,
+   "ph_size_over_aabb": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "standing_stones",
+   "instance": "standing_stones_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.34516429901123,
+    2.59618830680847,
+    1.11047625541687
+   ],
+   "anisotropy": 2.3379,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.3452,
+    2.5962,
+    1.1105
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "standing_stones",
+   "instance": "standing_stones_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.11594271659851,
+    2.19788360595703,
+    1.00822126865387
+   ],
+   "anisotropy": 2.18,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.1159,
+    2.1979,
+    1.0082
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "standing_stones",
+   "instance": "standing_stones_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.34516429901123,
+    1.99706792831421,
+    1.11047625541687
+   ],
+   "anisotropy": 2.1119,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.3452,
+    1.9971,
+    1.1105
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "standing_stones",
+   "instance": "standing_stones_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.11594271659851,
+    2.39769124984741,
+    1.00822126865387
+   ],
+   "anisotropy": 2.3781,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.1159,
+    2.3977,
+    1.0082
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.5602707862854,
+    0.558282613754272,
+    0.750641465187073
+   ],
+   "anisotropy": 4.586,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.5603,
+    0.5583,
+    0.7506
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.5602707862854,
+    0.558282613754272,
+    0.750641465187073
+   ],
+   "anisotropy": 4.586,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.5603,
+    0.5583,
+    0.7506
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.853423655033112,
+    0.558282613754272,
+    0.500427663326263
+   ],
+   "anisotropy": 1.7054,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.8534,
+    0.5583,
+    0.5004
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.5602707862854,
+    0.558282613754272,
+    0.750641465187073
+   ],
+   "anisotropy": 4.586,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.5603,
+    0.5583,
+    0.7506
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_4",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.5602707862854,
+    0.558282613754272,
+    0.750641465187073
+   ],
+   "anisotropy": 4.586,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.5603,
+    0.5583,
+    0.7506
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_5",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.853423655033112,
+    0.558282613754272,
+    0.500427663326263
+   ],
+   "anisotropy": 1.7054,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.8534,
+    0.5583,
+    0.5004
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_6",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.5602707862854,
+    0.558282613754272,
+    0.750641465187073
+   ],
+   "anisotropy": 4.586,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.5603,
+    0.5583,
+    0.7506
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "circle_stones",
+   "instance": "circle_stones_7",
+   "kind": "box",
+   "recorded_fit_scale": [
+    2.5602707862854,
+    0.558282613754272,
+    0.750641465187073
+   ],
+   "anisotropy": 4.586,
+   "pass": false,
+   "ph_size_over_aabb": [
+    2.5603,
+    0.5583,
+    0.7506
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_3",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_4",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_5",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "grave_markers",
+   "instance": "grave_markers_6",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.565796613693237,
+    0.339780241250992,
+    0.286458611488342
+   ],
+   "anisotropy": 1.9751,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5658,
+    0.3398,
+    0.2865
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_0",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.193652957677841,
+    0.822649121284485,
+    1.56278908252716
+   ],
+   "anisotropy": 8.0701,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_1",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.19365294277668,
+    0.822649121284485,
+    1.26972937583923
+   ],
+   "anisotropy": 6.5567,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_2",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.19365294277668,
+    0.822649121284485,
+    0.976840853691101
+   ],
+   "anisotropy": 5.0443,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_3",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.19365294277668,
+    0.822649121284485,
+    0.879265964031219
+   ],
+   "anisotropy": 4.5404,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_4",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.19365294277668,
+    0.822649121284485,
+    1.95366585254669
+   ],
+   "anisotropy": 10.0885,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_5",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.193652957677841,
+    0.822649121284485,
+    1.70948421955109
+   ],
+   "anisotropy": 8.8276,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_6",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.193652957677841,
+    0.82264906167984,
+    1.46503937244415
+   ],
+   "anisotropy": 7.5653,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_7",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.193652957677841,
+    0.822649121284485,
+    1.85569322109222
+   ],
+   "anisotropy": 9.5826,
+   "pass": false
+  },
+  {
+   "slot": "logs_and_beams",
+   "instance": "logs_and_beams_8",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.19365294277668,
+    0.822649121284485,
+    1.36777341365814
+   ],
+   "anisotropy": 7.063,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_0",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.64301073551178
+   ],
+   "anisotropy": 13.4978,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_1",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.2432416677475
+   ],
+   "anisotropy": 10.2136,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_2",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.39317572116852
+   ],
+   "anisotropy": 11.4453,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_3",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.21584069728851
+   ],
+   "anisotropy": 9.9884,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_4",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.38064682483673
+   ],
+   "anisotropy": 11.3424,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_5",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.09499561786652
+   ],
+   "anisotropy": 8.9957,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_6",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.21556627750397
+   ],
+   "anisotropy": 9.9862,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_7",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.47074854373932
+   ],
+   "anisotropy": 12.0826,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_8",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.517093777656555,
+    1.43278920650482
+   ],
+   "anisotropy": 11.7707,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_9",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.67435348033905
+   ],
+   "anisotropy": 13.7552,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_10",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.38919639587402
+   ],
+   "anisotropy": 11.4126,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_11",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.5182820558548
+   ],
+   "anisotropy": 12.4731,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_12",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.27982330322266
+   ],
+   "anisotropy": 10.5141,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_13",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.19100868701935
+   ],
+   "anisotropy": 9.7844,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_14",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.42750263214111
+   ],
+   "anisotropy": 11.7273,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_15",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.21565043926239
+   ],
+   "anisotropy": 9.9869,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_16",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.59517753124237
+   ],
+   "anisotropy": 13.1048,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_17",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.25066006183624
+   ],
+   "anisotropy": 10.2745,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_18",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.12848615646362
+   ],
+   "anisotropy": 9.2708,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_19",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.27220034599304
+   ],
+   "anisotropy": 10.4515,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_20",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.24174129962921
+   ],
+   "anisotropy": 10.2012,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_21",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.08924078941345
+   ],
+   "anisotropy": 8.9484,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_22",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.48138737678528
+   ],
+   "anisotropy": 12.17,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_23",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.30576407909393
+   ],
+   "anisotropy": 10.7272,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_24",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.65368378162384
+   ],
+   "anisotropy": 13.5854,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_25",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.18850755691528
+   ],
+   "anisotropy": 9.7639,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_26",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.13704800605774
+   ],
+   "anisotropy": 9.3411,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_27",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.33248317241669
+   ],
+   "anisotropy": 10.9467,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_28",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.40109241008759
+   ],
+   "anisotropy": 11.5103,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_29",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093658447266,
+    1.45514667034149
+   ],
+   "anisotropy": 11.9544,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_30",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.16853415966034
+   ],
+   "anisotropy": 9.5998,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_31",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724724769592,
+    0.517093777656555,
+    1.32401430606842
+   ],
+   "anisotropy": 10.8771,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_32",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.59425616264343
+   ],
+   "anisotropy": 13.0972,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_33",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.12258875370026
+   ],
+   "anisotropy": 9.2224,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_34",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.41163945198059
+   ],
+   "anisotropy": 11.597,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_35",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.14541625976562
+   ],
+   "anisotropy": 9.4099,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_36",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.59317767620087
+   ],
+   "anisotropy": 13.0884,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_37",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.69779336452484
+   ],
+   "anisotropy": 13.9478,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_38",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.2567595243454
+   ],
+   "anisotropy": 10.3246,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_39",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.59918606281281
+   ],
+   "anisotropy": 13.1377,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_40",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.10148859024048
+   ],
+   "anisotropy": 9.049,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_41",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.43531179428101
+   ],
+   "anisotropy": 11.7915,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_42",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.67055833339691
+   ],
+   "anisotropy": 13.7241,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_43",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.27436625957489
+   ],
+   "anisotropy": 10.4692,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_44",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.50495409965515
+   ],
+   "anisotropy": 12.3636,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_45",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.27542424201965
+   ],
+   "anisotropy": 10.4779,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_46",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.52991390228271
+   ],
+   "anisotropy": 12.5686,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_47",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.67558586597443
+   ],
+   "anisotropy": 13.7654,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_48",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.69408595561981
+   ],
+   "anisotropy": 13.9174,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_49",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.46423101425171
+   ],
+   "anisotropy": 12.029,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_50",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.50008749961853
+   ],
+   "anisotropy": 12.3236,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_51",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.60044205188751
+   ],
+   "anisotropy": 13.148,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_52",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.24150216579437
+   ],
+   "anisotropy": 10.1993,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_53",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093658447266,
+    1.47925770282745
+   ],
+   "anisotropy": 12.1525,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_54",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.69638550281525
+   ],
+   "anisotropy": 13.9362,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_55",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.27360188961029
+   ],
+   "anisotropy": 10.463,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_56",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.44650685787201
+   ],
+   "anisotropy": 11.8834,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_57",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.19681072235107
+   ],
+   "anisotropy": 9.8321,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_58",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724724769592,
+    0.517093777656555,
+    1.49163389205933
+   ],
+   "anisotropy": 12.2542,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_59",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.17387998104095
+   ],
+   "anisotropy": 9.6437,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_60",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.60617816448212
+   ],
+   "anisotropy": 13.1952,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_61",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.26603615283966
+   ],
+   "anisotropy": 10.4008,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_62",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.17501747608185
+   ],
+   "anisotropy": 9.6531,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_63",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.29717886447906
+   ],
+   "anisotropy": 10.6567,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_64",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.6411954164505
+   ],
+   "anisotropy": 13.4828,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_65",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.38387060165405
+   ],
+   "anisotropy": 11.3689,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_66",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.61427927017212
+   ],
+   "anisotropy": 13.2617,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_67",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.09844946861267
+   ],
+   "anisotropy": 9.024,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_68",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.517093777656555,
+    1.51333558559418
+   ],
+   "anisotropy": 12.4324,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_69",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.6739205121994
+   ],
+   "anisotropy": 13.7517,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_70",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.33727431297302
+   ],
+   "anisotropy": 10.9861,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_71",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.69147205352783
+   ],
+   "anisotropy": 13.8959,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_72",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.22446525096893
+   ],
+   "anisotropy": 10.0593,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_73",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.08901035785675
+   ],
+   "anisotropy": 8.9465,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_74",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.69599652290344
+   ],
+   "anisotropy": 13.9331,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_75",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.517093777656555,
+    1.38944911956787
+   ],
+   "anisotropy": 11.4147,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_76",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.50987696647644
+   ],
+   "anisotropy": 12.404,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_77",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.10291826725006
+   ],
+   "anisotropy": 9.0608,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_78",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.24831604957581
+   ],
+   "anisotropy": 10.2552,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_79",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.53310298919678
+   ],
+   "anisotropy": 12.5948,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_80",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.38179779052734
+   ],
+   "anisotropy": 11.3518,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_81",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.42270624637604
+   ],
+   "anisotropy": 11.6879,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_82",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.6764897108078
+   ],
+   "anisotropy": 13.7728,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_83",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.4763091802597
+   ],
+   "anisotropy": 12.1283,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_84",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.59176981449127
+   ],
+   "anisotropy": 13.0768,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_85",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.29517388343811
+   ],
+   "anisotropy": 10.6402,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_86",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.26044249534607
+   ],
+   "anisotropy": 10.3549,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_87",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.13863599300385
+   ],
+   "anisotropy": 9.3542,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_88",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.45234441757202
+   ],
+   "anisotropy": 11.9314,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_89",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.41928577423096
+   ],
+   "anisotropy": 11.6598,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_90",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.35625028610229
+   ],
+   "anisotropy": 11.1419,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_91",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.12820243835449
+   ],
+   "anisotropy": 9.2685,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_92",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.54661273956299
+   ],
+   "anisotropy": 12.7058,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_93",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.34912610054016
+   ],
+   "anisotropy": 11.0834,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_94",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.379718542099
+   ],
+   "anisotropy": 11.3347,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_95",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.6710501909256
+   ],
+   "anisotropy": 13.7281,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_96",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.08380937576294
+   ],
+   "anisotropy": 8.9038,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_97",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.6135390996933
+   ],
+   "anisotropy": 13.2556,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_98",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724709868431,
+    0.51709371805191,
+    1.49133598804474
+   ],
+   "anisotropy": 12.2517,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_99",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.51709371805191,
+    1.71547067165375
+   ],
+   "anisotropy": 14.093,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_100",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.121724717319012,
+    0.517093777656555,
+    1.3657443523407
+   ],
+   "anisotropy": 11.2199,
+   "pass": false
+  },
+  {
+   "slot": "palisade",
+   "instance": "palisade_101",
+   "kind": "beam",
+   "recorded_fit_scale": [
+    0.12172470241785,
+    0.51709371805191,
+    1.19375097751617
+   ],
+   "anisotropy": 9.807,
+   "pass": false
+  },
+  {
+   "slot": "braziers",
+   "instance": "braziers_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true
+  },
+  {
+   "slot": "braziers",
+   "instance": "braziers_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "anisotropy": 1.0,
+   "pass": true
+  },
+  {
+   "slot": "rock_outcrop_1",
+   "instance": "rock_outcrop_1_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.909500062465668,
+    1.12742853164673,
+    0.8367999792099
+   ],
+   "anisotropy": 1.3473,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.9095,
+    1.1274,
+    0.8368
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_2",
+   "instance": "rock_outcrop_2_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.50000011920929,
+    0.84628564119339,
+    1.44980001449585
+   ],
+   "anisotropy": 1.7725,
+   "pass": false,
+   "ph_size_over_aabb": [
+    1.5,
+    0.8463,
+    1.4498
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_4",
+   "instance": "rock_outcrop_4_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.993166744709015,
+    0.730857133865356,
+    1.0336000919342
+   ],
+   "anisotropy": 1.4142,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.9932,
+    0.7309,
+    1.0336
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_5",
+   "instance": "rock_outcrop_5_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    1.50000011920929,
+    1.13685703277588,
+    1.55540001392365
+   ],
+   "anisotropy": 1.3682,
+   "pass": false,
+   "ph_size_over_aabb": [
+    1.5,
+    1.1369,
+    1.5554
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_8",
+   "instance": "rock_outcrop_8_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.920333385467529,
+    0.74057137966156,
+    0.948200047016144
+   ],
+   "anisotropy": 1.2804,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.9203,
+    0.7406,
+    0.9482
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_10",
+   "instance": "rock_outcrop_10_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.763333380222321,
+    0.662285685539246,
+    0.763199985027313
+   ],
+   "anisotropy": 1.1526,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.7633,
+    0.6623,
+    0.7632
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_11",
+   "instance": "rock_outcrop_11_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.583333373069763,
+    0.704285621643066,
+    0.536399960517883
+   ],
+   "anisotropy": 1.313,
+   "pass": false,
+   "ph_size_over_aabb": [
+    0.5833,
+    0.7043,
+    0.5364
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "rock_outcrop_14",
+   "instance": "rock_outcrop_14_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.745666742324829,
+    0.688857078552246,
+    0.696200013160706
+   ],
+   "anisotropy": 1.0825,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.7457,
+    0.6889,
+    0.6962
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "stair_cliff",
+   "instance": "stair_cliff",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.987500071525574,
+    1.00675666332245,
+    0.99999988079071
+   ],
+   "anisotropy": 1.0195,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.9875,
+    1.0068,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_0",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.935111165046692,
+    1.02716207504272,
+    1.0
+   ],
+   "anisotropy": 1.0984,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.9351,
+    1.0272,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_1",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.974111139774323,
+    1.05770266056061,
+    1.0
+   ],
+   "anisotropy": 1.0858,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.9741,
+    1.0577,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  },
+  {
+   "slot": "cliff_faces",
+   "instance": "cliff_faces_2",
+   "kind": "box",
+   "recorded_fit_scale": [
+    0.961666643619537,
+    1.03054046630859,
+    1.0
+   ],
+   "anisotropy": 1.0716,
+   "pass": true,
+   "ph_size_over_aabb": [
+    0.9617,
+    1.0305,
+    1.0
+   ],
+   "record_agrees_1pct": true
+  }
+ ],
+ "P6prime_pass": false
+}

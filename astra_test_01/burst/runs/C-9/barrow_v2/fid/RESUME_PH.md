@@ -59,3 +59,9 @@ State: [x] G2-B1 tool (`harness/p6_overlay.py` triage/record; BVR demo jsonl) [x
 R-C9-175 recorded (calibration.md § 12): P11 v1 GREEN 22/40 PASS, half-density 33/40 FAIL, both judges valid. P6a overlay judge: acceptance not met, so the conductor reads candidates by eye under § 13. P11 counts from W-A on.
 Phase 1 P6 RE-MEASURED on LV's fixed v7c (d4c59061f; calibration.md § 14): no missing or buried objects; containment 1.0; IoU median 0.46 < 0.513, attributed per object (under-fill dominates; placement 0); check (a) re-read with LV's probes: exact; hall-door explanation accepted. Earlier pass: (calibration.md § 13, `results/p6_phase1_v7c.json`, `harness/p6_phase1.py`). Containment 1.0 everywhere (placement agrees); rendered IoU median 0.457 is below the ruled 0.513, which needs a ruling (shape fill). Missing: braziers (GLB), rock_outcrop_3. Buried: standing_stones, cliff_faces, grave_markers. Check (a) PASS stands (hall door area +30% vs LV; breach/hull not separable).
 Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 declared-opening list and dark-structure ID mask; run P6b against the layout_v7 polygons.
+
+## P6′ (R-C9-180, charter v0.4 § 14)
+- [x] Pre-registered: calibration.md § 15 (`45fb5eaac`).
+- [x] Calibrated: § 16 (`48dab5e17`). v1 PASS; one RED per component.
+- [x] Run on v7c: § 17. **P6′ = RED**: presence (2 yard logs half buried), scale (137/148 instances > 1.10), extent (R11, from the combined hall+porch build). Placement PASS. Reported, NOT adjusted; this is a HALT for an LV fix (charter § 14).
+- Re-run after LV's fix: `cd fid/ph/harness && python3 p6prime.py v7c`. The bars are frozen in `results/p6prime_calibration.json`; do not re-run `calibrate` unless re-registering.

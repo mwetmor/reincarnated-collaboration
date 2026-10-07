@@ -159,8 +159,52 @@ def v1_extent():
 
 
 # ====================================================================== v7c
+def placed_beam(m, ins, cache):
+    """sim (x, y, z) of a BEAM instance's mesh as bv2f_level.gd _place_beam places it (level frame X = x, Y = z, Z = y)"""
+    g = ins.get("glb") or m.get("glb")
+    p = Q._glb_path(g) if g else None
+    if p is None or not p.exists():
+        return None
+    if str(p) not in cache:
+        cache[str(p)] = Q.glb_tris(p)
+    V, I = cache[str(p)]
+    mn, mx = V.min(0), V.max(0)
+    sz = mx - mn
+    a = np.array([ins["a"][0], ins["a"][2], ins["a"][1]], float)
+    b = np.array([ins["b"][0], ins["b"][2], ins["b"][1]], float)
+    d = b - a
+    ln = float(np.linalg.norm(d))
+    if str(ins.get("fit", "")) == "height":
+        s_ = ln / max(sz[1], 1e-3)
+        vm = V - np.array([mn[0] + sz[0] / 2, mn[1], mn[2] + sz[2] / 2])
+        W = vm * s_ + a
+    else:
+        k = 0
+        if sz[1] > sz[k]:
+            k = 1
+        if sz[2] > sz[k]:
+            k = 2
+        zz = d / max(ln, 1e-3)
+        xx = np.cross([0.0, 1.0, 0.0], zz)
+        xx = np.array([1.0, 0.0, 0.0]) if np.linalg.norm(xx) < 0.05 else xx / np.linalg.norm(xx)
+        yy = np.cross(zz, xx)
+        yy /= np.linalg.norm(yy)
+        th = float(ins["thickness_m"])
+        others = [i for i in range(3) if i != k]
+        cols = [None, None, None]
+        cols[k] = zz * (ln / max(sz[k], 1e-3))
+        cols[others[0]] = xx * (th / max(sz[others[0]], 1e-3))
+        cols[others[1]] = yy * (th / max(sz[others[1]], 1e-3))
+        B = np.stack(cols, 1)                       # columns
+        vm = V - (mn + sz / 2)
+        W = vm @ B.T + (a + b) / 2
+    return np.stack([W[:, 0], W[:, 2], W[:, 1]], 1), I
+
+
 def placed_vertices(m, ins, cache):
     """sim (x, y, z) of an instance's mesh as bv2f_level.gd _place_box places it (or the brazier stand-in)"""
+    if ins.get("type") == "beam":
+        return placed_beam(m, ins, cache)
     g = ins.get("glb") or m.get("glb")
     p = Q._glb_path(g) if g else None
     w, d, h = ins["size_m"]
@@ -228,21 +272,19 @@ def v7c_components(layout_path=None, ids=None):
         own_all = np.zeros(shape, bool)
         inst_rows = []
         for i, ins in enumerate(insts):
-            if ins["type"] != "box":
-                a, b = law(*ins["a"]), law(*ins["b"])
-                own = raster(shape, lines=[(a, b, max(1, int(round(float(ins["thickness_m"]) * PPM_V1))))])
-                inst_rows.append({"i": i, "type": "beam"})
+            if False:
+                pass
             else:
                 pv = placed_vertices(m, ins, cache)
                 if pv is None:
-                    inst_rows.append({"i": i, "type": "box", "unplaceable": True})
+                    inst_rows.append({"i": i, "type": ins["type"], "unplaceable": True})
                     continue
                 Vw, I = pv
                 xs = (Vw[:, 0] - env["u"][0]) * PPM_V1
                 ys = (env["v"][1] + Vw[:, 1]) * Q.PXV - Vw[:, 2] * Q.PXH
                 P2 = np.stack([xs, ys], 1)
                 own = raster(shape, tris=(P2, I)) if I is not None else raster(shape, polys=[Q.hull(list(map(tuple, P2)))])
-                inst_rows.append({"i": i, "type": "box", "z_top": round(float(Vw[:, 2].max()), 3),
+                inst_rows.append({"i": i, "type": ins["type"], "z_top": round(float(Vw[:, 2].max()), 3),
                                   "footprint_hull": [list(map(float, q)) for q in Q.hull(list(map(tuple, Vw[:, :2])))]})
             n_own = int(own.sum())
             r = inst_rows[-1]
@@ -269,7 +311,7 @@ def v7c_components(layout_path=None, ids=None):
         out["instances"][mid] = inst_rows
     model_ids = {m["id"] for m in L["models"]}
     out["extra"] = sorted(n for k, n in name_of.items() if k in present_ids and kinds[n] in ("model", "group")
-                          and Q.OWN_CURTAIN.get(n, n) not in model_ids)
+                          and Q.OWN_CURTAIN.get(n, n) not in model_ids and not n.startswith(NON_MODEL_PREFIX))
     out["non_model_ids_excluded"] = sorted(n for n in name_of.values() if n.startswith(NON_MODEL_PREFIX))
     out["missing"] = sorted(k for k, r in out["objects"].items() if r["missing"])
     return out, L, cache

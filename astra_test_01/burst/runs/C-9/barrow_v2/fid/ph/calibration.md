@@ -495,3 +495,21 @@ Inputs: `ids_v7c.png` sha `49adb3d8…` and `layout_v7c.json` (v7c_r178). Tool `
 
 **Reported, non-binding:** IoU against the slot prism, beside v1's like-for-like 0.635.
 
+## 17. P6′ ON v7c (`harness/p6prime.py v7c` → `results/p6prime_v7c.json`; bars from § 16; inputs ids sha `49adb3d894b2…`, layout sha `f8e7b5ab88f0…`, placed_fit sha `521e89e90292…`)
+
+**P6′ = RED** on three of the four components. **Reported, not adjusted (HALT for an LV fix, charter § 14).**
+
+| component | result | detail |
+|---|---|---|
+| presence | **RED** | 0 missing, 0 extra (non-model ids excluded as registered). **2 instances terrain-hidden above 0.50:** logs_and_beams #5 (yard_beam_2) at 0.545 and #6 (yard_beam_3) at 0.505. These are logs whose centres sit 0.15–0.18 m up with a 0.35 m thickness, about half in the ground, and the layout records no burial by design (status "REUSE v1 kit/log") |
+| placement | PASS | every object's containment ≥ 0.7872 (v1's minimum) |
+| scale of record | **RED** | 137 of 148 instances have anisotropy above 1.10. PH's size/AABB cross-check agrees with LV's record on every box instance (0 mismatches). Over the bar: standing_stones 2.11–2.38; circle_stones 1.71–4.59; grave_markers 1.98–1.98; rock outcrops 1, 2, 4, 5, 8, 10, 11 1.15–1.77; logs_and_beams 4.54–10.09; palisade 8.90–14.09 (every stake). Within 1.10: the kit-v3 heroes (longhall, barrow_front, wreck, fallen_gable), stair_cliff, cliff_faces, rock_outcrop_14 and the brazier stand-ins |
+| extent | **RED** | validator 65/66 on the own-geometry copy. **R11 fails: "the porch rises ABOVE the hall's roofline (slot heights)".** Attribution: the porch is PART OF the longhall build (no mesh of its own), so the hall's own height as registered (maximum placed z = 13.117 m) is the porch top. The hall's roofline and the porch cannot be separated in one mesh, so the rule reads porch 13.117 against "hall" 13.117. Every other R1–R13 check passes on the models' own footprints and heights (longhall, fallen_gable, barrow_front, wreck → wreck_hull, stair_cliff replaced; R10 holds for the gable at its own extent) |
+
+**Reported, non-binding:** IoU against the slot prism, median **0.46**, against v1's like-for-like **0.635**.
+
+**For the conductor.** These are three REDs of different kinds:
+1. **Scale, the largest:** the v6-era per-axis fits of the stones, markers, crags and beams. This is C7, as G2P1-W2 anticipated.
+2. **Presence:** two yard logs half in the ground.
+3. **Extent R11:** an artifact of measuring a two-part build as one height. Per § 14 it is reported as RED, not re-measured. Whether the hall/porch split needs a separate record from LV, or a ruling, is the conductor's call.
+
