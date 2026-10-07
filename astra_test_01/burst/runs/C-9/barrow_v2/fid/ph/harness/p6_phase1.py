@@ -112,6 +112,105 @@ def layout_masks(shape):
     return out
 
 
+RUNS = C9.parent
+
+
+def glb_tris(path):
+    """positions (n, 3) and triangle indices (m, 3) of a single-node, single-mesh GLB (the normalised builds)"""
+    import struct
+    b = open(path, "rb").read()
+    n = struct.unpack("<I", b[12:16])[0]
+    j = json.loads(b[20:20 + n])
+    blob = b[20 + n + 8:]
+    V, I = [], []
+    base = 0
+    for mesh in j["meshes"]:
+        for pr in mesh["primitives"]:
+            def acc(i):
+                a = j["accessors"][i]
+                bv = j["bufferViews"][a["bufferView"]]
+                dt = {5126: np.float32, 5125: np.uint32, 5123: np.uint16, 5121: np.uint8}[a["componentType"]]
+                k = {"SCALAR": 1, "VEC3": 3}[a["type"]]
+                off = bv.get("byteOffset", 0) + a.get("byteOffset", 0)
+                stride = bv.get("byteStride")
+                if stride and stride != np.dtype(dt).itemsize * k:
+                    raw = np.frombuffer(blob, np.uint8, a["count"] * stride, off).reshape(a["count"], stride)
+                    return raw[:, :np.dtype(dt).itemsize * k].copy().view(dt).reshape(a["count"], k)
+                arr = np.frombuffer(blob, dt, a["count"] * k, off)
+                return arr.reshape(a["count"], k) if k > 1 else arr
+            v = acc(pr["attributes"]["POSITION"]).astype(np.float64)
+            i = acc(pr["indices"]).astype(np.int64).reshape(-1, 3) if "indices" in pr else np.arange(len(v)).reshape(-1, 3)
+            V.append(v)
+            I.append(i + base)
+            base += len(v)
+    return np.concatenate(V), np.concatenate(I)
+
+
+def _glb_path(g):
+    if g.startswith("data/bv2f/"):
+        return BF / "godot" / g
+    if g.startswith("runs/"):
+        return RUNS / g[5:]
+    return B2 / g
+
+
+def model_alone_masks(shape, lmasks):
+    """each object's OWN silhouette, rendered alone (no occlusion): its GLB triangles placed exactly as
+    bv2f_level.gd _place_box does (AABB bottom-centre to the slot origin, per-axis scale to the slot, yaw about up),
+    projected and rasterised; beams = the drawn segment (the log fitted to it); the braziers' primitive stand-in
+    (R-C9-178: a 0.4 m stand to 1.5 m, a 1.1 m bowl 1.5-2.3 m) as two boxes."""
+    L = jload(LV / "layout_v7c.json")
+    law = law7()
+    H, W = shape
+    out = {}
+    cache = {}
+    for m in L["models"]:
+        if m["id"] not in lmasks:
+            continue
+        im = Image.new("L", (W, H), 0)
+        dr = ImageDraw.Draw(im)
+        insts = m.get("instances") or [{"type": "box", "pos": m["pos"], "z": m["z"], "godot_rot_y_deg": m["godot_rot_y_deg"],
+                                        "size_m": [m["size_m"]["w_local_x"], m["size_m"]["d_local_z"], m.get("aabb_h_m", m["size_m"]["h"])],
+                                        "glb": m.get("glb")}]
+        for ins in insts:
+            if ins["type"] != "box":
+                a = law(*ins["a"])
+                b = law(*ins["b"])
+                dr.line([a, b], fill=255, width=max(1, int(round(float(ins["thickness_m"]) * PPM_V1))))
+                continue
+            g = ins.get("glb") or m.get("glb")
+            p = _glb_path(g) if g else None
+            if p is None or not p.exists():
+                if m["id"] == "braziers":
+                    t, (x, y), z = float(ins["godot_rot_y_deg"]), ins["pos"], float(ins["z"])
+                    dr.polygon(box_hull(law, (x, y), z, t, 0.4, 0.4, 1.5), fill=255)
+                    dr.polygon(box_hull(law, (x, y), z + 1.5, t, 1.1, 1.1, 0.8), fill=255)
+                continue
+            if str(p) not in cache:
+                cache[str(p)] = glb_tris(p)
+            V, I = cache[str(p)]
+            mn, mx = V.min(0), V.max(0)
+            sz = mx - mn
+            w, d, h = ins["size_m"]
+            sc = np.array([w / max(sz[0], 1e-6), h / max(sz[1], 1e-6), d / max(sz[2], 1e-6)])
+            loc = (V - np.array([mn[0] + sz[0] / 2, mn[1], mn[2] + sz[2] / 2])) * sc
+            t = math.radians(float(ins["godot_rot_y_deg"]))
+            X = loc[:, 0] * math.cos(t) + loc[:, 2] * math.sin(t)
+            Z = -loc[:, 0] * math.sin(t) + loc[:, 2] * math.cos(t)
+            xs = ins["pos"][0] + X
+            ys = ins["pos"][1] + Z
+            zs = float(ins["z"]) + loc[:, 1]
+            env = jload(GV / "guide_manifest.json")["envelope"]
+            px = (xs - env["u"][0]) * PPM_V1
+            py = (env["v"][1] + ys) * PXV - zs * PXH
+            P2 = np.stack([px, py], 1)
+            for tri in I:
+                q = P2[tri]
+                dr.polygon([tuple(q[0]), tuple(q[1]), tuple(q[2])], fill=255)
+        out[m["id"]] = np.asarray(im) > 0
+    return out
+
+
 def ids_v7c():
     a = np.asarray(Image.open(GV / "ids_v7c.png").convert("RGB")).astype(np.int32)
     return (a[..., 0] << 16) | (a[..., 1] << 8) | a[..., 2]
@@ -179,53 +278,83 @@ def v1_like_for_like():
     return {"median": round(float(np.median(vals)), 3), "n": len(vals), "rows": rows}
 
 
+def _parea(q):
+    n = len(q)
+    return abs(sum(q[i][0] * q[(i + 1) % n][1] - q[(i + 1) % n][0] * q[i][1] for i in range(n))) / 2
+
+
 def check_a(idm, name_of):
-    """visible screen m^2 of each deliverer opening, from the ID render"""
+    """check (a) re-read with LV's OWN probe definition (level.json sim.openings[].probe, bv2f_level.gd _build_probes):
+      (1) REFERENCE (unoccluded) projected px of each probe, computed analytically here from its definition
+          (v: the w x h face at the centre, facing faces_deg, z0 up; h_rect: the L x W rectangle at z, L across the
+          facing; poly: the mere polygon at z) -- against LV's reference_px from its probe_only render;
+      (2) VISIBLE px recounted by PH from LV's own probe_with renders (guide_v7c/probe_with_<section>/ids.png, pad
+          cropped, the probe ids from ids.json) -- against LV's visible_px;
+      (3) the HALL-DOOR question: the ID render's dark curtain (id curtain_*) is a 0.3 m-deep box set curtain_inset_m
+          behind the probe plane; its analytic box silhouette vs PH's first count (8.22 m2)."""
     A = jload(GV / "check_a.json")
     lvrows = {r["opening"]: r for r in A["rows"]}
+    lvl = jload(BF / "godot/data/bv2f/v7c/level.json")
+    ops = {o["id"]: o for o in lvl["sim"]["openings"]}
+    law = law7()
     k_of = {v: k for k, v in name_of.items()}
     out = {}
-    for op, cur in (("barrow_door", "curtain_barrow_door"), ("hall_great_door", "curtain_hall_great_door"),
-                    ("sea_cave_mouth", "curtain_sea_cave_mouth")):
-        px = int((idm == k_of[cur]).sum())
-        out[op] = {"probe": "v (curtain id px)", "visible_px": px, "visible_m2": round(px / PPM_V1 ** 2, 2),
-                   "lv_visible_px": lvrows[op]["visible_px"], "lv_visible_m2": lvrows[op]["visible_m2"],
-                   "agree": abs(px - lvrows[op]["visible_px"]) <= max(0.02 * lvrows[op]["visible_px"], 200)}
-    # horizontal probes: reproduce LV's probe polygons (bv2f_level_prep.py:213-233), z at the probe height
-    L = jload(LV / "layout_v7c.json")
-    M = {m["id"]: m for m in L["models"]}
-    law = law7()
-    H, W = idm.shape
-    placed_models = [k for k, v in name_of.items() if v in M or v in OWN_CURTAIN or v.startswith("rock_outcrop")]
-
-    def rect(c, rot, Ln, Wd, z):
-        t = math.radians(rot)
-        ax, ay = math.cos(t), math.sin(t)
-        bx, by = -math.sin(t), math.cos(t)
-        return [law(c[0] + ax * a + bx * b, c[1] + ay * a + by * b, z) for a, b in
-                ((-Ln / 2, -Wd / 2), (Ln / 2, -Wd / 2), (Ln / 2, Wd / 2), (-Ln / 2, Wd / 2))]
-    wm = M["wreck"]
-    wf = next(f for f in L["features"] if f["id"] == "wreck_hull")
-    gm = M["fallen_gable"]
-    gt = math.radians(gm["faces_compass_deg"])
-    gs = gm["size_m"]["w_local_x"]
-    gc = (gm["pos"][0] + math.sin(gt) * gs * 0.2, gm["pos"][1] - math.cos(gt) * gs * 0.2)
-    probes = {"wreck_rail": (rect(wm["pos"], wf["axis_rot_deg"], 0.7 * wm["size_m"]["w_local_x"], 0.45 * wm["size_m"]["d_local_z"], 0.4), "wreck"),
-              "fallen_gable_breach": (rect(gc, gm["faces_compass_deg"], 4.0, 0.5 * gs, 0.5 * gm["size_m"]["h"]), "fallen_gable"),
-              "mere_ice": ([law(x, y, 0.03) for x, y in L["mere"]["polygon"]], None)}
-    for op, (poly, own) in probes.items():
-        im = Image.new("L", (W, H), 0)
-        ImageDraw.Draw(im).polygon([tuple(p) for p in poly], fill=255)
-        pm = np.asarray(im) > 0
-        occl = np.isin(idm, [k for k in placed_models if name_of[k] != own])
-        vis = pm & ~occl
-        out[op] = {"probe": "h (reproduced probe polygon; visible = not an occluding model)", "probe_px": int(pm.sum()),
-                   "visible_px": int(vis.sum()), "visible_m2": round(int(vis.sum()) / PPM_V1 ** 2, 2),
-                   "pct_of_probe": round(100.0 * vis.sum() / max(pm.sum(), 1), 1),
-                   "lv_visible_px": lvrows[op]["visible_px"], "lv_reference_px": lvrows[op]["reference_px"],
-                   "lv_visible_m2": lvrows[op]["visible_m2"], "lv_pct": lvrows[op]["pct_of_unoccluded"]}
-    out["_faces_camera_note"] = {"wreck_rail": {"declared_openings.json": next(o for o in jload(GV / "declared_openings.json")["openings"] if o["id"] == "wreck_rail")["faces_camera"],
-                                                "check_a.json": lvrows["wreck_rail"]["faces_camera"]}}
+    # (2) recount LV's probe_with / probe_only renders
+    cnt = {"with": {}, "only": {}}
+    for mode in cnt:
+        for sec in lvl["frame"]["sections"]:
+            d = GV / ("probe_%s_%s" % (mode, sec["id"]))
+            pad = int(jload(LV / "v7c" / ("frame_grid_%s.json" % sec["id"])).get("pad_px", 0))
+            sw, sh = sec["px"]
+            a = np.asarray(Image.open(d / "ids.png").convert("RGB")).astype(np.int32)[pad:pad + sh, pad:pad + sw]
+            code = (a[..., 0] << 16) | (a[..., 1] << 8) | a[..., 2]
+            for rec in jload(d / "ids.json")["placements"].values():
+                if rec["id"].startswith("probe_"):
+                    r_, g_, b_ = rec["rgb"]
+                    cnt[mode][rec["id"][6:]] = cnt[mode].get(rec["id"][6:], 0) + int((code == (r_ << 16 | g_ << 8 | b_)).sum())
+    for oid, o in ops.items():
+        pr = o["probe"]
+        if pr["type"] == "v":
+            t = math.radians(pr["faces_deg"])
+            tx, ty = math.cos(t), math.sin(t)
+            (cx, cy), w, h, z0 = pr["centre"], pr["w"], pr["h"], pr["z0"]
+            q = [law(cx - tx * w / 2, cy - ty * w / 2, z0), law(cx + tx * w / 2, cy + ty * w / 2, z0),
+                 law(cx + tx * w / 2, cy + ty * w / 2, z0 + h), law(cx - tx * w / 2, cy - ty * w / 2, z0 + h)]
+            ref = _parea(q)
+        elif pr["type"] == "h_rect":
+            t = math.radians(pr["rot_deg"])
+            ax, ay = math.cos(t), math.sin(t)
+            bx, by = -math.sin(t), math.cos(t)
+            (cx, cy), Ln, Wd, z = pr["centre"], pr["L"], pr["W"], pr["z"]
+            q = [law(cx + ax * a_ + bx * b_, cy + ay * a_ + by * b_, z) for a_, b_ in
+                 ((-Ln / 2, -Wd / 2), (Ln / 2, -Wd / 2), (Ln / 2, Wd / 2), (-Ln / 2, Wd / 2))]
+            ref = _parea(q)
+        else:
+            ref = _parea([law(x, y, pr["z"]) for x, y in pr["polygon"]])
+        lr = lvrows[oid]
+        row = {"probe": pr["type"], "ref_px_analytic": int(round(ref)), "lv_reference_px": lr["reference_px"],
+               "ref_agree_pct": round(100.0 * (ref - lr["reference_px"]) / lr["reference_px"], 2),
+               "visible_px_recount": cnt["with"].get(oid), "lv_visible_px": lr["visible_px"],
+               "only_px_recount": cnt["only"].get(oid),
+               "visible_m2": round((cnt["with"].get(oid) or 0) / PPM_V1 ** 2, 2), "lv_visible_m2": lr["visible_m2"],
+               "pct_of_unoccluded": round(100.0 * (cnt["with"].get(oid) or 0) / max(cnt["only"].get(oid) or 1, 1), 1),
+               "lv_pct": lr["pct_of_unoccluded"], "visible": (cnt["with"].get(oid) or 0) > 0}
+        cur = {"barrow_door": "curtain_barrow_door", "hall_great_door": "curtain_hall_great_door", "sea_cave_mouth": "curtain_sea_cave_mouth"}.get(oid)
+        if cur and cur in k_of and pr["type"] == "v":
+            ins = float(o.get("curtain_inset_m", 0.0))
+            fx, fy = math.sin(t), -math.cos(t)
+            ccx, ccy = cx - fx * ins, cy - fy * ins
+            qq = []
+            for dd in (0.15, -0.15):
+                ox, oy = ccx + fx * dd, ccy + fy * dd
+                qq += [law(ox - tx * w / 2, oy - ty * w / 2, z0), law(ox + tx * w / 2, oy + ty * w / 2, z0),
+                       law(ox + tx * w / 2, oy + ty * w / 2, z0 + h), law(ox - tx * w / 2, oy - ty * w / 2, z0 + h)]
+            row["curtain_id_px"] = int((idm == k_of[cur]).sum())
+            row["curtain_box_0p3m_silhouette_px_analytic"] = int(round(_parea(hull(qq))))
+        out[oid] = row
+    out["_faces_camera"] = {o["id"]: {k: v for k, v in o.items() if "faces_camera" in k or k == "check_a_probe"}
+                            for o in jload(GV / "declared_openings.json")["openings"]}
+    out["_lv_faces_camera_in_check_a"] = {k: v.get("faces_camera") for k, v in lvrows.items()}
     return out
 
 
@@ -280,6 +409,29 @@ if __name__ == "__main__":
     res["median_iou_v7c_rendered"] = round(float(np.median(ok)), 3) if ok else None
     res["n_rendered"] = len(ok)
     res["below_like_for_like_bar"] = sorted(k for k, r in rows.items() if r["iou"] is not None and r["id_px"] > 0 and r["iou"] < v1["median"])
+    # R-C9-178: ATTRIBUTION of each object's IoU residual (1 - IoU) -- no bar change proposed
+    alone = model_alone_masks(idm.shape, lm)
+    att = {}
+    for k, r in rows.items():
+        if k not in alone or r["status"] != "rendered":
+            continue
+        L_ = lm[k]["mask"]
+        A_ = alone[k]
+        iou_alone = float((A_ & L_).sum() / max((A_ | L_).sum(), 1))
+        ks = r["ids"]
+        idmask = np.isin(idm, ks)
+        in_alone = float((idmask & A_).sum() / max(idmask.sum(), 1))
+        hidden = float(1 - (idmask.sum() / max(A_.sum(), 1)))
+        att[k] = {"iou_observed": r["iou"], "iou_model_alone_vs_prism": round(iou_alone, 3),
+                  "organic_underfill": round(1 - iou_alone, 3),
+                  "occlusion": round(max(iou_alone - (r["iou"] or 0), 0.0), 3),
+                  "placement_outside_prism": round(1 - (r["containment"] or 0), 3),
+                  "id_px_inside_model_alone_silhouette": round(in_alone, 3),
+                  "model_alone_px_hidden_share": round(hidden, 3)}
+    res["attribution_R_C9_178"] = {"_how": ("organic under-fill = 1 - IoU(the object's own GLB silhouette rendered alone, its layout "
+                                            "prism); occlusion = IoU(alone) - IoU(observed); placement = the share of its ID pixels "
+                                            "outside its own prism. id_px_inside_model_alone_silhouette ~ 1 confirms the render places "
+                                            "the GLB exactly where the layout says"), "rows": att}
     res["glb_missing_in_level"] = jload(BF / "godot/data/bv2f/v7c/level.json")["sim"].get("glb_missing")
     dump(res, str(PH / "results/p6_phase1_v7c.json"))
     print("containment v7c median %s, v1 median (excl trees) %s" % (res["containment_v7c_median"], res["containment_v1_median_excl_trees"]))
@@ -293,3 +445,6 @@ if __name__ == "__main__":
     print("missing:", missing, "extra:", extra, "not placed by design:", not_placed)
     for k, v in res["check_a_independent"].items():
         print("check(a)", k, v)
+    for k, a in sorted(att.items(), key=lambda kv: kv[1]["iou_observed"] or 0):
+        print("ATT %-16s obs %.3f alone %.3f underfill %.3f occl %.3f place %.3f in_alone %.3f" % (k, a["iou_observed"], a["iou_model_alone_vs_prism"],
+              a["organic_underfill"], a["occlusion"], a["placement_outside_prism"], a["id_px_inside_model_alone_silhouette"]))

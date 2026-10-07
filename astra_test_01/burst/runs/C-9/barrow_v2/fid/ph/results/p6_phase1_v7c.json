@@ -3,34 +3,34 @@
  "inputs": {
   "ids": {
    "file": "guide_v7c/ids_v7c.png",
-   "sha256": "4d5e071c75905499d1756522afea9043d17bf2b7052d777606e0c13b541cbf7b",
+   "sha256": "49adb3d894b209fc829d42ddcd0f325bccc5e5be59f41af3871143c3867226c8",
    "code": "R<<16 | G<<8 | B = global id (table below); 0 = nothing (sky / none)"
   },
   "layout": {
    "file": "fid/lv/layout_v7c.json",
-   "sha256": "5bedf52a9a3f45c3613a6a0fbce856bcf3c5e6c7ce12ae84e1eb58f5fba5816a"
+   "sha256": "f8e7b5ab88f040db4234d70962caf42a063a3548f3508fea3d0428e3b94a0656"
   }
  },
  "bar_ruled_v1_p6b": 0.513,
  "bar_like_for_like_v1": 0.635,
  "v1_like_for_like_n": 85,
- "median_iou_v7c": 0.425,
+ "median_iou_v7c": 0.46,
  "n": 20,
  "objects": {
   "longhall": {
-   "id_px": 3698916,
+   "id_px": 3697272,
    "layout_px": 5323917,
-   "layout_visible_px": 5192539,
-   "iou": 0.712,
+   "layout_visible_px": 5169323,
+   "iou": 0.715,
    "containment": 1.0,
-   "centroid_offset_m": 2.07,
+   "centroid_offset_m": 2.08,
    "pieces": 1,
    "ids": [
-    21,
-    48
+    2,
+    22
    ],
    "layout_px_in_frame": 5323917,
-   "terrain_covers_share": 0.281,
+   "terrain_covers_share": 0.276,
    "status": "rendered"
   },
   "fallen_gable": {
@@ -42,26 +42,26 @@
    "centroid_offset_m": 0.57,
    "pieces": 1,
    "ids": [
-    6
+    7
    ],
    "layout_px_in_frame": 679211,
    "terrain_covers_share": 0.488,
    "status": "rendered"
   },
   "barrow_front": {
-   "id_px": 1594639,
+   "id_px": 1594662,
    "layout_px": 2464061,
-   "layout_visible_px": 2463953,
-   "iou": 0.647,
+   "layout_visible_px": 2453291,
+   "iou": 0.65,
    "containment": 1.0,
-   "centroid_offset_m": 1.1,
+   "centroid_offset_m": 1.11,
    "pieces": 1,
    "ids": [
     1,
-    47
+    43
    ],
    "layout_px_in_frame": 2464061,
-   "terrain_covers_share": 0.334,
+   "terrain_covers_share": 0.329,
    "status": "rendered"
   },
   "wreck": {
@@ -73,26 +73,26 @@
    "centroid_offset_m": 0.79,
    "pieces": 1,
    "ids": [
-    43
+    38
    ],
    "layout_px_in_frame": 1061420,
    "terrain_covers_share": 0.564,
    "status": "rendered"
   },
   "standing_stones": {
-   "id_px": 622,
-   "layout_px": 48276,
-   "layout_visible_px": 48276,
-   "iou": 0.013,
+   "id_px": 22238,
+   "layout_px": 48269,
+   "layout_visible_px": 48269,
+   "iou": 0.461,
    "containment": 1.0,
-   "centroid_offset_m": 21.42,
+   "centroid_offset_m": 0.64,
    "pieces": 4,
    "ids": [
-    42
+    37
    ],
-   "layout_px_in_frame": 48276,
-   "terrain_covers_share": 0.987,
-   "status": "HIDDEN/BURIED: terrain covers the layout prism"
+   "layout_px_in_frame": 48269,
+   "terrain_covers_share": 0.531,
+   "status": "rendered"
   },
   "circle_stones": {
    "id_px": 22042,
@@ -103,25 +103,25 @@
    "centroid_offset_m": 0.09,
    "pieces": 8,
    "ids": [
-    45
+    41
    ],
    "layout_px_in_frame": 107412,
    "terrain_covers_share": 0.795,
    "status": "rendered"
   },
   "grave_markers": {
-   "id_px": 1245,
-   "layout_px": 19590,
-   "layout_visible_px": 14077,
-   "iou": 0.088,
+   "id_px": 1900,
+   "layout_px": 19488,
+   "layout_visible_px": 14003,
+   "iou": 0.136,
    "containment": 1.0,
-   "centroid_offset_m": 4.22,
+   "centroid_offset_m": 0.08,
    "pieces": 7,
    "ids": [
-    7
+    8
    ],
-   "layout_px_in_frame": 19590,
-   "terrain_covers_share": 0.655,
+   "layout_px_in_frame": 19488,
+   "terrain_covers_share": 0.621,
    "status": "rendered"
   },
   "logs_and_beams": {
@@ -133,7 +133,7 @@
    "centroid_offset_m": 6.27,
    "pieces": 9,
    "ids": [
-    20
+    21
    ],
    "layout_px_in_frame": 81498,
    "terrain_covers_share": 0.592,
@@ -148,24 +148,26 @@
    "centroid_offset_m": 0.47,
    "pieces": 102,
    "ids": [
-    22
+    24
    ],
    "layout_px_in_frame": 175606,
    "terrain_covers_share": 0.493,
    "status": "rendered"
   },
   "braziers": {
-   "id_px": 0,
+   "id_px": 23526,
    "layout_px": 50956,
-   "layout_visible_px": 48139,
-   "iou": 0.0,
-   "containment": null,
-   "centroid_offset_m": null,
+   "layout_visible_px": 49984,
+   "iou": 0.471,
+   "containment": 1.0,
+   "centroid_offset_m": 0.3,
    "pieces": 2,
-   "ids": [],
+   "ids": [
+    40
+   ],
    "layout_px_in_frame": 50956,
-   "terrain_covers_share": 0.945,
-   "status": "MISSING from the render"
+   "terrain_covers_share": 0.519,
+   "status": "rendered"
   },
   "rock_outcrop_1": {
    "id_px": 160539,
@@ -176,7 +178,7 @@
    "centroid_offset_m": 0.73,
    "pieces": 1,
    "ids": [
-    24
+    25
    ],
    "layout_px_in_frame": 349272,
    "terrain_covers_share": 0.54,
@@ -191,26 +193,11 @@
    "centroid_offset_m": 1.01,
    "pieces": 1,
    "ids": [
-    30
+    29
    ],
    "layout_px_in_frame": 699152,
    "terrain_covers_share": 0.528,
    "status": "rendered"
-  },
-  "rock_outcrop_3": {
-   "id_px": 0,
-   "layout_px": 10613,
-   "layout_visible_px": 10613,
-   "iou": 0.0,
-   "containment": null,
-   "centroid_offset_m": null,
-   "pieces": 1,
-   "ids": [
-    31
-   ],
-   "layout_px_in_frame": 10613,
-   "terrain_covers_share": 1.0,
-   "status": "MISSING from the render"
   },
   "rock_outcrop_4": {
    "id_px": 130486,
@@ -221,7 +208,7 @@
    "centroid_offset_m": 0.61,
    "pieces": 1,
    "ids": [
-    32
+    30
    ],
    "layout_px_in_frame": 368556,
    "terrain_covers_share": 0.538,
@@ -236,40 +223,10 @@
    "centroid_offset_m": 0.12,
    "pieces": 1,
    "ids": [
-    33
+    31
    ],
    "layout_px_in_frame": 639701,
    "terrain_covers_share": 0.357,
-   "status": "rendered"
-  },
-  "rock_outcrop_6": {
-   "id_px": 0,
-   "layout_px": 0,
-   "layout_visible_px": 0,
-   "iou": null,
-   "containment": null,
-   "centroid_offset_m": null,
-   "pieces": 1,
-   "ids": [
-    35
-   ],
-   "layout_px_in_frame": 0,
-   "terrain_covers_share": null,
-   "status": "outside the paint envelope"
-  },
-  "rock_outcrop_7": {
-   "id_px": 27233,
-   "layout_px": 55751,
-   "layout_visible_px": 55751,
-   "iou": 0.488,
-   "containment": 1.0,
-   "centroid_offset_m": 0.69,
-   "pieces": 1,
-   "ids": [
-    36
-   ],
-   "layout_px_in_frame": 55751,
-   "terrain_covers_share": 0.512,
    "status": "rendered"
   },
   "rock_outcrop_8": {
@@ -281,26 +238,11 @@
    "centroid_offset_m": 0.27,
    "pieces": 1,
    "ids": [
-    37
+    32
    ],
    "layout_px_in_frame": 322654,
    "terrain_covers_share": 0.624,
    "status": "rendered"
-  },
-  "rock_outcrop_9": {
-   "id_px": 0,
-   "layout_px": 0,
-   "layout_visible_px": 0,
-   "iou": null,
-   "containment": null,
-   "centroid_offset_m": null,
-   "pieces": 1,
-   "ids": [
-    38
-   ],
-   "layout_px_in_frame": 0,
-   "terrain_covers_share": null,
-   "status": "outside the paint envelope"
   },
   "rock_outcrop_10": {
    "id_px": 105665,
@@ -311,7 +253,7 @@
    "centroid_offset_m": 0.49,
    "pieces": 1,
    "ids": [
-    25
+    26
    ],
    "layout_px_in_frame": 203094,
    "terrain_covers_share": 0.48,
@@ -326,41 +268,11 @@
    "centroid_offset_m": 0.44,
    "pieces": 1,
    "ids": [
-    26
+    27
    ],
    "layout_px_in_frame": 129184,
    "terrain_covers_share": 0.653,
    "status": "rendered"
-  },
-  "rock_outcrop_12": {
-   "id_px": 0,
-   "layout_px": 0,
-   "layout_visible_px": 0,
-   "iou": null,
-   "containment": null,
-   "centroid_offset_m": null,
-   "pieces": 1,
-   "ids": [
-    27
-   ],
-   "layout_px_in_frame": 0,
-   "terrain_covers_share": null,
-   "status": "outside the paint envelope"
-  },
-  "rock_outcrop_13": {
-   "id_px": 0,
-   "layout_px": 0,
-   "layout_visible_px": 0,
-   "iou": null,
-   "containment": null,
-   "centroid_offset_m": null,
-   "pieces": 1,
-   "ids": [
-    28
-   ],
-   "layout_px_in_frame": 0,
-   "terrain_covers_share": null,
-   "status": "outside the paint envelope"
   },
   "rock_outcrop_14": {
    "id_px": 70911,
@@ -371,7 +283,7 @@
    "centroid_offset_m": 0.3,
    "pieces": 1,
    "ids": [
-    29
+    28
    ],
    "layout_px_in_frame": 205367,
    "terrain_covers_share": 0.655,
@@ -386,38 +298,30 @@
    "centroid_offset_m": 1.15,
    "pieces": 1,
    "ids": [
-    39
+    33
    ],
    "layout_px_in_frame": 1387888,
    "terrain_covers_share": 0.253,
    "status": "rendered"
   },
   "cliff_faces": {
-   "id_px": 27619,
-   "layout_px": 1792344,
-   "layout_visible_px": 1792344,
-   "iou": 0.015,
+   "id_px": 1000949,
+   "layout_px": 1885531,
+   "layout_visible_px": 1885531,
+   "iou": 0.531,
    "containment": 1.0,
-   "centroid_offset_m": 5.91,
+   "centroid_offset_m": 1.21,
    "pieces": 3,
    "ids": [
-    46
+    42
    ],
-   "layout_px_in_frame": 1792344,
-   "terrain_covers_share": 0.961,
-   "status": "HIDDEN/BURIED: terrain covers the layout prism"
+   "layout_px_in_frame": 1885531,
+   "terrain_covers_share": 0.418,
+   "status": "rendered"
   }
  },
- "missing_from_render": [
-  "braziers",
-  "rock_outcrop_3"
- ],
- "outside_envelope": [
-  "rock_outcrop_12",
-  "rock_outcrop_13",
-  "rock_outcrop_6",
-  "rock_outcrop_9"
- ],
+ "missing_from_render": [],
+ "outside_envelope": [],
  "extra_in_render": [
   "blobs_passage_dark",
   "blobs_path",
@@ -434,67 +338,129 @@
  ],
  "check_a_independent": {
   "barrow_door": {
-   "probe": "v (curtain id px)",
-   "visible_px": 221899,
-   "visible_m2": 21.92,
+   "probe": "v",
+   "ref_px_analytic": 226365,
+   "lv_reference_px": 226420,
+   "ref_agree_pct": -0.02,
+   "visible_px_recount": 226420,
    "lv_visible_px": 226420,
+   "only_px_recount": 226420,
+   "visible_m2": 22.36,
    "lv_visible_m2": 22.36,
-   "agree": true
+   "pct_of_unoccluded": 100.0,
+   "lv_pct": 100.0,
+   "visible": true,
+   "curtain_id_px": 221899,
+   "curtain_box_0p3m_silhouette_px_analytic": 243958
   },
   "hall_great_door": {
-   "probe": "v (curtain id px)",
-   "visible_px": 83234,
-   "visible_m2": 8.22,
+   "probe": "v",
+   "ref_px_analytic": 64706,
+   "lv_reference_px": 64791,
+   "ref_agree_pct": -0.13,
+   "visible_px_recount": 64243,
    "lv_visible_px": 64243,
+   "only_px_recount": 64791,
+   "visible_m2": 6.35,
    "lv_visible_m2": 6.35,
-   "agree": false
+   "pct_of_unoccluded": 99.2,
+   "lv_pct": 99.2,
+   "visible": true,
+   "curtain_id_px": 83234,
+   "curtain_box_0p3m_silhouette_px_analytic": 83308
   },
   "sea_cave_mouth": {
-   "probe": "v (curtain id px)",
-   "visible_px": 224498,
-   "visible_m2": 22.18,
+   "probe": "v",
+   "ref_px_analytic": 398297,
+   "lv_reference_px": 398182,
+   "ref_agree_pct": 0.03,
+   "visible_px_recount": 218219,
    "lv_visible_px": 218219,
+   "only_px_recount": 398182,
+   "visible_m2": 21.55,
    "lv_visible_m2": 21.55,
-   "agree": false
-  },
-  "wreck_rail": {
-   "probe": "h (reproduced probe polygon; visible = not an occluding model)",
-   "probe_px": 154042,
-   "visible_px": 154042,
-   "visible_m2": 15.22,
-   "pct_of_probe": 100.0,
-   "lv_visible_px": 108329,
-   "lv_reference_px": 153093,
-   "lv_visible_m2": 10.7,
-   "lv_pct": 70.8
+   "pct_of_unoccluded": 54.8,
+   "lv_pct": 54.8,
+   "visible": true,
+   "curtain_id_px": 224498,
+   "curtain_box_0p3m_silhouette_px_analytic": 421315
   },
   "fallen_gable_breach": {
-   "probe": "h (reproduced probe polygon; visible = not an occluding model)",
-   "probe_px": 129844,
-   "visible_px": 129844,
-   "visible_m2": 12.83,
-   "pct_of_probe": 100.0,
-   "lv_visible_px": 111160,
+   "probe": "h_rect",
+   "ref_px_analytic": 129286,
    "lv_reference_px": 129288,
+   "ref_agree_pct": -0.0,
+   "visible_px_recount": 111160,
+   "lv_visible_px": 111160,
+   "only_px_recount": 129288,
+   "visible_m2": 10.98,
    "lv_visible_m2": 10.98,
-   "lv_pct": 86.0
+   "pct_of_unoccluded": 86.0,
+   "lv_pct": 86.0,
+   "visible": true
+  },
+  "wreck_rail": {
+   "probe": "h_rect",
+   "ref_px_analytic": 153092,
+   "lv_reference_px": 153093,
+   "ref_agree_pct": -0.0,
+   "visible_px_recount": 108329,
+   "lv_visible_px": 108329,
+   "only_px_recount": 153093,
+   "visible_m2": 10.7,
+   "lv_visible_m2": 10.7,
+   "pct_of_unoccluded": 70.8,
+   "lv_pct": 70.8,
+   "visible": true
   },
   "mere_ice": {
-   "probe": "h (reproduced probe polygon; visible = not an occluding model)",
-   "probe_px": 3789094,
-   "visible_px": 3783364,
-   "visible_m2": 373.71,
-   "pct_of_probe": 99.8,
-   "lv_visible_px": 3782419,
+   "probe": "poly",
+   "ref_px_analytic": 3787201,
    "lv_reference_px": 3787194,
+   "ref_agree_pct": 0.0,
+   "visible_px_recount": 3782419,
+   "lv_visible_px": 3782419,
+   "only_px_recount": 3787194,
+   "visible_m2": 373.61,
    "lv_visible_m2": 373.61,
-   "lv_pct": 99.9
+   "pct_of_unoccluded": 99.9,
+   "lv_pct": 99.9,
+   "visible": true
   },
-  "_faces_camera_note": {
+  "_faces_camera": {
+   "barrow_door": {
+    "frame_faces_camera": true,
+    "check_a_probe": "v",
+    "check_a_faces_camera": true
+   },
+   "hall_great_door": {
+    "frame_faces_camera": true,
+    "check_a_probe": "v",
+    "check_a_faces_camera": true
+   },
+   "sea_cave_mouth": {
+    "frame_faces_camera": true,
+    "check_a_probe": "v",
+    "check_a_faces_camera": true
+   },
+   "fallen_gable_breach": {
+    "frame_faces_camera": true,
+    "check_a_probe": "h_rect",
+    "check_a_faces_camera": true
+   },
    "wreck_rail": {
-    "declared_openings.json": false,
-    "check_a.json": true
+    "frame_faces_camera": false,
+    "check_a_probe": "h_rect",
+    "check_a_faces_camera": true
    }
+  },
+  "_lv_faces_camera_in_check_a": {
+   "barrow_door": true,
+   "hall_great_door": true,
+   "sea_cave_mouth": true,
+   "fallen_gable_breach": true,
+   "wreck_rail": true,
+   "mere_ice": true
   }
  },
  "v1_like_for_like_rows": {
@@ -1032,26 +998,29 @@
   "fallen_gable": 1.0,
   "barrow_front": 1.0,
   "wreck": 1.0,
+  "standing_stones": 1.0,
   "circle_stones": 1.0,
   "grave_markers": 1.0,
   "logs_and_beams": 0.959,
   "palisade": 0.981,
+  "braziers": 1.0,
   "rock_outcrop_1": 1.0,
   "rock_outcrop_2": 1.0,
   "rock_outcrop_4": 1.0,
   "rock_outcrop_5": 1.0,
-  "rock_outcrop_7": 1.0,
   "rock_outcrop_8": 1.0,
   "rock_outcrop_10": 1.0,
   "rock_outcrop_11": 1.0,
   "rock_outcrop_14": 1.0,
-  "stair_cliff": 1.0
+  "stair_cliff": 1.0,
+  "cliff_faces": 1.0
  },
  "containment_v7c_median": 1.0,
  "containment_v1_median_excl_trees": 1.0,
- "median_iou_v7c_rendered": 0.457,
- "n_rendered": 18,
+ "median_iou_v7c_rendered": 0.46,
+ "n_rendered": 20,
  "below_like_for_like_bar": [
+  "braziers",
   "circle_stones",
   "cliff_faces",
   "fallen_gable",
@@ -1064,12 +1033,196 @@
   "rock_outcrop_14",
   "rock_outcrop_2",
   "rock_outcrop_4",
-  "rock_outcrop_7",
   "rock_outcrop_8",
   "stair_cliff",
   "standing_stones",
   "wreck"
  ],
+ "attribution_R_C9_178": {
+  "_how": "organic under-fill = 1 - IoU(the object's own GLB silhouette rendered alone, its layout prism); occlusion = IoU(alone) - IoU(observed); placement = the share of its ID pixels outside its own prism. id_px_inside_model_alone_silhouette ~ 1 confirms the render places the GLB exactly where the layout says",
+  "rows": {
+   "longhall": {
+    "iou_observed": 0.715,
+    "iou_model_alone_vs_prism": 0.685,
+    "organic_underfill": 0.315,
+    "occlusion": 0.0,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 0.985,
+    "model_alone_px_hidden_share": -0.014
+   },
+   "fallen_gable": {
+    "iou_observed": 0.511,
+    "iou_model_alone_vs_prism": 0.513,
+    "organic_underfill": 0.487,
+    "occlusion": 0.002,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.005
+   },
+   "barrow_front": {
+    "iou_observed": 0.65,
+    "iou_model_alone_vs_prism": 0.758,
+    "organic_underfill": 0.242,
+    "occlusion": 0.108,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.146
+   },
+   "wreck": {
+    "iou_observed": 0.345,
+    "iou_model_alone_vs_prism": 0.412,
+    "organic_underfill": 0.588,
+    "occlusion": 0.067,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.164
+   },
+   "standing_stones": {
+    "iou_observed": 0.461,
+    "iou_model_alone_vs_prism": 0.573,
+    "organic_underfill": 0.427,
+    "occlusion": 0.112,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.196
+   },
+   "circle_stones": {
+    "iou_observed": 0.205,
+    "iou_model_alone_vs_prism": 0.528,
+    "organic_underfill": 0.472,
+    "occlusion": 0.323,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.612
+   },
+   "grave_markers": {
+    "iou_observed": 0.136,
+    "iou_model_alone_vs_prism": 0.178,
+    "organic_underfill": 0.822,
+    "occlusion": 0.042,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.451
+   },
+   "logs_and_beams": {
+    "iou_observed": 0.28,
+    "iou_model_alone_vs_prism": 1.0,
+    "organic_underfill": 0.0,
+    "occlusion": 0.72,
+    "placement_outside_prism": 0.041,
+    "id_px_inside_model_alone_silhouette": 0.959,
+    "model_alone_px_hidden_share": 0.755
+   },
+   "palisade": {
+    "iou_observed": 0.454,
+    "iou_model_alone_vs_prism": 1.0,
+    "organic_underfill": 0.0,
+    "occlusion": 0.546,
+    "placement_outside_prism": 0.019,
+    "id_px_inside_model_alone_silhouette": 0.981,
+    "model_alone_px_hidden_share": 0.576
+   },
+   "braziers": {
+    "iou_observed": 0.471,
+    "iou_model_alone_vs_prism": 0.703,
+    "organic_underfill": 0.297,
+    "occlusion": 0.232,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.343
+   },
+   "rock_outcrop_1": {
+    "iou_observed": 0.46,
+    "iou_model_alone_vs_prism": 0.513,
+    "organic_underfill": 0.487,
+    "occlusion": 0.053,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.104
+   },
+   "rock_outcrop_2": {
+    "iou_observed": 0.459,
+    "iou_model_alone_vs_prism": 0.614,
+    "organic_underfill": 0.386,
+    "occlusion": 0.155,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.252
+   },
+   "rock_outcrop_4": {
+    "iou_observed": 0.397,
+    "iou_model_alone_vs_prism": 0.55,
+    "organic_underfill": 0.45,
+    "occlusion": 0.153,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.357
+   },
+   "rock_outcrop_5": {
+    "iou_observed": 0.643,
+    "iou_model_alone_vs_prism": 0.688,
+    "organic_underfill": 0.312,
+    "occlusion": 0.045,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.065
+   },
+   "rock_outcrop_8": {
+    "iou_observed": 0.376,
+    "iou_model_alone_vs_prism": 0.533,
+    "organic_underfill": 0.467,
+    "occlusion": 0.157,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.294
+   },
+   "rock_outcrop_10": {
+    "iou_observed": 0.52,
+    "iou_model_alone_vs_prism": 0.586,
+    "organic_underfill": 0.414,
+    "occlusion": 0.066,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.112
+   },
+   "rock_outcrop_11": {
+    "iou_observed": 0.347,
+    "iou_model_alone_vs_prism": 0.534,
+    "organic_underfill": 0.466,
+    "occlusion": 0.187,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.351
+   },
+   "rock_outcrop_14": {
+    "iou_observed": 0.345,
+    "iou_model_alone_vs_prism": 0.56,
+    "organic_underfill": 0.44,
+    "occlusion": 0.215,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.384
+   },
+   "stair_cliff": {
+    "iou_observed": 0.584,
+    "iou_model_alone_vs_prism": 0.648,
+    "organic_underfill": 0.352,
+    "occlusion": 0.064,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.099
+   },
+   "cliff_faces": {
+    "iou_observed": 0.531,
+    "iou_model_alone_vs_prism": 0.663,
+    "organic_underfill": 0.337,
+    "occlusion": 0.132,
+    "placement_outside_prism": 0.0,
+    "id_px_inside_model_alone_silhouette": 1.0,
+    "model_alone_px_hidden_share": 0.199
+   }
+  }
+ },
  "glb_missing_in_level": [
   "godot/models/build/brazier.glb"
  ]

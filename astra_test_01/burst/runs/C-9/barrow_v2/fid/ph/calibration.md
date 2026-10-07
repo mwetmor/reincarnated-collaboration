@@ -372,3 +372,61 @@ Tool: `harness/p6_phase1.py`. Result: `results/p6_phase1_v7c.json`. Inputs:
 - **All six openings are visible, so check (a) PASS stands.**
 - **Inconsistency for LV:** wreck_rail is `faces_camera: false` in `declared_openings.json` but `true` in `check_a.json`.
 
+## 14. P6 re-measured on LV's fixed v7c (d4c59061f, 43 ids; ruling R-C9-178)
+
+Inputs: `ids_v7c.png` sha `49adb3d8…` and `layout_v7c.json` (v7c_r178). Tool `harness/p6_phase1.py`; result `results/p6_phase1_v7c.json`.
+
+**What changed.** LV's fixes to my five findings hold:
+- **Missing:** none. The braziers render as a primitive stand-in, and outcrops 3, 6, 9, 12 and 13 were dropped with reasons.
+- **Buried:** none. Standing stones and grave markers are now seated on the terrain, and the cliff faces stand clear of the terrain face.
+- **Extra IDs:** only the sculpt blobs (blobs_*), as expected.
+
+**Placement:**
+- Containment median **1.0**. Every rendered object's ID pixels lie inside its own layout prism (v1: 1.0).
+- The share of each object's ID pixels inside its own GLB silhouette placed by the layout is **≥ 0.96 for every object**.
+
+**IoU:** median **0.46** over 20 rendered objects, **below the ruled bar 0.513**. No bar change is proposed (R-C9-178).
+
+**Per-object attribution** of the residual (1 − IoU):
+- *organic under-fill* = 1 − IoU(the object's own GLB silhouette rendered alone, its layout prism);
+- *occlusion* = IoU(alone) − IoU(observed);
+- *placement* = the share of its ID pixels outside its own prism.
+
+| object | IoU observed | < 0.513 | IoU alone (shape vs prism) | under-fill | occlusion | placement | dominant |
+|---|---|---|---|---|---|---|---|
+| grave_markers | 0.136 | **<** | 0.178 | 0.822 | 0.042 | 0.000 | organic under-fill |
+| circle_stones | 0.205 | **<** | 0.528 | 0.472 | 0.323 | 0.000 | organic under-fill |
+| logs_and_beams | 0.280 | **<** | 1.000 | 0.000 | 0.720 | 0.041 | occlusion + beam shape (see note) |
+| wreck | 0.345 | **<** | 0.412 | 0.588 | 0.067 | 0.000 | organic under-fill |
+| rock_outcrop_14 | 0.345 | **<** | 0.560 | 0.440 | 0.215 | 0.000 | organic under-fill |
+| rock_outcrop_11 | 0.347 | **<** | 0.534 | 0.466 | 0.187 | 0.000 | organic under-fill |
+| rock_outcrop_8 | 0.376 | **<** | 0.533 | 0.467 | 0.157 | 0.000 | organic under-fill |
+| rock_outcrop_4 | 0.397 | **<** | 0.550 | 0.450 | 0.153 | 0.000 | organic under-fill |
+| palisade | 0.454 | **<** | 1.000 | 0.000 | 0.546 | 0.019 | occlusion + beam shape (see note) |
+| rock_outcrop_2 | 0.459 | **<** | 0.614 | 0.386 | 0.155 | 0.000 | organic under-fill |
+| rock_outcrop_1 | 0.460 | **<** | 0.513 | 0.487 | 0.053 | 0.000 | organic under-fill |
+| standing_stones | 0.461 | **<** | 0.573 | 0.427 | 0.112 | 0.000 | organic under-fill |
+| braziers | 0.471 | **<** | 0.703 | 0.297 | 0.232 | 0.000 | organic under-fill |
+| fallen_gable | 0.511 | **<** | 0.513 | 0.487 | 0.002 | 0.000 | organic under-fill |
+| rock_outcrop_10 | 0.520 |  | 0.586 | 0.414 | 0.066 | 0.000 | organic under-fill |
+| cliff_faces | 0.531 |  | 0.663 | 0.337 | 0.132 | 0.000 | organic under-fill |
+| stair_cliff | 0.584 |  | 0.648 | 0.352 | 0.064 | 0.000 | organic under-fill |
+| rock_outcrop_5 | 0.643 |  | 0.688 | 0.312 | 0.045 | 0.000 | organic under-fill |
+| barrow_front | 0.650 |  | 0.758 | 0.242 | 0.108 | 0.000 | organic under-fill |
+| longhall | 0.715 |  | 0.685 | 0.315 | 0.000 | 0.000 | organic under-fill |
+
+**Reading the attribution:**
+- **Placement contributes nothing.** Its largest value is 0.041, on logs_and_beams.
+- **The residual is organic under-fill first.** Even unoccluded, the objects' own shapes fill their layout prisms at a median IoU of **0.579**: Tripo crags and ruins are not boxes. **Occlusion comes second**, a median of 0.122.
+- **The beam groups (palisade, logs_and_beams) are an exception.** Each log is modelled as its drawn segment, so all of their residual is booked as occlusion; the beam-shape share cannot be separated from it.
+- **Grave markers (0.136)** are shields: thin plates in a box slot, which is under-fill.
+
+**Check (a), re-read with LV's own probe definition** (`level.json` sim.openings[].probe, `bv2f_level.gd` _build_probes):
+- **Reference area.** Each probe's unoccluded projected area, computed analytically here, matches LV's probe_only reference within 0.13% for all six openings.
+- **Visible area.** PH's recount of LV's probe_with renders gives LV's numbers exactly: barrow door 22.36, hall great door **6.35**, sea cave mouth 21.55, gable breach 10.98, wreck rail 10.70, mere 373.61 m². **All visible: PASS.**
+- **The hall-door explanation is ACCEPTED.**
+  - My earlier 8.22 m² counted the ID render's dark curtain, which is a 0.3 m-deep box 1.6 m behind the probe plane. Its analytic box silhouette is **83308 px**, against the **83234 px** of curtain ID I counted (within 0.1%).
+  - The probe face alone is 64706 px, against LV's reference of 64791 px.
+  - So 8.22 m² was the curtain box's front, top and sides, not the opening.
+- **The faces-camera rule is consistent.** `declared_openings.json` now carries `check_a_faces_camera`, which equals check_a.json for all six openings. `frame_faces_camera` (wreck rail: false) is a different quantity, the rail's own facing, now named apart.
+
