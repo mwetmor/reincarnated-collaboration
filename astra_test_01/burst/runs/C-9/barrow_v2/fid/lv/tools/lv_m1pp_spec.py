@@ -22,7 +22,7 @@ S = [("01_coast_west", (-17.0, -8.0), (-12.0, -1.0), -2.0, "the W coast: the pla
      ("06_mere_stream", (mere_c[0] + 3.0, mere_c[1] + 1.0), (-5.0, 9.0), -0.2, "the mere: one continuous ice sheet with thin cracks and pressure seams; the stream channel from the barrow", (mere_c[0] + 3.0, mere_c[1] + 1.0, 0.0)),
      ("07_pack_ice", (-22.0, -17.0), (-12.0, -1.5), -4.2, "the sea: broken pack -- plates of every size, rims, pressure ridges, brash, dark leads (~2/3 ice)", (-22.0, -17.0, -4.2)),
      ("08_start", (0.0, -1.5), (0.0, 0.0), 0.0, "the start in the broken stone ring (unchanged)", (0.0, -1.5, 0.0)),
-     ("09_stair_cave_close", mid(RP["cave_mouth"], mid(RP["stair_foot"], RP["stair_top"]), 0.55), RP["stair_foot"], -1.5, "close: the cave arch in its headland and the rock-cut stair across the face beside it (R-C9-208)",
+     ("09_stair_cave_close", mid(RP["cave_mouth"], RP["stair_foot"], 0.5), RP["shelf_mid"], -2.0, "close: the cave arch in its headland and the rock-cut stair across the face beside it (R-C9-208)",
       (RP["cave_mouth"][0], RP["cave_mouth"][1], -3.5))]
 spec = []
 for n, aim, him, h, what, sk in S:

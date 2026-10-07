@@ -20,10 +20,10 @@ Against the art level's **colliders** (terrain HeightMapShape3D, the stair's nos
 | segment | samples | walkable | max slope | max dz / 0.05 m | z range | min headroom |
 |---|---|---|---|---|---|---|
 | cave | 60 | 60 | 0.00 deg | 0.000 m | -3.50 .. -3.50 | 4.85 m |
-| shelf | 249 | 249 | 5.09 deg | 0.019 m | -3.53 .. -3.46 | 15.00 m |
+| shelf | 251 | 251 | 5.09 deg | 0.019 m | -3.53 .. -3.46 | 15.00 m |
 | stair | 183 | 183 | 33.34 deg | 0.033 m | -3.48 .. 2.50 | 15.00 m |
 | landing | 97 | 97 | 0.00 deg | 0.000 m | 2.50 .. 2.50 | 15.00 m |
-| clifftop | 49 | 49 | 0.00 deg | 0.000 m | -3.50 .. 2.50 | 15.00 m |
+| clifftop | 47 | 47 | 0.00 deg | 0.000 m | 2.50 .. 2.50 | 15.00 m |
 
 Sections (clear width = walkable run across, capped by the free run to the nearest collider at 0.4 m and 1.2 m):
 
@@ -46,16 +46,16 @@ Sections (clear width = walkable run across, capped by the free run to the neare
 | stair_14 | 5.55 | 6.07 | 5.55 | 15.00 |
 | stair_15 | 5.50 | 6.18 | 5.50 | 15.00 |
 | stair_16 | 5.50 | 6.30 | 5.50 | 15.00 |
-| shelf_00 | 6.90 | 7.86 | 6.90 | 15.00 |
-| shelf_01 | 6.25 | 6.53 | 6.25 | 15.00 |
-| shelf_02 | 7.25 | 7.81 | 7.25 | 15.00 |
-| shelf_03 | 7.25 | 7.81 | 7.25 | 15.00 |
-| shelf_04 | 7.00 | 6.97 | 6.97 | 15.00 |
-| shelf_05 | 7.40 | 7.44 | 7.40 | 15.00 |
-| shelf_06 | 7.70 | 8.68 | 7.70 | 15.00 |
-| shelf_07 | 7.50 | 8.15 | 7.50 | 15.00 |
-| shelf_08 | 7.40 | 8.36 | 7.40 | 15.00 |
-| cave_mouth | 6.10 | 4.67 | 4.67 | 0.43 |
+| shelf_00 | 8.25 | 8.24 | 8.24 | 0.52 |
+| shelf_01 | 6.25 | 7.35 | 6.25 | 15.00 |
+| shelf_02 | 7.85 | 7.90 | 7.85 | 0.18 |
+| shelf_03 | 6.80 | 7.62 | 6.80 | 15.00 |
+| shelf_04 | 7.30 | 7.42 | 7.30 | 1.71 |
+| shelf_05 | 7.75 | 8.71 | 7.75 | 6.80 |
+| shelf_06 | 7.40 | 9.73 | 7.40 | 15.00 |
+| shelf_07 | 7.30 | 8.03 | 7.30 | 15.00 |
+| shelf_08 | 8.40 | 8.82 | 8.40 | 0.55 |
+| cave_mouth | 8.20 | 4.67 | 4.67 | 0.33 |
 
 Stills: `route_topdown.png` (straight down, north up) and `route_play.png` (v1's play camera) -- the magenta line is the knight's DRIVEN track (a check overlay, not in the guide); him on the stair for scale.
 

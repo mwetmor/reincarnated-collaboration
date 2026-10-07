@@ -131,7 +131,7 @@ LOGS = [((1370, 262), (1445, 302)), ((1250, 565), (1330, 622)), ((1300, 625), (1
 # THE ROUTE (R-C9-188/189/206), in the straight-face frame: t along A -> B, s SEAWARD (negative = into the land)
 ROUTE = {"crest": 2.5, "shelf_z": SEA_Z + 1.0, "stair_w": 5.5, "risers": 24, "tread": 0.38, "rise_jitter": 0.12,
          "cave_t": 3.5, "cave_front_s": 0.3, "mouth_w": 6.0, "mouth_h": 7.0,
-         "shelf_t": (-3.2, 12.0), "shelf_out_s": 8.8, "pilot_t": 4.0, "shelf_in_s": 0.3, "foot_t": 12.0, "bottom_landing_t": 10.0, "landing_len": 2.0,
+         "shelf_t": (-3.2, 12.0), "shelf_out_s": 8.8, "pilot_t": -3.2, "shelf_in_s": 0.3, "foot_t": 12.0, "bottom_landing_t": 10.0, "landing_len": 2.0,
          "stair_s0": 0.45, "head_z": 5.6, "head_t": (-4.0, 10.0),
          "bounds_out_m": 0.2}
 # THE CLIFF KIT (Phase 1'' sheets -> Tripo -> uniform scale). Until a piece exists the nearest Phase 1' build stands in.
@@ -289,17 +289,19 @@ def main():
     def shelf_out(t):
         if t < R["pilot_t"]:
             return shelf_leg(t)
-        w = min(1.0, (t - R["pilot_t"]) / 1.5)
+        w = 1.0
         w = w * w * (3 - 2 * w)
         new = R["shelf_out_s"] + 0.95 * math.sin(t * 0.52 + 0.3) + 0.5 * math.sin(t * 1.37 + 1.1) + 0.22 * math.sin(t * 3.3 + 0.2)
         return shelf_leg(t) + (new - shelf_leg(t)) * w
     west_pts = [fr(t, shelf_leg(t)) for t in np.arange(t0_s, t1_s + 0.01, 0.5) if t < R["pilot_t"]]
     east_pts = []
     for t in np.arange(R["pilot_t"], t1_s + 0.01, 0.35):
-        j_ = rng209.uniform(-0.13, 0.13) * min(1.0, (t - R["pilot_t"]) / 1.5)
+        j_ = rng209.uniform(-0.15, 0.15)
         east_pts.append(fr(t, shelf_out(t) + j_))
     east = [fr(t1_s + 0.3 + 1.1 * math.sin(a), shelf_out(t1_s) + (S0 + W_ + 0.3 - shelf_out(t1_s)) * (1 - math.cos(a)) / 2) for a in np.linspace(0.2, math.pi - 0.2, 7)]
-    shelf = [fr(t0_s, R["shelf_in_s"])] + west_pts + east_pts + east + [fr(t1_s + 0.3, S0)]
+    west_arc = [fr(t0_s - 1.8 * math.sin(a) + rng209.uniform(-0.15, 0.15), R["shelf_in_s"] + (shelf_out(t0_s) - R["shelf_in_s"]) * (1 - math.cos(a)) / 2)
+                for a in np.linspace(0.2, math.pi - 0.25, 8)]
+    shelf = [fr(t0_s + 0.4, -1.6)] + west_arc + west_pts + east_pts + east + [fr(t1_s + 0.3, S0), fr(t1_s - 1.0, -1.6)]     # R-C9-212: the whole platform natural (its back runs in under the kit face)
     edge = [q for q in shelf if to_fr(q)[1] > 4.0]     # the seaward rim (rime, boulders, bounds follow it)
     shelf = K.ccw(shelf)
     shelf_m = mask(shelf, U, V, HF_PPM, u0, v1)
@@ -312,7 +314,7 @@ def main():
     # at the cave floor and the stair's foot (no seam); max slope ~7 deg, every step far under v1's 0.10 m
     ribs = 0.04 * np.sin(Tq * 2.4 + 1.3 * np.sin(Sq * 0.7)) * np.cos(Sq * 0.9 + 0.4)
     pot = np.zeros(U.shape)
-    pot_c = [(9.6, 2.2), (6.6, 5.6), (8.7, 7.4), (7.6, 1.7), (10.6, 6.8)]
+    pot_c = [(9.6, 2.2), (6.6, 5.6), (8.7, 7.4), (7.6, 1.7), (10.6, 6.8), (-1.4, 5.9), (0.9, 3.0), (-2.4, 2.4)]
     for (pt, ps) in pot_c:
         dd = np.hypot(Tq - pt, Sq - ps)
         pot -= 0.03 * np.clip(np.cos(np.clip(dd / 0.8, 0, 1) * math.pi / 2), 0, 1) ** 2
@@ -813,6 +815,29 @@ def main():
         dep = ab(g_col)[2] * sc
         cliff_insts.append(model("cliff_route_%s" % name, "rock", g_col, fr(t_c, R["shelf_in_s"] + 0.3 - dep / 2), nR, sc, z=zb, piece="cliffcol", collider="trimesh",
                                  note="the headland's face beside the cave"))
+    # R-C9-212 (2): THE HEADLAND'S FACE behind the shelf, all rock kit -- columns and capes (buttresses) of varied height,
+    # their fronts stepped out and back (recesses), each topped 0.9 m over the ground behind it; the cave's mouth left open
+    t = R["shelf_t"][0] - 9.0
+    k2 = 0
+    while t < R["bottom_landing_t"] + 1.0:
+        if abs(t - R["cave_t"]) < cave_w / 2 + 1.5:
+            t = R["cave_t"] + cave_w / 2 + 1.5
+            continue
+        cape = k2 % 3 == 1
+        g = g_cape if cape else g_col
+        zb = R["shelf_z"] - 0.3 if t > R["shelf_t"][0] - 1.0 else foot_z
+        back = max(hz(fr(t, -1.5)), hz(fr(t + 1.5, -1.5)), hz(fr(t - 1.5, -1.5)))
+        sc = (back + 0.9 + 0.4 * math.sin(k2 * 1.7) - zb) / ab(g)[1]
+        wdt = ab(g)[0] * sc
+        dep = ab(g)[2] * sc
+        out = R["shelf_in_s"] + (0.5 if cape else 0.15) + 0.25 * math.sin(k2 * 2.3) - dep / 2
+        yaw = (nR[0] * math.cos(0.12 * math.sin(k2 * 1.3)) - nR[1] * math.sin(0.12 * math.sin(k2 * 1.3)),
+               nR[0] * math.sin(0.12 * math.sin(k2 * 1.3)) + nR[1] * math.cos(0.12 * math.sin(k2 * 1.3)))
+        tc = min(t + wdt / 2, R["cave_t"] - cave_w / 2 - 1.0 + wdt / 2) if t < R["cave_t"] else t + wdt / 2
+        cliff_insts.append(model("cliff_head_%d" % k2, "rock", g, fr(tc, out), yaw, sc, z=zb, piece="cliffcape" if cape else "cliffcol", collider="trimesh",
+                                 note="R-C9-212: the headland's face, rock kit"))
+        t += wdt * 0.55
+        k2 += 1
     # the CLIFF WALL BEHIND THE STAIR (R-C9-208 (1)): kit columns along the face, their fronts on the flight's inner edge, each
     # standing on the tread height at its own west end, their tops 0.9 m over the clifftop; they stop short of the landing
     t = t_foot + 0.6
@@ -844,7 +869,7 @@ def main():
         t += max(wdt * 0.8, 1.0)
     # -- the SHELF's few boulders and ice rime (R-C9-206 (c)): boulders at its outer edge and the west end, rime as ice
     shelf_rocks = []
-    for (t_b, s_b, ht) in ((-2.6, 6.9, 1.2), (0.6, 7.5, 0.9), (5.8, None, 1.4), (9.2, None, 1.0), (-2.9, 2.0, 1.6), (11.4, None, 0.8)):
+    for (t_b, s_b, ht) in ((-2.6, None, 1.2), (0.6, None, 0.9), (5.8, None, 1.4), (9.2, None, 1.0), (-3.6, 1.6, 1.6), (11.4, None, 0.8)):
         s_b = s_b if s_b is not None else shelf_out(t_b) - 0.3
         q = fr(t_b, s_b)
         a = prng.uniform(0, 2 * math.pi)
@@ -947,20 +972,29 @@ def main():
         r_ = rng209.uniform(0.45, 0.75)
         pg = [fr(pt + r_ * math.cos(a_) * rng209.uniform(0.8, 1.1), ps + r_ * math.sin(a_) * rng209.uniform(0.6, 0.95)) for a_ in np.linspace(0, 2 * math.pi, 9, endpoint=False)]
         shelf_pools.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg)], "z0": round(R["shelf_z"] - 0.1, 3), "z1": round(R["shelf_z"] - 0.01, 3)})
-    for k in range(9):
-        pt = rng209.uniform(R["pilot_t"] + 1.0, t_foot - 1.5)
+    # low rock RIBS as rubble lines of lumpy stones (not strips), and loose rubble at the cliff foot
+    for k in range(16):
+        pt = rng209.uniform(R["shelf_t"][0] + 0.5, t_foot - 1.5)
         if abs(pt - R["cave_t"]) < R["mouth_w"] / 2 + 0.6:
             continue
-        s0_, s1_ = rng209.uniform(1.0, 2.5), min(shelf_out(pt) - 0.3, rng209.uniform(4.5, 7.5))
-        dt_ = rng209.uniform(-0.6, 0.6)
-        line = [fr(pt, s0_), fr(pt + dt_ * 0.5 + rng209.uniform(-0.2, 0.2), (s0_ + s1_) / 2), fr(pt + dt_, s1_)]
-        for e0, e1 in zip(line[:-1], line[1:]):
-            L_ = math.dist(e0, e1)
-            nn = (-(e1[1] - e0[1]) / L_, (e1[0] - e0[0]) / L_)
-            w_ = rng209.uniform(0.12, 0.25)
-            shelf_marks.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw([(e0[0] - nn[0] * w_, e0[1] - nn[1] * w_), (e1[0] - nn[0] * w_, e1[1] - nn[1] * w_),
-                                                                                         (e1[0] + nn[0] * w_, e1[1] + nn[1] * w_), (e0[0] + nn[0] * w_, e0[1] + nn[1] * w_)])],
-                                "z0": round(R["shelf_z"] - 0.05, 3), "z1": round(R["shelf_z"] + rng209.uniform(0.04, 0.07), 3)})
+        s0_, s1_ = rng209.uniform(0.8, 2.5), min(shelf_out(pt) - 0.3, rng209.uniform(4.0, 7.5))
+        dt_ = rng209.uniform(-0.8, 0.8)
+        n_st = max(3, int((s1_ - s0_) / 0.45))
+        for j in range(n_st):
+            f = j / max(1, n_st - 1)
+            ct = pt + dt_ * f + 0.25 * math.sin(f * 5 + k)
+            cs_ = s0_ + (s1_ - s0_) * f
+            r_ = rng209.uniform(0.16, 0.34)
+            pg = [fr(ct + r_ * math.cos(a_) * rng209.uniform(0.7, 1.2), cs_ + r_ * math.sin(a_) * rng209.uniform(0.7, 1.2)) for a_ in np.linspace(0, 2 * math.pi, 7, endpoint=False)]
+            shelf_marks.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg)], "z0": round(R["shelf_z"] - 0.05, 3), "z1": round(R["shelf_z"] + rng209.uniform(0.05, 0.12), 3)})
+    tq = R["shelf_t"][0] - 1.0
+    while tq < R["bottom_landing_t"]:
+        if abs(tq - R["cave_t"]) > R["mouth_w"] / 2 + 0.3 and rng209.random() < 0.7:
+            r_ = rng209.uniform(0.25, 0.55)
+            cs_ = R["shelf_in_s"] + rng209.uniform(0.1, 0.7)
+            pg = [fr(tq + r_ * math.cos(a_) * rng209.uniform(0.7, 1.2), cs_ + r_ * math.sin(a_) * rng209.uniform(0.6, 1.0)) for a_ in np.linspace(0, 2 * math.pi, 7, endpoint=False)]
+            shelf_marks.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg)], "z0": round(R["shelf_z"] - 0.05, 3), "z1": round(R["shelf_z"] + rng209.uniform(0.15, 0.45), 3)})
+        tq += rng209.uniform(0.5, 1.0)
     # the flight's sea-side face: a rough rock skirt from the sea to just under each tread (the columns stand in front of it)
     stair_side = []
     tq = t_foot - 0.3
@@ -1049,7 +1083,7 @@ def main():
     runs, cur = [], []
     for a in lip_f:
         ta, sa = to_fr(a)
-        gap = abs(sa) < 1.0 and (abs(ta - R["cave_t"]) < R["mouth_w"] / 2 + 1.2 or t_top - 0.3 < ta < t_land + 0.3)
+        gap = abs(sa) < 3.0 and (R["shelf_t"][0] - 10.0 < ta < t_land + 0.3)      # R-C9-212: the kit is the face there
         if gap:
             if len(cur) > 1:
                 runs.append(cur)
