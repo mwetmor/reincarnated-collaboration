@@ -42467,9 +42467,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LV-barrow",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1-model-kit-v3",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "45c4fc09e9e4d80a7ba45eeeb6eaab18ac94e4818b333ebac106edafe4903fe0",
+      "started": "2026-10-07T03:41:05.301291+00:00",
+      "ended": "2026-10-07T03:44:06.746133+00:00",
+      "minutes": 3.024128084034116,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11473-55b6-7d00-a718-5b328d307416/exec-d3a4a258-9c4c-40ac-8d40-834fd2652f7b.png",
+            "sha256": "c9859b9f5dd7d8d7d80b119af6ba4ea6d5889b1ed26330da87b84afad7df241b"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11473-55b6-7d00-a718-5b328d307416/exec-f62d80c0-5dec-47c4-a7fd-46db8ed31bc7.png",
+            "sha256": "a785f9176fffd4c30d07024d81b345ce05821fa467a292e3085640c74bae9875"
+          }
+        ]
+      },
+      "receipt_sha256": "9ef5fdec4a9cc48ba9ae529f6db12c8eabfe7e0cf49961f117d5bfd32f76e32b",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-barrow.png",
+          "sha256": "a785f9176fffd4c30d07024d81b345ce05821fa467a292e3085640c74bae9875"
+        },
+        {
+          "name": "exec-d3a4a258-9c4c-40ac-8d40-834fd2652f7b.provenance.json",
+          "sha256": "31912a74f825657d4ea299346481d6e970b2acf7753a31c34da79bc6602449ab"
+        },
+        {
+          "name": "exec-f62d80c0-5dec-47c4-a7fd-46db8ed31bc7.provenance.json",
+          "sha256": "4323371a3a6c3c57cd256dd4f331ef1525cf997bb40a30e63c55f87cf04665cc"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11473-55b6-7d00-a718-5b328d307416/exec-d3a4a258-9c4c-40ac-8d40-834fd2652f7b.png",
+          "sha256": "c9859b9f5dd7d8d7d80b119af6ba4ea6d5889b1ed26330da87b84afad7df241b"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11473-55b6-7d00-a718-5b328d307416/exec-f62d80c0-5dec-47c4-a7fd-46db8ed31bc7.png",
+          "sha256": "a785f9176fffd4c30d07024d81b345ce05821fa467a292e3085640c74bae9875"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1253,
+  "images_used": 1255,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -43843,6 +43916,12 @@
       "ts": "2026-10-07T03:34:31Z",
       "status": "closed",
       "what": "LV Phase 1: hall orientation v7a (sketch A) infeasible under validator R10 without bending a rule -- oracle p06 lies screen lower-LEFT of p04 while sketch A draws it lower-right; with the gable on p06's ray (R-C9-148) every heading putting the gable at the screen lower-right end fails (best: gable 12.39 m from the floor edge vs 3.0 m); v6's heading feasible (0.47 m). fid/lv/v7a_feasibility.py/.json, collab f2c42aa3a. Disposed R-C9-174."
+    },
+    {
+      "id": "H-C9-BV2F-LV-P1-2",
+      "ts": "2026-10-07T04:04:54Z",
+      "status": "closed",
+      "what": "LV Phase 1: hall kit at true proportions fails v7b R10 (p06 gable 13.25 m from floor vs 3.0) and R11 (porch 10.97 m vs hall roof 10.51 + 0.5): BVP's porch at true proportions is an 11.7 m-deep gatehouse (v6 hid it by squashing to 3 m); covering the hall door pushes the wall 13.75 m out. Ph1 Astra sub-cap 4 spent (wreck 13.0 m and barrow front 25.8 m, door 5.81 x 6.67 m, built; $0.80 fal). Collab 53fa3a427, f784011d7. Disposed R-C9-176."
     }
   ],
   "rulings": [
@@ -45351,6 +45430,13 @@
       "ruling": "BV2F Phase 0 Gate-2 blocks DISCHARGED by fresh blind galadriel judges on neutral copies (PH sets 8a65bf4c8). G2-B2 (P11 v1 GREEN): v1 record-time vs v1 HEAD ABX 22/40 = 55% (repeat inconsistency 0.10) -> PASS (chance level; HEAD's lit drift is NOT visible to a fresh eye, so the P11 reference pool may mix record-time and HEAD v1 stills); v1 vs half-density on the fixed, content-controlled generator 33/40 = 82.5% (0.20) -> FAIL (correct). P11 now counts in W-A/W-B (40-trial sets; UNDERPOWERED = VOID). G2-B1 (P6a): the overlay-referenced judge caught BOTH invented features (brazier doorway, gable-end opening) and did not flag the declared door, but answered yes on 5/15 material items (open burnt-hall sides, window recesses, a roof gap) and no on the flat black stamp (which it reasonably read as not door-like) -> acceptance NOT met; the judge does NOT become a reader. The conductor reads every in-structure candidate under the written charter s13 protocol (overlay reference, half-width + 1.0 m from the declared opening's centre, ambiguous = FAIL, jsonl record, MATERIAL sheet to Matt at M2). Observation carried to M1/M2: a fresh eye reads a burnt ruin's open sides as 'openings'; whether open hall sides are wanted is a look question for Matt, not a P6a defect (R-C9-155's concern was doors that imply delivery).",
       "verbatim": [],
       "ts": "2026-10-07T03:42:08Z"
+    },
+    {
+      "id": "R-C9-176",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F H-C9-BV2F-LV-P1-2 disposed: option 1. The Ph1 sub-cap is re-based 4 -> 6 by drawing 2 images from the run reserve (16 -> 14; run cap ~250 unchanged; charter s6 conductor re-base) plus <= $0.40 fal (Ph1 fal total <= $1.20, inside $8), for ONE hall-with-shallow-porch model sheet (one image + its one retry). The fault is in the kit, not the rules: R-C9-154's door (>= 4.5 x 4.5 m) in a porch rising above the roofline does not require an 11.7 m gatehouse, and C7 forbids hiding it by squashing. Options 2 (squashed porch exception) and 3 (relax R10 to 13.5 m) are REJECTED: one breaks the true-proportions principle that C7 names as a 159 failure, the other moves a validator bar to fit a model. Brief constraints: true proportions, one uniform scale; porch shallow (depth a few metres) covering the hall's one great door, clear opening >= 4.5 x 4.5 m, porch roof >= 0.5 m above the hall roof (R11); collapsed SW end = the fallen gable (R-C9-148); 53-deg top view in the sheet; refs_guard. If the rebuilt kit still cannot pass R1-R13 in v7b: HALT, no further variants. Wreck (13.0 m, reads as a ship from 53 deg) and barrow front (door 5.81 x 6.67 m, meets R-C9-154) accepted for M1.",
+      "verbatim": [],
+      "ts": "2026-10-07T04:04:54Z"
     }
   ],
   "grok_calls": [
