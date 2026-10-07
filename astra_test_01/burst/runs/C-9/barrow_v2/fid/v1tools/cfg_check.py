@@ -3,6 +3,7 @@
     python3 cfg_check.py <cfg.json>      exit 0 = ok; exit 1 = HALT (printed reason)
   rules == v1 rules with DEV12_substitutions.json applied (exact string equality)
   refs  == v1 refs + DEV11_refs.json extra_refs (exact list equality, v1's first, in order)
+  guide sha == cfg _guide_sha256 (the guide is pinned)
 v1 = tierA/conductor_scripts/cfg_t10bf.json (sha-checked against SHA256SUMS first)."""
 import hashlib, json, os, sys
 V = os.path.dirname(os.path.abspath(__file__))
@@ -28,6 +29,12 @@ if cfg.get("rules") != rules:
     fail.append("rules != v1 rules + DEV-12 table (first difference at char %d: cfg %r vs expected %r)" % (i, a[i:i + 60], b[i:i + 60]))
 if cfg.get("refs") != v1["refs"] + extra:
     fail.append("refs != v1 refs + DEV-11 entries (cfg has %d, expected %d)" % (len(cfg.get("refs") or []), len(v1["refs"]) + len(extra)))
+if cfg.get("_guide_sha256"):
+    gs = hashlib.sha256(open(cfg["guide"], "rb").read()).hexdigest()
+    if gs != cfg["_guide_sha256"]:
+        fail.append("guide %s sha %s != the cfg's _guide_sha256 %s (the guide moved under the cfg)" % (cfg["guide"], gs[:12], cfg["_guide_sha256"][:12]))
+else:
+    fail.append("cfg has no _guide_sha256: the guide it paints from is not pinned")
 if fail:
     for f in fail:
         print("[cfg_check] HALT:", f)

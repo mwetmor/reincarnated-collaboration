@@ -1,5 +1,17 @@
 {
- "_what": "DEV-12 (charter § 7 / R-C9-163 W-3c): the ONLY permitted differences between a BV2F paint cfg's `rules` and v1's (tierA/conductor_scripts/cfg_t10bf.json). Each entry replaces one exact v1 substring with its barrow_v2 replacement, applied in order, every occurrence. cfg_check.py fails the driver if `rules` != v1 rules with this table applied.",
- "status": "EMPTY: no site nouns yet. To be filled when lane LV's Phase-1 class list lands (every v1-site noun in v1's rules -> its replacement). An empty table means the BV2F rules must equal v1's verbatim.",
- "substitutions": []
+ "_what": "DEV-12 (charter \u00a7 7 / R-C9-163 W-3c): the ONLY permitted differences between a BV2F paint cfg's `rules` and v1's (tierA/conductor_scripts/cfg_t10bf.json). Each entry replaces one exact v1 substring with its barrow_v2 replacement, applied in order, every occurrence. cfg_check.py fails the driver if `rules` != v1 rules with this table applied.",
+ "status": "FILLED per R-C9-189 (conductor, Phase 2' opening): two substitutions; every other word of v1's rules verbatim. LV's 'five exit lanes' proposal is AMENDED out (arena-era).",
+ "substitutions": [
+  {
+   "v1": "Keep the ring's centre, the path, the cutting and the tarn OPEN",
+   "v2": "Keep the stone ring's centre, the path, the barrow door's approach and the mere OPEN",
+   "why": "R-C9-189 ruled wording: v1-site nouns -> barrow_v2's (ring -> stone ring; cutting -> the barrow door's approach; tarn -> mere)"
+  },
+  {
+   "v1": "lapis ice;",
+   "v2": "lapis ice, dark slate-blue sea with pale floes, grey shingle, weathered grey-brown timber, soot-black charred timber and ash;",
+   "why": "R-C9-189: the palette-sentence extension stands (LV DEV12_proposal.json, DEV-2 classes sea/shingle/wood/char/ash)"
+  }
+ ],
+ "source": "fid/lv/DEV12_proposal.json (amended by R-C9-189)"
 }

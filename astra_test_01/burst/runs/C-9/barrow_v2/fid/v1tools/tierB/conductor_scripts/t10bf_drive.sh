@@ -17,13 +17,13 @@ echo "$(date -u +%FT%TZ) $P DRIVE START (frozen v1 driver, BV2F)" >> $LOG
 typeset -A tried
 while true; do
   until [ $(df -g /System/Volumes/Data | tail -1 | awk '{print $4}') -ge 20 ]; do echo "$(date -u +%FT%TZ) DISK GUARD: waiting (<20 GiB)" >> $LOG; sleep 120; done
-  ready=($(python3 $A/guided_paint.py $CFG ready))   # BV2F
+  ready=($(python3 $V/tierB/conductor_scripts/guided_paint.py $CFG ready))   # BV2F
   [ ${#ready} -eq 0 ] && { echo "$(date -u +%FT%TZ) $P DRIVE DONE (nothing ready)" >> $LOG; break; }   # BV2F
   specs=()
   for k in $ready; do
     suf=""; [ -n "${tried[$k]}" ] && suf="-r1"
-    SUF=$suf python3 $A/guided_paint.py $CFG stage $k >> $LOG 2>&1   # BV2F
-    SUF=$suf python3 $A/guided_paint.py $CFG brief $k >> $LOG 2>&1   # BV2F
+    SUF=$suf python3 $V/tierB/conductor_scripts/guided_paint.py $CFG stage $k >> $LOG 2>&1   # BV2F
+    SUF=$suf python3 $V/tierB/conductor_scripts/guided_paint.py $CFG brief $k >> $LOG 2>&1   # BV2F
     if ! python3 $A/refs_guard.py briefs/C-9/$P-$k$suf.task.json >> $LOG 2>&1; then   # BV2F
       echo "$(date -u +%FT%TZ) HALT H-guard on $P-$k$suf" >> $LOG; exit 3; fi   # BV2F
     specs+=("$P-$k$suf:GENERATE")   # BV2F

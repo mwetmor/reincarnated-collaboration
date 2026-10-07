@@ -20,3 +20,17 @@ godot_run: [godot_run] HALT: ../../../../barrow_full/godot/tools/capture_ids.gd 
 godot_run: outside-path exit=10
 godot_run: [godot_run] HALT: tierB/barrow_full/godot/tools/nonexistent.gd sha  != SHA256SUMS 
 godot_run: unlisted exit=10
+RED (Phase 2' recheck): driver names the original wave.sh
+[v1tools] FAIL: shipped sha ./tierB/conductor_scripts/t10bf_drive.sh: 27f732c807d5 != 22dbdd69169e
+[v1tools] FAIL: patch(v1) != shipped: ./tierB/conductor_scripts/t10bf_drive.sh
+24:  zsh /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/conductor_scripts/wave.sh $wl ${specs[@]}  
+[v1tools] FAIL: driver names a v1-original tool path
+[v1tools] FAIL: driver call outside v1tools: zsh /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/conductor_scripts/wave.sh
+exit=1
+RED (Phase 2' recheck): driver calls $C/guided_paint.py
+[v1tools] FAIL: shipped sha ./tierB/conductor_scripts/t10bf_drive.sh: 72c6b2cbf879 != 22dbdd69169e
+[v1tools] FAIL: patch(v1) != shipped: ./tierB/conductor_scripts/t10bf_drive.sh
+12:  ready=($(python3 $C/guided_paint.py $CFG ready))  
+[v1tools] FAIL: driver references $C/ (v1 conductor_scripts)
+[v1tools] FAIL: driver call outside v1tools: python3 $C/guided_paint.py
+exit=1

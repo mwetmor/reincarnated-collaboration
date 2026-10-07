@@ -52,8 +52,9 @@ present=$(cd "$V" && find ./tierA ./tierB -type f | sort)
 # 6
 DRV="$V/tierB/conductor_scripts/t10bf_drive.sh"
 code=$(grep -v '^[[:space:]]*#' "$DRV" | sed 's/[[:space:]]#.*$//')
+code_nov=$(echo "$code" | sed -E 's#\$(V|A)/[^[:space:]]*#<v1tools>#g')   # frozen-copy paths are allowed; look for originals in the rest
 echo "$code" | grep -nE '\$C/|\$\{C\}/' && bad "driver references \$C/ (v1 conductor_scripts)"
-echo "$code" | grep -nE '(runs/C-9/conductor_scripts|conductor_scripts/[a-z_]+\.(py|sh)|barrow_full/(godot/)?tools/)' && bad "driver names a v1-original tool path"
+echo "$code_nov" | grep -nE '(runs/C-9/conductor_scripts|conductor_scripts/[a-z_]+\.(py|sh)|barrow_full/(godot/)?tools/)' && bad "driver names a v1-original tool path"
 calls=$(echo "$code" | grep -oE '(python3|zsh|bash)[[:space:]]+[^[:space:]-][^[:space:]]*' | grep -E '/' )
 while read -r c; do
   [ -z "$c" ] && continue

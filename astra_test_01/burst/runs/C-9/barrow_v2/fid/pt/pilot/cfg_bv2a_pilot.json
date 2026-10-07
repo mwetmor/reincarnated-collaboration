@@ -1,0 +1,212 @@
+{
+ "prefix": "BV2A",
+ "name": "barrow_v2 (art-first, sketch A), PILOT window cols 0-2 x rows 0-2: paint-over of the art blockout (BV2F Phase 2')",
+ "guide": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/guide_art_pinned.png",
+ "cols": 3,
+ "rows": 3,
+ "experiment": "BV2F-pilot-paintover",
+ "_status": "DRAFT (lane PT) -- geo awaits conductor review; NO burst until the conductor releases (R-C9-189). Driver: bash fid/v1tools/tierB/conductor_scripts/t10bf_drive.sh <this cfg>",
+ "_guide_sha256": "1883a1bb1e2e38070d28f81a0fdec1ed0b28b6da289a130d888c8c1eda670562",
+ "_guide_frame": "6656 x 4096 px = u -33.58..32.58 m, v -28.63..22.37 m at the play camera (orthographic, pitch 52.95354112560294, yaw 47): 100.6176 px per metre across, 80.3076 per ground metre up-screen. PILOT = the 3 x 3 canvases at the grid origin (px 0..4096 x 0..2560 of the 5 x 5 grid); cols/rows = 3 so the wavefront stops at the pilot edge",
+ "_pins": "fid/pt/pilot/pins.json (guide + 9 tiles); check: python3 fid/pt/tools/pilot_pins_check.py",
+ "_rules_source": "v1 rules + fid/v1tools/DEV12_substitutions.json (R-C9-189); cfg_check.py enforces",
+ "_refs_source": "v1 refs verbatim (IMAGE 2 = the approved Frost King's Barrow concept); no DEV-3/11 plates",
+ "geo": "IMAGE 1 is not a flat-colour layout: it is a GREYBOX RENDER of a real 3D game level, seen from the game's fixed high three-quarter ORTHOGRAPHIC camera (53 degrees down), at true scale -- the small painted barbarian among the standing stones is 1.85 m tall. Every grey or coloured form is a real object that will be modelled at exactly this position and size. LIGHT WARM GREY ground = deep, smooth snow; the NARROW DARKER BROWN-GREY BAND = a trodden path through the snow, running up through the stones to the barrow door; PALE BLUE-GREY = the frozen mere, flat lapis-blue ice with pale cracks; the BRIGHT BLUE ribbon = a small frozen stream running down off the barrow's flank into the mere; the BROAD PALE TAN BAND along the water = a grey shingle beach under thin snow, with a thin line of drifted snow along it; the VERY PALE BLUE-WHITE ground = thick shore ice, its broken front (the pale striped edge) dropping to the sea; DARK SLATE-BLUE = the open winter sea, and the PALE FLAT DISCS on it = floating ice floes; MUTED GREEN-BROWN PATCHES = low dark juniper scrub and rust-brown winter heather poking through the snow; the SMALL GREY UPRIGHT SLABS around the path = a broken ring of carved standing stones (spiral and knotwork carvings on the faces turned toward the viewer), two of them FALLEN and lying in the snow, with a few lone standing stones further up the slope; the LARGE PALE DOME at the top = the barrow mound, earth and dead grass under thin snow; set into its front, a grey carved stone facade with a monumental lintel and posts around a DARK doorway -- the barrow's one great door; the BROWN WOODEN HULL heeled over at the left = an old longship wreck frozen into the shore ice, its broken ribs and timbers strewn across the shingle; the GREY CRAGGY MASSES = weathered granite crags and boulders with snow on their ledges; along the bottom, the GREY LAYERED WALL = sheer sea cliffs of layered granite under a snowy cliff top, with a DARK opening in the cliff foot = a sea cave, and a straight flight of rock-cut STEPS climbing the cliff face beside it from a flat natural rock shelf above the water; at the right, the large BROWN TIMBER building = a half-burned longhall of weathered grey-brown timber with one great DARK door; the BLACK-BROWN tangle beside it = the charred, collapsed gable of a burned building; the FLAT DARKER GREY ground around them = a yard of trampled ash and soot; the rows of thin BROWN POSTS = a broken wooden palisade; the long brown cylinders = fallen logs.",
+ "rules": "Paint OVER the render: every object keeps EXACTLY its silhouette, position and size (the 3D models are placed from this same layout, so anything moved will not match); shadows stay where the render puts them (one winter sun from the upper LEFT, 55 degrees up, short soft blue-violet shadows touching their objects). Paint the barbarian OUT -- he is there only for scale; leave open snow where he stands. Keep the stone ring's centre, the path, the barrow door's approach and the mere OPEN: no new rocks, trees or drifts on them. Small scatter is welcome only inside the scrub patches and at the foot of rocks and stones. One thin warm dark-brown ink line on every contour, the SAME weight everywhere. Palette and hand of IMAGE 2 (the approved Frost King's Barrow concept): cold blue-white snow, warm grey granite, rust heather, dark juniper, lapis ice, dark slate-blue sea with pale floes, grey shingle, weathered grey-brown timber, soot-black charred timber and ash; watercolour washes with pen detail. No sky, no horizon, no text, UI, border or characters.",
+ "refs": [
+  [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10C-barrow/T10C-barrow_a.png",
+   "the APPROVED Frost King's Barrow concept (Matt's pick): palette, light, snow, stone carving and painted hand ONLY -- NOT its layout"
+  ]
+ ],
+ "chunks": [
+  {
+   "key": "0_0",
+   "px": [
+    0,
+    0,
+    1536,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   }
+  },
+  {
+   "key": "1_0",
+   "px": [
+    1280,
+    0,
+    2816,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   }
+  },
+  {
+   "key": "2_0",
+   "px": [
+    2560,
+    0,
+    4096,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   }
+  },
+  {
+   "key": "0_1",
+   "px": [
+    0,
+    768,
+    1536,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   }
+  },
+  {
+   "key": "1_1",
+   "px": [
+    1280,
+    768,
+    2816,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   }
+  },
+  {
+   "key": "2_1",
+   "px": [
+    2560,
+    768,
+    4096,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   }
+  },
+  {
+   "key": "0_2",
+   "px": [
+    0,
+    1536,
+    1536,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   }
+  },
+  {
+   "key": "1_2",
+   "px": [
+    1280,
+    1536,
+    2816,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   }
+  },
+  {
+   "key": "2_2",
+   "px": [
+    2560,
+    1536,
+    4096,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   }
+  }
+ ],
+ "chunk_notes": {
+  "0_0": "THIS PANEL (0_0), from the render's own object map: the frozen mere (bottom right); thick shore ice (middle left); the shingle beach (centre); juniper and heather patches (top right); open snow (top right); 1 granite crag (bottom left). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "1_0": "THIS PANEL (1_0), from the render's own object map: the frozen mere (bottom centre); open snow (centre); juniper and heather patches (top centre); the frozen stream (middle right); the snowy flank of the barrow mound (top right); 1 lone standing stone (top centre). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "2_0": "THIS PANEL (2_0), from the render's own object map: open snow (bottom centre); the snowy flank of the barrow mound (top centre); the barrow's carved stone facade with its lintel and posts (top centre); juniper and heather patches (bottom centre); the frozen stream (top left); the trodden path (bottom centre); the frozen mere (bottom left); 2 lone standing stones (centre). Its ONLY dark opening is the barrow's great door (DARK doorway) (centre); paint no other door, cave, hole or passage. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "0_1": "THIS PANEL (0_1), from the render's own object map: thick shore ice (middle left); the shingle beach (middle right); the frozen mere (top right); the longship wreck (bottom centre); open snow (middle right); 1 granite crag (top left). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "1_1": "THIS PANEL (1_1), from the render's own object map: the frozen mere (top centre); open snow (bottom right); the shingle beach (bottom left); juniper and heather patches (middle right); 1 lone standing stone (middle left); the longship wreck (bottom left). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "2_1": "THIS PANEL (2_1), from the render's own object map: open snow (centre); juniper and heather patches (centre); the trodden path (centre); the frozen mere (top left); 4 carved standing stones of the broken ring, upright or fallen (bottom centre). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "0_2": "THIS PANEL (0_2), from the render's own object map: thick shore ice (top centre); the open dark sea (bottom left); the shingle beach (middle right); the longship wreck (top centre); open snow (bottom right); bare grey rock (centre); 2 ice floes (bottom left); 1 granite crag (middle right); the layered granite sea cliff (bottom centre); 1 fallen log (top right). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "1_2": "THIS PANEL (1_2), from the render's own object map: open snow (centre); the shingle beach (top left); juniper and heather patches (centre); 1 granite crag (middle left); bare grey rock (bottom centre); the longship wreck (middle left); 1 fallen log (top left). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff.",
+  "2_2": "THIS PANEL (2_2), from the render's own object map: open snow (centre); the trodden path (centre); juniper and heather patches (centre); 7 carved standing stones of the broken ring, upright or fallen (top centre). It has NO dark opening: paint no door, cave, hole or passage anywhere in it. Nothing else stands here: no other building, ship, standing stone, crag or cliff."
+ },
+ "_chunk_notes_source": "fid/pt/pilot/chunk_notes.json (DEV-10, generated by fid/pt/tools/chunk_notes.py from ids_art.png sha aeaecf49ce26)",
+ "run_tag": "Run C-9 Phase 2', BV2F pilot (barrow_v2 art site)",
+ "ruling": "Matt R-C9-185 and R-C9-188",
+ "fill_phrase": "paint over the greybox render, turning every grey form into what it stands for, in place",
+ "retry_extra": "the small barbarian is still there, an object has moved off its greybox silhouette, ",
+ "unpainted_phrase": "greybox areas remain unpainted"
+}
