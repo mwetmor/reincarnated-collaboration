@@ -1,0 +1,73 @@
+{
+ "G-10": {
+  "cut_commit_name_status": [
+   "A\tsrc/reincarnated/export/kc2_rulebook_pack_v0.py",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/manifest.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/rulebook/families.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/rulebook/hooks.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/rulebook/kit_warlord.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/rulebook/laws.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/rulebook/meta.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-20261007_182352/rulebook/world_gd.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v0-cut-receipt-20261007_182352.json"
+  ],
+  "ok": true,
+  "telemetry_paths": [],
+  "v311_or_js8_paths": []
+ },
+ "G-8": {
+  "head_end": "c5b72bbf6dd732ecd39e6ed4fb421e84c8fc0e57",
+  "head_start": "c5b72bbf6dd732ecd39e6ed4fb421e84c8fc0e57",
+  "instrument": "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py",
+  "instrument_FILE_sha256": "3917a323569ccb20db978fb335c8d438b5c6f5a8e220f3ee75071ffe6bf955ae",
+  "mechanism_note": "nothing reached the pack; this does not show that something tried and was stopped -- that is load_operands refusing any config but JOIN (cut gate G-3 + NC-S1-d)",
+  "ok": true,
+  "oracle_children_opened_file_scan": {
+   "head": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 631,
+    "pack_path_hits": []
+   },
+   "sealed": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 720,
+    "pack_path_hits": []
+   }
+  },
+  "s47v4_evidence_FILE_sha256": "71eef1828e2a64680e7d45ca6fd6ad872879074f5f3e90c60354e8530aff3d57",
+  "verdict": "ORACLE BYTE-IDENTICAL",
+  "verdict_reason": "HEAD fixed; A and B and B' pass"
+ },
+ "artifact": "JOIN-1 J2-S1 gate evidence after the cut commit (G-8, G-10) + the four instrument controls (NON-GRADED)",
+ "author": "star-lord",
+ "controls": {
+  "NC-S1-a": {
+   "as_predicted": true,
+   "observed": "HALT (RulebookPackHalt gate failed); n_pointer_failures 1: IC7-K-0535 VALUE, row pth_minimum; no pack dir written",
+   "perturbation": "KC2_RB_CONTROL=pointer-misaim",
+   "predicted": "HALT; 1 pointer failure, row pth_minimum"
+  },
+  "NC-S1-b": {
+   "as_predicted": true,
+   "observed": "HALT; n_pointer_failures 2: IC7-K-V311-0066 and IC7-Q-0387, row normal_pth_divisor; SUPPORTS passed; no pack dir written",
+   "perturbation": "KC2_RB_CONTROL=value-ulp",
+   "predicted": "HALT; 2 pointer failures (IC7-K-V311-0066, IC7-Q-0387)"
+  },
+  "NC-S1-c": {
+   "as_predicted": true,
+   "observed": "verify rc 1, member_failures ['rulebook/kit_warlord.json'], self_consistent false; load_operands(JOIN) refused; clean copy verify rc 0",
+   "perturbation": "copy of the dry pack, one byte of kit_warlord.json changed",
+   "predicted": "verify exit 1, member_failures ['rulebook/kit_warlord.json']; load_operands(JOIN) refuses"
+  },
+  "NC-S1-d": {
+   "as_predicted": true,
+   "observed": "RulebookPackRefused; the clean JOIN load returns 31 operands",
+   "perturbation": "load_operands(config=\"PLAY\") on the clean dry pack",
+   "predicted": "refused"
+  }
+ },
+ "engine_cut_commit": "c5b72bbf6dd732ecd39e6ed4fb421e84c8fc0e57",
+ "engine_prereg_commit": "22eba53a"
+}
