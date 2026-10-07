@@ -64,12 +64,13 @@ def build_spec(L):
     n = (d[1], -d[0])
     fr = lambda t, s_: (o[0] + d[0] * t + n[0] * s_, o[1] + d[1] * t + n[1] * s_)
     W = F["width_m"]
+    S0 = F.get("stair_s0", -W)
     t_foot, t_top, t_land = F["t_foot"], F["t_top"], F["t_landing_end"]
     ct, cf = sp["cave_t"], sp["cave_front_s"]
     shelf_s = (cf + sp["shelf_out_s"]) / 2
-    wp = [("cave", fr(ct, cf - 3.0)), ("cave", fr(ct, cf)), ("shelf", fr(ct, shelf_s)), ("shelf", fr(sp["bottom_landing_t"] - 0.5, shelf_s - 1.5)),
-          ("shelf", fr((sp["bottom_landing_t"] + t_foot) / 2, -W / 2)), ("stair", fr(t_top, -W / 2)), ("landing", fr((t_top + t_land) / 2, -W / 2)),
-          ("landing", fr((t_top + t_land) / 2, -W - 0.3)), ("clifftop", fr((t_top + t_land) / 2, -W - 3.0))]
+    wp = [("cave", fr(ct, cf - 3.0)), ("cave", fr(ct, cf)), ("shelf", fr(ct, shelf_s)), ("shelf", fr(t_foot - 1.5, S0 + W / 2)),
+          ("stair", fr(t_top, S0 + W / 2)), ("landing", fr((t_top + t_land) / 2, S0 + W / 2)),
+          ("landing", fr((t_top + t_land) / 2, -0.3)), ("clifftop", fr((t_top + t_land) / 2, -3.0))]
     samples = []
     for (_, a), (_, b) in zip(wp[:-1], wp[1:]):
         k = max(1, int(round(math.dist(a, b) / DS)))
@@ -86,9 +87,9 @@ def build_spec(L):
 
     def where(p):
         t, s_ = tsf(p)
-        if -W <= s_ <= 0.0 and t_foot - sp["tread"] <= t <= t_top:
+        if S0 <= s_ <= S0 + W and t_foot - sp["tread"] <= t <= t_top + 0.05:
             return "stair"
-        if -W - 0.4 <= s_ <= 0.2 and t_top < t <= t_land:
+        if -0.7 <= s_ <= S0 + W and t_top < t <= t_land:
             return "landing"
         if abs(t - ct) <= sp["mouth_w"] / 2 + 0.5 and cf - 6.0 <= s_ <= cf:
             return "cave"
@@ -110,23 +111,23 @@ def build_spec(L):
     t = t_foot + 0.25
     j = 0
     while t <= t_top - 0.2:
-        add_section("stair_%02d" % j, "stair", fr(t, -W / 2), -W - 1.0, 1.0, nvec, fr(t, 0.0))
+        add_section("stair_%02d" % j, "stair", fr(t, S0 + W / 2), S0 - 1.0, S0 + W + 1.0, nvec, fr(t, 0.0))
         t += 0.5
         j += 1
     t = ct + sp["mouth_w"] / 2 + 0.5
     j = 0
-    while t <= sp["bottom_landing_t"] - 0.3:
+    while t <= t_foot - 0.6:
         add_section("shelf_%02d" % j, "shelf", fr(t, shelf_s), -1.0, sp["shelf_out_s"] + 1.5, nvec, fr(t, 0.0))
         t += 0.5
         j += 1
     add_section("cave_mouth", "cave", fr(ct, cf - 1.0), -sp["mouth_w"] / 2 - 3.0, sp["mouth_w"] / 2 + 3.0, dvec, fr(ct, cf - 1.0))
     pa = fr(ct, cf)
-    pb = fr(t_land, -W / 2)
+    pb = fr(t_land, S0 + W / 2)
     xs = [q[0] for q in samples[:n_centre]]
     ys = [q[1] for q in samples[:n_centre]]
     w_m, h_m = max(xs) - min(xs) + 8.0, max(ys) - min(ys) + 8.0
     spec = {"samples": samples, "sections": sections, "waypoints": [list(q) for _, q in wp], "waypoint_radius_m": 0.5, "drive_timeout_s": 90.0,
-            "stills": {"play_aim": [round((pa[0] + pb[0]) / 2, 3), round((pa[1] + pb[1]) / 2, 3), -1.0], "him_uv": list(fr((t_foot + t_top) / 2, -W / 2)),
+            "stills": {"play_aim": [round((pa[0] + pb[0]) / 2, 3), round((pa[1] + pb[1]) / 2, 3), -1.0], "him_uv": list(fr((t_foot + t_top) / 2, S0 + W / 2)),
                        "topdown": [round((max(xs) + min(xs)) / 2, 3), round((max(ys) + min(ys)) / 2, 3), round(max(h_m, w_m * 1400 / 2000), 2), 2000, 1400]}}
     meta = {"n_centre": n_centre, "seg_of": seg_of, "waypoint_names": [nm for nm, _ in wp]}
     return spec, meta

@@ -550,6 +550,7 @@ func _build_placements() -> void:
 	_cur_collider = ""
 	_build_stair()
 	_build_slabs()
+	_build_ribbons()
 	_build_blobs()
 	_build_curtains()
 	_build_probes()
@@ -640,8 +641,8 @@ func _build_curtains() -> void:
 		var t := deg_to_rad(float(o["faces_deg"]))
 		var face := Vector2(sin(t), -cos(t))
 		var c := Vector2(float(o["centre_sim"][0]), float(o["centre_sim"][1])) - face * float(o["curtain_inset_m"])
-		var w := float(o["w"])
-		var h := float(o["h"])
+		var w := float(o.get("curtain_w", o["w"]))
+		var h := float(o.get("curtain_h", o["h"]))
 		var root := Node3D.new()
 		root.name = "curtain_" + String(o["id"])
 		var mi := MeshInstance3D.new()
@@ -909,12 +910,15 @@ func _build_bounds() -> void:
 		_box_rot(body, (p + q) * 0.5, d.length() + 0.3, 0.3, z0, z1, atan2(d.y, d.x))
 		total += d.length()
 	var nin := 0
-	for w in bd.get("inner_walls_uv", []):
+	var zl: Array = bd.get("inner_walls_z_m", [])
+	for wi in (bd.get("inner_walls_uv", []) as Array).size():
+		var w: Array = bd["inner_walls_uv"][wi]
+		var zw: Array = zl[wi] if wi < zl.size() else bd["inner_wall_z_m"]
 		for i in (w as Array).size() - 1:
 			var p := Vector2(float(w[i][0]), float(w[i][1]))
 			var q := Vector2(float(w[i + 1][0]), float(w[i + 1][1]))
 			var d := q - p
-			_box_rot(body, (p + q) * 0.5, d.length() + 0.3, 0.3, float(bd["inner_wall_z_m"][0]), float(bd["inner_wall_z_m"][1]), atan2(d.y, d.x))
+			_box_rot(body, (p + q) * 0.5, d.length() + 0.3, 0.3, float(zw[0]), float(zw[1]), atan2(d.y, d.x))
 			nin += 1
 	report["bounds"] = {"edges": poly.size(), "perimeter_m": snappedf(total, 0.01), "inner_walls": nin, "wall_z_m": [z0, z1]}
 
@@ -1019,3 +1023,54 @@ func _gn(Z: PackedFloat32Array, W: int, Hn: int, i: int, j: int, step: float) ->
 	var dzx := (Z[j * (W + 1) + i1] - Z[j * (W + 1) + i0]) / (float(i1 - i0) * step)
 	var dzy := (Z[j1 * (W + 1) + i] - Z[j0 * (W + 1) + i]) / (float(j1 - j0) * step)
 	return Vector3(-dzx, 1.0, -dzy).normalized()
+
+
+func _build_ribbons() -> void:
+	## R-C9-208 (5): a continuous rock WALL along a chain (the cliff skirt behind the kit, the flight's sea-side face): one band
+	## of quads whose top follows the chain's own heights -- no per-segment prisms, so no vertical seams (no "slats")
+	var rep := {}
+	for gid in (sim.get("ribbons", {}) as Dictionary).keys():
+		var g: Dictionary = sim["ribbons"][gid]
+		var cls := String(g["class"])
+		var V := PackedVector3Array()
+		var N := PackedVector3Array()
+		for rb in g["items"]:
+			var pts: Array = rb["pts"]
+			var z0 := float(rb["z0"])
+			var th := float(rb["thick"])
+			var n := pts.size()
+			var outer := []
+			var inner := []
+			for i in n:
+				var a := Vector2(float(pts[maxi(i - 1, 0)][0]), float(pts[maxi(i - 1, 0)][1]))
+				var b := Vector2(float(pts[mini(i + 1, n - 1)][0]), float(pts[mini(i + 1, n - 1)][1]))
+				var d := (b - a).normalized()
+				var nr := Vector2(-d.y, d.x) * float(rb.get("side", 1.0))
+				var p := Vector2(float(pts[i][0]), float(pts[i][1]))
+				outer.append(p + nr * th * 0.5)
+				inner.append(p - nr * th * 0.5)
+			for i in n - 1:
+				var za := float(pts[i][2])
+				var zb := float(pts[i + 1][2])
+				var o0: Vector2 = outer[i]
+				var o1: Vector2 = outer[i + 1]
+				var i0: Vector2 = inner[i]
+				var i1: Vector2 = inner[i + 1]
+				var nf := Vector3(o0.x - i0.x, 0.0, o0.y - i0.y).normalized()
+				_tri(V, N, _S(o0.x, z0, o0.y), _S(o1.x, z0, o1.y), _S(o1.x, zb, o1.y), nf)
+				_tri(V, N, _S(o0.x, z0, o0.y), _S(o1.x, zb, o1.y), _S(o0.x, za, o0.y), nf)
+				_tri(V, N, _S(i0.x, z0, i0.y), _S(i1.x, zb, i1.y), _S(i1.x, z0, i1.y), -nf)
+				_tri(V, N, _S(i0.x, z0, i0.y), _S(i0.x, za, i0.y), _S(i1.x, zb, i1.y), -nf)
+				_tri(V, N, _S(o0.x, za, o0.y), _S(o1.x, zb, o1.y), _S(i1.x, zb, i1.y), Vector3.UP)
+				_tri(V, N, _S(o0.x, za, o0.y), _S(i1.x, zb, i1.y), _S(i0.x, za, i0.y), Vector3.UP)
+		var root := Node3D.new()
+		root.name = String(gid)
+		var p2 := _flat_params()
+		p2["_two_sided"] = true
+		if V.size() > 0:
+			_mesh(V, N, PaintStack.world_material(fbm, _tint_of(cls), p2), "mesh", root)
+		level.add_child(root)
+		_dress(root, cls)
+		_register(String(gid), root, cls, "ribbon")
+		rep[gid] = (g["items"] as Array).size()
+	report["ribbons"] = rep

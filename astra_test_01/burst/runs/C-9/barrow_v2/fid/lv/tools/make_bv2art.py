@@ -129,9 +129,10 @@ SHRUB = [((470, 330), 70), ((380, 250), 60), ((640, 300), 50), ((600, 455), 45),
 PALISADE = [[(1040, 375), (1110, 340), (1165, 312)], [(1330, 238), (1430, 262), (1530, 300)], [(1150, 560), (1200, 625), (1265, 690), (1420, 702)]]
 LOGS = [((1370, 262), (1445, 302)), ((1250, 565), (1330, 622)), ((1300, 625), (1385, 660)), ((1335, 440), (1395, 475))]
 # THE ROUTE (R-C9-188/189/206), in the straight-face frame: t along A -> B, s SEAWARD (negative = into the land)
-ROUTE = {"crest": 2.5, "shelf_z": SEA_Z + 1.0, "stair_w": 5.5, "risers": 34, "tread": 0.26, "rise_jitter": 0.12,
+ROUTE = {"crest": 2.5, "shelf_z": SEA_Z + 1.0, "stair_w": 5.5, "risers": 24, "tread": 0.38, "rise_jitter": 0.12,
          "cave_t": 3.5, "cave_front_s": 0.3, "mouth_w": 6.0, "mouth_h": 7.0,
          "shelf_t": (-3.2, 12.0), "shelf_out_s": 7.6, "shelf_in_s": 0.3, "foot_t": 12.0, "bottom_landing_t": 10.0, "landing_len": 2.0,
+         "stair_s0": 0.45, "head_z": 5.6, "head_t": (-4.0, 10.0),
          "bounds_out_m": 0.2}
 # THE CLIFF KIT (Phase 1'' sheets -> Tripo -> uniform scale). Until a piece exists the nearest Phase 1' build stands in.
 KIT2 = {"cliffcol": "data/bv2f/models/cliffcol.glb", "cliffcape": "data/bv2f/models/cliffcape.glb",
@@ -226,7 +227,7 @@ def main():
     # the clifftop rises to the crest over the last 17 m (flat within 7 m of the lip)
     rampf = np.clip(1.0 - np.maximum(0.0, d_lip - 7.0) / 10.0, 0.0, 1.0)
     rampf = rampf * rampf * (3 - 2 * rampf)
-    Z = np.where(land, Hc * rampf * (d_lip < d_shore + 6.0), Z)
+    Z = np.where(land, Hc * rampf * np.clip((d_shore + 6.0 - d_lip) / 5.0, 0.0, 1.0), Z)       # eased toward the W beach (no step)
     # W: the shingle beach 0 -> ICE_TOP over BEACH_W (a smooth slope), then the sea floor
     BW = BEACH_W - 4.0 * np.clip((V - 6.0) / 8.0, 0, 1)          # 10 m at the wreck, narrowing to 6 m north of it (sketch A: the ice comes in by the mere)
     bt = np.clip(d_shore / BW, 0, 1)
@@ -250,7 +251,7 @@ def main():
     # THE MERE: an organic outline, its bed (dark water) under the plates
     mere = K.blob(MERE_SHAPE["centre_uv"], MERE_SHAPE["radii"], prng, n=64, amp=0.16)
     mere_m = mask(mere, U, V, HF_PPM, u0, v1)
-    Z = np.where(mere_m, MERE_SHAPE["bed_z"], Z)
+    Z = np.where(mere_m, MERE_SHAPE["plate_top"], Z)       # R-C9-208 (4): one continuous ice surface (cracks and seams are drawn on it)
     # THE STREAM: a shallow channel with snowy banks, barrow -> mere
     stream = K.resample(STREAM_UV, 0.5)
     d_st = dist_to_chain(stream, U, V)
@@ -267,10 +268,18 @@ def main():
     # THE ROUTE: the shelf (natural sea-worn rock, irregular outer edge), the cave floor, the stair's notch + bed, the landing
     Tq = (U - LIP_A[0]) * dR[0] + (V - LIP_A[1]) * dR[1]
     Sq = (U - LIP_A[0]) * nR[0] + (V - LIP_A[1]) * nR[1]
+    # R-C9-208 (2): the cliff rises into a ROCK HEADLAND round the cave (sketch A's cave sits in a high face): the clifftop at
+    # head_z over the cave's stretch, easing back to the crest over 5 m along the face and 8 m inland
+    h0, h1 = R["head_t"]
+    wt = np.clip(1.0 - np.maximum(0.0, np.maximum(h0 - Tq, Tq - h1)) / 7.0, 0.0, 1.0)
+    ws = np.clip(1.0 - np.maximum(0.0, -Sq - 9.0) / 11.0, 0.0, 1.0)
+    wh = wt * ws * np.clip((d_shore - 3.0) / 8.0, 0.0, 1.0)              # never up against the W beach
+    wh = wh * wh * (3 - 2 * wh)
+    Z = np.where(land & (Sq <= 0.0) & (wh > 0.0), np.maximum(Z, R["head_z"] * wh), Z)
     t0_s, t1_s = R["shelf_t"]
     edge = [fr(t, R["shelf_out_s"] + 0.45 * math.sin(t * 1.3 + 0.5) + 0.25 * math.sin(t * 3.1)) for t in np.arange(t0_s, t1_s + 0.01, 0.5)]
-    shelf = [fr(t0_s, R["shelf_in_s"])] + edge + [fr(t1_s, R["shelf_in_s"]), fr(t_foot + 0.5, R["shelf_in_s"]), fr(t_foot + 0.5, -W_), fr(R["bottom_landing_t"], -W_),
-                                                 fr(R["bottom_landing_t"], R["shelf_in_s"])]     # the bottom landing overlaps the strip (no seam of uncut cells)
+    S0 = R["stair_s0"]
+    shelf = [fr(t0_s, R["shelf_in_s"])] + edge + [fr(t1_s + 0.3, R["shelf_out_s"] - 1.0), fr(t1_s + 0.3, S0)]     # the stair's foot stands on its east end
     shelf = K.ccw(shelf)
     shelf_m = mask(shelf, U, V, HF_PPM, u0, v1)
     Z = np.where(shelf_m, R["shelf_z"], Z)
@@ -280,22 +289,21 @@ def main():
     cbx, cby, cbz = ab(g_cave0)
     cmeta = json.load(open(os.path.join(LV, "kit2", "cave_mouth.json"))) if os.path.exists(os.path.join(LV, "kit2", "cave_mouth.json")) else None
     csc = R["mouth_h"] / (cmeta["mouth_h_frac"] * cby) if (cmeta and g_cave0 == KIT2["cavearch"]) else (R["crest"] + 2.0 - R["shelf_z"]) / cby
-    cw_, cd_ = cbx * csc / 2 - 0.3, cbz * csc - 0.4
+    cw_, cd_ = R["mouth_w"] / 2 + 0.7, min(cbz * csc - 0.4, 5.6)        # the mouth's own passage, not the whole piece
     cave_floor = [fr(R["cave_t"] - cw_, R["cave_front_s"] - cd_), fr(R["cave_t"] + cw_, R["cave_front_s"] - cd_), fr(R["cave_t"] + cw_, R["cave_front_s"] + 0.1),
                   fr(R["cave_t"] - cw_, R["cave_front_s"] + 0.1)]
     Z = np.where(mask(cave_floor, U, V, HF_PPM, u0, v1), R["shelf_z"], Z)
 
     def nosing_z(t):
         return R["shelf_z"] + (t - (t_foot - R["tread"])) * rise / R["tread"]
-    in_w = (Sq >= -W_) & (Sq <= 0.0)
+    # R-C9-208 (1): the flight climbs ACROSS the face, built out against it (sketch A): the strip s in [S0, S0 + W] seaward of
+    # the lip, the cliff wall behind it, open to the sea in front
+    in_w = (Sq >= S0) & (Sq <= S0 + W_)
     bed = np.maximum(R["shelf_z"], nosing_z(Tq) - rise - 0.05)
-    behind = (Sq >= -W_ - 1.2) & (Sq < -W_) & (Tq >= R["bottom_landing_t"]) & (Tq <= t_top - 0.5)   # the cut wall 1.2 m back, inside the notch columns
-    Z = np.where(behind, np.minimum(Z, np.maximum(R["shelf_z"], nosing_z(Tq) - 0.3)), Z)
     Z = np.where(in_w & (Tq >= t_foot) & (Tq <= t_top), bed, Z)
-    Z = np.where(in_w & (Tq > t_top) & (Tq <= t_land), R["crest"] - 0.05, Z)             # the landing's bed: its walk surface is a plate
-    # the stair's SEA SIDE stays open: the cliff face below it drops at once (no rock wall left standing above the treads)
-    sea_side = (Sq > 0.0) & (Sq < 1.6) & (Tq >= t_foot - 0.5) & (Tq <= t_land)
-    Z = np.where(sea_side, np.minimum(Z, np.minimum(bed, R["crest"]) - 0.4 - 3.0 * np.clip(Sq / 1.6, 0, 1)), Z)
+    Z = np.where((Sq >= -0.7) & (Sq <= S0 + W_) & (Tq > t_top) & (Tq <= t_land), R["crest"] - 0.05, Z)    # the landing's bed (its walk surface is a plate)
+    sea_side = (Sq > S0 + W_) & (Sq < S0 + W_ + 1.6) & (Tq >= t_foot - 0.5) & (Tq <= t_land)
+    Z = np.where(sea_side, np.minimum(Z, SEA_FLOOR), Z)        # a sheer drop (hidden): the flight's own rock side ribbon is the face
     # ---------------- the SEA ICE (R-C9-204 (4)): shore-fast ice, large plates, floes of every size ----------------
     solid = land | beach | shelf_m
     D = ndimage.distance_transform_edt(~solid) / HF_PPM
@@ -320,52 +328,122 @@ def main():
             return "plate"
         return "floe"
     box = (-40.0, -34.0, 38.0, 30.0)                      # the sea within (and around) the window: W and S of the coast
-    seeds, sz = [], []
-    for zn, sp in (("fast", 5.6), ("plate", 3.4), ("floe", 2.0)):
+    # R-C9-208 (3): SKETCH A'S BROKEN PACK -- plates of every size (fine Voronoi cells merged by a WEIGHTED coarse partition, so
+    # one plate is three cells and the next forty), varied freeboard, snow-heaped rims, pressure ridges of rubble blocks,
+    # brash in the leads, irregular dark leads of varied width; dense at the shore-fast edge, looser offshore
+    from scipy.spatial import cKDTree as _KD
+    fine = K.jitter_seeds(box, 0.9, prng, lambda p: True)
+    coarse, cz, cw = [], [], []
+    for zn, sp, wl, wh in (("fast", 6.5, 0.8, 1.5), ("plate", 3.6, 0.55, 1.6), ("floe", 2.2, 0.5, 1.5)):
         got = K.jitter_seeds(box, sp, prng, lambda p, zn=zn: zone(p) == zn)
-        seeds += got
-        sz += [zn] * len(got)
-    solid_seeds = K.jitter_seeds(box, 2.5, prng, lambda p: zone(p) is None)      # the land holds its own cells: no ice cell reaches over it
-    cells = K.voronoi_cells(seeds + solid_seeds, box)[:len(seeds)]
-    ice = []
-    fast_raw = []
-    sea_area = 0.0
-    for p, zn, cell in zip(seeds, sz, cells):
-        if len(cell) < 3:
+        coarse += got
+        cz += [zn] * len(got)
+        cw += [prng.uniform(wl, wh) for _ in got]
+    ctree = _KD(np.array(coarse))
+    cw_a = np.array(cw)
+    plate_of = []
+    for p in fine:
+        if zone(p) is None:
+            plate_of.append(-1)
             continue
-        sea_area += K.area(cell)
+        dd, ii = ctree.query(p, k=8)
+        plate_of.append(int(ii[int(np.argmin(dd / cw_a[ii]))]))
+    plates = K.merged_plates(fine, plate_of, box)
+
+    def lead(p):
+        return min(abs(math.sin(0.19 * p[0] + 1.3 * math.sin(0.11 * p[1] + 0.7))), abs(math.sin(0.13 * p[1] - 0.17 * p[0] + 2.0)) * 1.3)
+    ice, fast_raw, rims, ridges = [], [], [], []
+    for k, raw in plates.items():
+        zn = cz[k]
+        raw = K.ccw(K.simplify(raw, 0.35 if zn != "floe" else 0.22))
+        if len(raw) < 3:
+            continue
+        c = K.centroid(raw)
+        d = D_at(c)
+        ld = lead(c) < 0.12
         if zn == "fast":
-            fast_raw.append(cell)
-            poly = K.roughen(K.shrink(cell, 0.07), prng, 0.08, 1.2)
-            top = ICE_TOP
+            fast_raw.append(raw)
+            g = prng.uniform(0.04, 0.1) + (prng.uniform(0.25, 0.6) if ld else 0.0)
+            top = ICE_TOP + prng.uniform(-0.03, 0.04)
         elif zn == "plate":
-            sh = K.shrink(cell, prng.uniform(0.18, 0.55))
-            if not sh:
-                continue
-            poly = K.roughen(sh, prng, 0.22, 0.9)
-            top = ICE_TOP - prng.uniform(0.0, 0.06)
+            g = prng.uniform(0.12, 0.4) + 0.03 * max(0.0, d - 6.0) + (prng.uniform(0.6, 1.6) if ld else 0.0)
+            top = ICE_TOP + prng.uniform(-0.08, 0.25)
         else:
-            d = D_at(p)
-            if prng.random() < min(0.55, 0.12 + 0.02 * max(0.0, d - 11.0)):
+            if prng.random() < min(0.65, 0.25 + 0.03 * max(0.0, d - 11.0)):
                 continue                                   # open water between the floes, more of it further out
-            poly = K.roughen(K.scale_about(cell, prng.uniform(0.3, 0.86)), prng, 0.12, 0.6)
-            top = ICE_TOP - prng.uniform(0.02, 0.12)
-        if len(poly) < 3 or K.area(poly) < 0.15:
+            g = prng.uniform(0.15, 0.6) * math.sqrt(max(K.area(raw), 0.5)) * 0.35 + (prng.uniform(0.3, 0.9) if ld else 0.0)
+            top = ICE_TOP + prng.uniform(-0.14, 0.12)
+        poly = K.inset(raw, g)
+        if len(poly) < 3:
             continue
-        bob = zn == "floe" and D_at(p) > 15.0 and prng.random() < 0.45
+        poly = K.ccw(K.roughen(poly, prng, 0.1 if zn != "fast" else 0.06, 0.8))
+        if K.area(poly) < 0.12:
+            continue
+        bob = zn == "floe" and d > 15.0 and prng.random() < 0.45
         ice.append({"zone": zn, "poly": [[round(q[0], 3), round(q[1], 3)] for q in poly], "top": round(top, 3), "bob": bob})
+        A = K.area(poly)
+        if zn in ("fast", "plate") and A > 4.0 and prng.random() < 0.45:
+            # a snow-heaped RIM along 30-70 % of the plate's edge (the wind side heaps it)
+            n_ = len(poly)
+            i0 = prng.randrange(n_)
+            run = max(2, int(n_ * prng.uniform(0.15, 0.4)))
+            wdt = prng.uniform(0.15, 0.32)
+            hh = top + prng.uniform(0.05, 0.14)
+            for j in range(i0, i0 + run):
+                e0, e1 = poly[j % n_], poly[(j + 1) % n_]
+                L_ = math.dist(e0, e1)
+                if L_ < 0.05:
+                    continue
+                inn = (-(e1[1] - e0[1]) / L_, (e1[0] - e0[0]) / L_)
+                w0 = wdt * prng.uniform(0.6, 1.0)
+                rims.append({"poly": [[round(e0[0], 3), round(e0[1], 3)], [round(e1[0], 3), round(e1[1], 3)],
+                                      [round(e1[0] + inn[0] * w0, 3), round(e1[1] + inn[1] * w0, 3)], [round(e0[0] + inn[0] * w0, 3), round(e0[1] + inn[1] * w0, 3)]],
+                             "z0": round(top - 0.05, 3), "z1": round(hh + prng.uniform(-0.05, 0.05), 3)})
+        if zn == "plate" and A > 2.0 and prng.random() < 0.35:
+            # a PRESSURE RIDGE: rubble blocks heaped along one stretch of the plate's edge
+            n_ = len(poly)
+            i0 = prng.randrange(n_)
+            for j in range(i0, i0 + max(2, int(n_ * prng.uniform(0.2, 0.45)))):
+                e0, e1 = poly[j % n_], poly[(j + 1) % n_]
+                L_ = math.dist(e0, e1)
+                m_ = max(1, int(L_ / 0.45))
+                for t_ in range(m_):
+                    f = (t_ + 0.5) / m_
+                    cx, cy = e0[0] + (e1[0] - e0[0]) * f, e0[1] + (e1[1] - e0[1]) * f
+                    r_ = prng.uniform(0.18, 0.42)
+                    a0 = prng.uniform(0, math.pi)
+                    blk = [(cx + r_ * math.cos(a0 + q * math.pi / 2) * prng.uniform(0.7, 1.2), cy + r_ * math.sin(a0 + q * math.pi / 2) * prng.uniform(0.7, 1.2)) for q in range(4)]
+                    ridges.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(blk)], "z0": round(SEA_Z - 0.2, 3), "z1": round(top + prng.uniform(0.15, 0.8), 3)})
+    # BRASH: small broken ice in the leads beside the plates
+    ice_r = np.zeros(U.shape, bool)
+    for e in ice:
+        ice_r |= mask([tuple(q) for q in e["poly"]], U, V, HF_PPM, u0, v1)
+    near = ndimage.binary_dilation(ice_r, iterations=4) & ~ice_r & ~solid
+    brash = []
+    js, is_ = np.nonzero(near)
+    for j, i in zip(js[::3], is_[::3]):
+        if prng.random() < 0.35:
+            cx, cy = us[i] + prng.uniform(-0.12, 0.12), vs[j] + prng.uniform(-0.12, 0.12)
+            if not (box[0] < cx < box[2] and box[1] < cy < box[3]):
+                continue
+            r_ = prng.uniform(0.1, 0.32)
+            pg = [(cx + r_ * prng.uniform(0.6, 1.1) * math.cos(2 * math.pi * q / 5 + 0.3), cy + r_ * prng.uniform(0.6, 1.1) * math.sin(2 * math.pi * q / 5 + 0.3)) for q in range(5)]
+            brash.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in pg], "z0": round(SEA_Z - 0.15, 3), "z1": round(SEA_Z + prng.uniform(0.04, 0.16), 3)})
+    # the ice fraction, inside the paint window, by raster (the sea = not land, not beach, not the shelf)
+    win_m = (U > -33.6) & (U < 32.6) & (V > -28.6) & (V < 22.4)
+    sea_area = float((~solid & win_m).sum()) / HF_PPM ** 2
     # under the shore-fast ice the terrain IS the ice (walkable, never drawn): its cracks show the sea plane
     fast_m = np.zeros(U.shape, bool)
     for cell in fast_raw:
         fast_m |= mask(cell, U, V, HF_PPM, u0, v1)
     fast_m &= ~solid & (Z < ICE_TOP)
     Z = np.where(fast_m, ICE_TOP - 0.03, Z)
-    ice_area = sum(K.area([tuple(q) for q in e["poly"]]) for e in ice)
+    ice_area = float((ice_r & win_m).sum()) / HF_PPM ** 2
     # ---- the mere's PLATES (large cracked ice over dark water) and the stream's ice ----
     mc_ = K.centroid(mere)
     mbox = (min(q[0] for q in mere) - 2, min(q[1] for q in mere) - 2, max(q[0] for q in mere) + 2, max(q[1] for q in mere) + 2)
     mseeds = K.jitter_seeds(mbox, MERE_SHAPE["plate_m"], prng, lambda p: K.point_in_poly(p, mere))
-    mere_ice = []
+    mere_ice, mere_cracks, mere_seams, mere_seen = [], [], [], set()
     for cell in K.voronoi_cells(mseeds, mbox):
         if len(cell) < 3:
             continue
@@ -383,9 +461,28 @@ def main():
                 else:
                     hi = m_
             fixed.append((c[0] + (q[0] - c[0]) * lo, c[1] + (q[1] - c[1]) * lo))
-        poly = K.roughen(K.shrink(fixed, prng.uniform(0.05, 0.1)) or [], prng, 0.1, 0.45) if len(fixed) >= 3 else []
-        if len(poly) >= 3 and K.area(poly) > 0.2:
-            mere_ice.append({"zone": "mere", "poly": [[round(q[0], 3), round(q[1], 3)] for q in poly], "top": MERE_SHAPE["plate_top"], "bob": False})
+        if False:
+            mere_ice.append({"zone": "mere", "poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(fixed)], "top": MERE_SHAPE["plate_top"], "bob": False})
+        # R-C9-208 (4): the cell edges are THIN CRACKS on one continuous sheet (not gaps between plates)
+        for q0, q1, in0, in1 in zip(fixed, fixed[1:] + fixed[:1], [K.point_in_poly(q, mere) for q in cell], [K.point_in_poly(q, mere) for q in cell[1:] + cell[:1]]):
+            key = tuple(sorted([(round(q0[0], 2), round(q0[1], 2)), (round(q1[0], 2), round(q1[1], 2))]))
+            if key in mere_seen or not (in0 or in1) or math.dist(q0, q1) < 0.2:
+                continue
+            mere_seen.add(key)
+            if prng.random() < 0.18:
+                continue
+            mid_ = ((q0[0] + q1[0]) / 2 + prng.uniform(-0.25, 0.25), (q0[1] + q1[1]) / 2 + prng.uniform(-0.25, 0.25))
+            for e0, e1 in ((q0, mid_), (mid_, q1)):
+                L_ = math.dist(e0, e1)
+                if L_ < 0.05:
+                    continue
+                nn = (-(e1[1] - e0[1]) / L_, (e1[0] - e0[0]) / L_)
+                seam = prng.random() < 0.12
+                w_ = prng.uniform(0.1, 0.18) if seam else prng.uniform(0.03, 0.07)
+                poly = [(e0[0] - nn[0] * w_ / 2, e0[1] - nn[1] * w_ / 2), (e1[0] - nn[0] * w_ / 2, e1[1] - nn[1] * w_ / 2), (e1[0] + nn[0] * w_ / 2, e1[1] + nn[1] * w_ / 2), (e0[0] + nn[0] * w_ / 2, e0[1] + nn[1] * w_ / 2)]
+                (mere_seams if seam else mere_cracks).append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in poly],
+                    "z0": MERE_SHAPE["plate_top"] - 0.02, "z1": MERE_SHAPE["plate_top"] + (prng.uniform(0.02, 0.05) if seam else 0.008)})
+    # the sheet itself: the cells laid edge to edge (no gaps; convex pieces triangulate cleanly) -- one continuous ice surface
     stream_ice = []
     acc = 0.0
     sl = K.resample(STREAM_UV, 0.25)
@@ -397,7 +494,7 @@ def main():
         d_ = unit(b[0] - a[0], b[1] - a[1])
         nn = (-d_[1], d_[0])
         hw_i = hw_st * prng.uniform(0.7, 0.95)
-        g = 0.09
+        g = 0.02                                           # R-C9-208 (4): thin cracks between the stream's ice pieces
         a2 = (a[0] + d_[0] * g, a[1] + d_[1] * g)
         b2 = (b[0] - d_[0] * g, b[1] - d_[1] * g)
         poly = [(a2[0] + nn[0] * hw_i, a2[1] + nn[1] * hw_i), (b2[0] + nn[0] * hw_i, b2[1] + nn[1] * hw_i),
@@ -428,7 +525,7 @@ def main():
         C[landc & (np.hypot(Uc - c[0], Vc - c[1]) < rr * (1 + n_))] = names.index("shrub")
     C[beachc & ~landc] = names.index("shingle")
     C[mask([uv(p) for p in YARD], Uc, Vc, CLS_PPM, u0, v1)] = names.index("ash")
-    C[mask(mere, Uc, Vc, CLS_PPM, u0, v1)] = names.index("sea")          # the mere's dark water: the cracks between its plates
+    C[mask(mere, Uc, Vc, CLS_PPM, u0, v1)] = names.index("ice")          # the mere's continuous ice (its thin cracks are drawn on it)
     dstc = dist_to_chain(stream, Uc, Vc)
     C[landc & (dstc < hw_st + 0.1)] = names.index("sea")                  # the stream's dark water under its ice
     C[landc & (dstc >= hw_st + 0.1) & (dstc < hw_st + bw_st)] = names.index("snow")   # its snowy banks
@@ -442,11 +539,13 @@ def main():
     C[mask(cave_dark, Uc, Vc, CLS_PPM, u0, v1)] = names.index("passage_dark")      # R-C9-206: the floor deep inside reads dark -- the mouth recedes into darkness
     Tc = (Uc - LIP_A[0]) * dR[0] + (Vc - LIP_A[1]) * dR[1]
     Sc = (Uc - LIP_A[0]) * nR[0] + (Vc - LIP_A[1]) * nR[1]
-    C[(Sc >= -W_ - 0.3) & (Sc <= 0.0) & (Tc >= t_foot - 0.3) & (Tc <= t_top)] = names.index("rock")
+    C[(Sc >= S0) & (Sc <= S0 + W_) & (Tc >= t_foot - 0.3) & (Tc <= t_land)] = names.index("rock")
     # the route's cut walls (the notch, the cave's sides) stand inside the kit: their heightfield cells are not drawn
     gzy, gzx = np.gradient(Zc, 1.0 / CLS_PPM)
-    steep = np.hypot(gzx, gzy) > 1.6
-    zone_r = (Tc >= R["shelf_t"][0] - 4.0) & (Tc <= t_land + 1.0) & (Sc >= -W_ - 5.0) & (Sc <= 2.5)
+    steep = ndimage.binary_dilation(np.hypot(gzx, gzy) > 2.5, iterations=2)       # true faces (and the cells at their foot and lip)
+    cave_zone = ndimage.binary_dilation(mask(cave_floor, Uc, Vc, CLS_PPM, u0, v1), iterations=6)
+    zone_r = ((Tc >= R["shelf_t"][0] - 4.0) & (Tc <= t_land + 3.0) & (Sc >= -0.6) & (Sc <= S0 + W_ + 2.5)) | (dlc < 2.5) | cave_zone
+    # R-C9-208 (5): no raw heightfield face anywhere on the coast (its 25 cm cells read as vertical slats): the skirt and the kit are the face
     C[steep & zone_r] = names.index("none")
     C[(Zc <= ICE_TOP) & ~beachc] = names.index("none")                    # sea / under the ice: the sea plane and the ice draw it
     Image.fromarray(C, "L").save(os.path.join(OUT, "classes.png"))
@@ -634,49 +733,43 @@ def main():
                      note="kit2 cave arch: mouth %.1f m clear over the shelf" % R["mouth_h"])
     cliff_insts.append(cave_ins)
     cave_w = bx * sc_cave
-    # cliff faces flanking the cave and closing the face between the cave and the stair's notch (base on the shelf)
-    for t_c, name in ((R["cave_t"] - cave_w / 2 - 3.0, "w"),):
-        p = fr(t_c, 0.0)
-        top = R["crest"] + 0.35
-        sc = (top - foot_z) / ab(g_col)[1]
+    # the HEADLAND's face either side of the cave (base on the shelf / the sea, top 0.9 m over the headland's snow), and the
+    # face from the cave's east cheek to the stair's foot
+    head_top = R["head_z"] + 0.9
+    for t_c, name, zb in ((R["cave_t"] - cave_w / 2 - 3.6, "w", foot_z), ((R["cave_t"] + cave_w / 2 + t_foot) / 2 + 0.6, "e", R["shelf_z"] - 0.2)):
+        sc = (head_top - zb) / ab(g_col)[1]
         dep = ab(g_col)[2] * sc
-        cliff_insts.append(model("cliff_route_%s" % name, "rock", g_col, fr(t_c, 1.8 - dep / 2), nR, sc, z=foot_z, piece="cliffcol", collider="trimesh"))
-    t_gap0, t_gap1 = R["cave_t"] + cave_w / 2, R["bottom_landing_t"]
-    if t_gap1 - t_gap0 > 0.5:
-        top = R["crest"] + 0.35
-        sc = (top - R["shelf_z"]) / ab(g_col)[1]
+        cliff_insts.append(model("cliff_route_%s" % name, "rock", g_col, fr(t_c, R["shelf_in_s"] + 0.3 - dep / 2), nR, sc, z=zb, piece="cliffcol", collider="trimesh",
+                                 note="the headland's face beside the cave"))
+    # the CLIFF WALL BEHIND THE STAIR (R-C9-208 (1)): kit columns along the face, their fronts on the flight's inner edge, each
+    # standing on the tread height at its own west end, their tops 0.9 m over the clifftop; they stop short of the landing
+    t = t_foot + 0.6
+    while t < t_top - 1.0:
+        zb = max(R["shelf_z"], nosing_z(t) - rise) - 0.25
+        top_here = R["crest"] + (R["head_z"] - R["crest"]) * max(0.0, min(1.0, 1.0 - (t - R["head_t"][1]) / 5.0)) + 0.9
+        sc = (top_here - zb) / ab(g_col)[1]
+        wdt = ab(g_col)[0] * sc
+        if t + wdt > t_top - 0.6:
+            sc *= max(0.1, (t_top - 0.6 - t) / wdt)
+            wdt = ab(g_col)[0] * sc
+            if sc < 0.18:
+                break
         dep = ab(g_col)[2] * sc
-        cliff_insts.append(model("cliff_route_e", "rock", g_col, fr((t_gap0 + t_gap1) / 2, R["shelf_in_s"] + 0.2 - dep / 2), nR, sc, z=R["shelf_z"] - 0.2, piece="cliffcol", collider="trimesh"))
-    # the face UNDER the stair's open sea side: kit columns whose tops stay 0.3 m below the treads above them
-    t = t_foot + 0.5
-    while t < t_land - 0.5:
+        cliff_insts.append(model("cliff_wall_%d" % int(t * 10), "rock", g_col, fr(t + wdt / 2, S0 + 0.05 - dep / 2), nR, sc, z=zb, piece="cliffcol", collider="trimesh",
+                                 note="the cliff wall behind the stair"))
+        t += wdt * 0.78
+    # the rock UNDER the flight's open sea side: kit columns whose tops stay 0.3 m below the treads above them (open to the sea)
+    t = t_foot + 0.3
+    while t < t_top - 0.5:
         zt = max(R["shelf_z"], nosing_z(t) - rise) - 0.3
         sc = max(0.2, (zt - foot_z) / ab(g_col)[1])
         wdt = ab(g_col)[0] * sc
-        if t + wdt > t_top:
+        if t + wdt > t_top + 0.5:
             break
-        if zt - foot_z > 1.0:
+        if zt - foot_z > 0.8:
             dep = ab(g_col)[2] * sc
-            cliff_insts.append(model("cliff_under_stair_%d" % int(t * 10), "rock", g_col, fr(t + wdt / 2, 1.1 + dep / 2 - 0.2), nR, sc, z=foot_z, piece="cliffcol", collider="trimesh"))
-        t += max(wdt * 0.85, 1.2)
-    # the NOTCH's inland wall (the cut the stair climbs in): kit columns facing the sea, their fronts on the strip's inner edge,
-    # each standing on the tread height at its own east end so no column stands proud on the treads
-    t = R["bottom_landing_t"] - 0.6
-    while t < t_top - 0.8:
-        zb = max(R["shelf_z"], nosing_z(t) - rise) - 0.2
-        sc = (R["crest"] + 0.9 - zb) / ab(g_col)[1]
-        if sc < 0.18:
-            break
-        wdt = ab(g_col)[0] * sc
-        if t + wdt > t_top + 0.3:                          # the landing's north side stays open to the clifftop
-            sc *= (t_top + 0.3 - t) / wdt
-            wdt = ab(g_col)[0] * sc
-            if sc < 0.15:
-                break
-        dep = ab(g_col)[2] * sc
-        cliff_insts.append(model("cliff_notch_%d" % int(t * 10), "rock", g_col, fr(t + wdt / 2, -W_ + 0.05 - dep / 2), nR, sc, z=zb, piece="cliffcol", collider="trimesh",
-                                 note="the notch's cut wall"))
-        t += wdt * 0.8
+            cliff_insts.append(model("cliff_under_stair_%d" % int(t * 10), "rock", g_col, fr(t + wdt / 2, S0 + W_ + 0.9 - dep / 2), nR, sc, z=foot_z, piece="cliffcol", collider="trimesh"))
+        t += max(wdt * 0.8, 1.0)
     # -- the SHELF's few boulders and ice rime (R-C9-206 (c)): boulders at its outer edge and the west end, rime as ice
     shelf_rocks = []
     for (t_b, s_b, ht) in ((-2.6, 6.9, 1.2), (0.6, 7.5, 0.9), (5.8, 7.7, 1.4), (9.2, 7.4, 1.0), (-2.9, 2.0, 1.6), (11.4, 7.2, 0.8)):
@@ -702,8 +795,8 @@ def main():
     mouth_c = fr(R["cave_t"], R["cave_front_s"])
     openings.append({"id": "sea_cave_mouth", "point": "S", "model": "cave_arch", "centre_sim": [round(mouth_c[0], 4), round(-mouth_c[1], 4)], "z0": R["shelf_z"],
                      "w": R["mouth_w"], "h": R["mouth_h"], "faces_deg": round(math.degrees(math.atan2(nR[0], nR[1])) % 360, 3),
-                     "curtain_inset_m": round(dep_c * 0.8, 3), "dark": True,
-                     "_": "R-C9-206: the kit piece's own eroded arch with its modelled depth; the curtain stands at the very back of it, behind the rock (the mouth recedes into it -- never a black rectangle on the face)"})
+                     "curtain_inset_m": 2.6, "curtain_w": 8.0, "curtain_h": 8.5, "dark": True,
+                     "_": "R-C9-206/208: the kit piece's own eroded arch with its modelled depth; a dark plane 2.6 m INSIDE it, larger than the passage there, so the arch's own rock frames it -- the mouth reads as a dark eroded arch, never a black rectangle on the face"})
     # -- the ROCK-CUT STAIR (R-C9-206 (b)): individual rough treads, each a block of its own size, cut into the notch; their
     # nosings ON one plane (the walk ramp); risers uneven (+-12 %) with the tread depths moved in step, so the slope holds
     jit = [prng.uniform(-R["rise_jitter"], R["rise_jitter"]) for _ in range(n_r)]
@@ -714,32 +807,47 @@ def main():
     zz = R["shelf_z"]
     for i in range(n_tr):
         dz = rise * (1 + jit[i])
-        dt = R["tread"] * (1 + jit[i])
         zz += dz
         t_a, t_b = tt, tt + R["tread"] * (1 + jit[i + 1])
-        s_out = prng.uniform(-0.2, 0.15)
-        s_out2 = s_out + prng.uniform(-0.12, 0.12)
-        # each tread a rough block from the shelf up (the sea side reads as a stepped rock mass, no void under it); its
-        # nosing and back edges straight and shared with its neighbours (no crack), its outer end broken
-        outer = K.roughen([fr(t_b, s_out2), fr(t_a, s_out)], prng, 0.06, 0.12)[:-1] if False else [fr(t_b, s_out2), fr((t_a + t_b) / 2, max(s_out, s_out2) + prng.uniform(-0.05, 0.1)), fr(t_a, s_out)]
-        poly = K.ccw([fr(t_a, -W_ - 0.3), fr(t_b, -W_ - 0.3)] + outer)
-        treads.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in poly], "z0": round(R["shelf_z"] - 0.3, 3), "z1": round(zz, 3)})
-        sw_ = prng.uniform(0.08, 0.16)
-        snow_lips.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in (fr(t_b - sw_, -W_ - 0.3), fr(t_b, -W_ - 0.3), fr(t_b, s_out - 0.2), fr(t_b - sw_ * 0.7, s_out - 0.2))],
-                          "z0": round(zz - 0.02, 3), "z1": round(zz + prng.uniform(0.03, 0.06), 3)})
+        # R-C9-208 (1): each tread is 2-3 rough stone BLOCKS across the 5.5 m, joints staggered tread to tread, each block its own
+        # height (+-3 cm), its outer end broken; a snow lip on its back edge
+        nb = prng.choice((2, 3, 3))
+        cuts = sorted([S0] + [S0 + W_ * (k + prng.uniform(-0.25, 0.25)) / nb for k in range(1, nb)] + [S0 + W_ + prng.uniform(-0.15, 0.25)])
+        for k in range(nb):
+            sa, sb = cuts[k] + (0.03 if k else 0.0), cuts[k + 1] - (0.03 if k < nb - 1 else 0.0)
+            zt = zz + prng.uniform(-0.05, 0.03)
+            ta2 = t_a + prng.uniform(-0.015, 0.015)
+            if k == nb - 1:
+                poly = [fr(ta2, sa), fr(t_b - 0.06, sa), fr(t_b - 0.06, sb + prng.uniform(-0.12, 0.05)), fr((ta2 + t_b) / 2, sb + prng.uniform(-0.05, 0.12)), fr(ta2, sb)]
+            else:
+                poly = [fr(ta2, sa), fr(t_b - 0.06, sa), fr(t_b - 0.06, sb), fr(ta2, sb)]
+            treads.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(poly)], "z0": round(zt - rise - 0.45, 3), "z1": round(zt, 3)})
+            sw_ = prng.uniform(0.07, 0.15)
+            snow_lips.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw([fr(t_b - 0.02 - sw_, sa), fr(t_b - 0.02, sa), fr(t_b - 0.02, sb - 0.1), fr(t_b - 0.02 - sw_ * 0.6, sb - 0.1)])],
+                              "z0": round(zt - 0.02, 3), "z1": round(zt + prng.uniform(0.03, 0.07), 3)})
         tt = t_b
+    # the flight's sea-side face: a rough rock skirt from the sea to just under each tread (the columns stand in front of it)
+    stair_side = []
+    tq = t_foot - 0.3
+    while tq < t_top:
+        t2 = min(t_top, tq + 0.6)
+        zt = max(R["shelf_z"], nosing_z(tq) - rise) - 0.2
+        so = S0 + W_ + prng.uniform(-0.1, 0.1)
+        stair_side.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw([fr(tq, so - 0.35), fr(t2, so - 0.35), fr(t2, so + 0.1), fr(tq, so + 0.1)])],
+                           "z0": round(SEA_Z - 0.6, 3), "z1": round(zt, 3)})
+        tq = t2
     # the walk surface: one plane through the nosings, the shelf one tread out from the foot -> the landing edge
     t_lo, t_hi = t_foot - R["tread"], t_top
     run_h = t_hi - t_lo
-    rc = fr((t_lo + t_hi) / 2, -W_ / 2)
+    rc = fr((t_lo + t_hi) / 2, S0 + W_ / 2)
     theta = math.atan2(R["crest"] - R["shelf_z"], run_h)
     dn = (-dR[0], -dR[1])                                  # local +Z downhill = toward the foot (west)
     ramp = {"id": "stair_ramp", "c_sim": [round(rc[0], 4), round(-rc[1], 4)], "z_c": round((R["crest"] + R["shelf_z"]) / 2, 4), "across": W_,
             "along_h": round(run_h, 4), "along": round(math.hypot(run_h, R["crest"] - R["shelf_z"]), 4), "thick": 0.3, "yaw_deg": round(yaw_of(dn), 4),
             "pitch_deg": round(math.degrees(theta), 4), "dir_sim": [round(dn[0], 6), round(-dn[1], 6)],
             "_": "a plane through every nosing: the crest at the landing edge, the shelf one tread out from the foot; local +Z downhill"}
-    lc = fr((t_top + t_land) / 2, (-W_ - 0.4 + 0.2) / 2)
-    plate = {"id": "landing_plate", "c_sim": [round(lc[0], 4), round(-lc[1], 4)], "z_c": R["crest"], "across": W_ + 0.6, "along_h": round(t_land - t_top, 4),
+    lc = fr((t_top + t_land) / 2, (S0 + W_ - 0.8) / 2)
+    plate = {"id": "landing_plate", "c_sim": [round(lc[0], 4), round(-lc[1], 4)], "z_c": R["crest"], "across": S0 + W_ + 0.8, "along_h": round(t_land - t_top, 4),
              "along": round(t_land - t_top, 4), "thick": 0.3, "yaw_deg": round(yaw_of(dn), 4), "pitch_deg": 0.0, "dir_sim": [round(dn[0], 6), round(-dn[1], 6)],
              "_": "the top landing's walk surface: a plate at the crest meeting the ramp's top edge (the terrain under it 5 cm lower)"}
     # -- the palisade (procedural posts at true size) and the yard logs
@@ -786,23 +894,54 @@ def main():
     for e in ice:
         gid = "ice_floes_bob" if e["bob"] else gk[e["zone"]]
         slabs[gid]["items"].append({"poly": sim_poly(e["poly"]), "z0": round(SEA_Z - 0.4, 3), "z1": e["top"]})
+    slabs["ice_rims"] = {"class": "snow", "items": rims}
+    slabs["ice_ridges"] = {"class": "shore_ice", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in ridges]}
+    slabs["ice_brash"] = {"class": "shore_ice", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in brash]}
+    slabs["ice_rims"]["items"] = [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in rims]
     for e in mere_ice:
         slabs["mere_plates"]["items"].append({"poly": sim_poly(e["poly"]), "z0": MERE_SHAPE["bed_z"] - 0.05, "z1": e["top"]})
+    slabs["mere_cracks"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_cracks]}
+    slabs["mere_seams"] = {"class": "snow", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_seams]}
     for e in stream_ice:
         slabs["stream_ice"]["items"].append({"poly": sim_poly(e["poly"]), "z0": round(e["top"] - 0.15, 3), "z1": e["top"]})
     for e in rime:
         slabs["shelf_rime"]["items"].append({"poly": sim_poly(e["poly"]), "z0": round(R["shelf_z"] - 0.1, 3), "z1": e["top"]})
     # the CLIFF SKIRT: the face behind the kit, a 0.35 m rock band along the lip from the sea to the crest (the heightfield's
     # own face cells are not drawn) -- outside the route stretch, which has its own rock
-    slabs["cliff_skirt"] = {"class": "rock", "items": []}
-    for i in range(len(lip) - 1):
-        if a_s + R["shelf_t"][0] - 3.5 < lip_s[i] < a_s + t_land + 0.5:
+    # R-C9-208 (5): the skirt is a continuous RIBBON wall along the lip (top = the clifftop behind it), broken only at the cave's
+    # mouth and the stair's landing
+    lip_f = K.resample(lip, 0.5)
+    runs, cur = [], []
+    for a in lip_f:
+        ta, sa = to_fr(a)
+        gap = abs(sa) < 1.0 and (abs(ta - R["cave_t"]) < R["mouth_w"] / 2 + 1.2 or t_top - 0.3 < ta < t_land + 0.3)
+        if gap:
+            if len(cur) > 1:
+                runs.append(cur)
+            cur = []
             continue
-        a, b = lip[i], lip[i + 1]
-        dd = unit(b[0] - a[0], b[1] - a[1])
-        nn = (dd[1], -dd[0])
-        poly = [(a[0] - nn[0] * 0.25, a[1] - nn[1] * 0.25), (b[0] - nn[0] * 0.25, b[1] - nn[1] * 0.25), (b[0] + nn[0] * 0.1, b[1] + nn[1] * 0.1), (a[0] + nn[0] * 0.1, a[1] + nn[1] * 0.1)]
-        slabs["cliff_skirt"]["items"].append({"poly": sim_poly(poly), "z0": SEA_Z - 0.6, "z1": round(float(crest[i]) - 0.05, 3)})
+        cur.append(a)
+    if len(cur) > 1:
+        runs.append(cur)
+    skirt_runs = []
+    for rn in runs:
+        pts = []
+        for i, a in enumerate(rn):
+            b = rn[min(i + 1, len(rn) - 1)] if i < len(rn) - 1 else rn[i - 1]
+            dd = unit(rn[min(i + 1, len(rn) - 1)][0] - rn[max(i - 1, 0)][0], rn[min(i + 1, len(rn) - 1)][1] - rn[max(i - 1, 0)][1])
+            nn = (dd[1], -dd[0])
+            top = hz((a[0] - nn[0] * 0.7, a[1] - nn[1] * 0.7)) - 0.04
+            pts.append([round(a[0] - nn[0] * 0.1, 3), round(-(a[1] - nn[1] * 0.1), 3), round(max(top, ICE_TOP + 0.2), 3)])
+        skirt_runs.append({"pts": pts, "z0": SEA_Z - 0.6, "thick": 0.4})
+    stair_rib = {"pts": [], "z0": SEA_Z - 0.6, "thick": 0.4}
+    tq = t_foot - 0.3
+    while tq <= t_land + 0.01:
+        q = fr(tq, S0 + W_ + 0.05)
+        stair_rib["pts"].append([round(q[0], 3), round(-q[1], 3), round(min(R["crest"], max(R["shelf_z"], nosing_z(tq) - rise)) - 0.2, 3)])
+        tq += 0.25
+    end_rib = {"pts": [[round(q[0], 3), round(-q[1], 3), round(R["crest"] - 0.04, 3)] for q in (fr(t_land + 0.05, S0 + W_ + 0.05), fr(t_land + 0.05, 2.5), fr(t_land + 0.05, 0.0))],
+               "z0": SEA_Z - 0.6, "thick": 0.4}
+    ribbons = {"cliff_skirt_wall": {"class": "rock", "items": skirt_runs}, "stair_side": {"class": "rock", "items": [stair_rib, end_rib]}}
     for e in treads:
         slabs["stair_treads"]["items"].append({"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]})
     for e in snow_lips:
@@ -849,18 +988,20 @@ def main():
         off_lip_w.append((p[0] + n[0] * 3.0, p[1] + n[1] * 3.0))
     route_out = [fr(R["shelf_t"][0] - 3.5, 3.0), fr(R["shelf_t"][0] - 0.3, R["shelf_out_s"] + 0.8)] + \
                 [fr(t, R["shelf_out_s"] + 0.45 * math.sin(t * 1.3 + 0.5) + 0.25 * math.sin(t * 3.1) + ob + 0.5) for t in np.arange(R["shelf_t"][0], R["shelf_t"][1] + 0.01, 1.0)] + \
-                [fr(R["shelf_t"][1] + ob, R["shelf_out_s"] + ob), fr(t_foot + ob, ob), fr(t_land + ob, ob)]
+                [fr(R["shelf_t"][1] + 0.3 + ob, R["shelf_out_s"] - 1.0 + ob), fr(t_foot + ob, S0 + W_ + ob), fr(t_land + ob, S0 + W_ + ob), fr(t_land + ob, 0.0)]
     lip_route_e = [q for q, s_ in zip(lip, lip_s) if s_ > a_s + t_land + 1.0]
     bpoly = [q for q in off_shore if q[1] < wv[1] + 2] + off_lip_w + route_out + lip_route_e
     bpoly = [q for q in bpoly if q[0] <= wu[1] + 2]
     bpoly += [(wu[1], bpoly[-1][1]), (wu[1], wv[1] + 2), (off_shore[0][0], wv[1] + 2)]
-    iw = 0.4
-    inner = [[fr(R["shelf_t"][0] - 3.5, 0.0)] + [q for q, s_ in zip(lip, lip_s) if s_ < a_s + R["shelf_t"][0] - 3.5][::-1][:1]]
-    inner = [lip_route_w[::-1] and [(q[0] - 0.0, q[1]) for q in lip_route_w]]
-    inner = [[(q[0] - lip_at(s_)[2][0] * iw, q[1] - lip_at(s_)[2][1] * iw) for q, s_ in zip(lip, lip_s) if s_ < a_s + R["shelf_t"][0] - 3.0]]
-    inner.append([fr(R["shelf_t"][0] - 3.5, -iw), fr(R["cave_t"] - cave_w / 2, -iw - 1.0), fr(R["cave_t"] + cave_w / 2, -iw - dep_c), fr(R["bottom_landing_t"] - 0.3, -W_ - iw),
-                  fr(t_top, -W_ - iw)])
-    inner.append([fr(t_land + 0.3, -W_ - iw), fr(t_land + 0.3, -iw)] + [(q[0] - lip_at(s_)[2][0] * iw, q[1] - lip_at(s_)[2][1] * iw) for q, s_ in zip(lip, lip_s) if s_ > a_s + t_land + 0.5])
+    iw = 0.45
+    # inner walls on the clifftop's edge, each with its own height band: over the cave they start above its arch (the cave is
+    # walked beneath them); behind the stair they stand clear of the flight (it is seaward of them); open at the landing
+    inner = [{"pts": [(q[0] - lip_at(s_)[2][0] * iw, q[1] - lip_at(s_)[2][1] * iw) for q, s_ in zip(lip, lip_s) if s_ < a_s + R["shelf_t"][0] - 3.0] + [fr(R["shelf_t"][0] - 3.5, -iw)],
+              "z": [-1.5, 6.0]},
+             {"pts": [fr(R["shelf_t"][0] - 3.5, -iw), fr(R["cave_t"] + cave_w / 2 + 0.5, -iw)], "z": [R["shelf_z"] + R["mouth_h"] + 0.4, R["head_z"] + 4.0]},
+             {"pts": [fr(R["cave_t"] + cave_w / 2 + 0.5, -iw), fr(t_top, -iw)], "z": [-1.5, R["head_z"] + 4.0]},
+             {"pts": [fr(t_land + 0.3, -iw)] + [(q[0] - lip_at(s_)[2][0] * iw, q[1] - lip_at(s_)[2][1] * iw) for q, s_ in zip(lip, lip_s) if s_ > a_s + t_land + 0.5],
+              "z": [-1.5, 6.0]}]
     tints = json.load(open(os.path.join(BF, "data", "barrow_full_layout.json")))["tints_srgb"]
     tints.update(json.load(open(os.path.join(LV, "DEV12_proposal.json")))["class_list"]["new_classes_DEV2_provisional"])
     hf = {"file": "terrain_h.f32", "shape": [H, W], "px_per_m": HF_PPM, "extent_sim_m": {"x0": u0, "x1": u1, "y0": -v1, "y1": -v0}, "sha256": sha(os.path.join(OUT, "terrain_h.f32"))}
@@ -878,11 +1019,12 @@ def main():
                         "cutting": {"half_w": 0.0, "v_facade": -999.0}, "passage": {"half_w": 0.0, "v0": 0.0, "v_end": 0.0, "risers_v": [], "riser_m": 0.0},
                         "_": "STUB for the frozen capture tool's walk-grid statistics (v1's mound spec); the art mound is terrain"}],
         "bounds": {"polygon_uv": [[round(p[0], 3), round(p[1], 3)] for p in bpoly], "wall_z_m": [SEA_Z - 3.0, 6.0],
-                   "inner_walls_uv": [[[round(q[0], 3), round(q[1], 3)] for q in w] for w in inner if len(w) >= 2], "inner_wall_z_m": [-1.5, 6.0],
+                   "inner_walls_uv": [[[round(q[0], 3), round(q[1], 3)] for q in w["pts"]] for w in inner if len(w["pts"]) >= 2], "inner_wall_z_m": [-1.5, 6.0],
+                   "inner_walls_z_m": [w["z"] for w in inner if len(w["pts"]) >= 2],
                    "_": "Phase 1'': outer walls -7.5 .. +6 round the plateau, the beach, the shore ice off it and the route; inner walls on the clifftop's edge (open at the stair's landing)"},
         "crucible": {"eye_height_m": 1.6, "station": {"uv": [0.0, 0.0]}, "boss_gate": {"uv": [round(bd[0], 3), round(bd[1], 3)]}, "spawns": []},
         "sim": {"heightfield": hf, "classes_png": {"file": "classes_png.bin", "px_per_m": CLS_PPM, "extent_sim_m": hf["extent_sim_m"], "sha256": sha(os.path.join(OUT, "classes_png.bin"))},
-                "sea_z": SEA_Z, "models": models, "features": [], "blobs": [], "openings": openings, "stair_steps": [], "slabs": slabs,
+                "sea_z": SEA_Z, "models": models, "features": [], "blobs": [], "openings": openings, "stair_steps": [], "slabs": slabs, "ribbons": ribbons,
                 "route": route_sim, "hall_panels": HALL_PANELS,
                 "stair": None, "skip_models": [], "glb_copies": glb_copies, "glb_missing": [],
                 "model_class": {"wreck": "wood", "barrow_front": "rock", "longhall": "wood", "fallen_gable": "char", "ring_stones": "rock", "slope_stones": "rock", "crags": "rock",
@@ -917,12 +1059,13 @@ def main():
                   "riser_m": round(rise, 5), "riser_range_m": [round(rise * (1 + min(jit)), 4), round(rise * (1 + max(jit)), 4)], "treads": n_tr,
                   "stair_pitch_deg": round(math.degrees(math.atan2(rise, R["tread"])), 3),
                   "frame": {"origin_uv": [round(LIP_A[0], 4), round(LIP_A[1], 4)], "along_uv": [round(dR[0], 6), round(dR[1], 6)], "t_foot": t_foot, "t_top": round(t_top, 4),
-                            "t_landing_end": round(t_land, 4), "width_m": W_, "_": "t along A -> B, s SEAWARD; the stair strip is s in [-W, 0] (cut into the land)"},
+                            "t_landing_end": round(t_land, 4), "width_m": W_, "stair_s0": S0,
+                            "_": "t along A -> B, s SEAWARD; the stair strip is s in [S0, S0 + W], built out against the face (R-C9-208)"},
                   "points_uv": {k: [round(q[0], 3), round(q[1], 3)] for k, q in {
                       "cave_back": fr(R["cave_t"], R["cave_front_s"] - min(3.0, dep_c * 0.5)), "cave_mouth": fr(R["cave_t"], R["cave_front_s"]),
                       "shelf_mid": fr((R["cave_t"] + t_foot) / 2, (R["shelf_in_s"] + R["shelf_out_s"]) / 2 + 0.5),
-                      "bottom_landing": fr((R["bottom_landing_t"] + t_foot) / 2, -W_ / 2), "stair_foot": fr(t_foot + 0.3, -W_ / 2),
-                      "stair_top": fr(t_top, -W_ / 2), "landing": fr((t_top + t_land) / 2, -W_ / 2), "clifftop": fr((t_top + t_land) / 2, -W_ - 2.5)}.items()},
+                      "bottom_landing": fr(t_foot - 1.0, S0 + W_ / 2), "stair_foot": fr(t_foot + 0.3, S0 + W_ / 2),
+                      "stair_top": fr(t_top, S0 + W_ / 2), "landing": fr((t_top + t_land) / 2, S0 + W_ / 2), "clifftop": fr((t_top + t_land) / 2, -3.0)}.items()},
                   "polygons_uv": {"shelf": [[round(q[0], 3), round(q[1], 3)] for q in shelf], "cave_floor": [[round(q[0], 3), round(q[1], 3)] for q in cave_floor]},
                   "ramp": ramp, "plate": plate, "cave": {"scale": round(sc_cave, 5), "width_m": round(cave_w, 3), "depth_m": round(dep_c, 3), "z": round(cave_z, 3),
                                                         "mouth_from": "kit2/cave_mouth.json" if cave_meta else "stand-in (no measured mouth yet)"},

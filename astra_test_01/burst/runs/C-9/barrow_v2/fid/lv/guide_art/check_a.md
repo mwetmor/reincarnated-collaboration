@@ -5,4 +5,4 @@
 | hall_great_door (E) | v | yes | 3.22 | 100.0 | 7.0 | 45.6 | PASS |
 | gable_breach (SE) | h_rect | yes | 10.83 | 84.8 | 16.0 | 67.7 | PASS |
 | sea_cave_mouth (S) | v | yes | 21.54 | 100.0 | 42.0 | 51.3 | PASS |
-| mere_ice (NW) | poly | yes | 100.10 | 98.0 | 127.9 | 78.3 | PASS |
+| mere_ice (NW) | poly | yes | 79.63 | 78.0 | 127.9 | 62.3 | PASS |

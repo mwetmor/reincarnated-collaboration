@@ -31,7 +31,7 @@ def crop(pt, w=600, h=338):
 
 def stills():
     out = []
-    for si, ch in enumerate([spec[i:i + 4] for i in range(0, len(spec), 4)]):
+    for si, ch in enumerate([spec[i:i + 5] for i in range(0, len(spec), 5)]):
         rh, sw, cw = 450, 800, 675
         sh = Image.new("RGB", (sw + cw + 30, 60 + len(ch) * (rh + 50)), (24, 24, 28)); d = ImageDraw.Draw(sh)
         d.text((10, 12), "barrow_v2 Phase 1'' blockout at the PLAY camera (v1 camera + zoom)  |  sketch A, same area", fill=(255, 255, 255), font=B(24))
@@ -64,8 +64,9 @@ def section():
             sp = L["route"]["spec"]
             pts = [fr(sp["cave_t"], sp["cave_front_s"] - 3.0), fr(sp["cave_t"], 2.0), fr(sp["bottom_landing_t"] + 0.5, 2.0)]
             dist, zs, acc = [], [], 0.0
-            seq = [fr(sp["cave_t"], sp["cave_front_s"] - 3.0), fr(sp["cave_t"], sp["cave_front_s"] + 3.0), fr(F["t_foot"] - 1.0, -F["width_m"] / 2),
-                   fr(F["t_top"], -F["width_m"] / 2), fr(F["t_landing_end"] + 3.0, -F["width_m"] / 2)]
+            c_ = F.get("stair_s0", -F["width_m"]) + F["width_m"] / 2
+            seq = [fr(sp["cave_t"], sp["cave_front_s"] - 3.0), fr(sp["cave_t"], sp["cave_front_s"] + 3.0), fr(F["t_foot"] - 1.0, c_),
+                   fr(F["t_top"], c_), fr(F["t_landing_end"] - 0.2, c_), fr(F["t_landing_end"] - 0.2, -3.0)]
             for p0, p1 in zip(seq[:-1], seq[1:]):
                 n_ = int(math.dist(p0, p1) / 0.1)
                 for i in range(n_):
@@ -155,10 +156,10 @@ def cover():
     si = L["regions"]["sea_ice"]
     asks = [("1. The new coast and water: approve for the pilot repaint?", "RECOMMENDED: yes -- repaint the pilot from this guide.",
              "Real levels (plateau 0, shingle beach down 4.2 m to the wreck on the shore ice, sea -4.5), sea cliffs %.0f-%.0f m from a rock kit built off sketch A's own cliffs, talus and 3 stacks; the mere in cracked plates, the stream a channel; paths gone." % tuple(LEV["sea_cliff_height_m"])),
-            ("2. The sea cave + stair: keep the 7 m mouth?", "RECOMMENDED: yes -- keep the eroded arch and its rock knoll.",
-             "Sketch A's order (cave W, stair E). A 7 m mouth under a 6-7 m cliff makes the arch's rock stand ~4 m proud of the clifftop, as a knoll. The stair is 33 rough treads cut in a notch, open to the sea; walk-checked: PASS."),
+            ("2. The sea cave + stair (sketch A's order, cave W, stair E): approve?", "RECOMMENDED: yes -- the cave in its headland, the stair across the face.",
+             "The 7 m mouth sits in a rock headland (clifftop +5.6 there) with rock above it, reading as a dark arch; the stair climbs ACROSS the face beside it (24 rough stone treads, 2-3 blocks each, cliff wall behind, open to the sea, 33 deg, 5.4 m clear); walk-checked PASS."),
             ("3. The sea ice: about two-thirds ice -- enough?", "RECOMMENDED: yes, as built (%.0f %% ice)." % (100 * si["ice_fraction"]),
-             "Shore-fast ice along the coast breaking into large plates, then floes of every size; %d loose outer floes tagged to bob, the rest static." % si["bobbing_floes"])]
+             "Broken pack: plates of every size and freeboard, snow-heaped rims, pressure ridges, brash in the leads, dark leads of varied width -- dense at the shore-fast edge, looser offshore; %d loose outer floes tagged to bob." % si["bobbing_floes"])]
     for t, rec, why in asks:
         d.text((40, y), t, fill=(255, 225, 120), font=B(38)); y += 50
         for line in textwrap.wrap(rec, 46):
