@@ -97,3 +97,8 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P9c instrument finding: calibrated floe_drift is blind to texture motion (hard shared window); sub-pixel tapered version in pilot_harness (self-test rest 0.15-0.25 / world 1.26-2.00) -- not calibrated to bind; needs a ruling.
 - [ ] HALTED: no Godot run made. On resume (disk >= 21 GiB): `harness/run_pilot2_godot.sh` (life_sea, life_sea_floered, life, life_nowind, perf, perf_sea, perf_burn -> ph/renders/pilot2/), then P9 (`PH_PILOT_RENDERS=renders/pilot2 PH_PILOT_OUT=results/pilot2 pilot_harness.py p9p10`), `floe_drift_subpx` on life_sea vs life_sea_floered, P10. ph_life.gd pilot hooks are untested.
 - Ask to PT: capture heather_mask/render_guide with water time held.
+
+## R-C9-196 (resumed; disk 24-29 GiB)
+- [x] P8 on PT's fixed mask (8df01abcd): PASS min 0.5302 (exclusion withdrawn, env-gated off).
+- [x] Renders done (`ph/renders/pilot2/`, PNG pairs only): P9 sway 6.104 PASS (no-wind RED fails); P9 flow 1.524 > 0 and 9x noise, but < frozen 2.064 (clause (b)) -> FAIL on the frozen bar, flagged (paint_mix 1.0 vs 159's 0.75); trail PASS; P10 p99 16.54 (start) / 15.18 (sea) PASS, burn RED fails.
+- [x] P9c re-instrumented (`floe_drift_v2`, ph_life marker R const / G noise, `--floe-red`): self-test rest <= 0.007, RED = motion; pilot RED 0.643 FAIL; rest-pose 0.528 2-D (vertical: waterline occludes the bobbing silhouette) / 0.015 horizontal. Non-binding; ruling needed (PH recommends (b): depth-test-off marker shot). calibration.md § 30.

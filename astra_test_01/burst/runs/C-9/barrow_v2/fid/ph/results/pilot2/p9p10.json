@@ -1,0 +1,196 @@
+{
+ "renders": "ph/renders/pilot2 (scene bv2f_pilot_painted.tscn at 8df01abcd, BV2F_VARIANT=art)",
+ "p9_sway": {
+  "heather_px": 126437,
+  "sway": 6.104,
+  "noise": 0.002,
+  "water_px": 266,
+  "flow": 4.332,
+  "flow_static_sea_RED": 0.0,
+  "noise_static_sea": 0.0,
+  "dt_ms": 1195,
+  "pass_": true
+ },
+ "p9_sway_RED_nowind": {
+  "heather_px": 128041,
+  "sway": 0.0,
+  "noise": 0.0,
+  "water_px": 0,
+  "flow": 0.0,
+  "flow_static_sea_RED": 0.0,
+  "noise_static_sea": 0.0,
+  "pass_": false
+ },
+ "p9_flow_sea_view": {
+  "water_px": 633887,
+  "flow": 1.524,
+  "noise": 0.165,
+  "dt_ms": 857,
+  "gt_0": true,
+  "ge_3x_noise": true,
+  "ge_2.064": false,
+  "RED_static_sea_flow": 0.058,
+  "RED_ge_3x_noise": false
+ },
+ "p9c": {
+  "instrument": "floe_drift_v2 (R-C9-196 re-instrumented; pilot_harness.py)",
+  "selftest": [
+   {
+    "offset_px": [
+     0.4,
+     1.3
+    ],
+    "true_motion": 1.36,
+    "rest_pose": 0.007,
+    "world_anchored_RED": 1.347
+   },
+   {
+    "offset_px": [
+     1.7,
+     -0.6
+    ],
+    "true_motion": 1.803,
+    "rest_pose": 0.002,
+    "world_anchored_RED": 1.782
+   },
+   {
+    "offset_px": [
+     0.0,
+     2.25
+    ],
+    "true_motion": 2.25,
+    "rest_pose": 0.001,
+    "world_anchored_RED": 2.231
+   },
+   {
+    "offset_px": [
+     -0.8,
+     0.3
+    ],
+    "true_motion": 0.854,
+    "rest_pose": 0.004,
+    "world_anchored_RED": 0.843
+   },
+   {
+    "offset_px": [
+     0.15,
+     -0.2
+    ],
+    "true_motion": 0.25,
+    "rest_pose": 0.004,
+    "world_anchored_RED": 0.242
+   }
+  ],
+  "valid_window_screen_px": [
+   504,
+   0,
+   1920,
+   858
+  ],
+  "life_sea": {
+   "floes_measured": 1,
+   "median_drift_px": 0.528,
+   "max_drift_px": 0.528,
+   "median_motion_px": 0.752,
+   "rows": [
+    {
+     "px": 40871,
+     "silhouette_shift": [
+      -0.329,
+      -0.677
+     ],
+     "texture_shift": [
+      -0.857,
+      -0.692
+     ],
+     "drift": 0.528,
+     "motion": 0.752,
+     "drift_horizontal": 0.015,
+     "drift_vertical": 0.528
+    }
+   ]
+  },
+  "life_sea_calibrated_integer": {
+   "floes_measured": 7,
+   "median_drift_px": 6.377,
+   "max_drift_px": 27.514
+  },
+  "life_sea_floered": {
+   "floes_measured": 1,
+   "median_drift_px": 0.643,
+   "max_drift_px": 0.643,
+   "median_motion_px": 0.642,
+   "rows": [
+    {
+     "px": 41288,
+     "silhouette_shift": [
+      -0.001,
+      -0.642
+     ],
+     "texture_shift": [
+      -0.0,
+      0.002
+     ],
+     "drift": 0.643,
+     "motion": 0.642,
+     "drift_horizontal": 0.644,
+     "drift_vertical": 0.001
+    }
+   ]
+  },
+  "life_sea_floered_calibrated_integer": {
+   "floes_measured": 9,
+   "median_drift_px": 3.121,
+   "max_drift_px": 11.797
+  }
+ },
+ "p10_perf": {
+  "p50_ms": 14.65,
+  "p99_ms": 16.54,
+  "max_ms": 19.34,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": true
+ },
+ "p10_perf_sea": {
+  "p50_ms": 12.69,
+  "p99_ms": 15.18,
+  "max_ms": 19.38,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": true
+ },
+ "p10_perf_burn": {
+  "p50_ms": 20.9,
+  "p99_ms": 21.74,
+  "max_ms": 22.49,
+  "burn_ms": 20.0,
+  "renderer": "forward_plus",
+  "pass": false
+ },
+ "p9_trail": {
+  "coverage": 1.0,
+  "bar": 0.99,
+  "pass": true,
+  "by_terrain": {
+   "flat": {
+    "walkable_m2": 758.9,
+    "inside_field": 1.0,
+    "snow_carrying": 0.6795
+   },
+   "not_flat (slopes, mound, swells)": {
+    "walkable_m2": 178.2,
+    "inside_field": 1.0,
+    "snow_carrying": 0.2577
+   }
+  },
+  "walkable_m2_in_window": 937.1,
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "informational_snow_carrying_share_of_walkable": 0.5993
+ }
+}

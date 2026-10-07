@@ -861,3 +861,49 @@ Its RED reading on R-C9-159 (1.91 px) was right for the wrong reason: world-anch
 - P10 frame time at the start and at the sea, plus the burn RED.
 
 `ph_life.gd` now has the pilot hooks: `water_mat_pt` / `ground_sea` for the water pair, `blobs_shore_ice__*` floes with a plate-space 16 px checker, and `--floe-red`. They are untested in Godot until the run.
+
+## 30. Rebuilt pilot, completed (R-C9-196; PT 8df01abcd for the fixed heather mask). Frozen bars. `results/pilot2/{p8,p9p10}.json`; renders `renders/pilot2/` (1920×1080 PNG pairs only, no film)
+
+**R-C9-196 (1): the § 29 sea exclusion is withdrawn.** It now sits behind `PH_EXCLUDE_SELF_MOVING=1` and is off by default; binding P8 reads PT's mask as delivered. PT's fixed mask has 232 532 drawn px and 0 px on the sea.
+
+| Row | Rebuilt pilot | Bar | Verdict | RED, same instrument |
+|---|---|---|---|---|
+| P8 | min 0.5302 (2_2). Judged chunks: 0_0 0.563, 1_0 0.553, 2_0 0.583, 1_1 0.541, 2_1 0.557, 1_2 0.564, 2_2 0.530; 0_1 and 0_2 n/a | each ≥ 0.4476 | **PASS** | 1 m shift: min 0.000, FAIL |
+| P9 sway | 6.104 over 126 437 heather px; noise 0.002 (uv −3, 11.7) | ≥ 3× noise and ≥ 2.064 | **PASS** | --no-wind 0.000: FAIL |
+| P9 flow | **1.524** over 633 887 water px (sea view uv −29, −5.5; frames 857 ms apart); noise 0.165 | > 0 ✓; ≥ 3× noise ✓; **≥ 2.064 ✗** (§ 1 row P9, clause (b)) | **> 0 YES; frozen bar FAIL** | water meshes hidden: 0.058, FAIL |
+| P9 trail | coverage 1.000; flat 759 m² and not-flat 178 m² both inside the field | ≥ 0.99 | PASS | (§ 6) |
+| P9c floe drift | see below | ≤ 0.25 px | **NON-BINDING** (as ruled) | — |
+| P10 | p99 **16.54 ms** at the start (p50 14.65, max 19.34); **15.18 ms** at the sea (p50 12.69); M2, forward_plus, 900 frames | p99 ≤ 16.7 | **PASS** (0.16 ms headroom at the start) | 20 ms burn: 21.74, FAIL |
+
+**P9 flow, read.** The water moves: 1.52 mean |Δ| over the water mask, 9× its noise, against 0.06 with the water meshes hidden. It reaches 74% of the frozen 2.064 floor, which is ¼ of v1's heather sway, from § 1 clause (b). R-C9-159's own sea read 6.48 on the same instrument. PT's water uses R-C9-159's shader verbatim, but with **paint_mix 1.0** (base = the painting, R-C9-194), where R-C9-159 ran 0.75. The motion layers are a smaller share of the pixel, so less of it moves. The capture interval here is 857 ms (R-C9-159's was 0.5 s nominal), so at 0.5 s the reading would be lower, not higher. **No bar moved.** Whether the frozen floor applies to the R-C9-194 water design is for the conductor.
+
+**P10, read.** The start view at 16.54 ms is within 0.16 ms of the bar with water in the build. The sea view is cheaper (15.18 ms) because it has less heather on screen.
+
+**P9c: RE-INSTRUMENTED (R-C9-196 (2)); stays non-binding.** `pilot_harness.floe_drift_v2`, marker in `ph_life.gd`.
+- **Marker.** Floes wear a plate-space marker:
+  - R = 0.95 constant, the silhouette, read as R − B so the white foam ring (R ≈ B) and the blue sea (R < B) both drop out;
+  - G = aperiodic simplex noise, the texture, with no checker periodicity.
+- **Shifts.** Silhouette shift is iterative Lucas–Kanade on the soft alpha, weighted to the edge band. Texture shift is the same on G, weighted to the core by a Gaussian taper. A hard shared window was the old instrument's blindness (§ 29).
+- **The RED** is `ph_life.gd --floe-red`: the floes' projection is taken after the bob (`v_world += bob`), so the paint is world-anchored and swims.
+
+| | Self-test (constructed, 4× supersampled, the same code path) | Pilot rest-pose (life_sea) | Pilot `--floe-red` (life_sea_floered) |
+|---|---|---|---|
+| texture shift (px) | moves with the floe / 0 | (−0.857, −0.692); identical in all 4 core quadrants | **(0.000, 0.002)** |
+| silhouette shift (px) | = offset ± 0.02 | (−0.329, −0.677) | (−0.001, −0.642) |
+| drift, 2-D | rest **0.001–0.007**; RED **0.242–2.231** = the motion | **0.528** | **0.643** |
+| drift, horizontal only | — | **0.015** | **0.644** |
+
+1. **The RED fails decisively.** The world-anchored texture reads exactly 0 while the floe moves, so the drift is the floe's motion.
+2. **The rest-pose build passes on the horizontal axis (0.015) but not in 2-D (0.528).** The whole residual is vertical: the texture moves −0.86 px, the measured silhouette −0.33.
+   - The texture's vertical motion is rigid across all four quadrants, so it is the mesh's.
+   - The silhouette is not a rigid reference vertically: its alpha area changes 1.4% between frames. The floe bobs through the sea surface (the bob's world-Y component), so the waterline and foam occlude a different part of its edge in each frame. The two silhouette estimators also disagree by 0.1 px (centroid −0.42 vs LK −0.33).
+   - The horizontal bob does not cross the waterline, and there the silhouette is rigid and the separation is clean.
+3. **Limits.**
+   - **One floe.** Only 1 of the 3 measurable floes lies wholly inside the painted plate in this view. Floes outside it carry clamped-edge streaks, and their vertical texture shift is ill-posed.
+   - **Unequal capture intervals.** m0/m1 are 0.5 s apart by request but land on different TIME values per run, so the motion differs between control and RED.
+   - **A ruling is needed before P9c can bind:**
+     - (a) score the horizontal component only, with this rationale pre-registered;
+     - (b) capture the silhouette from a mesh-attached reference that the water cannot occlude (e.g. the floe drawn with depth test off for the marker shots);
+     - (c) add more in-plate floes, by taking a view centred on the floe field.
+
+     **(b) is PH's recommendation.** It keeps the 2-D metric and removes the confound at its source.

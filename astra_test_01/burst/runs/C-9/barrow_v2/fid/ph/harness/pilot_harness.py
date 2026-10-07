@@ -69,7 +69,7 @@ def self_moving():
     if "SM" not in _C:
         man = jload(BF / "godot/data/bv2f/pilot/painted/manifest.json")
         idx, tab = ids_built()
-        if not man.get("water"):
+        if not man.get("water") or os.environ.get("PH_EXCLUDE_SELF_MOVING") != "1":    # R-C9-196: NOT adopted (off by default)
             _C["SM"] = np.zeros((H, W), bool)
         else:
             ks = [k for k, v in tab.items() if v["id"] == "ground_sea" or v["id"].startswith("blobs_shore_ice__")]
@@ -554,13 +554,14 @@ if __name__ == "__main__":
 
 
 # ---------------------------------------------------------------------------------------------------------- P9c sub-pixel
-def _phase_subpx(a, b, up=20):
+def _phase_subpx(a, b, up=20, normalise=True):
     """shift (dy, dx) with b(x) = a(x - d)... read as in p9's phase_shift(b, a): the integer peak of the normalised
     cross-power, refined by a locally UPSAMPLED inverse DFT (factor `up`, +-1.5 px around the peak; Guizar-Sicairos 2008)"""
     A = np.fft.fft2(a)
     B = np.fft.fft2(b)
     Rr = A * np.conj(B)
-    Rr /= np.abs(Rr) + 1e-9
+    if normalise:
+        Rr /= np.abs(Rr) + 1e-9
     r = np.fft.ifft2(Rr).real
     Hh, Ww = r.shape
     y, x = np.unravel_index(np.argmax(r), r.shape)
@@ -644,4 +645,102 @@ def subpx_selftest():
         ty2, tx2 = _phase_subpx(_taper(tex, core), _taper(tex, core))
         out.append({"offset": off, "rest_pose_drift": round(math.hypot(sil[0] - ty, sil[1] - tx), 3),
                     "world_anchored_drift": round(math.hypot(sil[0] - ty2, sil[1] - tx2), 3), "true_offset_norm": round(math.hypot(*off), 3)})
+    return out
+
+
+def _lk_shift(I0, I1, w, iters=12):
+    """translation s with I1(x + s) ~ I0(x) (so s = the motion of I0's content into I1), weighted iterative Lucas-Kanade"""
+    s = np.zeros(2)
+    gy, gx = np.gradient(I0)
+    yy, xx = np.mgrid[0:I0.shape[0], 0:I0.shape[1]].astype(float)
+    M = np.array([[np.sum(w * gy * gy), np.sum(w * gy * gx)], [np.sum(w * gx * gy), np.sum(w * gx * gx)]])
+    for _ in range(iters):
+        W1 = ndimage.map_coordinates(I1, [yy + s[0], xx + s[1]], order=3, mode="nearest")
+        e = W1 - I0
+        b = -np.array([np.sum(w * gy * e), np.sum(w * gx * e)])
+        ds = np.linalg.solve(M + 1e-9 * np.eye(2), b)
+        s += ds
+        if np.hypot(*ds) < 1e-3:
+            break
+    return float(s[0]), float(s[1])
+
+
+def floe_drift_v2(dirp, min_px=1500, pad=40, valid=None):
+    """P9c RE-INSTRUMENTED (R-C9-196). Marker (ph_life.gd pilot branch): R = constant (the silhouette), G = aperiodic noise
+    (the texture). Per floe:
+      alpha_t = clip((R_t - R_hide) / (R_floe - R_hide), 0, 1)        (sub-pixel silhouette under MSAA; R_floe = the
+                                                                        floe's own interior median)
+      silhouette shift = upsampled NON-normalised cross-correlation of the two alpha maps in the floe's region
+      texture shift    = the same on G inside the shared core, mean-removed and Gaussian-tapered (a hard shared window
+                         correlates with itself at zero shift -- the calibrated instrument's blindness, § 29)
+      drift = |silhouette shift - texture shift|; rest-pose UVs -> ~0, world-anchored UVs -> the silhouette's motion.
+    Constructed self-test: `p9c_selftest()`."""
+    m0, m1, hf = (load_rgb(dirp / n) for n in ("floe_m0.png", "floe_m1.png", "hide_floe.png"))
+    rb0, rbh = m0[..., 0] - m0[..., 2], hf[..., 0] - hf[..., 2]
+    k0 = ndimage.binary_opening((rb0 - rbh > 40) & (rb0 > 30), iterations=2)
+    lab, n = ndimage.label(k0)
+    rows = []
+    for i, sl in enumerate(ndimage.find_objects(lab)):
+        if sl is None or (lab[sl] == i + 1).sum() < min_px:
+            continue
+        y0, y1 = max(sl[0].start - 12, 0), sl[0].stop + 12
+        x0, x1 = max(sl[1].start - 12, 0), sl[1].stop + 12
+        if valid is not None and not (y0 >= valid[1] and y1 <= valid[3] and x0 >= valid[0] and x1 <= valid[2]):
+            continue                    # the floe's projection runs off the painted plate (clamped-edge streaks)
+        p0 = lab[y0:y1, x0:x1] == i + 1
+        # silhouette channel R - B: the marker is (0.95, noise, 0.5) -> R - B high and constant on the floe; the water's
+        # white foam ring (R ~ B, animated) and the blue sea (R < B) both read ~0 or below
+        R0 = m0[y0:y1, x0:x1, 0] - m0[y0:y1, x0:x1, 2]
+        R1 = m1[y0:y1, x0:x1, 0] - m1[y0:y1, x0:x1, 2]
+        Rh = hf[y0:y1, x0:x1, 0] - hf[y0:y1, x0:x1, 2]
+        inner = ndimage.binary_erosion(p0, iterations=4)
+        if inner.sum() < 500:
+            continue
+        rf = float(np.median(R0[inner]))
+        den = np.maximum(rf - Rh, 10.0)
+        a0, a1 = np.clip((R0 - Rh) / den, 0, 1), np.clip((R1 - Rh) / den, 0, 1)
+        edge = ndimage.binary_dilation(p0 ^ ndimage.binary_erosion(p0), iterations=5)
+        sil = _lk_shift(ndimage.gaussian_filter(a0, 1.5), ndimage.gaussian_filter(a1, 1.5), edge.astype(float))
+        core = ndimage.binary_erosion(p0 & (a1 > 0.5), iterations=6)
+        if core.sum() < 500:
+            continue
+        G0, G1 = m0[y0:y1, x0:x1, 1], m1[y0:y1, x0:x1, 1]
+        t = _lk_shift(ndimage.gaussian_filter(G0, 1.0), ndimage.gaussian_filter(G1, 1.0), ndimage.gaussian_filter(core.astype(float), 2))
+        rows.append({"px": int(p0.sum()), "silhouette_shift": [round(sil[0], 3), round(sil[1], 3)],
+                     "texture_shift": [round(t[0], 3), round(t[1], 3)], "drift": round(math.hypot(sil[0] - t[0], sil[1] - t[1]), 3),
+                     "motion": round(math.hypot(*sil), 3)})
+    d = [r["drift"] for r in rows]
+    return {"floes_measured": len(rows), "median_drift_px": round(float(np.median(d)), 3) if d else None,
+            "max_drift_px": round(float(np.max(d)), 3) if d else None,
+            "median_motion_px": round(float(np.median([r["motion"] for r in rows])), 3) if rows else None, "rows": rows}
+
+
+def p9c_selftest():
+    """constructed, as rendered: a 4x-supersampled floe (R = 240, G = aperiodic noise) over a moving sea, moved by a known
+    sub-pixel offset; rest-pose (texture moves with it) and world-anchored (texture fixed) -- the same code path"""
+    import tempfile
+    SS, N = 4, 200
+    NZ = ndimage.zoom(ndimage.gaussian_filter(np.random.default_rng(5).random((80, 80)), 1.0), 4 * SS, order=1)
+    NZ = (NZ - NZ.min()) / (NZ.max() - NZ.min())
+
+    def render(off, rest, t=0.0, floe_on=True):
+        yy, xx = np.mgrid[0:N * SS, 0:N * SS] / SS
+        sea = 40 + 10 * np.sin(xx / 7.0 + t) * np.cos(yy / 5.0)
+        fl = (((yy - 100 - off[0]) / 40.) ** 2 + ((xx - 100 - off[1]) / 60.) ** 2 <= 1) & floe_on
+        ty, tx = (yy - off[0], xx - off[1]) if rest else (yy, xx)
+        G = 25 + 215 * ndimage.map_coordinates(NZ, [(ty + 20) * SS, (tx + 20) * SS], order=1, mode="nearest")
+        img = np.stack([np.where(fl, 240, sea), np.where(fl, G, sea), np.where(fl, 128, sea)], -1)
+        return img.reshape(N, SS, N, SS, 3).mean((1, 3))
+    out = []
+    with tempfile.TemporaryDirectory() as td:
+        d = pathlib.Path(td)
+        for off in ((0.4, 1.3), (1.7, -0.6), (0.0, 2.25), (-0.8, 0.3), (0.15, -0.2)):
+            row = {"offset_px": off, "true_motion": round(math.hypot(*off), 3)}
+            for nm, rest in (("rest_pose", True), ("world_anchored_RED", False)):
+                Image.fromarray(render((0, 0), rest).astype(np.uint8)).save(d / "floe_m0.png")
+                Image.fromarray(render(off, rest, 0.3).astype(np.uint8)).save(d / "floe_m1.png")
+                Image.fromarray(render(off, rest, 0.9, floe_on=False).astype(np.uint8)).save(d / "hide_floe.png")
+                r = floe_drift_v2(d)
+                row[nm] = r["median_drift_px"]
+            out.append(row)
     return out

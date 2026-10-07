@@ -146,13 +146,18 @@ func _life() -> void:
 			if String(id).begins_with("blobs_shore_ice__"):
 				fl += scene._meshes(scene.nodes[id])
 		if not fl.is_empty():
-			# a plate-space checker (projected paint): 2048 x 1280 texels over the 4096 x 2560 plate, 8-texel cells = 16 px
-			var img := Image.create(2048, 1280, false, Image.FORMAT_RGB8)
-			img.fill(Color(0.1, 0.1, 0.1))
-			for cy in 160:
-				for cx in 256:
-					if (cx + cy) % 2 == 0:
-						img.fill_rect(Rect2i(cx * 8, cy * 8, 8, 8), Color(0.95, 0.95, 0.95))
+			# P9c marker (R-C9-196 re-instrumentation), plate-space (projected paint), 1024 x 640 texels = 4 plate px each:
+			#   R = 0.95 everywhere -> the floe's SILHOUETTE (alpha against hide_floe's R, sub-pixel under MSAA)
+			#   G = band-limited simplex noise (aperiodic, ~16 px features) -> the floe's TEXTURE (no checker periodicity)
+			var nz := FastNoiseLite.new()
+			nz.noise_type = FastNoiseLite.TYPE_SIMPLEX
+			nz.seed = 196
+			nz.frequency = 0.22
+			var nimg := nz.get_image(1024, 640, false, false, true)
+			var img := Image.create(1024, 640, false, Image.FORMAT_RGB8)
+			for y in 640:
+				for x in 1024:
+					img.set_pixel(x, y, Color(0.95, 0.05 + 0.9 * nimg.get_pixel(x, y).r, 0.5))
 			var chk := ImageTexture.create_from_image(img)
 			var saved := {}
 			for mi in fl:

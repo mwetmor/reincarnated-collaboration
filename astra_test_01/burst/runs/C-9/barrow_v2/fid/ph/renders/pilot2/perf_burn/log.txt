@@ -1,22 +1,25 @@
-heavy_lock: waiting — held by {"pid": 48783, "run": "JOIN1-J0F-port-emit", "ts": "2026-10-07T16:23:15Z", "cmd": "/Applications/Godot.app/Contents/MacO
-heavy_lock: acquired after 257s (C-9)
+heavy_lock: acquired after 0s (C-9)
 Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M2 (Apple8)
 
+manifest speeds (canvas px/s at the reference scale): { "run_armed": 412.47690524972, "strafe_L_armed": 91.1507332526864, "strafe_R_armed": 39.0448076666198 }
+de-rooted attack_chop      0.7519 m over 7.6667 s = 0.098 m/s removed, heading (0.63, 0.0, -0.77) (+140.8 deg off +Z)
+de-rooted chop_overhead_92 0.4333 m over 0.8667 s = 0.500 m/s removed, heading (-0.12, 0.0, 0.99) (-6.7 deg off +Z)
+character: nb-body.glb  clips ["attack", "attack_chop", "axe_guard_R", "axe_guard_R_bash", "axe_guard_R_block", "axe_guard_R_chop", "block", "chop_overhead_92", "idle", "idle_armed", "idle_guard", "run", "run_armed", "run_armed_L", "run_armed_R", "run_armed_diagblend_REJECTED", "run_armed_locked", "shield_bash", "shield_carry_L", "shield_guard_L", "strafe_L_armed", "strafe_R_armed", "walk", "walk_armed", "walk_armed_unarmedsrc"] -> { "chop": "", "block": "", "bash": "", "strafe_l": "", "strafe_r": "", "idle": "idle", "walk": "walk", "run": "run", "attack": "attack" }
+gear: {"axe":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"axe.glb","manifest_bones":["RightHand"],"manifest_mode":"socket","manifest_offset_m":0.0,"markers":["axe_edge"],"meshes":1,"near_empty_objects":0,"triangles":9000},"bracers":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"bracers.glb","manifest_bones":["RightForeArm","LeftForeArm"],"manifest_mode":"bone","manifest_offset_m":0.002,"markers":[],"meshes":2,"near_empty_objects":0,"triangles":11982},"byrnie":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"byrnie.glb","manifest_bones":["skinned"],"manifest_mode":"skin","manifest_offset_m":0.005,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":25999},"helmet":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"helmet.glb","manifest_bones":["Head"],"manifest_mode":"bone","manifest_offset_m":0.0,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":12000},"mantle":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"mantle.glb","manifest_bones":["skinned"],"manifest_mode":"skin","manifest_offset_m":0.008,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":23999},"shield":{"bones_match_body":true,"found":"skinned mesh on a skeleton whose bones match the body","glb":"shield.glb","manifest_bones":["LeftHand"],"manifest_mode":"socket","manifest_offset_m":0.0,"markers":[],"meshes":1,"near_empty_objects":0,"triangles":9000}}
+anim tree: left-toe contact at phase 0.320 of the walk and 0.333 of the run
+anim tree: unarmed | sync group walk 1.0333 s / run 0.6333 s at 161.1/517.3 px/s | strikes ["os_slash", "os_chop", "os_bash"] at 0.10/0.25 s | arm layer 'shield_guard_L' filtered to 8 of 50 tracks | block ''
+character: nb-body.glb  clips ["attack", "attack_chop", "axe_guard_R", "axe_guard_R_bash", "axe_guard_R_block", "axe_guard_R_chop", "block", "chop_overhead_92", "idle", "idle_armed", "idle_guard", "run", "run_armed", "run_armed_L", "run_armed_R", "run_armed_diagblend_REJECTED", "run_armed_locked", "shield_bash", "shield_carry_L", "shield_guard_L", "strafe_L_armed", "strafe_R_armed", "walk", "walk_armed", "walk_armed_unarmedsrc"] -> { "chop": "chop_overhead_92", "block": "block", "bash": "shield_bash", "strafe_l": "strafe_L_armed", "strafe_r": "strafe_R_armed", "idle": "idle_guard", "walk": "walk", "run": "run", "attack": "attack" }
+block: raise 0.794 -> 1.169 s of 'block', played in 0.18 s (x2.09), lowered in 0.20 s
+upper layer: ON | walk 'walk_armed' (1.7333 s, contact 0.690) run 'run_armed' (0.6667 s, contact 0.312) | 31 tracks on 16 bones
+axe guard layer: 'axe_guard_R' at weight 0.85, 4 tracks
+strike release: pose 'axe_guard_R', 5 bone paths, 3 strikes, swing ends {"attack":0.75,"chop_overhead_92":0.578}, over 0.08 s, guard throughout ["shield_bash"]
+clip set -> ARMED: idle 'idle_guard' walk 'walk' (1.0333 s, 161.1 px/s) run 'run' (0.6333 s, 517.3 px/s) layer 'shield_guard_L'
 [bv2f_pilot] painted: files_ok=23 bad=[] projected=106 baked=18 (meshes 18) bakes_missing=[] rebound=39 water={ "sea_meshes": 1, "floes_bobbing": 17 } snow_ground_h=true
-[barrow_full] built placements=124 splat_ok=false build_ms=5633
+[barrow_full] built placements=124 splat_ok=false build_ms=8896
 [barrow_full] view stretch=canvas_items aspect=keep base=1920x1080
-[barrow_painted] who=barbarian slot=own loaded_from_pck files_sha_ok=23/23 painting_ok=false ground=?(as_painted)_ok=false lit_ok=false snow_grid_ok=false | plates: bakes=0/25 on the real models, painting on primitives=0/29 (the mound + 28) | birches=0 inks_hidden=183 heather=266 snow=true ms=2716
-[ph] f0.png
-[ph] f1.png
-[ph] hide_heather.png
-[ph] hide_heather_b.png
-[ph] hide_water.png
-[ph] hide_water_b.png
-[ph] floe_m0.png
-[ph] floe_m1.png
-[ph] hide_floe.png
-[ph] life done -> /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/renders/pilot2/life_sea
+[barrow_painted] who=barbarian slot=own loaded_from_pck files_sha_ok=23/23 painting_ok=false ground=?(as_painted)_ok=false lit_ok=false snow_grid_ok=false | plates: bakes=0/25 on the real models, painting on primitives=0/29 (the mound + 28) | birches=0 inks_hidden=183 heather=266 snow=true ms=2763
+[ph] perf {"adapter":"Apple M2 (Apple8)","burn_ms":20.0,"frames":900,"max_ms":22.491,"mean_ms":20.9600666666666,"p50_ms":20.899,"p99_ms":21.742,"render":[1551,873],"renderer":"forward_plus","scene":"res://scenes/bv2f_pilot_painted.tscn","view":"uv:0,0"}
 ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceSurfaceDataCacheE
    at: ~PagedAllocator (./core/templates/paged_allocator.h:169)
 ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceForwardClusteredE
@@ -65,7 +68,7 @@ WARNING: 9 RIDs of type "IndexArray" were leaked.
    at: _free_rids (servers/rendering/rendering_device.cpp:7295)
 WARNING: 9 RIDs of type "IndexBuffer" were leaked.
    at: _free_rids (servers/rendering/rendering_device.cpp:7295)
-WARNING: 6 RIDs of type "VertexArray" were leaked.
+WARNING: 10 RIDs of type "VertexArray" were leaked.
    at: _free_rids (servers/rendering/rendering_device.cpp:7295)
 WARNING: 18 RIDs of type "VertexBuffer" were leaked.
    at: _free_rids (servers/rendering/rendering_device.cpp:7295)
