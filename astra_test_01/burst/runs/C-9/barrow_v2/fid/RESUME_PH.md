@@ -40,10 +40,10 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 - [x] P4 new classes mapped (wood, shingle, sea, shore ice): ADVISORY now, BINDING in Phase 3 vs the W-B distribution.
 - [x] P8 binding = recorded precision quantity, reproduced exactly (0.5221 / 934,936 px); provisional bar 0.4567 until PT's value.
 - [x] P11 v0.1 answers kept in `p11/answers/`. P11 re-instrumented as ABX: `p11/abx_cal_v1_vs_{159,158,constructed_halfdensity}/` await the conductor's judges.
-- [ ] P10 for R-C9-159 (informational): still queued behind the heavy lock (`renders/perf_v159`).
+- [x] P10 for R-C9-159 (informational): p99 13.55 ms, PASS (`renders/perf_v159`). The Godot queue is empty.
 
 ## Next / re-run
 0. When the ABX answers arrive: copy them to `fid/ph/p11/answers/abx_<set>.json`, then `python3 calibrate.py`, then commit.
-1. When `renders/perf_v159/perf.json` lands: `cd fid/ph/harness && python3 p9_p10_life_perf.py && python3 calibrate.py`, then commit. (A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.)
+1. A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.
 2. When PT lands `fid/pc/v1_stills/`: set `OVERLAP = 0.25` in `p11_pairs.py`, `python3 p11_pairs.py build`, `python3 calibrate.py`.
 3. When PT records its reproduced v1 heather value: re-base P8's bar in `p7_p8_floor_heather.py` (currently 0.90 × v1 measured).

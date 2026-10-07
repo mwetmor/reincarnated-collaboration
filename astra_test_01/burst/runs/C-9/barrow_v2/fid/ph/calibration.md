@@ -22,7 +22,7 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P7 | constraint | constructed (RED) | floor ≤ v1 quadrant max (tuft 0.0040, clutter 0.0013); lanes ≤ v1 segment max (tuft 0.0245, clutter 0.0793) | 0.0019 / 0.0005 **PASS** | 0.0006 / 0.0002 **PASS** | — | 0.0219 / 0.0125 **FAIL** | — |
 | P8 | constraint | constructed (RED) | ≥ 0.4567 — record 0.5221 − half v1's chunk range; RE-BASE on PT's reproduced value (R-C9-167 (4)) | 0.5221 (share 1.00) **PASS** | 0.0212 (share 0.40) **FAIL** | — | 0.1061 (share 0.42) **FAIL** | — |
 | P9 | constraint | R-C9-158; constructed (RED) | (a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99 | sway 8.26; trail 1.00 **PASS** | sway 13.06; flow 6.48; drift 1.913 px; trail 0.81 **FAIL** | trail 0.00; no SnowField, no wind, static sea **FAIL** | sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden) **FAIL** | — |
-| P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | None **—** | — | 21.33 **FAIL** | — |
+| P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | 13.55 **PASS** | — | 21.33 **FAIL** | — |
 | P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | — | v0.1 directional 100.0% (null FA 0%) **FAIL** | v0.1 directional 13.3% (null FA 40%), judge UNRELIABLE **—** | v0.1 directional 86.7% (null FA 10%) **FAIL** | — |
 <!-- /CALIBRATION-TABLE -->
 
@@ -66,7 +66,7 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
   - P3 v1 reproduces its record: stones 11.38 (recorded 11.26), kit 13.57 (13.53), projected classes ≈ 0.
   - P9 in-engine pairs: v1 sway 8.26 against noise 0.003; with the wind held, 0.00.
   - P10: v1 p99 14.87 ms; the 20 ms burn gives 21.33 ms.
-- **P10 for R-C9-159 is informational only** (P10 is a constraint row). It is still queued behind the heavy lock (`renders/perf_v159`).
+- **P10 for R-C9-159 is informational only** (P10 is a constraint row): p99 13.55 ms, PASS.
 - **P9c floe UV drift has a RED** (R-C9-159, 1.91 px median over 5 floes) **but no positive control.** v1 has no floes, and no rest-pose implementation exists yet. DEV-5's first build will be its positive control.
 - **P8** is provisional until PT's reproduced v1 value lands.
 - **P11** is built but not judged (C-3).
