@@ -1092,3 +1092,89 @@ This is a time-phase difference, not a look change.
 - **Binding FAIL:** **P4** (texture: the ice and the coastal snow; their origin is the paint transfer, not the guide, § 27).
 - **VOID:** **P11** × 2, pending the void-rule ruling (§ 28).
 - **Retired / not in plan:** P7, P6′ extent, P6b.
+
+## 38. PRE-REGISTRATION before the Phase 2″ repaint (R-C9-203/204/205; jack-ryan pilot Gate-2 folds F-4, F-5). Committed BEFORE any measurement on the repainted build. No bar moves.
+
+### F-4 (a) — P9 flow: the water mask from GEOMETRY (`pilot_harness.flow_geo`; `ph_life.gd` `geo_mask.png`)
+**The defect (§ 33).** `sway()` built its water mask from cross-time differences (f0 against hide_water, floe_m0 against hide_floe, f0 against hide_heather). Animated foam that moved between those shots was dropped from W.
+
+**The fix.**
+- **Capture.** In the `life` capture, one extra frame, `geo_mask.png`: the sea meshes drawn flat unshaded pure green and the floes flat unshaded pure red, same camera, one frame.
+- **Mask.** W = green px (G > 200, R < 60, B < 60), eroded 3 px, minus red dilated 6 px. Membership no longer depends on time.
+- **Flow.** Mean |f1 − f0| over W. The RED is the hidden-water pair over the same W.
+- **Noise.** Measured outside the green/red geometry (dilated 6 px), the heather and the self-moving px.
+- **Bar unchanged:** flow ≥ 2.064 and ≥ 3× noise. The hidden-water RED must FAIL.
+- **View.** The P9 flow view is the § 33 sea view (uv −29, −5.5) when the new coast keeps open water there. Otherwise it is the view of the window's largest open-water (ground_sea) area in the new build's ID render, chosen by the same argmax rule as (b) before any capture.
+
+### F-4 (b) — P9c on a floe-field view with n ≥ 3 (`pilot_harness.floe_view_choose`, `p9c_measure_v2`)
+- **Floes.** The build's BOBBING floes: the ids it gives a bob phase (`bv2f_pilot.gd` water dress; `blobs_shore_ice__*` today).
+- **View.**
+  - The plate px of each floe come from the build's own `ids_built.png`. A floe counts if its bbox + 12 px lies wholly inside both the plate and the 1920 × 1080 screen.
+  - The view is the 0.5 m-grid centre (uv) with the most counted floes; ties go to the smallest distance to their mean centre.
+  - It is decided from the ID render **before** any marker shot, and recorded.
+- **n.** P9c requires **≥ 3 floes in that view**; otherwise it is reported n-insufficient and stays non-binding. On today's pilot the rule finds 1 (blob_11), so it is insufficient, as known.
+- **Capture.** `ph_life.gd life <view> --floe-pairs 10`, plus `--floe-red`. The marker is § 31 A1: the floes' own shader, sea hidden for the marker shots.
+- **Statistic.** Pooled over every (floe, pair) sample with silhouette motion ≥ 0.25 px: the **median drift**. Each floe's own median is reported.
+- **Bars as § 31.** The rest-pose build PASSES iff ≤ 0.25 px; the RED must read > 0.25.
+
+### F-5 — P11 v3: embedded catch trials (`p11_abx3.py`; jack-ryan pilot Gate-2 (1))
+**Design.**
+- The 40 scored trials and 10 repeats are v2's construction.
+- **Plus 12 CATCH trials**, format-identical, shuffled in (62 images):
+  - **Catch pair:** v1 against R-C9-159. Its own judge scored 40/40 (calibration table § 1 row P11; § 28), the most discriminable pair on record. v1 against half-density scored 37/40 and 33/40.
+  - **Content:** the scored trials' own content control and guards, applied set-wide. A/B are guarded at ≤ 50% against every A/B of the set; X at ≤ 25% against every X of the set, so no catch X repeats a scored X (checked: 0 shared).
+  - **Balance:** X from v1 in 6 and from R-C9-159 in 6; correct letter A in 6 and B in 6.
+- JUDGE.md says "several versions".
+
+**Rule.**
+- **VALID iff ≥ 10/12 catches are correct.** An always-A or always-B set scores 6/12, so it is VOID by construction.
+- **PASS iff ≤ 26/40 scored** (unchanged).
+- Repeat inconsistency is a **reported, non-binding diagnostic**.
+
+**(a) Operating table** (`p11_abx3.py table`; exact binomial, Monte Carlo n = 200 000 agrees to ±0.0005):
+
+| Judge | P(valid) | P(VOID) | P(valid ∧ PASS) | P(valid ∧ FAIL) |
+|---|---|---|---|---|
+| guesser (catch ½, scored ½) | 0.0193 | **0.9807** (≥ 0.95 ✓) | 0.0189 | 0.0004 |
+| always-A | 0 | **1** (6/12) | 0 | 0 |
+| attentive (catch 0.95), builds indistinguishable | 0.9804 | 0.0196 | **0.9616** (≥ 0.9 ✓) | 0.0189 |
+| attentive (catch 0.99), indistinguishable | 0.9998 | 0.0002 | 0.9806 | 0.0192 |
+| attentive (0.95), discriminable p = 0.75 | 0.9804 | 0.0196 | 0.1012 | 0.8792 |
+| attentive (0.95), discriminable p = 0.85 | 0.9804 | 0.0196 | 0.0014 | 0.9791 |
+
+**(b) Catch-pair calibration.** The catch pair's per-trial accuracy is measured on the fresh G2-B2 judges below: their catches, pooled, **≥ 0.95**. If it is lower, the catch pair fails calibration and P11 v3 does not bind.
+
+**Risk, disclosed before any judge.** Under content control the catch crops are snow (12/12; the half-density set has 11 snow + 1 heather). The 40/40 calibration judge saw uncontrolled content (sea, cliffs). Whether snow-only catches hold ≥ 0.95 is exactly what (b) measures.
+
+**Self-test on both keys.**
+- The key itself scores 40/40 scored and 12/12 catch: valid.
+- Always-A scores 6/12 catch: VOID.
+- Alternating A/B scores 5–8/12 catch: VOID.
+
+**(c) G2-B2 re-run under v3**, judge-ready (`p11_abx3.py g2`; keys in `p11/keys/abx3_*.json`, outside the judge dirs):
+- `p11/abx3_g2v3_v1rec_vs_v1head/` — v1 record-time against v1 HEAD. Must read **valid ∧ PASS**.
+- `p11/abx3_g2v3_v1_vs_halfdensity/` — v1 against half-density. Must read **valid ∧ FAIL**.
+
+Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
+
+**Disposition.**
+- If (b) or (c) fails, P11 is **recorded as dropped from the parity claim at M3′, not silently absent** (F-5).
+- The pilot's two v2 answer sets are **not** re-scored. Pilot P11 stays VOID.
+
+### P4 references after Matt's M2′ answer (R-C9-203: sketch A's ice is a Matt-ruled palette DEV for the ice class)
+**ICE** (binding; replaces the v1-tarn reference **for the ice class only**).
+- **Reference.** Sketch A's mere (`sites/BV3r2-A.png`, make_bv2art's MERE polygon, eroded 6 px), gated to ice px **b\* ≤ 2**. The gate drops the reeds and rocks inside the polygon: 22% of polygon px. The same gate applies to the painted side.
+- **Reference values (frozen now).** Median L\*a\*b\* **(72.9, −1.0, −9.4)**; p10 (54.6, −3.7, −16.5); p90 (85.2, 1.8, −1.6).
+- **(i) Palette.** Each painted ice chunk (P4's chunk rects, ice class on ground less tufts, eroded 3 px, gated b\* ≤ 2, ≥ 20 000 px) is compared by median ΔE76 against the sketch median.
+  - **Bar: ΔE ≤ 9.40**, sketch A's own leave-one-quadrant-out maximum. Quadrant medians: (73.4, −1.1, −9.5), (69.2, −0.8, −9.9), (79.9, 0.0, −6.5), (70.3, −1.5, −11.0); LOO ΔE 0.82 / 4.47 / 9.40 / 4.76.
+- **(ii) Texture at the sketch's own scale.** The painting is box-downsampled to sketch A's 24 px/m (factor 4.192). P4's `spectrum_shape` (64 px windows, ≥ 70% coverage, step 32) gives an RMS distance to the sketch's pooled spectrum.
+  - **Bar ≤ 0.116**, the sketch's leave-one-quadrant-out maximum. That quadrant LOO is thin: 9 / 2 / 2 / 11 windows; disclosed.
+- **Reported, non-binding.** The Lab-histogram Hellinger against the sketch. The medium and exposure differ: even v1's tarn reads 0.639.
+- **Today's readings, for the record (not a measurement of the repaint).**
+  - Pilot ice: ΔE ≈ 9.5 (fails by 0.1); spectrum 0.036 (passes); Hellinger 0.66–0.76.
+  - v1's tarn: ΔE ≈ 23.4 (fails); spectrum 0.070.
+
+**COASTAL SNOW** (binding; **unchanged reference**).
+- Matt's M2′ ruling named the ice class only, and an ice palette ruling does not clear the snow (jack-ryan P-2). So coastal snow, like all snow, binds against **v1's snow** with the frozen § 3 bars: hist ≤ 0.281, spectrum ≤ 0.097, every snow chunk.
+- **Reported, non-binding diagnostic.** Each coastal chunk's snow Hellinger against the pilot's own **inland** snow pool, made of the chunks without shingle, sea or shore ice in the new class map. This separates a coastal shift from a global one.
+- **Coastal chunks.** Defined from the new guide's class map: any chunk containing shingle, shore_ice or sea ≥ 2% of its px.

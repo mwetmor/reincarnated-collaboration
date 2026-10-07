@@ -1,0 +1,100 @@
+{
+ "operating_table": {
+  "guesser": {
+   "p_catch": 0.5,
+   "p_scored": 0.5,
+   "P(valid)": 0.0193,
+   "P(valid)_mc": 0.0195,
+   "P(VOID)": 0.9807,
+   "P(valid & PASS)": 0.0189,
+   "P(valid & PASS)_mc": 0.0191,
+   "P(valid & FAIL)": 0.0004
+  },
+  "attentive, builds indistinguishable": {
+   "p_catch": 0.95,
+   "p_scored": 0.5,
+   "P(valid)": 0.9804,
+   "P(valid)_mc": 0.9805,
+   "P(VOID)": 0.0196,
+   "P(valid & PASS)": 0.9616,
+   "P(valid & PASS)_mc": 0.9614,
+   "P(valid & FAIL)": 0.0189
+  },
+  "attentive (catch 0.99), indistinguishable": {
+   "p_catch": 0.99,
+   "p_scored": 0.5,
+   "P(valid)": 0.9998,
+   "P(valid)_mc": 0.9998,
+   "P(VOID)": 0.0002,
+   "P(valid & PASS)": 0.9806,
+   "P(valid & PASS)_mc": 0.9803,
+   "P(valid & FAIL)": 0.0192
+  },
+  "attentive, builds discriminable p=0.75": {
+   "p_catch": 0.95,
+   "p_scored": 0.75,
+   "P(valid)": 0.9804,
+   "P(valid)_mc": 0.9805,
+   "P(VOID)": 0.0196,
+   "P(valid & PASS)": 0.1012,
+   "P(valid & PASS)_mc": 0.1021,
+   "P(valid & FAIL)": 0.8792
+  },
+  "attentive, p=0.85": {
+   "p_catch": 0.95,
+   "p_scored": 0.85,
+   "P(valid)": 0.9804,
+   "P(valid)_mc": 0.9803,
+   "P(VOID)": 0.0196,
+   "P(valid & PASS)": 0.0014,
+   "P(valid & PASS)_mc": 0.0015,
+   "P(valid & FAIL)": 0.9791
+  },
+  "always-A": {
+   "catch_correct": 6,
+   "valid": false,
+   "verdict": "VOID (6/12 by the balanced key)"
+  }
+ },
+ "sets": {
+  "g2v3_v1rec_vs_v1head": {
+   "set": "g2v3_v1rec_vs_v1head",
+   "scored": 40,
+   "repeats": 10,
+   "catches": 12,
+   "images": 62,
+   "catch_correct_A": 6,
+   "catch_correct_B": 6,
+   "UNDERPOWERED": false,
+   "by_class": {
+    "heather": 7,
+    "ice": 3,
+    "snow": 30
+   },
+   "catch_by_class": {
+    "snow": 12
+   },
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx3_g2v3_v1rec_vs_v1head"
+  },
+  "g2v3_v1_vs_halfdensity": {
+   "set": "g2v3_v1_vs_halfdensity",
+   "scored": 40,
+   "repeats": 10,
+   "catches": 12,
+   "images": 62,
+   "catch_correct_A": 6,
+   "catch_correct_B": 6,
+   "UNDERPOWERED": false,
+   "by_class": {
+    "heather": 11,
+    "ice": 3,
+    "snow": 26
+   },
+   "catch_by_class": {
+    "heather": 1,
+    "snow": 11
+   },
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx3_g2v3_v1_vs_halfdensity"
+  }
+ }
+}

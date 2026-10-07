@@ -146,6 +146,27 @@ func _life() -> void:
 		await _shot("hide_water_b")
 		for w in sea:
 			(w as Node3D).visible = true
+		# F-4 (calibration.md § 38): a GEOMETRY mask in this camera -- the sea meshes flat pure green, the floes flat pure red,
+		# unshaded, one frame; P9 flow's water mask and floe exclusion come from it (no cross-time differences)
+		var gm := StandardMaterial3D.new()
+		gm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		gm.albedo_color = Color(0, 1, 0)
+		var rm := StandardMaterial3D.new()
+		rm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		rm.albedo_color = Color(1, 0, 0)
+		var geo_saved := {}
+		for w in sea:
+			geo_saved[w] = (w as GeometryInstance3D).material_override
+			(w as GeometryInstance3D).material_override = gm
+		for id in scene.nodes:
+			if String(id).begins_with("blobs_shore_ice__"):
+				for mi in scene._meshes(scene.nodes[id]):
+					geo_saved[mi] = (mi as GeometryInstance3D).material_override
+					(mi as GeometryInstance3D).material_override = rm
+		await _settle()
+		await _shot("geo_mask")
+		for mi in geo_saved:
+			(mi as GeometryInstance3D).material_override = geo_saved[mi]
 		var fl: Array = []
 		for id in scene.nodes:
 			if String(id).begins_with("blobs_shore_ice__"):

@@ -777,3 +777,72 @@ def p9c_measure(dirp, view_uv, margin=12):
     return {"valid_rect": valid, "pairs": len(rows), "pairs_measured": len(d),
             "median_drift_px": round(float(np.median(d)), 3) if d else None, "max_pair_drift_px": round(float(max(d)), 3) if d else None,
             "pass": (float(np.median(d)) <= 0.25) if d else None, "per_pair": rows}
+
+
+# ---------------------------------------------------------------------------------------------------------- F-4 (§ 38)
+def flow_geo(dirp, bar=2.064):
+    """P9 flow, F-4 re-instrumented: the water mask and the floe exclusion come from the GEOMETRY shot geo_mask.png
+    (sea meshes flat green, floes flat red, same camera, one frame) -- no cross-time difference decides membership.
+      W = green px (G > 200, R < 60, B < 60), eroded 3 px, minus red (floes) dilated 6 px
+      flow = mean |f1 - f0| over W; RED = the hidden-water pair over the same W
+      noise = mean |f1 - f0| over px outside W, the floes, the heather (dilated) and the self-moving px (as sway())"""
+    import p9_p10_life_perf as L
+    G = load_rgb(dirp / "geo_mask.png")
+    green = (G[..., 1] > 200) & (G[..., 0] < 60) & (G[..., 2] < 60)
+    red = (G[..., 0] > 200) & (G[..., 1] < 60) & (G[..., 2] < 60)
+    W = ndimage.binary_erosion(green, iterations=3) & ~ndimage.binary_dilation(red, iterations=6)
+    f0, f1 = load_rgb(dirp / "f0.png"), load_rgb(dirp / "f1.png")
+    d = L._d(f1, f0)
+    hh = load_rgb(dirp / "hide_heather.png")
+    selfmove = ndimage.binary_dilation(L._d(hh, load_rgb(dirp / "hide_heather_b.png")) > 3, iterations=3)
+    heather = ndimage.binary_dilation(L._d(f0, hh) > 12, iterations=2)
+    still = ~ndimage.binary_dilation(green | red, iterations=6) & ~heather & ~selfmove
+    flow = float(d[W].mean()) if W.any() else 0.0
+    noise = float(d[still].mean())
+    red_flow = float(L._d(load_rgb(dirp / "hide_water_b.png"), load_rgb(dirp / "hide_water.png"))[W].mean()) if W.any() else None
+    return {"water_px_geo": int(W.sum()), "flow": round(flow, 3), "noise": round(noise, 3), "RED_hidden_water_flow": None if red_flow is None else round(red_flow, 3),
+            "pass": flow >= bar and flow >= 3 * noise, "RED_pass": None if red_flow is None else (red_flow >= bar and red_flow >= 3 * noise)}
+
+
+def floe_view_choose(floe_ids, margin=12, step_m=0.5, size=(1920, 1080)):
+    """P9c floe-field view, F-4 (§ 38): over a 0.5 m grid of view centres (uv) inside the plate, count the bobbing floes
+    whose ID-render bbox (ids_built, plate px) + margin lies wholly inside BOTH the plate and the 1920 x 1080 screen;
+    the view = argmax count (ties: the smallest distance to the counted floes' mean centre). Deterministic, from the
+    build's own ID render, decided BEFORE any marker shot."""
+    idx, tab = ids_built()
+    boxes = []
+    for k, v in tab.items():
+        if v["id"] in floe_ids:
+            ys, xs = np.where(idx == k)
+            if len(xs):
+                boxes.append((v["id"], xs.min() - margin, ys.min() - margin, xs.max() + margin, ys.max() + margin))
+    env = jload(GA / "guide_manifest.json")["envelope"]
+    u0, v1 = env["u"][0], env["v"][1]
+    inplate = [b for b in boxes if b[1] >= 0 and b[2] >= 0 and b[3] < W and b[4] < H]
+    best = None
+    for u in np.arange(u0 + 9.6, u0 + W / PPM_V1 - 9.6, step_m):
+        for v in np.arange(v1 - H / 80.3076 + 6.8, v1 - 6.8, step_m):
+            cx, cy = (u - u0) * PPM_V1, (v1 - v) * 80.3076
+            x0, y0 = cx - size[0] / 2, cy - size[1] / 2
+            inside = [b for b in inplate if b[1] >= x0 and b[2] >= y0 and b[3] < x0 + size[0] and b[4] < y0 + size[1]]
+            if not inside:
+                continue
+            mx = np.mean([(b[1] + b[3]) / 2 for b in inside]); my = np.mean([(b[2] + b[4]) / 2 for b in inside])
+            key = (len(inside), -math.hypot(cx - mx, cy - my))
+            if best is None or key > best[0]:
+                best = (key, (round(float(u), 3), round(float(v), 3)), [b[0] for b in inside])
+    return {"floes_with_ids": len(boxes), "floes_wholly_in_plate": [b[0] for b in inplate],
+            "view_uv": best[1] if best else None, "floes_in_view": best[2] if best else [], "n": len(best[2]) if best else 0,
+            "sufficient": bool(best and len(best[2]) >= 3)}
+
+
+def p9c_measure_v2(dirp, view_uv, margin=12, min_motion=0.25):
+    """F-4 (§ 38): every (floe, pair) sample with silhouette motion >= 0.25 px, floes wholly in the plate's screen rect;
+    statistic = the median drift over all counted samples (also per floe)"""
+    r = p9c_measure(dirp, view_uv, margin)
+    samples = [(x["px"], y["drift"]) for pr in r["per_pair"] for y in pr["rows"] for x in [y] if y["motion"] >= min_motion]
+    d = [s[1] for s in samples]
+    r["samples_counted"] = len(d)
+    r["median_drift_samples_px"] = round(float(np.median(d)), 3) if d else None
+    r["pass_v2"] = (float(np.median(d)) <= 0.25) if d else None
+    return r
