@@ -1,6 +1,6 @@
 # BV2F lane PH — the v1-parity harness, calibrated (Phase 0 task 0.4)
 
-**Lane:** PH (galadriel). **Charter:** BV2F v0.2 (§ 9 C-1..C-3 as amended by § 12 Gate-1 folds W-1, W-7, I-1). **Status:** calibrated. Rulings R-C9-167 and R-C9-168 are folded in § 7. v1 passes every measured row. R-C9-159 fails P1–P4, P6b and P8. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED. **Open:** the P6a re-instrumentation acceptance is NOT met (§ 7 (2): a HALT for ruling). P11 is re-instrumented as ABX and awaits judges.
+**Lane:** PH (galadriel). **Charter:** BV2F v0.2 (§ 9 C-1..C-3 as amended by § 12 Gate-1 folds W-1, W-7, I-1). **Status:** calibrated. Rulings R-C9-167 and R-C9-168 are folded in § 7. v1 passes every measured row. R-C9-159 fails P1–P4, P6b and P8. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED. **Open:** P6a's scoped judge (R-C9-169, § 8) and the P11 ABX test both await the conductor's judges.
 **Machine-readable:** `calibration.json`. **Harness + run commands:** `harness/README.md`. **Per-row evidence:** `results/*.json`.
 
 Rule applied throughout: thresholds come from v1's own distribution; a quality row that cannot separate v1 from its
@@ -20,7 +20,7 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P5 | quality | R-C9-158 (Gate-1 W-1) | (a) ≤ 13.09; (b) ≤ 0.799 | 13.09 / 0.799 **PASS** | 6.87 / 0.891 **FAIL** | 15.29 / 1.274 **FAIL** | 14.07 / 1.250 **FAIL** | — |
 | P6 | quality | R-C9-155 BVR blocks (invention, Gate-1 W-1); R-C9-159 (silhouettes) | (a) inventions = 0, T = 32 (v1's own ceiling); (b) ≥ 0.513 (v1 median) | 0 inv / IoU 0.513 **PASS** | IoU 0.102 **FAIL** | — | 1 inv / IoU 0.290 **FAIL** | BVR hall (T2a, 7_5..8_7): 18 inventions **FAIL**; BVR barrow door (T2b, 4_0..6_1): 0 inventions **PASS** |
 | P7 | constraint | constructed (RED) | floor ≤ v1 quadrant max (tuft 0.0040, clutter 0.0013); lanes ≤ v1 segment max (tuft 0.0245, clutter 0.0793) | 0.0019 / 0.0005 **PASS** | 0.0006 / 0.0002 **PASS** | — | 0.0219 / 0.0125 **FAIL** | — |
-| P8 | constraint | constructed (RED) | ≥ 0.4567 — record 0.5221 − half v1's chunk range; RE-BASE on PT's reproduced value (R-C9-167 (4)) | 0.5221 (share 1.00) **PASS** | 0.0212 (share 0.40) **FAIL** | — | 0.1061 (share 0.42) **FAIL** | — |
+| P8 | constraint | constructed (RED) | ≥ 0.4476 — v1's minimum chunk value (R-C9-169) | 0.5221 (share 1.00) **PASS** | 0.0212 (share 0.40) **FAIL** | — | 0.1061 (share 0.42) **FAIL** | — |
 | P9 | constraint | R-C9-158; constructed (RED) | (a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99 | sway 8.26; trail 1.00 **PASS** | sway 13.06; flow 6.48; drift 1.913 px; trail 0.81 **FAIL** | trail 0.00; no SnowField, no wind, static sea **FAIL** | sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden) **FAIL** | — |
 | P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | 13.55 **PASS** | — | 21.33 **FAIL** | — |
 | P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | — | v0.1 directional 100.0% (null FA 0%) **FAIL** | v0.1 directional 13.3% (null FA 40%), judge UNRELIABLE **—** | v0.1 directional 86.7% (null FA 10%) **FAIL** | — |
@@ -37,7 +37,7 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P5 | overlap MAD ≤ 13.09; seam \|log2\| ≤ 0.799 | v1's 24 canvas overlaps (reproduces the recorded 2.7–13.1) and 6 stitched seams |
 | P6 | inventions = 0 at T = 32; IoU ≥ 0.513 | T = largest L* at which v1's painting shows no undeclared opening (sweep 16–40: 0 through 32, 1 at 33); v1 per-piece IoU median over 53 pieces |
 | P7 | floor ≤ v1 quadrant max; lanes ≤ v1 segment max | v1 arena disc (r 7 m) quadrants; v1 path + door corridor in 2 m segments |
-| P8 | share ≥ 0.90 × v1, tint r ≥ 0.90 × v1 — **provisional** | v1 `heather.json` (977) measured here; to be re-based on PT's reproduced v1 value (W-2) |
+| P8 | precision ≥ 0.4476 (v1's minimum chunk; R-C9-169) | `take/build/overlay_check.json` per_chunk, 16 chunks 0.4476–0.5783, whole window 0.5221; reproduced exactly by PT (`fid/pc/results.json` T3) and by PH |
 | P9 | sway ≥ 3× noise and ≥ 0.25× v1; flow ≥ 3× noise; floe drift ≤ 0.25 px; trail coverage ≥ 0.99 | v1 in-engine pair; v1 SnowField covers 100% of its floor |
 | P10 | p99 ≤ 16.7 ms | plan § 4 P10 (the 10.9–12.4 ms target is withdrawn, W-2) |
 | P11 | identification ≤ 65% (≤ 19/30) | plan § 4 P11; power: P(pass) = 0.95 at p = 0.50, 0.49 at 0.65, 0.27 at 0.70, 0.03 at 0.80, 0.0001 at 0.90 |
@@ -152,3 +152,27 @@ The bar is provisional at 0.4567: the record minus half of v1's chunk-to-chunk r
 - **Power:** P(pass) = 0.98 at p = 0.50, 0.79 at 0.60, 0.56 at 0.65, 0.30 at 0.70, 0.10 at 0.75, 0.02 at 0.80, 0.00 at ≥ 0.90.
 - **Judge directories:** `p11/abx_cal_v1_vs_159/`, `p11/abx_cal_v1_vs_158/`, `p11/abx_cal_v1_vs_constructed_halfdensity/`. Keys are in `p11/keys/abx_*.json`. Score with `python3 p11_abx.py score <set> <answers.json>`, and drop the answers in `p11/answers/abx_<set>.json` so that `calibrate.py` picks them up.
 - **Crop pool note:** reaching 40 trials needed OVERLAP 0.5 within one location (3 v1 stills). Lower it to 0.25 when PT's v1 stills enlarge the pool.
+
+## 8. Conductor ruling R-C9-169, folded
+
+**P6a becomes option (b), scoped, on top of v0.1.** The pipeline is in `harness/p6_judge.py`.
+1. The v0.1 detector (T = 32, no prior) stays the binding candidate generator. Declared openings are matched and dropped.
+2. A candidate **outside** the declared dark-structure regions fails the chunk automatically.
+3. A candidate **inside** one goes to a fresh blind judge. Each item shows the painting crop beside the guide crop at the same pixels. The judge is asked one question: "does the painting show a doorway, opening or structure the guide does not?" A "yes" fails the chunk.
+   - In Phase 1 and later, the declared dark-structure regions come from the ID render's hall, porch, gable, palisade and char classes.
+   - For calibration they come from the zone-map extrusion. All 18 BVR hall candidates lie inside it.
+4. If the calibration fails its acceptance, the fallback is (a): the conductor triages the stage-3 candidates by eye, logged per chunk.
+
+**The calibration set is built: `p6_judge/`.** It holds 20 items (`item_01..item_20.png`, 512 px crops = 5.1 m, metadata-stripped), JUDGE.md with only the ruling's question, and the key in `keys/p6_judge.json`, outside the judge directory.
+- **Positives (2):** the R-C9-155 invented door, plate (10311, 4925), shown with the BVR zone map; and the stamped doorway on v1, shown with v1's guide.
+- **Negatives:** v1's declared barrow door (1), shown with v1's guide; and the 17 BVR hall timber candidates, shown with the BVR zone map.
+- **Acceptance:** both positives "yes", v1's door "no", and at most 2 "yes" on the timber.
+- **Scoring:** `python3 p6_judge.py score <answers.json>`.
+
+Two things to expect from this particular calibration set:
+- **The guide is a flat map, so timber may draw false "yes" answers.** The BVR guide is the flat zone map the painter was given, with structures as ground-plane footprints. Roof-level timber, painted above the hall footprint, therefore sits over "snow" in the guide crop. Of the 17 timber items, 6 are centred over land_snow or rock_face in the zone map. In Phase 1 the guide is a greybox render with walls and roofs, so this case does not arise there.
+- **The guide marks something dark at the invented door.** In the zone map a dark brazier mark sits beside the porch outline at that spot, and a judge may read it as "the guide shows an opening here". If the door is missed, that is the likely cause.
+
+**P8 is final, no longer provisional.** The bar is v1's minimum chunk value, **0.4476**. PT reproduced all 16 chunk values and the 0.5221 whole-window value exactly (T3). Results: v1 0.5221 PASS, R-C9-159 0.0212 FAIL, constructed 0.1061 FAIL.
+
+**P11.** PT's six v1 stills and `views.json` are in `fid/pc/v1_stills/`. They join the ABX pool, with OVERLAP 0.25, only **after** the current ABX judges return. The three ABX sets are not regenerated before then.

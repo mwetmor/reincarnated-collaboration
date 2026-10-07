@@ -1,6 +1,6 @@
 {
  "_what": "BV2F lane PH -- the v1-parity harness P1-P11, calibrated (Phase 0 task 0.4)",
- "assembled_utc": "2026-10-07T02:50:29Z",
+ "assembled_utc": "2026-10-07T02:54:49Z",
  "rows": [
   {
    "row": "P1",
@@ -224,8 +224,8 @@
    "kind": "constraint",
    "neg": "constructed (RED)",
    "metric": "precision_drawn_on_painted (overlay_check.py's recorded quantity): drawn 3D-heather px on painted tuft px / drawn px, whole window. Reported beside it: instance share on tufts and tint r",
-   "threshold": "\u2265 0.4567 \u2014 record 0.5221 \u2212 half v1's chunk range; RE-BASE on PT's reproduced value (R-C9-167 (4))",
-   "threshold_source": "take/build/overlay_check.json:1781 (0.5221, as_painted, whole_window); reproduced here exactly",
+   "threshold": "\u2265 0.4476 \u2014 v1's minimum chunk value (R-C9-169)",
+   "threshold_source": "take/build/overlay_check.json per_chunk (16 chunks 0.4476\u20130.5783; whole window 0.5221), reproduced exactly by PT (fid/pc/results.json T3) and by PH",
    "cells": {
     "v1": {
      "value": "0.5221 (share 1.00)",

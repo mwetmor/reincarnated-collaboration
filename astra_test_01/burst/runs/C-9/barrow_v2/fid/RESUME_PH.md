@@ -36,14 +36,14 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 ## State (keep current at every commit)
 - [x] harness P1–P11 built: `fid/ph/harness/` (README has the run order). Results in `fid/ph/results/`.
 - [x] calibration: `fid/ph/calibration.md` / `.json`. Rulings R-C9-167 and R-C9-168 are folded in calibration.md § 7.
-- **HALT for ruling, P6a (R-C9-167 (2)):** the priors are implemented, but NO variant meets the acceptance (door flagged, timber ≤ 1, v1 0). The invented door and the timber are inseparable by shape, frame and location; the variant table is in calibration.md § 7. The binding detector stays v0.1. Options (a)/(b)/(c) are listed there.
+- [x] P6a ruled (R-C9-169): v0.1 candidates; outside declared dark structures = auto-fail; inside = scoped blind judge. The calibration set `fid/ph/p6_judge/` (20 items, key in `fid/ph/keys/p6_judge.json`) awaits the conductor's judge. Fallback (a), conductor triage by eye, applies if it fails.
 - [x] P4 new classes mapped (wood, shingle, sea, shore ice): ADVISORY now, BINDING in Phase 3 vs the W-B distribution.
-- [x] P8 binding = recorded precision quantity, reproduced exactly (0.5221 / 934,936 px); provisional bar 0.4567 until PT's value.
+- [x] P8 FINAL: bar 0.4476 = v1's minimum chunk (PT reproduced all 16 exactly, T3).
 - [x] P11 v0.1 answers kept in `p11/answers/`. P11 re-instrumented as ABX: `p11/abx_cal_v1_vs_{159,158,constructed_halfdensity}/` await the conductor's judges.
 - [x] P10 for R-C9-159 (informational): p99 13.55 ms, PASS (`renders/perf_v159`). The Godot queue is empty.
 
 ## Next / re-run
+0a. When the P6a judge answers arrive: `python3 p6_judge.py score <answers.json>`; record the result in calibration.md § 8 and copy the answers to `fid/ph/p11/answers/p6_judge.json`.
 0. When the ABX answers arrive: copy them to `fid/ph/p11/answers/abx_<set>.json`, then `python3 calibrate.py`, then commit.
 1. A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.
-2. When PT lands `fid/pc/v1_stills/`: set `OVERLAP = 0.25` in `p11_pairs.py`, `python3 p11_pairs.py build`, `python3 calibrate.py`.
-3. When PT records its reproduced v1 heather value: re-base P8's bar in `p7_p8_floor_heather.py` (currently 0.90 × v1 measured).
+2. AFTER the current ABX judges return (not before; R-C9-169): set OVERLAP = 0.25 in `p11_abx.py`; the pool already includes `fid/pc/v1_stills/` (P.V1_STILLS globs it). Then `python3 p11_abx.py build` for the next judging round.

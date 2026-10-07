@@ -266,11 +266,11 @@ if __name__ == "__main__":
     rec = jload(BF / "take/build/overlay_check.json")["variants"]["as_painted"]["per_chunk"]
     ch = [v["heather + shrub tufts"]["precision_drawn_on_painted"] for k, v in rec.items() if k != "whole_window" and "heather + shrub tufts" in v]
     pr = precision_v1()
-    lo = round(0.5221 - (max(ch) - min(ch)) / 2, 4)
+    lo = round(min(ch), 4)            # R-C9-169: the bar = v1's own worst chunk (PT reproduced all 16 exactly, T3)
     p8["precision"] = {"quantity": "overlay_check.py precision_drawn_on_painted (drawn heather px on painted tuft px / drawn heather px)",
                        "record": 0.5221, "record_src": "take/build/overlay_check.json:1781 (as_painted, whole_window)",
-                       "v1_chunk_range": [min(ch), max(ch)], "bar_provisional": lo,
-                       "bar_rule": "record - half v1's chunk range; RE-BASE on PT's reproduced value when it lands",
+                       "v1_chunk_range": [min(ch), max(ch)], "bar": lo,
+                       "bar_rule": "v1's minimum chunk value (16 chunks, record = PT's reproduction, fid/pc/results.json T3 PASS exact): a whole-window precision below v1's worst chunk is outside v1's own distribution (R-C9-169)",
                        "v1": dict(pr, **{"pass": pr["precision"] >= lo})}
     c2 = precision_v1(shift_px=int(4 * PPM_V1))
     p8["precision"]["constructed"] = dict(c2, **{"pass": c2["precision"] >= lo, "what": "v1's drawn heather shifted 4 m"})

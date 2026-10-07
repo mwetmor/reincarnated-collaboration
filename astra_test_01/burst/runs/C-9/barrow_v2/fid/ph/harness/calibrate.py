@@ -100,8 +100,8 @@ def rows():
     pr = p8.get("precision", {})
     out.append({"row": "P8", "kind": "constraint", "neg": "constructed (RED)",
                 "metric": "precision_drawn_on_painted (overlay_check.py's recorded quantity): drawn 3D-heather px on painted tuft px / drawn px, whole window. Reported beside it: instance share on tufts and tint r",
-                "threshold": "≥ %s — record 0.5221 − half v1's chunk range; RE-BASE on PT's reproduced value (R-C9-167 (4))" % pr.get("bar_provisional"),
-                "threshold_source": "take/build/overlay_check.json:1781 (0.5221, as_painted, whole_window); reproduced here exactly",
+                "threshold": "≥ %s — v1's minimum chunk value (R-C9-169)" % pr.get("bar"),
+                "threshold_source": "take/build/overlay_check.json per_chunk (16 chunks 0.4476–0.5783; whole window 0.5221), reproduced exactly by PT (fid/pc/results.json T3) and by PH",
                 "cells": {k: {"value": "%.4f (share %.2f)" % (pr[k]["precision"], p8[k]["share"]), "pass": pr[k]["pass"], "note": ""}
                           for k in ("v1", "159", "constructed") if pr.get(k)},
                 "constructed": "v1's drawn heather shifted 4 m"})
