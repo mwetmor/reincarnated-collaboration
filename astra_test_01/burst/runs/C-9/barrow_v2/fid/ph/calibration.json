@@ -1,6 +1,6 @@
 {
  "_what": "BV2F lane PH -- the v1-parity harness P1-P11, calibrated (Phase 0 task 0.4)",
- "assembled_utc": "2026-10-07T02:54:49Z",
+ "assembled_utc": "2026-10-07T03:10:53Z",
  "rows": [
   {
    "row": "P1",
@@ -311,19 +311,19 @@
    "threshold_source": "plan \u00a7 4 P11; R-C9-168; power table in calibration.md",
    "cells": {
     "159": {
-     "value": "v0.1 directional 100.0% (null FA 0%)",
+     "value": "ABX 100% (inconsistency 0%)",
      "pass": false,
-     "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"
+     "note": ""
     },
     "158": {
-     "value": "v0.1 directional 13.3% (null FA 40%), judge UNRELIABLE",
-     "pass": null,
-     "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"
+     "value": "ABX 90% (inconsistency 10%)",
+     "pass": false,
+     "note": ""
     },
     "constructed": {
-     "value": "v0.1 directional 86.7% (null FA 10%)",
+     "value": "ABX 92% (inconsistency 0%)",
      "pass": false,
-     "note": "v0.1 instrument, superseded by ABX (R-C9-168); ABX built, awaiting judges"
+     "note": ""
     }
    },
    "constructed": "v1 stills at half texel density",

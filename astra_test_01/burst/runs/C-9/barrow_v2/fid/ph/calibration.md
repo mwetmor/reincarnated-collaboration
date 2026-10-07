@@ -23,7 +23,7 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P8 | constraint | constructed (RED) | ≥ 0.4476 — v1's minimum chunk value (R-C9-169) | 0.5221 (share 1.00) **PASS** | 0.0212 (share 0.40) **FAIL** | — | 0.1061 (share 0.42) **FAIL** | — |
 | P9 | constraint | R-C9-158; constructed (RED) | (a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99 | sway 8.26; trail 1.00 **PASS** | sway 13.06; flow 6.48; drift 1.913 px; trail 0.81 **FAIL** | trail 0.00; no SnowField, no wind, static sea **FAIL** | sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden) **FAIL** | — |
 | P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | 13.55 **PASS** | — | 21.33 **FAIL** | — |
-| P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | — | v0.1 directional 100.0% (null FA 0%) **FAIL** | v0.1 directional 13.3% (null FA 40%), judge UNRELIABLE **—** | v0.1 directional 86.7% (null FA 10%) **FAIL** | — |
+| P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | — | ABX 100% (inconsistency 0%) **FAIL** | ABX 90% (inconsistency 10%) **FAIL** | ABX 92% (inconsistency 0%) **FAIL** | — |
 <!-- /CALIBRATION-TABLE -->
 
 ## 2. Thresholds and their v1 sources
