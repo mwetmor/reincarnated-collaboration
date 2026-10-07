@@ -5,7 +5,7 @@
  "cols": 3,
  "rows": 3,
  "experiment": "BV2F-pilot-paintover",
- "_status": "HELD (R-C9-212): pinned from LV 09ba67b23 (guide a475a00fef02; r00 tiles unchanged, r01-r02 changed); repaint level pinned (pilot_rp/level); bursts BV2F-PR-<c>_<r>; Ph2'' cap 18 incl. retries; no burst until the conductor releases (PH's P6' on 09ba67b23 green). Phase 2' as-run cfg: cfg_bv2a_pilot_phase2p.json.",
+ "_status": "HELD (R-C9-213): cave rebuild may change pilot coast tiles -- re-pin after LV's next render + PH's P6'; geo text update pending; no burst. (09ba67b23 pins provisional.)",
  "_guide_sha256": "a475a00fef02b48246f91ff84742ede611f20bf06d7c260a2d9afa23ea6846b1",
  "_guide_frame": "6656 x 4096 px = u -33.58..32.58 m, v -28.63..22.37 m at the play camera (orthographic, pitch 52.95354112560294, yaw 47): 100.6176 px per metre across, 80.3076 per ground metre up-screen. PILOT = the 3 x 3 canvases at the grid origin (px 0..4096 x 0..2560 of the 5 x 5 grid); cols/rows = 3 so the wavefront stops at the pilot edge",
  "_pins": "fid/pt/pilot/pins.json (guide + 9 tiles, LV 3686cea98; the Phase 2' pins are pins_phase2p.json); check: python3 fid/pt/tools/pilot_pins_check.py",
