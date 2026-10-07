@@ -349,3 +349,119 @@ A pack movement voids J-S8 wholesale (J-P2 § 7(c)), so the rulebook must not be
 - `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/elrond/notes/2026-09-28-join1-p0-internal-boundary-census.md` · `…/2026-10-01-join1-j0-sorceress-census.md`
 - `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-10-06-join1-b0n-gate2.md` (C-1, R3-F32) · `…/2026-10-07-join1-j0f-port-gate2.md` (WARN-A1, INFO-B2, INFO-C1) · `…/2026-10-02-join1-j0f-oracle-half-gate2.md` (WARN-1, WARN-3)
 - `/Users/admin/Games/reincarnated-collaboration/CLAUDE.md` § Sealed-artifact change protocol
+
+---
+
+## § 10 · DELTA CHECK, 2026-10-07: the J2-E1 addendum (KP-318) · **BLOCK LIFTED**
+
+**Target:** engine `d5db1d99`, `simulation/math/join1-j2-rulebook-v0-design-2026-10-07-ADDENDUM-E1.md`, FILE `c5f8fd19f419071b60dd3caac5aa894df9dd497b3f4b9a9172372abafc75313c` (derived at this check). `show --stat` gives 1 file, so it was committed ALONE (D4).
+**Scope:** the addendum only, as § 9 specified. I re-derived its load-bearing numbers from the FILE-pinned fixture and from a read-only import of the sealed worktree (`969fbd8d`, `python3 -B`, no fight). The scratch script is not evidence of record.
+
+### § 10.1 · Verdict
+
+**The BLOCK is LIFTED.**
+- B-1 is discharged by route (i).
+- B-2 is discharged in substance by the 30-row table, the do-not-substitute list derived from the emitter's own wrap set, and the restated P-J2-8.
+- B-3 is discharged by the per-(direction, lane) schema in one home, with `none`.
+- A-4…A-13 and I-1…I-10 are all taken as written, or with a stated reason.
+
+**E2a (W1 ALONE) may proceed now.**
+
+Eight residuals remain (R-1…R-8 below). Two of them, **R-2 and R-3, repeat B-2's shape at smaller scale:** a needed reach path that is not in the "closed" table. They do not touch the golden master, because the GD profile does not use them, so they do **not** re-block. **R-1…R-6 must be recorded in a short document-only addendum (E1-b, ALONE) before E3**, because E3 pins the A-2 table digest into every pid's provenance. I check E1-b at W1's Gate-2. No separate gate is needed.
+
+### § 10.2 · Rulings on the dissent and additions
+
+**D-1 · SUSTAINED.** Her derivation is reproduced, and it holds more strongly than she claimed.
+- **Summon bodies** (`measured_bodies()`): Deathstalker physical 130 and poison 130; Guardian of Empyrion physical 33 and fire 25. Exactly hers.
+- **Board, w151-160** (the fixture's wave range, derived from G1 attacker ids): 7,900 rows; armour 0 on 330; **minimum nonzero armour 407.0**.
+- **The empty set holds at every tier, not only ×1.1.** The maximum summon physical hit is 130 × 1.5 = 195, still below 407. At A = 0 the DGP branch is `0·keep + raw`, which is linear in raw. So the stage is algebraically inert on this board at every tier.
+- **Bit level, all (row × board row) pairs at multipliers 1.1-1.5:** 158,000 pairs; 46,830 differ; **max 2.0 ulp; 0 pairs above 2 ulp.** At ×1.1: physical 8,710 (= her 7,110 + 1,600), poison 900, fire 1,190, a total of **10,800 of 31,600: exact.**
+- **What I withdraw:** my B-3 sentence that the offense crit **stage** is observable in the golden master's domain. What is live in J-S8 is the summon **multiplier** (2,347 G1 rows). Its **stage** shows only at ≤ 2 ulp on summon damage, and no grain records summon damage.
+- **What stands:** B-3's schema defect, which was the blocking part.
+- **NC-J2-11a and NC-J2-11b are ACCEPTED** in place of my single control. Registering a control whose movable set is empty would have been the NC-3b shape, and she was right to refuse it.
+- **Record as a property of the referent board, not of the lane:** the summon stage is ulp-inert **only because** no body has armour in (0, 195]. A JOIN kit or board with armour in that band makes it material. J3/J4 must not inherit "summon stage is invisible" as a law.
+- **Count correction (R-5).** Joining the 148 monster ×1.1 G1 attempts to G2 (`G2.jsonl.gz`, the fixture of record) gives 675 packets, as she says. But **Physical / SlowPhysical = 170 (168 + 2), not 140**: 138 have ≥ 1 overflow region (97 all-overflow, 41 mixed), 32 are all-absorb, and 505 are non-physical. Her "140" and "the other 535" are wrong. **The load-bearing 138 is right**, so NC-J2-11b's prediction stands.
+
+**D-2 · ACCEPTED (`not-bound-v0`, with read-backs), with the enumeration corrected (R-1).**
+- The six by-name holders are confirmed: run :59, threat :43, arrival_order :43, calibration :50, engagement :30, player_locomotion :44.
+- **The derived and import-frozen set is five, not two:**
+  - `threat.MELEE_REACH_M` :436
+  - `player_locomotion.SEEK_TRIGGER_RADIUS_M` :330
+  - **`engagement.ULP_D_ENGAGE` :67**
+  - **`engagement.D_ENGAGE_DISAGREEMENT_WINDOW_M` :74**
+  - **the default argument `d_engage_m: float = D_ENGAGE_M` at `locomotion.py:611`**, which rebinding `locomotion.D_ENGAGE_M` itself would not reach
+- Her stated reason ("a bare float, so the shared-object route does not apply") reaches the right conclusion through the wrong mechanism. **The root is a `Cited`** (`locomotion.MELEE_TARGET_DISTANCE_M`, :88). It is **born and consumed in the same module at import** (:96). That is why cited-pre-import cannot reach it: the object does not exist until `D_ENGAGE_M` is already frozen.
+- This sits beside `intake.MELEE_TARGET_DISTANCE_M` (the float32 promotion, :292), which is a different operand.
+
+**D-3 · ACCEPTED: a valid route, not a dissent.**
+- Confirmed: `run.py:1212` reads `v(FIXTURE_ATTACK_SPEED_PCT)` live, at call time.
+- Confirmed: no caller in `kc2/`, the V311 driver or the emitter passes `attack_speed_pct` to the run. The only `attack_speed_pct=` hit is `offense.py:481`, a monster AS column.
+- So the world clock moves through its `Cited` operand, and the `run.py:46` aliases correctly stay `delegate-identity`.
+- Confirmed: kit cadence at GD is `AS_MULT_HI / AS_MULT_HI = 1.0` (`player_offense.py:271`) and 196/196 = 1.0, so row 22 is bit-equal at GD.
+- **Two residuals:** the install point is missing (R-2), and so is the scope of the split (R-6).
+
+**D-4 · ACCEPTED: a correction of my A-13 row, required by #24.**
+- `board=None` drops `pth_for` (:1870-1871).
+- It also drops `apply_crit_reading` and `note_resolution` (:1876-1880).
+- **And it re-enables the L4 hit-law override** (`_l4_on = … and self.board is None`, :1910-1911). That makes it at least three variables.
+- `pth_for → None` only is the one-variable twin.
+
+### § 10.3 · Residuals
+
+**R-1…R-6 go in E1-b, before E3. R-7 and R-8 are INFO.**
+
+- **R-1 · D_ENGAGE_M (D-2).** A-2 row 18 lists the five derived and default sites above, each with an RB, and the corrected reason.
+- **R-2 · Row 22 has no install point.**
+  - `PlayerOffense._acc` is created in `PlayerOffense.__post_init__` (player_offense :478-479), **after** `sitecustomize` has run. An `instance-attr` binding therefore needs a **class-level symbol** for the binder to substitute.
+  - Candidates: `PlayerOffense.__post_init__` (wrap: the sealed body, then set `_acc.hits_per_tick` from the kit and world operands), or `CadenceLimb.hits_per_tick`.
+  - That symbol goes **in the table** with P + RB, and is confirmed absent from the emitter's wrap set. Row 30 (`crit_mult` copied at run :1224) needs the same treatment by J3.
+  - **NC-J2-5b has no reach path until this row exists.**
+- **R-3 · The intake crit stage has no reach path. NC-J2-11b and J3's L-06 intake setting depend on it.**
+  - The intake crit multiply is **inline in the sealed caller**: `mitigate(_im * mult, …)` at threat :2144 (leech/Life), :2156 (DoT) and :2232 (direct), all inside **`ThreatEngine.resolve_attack` (:1834)**. A-2's do-not-substitute list (rightly) forbids substituting that method.
+  - So the substituted `mitigate` receives `_im·mult` already multiplied and has no knowledge of `mult`.
+  - E1-b must declare one route:
+    - **(a)** The substituted `resolve_hit` (row 2) stashes `(mult, tier)` per attempt in rulebook state. The rulebook `mitigate` applies the stage from it, recovering the pre-crit value by `damage / mult`. **Division is not bit-exact**, so declare its ulp consequence on NC-J2-11b's non-overflow packets. Scope it to the three call sites (not PCL), and key the stash per attempt across `n_volley`.
+    - **(b)** Declare the intake stage flip **not implementable in v0** without transcribing `resolve_attack`. Re-home NC-J2-11b as a form-level grid, and record that J3's intake L-06 needs that transcription, with a Gate.
+  - Either route is acceptable. Silence is not (#86).
+- **R-4 · The parity-limb wording contradicts row 5.**
+  - A-5(a) says "the sealed body is called 0 times under JOIN for every `substitute` row".
+  - But row 5 (`applied_damage`) dispatches **and then delegates to the captured sealed object**.
+  - Restate: for dispatch-then-delegate rows, the sealed count equals the form count, and every sealed call's caller is the form. For transcribed rows, the sealed count is 0.
+- **R-5 · A-3 count correction:** 170 / 138 / 97 / 41 / 32 / 505, as in § 10.2. The E4 script re-derives it.
+- **R-6 · Scope of the world/kit split (D-3).**
+  - State that v0 separates **one** kit quantity, the hit cadence (row 22).
+  - These stay on the world clock **by declaration**:
+    - the EoR energy per-tick charge and income (`run.py:1258-1261`, from `tps` and `period`)
+    - the Soulfire credit period (`:1222`)
+    - the DoT timeline, summons and deferred-arrival `ticks_per_s` (`:1873-1889`)
+  - NC-J2-5b's prediction must name them as **not moving** with kit AS. Otherwise a reader will take their stillness for a reach failure.
+- **R-7 (INFO) · Disk.** Make the dedicated rulebook worktree `reincarnated-engine-join2-rb` a **sparse checkout of `src/join2_rulebook/`** (drax's 3 MB godot precedent, KP-309). The run has hit the 20 GiB line once today (KP-316).
+- **R-8 (INFO) · I-3.** The prefix-to-skill mapping (`eor_` → the source skill id) is a **declared table** derived from key prefixes, the same as `vocab_scope`. It is never a string heuristic in code.
+
+### § 10.4 · Confirmations (what I checked and found right)
+
+- **Route (i):**
+  - LIMB 1 sweeps only `reincarnated*` names, so a top-level `join2_rulebook` passes it honestly.
+  - The provenance burden moves to the per-pid hook assertion (commit, tree OID, clean tree, A-2 table digest), which is checked by the sidecar.
+  - The sealed worktree is never written.
+  - `--freeze` is opt-in, so the fixture of record cannot be overwritten.
+  - The dry run in an inert profile before E3 is the right fail-safe.
+- **Limb B′:** both NC-J2-8 limbs, path-based and name-independent, are the check A-4 asked for.
+- **A-9 order (E2a → E2b → E2c → E2d → E3) is consistent with KP-315(a)** as restated at KP-317.
+- **A-11:** "a second KP-312 ruling for J3's out-of-form sites" is now stated in advance. That was the point of P6.
+- **A-12 and V22 (KP-317):** V22 is computed only under JOIN, and the port's ORACLE and PLAY never open the rulebook pack. **My § 8(b) dissent is resolved;** nothing goes to Matt.
+- **I-6:** the `NON-GRADED-CONTROL` class closes the charter § 6 ambiguity.
+
+### § 10.5 · Action
+
+- [ ] **gamora:** E2a (W1 ALONE) may land now.
+- [ ] **gamora:** E1-b (document-only addendum, ALONE) carrying R-1…R-6 lands before E3.
+- [ ] **jack-ryan:** W1 Gate-2, with E1-b checked at the same sitting if it has landed.
+- [ ] **conductor:** record the BLOCK as lifted (KP-318 follow-on) and the E1-b precondition on E3.
+- [ ] **Matt:** nothing.
+
+**References (delta check):**
+- the addendum (path above)
+- `kc2/locomotion.py` :88, :96, :611 · `kc2/engagement.py` :30, :67, :74 · `kc2/threat.py` :436, :1834, :1870-1880, :1910-1911, :2144, :2156, :2232
+- `kc2/player_offense.py` :256-290, :427-479 · `kc2/run.py` :1212-1261, :1873-1889 · `kc2/summon_offense.py` :440-475
+- fixture `G1.jsonl` (FILE `eb335eba…`) and `G2.jsonl.gz`
