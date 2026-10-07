@@ -374,8 +374,19 @@ func _build_placements() -> void:
 				bw.position = Vector3(0, 1.9, 0)
 				node2.add_child(bw)
 				model_report["stand_ins"] = int(model_report.get("stand_ins", 0)) + 1
+			if String(ins.get("procedural", "")) != "" and String(ins["type"]) == "beam":
+				_place_primitive_beam("%s_%d" % [sid, n], cls, ins, sid)
+				model_report["procedural_beams"] = int(model_report.get("procedural_beams", 0)) + 1
+				n += 1
+				continue
 			if node2 == null:
 				continue
+			if bool(ins.get("lie_z90", false)):
+				# R-C9-181: a fallen stone LIES -- the model turned 90 deg about its Z before the (uniform) fit
+				var wrap := Node3D.new()
+				node2.rotation = Vector3(0.0, 0.0, PI / 2.0)
+				wrap.add_child(node2)
+				node2 = wrap
 			var iid := "%s_%d" % [sid, n]
 			if String(ins["type"]) == "box":
 				var ip := Vector2(float(ins["pos"][0]), float(ins["pos"][1]))
@@ -550,3 +561,47 @@ func _build_probes() -> void:
 		_mesh(V, N, m, "mesh", root, false)
 		level.add_child(root)
 		_register("probe_" + String(o["id"]), root, "probe", "check_a")
+
+
+func _place_primitive_beam(id: String, cls: String, ins: Dictionary, group: String) -> void:
+	## R-C9-181: a piece BUILT TO A LENGTH (a palisade post, a log) is a primitive at its TRUE dimensions -- a cylinder of
+	## the slot's thickness and the segment's length (a post gets a cone tip) -- never a model stretched to fit (v1's slabs)
+	var a := _S(float(ins["a"][0]), float(ins["a"][2]), float(ins["a"][1]))
+	var b := _S(float(ins["b"][0]), float(ins["b"][2]), float(ins["b"][1]))
+	var th := float(ins["thickness_m"])
+	var d := b - a
+	var ln := d.length()
+	var zz := d / maxf(ln, 1e-3)
+	var xx := Vector3.UP.cross(zz)
+	xx = Vector3.RIGHT if xx.length() < 0.05 else xx.normalized()
+	var yy := zz.cross(xx).normalized()
+	var holder := Node3D.new()
+	holder.name = id
+	# a CylinderMesh's axis is its local Y: map Y -> the segment direction
+	holder.transform = Transform3D(Basis(xx, zz, -yy), (a + b) / 2.0)
+	var post := String(ins.get("procedural", "")) == "post"
+	var body_len := ln - (th * 1.2 if post else 0.0)
+	var cy := MeshInstance3D.new()
+	var cm := CylinderMesh.new()
+	cm.top_radius = th / 2.0
+	cm.bottom_radius = th / 2.0
+	cm.height = body_len
+	cm.radial_segments = 10
+	cy.mesh = cm
+	cy.position = Vector3(0.0, -(ln - body_len) / 2.0, 0.0)
+	holder.add_child(cy)
+	if post:
+		var tip := MeshInstance3D.new()
+		var tc := CylinderMesh.new()
+		tc.top_radius = 0.0
+		tc.bottom_radius = th / 2.0
+		tc.height = th * 1.2
+		tc.radial_segments = 10
+		tip.mesh = tc
+		tip.position = Vector3(0.0, ln / 2.0 - th * 0.6, 0.0)
+		holder.add_child(tip)
+	holder.set_meta("bv2f_fit", {"slot": group, "instance": id, "kind": "procedural_" + String(ins.get("procedural", "")),
+		"fit_scale_xyz": [1.0, 1.0, 1.0], "model_aabb_m": [th, ln, th], "slot_size_m": [th, ln, th],
+		"_": "procedural primitive at true dimensions: no model, no fit (P6' scale N/A)"})
+	_group(group, cls).add_child(holder)
+	_dress(holder, cls)

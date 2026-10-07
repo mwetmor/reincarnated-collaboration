@@ -1191,6 +1191,10 @@ def main():
                              "status": "PART OF the longhall build (BV2F-LV-hall): no separate model",
                              "size_m": {"w_local_x": G.rnd(PORCH["width"], 3), "d_local_z": G.rnd(HK["proud"], 3), "h": G.rnd(HK["H_porch"], 3)},
                              "fit_note": "the porch is the longhall build's own; its ridge/finials %.2f m vs the body roof %.2f m" % (HK["H_porch"], HK["H_roof"])})
+    # R-C9-181 (3): R11 is read PER REGION of the one hall + porch mesh -- the porch REGION is the porch's own strip along the
+    # wall (its width), through the build's whole depth (its roof runs back to the hall's ridge); the hall roof is the rest
+    MS["hall_porch"]["r11_region_footprint"] = G.rnd([along(along(HK["H0"], ax_ne, HK["porch_ne"][0]), nT, -HK["proud"]), along(along(HK["H0"], ax_ne, HK["porch_ne"][1]), nT, -HK["proud"]),
+                                                     along(along(HK["H0"], ax_ne, HK["porch_ne"][1]), nT, HALL_D), along(along(HK["H0"], ax_ne, HK["porch_ne"][0]), nT, HALL_D)])
     MS["hall_porch"]["opening"].update({"w": G.rnd(HK["open"][0], 3), "h": G.rnd(HK["open"][1], 3), "centre": G.rnd(along(D, _nin, HK["proud"])),
                                         "measured": "fid/lv/models/measure/hall_elev_front.png (orthographic elevation, 40 px/m)"})
     if V7C:
@@ -1354,6 +1358,93 @@ def main():
                     continue
             keep.append(m_)
         models[:] = keep
+        # BV2F-LV v7c, R-C9-181 (PH's P6' scale RED): every real-model instance by ONE uniform scale; the slot is DERIVED from
+        # the uniformly scaled model (AABBs: lv/models/glb_aabb.json, Godot axes). Beams built to a length (palisade stakes,
+        # logs) become procedural primitives at true dimensions (as v1's slabs). The Phase-1 cliff/crag GLBs are re-normalised
+        # UNIFORMLY from the reduced Tripo builds (data/bv2f/models/{crag,cliffplain,staircliff}.glb).
+        _AB = {k.split("/runs/", 1)[-1] if "/runs/" in k else k: v["godot_xyz_m"] for k, v in json.load(open(os.path.join(LV, "models", "glb_aabb.json"))).items()}
+
+        def _ab(glb_):
+            for k_, v_ in _AB.items():
+                if k_.endswith(glb_.replace("runs/", "", 1)) or k_.endswith(glb_.split("/")[-1]) and glb_.startswith("data/bv2f/"):
+                    return v_
+            return None
+        V1S = {"tall": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb", "mid": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+               "short": "runs/C-9/barrow_full/web_painted/models/barrow/stone_short.glb"}
+        REGLB = {"godot/models/build/crag.glb": "data/bv2f/models/crag.glb", "godot/models/build/cliffplain.glb": "data/bv2f/models/cliffplain.glb",
+                 "godot/models/build/staircliff.glb": "data/bv2f/models/staircliff.glb"}
+        changed = []
+
+        def _aniso(r_):
+            return max(r_) / min(r_)
+        for m_ in models:
+            sid = m_["id"]
+            if sid.startswith("birch_grove") or sid in ("longhall", "wreck", "barrow_front", "fallen_gable", "braziers"):
+                continue
+            insts_ = m_.get("instances") or []
+            if insts_ and insts_[0].get("type") == "beam":
+                for ins in insts_:
+                    ins["procedural"] = "post" if sid == "palisade" else "log"
+                    ins["glb"] = None
+                    if sid == "logs_and_beams":         # (1) PRESENCE: logs lie ON the ground, not half in it
+                        for e_ in ("a", "b"):
+                            ins[e_][2] = round(B.hz(ins[e_][0], ins[e_][1]) + ins["thickness_m"] / 2, 3)
+                    changed.append([sid, "beam -> procedural %s at true dimensions" % ins["procedural"]])
+                m_["glb"] = None
+                m_["fit_note"] = "R-C9-181: procedural %s primitives at true dimensions (no stretched model)" % ("posts" if sid == "palisade" else "logs")
+                continue
+            holders = insts_ if insts_ else ([m_] if m_.get("glb") else [])
+            for hd in holders:
+                g_ = hd.get("glb") or m_.get("glb")
+                if not g_:
+                    continue
+                g_ = REGLB.get(g_, g_)
+                if insts_:
+                    w_, d_, h_ = hd["size_m"]
+                else:
+                    w_, d_, h_ = hd["size_m"]["w_local_x"], hd["size_m"]["d_local_z"], hd["size_m"]["h"]
+                lie = bool(hd.get("lying"))
+                if sid in ("standing_stones", "circle_stones"):
+                    best_ = None
+                    for nm_, gp_ in V1S.items():
+                        bx, by, bz = _ab(gp_)
+                        dims = (by, bx, bz) if lie else (bx, by, bz)              # lying: rotated 90 deg about Z -> long axis along X
+                        r_ = (w_ / dims[0], h_ / dims[1], d_ / dims[2]) if not lie else (w_ / dims[0], d_ / dims[2])
+                        if best_ is None or _aniso(r_) < best_[0]:
+                            best_ = (_aniso(r_), gp_, dims)
+                    g_, dims = best_[1], best_[2]
+                else:
+                    dims = _ab(g_)
+                    assert dims is not None, "no AABB for " + g_
+                if sid in ("cliff_faces", "stair_cliff") or sid == "standing_stones":
+                    s_ = h_ / dims[1]                                            # keep the height (cliff tops at the lip; stone heights)
+                elif sid == "circle_stones":
+                    s_ = 1.2 / dims[0]                                           # a fallen stone 1.2 m long, sunk so its top stays 0.12 m (R13)
+                else:
+                    s_ = (w_ * h_ * d_ / (dims[0] * dims[1] * dims[2])) ** (1.0 / 3.0)   # crags, outcrops, markers: the slot's volume
+                nw, nh, nd = dims[0] * s_, dims[1] * s_, dims[2] * s_
+                if insts_:
+                    hd["size_m"] = [round(nw, 3), round(nd, 3), round(nh, 3)]
+                    hd["glb"] = g_
+                    hd["uniform_scale"] = round(s_, 5)
+                    if lie:
+                        hd["lie_z90"] = True
+                    if sid == "circle_stones":
+                        hd["z"] = round(0.12 - nh, 3)
+                        hd["burial_by_design"] = "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground"
+                else:
+                    c_ = tuple(hd["pos"])
+                    yaw_ = math.radians(hd["godot_rot_y_deg"])
+                    fz_ = (math.sin(yaw_), math.cos(yaw_))
+                    fx_ = (math.cos(yaw_), -math.sin(yaw_))
+                    hd["size_m"] = {"w_local_x": round(nw, 3), "d_local_z": round(nd, 3), "h": round(nh, 3)}
+                    hd["footprint"] = G.rnd([(c_[0] + sx * nw / 2 * fx_[0] + sz * nd / 2 * fz_[0], c_[1] + sx * nw / 2 * fx_[1] + sz * nd / 2 * fz_[1]) for sx, sz in ((-1, -1), (1, -1), (1, 1), (-1, 1))])
+                    hd["glb"] = g_
+                    hd["uniform_scale"] = round(s_, 5)
+                changed.append([sid, g_.split("/")[-1], [round(w_, 2), round(d_, 2), round(h_, 2)], [round(nw, 2), round(nd, 2), round(nh, 2)]])
+        layout["v7c_r181"] = {"uniform_scale_changes": changed, "n_changed": len(changed),
+                              "_": "R-C9-181: real models by ONE uniform scale (slot derived from the model); beams procedural at true dimensions"}
+        print("[v7c] R-C9-181: %d instances changed" % len(changed))
         layout["v7c_r178"] = {"seated_on_terrain": seated, "dropped_outside_envelope": dropped,
                               "cliff_faces": "moved out by half their depth + 0.5 m (they stood inside the terrain's rock face)"}
         print("[v7c] R-C9-178: seated %d pieces, dropped %s" % (len(seated), [d_["id"] for d_ in dropped]))

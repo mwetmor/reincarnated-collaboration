@@ -109,3 +109,8 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
     - beams: palisade 8.9–14.1, logs 4.5–10.1.
   - Placements unchanged until P6′.
 - [x] W4: `lv/M1/M1_cover.jpg` (`lv/tools/lv_m1_cover.py "<P6' text>"` refills the slot) + README top.
+- [x] R-C9-181 (P6′ RED fix): 142 instances changed.
+  - Uniform scale for 31 box instances; 111 beams made procedural; logs re-seated.
+  - Slots derived from the models; no x,y position moved this round (z only: logs, circle stones).
+  - placed_fit_v7c.json refreshed: max anisotropy 1.001; longhall `r11_regions` porch 13.12 vs body 12.14.
+  - Guide/ID re-rendered; check (a) 6/6; validator 66/66; v7c stills and sheets refreshed; cover P6′ slot left empty.

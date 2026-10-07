@@ -5,4 +5,4 @@
 | sea_cave_mouth (p03) | v | yes | 21.55 | 54.8 | 65.3 | 33.0 | PASS |
 | fallen_gable_breach (p06) | h_rect | yes | 10.98 | 86.0 | 16.0 | 68.6 | PASS |
 | wreck_rail (p01) | h_rect | yes | 10.70 | 70.8 | 18.9 | 56.5 | PASS |
-| mere_ice (p05) | poly | yes | 373.61 | 99.9 | 468.7 | 79.7 | PASS |
+| mere_ice (p05) | poly | yes | 373.85 | 99.9 | 468.7 | 79.8 | PASS |

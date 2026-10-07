@@ -7,7 +7,7 @@
 2. **The burnt hall: open sides?** Recommended: **keep the ruin closed-sided except the one declared great door**, so there are no false entrances.
 3. **The walk:** Recommended: the **.command on the Mac now**. A packaged .app can come later.
 
-P6′ result: _PENDING (PH re-measure on `fid/lv/placed_fit_v7c.json`)_.
+P6′ result: _(the conductor fills this slot after PH's re-run)_.
 
 ---
 
@@ -72,3 +72,11 @@ v7b — **FAIL**. The great door faces away from the camera, and the cave mouth 
   - One rule now decides "faces camera" in both files (`lv_openings.faces_camera`, imported by the check):
     - The wreck rail's frame faces away (`frame_faces_camera: false`).
     - Check (a) measures the wreck's open hull, which is open to the sky (`check_a_faces_camera: true`).
+
+**R-C9-181 fixes (v7c re-rendered; validator 66/66; check (a) 6/6):**
+- **Scale:** every real-model instance is placed by one uniform scale, with the slot derived from the model. Maximum anisotropy is 1.001 (`placed_fit_v7c.json`).
+  - Crag, cliffplain and staircliff are re-normalised uniformly from their reduced builds.
+  - Stones are v1's own models. The circle stones are v1's stone_tall lying on its side, 1.2 m long, sunk to stand 0.12 m proud (burial by design, R13).
+- **Built to a length:** palisade posts and logs are procedural primitives at their true dimensions.
+- **Presence:** the logs now lie on the terrain.
+- **R11 per region:** the porch strip's maximum height is 13.12 m against 12.14 m for the rest of the hall build (`placed_fit_v7c.json`, longhall `r11_regions`).
