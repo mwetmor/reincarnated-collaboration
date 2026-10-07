@@ -52,12 +52,31 @@
   "ruling": "R-C9-166: lit not gating; HALT H-C9-BV2F-PT-1 disposed; no bisect"
  },
  "T3": {
-  "verdict": "NOT RUN (halted)"
+  "verdict": "PASS (exact)",
+  "measured": {
+   "as_painted_whole_window_precision_drawn_on_painted": 0.5221,
+   "inpainted_whole_window_precision": 0.5221,
+   "coverage": 0.3407,
+   "per_chunk_precision": "all 16 identical to the record (0_0 0.4653, 1_0 0.4476, ... 2_2 0.5783)",
+   "painted_prep_heather_tuft_cells_covered_share": 0.4379,
+   "painted_prep_shrub_share": 0.1596
+  },
+  "record": {
+   "overlay_check.json:1781": 0.5221,
+   "coverage": 0.3407,
+   "painted_prep.json:127": 0.4379,
+   "painted_prep.json:118": 0.1596
+  },
+  "byte_identity": "paint_world_prep.py (frozen Tier-B copy via v1run.py, second clone) reproduced painted_prep.json and all 31 godot/data/painted files byte-identically",
+  "informational": "heather colour |d| on tufts 9.47 vs recorded 8.94 (render 0.2374/0.1051/0.0453 vs 0.2374/0.1050/0.0452); static pieces by chunk within 0.02 of the record (worst 1_2 10.22 vs 10.20)",
+  "outputs": "fid/pc/run/overlay/overlay_check.json(+png)"
  },
  "T4": {
   "verdict": "NOT RUN (halted)"
  },
  "S": {
-  "verdict": "NOT RUN (halted); script ready at fid/pc/tools/pc_stills.gd"
+  "verdict": "DONE",
+  "outputs": "fid/pc/v1_stills/{start,barrow_door,mere,stone_ring,outcrop_field,shore}.png 1920x1080 + views.json",
+  "note": "v1 has a tarn, not a mere: 'mere' = the tarn (regions.ice). ortho 10.7337 m tall = v1 play zoom. Tool fid/pc/tools/pc_stills.gd (capture_painted.gd's _stills method, six named spots)."
  }
 }

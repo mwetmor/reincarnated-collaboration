@@ -1,0 +1,196 @@
+{
+ "_what": "BV2F 0.1 v1 play-camera stills (lane PT): barrow_full at HEAD, the painted scene, 1920x1080, MSAA 4x",
+ "launch_line": "who=barbarian slot=own loaded_from_pck files_sha_ok=28/28 painting_ok=true ground=painting.bin(as_painted)_ok=true lit_ok=true snow_grid_ok=true | plates: bakes=25/25 on the real models, painting on primitives=29/29 (the mound + 28) | birches=33 inks_hidden=25 heather=977 snow=true ms=2789",
+ "renderer": {
+  "adapter": "Apple M2 (Apple8)",
+  "method": "forward_plus"
+ },
+ "views": {
+  "barrow_door": {
+   "camera": {
+    "centre_ground_uv": [
+     0.0,
+     7.885
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     20.852,
+     48.219,
+     19.445
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "N",
+   "knight_uv": [
+    0.0,
+    7.2
+   ],
+   "png": "barrow_door.png",
+   "px": [
+    1920,
+    1080
+   ],
+   "shows": "v1's own still 'door' spot: the cutting, lintel at (0,10.6), mound (0,13)"
+  },
+  "mere": {
+   "camera": {
+    "centre_ground_uv": [
+     -11.0,
+     -4.315
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     22.272,
+     48.219,
+     35.81
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "W",
+   "knight_uv": [
+    -11.0,
+    -5.0
+   ],
+   "png": "mere.png",
+   "px": [
+    1920,
+    1080
+   ],
+   "shows": "on the tarn: regions.ice centre (-13.5,-5), axes 12x9 m (v1 has a tarn, not a mere)"
+  },
+  "outcrop_field": {
+   "camera": {
+    "centre_ground_uv": [
+     13.0,
+     -5.315
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     39.372,
+     48.219,
+     18.94
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "E",
+   "knight_uv": [
+    13.0,
+    -6.0
+   ],
+   "png": "outcrop_field.png",
+   "px": [
+    1920,
+    1080
+   ],
+   "shows": "east outcrops (17,-12) (18,-3) (17,6) (10,-15); reach_box u max 15.17"
+  },
+  "shore": {
+   "camera": {
+    "centre_ground_uv": [
+     -15.5,
+     -6.315
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     20.666,
+     48.219,
+     40.465
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "W",
+   "knight_uv": [
+    -15.5,
+    -7.0
+   ],
+   "png": "shore.png",
+   "px": [
+    1920,
+    1080
+   ],
+   "shows": "the tarn's W/SW rim: shore_rock (-19.2,-2.4)..(-16.2,-9.8); reach_box u min -19.17"
+  },
+  "start": {
+   "camera": {
+    "centre_ground_uv": [
+     -3.0,
+     -14.315
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     35.042,
+     48.219,
+     36.779
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "N",
+   "knight_uv": [
+    -3.0,
+    -15.0
+   ],
+   "png": "start.png",
+   "px": [
+    1920,
+    1080
+   ],
+   "shows": "layout knight.spawn_uv (-3,-15), facing N: the path in"
+  },
+  "stone_ring": {
+   "camera": {
+    "centre_ground_uv": [
+     0.0,
+     1.683
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     25.386,
+     48.215,
+     23.673
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    0.0,
+    1.0
+   ],
+   "png": "stone_ring.png",
+   "px": [
+    1920,
+    1080
+   ],
+   "shows": "regions.arena centre (0,1) inside the ring r 9 at (0,2)"
+  }
+ }
+}

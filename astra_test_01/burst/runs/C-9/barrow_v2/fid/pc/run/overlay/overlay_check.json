@@ -1,0 +1,3644 @@
+{
+ "_what": "C-9 T10-2 step 5: the overlay check, per chunk -- the assembled Barrow at the guide camera against the painting",
+ "heather_grade_calibration": {
+  "sprays_own_colour_linear": [
+   0.2864,
+   0.1266,
+   0.0525
+  ],
+  "painted_tufts_beneath_linear": [
+   0.2824,
+   0.1227,
+   0.0544
+  ],
+  "painted_over_sprays": [
+   0.9861,
+   0.9694,
+   1.0359
+  ],
+  "coverage_weight_px": 381750.2,
+  "_instrument": "heather_colour.png (the sprays as drawn, everything else black) over heather_mask.png's coverage, linear, on painted tuft pixels only"
+ },
+ "painting_sha256": "eecb42661af490dd9cbfa71472ad33c683b752965615322344e8a6976a5ed2ed",
+ "bar": {
+  "static_pieces_mean_abs_diff": "within a few points of 15.5 (the unlit bake)"
+ },
+ "classes": [
+  "stones (baked)",
+  "kit + raven (baked)",
+  "rock (projected)",
+  "mound (projected)",
+  "birches (projected)",
+  "ground: open snow",
+  "ground: path",
+  "ground: heather ground",
+  "ground: ice",
+  "heather + shrub tufts"
+ ],
+ "variants": {
+  "inpainted": {
+   "per_chunk": {
+    "0_0": {
+     "rock (projected)": {
+      "px": 404861,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "birches (projected)": {
+      "px": 17768,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       0.06,
+       0.09,
+       0.08
+      ],
+      "mean_abs_diff": 0.08
+     },
+     "ground: open snow": {
+      "px": 795305,
+      "coverage": 0.9983,
+      "mean_abs_diff_rgb": [
+       0.17,
+       0.19,
+       0.19
+      ],
+      "mean_abs_diff": 0.18
+     },
+     "ground: heather ground": {
+      "px": 246541,
+      "coverage": 0.8749,
+      "mean_abs_diff_rgb": [
+       4.77,
+       6.05,
+       7.43
+      ],
+      "mean_abs_diff": 6.08
+     },
+     "heather + shrub tufts": {
+      "px": 108389,
+      "coverage": 0.2599,
+      "mean_abs_diff_rgb": [
+       49.27,
+       72.21,
+       95.51
+      ],
+      "mean_abs_diff": 72.33,
+      "drawn_heather_px": 60555,
+      "precision_drawn_on_painted": 0.4653,
+      "colour_on_both_linear": {
+       "render": [
+        0.3052,
+        0.1953,
+        0.1434
+       ],
+       "painting": [
+        0.3062,
+        0.1405,
+        0.0641
+       ],
+       "painting_over_render": [
+        1.003,
+        0.719,
+        0.447
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 406307,
+      "mean_abs_diff": 0.03,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.03
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 911940,
+      "mean_abs_diff": 1.23
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 8.18
+     }
+    },
+    "1_0": {
+     "stones (baked)": {
+      "px": 28376,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       12.86,
+       13.44,
+       12.07
+      ],
+      "mean_abs_diff": 12.79
+     },
+     "kit + raven (baked)": {
+      "px": 6480,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       15.11,
+       15.05,
+       12.14
+      ],
+      "mean_abs_diff": 14.1
+     },
+     "rock (projected)": {
+      "px": 183025,
+      "coverage": 0.9993,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.04
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "mound (projected)": {
+      "px": 303607,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "birches (projected)": {
+      "px": 39279,
+      "coverage": 0.9992,
+      "mean_abs_diff_rgb": [
+       0.06,
+       0.08,
+       0.08
+      ],
+      "mean_abs_diff": 0.07
+     },
+     "ground: open snow": {
+      "px": 737680,
+      "coverage": 0.9989,
+      "mean_abs_diff_rgb": [
+       0.32,
+       0.35,
+       0.3
+      ],
+      "mean_abs_diff": 0.32
+     },
+     "ground: heather ground": {
+      "px": 189892,
+      "coverage": 0.8524,
+      "mean_abs_diff_rgb": [
+       6.31,
+       8.35,
+       10.78
+      ],
+      "mean_abs_diff": 8.48
+     },
+     "heather + shrub tufts": {
+      "px": 84525,
+      "coverage": 0.2782,
+      "mean_abs_diff_rgb": [
+       46.68,
+       69.37,
+       96.55
+      ],
+      "mean_abs_diff": 70.87,
+      "drawn_heather_px": 52547,
+      "precision_drawn_on_painted": 0.4476,
+      "colour_on_both_linear": {
+       "render": [
+        0.2646,
+        0.1719,
+        0.1335
+       ],
+       "painting": [
+        0.2615,
+        0.1201,
+        0.0527
+       ],
+       "painting_over_render": [
+        0.988,
+        0.699,
+        0.395
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 523648,
+      "mean_abs_diff": 0.8,
+      "mean_abs_diff_rgb": [
+       0.8,
+       0.84,
+       0.75
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 815013,
+      "mean_abs_diff": 1.53
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 6.86
+     }
+    },
+    "2_0": {
+     "stones (baked)": {
+      "px": 45601,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       12.25,
+       12.61,
+       11.46
+      ],
+      "mean_abs_diff": 12.11
+     },
+     "kit + raven (baked)": {
+      "px": 6626,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       14.74,
+       15.27,
+       13.46
+      ],
+      "mean_abs_diff": 14.49
+     },
+     "rock (projected)": {
+      "px": 18398,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.0,
+       0.01,
+       0.01
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "mound (projected)": {
+      "px": 544990,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 23203,
+      "coverage": 0.9923,
+      "mean_abs_diff_rgb": [
+       0.3,
+       0.37,
+       0.45
+      ],
+      "mean_abs_diff": 0.37
+     },
+     "ground: open snow": {
+      "px": 761508,
+      "coverage": 0.9991,
+      "mean_abs_diff_rgb": [
+       0.23,
+       0.25,
+       0.21
+      ],
+      "mean_abs_diff": 0.23
+     },
+     "ground: heather ground": {
+      "px": 115857,
+      "coverage": 0.8596,
+      "mean_abs_diff_rgb": [
+       5.83,
+       7.38,
+       9.23
+      ],
+      "mean_abs_diff": 7.48
+     },
+     "heather + shrub tufts": {
+      "px": 56681,
+      "coverage": 0.328,
+      "mean_abs_diff_rgb": [
+       50.4,
+       71.51,
+       95.72
+      ],
+      "mean_abs_diff": 72.54,
+      "drawn_heather_px": 35760,
+      "precision_drawn_on_painted": 0.5199,
+      "colour_on_both_linear": {
+       "render": [
+        0.2875,
+        0.1836,
+        0.1392
+       ],
+       "painting": [
+        0.2756,
+        0.1231,
+        0.0514
+       ],
+       "painting_over_render": [
+        0.959,
+        0.67,
+        0.369
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 610546,
+      "mean_abs_diff": 0.97,
+      "mean_abs_diff_rgb": [
+       0.98,
+       1.02,
+       0.93
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 813303,
+      "mean_abs_diff": 0.93
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 4.53
+     }
+    },
+    "3_0": {
+     "rock (projected)": {
+      "px": 395118,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 28343,
+      "coverage": 0.9941,
+      "mean_abs_diff_rgb": [
+       0.25,
+       0.31,
+       0.37
+      ],
+      "mean_abs_diff": 0.31
+     },
+     "ground: open snow": {
+      "px": 561303,
+      "coverage": 0.9978,
+      "mean_abs_diff_rgb": [
+       0.23,
+       0.25,
+       0.24
+      ],
+      "mean_abs_diff": 0.24
+     },
+     "ground: heather ground": {
+      "px": 407872,
+      "coverage": 0.861,
+      "mean_abs_diff_rgb": [
+       5.16,
+       6.58,
+       8.18
+      ],
+      "mean_abs_diff": 6.64
+     },
+     "heather + shrub tufts": {
+      "px": 180228,
+      "coverage": 0.3529,
+      "mean_abs_diff_rgb": [
+       47.41,
+       67.98,
+       91.01
+      ],
+      "mean_abs_diff": 68.8,
+      "drawn_heather_px": 121904,
+      "precision_drawn_on_painted": 0.5218,
+      "colour_on_both_linear": {
+       "render": [
+        0.2741,
+        0.1712,
+        0.1302
+       ],
+       "painting": [
+        0.2711,
+        0.118,
+        0.0516
+       ],
+       "painting_over_render": [
+        0.989,
+        0.689,
+        0.397
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 397413,
+      "mean_abs_diff": 0.03,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.03
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 799027,
+      "mean_abs_diff": 2.46
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 12.39
+     }
+    },
+    "0_1": {
+     "kit + raven (baked)": {
+      "px": 6732,
+      "coverage": 0.9823,
+      "mean_abs_diff_rgb": [
+       17.32,
+       18.23,
+       16.92
+      ],
+      "mean_abs_diff": 17.49
+     },
+     "rock (projected)": {
+      "px": 283467,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.03
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 9774,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.03,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 433253,
+      "coverage": 0.9973,
+      "mean_abs_diff_rgb": [
+       0.63,
+       0.69,
+       0.62
+      ],
+      "mean_abs_diff": 0.65
+     },
+     "ground: heather ground": {
+      "px": 487098,
+      "coverage": 0.8725,
+      "mean_abs_diff_rgb": [
+       4.61,
+       6.16,
+       7.87
+      ],
+      "mean_abs_diff": 6.21
+     },
+     "ground: ice": {
+      "px": 156956,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.08,
+       0.06,
+       0.04
+      ],
+      "mean_abs_diff": 0.06
+     },
+     "heather + shrub tufts": {
+      "px": 195584,
+      "coverage": 0.332,
+      "mean_abs_diff_rgb": [
+       49.55,
+       74.03,
+       98.06
+      ],
+      "mean_abs_diff": 73.88,
+      "drawn_heather_px": 128568,
+      "precision_drawn_on_painted": 0.5051,
+      "colour_on_both_linear": {
+       "render": [
+        0.3103,
+        0.1918,
+        0.1395
+       ],
+       "painting": [
+        0.3092,
+        0.1357,
+        0.0594
+       ],
+       "painting_over_render": [
+        0.997,
+        0.708,
+        0.426
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 285942,
+      "mean_abs_diff": 0.4,
+      "mean_abs_diff_rgb": [
+       0.39,
+       0.42,
+       0.39
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 895789,
+      "mean_abs_diff": 2.69
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 14.4
+     }
+    },
+    "1_1": {
+     "stones (baked)": {
+      "px": 53416,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       11.86,
+       12.58,
+       11.65
+      ],
+      "mean_abs_diff": 12.03
+     },
+     "kit + raven (baked)": {
+      "px": 2978,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       14.43,
+       15.48,
+       14.55
+      ],
+      "mean_abs_diff": 14.82
+     },
+     "rock (projected)": {
+      "px": 49161,
+      "coverage": 0.9994,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.01,
+       0.01
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "birches (projected)": {
+      "px": 666,
+      "coverage": 0.979,
+      "mean_abs_diff_rgb": [
+       0.37,
+       0.46,
+       0.56
+      ],
+      "mean_abs_diff": 0.46
+     },
+     "ground: open snow": {
+      "px": 993023,
+      "coverage": 0.9988,
+      "mean_abs_diff_rgb": [
+       0.15,
+       0.16,
+       0.14
+      ],
+      "mean_abs_diff": 0.15
+     },
+     "ground: path": {
+      "px": 7704,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.33,
+       0.25,
+       0.13
+      ],
+      "mean_abs_diff": 0.24
+     },
+     "ground: heather ground": {
+      "px": 156015,
+      "coverage": 0.8196,
+      "mean_abs_diff_rgb": [
+       7.4,
+       10.05,
+       12.91
+      ],
+      "mean_abs_diff": 10.12
+     },
+     "ground: ice": {
+      "px": 235037,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.09,
+       0.06
+      ],
+      "mean_abs_diff": 0.09
+     },
+     "heather + shrub tufts": {
+      "px": 74864,
+      "coverage": 0.3392,
+      "mean_abs_diff_rgb": [
+       48.69,
+       75.73,
+       101.89
+      ],
+      "mean_abs_diff": 75.44,
+      "drawn_heather_px": 54818,
+      "precision_drawn_on_painted": 0.4632,
+      "colour_on_both_linear": {
+       "render": [
+        0.2964,
+        0.185,
+        0.1414
+       ],
+       "painting": [
+        0.2929,
+        0.126,
+        0.057
+       ],
+       "painting_over_render": [
+        0.988,
+        0.681,
+        0.403
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 100206,
+      "mean_abs_diff": 6.33,
+      "mean_abs_diff_rgb": [
+       6.23,
+       6.62,
+       6.14
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1311317,
+      "mean_abs_diff": 0.95
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 6.36
+     }
+    },
+    "2_1": {
+     "stones (baked)": {
+      "px": 44058,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       9.69,
+       10.21,
+       9.58
+      ],
+      "mean_abs_diff": 9.83
+     },
+     "birches (projected)": {
+      "px": 1667,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.0,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "ground: open snow": {
+      "px": 1509146,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "ground: path": {
+      "px": 9469,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.4,
+       0.33,
+       0.18
+      ],
+      "mean_abs_diff": 0.3
+     },
+     "ground: heather ground": {
+      "px": 3264,
+      "coverage": 0.8759,
+      "mean_abs_diff_rgb": [
+       8.15,
+       11.22,
+       13.86
+      ],
+      "mean_abs_diff": 11.08
+     },
+     "heather + shrub tufts": {
+      "px": 5260,
+      "coverage": 0.1279,
+      "mean_abs_diff_rgb": [
+       58.08,
+       80.05,
+       101.91
+      ],
+      "mean_abs_diff": 80.01,
+      "drawn_heather_px": 1392,
+      "precision_drawn_on_painted": 0.4835,
+      "colour_on_both_linear": {
+       "render": [
+        0.387,
+        0.2425,
+        0.1654
+       ],
+       "painting": [
+        0.3595,
+        0.1695,
+        0.0797
+       ],
+       "painting_over_render": [
+        0.929,
+        0.699,
+        0.482
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 40494,
+      "mean_abs_diff": 9.78,
+      "mean_abs_diff_rgb": [
+       9.64,
+       10.16,
+       9.53
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1510910,
+      "mean_abs_diff": 0.04
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 0.7
+     }
+    },
+    "3_1": {
+     "rock (projected)": {
+      "px": 444238,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.01,
+       0.02
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "birches (projected)": {
+      "px": 26921,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.04,
+       0.06,
+       0.06
+      ],
+      "mean_abs_diff": 0.05
+     },
+     "ground: open snow": {
+      "px": 674102,
+      "coverage": 0.9986,
+      "mean_abs_diff_rgb": [
+       0.38,
+       0.42,
+       0.35
+      ],
+      "mean_abs_diff": 0.38
+     },
+     "ground: heather ground": {
+      "px": 301387,
+      "coverage": 0.8716,
+      "mean_abs_diff_rgb": [
+       5.4,
+       7.13,
+       8.77
+      ],
+      "mean_abs_diff": 7.1
+     },
+     "heather + shrub tufts": {
+      "px": 126216,
+      "coverage": 0.3078,
+      "mean_abs_diff_rgb": [
+       48.92,
+       74.55,
+       98.55
+      ],
+      "mean_abs_diff": 74.01,
+      "drawn_heather_px": 78504,
+      "precision_drawn_on_painted": 0.4949,
+      "colour_on_both_linear": {
+       "render": [
+        0.2779,
+        0.1715,
+        0.1347
+       ],
+       "painting": [
+        0.2725,
+        0.1137,
+        0.0526
+       ],
+       "painting_over_render": [
+        0.98,
+        0.663,
+        0.39
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 448302,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 837091,
+      "mean_abs_diff": 2.07
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 9.52
+     }
+    },
+    "0_2": {
+     "rock (projected)": {
+      "px": 387491,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 11862,
+      "coverage": 0.9984,
+      "mean_abs_diff_rgb": [
+       0.15,
+       0.16,
+       0.14
+      ],
+      "mean_abs_diff": 0.15
+     },
+     "ground: open snow": {
+      "px": 430510,
+      "coverage": 0.9991,
+      "mean_abs_diff_rgb": [
+       0.62,
+       0.67,
+       0.57
+      ],
+      "mean_abs_diff": 0.62
+     },
+     "ground: heather ground": {
+      "px": 295887,
+      "coverage": 0.8769,
+      "mean_abs_diff_rgb": [
+       4.41,
+       5.7,
+       7.04
+      ],
+      "mean_abs_diff": 5.72
+     },
+     "ground: ice": {
+      "px": 319893,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.1,
+       0.07,
+       0.04
+      ],
+      "mean_abs_diff": 0.07
+     },
+     "heather + shrub tufts": {
+      "px": 127221,
+      "coverage": 0.3222,
+      "mean_abs_diff_rgb": [
+       52.51,
+       76.81,
+       100.23
+      ],
+      "mean_abs_diff": 76.52,
+      "drawn_heather_px": 77861,
+      "precision_drawn_on_painted": 0.5264,
+      "colour_on_both_linear": {
+       "render": [
+        0.2619,
+        0.1591,
+        0.1216
+       ],
+       "painting": [
+        0.2554,
+        0.1039,
+        0.0446
+       ],
+       "painting_over_render": [
+        0.975,
+        0.653,
+        0.367
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 383390,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 906983,
+      "mean_abs_diff": 1.56
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 9.67
+     }
+    },
+    "1_2": {
+     "stones (baked)": {
+      "px": 25271,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       10.71,
+       11.53,
+       11.04
+      ],
+      "mean_abs_diff": 11.09
+     },
+     "kit + raven (baked)": {
+      "px": 18541,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       13.81,
+       13.61,
+       12.07
+      ],
+      "mean_abs_diff": 13.16
+     },
+     "rock (projected)": {
+      "px": 7006,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 768977,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.17,
+       0.17,
+       0.12
+      ],
+      "mean_abs_diff": 0.16
+     },
+     "ground: path": {
+      "px": 221460,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.07,
+       0.07,
+       0.05
+      ],
+      "mean_abs_diff": 0.06
+     },
+     "ground: heather ground": {
+      "px": 31467,
+      "coverage": 0.8526,
+      "mean_abs_diff_rgb": [
+       5.85,
+       7.17,
+       8.29
+      ],
+      "mean_abs_diff": 7.1
+     },
+     "ground: ice": {
+      "px": 482635,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.08,
+       0.05
+      ],
+      "mean_abs_diff": 0.08
+     },
+     "heather + shrub tufts": {
+      "px": 17507,
+      "coverage": 0.2762,
+      "mean_abs_diff_rgb": [
+       55.84,
+       79.91,
+       102.51
+      ],
+      "mean_abs_diff": 79.42,
+      "drawn_heather_px": 9866,
+      "precision_drawn_on_painted": 0.4902,
+      "colour_on_both_linear": {
+       "render": [
+        0.2278,
+        0.1402,
+        0.1092
+       ],
+       "painting": [
+        0.2169,
+        0.0882,
+        0.042
+       ],
+       "painting_over_render": [
+        0.952,
+        0.629,
+        0.384
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 45918,
+      "mean_abs_diff": 10.22,
+      "mean_abs_diff_rgb": [
+       10.25,
+       10.6,
+       9.81
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1457751,
+      "mean_abs_diff": 0.22
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 1.85
+     }
+    },
+    "2_2": {
+     "stones (baked)": {
+      "px": 23538,
+      "coverage": 0.9991,
+      "mean_abs_diff_rgb": [
+       9.04,
+       9.42,
+       8.63
+      ],
+      "mean_abs_diff": 9.03
+     },
+     "kit + raven (baked)": {
+      "px": 6732,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       11.25,
+       11.58,
+       10.32
+      ],
+      "mean_abs_diff": 11.05
+     },
+     "rock (projected)": {
+      "px": 31719,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "mean_abs_diff": 0.0
+     },
+     "birches (projected)": {
+      "px": 38443,
+      "coverage": 0.993,
+      "mean_abs_diff_rgb": [
+       0.04,
+       0.05,
+       0.05
+      ],
+      "mean_abs_diff": 0.05
+     },
+     "ground: open snow": {
+      "px": 827234,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.16,
+       0.18,
+       0.16
+      ],
+      "mean_abs_diff": 0.17
+     },
+     "ground: path": {
+      "px": 333187,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.11,
+       0.07
+      ],
+      "mean_abs_diff": 0.1
+     },
+     "ground: heather ground": {
+      "px": 200862,
+      "coverage": 0.8367,
+      "mean_abs_diff_rgb": [
+       5.43,
+       7.04,
+       9.22
+      ],
+      "mean_abs_diff": 7.23
+     },
+     "heather + shrub tufts": {
+      "px": 111149,
+      "coverage": 0.4127,
+      "mean_abs_diff_rgb": [
+       41.41,
+       55.43,
+       73.96
+      ],
+      "mean_abs_diff": 56.93,
+      "drawn_heather_px": 79319,
+      "precision_drawn_on_painted": 0.5783,
+      "colour_on_both_linear": {
+       "render": [
+        0.2735,
+        0.1651,
+        0.113
+       ],
+       "painting": [
+        0.2947,
+        0.1404,
+        0.0674
+       ],
+       "painting_over_render": [
+        1.078,
+        0.85,
+        0.596
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 76236,
+      "mean_abs_diff": 3.45,
+      "mean_abs_diff_rgb": [
+       3.47,
+       3.6,
+       3.28
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1253481,
+      "mean_abs_diff": 0.89
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 6.48
+     }
+    },
+    "3_2": {
+     "rock (projected)": {
+      "px": 299295,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 39482,
+      "coverage": 0.9946,
+      "mean_abs_diff_rgb": [
+       0.25,
+       0.36,
+       0.49
+      ],
+      "mean_abs_diff": 0.37
+     },
+     "ground: open snow": {
+      "px": 803363,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.27,
+       0.31,
+       0.26
+      ],
+      "mean_abs_diff": 0.28
+     },
+     "ground: heather ground": {
+      "px": 295447,
+      "coverage": 0.8734,
+      "mean_abs_diff_rgb": [
+       4.2,
+       5.5,
+       7.06
+      ],
+      "mean_abs_diff": 5.58
+     },
+     "heather + shrub tufts": {
+      "px": 135277,
+      "coverage": 0.3263,
+      "mean_abs_diff_rgb": [
+       43.49,
+       65.56,
+       89.6
+      ],
+      "mean_abs_diff": 66.21,
+      "drawn_heather_px": 82099,
+      "precision_drawn_on_painted": 0.5376,
+      "colour_on_both_linear": {
+       "render": [
+        0.2639,
+        0.1568,
+        0.1172
+       ],
+       "painting": [
+        0.2837,
+        0.1216,
+        0.0556
+       ],
+       "painting_over_render": [
+        1.075,
+        0.776,
+        0.474
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 312217,
+      "mean_abs_diff": 0.04,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.04
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 948138,
+      "mean_abs_diff": 1.38
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 8.89
+     }
+    },
+    "0_3": {
+     "rock (projected)": {
+      "px": 287548,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.03
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 15395,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.05,
+       0.06,
+       0.06
+      ],
+      "mean_abs_diff": 0.06
+     },
+     "ground: open snow": {
+      "px": 831045,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.16,
+       0.18,
+       0.16
+      ],
+      "mean_abs_diff": 0.16
+     },
+     "ground: heather ground": {
+      "px": 307657,
+      "coverage": 0.8729,
+      "mean_abs_diff_rgb": [
+       4.96,
+       6.48,
+       8.12
+      ],
+      "mean_abs_diff": 6.52
+     },
+     "heather + shrub tufts": {
+      "px": 131219,
+      "coverage": 0.3256,
+      "mean_abs_diff_rgb": [
+       50.88,
+       75.97,
+       100.17
+      ],
+      "mean_abs_diff": 75.67,
+      "drawn_heather_px": 82407,
+      "precision_drawn_on_painted": 0.5185,
+      "colour_on_both_linear": {
+       "render": [
+        0.2644,
+        0.1592,
+        0.1208
+       ],
+       "painting": [
+        0.2639,
+        0.1081,
+        0.0481
+       ],
+       "painting_over_render": [
+        0.998,
+        0.679,
+        0.398
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 288970,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.03
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1003964,
+      "mean_abs_diff": 1.5
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 9.79
+     }
+    },
+    "1_3": {
+     "kit + raven (baked)": {
+      "px": 17596,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       13.26,
+       13.1,
+       11.7
+      ],
+      "mean_abs_diff": 12.69
+     },
+     "rock (projected)": {
+      "px": 131895,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.04
+      ],
+      "mean_abs_diff": 0.04
+     },
+     "birches (projected)": {
+      "px": 8968,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 546576,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.29,
+       0.3,
+       0.25
+      ],
+      "mean_abs_diff": 0.28
+     },
+     "ground: path": {
+      "px": 454394,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.11,
+       0.08
+      ],
+      "mean_abs_diff": 0.1
+     },
+     "ground: heather ground": {
+      "px": 281344,
+      "coverage": 0.8662,
+      "mean_abs_diff_rgb": [
+       4.5,
+       5.64,
+       6.95
+      ],
+      "mean_abs_diff": 5.7
+     },
+     "heather + shrub tufts": {
+      "px": 132091,
+      "coverage": 0.357,
+      "mean_abs_diff_rgb": [
+       50.49,
+       69.03,
+       89.59
+      ],
+      "mean_abs_diff": 69.71,
+      "drawn_heather_px": 85246,
+      "precision_drawn_on_painted": 0.5532,
+      "colour_on_both_linear": {
+       "render": [
+        0.2306,
+        0.1397,
+        0.1031
+       ],
+       "painting": [
+        0.2383,
+        0.1032,
+        0.0446
+       ],
+       "painting_over_render": [
+        1.033,
+        0.739,
+        0.433
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 147772,
+      "mean_abs_diff": 1.34,
+      "mean_abs_diff_rgb": [
+       1.4,
+       1.39,
+       1.25
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1155434,
+      "mean_abs_diff": 1.12
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 8.97
+     }
+    },
+    "2_3": {
+     "rock (projected)": {
+      "px": 214094,
+      "coverage": 0.9993,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.03,
+       0.04
+      ],
+      "mean_abs_diff": 0.04
+     },
+     "birches (projected)": {
+      "px": 9330,
+      "coverage": 0.9986,
+      "mean_abs_diff_rgb": [
+       0.04,
+       0.05,
+       0.04
+      ],
+      "mean_abs_diff": 0.04
+     },
+     "ground: open snow": {
+      "px": 508690,
+      "coverage": 0.9993,
+      "mean_abs_diff_rgb": [
+       0.3,
+       0.36,
+       0.33
+      ],
+      "mean_abs_diff": 0.33
+     },
+     "ground: path": {
+      "px": 212302,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.15,
+       0.14,
+       0.1
+      ],
+      "mean_abs_diff": 0.13
+     },
+     "ground: heather ground": {
+      "px": 410738,
+      "coverage": 0.8272,
+      "mean_abs_diff_rgb": [
+       5.94,
+       8.14,
+       10.92
+      ],
+      "mean_abs_diff": 8.33
+     },
+     "heather + shrub tufts": {
+      "px": 217710,
+      "coverage": 0.4431,
+      "mean_abs_diff_rgb": [
+       42.2,
+       59.28,
+       81.09
+      ],
+      "mean_abs_diff": 60.86,
+      "drawn_heather_px": 168053,
+      "precision_drawn_on_painted": 0.574,
+      "colour_on_both_linear": {
+       "render": [
+        0.2808,
+        0.1601,
+        0.1144
+       ],
+       "painting": [
+        0.3083,
+        0.1305,
+        0.0571
+       ],
+       "painting_over_render": [
+        1.098,
+        0.815,
+        0.499
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 215417,
+      "mean_abs_diff": 0.04,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.04
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 971293,
+      "mean_abs_diff": 2.62
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 13.1
+     }
+    },
+    "3_3": {
+     "rock (projected)": {
+      "px": 294053,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 15994,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.03,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 732633,
+      "coverage": 0.9994,
+      "mean_abs_diff_rgb": [
+       0.16,
+       0.19,
+       0.17
+      ],
+      "mean_abs_diff": 0.17
+     },
+     "ground: heather ground": {
+      "px": 370941,
+      "coverage": 0.8619,
+      "mean_abs_diff_rgb": [
+       4.76,
+       6.42,
+       8.63
+      ],
+      "mean_abs_diff": 6.6
+     },
+     "heather + shrub tufts": {
+      "px": 159243,
+      "coverage": 0.3452,
+      "mean_abs_diff_rgb": [
+       42.71,
+       64.14,
+       90.06
+      ],
+      "mean_abs_diff": 65.64,
+      "drawn_heather_px": 106796,
+      "precision_drawn_on_painted": 0.5148,
+      "colour_on_both_linear": {
+       "render": [
+        0.2736,
+        0.1629,
+        0.121
+       ],
+       "painting": [
+        0.2901,
+        0.1271,
+        0.0596
+       ],
+       "painting_over_render": [
+        1.06,
+        0.78,
+        0.493
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 295864,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 949596,
+      "mean_abs_diff": 1.91
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 10.42
+     }
+    }
+   },
+   "whole_window": {
+    "stones (baked)": {
+     "px": 159890,
+     "coverage": 0.9998,
+     "mean_abs_diff_rgb": [
+      11.35,
+      11.9,
+      10.91
+     ],
+     "mean_abs_diff": 11.39
+    },
+    "kit + raven (baked)": {
+     "px": 46604,
+     "coverage": 0.9974,
+     "mean_abs_diff_rgb": [
+      14.1,
+      14.28,
+      12.61
+     ],
+     "mean_abs_diff": 13.67
+    },
+    "rock (projected)": {
+     "px": 2523662,
+     "coverage": 0.9996,
+     "mean_abs_diff_rgb": [
+      0.02,
+      0.02,
+      0.02
+     ],
+     "mean_abs_diff": 0.02
+    },
+    "mound (projected)": {
+     "px": 680231,
+     "coverage": 1.0,
+     "mean_abs_diff_rgb": [
+      0.01,
+      0.02,
+      0.02
+     ],
+     "mean_abs_diff": 0.02
+    },
+    "birches (projected)": {
+     "px": 223775,
+     "coverage": 0.9969,
+     "mean_abs_diff_rgb": [
+      0.11,
+      0.15,
+      0.18
+     ],
+     "mean_abs_diff": 0.15
+    },
+    "ground: open snow": {
+     "px": 8223038,
+     "coverage": 0.9992,
+     "mean_abs_diff_rgb": [
+      0.23,
+      0.26,
+      0.22
+     ],
+     "mean_abs_diff": 0.24
+    },
+    "ground: path": {
+     "px": 742803,
+     "coverage": 0.9997,
+     "mean_abs_diff_rgb": [
+      0.13,
+      0.13,
+      0.1
+     ],
+     "mean_abs_diff": 0.12
+    },
+    "ground: heather ground": {
+     "px": 3183194,
+     "coverage": 0.8624,
+     "mean_abs_diff_rgb": [
+      5.02,
+      6.6,
+      8.44
+     ],
+     "mean_abs_diff": 6.69
+    },
+    "ground: ice": {
+     "px": 675667,
+     "coverage": 0.9999,
+     "mean_abs_diff_rgb": [
+      0.13,
+      0.1,
+      0.06
+     ],
+     "mean_abs_diff": 0.1
+    },
+    "heather + shrub tufts": {
+     "px": 1432464,
+     "coverage": 0.3407,
+     "mean_abs_diff_rgb": [
+      47.26,
+      68.93,
+      92.49
+     ],
+     "mean_abs_diff": 69.56,
+     "drawn_heather_px": 934936,
+     "precision_drawn_on_painted": 0.5221,
+     "colour_on_both_linear": {
+      "render": [
+       0.2754,
+       0.1673,
+       0.124
+      ],
+      "painting": [
+       0.2831,
+       0.1231,
+       0.0547
+      ],
+      "painting_over_render": [
+       1.028,
+       0.736,
+       0.441
+      ]
+     }
+    },
+    "ALL STATIC PIECES": {
+     "px": 3425188,
+     "mean_abs_diff": 0.67,
+     "mean_abs_diff_rgb": [
+      0.67,
+      0.7,
+      0.64
+     ]
+    },
+    "ALL GROUND (tufts apart)": {
+     "px": 11359393,
+     "mean_abs_diff": 1.45
+    },
+    "WHOLE CHUNK": {
+     "px": 17891328,
+     "mean_abs_diff": 8.93
+    }
+   },
+   "static_pieces_worst_chunk": {
+    "chunk": "1_2",
+    "mean_abs_diff": 10.22
+   },
+   "static_pieces_by_chunk": {
+    "0_0": 0.03,
+    "1_0": 0.8,
+    "2_0": 0.97,
+    "3_0": 0.03,
+    "0_1": 0.4,
+    "1_1": 6.33,
+    "2_1": 9.78,
+    "3_1": 0.02,
+    "0_2": 0.02,
+    "1_2": 10.22,
+    "2_2": 3.45,
+    "3_2": 0.04,
+    "0_3": 0.02,
+    "1_3": 1.34,
+    "2_3": 0.04,
+    "3_3": 0.02
+   }
+  },
+  "as_painted": {
+   "per_chunk": {
+    "0_0": {
+     "rock (projected)": {
+      "px": 404861,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "birches (projected)": {
+      "px": 17768,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       0.06,
+       0.09,
+       0.08
+      ],
+      "mean_abs_diff": 0.08
+     },
+     "ground: open snow": {
+      "px": 795305,
+      "coverage": 0.9983,
+      "mean_abs_diff_rgb": [
+       0.17,
+       0.19,
+       0.19
+      ],
+      "mean_abs_diff": 0.18
+     },
+     "ground: heather ground": {
+      "px": 246541,
+      "coverage": 0.8749,
+      "mean_abs_diff_rgb": [
+       4.77,
+       6.05,
+       7.43
+      ],
+      "mean_abs_diff": 6.08
+     },
+     "heather + shrub tufts": {
+      "px": 108389,
+      "coverage": 0.2599,
+      "mean_abs_diff_rgb": [
+       9.04,
+       7.91,
+       6.58
+      ],
+      "mean_abs_diff": 7.85,
+      "drawn_heather_px": 60555,
+      "precision_drawn_on_painted": 0.4653,
+      "colour_on_both_linear": {
+       "render": [
+        0.2606,
+        0.1243,
+        0.0578
+       ],
+       "painting": [
+        0.3062,
+        0.1405,
+        0.0641
+       ],
+       "painting_over_render": [
+        1.175,
+        1.13,
+        1.108
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 406307,
+      "mean_abs_diff": 0.03,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.03
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 911940,
+      "mean_abs_diff": 1.23
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 1.9
+     }
+    },
+    "1_0": {
+     "stones (baked)": {
+      "px": 28376,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       12.86,
+       13.44,
+       12.07
+      ],
+      "mean_abs_diff": 12.79
+     },
+     "kit + raven (baked)": {
+      "px": 6480,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       15.11,
+       15.05,
+       12.14
+      ],
+      "mean_abs_diff": 14.1
+     },
+     "rock (projected)": {
+      "px": 183025,
+      "coverage": 0.9993,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.04
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "mound (projected)": {
+      "px": 303607,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "birches (projected)": {
+      "px": 39279,
+      "coverage": 0.9992,
+      "mean_abs_diff_rgb": [
+       0.06,
+       0.08,
+       0.08
+      ],
+      "mean_abs_diff": 0.07
+     },
+     "ground: open snow": {
+      "px": 737680,
+      "coverage": 0.9989,
+      "mean_abs_diff_rgb": [
+       0.32,
+       0.35,
+       0.3
+      ],
+      "mean_abs_diff": 0.32
+     },
+     "ground: heather ground": {
+      "px": 189892,
+      "coverage": 0.8524,
+      "mean_abs_diff_rgb": [
+       6.31,
+       8.35,
+       10.78
+      ],
+      "mean_abs_diff": 8.48
+     },
+     "heather + shrub tufts": {
+      "px": 84525,
+      "coverage": 0.2782,
+      "mean_abs_diff_rgb": [
+       9.55,
+       8.34,
+       7.43
+      ],
+      "mean_abs_diff": 8.44,
+      "drawn_heather_px": 52547,
+      "precision_drawn_on_painted": 0.4476,
+      "colour_on_both_linear": {
+       "render": [
+        0.2275,
+        0.1086,
+        0.0504
+       ],
+       "painting": [
+        0.2615,
+        0.1201,
+        0.0527
+       ],
+       "painting_over_render": [
+        1.149,
+        1.106,
+        1.045
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 523648,
+      "mean_abs_diff": 0.8,
+      "mean_abs_diff_rgb": [
+       0.8,
+       0.84,
+       0.75
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 815013,
+      "mean_abs_diff": 1.53
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.17
+     }
+    },
+    "2_0": {
+     "stones (baked)": {
+      "px": 45601,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       12.25,
+       12.61,
+       11.46
+      ],
+      "mean_abs_diff": 12.11
+     },
+     "kit + raven (baked)": {
+      "px": 6626,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       14.74,
+       15.27,
+       13.46
+      ],
+      "mean_abs_diff": 14.49
+     },
+     "rock (projected)": {
+      "px": 18398,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.0,
+       0.01,
+       0.01
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "mound (projected)": {
+      "px": 544990,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 23203,
+      "coverage": 0.9923,
+      "mean_abs_diff_rgb": [
+       0.3,
+       0.37,
+       0.45
+      ],
+      "mean_abs_diff": 0.37
+     },
+     "ground: open snow": {
+      "px": 761508,
+      "coverage": 0.9991,
+      "mean_abs_diff_rgb": [
+       0.24,
+       0.25,
+       0.21
+      ],
+      "mean_abs_diff": 0.23
+     },
+     "ground: heather ground": {
+      "px": 115857,
+      "coverage": 0.8596,
+      "mean_abs_diff_rgb": [
+       5.83,
+       7.38,
+       9.23
+      ],
+      "mean_abs_diff": 7.48
+     },
+     "heather + shrub tufts": {
+      "px": 56681,
+      "coverage": 0.328,
+      "mean_abs_diff_rgb": [
+       10.95,
+       9.42,
+       8.7
+      ],
+      "mean_abs_diff": 9.69,
+      "drawn_heather_px": 35760,
+      "precision_drawn_on_painted": 0.5199,
+      "colour_on_both_linear": {
+       "render": [
+        0.24,
+        0.1136,
+        0.053
+       ],
+       "painting": [
+        0.2756,
+        0.1231,
+        0.0514
+       ],
+       "painting_over_render": [
+        1.148,
+        1.083,
+        0.971
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 610546,
+      "mean_abs_diff": 0.97,
+      "mean_abs_diff_rgb": [
+       0.98,
+       1.02,
+       0.93
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 813303,
+      "mean_abs_diff": 0.94
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 1.64
+     }
+    },
+    "3_0": {
+     "rock (projected)": {
+      "px": 395118,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 28343,
+      "coverage": 0.9941,
+      "mean_abs_diff_rgb": [
+       0.25,
+       0.31,
+       0.37
+      ],
+      "mean_abs_diff": 0.31
+     },
+     "ground: open snow": {
+      "px": 561303,
+      "coverage": 0.9978,
+      "mean_abs_diff_rgb": [
+       0.23,
+       0.25,
+       0.24
+      ],
+      "mean_abs_diff": 0.24
+     },
+     "ground: heather ground": {
+      "px": 407872,
+      "coverage": 0.861,
+      "mean_abs_diff_rgb": [
+       5.16,
+       6.58,
+       8.17
+      ],
+      "mean_abs_diff": 6.64
+     },
+     "heather + shrub tufts": {
+      "px": 180228,
+      "coverage": 0.3529,
+      "mean_abs_diff_rgb": [
+       10.81,
+       9.08,
+       8.48
+      ],
+      "mean_abs_diff": 9.46,
+      "drawn_heather_px": 121904,
+      "precision_drawn_on_painted": 0.5218,
+      "colour_on_both_linear": {
+       "render": [
+        0.2347,
+        0.1093,
+        0.0533
+       ],
+       "painting": [
+        0.2711,
+        0.118,
+        0.0516
+       ],
+       "painting_over_render": [
+        1.155,
+        1.079,
+        0.969
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 397413,
+      "mean_abs_diff": 0.03,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.03,
+       0.03
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 799027,
+      "mean_abs_diff": 2.47
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 3.41
+     }
+    },
+    "0_1": {
+     "kit + raven (baked)": {
+      "px": 6732,
+      "coverage": 0.9823,
+      "mean_abs_diff_rgb": [
+       17.32,
+       18.23,
+       16.92
+      ],
+      "mean_abs_diff": 17.49
+     },
+     "rock (projected)": {
+      "px": 283467,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.03
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 9774,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.03,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 433253,
+      "coverage": 0.9973,
+      "mean_abs_diff_rgb": [
+       0.64,
+       0.7,
+       0.62
+      ],
+      "mean_abs_diff": 0.65
+     },
+     "ground: heather ground": {
+      "px": 487098,
+      "coverage": 0.8725,
+      "mean_abs_diff_rgb": [
+       4.61,
+       6.15,
+       7.87
+      ],
+      "mean_abs_diff": 6.21
+     },
+     "ground: ice": {
+      "px": 156956,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.08,
+       0.06,
+       0.04
+      ],
+      "mean_abs_diff": 0.06
+     },
+     "heather + shrub tufts": {
+      "px": 195584,
+      "coverage": 0.332,
+      "mean_abs_diff_rgb": [
+       11.33,
+       9.81,
+       8.32
+      ],
+      "mean_abs_diff": 9.82,
+      "drawn_heather_px": 128568,
+      "precision_drawn_on_painted": 0.5051,
+      "colour_on_both_linear": {
+       "render": [
+        0.2623,
+        0.1178,
+        0.0502
+       ],
+       "painting": [
+        0.3092,
+        0.1357,
+        0.0594
+       ],
+       "painting_over_render": [
+        1.179,
+        1.152,
+        1.182
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 285942,
+      "mean_abs_diff": 0.4,
+      "mean_abs_diff_rgb": [
+       0.39,
+       0.42,
+       0.39
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 895789,
+      "mean_abs_diff": 2.69
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 4.14
+     }
+    },
+    "1_1": {
+     "stones (baked)": {
+      "px": 53416,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       11.86,
+       12.58,
+       11.65
+      ],
+      "mean_abs_diff": 12.03
+     },
+     "kit + raven (baked)": {
+      "px": 2978,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       14.43,
+       15.48,
+       14.55
+      ],
+      "mean_abs_diff": 14.82
+     },
+     "rock (projected)": {
+      "px": 49161,
+      "coverage": 0.9994,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.01,
+       0.01
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "birches (projected)": {
+      "px": 666,
+      "coverage": 0.979,
+      "mean_abs_diff_rgb": [
+       0.37,
+       0.46,
+       0.56
+      ],
+      "mean_abs_diff": 0.46
+     },
+     "ground: open snow": {
+      "px": 993023,
+      "coverage": 0.9988,
+      "mean_abs_diff_rgb": [
+       0.15,
+       0.16,
+       0.14
+      ],
+      "mean_abs_diff": 0.15
+     },
+     "ground: path": {
+      "px": 7704,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.33,
+       0.25,
+       0.13
+      ],
+      "mean_abs_diff": 0.24
+     },
+     "ground: heather ground": {
+      "px": 156015,
+      "coverage": 0.8196,
+      "mean_abs_diff_rgb": [
+       7.4,
+       10.05,
+       12.91
+      ],
+      "mean_abs_diff": 10.12
+     },
+     "ground: ice": {
+      "px": 235037,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.09,
+       0.06
+      ],
+      "mean_abs_diff": 0.09
+     },
+     "heather + shrub tufts": {
+      "px": 74864,
+      "coverage": 0.3392,
+      "mean_abs_diff_rgb": [
+       11.56,
+       10.01,
+       8.97
+      ],
+      "mean_abs_diff": 10.18,
+      "drawn_heather_px": 54818,
+      "precision_drawn_on_painted": 0.4632,
+      "colour_on_both_linear": {
+       "render": [
+        0.2462,
+        0.1081,
+        0.047
+       ],
+       "painting": [
+        0.2929,
+        0.126,
+        0.057
+       ],
+       "painting_over_render": [
+        1.19,
+        1.166,
+        1.212
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 100206,
+      "mean_abs_diff": 6.33,
+      "mean_abs_diff_rgb": [
+       6.23,
+       6.62,
+       6.14
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1311317,
+      "mean_abs_diff": 0.95
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.38
+     }
+    },
+    "2_1": {
+     "stones (baked)": {
+      "px": 44058,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       9.69,
+       10.21,
+       9.58
+      ],
+      "mean_abs_diff": 9.83
+     },
+     "birches (projected)": {
+      "px": 1667,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.0,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "ground: open snow": {
+      "px": 1509146,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "ground: path": {
+      "px": 9469,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.4,
+       0.33,
+       0.18
+      ],
+      "mean_abs_diff": 0.3
+     },
+     "ground: heather ground": {
+      "px": 3264,
+      "coverage": 0.8759,
+      "mean_abs_diff_rgb": [
+       8.14,
+       11.2,
+       13.85
+      ],
+      "mean_abs_diff": 11.06
+     },
+     "heather + shrub tufts": {
+      "px": 5260,
+      "coverage": 0.1279,
+      "mean_abs_diff_rgb": [
+       6.22,
+       5.99,
+       5.49
+      ],
+      "mean_abs_diff": 5.9,
+      "drawn_heather_px": 1392,
+      "precision_drawn_on_painted": 0.4835,
+      "colour_on_both_linear": {
+       "render": [
+        0.3118,
+        0.1498,
+        0.0654
+       ],
+       "painting": [
+        0.3595,
+        0.1695,
+        0.0797
+       ],
+       "painting_over_render": [
+        1.153,
+        1.132,
+        1.218
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 40494,
+      "mean_abs_diff": 9.78,
+      "mean_abs_diff_rgb": [
+       9.64,
+       10.16,
+       9.53
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1510910,
+      "mean_abs_diff": 0.04
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 0.37
+     }
+    },
+    "3_1": {
+     "rock (projected)": {
+      "px": 444238,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.01,
+       0.02
+      ],
+      "mean_abs_diff": 0.01
+     },
+     "birches (projected)": {
+      "px": 26921,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.04,
+       0.06,
+       0.06
+      ],
+      "mean_abs_diff": 0.05
+     },
+     "ground: open snow": {
+      "px": 674102,
+      "coverage": 0.9986,
+      "mean_abs_diff_rgb": [
+       0.39,
+       0.43,
+       0.35
+      ],
+      "mean_abs_diff": 0.39
+     },
+     "ground: heather ground": {
+      "px": 301387,
+      "coverage": 0.8716,
+      "mean_abs_diff_rgb": [
+       5.4,
+       7.13,
+       8.77
+      ],
+      "mean_abs_diff": 7.1
+     },
+     "heather + shrub tufts": {
+      "px": 126216,
+      "coverage": 0.3078,
+      "mean_abs_diff_rgb": [
+       10.09,
+       8.76,
+       7.94
+      ],
+      "mean_abs_diff": 8.93,
+      "drawn_heather_px": 78504,
+      "precision_drawn_on_painted": 0.4949,
+      "colour_on_both_linear": {
+       "render": [
+        0.232,
+        0.1009,
+        0.0477
+       ],
+       "painting": [
+        0.2725,
+        0.1137,
+        0.0526
+       ],
+       "painting_over_render": [
+        1.174,
+        1.127,
+        1.102
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 448302,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 837091,
+      "mean_abs_diff": 2.07
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.63
+     }
+    },
+    "0_2": {
+     "rock (projected)": {
+      "px": 387491,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 11862,
+      "coverage": 0.9984,
+      "mean_abs_diff_rgb": [
+       0.15,
+       0.16,
+       0.14
+      ],
+      "mean_abs_diff": 0.15
+     },
+     "ground: open snow": {
+      "px": 430510,
+      "coverage": 0.9991,
+      "mean_abs_diff_rgb": [
+       0.63,
+       0.68,
+       0.58
+      ],
+      "mean_abs_diff": 0.63
+     },
+     "ground: heather ground": {
+      "px": 295887,
+      "coverage": 0.8769,
+      "mean_abs_diff_rgb": [
+       4.41,
+       5.7,
+       7.04
+      ],
+      "mean_abs_diff": 5.72
+     },
+     "ground: ice": {
+      "px": 319893,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.1,
+       0.07,
+       0.04
+      ],
+      "mean_abs_diff": 0.07
+     },
+     "heather + shrub tufts": {
+      "px": 127221,
+      "coverage": 0.3222,
+      "mean_abs_diff_rgb": [
+       11.04,
+       9.47,
+       8.27
+      ],
+      "mean_abs_diff": 9.59,
+      "drawn_heather_px": 77861,
+      "precision_drawn_on_painted": 0.5264,
+      "colour_on_both_linear": {
+       "render": [
+        0.2151,
+        0.0899,
+        0.0391
+       ],
+       "painting": [
+        0.2554,
+        0.1039,
+        0.0446
+       ],
+       "painting_over_render": [
+        1.187,
+        1.156,
+        1.141
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 383390,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 906983,
+      "mean_abs_diff": 1.57
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.59
+     }
+    },
+    "1_2": {
+     "stones (baked)": {
+      "px": 25271,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       10.71,
+       11.53,
+       11.04
+      ],
+      "mean_abs_diff": 11.09
+     },
+     "kit + raven (baked)": {
+      "px": 18541,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       13.81,
+       13.61,
+       12.07
+      ],
+      "mean_abs_diff": 13.16
+     },
+     "rock (projected)": {
+      "px": 7006,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 768977,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.17,
+       0.17,
+       0.12
+      ],
+      "mean_abs_diff": 0.16
+     },
+     "ground: path": {
+      "px": 221460,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.07,
+       0.07,
+       0.05
+      ],
+      "mean_abs_diff": 0.06
+     },
+     "ground: heather ground": {
+      "px": 31467,
+      "coverage": 0.8526,
+      "mean_abs_diff_rgb": [
+       5.85,
+       7.17,
+       8.29
+      ],
+      "mean_abs_diff": 7.1
+     },
+     "ground: ice": {
+      "px": 482635,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.08,
+       0.05
+      ],
+      "mean_abs_diff": 0.08
+     },
+     "heather + shrub tufts": {
+      "px": 17507,
+      "coverage": 0.2762,
+      "mean_abs_diff_rgb": [
+       9.11,
+       8.03,
+       7.18
+      ],
+      "mean_abs_diff": 8.11,
+      "drawn_heather_px": 9866,
+      "precision_drawn_on_painted": 0.4902,
+      "colour_on_both_linear": {
+       "render": [
+        0.1833,
+        0.0756,
+        0.0347
+       ],
+       "painting": [
+        0.2169,
+        0.0882,
+        0.042
+       ],
+       "painting_over_render": [
+        1.183,
+        1.167,
+        1.207
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 45918,
+      "mean_abs_diff": 10.22,
+      "mean_abs_diff_rgb": [
+       10.25,
+       10.6,
+       9.81
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1457751,
+      "mean_abs_diff": 0.22
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 0.81
+     }
+    },
+    "2_2": {
+     "stones (baked)": {
+      "px": 23538,
+      "coverage": 0.9991,
+      "mean_abs_diff_rgb": [
+       9.04,
+       9.42,
+       8.63
+      ],
+      "mean_abs_diff": 9.03
+     },
+     "kit + raven (baked)": {
+      "px": 6732,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       11.25,
+       11.58,
+       10.32
+      ],
+      "mean_abs_diff": 11.05
+     },
+     "rock (projected)": {
+      "px": 31719,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "mean_abs_diff": 0.0
+     },
+     "birches (projected)": {
+      "px": 38443,
+      "coverage": 0.993,
+      "mean_abs_diff_rgb": [
+       0.04,
+       0.05,
+       0.05
+      ],
+      "mean_abs_diff": 0.05
+     },
+     "ground: open snow": {
+      "px": 827234,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.16,
+       0.18,
+       0.16
+      ],
+      "mean_abs_diff": 0.17
+     },
+     "ground: path": {
+      "px": 333187,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.11,
+       0.07
+      ],
+      "mean_abs_diff": 0.1
+     },
+     "ground: heather ground": {
+      "px": 200862,
+      "coverage": 0.8367,
+      "mean_abs_diff_rgb": [
+       5.43,
+       7.04,
+       9.22
+      ],
+      "mean_abs_diff": 7.23
+     },
+     "heather + shrub tufts": {
+      "px": 111149,
+      "coverage": 0.4127,
+      "mean_abs_diff_rgb": [
+       13.32,
+       10.46,
+       7.9
+      ],
+      "mean_abs_diff": 10.56,
+      "drawn_heather_px": 79319,
+      "precision_drawn_on_painted": 0.5783,
+      "colour_on_both_linear": {
+       "render": [
+        0.2447,
+        0.1146,
+        0.0469
+       ],
+       "painting": [
+        0.2947,
+        0.1404,
+        0.0674
+       ],
+       "painting_over_render": [
+        1.204,
+        1.225,
+        1.437
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 76236,
+      "mean_abs_diff": 3.45,
+      "mean_abs_diff_rgb": [
+       3.47,
+       3.6,
+       3.28
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1253481,
+      "mean_abs_diff": 0.89
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.26
+     }
+    },
+    "3_2": {
+     "rock (projected)": {
+      "px": 299295,
+      "coverage": 0.9999,
+      "mean_abs_diff_rgb": [
+       0.01,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 39482,
+      "coverage": 0.9946,
+      "mean_abs_diff_rgb": [
+       0.25,
+       0.36,
+       0.49
+      ],
+      "mean_abs_diff": 0.37
+     },
+     "ground: open snow": {
+      "px": 803363,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.28,
+       0.32,
+       0.27
+      ],
+      "mean_abs_diff": 0.29
+     },
+     "ground: heather ground": {
+      "px": 295447,
+      "coverage": 0.8734,
+      "mean_abs_diff_rgb": [
+       4.2,
+       5.5,
+       7.06
+      ],
+      "mean_abs_diff": 5.58
+     },
+     "heather + shrub tufts": {
+      "px": 135277,
+      "coverage": 0.3263,
+      "mean_abs_diff_rgb": [
+       10.86,
+       8.87,
+       7.24
+      ],
+      "mean_abs_diff": 8.99,
+      "drawn_heather_px": 82099,
+      "precision_drawn_on_painted": 0.5376,
+      "colour_on_both_linear": {
+       "render": [
+        0.2365,
+        0.1024,
+        0.0435
+       ],
+       "painting": [
+        0.2837,
+        0.1216,
+        0.0556
+       ],
+       "painting_over_render": [
+        1.2,
+        1.188,
+        1.276
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 312217,
+      "mean_abs_diff": 0.04,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.04
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 948138,
+      "mean_abs_diff": 1.38
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.39
+     }
+    },
+    "0_3": {
+     "rock (projected)": {
+      "px": 287548,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.03
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 15395,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.05,
+       0.06,
+       0.06
+      ],
+      "mean_abs_diff": 0.06
+     },
+     "ground: open snow": {
+      "px": 831045,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.16,
+       0.18,
+       0.16
+      ],
+      "mean_abs_diff": 0.17
+     },
+     "ground: heather ground": {
+      "px": 307657,
+      "coverage": 0.8729,
+      "mean_abs_diff_rgb": [
+       4.96,
+       6.48,
+       8.12
+      ],
+      "mean_abs_diff": 6.52
+     },
+     "heather + shrub tufts": {
+      "px": 131219,
+      "coverage": 0.3256,
+      "mean_abs_diff_rgb": [
+       10.74,
+       9.31,
+       8.13
+      ],
+      "mean_abs_diff": 9.4,
+      "drawn_heather_px": 82407,
+      "precision_drawn_on_painted": 0.5185,
+      "colour_on_both_linear": {
+       "render": [
+        0.2168,
+        0.0894,
+        0.0378
+       ],
+       "painting": [
+        0.2639,
+        0.1081,
+        0.0481
+       ],
+       "painting_over_render": [
+        1.218,
+        1.21,
+        1.271
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 288970,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.03
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1003964,
+      "mean_abs_diff": 1.5
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.6
+     }
+    },
+    "1_3": {
+     "kit + raven (baked)": {
+      "px": 17596,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       13.26,
+       13.1,
+       11.7
+      ],
+      "mean_abs_diff": 12.69
+     },
+     "rock (projected)": {
+      "px": 131895,
+      "coverage": 0.9995,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.04
+      ],
+      "mean_abs_diff": 0.04
+     },
+     "birches (projected)": {
+      "px": 8968,
+      "coverage": 1.0,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 546576,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.29,
+       0.3,
+       0.25
+      ],
+      "mean_abs_diff": 0.28
+     },
+     "ground: path": {
+      "px": 454394,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.11,
+       0.11,
+       0.08
+      ],
+      "mean_abs_diff": 0.1
+     },
+     "ground: heather ground": {
+      "px": 281344,
+      "coverage": 0.8662,
+      "mean_abs_diff_rgb": [
+       4.5,
+       5.64,
+       6.95
+      ],
+      "mean_abs_diff": 5.7
+     },
+     "heather + shrub tufts": {
+      "px": 132091,
+      "coverage": 0.357,
+      "mean_abs_diff_rgb": [
+       11.07,
+       9.04,
+       7.27
+      ],
+      "mean_abs_diff": 9.13,
+      "drawn_heather_px": 85246,
+      "precision_drawn_on_painted": 0.5532,
+      "colour_on_both_linear": {
+       "render": [
+        0.1947,
+        0.0843,
+        0.035
+       ],
+       "painting": [
+        0.2383,
+        0.1032,
+        0.0446
+       ],
+       "painting_over_render": [
+        1.224,
+        1.223,
+        1.274
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 147772,
+      "mean_abs_diff": 1.34,
+      "mean_abs_diff_rgb": [
+       1.4,
+       1.39,
+       1.25
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 1155434,
+      "mean_abs_diff": 1.12
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.48
+     }
+    },
+    "2_3": {
+     "rock (projected)": {
+      "px": 214094,
+      "coverage": 0.9993,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.03,
+       0.04
+      ],
+      "mean_abs_diff": 0.04
+     },
+     "birches (projected)": {
+      "px": 9330,
+      "coverage": 0.9986,
+      "mean_abs_diff_rgb": [
+       0.04,
+       0.05,
+       0.04
+      ],
+      "mean_abs_diff": 0.04
+     },
+     "ground: open snow": {
+      "px": 508690,
+      "coverage": 0.9993,
+      "mean_abs_diff_rgb": [
+       0.3,
+       0.36,
+       0.33
+      ],
+      "mean_abs_diff": 0.33
+     },
+     "ground: path": {
+      "px": 212302,
+      "coverage": 0.9997,
+      "mean_abs_diff_rgb": [
+       0.15,
+       0.14,
+       0.1
+      ],
+      "mean_abs_diff": 0.13
+     },
+     "ground: heather ground": {
+      "px": 410738,
+      "coverage": 0.8272,
+      "mean_abs_diff_rgb": [
+       5.94,
+       8.14,
+       10.92
+      ],
+      "mean_abs_diff": 8.33
+     },
+     "heather + shrub tufts": {
+      "px": 217710,
+      "coverage": 0.4431,
+      "mean_abs_diff_rgb": [
+       14.69,
+       11.43,
+       8.51
+      ],
+      "mean_abs_diff": 11.54,
+      "drawn_heather_px": 168053,
+      "precision_drawn_on_painted": 0.574,
+      "colour_on_both_linear": {
+       "render": [
+        0.2526,
+        0.106,
+        0.0411
+       ],
+       "painting": [
+        0.3083,
+        0.1305,
+        0.0571
+       ],
+       "painting_over_render": [
+        1.22,
+        1.231,
+        1.39
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 215417,
+      "mean_abs_diff": 0.04,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.04,
+       0.04
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 971293,
+      "mean_abs_diff": 2.62
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 4.54
+     }
+    },
+    "3_3": {
+     "rock (projected)": {
+      "px": 294053,
+      "coverage": 0.9996,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ],
+      "mean_abs_diff": 0.02
+     },
+     "birches (projected)": {
+      "px": 15994,
+      "coverage": 0.9998,
+      "mean_abs_diff_rgb": [
+       0.03,
+       0.03,
+       0.03
+      ],
+      "mean_abs_diff": 0.03
+     },
+     "ground: open snow": {
+      "px": 732633,
+      "coverage": 0.9994,
+      "mean_abs_diff_rgb": [
+       0.16,
+       0.2,
+       0.18
+      ],
+      "mean_abs_diff": 0.18
+     },
+     "ground: heather ground": {
+      "px": 370941,
+      "coverage": 0.8619,
+      "mean_abs_diff_rgb": [
+       4.76,
+       6.42,
+       8.63
+      ],
+      "mean_abs_diff": 6.6
+     },
+     "heather + shrub tufts": {
+      "px": 159243,
+      "coverage": 0.3452,
+      "mean_abs_diff_rgb": [
+       11.08,
+       8.78,
+       7.27
+      ],
+      "mean_abs_diff": 9.05,
+      "drawn_heather_px": 106796,
+      "precision_drawn_on_painted": 0.5148,
+      "colour_on_both_linear": {
+       "render": [
+        0.2403,
+        0.1046,
+        0.0434
+       ],
+       "painting": [
+        0.2901,
+        0.1271,
+        0.0596
+       ],
+       "painting_over_render": [
+        1.207,
+        1.215,
+        1.373
+       ]
+      }
+     },
+     "ALL STATIC PIECES": {
+      "px": 295864,
+      "mean_abs_diff": 0.02,
+      "mean_abs_diff_rgb": [
+       0.02,
+       0.02,
+       0.02
+      ]
+     },
+     "ALL GROUND (tufts apart)": {
+      "px": 949596,
+      "mean_abs_diff": 1.92
+     },
+     "WHOLE CHUNK": {
+      "px": 1572864,
+      "mean_abs_diff": 2.97
+     }
+    }
+   },
+   "whole_window": {
+    "stones (baked)": {
+     "px": 159890,
+     "coverage": 0.9998,
+     "mean_abs_diff_rgb": [
+      11.35,
+      11.9,
+      10.91
+     ],
+     "mean_abs_diff": 11.39
+    },
+    "kit + raven (baked)": {
+     "px": 46604,
+     "coverage": 0.9974,
+     "mean_abs_diff_rgb": [
+      14.1,
+      14.28,
+      12.61
+     ],
+     "mean_abs_diff": 13.67
+    },
+    "rock (projected)": {
+     "px": 2523662,
+     "coverage": 0.9996,
+     "mean_abs_diff_rgb": [
+      0.02,
+      0.02,
+      0.02
+     ],
+     "mean_abs_diff": 0.02
+    },
+    "mound (projected)": {
+     "px": 680231,
+     "coverage": 1.0,
+     "mean_abs_diff_rgb": [
+      0.01,
+      0.02,
+      0.02
+     ],
+     "mean_abs_diff": 0.02
+    },
+    "birches (projected)": {
+     "px": 223775,
+     "coverage": 0.9969,
+     "mean_abs_diff_rgb": [
+      0.11,
+      0.15,
+      0.18
+     ],
+     "mean_abs_diff": 0.15
+    },
+    "ground: open snow": {
+     "px": 8223038,
+     "coverage": 0.9992,
+     "mean_abs_diff_rgb": [
+      0.23,
+      0.26,
+      0.22
+     ],
+     "mean_abs_diff": 0.24
+    },
+    "ground: path": {
+     "px": 742803,
+     "coverage": 0.9997,
+     "mean_abs_diff_rgb": [
+      0.13,
+      0.13,
+      0.1
+     ],
+     "mean_abs_diff": 0.12
+    },
+    "ground: heather ground": {
+     "px": 3183194,
+     "coverage": 0.8624,
+     "mean_abs_diff_rgb": [
+      5.02,
+      6.6,
+      8.44
+     ],
+     "mean_abs_diff": 6.69
+    },
+    "ground: ice": {
+     "px": 675667,
+     "coverage": 0.9999,
+     "mean_abs_diff_rgb": [
+      0.13,
+      0.1,
+      0.06
+     ],
+     "mean_abs_diff": 0.1
+    },
+    "heather + shrub tufts": {
+     "px": 1432464,
+     "coverage": 0.3407,
+     "mean_abs_diff_rgb": [
+      11.2,
+      9.34,
+      7.85
+     ],
+     "mean_abs_diff": 9.47,
+     "drawn_heather_px": 934936,
+     "precision_drawn_on_painted": 0.5221,
+     "colour_on_both_linear": {
+      "render": [
+       0.2374,
+       0.1051,
+       0.0453
+      ],
+      "painting": [
+       0.2831,
+       0.1231,
+       0.0547
+      ],
+      "painting_over_render": [
+       1.192,
+       1.172,
+       1.209
+      ]
+     }
+    },
+    "ALL STATIC PIECES": {
+     "px": 3425188,
+     "mean_abs_diff": 0.67,
+     "mean_abs_diff_rgb": [
+      0.67,
+      0.7,
+      0.64
+     ]
+    },
+    "ALL GROUND (tufts apart)": {
+     "px": 11359393,
+     "mean_abs_diff": 1.45
+    },
+    "WHOLE CHUNK": {
+     "px": 17891328,
+     "mean_abs_diff": 2.62
+    }
+   },
+   "static_pieces_worst_chunk": {
+    "chunk": "1_2",
+    "mean_abs_diff": 10.22
+   },
+   "static_pieces_by_chunk": {
+    "0_0": 0.03,
+    "1_0": 0.8,
+    "2_0": 0.97,
+    "3_0": 0.03,
+    "0_1": 0.4,
+    "1_1": 6.33,
+    "2_1": 9.78,
+    "3_1": 0.02,
+    "0_2": 0.02,
+    "1_2": 10.22,
+    "2_2": 3.45,
+    "3_2": 0.04,
+    "0_3": 0.02,
+    "1_3": 1.34,
+    "2_3": 0.04,
+    "3_3": 0.02
+   }
+  }
+ }
+}
