@@ -140,10 +140,14 @@ def rows():
     import p11_pairs as P11v1
     import p11_abx as ABX
     c11 = {}
-    lab = {"cal_v1_vs_159": "159", "cal_v1_vs_158": "158", "cal_v1_vs_constructed_halfdensity": "constructed"}
+    lab = {"cal_v1_vs_159": "159", "cal_v1_vs_158": "158", "cal_v1_vs_constructed_halfdensity": "constructed",
+           "g2_v1rec_vs_v1head": "v1", "g2_v1_vs_halfdensity": "constructed (G2, fixed generator)"}
     for st, nm in lab.items():
         ap = PH / "p11/answers" / (st + ".json")
         aa = PH / "p11/answers" / ("abx_" + st + ".json")
+        if st.startswith("g2_") and not aa.exists():
+            c11[nm] = {"value": None, "pass": None, "note": "G2-B2 set built (40 trials), awaiting judge"}
+            continue
         if aa.exists():
             r = ABX.score(st, aa)
             c11[nm] = {"value": "ABX %.0f%% (inconsistency %.0f%%)" % (100 * r["abx_accuracy"], 100 * r["repeat_inconsistency"]),

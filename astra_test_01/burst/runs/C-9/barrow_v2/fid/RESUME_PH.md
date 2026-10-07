@@ -55,4 +55,5 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 - **W-3 P8:** re-instrument to like-for-like (per-chunk vs v1's per-chunk distribution, or whole-window vs whole-window with a v1-justified tolerance); add a graded constructed RED near the bar (e.g. 1 m shift). Record as re-instrumentation.
 - **I-4:** clear the stale lines in calibration.md.
 - **Phase 1 support:** when LV's guide + ID render land, run P6 geometry agreement against the **layout_v7 polygons**.
-State: [ ] G2-B1 tool [ ] G2-B1 judge set [ ] G2-B2 sets [ ] W-3 [ ] I-4
+State: [x] G2-B1 tool (`harness/p6_overlay.py` triage/record; BVR demo jsonl) [x] G2-B1 judge set (`fid/ph/p6_overlay_judge/`, awaiting judge) [x] G2-B2 sets (`fid/ph/p11/abx_g2_v1rec_vs_v1head/`, `abx_g2_v1_vs_halfdensity/`, 40 trials each, awaiting judges) [x] W-3 (P8 per chunk, graded RED) [x] I-4 — calibration.md § 11.
+Next: when the answers land -> copy them to `fid/ph/p11/answers/` (`abx_g2_<set>.json`, `p6_overlay.json`), score (`p11_abx.py score`, `p6_overlay.py score`), run `calibrate.py`, commit. Phase 1: run `p6_overlay.py triage` with LV's v7 declared-opening list and dark-structure ID mask; run P6b against the layout_v7 polygons.

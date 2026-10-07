@@ -1,6 +1,6 @@
 # BV2F lane PH — the v1-parity harness, calibrated (Phase 0 task 0.4)
 
-**Lane:** PH (galadriel). **Charter:** BV2F v0.2 (§ 9 C-1..C-3 as amended by § 12 Gate-1 folds W-1, W-7, I-1). **Status:** calibrated. Rulings R-C9-167 and R-C9-168 are folded in § 7. v1 passes every measured row. R-C9-159 fails P1–P4, P6b and P8. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED. **Open:** P6a's scoped judge (R-C9-169, § 8) and the P11 ABX test both await the conductor's judges.
+**Lane:** PH (galadriel). **Charter:** BV2F v0.3 (§ 9, § 12 Gate-1 folds, § 13 Gate-2 folds). **Status:** Phase 0 CLOSED (Gate-2 PASS-WITH-FOLDS, R-C9-173); the folds are recorded in § 11. Rulings R-C9-167 through R-C9-171 are folded in §§ 7–10. v1 passes every measured row. R-C9-159 fails P1–P4, P6b and P8. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED. **P6a binding = fallback (a), conductor triage by eye with the layout overlay (§ 10, § 11). P11 = ABX, binding (R-C9-171); the v1 GREEN sets (G2-B2) await judges.**
 **Machine-readable:** `calibration.json`. **Harness + run commands:** `harness/README.md`. **Per-row evidence:** `results/*.json`.
 
 Rule applied throughout: thresholds come from v1's own distribution; a quality row that cannot separate v1 from its
@@ -20,10 +20,10 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P5 | quality | R-C9-158 (Gate-1 W-1) | (a) ≤ 13.09; (b) ≤ 0.799 | 13.09 / 0.799 **PASS** | 6.87 / 0.891 **FAIL** | 15.29 / 1.274 **FAIL** | 14.07 / 1.250 **FAIL** | — |
 | P6 | quality | R-C9-155 BVR blocks (invention, Gate-1 W-1); R-C9-159 (silhouettes) | (a) inventions = 0, T = 32 (v1's own ceiling); (b) ≥ 0.513 (v1 median) | 0 inv / IoU 0.513 **PASS** | IoU 0.102 **FAIL** | — | 1 inv / IoU 0.290 **FAIL** | BVR hall (T2a, 7_5..8_7): 18 inventions **FAIL**; BVR barrow door (T2b, 4_0..6_1): 0 inventions **PASS** |
 | P7 | constraint | constructed (RED) | floor ≤ v1 quadrant max (tuft 0.0040, clutter 0.0013); lanes ≤ v1 segment max (tuft 0.0245, clutter 0.0793) | 0.0019 / 0.0005 **PASS** | 0.0006 / 0.0002 **PASS** | — | 0.0219 / 0.0125 **FAIL** | — |
-| P8 | constraint | constructed (RED) | ≥ 0.4476 — v1's minimum chunk value (R-C9-169) | 0.5221 (share 1.00) **PASS** | 0.0212 (share 0.40) **FAIL** | — | 0.1061 (share 0.42) **FAIL** | — |
+| P8 | constraint | constructed (RED, graded) | every chunk with heather (≥ 2000 drawn px) ≥ 0.4476 = v1's minimum chunk | min 0.4476, 0/15 below **PASS** | min 0.0009, 6/6 below **FAIL** | — | min 0.4119, 3/15 below **FAIL** | — |
 | P9 | constraint | R-C9-158; constructed (RED) | (a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99 | sway 8.26; trail 1.00 **PASS** | sway 13.06; flow 6.48; drift 1.913 px; trail 0.81 **FAIL** | trail 0.00; no SnowField, no wind, static sea **FAIL** | sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden) **FAIL** | — |
 | P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | 13.55 **PASS** | — | 21.33 **FAIL** | — |
-| P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | — | ABX 100% (inconsistency 0%) **FAIL** | ABX 90% (inconsistency 10%) **FAIL** | ABX 92% (inconsistency 0%) **FAIL** | — |
+| P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | None **—** | ABX 100% (inconsistency 0%) **FAIL** | ABX 90% (inconsistency 10%) **FAIL** | ABX 92% (inconsistency 0%) **FAIL** | constructed (G2, fixed generator): None **—** |
 <!-- /CALIBRATION-TABLE -->
 
 ## 2. Thresholds and their v1 sources
@@ -37,10 +37,10 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P5 | overlap MAD ≤ 13.09; seam \|log2\| ≤ 0.799 | v1's 24 canvas overlaps (reproduces the recorded 2.7–13.1) and 6 stitched seams |
 | P6 | inventions = 0 at T = 32; IoU ≥ 0.513 | T = largest L* at which v1's painting shows no undeclared opening (sweep 16–40: 0 through 32, 1 at 33); v1 per-piece IoU median over 53 pieces |
 | P7 | floor ≤ v1 quadrant max; lanes ≤ v1 segment max | v1 arena disc (r 7 m) quadrants; v1 path + door corridor in 2 m segments |
-| P8 | precision ≥ 0.4476 (v1's minimum chunk; R-C9-169) | `take/build/overlay_check.json` per_chunk, 16 chunks 0.4476–0.5783, whole window 0.5221; reproduced exactly by PT (`fid/pc/results.json` T3) and by PH |
+| P8 | per chunk: every chunk with heather ≥ 0.4476 (v1's minimum chunk; R-C9-169, like-for-like W-3) | `take/build/overlay_check.json` per_chunk, 16 chunks 0.4476–0.5783; reproduced exactly by PT (`fid/pc/results.json` T3) and by PH |
 | P9 | sway ≥ 3× noise and ≥ 0.25× v1; flow ≥ 3× noise; floe drift ≤ 0.25 px; trail coverage ≥ 0.99 | v1 in-engine pair; v1 SnowField covers 100% of its floor |
 | P10 | p99 ≤ 16.7 ms | plan § 4 P10 (the 10.9–12.4 ms target is withdrawn, W-2) |
-| P11 | identification ≤ 65% (≤ 19/30) | plan § 4 P11; power: P(pass) = 0.95 at p = 0.50, 0.49 at 0.65, 0.27 at 0.70, 0.03 at 0.80, 0.0001 at 0.90 |
+| P11 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | plan § 4 P11; R-C9-168/171; power (n = 40): P(pass) = 0.98 at p = 0.50, 0.79 at 0.60, 0.56 at 0.65, 0.30 at 0.70, 0.10 at 0.75, 0.02 at 0.80 |
 
 ## 3. Discarded and re-instrumented
 
@@ -49,10 +49,10 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 - **P9b film instrument** (registered water-vs-snow residual on walk and pan films). It cannot separate R-C9-159's animated sea (median ratio 1.71–1.82) from R-C9-158's static sea (1.38): the film compression and the pans drown the signal. The in-engine static pair is binding in its place.
 
 **Re-instrumented.**
-- **P6a.** The first instrument used unsmoothed L* < 25 with a 20 px opening. It found only the declared door in the BVR hall: 1 opening, 0 inventions, so it could not see R-C9-155. It was re-instrumented to L* on a 0.1 m Gaussian, because a door interior is textured (planks, smoke, embers). T = 32 is computed from v1 alone, with a 0.2 m opening and ≥ 0.5 m². It now flags the invented second door at plate (10311, 4925) (`figures/p6a_bvr_hall_flags.jpg`).
+- **P6a.** The first instrument used unsmoothed L* < 25 with a 20 px opening. It found only the declared door in the BVR hall: 1 opening, 0 inventions, so it could not see R-C9-155. It was re-instrumented to L* on a 0.1 m Gaussian, because a door interior is textured (planks, smoke, embers). T = 32 is computed from v1 alone, with a 0.2 m opening and ≥ 0.5 m². It flags both invented features of the R-C9-155 hall (§ 9 truth: plate (10311, 4925) and the gable-end opening at items 08/11), plus 15 material flags (`figures/p6a_bvr_hall_flags.jpg`).
 - **P5 constructed input.** A 12 px half-frame shift is invisible to (b): it scores 0.772 against a bar of 0.799. v1's partition-of-unity stitch cannot make a hard seam, so the constructed input is now a 6 px misregistered blend, which is the stitch's ghosting failure. It scores (b) 1.250. Measure (a) carries the hard and second-hand cases.
 
-**Known false-positive mode (P6a).** The detector also flags 17 dark charred-timber clumps in the BVR hall. They are not openings, and v1 contained no dark material. A burnt-hall chunk will therefore flag every time. See § 6.
+**Known false-positive mode (P6a).** The detector also flags 15 dark material candidates in the BVR hall (§ 9 truth), since v1 contained no dark material. Their disposition is triage by eye (§ 10, § 11).
 
 ## 4. What each control is, and what is still pending
 
@@ -68,9 +68,9 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
   - P10: v1 p99 14.87 ms; the 20 ms burn gives 21.33 ms.
 - **P10 for R-C9-159 is informational only** (P10 is a constraint row): p99 13.55 ms, PASS.
 - **P9c floe UV drift has a RED** (R-C9-159, 1.91 px median over 5 floes) **but no positive control.** v1 has no floes, and no rest-pose implementation exists yet. DEV-5's first build will be its positive control.
-- **P8** is provisional until PT's reproduced v1 value lands.
-- **P11** is built but not judged (C-3).
-- **v1 stills:** P11 uses `section_v1cam/v1ref/V1_*.png`. `barrow_full/captures/still_*.png` are **blockout** stills and are excluded; I checked them by eye. PT's `fid/pc/v1_stills/` join the pool automatically. Regenerate the pairs with OVERLAP 0.25 once they land.
+- **P8** is final (§ 8, § 11 W-3).
+- **P11** is ABX, binding; the calibration sets are judged (§ 10). The v1 GREEN sets (G2-B2) are built and await judges (§ 11).
+- **v1 stills:** P11 uses `section_v1cam/v1ref/V1_*.png` (record time) and PT's `fid/pc/v1_stills/` (HEAD). `barrow_full/captures/still_*.png` are **blockout** stills and are excluded; I checked them by eye.
 
 ## 5. State
 
@@ -78,7 +78,7 @@ See `../RESUME_PH.md`.
 
 ## 6. For the conductor to rule
 
-See the hand-back. Recorded here: (1) the cellularity discard leaves C4's "blotchy cellular bakes" without a binding pixel instrument; (2) P6a's false positives on dark material in the hall chunks; (3) P4 new classes (sea, shingle) and wood (v1 logs are under 20,000 px in every chunk, so there is no v1 spread) have no binding P4 statistic until a nearest v1 class is named; (4) P8's threshold re-bases on PT's value; (5) P9c has no positive control until DEV-5 is built; (6) P5 also flags R-C9-159's stitched seams (2 over v1's ghosting bar). P5's negative control is R-C9-158, so this is evidence, not calibration.
+All six items raised at the first hand-back are RULED (R-C9-167 to R-C9-171, §§ 7–10). One standing note: P5 also flags R-C9-159's stitched seams (2 over v1's ghosting bar). P5's negative control is R-C9-158, so this is evidence, not calibration.
 
 ## 7. Conductor rulings R-C9-167 and R-C9-168, folded
 
@@ -276,4 +276,37 @@ The painter evidently read the brazier_sw disc and the porch outline corner as a
 **Requirement for the fid level's P11:** at least about 12 play-camera stills, with ID-render class masks, so that 40 content-controlled trials exist. Lane PT/LV should plan the M1 and M2 stills with this in mind.
 
 **Known limitation (constructed sets only).** v1ref's `V1_ring` and PT's `stone_ring` are different stills of the same place. The location guard works per still, so a v1 crop and a half-density crop of the same stones can meet in one constructed-set trial. Candidate builds are separate levels, so this does not arise for them.
+
+## 11. Phase 0 Gate-2 folds (charter § 13, R-C9-173)
+
+**G2-B2: P11 v1 GREEN, on the fixed generator.** Two judge-ready sets (keys in `p11/keys/`, outside the judge dirs):
+- `p11/abx_g2_v1rec_vs_v1head/`: record-time v1 (`section_v1cam/v1ref/`, 3 stills) against HEAD v1 (PT's `fid/pc/v1_stills/`, 6 stills). 40 trials + 10 repeats, 50 images.
+- `p11/abx_g2_v1_vs_halfdensity/`: all 9 v1 stills against their half-density copies. 40 trials + 10 repeats.
+
+Both pass the scorer self-test: the key scores 100% with 0 inconsistency, random answers score 50%. No trial pairs two crops of the same place, and no repeat re-uses its X.
+
+**Two generator refinements were needed to reach 40 trials from 9 stills**, recorded as re-instrumentation of the generator (no threshold moves):
+1. **A within-trial world-location guard.** A crop maps to ground (u, v) from its still's camera centre (v1ref: `v2sw_run.gd` park points; PT: `views.json`). Within one trial, A, B and X are never within 3.5 m of each other, because V1_ring and stone_ring show the same stones.
+2. **X crops are guarded against other X crops only** (≤ 25% overlap), not against every crop. An X near another trial's A or B leaks nothing, because the judge never learns which build A is. Without this the record-time set reached 18 trials, then 28.
+
+**UNDERPOWERED (< 40) = VOID.** Neither set is underpowered. Results will be recorded in `calibration.json`, the v1 cell included, when the answers arrive.
+
+**G2-B1: P6a overlay tooling and the overlay truth set.** `harness/p6_overlay.py`:
+- **Declared openings** come from the layout and are projected to plate px: layout v5 for BVR, and LV's v7 declared-opening list in Phase 1 (schema in the docstring). Each is drawn as its wall-plane quad, cyan.
+- **Distance** is in screen metres to the quad's **centroid**. The match radius is half-width + 1.0 m. The distance is measured to the centroid rather than the quad edge because, by edge, the invented doorway sits 1.3 m from the porch quad's corner and would match; it is 4.4 m from the centre.
+- **`truthset`** gives `p6_overlay_judge/`: the 20 § 9 items, each a painting crop beside the same crop greyed with the declared openings outlined. JUDGE.md asks one question: "does the painting show a doorway or opening that is NOT inside a cyan outline?" The key, with the truth and the nearest declared opening, is in `keys/p6_overlay_judge.json`. Score with `p6_overlay.py score <answers>`.
+  - By the overlay rule, one material candidate is auto-declared (old item_14, 2.47 m from the porch).
+  - No invented candidate matches a declared opening. The nearest is item_17 at 4.38 m against a radius of 3.25 m.
+- **`triage`** is the per-chunk tool for fallback (a). For each v0.1 candidate it renders crop | overlay, auto-classifies (declared if matched; invented if outside the declared dark structures; otherwise PENDING), and writes `results/p6a_triage_<window>.jsonl` rows: {chunk, candidate, candidate_px, inside_dark_structure, crop_sha, overlay_sha, nearest_declared, distance_m, match_radius_m, verdict, evidence, reader, ts}.
+- **`record`** writes the reader's verdict.
+- **Demo on BVR:** `results/p6a_triage_bvr_demo.jsonl` has 18 rows, 17 PENDING and 1 auto-declared. `record` was tested on a scratch copy of that file.
+- **Caveat.** On BVR the painting does not register to the layout: the painter moved the porch about 4 m. In Phase 1 the painting is painted over the ID render of real models, so it registers to within a few px.
+
+**W-3: P8 is now like-for-like.** The binding form is **per chunk**: every chunk with heather (≥ 2000 drawn px) must be ≥ 0.4476, v1's minimum chunk. This replaces whole-window against v1's chunk minimum, which mixed scales.
+- v1 has 15 chunks with heather, from 0.4476 to 0.5783: PASS. The 16th chunk has under 2000 drawn px.
+- **Graded constructed RED** (v1's drawn heather shifted): 0.1 m gives 3/15 chunks below the bar (min 0.4119); 0.25 m gives 13/15; 1 m gives 15/15.
+- R-C9-159: 6/6 chunks below (min 0.0009): FAIL.
+- The whole-window value (0.5221, reproduced exactly) is still reported.
+
+**I-4.** Stale lines in §§ 0–6 are updated: the status header, the P8 and P11 threshold rows, P6a's flag count, the pending list, and § 6.
 

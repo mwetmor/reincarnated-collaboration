@@ -1,6 +1,6 @@
 {
  "_what": "BV2F lane PH -- the v1-parity harness P1-P11, calibrated (Phase 0 task 0.4)",
- "assembled_utc": "2026-10-07T03:10:53Z",
+ "assembled_utc": "2026-10-07T03:37:09Z",
  "rows": [
   {
    "row": "P1",
@@ -222,28 +222,28 @@
   {
    "row": "P8",
    "kind": "constraint",
-   "neg": "constructed (RED)",
-   "metric": "precision_drawn_on_painted (overlay_check.py's recorded quantity): drawn 3D-heather px on painted tuft px / drawn px, whole window. Reported beside it: instance share on tufts and tint r",
-   "threshold": "\u2265 0.4476 \u2014 v1's minimum chunk value (R-C9-169)",
-   "threshold_source": "take/build/overlay_check.json per_chunk (16 chunks 0.4476\u20130.5783; whole window 0.5221), reproduced exactly by PT (fid/pc/results.json T3) and by PH",
+   "neg": "constructed (RED, graded)",
+   "metric": "precision_drawn_on_painted PER PAINT CHUNK (drawn 3D-heather px on painted tuft px / drawn px), like-for-like against v1's per-chunk distribution (W-3 re-instrumentation)",
+   "threshold": "every chunk with heather (\u2265 2000 drawn px) \u2265 0.4476 = v1's minimum chunk",
+   "threshold_source": "take/build/overlay_check.json per_chunk (16 chunks 0.4476\u20130.5783), reproduced exactly by PT (fid/pc/results.json T3) and by PH",
    "cells": {
     "v1": {
-     "value": "0.5221 (share 1.00)",
+     "value": "min 0.4476, 0/15 below",
      "pass": true,
      "note": ""
     },
     "159": {
-     "value": "0.0212 (share 0.40)",
+     "value": "min 0.0009, 6/6 below",
      "pass": false,
      "note": ""
     },
     "constructed": {
-     "value": "0.1061 (share 0.42)",
+     "value": "min 0.4119, 3/15 below",
      "pass": false,
      "note": ""
     }
    },
-   "constructed": "v1's drawn heather shifted 4 m"
+   "constructed": "v1's drawn heather shifted 0.1 m (graded: 0.25 m \u2192 13/15 below, 1 m \u2192 15/15)"
   },
   {
    "row": "P9",
@@ -324,6 +324,16 @@
      "value": "ABX 92% (inconsistency 0%)",
      "pass": false,
      "note": ""
+    },
+    "v1": {
+     "value": null,
+     "pass": null,
+     "note": "G2-B2 set built (40 trials), awaiting judge"
+    },
+    "constructed (G2, fixed generator)": {
+     "value": null,
+     "pass": null,
+     "note": "G2-B2 set built (40 trials), awaiting judge"
     }
    },
    "constructed": "v1 stills at half texel density",

@@ -206,8 +206,10 @@ def score_truthset(answers):
 
 
 # ------------------------------------------------------------------ the per-chunk triage tool (fallback (a))
-def triage(window, painting, frame, declared, candidates, dark_mask=None):
+def triage(window, painting, frame, declared, candidates, dark_mask=None, origin=(0, 0)):
+    """painting: a PNG covering plate px [origin, origin + size); candidates and the dark mask in PLATE px / painting px."""
     img = load_rgb(painting)
+    ox, oy = origin
     fr = jload(frame)
     P, (X0, Y0), a = fr["px_per_m"], fr["origin_px"], math.radians(fr["pitch_deg"])
     law = lambda x, y, z: (P * x + X0, P * math.sin(a) * y - P * math.cos(a) * z + Y0)
@@ -219,10 +221,10 @@ def triage(window, painting, frame, declared, candidates, dark_mask=None):
     rows = []
     for i, c in enumerate(cands):
         x, y = c["xy"]
-        inside = bool(dm[int(y), int(x)]) if dm is not None else True
+        inside = bool(dm[int(y - oy), int(x - ox)]) if dm is not None else True
         ne = nearest((x, y), decl, law)
-        cr, x0, y0 = _crop(img, x, y)
-        ov = overlay(cr, x0, y0, decl, law)
+        cr, x0, y0 = _crop(img, x - ox, y - oy)
+        ov = overlay(cr, x0 + ox, y0 + oy, decl, law)
         comp = np.full((CROP, 2 * CROP + GAP, 3), 255, np.uint8)
         comp[:, :CROP] = np.clip(cr, 0, 255).astype(np.uint8)
         comp[:, CROP + GAP:] = ov
@@ -266,6 +268,8 @@ if __name__ == "__main__":
     for k in ("window", "painting", "frame", "declared", "candidates"):
         t.add_argument(k)
     t.add_argument("--dark-mask")
+    t.add_argument("--origin", nargs=2, type=int, default=[0, 0], help="the painting's plate-px origin")
+    sub.add_parser("demo_bvr", help="run the triage tool on the BVR hall block (calibration demo)")
     r = sub.add_parser("record")
     r.add_argument("window")
     r.add_argument("candidate")
@@ -278,7 +282,22 @@ if __name__ == "__main__":
     elif a.cmd == "score":
         print(json.dumps(score_truthset(a.answers), indent=1))
     elif a.cmd == "triage":
-        rows = triage(a.window, a.painting, a.frame, a.declared, a.candidates, a.dark_mask)
+        rows = triage(a.window, a.painting, a.frame, a.declared, a.candidates, a.dark_mask, tuple(a.origin))
         print("%d candidates -> results/p6a_triage_%s.jsonl (%d PENDING)" % (len(rows), a.window, sum(r["verdict"] == "PENDING" for r in rows)))
+    elif a.cmd == "demo_bvr":
+        keys = G.BLOCKS["BVR hall (T2a, 7_5..8_7)"]
+        paint, (bx0, by0) = G.bvr_block(keys)
+        d = PH / "triage_inputs"
+        d.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(paint.astype(np.uint8)).save(d / "bvr_hall.png")
+        m = G.zonemap_dark_mask((bx0, by0, bx0 + paint.shape[1], by0 + paint.shape[0]), 1.0)
+        Image.fromarray(m.astype(np.uint8) * 255).save(d / "bvr_hall_dark.png")
+        dump(declared_v5(), str(d / "declared_v5.json"))
+        rows = jload(PH / "results/p6.json")["invention"]["rows"]["BVR hall (T2a, 7_5..8_7)"]["inventions_xy_plate_px"]
+        dump([{"chunk": "bvr_hall", "xy": [x, y]} for x, y, _ in rows], str(d / "bvr_hall_candidates.json"))
+        rr = triage("bvr_demo", d / "bvr_hall.png", B2 / "paint/frame_bvp.json", d / "declared_v5.json",
+                    d / "bvr_hall_candidates.json", d / "bvr_hall_dark.png", (bx0, by0))
+        print("%d rows -> results/p6a_triage_bvr_demo.jsonl; %d PENDING, %d auto" % (len(rr), sum(r["verdict"] == "PENDING" for r in rr),
+              sum(r["verdict"] != "PENDING" for r in rr)))
     elif a.cmd == "record":
         record(a.window, a.candidate, a.verdict, " ".join(a.evidence), a.reader)
