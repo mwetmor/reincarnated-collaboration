@@ -7,6 +7,45 @@
 
 ---
 
+## join1-j2-rcv1-conversion-rule-2026-10-07 (APPLY) — R-CV1 v1 CONFIRMED with the rule owner's predicate amendment (conductor KP-326) and applied: 3 referent conversion rows stamped — 2026-10-07 — **APPLIED 2026-10-07T18:55Z**
+
+**Authority:** conductor **KP-326** confirmed R-CV1 v1 **with** the rule owner's amendment. gamora's note (`agentic_orchestration/gamora/notes/2026-10-07-rcv1-rule-owner-objection.md`, collab `16f23ca88`) objected only to the predicate, and converts to SIGN-OFF once the amendment is in. This supersedes the PROPOSED entry below on two points, and nothing else:
+1. **Predicate closed on both sides of `_to_`** over the damage-family vocabulary: `(?:^|_)(?:physical|pierce|fire|cold|lightning|poison|acid|aether|chaos|life|vitality|bleeding|elemental)_to_(?:…same…)(?:_conversion)?_pct$`. The proposed wildcard `[a-z]+_to_[a-z]+` would have captured `chance_to_hit_pct`, `damage_to_mana_pct`, `life_to_mana_pct` and `retaliation_to_attack_pct`. A future damage family enters by amendment, never by wildcard. The script now self-tests both directions: KC-1b-shaped keys match, and gamora's four probes do not.
+2. **Wording:** "COMPOSITION (refused in v0 by the reader)" replaces "the reader composes".
+
+Amendment committed alone as collab `5677ecf9d`. Re-dry-run: exactly the same 3 rows corpus-wide, same expected ROWSET.
+
+**Script:** `research/scripts/corpus_rcv1_conversion_rule_2026_10_07.py --apply --confirmed KP-326`.
+
+| Step | FILE sha256 | Result |
+|---|---|---|
+| refuse-gate | `corpus.db` = `37635bad…cd5b` | held |
+| backup | `corpus.db.pre-rcv1-conversion-20261007T185511Z-backup` = `37635bad…cd5b` | copied, digest asserted |
+| apply | `37635bad…cd5b` → **`2617c0c101d8d924cb327e50137b1b3a61b1a8cbd81a24632d2ebe3469eaa26b`** | PASS |
+
+**Writes:**
+- `normalization_rule` +1 (39 → 40): `R-CV1`, v1, `source_scale = damage_type_conversion_pct` (a scope name), `rule_owner = gamora`, `status = active`, `formula_ref = research/scripts/corpus_rcv1_conversion_rule_2026_10_07.py#R-CV1`.
+- `kit_numeric`: 3 rows UPDATE-only (`rdr_value = source_value`, `rule_id = R-CV1`, `rule_version_applied = 1`): `eor_fire_to_physical_conversion_pct` 100 · `gutsmasher_chaos_to_physical_pct` 50 · `gutsmasher_lightning_to_physical_pct` 50.
+- `corpus_schema_meta` +1 (41 → 42).
+
+**Guards** (all inside the transaction, re-verified after commit):
+- Predicate matches exactly these 3 rows corpus-wide; all three were `gd_pct` and unstamped beforehand.
+- 0 rows with `rdr_value IS NOT source_value`.
+- Every other `kit_numeric` row unchanged (full-row digest); every pre-existing `normalization_rule` row unchanged; sibling `gd-eor-warlord` ROWSET unchanged.
+- Referent unstamped 85 → 82. No other table's row count moved.
+- `integrity_check` ok; `foreign_key_check` empty.
+- **J-S4b ROWSET `c3e0f121…` → `c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9`**, as dry-run predicted. The amended rule text cannot move it, since `normalization_rule` is not a ROWSET table. **J-S4 re-pins.**
+
+**Scope limits on the rule's face:** damage-type conversion % only; certifies the unit identity, not the values (Gutsmasher DATAMINED 50/50 vs FOOTAGE 55/46 open); split / summation / >100 % scale-down are composition, refused in v0 by the reader. Note: this stamp gives a dual-column caller a non-null `rdr_value` for EoR's 100. The two Gutsmasher rows remain `PartialConversionUnsupported` in the v0 reader whatever the column.
+
+**Artifacts:**
+- `kits-export/gd-eor-warlord-referent.json` (FILE `32e934d2d985bb2b21c89f832d8fea888298d0570fca84d0c9a1188c62d8ecb9`): 3 rows carry `rdr_value` / `rule_id = R-CV1` / `rule_stamp_status` STAMPED. `rule_stamping` gains `R-CV1`, `R-CV1_status`, `R-CV1_predicate` and `R-CV1_scope_limits`, and `unstamped` = 82. The unknowns line now reads 82. `corpus_rowset.digest = c96d8975…` with history.
+- Manifest (FILE `e312370a…039e`): `revisions[]` entry with corpus pre/post, backup, ROWSET pre/post, the rule row, and the script + rule-owner note + export FILE digests; `rowsets[referent].digest` and `corpus_db.current_FILE_sha256 = 2617c0c1…`.
+
+**Reversibility:** restore the backup, or `UPDATE kit_numeric SET rdr_value=NULL, rule_id=NULL, rule_version_applied=NULL WHERE rule_id='R-CV1'` and then `DELETE FROM normalization_rule WHERE rule_id='R-CV1'`. The FK order matters: the rows first, then the rule. That returns the ROWSET to `c3e0f121…`. **ADR-004:** no engine file written.
+
+---
+
 ## join1-j2-rcv1-conversion-rule-2026-10-07 — JOIN-1 J2 (KP-324): no existing rule covers damage-type conversion %; rule **R-CV1 PROPOSED** + the referent's 3 conversion rows — 2026-10-07 — **⚑ PROPOSED, NOT APPLIED (awaiting conductor confirmation)**
 
 **Occasioned by:** conductor KP-324. gamora's join2 conversion reader (engine `src/join2_rulebook/conversion.py`, `8f9546b3`) does not care which column it reads. A caller holding to the dual-column law therefore refuses `eor_fire_to_physical_conversion_pct`, because its `rdr_value` is NULL.

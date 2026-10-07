@@ -6,7 +6,7 @@
   "files": {
     "export": {
       "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
-      "sha256": "f6eb1ebf3f3fff7fb867f37cd023a4c56b91733eeeed79eac771a48902cb651f",
+      "sha256": "32e934d2d985bb2b21c89f832d8fea888298d0570fca84d0c9a1188c62d8ecb9",
       "kind": "FILE",
       "sha256_at_mint_2026_10_02": "4a16f94af09e6fb7a109de7991694d4593011baa57926aa54ed6a4e81a7ec46d"
     },
@@ -113,7 +113,7 @@
   },
   "rowsets": {
     "gd-eor-warlord-referent": {
-      "digest": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+      "digest": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
       "counts": {
         "canon_corpus": 1,
         "kit_mapping": 1,
@@ -155,7 +155,7 @@
   "corpus_db": {
     "pre_FILE_sha256": "dffad643547a73068e2b8e39ddb6c7cb26dfef0fdea5453efdb96e2c18b8d473",
     "post_FILE_sha256": "0d73475aea0f5f290a754a501e58d83af06958259fae4621317320f0fb285d07",
-    "current_FILE_sha256": "37635bad392181fea7c77ddd8ad96b5ceae4d8dd193405ef03e7f4768ddecd5b"
+    "current_FILE_sha256": "2617c0c101d8d924cb327e50137b1b3a61b1a8cbd81a24632d2ebe3469eaa26b"
   },
   "pack_digest_of_record": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
   "revisions": [
@@ -247,6 +247,49 @@
         "export": {
           "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
           "sha256": "f6eb1ebf3f3fff7fb867f37cd023a4c56b91733eeeed79eac771a48902cb651f",
+          "kind": "FILE"
+        }
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "by": "elrond",
+      "event": "R-CV1 v1 minted + 3 conversion rows stamped (KP-326)",
+      "corpus_db": {
+        "pre_FILE_sha256": "37635bad392181fea7c77ddd8ad96b5ceae4d8dd193405ef03e7f4768ddecd5b",
+        "post_FILE_sha256": "2617c0c101d8d924cb327e50137b1b3a61b1a8cbd81a24632d2ebe3469eaa26b",
+        "backup": "corpus.db.pre-rcv1-conversion-20261007T185511Z-backup"
+      },
+      "rowset": {
+        "pre": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+        "post": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9"
+      },
+      "stamped_rows": [
+        "eor_fire_to_physical_conversion_pct",
+        "gutsmasher_chaos_to_physical_pct",
+        "gutsmasher_lightning_to_physical_pct"
+      ],
+      "rule": {
+        "rule_id": "R-CV1",
+        "rule_version": 1,
+        "source_scale": "damage_type_conversion_pct",
+        "predicate": "(?:^|_)(?:physical|pierce|fire|cold|lightning|poison|acid|aether|chaos|life|vitality|bleeding|elemental)_to_(?:physical|pierce|fire|cold|lightning|poison|acid|aether|chaos|life|vitality|bleeding|elemental)(?:_conversion)?_pct$",
+        "rule_owner": "gamora"
+      },
+      "files": {
+        "rcv1_script": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/corpus_rcv1_conversion_rule_2026_10_07.py",
+          "sha256": "a06647ffbb342dd7b80fb92f2cb231c2e438246c359dfbbd950fdf3ec3aa468b",
+          "kind": "FILE"
+        },
+        "rule_owner_note": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-10-07-rcv1-rule-owner-objection.md",
+          "sha256": "940f150eae4ea42ab22fa70d82ea3d3a259d60e87ecd2516a3266627112f65d9",
+          "kind": "FILE"
+        },
+        "export": {
+          "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/gd-eor-warlord-referent.json",
+          "sha256": "32e934d2d985bb2b21c89f832d8fea888298d0570fca84d0c9a1188c62d8ecb9",
           "kind": "FILE"
         }
       }

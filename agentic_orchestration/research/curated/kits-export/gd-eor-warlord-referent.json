@@ -1725,10 +1725,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null,
-      "rule_version_applied": null,
-      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
+      "rdr_value": 100.0,
+      "rule_id": "R-CV1",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-CV1 v1, IDENTITY; damage-type conversion %, predicate-scoped; rule owner gamora signed off with the predicate amendment, collab 16f23ca88; conductor KP-326). Certifies the unit, not the value."
     },
     {
       "numeric_key": "eor_flat_physical_min_r26",
@@ -2635,10 +2635,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null,
-      "rule_version_applied": null,
-      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
+      "rdr_value": 50.0,
+      "rule_id": "R-CV1",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-CV1 v1, IDENTITY; damage-type conversion %, predicate-scoped; rule owner gamora signed off with the predicate amendment, collab 16f23ca88; conductor KP-326). Certifies the unit, not the value."
     },
     {
       "numeric_key": "gutsmasher_lightning_to_physical_pct",
@@ -2654,10 +2654,10 @@
       ],
       "pack_checks": [],
       "note": null,
-      "rdr_value": null,
-      "rule_id": null,
-      "rule_version_applied": null,
-      "rule_stamp_status": "UNSTAMPED (NO-RULE; reason in gamora stamping_table.json)"
+      "rdr_value": 50.0,
+      "rule_id": "R-CV1",
+      "rule_version_applied": 1,
+      "rule_stamp_status": "STAMPED (R-CV1 v1, IDENTITY; damage-type conversion %, predicate-scoped; rule owner gamora signed off with the predicate amendment, collab 16f23ca88; conductor KP-326). Certifies the unit, not the value."
     },
     {
       "numeric_key": "vires_might_rank_allocated",
@@ -4116,8 +4116,8 @@
   },
   "unknowns": [
     {
-      "what": "rdr_value for the 85 unstamped kit_numeric rows",
-      "settle": "the normalization-rule owner (gamora): no active rule covers their scales (gd_energy, gd_rank, gd_pct_sheet, gd_pct, gd_flat_damage, ...); per-row reasons in stamping_table.json"
+      "what": "rdr_value for the 82 unstamped kit_numeric rows",
+      "settle": "the normalization-rule owner (gamora): no active rule covers their scales (gd_energy, gd_rank, gd_pct_sheet, gd_pct (non-conversion), gd_flat_damage, ...); per-row reasons in stamping_table.json"
     },
     {
       "what": "EoR mapping grade (EXACT/CLOSE/APPROX/GAPPED)",
@@ -4176,7 +4176,7 @@
       "skill_geometry_band",
       "verify_ledger"
     ],
-    "digest": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
+    "digest": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
     "row_counts": {
       "canon_corpus": 1,
       "kit_mapping": 1,
@@ -4202,6 +4202,11 @@
         "date": "2026-10-06",
         "digest": "c3e0f121d2a7f44cc17c72107bd31db1bdf489f146a68898b3971b69b6c01597",
         "event": "rule stamping (14 R-T2 + 5 R-CTX-GEO provisional)"
+      },
+      {
+        "date": "2026-10-07",
+        "digest": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
+        "event": "R-CV1 conversion stamping (3 rows; KP-326)"
       }
     ]
   },
@@ -4234,7 +4239,7 @@
       "war_cry_cooldown_s",
       "war_cry_duration_s"
     ],
-    "unstamped": 85,
+    "unstamped": 82,
     "rdr_equals_source_on_every_stamped_row": true,
     "R-CTX-GEO_confirmed": [
       "eor_radius_m",
@@ -4258,6 +4263,18 @@
     "R-CTX-GEO_scope_limits": [
       "skill radii only: gd_metres_per_second (player_v_ref_m_per_s) and any other non-radius gd_metres quantity need their own amendment",
       "certifies the unit identity, not the values: war_cry_radius_m_r16 16.8 vs the oracle's 16.0 (r12; KP-241 (4)) remains an open value disagreement"
+    ],
+    "R-CV1": [
+      "eor_fire_to_physical_conversion_pct",
+      "gutsmasher_chaos_to_physical_pct",
+      "gutsmasher_lightning_to_physical_pct"
+    ],
+    "R-CV1_status": "STAMPED (R-CV1 v1, IDENTITY; damage-type conversion %, predicate-scoped; rule owner gamora signed off with the predicate amendment, collab 16f23ca88; conductor KP-326). Certifies the unit, not the value.",
+    "R-CV1_predicate": "(?:^|_)(?:physical|pierce|fire|cold|lightning|poison|acid|aether|chaos|life|vitality|bleeding|elemental)_to_(?:physical|pierce|fire|cold|lightning|poison|acid|aether|chaos|life|vitality|bleeding|elemental)(?:_conversion)?_pct$",
+    "R-CV1_scope_limits": [
+      "damage-type conversion % only; both sides of _to_ closed over the damage-family vocabulary (amendment, never wildcard)",
+      "certifies the unit identity, not the values: Gutsmasher Chaos/Lightning DATAMINED 50/50 vs FOOTAGE 55/46 open",
+      "split / summation / >100% scale-down are composition, refused in v0 by the reader"
     ]
   }
 }
