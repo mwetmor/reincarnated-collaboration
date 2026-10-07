@@ -235,7 +235,7 @@ This addendum is authoritative per Matt 2026-05-25 directive to resolve recurrin
 **Protocol — every change to a sealed runtime needs ALL of:**
 1. a **Matt ruling recorded as a ledger row** (the consent of record — the allow rule is the mechanism, the ledger row is the authorization);
 2. a **fail-first** probe;
-3. **ORACLE byte-identity proof** (JOIN-1 § 4.7: G3 25/25 vs the recorded summaries + T-A pre-read cell digests);
+3. **ORACLE byte-identity proof** (JOIN-1 § 4.7: G3 25/25 vs the recorded summaries + T-A pre-read cell digests). ⚑ *Those two prove DECISION invariance only* (T-A digests serialise at 15 significant digits; G3 compares decisions). **For a change meant to move VALUES, the fidelity proof is the J-S8 golden-master diff at IEEE-754 bit-equality** (jack-ryan INFO-B2, 2026-10-07);
 4. **jack-ryan delta Gate-2** before anything depends on the new digest.
 
 A refusal that still occurs under these rules is reported, never routed around; it means the rule set has a gap for Matt to close.
