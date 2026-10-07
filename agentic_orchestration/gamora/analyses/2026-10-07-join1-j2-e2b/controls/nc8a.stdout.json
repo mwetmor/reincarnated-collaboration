@@ -1,0 +1,71 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8a",
+ "head": {
+  "end": "b8a9b860648a98856219cc033983f97af03dde06",
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "b8a9b860648a98856219cc033983f97af03dde06"
+ },
+ "instrument": "gamora_join2_s47_v3_2026_10_07.py (E2b; supersedes v2 for \u00a7 4.7 claims)",
+ "instrument_FILE_sha256": "c435500c762ee71a91bec5167297160b284fc1572f5b4a299335288991c5569a",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "b8a9b860648a98856219cc033983f97af03dde06",
+  "files_changed_between_seal_and_HEAD": [
+   "src/join2_rulebook/families.py"
+  ],
+  "files_dirty_vs_HEAD": [],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 282,
+  "n_reincarnated_modules": 140,
+  "n_tracked": 143,
+  "pass": false,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [
+   "threat.mitigate"
+  ],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [
+    [
+     "reincarnated.simulation.join2_ctl_families",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ]
+   ],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    70002,
+    70010
+   ],
+   "coverage_ok": true,
+   "n_pids": 2,
+   "pass": false
+  },
+  "witness_hits": [
+   [
+    70010,
+    "loaded from a rulebook/hook directory"
+   ]
+  ]
+ },
+ "prediction": "B' RED: path hit 'reincarnated.simulation.join2_ctl_families' (file under src/join2_rulebook); census differs exactly ['threat.mitigate']; witness hit on the HEAD pid (same module)",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)"
+}

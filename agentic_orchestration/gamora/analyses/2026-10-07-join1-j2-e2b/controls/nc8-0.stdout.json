@@ -1,0 +1,49 @@
+{
+ "bprime_pass": true,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8-0",
+ "head": {
+  "end": "b8a9b860648a98856219cc033983f97af03dde06",
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "b8a9b860648a98856219cc033983f97af03dde06"
+ },
+ "instrument": "gamora_join2_s47_v3_2026_10_07.py (E2b; supersedes v2 for \u00a7 4.7 claims)",
+ "instrument_FILE_sha256": "c435500c762ee71a91bec5167297160b284fc1572f5b4a299335288991c5569a",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "b8a9b860648a98856219cc033983f97af03dde06",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 281,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 142,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [],
+  "env_stripped": [],
+  "pass": true,
+  "path_hits": {
+   "head": [],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    69624,
+    69626
+   ],
+   "coverage_ok": true,
+   "n_pids": 2,
+   "pass": true
+  },
+  "witness_hits": []
+ },
+ "prediction": "B' GREEN (no hits; census equal; witness 2 children, no hits)",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)"
+}
