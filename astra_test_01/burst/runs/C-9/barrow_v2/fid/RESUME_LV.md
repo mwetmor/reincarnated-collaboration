@@ -60,6 +60,7 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
 ## Phase 1 state
 - [ ] 1.2 wreck sheet → Tripo → prep
 - [ ] 1.2 barrow front + longhall at true proportions
-- [ ] layout v7a + v7b, validator green
+- [ ] layout v7a + v7b, validator green — ⚑ **HALT H-LV-P1-1 (v7a infeasible without bending R10 / R-C9-148).** Proof `lv/v7a_feasibility.py` → `lv/v7a_feasibility.json`: anchors fixed (R1), floor = the MINIMAL disc hull + 1 m (most permissive R4 floor), R5 zero overlap, R10 ≤ 3.0 m for porch + gable; hall 18–36 m × 6.5–8 m + 6 m gable on p06's ray + grown porch on the start-facing wall, every 2° of heading. Positive control: v6's heading 222° FEASIBLE (gap 0.47 m). **Every heading with the gable at the screen lower-right end (92–180°) is INFEASIBLE; best = 12.39 m (θ 180°, screen straight down), vs the 3.0 m limit.** Cause: the oracle puts p06 screen lower-LEFT of p04 (sketch A draws it lower-right), so a door serving p04 and a gable on p06's ray force the hall's axis lower-left. No relaxed constraint was applied (R12 lane not even required). Ruling needed: v7b only at M1, OR which rule bends (R10 for p06 ≥ 12.4 m / gable off p06's ray / floor bulge). LV stopped; no images, no fal spent.
+- [x] DEV-12 proposal (conductor ask): `lv/DEV12_proposal.json` (2 substitutions + class list with v1 tints cited `barrow_full_layout.json` tints_srgb; 6 provisional new tints).
 - [ ] 1.3 guide tiles + ID/class render + declared-opening list
 - [ ] 1.4 M1 packet

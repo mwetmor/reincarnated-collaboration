@@ -1,0 +1,45 @@
+{
+ "_what": "BV2F LV PROPOSAL for PT's DEV-12 table (fid/v1tools/DEV12_substitutions.json). Conductor rules it before Phase 2. Not applied anywhere; v1tools/ untouched.",
+ "_source_rules": "fid/v1tools/tierA/conductor_scripts/cfg_t10bf.json `rules` (v1, verbatim)",
+ "_status": "PROPOSED (lane LV, Phase 1). Tint values are provisional until the Phase-1 guide measures class separability in the ID/class map (DEV-2).",
+ "substitutions": [
+  {
+   "v1": "Keep the ring's centre, the path, the cutting and the tarn OPEN",
+   "v2": "Keep the stone circle's centre, the path, the five exit lanes and the mere OPEN",
+   "why": "v1-site nouns: the ring -> barrow_v2's stone circle (the start is inside it, validator R8); the cutting (v1's cut path) -> the five deliverer exit lanes (R-C9-155, validator R12); the tarn -> the mere (validator R7)"
+  },
+  {
+   "v1": "lapis ice;",
+   "v2": "lapis ice, dark slate-blue sea with pale floes, grey shingle, weathered grey-brown timber, soot-black charred timber and ash;",
+   "why": "palette list extended for the classes v1 never had (DEV-2): sea, shingle, wood, char. Everything else in the palette sentence stays verbatim"
+  }
+ ],
+ "kept_verbatim_on_purpose": [
+  "Paint the barbarian OUT -- he is there only for scale: the barrow_v2 guide carries the same scale figure (v1 recipe)",
+  "Palette and hand of IMAGE 2 (the approved Frost King's Barrow concept): IMAGE 2 stays v1's concept by charter (Phase 2: 'v1's reference as IMAGE 2'); the noun names that image, not the site",
+  "one winter sun from the upper LEFT, 55 degrees up: the guide uses v1's sun (SUN_ELEV_DEG 55, SUN_SCREEN_AZ_DEG 305, barrow_full.gd:54-55); the camera is v1's, so 'upper LEFT' holds"
+ ],
+ "class_list": {
+  "_v1_source": "barrow_full/godot/data/barrow_full_layout.json `tints_srgb` (read by barrow_full.gd:146-148)",
+  "v1_classes_reused_with_v1_values": {
+   "snow": [0.86, 0.84, 0.8],
+   "path": [0.58, 0.52, 0.45],
+   "rock": [0.56, 0.555, 0.55],
+   "shrub": [0.52, 0.515, 0.39],
+   "ice": [0.7, 0.775, 0.84],
+   "mound": [0.745, 0.725, 0.665],
+   "passage_dark": [0.12, 0.11, 0.105],
+   "primitive_grey": [0.5, 0.48, 0.46],
+   "hero_grey": [0.6, 0.59, 0.57]
+  },
+  "new_classes_DEV2_provisional": {
+   "wood": [0.55, 0.42, 0.3],
+   "char": [0.22, 0.19, 0.17],
+   "shingle": [0.66, 0.61, 0.52],
+   "shore_ice": [0.8, 0.87, 0.92],
+   "sea": [0.2, 0.3, 0.4],
+   "stream": [0.58, 0.7, 0.86]
+  },
+  "_note": "rock is a v1 class (ground tint) and keeps v1's value; the charter's 'new tint for rock' is read as the cliff/crag MODEL class, which v1 drew as primitive_grey/hero_grey -- conductor to confirm whether cliffs take v1 'rock' or a new 'cliff' tint. char = charred timber + ash (P6a declared-dark class, R-C9-169/173)."
+ }
+}
