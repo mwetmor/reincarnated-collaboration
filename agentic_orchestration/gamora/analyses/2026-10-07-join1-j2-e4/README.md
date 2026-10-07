@@ -167,3 +167,43 @@ The corrigendum was already present in `ac6d565b6`. It is now stated explicitly,
 - `join2_rulebook_hook/sitecustomize.py`.
 
 **Rulebook:** `/Users/admin/Games/reincarnated-engine-join2-rb` at `a3eb0e54`.
+
+---
+
+## 7. Corrigenda, append-only: E4 Gate-2 INFO-E4-1 to INFO-E4-4
+
+These answer jack-ryan's finding `agentic_orchestration/qa/findings/2026-10-07-join1-j2-e4-d1-gate2.md` (collab `bfd5af650`; conductor KP-336). Nothing above this section has been edited.
+
+### INFO-E4-1: A13-PCL (§ 4, "Not run")
+
+The rulebook carries `pcl_defence_pct` (`operands.py`, sourced from `intake.PCL_DEFENCE_PCT`). **No v0 form reads it.** Its only appearance in the rulebook is its definition in `operands.py`.
+
+The live PCL is applied by the sealed `IntakeFold.pcl_fraction`. That function is not substituted, and A-2 row 28 (`intake.PCL_DEFENCE_PCT`) has `installed_by_gd: false`, so the binder does not bind it.
+
+The operand is therefore **NOT READ in v0**. It is not a governed operand, and moving it moves nothing.
+
+### INFO-E4-2: A13-disc (§ 4, "Not run")
+
+A-2 row 23 (`fixture.EOR_RADIUS_M`) is **not bound by this binder at all** in v0 (`installed_by_gd: false`; `bind_oracle.install` has no row-23 branch).
+
+The "same Cited route" cited for the equivalence with NC-B1 is the **B0-N binder's** route, not the J2 binder's. NC-B1 of record proves that route. It proves nothing about a J2 binding, because no J2 binding of row 23 exists.
+
+### INFO-E4-3: `intake_order_override`
+
+The label is **CONTROL-ONLY, split-source**.
+
+**What it does.** The operand moves only the arithmetic inside the substituted `physical_applied`. The sealed `IntakeFold.order` is do-not-substitute and still feeds two things: the attribution text and the emitter's G2 stage recomputation. A JOIN emission under a non-None value therefore carries G2 telemetry that contradicts the applied order (NC-J2-2: 26,406 packets).
+
+**Restriction.** It may be used only as a negative-control slot. It is not a lever and not a profile setting until J3 gives the intake order one home.
+
+**Source label still owed.** Gate ruling § 1.4 (b) also asks for the label in `operands.py` and in the A-2 JSON. That edit moves the rulebook commit and the A-2 digest, and the D1 re-pin is in flight against `a3eb0e54`. It therefore lands with E5's rulebook commit, the next commit that moves the rulebook anyway, not as a separate rulebook move. Until then, this README entry and the J3 sheet (`agentic_orchestration/gamora/notes/2026-10-07-j3-owner-eye-inputs.md`) are the label of record.
+
+### INFO-E4-4: status of the baselines in § 1
+
+The original `report.json` files of `golden-master` and `oracle-witness` read `pass: false`. That came from the record-level-keys checker defect, which caused 380 / 250 false hits.
+
+Their status of record is **pass under recheck** at classifier `47c976f7` / `99043eed` (`recheck.json` in each directory, 0 hits, `tree_ok`). Quote them that way, not as first-run passes.
+
+That recheck is admissible because the re-home control still discriminates under the fixed classifier: exactly 1 hit, at the named cell and key.
+
+The 7/7 J-S8 ROWSET equality of both runs is a first-run result and is unaffected.
