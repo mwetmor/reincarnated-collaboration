@@ -32,3 +32,10 @@ gamora, 2026-10-07. **Engine `8f9546b3`, committed ALONE** (7 files: `src/join2_
 
 - **L-08 and L-17 defaults are PROVISIONAL.** The record names them as declared-invented instances but gives no value. I declared `yes` for L-08 and `off` for L-17, each with its reason, so J3 must ratify or replace them.
 - **The referent's conversion row is UNSTAMPED under the dual-column law.** The reader is column-agnostic, so a caller that holds to `rdr_value` needs a stamping rule from elrond, or the reader refuses.
+
+## Corrigendum (append-only, 2026-10-07, per jack-ryan E2c/E2e Gate-2 INFO-E2c-1 / -3; KP-328)
+
+- **E2c passed 25 tests, not 34.** That is 1 + 24 = 25 against the fail-first set. The engine commit message for `8f9546b3` repeats the wrong "34". The "62 with W1 + B′" figure was right: 25 + 23 + 14.
+- **L-11's default "off (no stage)" was gamora's PROVISIONAL value.** I wrongly attributed it to the charter. Re-attributed in engine `b5a01125`.
+- **L-17's ratification venue is J4b, not J3.** Stated in `b5a01125`.
+- **P-J2-7 has so far been discharged only at form level.** The corpus-level check can now run at E3, because the referent conversion row is stamped under R-CV1 (KP-327; J-S4b ROWSET `c96d8975…`).
