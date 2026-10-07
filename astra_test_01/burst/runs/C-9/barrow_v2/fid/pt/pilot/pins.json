@@ -1,12 +1,12 @@
 {
- "_what": "BV2F PILOT REPAINT pins (R-C9-210): the guide the pilot cfg paints from (a pinned COPY of LV's guide at 3686cea98) and the 9 pilot tiles (cols 0-2, rows 0-2) as LV published them. A changed pilot tile in LV's guide after this = paint from the newer tiles. Check: python3 fid/pt/tools/pilot_pins_check.py",
- "pinned_utc": "2026-10-07T21:55:52.224186+00:00",
- "lv_commit": "3686cea98",
+ "_what": "BV2F PILOT REPAINT pins (R-C9-212): the guide the pilot cfg paints from (a pinned COPY of LV's guide at 09ba67b23) and the 9 pilot tiles (cols 0-2, rows 0-2) as LV published them. A changed pilot tile in LV's guide after this = paint from the newer tiles. Check: python3 fid/pt/tools/pilot_pins_check.py",
+ "pinned_utc": "2026-10-07T22:24:11.933725+00:00",
+ "lv_commit": "09ba67b23",
  "guide": {
   "pinned_copy": "fid/pt/pilot/guide_art_pinned_v2.png",
   "source": "fid/lv/guide_art/guide_art.png",
-  "sha256": "ffc9b5fa0e7013095a93dae4ddbfa2e3b1c093df51cebaa68fd085d3ccb1c246",
-  "manifest_sha256": "ffc9b5fa0e7013095a93dae4ddbfa2e3b1c093df51cebaa68fd085d3ccb1c246",
+  "sha256": "a475a00fef02b48246f91ff84742ede611f20bf06d7c260a2d9afa23ea6846b1",
+  "manifest_sha256": "a475a00fef02b48246f91ff84742ede611f20bf06d7c260a2d9afa23ea6846b1",
   "px": [
    6656,
    4096
@@ -14,11 +14,11 @@
  },
  "ids": {
   "source": "fid/lv/guide_art/ids_art.png",
-  "sha256": "5be8c0682e9288e766da8678c67d3c03778e404e73f765fa8e7741a99e36d485"
+  "sha256": "3c5ecf044955e0b3326a2c4f245011896d1edc1ec84d0f73db5697e98bda5b7f"
  },
  "class": {
   "source": "fid/lv/guide_art/class_art.png",
-  "sha256": "09043d061d761003e2a71a218aa0867ad58df4cd4272670775cba5841b84e235"
+  "sha256": "4cfb8979a929527ce158f55365f59bd4b2fbdb8d090c0dee3897221ce7d72096"
  },
  "tiles": {
   "0_0": {
@@ -41,40 +41,40 @@
   },
   "0_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c00.png",
-   "sha256": "db9284c1eb43d2f791215ec611c4f1ce573e8f305c94ebb3e56c2814d7cfd72f",
+   "sha256": "f1cf4673c0a147c7701f27ab86497e167dd9862436e49fb7d1e649a10c403864",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c01.png",
-   "sha256": "bd407c46adb49725cb28af0ac864dece45afc646771c24a90ed1ef2a6b350258",
+   "sha256": "40d641b1885ccef988d40a0aaa58b43cbe98ae0e7fe12da8edce54bf5c7653b6",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "2_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c02.png",
-   "sha256": "1cb4ff4f379ea5430f67babf8420cc974fff89e11032c5b5d473f833caeb3fc7",
+   "sha256": "2bced1122ea805d4b37ae64cecfb025e9504af706851c88ad1ac1b95f4fcaac2",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "0_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c00.png",
-   "sha256": "95d55fde770ed88e58149614e5c2c2ecfd824766035de07ec5cbca2763cefa8b",
+   "sha256": "810b9d003c7b1f897ea4b6d7b176da9b1e182c21d27f57da5bea10c1a80d2f77",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c01.png",
-   "sha256": "0196126401d9460d0b692d76afe27e8a70b61c5c92a928adde2710bced3c1670",
+   "sha256": "0477a763368521e4635f43ab2fa4130871871a593e47f293dc937eeb079e6981",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "2_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c02.png",
-   "sha256": "b729ef9f8db6b3a7c6ba1a5762c8da9ddadb19ae713d4667ae241dcba36892b4",
+   "sha256": "1f10220d6a7f3e37330bdf8b6b91c08297af4dd2d0732519ea93ed8b8fcee16a",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   }
  },
- "_status": "PROVISIONAL (conductor HOLD after R-C9-210): PH's P6' found buried fallen ring stones + a terrain-clipped wreck in the pilot window; LV re-seats them, so these tiles WILL change. Re-pin (pilot_pin.py <LV commit>) from LV's NEXT render after P6' is green; no burst before."
+ "level_pin": "barrow_full/godot/data/bv2f/pilot_rp/level/PIN.json"
 }
