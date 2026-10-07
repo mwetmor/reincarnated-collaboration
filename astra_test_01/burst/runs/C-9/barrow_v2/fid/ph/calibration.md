@@ -430,3 +430,48 @@ Inputs: `ids_v7c.png` sha `49adb3d8…` and `layout_v7c.json` (v7c_r178). Tool `
   - So 8.22 m² was the curtain box's front, top and sides, not the opening.
 - **The faces-camera rule is consistent.** `declared_openings.json` now carries `check_a_faces_camera`, which equals check_a.json for all six openings. `frame_faces_camera` (wreck rail: false) is a different quantity, the rail's own facing, now named apart.
 
+
+## 15. P6′ PRE-REGISTRATION (charter v0.4 § 14, G2P1-B1, R-C9-180). Committed BEFORE any v7c re-read.
+
+**Status.** Pre-registered. The definitions and bars below are fixed by this commit. Calibration (§ 16) and the v7c run (§ 17) follow in later commits and may not edit this section. Any change after this commit is a new pre-registration, recorded as one.
+
+**Scope.**
+- **Objects:** every layout model the level places with a mesh (its GLB, or a stand-in the level declares) inside the paint envelope. Group models are measured **per instance** wherever the record allows.
+- **By-design exclusions** are read from records written before this commit and quoted in the result: the level's `skip_models` (plants), models that are part of another build (hall_porch), models trimmed by a ruling (cave_cliff), and the stair prisms (not a model).
+- **Non-model ID pieces** are excluded from "extra" by definition and listed in the result: ground_*, blobs_*, curtain_*, the v1-instrument stubs, stair_*.
+
+**P6′ = four components. Each is evaluated per object, the row PASSES only if every component passes on every object, and an object that cannot be measured FAILS.**
+
+1. **PRESENCE.**
+   - (a) **Missing:** an object with zero ID pixels. Bar: **0 missing** (written rule).
+   - (b) **Extra:** a model or group ID with no layout model. Bar: **0 extra** (written rule).
+   - (c) **Buried or hidden by terrain.**
+     - *Own silhouette:* the object's own mesh placed exactly as the level places it (v7c: `bv2f_level.gd` `_place_box`, which stands the AABB bottom-centre on the slot origin, scales it per axis to the slot and applies the yaw; v1: the built record's world transform), rendered alone.
+     - *Terrain-hidden share:* the share of the own-silhouette pixels whose ID is ground.
+     - **RED if the terrain-hidden share exceeds 0.50, unless the layout records the burial by design** (quoted). Written rule: an object more than half under or behind the ground shows the player less than half of what the layout places. v1 must pass: its ground is flat.
+2. **PLACEMENT (in slot).**
+   - *Containment:* |ID ∩ slot prism| / |ID| per object. The slot prism is the projected hull of the object's slot: v7c from its layout box or boxes; v1 from its built footprint_uv_low and y range.
+   - **Bar = v1's minimum containment** over its pieces with at least 400 ID pixels, on this same measure, computed in § 16 from v1 alone.
+3. **SCALE OF RECORD (principle 3, C7).**
+   - *Anisotropy* per instance = max(fit_scale) / min(fit_scale), using the level's own recorded fit_scale (v7c: LV's per-instance record, G2P1-W2; v1: built.fit_scale).
+   - *Pitch exception:* where, and only where, a record states `pitch_correct: true` with a `pitch_stretch`, the y-scale is divided by that stretch first. This is v1's recorded camera-foreshortening correction, a named mechanism and not a tolerance.
+   - **PASS iff anisotropy ≤ 1.10** (written rule, principle 3).
+   - An instance with no scale record is UNMEASURED and fails.
+   - Cross-check: PH recomputes each v7c scale from its layout box and the GLB's AABB (size / AABB per axis). A recorded value that differs by more than 1% is a FAILED record.
+   - Procedurally built primitives with no GLB (v1's slab outcrops, mound and shore rocks) are not normalised, so the component does not apply (N/A, listed).
+4. **EXTENT.**
+   - The extent rules of the layout validator (`fid/lv/tools/validate_layout_v7.py`, run read-only on a PH copy of the layout) are re-run with each placed model's slot replaced by **its own placed geometry**: footprint = the convex hull of its placed vertices in sim (x, y); height = the maximum placed z minus the slot z. Instances are treated the same way.
+   - **PASS iff every R1–R13 check passes.**
+   - v1's positive control is its own acceptance record (`barrow_full_layout.json` acceptance: placements, no_squeezes, door, mound_and_door_floor, flood_fill, walks), which `finalize.py` computed from the built models' own footprints. v1 has no layout_v7 schema for this validator to read.
+
+**Calibration owed (§ 16), all before the v7c read:**
+- v1 PASS on every component.
+- One RED per component:
+  - presence: v7c at `2a913e7af`, from its recorded result `results/p6_phase1_v7c.json` at that commit (braziers missing, standing stones buried);
+  - placement: a constructed 1.5 m shift;
+  - scale: a constructed squash of more than 10%, v6's 3 m porch (layout v6 hall_porch slot against the hall_porch GLB);
+  - extent: a constructed shrunk gable that breaks R10 (more than 3.0 m from the edge).
+
+**Reported, non-binding:** IoU against the slot prism, printed beside v1's like-for-like **0.635**.
+
+**Rule:** a P6′ RED on v7c is a HALT for an LV fix, never a bar move.
