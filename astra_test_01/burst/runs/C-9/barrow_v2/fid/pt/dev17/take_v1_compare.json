@@ -1,0 +1,46 @@
+{
+ "plates_png": {
+  "compared": 54,
+  "byte_identical": 54,
+  "differ": []
+ },
+ "plates_json_fields": {
+  "fields_compared": [
+   "class",
+   "piece",
+   "id_index",
+   "file",
+   "rect_px",
+   "visible_px",
+   "ring_px",
+   "alpha",
+   "fill_srgb_for_unseen",
+   "touches_in_view",
+   "cell"
+  ],
+  "plates_with_any_difference": {},
+  "v1_only_fields_not_produced": [
+   "anchor_check",
+   "footprint_check"
+  ],
+  "_why": "v1's self-checks read v1's layout 'built' records (collider footprints, anchors); the front end does not consume v1's layout schema"
+ },
+ "tufts": {
+  "list_identical": true,
+  "n": [
+   1486,
+   1486
+  ],
+  "frame_identical": true,
+  "v1_only_sections_not_produced": [
+   "trees"
+  ],
+  "_why": "v1's painted-tree search needs v1's birches; the pilot has none",
+  "_frame_note": "with v1 layout literals u1=24.715, v0=-23.7203 in the config (v1 copies its layout literals; the front end computes them from px -- equal to 1e-4 m)"
+ },
+ "density_uv_png": {
+  "byte_identical": true
+ },
+ "plate_ids_equal": true,
+ "take_report_tufts_fields": {}
+}

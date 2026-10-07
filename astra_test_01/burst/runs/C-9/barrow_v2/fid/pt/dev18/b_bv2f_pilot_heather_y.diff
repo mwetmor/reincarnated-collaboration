@@ -1,0 +1,64 @@
+--- a/barrow_full/godot/scripts/bv2f/bv2f_pilot.gd (current)
++++ b/... (DEV-18 proposal)
+@@ -176,3 +176,61 @@
+ 	report["painted"] = paint
+ 	print("[bv2f_pilot] painted: files_ok=%d bad=%s projected=%d baked=%d (meshes %d) bakes_missing=%s rebound=%d" % [
+ 		ok, str(bad), n["projected"], n["baked"], n["baked_meshes"], str(n["bakes_missing"]), n["frame_rebound_materials"]])
++
++
++# --- DEV-18 PROPOSAL: v1's _build_painted_heather (barrow_full.gd:2292-2346) COPIED, ONE line changed (marked) ------
++func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3) -> void:
++	"""The 954 heather sprays and 23 shrub clumps (take/build/heather_instances.json, placed FROM
++	the painting's tufts), as BarrowHeather's generated sprays in six MultiMeshes -- one per
++	variant, variant and +-15% height by index as the installed Barrow picks them. Each carries
++	the painting beneath it as its colour (INSTANCE_CUSTOM)."""
++	var hj = JSON.parse_string(FileAccess.get_file_as_string(PaintedWorld.data_dir() + String(man["heather"]["file"])))
++	var rows: Array = hj["rows"] if typeof(hj) == TYPE_DICTIONARY else []
++	var am: Array = man["heather"]["albedo_mul"]
++	heather_mat = PaintedWorld.heather_material(fbm, Vector3(float(am[0]), float(am[1]), float(am[2])),
++		lit, shadow_mul, u_hat, v_hat)
++	heather_mat.set_shader_parameter("wind_dir", WIND.normalized())
++	var by_var := []
++	for v in BarrowHeather.VARIANTS:
++		by_var.append([])
++	for i in rows.size():
++		by_var[int(fposmod(float(i) * 7.0 + 3.0, float(BarrowHeather.VARIANTS)))].append(i)
++	var thin := []
++	var tris := 0
++	for v in BarrowHeather.VARIANTS:
++		var mesh := BarrowHeather.spray_mesh(v)
++		var ab := mesh.get_aabb()
++		var mm := MultiMesh.new()
++		mm.transform_format = MultiMesh.TRANSFORM_3D
++		mm.use_custom_data = true
++		# INSTANCE COLOURS ON, EVERY ONE WHITE. The phone's renderer reads a MultiMesh's vertex COLOR as
++		# BLACK when it has no instance colours (tools/probe_mm_custom.gd: Compatibility 0/0/0 where
++		# Forward+ reads the vertex's own; with white instance colours both read the vertex's) -- and
++		# a spray's whole colour, stem to sprig, is in its vertices: every spray drew black on the web
++		mm.use_colors = true
++		mm.mesh = mesh
++		mm.instance_count = (by_var[v] as Array).size()
++		for k in (by_var[v] as Array).size():
++			var i: int = by_var[v][k]
++			var r: Array = rows[i]
++			# [x, z, height_m, class (0 heather, 1 shrub), mul r, g, b]
++			var hh := float(r[2]) * (0.85 + 0.30 * fposmod(float(i) * 0.6180339, 1.0))
++			mm.set_instance_transform(k, Transform3D(Basis().scaled(Vector3.ONE * hh), Vector3(float(r[0]), (float(r[7]) if r.size() > 7 else 0.0) - 0.01, float(r[1]))   # BV2F-PT DEV-18: the spray on its ground height))
++			mm.set_instance_custom_data(k, Color(float(r[4]), float(r[5]), float(r[6]), 1.0))
++			mm.set_instance_color(k, Color(1, 1, 1, 1))
++			thin.append({"c": Vector2(float(r[0]), float(r[1])), "r": maxf(ab.size.x, ab.size.z) * hh * 0.5 * 0.8,
++						 "feather": 0.18, "max_d": hh * HEATHER_SNOW_FRAC})
++		var mmi := MultiMeshInstance3D.new()
++		mmi.name = "Heather_%d" % v
++		mmi.multimesh = mm
++		mmi.material_override = heather_mat
++		mmi.layers = PaintedWorld.LAYER_ON_PAINT
++		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
++		add_child(mmi)
++		_heather_mmi.append(mmi)
++		tris += mesh.surface_get_array_index_len(0) / 3 * mm.instance_count
++	paint["heather"] = {"instances": rows.size(), "multimeshes": _heather_mmi.size(), "tris": tris,
++						"albedo_mul": am}
++	paint["_thin_zones"] = thin
++
++

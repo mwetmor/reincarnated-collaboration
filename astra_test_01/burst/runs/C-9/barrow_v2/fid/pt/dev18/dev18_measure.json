@@ -1,0 +1,58 @@
+{
+ "_what": "DEV-18 (R-C9-192): the pilot's painted tufts on SLOPED ground, which got no 3D heather (bv2f_prep.py: flat tufts only), and the sloped walkable ground without the snow layer",
+ "tuft_px_total": 457641,
+ "tuft_px_on_slope_true": 142529,
+ "share_on_slope_true": 0.3114,
+ "tuft_px_on_slope_as_classified_by_the_pilot_prep(h=0 back-projection)": 152022,
+ "share_as_classified": 0.3322,
+ "by_ground_id": {
+  "ground_mound": {
+   "tuft_px": 33336,
+   "on_slope_px": 31028
+  },
+  "ground_path": {
+   "tuft_px": 380,
+   "on_slope_px": 0
+  },
+  "ground_shrub": {
+   "tuft_px": 377115,
+   "on_slope_px": 104442
+  },
+  "ground_snow": {
+   "tuft_px": 46810,
+   "on_slope_px": 7059
+  }
+ },
+ "slope_heights_under_sloped_tufts_m": {
+  "p10": 0.06,
+  "p50": 0.18,
+  "p90": 2.3
+ },
+ "by_chunk_share_on_slope": {
+  "0_0": 1.0,
+  "1_0": 0.9,
+  "2_0": 0.206,
+  "0_1": 0.0,
+  "1_1": 0.0,
+  "2_1": 0.0,
+  "0_2": 0.206,
+  "1_2": 0.062,
+  "2_2": 0.0
+ },
+ "snow": {
+  "land_px_snow_path_shrub": 4936983,
+  "sloped_share": 0.1271,
+  "mound_px": 443934,
+  "_": "the snow field (and his trail) covers flat ground only (DEV-18); sloped land and the mound show the painting's snow, without his prints"
+ },
+ "sloped_tufts_where_uv": {
+  "u": [
+   -24.3,
+   -5.7
+  ],
+  "v": [
+   17.0,
+   21.8
+  ]
+ }
+}

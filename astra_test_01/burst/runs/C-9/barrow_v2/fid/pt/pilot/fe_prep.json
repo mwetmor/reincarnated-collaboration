@@ -1,0 +1,128 @@
+{
+ "_what": "bv2f_prep.py config: the PILOT (DEV-17/18 adaptations)",
+ "painting": "pt/pilot/painting.png",
+ "lit": "pt/pilot/root/work/light/lit_guide.png",
+ "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted",
+ "report": "pt/pilot/painted_prep.json",
+ "ids_dir": "pt/pilot/ids_built",
+ "take_report": "pt/pilot/root/take/take_report.json",
+ "frame": {
+  "u0": -33.57573954303182,
+  "v1": 22.36993715728635,
+  "px": [
+   4096,
+   2560
+  ]
+ },
+ "land": {
+  "ids": [
+   "ground_mound",
+   "ground_path",
+   "ground_shrub",
+   "ground_snow"
+  ]
+ },
+ "flat": {
+  "level": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/art/level.json"
+ },
+ "snow_open": {
+  "ground_id": "ground_snow"
+ },
+ "chunks": [
+  {
+   "key": "0_0",
+   "px": [
+    0,
+    0,
+    1536,
+    1024
+   ]
+  },
+  {
+   "key": "1_0",
+   "px": [
+    1280,
+    0,
+    2816,
+    1024
+   ]
+  },
+  {
+   "key": "2_0",
+   "px": [
+    2560,
+    0,
+    4096,
+    1024
+   ]
+  },
+  {
+   "key": "0_1",
+   "px": [
+    0,
+    768,
+    1536,
+    1792
+   ]
+  },
+  {
+   "key": "1_1",
+   "px": [
+    1280,
+    768,
+    2816,
+    1792
+   ]
+  },
+  {
+   "key": "2_1",
+   "px": [
+    2560,
+    768,
+    4096,
+    1792
+   ]
+  },
+  {
+   "key": "0_2",
+   "px": [
+    0,
+    1536,
+    1536,
+    2560
+   ]
+  },
+  {
+   "key": "1_2",
+   "px": [
+    1280,
+    1536,
+    2816,
+    2560
+   ]
+  },
+  {
+   "key": "2_2",
+   "px": [
+    2560,
+    1536,
+    4096,
+    2560
+   ]
+  }
+ ],
+ "inpaint": false,
+ "bake_report": "pt/pilot/bake_report.json",
+ "bakes_dir": "pt/pilot/root/work/bakes",
+ "bakes_expected": null,
+ "heather_instances": "pt/pilot/root/take/build/heather_instances.json",
+ "snow": {
+  "bv2art_level": true
+ },
+ "manifest_frame": true,
+ "report_what": "BV2F PT pilot: the painted pilot's data, measured (fid/pt/tools/bv2f_prep.py = v1 paint_world_prep main on the pilot)",
+ "manifest_what": "what the painted pilot wears (godot/data/bv2f/pilot/painted/), every file's sha256 -- the scene checks each as it loads it",
+ "painting_note": "the stitched pilot paint-over's own PNG bytes",
+ "heather_what": "the pilot's 3D heather: v1's counts (heather_instances.py) RE-PLACED on the painted flat-land tufts (v1's greedy cover), each coloured by the painting beneath it",
+ "snow_note": "v1's SNOW_BY_CLASS on the bv2art class map, flat ground only; the field covers the pilot window + 1.5 m (world xz, square)"
+}

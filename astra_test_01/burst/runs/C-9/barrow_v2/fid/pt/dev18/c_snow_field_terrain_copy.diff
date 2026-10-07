@@ -1,0 +1,45 @@
+--- a/barrow_full/godot/scripts/snow_field.gd (v1, read-only)
++++ b/barrow_full/godot/scripts/bv2f/snow_field_terrain.gd (DEV-18 proposal: a copy)
+@@ -1,3 +1,5 @@
++## BV2F lane PT, DEV-18 PROPOSAL (NOT APPLIED): a pilot-only COPY of v1's scripts/snow_field.gd with four marked lines
++## (ground_h_tex / ground_h_on): with no ground height it is v1's field exactly. v1's file is not touched.
+ extends Node3D
+ class_name SnowField
+ ## C-9 T10-1b — THE SNOW HE STEPS THROUGH. A real 3D snow layer over a FLAT walkable floor.
+@@ -274,6 +276,8 @@
+ 
+ var area := Rect2(-10, -10, 20, 20)
+ var floor_y := 0.0
++## BV2F-PT DEV-18: optional ground height grid (RF texture, the depth grid's layout); null = v1's flat floor
++var ground_h_tex: Texture2D = null
+ var wind_dir := Vector2(0.62, 0.78)
+ 
+ var _obstacles: Array = []
+@@ -331,6 +335,8 @@
+ uniform vec2 area_min;
+ uniform vec2 area_size;
+ uniform float floor_y;
++uniform sampler2D ground_h_tex : filter_linear, repeat_disable;   // BV2F-PT DEV-18: the ground height under the field (m)
++uniform float ground_h_on = 0.0;                                   // BV2F-PT DEV-18: 0 = v1 (flat floor)
+ uniform float base_depth_m = 0.12;
+ uniform float residual_m = 0.016;
+ uniform float berm_frac = 0.38;
+@@ -404,7 +410,7 @@
+ 	float p, b;
+ 	vec4 f;
+ 	float h = snow_h(UV, p, b, f);
+-	VERTEX.y += h;
++	VERTEX.y += h + ground_h_on * texture(ground_h_tex, UV).r;   // BV2F-PT DEV-18: the layer rides on the terrain
+ 	v_press = p;
+ 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+ }
+@@ -1358,6 +1364,9 @@
+ 	_mat.set_shader_parameter("area_min", area.position)
+ 	_mat.set_shader_parameter("area_size", area.size)
+ 	_mat.set_shader_parameter("floor_y", floor_y)
++	if ground_h_tex != null:   # BV2F-PT DEV-18
++		_mat.set_shader_parameter("ground_h_tex", ground_h_tex)
++		_mat.set_shader_parameter("ground_h_on", 1.0)
+ 	_mat.set_shader_parameter("base_depth_m", base_depth_m)
+ 	_mat.set_shader_parameter("residual_m", residual_m)
+ 	_mat.set_shader_parameter("berm_frac", berm_frac)

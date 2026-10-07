@@ -1,0 +1,63 @@
+{
+ "_what": "DEV-17 proof (R-C9-192): PT's take/prep front ends run on v1's OWN barrow_full data (APFS clone; barrow_full untouched) reproduce v1's recorded artifacts",
+ "configs": {
+  "take": "fid/pt/dev17/fe_take_v1.json",
+  "prep": "fid/pt/dev17/fe_prep_v1.json",
+  "pilot_take": "fid/pt/pilot/fe_take.json",
+  "pilot_prep": "fid/pt/pilot/fe_prep.json"
+ },
+ "tools": {
+  "bv2f_take.py": "53d255b3297cf502c823fe38c4a7325f785d7ee900ed5bb4785745ed213df510",
+  "bv2f_prep.py": "1cd8d0e16170e34f22a6ae92000dcb40e404965808174c1fb7d1158a77643a05"
+ },
+ "take": {
+  "plates_png": "54/54 byte-identical",
+  "plates_json": "every v1 field the front end writes identical (class, piece, id_index, file, rect_px, visible_px, ring_px, alpha, fill_srgb_for_unseen, touches_in_view, cell); NOT produced: anchor_check, footprint_check (v1's self-checks on v1's layout 'built' records)",
+  "tufts_json": "the 1486-tuft list and the frame identical; NOT produced: v1's 'trees' section (needs v1's birches)",
+  "density_uv_png": "byte-identical",
+  "take_report_tufts": "identical",
+  "frame_note": "v1 writes its layout's rounded literals (u1 24.715, v0 -23.7203); the config carries them (the pilot computes them from px)"
+ },
+ "heather_instances_json": "frozen Tier-A heather_instances.py via v1run on the front end's v1 tufts/density -> byte-identical to v1's take/build/heather_instances.json",
+ "prep": {
+  "files": {
+   "painting.bin": {
+    "v1_exists": true,
+    "byte_identical": true
+   },
+   "ground_inpainted.bin": {
+    "v1_exists": true,
+    "byte_identical": true
+   },
+   "lit.bin": {
+    "v1_exists": true,
+    "byte_identical": true
+   },
+   "heather.json": {
+    "v1_exists": true,
+    "byte_identical": true
+   },
+   "snow_grid.bin": {
+    "v1_exists": true,
+    "byte_identical": true
+   },
+   "manifest.json": {
+    "v1_exists": true,
+    "byte_identical": true
+   },
+   "bakes/*.bin": {
+    "n": 25,
+    "byte_identical": true
+   }
+  },
+  "painted_prep_json": {
+   "byte_identical": true,
+   "equal_as_json": true,
+   "sections_differing": []
+  },
+  "_manifest_note": "first run differed only in the heather _albedo_mul NOTE string (transcribed from a truncated read); replaced by v1's text verbatim (paint_world_prep.py:56-57) -> byte-identical"
+ },
+ "pilot_regression_after_refactor": "lit.bin, snow_grid.bin, painting.bin, bakes, plates, tufts, density, take_report: byte-identical; heather.json rows + placement identical (adds v1's '_mul' note); manifest values identical (v1's note wording restored); painted_prep.json values identical, v1's extra fields now written (as_srgb_on_lit_snow, painted_vs_rendered_shadow, rel_mul, painted_mean_srgb, bare_share)",
+ "barrow_full_control_files_changed": [],
+ "verdict": "PASS: every algorithmic output byte-identical; two v1 take-report self-check fields and v1's tree search are not produced (stated)"
+}

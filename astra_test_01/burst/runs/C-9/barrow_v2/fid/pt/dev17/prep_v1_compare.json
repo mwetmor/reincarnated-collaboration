@@ -1,0 +1,38 @@
+{
+ "files": {
+  "painting.bin": {
+   "v1_exists": true,
+   "byte_identical": true
+  },
+  "ground_inpainted.bin": {
+   "v1_exists": true,
+   "byte_identical": true
+  },
+  "lit.bin": {
+   "v1_exists": true,
+   "byte_identical": true
+  },
+  "heather.json": {
+   "v1_exists": true,
+   "byte_identical": true
+  },
+  "snow_grid.bin": {
+   "v1_exists": true,
+   "byte_identical": true
+  },
+  "manifest.json": {
+   "v1_exists": true,
+   "byte_identical": true
+  },
+  "bakes/*.bin": {
+   "n": 25,
+   "byte_identical": true
+  }
+ },
+ "painted_prep_json": {
+  "byte_identical": true,
+  "equal_as_json": true,
+  "sections_differing": []
+ },
+ "_manifest_note": "first run differed only in the heather _albedo_mul NOTE string (transcribed from a truncated read); replaced by v1's text verbatim (paint_world_prep.py:56-57) -> byte-identical"
+}

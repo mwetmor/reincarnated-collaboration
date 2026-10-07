@@ -13,7 +13,9 @@ Outputs (root = fid/pt/pilot/root, the BF-like root v1's hero_surface.py / t5_06
   take/plates/<id>.png + plates.json (v1 (a): alpha 255 piece / 160 the 3 px ring / 0; the t5_06b cell per plate)
   take/masks/density_uv.png + tufts.json (v1 (b): rust heather + dark shrub, 10 px/m density at the 0.15 m half-height)
   take/take_report.json
-    python3 fid/pt/tools/bv2f_take.py
+    python3 fid/pt/tools/bv2f_take.py [--config CFG.json]
+CONFIG (DEV-17, R-C9-192): every input and the frame come from a config; the default is the pilot's
+(fid/pt/pilot/fe_take.json). fid/pt/dev17/fe_take_v1.json runs the SAME code on v1's own barrow_full data (the proof).
 """
 import hashlib, json, math, os, sys
 import numpy as np
@@ -21,24 +23,30 @@ from PIL import Image
 from scipy import ndimage
 
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PILOT = os.path.join(FID, "pt", "pilot")
-ROOT = os.path.join(PILOT, "root")
-PAINTING = os.path.join(PILOT, "painting.png")
-IDS_DIR = os.path.join(PILOT, "ids_built")
-OUT = os.path.join(ROOT, "take")
-REAL = [l.strip() for l in open(os.path.join(PILOT, "work", "real_ids.txt")) if l.strip()]
-LAND = {"ground_snow", "ground_shrub", "ground_path", "ground_mound"}
+_a = sys.argv[1:]
+CFG = json.load(open(_a[_a.index("--config") + 1] if "--config" in _a else os.path.join(FID, "pt", "pilot", "fe_take.json")))
+_P = lambda k: os.path.join(FID, CFG[k]) if not os.path.isabs(CFG[k]) else CFG[k]
+PAINTING = _P("painting")
+IDS_DIR = _P("ids_dir")
+OUT = _P("out")
+MESHES = _P("meshes_dir") if CFG.get("meshes_dir") else None
+HEROES = CFG["heroes"]                     # {"ids_file": ...} or {"classes": [...]} (v1: HERO_CLASSES)
+LAND = CFG["land"]                         # {"ids": [...]} or {"id0": true} (v1: ground = ID 0)
+GROW_EXTRA = CFG.get("grow_extra_classes", [])   # v1: the birches (take_from_paint.py:137)
 
 # ---- the camera: v1's own constants and formulas (take_from_paint.py:46-64), on the pilot frame
-U0, V1 = -33.57573954303182, 22.36993715728635
+U0, V1 = float(CFG["frame"]["u0"]), float(CFG["frame"]["v1"])
 PPM = 100.617553710938
 PITCH = math.radians(52.95354112560294)
 YAW = math.radians(47.0)
-W_PX, H_PX = 4096, 2560
+W_PX, H_PX = int(CFG["frame"]["px"][0]), int(CFG["frame"]["px"][1])
 PXU = PPM
 PXV = PPM * math.sin(PITCH)
 PXH = PPM * math.cos(PITCH)
 U1, V0 = U0 + W_PX / PXU, V1 - H_PX / PXV
+# v1 writes its layout's rounded literals (barrow_full_layout.json guide_window); a config may carry them (DEV-17 proof)
+U1 = float(CFG["frame"].get("u1", U1))
+V0 = float(CFG["frame"].get("v0", V0))
 U_HAT = np.array([math.cos(YAW), 0.0, -math.sin(YAW)])
 V_HAT = np.array([-math.sin(YAW), 0.0, -math.cos(YAW)])
 Y_HAT = np.array([0.0, 1.0, 0.0])
@@ -85,9 +93,15 @@ def main():
     idx = np.where(is_pl, gi * 16 + ri, 0)
     by_idx = {int(k): v for k, v in IDS["placements"].items()}
     idx_of = {v["id"]: k for k, v in by_idx.items()}
-    hero_idx = [idx_of[i] for i in REAL if i in idx_of]
+    if "ids_file" in HEROES:
+        REAL = [l.strip() for l in open(os.path.join(FID, HEROES["ids_file"])) if l.strip()]
+        hero_idx = [idx_of[i] for i in REAL if i in idx_of]
+    else:
+        REAL = [v["id"] for k, v in sorted(by_idx.items()) if v["class"] in HEROES["classes"]]
+        hero_idx = [k for k, v in by_idx.items() if v["class"] in HEROES["classes"]]
     hero = np.isin(idx, hero_idx)
-    ground = np.isin(idx, [idx_of[i] for i in LAND if i in idx_of])
+    ground = (idx == 0) if LAND.get("id0") else np.isin(idx, [idx_of[i] for i in LAND["ids"] if i in idx_of])
+    extra = np.isin(idx, [k for k, v in by_idx.items() if v["class"] in GROW_EXTRA])
     rep = {"_what": "BV2F PT pilot take (fid/pt/tools/bv2f_take.py): v1's take (a)+(b) on the pilot",
            "painting": {"file": "fid/pt/pilot/painting.png", "sha256": sha, "px": [W, H]},
            "camera": {"projection": "orthographic", "pitch_deg": math.degrees(PITCH), "yaw_deg": 47.0, "px_per_m": PPM,
@@ -102,7 +116,7 @@ def main():
     os.makedirs(pdir, exist_ok=True)
     plates = {}
     ring = 3
-    grow_pool = ground                 # v1: ground | birch; the pilot has no birches
+    grow_pool = ground | extra         # v1: ground | birch (take_from_paint.py:137)
     for k in sorted(hero_idx):
         e = by_idx[k]
         core = idx == k
@@ -122,8 +136,7 @@ def main():
         cx, cy = x0 + (x1 - x0) / 2.0, y0 + (y1 - y0) / 2.0
         cu, cv = uv_of_px(cx - 0.5, cy - 0.5)
         aim = world_of_uv(cu, cv, 0.0)
-        mj = json.load(open(os.path.join(ROOT, "work", "meshes", "%s.json" % e["id"])))
-        sr = mj["screen_rect_px"]
+        sr = json.load(open(os.path.join(MESHES, "%s.json" % e["id"])))["screen_rect_px"] if MESHES else None
         plates[e["id"]] = {
             "class": e["class"], "piece": e["piece"], "id_index": k,
             "file": "plates/%s.png" % e["id"],
@@ -137,13 +150,13 @@ def main():
                      "screen_up": SCREEN_UP.round(6).tolist(),
                      "aim": aim.round(5).tolist(),
                      "view_dir": TO_CAMERA.round(6).tolist()},
-            "mesh_screen_rect_px": [round(float(v), 1) for v in sr],
-            "mesh_rect_inside_plate_window": bool(sr[0] >= -0.5 and sr[1] >= -0.5 and sr[0] + sr[2] <= W + 0.5 and sr[1] + sr[3] <= H + 0.5),
+            "mesh_screen_rect_px": [round(float(v), 1) for v in sr] if sr else None,
+            "mesh_rect_inside_plate_window": bool(sr[0] >= -0.5 and sr[1] >= -0.5 and sr[0] + sr[2] <= W + 0.5 and sr[1] + sr[3] <= H + 0.5) if sr else None,
         }
     json.dump({"_what": "BV2F PT pilot: the hero identity plates, cut from the pilot painting by the ID render (v1 take (a))",
                "camera": rep["camera"], "plates": plates}, open(os.path.join(pdir, "plates.json"), "w"), indent=1)
     rep["plates"] = {"count": len(plates), "missing_in_ids": [i for i in REAL if i not in idx_of],
-                     "mesh_extends_outside_the_pilot_plate": [k for k, v in plates.items() if not v["mesh_rect_inside_plate_window"]]}
+                     "mesh_extends_outside_the_pilot_plate": [k for k, v in plates.items() if v["mesh_rect_inside_plate_window"] is False]}
     print("(a) %d plates; meshes reaching past the pilot plate: %s" % (len(plates), rep["plates"]["mesh_extends_outside_the_pilot_plate"]))
 
     # ------------------------------------------------------------------ (b) tufts (take_from_paint.py:231-344, verbatim)
@@ -206,7 +219,7 @@ def main():
     json.dump({"_what": "BV2F PT pilot (b): per-class density masks, taken from the pilot painting (v1 take (b))",
                "frame": {"u": [U0, U1], "v": [V0, V1], "px_per_m": RES,
                          "density_uv_png": "masks/density_uv.png: R = heather cover, G = shrub cover; row 0 = v1 (north), column 0 = u0",
-                         "_pool": "the LAND ground ids %s (v1: ground = ID 0)" % sorted(LAND)},
+                         "_pool": "ground = ID 0 (v1)" if LAND.get("id0") else "the LAND ground ids %s (v1: ground = ID 0)" % sorted(LAND["ids"])},
                "tufts": tufts}, open(os.path.join(mdir, "tufts.json"), "w"), indent=1)
     nh = sum(1 for t in tufts if t["class"] == "heather")
     nsh = sum(1 for t in tufts if t["class"] == "shrub")

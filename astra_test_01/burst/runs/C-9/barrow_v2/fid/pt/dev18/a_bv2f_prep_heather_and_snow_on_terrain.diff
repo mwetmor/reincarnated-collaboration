@@ -1,0 +1,79 @@
+--- a/fid/pt/tools/bv2f_prep.py (current)
++++ b/fid/pt/tools/bv2f_prep.py (DEV-18 proposal: heather + snow on terrain)
+@@ -244,9 +244,16 @@
+     Hc, Wc = H // cs, W // cs
+     def cells(m):
+         return m[:Hc * cs, :Wc * cs].reshape(Hc, cs, Wc, cs).mean((1, 3))
+-    rows, cols, counts = [], [], []
++    rows, cols, counts, ghs = [], [], [], []
+     placed_px = {}
+-    remaining = {"heather": cells(heather & tuft_px & flat), "shrub": cells(shrub & tuft_px & flat)}
++    # DEV-18 PROPOSAL: with "heather_on_terrain", every land tuft is a candidate (flat or not); each spray stands on the
++    # TRUE ground under its footprint centre (the view ray meets the heightfield: fixed point h <- terrain(uv(px, h)))
++    on_terrain = bool(CFG.get("heather_on_terrain")) and Hf is not None
++    pool_m = np.ones_like(flat) if on_terrain else flat
++    remaining = {"heather": cells(heather & tuft_px & pool_m), "shrub": cells(shrub & tuft_px & pool_m)}
++    def ground_h(u_, v_):
++        return float(Hf[int(np.clip((-v_ - hf["extent_sim_m"]["y0"]) * hf["px_per_m"], 0, Hf.shape[0] - 1)),
++                        int(np.clip((u_ - hf["extent_sim_m"]["x0"]) * hf["px_per_m"], 0, Hf.shape[1] - 1))])
+     for ci, cls in ((1, "shrub"), (0, "heather")):
+         c = HI["classes"][cls]
+         hgt = float(c["height_m"])
+@@ -268,7 +275,12 @@
+             ell = ((xx - i) / ex_) ** 2 + ((yy - j) / ey) ** 2 <= 0.8 ** 2
+             R[y0:y1, x0:x1][ell] = 0.0
+             cx, cy = (i + 0.5) * cs, (j + 0.5) * cs
+-            u, v = uv_of_px(cx, cy, hgt * 0.5)
++            gh = 0.0
++            if on_terrain:
++                for _ in range(12):                      # the ray / heightfield fixed point (DEV-18 proposal)
++                    u, v = uv_of_px(cx, cy, gh + hgt * 0.5)
++                    gh = 0.5 * gh + 0.5 * ground_h(u, v)
++            u, v = uv_of_px(cx, cy, gh + hgt * 0.5)
+             x, z = xz_of_uv(u, v)
+             X0, X1 = int(max(cx - rx, 0)), int(min(cx + rx + 1, W))
+             Y0, Y1 = int(max(cy - ry, 0)), int(min(cy + ry + 1, H))
+@@ -280,6 +292,7 @@
+             cols.append(Plin[Y0:Y1, X0:X1][tm].mean(axis=0))
+             counts.append(int(tm.sum()))
+             rows.append([round(float(x), 4), round(float(z), 4), hgt, ci])
++            ghs.append(gh)
+             got += 1
+         placed_px[cls] = {"placed": got, "wanted": n_want, "footprint_px": [round(2 * rx, 1), round(2 * ry, 1)],
+                           "tuft_cells_covered_share": round(1.0 - float(R.sum()) / max(float(remaining[cls].sum()), 1e-9), 4)}
+@@ -288,6 +301,9 @@
+     rel = cols / mean
+     for rw, m in zip(rows, rel):
+         rw += [round(float(m[0]), 4), round(float(m[1]), 4), round(float(m[2]), 4)]
++    if on_terrain:                                          # column 7: the ground height (v1's rows end at 6)
++        for rw, gh_ in zip(rows, ghs):
++            rw.append(round(float(gh_), 4))
+     json.dump({"_what": CFG.get("heather_what", "the 3D heather: v1's counts RE-PLACED on the painted tufts (greedy cover), each coloured by the painting's tufts beneath it"),
+                "columns": ["x", "z", "height_m", "class (0 heather, 1 shrub)", "mul_r", "mul_g", "mul_b"],
+                "_mul": "linear: the painting's tuft pixels under the spray's screen footprint, over the mean of all sprays",
+@@ -351,6 +367,9 @@
+         hi_ = np.clip(((sx - ex["x0"]) * hf["px_per_m"]).astype(int), 0, Hf.shape[1] - 1)
+         hj_ = np.clip(((sy - ex["y0"]) * hf["px_per_m"]).astype(int), 0, Hf.shape[0] - 1)
+         flat_g = np.abs(Hf[hj_, hi_]) < 0.03
++        if CFG.get("snow_on_terrain"):                  # DEV-18 PROPOSAL: snow on every land class, flat or not
++            ground_hg = Hf[hj_, hi_].astype("<f4")
++            flat_g = np.ones_like(flat_g)
+         weights = []
+         for k_, nm in enumerate(L["classes"]):
+             if BV2ART_TO_SNOW.get(nm):
+@@ -366,7 +385,15 @@
+         trod += wk * tr
+     gridp = os.path.join(OUT, "snow_grid.bin")
+     np.concatenate([mulg.astype("<f4").ravel(), trod.astype("<f4").ravel()]).tofile(gridp)
++    if CFG.get("snow_on_terrain") and not sn.get("v1_splat"):
++        # DEV-18 PROPOSAL: the ground height under each snow cell (same layout as the depth grid: row = z), for the
++        # snow field's vertices (scripts/bv2f/snow_field_terrain.gd) -- his trail and depth ride on the terrain
++        hp = os.path.join(OUT, "snow_ground_h.bin")
++        ground_hg.ravel().tofile(hp)
+     man["snow"] = {"area_xz": area, "field_px": 768, "trail_px": 1024,
++                   **({"ground_h": {"file": "snow_ground_h.bin", "sha256": sha_file(os.path.join(OUT, "snow_ground_h.bin")),
++                                    "_": "float32 nx*nz ground heights (m), the depth grid's layout"}}
++                      if CFG.get("snow_on_terrain") and not sn.get("v1_splat") else {}),
+                    "grid": {"file": "snow_grid.bin", "sha256": sha_file(gridp), "origin_xz": [gx0, gz0], "cell_m": cell,
+                             "nx": nx, "nz": nx, "_layout": "float32 little-endian: nx*nz depth multipliers (row = z), then nx*nz trodden amounts"},
+                    "_": CFG.get("snow_note", "the installed Barrow's SNOW_BY_CLASS on the painted splat; the field covers the reach box + 1.5 m (world xz, square)")}
