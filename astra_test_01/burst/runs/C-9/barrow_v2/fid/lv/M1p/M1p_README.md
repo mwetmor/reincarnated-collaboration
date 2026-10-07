@@ -1,9 +1,11 @@
 # M1′ packet: barrow_v2 ART blockout (Matt R-C9-185; charter v1.0 § 15)
 
 **Cover (`M1p_cover.jpg`, one phone screen): three asks, one recommendation each**
-1. **Approve the composition for paint?** Recommended: yes, and start the paint pilot on the home ground.
+1. **Approve the composition for paint?** Recommended: yes, and start the paint pilot on the home ground. The site is 66 × 51 m, painted as 25 canvases (v1: 53 × 41 m, 16).
 2. **Burnt hall: closed sides except the great door, or an open-sided ruin?** Recommended: closed sides except the great door, so there are no false doorways.
 3. **How to walk it?** Recommended: the `.command` launcher on the Mac now; a packaged .app later.
+
+Geometry check P6′: PASS — present, in place, true proportions (PH 51d955677).
 
 **Files**
 - `M1p_cover.jpg` — the cover.

@@ -82,7 +82,7 @@ def cover():
     mp = Image.open(os.path.join(M, "M1p_map.jpg")).convert("RGB"); mp.thumbnail((1000, 640))
     im.paste(mp, ((W - mp.width) // 2, y)); y += mp.height + 30
     asks = [("1. The composition: approve it for paint?", "RECOMMENDED: yes -- start the paint pilot on the home ground.",
-             "Built from sketch A as drawn: wreck W, cave + stair SW, barrow door N with the stream to the mere, the stone ring at the start, the hall facing you E, the fallen gable its own ruin SE. About v1's size (66 x 51 m)."),
+             "Built from sketch A as drawn: wreck W, cave + stair SW, barrow door N with the stream to the mere, the stone ring at the start, the hall facing you E, the fallen gable its own ruin SE. 66 × 51 m, painted as 25 canvases (v1: 53 × 41 m, 16)."),
             ("2. The burnt hall: closed sides or an open ruin?", "RECOMMENDED: closed sides except the great door.",
              "The burnt walls stay walls, so the painter cannot read gaps as extra entrances (no false doorways)."),
             ("3. How do you walk it?", "RECOMMENDED: the .command on the Mac now.", "Double-click 'Walk barrow_v2 art.command'. A packaged .app can follow later.")]
@@ -93,6 +93,10 @@ def cover():
         for line in textwrap.wrap(why, 56):
             d.text((60, y), line, fill=(225, 225, 225), font=R(30)); y += 38
         y += 22
+    d.rectangle([30, y, W - 30, y + 110], outline=(120, 180, 255), width=4)
+    for i, line in enumerate(textwrap.wrap("Geometry check P6\u2032: PASS \u2014 present, in place, true proportions (PH 51d955677)", 54)[:2]):
+        d.text((50, y + 16 + 42 * i), line, fill=(170, 210, 255), font=R(32))
+    y += 110
     p = os.path.join(M, "M1p_cover.jpg"); im.save(p, quality=90); print("cover px used", y); return p
 
 
