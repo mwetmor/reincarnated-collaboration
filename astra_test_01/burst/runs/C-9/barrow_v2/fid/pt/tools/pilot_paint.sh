@@ -8,19 +8,20 @@
 FID=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid
 CFG=$FID/pt/pilot/cfg_bv2a_pilot.json; DRV=$FID/v1tools/tierB/conductor_scripts/t10bf_drive.sh
 LED=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/ledger.json
-L=$HOME/astra-burst/logs/C-9; DLOG=$L/BV2F-PT_drive.log; CAP=18
+PFX=$(python3 -c "import json;print(json.load(open('$CFG'))['prefix'])")   # BV2F-PR for the Phase 2'' repaint (R-C9-210)
+L=$HOME/astra-burst/logs/C-9; DLOG=$L/${PFX}_drive.log; CAP=18
 source ~/.zshrc > /dev/null 2>&1
-used() { python3 -c "import json;print(sum(b.get('image_calls',0) for b in json.load(open('$LED'))['bursts'] if str(b.get('id','')).startswith('BV2F-PT-')))"; }
+used() { python3 -c "import json;print(sum(b.get('image_calls',0) for b in json.load(open('$LED'))['bursts'] if str(b.get('id','')).startswith('$PFX-')))"; }
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); [ $FREE -ge 21 ] || { echo "HALT: disk ${FREE} GiB < 21"; exit 9; }
 python3 $FID/pt/tools/pilot_pins_check.py || { echo "HALT: pins"; exit 10; }
 python3 $FID/v1tools/cfg_check.py $CFG || { echo "HALT: cfg_check"; exit 9; }
 bash $FID/v1tools/verify.sh || { echo "HALT: verify"; exit 8; }
-echo "images used by BV2F-PT before: $(used) (cap $CAP)"
+echo "images used by $PFX before: $(used) (cap $CAP)"
 mkdir -p $L; START=$(wc -l < $DLOG 2>/dev/null || echo 0)
 zsh $DRV $CFG &
 PID=$!
 while kill -0 $PID 2>/dev/null; do
-  if tail -n +$((START+1)) $DLOG 2>/dev/null | grep -E 'BV2F-PT-[0-9]_[0-9](-r1)? exit=' | grep -vq 'exit=0$'; then
+  if tail -n +$((START+1)) $DLOG 2>/dev/null | grep -E "$PFX-[0-9]_[0-9](-r1)? exit=" | grep -vq 'exit=0$'; then
     kill $PID 2>/dev/null; wait $PID 2>/dev/null
     echo "HALT: a pilot burst exited non-zero; driver stopped before any retry (cap $CAP). images used: $(used)"
     tail -n +$((START+1)) $DLOG | grep -E 'exit=|HALT'; exit 6
@@ -29,6 +30,6 @@ while kill -0 $PID 2>/dev/null; do
   sleep 3
 done
 wait $PID; rc=$?
-echo "driver exit=$rc; images used by BV2F-PT: $(used) (cap $CAP)"
+echo "driver exit=$rc; images used by $PFX: $(used) (cap $CAP)"
 tail -n +$((START+1)) $DLOG | grep -E 'exit=|HALT|DONE'
 exit $rc

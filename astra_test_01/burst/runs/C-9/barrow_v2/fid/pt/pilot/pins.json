@@ -1,11 +1,12 @@
 {
- "_what": "BV2F Phase 2' PILOT pins (R-C9-189): the guide the pilot cfg paints from (a pinned COPY, so LV's stair re-render cannot reach it) and the 9 pilot tiles (cols 0-2, rows 0-2 of the 5x5 grid) as LV published them. A changed pilot tile in LV's guide after this = repaint (R-C9-189). Check: python3 fid/pt/tools/pilot_pins_check.py",
- "pinned_utc": "2026-10-07T12:24:41.237097+00:00",
+ "_what": "BV2F PILOT REPAINT pins (R-C9-210): the guide the pilot cfg paints from (a pinned COPY of LV's guide at 3686cea98) and the 9 pilot tiles (cols 0-2, rows 0-2) as LV published them. A changed pilot tile in LV's guide after this = paint from the newer tiles. Check: python3 fid/pt/tools/pilot_pins_check.py",
+ "pinned_utc": "2026-10-07T21:55:52.224186+00:00",
+ "lv_commit": "3686cea98",
  "guide": {
-  "pinned_copy": "fid/pt/pilot/guide_art_pinned.png",
+  "pinned_copy": "fid/pt/pilot/guide_art_pinned_v2.png",
   "source": "fid/lv/guide_art/guide_art.png",
-  "sha256": "1883a1bb1e2e38070d28f81a0fdec1ed0b28b6da289a130d888c8c1eda670562",
-  "manifest_sha256": "1883a1bb1e2e38070d28f81a0fdec1ed0b28b6da289a130d888c8c1eda670562",
+  "sha256": "ffc9b5fa0e7013095a93dae4ddbfa2e3b1c093df51cebaa68fd085d3ccb1c246",
+  "manifest_sha256": "ffc9b5fa0e7013095a93dae4ddbfa2e3b1c093df51cebaa68fd085d3ccb1c246",
   "px": [
    6656,
    4096
@@ -13,81 +14,67 @@
  },
  "ids": {
   "source": "fid/lv/guide_art/ids_art.png",
-  "sha256": "aeaecf49ce26981088a805ee0760d36880bcddaa8d4d22e152824b62fd88afdf"
+  "sha256": "5be8c0682e9288e766da8678c67d3c03778e404e73f765fa8e7741a99e36d485"
  },
  "class": {
   "source": "fid/lv/guide_art/class_art.png",
-  "sha256": "65197605dd6550abdb9f8f7a01e5b5f5deceee0717a864904511e02c2999ce01"
+  "sha256": "09043d061d761003e2a71a218aa0867ad58df4cd4272670775cba5841b84e235"
  },
  "tiles": {
   "0_0": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r00_c00.png",
-   "sha256": "f4f9502ac74352d563eb718e3c3e2f59f436671402b61f84d617cd718280a324",
+   "sha256": "bd2c889a61a2a5c66ac6997202b66a2e995408cf41bc486426fed1b73ba61158",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_0": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r00_c01.png",
-   "sha256": "7594429819d20a9fcb09861e2386bdb69a5541ba386cfee7f92a637c7459faad",
+   "sha256": "71d1c28ac0f0b4b56ddcc7435c293bf79585146ef43c98dd0247f3a74d1e7fb7",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "2_0": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r00_c02.png",
-   "sha256": "511fb702965d43a27354100cc622a31b6751172274520ff88605b90fc8a549a2",
+   "sha256": "04de7d5864e1498e93383724952eb078212c4993f6c25582d215cd75c9d4dfea",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "0_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c00.png",
-   "sha256": "205f5822fd1449c1e8c11039e69224da206768bd4becf42a3eab5c9f91b2e8a8",
+   "sha256": "db9284c1eb43d2f791215ec611c4f1ce573e8f305c94ebb3e56c2814d7cfd72f",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c01.png",
-   "sha256": "457c170e0127aeb65b88f9de9fa70f4b192f6af424eb63e989b203be1f86f694",
+   "sha256": "bd407c46adb49725cb28af0ac864dece45afc646771c24a90ed1ef2a6b350258",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "2_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c02.png",
-   "sha256": "3d9dda3dbcd41bb02c23329bbdbe5abb83f0e08ed6180779802883545947f22a",
+   "sha256": "1cb4ff4f379ea5430f67babf8420cc974fff89e11032c5b5d473f833caeb3fc7",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "0_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c00.png",
-   "sha256": "a109a78be5c953479638e299b62a784752acbd479eef57d5df8080efc8cc4878",
+   "sha256": "95d55fde770ed88e58149614e5c2c2ecfd824766035de07ec5cbca2763cefa8b",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c01.png",
-   "sha256": "b9002d562de35d7105a3a612dd67a8b05c3d9f297a770ee56e05497edb9723e8",
+   "sha256": "0196126401d9460d0b692d76afe27e8a70b61c5c92a928adde2710bced3c1670",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "2_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c02.png",
-   "sha256": "1274f7c7055ef14aa32422ceaaa74ac2eb49865fe823fa176379889d783005ca",
+   "sha256": "b729ef9f8db6b3a7c6ba1a5762c8da9ddadb19ae713d4667ae241dcba36892b4",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   }
  },
- "known_inert": {
-  "ruling": "R-C9-191",
-  "what": "LV's re-rendered guide differs from the pinned copy inside the pilot window ONLY at the scale knight (frame-timed idle pose; painted out by v1's rules). The pilot paints from the pinned copy.",
-  "box_px": [
-   3303,
-   1690,
-   3512,
-   1854
-  ],
-  "px_differing": 4139,
-  "tiles": [
-   "2_1",
-   "2_2"
-  ]
- }
+ "_status": "PROVISIONAL (conductor HOLD after R-C9-210): PH's P6' found buried fallen ring stones + a terrain-clipped wreck in the pilot window; LV re-seats them, so these tiles WILL change. Re-pin (pilot_pin.py <LV commit>) from LV's NEXT render after P6' is green; no burst before."
 }
