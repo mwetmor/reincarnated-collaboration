@@ -1,6 +1,6 @@
 # Run C-9 Phase 2 · BV2-FID: barrow_v2 at barrow v1's fidelity, then the w151–160 arena inside it — charter v0.1
 
-**STATUS:** v0.1.1 → jack-ryan Gate-1 (v0.1 + M0 ruled, R-C9-162). **Phase 0 (no image spend) launches on Matt's M0 answers in parallel with Gate-1; a Gate-1 BLOCK halts every lane until folded.** Phases 1–4 do not start before Gate-1 = GO.
+**STATUS:** v0.2 — **Gate-1 = GO-WITH-FOLDS** (jack-ryan, `qa/findings/2026-10-06-bv2f-charter-gate1.md`, `a4fde16b6`); every finding folded at § 12 (R-C9-163). M0 ruled (R-C9-162). Phase 0 running. **A Gate BLOCK halts the steps the reviewer scopes it to** (a BLOCK-narrow halts only its named step).
 **Authored:** 2026-10-06, gandalf (RUN-CONDUCTOR), fresh session per R-C9-160.
 **Course of record:** `2026-10-06-barrow-v2-fidelity-run-architecture.md` ("the plan"). This charter makes the plan executable: it adds lanes, caps, HALTs, decidable target-states, the ARCHITECT gate and three conductor corrections (§ 9). **Where the charter and the plan disagree, the charter governs; the ledger governs both.**
 **Parent run:** Run C-9 (`2026-09-26-illuminated-archive-run-C-9-charter.md`). Ruling IDs continue the C-9 series from **R-C9-161**. Ledger: `astra_test_01/burst/runs/C-9/ledger.json`.
@@ -58,7 +58,7 @@
 | **AR** | drax (joint with the Sim Session's drax) | Phase 4 presenter, intents, enemy bodies | opened at M3 |
 | Gate | jack-ryan | Gate-1 on this charter; Gate-2 at every phase close | — |
 
-**Lane law:** every lane keeps its RESUME current at every commit (state, next step, exact re-run commands). A lane that halts writes its HALT into the ledger `halts[]` and its RESUME before stopping. Lanes do **not** append rulings; the conductor does, and **the conductor commits the ledger** (lane commits sweep other appends).
+**Lane law:** every lane keeps its RESUME current at every commit (state, next step, exact re-run commands). A lane that halts writes its HALT into its **RESUME and hand-back**; **only the conductor writes `ledger.json`** (rulings, halts, milestones) and commits it (I-4: no lost-update race).
 
 ## § 5 — Phases, target-states, Matt gates
 
@@ -94,13 +94,15 @@
 
 ### Phase 4 — w151–160 inside barrow_v2 (0 images) · **M4** (joint with the Sim Session; starts after M3)
 
-As plan § 4 Phase 4, steps 4.1–4.7. **Desktop only.** DONE: PLAY in barrow_v2 reproduces the ORACLE event stream for w151–160 under the registered divergences (headless, G3 tools); 0 frames > 16.7 ms at the w160 peak; Gate-2; **M4 = Matt plays it.**
+As plan § 4 Phase 4, steps 4.1–4.7. **Desktop only.** DONE: PLAY in barrow_v2 reproduces the ORACLE event stream for w151–160 under the registered divergences (headless, G3 tools); 0 frames > 16.7 ms at the w160 peak; Gate-2; **M4 = Matt plays it.** Frame-time window: the w160 peak, first 5 s warm-up excluded (I-3).
 
 ## § 6 — Caps and HALT rules
 
 | Limit | Value | On breach |
 |---|---|---|
-| Astra images, this run | **≈ 250** (needs the ledger guard raised, M0(d)); per-phase sub-caps: P1 4, P2 70, P3 160, reserve 16 | HALT the lane at its sub-cap; the conductor re-bases or asks Matt |
+| Astra images, this run | **≈ 250**, counted on **BV2F-prefixed bursts only** (the shared C-9 `images_used` is not the run counter); sub-caps **Ph1 4, Ph2 70, Ph3 160**, reserve 16. A W-A re-paint after the first pilot pass overruns Ph2 **by design**: the first W-A failure is a sub-cap HALT to the conductor | HALT the lane at its sub-cap; the conductor re-bases or asks Matt |
+| Seam repairs | ≤ 1 per seam, ≤ 15% of chunks (Ph3) | HALT to the conductor |
+| Positive control drift | step 0.1 re-run at every phase Gate-2; the painting sha `eecb4266…` + `godot/data/painted/` shas before/after every lane run; `git status --porcelain -- barrow_full/` shows only allowlisted new paths | **HALT the run** (the control moved) |
 | Astra usage-limit message | — | driver exit 7, lane HALT, RESUME written |
 | fal | ≤ $10 run total (Phase 1 ≤ $8); per-lane ledgers | HALT |
 | Meshy | not planned; 10-credit guard stands | — |
@@ -150,7 +152,7 @@ A departure found in flight that is not here is a HALT, not an entry.
 ## § 10 — Standing laws carried in
 
 - `git commit --only <paths>`; `git status --porcelain -- <paths>` before; `git show --stat HEAD` after; `git -C` for every cross-repo op; never `git add -A`.
-- Push: collab/engine/godot push-as-work-lands as carried in the session-2 handoff § 6; **loadout/demo fresh-ask**.
+- Push (W-6): **collab: push-as-work-lands under R-C9-71/84; engine: none (no BV2F paths); reincarnated-godot: none by this conductor — the Sim Session conductor releases (R-C9-84); loadout and demo: fresh-ask.** The missing CLAUDE.md record of R-C9-71/84 is routed to knight-rider.
 - Keys via `source ~/.zshrc`, never printed. refs_guard: no franchise, studio or artist names in prompts or filenames.
 - Matt runs deletions. Never work around a permission denial.
 - No sleep, time-of-day or session-length language in any report to Matt.
@@ -158,6 +160,39 @@ A departure found in flight that is not here is a HALT, not an entry.
 ## § 11 — Matt interface
 
 Matt is on Remote Control (phone). The conductor sends: one short line per phase transition or HALT; decision requests only via AskUserQuestion, one recommendation per question; look packets at M1–M4 as a few sheets plus one film, not directories.
+
+## § 12 — Gate-1 folds (jack-ryan `a4fde16b6`; conductor ruling R-C9-163). These GOVERN over conflicting text above.
+
+**B-1 → two-tier freeze (step 0.3).**
+- **Tier A, byte-identical** (frame-free): `guided_paint.py`, `guided_stitch.py`, `heather_instances.py`, `hero_surface.py`, `t5_06b_bake.py`, `nb_t8/scripts/t5_06a_surface.py`, `wave.sh`, `refs_guard.py`, `make_layout.py`, and `cfg_t10bf.json` (its `rules`, `refs`, caps).
+- **Tier B, minimal patches** (frame-bearing): `capture_blockout.gd`, `capture_ids.gd`, `paint_world_prep.py`, `take_from_paint.py`, `t10bf_drive.sh`. Each patch is a committed diff against the v1 source touching **only allowlisted constants and paths** (frame, grid, scene, I/O roots, burst prefix, exit code). Registered as **DEV-9**. Path-relative tools (`HERE`/`ROOT`) get their roots by an allowlisted Tier-B-style env/arg patch or are invoked from a pinned cwd — whichever leaves Tier A byte-identical.
+- **`SHA256SUMS` holds two shas per file:** the v1 source read **from git at a pinned commit** (never computed from the copies) and the shipped file. **`verify` checks the files actually executed:** drivers invoke only `fid/v1tools/` paths, and `verify` fails if any v1-original path appears in a command line.
+
+**W-1 → per-row negative controls.** Each row's negative control is the attempt that showed its defect: P1–P4, P11 → R-C9-159; **P5 → R-C9-158** (seams); **P6 invention check → R-C9-155 BVP re-test-2 blocks** (invented doors); a seeded failure where no real one exists. **Constraint rows P7–P10 each show RED once.** Rule: **"re-instrumented or discarded; never threshold-tuned."** The quality/constraint split freezes at the Phase 0 Gate-2; reclassifying a failing row later is a HALT. § 9 C-1/C-2 are amended accordingly.
+
+**W-2 → recorded targets.** Each 0.1 target is written as {record file, field, tool + args, configuration}, tolerances from the record's own spread. The plan's "52%" and "10.9–12.4 ms" are **withdrawn** as targets (ledger prose; recorded heather share 0.44–0.47, `take/build/overlay_check.json`, `painted_prep.json`). **P8's threshold is re-derived from the reproduced v1 value**, not 50%.
+
+**W-3 → DEV entries** (measurement owed before each is relied on):
+
+| DEV | Departure | Measurement / authority |
+|---|---|---|
+| DEV-9 | Tier-B patches to frame-bearing tools (B-1) | diff confined to allowlist; v1 re-run through patched tools reproduces 0.1 |
+| DEV-10 | Per-chunk notes generated from the ID render (W-3a) — needs a per-chunk text field in the painter (Tier-B patch to `guided_paint.py`) | W-A A/B: P6 invention count with vs without notes on the same chunks |
+| DEV-11 | Per-chunk DEV-3 plate attachment mechanism (W-3b) — Tier-B patch to `guided_paint.py` | W-B hero-chunk A/B (as DEV-3) |
+| DEV-12 | v1 `rules` with v1-site nouns substituted (W-3c): a published substitution table, all other words verbatim | diff of rules text = substitution table only |
+| DEV-13 | Seam-repair canvases (W-3d) — new stage | **Matt pre-authorization at M2** |
+| DEV-14 | Low-frequency master colour transfer (W-3e, G-2) — new stage | **Matt pre-authorization at M2**, and only if P4 drifts |
+| DEV-15 | Driver exit 7 on usage limit (W-3f) — part of the Tier-B `t10bf_drive.sh` patch | dry-run with a simulated limit message |
+
+**W-4 → the pilot is a proof, not a keeper.** Option (iv), conductor ruling: pilot chunks are **not** kept; Phase 3 paints the full 9 × 11 grid in v1's wavefront order from the origin, so every chunk gets v1's left/top/top-right paste and no structural pilot-edge seams arise. If a pilot window happens to sit at the wavefront origin (option i), its chunks may be kept. Cost: ≈ +32 images, inside the 250 run cap (Ph3: 99 chunks + ≤ 15 repairs ≤ 160). This keeps the painter v1-pure (option ii would patch the paste rule) and leaves the repair budget for real seams (option iii would spend it on known ones).
+
+**W-5 → write scope.** Step 0.1 writes only to `fid/pc/`; v1 scripts are read-only; barrow_v2 levels **extend** them; Phase 0 puts nothing into `barrow_full/godot`. Control-drift HALT added to § 6.
+
+**W-6 → § 10 push line rewritten** (above).
+
+**W-7 → instruments.** P2 = **lineage chain** (each texture's input sha through the producing tool's manifest back to the painting sha). P3 = **per class**, labelled "rendered-vs-painting residual" (v1's unlit 15.5 is the reference). Phase-1 P6 is judged against the **layout_v2 polygons**, not the guide's own class map. P4 for new classes (sea, shingle, shore ice): a named nearest v1 class, or the class-agnostic cellularity detector only.
+
+**INFO.** I-1: P11 n = 40 pairs, with v1-vs-v1 null pairs, metadata and filenames stripped, identical crop sizes; the power table is printed on the row. I-2: step 0.2 is decided by the cyclic order of the six anchor bearings matching sketch A, each within ±15°; P9 by water-mask flow > 0, floe UV drift 0 px on a marker, snow-trail coverage % of floor. I-3: folded in § 6. I-4: folded in § 4. I-5: noted.
 
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.
