@@ -49,8 +49,8 @@
   "sheet": "fid/pt/m2/M2p_pilot_beside_v1.jpg (6 pairs, same zoom ortho 10.7337)",
   "film": {
    "file": "fid/pt/pilot/film/BV2F pilot - walk from the mere past the wreck through the stones to the barrow door.mp4",
-   "sha256": "65094c1beb6bcb8342195a62330cf3c0b4594bd4d792e6139f39295d9e2d98ae",
-   "bytes": 56353246,
+   "sha256": "5acd3ebc6c5745ee1889dc77166d2750f2c128c5a2b5031a0985edd2d1d3409a",
+   "bytes": 56356458,
    "frames": 897,
    "fps": 24,
    "route": "mere -> wreck/shingle -> stone ring -> barrow door, 6/6 waypoints reached, v1 camera clamp on",
@@ -91,5 +91,27 @@
   },
   "fix": "pt_capture_guide.gd draws the animated sea + floes BLACK and the background black for the heather shots (they are outside v1's id_black set). Correction: the first attempt (ab50b14a9) HID them, which exposed the grey background (252,240 sea px still in the mask) -- superseded by this render",
   "render_guide": "PH's P3 input render_guide.png not refreshed (unchanged by this fix)"
+ },
+ "r_c9_197": {
+  "paint_mix": 0.75,
+  "rebuilt": [
+   "render_guide.png",
+   "heather_mask.png (sea/floes black, R-C9-196)",
+   "heather_colour.png",
+   "12 stills + class masks",
+   "M2 sheet",
+   "walk film"
+  ],
+  "render_guide_sha256": "33dadeece726371f935e74fadb50cf08502cce76472df57b117cd1bf56c84cd3",
+  "heather_mask_sha256": "062525d2debdb5ce4827af09a3b0de962ccd9e4d8641b1dd233e7e5d70a18ce4",
+  "film": {
+   "file": "pt/pilot/film/BV2F pilot - walk from the mere past the wreck through the stones to the barrow door.mp4",
+   "sha256": "5acd3ebc6c5745ee1889dc77166d2750f2c128c5a2b5031a0985edd2d1d3409a",
+   "bytes": 56356458
+  },
+  "film_avi_left_for_deletion": {
+   "file": "fid/pt/pilot/film/pilot_walk_r197.avi",
+   "bytes": 284037654
+  }
  }
 }

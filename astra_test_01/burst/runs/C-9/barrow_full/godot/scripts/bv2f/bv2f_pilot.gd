@@ -313,7 +313,7 @@ func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_m
 	wm.set_shader_parameter("g_frame", Vector3(PILOT_U0, PILOT_V1, PPM))
 	wm.set_shader_parameter("g_px_per", Vector2(PPM * sin(p), PPM * cos(p)))
 	wm.set_shader_parameter("g_size", PILOT_PX)
-	wm.set_shader_parameter("paint_mix", 1.0)          # base = the painting (R-C9-194)
+	wm.set_shader_parameter("paint_mix", 0.75)         # R-C9-197: R-C9-159's own value (the water Matt accepted as moving)
 	var ns := 0
 	for mi in _meshes(nodes["ground_sea"]):
 		mi.material_override = wm
