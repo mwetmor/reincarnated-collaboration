@@ -72,11 +72,36 @@
   "outputs": "fid/pc/run/overlay/overlay_check.json(+png)"
  },
  "T4": {
-  "verdict": "NOT RUN (halted)"
+  "verdict": "MISS -> HALT proposed (H-C9-BV2F-PT-2)",
+  "configuration_reproduced": "the painted app rebuilt at HEAD by build_app_painted.sh in the clone (STAGE -> scratch), run '-- --frame-cost', default window. The app opened 1920x971 / render 1726x971 on the 3440x1440 display, i.e. the record's WINDOWED rows' configuration (painted_captures.json:234-235), not the 12.40 fullscreen row (render 1920x1080) that targets.json pre-registered on the assumption the window would render 1920x1080.",
+  "measured_ms": [
+   11.08,
+   11.22
+  ],
+  "logs": "run/t4_frame_cost_run{1,2}.log, run/t4_build_checks.log",
+  "record_ms": {
+   "windowed_1726x971": [
+    10.93,
+    10.97
+   ],
+   "fullscreen_1920x1080": 12.4,
+   "restaged_post_trail_polish_fullscreen (5f96ba0fe msg)": "12.8-12.9"
+  },
+  "vs_record": "+0.11..+0.29 ms over the windowed rows (1.0-2.6%); record repeat spread 0.04 ms -> tolerance 10.89-11.01 -> MISS. Against the pre-registered 12.40 +/- 0.05 also outside (different render size).",
+  "context": "HEAD's barrow_full carries 17+ post-v1 commits (meteor/fire-ball/EoR/sorceress kits; trail polish recorded at +0.4-0.5 ms fullscreen); the HEAD pck is 1.1 GB vs v1's 320 MB. Not bisected. Both runs are well inside the charter's P10 bound (p99 <= 16.7 ms) but this is a mean, not p99."
  },
  "S": {
   "verdict": "DONE",
   "outputs": "fid/pc/v1_stills/{start,barrow_door,mere,stone_ring,outcrop_field,shore}.png 1920x1080 + views.json",
-  "note": "v1 has a tarn, not a mere: 'mere' = the tarn (regions.ice). ortho 10.7337 m tall = v1 play zoom. Tool fid/pc/tools/pc_stills.gd (capture_painted.gd's _stills method, six named spots)."
+  "note": "v1 has a tarn, not a mere: 'mere' = the tarn (regions.ice). ortho 10.7337 m tall = v1 play zoom. Tool fid/pc/tools/pc_stills.gd (capture_painted.gd's _stills method, six named spots).",
+  "png_sha256_12": {
+   "barrow_door": "4f9aa4b93e7a",
+   "mere": "e7156ef16caa",
+   "outcrop_field": "19f5179993d6",
+   "shore": "f1d4c1de97ae",
+   "start": "476e74cf18e8",
+   "stone_ring": "0a528572bf89"
+  },
+  "git": "PNGs are gitignored (astra_test_01/.gitignore:1 *.png); on disk at fid/pc/v1_stills/"
  }
 }

@@ -1,0 +1,29 @@
+== free disk: 35 GiB (gate 20)
+== acquiring heavy lock
+== free disk: 35 GiB (gate 20)
+== mirror /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/v1c/C-9/barrow_full/godot -> /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/v1c/C-9/barrow_full/app
+== overlay project settings (main scene + name + ETC2/ASTC), in the MIRROR only
+== preset: macOS / universal / com.reincarnated.c9barrowpainted (UNSIGNED)
+== import
+== export macOS
+== verify
+   ok   .app bundle exists
+   ok   Info.plist present
+   ok   CFBundleExecutable declared ('C-9 Barrow painted')
+   ok   executable present and executable
+   ok   binary runs on Apple Silicon
+   ok   pck present (C-9 Barrow painted.pck, 1.1G)
+   ok   her Fire Ball in the pck: 3 files (fire_ball.json, 2 atlas pages)
+   ok   painted scene, scripts, layout, the painting, the light map, the snow grid, 25 bakes, 10 world models and the barbarian in the pck
+   ok   main scene string present in pck
+== launch probe (headless)
+   ok   app launches and quits cleanly
+   ok   no script errors at launch
+   ok   the scene printed that it BUILT: [barrow_full] built placements=87 splat_ok=true build_ms=5882
+   ok   the app read the splat and its sha256 matched the layout
+   ok   the view is locked: [barrow_full] view stretch=canvas_items aspect=keep base=1920x1080
+   ok   the painting (ground, mound, primitives), the light map and the snow grid loaded from the pck, sha256 matched
+   ok   all 54 plates in place: 25/25 bakes read and matched, 29/29 primitives wearing the painting
+   ok   the 977 heather sprays and the 3D snow built
+== stage -> /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/stage
+== done: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/stage/C-9 Barrow painted.app  (1.2G)
