@@ -1,0 +1,9 @@
+{
+ "view": "uv:-29,-5.5 (W coast, P6a candidates' sea)",
+ "painted_sea_px": 267100,
+ "flow": 0.0,
+ "max_abs_diff_whole_frame": 0.0,
+ "instrument": "P9 flow: mean |f1 - f0| (0.5 s) over painted open water (L*<40, b*<-3, eroded 6 px, inside the painted window: x>=520, y<850)",
+ "water_meshes": "none: bv2f_level.gd:179-190 builds the sea as one static plane (ground_sea) with the projected painting; ph_life's hide_water pair cannot run",
+ "pass": false
+}

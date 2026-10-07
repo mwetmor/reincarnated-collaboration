@@ -1,0 +1,44 @@
+{
+ "sway_bar": 2.064,
+ "p9_sway": {
+  "heather_px": 132304,
+  "sway": 5.967,
+  "noise": 0.002,
+  "pass_": true
+ },
+ "p9_red_nowind": {
+  "heather_px": 134023,
+  "sway": 0.0,
+  "noise": 0.0,
+  "pass_": false
+ },
+ "p9_trail": {
+  "coverage": 1.0,
+  "bar": 0.99,
+  "pass": true,
+  "walkable_m2_in_window": 937.1,
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "informational_snow_carrying_share_of_walkable": 0.55
+ },
+ "p10_perf": {
+  "p50_ms": 14.59,
+  "p99_ms": 16.05,
+  "max_ms": 17.03,
+  "burn_ms": 0.0,
+  "renderer": "forward_plus",
+  "pass": true
+ },
+ "p10_perf_burn": {
+  "p50_ms": 20.94,
+  "p99_ms": 21.7,
+  "max_ms": 23.09,
+  "burn_ms": 20.0,
+  "renderer": "forward_plus",
+  "pass": false
+ }
+}

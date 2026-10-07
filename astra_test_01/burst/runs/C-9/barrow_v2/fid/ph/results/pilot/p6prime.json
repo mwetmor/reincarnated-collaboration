@@ -1,0 +1,133 @@
+{
+ "inputs": {
+  "ids_built_sha256": "1a6f3be51c56f1b498c8c169f18c356092a89c248a48349b8776571cc016d4ef",
+  "ids_json_sha256": "8ff185d1b1cede5c73bc7339b968665b5909d405b62909f869b917873421a2b7",
+  "unmapped_ids": [],
+  "regrouped_to": "fid/lv/guide_art/guide_manifest.json id_table"
+ },
+ "bars": {
+  "presence_missing": 0,
+  "presence_extra": 0,
+  "terrain_hidden_share_max": 0.5,
+  "containment_min": 0.7872,
+  "anisotropy_max": 1.1
+ },
+ "objects_in_window": [
+  "barrow_front",
+  "cliff_faces",
+  "crags",
+  "logs",
+  "ring_stones",
+  "slope_stones",
+  "wreck"
+ ],
+ "presence": {
+  "missing": [],
+  "extra": [],
+  "terrain_hidden": {},
+  "hidden_by_design": {},
+  "pass": true
+ },
+ "placement": {
+  "bar": 0.7872,
+  "below_bar": {},
+  "containment": {
+   "barrow_front": 1.0,
+   "cliff_faces": 1.0,
+   "crags": 1.0,
+   "logs": 0.9741,
+   "ring_stones": 1.0,
+   "slope_stones": 1.0,
+   "wreck": 1.0
+  },
+  "pass": true
+ },
+ "scale": {
+  "bar": 1.1,
+  "n_instances": 89,
+  "n_over": 0,
+  "record_mismatches_vs_ph": 0,
+  "over": [],
+  "pass": true
+ },
+ "objects": {
+  "barrow_front": {
+   "kind": "barrow",
+   "instances": 1,
+   "id_px": 311157,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.486
+  },
+  "cliff_faces": {
+   "kind": "cliff",
+   "instances": 4,
+   "id_px": 24401,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.113
+  },
+  "crags": {
+   "kind": "outcrop",
+   "instances": 7,
+   "id_px": 94005,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.412
+  },
+  "logs": {
+   "kind": "debris",
+   "instances": 5,
+   "id_px": 10298,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 0.9741,
+   "iou_vs_prism_reported": 0.963
+  },
+  "ring_stones": {
+   "kind": "stones",
+   "instances": 8,
+   "id_px": 74965,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.518
+  },
+  "slope_stones": {
+   "kind": "stones",
+   "instances": 8,
+   "id_px": 46923,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.508
+  },
+  "wreck": {
+   "kind": "wreck",
+   "instances": 1,
+   "id_px": 252512,
+   "in_frame": true,
+   "missing": false,
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 1.0,
+   "iou_vs_prism_reported": 0.232
+  }
+ },
+ "pass": true
+}

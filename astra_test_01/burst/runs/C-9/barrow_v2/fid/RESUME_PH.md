@@ -83,4 +83,9 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] (1) Run plan: `fid/ph/pilot_run_plan.json` (calibration.md § 24).
 - [x] (2) P11 still spec: `fid/ph/pilot_p11_spec.json`, 12 stills plus class masks; verified 40 + 10.
 - [x] (3) Sea-cave walkability verified independently (calibration.md § 25): PASS 8/8, step height 0.1025 m derivation confirmed; REDs (0.6 m riser, 1 m gap) FAIL in PH's analysis and in LV's tool.
-- [ ] STAND BY for PT's pilot inputs (`fid/ph/pilot_run_plan.json` requested_from_PT), then run the pilot harness per the plan.
+- [x] PT's pilot inputs landed (776e265f0 + 47bb1a054).
+- [x] R-C9-192 pilot harness run: `ph/harness/pilot_harness.py [rows]` -> `ph/results/pilot/*.json`; calibration.md § 26. FROZEN bars.
+  P1 FAIL (bakes barrow_front 1.711, wreck 1.391, cliff_faces_0 1.234: 1024² bake on hero-sized silhouettes) · P2 PASS 20/20 at 47bb1a054 (HEAD's tool moved at b69a5d6d1: lineage tool_sha stale for the next build) · P3 PASS 12.46 (RED fails) · P4 FAIL (ice every chunk 0.61-0.67 vs 0.126: paler, less blue; snow 0_2/1_2 cooler) · P5 PASS · P6a 5 unmatched candidates, all open sea in 0_2 (auto-fail by § 11 rule; conductor reads by eye: `results/p6a_triage_pilot.jsonl`, `triage/pilot/`) · P6′ PASS · P8 PASS min 0.4884 (RED fails); DEV-18: 30.9% of painted tuft px on not-flat ground without 3D heather · P11 set `p11/abx_pilot_v1_vs_pilot/` 40+10, judge-ready.
+  P9: sway 5.967 PASS (no-wind RED fails) · water flow 0.000 FAIL (no water mesh: static painted sea plane) · trail 1.000 PASS. P10: p99 16.05 ms PASS (burn RED fails). Godot: `harness/run_pilot_godot.sh` + life_sea run; `python3 pilot_harness.py p9p10`.
+- [ ] Conductor: P6a by-eye read (`p6_overlay.py record pilot <cid> ...`); P11 judge answers -> `p11/answers/abx_pilot_v1_vs_pilot.json`, `p11_abx.py score pilot_v1_vs_pilot <answers>`.
+- DEV-18 heather/snow-on-terrain adopted by R-C9-193 AFTER this baseline: re-run `pilot_harness.py p3 p8` and the P9 runs on the rebuilt pilot when PT lands it.
