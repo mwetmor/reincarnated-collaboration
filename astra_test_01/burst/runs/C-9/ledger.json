@@ -42397,7 +42397,7 @@
     }
   ],
   "images_used": 1251,
-  "images_cap": 1500,
+  "images_cap": 1750,
   "experiments": {},
   "milestones": [
     {
@@ -45132,6 +45132,24 @@
         "The barrow_v2 still isn't up to the same standards as barrow_v1. I think it's a good time to document everything that we did this session. Once completed write a session hand off doc. We will plan to start a fresh session to continue the barrow_v2 work afterwards using the hand off doc for a fresh perspective."
       ],
       "ts": "2026-10-06T23:24:46Z"
+    },
+    {
+      "id": "R-C9-161",
+      "by": "Matt",
+      "ruling": "Fresh conductor session for barrow_v2 (per R-C9-160) runs the plan agentic_orchestration/gandalf/notes/2026-10-06-barrow-v2-fidelity-run-architecture.md as workstream BV2F (barrow_v2 at v1 fidelity, then w151-160 inside it). Conductor drafted charter v0.1 (agentic_orchestration/gandalf/notes/2026-10-06-barrow-v2-fidelity-run-charter.md, collab commit 'gandalf(C-9 P2 BV2F): run charter v0.1') and routed it to jack-ryan Gate-1. Phase 0 (no image spend) launches on Matt's M0 answers in parallel with Gate-1; a Gate-1 BLOCK halts lanes. Conductor conducts, does not build; fresh drax (LV, PT) and galadriel (PH) lanes point at RESUME files under barrow_v2/fid/.",
+      "verbatim": [
+        "(a) Draft the run charter from the plan (phases, lanes, caps, Matt gates M0-M4, deviation register) and route it to jack-ryan for Gate-1. (b) Put the four M0 questions (plan section 4, Phase 1.1) to me with AskUserQuestion, one recommendation each. (c) On my answers, launch Phase 0 (no image spend) ... Conduct; don't build. Spawn fresh drax/galadriel lanes pointing at RESUME files. Record every ruling in the ledger."
+      ],
+      "ts": "2026-10-07T00:01:18Z"
+    },
+    {
+      "id": "R-C9-162",
+      "by": "Matt",
+      "ruling": "BV2F M0 ruled, all four recommendations accepted: (a) WATER: one sea level; the wreck is beached, heeled and half-sunk in the shore ice; the -1.3 m west lagoon and its spit are removed from layout_v2 (LV folds it in Phase 1; validator R1-R13 must stay green). (b) WRECK: rebuilt as a model designed to read from the 53 deg play camera (deck, ribs, dragon prow, snapped mast visible from above), ~12-14 m, from a top-down sheet (Phase 1.2, inside the <=$8 fal budget). (c) ZOOM: v1's 19 x 13 m window (exact parity; DEV-8 not opened; a wider zoom may come later as an in-game toggle, a separate decision). (d) IMAGE GUARD: images_cap raised 1500 -> 1750 for BV2F (~250 run cap with per-phase sub-caps per charter s6); the weekly Astra allowance remains the binding limit and usage-limit HALTs still apply.",
+      "verbatim": [
+        "(AskUserQuestion) Water: \"One sea, wreck beached (Recommended)\"; Wreck: \"Yes, top-down wreck (Recommended)\"; Zoom: \"v1's 19 x 13 m (Recommended)\"; Image cap: \"Raise to 1,750 (Recommended)\""
+      ],
+      "ts": "2026-10-07T00:01:18Z"
     }
   ],
   "grok_calls": [
@@ -45717,7 +45735,7 @@
   "run": "C-9",
   "charter": "agentic_orchestration/gandalf/notes/2026-09-26-illuminated-archive-run-C-9-charter.md",
   "charter_sha256_12": "ba0700e71807",
-  "images_cap_note": "Matt R-C9-64 (2026-09-28): the charter's 400 cap was miscalculated and is lifted; 1500 is a guard, not a budget. The binding limit is ChatGPT's weekly Astra allowance (under 50% used as of 2026-09-28). History: C-9 run cap 400 (charter section 4); M1 sub-cap 16; H-C9-1 at 414/400.",
+  "images_cap_note": "Matt R-C9-64 (2026-09-28): the charter's 400 cap was miscalculated and is lifted; 1500 is a guard, not a budget. The binding limit is ChatGPT's weekly Astra allowance (under 50% used as of 2026-09-28). History: C-9 run cap 400 (charter section 4); M1 sub-cap 16; H-C9-1 at 414/400. | Matt R-C9-162 (2026-10-06, BV2F M0(d)): guard raised 1500 -> 1750 for the barrow_v2 fidelity run (~250 images; charter s6 sub-caps).",
   "notes": [
     {
       "id": "N-C9-1",

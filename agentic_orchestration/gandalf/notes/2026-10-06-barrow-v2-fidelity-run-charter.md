@@ -1,6 +1,6 @@
 # Run C-9 Phase 2 · BV2-FID: barrow_v2 at barrow v1's fidelity, then the w151–160 arena inside it — charter v0.1
 
-**STATUS:** v0.1 DRAFT → jack-ryan Gate-1. **Phase 0 (no image spend) launches on Matt's M0 answers in parallel with Gate-1; a Gate-1 BLOCK halts every lane until folded.** Phases 1–4 do not start before Gate-1 = GO.
+**STATUS:** v0.1.1 → jack-ryan Gate-1 (v0.1 + M0 ruled, R-C9-162). **Phase 0 (no image spend) launches on Matt's M0 answers in parallel with Gate-1; a Gate-1 BLOCK halts every lane until folded.** Phases 1–4 do not start before Gate-1 = GO.
 **Authored:** 2026-10-06, gandalf (RUN-CONDUCTOR), fresh session per R-C9-160.
 **Course of record:** `2026-10-06-barrow-v2-fidelity-run-architecture.md` ("the plan"). This charter makes the plan executable: it adds lanes, caps, HALTs, decidable target-states, the ARCHITECT gate and three conductor corrections (§ 9). **Where the charter and the plan disagree, the charter governs; the ledger governs both.**
 **Parent run:** Run C-9 (`2026-09-26-illuminated-archive-run-C-9-charter.md`). Ruling IDs continue the C-9 series from **R-C9-161**. Ledger: `astra_test_01/burst/runs/C-9/ledger.json`.
@@ -129,10 +129,10 @@ A departure found in flight that is not here is a HALT, not an entry.
 
 | # | Decision | State |
 |---|---|---|
-| M0(a) | Water: one sea level, wreck beached on shore ice, vs a two-level lagoon | **OPEN → asked at launch** |
-| M0(b) | The wreck rebuilt as a model read from 53° above, ~12–14 m, from a top-down sheet | **OPEN → asked at launch** |
-| M0(c) | Play zoom: v1's 19×13 m vs layout_v2's 25.4×17.9 m | **OPEN → asked at launch** |
-| M0(d) | Run image guard 1,500 → ≈ 1,750 | **OPEN → asked at launch** |
+| M0(a) | Water | **RESOLVED R-C9-162:** one sea level; wreck beached in shore ice; west lagoon + spit removed (LV, Phase 1; validator green) |
+| M0(b) | Wreck | **RESOLVED R-C9-162:** rebuilt to read from 53° above, ~12–14 m, from a top-down sheet (Phase 1.2) |
+| M0(c) | Play zoom | **RESOLVED R-C9-162:** v1's 19×13 m; DEV-8 not opened |
+| M0(d) | Image guard | **RESOLVED R-C9-162:** `images_cap` 1,500 → 1,750 (ledger updated) |
 | G-1 | Grid exact size (9×11 nominal) | GATED: fixed at Phase 2 start from the M0(c) zoom and the paint envelope; conductor ruling |
 | G-2 | Whether a low-frequency master colour transfer is used | GATED: only if P4 drifts beyond the pilot spread in Phase 3 |
 | G-3 | Phase 4 arena geometry = barrow_v2 floor polygon as a registered divergence | GATED: **Sim Session ruling**, requested at M3 |
