@@ -47358,6 +47358,11 @@
       "id": "N-C9-CLEANUP-M14",
       "note": "Manifest 14 run by Matt 2026-10-06 (2,576 entries, 3.73 GiB; conductor verified 0 remaining). Manifest 14b (10 entries, 1.94 GiB) prepared at 9f49cfd23, not yet run.",
       "ts": "2026-10-06T23:24:46Z"
+    },
+    {
+      "id": "N-C9-CLEANUP-M16",
+      "note": "Manifest 16 (BV2F conductor scratchpad, 12 entries, 44.6 GiB logical) deleted on Matt's own typed command (his '!' line arrived over Remote Control as a message and did not execute; the conductor ran exactly that command at his instruction). 0 of 12 remain. Disk 28 -> 34 GiB free: ~6 GiB real, as predicted (APFS clones shared blocks with barrow_full).",
+      "ts": "2026-10-07T18:21:59Z"
     }
   ]
 }
