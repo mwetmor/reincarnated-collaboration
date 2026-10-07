@@ -43995,6 +43995,12 @@
       "ts": "2026-10-07T04:04:54Z",
       "status": "closed",
       "what": "LV Phase 1: hall kit at true proportions fails v7b R10 (p06 gable 13.25 m from floor vs 3.0) and R11 (porch 10.97 m vs hall roof 10.51 + 0.5): BVP's porch at true proportions is an 11.7 m-deep gatehouse (v6 hid it by squashing to 3 m); covering the hall door pushes the wall 13.75 m out. Ph1 Astra sub-cap 4 spent (wreck 13.0 m and barrow front 25.8 m, door 5.81 x 6.67 m, built; $0.80 fal). Collab 53fa3a427, f784011d7. Disposed R-C9-176."
+    },
+    {
+      "id": "H-C9-BV2F-PH-P1-1",
+      "ts": "2026-10-07T06:26:32Z",
+      "status": "open",
+      "what": "Phase 1 P6 IoU vs layout_v7c polygons median 0.46 (20 objects) < 0.513 after LV's geometry fixes (d4c59061f); placement exact (containment 1.0; >=96% of ID px inside own GLB silhouette); residual = organic under-fill of layout prisms (unoccluded median 0.57) + occlusion (~0.10). PH 34866394a, calibration.md s14. Routed to jack-ryan Phase 1 Gate-2 as a re-instrumentation question per R-C9-178."
     }
   ],
   "rulings": [
@@ -45524,6 +45530,13 @@
       "ruling": "BV2F Phase 1 P6 (PH 2a913e7af): v7c objects all in their slots (median containment 1.0, as v1) but median IoU vs layout_v7c polygons 0.457 over 18 objects, below v1's 0.513 bar (v1's real models 0.645 on the same measure). RULED: the measure is NOT swapped to containment -- changing a quality row's instrument after seeing candidate data is threshold-tuning in disguise (Gate-2 W-3 permitted re-instrumentation only before candidate data). The IoU row stands; first the REAL geometry defects PH found are fixed by LV: braziers missing (GLB), 3 of 4 standing stones buried in terrain (0 px), cliff faces and grave markers mostly hidden, outcrops 6/9/12/13 outside the paint envelope; plus two check-(a) reconciliations (hall door area +30% PH vs LV; wreck rail faces_camera differs between LV's two files -- one source of truth). Then PH re-measures. If IoU is still below 0.513 and the residual is attributable to organic Tripo crags/ruins under-filling their layout hull, that is a HALT routed to jack-ryan at the Phase 1 Gate-2 as a re-instrumentation question (with the per-object table), not a conductor bar move.",
       "verbatim": [],
       "ts": "2026-10-07T06:05:22Z"
+    },
+    {
+      "id": "R-C9-179",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F Phase 1 deliverables complete for Gate-2: v7c (separate gable ruin, hall door to camera, cave mouth cleared; validator 66/66; check (a) 6/6, independently re-measured by PH within 0.13%, hall door 6.35 m^2 with LV's curtain-box explanation accepted); geometry defects fixed (d4c59061f); M1 packet refreshed (fid/lv/M1/). P6 IoU remains 0.46 < 0.513 with exact placement -- per R-C9-178 the conductor does NOT move the bar; H-C9-BV2F-PH-P1-1 is routed to jack-ryan's Phase 1 Gate-2 as a re-instrumentation question. M1 is sent to Matt only after Gate-2.",
+      "verbatim": [],
+      "ts": "2026-10-07T06:26:32Z"
     }
   ],
   "grok_calls": [
