@@ -16,8 +16,9 @@ var mode := ""
 var out_dir := ""
 var view := ""
 var no_wind := false
-var floe_red := false
-var floe_pairs := 1        # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
+var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
+var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
+var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
 var burn_ms := 0.0
 var vp: SubViewport
 var rep := {}
@@ -76,6 +77,7 @@ func _ready_scene() -> bool:
 	if scene.snowfall != null:
 		scene.snowfall.visible = false
 		scene.snowfall.emitting = false
+	t_ready_us = Time.get_ticks_usec()      # R-C9-201: the trace's zero (the scene's ready_done, seen by this tool)
 	return true
 
 
@@ -243,12 +245,18 @@ func _perf() -> void:
 	scene.place_knight(loop[3].x, loop[3].y, "N")
 	var wi := 0
 	var dt := 1.0 / 60.0
+	var pre := PackedFloat64Array()
+	var tp := Time.get_ticks_usec()
 	for i in 180:
 		k.drive_dir(scene.canvas_dir_uv(scene.knight_uv(), loop[wi]), false, dt)
 		await process_frame
+		var tq := Time.get_ticks_usec()
+		pre.append(float(tq - tp) / 1000.0)
+		tp = tq
 	var n := 900
 	var times := PackedFloat64Array()
 	var t_prev := Time.get_ticks_usec()
+	var t_win0 := t_prev
 	for i in n:
 		if scene.knight_uv().distance_to(loop[wi]) < 0.6:
 			wi = (wi + 1) % loop.size()
@@ -273,5 +281,11 @@ func _perf() -> void:
 	var f := FileAccess.open(out_dir.path_join("perf.json"), FileAccess.WRITE)
 	f.store_string(JSON.stringify(rep, " "))
 	f.close()
+	# R-C9-201: the frame-time TRACE aligned to the load timeline (ms; zero = ready_done as this tool sees it)
+	var tr := {"t_ready_since_engine_start_ms": float(t_ready_us) / 1000.0, "window_start_rel_ready_ms": float(t_win0 - t_ready_us) / 1000.0,
+		"preroll_frames_ms": Array(pre), "window_frames_ms": Array(times)}
+	var f2 := FileAccess.open(out_dir.path_join("trace.json"), FileAccess.WRITE)
+	f2.store_string(JSON.stringify(tr))
+	f2.close()
 	print("[ph] perf ", JSON.stringify(rep))
 	quit(0)

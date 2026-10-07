@@ -1009,7 +1009,7 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 |---|---|---|---|---|---|---|
 | P1 texel density | yes | all 1.000 (DEV-19 bakes 117.6–163.1 px/m) | ≤ 1.05 | **PASS** | f36284352 bakes; re-read c578db842 | 37193eb63 (§ 29); this commit |
 | P2 lineage | yes | 20/20 | 100% | **PASS** | c578db842 | this commit (§ 35) |
-| P3 render vs painting | yes | sea 27.77 as delivered; 11.53 with the animated sea excluded | ≤ 15.5 per class | **FAIL as delivered — input/ruling owed** | c578db842 inputs | this commit (§ 35) |
+| P3 render vs painting | yes | worst 11.53 (wood, baked); sea 5.73 with the DEV-5 motion layers removed (painted base only); lit-plane RED 22.87 | ≤ 15.5 per class | **PASS** (R-C9-201: water is a mover; § 36) | c578db842 | § 36 (R-C9-201 commit) |
 | P4 texture | yes | ice 0.61–0.67 (bar 0.126); snow 0_2/1_2 0.40 (bar 0.281) | v1 LOO maxima | **FAIL** (origin: the paint transfer, § 27) | painting 901f3087 (unchanged) | 4bd299a18 (§ 26), 55099e701 (§ 27) |
 | P5 seams | yes | MAD 11.97; seam 0.585 | ≤ 13.09; ≤ 0.799 | **PASS** | painting 901f3087 | 4bd299a18 (§ 26) |
 | P6a invention | yes | 1 declared, 5 MATERIAL (conductor triage), 0 invented | 0 invented | **PASS** | painting 901f3087 | 55099e701 (§ 27) |
@@ -1018,17 +1018,47 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 | P9 sway | yes | 6.104; no-wind RED 0 | ≥ 3× noise and ≥ 2.064 | **PASS** | 0b72461db+ (renders/pilot2) | 2fa1f5229 (§ 30) |
 | P9 flow | yes | **3.444** on the pre-registered mask; hidden-water RED 0.067 | ≥ 2.064 | **PASS** (R-C9-199) | 8fd69fafc | 4ec1c5bc8 (§ 33) |
 | P9 trail | yes | 1.000 (flat 759 m², not-flat 178 m²) | ≥ 0.99 | **PASS** | 0b72461db | 37193eb63 (§ 29) |
-| P9c floe drift | **no** (shown; binding is the conductor's call) | rest-pose 0.010 px; swimming RED 1.766 px | ≤ 0.25 | shown (§ 31 + A1) | 9c53bc067 | 3888c0d74, 96509f727, 291a54992 (§§ 31–32) |
+| P9c floe drift | **yes** (BINDING since R-C9-198; corrected R-C9-201) | rest-pose 0.010 px; swimming RED 1.766 px | ≤ 0.25 | **PASS** (RED fails) | 9c53bc067 | 3888c0d74, 96509f727, 291a54992 (§§ 31–32) |
 | P10 frame time | yes | start worst p99 **19.40**; sea 13.40; burn RED fails | worst of 3 ≤ 16.7 (§ 34) | **FAIL** | c578db842 | 02de8260f (§ 34); this commit |
 | P11 ABX | yes | judge 1 27/40, inconsistency 0.50; judge 2 24/40, 0.40 | ≤ 26/40; inconsistency ≤ 0.25 | **VOID × 2**; the void rule needs re-instrumenting (§ 28) | 47bb1a054 stills | f3af8d82c (§ 28) |
 | P7 floor/scatter | no | — | — | retired (charter § 15) | — | — |
 | P6′ extent | no | — | — | retired (charter § 15) | — | — |
 | P6b silhouette IoU | no | — | — | not in the pilot plan | — | — |
 
-**Open for rulings:**
-1. P3's animated-water input: PT should render with the water held or hidden, or a ruling is needed.
-2. P10's first-run tail: a per-frame instrument, and a PT fix.
+**Open for rulings** (items 1–2 superseded by § 36):
+1. ~~P3's animated-water input~~: resolved by R-C9-201 (§ 36).
+2. ~~P10's first-run tail~~: traced (§ 36); it is a real stutter after control, now with PT.
 3. P11's void rule (§ 28).
 4. P9c binding.
 5. P9 flow's mask derivation (§ 33: exclusions from geometry, not cross-time differences).
 6. P4's paint transfer (§ 27; M2′).
+
+
+## 36. R-C9-201: P10 traces aligned to the load timeline; P3's sea with the motion layers removed; P9c row corrected. `results/pilot6/`; renders `renders/pilot6/`
+
+**(1) P10: where the tail sits.** `ph_life.gd perf` now writes `trace.json`: every pre-roll and window frame time (ms), with zero at ready_done as the tool sees it. These are 3 fresh runs at the start view, c578db842, for diagnosis. They are not a § 34 re-measure; P10 on c578db842 stays FAIL at 19.40.
+
+| Run | ready_done after engine start | Window starts after ready_done | Pre-roll max | p99 / max | Frames > 16.7 ms (time after ready_done) |
+|---|---|---|---|---|---|
+| 1 | 10.44 s | 2.69 s (after the 180-frame pre-roll) | 81.0 ms | 15.37 / 30.96 | **3 consecutive: 31.0, 29.3, 28.0 ms at 3.30–3.36 s** |
+| 2 | 10.47 s | 2.52 s | 98.5 ms | 14.97 / 19.16 | 2 consecutive: 18.5, 19.2 ms at 11.43–11.45 s |
+| 3 | 10.29 s | 2.46 s | 30.9 ms | 14.96 / 20.40 | 1: 20.4 ms at 4.86 s |
+
+- **No load frames are captured.** Both tools start the 900-frame window ≥ 2.4 s after ready_done, after a 180-frame driven pre-roll (where the load-adjacent spikes of 31–98 ms sit, uncounted). So no capture definition needs pre-registering.
+- **The tail is real, and it comes after control:** short clusters of 1–3 hitches (18–31 ms) while the knight walks the loop, at varying times. A cluster of about 9 or more frames drives the p99 above 16.7; that is what 17.32 and 19.40 were.
+- **Reconciled with PT.** PT measured with this same instrument (`ph_life.gd perf`, same segment). PT's own before/after record (`fid/pt/perf/p10_before_after.json`) shows the same first-run tail after the warm-up: p99 18.14, max 32.8, then 15.26 / 15.41. The published 15.16 / 15.31 / 15.16 came from a later batch.
+- **For PT:** hitch clusters of 28–31 ms frames 0.6 s into the walk (run 1), with sporadic singles later. The trace files localise them in time.
+
+**(2) P3's sea with the DEV-5 motion layers removed** (`ph_p3_sea.gd`: PT's guide-camera framing; the water shader re-derived; `results/pilot6/p3_sea.json`).
+
+| Reading | Sea mean \|Δ\| | Bar | Verdict |
+|---|---|---|---|
+| as delivered (motion layers live) | 27.77 | ≤ 15.5 | — (water is a mover: exempt, R-C9-201) |
+| motion layers held at rest (TIME = 0, layers drawn) | 21.62 | ≤ 15.5 | — |
+| **painted base only** (`ALBEDO = base`: the painting × 0.75 + deep_col × 0.25) | **5.73** | ≤ 15.5 | **PASS** |
+| **RED: a lit plane** (StandardMaterial3D, deep_col) in place of the base | **22.87** | ≤ 15.5 | **FAIL, as required** |
+
+- **Binding P3 on that capture:** every class ≤ 15.5. The worst is 11.53 (wood, baked), the same as before; the swap touched only the sea. **P3 PASS.**
+- **Why "at rest" still fails:** holding TIME still freezes the layers but does not remove them. The swell darkening, crest bands and foam lace are drawn over the painted base, so the static frame still differs from the painting by 21.6. The base-only read is the one that isolates the painting's own sea.
+
+**(3) Table corrected (§ 35).** P9c has been BINDING since R-C9-198, so it reads PASS: 0.010 px, with the swimming RED failing at 1.766. P3 now reads PASS per (2). Remaining binding FAILs on the pilot: **P4** (paint transfer, § 27) and **P10** (19.40, real stutter after control). P11 is VOID × 2 pending the void-rule ruling (§ 28).
