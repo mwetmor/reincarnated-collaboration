@@ -7,6 +7,46 @@
 
 ---
 
+## join1-j2-rcv1-conversion-rule-2026-10-07 — JOIN-1 J2 (KP-324): no existing rule covers damage-type conversion %; rule **R-CV1 PROPOSED** + the referent's 3 conversion rows — 2026-10-07 — **⚑ PROPOSED, NOT APPLIED (awaiting conductor confirmation)**
+
+**Occasioned by:** conductor KP-324. gamora's join2 conversion reader (engine `src/join2_rulebook/conversion.py`, `8f9546b3`) does not care which column it reads. A caller holding to the dual-column law therefore refuses `eor_fire_to_physical_conversion_pct`, because its `rdr_value` is NULL.
+
+**Survey (corpus.db FILE `37635bad…`): no active rule covers a damage-type conversion percentage.**
+- `gd_pct` is named by no rule's `source_scale` or Covers enumeration (gamora's B0-N stamping table says the same: NO-RULE, "nearest by unit: R-A2, R-C2, R-K4, R-M5").
+- R-G3 consumes exactly one `gd_pct` leaf (armor absorption), and is row-scoped.
+- R-A2's "invested-conversion" is attribute points → stats (×8), not a damage-type conversion.
+- R-M5 covers `poe1_pct`/`poe2_pct` crit / resist-cap / move-speed / impale leaves; it is PoE only.
+- R-N4 is monster resist / block / caps.
+- **Stretching any of these would be scope-creep by analogy, so I propose a new rule.**
+
+**R-CV1 v1 (IDENTITY, proposed):** `rdr = source_value`, the percent of the source damage type relabelled to the target type, 0..100.
+- **Scoped by predicate, not by scale:** `numeric_key ~ (?:^|_)[a-z]+_to_[a-z]+(?:_conversion)?_pct$`. This generalises KC-1b's `<original>_to_physical(_conversion)?_pct`, the reader's own predicate.
+- `source_scale` = the scope name `damage_type_conversion_pct` (precedent: R-CTX-GEO's `context_geometry_gating`). The rule therefore does **not** claim all of `gd_pct`: the referent's weapon-damage %, bleed-modifier % and damage-reduction % rows stay uncovered.
+- **FENCED:** a damage-type relabel, never a magnitude multiplier. Packet split, multi-source summation and GD's proportional scale-down above 100 % are composition (the reader's job).
+- **Certifies the unit identity, not the values:** Gutsmasher Chaos/Lightning DATAMINED 50/50 vs FOOTAGE 55/46 stays open.
+- `rule_owner = gamora` (the convention for every rule); **gamora's sign-off is part of the confirmation asked for.**
+
+**Rows:** the predicate matches exactly 3 rows **corpus-wide**, all on `gd-eor-warlord-referent`, all `gd_pct`, all unstamped:
+- `eor_fire_to_physical_conversion_pct` 100
+- `gutsmasher_chaos_to_physical_pct` 50
+- `gutsmasher_lightning_to_physical_pct` 50
+
+**The two Gutsmasher rows need the same treatment:** the reader's predicate matches them too. Under v0 they refuse as `PartialConversionUnsupported` whatever the column, but the dual-column refusal should not stack on top of that.
+
+**Script:** `research/scripts/corpus_rcv1_conversion_rule_2026_10_07.py`. `--apply` refuses without `--confirmed <KP row>`.
+
+**Dry-run (in-memory copy, rolled back; `corpus.db` re-hashed unchanged at `37635bad…`):**
+- ROWSET before `c3e0f121…`.
+- 3 rows stamped R-CV1 (100/50/50); 0 rows with `rdr_value IS NOT source_value`.
+- Every other `kit_numeric` row unchanged (full-row digest); every existing `normalization_rule` row unchanged; sibling ROWSET unchanged.
+- Referent unstamped 85 → 82. Row counts: `normalization_rule` 39 → 40, `corpus_schema_meta` 41 → 42, nothing else.
+- `integrity_check` ok; FK check empty.
+- **Expected J-S4b ROWSET after apply: `c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9`.** It is deterministic: the rule row's `created_date` is fixed at 2026-10-07, and `normalization_rule` is not a ROWSET table.
+
+**On apply (owed):** back up, apply, re-verify, record the FILE digest here and in the manifest, update the export (`rule_stamp_status`, `rule_stamping`, `corpus_rowset`), then J-S4 re-pins.
+
+---
+
 ## join1-rctxgeo-gd-metres-confirmed-2026-10-06 — R-CTX-GEO `gd_metres` scope amendment CONFIRMED (jack-ryan JOIN-1 B0-N Gate-2); the provisional label on the 5 J-S4b radii is lifted — 2026-10-06 — **APPLIED 2026-10-06T23:33Z**
 
 **Authority:** jack-ryan JOIN-1 B0-N Gate-2, PASS-WITH-FINDINGS (collab `6371fe6cc`, `qa/findings/2026-10-06-join1-b0n-gate2.md` § 5: **CONFIRMED**, three conditions); conductor KP-307. ADR-002 within-seam, **DATA-ONLY, no DDL. Nothing reverts.**
