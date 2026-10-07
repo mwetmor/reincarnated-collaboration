@@ -228,9 +228,10 @@ def main():
     rampf = rampf * rampf * (3 - 2 * rampf)
     Z = np.where(land, Hc * rampf * (d_lip < d_shore + 6.0), Z)
     # W: the shingle beach 0 -> ICE_TOP over BEACH_W (a smooth slope), then the sea floor
-    bt = np.clip(d_shore / BEACH_W, 0, 1)
+    BW = BEACH_W - 4.0 * np.clip((V - 6.0) / 8.0, 0, 1)          # 10 m at the wreck, narrowing to 6 m north of it (sketch A: the ice comes in by the mere)
+    bt = np.clip(d_shore / BW, 0, 1)
     beach_z = ICE_TOP * (bt * bt * (3 - 2 * bt) * 0.35 + bt * 0.65)
-    beach = west & (d_shore <= BEACH_W)
+    beach = west & (d_shore <= BW)
     Z = np.where(beach, beach_z, Z)
     Z = np.where(west & ~beach, SEA_FLOOR, Z)
     # S: the cliff face (heightfield behind the kit) from the crest to the sea floor within 1.2 m
@@ -262,7 +263,7 @@ def main():
     dt_ = np.maximum(0.0, np.maximum((t_top - 1.0) - Tq, Tq - (t_land + 2.0)))
     ds_ = np.maximum(0.0, np.maximum((-W_ - 5.0) - Sq, Sq - 0.0))
     wl = np.clip(1.0 - np.hypot(dt_, ds_) / 4.0, 0.0, 1.0)
-    Z = np.where(land & (Sq <= 0.0), np.maximum(Z, R["crest"] * wl * wl * (3 - 2 * wl)), Z)
+    Z = np.where(land & (Sq <= 0.0) & (wl > 0.0), np.maximum(Z, R["crest"] * wl * wl * (3 - 2 * wl)), Z)
     # THE ROUTE: the shelf (natural sea-worn rock, irregular outer edge), the cave floor, the stair's notch + bed, the landing
     Tq = (U - LIP_A[0]) * dR[0] + (V - LIP_A[1]) * dR[1]
     Sq = (U - LIP_A[0]) * nR[0] + (V - LIP_A[1]) * nR[1]
@@ -507,7 +508,7 @@ def main():
     wb = ab(WRECK["glb"])[2] * sw
     openings.append({"id": "wreck_hull", "point": "W", "model": "wreck", "centre_sim": wins["pos"], "z0": ICE_TOP, "w": None, "h": None, "faces_deg": None, "dark": False,
                      "probe": {"type": "h_rect", "centre": wins["pos"], "rot_deg": round(math.degrees(math.atan2(-ax_[1], ax_[0])), 3), "L": round(0.7 * wl, 3), "W": round(0.45 * wb, 3),
-                               "z": round(ICE_TOP + 0.3, 3), "frontal_m2": round(0.7 * wl * 0.45 * wb, 3)}})
+                               "z": round(max(ICE_TOP, hz(wc)) + 0.3, 3), "frontal_m2": round(0.7 * wl * 0.45 * wb, 3)}})
     # -- the barrow front (N): its door threshold at the sketch's door, facing the camera
     bd = uv(BARROW["door"])
     sb = BARROW["width_m"] / ab(BARROW["glb"])[0]
@@ -839,7 +840,8 @@ def main():
         d = unit(b[0] - a[0], b[1] - a[1])
         n = (d[1], -d[0])                                   # land is east of a north->south chain: seaward = (d_y, -d_x) turned west
         n = n if n[0] < 0 else (-n[0], -n[1])
-        off_shore.append((p[0] + n[0] * (BEACH_W + 3.0), p[1] + n[1] * (BEACH_W + 3.0)))
+        bw_p = BEACH_W - 4.0 * min(1.0, max(0.0, (p[1] - 6.0) / 8.0)) + 1.5      # the beach and 1.5 m of the shore ice off it
+        off_shore.append((p[0] + n[0] * bw_p, p[1] + n[1] * bw_p))
     lip_route_w = [q for q, s_ in zip(lip, lip_s) if s_ < a_s + R["shelf_t"][0] - 3.5]
     off_lip_w = []
     for i, p in enumerate(lip_route_w):

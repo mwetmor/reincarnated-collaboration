@@ -1,0 +1,193 @@
+{
+ "_what": "BV2F LV Phase 1' DONE item (R-C9-186 W-3): the HERO-COVERAGE table, mechanical, from the ID render of the M1' stills",
+ "min_px": 5000,
+ "pass": true,
+ "heroes": {
+  "wreck": {
+   "visible_in": [
+    "01_coast_west",
+    "02_wreck_beach"
+   ],
+   "with_neighbour_in": [
+    "01_coast_west",
+    "02_wreck_beach"
+   ],
+   "PASS": true
+  },
+  "cliffs": {
+   "visible_in": [
+    "01_coast_west",
+    "02_wreck_beach",
+    "03_cliffs_south",
+    "04_cave_stair",
+    "05_cave_mouth",
+    "08_start"
+   ],
+   "with_neighbour_in": [
+    "01_coast_west",
+    "02_wreck_beach",
+    "03_cliffs_south",
+    "04_cave_stair",
+    "05_cave_mouth",
+    "08_start"
+   ],
+   "PASS": true
+  },
+  "cave_stair": {
+   "visible_in": [
+    "03_cliffs_south",
+    "04_cave_stair",
+    "05_cave_mouth"
+   ],
+   "with_neighbour_in": [
+    "03_cliffs_south",
+    "04_cave_stair",
+    "05_cave_mouth"
+   ],
+   "PASS": true
+  },
+  "mere": {
+   "visible_in": [
+    "06_mere_stream"
+   ],
+   "with_neighbour_in": [
+    "06_mere_stream"
+   ],
+   "PASS": true
+  },
+  "stream": {
+   "visible_in": [
+    "06_mere_stream"
+   ],
+   "with_neighbour_in": [
+    "06_mere_stream"
+   ],
+   "PASS": true
+  },
+  "sea_ice": {
+   "visible_in": [
+    "01_coast_west",
+    "02_wreck_beach",
+    "03_cliffs_south",
+    "04_cave_stair",
+    "05_cave_mouth",
+    "07_pack_ice"
+   ],
+   "with_neighbour_in": [
+    "01_coast_west",
+    "02_wreck_beach",
+    "03_cliffs_south",
+    "04_cave_stair",
+    "05_cave_mouth",
+    "07_pack_ice"
+   ],
+   "PASS": true
+  },
+  "stacks_talus": {
+   "visible_in": [
+    "01_coast_west",
+    "03_cliffs_south",
+    "05_cave_mouth",
+    "07_pack_ice"
+   ],
+   "with_neighbour_in": [
+    "01_coast_west",
+    "03_cliffs_south",
+    "05_cave_mouth",
+    "07_pack_ice"
+   ],
+   "PASS": true
+  },
+  "ring": {
+   "visible_in": [
+    "08_start"
+   ],
+   "with_neighbour_in": [
+    "08_start"
+   ],
+   "PASS": true
+  }
+ },
+ "px_per_still": {
+  "01_coast_west": {
+   "wreck": 5482,
+   "cliffs": 629576,
+   "cave_stair": 6,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 524278,
+   "stacks_talus": 59167,
+   "ring": 0
+  },
+  "02_wreck_beach": {
+   "wreck": 163782,
+   "cliffs": 297520,
+   "cave_stair": 0,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 353750,
+   "stacks_talus": 0,
+   "ring": 0
+  },
+  "03_cliffs_south": {
+   "wreck": 0,
+   "cliffs": 875098,
+   "cave_stair": 113786,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 447593,
+   "stacks_talus": 29260,
+   "ring": 0
+  },
+  "04_cave_stair": {
+   "wreck": 0,
+   "cliffs": 772320,
+   "cave_stair": 435470,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 31913,
+   "stacks_talus": 0,
+   "ring": 0
+  },
+  "05_cave_mouth": {
+   "wreck": 0,
+   "cliffs": 1074257,
+   "cave_stair": 34385,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 36891,
+   "stacks_talus": 12412,
+   "ring": 0
+  },
+  "06_mere_stream": {
+   "wreck": 0,
+   "cliffs": 0,
+   "cave_stair": 0,
+   "mere": 708673,
+   "stream": 39776,
+   "sea_ice": 0,
+   "stacks_talus": 0,
+   "ring": 0
+  },
+  "07_pack_ice": {
+   "wreck": 0,
+   "cliffs": 0,
+   "cave_stair": 0,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 1301283,
+   "stacks_talus": 167886,
+   "ring": 0
+  },
+  "08_start": {
+   "wreck": 0,
+   "cliffs": 658273,
+   "cave_stair": 10,
+   "mere": 0,
+   "stream": 0,
+   "sea_ice": 0,
+   "stacks_talus": 0,
+   "ring": 43886
+  }
+ }
+}

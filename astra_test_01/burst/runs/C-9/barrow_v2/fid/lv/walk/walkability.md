@@ -50,8 +50,8 @@ Sections (clear width = walkable run across, capped by the free run to the neare
 | shelf_01 | 6.25 | 7.93 | 6.25 | 15.00 |
 | shelf_02 | 6.95 | 7.92 | 6.95 | 15.00 |
 | shelf_03 | 7.15 | 8.00 | 7.15 | 15.00 |
-| shelf_04 | 8.30 | 8.49 | 8.30 | 1.87 |
-| shelf_05 | 8.35 | 9.38 | 8.35 | 1.82 |
+| shelf_04 | 8.10 | 8.49 | 8.10 | 1.87 |
+| shelf_05 | 8.30 | 9.38 | 8.30 | 1.82 |
 | cave_mouth | 7.10 | 4.72 | 4.72 | 0.77 |
 
 Stills: `route_topdown.png` (straight down, north up) and `route_play.png` (v1's play camera) -- the magenta line is the knight's DRIVEN track (a check overlay, not in the guide); him on the stair for scale.
