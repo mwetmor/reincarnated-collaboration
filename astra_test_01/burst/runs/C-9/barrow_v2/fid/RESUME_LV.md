@@ -139,3 +139,10 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
 - [ ] blockout level (bv2f paths) + guide/ID/class render
 - [ ] composition pass at the play camera
 - [ ] M1′ packet
+
+## Phase 1′ additions (re-scope Gate-1 folds, charter § 15.1, R-C9-186) — GOVERN
+- **FIRST STEP (I-5):** (a) kit inventory against sketch A's features, each marked {kit-v3 / R-C9-155 build (cavecliff, staircliff, cliffplain, crag) / v1 piece (stones, groves) / procedural (palisade, stream) / MISSING}; (b) a top-down 2D footprint fit at current scales into ~55–65 m. Hall 32.4 m + barrow front 25.8 m + wreck 13 m is tight: a UNIFORM kit rescale is allowed (no door-size rule binds now) — record scale per instance. MISSING items or a non-fit → HALT to me.
+- **Frame:** write `fid/v1tools/`-compatible `frame_grid.bv2art.json` (via `--frame-grid`/`$BV2F_FRAME_GRID`); author bv2art in v1's camera-aligned frame; do NOT inherit `bv2f_level.gd`'s sim→R_y(47°) Level frame (DEV-4 retired).
+- **Emit** `declared_openings.json` (every doorway/opening the scene is meant to have) and a `char`/`ash` class in the class map (P6a needs both), plus `placed_fit_bv2art.json` (per-instance scale + anisotropy).
+- **DONE (W-3):** P6′ presence/placement/scale PASS vs layout_bv2art.json; hero-coverage table from the ID render of the M1′ stills (7 heroes: wreck, cave+stair, barrow door, mere, stone ring, hall door, gable — each in ≥ 1 still with ≥ 1 neighbour hero visible); measured footprint (u and v world-metre extent) vs ~55–65 m; declared openings + char class emitted; then Gate-2; then M1′.
+- **M1′ cover asks (≤ 3, one recommendation each):** include "burnt hall: closed sides except the great door (recommended) or open-sided ruin".

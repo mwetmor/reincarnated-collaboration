@@ -238,5 +238,14 @@ Matt is on Remote Control (phone). The conductor sends: one short line per phase
 
 **Budget:** run cap ~250 stands as a guard; expected Ph1′ 0–2, Ph2′+3′ ~40–70 images (compact site); fal ≤ $10 total (spent $1.20).
 
+### § 15.1 — Re-scope Gate-1 folds (jack-ryan `89e405a26`, GO-WITH-FOLDS; R-C9-186). GOVERN.
+- **Rows kept (W-1), in addition to § 15's list:** P6a/P6b (the paint-time invention check — now MORE load-bearing: Matt's later arena puts spawns in real doorways, so an invented door would become a spawn site), P8 (heather), P9 (life), P10 (performance). Only P7 is retired.
+- **Principles (W-2):** principle 5 (compose for the play window) is RESTORED; principle 8 restated as **"no arena or spawn work before M3′."**
+- **Earlier rulings' status (I-1):** R-C9-154 door sizes per monster and the R11 porch-above-roofline rule (R-C9-182) are arena-derived → **retired** (the kit already carries their sizes; a uniform kit rescale needs no ruling). R-C9-155 "one great door" **stands** as a look/invention guard. Open burnt-hall sides (R-C9-175) is an **open look question → M1′ cover ask.**
+- **Dormant (I-2), DEFERRED with Phase 4 (R-C9-185(4)):** § 0 terminal artifact's M4 clause, § 1 KC2-runtime row, § 3 hand-off row, § 4 lane AR, § 5 Phase 4 text, § 8 G-3/G-4. Do not resurrect them before M3′.
+- **DEV table restated (W-6):** DEV-1 → the compact grid (expected 4×4–5×5; closed as *not opened* if exactly 4×4). DEV-4 → **retired, never relied on** (the 0.2 proof is history; the bv2art layout must NOT inherit `bv2f_level.gd`'s R_y(47°) Level frame). DEV-6 → re-measured against the bv2art floor (if the snow-field px in `paint_world_prep.py` must change, that is a DEV-9 patch amendment + re-verify, never an in-flight edit). DEV-7 → restated at the compact painting size, or closed. DEV-16 → owed before the first take only if grouping is used (closed as not opened if ≤ 256 IDs fit ungrouped). DEV-2, 3, 5, 9–15 stand.
+- **Phase 1′ DONE (W-3):** (a) P6′ presence/placement/scale PASS against `layout_bv2art.json` (after PH's constructed 1.5 m-shift RED on bv2art, I-4); (b) a hero-coverage table from the ID render of the M1′ stills — each of the 7 heroes in ≥ 1 still with ≥ 1 neighbour hero's ID visible; (c) measured footprint (world-metre extent of the composed area on u and v) against ~55–65 m; (d) declared-openings list + char/ash class emitted; (e) Gate-2; then M1′. The art read is Matt's at M1′.
+- **Owed before Phase 2′ opens (no image spend until then):** W-4 (pilot sub-block dims, origin, kept or not; PH's 40-trial minimum window; take/build inside the pilot or the rows named), W-5 (re-home DEV-3/11, P4 new classes, P9c — the coast obligations W-B carried), W-7 (Ph2′ = pilot chunks × 2; Ph3′ = remaining chunks + ≤ 15% repairs + one retry each).
+
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.

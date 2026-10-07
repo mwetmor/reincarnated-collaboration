@@ -1,5 +1,7 @@
 # BV2F lane PT (drax) — RESUME
 
+> **§ 15 HEADER (R-C9-185/186):** the run is ART-FIRST on a compact sketch-A site; frame = `frame_grid.bv2art.json` through the same Tier-B config path (no re-freeze); DEV-1/6/7/16 restated in charter § 15.1 (DEV-6 snow-field change, if needed, is a DEV-9 patch amendment + re-verify). PT stands by until Phase 2′.
+
 **Charter:** `agentic_orchestration/gandalf/notes/2026-10-06-barrow-v2-fidelity-run-charter.md` §§ 4, 5 (Phase 0 rows 0.1, 0.3), 6, 10. Plan § 1 (W1–W10) is the v1 mechanism.
 **Phase:** 0 (no image spend, $0). Write scope: see the Gate-1 fold note below. Do NOT edit anything under `barrow_full/` (v1 is the positive control).
 

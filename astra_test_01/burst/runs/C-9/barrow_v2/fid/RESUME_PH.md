@@ -1,5 +1,7 @@
 # BV2F lane PH (galadriel) — RESUME
 
+> **§ 15 HEADER (R-C9-185/186):** the run is ART-FIRST. P6′ now runs against `fid/lv/layout_bv2art.json` (extent component retired); P7 retired; frame = `frame_grid.bv2art.json`; DEV-4 retired; DEV-1/6/7/16 restated in charter § 15.1. The layout_v7/v7c next steps below are SUPERSEDED. Next for PH: I-4 constructed 1.5 m-shift RED on bv2art, then P6′ on LV's blockout; W-4(2) the minimum pilot window for a 40-trial P11.
+
 **Charter:** `agentic_orchestration/gandalf/notes/2026-10-06-barrow-v2-fidelity-run-charter.md` §§ 4, 5 (Phase 0 row 0.4), 9 (C-1..C-3). Plan § 4 Phase 0.4 (the P1–P11 table) and § 1 (v1 numbers).
 **Phase:** 0 (no image spend). Write only under `runs/C-9/barrow_v2/fid/ph/` and this file.
 
