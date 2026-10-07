@@ -76,5 +76,16 @@
    "sha256": "65094c1beb6bcb8342195a62330cf3c0b4594bd4d792e6139f39295d9e2d98ae",
    "bytes": 56353246
   }
+ },
+ "r_c9_196": {
+  "heather_mask": {
+   "file": "fid/pt/pilot/heather_mask.png",
+   "sha256": "7f486b7745ef6ab380e8d625ba09dc00aebe99fdbe6d0a939c0dbc9af5da03a4"
+  },
+  "heather_colour": {
+   "file": "fid/pt/pilot/heather_colour.png",
+   "sha256": "f1c3852bea1f310017f77d5e90b277471a6f577f3da0863ed2a5525af04335d9"
+  },
+  "fix": "pt_capture_guide.gd hides the animated sea + floes for the heather shots (they are not in v1's id_black set); render_guide.png unchanged as PH's P3 input (not refreshed)"
  }
 }
