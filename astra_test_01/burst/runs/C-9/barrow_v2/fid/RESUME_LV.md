@@ -114,3 +114,28 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
   - Slots derived from the models; no x,y position moved this round (z only: logs, circle stones).
   - placed_fit_v7c.json refreshed: max anisotropy 1.001; longhall `r11_regions` porch 13.12 vs body 12.14.
   - Guide/ID re-rendered; check (a) 6/6; validator 66/66; v7c stills and sheets refreshed; cover P6′ slot left empty.
+
+---
+
+# PHASE 1′ — ART-FIRST BLOCKOUT (Matt R-C9-185; charter v1.0 § 15 GOVERNS)
+
+**The arena spec is retired for the scene.** No anchors, no discs, no layout_v2/v7 validator, no exit lanes, no clean-floor rule, no site rotation. Build barrow_v2 **the way v1 was built**: author the layout directly in v1's camera-aligned frame with v1's own layout practice (`barrow_full/tools/make_layout.py` → `barrow_full_layout.json` — read both first; mirror their structure), then the v1 blockout (`barrow_full.gd` greybox recipe: real models in flat `hero_grey`/class tints, primitives darker, four flat ground tints + new classes, one sun 55° upper-left, ink on).
+
+**Target:** a COMPACT site about v1's footprint (~55–65 m across) composed from **sketch A literally** (`barrow_v2/sites/BV3r2-A.png`; spawn sheet only for where things are, not as constraints):
+- W: the wreck heeled and half-sunk in shore ice, prow up (kit-v3 wreck), broken ribs, snapped mast; ice floes and open sea beyond.
+- SW: the sea cave in the cliff face with the straight open-sided stair climbing from a sea-level ledge to the clifftop (R-C9-148's stair, sketch-A placement).
+- N: the barrow mound with the monumental carved door (kit-v3 barrow front), the stream running down from it to the frozen mere (NW).
+- Centre: the start, a small broken weathered stone ring nearby (v1's stones, uniform scale), snow floor.
+- E: the burnt hall **as sketch A draws it** — long side and great door facing the start, palisade around — kit-v3 hall (uniform scale).
+- SE: the fallen gable as its **own** ruin (kit gable), palisade, bare trees.
+- Cliffs/crags along the S coast as modular instances (uniform scale, rotation only), shrub/heather zones as tint only (no plants).
+**Judge the composition at the play camera**, screen by screen: every hero (wreck, cave+stair, barrow door, mere, ring, hall door, gable) should read in a v1-zoom screen with neighbours visible, as v1's screens did. Distances are chosen for that, not for any arena.
+**Rules that still bind:** principle 3 (every real model ONE uniform scale, anisotropy ≤ 1.10; procedural pieces at true dims); no plants in the guide; v1 tools only through `fid/v1tools/godot_run.sh`; v1 files read-only, new files only in the allowlisted bv2f paths; budget 0 images (if a kit piece is genuinely missing, HALT to me — ≤ 2 images from reserve need my ruling).
+**M1′ packet** (`fid/lv/M1p/`): one cover screen (≤ 3 asks, one recommendation each), 10–14 play-camera stills each beside the matching sketch A area, a labelled map, the guide sheet, a `.command` walk. Report check (a) (entrances visible from the camera) as INFO only.
+**Ask PH** (via files/hand-back to me) for P6′ presence/placement/scale vs YOUR blockout as geometry of record (extent retired).
+
+## Phase 1′ state
+- [ ] read v1's make_layout.py + barrow_full_layout.json; layout_bv2art.json in v1's frame
+- [ ] blockout level (bv2f paths) + guide/ID/class render
+- [ ] composition pass at the play camera
+- [ ] M1′ packet
