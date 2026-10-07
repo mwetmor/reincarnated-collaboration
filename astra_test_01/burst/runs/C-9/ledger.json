@@ -46673,6 +46673,22 @@
       "ruling": "BV2F M1'' packet (LV 6ccc53548/927d94977; 4 images, $1.60; terrain levels, beach -4.2 m, cliffs 6.3-7.9 m from a sketch-A rock kit, cave + shelf + 33-tread stair, plated mere, stream channel, ~65% sea ice, paths removed; walkability 8/8) is HELD by the conductor before Matt, on a scene read against sketch A: (1) the STAIR reads as a broad corrugated slatted ramp running straight down-camera through the cliff top -- the same 'primitive painted faithfully' failure Matt named (R-C9-206); RULED: the flight climbs ACROSS the cliff face beside the cave as sketch A draws it (angled along the face, cliff wall behind it, open to the sea, R-C9-148 allows the angle), each tread a distinct rough block with its own depth and shadow, still ~5 m clear for big monsters and <= 35 deg; (2) the CAVE ARCH stands ~4 m above the clifftop as a blob knoll with only a sliver of dark opening; RULED: raise the cliff locally into a rock headland around the cave (sketch A's cave sits in a high face) so the 7 m mouth sits WITHIN the face with rock above it, the mouth reading as a dark eroded arch from the camera; (3) the SEA ICE is a regular tiled pattern of same-thickness plates with uniform gaps (reads as paving); RULED: sketch A's broken pack -- plates of varied size and thickness, snow-heaped rims and pressure ridges, brash/rubble ice between, irregular leads of dark water of varied width, denser at the shore-fast edge, looser offshore; (4) the MERE's crack gaps are wide dark channels (the painter will paint water); RULED: thin cracks and pressure seams on mostly continuous ice, as sketch A; (5) striped vertical-slat remnants at the cliff edges (stills 03, 08) -- remove or replace with rock-kit pieces. 0 images; then re-send M1''.",
       "verbatim": [],
       "ts": "2026-10-07T21:14:36Z"
+    },
+    {
+      "id": "R-C9-209",
+      "by": "Matt",
+      "ruling": "M1'' PASSED: the rebuilt coast (beach levels, eroded cliffs, cave in its headland, plated mere, broken pack ice, no paths) is right to paint -- repaint the pilot from this blockout. Sea-cave STAIR: keep 5 m (big-monster width, R-C9-188) and BREAK IT UP -- irregular staggered boulder steps of varied height with rock spurs along both sides so it reads as rough natural steps, not planks; walkability re-checked.",
+      "verbatim": [
+        "(AskUserQuestion) Coast: \"Yes, paint it (Recommended)\"; Stair: \"Keep 5 m, break it up (Recommended)\""
+      ],
+      "ts": "2026-10-07T21:54:54Z"
+    },
+    {
+      "id": "R-C9-210",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F pilot repaint release conditions: (1) the stair break-up lies outside the pilot window (cols 0-2, rows 0-2; the cave/stair are on the S coast), so LV's stair work runs in parallel; PT pins the 9 pilot guide tiles from LV's current render (3686cea98) and re-checks the pins after LV's stair re-render (any pilot-tile change = repaint from the newer tiles, not a mix). (2) GEO of record v2 = fid/pt/geo_bv2art_v2.txt (PT's draft + the cave as a dark eroded arch in a rocky headland and the stair as broad irregular boulder steps across the face). (3) Before the first burst: PH runs P6' presence/placement/scale on the new blockout (constructed RED still fails); DEV-12 amended cfg passes cfg_check; v1 control at pin and HEAD. (4) Ph2'' cap 18 images; same frozen method; DEV-21 reeds + reed/heather split + DEV-18 snow fix carried into the take/build. Then the pilot harness (P11 v3 binding), jack-ryan Gate-2, M2''.",
+      "verbatim": [],
+      "ts": "2026-10-07T21:54:54Z"
     }
   ],
   "grok_calls": [
