@@ -475,3 +475,23 @@ Inputs: `ids_v7c.png` sha `49adb3d8…` and `layout_v7c.json` (v7c_r178). Tool `
 **Reported, non-binding:** IoU against the slot prism, printed beside v1's like-for-like **0.635**.
 
 **Rule:** a P6′ RED on v7c is a HALT for an LV fix, never a bar move.
+
+## 16. P6′ CALIBRATION (§ 15 as registered; `harness/p6prime.py calibrate` → `results/p6prime_calibration.json`). Committed BEFORE the v7c run.
+
+**Bars:**
+- presence: 0 missing, 0 extra, terrain-hidden share ≤ 0.50 (written);
+- placement: containment ≥ **0.7872** (v1's minimum, from TL_right_2, over 86 pieces with ≥ 400 px);
+- scale: anisotropy ≤ 1.10 (written);
+- extent: every R1–R13 check passes.
+
+| component | v1 (positive) | RED | RED result |
+|---|---|---|---|
+| presence | 0 missing, 0 extra, terrain-hidden max 0.2744: **PASS** | v7c at `2a913e7af` (recorded result) | missing: braziers, rock_outcrop_3; terrain-hidden (recorded): standing_stones 0.987, cliff_faces 0.961: **RED** |
+| placement | containment min 0.7872 (own-silhouette check: median 1.0 of ID px inside the placed GLB): **PASS** | every v1 slot prism shifted 1.5 m | 85 of 86 pieces below the bar: **RED** |
+| scale of record | anisotropy max 1.0441 (birches: pitch-corrected 3.361 / 1.659 against a forced 1.38 m width): **PASS** | v6's 3 m porch: slot [13.207, 11.3, 3.0] m against hall_porch.glb AABB [8.1, 11.3, 3.0] m | fit [1.6305, 1.0, 1.0], anisotropy **1.63: RED** |
+| extent | v1 acceptance record (51 PASS flags: placements, no_squeezes, door, mound_and_door_floor, flood_fill, walks): **PASS** | v7c layout with the fallen gable shrunk to 40% about its far point | validator 65/66, **R10 FAIL** (gable more than 3.0 m from the edge): **RED**. The unshrunk layout copy gives 66/66, so the validator runs correctly on PH's copies |
+
+**One gap-fill to the registered text (A1), disclosed.** v1's lintel and raven stand wholly above 1.9 m, so their `footprint_uv_low` is EMPTY by construction. Their slot prism is the convex hull of their own placed vertices over the y range. This affects v1 measurability only and was fixed before the v7c run.
+
+**Reported, non-binding:** IoU against the slot prism, beside v1's like-for-like 0.635.
+

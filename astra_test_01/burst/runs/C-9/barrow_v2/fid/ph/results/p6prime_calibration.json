@@ -1,0 +1,896 @@
+{
+ "_what": "P6' calibration (calibration.md \u00a7 15 pre-registration, commit 45fb5eaac)",
+ "bars": {
+  "presence_missing": 0,
+  "presence_extra": 0,
+  "terrain_hidden_share_max": 0.5,
+  "containment_min": 0.7872,
+  "containment_min_from": "TL_right_2",
+  "anisotropy_max": 1.1,
+  "extent": "every R1-R13 check passes"
+ },
+ "v1": {
+  "missing": [],
+  "extra": [],
+  "terrain_hidden_share_max_observed": 0.2744,
+  "containment_min": 0.7872,
+  "anisotropy_max_observed": 1.0441,
+  "id_in_own_silhouette_median": 1.0,
+  "extent": {
+   "source": "barrow_full_layout.json acceptance (finalize.py, computed from the built models' own footprints)",
+   "checks": {
+    "placements": true,
+    "no_squeezes": true,
+    "door": true,
+    "mound_and_door_floor": true,
+    "flood_fill": true,
+    "walks": true
+   },
+   "n_pass_flags": 51,
+   "pass": true
+  },
+  "pass": {
+   "presence": true,
+   "placement": true,
+   "scale": true,
+   "extent": true
+  }
+ },
+ "v1_objects": {
+  "mound": {
+   "class": "mound",
+   "id_px": 680231,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1597,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "door_lintel": {
+   "class": "lintel",
+   "id_px": 16553,
+   "prism_from": "A1: own placed vertices (empty footprint_uv_low)",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "door_post_L": {
+   "class": "post",
+   "id_px": 3662,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0045,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "door_post_R": {
+   "class": "post",
+   "id_px": 4235,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0063,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_p155": {
+   "class": "stone_tall",
+   "id_px": 9261,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0347,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_m155": {
+   "class": "stone_tall",
+   "id_px": 10466,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0271,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0
+  },
+  "ring_p135": {
+   "class": "stone_mid",
+   "id_px": 11015,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0279,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_m135": {
+   "class": "stone_mid",
+   "id_px": 11731,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0249,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_p115": {
+   "class": "stone_short",
+   "id_px": 6340,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.036,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_m115": {
+   "class": "stone_short",
+   "id_px": 5813,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0363,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_p95": {
+   "class": "stone_tall",
+   "id_px": 9266,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0328,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_m95": {
+   "class": "stone_tall",
+   "id_px": 16970,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0194,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_p75": {
+   "class": "stone_mid",
+   "id_px": 11016,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0275,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0
+  },
+  "ring_m75": {
+   "class": "stone_mid",
+   "id_px": 11727,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0279,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_p55": {
+   "class": "stone_tall",
+   "id_px": 9210,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.034,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0
+  },
+  "ring_m55": {
+   "class": "stone_tall",
+   "id_px": 10460,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0259,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0
+  },
+  "ring_p35": {
+   "class": "stone_short",
+   "id_px": 6341,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0351,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "ring_m35": {
+   "class": "stone_short",
+   "id_px": 5824,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0366,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "raven": {
+   "class": "raven",
+   "id_px": 143,
+   "prism_from": "A1: own placed vertices (empty footprint_uv_low)",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1333,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "outcrop_1": {
+   "class": "outcrop",
+   "id_px": 138401,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2315,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_2": {
+   "class": "outcrop",
+   "id_px": 180225,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2399,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_3": {
+   "class": "outcrop",
+   "id_px": 138736,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9991,
+   "terrain_hidden_share": 0.2441,
+   "id_in_own_silhouette": 0.9991,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_4": {
+   "class": "outcrop",
+   "id_px": 108640,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2744,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_5": {
+   "class": "outcrop",
+   "id_px": 125732,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.203,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_6": {
+   "class": "outcrop",
+   "id_px": 163108,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1957,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_7": {
+   "class": "outcrop",
+   "id_px": 157008,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9999,
+   "terrain_hidden_share": 0.1729,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "outcrop_8": {
+   "class": "outcrop",
+   "id_px": 122721,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1845,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "cover_outcrop": {
+   "class": "outcrop",
+   "id_px": 49161,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1386,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_1": {
+   "class": "outcrop",
+   "id_px": 151288,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1582,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_2": {
+   "class": "outcrop",
+   "id_px": 139656,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9972,
+   "terrain_hidden_share": 0.2192,
+   "id_in_own_silhouette": 0.9972,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_3": {
+   "class": "outcrop",
+   "id_px": 126243,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2641,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_4": {
+   "class": "outcrop",
+   "id_px": 106901,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2713,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_5": {
+   "class": "outcrop",
+   "id_px": 131895,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2707,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_6": {
+   "class": "outcrop",
+   "id_px": 125214,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2532,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_7": {
+   "class": "outcrop",
+   "id_px": 153496,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2188,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_8": {
+   "class": "outcrop",
+   "id_px": 150606,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.998,
+   "terrain_hidden_share": 0.1797,
+   "id_in_own_silhouette": 0.998,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "margin_outcrop_9": {
+   "class": "outcrop",
+   "id_px": 125115,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9999,
+   "terrain_hidden_share": 0.1215,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_1": {
+   "class": "shore_rock",
+   "id_px": 8898,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9998,
+   "terrain_hidden_share": 0.1462,
+   "id_in_own_silhouette": 0.9998,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_2": {
+   "class": "shore_rock",
+   "id_px": 17188,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0567,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_3": {
+   "class": "shore_rock",
+   "id_px": 7542,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0369,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_4": {
+   "class": "shore_rock",
+   "id_px": 12649,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0539,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_5": {
+   "class": "shore_rock",
+   "id_px": 11772,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0567,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_6": {
+   "class": "shore_rock",
+   "id_px": 14940,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9998,
+   "terrain_hidden_share": 0.0538,
+   "id_in_own_silhouette": 0.9998,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_7": {
+   "class": "shore_rock",
+   "id_px": 10287,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9997,
+   "terrain_hidden_share": 0.1108,
+   "id_in_own_silhouette": 0.9997,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_8": {
+   "class": "shore_rock",
+   "id_px": 15353,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9999,
+   "terrain_hidden_share": 0.0671,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_9": {
+   "class": "shore_rock",
+   "id_px": 16680,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1367,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "shore_rock_bridge": {
+   "class": "shore_rock",
+   "id_px": 14207,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.048,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": "N/A (procedural primitive, not normalised)"
+  },
+  "fallen_tree_log_A": {
+   "class": "log",
+   "id_px": 6989,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0464,
+   "id_in_own_silhouette": 0.9997,
+   "anisotropy": 1.0
+  },
+  "fallen_tree_log_B": {
+   "class": "log",
+   "id_px": 7049,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0382,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0
+  },
+  "grave_marker_W": {
+   "class": "shield",
+   "id_px": 6480,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0543,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "grave_marker_E": {
+   "class": "shield",
+   "id_px": 6483,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0507,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "cairn_1": {
+   "class": "cairn",
+   "id_px": 6732,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0274,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "cairn_2": {
+   "class": "cairn",
+   "id_px": 5996,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0284,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "cairn_3": {
+   "class": "cairn",
+   "id_px": 6732,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.0279,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0
+  },
+  "G1_birch_1": {
+   "class": "birch",
+   "id_px": 6228,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9422,
+   "terrain_hidden_share": 0.1999,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G1_birch_2": {
+   "class": "birch",
+   "id_px": 7001,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1549,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G1_birch_3": {
+   "class": "birch",
+   "id_px": 6380,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.7915,
+   "terrain_hidden_share": 0.218,
+   "id_in_own_silhouette": 0.9997,
+   "anisotropy": 1.0441
+  },
+  "G1_birch_4": {
+   "class": "birch",
+   "id_px": 5560,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9374,
+   "terrain_hidden_share": 0.2016,
+   "id_in_own_silhouette": 0.9998,
+   "anisotropy": 1.0441
+  },
+  "G1_birch_5": {
+   "class": "birch",
+   "id_px": 6616,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9083,
+   "terrain_hidden_share": 0.2046,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G2_birch_1": {
+   "class": "birch",
+   "id_px": 7421,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.821,
+   "terrain_hidden_share": 0.1921,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G2_birch_2": {
+   "class": "birch",
+   "id_px": 8675,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9783,
+   "terrain_hidden_share": 0.0209,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0441
+  },
+  "G2_birch_3": {
+   "class": "birch",
+   "id_px": 8194,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9238,
+   "terrain_hidden_share": 0.2312,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G2_birch_4": {
+   "class": "birch",
+   "id_px": 7076,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.944,
+   "terrain_hidden_share": 0.2147,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0441
+  },
+  "G3_birch_1": {
+   "class": "birch",
+   "id_px": 6996,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2107,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G3_birch_2": {
+   "class": "birch",
+   "id_px": 6434,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.7875,
+   "terrain_hidden_share": 0.2106,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G3_birch_3": {
+   "class": "birch",
+   "id_px": 5969,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9429,
+   "terrain_hidden_share": 0.2133,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G3_birch_4": {
+   "class": "birch",
+   "id_px": 6644,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9092,
+   "terrain_hidden_share": 0.2248,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G4_birch_1": {
+   "class": "birch",
+   "id_px": 7379,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.8207,
+   "terrain_hidden_share": 0.0273,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "G4_birch_2": {
+   "class": "birch",
+   "id_px": 8646,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9787,
+   "terrain_hidden_share": 0.1775,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0441
+  },
+  "G4_birch_3": {
+   "class": "birch",
+   "id_px": 7541,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9337,
+   "terrain_hidden_share": 0.2138,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0441
+  },
+  "TL_top_right_1": {
+   "class": "birch",
+   "id_px": 7094,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.945,
+   "terrain_hidden_share": 0.2179,
+   "id_in_own_silhouette": 0.9997,
+   "anisotropy": 1.0441
+  },
+  "TL_right_1": {
+   "class": "birch",
+   "id_px": 7020,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.2073,
+   "id_in_own_silhouette": 0.9999,
+   "anisotropy": 1.0441
+  },
+  "TL_right_2": {
+   "class": "birch",
+   "id_px": 6419,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.7872,
+   "terrain_hidden_share": 0.2131,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_right_3": {
+   "class": "birch",
+   "id_px": 5841,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.956,
+   "terrain_hidden_share": 0.2015,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_right_4": {
+   "class": "birch",
+   "id_px": 6648,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.907,
+   "terrain_hidden_share": 0.224,
+   "id_in_own_silhouette": 0.9998,
+   "anisotropy": 1.0441
+  },
+  "TL_bottom_right_1": {
+   "class": "birch",
+   "id_px": 7374,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.8291,
+   "terrain_hidden_share": 0.1994,
+   "id_in_own_silhouette": 0.9996,
+   "anisotropy": 1.0441
+  },
+  "TL_bottom_right_2": {
+   "class": "birch",
+   "id_px": 8620,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9789,
+   "terrain_hidden_share": 0.2212,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_bottom_left_1": {
+   "class": "birch",
+   "id_px": 8274,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9225,
+   "terrain_hidden_share": 0.2342,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_bottom_left_2": {
+   "class": "birch",
+   "id_px": 7121,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9448,
+   "terrain_hidden_share": 0.209,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_bottom_left_3": {
+   "class": "birch",
+   "id_px": 7021,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1492,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_left_1": {
+   "class": "birch",
+   "id_px": 6180,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.8183,
+   "terrain_hidden_share": 0.2022,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_left_2": {
+   "class": "birch",
+   "id_px": 5682,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9571,
+   "terrain_hidden_share": 0.1186,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_left_3": {
+   "class": "birch",
+   "id_px": 6637,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.9049,
+   "terrain_hidden_share": 0.2254,
+   "id_in_own_silhouette": 0.9997,
+   "anisotropy": 1.0441
+  },
+  "TL_top_left_1": {
+   "class": "birch",
+   "id_px": 7382,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.8235,
+   "terrain_hidden_share": 0.197,
+   "id_in_own_silhouette": 0.9997,
+   "anisotropy": 1.0441
+  },
+  "TL_top_left_2": {
+   "class": "birch",
+   "id_px": 5769,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1506,
+   "id_in_own_silhouette": 0.9998,
+   "anisotropy": 1.0441
+  },
+  "TL_top_left_3": {
+   "class": "birch",
+   "id_px": 4149,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 1.0,
+   "terrain_hidden_share": 0.1424,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  },
+  "TL_behind_mound_1": {
+   "class": "birch",
+   "id_px": 3784,
+   "prism_from": "footprint_uv_low x y range",
+   "containment": 0.977,
+   "terrain_hidden_share": 0.1406,
+   "id_in_own_silhouette": 1.0,
+   "anisotropy": 1.0441
+  }
+ },
+ "red_presence_v7c_2a913e7af": {
+  "missing": [
+   "braziers",
+   "rock_outcrop_3"
+  ],
+  "hidden_by_terrain_recorded": {
+   "standing_stones": 0.987,
+   "cliff_faces": 0.961
+  },
+  "pass": false
+ },
+ "red_placement_shift_1p5m": {
+  "objects_below_bar": 85,
+  "of": 86,
+  "examples": {
+   "door_post_L": 0.0,
+   "door_post_R": 0.0,
+   "ring_p155": 0.0,
+   "ring_m155": 0.0,
+   "ring_p135": 0.0
+  },
+  "pass": false
+ },
+ "red_scale_v6_porch": {
+  "slot_m": [
+   13.207,
+   11.3,
+   3.0
+  ],
+  "glb_aabb_m": [
+   8.1,
+   11.3,
+   3.0
+  ],
+  "fit_scale": [
+   1.6305,
+   1.0,
+   1.0
+  ],
+  "anisotropy": 1.63,
+  "pass": false
+ },
+ "red_extent_gable_shrunk": {
+  "layout_baseline": {
+   "exit": 0,
+   "fails": [],
+   "n_checks": 74,
+   "stdout_tail": [
+    "  PASS  R13  CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots  {\"offenders\": []}",
+    "  PASS  R13  tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)  {\"tufts\": 63, \"cap\": 63, \"per_100m2\": 1.491}",
+    "== 66 checks, 66 PASS, 0 FAIL, plus 8 INFO -> PASS"
+   ]
+  },
+  "shrunk": {
+   "exit": 1,
+   "fails": [
+    {
+     "rule": "R10",
+     "check": "p06: fallen_gable is outside the walkable edge and within 3.0 m of it"
+    }
+   ],
+   "n_checks": 74,
+   "stdout_tail": [
+    "  PASS  R13  CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots  {\"offenders\": []}",
+    "  PASS  R13  tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)  {\"tufts\": 63, \"cap\": 63, \"per_100m2\": 1.491}",
+    "== 66 checks, 65 PASS, 1 FAIL, plus 8 INFO -> FAIL"
+   ]
+  },
+  "r10_failed": true,
+  "pass": false
+ },
+ "v1_like_for_like_iou_vs_prism_reported": 0.635
+}
