@@ -102,3 +102,8 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P8 on PT's fixed mask (8df01abcd): PASS min 0.5302 (exclusion withdrawn, env-gated off).
 - [x] Renders done (`ph/renders/pilot2/`, PNG pairs only): P9 sway 6.104 PASS (no-wind RED fails); P9 flow 1.524 > 0 and 9x noise, but < frozen 2.064 (clause (b)) -> FAIL on the frozen bar, flagged (paint_mix 1.0 vs 159's 0.75); trail PASS; P10 p99 16.54 (start) / 15.18 (sea) PASS, burn RED fails.
 - [x] P9c re-instrumented (`floe_drift_v2`, ph_life marker R const / G noise, `--floe-red`): self-test rest <= 0.007, RED = motion; pilot RED 0.643 FAIL; rest-pose 0.528 2-D (vertical: waterline occludes the bobbing silhouette) / 0.015 horizontal. Non-binding; ruling needed (PH recommends (b): depth-test-off marker shot). calibration.md § 30.
+
+## R-C9-197 (PT 9c53bc067)
+- [x] P9c pre-registered (§ 31, 3888c0d74) + A1 (depth-test-off drew nothing -> sea hidden for marker shots; 96509f727), then measured (§ 32): rest-pose 0.010 PASS, swimming RED 1.766 FAIL -> P9c SHOWN; binding is the conductor's call.
+- [x] P9 flow 1.551 (paint_mix 0.75) < 2.064 -> FAIL on the frozen bar (paint_mix was not the driver; open water vs v159's surf). P10 PASS p99 16.20 / 14.49 ms.
+- Runner: `harness/run_p9c_godot.sh p9c flow perf` -> ph/renders/pilot3/.

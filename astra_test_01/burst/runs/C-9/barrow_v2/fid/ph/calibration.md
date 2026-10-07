@@ -938,3 +938,22 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 - **What failed.** The depth-test-off / unshaded / ALPHA = 1 marker shader drew **no marker**. In `renders/pilot3/p9c_{rest,red}` (first attempt) the floe region of floe_m0 matches hide_floe, apart from the water's own animation. There are no shader errors in the log, and `p9c_measure` finds 0 floes in all 5 pairs of both runs.
 - **The mechanism now.** It keeps the floe's own opaque shader, as in § 30. The **sea meshes (`ground_sea`) are hidden for all marker shots and for hide_floe**, so no waterline can occlude the bobbing silhouette, and the background is static between the shots.
 - **Unchanged.** Intent, view, floe rule, pairs, statistic and bars are all as § 31. The first-attempt renders are kept as evidence and are not scored.
+
+## 32. PT 9c53bc067 (paint_mix 0.75): P9 flow, P10, and P9c as pre-registered (§ 31 + A1). `results/pilot3/p9c_flow_p10.json`; renders `renders/pilot3/`
+
+| Row | Measured | Bar | Verdict |
+|---|---|---|---|
+| P9 flow | **1.551** over the water mask (uv −29, −5.5; 886 ms apart); noise 0.165. It was 1.524 at paint_mix 1.0 | ≥ 2.064 and ≥ 3× noise | **FAIL** (frozen bar). Hidden-water RED 0.053 |
+| P10 | p99 **16.20 ms** at the start (p50 14.62, max 16.77); **14.49 ms** at the sea | ≤ 16.7 | **PASS** |
+| P9c rest-pose | per pair 0.007 / 0.006 / 0.013 / 0.059 (motion 0.94–3.06 px). Pair _2 not counted: motion 0.17 < 0.25. **Median 0.010 px** | ≤ 0.25 | **PASS** |
+| P9c RED (swimming) | per pair 0.882 / 2.953 / 0.924 / 2.607, each equal to that pair's motion. **Median 1.766 px** | must be > 0.25 | **FAIL, as required** |
+
+**P9c is shown** under the pre-registered protocol: the rest-pose build passes, the swimming RED fails, and both use one floe (blob_11, the only floe wholly in the plate) over 4 counted pairs.
+- With the sea hidden, the silhouette and texture shifts agree to ≤ 0.06 px on the build.
+- On the RED, the texture reads 0.000 while the floe moves.
+- Whether it now binds is the conductor's call.
+
+**P9 flow, read: the paint_mix fix did not reach the floor.** 0.75 against 1.0 moved flow 1.524 → 1.551 (+2%), so paint_mix was not the driver.
+- **Pilot sea:** mostly calm. Per-pixel |Δ| has median 0.33 and p90 11.7, and 18% of px exceed 2.
+- **R-C9-159's sea (6.48):** median 0.67, p90 63, and 39% of px exceed 2. It was a smaller water region (131 k px against 851 k) that was mostly foamy shore.
+- **So the difference is the sea's composition** in the measured view (open water against surf), not the shader's mix. No bar moved; the next build or view decision is the conductor's.
