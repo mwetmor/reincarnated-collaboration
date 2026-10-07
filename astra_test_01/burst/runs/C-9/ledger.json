@@ -45537,6 +45537,13 @@
       "ruling": "BV2F Phase 1 deliverables complete for Gate-2: v7c (separate gable ruin, hall door to camera, cave mouth cleared; validator 66/66; check (a) 6/6, independently re-measured by PH within 0.13%, hall door 6.35 m^2 with LV's curtain-box explanation accepted); geometry defects fixed (d4c59061f); M1 packet refreshed (fid/lv/M1/). P6 IoU remains 0.46 < 0.513 with exact placement -- per R-C9-178 the conductor does NOT move the bar; H-C9-BV2F-PH-P1-1 is routed to jack-ryan's Phase 1 Gate-2 as a re-instrumentation question. M1 is sent to Matt only after Gate-2.",
       "verbatim": [],
       "ts": "2026-10-07T06:26:32Z"
+    },
+    {
+      "id": "R-C9-180",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F Phase 1 Gate-2 (jack-ryan e852dbf10): BLOCK-narrow on P6 only; validator 66/66, check (a) 6/6, budget and the R-C9-177 revisit accepted. H-C9-BV2F-PH-P1-1 ruled by the ratifier: re-instrumentation LEGITIMATE on provenance evidence independent of v7c's score (the Phase-1 prism-IoU tool was never calibrated; 0.513 was P6b's bar; v1's like-for-like value is 0.635; per-axis box fitting makes prism-IoU blind to C7) under stricter conditions. Folded at charter v0.4 s14: P6' pre-registered by PH BEFORE any v7c re-read (presence, placement, scale anisotropy <= 1.10, extent = R1-R13 on placed models' own footprints/heights), calibrated v1 PASS + four REDs (v7c@2a913e7af presence; 1.5 m shift; >10% squash; shrunk-model R10 break), IoU-vs-prism reported non-binding beside 0.635; P6' RED = HALT for an LV fix. Also: W1 PT control re-measure at pin f1aa715ac; W2 LV per-instance fit_scale + anisotropy; W3 DEV-16 registered (ID grouping, measurement owed before the first take); W4 M1 phone cover with <= 3 asks. ANNOTATIONS (I-1/I-2, corrigenda-forward): R-C9-148's 'one angled longhall ... separate byre removed' was conductor content, not Matt's ruling (Matt asked a question); R-C9-174 ('v7b only') is superseded for the hall/gable by R-C9-177 (v7c separates the gable and turns the door to the camera; v7b remains as comparison only, failing check (a)). Ph1 sub-cap re-base 4->6 recorded in charter s14/s6.",
+      "verbatim": [],
+      "ts": "2026-10-07T06:35:06Z"
     }
   ],
   "grok_calls": [
