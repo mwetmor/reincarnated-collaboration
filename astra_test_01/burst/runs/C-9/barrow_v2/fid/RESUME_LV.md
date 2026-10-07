@@ -19,4 +19,5 @@ Heavy lock for Godot runs: `python3 runs/C-7/conductor_scripts/heavy_lock.py C-9
 Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git commit --only <paths>`, `git show --stat HEAD` after. Never `git add -A`. Do NOT edit/commit `ledger.json` (conductor only); HALTs go in this RESUME + hand-back. Do not push.
 
 ## State
-- [ ] 0.2 frame fix + proof
+- [x] 0.2 frame fix + proof DONE (deliverables in lv/; report lv/frame_report.md). world = R_y(+47)·(x,z,y); sign tests ALL PASS (T3 exact to 1e-12 px; yaw -47 and yaw 0 rejected).
+- ⚑ **HALT-for-ruling (I-2):** mechanical I-2 = **FAIL on p03 only** (Δ +59.4°; cyclic order MATCHES; other five ≤ 12.7°; similarity-fit rotation −3.2°). No yaw passes all six (best 34.3° at yaw 26.5); cause is pack p03 (8.23, 32.06, SE of start) vs sketch A's SW patch — data, not frame. Conductor rules. Also: hall/great door/gable ~90° off sketch A (layout door faces NW). LV stopped; Phase 1 not started.

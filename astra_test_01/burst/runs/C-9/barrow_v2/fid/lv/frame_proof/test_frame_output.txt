@@ -1,0 +1,8 @@
+PASS T1 analytic v1 camera basis == barrow_heather.gd live basis  {"max_abs_diff": 2.4314189261964714e-07, "right": [0.681998, 0.0, -0.731354], "up": [-0.583728, 0.602462, -0.544335], "fwd": [-0.440613, -0.798147, -0.410878]}
+PASS T2 p02 screen-UP of the start and p01 screen-LEFT (yaw +47)  {"p02_px": [957.78, -2546.31], "p01_px": [-3462.15, 768.95]}
+PASS T2b p04 screen-RIGHT and p03 screen-DOWN (yaw +47)  {"p04_px": [3140.78, 546.49], "p03_px": [827.88, 2574.82]}
+PASS T3 v1camera(R_y(+47).sim) == layout yaw-0 law (anchors + 81-pt grid x 3 heights)  {"worst_px": 1.8189894035458565e-12}
+PASS T4 negative control (wrong sign, yaw -47) is REJECTED  {"two_anchor": {"p02_up": false, "p01_left": false, "p04_right": false, "p03_down": false}, "worst_px": 12480.5, "screen_angle_deg": {"p01": 104.36, "p02": -16.79, "p03": -171.67, "p04": -110.12, "p05": 44.34, "p06": -141.21}}
+PASS T4 negative control (R-C9-159, site unrotated) is REJECTED  {"two_anchor": {"p02_up": false, "p01_left": true, "p04_right": false, "p03_down": true}, "worst_px": 6335.0, "screen_angle_deg": {"p01": 153.98, "p02": 21.52, "p03": -128.71, "p04": -53.35, "p05": 99.69, "p06": -87.25}}
+PASS T5 round trip + model yaw (rot_y_world = rot_y_sim + 47)  {"roundtrip": 3.552713678800501e-15, "yaw_dir_err": 3.64275408404521e-16}
+ALL PASS

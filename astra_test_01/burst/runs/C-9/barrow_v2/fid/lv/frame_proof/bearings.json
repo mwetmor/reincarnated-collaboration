@@ -1,0 +1,91 @@
+{
+ "sketch_bearing_deg": {
+  "p01": 182.2,
+  "p02": 80.8,
+  "p03": 228.4,
+  "p04": 357.0,
+  "p05": 146.2,
+  "p06": 338.2
+ },
+ "sketch_cyclic_order": [
+  "p02",
+  "p05",
+  "p01",
+  "p03",
+  "p06",
+  "p04"
+ ],
+ "renders": {
+  "fixed": {
+   "yaw_deg": 47.0,
+   "bearing_deg": {
+    "p01": 192.5,
+    "p02": 69.4,
+    "p03": 287.8,
+    "p04": 350.1,
+    "p05": 150.6,
+    "p06": 325.4
+   },
+   "delta_deg": {
+    "p01": 10.3,
+    "p02": -11.4,
+    "p03": 59.4,
+    "p04": -6.9,
+    "p05": 4.3,
+    "p06": -12.7
+   },
+   "cyclic_order": [
+    "p02",
+    "p05",
+    "p01",
+    "p03",
+    "p06",
+    "p04"
+   ],
+   "cyclic_order_matches": true,
+   "all_within_15": false,
+   "PASS": false,
+   "similarity_fit": {
+    "rotation_deg": -3.2,
+    "scale": 1.08,
+    "rms_px_sketch": 142.3
+   }
+  },
+  "r159": {
+   "yaw_deg": 0.0,
+   "bearing_deg": {
+    "p01": 154.0,
+    "p02": 21.5,
+    "p03": 231.3,
+    "p04": 306.6,
+    "p05": 99.7,
+    "p06": 272.8
+   },
+   "delta_deg": {
+    "p01": -28.2,
+    "p02": -59.3,
+    "p03": 2.9,
+    "p04": -50.4,
+    "p05": -46.6,
+    "p06": -65.4
+   },
+   "cyclic_order": [
+    "p02",
+    "p05",
+    "p01",
+    "p03",
+    "p06",
+    "p04"
+   ],
+   "cyclic_order_matches": true,
+   "all_within_15": false,
+   "PASS": false,
+   "similarity_fit": {
+    "rotation_deg": 41.6,
+    "scale": 1.051,
+    "rms_px_sketch": 163.3
+   }
+  }
+ },
+ "decision_I2": "FAIL"
+}

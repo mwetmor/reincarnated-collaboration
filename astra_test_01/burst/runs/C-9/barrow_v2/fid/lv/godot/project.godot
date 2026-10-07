@@ -1,0 +1,14 @@
+; BV2F lane LV Phase 0.2: frame-proof render (markers only, unpainted). Runs frame_render.gd via --script.
+config_version=5
+
+[application]
+config/name="BV2F LV frame proof"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=1400
+
+[rendering]
+renderer/rendering_method="forward_plus"
+anti_aliasing/quality/msaa_3d=2
