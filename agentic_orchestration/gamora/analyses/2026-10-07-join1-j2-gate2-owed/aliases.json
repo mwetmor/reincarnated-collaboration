@@ -1,0 +1,237 @@
+{
+ "function_holders": [
+  [
+   "player_sustain",
+   "_applied_damage",
+   "IDENTICAL"
+  ],
+  [
+   "player_sustain",
+   "_mitigation_at",
+   "IDENTICAL"
+  ]
+ ],
+ "holders": [
+  {
+   "as": "D_ENGAGE_M",
+   "holder": "arrival_order",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 43,
+   "multiline": false,
+   "name": "D_ENGAGE_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "D_ENGAGE_M",
+   "holder": "calibration",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 49,
+   "multiline": true,
+   "name": "D_ENGAGE_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "BASE_TICK_PERIOD_S",
+   "holder": "channel",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 33,
+   "multiline": true,
+   "name": "BASE_TICK_PERIOD_S",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "EOR_RADIUS_M",
+   "holder": "channel",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 33,
+   "multiline": true,
+   "name": "EOR_RADIUS_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "SOULFIRE_PERIOD_S",
+   "holder": "channel",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 33,
+   "multiline": true,
+   "name": "SOULFIRE_PERIOD_S",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "EOR_RADIUS_M",
+   "holder": "disc",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 40,
+   "multiline": false,
+   "name": "EOR_RADIUS_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "EOR_RADIUS_M",
+   "holder": "dodge",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 35,
+   "multiline": false,
+   "name": "EOR_RADIUS_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "SOULFIRE_PERIOD_S",
+   "holder": "energy",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 29,
+   "multiline": true,
+   "name": "SOULFIRE_PERIOD_S",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "D_ENGAGE_M",
+   "holder": "engagement",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 30,
+   "multiline": false,
+   "name": "D_ENGAGE_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "FIXTURE_ATTACK_SPEED_PCT",
+   "holder": "micro_oracles",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 58,
+   "multiline": true,
+   "name": "FIXTURE_ATTACK_SPEED_PCT",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "FIXTURE_ATTACK_SPEED_PCT",
+   "holder": "monster_stats",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 26,
+   "multiline": false,
+   "name": "FIXTURE_ATTACK_SPEED_PCT",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "EOR_RADIUS_M",
+   "holder": "player_drive",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 37,
+   "multiline": false,
+   "name": "EOR_RADIUS_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "_D_ENGAGE_M",
+   "holder": "player_locomotion",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 44,
+   "multiline": false,
+   "name": "D_ENGAGE_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "_applied_damage",
+   "holder": "player_sustain",
+   "home": "player_offense",
+   "kind": "module-level",
+   "line": 41,
+   "multiline": true,
+   "name": "applied_damage",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "_mitigation_at",
+   "holder": "player_sustain",
+   "home": "player_offense",
+   "kind": "module-level",
+   "line": 41,
+   "multiline": true,
+   "name": "mitigation_at",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "FIXTURE_ATTACK_SPEED_PCT",
+   "holder": "run",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 50,
+   "multiline": true,
+   "name": "FIXTURE_ATTACK_SPEED_PCT",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "D_ENGAGE_M",
+   "holder": "run",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 58,
+   "multiline": true,
+   "name": "D_ENGAGE_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "Mover",
+   "holder": "run",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 58,
+   "multiline": true,
+   "name": "Mover",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "D_ENGAGE_M",
+   "holder": "threat",
+   "home": "locomotion",
+   "kind": "module-level",
+   "line": 43,
+   "multiline": false,
+   "name": "D_ENGAGE_M",
+   "readback": "IDENTICAL"
+  },
+  {
+   "as": "EOR_RADIUS_M",
+   "holder": "threat",
+   "home": "fixture",
+   "kind": "module-level",
+   "line": 44,
+   "multiline": false,
+   "name": "EOR_RADIUS_M",
+   "readback": "IDENTICAL"
+  }
+ ],
+ "module_level_counts": {
+  "BASE_TICK_PERIOD_S": 1,
+  "D_ENGAGE_M": 6,
+  "EOR_RADIUS_M": 5,
+  "FIXTURE_ATTACK_SPEED_PCT": 3,
+  "Mover": 1,
+  "SOULFIRE_PERIOD_S": 2,
+  "applied_damage": 1,
+  "mitigation_at": 1
+ },
+ "n_holders": 20,
+ "n_stale": 0,
+ "pass": true,
+ "rulebook_commit": {
+  "kind": "operand-source",
+  "loader_sha256": "2e0307ff94145206b1100e5d5967028e185be04e966ed08c783f12039d18e11b",
+  "overridden": [],
+  "pack_digest": "974ff0925e02cceb1722bf63f4cdc638a1c19d94c4b09e3349825e23989da132",
+  "row": null,
+  "source": "PACK"
+ }
+}

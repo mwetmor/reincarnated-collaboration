@@ -1,0 +1,1346 @@
+{
+ "leech_path_resist_helpers": [],
+ "n_new": 0,
+ "pass": false,
+ "rulebook": "/Users/admin/Games/reincarnated-engine-join2-rb/src/join2_rulebook",
+ "rulebook_commit": "0dda17bde1ee5ac727f41ccb8b85f475a922c096",
+ "rulebook_counts": {
+  "TA-X-26(d) max(0, 1 - x/100)": 3,
+  "resist factor 1 - x/100 (uncapped)": 4
+ },
+ "rulebook_sites": [
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "disposition": "TRANSCRIPTION",
+   "file": "families.py",
+   "func": "summon_applied",
+   "line": 305,
+   "replaces": "summon_offense.py:applied_for",
+   "sealed_lines": [
+    475
+   ],
+   "text": "return raw * max(0.0, 1.0 - res / _PCT_DIVISOR) * crit_mult"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "disposition": "TRANSCRIPTION",
+   "file": "families.py",
+   "func": "summon_applied",
+   "line": 305,
+   "replaces": "summon_offense.py:applied_for",
+   "sealed_lines": [
+    475
+   ],
+   "text": "return raw * max(0.0, 1.0 - res / _PCT_DIVISOR) * crit_mult"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "disposition": "TRANSCRIPTION",
+   "file": "forms.py",
+   "func": "mitigate",
+   "line": 76,
+   "replaces": "threat.py:mitigate",
+   "sealed_lines": [
+    314
+   ],
+   "text": "d = damage * (1.0 - res_used / 100.0)"
+  },
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "disposition": "TRANSCRIPTION",
+   "file": "forms.py",
+   "func": "soulfire_applied",
+   "line": 156,
+   "replaces": "secondary_streams.py:SecondaryStreams.soulfire_applied",
+   "sealed_lines": [
+    277
+   ],
+   "text": "* max(0.0, 1.0 - res / 100.0) * self.crit_mult) * self.mutator_factor"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "disposition": "TRANSCRIPTION",
+   "file": "forms.py",
+   "func": "soulfire_applied",
+   "line": 156,
+   "replaces": "secondary_streams.py:SecondaryStreams.soulfire_applied",
+   "sealed_lines": [
+    277
+   ],
+   "text": "* max(0.0, 1.0 - res / 100.0) * self.crit_mult) * self.mutator_factor"
+  },
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "disposition": "TRANSCRIPTION",
+   "file": "forms.py",
+   "func": "bleed_dps_against",
+   "line": 164,
+   "replaces": "secondary_streams.py:SecondaryStreams.bleed_dps_against",
+   "sealed_lines": [
+    293
+   ],
+   "text": "return self.bleed_dps_limb.dps * max(0.0, 1.0 - res / 100.0) * self.mutator_factor"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "disposition": "TRANSCRIPTION",
+   "file": "forms.py",
+   "func": "bleed_dps_against",
+   "line": 164,
+   "replaces": "secondary_streams.py:SecondaryStreams.bleed_dps_against",
+   "sealed_lines": [
+    293
+   ],
+   "text": "return self.bleed_dps_limb.dps * max(0.0, 1.0 - res / 100.0) * self.mutator_factor"
+  }
+ ],
+ "sealed_counts": {
+  "TA-X-21 round(": 74,
+  "TA-X-26(d) max(0, 1 - x/100)": 4,
+  "TA-X-27(c) draw": 87,
+  "TA-X-28 leech cap": 2,
+  "resist factor 1 - x/100 (uncapped)": 10
+ },
+ "sealed_kc2": "/Users/admin/Games/reincarnated-engine-join1-v311/src/reincarnated/simulation/kc2",
+ "sealed_sites": [
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "alert.py",
+   "func": "<module>",
+   "line": 54,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "_frame_rate_from_csv",
+   "line": 319,
+   "text": "return round(f / s)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce.<locals>._stats",
+   "line": 367,
+   "text": "return {\"n\": m, \"min\": round(s[0], STAT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce.<locals>._stats",
+   "line": 368,
+   "text": "\"median\": round("
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce.<locals>._stats",
+   "line": 370,
+   "text": "\"max\": round(s[-1], STAT_DP)}"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce",
+   "line": 390,
+   "text": "round(expected, INCIDENCE_DP) == round("
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce",
+   "line": 394,
+   "text": "\"duration_min_slot_window\": slot_window[\"min\"] == round(float(published_secs[\"min\"]), STAT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce",
+   "line": 396,
+   "text": "slot_window[\"median\"] == round(float(published_secs[\"median\"]), STAT_DP)),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce",
+   "line": 397,
+   "text": "\"duration_max_slot_window\": slot_window[\"max\"] == round(float(published_secs[\"max\"]), STAT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce",
+   "line": 403,
+   "text": "\"expected_alerting_actors_full_roster\": round(expected, INCIDENCE_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "d1_aggregates_reproduce",
+   "line": 408,
+   "text": "{round(r.duration_s(speed_composes=False) or 0.0, STAT_DP) for r in can})},"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "body_condition",
+   "line": 530,
+   "text": "\"t_s\": (None if t_s is None else round(float(t_s), EMIT_DP)),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "body_condition",
+   "line": 535,
+   "text": "else round(float(t_s) - float(spawn_t), EMIT_DP)),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "body_condition",
+   "line": 536,
+   "text": "\"path_len_before_push_m\": round(max(path_len - travel, 0.0), EMIT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "body_condition",
+   "line": 539,
+   "text": "\"travel_this_step_m\": round(travel, EMIT_DP),"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "alert.py",
+   "func": "AlertFold.rng",
+   "line": 624,
+   "text": "self._rng = random.Random(ALERT_GATE_RNG_SALT ^ int(self.seed))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "alert.py",
+   "func": "AlertFold.evaluate",
+   "line": 703,
+   "text": "roll = self.rng.randrange(CHANCE_MODULUS)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "AlertFold.report",
+   "line": 773,
+   "text": "\"arm_latency_travel_m\": round(self.arm_latency_travel_m, EMIT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "AlertFold.report",
+   "line": 781,
+   "text": "\"held_travel_suppressed_m\": round(self.held_travel_suppressed_m, EMIT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "AlertFold.report",
+   "line": 783,
+   "text": "\"n\": len(q), \"mean\": (round(sum(q) / len(q), EMIT_DP) if q else None),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "AlertFold.report",
+   "line": 784,
+   "text": "\"max\": (round(max(q), EMIT_DP) if q else None)},"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "AlertFold.action_regime_measurement",
+   "line": 849,
+   "text": "\"distance_m\": round(float(v.distance_m or 0.0), EMIT_DP),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "alert.py",
+   "func": "AlertFold.action_regime_measurement",
+   "line": 851,
+   "text": "else round(float(v.duration_s), EMIT_DP)),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "arrival_order.py",
+   "func": "spawn_schedule_census",
+   "line": 293,
+   "text": "vals = sorted({round(float(b[\"spawn_t_s\"]), 12) for b in bodies})"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "calibration.py",
+   "func": "t1_table",
+   "line": 503,
+   "text": "override = None if n_scale == 1.0 else max(0, int(round(er * float(n_scale))))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "channel_policy.py",
+   "func": "<module>",
+   "line": 49,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "channel_policy.py",
+   "func": "_ticks",
+   "line": 148,
+   "text": "return int(round(seconds / period_s))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "channel_policy.py",
+   "func": "ChannelPolicyFold.__post_init__",
+   "line": 261,
+   "text": "self._rng = random.Random(int.from_bytes("
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "channel_policy.py",
+   "func": "ChannelPolicyFold._bernoulli",
+   "line": 404,
+   "text": "return self._rng.random() < p"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "control_application.py",
+   "func": "<module>",
+   "line": 32,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "control_application.py",
+   "func": "scale_and_quantise",
+   "line": 591,
+   "text": "n = max(0, int(exact) if TRUNCATE_BUCKETS else int(round(exact)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "control_application.py",
+   "func": "ControlApplicationFold.rng",
+   "line": 786,
+   "text": "self._rng = random.Random(CONTROL_GATE_RNG_SALT ^ int(self.seed))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "control_application.py",
+   "func": "ControlApplicationFold.apply",
+   "line": 873,
+   "text": "gate_passed = (self.rng.random() * 100.0) < float(chance_pct)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "control_application.py",
+   "func": "ControlApplicationFold.apply",
+   "line": 898,
+   "text": "rolled_s = self.rng.uniform(float(base_duration_s), float(max_duration_s))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "counterplay.py",
+   "func": "<module>",
+   "line": 36,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "counterplay.py",
+   "func": "trace_levels",
+   "line": 212,
+   "text": "return tuple(sorted({int(round(x * BAR_PX)) for x in h}))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "counterplay.py",
+   "func": "CounterplayLayer.__post_init__",
+   "line": 600,
+   "text": "self._rng = random.Random(self.seed ^ RNG_SALT)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "counterplay.py",
+   "func": "CounterplayLayer.absorb",
+   "line": 755,
+   "text": "if self._rng.random() * 100.0 < self.kit.barrier_chance_pct:"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "counterplay.py",
+   "func": "declared_constants",
+   "line": 823,
+   "text": "\"rng\": (f\"K-2 only, from random.Random(seed ^ {RNG_SALT:#x}) \u2014 DISJOINT from the \""
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "defenses.py",
+   "func": "declared_constants",
+   "line": 471,
+   "text": "\"r_from_camp_m\": round(math.hypot(*d.xy), 3)} for d in defences},"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "deferred_arrival.py",
+   "func": "DeferredArrivalFold.latency_ticks",
+   "line": 329,
+   "text": "return int(round(raw))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "discrete_volley.py",
+   "func": "MonsterVolleyFold.note_ring",
+   "line": 452,
+   "text": "\"dist_m\": round(dist_m, 4),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "discrete_volley.py",
+   "func": "MonsterVolleyFold.note_ring",
+   "line": 454,
+   "text": "\"latency_s\": round(dist_m / float(ring.velocity), 5),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "dodge.py",
+   "func": "DodgePolicy.step",
+   "line": 193,
+   "text": "refractory_ticks = int(round(DODGE_REFRACTORY_S * ticks_per_s))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "dodge.py",
+   "func": "DodgePolicy.step",
+   "line": 204,
+   "text": "self._react_until_tick = tick + max(0, int(round(latency * ticks_per_s)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "dot_timeline.py",
+   "func": "DotTimelineFold._open",
+   "line": 380,
+   "text": "n_ticks = int(exact) if TRUNCATE_NTICKS else int(round(exact))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gate_model.py",
+   "func": "SpecialGateFold._ticks",
+   "line": 438,
+   "text": "return max(1, int(round(seconds * ticks_per_s))) if seconds else 0"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_composition.py",
+   "func": "CompositionFold.report",
+   "line": 189,
+   "text": "\"telemetry\": {k: round(v, 1) for k, v in self.tele.items()}}"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_engagement.py",
+   "func": "GdEngagementFold._choose",
+   "line": 121,
+   "text": "gate = max(1, int(round(s.delay_s * tps))) if s.delay_s else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "gd_engagement.py",
+   "func": "GdEngagementFold._choose",
+   "line": 130,
+   "text": "if r.uniform(0.0, 100.0) > s.chance_pct:"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_engagement.py",
+   "func": "GdEngagementFold.choose_slot",
+   "line": 187,
+   "text": "eng._cooldown_until[key] = tick + max(1, int(round(cd * eng.ticks_per_s)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold._roll",
+   "line": 248,
+   "text": "return self._rng(eng, aid, purpose).randrange(100) < pct"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold._enter_wta",
+   "line": 364,
+   "text": "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold._enter_wta",
+   "line": 365,
+   "text": "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold._roam",
+   "line": 372,
+   "text": "phi = g.uniform(0.0, 2.0 * math.pi)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold._repath_random",
+   "line": 426,
+   "text": "phi = g.uniform(0.0, 2.0 * math.pi)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold._repath_random",
+   "line": 427,
+   "text": "rho = g.uniform(RFA_FAIL_RMIN, RFA_FAIL_RMAX)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold.is_opportunity",
+   "line": 519,
+   "text": "if tick - X[\"t0\"] >= int(round(RFA_TIMER_S * tps)) and d <= S.reach_m:"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold.is_opportunity",
+   "line": 530,
+   "text": "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold.is_opportunity",
+   "line": 554,
+   "text": "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold.pet_target",
+   "line": 726,
+   "text": "if arrived or (tick - X[\"t0\"] >= int(round(RFA_TIMER_S * tps)) and d <= reach):"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold.pet_target",
+   "line": 731,
+   "text": "X[\"wpoll\"] = tick + max(1, int(round(WTA_POLL_S * tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "gd_reposition.py",
+   "func": "GdRepositionFold.pet_target",
+   "line": 739,
+   "text": "X[\"wroam\"] = tick + max(1, int(round(WTA_ROAM_S * tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "global_magnitude.py",
+   "func": "chain_positive_control",
+   "line": 880,
+   "text": "round(mine, 3), rawf, round(budget, 3))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "hunt_pilot.py",
+   "func": "HuntPilotFold.report",
+   "line": 131,
+   "text": "\"n_drift_ticks\": self.n_drift_ticks, \"drift_path_m\": round(self.drift_path_m, 3)}"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "intake.py",
+   "func": "<module>",
+   "line": 34,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "intake.py",
+   "func": "IntakeFold.__post_init__",
+   "line": 549,
+   "text": "self._rng = random.Random("
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "intake.py",
+   "func": "IntakeFold.physical",
+   "line": 585,
+   "text": "rg = self._rng.choices(list(REGIONS),"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "intake.py",
+   "func": "IntakeFold.pcl_factor",
+   "line": 643,
+   "text": "return 1.0 - PCL_DEFENCE_PCT / 100.0"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "intake.py",
+   "func": "IntakeFold.pcl_fraction",
+   "line": 656,
+   "text": "out = raw_frac * (1.0 - PCL_DEFENCE_PCT / 100.0)"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "intake.py",
+   "func": "per_actor_mitigation_table",
+   "line": 991,
+   "text": "pcl_raw * (1.0 - PCL_DEFENCE_PCT / 100.0),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "intake.py",
+   "func": "melee_contact_census",
+   "line": 1047,
+   "text": "p90 = srt[min(len(srt) - 1, int(round(0.90 * (len(srt) - 1))))]"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "kinematics.py",
+   "func": "<module>",
+   "line": 39,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "kinematics.py",
+   "func": "MillWalk.__post_init__",
+   "line": 353,
+   "text": "self._rng = random.Random("
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "kinematics.py",
+   "func": "MillWalk._draw_heading",
+   "line": 362,
+   "text": "return self._rng.random() * 2.0 * math.pi"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "kinematics.py",
+   "func": "MillWalk._bernoulli",
+   "line": 367,
+   "text": "return self._rng.random() < p"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "kinematics.py",
+   "func": "MillWalk._turn",
+   "line": 375,
+   "text": "return self._rng.random() * 2.0 * math.pi"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "kinematics.py",
+   "func": "MillWalk._turn",
+   "line": 377,
+   "text": "return (0.0 if c > 0.0 else math.pi) + self._rng.gauss(0.0, sigma)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "micro_oracles.py",
+   "func": "oracle_report",
+   "line": 682,
+   "text": "\"margin_pct_on_pinned_target\": round(r.margin_pct, 4),"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "mutators.py",
+   "func": "MutatorFold.player_factor",
+   "line": 175,
+   "text": "f *= 1.0 - self._cruel_pct / 100.0"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "mutators.py",
+   "func": "MutatorFold.report",
+   "line": 202,
+   "text": "t[\"cruel_active_tick_fraction\"] = (round(t[\"cruel_ticks\"] / t[\"player_ticks\"], 4)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "opposition.py",
+   "func": "recompute_ehp",
+   "line": 430,
+   "text": "return round(raw)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "pilot_move.py",
+   "func": "<module>",
+   "line": 36,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "pilot_move.py",
+   "func": "PilotMoveFold.new_wave",
+   "line": 105,
+   "text": "self._rng = random.Random(int.from_bytes(hashlib.sha256(mat.encode()).digest()[:8], \"big\"))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "pilot_move.py",
+   "func": "PilotMoveFold._next",
+   "line": 124,
+   "text": "self._ptr, self._ptr_state = rs[self._rng.randrange(len(rs))], state"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "pilot_move.py",
+   "func": "PilotMoveFold.report",
+   "line": 184,
+   "text": "\"commanded_moving_fraction\": (round(sum(t[\"n_move_ticks\"].values()) / n_on, 4) if n_on else None),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "pilot_move.py",
+   "func": "PilotMoveFold.report",
+   "line": 185,
+   "text": "\"commanded_path_m\": round(t[\"path_m\"], 2), \"n_jumps\": t[\"n_jumps\"], \"n_advances\": t[\"n_advances\"]}"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "player_kit_residual.py",
+   "func": "<module>",
+   "line": 58,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "player_kit_residual.py",
+   "func": "PlayerKitResidualFold.__post_init__",
+   "line": 286,
+   "text": "self._rng = random.Random(int(self.seed) ^ KIT_RESIDUAL_RNG_SALT)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "player_kit_residual.py",
+   "func": "PlayerKitResidualFold._roll",
+   "line": 353,
+   "text": "return float(self._rng.randint(0, 100)) <= float(chance_pct)"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "player_offense.py",
+   "func": "after_armor",
+   "line": 323,
+   "text": "keep = 1.0 - absorption_pct / 100.0"
+  },
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "file": "player_offense.py",
+   "func": "applied_damage",
+   "line": 335,
+   "text": "* max(0.0, 1.0 - res_physical_pct / 100.0)"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "player_offense.py",
+   "func": "applied_damage",
+   "line": 335,
+   "text": "* max(0.0, 1.0 - res_physical_pct / 100.0)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "player_sustain.py",
+   "func": "adcth_table",
+   "line": 173,
+   "text": "total = round(sum(s.value for s in joins), 10)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "player_sustain.py",
+   "func": "adcth_table",
+   "line": 179,
+   "text": "\"\u2691 D_P1_residual_pct\": round(ADCTH_PCT - total, 10),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "player_sustain.py",
+   "func": "adcth_table",
+   "line": 183,
+   "text": "\"\u2691 measured_inactive_pct_total\": round(sum(s.value for s in inactive), 10),"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "player_sustain.py",
+   "func": "adcth_table",
+   "line": 186,
+   "text": "\"\u2691 skill_scoped_NOT_MODELLED_pct_total\": round(sum(s.value for s in skill), 10),"
+  },
+  {
+   "class": "TA-X-28 leech cap",
+   "file": "player_sustain.py",
+   "func": "<module>",
+   "line": 615,
+   "text": "n_caps_applied: int = field(default=0, init=False)"
+  },
+  {
+   "class": "TA-X-28 leech cap",
+   "file": "player_sustain.py",
+   "func": "PlayerSustainFold.as_dict",
+   "line": 768,
+   "text": "\"\u2691 n_caps_applied\": self.n_caps_applied,"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "pursuit.py",
+   "func": "concurrency_census",
+   "line": 408,
+   "text": "vd = sorted({round(float(m.view_distance_m), 4) for m in mv})"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "pursuit.py",
+   "func": "concurrency_census",
+   "line": 409,
+   "text": "mpd = sorted({round(float(m.max_pursuit_distance_m), 4) for m in mv})"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "pursuit.py",
+   "func": "concurrency_census",
+   "line": 410,
+   "text": "ptm = sorted({round(float(m.pursuit_time_ms), 4) for m in mv})"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "<module>",
+   "line": 24,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold._rng",
+   "line": 211,
+   "text": "return random.Random(f\"kc2-referent-lineup|salt={self.salt}|wave={wave}\")"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold.roll",
+   "line": 232,
+   "text": "x, acc, spec = rng.random() * tot, 0.0, specs[-1]"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold.roll",
+   "line": 248,
+   "text": "n = rng.randint(int(max(lo, k)), int(hi))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold.roll",
+   "line": 254,
+   "text": "else pin.candidates[rng.randrange(len(pin.candidates))])"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold.roll",
+   "line": 257,
+   "text": "picks.append(recs[pool_idx[rng.randrange(len(pool_idx))]])"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold.roll",
+   "line": 258,
+   "text": "rng.shuffle(picks)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "referent_lineup.py",
+   "func": "ReferentLineupFold.roll",
+   "line": 266,
+   "text": "rec = cands[0] if len(cands) == 1 else cands[rng.randrange(len(cands))]"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "residence.py",
+   "func": "residence_census",
+   "line": 220,
+   "text": "if len({round(p, 15) for p in periods}) != 1:"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "roster.py",
+   "func": "decoded_expectations",
+   "line": 398,
+   "text": "out[k] = {\"per_wave\": {str(w): round(per[w], 6) for w in sorted(per)},"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "roster.py",
+   "func": "decoded_expectations",
+   "line": 401,
+   "text": "\"\u2691 reproduces_to_3dp\": abs(round(tot, 3) - published[k]) < 5e-4}"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "run.py",
+   "func": "<module>",
+   "line": 27,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "run.py",
+   "func": "simulate_wave",
+   "line": 1214,
+   "text": "rng = random.Random(seed)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "run.py",
+   "func": "simulate_wave",
+   "line": 1500,
+   "text": "sx = ex + rng.uniform(-PLACEMENT_EXTENTS_M, PLACEMENT_EXTENTS_M)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "run.py",
+   "func": "simulate_wave",
+   "line": 1501,
+   "text": "sy = ey + rng.uniform(-PLACEMENT_EXTENTS_M, PLACEMENT_EXTENTS_M)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "run.py",
+   "func": "simulate_wave",
+   "line": 3361,
+   "text": "expires=rt + int(round((_exp - t) / period))):"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "run.py",
+   "func": "simulate_wave",
+   "line": 3495,
+   "text": "led[1] = k + max(1, int(round(c.cadence_s * tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "run.py",
+   "func": "simulate_wave",
+   "line": 3856,
+   "text": "detonation_tick=k + max(1, int(round(slot.detonation_s * tps))))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "run.py",
+   "func": "_perturb_regular_count",
+   "line": 5197,
+   "text": "regs = regs + [regs[rng.randrange(len(regs))] for _ in range(target_regulars - n)]"
+  },
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "file": "secondary_streams.py",
+   "func": "SecondaryStreams.soulfire_applied",
+   "line": 277,
+   "text": "* max(0.0, 1.0 - res / 100.0) * self.crit_mult) * self.mutator_factor"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "secondary_streams.py",
+   "func": "SecondaryStreams.soulfire_applied",
+   "line": 277,
+   "text": "* max(0.0, 1.0 - res / 100.0) * self.crit_mult) * self.mutator_factor"
+  },
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "file": "secondary_streams.py",
+   "func": "SecondaryStreams.bleed_dps_against",
+   "line": 293,
+   "text": "return self.bleed_dps_limb.dps * max(0.0, 1.0 - res / 100.0) * self.mutator_factor"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "secondary_streams.py",
+   "func": "SecondaryStreams.bleed_dps_against",
+   "line": 293,
+   "text": "return self.bleed_dps_limb.dps * max(0.0, 1.0 - res / 100.0) * self.mutator_factor"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "<module>",
+   "line": 54,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "spawn_structure.py",
+   "func": "<module>",
+   "line": 161,
+   "text": "RAND_MAX: int = int(round(1.0 / K_RHO))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "SpawnStructureFold.offset",
+   "line": 311,
+   "text": "u1 = rng.random()"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "SpawnStructureFold.offset",
+   "line": 312,
+   "text": "u2 = rng.random()"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "SpawnStructureFold.facing_rad",
+   "line": 344,
+   "text": "self._rng_face = random.Random(self.facing_seed)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "SpawnStructureFold.facing_rad",
+   "line": 345,
+   "text": "f = self._rng_face.random() * FACING_SPAN_RAD"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 474,
+   "text": "rng = random.Random(seed)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 478,
+   "text": "dx = -e + rng.random() * 2.0 * e"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 479,
+   "text": "dy = -e + rng.random() * 2.0 * e"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 485,
+   "text": "th = FACING_SPAN_RAD * rng.random()"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 486,
+   "text": "rh = e * rng.random()"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 491,
+   "text": "area_r.append(e * math.sqrt(rng.random()))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 494,
+   "text": "qrho_r.append(K_RHO * float(int(rng.random() * (RAND_MAX + 1))) * e)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 511,
+   "text": "pr = random.Random(seed + 1)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "spawn_structure.py",
+   "func": "sampler_characterisation",
+   "line": 514,
+   "text": "u = pr.random()"
+  },
+  {
+   "class": "TA-X-26(d) max(0, 1 - x/100)",
+   "file": "summon_offense.py",
+   "func": "applied_for",
+   "line": 475,
+   "text": "return raw * max(0.0, 1.0 - res / PCT_DIVISOR) * crit_mult"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "summon_offense.py",
+   "func": "applied_for",
+   "line": 475,
+   "text": "return raw * max(0.0, 1.0 - res / PCT_DIVISOR) * crit_mult"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "summon_offense.py",
+   "func": "SummonOffenseFold.rng",
+   "line": 818,
+   "text": "import random as _r"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "summon_offense.py",
+   "func": "SummonOffenseFold._period_ticks",
+   "line": 825,
+   "text": "return max(1, int(round(body.swing_period_s * self.ticks_per_s)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "summon_offense.py",
+   "func": "SummonOffenseFold.swing",
+   "line": 869,
+   "text": "roll = self.rng.randint(ROLL_LO, ROLL_HI)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "summons.py",
+   "func": "<module>",
+   "line": 34,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "summons.py",
+   "func": "SummonFold.rng",
+   "line": 800,
+   "text": "self._rng = random.Random(SUMMON_DIVERT_RNG_SALT ^ int(self.seed))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "summons.py",
+   "func": "SummonFold._cooldown_ticks",
+   "line": 821,
+   "text": "return max(1, int(round(s * self.effective_tps)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "summons.py",
+   "func": "SummonFold._is_ignoring",
+   "line": 906,
+   "text": "period = max(1, int(round(p[F_IGNORE_INTERVAL] / MS_PER_S * tps)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "summons.py",
+   "func": "SummonFold._is_ignoring",
+   "line": 909,
+   "text": "roll = self.rng.randrange(IGNORE_PETS_MODULUS)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "summons.py",
+   "func": "anger_split_parameters",
+   "line": 1322,
+   "text": "ts = sorted({round(v[\"t\"], 4) for v in per.values()})"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "swing_pause.py",
+   "func": "<module>",
+   "line": 31,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "swing_pause.py",
+   "func": "rng_for",
+   "line": 51,
+   "text": "return random.Random(zlib.crc32(f\"{engine_seed}|{actor_id}|{salt}\".encode()))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "swing_pause.py",
+   "func": "SwingPauseFold.pause_ticks",
+   "line": 90,
+   "text": "ms = r.randint(p[0], p[1])"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "threat.py",
+   "func": "<module>",
+   "line": 36,
+   "text": "import random"
+  },
+  {
+   "class": "resist factor 1 - x/100 (uncapped)",
+   "file": "threat.py",
+   "func": "mitigate",
+   "line": 314,
+   "text": "d = damage * (1.0 - res_used / 100.0)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "threat.py",
+   "func": "ThreatEngine.__post_init__",
+   "line": 1593,
+   "text": "self.rng = random.Random(self.seed ^ THREAT_RNG_SALT)"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "threat.py",
+   "func": "ThreatEngine.swing_period_ticks",
+   "line": 1613,
+   "text": "self._swing_ticks[key] = (max(1, int(round(per / mult * self.ticks_per_s)))"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "threat.py",
+   "func": "ThreatEngine.choose_slot",
+   "line": 1774,
+   "text": "gate = max(1, int(round(s.delay_s * self.ticks_per_s))) if s.delay_s else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "threat.py",
+   "func": "ThreatEngine.choose_slot",
+   "line": 1788,
+   "text": "if s.chance_pct > 0.0 and self.rng.uniform(0.0, 100.0) > s.chance_pct:"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "threat.py",
+   "func": "ThreatEngine.choose_slot",
+   "line": 1813,
+   "text": "1, int(round(cd * self.ticks_per_s)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "threat.py",
+   "func": "ThreatEngine.resolve_attack",
+   "line": 1874,
+   "text": "roll = self.rng.randint(1, 100)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "threat.py",
+   "func": "ThreatEngine.resolve_attack",
+   "line": 2024,
+   "text": "if r.chance_pct > 0.0 and self.rng.uniform(0.0, 100.0) > r.chance_pct:"
+  },
+  {
+   "class": "TA-X-21 round(",
+   "file": "threat.py",
+   "func": "ThreatEngine.resolve_attack",
+   "line": 2182,
+   "text": "exp = tick + max(1, int(round(r.dot_duration_s * self.ticks_per_s)))"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "<module>",
+   "line": 35,
+   "text": "import random"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "roll_wave",
+   "line": 840,
+   "text": "n_reg = rng.randint(int(b.n_min), int(b.n_max)) if b.n_max >= b.n_min else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "roll_wave",
+   "line": 845,
+   "text": "idx = rng.randrange(len(alt.roster_names)) if alt.roster_names else None"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "roll_wave",
+   "line": 866,
+   "text": "if alt.champion_chance > 0.0 and rng.random() < alt.champion_chance / 100.0:"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "roll_wave",
+   "line": 867,
+   "text": "n_ch = rng.randint(int(b.c_min), int(b.c_max)) if b.c_max >= b.c_min else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "roll_wave",
+   "line": 869,
+   "text": "idx = rng.randrange(len(alt.champ_names)) if alt.champ_names else None"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_emit",
+   "line": 892,
+   "text": "idx = rng.randrange(len(names)) if names else None"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_folded_emit",
+   "line": 949,
+   "text": "n = rng.randint(int(b.n_min), int(b.n_max)) if b.n_max >= b.n_min else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_folded_emit",
+   "line": 958,
+   "text": "or rng.random() < alt.champion_chance / 100.0)"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_folded_emit",
+   "line": 960,
+   "text": "n_ch = rng.randint(int(b.c_min), int(b.c_max)) if b.c_max >= b.c_min else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_folded_emit",
+   "line": 969,
+   "text": "if alt.champion_chance > 0.0 and rng.random() < alt.champion_chance / 100.0:"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_folded_emit",
+   "line": 970,
+   "text": "n_ch = rng.randint(int(b.c_min), int(b.c_max)) if b.c_max >= b.c_min else 0"
+  },
+  {
+   "class": "TA-X-27(c) draw",
+   "file": "wave_engine.py",
+   "func": "_weighted_pick",
+   "line": 983,
+   "text": "x = rng.random() * total"
+  }
+ ]
+}
