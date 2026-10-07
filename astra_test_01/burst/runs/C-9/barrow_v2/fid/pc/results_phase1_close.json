@@ -1,0 +1,115 @@
+{
+ "_what": "BV2F R-C9-180 (Gate-2 W1, charter \u00a7 13 W-4): positive control T1-T3 re-measured at the Phase-0 pin f1aa715ac and at current barrow_full HEAD, each in its own APFS clone; v1 tools run unmodified in the clone; barrow_full untouched (control_shas_phase1_close.json).",
+ "pin_clone": "HEAD working tree with the 8 paths added after f1aa715ac moved out (godot/data/bv2f, godot/scripts/bv2f, godot/tools/bv2f, godot/scenes/bv2f_barrow_v2.tscn); git diff f1aa715ac..HEAD on barrow_full = additions only (A x8), no v1 file modified",
+ "head_commit_barrow_full": "d4c59061f",
+ "runs": {
+  "pin": {
+   "T1": {
+    "worst_px": 0.004,
+    "placements_checked": 86,
+    "ids_png_ident_v1": true,
+    "ids_json_ident_v1": true,
+    "take_outputs_ident_v1": {
+     "take_report.json": true,
+     "plates/plates.json": true,
+     "masks/tufts.json": true,
+     "masks/density_uv.png": true,
+     "ground/ground_uv.png": true,
+     "ground/splat_world.png": true
+    }
+   },
+   "T2": {
+    "unlit_mean_abs": 15.5,
+    "lit_mean_abs_informational": 36.2,
+    "per_piece_unlit": {
+     "door_lintel": 12.6,
+     "fallen_tree_log_A": 15.0,
+     "grave_marker_W": 15.2,
+     "ring_p155": 19.1
+    }
+   },
+   "T3": {
+    "precision_drawn_on_painted": 0.5221,
+    "coverage": 0.3407,
+    "per_chunk_precision": {
+     "0_0": 0.4653,
+     "1_0": 0.4476,
+     "2_0": 0.5199,
+     "3_0": 0.5218,
+     "0_1": 0.5051,
+     "1_1": 0.4632,
+     "2_1": 0.4835,
+     "3_1": 0.4949,
+     "0_2": 0.5264,
+     "1_2": 0.4902,
+     "2_2": 0.5783,
+     "3_2": 0.5376,
+     "0_3": 0.5185,
+     "1_3": 0.5532,
+     "2_3": 0.574,
+     "3_3": 0.5148
+    },
+    "painted_prep_heather_share": 0.4379,
+    "painted_prep_shrub_share": 0.1596,
+    "painted_data_files_differing_from_v1": 0
+   }
+  },
+  "head": {
+   "T1": {
+    "worst_px": 0.004,
+    "placements_checked": 86,
+    "ids_png_ident_v1": true,
+    "ids_json_ident_v1": true,
+    "take_outputs_ident_v1": {
+     "take_report.json": true,
+     "plates/plates.json": true,
+     "masks/tufts.json": true,
+     "masks/density_uv.png": true,
+     "ground/ground_uv.png": true,
+     "ground/splat_world.png": true
+    }
+   },
+   "T2": {
+    "unlit_mean_abs": 15.5,
+    "lit_mean_abs_informational": 36.2,
+    "per_piece_unlit": {
+     "door_lintel": 12.6,
+     "fallen_tree_log_A": 15.0,
+     "grave_marker_W": 15.2,
+     "ring_p155": 19.1
+    }
+   },
+   "T3": {
+    "precision_drawn_on_painted": 0.5221,
+    "coverage": 0.3407,
+    "per_chunk_precision": {
+     "0_0": 0.4653,
+     "1_0": 0.4476,
+     "2_0": 0.5199,
+     "3_0": 0.5218,
+     "0_1": 0.5051,
+     "1_1": 0.4632,
+     "2_1": 0.4835,
+     "3_1": 0.4949,
+     "0_2": 0.5264,
+     "1_2": 0.4902,
+     "2_2": 0.5783,
+     "3_2": 0.5376,
+     "0_3": 0.5185,
+     "1_3": 0.5532,
+     "2_3": 0.574,
+     "3_3": 0.5148
+    },
+    "painted_prep_heather_share": 0.4379,
+    "painted_prep_shrub_share": 0.1596,
+    "painted_data_files_differing_from_v1": 0
+   }
+  }
+ },
+ "verdict": {
+  "pin": "PASS",
+  "head": "PASS",
+  "pin_vs_head_identical": true,
+  "halt": false
+ }
+}

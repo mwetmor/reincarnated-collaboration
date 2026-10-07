@@ -32,6 +32,7 @@ Git: commit only your own paths: `git add -- <new paths>`, `git status --porcela
 
 ## HALT H-C9-BV2F-PT-2 — CLOSED by R-C9-169 (T4 re-based at HEAD as informational; P10 p99 <= 16.7 ms binds). Phase-3 flag: HEAD pck 1.1 GB vs v1 320 MB — the desktop build ships only the barrow_v2 level's data.
 0.1 T4 frame time at HEAD 11.08 / 11.22 ms vs record 10.93 / 10.97 ms (painted_captures.json:234-235), same window/render configuration (1920x971 / 1726x971); record repeat spread 0.04 ms → MISS by 0.11-0.29 ms (1.0-2.6%). targets.json pre-registered the 12.40 fullscreen row assuming render 1920x1080; the app opened windowed 1726x971, so the windowed rows are the matched record. HEAD carries the post-v1 kits (pck 1.1 GB vs 320 MB; trail polish recorded +0.4-0.5 ms). Not bisected. **Conductor must rule:** accept as re-based (informational, like lit) or bisect.
+- **R-C9-180 (Gate-2 W1, § 13 W-4):** T1–T3 re-measured at pin f1aa715ac and at barrow_full HEAD d4c59061f (LV additions only, 8 new bv2f paths): both PASS, pin == HEAD identical (T1 0.004 px + byte-identical take; T2 unlit 15.5, lit 36.2; T3 0.5221 / 0.4379, 0 painted files differ). `pc/results_phase1_close.json`, `pc/control_shas_phase1_close.json` (before == after == Phase 0).
 Next step: STAND BY — Phase 0 closed (R-C9-173); no PT work until the conductor resumes PT for Phase 2.
 
 ### 0.3 findings (first-layout notes; superseded by v1tools/PROVENANCE.md)
