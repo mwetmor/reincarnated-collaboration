@@ -39,3 +39,11 @@ gamora, 2026-10-07. **Engine `8f9546b3`, committed ALONE** (7 files: `src/join2_
 - **L-11's default "off (no stage)" was gamora's PROVISIONAL value.** I wrongly attributed it to the charter. Re-attributed in engine `b5a01125`.
 - **L-17's ratification venue is J4b, not J3.** Stated in `b5a01125`.
 - **P-J2-7 has so far been discharged only at form level.** The corpus-level check can now run at E3, because the referent conversion row is stamped under R-CV1 (KP-327; J-S4b ROWSET `c96d8975…`).
+
+## Corrigendum 2 (append-only, 2026-10-07; jack-ryan E3 Gate-2 § 4, KP-331)
+
+**The figure "34 passed" in the Tests section above is wrong.** The correct E2c count is **25 passed**: 1 + 24 against the fail-first set, at engine `8f9546b3`.
+
+The same test file holds 28 tests after the pre-E3 additions (`b5a01125`), and 30 after E4a (`a3eb0e54`).
+
+The first corrigendum above (collab `ac6d565b6`) already stated 25. This line makes the correction explicit at the point where "34" appears, because an append-only file cannot edit that line.
