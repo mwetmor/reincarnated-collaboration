@@ -1216,3 +1216,32 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
   - **Fix: either declare `burial_by_design` on the wreck with its reason (accepted only as declared, per R-C9-181), or lower the beach under the hull / raise the hull.**
 
 **Harness note.** `p6prime_art.py`'s attribution read `instances` on a single-GLB model and crashed on the wreck. It now uses `PP._instances()`. This is a reporting-path fix; no measurement changed.
+
+## 41. P6′ on LV's final Phase-1″ render (09ba67b23; R-C9-212). Frozen bars. `results/p6prime_bv2pp_09ba67b23.json`
+
+**Inputs.** The slot crosscheck passes: 60 layout placements against 60 level slots, 0 mismatches. `ids_art.png` sha 3c5ecf04…, matching the manifest.
+
+| Component | Result | Verdict |
+|---|---|---|
+| I-4 RED (1.5 m shift) | 6 of 12 objects below 0.7872 | **FAILS, as required** |
+| missing / extra | 0 / 0 | ✓ |
+| terrain-hidden ≤ 0.50 | **ring_stones #5 0.897, #7 0.642**; #6 0.323 ✓, #4 0.375 ✓; **wreck 0.304 ✓** (under the bar even without its declaration) | **RED** |
+| placement | min 0.9722 (logs); all others ≥ 0.99 | PASS |
+| scale | 113 instances, 0 over 1.10, 0 record mismatches | PASS |
+
+**P6′ = RED (presence), again: two of the three fallen stones.** It is reported, not adjusted, and is a HALT for an LV fix.
+
+**Attribution.** The stones were re-seated, but at a z below the slope they lie on. Neither has a declared burial, so both stay RED.
+
+| Stone | Slab z | Terrain under its footprint | Terrain at its centre | Slab top (lying, 0.537 m thick) | Hidden share |
+|---|---|---|---|---|---|
+| #5 | 3.366 | 3.53–4.21 | 3.86 | 3.90 | 0.897 |
+| #7 | 4.324 | 4.20–5.35 | 4.98 | 4.86 | 0.642 |
+
+- **#5:** the ground covers most of the slab.
+- **#7:** the upslope half is under ground.
+- **#6 reads correctly:** z 5.127 against terrain 5.15–5.59, hidden 0.323.
+
+**Fix:** seat each fallen slab on the slope (tilt it to the terrain normal, or set z to the footprint's upslope height less a small sink), or declare the burial with its reason.
+
+**The wreck.** Its declared 34.4% cradle reads 0.304 on PH's instrument, under the 0.50 bar. The declaration is not needed for it to pass.

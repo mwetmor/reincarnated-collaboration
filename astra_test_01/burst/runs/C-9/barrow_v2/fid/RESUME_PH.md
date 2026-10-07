@@ -118,3 +118,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] R-C9-207: P11 v3 calibrated (11/12 + 22/40 PASS; 12/12 + 35/40 FAIL; catch pool 23/24) -> BINDING (§ 39). [ ] STAND BY for LV M1.
 - [x] R-C9-210 P6prime on 3686cea98 (§ 40): RED presence -- fallen ring_stones #5-7 buried 3.5-5.1 m under the raised plateau (z -0.15 not re-seated); wreck 0.558 hidden, undeclared. Placement/scale PASS; I-4 RED fails. HALT for LV fix; re-run `python3 harness/p6prime_art.py` (writes results/p6prime_art.json; rename per build).
 - [ ] STAND BY: P6prime on LV's NEXT commit after 29ac8f4b8 (shelf + cliff walls pass), not on 29ac8f4b8 (conductor). Re-run `python3 harness/p6prime_art.py`; wreck burial now declared (34.4%).
+- [x] P6prime on 09ba67b23 (§ 41): RED presence -- fallen ring_stones #5 (0.897) and #7 (0.642) seated below their slope; wreck 0.304 OK; placement/scale PASS; I-4 RED fails. HALT for LV.
