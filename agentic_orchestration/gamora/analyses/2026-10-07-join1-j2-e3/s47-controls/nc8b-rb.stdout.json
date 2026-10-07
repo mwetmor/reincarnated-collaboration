@@ -1,0 +1,414 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8b-rb",
+ "head": {
+  "end": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "4211bb8ff45c21b443529e82d39b14b0dc391567"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "3917a323569ccb20db978fb335c8d438b5c6f5a8e220f3ee75071ffe6bf955ae",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [
+   {
+    "blob": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+    "file": "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py",
+    "sha256": "fdea38c34ab5c5fedcf29fcc9b3c8d4a44a65f4efccd42fb20aa760a7a85f6b4"
+   }
+  ],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 282,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 143,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [
+   "gd_reposition.GdRepositionFold._stop_where_close_enough",
+   "intake.physical_applied",
+   "measured_board.MeasuredBoardFold.pth_for",
+   "player_offense.PlayerOffense.__post_init__",
+   "player_offense.applied_damage",
+   "player_offense.mitigation_at",
+   "player_sustain._applied_damage",
+   "player_sustain._mitigation_at",
+   "secondary_streams.SecondaryStreams.bleed_dps_against",
+   "secondary_streams.SecondaryStreams.soulfire_applied",
+   "summon_offense.applied_for",
+   "summon_offense.defence_of",
+   "summon_offense.resist_column_for",
+   "threat.mitigate",
+   "threat.resolve_hit",
+   "energy.SoulfireCostTerm.interval_s (default)",
+   "fixture.SOULFIRE_PERIOD_S"
+  ],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [
+    [
+     "join2_rulebook",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     "join2_rulebook.bind_oracle",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     "join2_rulebook.conversion",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     "join2_rulebook.families",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     "join2_rulebook.forms",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     "join2_rulebook.hooks",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     "join2_rulebook.operands",
+     "a join2_rulebook* module is loaded"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ]
+   ],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    96277,
+    96290
+   ],
+   "n_pids": 2,
+   "pass": false,
+   "tree_ok": true
+  },
+  "witness_hits": [
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook"
+   ],
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook.bind_oracle"
+   ],
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook.conversion"
+   ],
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook.families"
+   ],
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook.forms"
+   ],
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook.hooks"
+   ],
+   [
+    96290,
+    "a join2_rulebook* module is loaded",
+    "join2_rulebook.operands"
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    96290,
+    "import EVENT of a join2_rulebook* module",
+    "join2_rulebook.families"
+   ],
+   [
+    96290,
+    "import EVENT of a join2_rulebook* module",
+    "join2_rulebook.forms"
+   ],
+   [
+    96290,
+    "import EVENT of a join2_rulebook* module",
+    "join2_rulebook.operands"
+   ],
+   [
+    96290,
+    "import EVENT of a join2_rulebook* module",
+    "join2_rulebook.hooks"
+   ],
+   [
+    96290,
+    "import EVENT of a join2_rulebook* module",
+    "join2_rulebook.conversion"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "measured_board.MeasuredBoardFold.pth_for"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "player_offense.PlayerOffense.__post_init__"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "player_offense.applied_damage"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "player_offense.mitigation_at"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "player_sustain._applied_damage"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "player_sustain._mitigation_at"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "secondary_streams.SecondaryStreams.bleed_dps_against"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "secondary_streams.SecondaryStreams.soulfire_applied"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "summon_offense.applied_for"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "summon_offense.defence_of"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "summon_offense.resist_column_for"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    96290,
+    "fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ]
+  ]
+ },
+ "prediction": "B' RED: name hits on join2_rulebook* (worktree files); census differs exactly the same 17 keys as nc8a-rb; witness name + fingerprint hits on the HEAD pid",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)",
+ "verdict_reason": null
+}

@@ -1,0 +1,104 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8h",
+ "head": {
+  "end": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "4211bb8ff45c21b443529e82d39b14b0dc391567"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "3917a323569ccb20db978fb335c8d438b5c6f5a8e220f3ee75071ffe6bf955ae",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [
+   {
+    "blob": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+    "file": "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py",
+    "sha256": "fdea38c34ab5c5fedcf29fcc9b3c8d4a44a65f4efccd42fb20aa760a7a85f6b4"
+   }
+  ],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 281,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 142,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [
+   "threat.mitigate"
+  ],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    95631,
+    95638
+   ],
+   "n_pids": 2,
+   "pass": false,
+   "tree_ok": true
+  },
+  "witness_hits": [
+   [
+    95638,
+    "fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ]
+  ]
+ },
+ "prediction": "B' RED: census differs exactly ['threat.mitigate'] (has___wrapped__ True vs False under a functools.wraps delegate); path check GREEN; witness fingerprint hit on the HEAD pid for threat.mitigate only",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)",
+ "verdict_reason": null
+}

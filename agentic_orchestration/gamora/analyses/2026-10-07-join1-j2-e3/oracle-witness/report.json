@@ -1,0 +1,120 @@
+{
+ "cells_reported": 25,
+ "class": "EVIDENCE",
+ "compare": {
+  "G1": true,
+  "G2": true,
+  "G3": true,
+  "G4": true,
+  "G5": true,
+  "G6": true,
+  "G7": true
+ },
+ "displace": null,
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 32.0,
+  "head": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "blob_live": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "blob_live": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "env_stripped": [],
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 32.11429977416992,
+ "head_fixed": true,
+ "instrument_pinned": true,
+ "launcher_pid": 92433,
+ "mode": "oracle-witness",
+ "n_record_hits": 0,
+ "pass": true,
+ "prediction": "J-S8 7/7 ROWSET-equal to f82807fb; every one of 25 cells foreign_reads=0; exact emitter tree (1 emitter + 25 cells, grid-exact, no extra/duplicate/orphan); 0 record hits; every witness fingerprint (E3b amendment, before this mode's run of record) is either EQUAL to the SEALED census or an EMITTER WRAPPER (code in the J-S8 emitter script) whose closure references sealed kc2 objects only, never join2_rulebook; HEAD/kc2 fixed; instrument pinned",
+ "record_hits": [],
+ "reproduces_7_of_7": true,
+ "start": {
+  "free_gib": 32.1,
+  "head": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "blob_live": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "blob_live": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "tree": {
+  "duplicates": [],
+  "emitter_pids": [
+   92464
+  ],
+  "expected_n_cells": 25,
+  "extra": [],
+  "grid_equal": true,
+  "launcher_pid": 92433,
+  "missing": [],
+  "mode": "emitter",
+  "n_cells": 25,
+  "n_pids": 26,
+  "pass": true,
+  "tree_ok": true,
+  "unexpected": []
+ }
+}

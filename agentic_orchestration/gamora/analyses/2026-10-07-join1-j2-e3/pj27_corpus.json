@@ -1,0 +1,39 @@
+{
+ "conversion_rows": {
+  "eor_fire_to_physical_conversion_pct": {
+   "numeric_key": "eor_fire_to_physical_conversion_pct",
+   "rdr_value": 100.0,
+   "rule_id": "R-CV1",
+   "rule_version_applied": 1,
+   "source_value": 100.0
+  },
+  "gutsmasher_chaos_to_physical_pct": {
+   "numeric_key": "gutsmasher_chaos_to_physical_pct",
+   "rdr_value": 50.0,
+   "rule_id": "R-CV1",
+   "rule_version_applied": 1,
+   "source_value": 50.0
+  },
+  "gutsmasher_lightning_to_physical_pct": {
+   "numeric_key": "gutsmasher_lightning_to_physical_pct",
+   "rdr_value": 50.0,
+   "rule_id": "R-CV1",
+   "rule_version_applied": 1,
+   "source_value": 50.0
+  }
+ },
+ "corpus_db_FILE_sha256": "2617c0c101d8d924cb327e50137b1b3a61b1a8cbd81a24632d2ebe3469eaa26b",
+ "js4b_rowset": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
+ "js4b_rowset_matches_c96d8975": true,
+ "pass": true,
+ "reader_conversion_py_sha256": "d7877085b92d6ca75dc927c09610fa340e903b5982b5532732121486faae4b50",
+ "reader_package": "/Users/admin/Games/reincarnated-engine-join2-rb/src/join2_rulebook",
+ "reader_result": {
+  "family": "Physical",
+  "pct": 100.0,
+  "row": "eor_fire_to_physical_conversion_pct",
+  "scope": "records/skills/playerclass09/eyeofreckoning1.dbr",
+  "scope_basis": "key-prefix eor_"
+ },
+ "unstamped_conversion_rows": []
+}

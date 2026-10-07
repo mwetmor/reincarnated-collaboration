@@ -1,0 +1,2132 @@
+{
+ "cells_reported": 25,
+ "compare": {
+  "G1": true,
+  "G2": true,
+  "G3": true,
+  "G4": true,
+  "G5": true,
+  "G6": true,
+  "G7": true
+ },
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 32.2,
+  "head": "fa3d0716a08eae824b0baaa8bc03a9865dbe8f60",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "2b211a97ed5f68ae420ebff899a86e163e4220a9",
+     "blob_live": "2b211a97ed5f68ae420ebff899a86e163e4220a9",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "0c7e29113ce78cf817ef3a72d22ab084bd4b21d3",
+     "blob_live": "0c7e29113ce78cf817ef3a72d22ab084bd4b21d3",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "9b0944ca19311ac464f876b4f8da42b521b1c74a",
+     "blob_live": "9b0944ca19311ac464f876b4f8da42b521b1c74a",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "blob_live": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "env_stripped_before_setting_join_keys": [],
+ "executes_set_A10": {
+  "TA-X-07 (conservation; G2 offered/applied chain)": true,
+  "TA-X-20 (hit-test predicate + multiplicity; G4 occupancy, bound radius)": true,
+  "TA-X-29 (global-magnitude fold; G2 pre_mitigation)": true,
+  "TA-X-30 (pursuit halt; G4 halt counters)": true
+ },
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 32.940704345703125,
+ "head_fixed": true,
+ "instrument_pinned": true,
+ "join_records": {
+  "bind_log": [],
+  "bind_log_identical_across_pids": true,
+  "hits": [
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91025,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91045,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91065,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91084,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91106,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91127,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91176,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91209,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91226,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91251,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91275,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91297,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91314,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91333,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91378,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91398,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91417,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91436,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91458,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91479,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91498,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91534,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91563,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91596,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "arena_fold.ArenaFold.clamp_body"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "disc.MovingDisc.resolve_tick"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold.waypoint"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.IntakeFold.physical"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.armour_branch"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "locomotion.Mover.step"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.__post_init__"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "player_sustain.PlayerSustainFold.heal_from_pool"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "run.simulate_wave"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.due"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "summon_offense.SummonOffenseFold.swing"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.ThreatEngine.resolve_attack"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.probability_to_hit"
+   ],
+   [
+    91624,
+    "do-not-substitute fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ]
+  ],
+  "n_records": 26,
+  "pass": false,
+  "tree": {
+   "duplicates": [],
+   "emitter_pids": [
+    91017
+   ],
+   "expected_n_cells": 25,
+   "extra": [],
+   "grid_equal": true,
+   "launcher_pid": 90988,
+   "missing": [],
+   "mode": "emitter",
+   "n_cells": 25,
+   "n_pids": 26,
+   "pass": false,
+   "tree_ok": true,
+   "unexpected": []
+  },
+  "tree_ok": true
+ },
+ "launcher_pid": 90988,
+ "mode": "join",
+ "pass": false,
+ "prediction": "J-S8 7/7 ROWSET-equal to f82807fb; 25 cells foreign_reads=0; exact tree over 26 join-hook records; bind_log [] in every pid; every join2_rulebook* file under the worktree; commit/OID/A-2 digest identical in every record",
+ "profile": "inert",
+ "reproduces_7_of_7": true,
+ "start": {
+  "free_gib": 32.9,
+  "head": "fa3d0716a08eae824b0baaa8bc03a9865dbe8f60",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "2b211a97ed5f68ae420ebff899a86e163e4220a9",
+     "blob_live": "2b211a97ed5f68ae420ebff899a86e163e4220a9",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "0c7e29113ce78cf817ef3a72d22ab084bd4b21d3",
+     "blob_live": "0c7e29113ce78cf817ef3a72d22ab084bd4b21d3",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "9b0944ca19311ac464f876b4f8da42b521b1c74a",
+     "blob_live": "9b0944ca19311ac464f876b4f8da42b521b1c74a",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "blob_live": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ }
+}

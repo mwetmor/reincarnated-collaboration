@@ -1,0 +1,277 @@
+{
+ "cells_reported": 25,
+ "class": "NON-GRADED-CONTROL",
+ "compare": {
+  "G1": true,
+  "G2": true,
+  "G3": true,
+  "G4": true,
+  "G5": true,
+  "G6": true,
+  "G7": true
+ },
+ "displace": "W1-NULL:4",
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 32.0,
+  "head": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "blob_live": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "blob_live": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "env_stripped": [],
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 32.03118896484375,
+ "head_fixed": true,
+ "instrument_pinned": true,
+ "launcher_pid": 93039,
+ "mode": "oracle-witness",
+ "n_record_hits": 25,
+ "pass": false,
+ "prediction": "NON-GRADED-CONTROL. J-S8 still 7/7 (the displacer changes nothing in the fight); tree RED: n_cells 24, missing exactly [(ARM, SALT, '0')] for the displaced cell, nothing unexpected; declared confound: every RECORDED pid carries the hit 'customize module other than the pinned witness' (the displacer is itself a sitecustomize)",
+ "record_hits": [
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93069,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93074,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93092,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93110,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93130,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93148,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93160,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93180,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93197,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93214,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93246,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93264,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93281,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93295,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93313,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93330,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93346,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93363,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93380,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93412,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93430,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93447,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93461,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93479,
+   "why": "customize module other than the pinned witness"
+  },
+  {
+   "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-07-join1-j2-e3/oracle-witness-displace-W1-NULL-4/displacer/sitecustomize.py",
+   "name": "sitecustomize",
+   "pid": 93497,
+   "why": "customize module other than the pinned witness"
+  }
+ ],
+ "reproduces_7_of_7": true,
+ "start": {
+  "free_gib": 32.0,
+  "head": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "blob_live": "3ac01f26a3b31cb96959c1751c0465d5d9a30856",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "blob_live": "f94284b459eec3c04c112dcd03cb53c0ad2a13fa",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "tree": {
+  "duplicates": [],
+  "emitter_pids": [
+   93069
+  ],
+  "expected_n_cells": 25,
+  "extra": [],
+  "grid_equal": false,
+  "launcher_pid": 93039,
+  "missing": [
+   [
+    "W1-NULL",
+    "4",
+    "0"
+   ]
+  ],
+  "mode": "emitter",
+  "n_cells": 24,
+  "n_pids": 25,
+  "pass": false,
+  "tree_ok": false,
+  "unexpected": []
+ }
+}

@@ -1,0 +1,389 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8a-rb",
+ "head": {
+  "end": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "blob_live": "94560dee2707cd2297efcfe4cfc5abe3b5b31761",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "blob_live": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "4211bb8ff45c21b443529e82d39b14b0dc391567"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "3917a323569ccb20db978fb335c8d438b5c6f5a8e220f3ee75071ffe6bf955ae",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "4211bb8ff45c21b443529e82d39b14b0dc391567",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [
+   {
+    "blob": "729c77df23de6c68fc41918ecc96a607d6abe07f",
+    "file": "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py",
+    "sha256": "fdea38c34ab5c5fedcf29fcc9b3c8d4a44a65f4efccd42fb20aa760a7a85f6b4"
+   }
+  ],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 282,
+  "n_reincarnated_modules": 146,
+  "n_tracked": 143,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [
+   "gd_reposition.GdRepositionFold._stop_where_close_enough",
+   "intake.physical_applied",
+   "measured_board.MeasuredBoardFold.pth_for",
+   "player_offense.PlayerOffense.__post_init__",
+   "player_offense.applied_damage",
+   "player_offense.mitigation_at",
+   "player_sustain._applied_damage",
+   "player_sustain._mitigation_at",
+   "secondary_streams.SecondaryStreams.bleed_dps_against",
+   "secondary_streams.SecondaryStreams.soulfire_applied",
+   "summon_offense.applied_for",
+   "summon_offense.defence_of",
+   "summon_offense.resist_column_for",
+   "threat.mitigate",
+   "threat.resolve_hit",
+   "energy.SoulfireCostTerm.interval_s (default)",
+   "fixture.SOULFIRE_PERIOD_S"
+  ],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [
+    [
+     "reincarnated.simulation.join2_ctl",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     "reincarnated.simulation.join2_ctl.bind_oracle",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     "reincarnated.simulation.join2_ctl.conversion",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     "reincarnated.simulation.join2_ctl.families",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     "reincarnated.simulation.join2_ctl.forms",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     "reincarnated.simulation.join2_ctl.hooks",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     "reincarnated.simulation.join2_ctl.operands",
+     "loaded from a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ],
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ]
+   ],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    95951,
+    95963
+   ],
+   "n_pids": 2,
+   "pass": false,
+   "tree_ok": true
+  },
+  "witness_hits": [
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl"
+   ],
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl.bind_oracle"
+   ],
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl.conversion"
+   ],
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl.families"
+   ],
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl.forms"
+   ],
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl.hooks"
+   ],
+   [
+    95963,
+    "loaded from a rulebook/hook directory",
+    "reincarnated.simulation.join2_ctl.operands"
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "opened a file in a rulebook/hook directory",
+    null
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "gd_reposition.GdRepositionFold._stop_where_close_enough"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "intake.physical_applied"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "measured_board.MeasuredBoardFold.pth_for"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "player_offense.PlayerOffense.__post_init__"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "player_offense.applied_damage"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "player_offense.mitigation_at"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "player_sustain._applied_damage"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "player_sustain._mitigation_at"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "secondary_streams.SecondaryStreams.bleed_dps_against"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "secondary_streams.SecondaryStreams.soulfire_applied"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "summon_offense.applied_for"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "summon_offense.defence_of"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "summon_offense.resist_column_for"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "threat.mitigate"
+   ],
+   [
+    95963,
+    "fingerprint differs from the sealed census",
+    "threat.resolve_hit"
+   ]
+  ]
+ },
+ "prediction": "B' RED: path hits on the rulebook modules loaded from the worktree under 'reincarnated.simulation.join2_ctl*'; census differs exactly the 15 substituted function keys (13 A-2 rows + the 2 player_sustain aliases) + ['energy.SoulfireCostTerm.interval_s (default)', 'fixture.SOULFIRE_PERIOD_S']; witness fingerprint hits on the HEAD pid",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)",
+ "verdict_reason": null
+}
