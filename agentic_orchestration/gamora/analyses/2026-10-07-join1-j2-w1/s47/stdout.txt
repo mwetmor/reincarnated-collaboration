@@ -1,0 +1,50 @@
+{
+ "instrument": "gamora_join1_b0n_s47_evidence_2026_10_06.py v2 (WARN-3)",
+ "verdict": "ORACLE BYTE-IDENTICAL",
+ "verdict_rule": "LIMB A (sealed vs HEAD) AND LIMB B (import closure); LIMB C reported, not the gate",
+ "limb_A_sealed_vs_head": {
+  "command": "gamora_kc2_play_v3p11_oracle_2026_10_02 graded V311-FULL (5 arms x 5 salts)",
+  "sealed": {
+   "tree": "/Users/admin/Games/reincarnated-engine-join1-v311",
+   "commit": "969fbd8d3cb7d07d05c22c80ee925dd34444118c",
+   "tag": "kc2/referent-v1-sealed-r2-oracle",
+   "clean_before": true,
+   "clean_after": true,
+   "FILE_sha256": "e34c1e402d046452d0ae6cfc74aaece9b91fe8839b532623b906494926f53540",
+   "canonical_sha256": "f04ef6d0aa323918652d696794e14754acf60af62460cad464e0ec25253c6a93"
+  },
+  "head": {
+   "commit": "fd219ea1072934dfd7c629d9687e20f8b61401d0",
+   "FILE_sha256": "bf9453fbe513954df37a7434c6addbe88bd2b7e970fcd592c1ebc569d30eac29",
+   "canonical_sha256": "f04ef6d0aa323918652d696794e14754acf60af62460cad464e0ec25253c6a93"
+  },
+  "excluded_keys": [
+   "wall_s"
+  ],
+  "equal": true,
+  "pass": true
+ },
+ "limb_B_import_closure": {
+  "HEAD": "fd219ea1072934dfd7c629d9687e20f8b61401d0",
+  "n_reincarnated_modules": 141,
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 352,
+  "n_tracked": 212,
+  "untracked_are_bytecode_only": true,
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "pass": true
+ },
+ "limb_C_vs_pass4_artifact": {
+  "pass4_artifact": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-02-kc2-v3p11-oracle-pass4/graded_V311-FULL.json",
+  "pass4_FILE_sha256": "62aecaa6c7a53429e878705db1172ebbea552eb8e5ea47cee1acc5864c00522b",
+  "declared_exceptions": [
+   "hunt: pilot_derivation_referent.json -> kc2_hunt_pilot_derivation_v3p9.json",
+   "pilot_move: pilot_move_derivation_referent.json -> kc2_pilot_move_derivation_v3p10.json"
+  ],
+  "n_declared": 10,
+  "renames_applied": 10,
+  "rename_problems": [],
+  "equal_after_declared_exceptions": true
+ }
+}
