@@ -1,0 +1,78 @@
+{
+ "_what": "BV2F Phase 2' PILOT pins (R-C9-189): the guide the pilot cfg paints from (a pinned COPY, so LV's stair re-render cannot reach it) and the 9 pilot tiles (cols 0-2, rows 0-2 of the 5x5 grid) as LV published them. A changed pilot tile in LV's guide after this = repaint (R-C9-189). Check: python3 fid/pt/tools/pilot_pins_check.py",
+ "pinned_utc": "2026-10-07T12:24:41.237097+00:00",
+ "guide": {
+  "pinned_copy": "fid/pt/pilot/guide_art_pinned.png",
+  "source": "fid/lv/guide_art/guide_art.png",
+  "sha256": "1883a1bb1e2e38070d28f81a0fdec1ed0b28b6da289a130d888c8c1eda670562",
+  "manifest_sha256": "1883a1bb1e2e38070d28f81a0fdec1ed0b28b6da289a130d888c8c1eda670562",
+  "px": [
+   6656,
+   4096
+  ]
+ },
+ "ids": {
+  "source": "fid/lv/guide_art/ids_art.png",
+  "sha256": "aeaecf49ce26981088a805ee0760d36880bcddaa8d4d22e152824b62fd88afdf"
+ },
+ "class": {
+  "source": "fid/lv/guide_art/class_art.png",
+  "sha256": "65197605dd6550abdb9f8f7a01e5b5f5deceee0717a864904511e02c2999ce01"
+ },
+ "tiles": {
+  "0_0": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r00_c00.png",
+   "sha256": "f4f9502ac74352d563eb718e3c3e2f59f436671402b61f84d617cd718280a324",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "1_0": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r00_c01.png",
+   "sha256": "7594429819d20a9fcb09861e2386bdb69a5541ba386cfee7f92a637c7459faad",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "2_0": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r00_c02.png",
+   "sha256": "511fb702965d43a27354100cc622a31b6751172274520ff88605b90fc8a549a2",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "0_1": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c00.png",
+   "sha256": "205f5822fd1449c1e8c11039e69224da206768bd4becf42a3eab5c9f91b2e8a8",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "1_1": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c01.png",
+   "sha256": "457c170e0127aeb65b88f9de9fa70f4b192f6af424eb63e989b203be1f86f694",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "2_1": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c02.png",
+   "sha256": "3d9dda3dbcd41bb02c23329bbdbe5abb83f0e08ed6180779802883545947f22a",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "0_2": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c00.png",
+   "sha256": "a109a78be5c953479638e299b62a784752acbd479eef57d5df8080efc8cc4878",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "1_2": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c01.png",
+   "sha256": "b9002d562de35d7105a3a612dd67a8b05c3d9f297a770ee56e05497edb9723e8",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  },
+  "2_2": {
+   "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c02.png",
+   "sha256": "1274f7c7055ef14aa32422ceaaa74ac2eb49865fe823fa176379889d783005ca",
+   "manifest_sha256_agrees": true,
+   "equals_crop_of_pinned_guide": true
+  }
+ }
+}
