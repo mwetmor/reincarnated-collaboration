@@ -1,6 +1,6 @@
 # Run C-9 Phase 2 · BV2-FID: barrow_v2 at barrow v1's fidelity, then the w151–160 arena inside it — charter v0.1
 
-**STATUS:** v0.2 — **Gate-1 = GO-WITH-FOLDS** (jack-ryan, `qa/findings/2026-10-06-bv2f-charter-gate1.md`, `a4fde16b6`); every finding folded at § 12 (R-C9-163). M0 ruled (R-C9-162). Phase 0 running. **A Gate BLOCK halts the steps the reviewer scopes it to** (a BLOCK-narrow halts only its named step).
+**STATUS:** v0.3 — **Phase 0 CLOSED (Gate-2 PASS-WITH-FOLDS, § 13, R-C9-173); Phase 1 OPEN.** Prior: v0.2 — **Gate-1 = GO-WITH-FOLDS** (jack-ryan, `qa/findings/2026-10-06-bv2f-charter-gate1.md`, `a4fde16b6`); every finding folded at § 12 (R-C9-163). M0 ruled (R-C9-162). Phase 0 running. **A Gate BLOCK halts the steps the reviewer scopes it to** (a BLOCK-narrow halts only its named step).
 **Authored:** 2026-10-06, gandalf (RUN-CONDUCTOR), fresh session per R-C9-160.
 **Course of record:** `2026-10-06-barrow-v2-fidelity-run-architecture.md` ("the plan"). This charter makes the plan executable: it adds lanes, caps, HALTs, decidable target-states, the ARCHITECT gate and three conductor corrections (§ 9). **Where the charter and the plan disagree, the charter governs; the ledger governs both.**
 **Parent run:** Run C-9 (`2026-09-26-illuminated-archive-run-C-9-charter.md`). Ruling IDs continue the C-9 series from **R-C9-161**. Ledger: `astra_test_01/burst/runs/C-9/ledger.json`.
@@ -193,6 +193,25 @@ Matt is on Remote Control (phone). The conductor sends: one short line per phase
 **W-7 → instruments.** P2 = **lineage chain** (each texture's input sha through the producing tool's manifest back to the painting sha). P3 = **per class**, labelled "rendered-vs-painting residual" (v1's unlit 15.5 is the reference). Phase-1 P6 is judged against the **layout_v2 polygons**, not the guide's own class map. P4 for new classes (sea, shingle, shore ice): a named nearest v1 class, or the class-agnostic cellularity detector only.
 
 **INFO.** I-1: P11 n = 40 pairs, with v1-vs-v1 null pairs, metadata and filenames stripped, identical crop sizes; the power table is printed on the row. I-2: step 0.2 is decided by the sign/reproduction tests; the six-anchor bearing table (cyclic order + ±15°) is a reported layout-vs-sketch divergence table feeding Phase 1, not a 0.2 gate (**re-instrumented, R-C9-165**; p03 is a registered sketch-vs-oracle divergence); P9 by water-mask flow > 0, floe UV drift 0 px on a marker, snow-trail coverage % of floor. I-3: folded in § 6. I-4: folded in § 4. I-5: noted.
+
+## § 13 — Phase 0 Gate-2 folds (jack-ryan `91a2feee6`, PASS-WITH-FOLDS; conductor ruling R-C9-173). These GOVERN.
+
+**Phase 0 CLOSED.** The quality/constraint split is FROZEN (reclassifying a failing row is a HALT). Phase 1 is open.
+
+**G2-B1 · P6a triage protocol (binding; replaces "triage by eye").** For every v0.1 candidate inside a declared dark structure:
+1. **Reference = the layout-projected declared-opening overlay** (layout geometry → plate px, as calibration.md § 9), with the distance in metres to the nearest declared opening. The guide crop is NOT the reference (it misled both the judge and the conductor at R-C9-170).
+2. **Rule:** any framed opening, doorway or aperture farther than the match radius (the declared opening's half-width + 1.0 m) from a declared opening is **INVENTED**. **Ambiguous = FAIL** the chunk.
+3. **Record per candidate** in `fid/ph/results/p6a_triage_<window>.jsonl`: chunk, candidate px, crop sha, overlay sha, nearest declared id + distance, verdict {MATERIAL, INVENTED, DECLARED}, one line of evidence, reader.
+4. **Matt sees the passes:** every MATERIAL verdict of a window goes on one sheet in the M2 packet.
+5. A fresh blind judge is re-calibrated on the § 9 truth set with the overlay in place of the zone map; if it meets acceptance it becomes the primary reader and the conductor the second; until then the conductor reads under this protocol.
+
+**G2-B2 · P11 needs a v1 GREEN.** Before P11 counts in W-A/W-B: fresh judges on the fixed generator — **v1 vs v1** (record-time `v1ref` stills vs PT's HEAD stills; must PASS ≤ 26/40; a FAIL is a HALT, and if HEAD's lit drift is what is seen, the P11 reference pool becomes single-source) and **v1 vs half-density** (must FAIL). Both recorded in `calibration.json`.
+
+**UNDERPOWERED = VOID** (I-4): a P11 set under 40 trials is void — neither pass nor fail — and the window cannot close on P11 until a 40-trial set runs.
+
+**W-4 · Control-drift comparator.** The positive control is the Phase 0 measured values at the **Phase 0 pin `f1aa715ac`** (`fid/pc/results.json`): T1 0.004 px (±0.001), T2 unlit 15.5 (±0.1), T3 heather 0.5221 (exact, data byte-identical), control shas exact. At each phase Gate-2 the control is re-measured **at the pin**; if `barrow_full` HEAD has moved, the control is also re-measured at HEAD and any difference is a HALT to the conductor, disposed by ruling (re-base or revert), never silently.
+
+**Folds owed by lanes** (before the step named): PT W-1 (verify.sh fails unmarked `^+` lines; RED test; shas of verify.sh/ALLOWLIST/patches in PROVENANCE) and W-2 (cfg `rules`/`refs` check vs DEV-11/12; `run_burst.py` sha; Godot `--script` paths asserted under `fid/v1tools/`) before the first BV2F paint burst. PH W-3 (P8 like-for-like + graded RED near the bar) before the first W-A chunk is judged; stale calibration.md lines cleared.
 
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.
