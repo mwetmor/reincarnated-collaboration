@@ -45,3 +45,5 @@
 | gable_breach (SE) | h_rect | yes | 10.86 | 85.0 | 16.0 | 67.9 | PASS |
 | sea_cave_mouth (SW) | v | yes | 4.00 | 42.0 | 15.8 | 25.2 | PASS |
 | mere_ice (NW) | poly | yes | 119.78 | 91.5 | 164.0 | 73.0 | PASS |
+
+**R-C9-186 presence fix:** crag #2 and driftwood log #3 moved onto the beach shingle. They had sunk below sea level when the shore was moved east. Slope stone #4 moved down the barrow slope, inside the paint envelope. Guide/ID re-rendered; hero coverage 7/7; check (a) 6/6 (INFO).
