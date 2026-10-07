@@ -247,5 +247,10 @@ Matt is on Remote Control (phone). The conductor sends: one short line per phase
 - **Phase 1′ DONE (W-3):** (a) P6′ presence/placement/scale PASS against `layout_bv2art.json` (after PH's constructed 1.5 m-shift RED on bv2art, I-4); (b) a hero-coverage table from the ID render of the M1′ stills — each of the 7 heroes in ≥ 1 still with ≥ 1 neighbour hero's ID visible; (c) measured footprint (world-metre extent of the composed area on u and v) against ~55–65 m; (d) declared-openings list + char/ash class emitted; (e) Gate-2; then M1′. The art read is Matt's at M1′.
 - **Owed before Phase 2′ opens (no image spend until then):** W-4 (pilot sub-block dims, origin, kept or not; PH's 40-trial minimum window; take/build inside the pilot or the rows named), W-5 (re-home DEV-3/11, P4 new classes, P9c — the coast obligations W-B carried), W-7 (Ph2′ = pilot chunks × 2; Ph3′ = remaining chunks + ≤ 15% repairs + one retry each).
 
+### § 15.2 — Phase 1′ Gate-2 folds (jack-ryan `1cbfed0b7`, PASS-WITH-FOLDS; R-C9-187)
+- **DEV-1 OPENED (restated):** the art site is 66 × 51 m painted as a **5 × 5** canvas grid (25 canvases) vs v1's 53 × 41 m on 4 × 4 (16). Reason: sketch A's seven heroes at kit-v3 uniform scales need the larger window. Measurement owed: P5 seams + P4 drift across the extra row/column vs v1's spread.
+- **M1′ cover:** "about v1's size" corrected to the measured footprint (66 × 51 m, 25 canvases vs v1's 16); P6′ PASS shown.
+- **Before Phase 2′:** PT re-measures the positive control at pin `f1aa715ac` and at `barrow_full` HEAD (§ 13 W-4).
+
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.
