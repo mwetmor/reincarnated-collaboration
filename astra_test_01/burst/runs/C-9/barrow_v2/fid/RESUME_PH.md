@@ -47,3 +47,12 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 0. When the ABX answers arrive: copy them to `fid/ph/p11/answers/abx_<set>.json`, then `python3 calibrate.py`, then commit.
 1. A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.
 2. P11 for the fid level: point SETS at its play-camera stills (>= ~12, with ID-render class masks `<still>.classes.png/.json`), run `python3 p11_abx.py build`, and check that no set is UNDERPOWERED before handing it to a judge.
+
+---
+# Phase 0 Gate-2 folds owed by PH (charter § 13) — before the first W-A chunk is judged
+- **G2-B1 overlay tooling:** a P6a triage tool that, per v0.1 candidate inside a declared dark structure, renders the crop with the **layout-projected declared-opening overlay** (from LV's declared-opening list for v7; from layout v5 for the BVR truth set) and the distance (m) to the nearest declared opening; writes `results/p6a_triage_<window>.jsonl` rows {chunk, candidate px, crop sha, overlay sha, nearest declared id, distance m, verdict, evidence, reader}. Match radius = declared opening's half-width + 1.0 m. Also build the § 9 truth set re-rendered with the overlay in place of the zone map, judge-ready (JUDGE.md + items, key outside) — the conductor spawns a fresh judge.
+- **G2-B2 P11 v1 GREEN:** on the FIXED generator build (i) **v1 vs v1** (record-time `section_v1cam/v1ref/` stills vs PT's HEAD stills `fid/pc/v1_stills/`; 40 trials) and (ii) **v1 vs half-density** (40 trials, content-controlled). Judge-ready dirs; tell the conductor. Record results in `calibration.json` incl. the v1 cell. UNDERPOWERED (< 40) = VOID.
+- **W-3 P8:** re-instrument to like-for-like (per-chunk vs v1's per-chunk distribution, or whole-window vs whole-window with a v1-justified tolerance); add a graded constructed RED near the bar (e.g. 1 m shift). Record as re-instrumentation.
+- **I-4:** clear the stale lines in calibration.md.
+- **Phase 1 support:** when LV's guide + ID render land, run P6 geometry agreement against the **layout_v7 polygons**.
+State: [ ] G2-B1 tool [ ] G2-B1 judge set [ ] G2-B2 sets [ ] W-3 [ ] I-4

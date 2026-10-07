@@ -21,3 +21,45 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 ## State
 - [x] 0.2 frame fix + proof DONE (deliverables in lv/; report lv/frame_report.md). world = R_y(+47)·(x,z,y); sign tests ALL PASS (T3 exact to 1e-12 px; yaw -47 and yaw 0 rejected).
 - ⚑ **HALT-for-ruling (I-2):** mechanical I-2 = **FAIL on p03 only** (Δ +59.4°; cyclic order MATCHES; other five ≤ 12.7°; similarity-fit rotation −3.2°). No yaw passes all six (best 34.3° at yaw 26.5); cause is pack p03 (8.23, 32.06, SE of start) vs sketch A's SW patch — data, not frame. Conductor rules. Also: hall/great door/gable ~90° off sketch A (layout door faces NW). LV stopped; Phase 1 not started.
+
+---
+
+# PHASE 1 — design freeze + blockout → M1 (opened R-C9-173; charter v0.3 §§ 5 Phase 1, 7, 12, 13)
+
+**Inputs that govern:** R-C9-162 (M0: one sea level, wreck beached in shore ice; wreck rebuilt to read from 53°; zoom = v1's 19×13 m), R-C9-165 (hall/wreck/stair composition items), R-C9-148 (stair angled across the face, cave in the south face under p03), R-C9-154 (door sizes), R-C9-155 (clean floor, exit lanes, one great door), layout_v2 v6 + `tools/validate_layout_v2.py` R1–R13.
+**Budget:** ≤ 4 Astra images (BV2F-prefixed bursts only, heavy lock, usage-limit = exit 7 HALT), ≤ $8 fal (Tripo ≈ $0.40/build; per-lane fal ledger `fid/lv/fal_spend_BV2F.json`). No painting in Phase 1.
+**Write scope:** `fid/lv/` and this file; the barrow_v2 level may add NEW files in `barrow_full/godot/` only under `scenes/bv2f_*.tscn`, `scripts/bv2f/`, `data/bv2f/`, `tools/bv2f/` (list them in `fid/lv/barrow_full_allowlist.txt`). **Every v1 file is read-only** — the level EXTENDS v1 scripts. `git status --porcelain -- barrow_full/` must show only allowlisted new paths. `layout_v2.json` (v6) stays as record: write the new layout as `fid/lv/layout_v7*.json`, validated by the same validator (copy-run, R9 text noting sim-camera yaw).
+
+## 1.2 Model kit v3 (only what C7 broke; uniform scale ≤ 10% per-axis)
+- **Wreck (M0(b)):** heeled, half-sunk in shore ice, broken ribs, dragon prow, snapped mast (sketch A, `barrow_v2/sites/BV3r2-A.png`, look of record), ~12–14 m, **designed to read from 53° above** (deck, ribs, prow, mast visible from the top). One Astra concept sheet that includes a 53° top view → Tripo multiview → prep. Hull diagonal on screen as in sketch A (R-C9-165), beached at one sea level (no lagoon, no spit).
+- **Barrow front + monumental door** (R-C9-154: clear opening ≥ 6.5 m H × 5 m W) and **longhall at true proportions** (no per-slot stretch; one great door ≥ 4.5 × 4.5 m in a porch rising above the roofline; collapsed SW end = the fallen gable on p06's ray, R-C9-148).
+- Cliffs/crags stay modular instances (each instance will get its own bake later, W6).
+- refs_guard on every prompt; no franchise/studio/artist names.
+
+## Hall orientation — prepare BOTH for M1 (R-C9-165)
+- **v7a (RECOMMENDED):** sketch A orientation — hall running screen upper-left → lower-right, the great-door wall facing the start, gable at its lower-right end on p06's ray.
+- **v7b:** v6's orientation (axis 222.99°, door faces NW).
+Both must keep validator R1–R13 green (exit lane door → p04 ≥ opening width; discs clear; open lines to (0,0)). If v7a cannot pass the validator, report why and stop — do not bend a rule.
+
+## 1.3 Class-tinted guide (v1 recipe exactly, W2)
+- Flat tints, one sun at v1's angle, v1's pen; **v1's own tint values** for snow / path / ice / shrub (read them from `barrow_full.gd` / v1 guide, cite file:line); new distinct tints for rock, wood, shingle, shore ice, sea, stream, **and a `char` class for charred timber/ash** (needed by the P6a overlay protocol, charter § 13).
+- Models in flat class tints (not their Tripo textures). **No plants.** Path NOT a dark streak (v1's path tint).
+- Rendered through the **frozen Tier-B tools** (`fid/v1tools/`, verify.sh first; run via `v1run.py`) at 100.6 px/m over the full paint envelope (≈ 11,776 × 8,704) as 1536 × 1024 tiles on the 9 × 11 grid, plus the matching ID render (per-object + class map) — for v7a only unless Matt picks v7b at M1.
+- Also emit the **declared-opening list** (id, plate px, width/height m) from the layout for PH's P6a overlay.
+
+## 1.4 M1 packet (Matt is on his phone: a few sheets + one short film, not directories)
+- 12–16 play-camera stills at v1's zoom, v1 camera (pitch 52.95354°, yaw 47, frame `world = R_y(+47)·sim`): the start, each door approach (p01–p06), each spawn disc, the cave top + stair, the wreck, the mere. **Each still beside sketch A's matching area** (not to scale), and for the hall views v7a | v7b side by side.
+- A labelled top-down map of v7a.
+- A walkable greybox desktop app of v7a (v1's controls/camera), as at R-C9-86.
+- The R-C9-165 divergence table (anchor bearings vs sketch A) as one line per anchor.
+- Put the packet in `fid/lv/M1/` (sheets ≤ 2000 px wide, jpg) with `M1_README.md` listing each file in one line.
+
+## Done when (Phase 1 DoD, charter § 5)
+Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the guide judged against the **layout_v7 polygons** (not the guide's own class map); Gate-2; then M1. Report to the conductor before M1 — the conductor sends the packet to Matt.
+
+## Phase 1 state
+- [ ] 1.2 wreck sheet → Tripo → prep
+- [ ] 1.2 barrow front + longhall at true proportions
+- [ ] layout v7a + v7b, validator green
+- [ ] 1.3 guide tiles + ID/class render + declared-opening list
+- [ ] 1.4 M1 packet

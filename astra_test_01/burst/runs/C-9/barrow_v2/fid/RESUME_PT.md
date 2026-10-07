@@ -59,3 +59,10 @@ Next step: await ruling. Nothing else outstanding in Phase 0 for PT.
 **0.1 T2 lit residual misses its record: 36.2 vs 40.7 (±0.5).** Unlit (the charter-gated number) reproduces exactly. The lit path (blockout ramp under the blockout sun, `mini_overlay.gd`) depends on `paint_stack.gd`/`barrow_full.gd`, changed by 17 commits after the record (3b8a4fbfd → HEAD; 111c85f5d replaced paint_stack.gd). Not bisected.
 **Conductor must rule:** (a) is lit a gating target (charter row 0.1 names only unlit 15.5; my targets.json registered lit as gating)? (b) if gating: bisect the lit path (≈1 Godot run per candidate commit, $0) or re-base the lit record at HEAD. T3, T4 and the stills are NOT run; resume order T3 → stills → T4 from the clone (re-clone first if barrow_full has moved).
 Next step: await ruling.
+
+---
+# Phase 0 Gate-2 folds owed by PT (charter § 13; jack-ryan `qa/findings/2026-10-07-bv2f-phase0-gate2.md` W-1, W-2) — before the FIRST BV2F paint burst
+- **W-1:** `verify.sh` fails any `^+` patch line that neither carries `BV2F` nor sits inside the marked block; add a RED test for an added override line. Record shas of `verify.sh`, `ALLOWLIST.md`, `patches/*` in `PROVENANCE.md` (the conductor puts them in the ledger milestone).
+- **W-2:** (a) a cfg check the driver calls before staging: the executed cfg's `rules` == v1's `rules` with the DEV-12 substitution table applied (write the table now as `v1tools/DEV12_substitutions.json`, empty of site content until LV's Phase-1 class list lands — then fill it, listing every v1-site noun and its replacement), and `refs` == v1's + DEV-11 entries; (b) record `lane/run_burst.py` sha at the pin in PROVENANCE (or declare it out of scope with a reason); (c) route Godot `.gd` copies through a sha-checking runner, or make lane scripts assert every `--script` path is under `fid/v1tools/`.
+- Stills: PT's six v1 stills are in `fid/pc/v1_stills/` (done).
+State: [ ] W-1 [ ] W-2(a) [ ] W-2(b) [ ] W-2(c)
