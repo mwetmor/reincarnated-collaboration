@@ -1,0 +1,40 @@
+{
+  "task_id": "BV2F-LV-cliffcol",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "BV2F-LV-cliffcol",
+      "path": "out/BV2F-LV-cliffcol.png",
+      "sha256": "40d8b9d1cac2e6fbbf70ac0db8f55278352c58cec9ee6cddd80222665993df23",
+      "prompt": "Use case: stylized-concept. Generate ONE 1536x1024 landscape painted model sheet for a cliff kit. Exactly five views of ONE AND THE SAME straight sea-cliff segment, in a 3-column by 2-row grid of invisible 512x512 cells. No text, labels, borders. Pure flat #00ff00 background, including entire empty bottom-right cell.\n\nREFERENCE ROLES: Image 1 is cliff identity ONLY: use its south cliffs' tall fractured grey-brown and ochre weathered columns, rusty-orange lichen, irregular snow caps and ledges, not its scene or camera. Image 2 is hand-painted rendering STYLE ONLY: copy its crisp wavering dark-brown ink contours, varying line weights, fine hand hatching, pale paper highlights and transparent granular watercolor washes; never copy its subject or magenta background.\n\nMERGE / REGISTER: subject and palette informed by late-medieval and early-Renaissance illuminated manuscripts, c.1400–1530. Rendering is hand-painted watercolor-and-ink character illustration of 1990s tactics role-playing illustration: visible pen contour, fine hand-drawn hatching on stone, transparent watercolor washes. Washes uneven, pooled at edges, granulated, soft blooms, occasional stopping short of or slightly overrunning contours. A darker second wash plus fine hatching models local crevices, never an airbrushed gradient. Large areas pale cream with paper highlights. Darkest marks are crisp dark sepia-to-near-black lines and hatching, not filled shadow masses. Moderate-value winter mineral palette: warm stone greys, grey-brown, yellow ochre, cream lead-white snow; rusty-orange lichen accents on approximately a tenth to a fifth of the object surfaces. No large black fills, no saturated large object fills. No glossy highlights, glow, rim light, bloom effects, lens effects or digital gradients. One coherent hand-painted illustration.\n\nOBJECT AND TRUE PROPORTIONS: 9 m wide x 8 m tall x 4 m deep, one straight sea cliff segment that fits beside other segments. Five or six uneven-width and uneven-height tall weathered rock columns, fractured by strong DEEP VERTICAL CRACKS and joints. Front sea face strongly articulated with projecting BUTTRESSES, RECESSES and gullies, never one flat slab. Faceted stone with rusty-orange lichen streaks. Cream-white granular snow surface color outlined by pen lies on the broken irregular crest, each column top, ledges and steps; two or three snow ledges partway down. Lowest metre darker and smoother from sea wear, but no baked lighting. A continuous WAVE-CUT NOTCH undercuts the foot approximately half a metre along the entire front. Back is plain rough rock against the land. Both ends rough rock, never smooth planar cuts. Irregular broken snow crest, NOT a level top. Absolutely NO ground, water, ice, pedestal or other objects beneath it; object ends at foot.\n\nSHEET LAYOUT:\nTop-left cell FRONT: sea face square to viewer, full 9 m width.\nTop-middle cell RIGHT SIDE: square-on from object's right end, showing its 4 m depth.\nTop-right cell BACK: land face square to viewer, full 9 m width.\nBottom-left cell LEFT SIDE: square-on from object's left end, showing 4 m depth; the two side views must be each other's mirror.\nBottom-middle cell TOP VIEW: orthographic elevated game view from FRONT/sea side, exactly 53 degrees above horizontal ground, looking down; show snow-capped tops, ledges, gullies and front sea face. This is not an overhead plan.\nBottom-right cell entirely empty pure #00ff00.\n\nThe four eye-level views must have NO perspective tilt and NO top-down view: straight-on orthographic elevations, common baseline within each row and identical measurement-to-image proportion across views. Preserve 9:8:4 dimensions; front/back nearly square width-to-height 9:8, side views distinctly narrower at 4:8. Fill most of cells while retaining clear green margins and never touching cell boundaries. Same exact silhouette, rock structure, cracks, snow patches and lichen marks consistently reconstructed across all five views, not five similar objects. No overlap.\n\nPaint as ALBEDO: soft even shadowless illumination from nowhere in particular. No key light, no bright-side/dark-side treatment, no cast shadow, no ground shadow. Tone arises only from material pigments and pen hatching. All surfaces remain readable. Snow is cream-white surface pigment, never light effects. No scenery, figures, architecture, lettering or decorations. Deliver only the sheet.",
+      "references": [
+        {
+          "role": "identity plate — south sea cliffs",
+          "path": "in/01_bvm_rocks_identity.png"
+        },
+        {
+          "role": "rendering style only",
+          "path": "in/02_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 23.682
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Front, back and elevated views cross their assigned 512-pixel cell boundaries; the elevated view intrudes into the required empty bottom-right cell.",
+      "Side views are not exact mirrors; rock, snow and lichen details are inconsistent across views.",
+      "Front and back appear too wide relative to height for the specified 9:8 proportions.",
+      "Eye-level views expose top surfaces; exact orthographic elevations and the elevated view's 53-degree angle are not assured."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/BV2F-LV-cliffcol.png",
+      "sha256": "40d8b9d1cac2e6fbbf70ac0db8f55278352c58cec9ee6cddd80222665993df23"
+    }
+  ]
+}

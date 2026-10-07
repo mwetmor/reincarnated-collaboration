@@ -1,0 +1,39 @@
+{
+  "task_id": "BV2F-LV-cavearch",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "BV2F-LV-cavearch",
+      "path": "out/BV2F-LV-cavearch.png",
+      "sha256": "ac8157b0b4c8d236692485cd34d28c38f5d8d8d2b65eb66e5ceea6fd02d69d84",
+      "prompt": "Create ONE 1536x1024 landscape model sheet, use case stylized-concept, painted albedo for a sea-cliff cave kit piece. Image 1 is identity reference ONLY for the sea-cave rock, weathered columns, snow, colours. Image 2 is STYLE ONLY: copy the warm dark-brown varying pen contours, fine handmade hatching and transparent granular watercolor hand; never copy its character or magenta background.\n\nSHEET: exactly 3 columns by 2 rows of 512x512 cells, with NO drawn borders or labels. Top row: FRONT, RIGHT SIDE, BACK. Bottom row: LEFT SIDE, elevated FRONT view from precisely 53 degrees above ground with orthographic projection, EMPTY. Last cell entirely flat pure #00ff00. All background everywhere pure #00ff00. No text, no other objects, no ground plane, no water, no ice, no ground shadows, no overlapping cells, no touching cell edges. Each of the four eye-level orthographic views is square-on without any perspective tilt and shares the same dimensional scale and baseline within its row. Front/back width corresponds to 12m, side width to 6m, all four heights to 9m. Keep these true proportions; do not stretch the side views to fill their cells.\n\nONE IDENTICAL OBJECT viewed five ways, not five interpretations. Consistent silhouette, snow patches, rock columns, cracks, lichen and fallen blocks in every view. The two rough side ends must have mirrored profiles, LEFT SIDE the mirror counterpart of RIGHT SIDE. Eye-level FRONT shows the cave mouth; BACK is plain closed rough rock; sides show its depth without inventing extra entrances. Bottom-center view sees the same front mouth under the brow and the snow-capped crest from 53 degrees above ground, no perspective.\n\nOBJECT: A sea-cliff section 12m wide, 9m tall, 6m deep with an irregular WATER-ERODED sea-cave mouth about 6m wide and 7m high on the front. ROUNDED ROCK BROW, irregular undercut sides smoothed by sea action, wet darker rock around the entrance. This is a deep recess extending into the rock, NOT an archway open through the back, NOT a door or rectangle, NOT a flat black patch: visible inner roof and walls run back several metres, increasingly dense pen hatching and dark violet-grey wash describe depth to near-black deep inside. Preserve legible inner planes. Cave floor level with bottom of piece. Two or three fallen rock blocks at the feet of the mouth's sides, consistent across views, included in the object. Tall weathered grey-brown and ochre columns split by deep VERTICAL cracks and joints, faceted, rusty-orange lichen streaks. Snow is cream-white granular surface colour outlined with ink on every top and ledge and inside where it lies. Uneven snow-covered crest. Lowest metre of stone darker and smoother from sea wear. No stair included: the stair in the identity plate is only context identifying the cave.\n\nREGISTER RENDERING: merge late-medieval/early-Renaissance illuminated manuscript mineral colours and stylised stone with hand-painted watercolor-and-ink illustration of the kind made for 1990s tactics role-playing games. Crisp DARK sepia-to-near-black pen outline of variable weight, slightly wavering. Fine handmade pen hatching models stone. Uneven transparent washes pool at edges, granulate and bloom softly, occasionally stop short of outlines or overrun slightly. Secondary darker wash plus hatching, never smooth digital gradients. Large areas calm and pale, cream and bare-paper highlights. Moderate mineral hues: warm stone greys, ochre, cream-white snow, muted lapis and violet-grey cool notes, rusty vermilion/ochre lichen accents. Roughly a tenth to a fifth of the painted object carries rich small lichen accents, never saturated broad surfaces or coloured floor. No gold needed. Darkest marks are ink and hatching; confine near-black to deep cave interior. One coherent hand-painted illustration, no photographic landscape, gloss, glow, lens effects or digital gradients.\n\nALBEDO LIGHTING OVERRIDE FOR THIS SHEET: soft even shadowless neutral illumination from nowhere in particular. Paint the surface colours, not lighting. No key light, bright side/dark side, rim light, cast shadow, or ground shadow. Snow is painted surface colour. No sunset or distant scenery: those register clauses apply only to parallax layers. Preserve exact requested sheet layout, view facings, physical proportions and flat green background. Deliver the single 1536x1024 sheet.",
+      "references": [
+        {
+          "role": "Identity reference: sea-cave mouth, cliff stone, snow and palette",
+          "path": "in/01_bvm_cliffs_identity.png"
+        },
+        {
+          "role": "Style reference only: ink contours, hatching and watercolor hand",
+          "path": "in/02_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 31.716
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Several views cross the prescribed 512x512 cell boundaries; the elevated view slightly intrudes into the required empty cell.",
+      "The four eye-level views show downward tilt; the elevated view's exact 53-degree angle is unverified.",
+      "Rock, snow and fallen-block details vary between views; exact mirrored side-view correspondence is not achieved."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/BV2F-LV-cavearch.png",
+      "sha256": "ac8157b0b4c8d236692485cd34d28c38f5d8d8d2b65eb66e5ceea6fd02d69d84"
+    }
+  ]
+}

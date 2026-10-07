@@ -1,0 +1,46 @@
+{
+ "_what": "BV2F LV Phase 1'' (R-C9-206): MEASURE the cave-arch build's own mouth -- rays straight into its FRONT (+Z -> -Z) on a",
+ "glb": "../../../barrow_full/godot/data/bv2f/models/cavearch.glb",
+ "aabb_m": [
+  11.999999046325684,
+  9.565522193908691,
+  6.431220054626465
+ ],
+ "method": "front rays on a 5 cm grid; the slice dz behind the front is open where a ray runs deeper than dz; per column the first open run with rock above = the clear height",
+ "profile_by_slice_m": {
+  "0.5": {
+   "clear_h_m": 3.3,
+   "floor_m": 0.05,
+   "apex_x_frac": 0.9208,
+   "width_at_2m_m": 0.4,
+   "width_at_half_m": 0.45
+  },
+  "1.0": {
+   "clear_h_m": 6.15,
+   "floor_m": 0.1,
+   "apex_x_frac": 0.4292,
+   "width_at_2m_m": 1.05,
+   "width_at_half_m": 0.9
+  },
+  "1.5": {
+   "clear_h_m": 6.25,
+   "floor_m": 0.1,
+   "apex_x_frac": 0.5042,
+   "width_at_2m_m": 2.65,
+   "width_at_half_m": 2.65
+  },
+  "2.5": {
+   "clear_h_m": 3.95,
+   "floor_m": 0.55,
+   "apex_x_frac": 0.5917,
+   "width_at_2m_m": 0.25,
+   "width_at_half_m": 0.25
+  }
+ },
+ "mouth_clear_h_m": 6.15,
+ "mouth_width_at_2m_m": 1.05,
+ "floor_frac": 0.0105,
+ "mouth_h_frac": 0.6429,
+ "apex_x_frac": 0.4292,
+ "front_view_max_depth_m": 6.033
+}

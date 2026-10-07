@@ -1,0 +1,41 @@
+{
+  "task_id": "BV2F-LV-cliffcape",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "BV2F-LV-cliffcape",
+      "path": "out/BV2F-LV-cliffcape.png",
+      "sha256": "a6c5c5901670372055b4bdd6787c7b432852eaf2797c4ce33284641a1d26ec38",
+      "prompt": "Use case: stylized-concept. Create ONE 1536x1024 landscape model sheet: one curved sea-cliff headland, consistently depicted in five views, painted as albedo for a cliff-kit asset.\n\nREFERENCES: Image 1 is the identity and cold winter palette reference ONLY: its rounded cliff corners, tall weathered grey-brown and ochre rock columns, snow caps, vertical cracks, rusty lichen. Image 2 is STYLE ONLY: copy its warm dark-brown ink contours of varying weight, transparent hand-painted washes and fine hatching, never its character, objects or background.\n\nSHEET LAYOUT: exactly three columns by two rows of 512x512 invisible cells. Top row: FRONT, RIGHT SIDE, BACK. Bottom row: LEFT SIDE, elevated TOP VIEW, EMPTY. Do not print these names. No text, labels, dividers or borders. Flat pure #00ff00 background everywhere outside the five silhouettes, including the entire bottom-right cell. No ground, water, ice, shadow or other object. Each view is isolated, centered with margins, filling most of its cell, never touching edges. Four eye-level views are orthographic, straight-on with no perspective tilt, share exactly the same scale and a common ground-line height within their rows. Top view is orthographic from the FRONT/seaward direction at precisely 53 degrees above the horizontal ground, looking down, not vertically overhead.\n\nONE OBJECT: true proportions 8 metres across, 6 metres deep, 7 metres tall. A convex half-round rocky headland where the coast turns, NOT a straight wall or dome or smooth boulder. Rounded seaward half-circle built of a cluster of tall faceted columns of different heights stepping down toward the sea. Back is a flat rough vertical rock face joining land. Deep vertical V-shaped cracks and gullies divide the columns. Cream-white snow surface colour lies on every column top, ledge and step and inside crevices. Grey-brown and warm stone grey rock with restrained ochre facets and rusty-orange lichen streaks. Lowest metre is darker and smoother from sea wear, with a wave-cut notch at the foot. One or two fallen blocks lean against the foot and are part of the same piece. No pedestal, no ground or water underneath.\nFRONT: square to the seaward rounded curve, with both flanks receding symmetrically.\nRIGHT SIDE: square to its right end, displaying the 6 metre depth, flat rear edge and stepped curved seaward edge.\nBACK: square to flat landward face, 8 metre width.\nLEFT SIDE: square to left end, the mirrored profile of the right view.\nELEVATED TOP VIEW: from sea side at 53 degrees, revealing the stepped cream snow-capped tops and half-round footprint.\nAll five views MUST depict the same geometry, silhouette, columns, snow patches, lichen marks and leaning blocks from their respective angles; do not invent five different rock formations. The two side profiles must be each other's mirror.\n\nRENDERING REGISTER: subject vocabulary and mineral palette from late-medieval and early-Renaissance illuminated manuscript rocks, c.1400–1530, translated into hand-painted watercolor-and-ink illustration of the kind used for 1990s tactical role-playing character art. It must read as one hand-painted illustration. Crisp DARK sepia-to-near-black pen contours, slightly wavering and varying in weight. Fine hand-drawn pen hatching models stone. Transparent uneven watercolor washes pool at shape edges, granulate, bloom softly, sometimes stop short of or overrun the line; a second wash and hatching develop local stone texture. Large surfaces remain calm and pale with cream and bare-paper highlights. Moderate-value mineral hues: warm stone grey, lead white, yellow ochre, with small rusty vermilion/madder lichen accents over roughly a tenth to a fifth of the rock. No large black fills. The darkest marks are the pen and hatching. No glossy highlights, glow, digital gradients, lens effects or airbrushed shading. No decorative floor patterns. The green background is strictly the flat matting field.\n\nALBEDO LIGHTING: soft even shadowless illumination from nowhere in particular, no key light, no brighter side versus darker side, no rim light, no cast shadows or ground shadows, no baked darkness. Tonal variation comes only from intrinsic surface colours, ink and hatching. Snow is cream-white granular painted surface colour enclosed by pen lines. Output only the sheet.",
+      "references": [
+        {
+          "role": "Identity plate: curved sea-cliff headland and winter palette",
+          "path": "in/01_bvm_rocks_identity.png"
+        },
+        {
+          "role": "Style only: watercolor-and-ink rendering hand",
+          "path": "in/02_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 34.208
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Background is a dark brown-to-black gradient rather than flat #00ff00, including the empty cell.",
+      "Eye-level views reveal upper surfaces and do not maintain strictly level orthographic presentation.",
+      "Column arrangements, snow patches and fallen blocks differ between views; side views are not exact mirrors.",
+      "Front and elevated views extend slightly beyond their assigned cell boundaries.",
+      "Exact proportions and the elevated camera angle cannot be verified visually; the wave-cut notch is not clearly resolved."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/BV2F-LV-cliffcape.png",
+      "sha256": "a6c5c5901670372055b4bdd6787c7b432852eaf2797c4ce33284641a1d26ec38"
+    }
+  ]
+}

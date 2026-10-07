@@ -62,6 +62,18 @@ func _class_mat(cls: String) -> ShaderMaterial:
 
 
 var _groups := {}
+var _cur_collider := ""
+
+
+func _xf_to(root: Node3D, n: Node3D) -> Transform3D:
+	## the transform of n relative to root's PARENT frame (root's own transform included)
+	var t := Transform3D.IDENTITY
+	var c: Node = n
+	while c != null and c != root.get_parent():
+		if c is Node3D:
+			t = (c as Node3D).transform * t
+		c = c.get_parent()
+	return t
 
 
 func _group(gid: String, cls: String) -> Node3D:
@@ -122,6 +134,7 @@ func _build_ground() -> void:
 	var V := {}
 	var N := {}
 	var step := 1.0 / cppm
+	var smooth := bool((sim.get("route", {}) as Dictionary).get("heightfield_collider", false)) and not sim.has("stair_steps_legacy") and (sim.get("slabs", null) != null)
 	for j in Hn:
 		var i := 0
 		while i < W:
@@ -147,12 +160,21 @@ func _build_ground() -> void:
 			var pb := _S(xb, Z[j * (W + 1) + i1], ya)
 			var pc := _S(xb, Z[(j + 1) * (W + 1) + i1], yb)
 			var pd := _S(xa, Z[(j + 1) * (W + 1) + i], yb)
-			var n1 := (pd - pa).cross(pb - pa).normalized()
-			var n2 := (pd - pb).cross(pc - pb).normalized()
 			var vv: PackedVector3Array = V[k]
 			var nn: PackedVector3Array = N[k]
 			vv.append_array(PackedVector3Array([pa, pb, pd, pb, pc, pd]))
-			nn.append_array(PackedVector3Array([n1, n1, n1, n2, n2, n2]))
+			if smooth:
+				# Phase 1'': SMOOTH vertex normals off the height grid (the clifftop ramps, the beach, the stream banks read as
+				# slopes, not as the facets of 6 cm cells)
+				var na := _gn(Z, W, Hn, i, j, step)
+				var nb := _gn(Z, W, Hn, i1, j, step)
+				var nc := _gn(Z, W, Hn, i1, j + 1, step)
+				var nd := _gn(Z, W, Hn, i, j + 1, step)
+				nn.append_array(PackedVector3Array([na, nb, nd, nb, nc, nd]))
+			else:
+				var n1 := (pd - pa).cross(pb - pa).normalized()
+				var n2 := (pd - pb).cross(pc - pb).normalized()
+				nn.append_array(PackedVector3Array([n1, n1, n1, n2, n2, n2]))
 			V[k] = vv
 			N[k] = nn
 			i = i1
@@ -219,7 +241,7 @@ func _build_ground() -> void:
 		cs.position = _S(x0 + float(hcols - 1) / hppm / 2.0, 0.0, y0 + float(j0) / hppm + float(rows - 1) / hppm / 2.0)
 		body.add_child(cs)
 		var vb := float(RT["floor_box_v_min"])
-		for bb in [[vb, -vb], [-vb, 75.0]]:
+		for bb in ([] if vb > 900.0 else [[vb, -vb], [-vb, 75.0]]):
 			var c2 := CollisionShape3D.new()
 			var b2 := BoxShape3D.new()
 			b2.size = Vector3(150.0, 2.0, float(bb[1]) - float(bb[0]))
@@ -338,7 +360,52 @@ func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, 
 		"model_aabb_m": [ab.size.x, ab.size.y, ab.size.z], "slot_size_m": [size.x, size.y, size.z]})
 	model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
 	holder.add_child(model)
-	if bool(sim.get("colliders", false)):
+	if bool(sim.get("colliders", false)) and _cur_collider == "trimesh_walls":
+		# the CAVE ARCH (R-C9-206): its walls, arch and roof collide as built; its rough floor rubble (up-facing triangles in
+		# its lowest 1.2 m, and every triangle wholly in its lowest 1.0 m) does not -- the walk surface inside is the
+		# shelf-level terrain, flush with the shelf (a body's middle still meets the walls)
+		var wb := StaticBody3D.new()
+		wb.collision_layer = TERRAIN_BIT
+		wb.collision_mask = 0
+		wb.name = id + "_walls"
+		level.add_child(wb)
+		var faces := PackedVector3Array()
+		for mi in model.find_children("*", "MeshInstance3D", true, false):
+			var m4 := mi as MeshInstance3D
+			if m4.mesh == null:
+				continue
+			var xf4: Transform3D = holder.transform * _xf_to(model, m4)
+			var fv: PackedVector3Array = m4.mesh.get_faces()
+			for f in range(0, fv.size(), 3):
+				var a := xf4 * fv[f]
+				var b := xf4 * fv[f + 1]
+				var c := xf4 * fv[f + 2]
+				var nrm := (b - a).cross(c - a).normalized()
+				if (absf(nrm.y) > 0.6 and minf(a.y, minf(b.y, c.y)) < z + 1.2) or maxf(a.y, maxf(b.y, c.y)) < z + 1.0:
+					continue
+				faces.append_array(PackedVector3Array([a, b, c]))
+		var cp := ConcavePolygonShape3D.new()
+		cp.set_faces(faces)
+		var cs5 := CollisionShape3D.new()
+		cs5.shape = cp
+		wb.add_child(cs5)
+	elif bool(sim.get("colliders", false)) and _cur_collider == "trimesh":
+		# Phase 1'' (R-C9-204/206): the cliff kit collides AS BUILT -- one concave shape per mesh, the model's own triangles
+		# (the cave's arch, interior and floor edge are walked as drawn)
+		var tb := StaticBody3D.new()
+		tb.collision_layer = TERRAIN_BIT
+		tb.collision_mask = 0
+		tb.name = id + "_trimesh"
+		level.add_child(tb)
+		for mi in model.find_children("*", "MeshInstance3D", true, false):
+			var m3 := mi as MeshInstance3D
+			if m3.mesh == null:
+				continue
+			var cs3 := CollisionShape3D.new()
+			cs3.shape = m3.mesh.create_trimesh_shape()
+			cs3.transform = holder.transform * _xf_to(model, m3)
+			tb.add_child(cs3)
+	elif bool(sim.get("colliders", false)):
 		# Phase 1' walk: a box collider of the uniformly scaled model (85 % of its footprint), on its own body
 		var body := StaticBody3D.new()
 		body.collision_layer = TERRAIN_BIT
@@ -469,6 +536,7 @@ func _build_placements() -> void:
 				wrap.add_child(node2)
 				node2 = wrap
 			var iid := "%s_%d" % [sid, n]
+			_cur_collider = String(ins.get("collider", ""))
 			if String(ins["type"]) == "box":
 				var ip := Vector2(float(ins["pos"][0]), float(ins["pos"][1]))
 				var s3 := Vector3(float(ins["size_m"][0]), float(ins["size_m"][2]), float(ins["size_m"][1]))
@@ -479,7 +547,9 @@ func _build_placements() -> void:
 				_place_beam(iid, cls, node2, a, b, float(ins["thickness_m"]), String(ins.get("fit", "")) == "height", sid)
 			model_report["loaded"] += 1
 			n += 1
+	_cur_collider = ""
 	_build_stair()
+	_build_slabs()
 	_build_blobs()
 	_build_curtains()
 	_build_probes()
@@ -881,3 +951,71 @@ func freeze_pose(on: bool) -> void:
 			(tree as AnimationTree).active = true
 		if fl != null:
 			(fl as SkeletonModifier3D).active = true
+
+
+
+func _build_slabs() -> void:
+	## Phase 1'' (R-C9-204/206): every procedural prism at true size -- the sea's shore-fast ice, plates and floes (the
+	## loose outer floes in their own group, tagged to bob), the mere's cracked plates, the stream's ice, the shelf's rime,
+	## the rock-cut stair's treads and the snow on their back edges. ONE mesh and ONE id per group (v1's ID code has 256
+	## colours); each item a polygon extruded from z0 to z1; the gaps between them are the cracks (dark water below).
+	var n_all := 0
+	var rep := {}
+	for gid in (sim.get("slabs", {}) as Dictionary).keys():
+		var g: Dictionary = sim["slabs"][gid]
+		var cls := String(g["class"])
+		var V := PackedVector3Array()
+		var N := PackedVector3Array()
+		for it in g["items"]:
+			var p2 := PackedVector2Array()
+			for q in it["poly"]:
+				p2.append(Vector2(float(q[0]), float(q[1])))
+			var z0 := float(it["z0"])
+			var z1 := float(it["z1"])
+			var idx := Geometry2D.triangulate_polygon(p2)
+			if idx.is_empty():
+				var c := Vector2.ZERO
+				for q in p2:
+					c += q
+				c /= float(p2.size())
+				for i in p2.size():
+					_tri(V, N, _S(c.x, z1, c.y), _S(p2[i].x, z1, p2[i].y), _S(p2[(i + 1) % p2.size()].x, z1, p2[(i + 1) % p2.size()].y), Vector3.UP)
+			else:
+				for t in range(0, idx.size(), 3):
+					_tri(V, N, _S(p2[idx[t]].x, z1, p2[idx[t]].y), _S(p2[idx[t + 1]].x, z1, p2[idx[t + 1]].y), _S(p2[idx[t + 2]].x, z1, p2[idx[t + 2]].y), Vector3.UP)
+			var sgn := 0.0
+			for i in p2.size():
+				sgn += p2[i].x * p2[(i + 1) % p2.size()].y - p2[(i + 1) % p2.size()].x * p2[i].y
+			for i in p2.size():
+				var a := p2[i]
+				var b := p2[(i + 1) % p2.size()]
+				var e := b - a
+				if e.length() < 1e-4:
+					continue
+				var nr := Vector3(e.y, 0.0, -e.x).normalized() * (1.0 if sgn > 0.0 else -1.0)   # OUTWARD whichever way the polygon winds
+				_tri(V, N, _S(a.x, z0, a.y), _S(b.x, z0, b.y), _S(b.x, z1, b.y), nr)
+				_tri(V, N, _S(a.x, z0, a.y), _S(b.x, z1, b.y), _S(a.x, z1, a.y), nr)
+			n_all += 1
+		var root := Node3D.new()
+		root.name = String(gid)
+		root.set_meta("bv2f_bob", bool(g.get("bob", false)))
+		var p := _flat_params()
+		p["_two_sided"] = true
+		if V.size() > 0:
+			_mesh(V, N, PaintStack.world_material(fbm, _tint_of(cls), p), "mesh", root)
+		level.add_child(root)
+		_dress(root, cls)
+		_register(String(gid), root, cls, "slabs")
+		rep[gid] = (g["items"] as Array).size()
+	report["slabs"] = rep
+
+
+
+func _gn(Z: PackedFloat32Array, W: int, Hn: int, i: int, j: int, step: float) -> Vector3:
+	var i0 := maxi(i - 1, 0)
+	var i1 := mini(i + 1, W)
+	var j0 := maxi(j - 1, 0)
+	var j1 := mini(j + 1, Hn)
+	var dzx := (Z[j * (W + 1) + i1] - Z[j * (W + 1) + i0]) / (float(i1 - i0) * step)
+	var dzy := (Z[j1 * (W + 1) + i] - Z[j0 * (W + 1) + i]) / (float(j1 - j0) * step)
+	return Vector3(-dzx, 1.0, -dzy).normalized()

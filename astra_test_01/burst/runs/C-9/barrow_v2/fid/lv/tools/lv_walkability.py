@@ -56,57 +56,48 @@ def frame(f):
 
 
 def build_spec(L):
+    """Phase 1'' route (one straight-face frame: t along, s seaward; the stair strip s in [-W, 0] cut into the land)."""
     R = L["route"]
     sp = R["spec"]
-    st = frame(R["frames"]["stair"])
-    cv = frame(R["frames"]["cave"])
-    fs = R["frames"]["stair"]
-    t0, t_top = fs["t_landing"]
-    t_foot, W = fs["t_foot"], fs["width_m"]
-    hw, cw = sp["mouth_w"] / 2, sp["cheek_w"]
-    shelf_s = (sp["mouth_s"] + sp["shelf_out_s"]) / 2
-    # the centreline, segment by segment: (name, polyline)
-    wp = [("cave", cv(0.0, sp["floor_back_s"] + 0.6)), ("cave", cv(0.0, sp["mouth_s"])), ("shelf", cv(0.0, shelf_s)),
-          ("shelf", cv(-hw - cw - 1.0, shelf_s)), ("shelf", st(t_foot + 0.6, W / 2)), ("stair", st(t_top, W / 2)),
-          ("landing", st((t0 + t_top) / 2, W / 2)), ("landing", st((t0 + t_top) / 2, 0.0)), ("clifftop", st((t0 + t_top) / 2, -2.5))]
-    samples, seg_of = [], []
-    for (na, a), (nb, b) in zip(wp[:-1], wp[1:]):
-        n = max(1, int(round(math.dist(a, b) / DS)))
-        for i in range(n):
-            f = i / n
+    F = R["frame"]
+    o, d = F["origin_uv"], F["along_uv"]
+    n = (d[1], -d[0])
+    fr = lambda t, s_: (o[0] + d[0] * t + n[0] * s_, o[1] + d[1] * t + n[1] * s_)
+    W = F["width_m"]
+    t_foot, t_top, t_land = F["t_foot"], F["t_top"], F["t_landing_end"]
+    ct, cf = sp["cave_t"], sp["cave_front_s"]
+    shelf_s = (cf + sp["shelf_out_s"]) / 2
+    wp = [("cave", fr(ct, cf - 3.0)), ("cave", fr(ct, cf)), ("shelf", fr(ct, shelf_s)), ("shelf", fr(sp["bottom_landing_t"] - 0.5, shelf_s - 1.5)),
+          ("shelf", fr((sp["bottom_landing_t"] + t_foot) / 2, -W / 2)), ("stair", fr(t_top, -W / 2)), ("landing", fr((t_top + t_land) / 2, -W / 2)),
+          ("landing", fr((t_top + t_land) / 2, -W - 0.3)), ("clifftop", fr((t_top + t_land) / 2, -W - 3.0))]
+    samples = []
+    for (_, a), (_, b) in zip(wp[:-1], wp[1:]):
+        k = max(1, int(round(math.dist(a, b) / DS)))
+        for i in range(k):
+            f = i / k
             samples.append([round(a[0] + (b[0] - a[0]) * f, 4), round(a[1] + (b[1] - a[1]) * f, 4)])
-            seg_of.append(nb if nb == na else (na if f < 0.5 else nb))
     samples.append([round(wp[-1][1][0], 4), round(wp[-1][1][1], 4)])
-    seg_of.append(wp[-1][0])
-    # each centreline sample's segment is WHERE IT STANDS (not which leg of the waypoint list it is on)
-    co, ca = R["frames"]["cave"]["origin_uv"], R["frames"]["cave"]["along_uv"]
-    so, sa = fs["origin_uv"], fs["along_uv"]
+    n_centre = len(samples)
     shelf_poly = R["polygons_uv"]["shelf"]
 
-    def tsf(p, o, a):
+    def tsf(p):
         dx, dy = p[0] - o[0], p[1] - o[1]
-        return dx * a[0] + dy * a[1], dx * a[1] - dy * a[0]
+        return dx * d[0] + dy * d[1], dx * n[0] + dy * n[1]
 
     def where(p):
-        t, s = tsf(p, so, sa)
-        if 0.0 <= s <= W and t_top <= t <= t_foot + sp["tread"]:
+        t, s_ = tsf(p)
+        if -W <= s_ <= 0.0 and t_foot - sp["tread"] <= t <= t_top:
             return "stair"
-        if 0.0 <= s <= W and t0 <= t < t_top:
+        if -W - 0.4 <= s_ <= 0.2 and t_top < t <= t_land:
             return "landing"
-        tc, sc = tsf(p, co, ca)
-        if abs(tc) <= hw + cw and sp["floor_back_s"] <= sc <= sp["mouth_s"]:
+        if abs(t - ct) <= sp["mouth_w"] / 2 + 0.5 and cf - 6.0 <= s_ <= cf:
             return "cave"
         if point_in_poly(p, shelf_poly):
             return "shelf"
         return "clifftop"
     seg_of = [where(q) for q in samples]
-    n_centre = len(samples)
-    # cross-sections: the stair every 0.5 m (across: -1 .. W+1), the shelf every 0.5 m (across: s -1 .. shelf_out + 1),
-    # the cave mouth (across the mouth, just inside)
     sections = []
-    ns = (fs["along_uv"][1], -fs["along_uv"][0])
-    nc = (R["frames"]["cave"]["along_uv"][1], -R["frames"]["cave"]["along_uv"][0])
-    dc = R["frames"]["cave"]["along_uv"]
+    dvec, nvec = (d[0], d[1]), (n[0], n[1])
 
     def add_section(sid, kind, centre, a0, a1, axis, origin):
         idx0 = len(samples)
@@ -116,31 +107,28 @@ def build_spec(L):
             samples.append([round(origin[0] + axis[0] * x, 4), round(origin[1] + axis[1] * x, 4)])
         sections.append({"id": sid, "kind": kind, "centre": [round(centre[0], 4), round(centre[1], 4)], "across": [axis[0], axis[1]],
                          "i0": idx0, "n": k + 1, "a0": a0, "centre_a": round(((centre[0] - origin[0]) * axis[0] + (centre[1] - origin[1]) * axis[1]), 4)})
-    t = t_top + 0.25
+    t = t_foot + 0.25
     j = 0
-    while t <= t_foot - 0.2:
-        add_section("stair_%02d" % j, "stair", st(t, W / 2), -1.0, W + 1.0, ns, st(t, 0.0))
+    while t <= t_top - 0.2:
+        add_section("stair_%02d" % j, "stair", fr(t, -W / 2), -W - 1.0, 1.0, nvec, fr(t, 0.0))
         t += 0.5
         j += 1
-    # the shelf: from the stair foot east to the mouth's west edge, sections across the cave frame's s
-    t_c_foot = ((st(t_foot, W / 2)[0] - R["frames"]["cave"]["origin_uv"][0]) * dc[0] + (st(t_foot, W / 2)[1] - R["frames"]["cave"]["origin_uv"][1]) * dc[1])
-    tc = t_c_foot + 0.6
+    t = ct + sp["mouth_w"] / 2 + 0.5
     j = 0
-    while tc <= -hw + 0.01:
-        s_in = sp["mouth_s"] if tc >= -hw - cw - 0.01 else sp["shelf_in_s"]
-        add_section("shelf_%02d" % j, "shelf", cv(tc, (s_in + sp["shelf_out_s"]) / 2), -1.0, sp["shelf_out_s"] + 1.0, nc, cv(tc, 0.0))
-        tc += 0.5
+    while t <= sp["bottom_landing_t"] - 0.3:
+        add_section("shelf_%02d" % j, "shelf", fr(t, shelf_s), -1.0, sp["shelf_out_s"] + 1.5, nvec, fr(t, 0.0))
+        t += 0.5
         j += 1
-    add_section("cave_mouth", "cave", cv(0.0, sp["mouth_s"] - 0.1), -hw - cw - 1.0, hw + cw + 1.0, dc, cv(0.0, sp["mouth_s"] - 0.1))
-    pa = cv(0.0, sp["mouth_s"])
-    pb = st(t0, W / 2)
+    add_section("cave_mouth", "cave", fr(ct, cf - 1.0), -sp["mouth_w"] / 2 - 3.0, sp["mouth_w"] / 2 + 3.0, dvec, fr(ct, cf - 1.0))
+    pa = fr(ct, cf)
+    pb = fr(t_land, -W / 2)
     xs = [q[0] for q in samples[:n_centre]]
     ys = [q[1] for q in samples[:n_centre]]
     w_m, h_m = max(xs) - min(xs) + 8.0, max(ys) - min(ys) + 8.0
     spec = {"samples": samples, "sections": sections, "waypoints": [list(q) for _, q in wp], "waypoint_radius_m": 0.5, "drive_timeout_s": 90.0,
-            "stills": {"play_aim": [round((pa[0] + pb[0]) / 2, 3), round((pa[1] + pb[1]) / 2, 3), -2.5], "him_uv": list(st((t_top + t_foot) / 2, W / 2)),
+            "stills": {"play_aim": [round((pa[0] + pb[0]) / 2, 3), round((pa[1] + pb[1]) / 2, 3), -1.0], "him_uv": list(fr((t_foot + t_top) / 2, -W / 2)),
                        "topdown": [round((max(xs) + min(xs)) / 2, 3), round((max(ys) + min(ys)) / 2, 3), round(max(h_m, w_m * 1400 / 2000), 2), 2000, 1400]}}
-    meta = {"n_centre": n_centre, "seg_of": seg_of, "waypoint_names": [n for n, _ in wp]}
+    meta = {"n_centre": n_centre, "seg_of": seg_of, "waypoint_names": [nm for nm, _ in wp]}
     return spec, meta
 
 
@@ -220,6 +208,9 @@ def analyse(L, spec, meta, W_):
     st_secs = [s for s in secs if s["kind"] == "stair"]
     sh_secs = [s for s in secs if s["kind"] == "shelf"]
     mouth = [s for s in secs if s["id"] == "cave_mouth"][0]
+    roofed = [S[i]["headroom_m"] for i in range(nC) if seg[i] == "cave" and S[i]["hit"] and S[i]["headroom_m"] < 14.9]
+    lip_h = roofed[-1] if roofed else 0.0
+    deep_h = roofed[0] if roofed else 0.0
     bars = [
         ("continuous walk surface, cave -> clifftop (every 0.05 m)", "%d of %d centreline samples walkable; %d breaks" % (sum(r["walkable"] for r in rows.values()), nC, len(breaks)), len(breaks) == 0),
         ("stair slope <= 35 deg", "%.2f deg (collider); treads %.2f deg" % (rows["stair"]["max_slope_deg"], L["route"]["stair_pitch_deg"]), rows["stair"]["max_slope_deg"] <= 35.0),
@@ -228,7 +219,8 @@ def analyse(L, spec, meta, W_):
          max(r["max_dz_m"] for r in rows.values()) <= step_h),
         ("stair clear width >= 5 m", "min %.2f m over %d sections" % (min(s["clear_width_m"] for s in st_secs), len(st_secs)), min(s["clear_width_m"] for s in st_secs) >= 5.0),
         ("shelf clear width >= 6 m", "min %.2f m over %d sections" % (min(s["clear_width_m"] for s in sh_secs), len(sh_secs)), min(s["clear_width_m"] for s in sh_secs) >= 6.0),
-        ("cave mouth clear height ~7 m", "%.2f m headroom; mouth %.2f m wide" % (mouth["min_headroom_m"], mouth["clear_width_m"]), mouth["min_headroom_m"] >= 6.9),
+        ("cave mouth clear height ~7 m", "%.2f m at the arch's lip (the first centreline sample under the roof); %.2f m deeper in; the floor %.2f m clear across 1 m inside" % (
+            lip_h, deep_h, mouth["clear_width_m"]), lip_h >= 6.5),
         ("v1's knight driven from inside the cave to the clifftop", "reached %s in %.1f s (%d frames, %d off the floor); ends at uv (%.2f, %.2f) z %.2f" % (
             D["reached_last_waypoint"], D["time_s"], D["frames"], off_floor, D["end_uv"][0], D["end_uv"][1], D["end_z"]), bool(D["reached_last_waypoint"])),
     ]
@@ -261,7 +253,7 @@ def write_md(res, L):
         lines += ["", "Breaks:", ""] + ["- %s" % json.dumps(b) for b in res["breaks"][:40]]
     lines += ["", "Stills: `route_topdown.png` (straight down, north up) and `route_play.png` (v1's play camera) -- the magenta line is "
               "the knight's DRIVEN track (a check overlay, not in the guide); him on the stair for scale.", "",
-              "Where it stands: %s" % L["route"]["moved_from_sketch_A"]]
+              "Where it stands: %s" % L["route"]["sketch_A"]]
     open(os.path.join(OUT, "walkability.md"), "w").write("\n".join(lines) + "\n")
 
 

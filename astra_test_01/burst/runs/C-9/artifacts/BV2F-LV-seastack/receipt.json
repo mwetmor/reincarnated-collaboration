@@ -1,0 +1,41 @@
+{
+  "task_id": "BV2F-LV-seastack",
+  "status": "DELIVERED_WITH_CONCERNS",
+  "images": [
+    {
+      "name": "BV2F-LV-seastack",
+      "path": "out/BV2F-LV-seastack.png",
+      "sha256": "fe22e5ecfdefab62bf59a9e6372a0bf9305db28e0d893203064f7e143e87901f",
+      "prompt": "Use case: stylized-concept. Generate ONE 1536x1024 landscape watercolor-and-ink model sheet for a cliff-kit SEA STACK, painted as albedo.\n\nREFERENCES: Image 1 is identity/material reference ONLY: reproduce its faceted grey-brown and ochre cliff rock, deep vertical cracks, rusty-orange lichen streaks, cream snow on tops and ledges. The subject is a lone sea stack made of that rock. Image 2 is rendering-hand reference ONLY: its warm dark-brown crisp ink contours of varying weight, transparent granular washes, fine pen hatching, pale cream highlights. Never copy its subject or magenta background.\n\nREGISTER: Subject and mineral palette derive from late-medieval and early-Renaissance illuminated manuscripts c.1400–1530. Rendering is hand-painted watercolor and ink character illustration of 1990s tactics role-playing games. Uneven transparent washes pool at shape edges, granulate, bloom softly, sometimes stop short of or slightly overrun the line. Shade uses a second wash and fine hand-drawn hatching, never airbrushed gradients. Wavering crisp dark sepia-to-near-black contours and hatching are the darkest marks. Leave broad surfaces pale cream and warm stone grey, with moderate ochre and small rusty-orange lichen accents covering roughly 10–20 percent. No large black areas, no glossy highlights, glow, rim light, lens effects, or digital gradients. One hand-painted illustration, visibly made with pen and watercolor.\n\nOBJECT: ONE identical free-standing asymmetric rock pillar, 5 m tall and about 3 m across its broad foot. A cluster of two or three fused weathered columns, leaning slightly, irregular and rough on every side. Deep VERTICAL joints and cracks, faceted grey-brown and ochre stone, rusty-orange lichen streaks, cream-white granular snow caps and snow on every ledge and step, outlined in pen. Continuous wave-cut notch all around its foot; lowest one fifth darker and smoother from sea wear, still readable stone, not a solid black mass. Ends cleanly at its foot. No water, ice, ground, debris, separate stones, plants or other objects. Must not resemble a smooth boulder or symmetric cone.\n\nSHEET GEOMETRY: Exactly 3 columns x 2 rows of invisible 512x512 cells on a 1536x1024 canvas. Top row left to right: FRONT, RIGHT SIDE, BACK. Bottom row left to right: LEFT SIDE, TOP VIEW, EMPTY. These words are instructions only: absolutely no text, labels or borders. Each view centered entirely inside its own cell with clear margins, filling most of the cell. All four eye-level views have identical reproduction ratio and aligned foot baselines within their rows. Preserve true height-to-front-width proportion 5:3; side views are narrower.\nFRONT: broadest face, viewed square-on horizontally at eye level, no tilt, orthographic.\nRIGHT SIDE: square-on from object's right-hand end, eye level, orthographic.\nBACK: opposite broad face, square-on at eye level, orthographic.\nLEFT SIDE: square-on from object's left-hand end, eye level, orthographic.\nTOP VIEW: same object from its FRONT side, exactly 53 degrees above the ground, looking down, orthographic without perspective; snow cap and column tops clearly visible.\nEMPTY: entire bottom-right 512x512 cell pure #00ff00.\n\nONE OBJECT IN FIVE VIEWS: Maintain exactly the same fused column arrangement, silhouette, lean, notch, cracks, snow boundaries and lichen landmarks as the object rotates. The right and left side silhouettes must be each other's horizontal mirror, consistent opposing views of the same geometry. No five independently invented rocks. Back is the actual opposite face, not another front.\n\nALBEDO LIGHT: Soft even shadowless illumination from nowhere in particular. No bright side/dark side, no key light, rim light, cast shadows, ambient ground shadow or baked lighting. Tonal variation comes only from local stone colours and pen hatching. Snow is cream-white painted surface colour, not luminous. Flat pure #00ff00 background everywhere outside the five isolated silhouettes. No landscape, ground plane, frames, text, labels, cell lines, overlapping views, or other objects. Deliver just this one sheet.",
+      "references": [
+        {
+          "role": "identity/material reference",
+          "path": "in/01_bvm_rocks_identity.png"
+        },
+        {
+          "role": "rendering style only",
+          "path": "in/02_nb_style_ref_matt.png"
+        }
+      ],
+      "elapsed_s": 20.526
+    }
+  ],
+  "calls_used": 1,
+  "retries": [],
+  "self_report": {
+    "obeyed_invariants": false,
+    "concerns": [
+      "Side silhouettes and column landmarks are not exact mirrored counterparts; consistent geometry across all five views is uncertain.",
+      "Front and back appear broader than the specified 5:3 height-to-foot-width proportion.",
+      "The stack contains more than three prominent columns.",
+      "The foot has repeated rounded cavities rather than a simple continuous wave-cut notch.",
+      "The green background shows visible variation rather than a uniform pure #00ff00."
+    ]
+  },
+  "files": [
+    {
+      "path": "out/BV2F-LV-seastack.png",
+      "sha256": "fe22e5ecfdefab62bf59a9e6372a0bf9305db28e0d893203064f7e143e87901f"
+    }
+  ]
+}
