@@ -64,6 +64,13 @@ If you find an engine bug while consuming output (e.g., field missing, schema ma
 - **External APIs from loadout**: NONE currently; if adding any (e.g., image gen for character art), Matt approves the integration AND the API key handling — never embed keys client-side (verified via May 12 conversation)
 - **localStorage / IndexedDB**: agent uses freely; document keys/schemas
 
+## Sealed-runtime changes (Matt 2026-10-07, CLAUDE.md "Sealed-artifact change protocol")
+
+- Changes under `reincarnated-godot/kc2_runtime/` are permitted by standing allow rules **only** when a ledger row records Matt's ruling for that change. Cite the row in every commit.
+- Invoke build/test steps with **absolute paths, one command per Bash call** (no `cd … &&` chains), e.g. `python3 /Users/admin/Games/reincarnated-godot/kc2_play/tools/vendor.py …`, `/Applications/Godot.app/Contents/MacOS/Godot --headless --path /Users/admin/Games/reincarnated-godot/kc2_play …`. Never `rm`.
+- Every runtime change: fail-first probe → ORACLE byte-identity proof (G3 25/25 + T-A pre-read digests) → jack-ryan delta Gate-2.
+- If a step is still refused, stop and report the exact command; do not rephrase to get around it.
+
 ## Design documents to read at startup
 
 1. `agentic_orchestration/AGENTS.md` — your scope

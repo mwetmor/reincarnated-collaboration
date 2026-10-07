@@ -219,3 +219,23 @@ This addendum composes with hive-mind decision-routing: seam-owners decide in-sc
 ### Authority
 
 This addendum is authoritative per Matt 2026-05-25 directive to resolve recurring knight-rider over-asking behavioral bug. Supersedes strict-interpretation of Claude Code system-default commit rule WITHIN this project's multi-agent context. Does NOT affect single-agent Claude Code sessions outside this project.
+
+---
+
+## Sealed-artifact change protocol (Matt, 2026-10-07; KC2 ledger KP-312)
+
+**The problem this fixes.** Matt's authority lives in the conversation where he gives it. A background sub-agent's permission check sees only *its own* conversation, so a ruling relayed by a conductor is (correctly) not consent — and every authorized change to a sealed artifact stalled until Matt opened a session himself. **Standing consent now lives in configuration Matt controls, not in relayed prose.**
+
+**Mechanism** — `.claude/settings.local.json` in this repo (governs conductor sessions launched here and their sub-agents):
+- **ALLOW:** `Edit`/`Write` under `reincarnated-godot/kc2_runtime/**`; `python3`/`bash` on scripts in `reincarnated-godot/kc2_play/tools/` and `kc2_runtime/tools/`; the Godot binary; the shared `heavy_lock.py`.
+- **DENY:** `Edit`/`Write` under `reincarnated-engine/src/reincarnated/simulation/kc2/**` — the frozen Python oracle. An oracle change is a HALT to Matt by charter; the deny makes that structural, not just procedural.
+
+**Invocation convention** (so the allow rules actually match): absolute paths; **one command per Bash call** for these steps (no `cd … &&` chains — compound commands are checked part by part); **no `rm`** (deletion stays Matt's).
+
+**Protocol — every change to a sealed runtime needs ALL of:**
+1. a **Matt ruling recorded as a ledger row** (the consent of record — the allow rule is the mechanism, the ledger row is the authorization);
+2. a **fail-first** probe;
+3. **ORACLE byte-identity proof** (JOIN-1 § 4.7: G3 25/25 vs the recorded summaries + T-A pre-read cell digests);
+4. **jack-ryan delta Gate-2** before anything depends on the new digest.
+
+A refusal that still occurs under these rules is reported, never routed around; it means the rule set has a gap for Matt to close.
