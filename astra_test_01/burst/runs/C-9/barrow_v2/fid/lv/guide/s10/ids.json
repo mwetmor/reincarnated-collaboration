@@ -1,0 +1,3399 @@
+{
+ "_what": "C-9 T10-2 step 3: the guide view (6016 x 4480, capture_blockout's camera) as an ID render",
+ "code": "R = (i % 16) * 16 + 8, G = (i / 16) * 16 + 8, B = 200; ground and everything else 0",
+ "instrument_check": {
+  "formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0",
+  "placements_checked": 14,
+  "worst_px_camera_vs_formula": 0.002
+ },
+ "placements": {
+  "1": {
+   "class": "rock",
+   "id": "barrow_front",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    8,
+    200
+   ]
+  },
+  "10": {
+   "class": "rock",
+   "id": "blob_16",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    168,
+    8,
+    200
+   ]
+  },
+  "100": {
+   "class": "ice",
+   "id": "ground_ice",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    72,
+    104,
+    200
+   ]
+  },
+  "101": {
+   "class": "mound",
+   "id": "ground_mound",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    88,
+    104,
+    200
+   ]
+  },
+  "102": {
+   "class": "path",
+   "id": "ground_path",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    104,
+    104,
+    200
+   ]
+  },
+  "103": {
+   "class": "rock",
+   "id": "ground_rock",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    120,
+    104,
+    200
+   ]
+  },
+  "104": {
+   "class": "sea",
+   "id": "ground_sea",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    136,
+    104,
+    200
+   ]
+  },
+  "105": {
+   "class": "shingle",
+   "id": "ground_shingle",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    152,
+    104,
+    200
+   ]
+  },
+  "106": {
+   "class": "shore_ice",
+   "id": "ground_shore_ice",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    168,
+    104,
+    200
+   ]
+  },
+  "107": {
+   "class": "shrub",
+   "id": "ground_shrub",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    184,
+    104,
+    200
+   ]
+  },
+  "108": {
+   "class": "snow",
+   "id": "ground_snow",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    200,
+    104,
+    200
+   ]
+  },
+  "109": {
+   "class": "stream",
+   "id": "ground_stream",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    216,
+    104,
+    200
+   ]
+  },
+  "11": {
+   "class": "rock",
+   "id": "blob_17",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    184,
+    8,
+    200
+   ]
+  },
+  "110": {
+   "class": "wood",
+   "id": "logs_and_beams_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    104,
+    200
+   ]
+  },
+  "111": {
+   "class": "wood",
+   "id": "logs_and_beams_1",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    104,
+    200
+   ]
+  },
+  "112": {
+   "class": "wood",
+   "id": "logs_and_beams_2",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    120,
+    200
+   ]
+  },
+  "113": {
+   "class": "wood",
+   "id": "logs_and_beams_3",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    120,
+    200
+   ]
+  },
+  "114": {
+   "class": "wood",
+   "id": "logs_and_beams_4",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    120,
+    200
+   ]
+  },
+  "115": {
+   "class": "wood",
+   "id": "logs_and_beams_5",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    120,
+    200
+   ]
+  },
+  "116": {
+   "class": "wood",
+   "id": "logs_and_beams_6",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    120,
+    200
+   ]
+  },
+  "117": {
+   "class": "wood",
+   "id": "logs_and_beams_7",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    120,
+    200
+   ]
+  },
+  "118": {
+   "class": "wood",
+   "id": "logs_and_beams_8",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    120,
+    200
+   ]
+  },
+  "119": {
+   "class": "wood",
+   "id": "longhall",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    120,
+    200
+   ]
+  },
+  "12": {
+   "class": "shore_ice",
+   "id": "blob_18",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    200,
+    8,
+    200
+   ]
+  },
+  "120": {
+   "class": "wood",
+   "id": "palisade_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    120,
+    200
+   ]
+  },
+  "121": {
+   "class": "wood",
+   "id": "palisade_1",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    120,
+    200
+   ]
+  },
+  "122": {
+   "class": "wood",
+   "id": "palisade_10",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    120,
+    200
+   ]
+  },
+  "123": {
+   "class": "wood",
+   "id": "palisade_100",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    120,
+    200
+   ]
+  },
+  "124": {
+   "class": "wood",
+   "id": "palisade_101",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    120,
+    200
+   ]
+  },
+  "125": {
+   "class": "wood",
+   "id": "palisade_102",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    120,
+    200
+   ]
+  },
+  "126": {
+   "class": "wood",
+   "id": "palisade_103",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    120,
+    200
+   ]
+  },
+  "127": {
+   "class": "wood",
+   "id": "palisade_104",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    120,
+    200
+   ]
+  },
+  "128": {
+   "class": "wood",
+   "id": "palisade_105",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    136,
+    200
+   ]
+  },
+  "129": {
+   "class": "wood",
+   "id": "palisade_106",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    136,
+    200
+   ]
+  },
+  "13": {
+   "class": "shore_ice",
+   "id": "blob_19",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    216,
+    8,
+    200
+   ]
+  },
+  "130": {
+   "class": "wood",
+   "id": "palisade_107",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    136,
+    200
+   ]
+  },
+  "131": {
+   "class": "wood",
+   "id": "palisade_108",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    136,
+    200
+   ]
+  },
+  "132": {
+   "class": "wood",
+   "id": "palisade_109",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    136,
+    200
+   ]
+  },
+  "133": {
+   "class": "wood",
+   "id": "palisade_11",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    136,
+    200
+   ]
+  },
+  "134": {
+   "class": "wood",
+   "id": "palisade_110",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    136,
+    200
+   ]
+  },
+  "135": {
+   "class": "wood",
+   "id": "palisade_111",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    136,
+    200
+   ]
+  },
+  "136": {
+   "class": "wood",
+   "id": "palisade_112",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    136,
+    200
+   ]
+  },
+  "137": {
+   "class": "wood",
+   "id": "palisade_113",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    136,
+    200
+   ]
+  },
+  "138": {
+   "class": "wood",
+   "id": "palisade_114",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    136,
+    200
+   ]
+  },
+  "139": {
+   "class": "wood",
+   "id": "palisade_115",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    136,
+    200
+   ]
+  },
+  "14": {
+   "class": "rock",
+   "id": "blob_2",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    232,
+    8,
+    200
+   ]
+  },
+  "140": {
+   "class": "wood",
+   "id": "palisade_116",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    136,
+    200
+   ]
+  },
+  "141": {
+   "class": "wood",
+   "id": "palisade_117",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    136,
+    200
+   ]
+  },
+  "142": {
+   "class": "wood",
+   "id": "palisade_118",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    136,
+    200
+   ]
+  },
+  "143": {
+   "class": "wood",
+   "id": "palisade_119",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    136,
+    200
+   ]
+  },
+  "144": {
+   "class": "wood",
+   "id": "palisade_12",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    152,
+    200
+   ]
+  },
+  "145": {
+   "class": "wood",
+   "id": "palisade_120",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    152,
+    200
+   ]
+  },
+  "146": {
+   "class": "wood",
+   "id": "palisade_121",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    152,
+    200
+   ]
+  },
+  "147": {
+   "class": "wood",
+   "id": "palisade_122",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    152,
+    200
+   ]
+  },
+  "148": {
+   "class": "wood",
+   "id": "palisade_123",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    152,
+    200
+   ]
+  },
+  "149": {
+   "class": "wood",
+   "id": "palisade_124",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    152,
+    200
+   ]
+  },
+  "15": {
+   "class": "shore_ice",
+   "id": "blob_20",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    248,
+    8,
+    200
+   ]
+  },
+  "150": {
+   "class": "wood",
+   "id": "palisade_125",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    152,
+    200
+   ]
+  },
+  "151": {
+   "class": "wood",
+   "id": "palisade_126",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    152,
+    200
+   ]
+  },
+  "152": {
+   "class": "wood",
+   "id": "palisade_127",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    152,
+    200
+   ]
+  },
+  "153": {
+   "class": "wood",
+   "id": "palisade_128",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    152,
+    200
+   ]
+  },
+  "154": {
+   "class": "wood",
+   "id": "palisade_129",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    152,
+    200
+   ]
+  },
+  "155": {
+   "class": "wood",
+   "id": "palisade_13",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    152,
+    200
+   ]
+  },
+  "156": {
+   "class": "wood",
+   "id": "palisade_130",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    152,
+    200
+   ]
+  },
+  "157": {
+   "class": "wood",
+   "id": "palisade_131",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    152,
+    200
+   ]
+  },
+  "158": {
+   "class": "wood",
+   "id": "palisade_132",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    152,
+    200
+   ]
+  },
+  "159": {
+   "class": "wood",
+   "id": "palisade_133",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    152,
+    200
+   ]
+  },
+  "16": {
+   "class": "shore_ice",
+   "id": "blob_21",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    8,
+    24,
+    200
+   ]
+  },
+  "160": {
+   "class": "wood",
+   "id": "palisade_134",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    168,
+    200
+   ]
+  },
+  "161": {
+   "class": "wood",
+   "id": "palisade_135",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    168,
+    200
+   ]
+  },
+  "162": {
+   "class": "wood",
+   "id": "palisade_136",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    168,
+    200
+   ]
+  },
+  "163": {
+   "class": "wood",
+   "id": "palisade_137",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    168,
+    200
+   ]
+  },
+  "164": {
+   "class": "wood",
+   "id": "palisade_138",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    168,
+    200
+   ]
+  },
+  "165": {
+   "class": "wood",
+   "id": "palisade_139",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    168,
+    200
+   ]
+  },
+  "166": {
+   "class": "wood",
+   "id": "palisade_14",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    168,
+    200
+   ]
+  },
+  "167": {
+   "class": "wood",
+   "id": "palisade_140",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    168,
+    200
+   ]
+  },
+  "168": {
+   "class": "wood",
+   "id": "palisade_141",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    168,
+    200
+   ]
+  },
+  "169": {
+   "class": "wood",
+   "id": "palisade_142",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    168,
+    200
+   ]
+  },
+  "17": {
+   "class": "shore_ice",
+   "id": "blob_22",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    24,
+    24,
+    200
+   ]
+  },
+  "170": {
+   "class": "wood",
+   "id": "palisade_143",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    168,
+    200
+   ]
+  },
+  "171": {
+   "class": "wood",
+   "id": "palisade_144",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    168,
+    200
+   ]
+  },
+  "172": {
+   "class": "wood",
+   "id": "palisade_145",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    168,
+    200
+   ]
+  },
+  "173": {
+   "class": "wood",
+   "id": "palisade_146",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    168,
+    200
+   ]
+  },
+  "174": {
+   "class": "wood",
+   "id": "palisade_147",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    168,
+    200
+   ]
+  },
+  "175": {
+   "class": "wood",
+   "id": "palisade_148",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    168,
+    200
+   ]
+  },
+  "176": {
+   "class": "wood",
+   "id": "palisade_149",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    184,
+    200
+   ]
+  },
+  "177": {
+   "class": "wood",
+   "id": "palisade_15",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    184,
+    200
+   ]
+  },
+  "178": {
+   "class": "wood",
+   "id": "palisade_150",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    184,
+    200
+   ]
+  },
+  "179": {
+   "class": "wood",
+   "id": "palisade_151",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    184,
+    200
+   ]
+  },
+  "18": {
+   "class": "shore_ice",
+   "id": "blob_23",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    40,
+    24,
+    200
+   ]
+  },
+  "180": {
+   "class": "wood",
+   "id": "palisade_152",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    184,
+    200
+   ]
+  },
+  "181": {
+   "class": "wood",
+   "id": "palisade_153",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    184,
+    200
+   ]
+  },
+  "182": {
+   "class": "wood",
+   "id": "palisade_154",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    184,
+    200
+   ]
+  },
+  "183": {
+   "class": "wood",
+   "id": "palisade_155",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    184,
+    200
+   ]
+  },
+  "184": {
+   "class": "wood",
+   "id": "palisade_156",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    184,
+    200
+   ]
+  },
+  "185": {
+   "class": "wood",
+   "id": "palisade_157",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    184,
+    200
+   ]
+  },
+  "186": {
+   "class": "wood",
+   "id": "palisade_158",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    184,
+    200
+   ]
+  },
+  "187": {
+   "class": "wood",
+   "id": "palisade_159",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    184,
+    200
+   ]
+  },
+  "188": {
+   "class": "wood",
+   "id": "palisade_16",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    184,
+    200
+   ]
+  },
+  "189": {
+   "class": "wood",
+   "id": "palisade_160",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    184,
+    200
+   ]
+  },
+  "19": {
+   "class": "shore_ice",
+   "id": "blob_24",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    56,
+    24,
+    200
+   ]
+  },
+  "190": {
+   "class": "wood",
+   "id": "palisade_161",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    184,
+    200
+   ]
+  },
+  "191": {
+   "class": "wood",
+   "id": "palisade_162",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    184,
+    200
+   ]
+  },
+  "192": {
+   "class": "wood",
+   "id": "palisade_163",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    200,
+    200
+   ]
+  },
+  "193": {
+   "class": "wood",
+   "id": "palisade_164",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    200,
+    200
+   ]
+  },
+  "194": {
+   "class": "wood",
+   "id": "palisade_165",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    200,
+    200
+   ]
+  },
+  "195": {
+   "class": "wood",
+   "id": "palisade_166",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    200,
+    200
+   ]
+  },
+  "196": {
+   "class": "wood",
+   "id": "palisade_17",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    200,
+    200
+   ]
+  },
+  "197": {
+   "class": "wood",
+   "id": "palisade_18",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    200,
+    200
+   ]
+  },
+  "198": {
+   "class": "wood",
+   "id": "palisade_19",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    200,
+    200
+   ]
+  },
+  "199": {
+   "class": "wood",
+   "id": "palisade_2",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    200,
+    200
+   ]
+  },
+  "2": {
+   "class": "rock",
+   "id": "blob_0",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    40,
+    8,
+    200
+   ]
+  },
+  "20": {
+   "class": "shore_ice",
+   "id": "blob_25",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    72,
+    24,
+    200
+   ]
+  },
+  "200": {
+   "class": "wood",
+   "id": "palisade_20",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    200,
+    200
+   ]
+  },
+  "201": {
+   "class": "wood",
+   "id": "palisade_21",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    200,
+    200
+   ]
+  },
+  "202": {
+   "class": "wood",
+   "id": "palisade_22",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    200,
+    200
+   ]
+  },
+  "203": {
+   "class": "wood",
+   "id": "palisade_23",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    200,
+    200
+   ]
+  },
+  "204": {
+   "class": "wood",
+   "id": "palisade_24",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    200,
+    200
+   ]
+  },
+  "205": {
+   "class": "wood",
+   "id": "palisade_25",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    200,
+    200
+   ]
+  },
+  "206": {
+   "class": "wood",
+   "id": "palisade_26",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    200,
+    200
+   ]
+  },
+  "207": {
+   "class": "wood",
+   "id": "palisade_27",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    200,
+    200
+   ]
+  },
+  "208": {
+   "class": "wood",
+   "id": "palisade_28",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    216,
+    200
+   ]
+  },
+  "209": {
+   "class": "wood",
+   "id": "palisade_29",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    216,
+    200
+   ]
+  },
+  "21": {
+   "class": "shore_ice",
+   "id": "blob_26",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    88,
+    24,
+    200
+   ]
+  },
+  "210": {
+   "class": "wood",
+   "id": "palisade_3",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    216,
+    200
+   ]
+  },
+  "211": {
+   "class": "wood",
+   "id": "palisade_30",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    216,
+    200
+   ]
+  },
+  "212": {
+   "class": "wood",
+   "id": "palisade_31",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    216,
+    200
+   ]
+  },
+  "213": {
+   "class": "wood",
+   "id": "palisade_32",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    216,
+    200
+   ]
+  },
+  "214": {
+   "class": "wood",
+   "id": "palisade_33",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    216,
+    200
+   ]
+  },
+  "215": {
+   "class": "wood",
+   "id": "palisade_34",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    216,
+    200
+   ]
+  },
+  "216": {
+   "class": "wood",
+   "id": "palisade_35",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    216,
+    200
+   ]
+  },
+  "217": {
+   "class": "wood",
+   "id": "palisade_36",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    216,
+    200
+   ]
+  },
+  "218": {
+   "class": "wood",
+   "id": "palisade_37",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    216,
+    200
+   ]
+  },
+  "219": {
+   "class": "wood",
+   "id": "palisade_38",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    216,
+    200
+   ]
+  },
+  "22": {
+   "class": "shore_ice",
+   "id": "blob_27",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    104,
+    24,
+    200
+   ]
+  },
+  "220": {
+   "class": "wood",
+   "id": "palisade_39",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    216,
+    200
+   ]
+  },
+  "221": {
+   "class": "wood",
+   "id": "palisade_4",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    216,
+    200
+   ]
+  },
+  "222": {
+   "class": "wood",
+   "id": "palisade_40",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    216,
+    200
+   ]
+  },
+  "223": {
+   "class": "wood",
+   "id": "palisade_41",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    216,
+    200
+   ]
+  },
+  "224": {
+   "class": "wood",
+   "id": "palisade_42",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    232,
+    200
+   ]
+  },
+  "225": {
+   "class": "wood",
+   "id": "palisade_43",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    232,
+    200
+   ]
+  },
+  "226": {
+   "class": "wood",
+   "id": "palisade_44",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    232,
+    200
+   ]
+  },
+  "227": {
+   "class": "wood",
+   "id": "palisade_45",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    232,
+    200
+   ]
+  },
+  "228": {
+   "class": "wood",
+   "id": "palisade_46",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    232,
+    200
+   ]
+  },
+  "229": {
+   "class": "wood",
+   "id": "palisade_47",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    232,
+    200
+   ]
+  },
+  "23": {
+   "class": "passage_dark",
+   "id": "blob_28",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    120,
+    24,
+    200
+   ]
+  },
+  "230": {
+   "class": "wood",
+   "id": "palisade_48",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    232,
+    200
+   ]
+  },
+  "231": {
+   "class": "wood",
+   "id": "palisade_49",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    232,
+    200
+   ]
+  },
+  "232": {
+   "class": "wood",
+   "id": "palisade_5",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    232,
+    200
+   ]
+  },
+  "233": {
+   "class": "wood",
+   "id": "palisade_50",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    232,
+    200
+   ]
+  },
+  "234": {
+   "class": "wood",
+   "id": "palisade_51",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    232,
+    200
+   ]
+  },
+  "235": {
+   "class": "wood",
+   "id": "palisade_52",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    232,
+    200
+   ]
+  },
+  "236": {
+   "class": "wood",
+   "id": "palisade_53",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    232,
+    200
+   ]
+  },
+  "237": {
+   "class": "wood",
+   "id": "palisade_54",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    232,
+    200
+   ]
+  },
+  "238": {
+   "class": "wood",
+   "id": "palisade_55",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    232,
+    200
+   ]
+  },
+  "239": {
+   "class": "wood",
+   "id": "palisade_56",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    232,
+    200
+   ]
+  },
+  "24": {
+   "class": "rock",
+   "id": "blob_29",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    136,
+    24,
+    200
+   ]
+  },
+  "240": {
+   "class": "wood",
+   "id": "palisade_57",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    248,
+    200
+   ]
+  },
+  "241": {
+   "class": "wood",
+   "id": "palisade_58",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    248,
+    200
+   ]
+  },
+  "242": {
+   "class": "wood",
+   "id": "palisade_59",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    248,
+    200
+   ]
+  },
+  "243": {
+   "class": "wood",
+   "id": "palisade_6",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    248,
+    200
+   ]
+  },
+  "244": {
+   "class": "wood",
+   "id": "palisade_60",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    248,
+    200
+   ]
+  },
+  "245": {
+   "class": "wood",
+   "id": "palisade_61",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    248,
+    200
+   ]
+  },
+  "246": {
+   "class": "wood",
+   "id": "palisade_62",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    248,
+    200
+   ]
+  },
+  "247": {
+   "class": "wood",
+   "id": "palisade_63",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    248,
+    200
+   ]
+  },
+  "248": {
+   "class": "wood",
+   "id": "palisade_64",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    248,
+    200
+   ]
+  },
+  "249": {
+   "class": "wood",
+   "id": "palisade_65",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    248,
+    200
+   ]
+  },
+  "25": {
+   "class": "rock",
+   "id": "blob_3",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    152,
+    24,
+    200
+   ]
+  },
+  "250": {
+   "class": "wood",
+   "id": "palisade_66",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    248,
+    200
+   ]
+  },
+  "251": {
+   "class": "wood",
+   "id": "palisade_67",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    248,
+    200
+   ]
+  },
+  "252": {
+   "class": "wood",
+   "id": "palisade_68",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    248,
+    200
+   ]
+  },
+  "253": {
+   "class": "wood",
+   "id": "palisade_69",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    248,
+    200
+   ]
+  },
+  "254": {
+   "class": "wood",
+   "id": "palisade_7",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    248,
+    200
+   ]
+  },
+  "255": {
+   "class": "wood",
+   "id": "palisade_70",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    248,
+    200
+   ]
+  },
+  "256": {
+   "class": "wood",
+   "id": "palisade_71",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    255,
+    200
+   ]
+  },
+  "257": {
+   "class": "wood",
+   "id": "palisade_72",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    255,
+    200
+   ]
+  },
+  "258": {
+   "class": "wood",
+   "id": "palisade_73",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    255,
+    200
+   ]
+  },
+  "259": {
+   "class": "wood",
+   "id": "palisade_74",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    255,
+    200
+   ]
+  },
+  "26": {
+   "class": "rock",
+   "id": "blob_30",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    168,
+    24,
+    200
+   ]
+  },
+  "260": {
+   "class": "wood",
+   "id": "palisade_75",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    255,
+    200
+   ]
+  },
+  "261": {
+   "class": "wood",
+   "id": "palisade_76",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    255,
+    200
+   ]
+  },
+  "262": {
+   "class": "wood",
+   "id": "palisade_77",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    255,
+    200
+   ]
+  },
+  "263": {
+   "class": "wood",
+   "id": "palisade_78",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    255,
+    200
+   ]
+  },
+  "264": {
+   "class": "wood",
+   "id": "palisade_79",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    255,
+    200
+   ]
+  },
+  "265": {
+   "class": "wood",
+   "id": "palisade_8",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    255,
+    200
+   ]
+  },
+  "266": {
+   "class": "wood",
+   "id": "palisade_80",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    255,
+    200
+   ]
+  },
+  "267": {
+   "class": "wood",
+   "id": "palisade_81",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    255,
+    200
+   ]
+  },
+  "268": {
+   "class": "wood",
+   "id": "palisade_82",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    255,
+    200
+   ]
+  },
+  "269": {
+   "class": "wood",
+   "id": "palisade_83",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    255,
+    200
+   ]
+  },
+  "27": {
+   "class": "rock",
+   "id": "blob_31",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    184,
+    24,
+    200
+   ]
+  },
+  "270": {
+   "class": "wood",
+   "id": "palisade_84",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    255,
+    200
+   ]
+  },
+  "271": {
+   "class": "wood",
+   "id": "palisade_85",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    255,
+    200
+   ]
+  },
+  "272": {
+   "class": "wood",
+   "id": "palisade_86",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    255,
+    200
+   ]
+  },
+  "273": {
+   "class": "wood",
+   "id": "palisade_87",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    255,
+    200
+   ]
+  },
+  "274": {
+   "class": "wood",
+   "id": "palisade_88",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    255,
+    200
+   ]
+  },
+  "275": {
+   "class": "wood",
+   "id": "palisade_89",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    255,
+    200
+   ]
+  },
+  "276": {
+   "class": "wood",
+   "id": "palisade_9",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    255,
+    200
+   ]
+  },
+  "277": {
+   "class": "wood",
+   "id": "palisade_90",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    255,
+    200
+   ]
+  },
+  "278": {
+   "class": "wood",
+   "id": "palisade_91",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    255,
+    200
+   ]
+  },
+  "279": {
+   "class": "wood",
+   "id": "palisade_92",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    255,
+    200
+   ]
+  },
+  "28": {
+   "class": "rock",
+   "id": "blob_32",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    200,
+    24,
+    200
+   ]
+  },
+  "280": {
+   "class": "wood",
+   "id": "palisade_93",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    255,
+    200
+   ]
+  },
+  "281": {
+   "class": "wood",
+   "id": "palisade_94",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    255,
+    200
+   ]
+  },
+  "282": {
+   "class": "wood",
+   "id": "palisade_95",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    255,
+    200
+   ]
+  },
+  "283": {
+   "class": "wood",
+   "id": "palisade_96",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    255,
+    200
+   ]
+  },
+  "284": {
+   "class": "wood",
+   "id": "palisade_97",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    255,
+    200
+   ]
+  },
+  "285": {
+   "class": "wood",
+   "id": "palisade_98",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    255,
+    200
+   ]
+  },
+  "286": {
+   "class": "wood",
+   "id": "palisade_99",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    255,
+    200
+   ]
+  },
+  "287": {
+   "class": "rock",
+   "id": "rock_outcrop_10_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    255,
+    200
+   ]
+  },
+  "288": {
+   "class": "rock",
+   "id": "rock_outcrop_11_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    255,
+    200
+   ]
+  },
+  "289": {
+   "class": "rock",
+   "id": "rock_outcrop_12_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    255,
+    200
+   ]
+  },
+  "29": {
+   "class": "rock",
+   "id": "blob_33",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    216,
+    24,
+    200
+   ]
+  },
+  "290": {
+   "class": "rock",
+   "id": "rock_outcrop_13_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    255,
+    200
+   ]
+  },
+  "291": {
+   "class": "rock",
+   "id": "rock_outcrop_14_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    255,
+    200
+   ]
+  },
+  "292": {
+   "class": "rock",
+   "id": "rock_outcrop_1_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    255,
+    200
+   ]
+  },
+  "293": {
+   "class": "rock",
+   "id": "rock_outcrop_2_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    88,
+    255,
+    200
+   ]
+  },
+  "294": {
+   "class": "rock",
+   "id": "rock_outcrop_3_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    104,
+    255,
+    200
+   ]
+  },
+  "295": {
+   "class": "rock",
+   "id": "rock_outcrop_4_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    120,
+    255,
+    200
+   ]
+  },
+  "296": {
+   "class": "rock",
+   "id": "rock_outcrop_5_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    136,
+    255,
+    200
+   ]
+  },
+  "297": {
+   "class": "rock",
+   "id": "rock_outcrop_6_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    255,
+    200
+   ]
+  },
+  "298": {
+   "class": "rock",
+   "id": "rock_outcrop_7_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    255,
+    200
+   ]
+  },
+  "299": {
+   "class": "rock",
+   "id": "rock_outcrop_8_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    255,
+    200
+   ]
+  },
+  "3": {
+   "class": "rock",
+   "id": "blob_1",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    56,
+    8,
+    200
+   ]
+  },
+  "30": {
+   "class": "rock",
+   "id": "blob_34",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    232,
+    24,
+    200
+   ]
+  },
+  "300": {
+   "class": "rock",
+   "id": "rock_outcrop_9_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    255,
+    200
+   ]
+  },
+  "301": {
+   "class": "rock",
+   "id": "stair_cliff",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    255,
+    200
+   ]
+  },
+  "302": {
+   "class": "rock",
+   "id": "stair_ledge",
+   "meshes": 1,
+   "piece": "prism",
+   "rgb": [
+    232,
+    255,
+    200
+   ]
+  },
+  "303": {
+   "class": "path",
+   "id": "stair_top_landing",
+   "meshes": 1,
+   "piece": "prism",
+   "rgb": [
+    248,
+    255,
+    200
+   ]
+  },
+  "304": {
+   "class": "rock",
+   "id": "standing_stones_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    255,
+    200
+   ]
+  },
+  "305": {
+   "class": "rock",
+   "id": "standing_stones_1",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    255,
+    200
+   ]
+  },
+  "306": {
+   "class": "rock",
+   "id": "standing_stones_2",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    255,
+    200
+   ]
+  },
+  "307": {
+   "class": "rock",
+   "id": "standing_stones_3",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    255,
+    200
+   ]
+  },
+  "308": {
+   "class": "wood",
+   "id": "wreck",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    255,
+    200
+   ]
+  },
+  "31": {
+   "class": "rock",
+   "id": "blob_35",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    248,
+    24,
+    200
+   ]
+  },
+  "32": {
+   "class": "rock",
+   "id": "blob_36",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    8,
+    40,
+    200
+   ]
+  },
+  "33": {
+   "class": "rock",
+   "id": "blob_37",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    24,
+    40,
+    200
+   ]
+  },
+  "34": {
+   "class": "rock",
+   "id": "blob_38",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    40,
+    40,
+    200
+   ]
+  },
+  "35": {
+   "class": "rock",
+   "id": "blob_39",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    56,
+    40,
+    200
+   ]
+  },
+  "36": {
+   "class": "rock",
+   "id": "blob_4",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    72,
+    40,
+    200
+   ]
+  },
+  "37": {
+   "class": "rock",
+   "id": "blob_40",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    88,
+    40,
+    200
+   ]
+  },
+  "38": {
+   "class": "rock",
+   "id": "blob_41",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    104,
+    40,
+    200
+   ]
+  },
+  "39": {
+   "class": "rock",
+   "id": "blob_42",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    120,
+    40,
+    200
+   ]
+  },
+  "4": {
+   "class": "rock",
+   "id": "blob_10",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    72,
+    8,
+    200
+   ]
+  },
+  "40": {
+   "class": "rock",
+   "id": "blob_43",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    136,
+    40,
+    200
+   ]
+  },
+  "41": {
+   "class": "rock",
+   "id": "blob_44",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    152,
+    40,
+    200
+   ]
+  },
+  "42": {
+   "class": "rock",
+   "id": "blob_45",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    168,
+    40,
+    200
+   ]
+  },
+  "43": {
+   "class": "rock",
+   "id": "blob_46",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    184,
+    40,
+    200
+   ]
+  },
+  "44": {
+   "class": "shore_ice",
+   "id": "blob_47",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    200,
+    40,
+    200
+   ]
+  },
+  "45": {
+   "class": "shore_ice",
+   "id": "blob_48",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    216,
+    40,
+    200
+   ]
+  },
+  "46": {
+   "class": "shore_ice",
+   "id": "blob_49",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    232,
+    40,
+    200
+   ]
+  },
+  "47": {
+   "class": "rock",
+   "id": "blob_5",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    248,
+    40,
+    200
+   ]
+  },
+  "48": {
+   "class": "shore_ice",
+   "id": "blob_50",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    8,
+    56,
+    200
+   ]
+  },
+  "49": {
+   "class": "shore_ice",
+   "id": "blob_51",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    24,
+    56,
+    200
+   ]
+  },
+  "5": {
+   "class": "rock",
+   "id": "blob_11",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    88,
+    8,
+    200
+   ]
+  },
+  "50": {
+   "class": "shore_ice",
+   "id": "blob_52",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    40,
+    56,
+    200
+   ]
+  },
+  "51": {
+   "class": "shore_ice",
+   "id": "blob_53",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    56,
+    56,
+    200
+   ]
+  },
+  "52": {
+   "class": "shore_ice",
+   "id": "blob_54",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    72,
+    56,
+    200
+   ]
+  },
+  "53": {
+   "class": "path",
+   "id": "blob_55",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    88,
+    56,
+    200
+   ]
+  },
+  "54": {
+   "class": "path",
+   "id": "blob_56",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    104,
+    56,
+    200
+   ]
+  },
+  "55": {
+   "class": "path",
+   "id": "blob_57",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    120,
+    56,
+    200
+   ]
+  },
+  "56": {
+   "class": "path",
+   "id": "blob_58",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    136,
+    56,
+    200
+   ]
+  },
+  "57": {
+   "class": "path",
+   "id": "blob_59",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    152,
+    56,
+    200
+   ]
+  },
+  "58": {
+   "class": "rock",
+   "id": "blob_6",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    168,
+    56,
+    200
+   ]
+  },
+  "59": {
+   "class": "path",
+   "id": "blob_60",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    184,
+    56,
+    200
+   ]
+  },
+  "6": {
+   "class": "rock",
+   "id": "blob_12",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    104,
+    8,
+    200
+   ]
+  },
+  "60": {
+   "class": "path",
+   "id": "blob_61",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    200,
+    56,
+    200
+   ]
+  },
+  "61": {
+   "class": "path",
+   "id": "blob_62",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    216,
+    56,
+    200
+   ]
+  },
+  "62": {
+   "class": "path",
+   "id": "blob_63",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    232,
+    56,
+    200
+   ]
+  },
+  "63": {
+   "class": "path",
+   "id": "blob_64",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    248,
+    56,
+    200
+   ]
+  },
+  "64": {
+   "class": "path",
+   "id": "blob_65",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    8,
+    72,
+    200
+   ]
+  },
+  "65": {
+   "class": "path",
+   "id": "blob_66",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    24,
+    72,
+    200
+   ]
+  },
+  "66": {
+   "class": "rock",
+   "id": "blob_67",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    40,
+    72,
+    200
+   ]
+  },
+  "67": {
+   "class": "rock",
+   "id": "blob_68",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    56,
+    72,
+    200
+   ]
+  },
+  "68": {
+   "class": "rock",
+   "id": "blob_69",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    72,
+    72,
+    200
+   ]
+  },
+  "69": {
+   "class": "rock",
+   "id": "blob_7",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    88,
+    72,
+    200
+   ]
+  },
+  "7": {
+   "class": "rock",
+   "id": "blob_13",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    120,
+    8,
+    200
+   ]
+  },
+  "70": {
+   "class": "rock",
+   "id": "blob_70",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    104,
+    72,
+    200
+   ]
+  },
+  "71": {
+   "class": "rock",
+   "id": "blob_8",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    120,
+    72,
+    200
+   ]
+  },
+  "72": {
+   "class": "rock",
+   "id": "blob_9",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    136,
+    72,
+    200
+   ]
+  },
+  "73": {
+   "class": "rock",
+   "id": "cave_cliff",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    152,
+    72,
+    200
+   ]
+  },
+  "74": {
+   "class": "rock",
+   "id": "circle_stones_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    168,
+    72,
+    200
+   ]
+  },
+  "75": {
+   "class": "rock",
+   "id": "circle_stones_1",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    72,
+    200
+   ]
+  },
+  "76": {
+   "class": "rock",
+   "id": "circle_stones_2",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    72,
+    200
+   ]
+  },
+  "77": {
+   "class": "rock",
+   "id": "circle_stones_3",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    72,
+    200
+   ]
+  },
+  "78": {
+   "class": "rock",
+   "id": "circle_stones_4",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    72,
+    200
+   ]
+  },
+  "79": {
+   "class": "rock",
+   "id": "circle_stones_5",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    72,
+    200
+   ]
+  },
+  "8": {
+   "class": "rock",
+   "id": "blob_14",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    136,
+    8,
+    200
+   ]
+  },
+  "80": {
+   "class": "rock",
+   "id": "circle_stones_6",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    88,
+    200
+   ]
+  },
+  "81": {
+   "class": "rock",
+   "id": "circle_stones_7",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    88,
+    200
+   ]
+  },
+  "82": {
+   "class": "rock",
+   "id": "cliff_faces_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    88,
+    200
+   ]
+  },
+  "83": {
+   "class": "rock",
+   "id": "cliff_faces_1",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    88,
+    200
+   ]
+  },
+  "84": {
+   "class": "rock",
+   "id": "cliff_faces_2",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    72,
+    88,
+    200
+   ]
+  },
+  "85": {
+   "class": "passage_dark",
+   "id": "curtain_barrow_door",
+   "meshes": 1,
+   "piece": "declared_opening",
+   "rgb": [
+    88,
+    88,
+    200
+   ]
+  },
+  "86": {
+   "class": "passage_dark",
+   "id": "curtain_hall_great_door",
+   "meshes": 1,
+   "piece": "declared_opening",
+   "rgb": [
+    104,
+    88,
+    200
+   ]
+  },
+  "87": {
+   "class": "passage_dark",
+   "id": "curtain_sea_cave_mouth",
+   "meshes": 1,
+   "piece": "declared_opening",
+   "rgb": [
+    120,
+    88,
+    200
+   ]
+  },
+  "88": {
+   "class": "none",
+   "id": "door_lintel",
+   "meshes": 0,
+   "piece": "v1-instrument-stub",
+   "rgb": [
+    136,
+    88,
+    200
+   ]
+  },
+  "89": {
+   "class": "none",
+   "id": "door_post_L",
+   "meshes": 0,
+   "piece": "v1-instrument-stub",
+   "rgb": [
+    152,
+    88,
+    200
+   ]
+  },
+  "9": {
+   "class": "rock",
+   "id": "blob_15",
+   "meshes": 1,
+   "piece": "blob",
+   "rgb": [
+    152,
+    8,
+    200
+   ]
+  },
+  "90": {
+   "class": "none",
+   "id": "door_post_R",
+   "meshes": 0,
+   "piece": "v1-instrument-stub",
+   "rgb": [
+    168,
+    88,
+    200
+   ]
+  },
+  "91": {
+   "class": "char",
+   "id": "fallen_gable",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    184,
+    88,
+    200
+   ]
+  },
+  "92": {
+   "class": "rock",
+   "id": "grave_markers_0",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    200,
+    88,
+    200
+   ]
+  },
+  "93": {
+   "class": "rock",
+   "id": "grave_markers_1",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    216,
+    88,
+    200
+   ]
+  },
+  "94": {
+   "class": "rock",
+   "id": "grave_markers_2",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    88,
+    200
+   ]
+  },
+  "95": {
+   "class": "rock",
+   "id": "grave_markers_3",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    248,
+    88,
+    200
+   ]
+  },
+  "96": {
+   "class": "rock",
+   "id": "grave_markers_4",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    8,
+    104,
+    200
+   ]
+  },
+  "97": {
+   "class": "rock",
+   "id": "grave_markers_5",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    24,
+    104,
+    200
+   ]
+  },
+  "98": {
+   "class": "rock",
+   "id": "grave_markers_6",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    104,
+    200
+   ]
+  },
+  "99": {
+   "class": "ash",
+   "id": "ground_ash",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    56,
+    104,
+    200
+   ]
+  }
+ }
+}

@@ -22,24 +22,90 @@
  "class_list": {
   "_v1_source": "barrow_full/godot/data/barrow_full_layout.json `tints_srgb` (read by barrow_full.gd:146-148)",
   "v1_classes_reused_with_v1_values": {
-   "snow": [0.86, 0.84, 0.8],
-   "path": [0.58, 0.52, 0.45],
-   "rock": [0.56, 0.555, 0.55],
-   "shrub": [0.52, 0.515, 0.39],
-   "ice": [0.7, 0.775, 0.84],
-   "mound": [0.745, 0.725, 0.665],
-   "passage_dark": [0.12, 0.11, 0.105],
-   "primitive_grey": [0.5, 0.48, 0.46],
-   "hero_grey": [0.6, 0.59, 0.57]
+   "snow": [
+    0.86,
+    0.84,
+    0.8
+   ],
+   "path": [
+    0.58,
+    0.52,
+    0.45
+   ],
+   "rock": [
+    0.56,
+    0.555,
+    0.55
+   ],
+   "shrub": [
+    0.52,
+    0.515,
+    0.39
+   ],
+   "ice": [
+    0.7,
+    0.775,
+    0.84
+   ],
+   "mound": [
+    0.745,
+    0.725,
+    0.665
+   ],
+   "passage_dark": [
+    0.12,
+    0.11,
+    0.105
+   ],
+   "primitive_grey": [
+    0.5,
+    0.48,
+    0.46
+   ],
+   "hero_grey": [
+    0.6,
+    0.59,
+    0.57
+   ]
   },
   "new_classes_DEV2_provisional": {
-   "wood": [0.55, 0.42, 0.3],
-   "char": [0.22, 0.19, 0.17],
-   "shingle": [0.66, 0.61, 0.52],
-   "shore_ice": [0.8, 0.87, 0.92],
-   "sea": [0.2, 0.3, 0.4],
-   "stream": [0.58, 0.7, 0.86]
+   "wood": [
+    0.55,
+    0.42,
+    0.3
+   ],
+   "char": [
+    0.22,
+    0.19,
+    0.17
+   ],
+   "shingle": [
+    0.66,
+    0.61,
+    0.52
+   ],
+   "shore_ice": [
+    0.8,
+    0.87,
+    0.92
+   ],
+   "sea": [
+    0.2,
+    0.3,
+    0.4
+   ],
+   "stream": [
+    0.58,
+    0.7,
+    0.86
+   ],
+   "ash": [
+    0.47,
+    0.44,
+    0.42
+   ]
   },
-  "_note": "rock is a v1 class (ground tint) and keeps v1's value; the charter's 'new tint for rock' is read as the cliff/crag MODEL class, which v1 drew as primitive_grey/hero_grey -- conductor to confirm whether cliffs take v1 'rock' or a new 'cliff' tint. char = charred timber + ash (P6a declared-dark class, R-C9-169/173)."
+  "_note": "rock is a v1 class (ground tint) and keeps v1's value; the charter's 'new tint for rock' is read as the cliff/crag MODEL class, which v1 drew as primitive_grey/hero_grey -- R-C9-174: cliffs and crags take v1 'rock'. char = charred timber + ash (P6a declared-dark class, R-C9-169/173).",
+  "_note_ash": "ash = the burnt hall's YARD ground (layout v6 zone hall_yard_ash rgb); char stays charred timber (the gable, braziers). Added in the Phase-1 guide: char on 7% of the frame read as a black void at the play camera."
  }
 }

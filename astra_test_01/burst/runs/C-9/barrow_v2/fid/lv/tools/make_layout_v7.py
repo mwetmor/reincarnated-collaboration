@@ -36,7 +36,8 @@ LV = os.path.dirname(HERE)                                      # BV2F-LV: fid/l
 HERE = os.path.normpath(os.path.join(LV, "..", "..", "tools"))  # BV2F-LV: import bv2_geom / sculpt_v2 from barrow_v2/tools (read-only)
 sys.path.insert(0, HERE)
 import bv2_geom as G  # noqa: E402
-import sculpt_v2 as SC  # noqa: E402
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # BV2F-LV
+import sculpt_v7 as SC  # noqa: E402  BV2F-LV: M0(a) one sea level (no west moat)
 
 ROOT = os.path.dirname(HERE)                                   # runs/C-9/barrow_v2
 ENGINE = os.path.expanduser("~/Games/reincarnated-engine")

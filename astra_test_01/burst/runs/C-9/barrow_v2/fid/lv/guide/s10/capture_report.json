@@ -1,0 +1,659 @@
+{
+ "crucible_los": {
+  "by_spawn": {
+   "p01": {
+    "blocked_by": "",
+    "clear": true,
+    "hit_uv": null
+   },
+   "p02": {
+    "blocked_by": "",
+    "clear": true,
+    "hit_uv": null
+   },
+   "p03": {
+    "blocked_by": "",
+    "clear": true,
+    "hit_uv": null
+   },
+   "p04": {
+    "blocked_by": "",
+    "clear": true,
+    "hit_uv": null
+   },
+   "p05": {
+    "blocked_by": "",
+    "clear": true,
+    "hit_uv": null
+   },
+   "p06": {
+    "blocked_by": "",
+    "clear": true,
+    "hit_uv": null
+   }
+  },
+  "eye_height_m": 1.6,
+  "instrument": "intersect_ray spawn -> station at eye height, mask TERRAIN_BIT"
+ },
+ "door_floor": {
+  "floor_y_by_v_at_u0": {
+   "v=10.0": 0.0,
+   "v=10.2": 0.0,
+   "v=10.4": 0.0,
+   "v=8.7": 0.0,
+   "v=9.2": 0.0,
+   "v=9.7": 0.0
+  },
+  "instrument": "intersect_ray from y 1.5 to -3.0, mask TERRAIN_BIT"
+ },
+ "door_visibility": {
+  "first_v_door_whole_in_frame": -1.0,
+  "guide_view": {
+   "door_face_px_door_alone": 0,
+   "door_face_px_everything_drawn": 0,
+   "unoccluded_share": 0.0
+  },
+  "instrument": "magenta pixel counts (R>220, G<40, B>220) of the door frame's -v-facing surfaces, unlit, the pen off; MSAA 4x",
+  "play_frame": {
+   "_why_zero_at_the_centre": "the play frame reaches 595 px (7.41 m of ground) up-screen from his feet; from (0, 1) that is v 8.41, and the door stands at v 10.3-10.6 behind the arena's own r 7 edge (v 8.0)",
+   "door_face_px_frame_centred_on_the_door": 0,
+   "first_v_door_whole_in_frame": -1.0,
+   "first_v_half_in_frame": -1.0,
+   "scan_v_share": [
+    [
+     1.0,
+     0.0
+    ],
+    [
+     1.25,
+     0.0
+    ],
+    [
+     1.5,
+     0.0
+    ],
+    [
+     1.75,
+     0.0
+    ],
+    [
+     2.0,
+     0.0
+    ],
+    [
+     2.25,
+     0.0
+    ],
+    [
+     2.5,
+     0.0
+    ],
+    [
+     2.75,
+     0.0
+    ],
+    [
+     3.0,
+     0.0
+    ],
+    [
+     3.25,
+     0.0
+    ],
+    [
+     3.5,
+     0.0
+    ],
+    [
+     3.75,
+     0.0
+    ],
+    [
+     4.0,
+     0.0
+    ],
+    [
+     4.25,
+     0.0
+    ],
+    [
+     4.5,
+     0.0
+    ],
+    [
+     4.75,
+     0.0
+    ],
+    [
+     5.0,
+     0.0
+    ],
+    [
+     5.25,
+     0.0
+    ],
+    [
+     5.5,
+     0.0
+    ],
+    [
+     5.75,
+     0.0
+    ],
+    [
+     6.0,
+     0.0
+    ],
+    [
+     6.25,
+     0.0
+    ],
+    [
+     6.5,
+     0.0
+    ],
+    [
+     6.75,
+     0.0
+    ],
+    [
+     7.0,
+     0.0
+    ],
+    [
+     7.25,
+     0.0
+    ],
+    [
+     7.5,
+     0.0
+    ],
+    [
+     7.75,
+     0.0
+    ],
+    [
+     8.0,
+     0.0
+    ],
+    [
+     8.25,
+     0.0
+    ],
+    [
+     8.5,
+     0.0
+    ],
+    [
+     8.75,
+     0.0
+    ],
+    [
+     9.0,
+     0.0
+    ],
+    [
+     9.25,
+     0.0
+    ],
+    [
+     9.5,
+     0.0
+    ],
+    [
+     9.75,
+     0.0
+    ],
+    [
+     10.0,
+     0.0
+    ]
+   ],
+   "share_in_frame_him_at_the_arena_centre": 0.0
+  }
+ },
+ "guide": {
+  "_corners_expect": "top_left (0,0), top_right (5376,0), bottom_left (0,3328), bottom_right (5376,3328) to within ~0.1 px",
+  "camera_ortho_size_m": 44.525,
+  "him_screen_rect_px": [
+   6110.2,
+   -18.5,
+   51.6,
+   122.4
+  ],
+  "markers": {
+   "u_1m": {
+    "from_uv": [
+     -3.5,
+     -2.5
+    ],
+    "length_m": 1.0,
+    "projected_length_px": 100.618,
+    "projected_px": [
+     [
+      5779.31,
+      270.35
+     ],
+     [
+      5879.93,
+      270.35
+     ]
+    ],
+    "rgb": [
+     1.0,
+     0.0,
+     1.0
+    ],
+    "to_uv": [
+     -2.5,
+     -2.5
+    ],
+    "width_m": 0.12
+   },
+   "u_2m": {
+    "from_uv": [
+     1.5,
+     -2.5
+    ],
+    "length_m": 2.0,
+    "projected_length_px": 201.235,
+    "projected_px": [
+     [
+      6282.4,
+      270.35
+     ],
+     [
+      6483.63,
+      270.35
+     ]
+    ],
+    "rgb": [
+     0.0,
+     1.0,
+     1.0
+    ],
+    "to_uv": [
+     3.5,
+     -2.5
+    ],
+    "width_m": 0.12
+   },
+   "v_1m": {
+    "from_uv": [
+     -4.0,
+     2.5
+    ],
+    "length_m": 1.0,
+    "projected_length_px": 80.308,
+    "projected_px": [
+     [
+      5729.0,
+      -131.19
+     ],
+     [
+      5729.0,
+      -211.5
+     ]
+    ],
+    "rgb": [
+     1.0,
+     1.0,
+     0.0
+    ],
+    "to_uv": [
+     -4.0,
+     3.5
+    ],
+    "width_m": 0.12
+   },
+   "v_2m": {
+    "from_uv": [
+     3.5,
+     2.0
+    ],
+    "length_m": 2.0,
+    "projected_length_px": 160.615,
+    "projected_px": [
+     [
+      6483.63,
+      -91.04
+     ],
+     [
+      6483.63,
+      -251.65
+     ]
+    ],
+    "rgb": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "to_uv": [
+     3.5,
+     4.0
+    ],
+    "width_m": 0.12
+   }
+  },
+  "px": [
+   6016,
+   4480
+  ],
+  "shadow_atlas_px": 8192,
+  "window_corners_projected_px": {
+   "bottom_left": [
+    0.0,
+    4480.0
+   ],
+   "bottom_right": [
+    6016.0,
+    4480.0
+   ],
+   "top_left": [
+    0.0,
+    0.0
+   ],
+   "top_right": [
+    6016.0,
+    0.0
+   ]
+  }
+ },
+ "records_ms": 6567,
+ "scene": {
+  "blobs": 71,
+  "bounds": {
+   "edges": 184,
+   "entry_edge": "closed by an exit wall at the frame's bottom edge (the eventual level transition)",
+   "perimeter_m": 256.19
+  },
+  "build_ms": {
+   "generated_textures": 1250,
+   "total": 10003,
+   "world": 5623
+  },
+  "camera": {
+   "ground_basis": {
+    "_used": "the LIVE basis, as the spec defines (u, v); the analytic one is the check",
+    "residual_u": 0.0,
+    "residual_v": 0.0,
+    "u_dot_v": 0.0,
+    "u_hat_analytic": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "u_hat_live": [
+     0.681998,
+     0.0,
+     -0.731354
+    ],
+    "v_hat_analytic": [
+     -0.731354,
+     0.0,
+     -0.681998
+    ],
+    "v_hat_live": [
+     -0.731354,
+     0.0,
+     -0.681998
+    ]
+   },
+   "ortho_size_m": 10.7337,
+   "pitch_deg": 52.9535411256029,
+   "projection": "orthogonal",
+   "px_per_ground_m_up_screen": 80.3076,
+   "px_per_m_screen_x": 100.6176,
+   "viewport_rows": 1080,
+   "yaw_deg": 47.0
+  },
+  "character": {
+   "figure_scale": 1.0,
+   "gear_stack": 4,
+   "height_m": 1.85,
+   "meshes_under_ramp": 8,
+   "model": "res://models/gear/nb-body.glb",
+   "spawn_uv": [
+    0.0,
+    0.0
+   ],
+   "who": "barbarian"
+  },
+  "curtains": 3,
+  "ground": {
+   "bv2f": true,
+   "class_triangles": {
+    "ash": 76976,
+    "ice": 924,
+    "mound": 321732,
+    "path": 33180,
+    "rock": 153546,
+    "shingle": 104924,
+    "shore_ice": 929538,
+    "shrub": 88516,
+    "snow": 3110956,
+    "stream": 49238
+   },
+   "classes_sha256_ok": true,
+   "sea_z": -7.5
+  },
+  "ink": {
+   "grade_and_paper": "off",
+   "hull": "1.1 px on him and on every solid model; none on the birches (the thin-mesh rule)",
+   "one_pen_hex": "#1D1511",
+   "screen_space": {
+    "depth_edge_px": 3.0,
+    "line_px": 1.25,
+    "line_px_is": "frame px (1920 x 1080); the span in render px is LINE_PX x render rows / 1080",
+    "normal_edge": 1.05,
+    "normal_weight": 0.3,
+    "source": "paint_stack.gd at HEAD, unmodified"
+   }
+  },
+  "key_collisions": {
+   "_clear": true,
+   "bare_builtin_ui_informational": {
+    "H": "ui_filedialog_show_hidden"
+   },
+   "clashes_with_project_actions": {
+
+   },
+   "raw_keys": {
+    "H": "3D heather (painted)",
+    "K": "ink",
+    "N": "falling snow (painted)",
+    "O": "overlay",
+    "R": "crucible marks",
+    "U": "camera clamp",
+    "V": "stack"
+   }
+  },
+  "level_frame": {
+   "_": "the Level node carries the (u, v) frame: local (u, h, -v). Primitives are built in it.",
+   "det": 1.0,
+   "local_minus_z_minus_v_hat": 0.0,
+   "local_x_minus_u_hat": 0.0
+  },
+  "light": {
+   "elevation_deg": 55.0,
+   "energy": 0.899999976158142,
+   "fog": "off (blockout)",
+   "grade_and_paper": "off (blockout)",
+   "screen_azimuth_deg": 305.0,
+   "screen_dir_from_sun": {
+    "x_right": -0.561,
+    "y_up": 0.589
+   },
+   "shadow_bias": 0.0299999993294477,
+   "shadow_blur": 1.70000004768372,
+   "shadow_max_distance": 110.0,
+   "shadow_normal_bias": 0.150000005960464,
+   "shadows": true
+  },
+  "placements": {
+   "loaded": 218,
+   "missing": []
+  }
+ },
+ "still_crucible": {
+  "centre_uv": [
+   -2.4,
+   1.3
+  ],
+  "marks_projected_px": {
+   "_all_inside": false,
+   "boss_gate": [
+    2399.3,
+    -1692.6
+   ],
+   "p01": [
+    -2171.6,
+    1502.2,
+    -1869.7,
+    1743.1
+   ],
+   "p02": [
+    2248.3,
+    -1813.1,
+    2550.2,
+    -1572.2
+   ],
+   "p03": [
+    2118.4,
+    3308.0,
+    2420.3,
+    3549.0
+   ],
+   "p04": [
+    4431.3,
+    1279.7,
+    4733.2,
+    1520.6
+   ],
+   "p05": [
+    461.0,
+    265.4,
+    762.8,
+    506.3
+   ],
+   "p06": [
+    3384.5,
+    2176.0,
+    3686.4,
+    2416.9
+   ],
+   "station": [
+    1441.5,
+    853.7
+   ]
+  },
+  "px": [
+   2400,
+   1500
+  ],
+  "scale": "the play camera's own (100.6 px/m across)"
+ },
+ "still_door": {
+  "camera_clamped": false,
+  "facing": "N",
+  "him_screen_rect_px": [
+   923.6,
+   500.8,
+   87.2,
+   109.2
+  ],
+  "him_uv": [
+   0.0,
+   -1.0
+  ]
+ },
+ "still_ring": {
+  "camera_clamped": false,
+  "facing": "NE",
+  "him_screen_rect_px": [
+   925.4,
+   503.0,
+   83.2,
+   112.5
+  ],
+  "him_uv": [
+   0.0,
+   1.0
+  ]
+ },
+ "still_tarn": {
+  "camera_clamped": false,
+  "facing": "W",
+  "him_screen_rect_px": [
+   935.9,
+   507.4,
+   46.7,
+   123.4
+  ],
+  "him_uv": [
+   -11.5,
+   -4.5
+  ]
+ },
+ "topdown": {
+  "centre_uv": [
+   -31.0430080572974,
+   -27.0233082296168
+  ],
+  "px": [
+   2400,
+   2240
+  ],
+  "px_per_m": 18.0,
+  "shadows": "off -- a plan, not a view",
+  "u": [
+   -97.7096747239641,
+   35.6236586093693
+  ],
+  "v": [
+   -89.245530451839,
+   35.1989139926055
+  ]
+ },
+ "viewport": {
+  "guide": [
+   6016,
+   4480
+  ],
+  "msaa": "4x",
+  "play": [
+   1920,
+   1080
+  ]
+ },
+ "walk_grid": {
+  "instrument": "PhysicsDirectSpaceState3D.intersect_shape, a CylinderShape3D r 0.35 h 1.8, bottom 5 cm off the floor, mask TERRAIN_BIT, every 0.1 m; 4-connected flood fill from spawn_uv",
+  "leak_samples_uv": [],
+  "mound_samples_uv": [],
+  "summary": {
+   "cell_m": 0.1,
+   "cells": 441,
+   "free_cells": 441,
+   "ice_free_cells": 0,
+   "ice_reachable_cells": 0,
+   "ice_reachable_share": 0.0,
+   "query_ms": 0,
+   "reachable_cells": 441,
+   "reachable_extent_uv": {
+    "u_max": 1.0,
+    "u_min": -1.0,
+    "v_max": 1.0,
+    "v_min": -1.0
+   },
+   "reachable_inside_mound_outside_cutting": 0,
+   "reachable_m2": 4.4,
+   "reachable_outside_bounds": 0,
+   "targets": {
+    "arena_centre_(0,1)": true,
+    "at_the_door_(0,10.1)": false,
+    "cutting_mouth_(0,8.6)": false,
+    "ice_centre_(-13.5,-5)": false
+   }
+  }
+ }
+}
