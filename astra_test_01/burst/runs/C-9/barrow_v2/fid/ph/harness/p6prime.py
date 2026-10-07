@@ -201,8 +201,31 @@ def placed_beam(m, ins, cache):
     return np.stack([W[:, 0], W[:, 2], W[:, 1]], 1), I
 
 
+def placed_procedural_beam(ins, n=10):
+    """R-C9-181 _place_primitive_beam: a cylinder of diameter thickness_m along a->b (a post: cone tip within the length);
+    vertices of the cylinder's two end rings (sim x, y, z) -- its convex hull is its silhouette"""
+    a = np.array(ins["a"], float)
+    b = np.array(ins["b"], float)
+    d = b - a
+    ln = float(np.linalg.norm(d))
+    zz = d / max(ln, 1e-6)
+    up = np.array([0.0, 0.0, 1.0])
+    xx = np.cross(up, zz)
+    xx = np.array([1.0, 0.0, 0.0]) if np.linalg.norm(xx) < 0.05 else xx / np.linalg.norm(xx)
+    yy = np.cross(zz, xx)
+    r = float(ins["thickness_m"]) / 2
+    pts = []
+    for e in (a, b):
+        for k in range(n):
+            t = 2 * math.pi * k / n
+            pts.append(e + r * (math.cos(t) * xx + math.sin(t) * yy))
+    return np.array(pts), None
+
+
 def placed_vertices(m, ins, cache):
     """sim (x, y, z) of an instance's mesh as bv2f_level.gd _place_box places it (or the brazier stand-in)"""
+    if ins.get("type") == "beam" and ins.get("procedural"):
+        return placed_procedural_beam(ins)
     if ins.get("type") == "beam":
         return placed_beam(m, ins, cache)
     g = ins.get("glb") or m.get("glb")
@@ -221,6 +244,8 @@ def placed_vertices(m, ins, cache):
         if str(p) not in cache:
             cache[str(p)] = Q.glb_tris(p)
         V, I = cache[str(p)]
+        if ins.get("lie_z90"):                      # R-C9-181: node rotation (0, 0, PI/2) inside a wrap, before the fit
+            V = np.stack([-V[:, 1], V[:, 0], V[:, 2]], 1)
         mn, mx = V.min(0), V.max(0)
         sz = mx - mn
         sc = np.array([w / max(sz[0], 1e-6), h / max(sz[1], 1e-6), d / max(sz[2], 1e-6)])
@@ -284,7 +309,7 @@ def v7c_components(layout_path=None, ids=None):
                 ys = (env["v"][1] + Vw[:, 1]) * Q.PXV - Vw[:, 2] * Q.PXH
                 P2 = np.stack([xs, ys], 1)
                 own = raster(shape, tris=(P2, I)) if I is not None else raster(shape, polys=[Q.hull(list(map(tuple, P2)))])
-                inst_rows.append({"i": i, "type": ins["type"], "z_top": round(float(Vw[:, 2].max()), 3),
+                inst_rows.append({"i": i, "type": ins["type"], "z_top": round(float(Vw[:, 2].max()), 3), "verts": Vw if mid == "longhall" else None,
                                   "footprint_hull": [list(map(float, q)) for q in Q.hull(list(map(tuple, Vw[:, :2])))]})
             n_own = int(own.sum())
             r = inst_rows[-1]
@@ -294,14 +319,20 @@ def v7c_components(layout_path=None, ids=None):
                 r["visible_share"] = round(float((own & idmask).sum() / n_own), 4)
             own_all |= own
         n = int(idmask.sum())
-        note = (m.get("status", "") + " " + m.get("note", "") + " " + m.get("_why", "")).lower()
-        design = [w for w in BY_DESIGN_WORDS if w in note]
-        hid = [r for r in inst_rows if r.get("own_px_in_frame") and r.get("terrain_hidden_share", 0) > TERRAIN_HIDDEN_MAX]
+        declared = {i for i, ins in enumerate(insts) if ins.get("burial_by_design")} | ({*range(len(insts))} if m.get("burial_by_design") else set())
+        design = sorted(declared)
+        hid_all = [r for r in inst_rows if r.get("own_px_in_frame") and r.get("terrain_hidden_share", 0) > TERRAIN_HIDDEN_MAX]
+        hid = [r for r in hid_all if r["i"] not in declared]
+        out.setdefault("hidden_by_design", {})
+        for r in hid_all:
+            if r["i"] in declared:
+                out["hidden_by_design"].setdefault(mid, []).append({"instance": r["i"], "terrain_hidden_share": r["terrain_hidden_share"],
+                                                                   "declaration": (insts[r["i"]].get("burial_by_design") or m.get("burial_by_design"))[:160]})
         in_frame = int(own_all.sum()) > 0
         row = {"kind": m.get("kind"), "instances": len(insts), "id_px": n, "in_frame": in_frame,
                "missing": in_frame and n == 0,
                "terrain_hidden_instances": [(r["i"], r["terrain_hidden_share"]) for r in hid],
-               "burial_by_design_words": design,
+               "burial_by_design_instances": design,
                "containment": round(float((idmask & lm[mid]["mask"]).sum() / n), 4) if (n and mid in lm) else None,
                "iou_vs_prism_reported": None}
         if n and mid in lm:
@@ -332,6 +363,9 @@ def v7c_scale(L, cache):
         for j, r in enumerate(rr):
             row = {"slot": slot, "instance": r["instance"], "kind": r["kind"], "recorded_fit_scale": r["fit_scale_xyz"],
                    "anisotropy": r["anisotropy_max_over_min"], "pass": r["anisotropy_max_over_min"] <= ANISO_MAX}
+            if str(r["kind"]).startswith("procedural"):
+                row["anisotropy"] = 1.0
+                row["note"] = "N/A: procedural primitive at true dimensions, no model normalised (as § 15 (3) for v1's slabs)"
             if r["kind"] == "box" and m is not None and j < len(boxes):
                 ins = boxes[j]
                 g = ins.get("glb") or m.get("glb")
@@ -340,6 +374,8 @@ def v7c_scale(L, cache):
                     if str(p) not in cache:
                         cache[str(p)] = Q.glb_tris(p)
                     V, _ = cache[str(p)]
+                    if ins.get("lie_z90"):
+                        V = np.stack([-V[:, 1], V[:, 0], V[:, 2]], 1)
                     sz = V.max(0) - V.min(0)
                     w, d, h = ins["size_m"]
                     mine = [w / sz[0], h / sz[1], d / sz[2]]
@@ -349,7 +385,28 @@ def v7c_scale(L, cache):
     return rows
 
 
-def extent_run(L, inst_geo, label):
+def r11_per_region(L2, inst_geo, replaced):
+    """R-C9-181 (3): R11 read PER REGION of the one hall + porch mesh: porch h = max placed z inside hall_porch's
+    r11_region_footprint; hall body h = max placed z outside it. Written into the layout copy's slot heights."""
+    from matplotlib.path import Path
+    M = {m["id"]: m for m in L2["models"]}
+    hp = M.get("hall_porch")
+    g = inst_geo.get("longhall")
+    if not hp or not hp.get("r11_region_footprint") or not g or "verts" not in g[0]:
+        return None
+    Vw = g[0]["verts"]
+    inside = Path(np.array(hp["r11_region_footprint"])).contains_points(Vw[:, :2])
+    z0 = float(M["longhall"]["z"])
+    h_porch = float(Vw[inside, 2].max()) - z0
+    h_body = float(Vw[~inside, 2].max()) - z0
+    M["longhall"]["size_m"]["h"] = round(h_body, 3)
+    hp["size_m"]["h"] = round(h_porch, 3)
+    replaced["R11_per_region"] = {"porch_h": round(h_porch, 3), "hall_body_h": round(h_body, 3),
+                                  "n_verts_porch_region": int(inside.sum()), "n_verts_body": int((~inside).sum())}
+    return replaced["R11_per_region"]
+
+
+def extent_run(L, inst_geo, label, per_region=True):
     """§ 15 (4): the validator on a PH copy of the layout with every single-placement model's slot replaced by its own
     placed geometry (footprint = convex hull of placed vertices, h = max z - slot z); features of the same id (and
     wreck_hull -> wreck) take the same footprint. Box instances: own extents == the box by construction (_place_box
@@ -374,6 +431,8 @@ def extent_run(L, inst_geo, label):
             F[fid]["footprint"] = fp
             F[fid]["z_top_m"] = round(float(F[fid].get("z_bottom_m", 0.0)) + h, 3)
             replaced[m["id"]]["feature"] = fid
+    if per_region:
+        r11_per_region(L2, inst_geo, replaced)
     return run_validator(L2, label), replaced
 
 
@@ -461,9 +520,12 @@ def calibrate():
 def run_v7c(bars):
     comp, L, cache = v7c_components()
     scale = v7c_scale(L, cache)
-    ext, replaced = extent_run(L, comp["instances"], "v7c_own_geometry")
+    ext, replaced = extent_run(L, comp["instances"], "v7c_r181_own_geometry")
+    for rows_ in comp["instances"].values():
+        for r_ in rows_:
+            r_.pop("verts", None)
     objs = comp["objects"]
-    hidden = {k: r["terrain_hidden_instances"] for k, r in objs.items() if r["terrain_hidden_instances"] and not r["burial_by_design_words"]}
+    hidden = {k: r["terrain_hidden_instances"] for k, r in objs.items() if r["terrain_hidden_instances"]}
     place_fail = {k: r["containment"] for k, r in objs.items() if r["containment"] is not None and r["containment"] < bars["containment_min"]}
     scale_fail = [r for r in scale if not r["pass"]]
     rec_bad = [r for r in scale if r.get("record_agrees_1pct") is False]
@@ -471,6 +533,8 @@ def run_v7c(bars):
            "inputs": {"ids_sha256": sha256(Q.GV / "ids_v7c.png"), "layout_sha256": sha256(Q.LV / "layout_v7c.json"),
                       "placed_fit_sha256": sha256(Q.LV / "placed_fit_v7c.json")},
            "presence": {"missing": comp["missing"], "extra": comp["extra"], "terrain_hidden_not_by_design": hidden,
+                        "hidden_by_design_accepted": comp.get("hidden_by_design", {}),
+                        "by_design_rule": "R-C9-181: accepted ONLY where the layout declares it (burial_by_design) and the declaration is in LV's commit 9601add8a",
                         "by_design_exclusions": comp["by_design_exclusions"], "non_model_ids_excluded": comp["non_model_ids_excluded"],
                         "pass": not comp["missing"] and not comp["extra"] and not hidden},
            "placement": {"bar": bars["containment_min"], "below_bar": place_fail,
@@ -488,13 +552,54 @@ def run_v7c(bars):
     return res
 
 
+def recheck_reds_r181():
+    """R-C9-181: the calibration REDs re-read with the SAME pipeline changes applied to v7c (per-region R11; lying /
+    procedural geometry) -- each must still fail. Bars unchanged (results/p6prime_calibration.json)."""
+    out = {}
+    # v6's 3 m porch: scale of record (the per-region R11 reading is a HEIGHT reading; it cannot change a fit scale)
+    v6 = jload(B2 / "layout_v2.json")
+    M6 = {m["id"]: m for m in v6["models"]}
+    hp = M6["hall_porch"]
+    V, _ = Q.glb_tris(B2 / hp["glb"])
+    sz = V.max(0) - V.min(0)
+    s_ = hp["size_m"]
+    sc = [s_["w_local_x"] / sz[0], s_["h"] / sz[1], s_["d_local_z"] / sz[2]]
+    a = max(sc) / min(sc)
+    # the per-region R11 reading on v6: there the porch is its OWN model, so its region height is its own placed height
+    out["red_scale_v6_porch_r181"] = {"anisotropy": round(float(a), 3), "pass": bool(a <= ANISO_MAX),
+                                      "r11_per_region_on_v6": {"porch_h": s_["h"], "hall_body_h": M6["longhall"]["size_m"]["h"],
+                                                               "note": "v6's porch is a separate model: per-region = per-model; R11 reads 11.3 vs 6.5 (passes) -- the RED is the scale component, unchanged"}}
+    # the shrunk gable, run through the same own-geometry + per-region extent pipeline as v7c
+    L = jload(Q.LV / "layout_v7c.json")
+    comp, _, _ = v7c_components()
+    L2 = copy.deepcopy(L)
+    f = next(x for x in L2["features"] if x["id"] == "fallen_gable")
+    fl = np.array(L2["floor"]["polygon"])
+    pts = np.array(f["footprint"], float)
+    far = pts[np.argmax([np.min(np.hypot(*(fl - q).T)) for q in pts])]
+    def shrink(P):
+        P = np.array(P, float)
+        return (far + 0.4 * (P - far)).round(4).tolist()
+    f["footprint"] = shrink(f["footprint"])
+    geo = copy.deepcopy(comp["instances"])
+    if geo.get("fallen_gable") and "footprint_hull" in geo["fallen_gable"][0]:
+        geo["fallen_gable"][0]["footprint_hull"] = shrink(geo["fallen_gable"][0]["footprint_hull"])
+    ext, rep = extent_run(L2, geo, "red_gable_shrunk_r181")
+    out["red_extent_gable_shrunk_r181"] = {"validator": ext, "r11_per_region": rep.get("R11_per_region"),
+                                           "r10_failed": any("R10" in json.dumps(x) for x in ext["fails"]), "pass": ext["exit"] == 0}
+    dump(out, str(PH / "results/p6prime_reds_r181.json"))
+    return out
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=["calibrate", "v7c"])
+    ap.add_argument("what", choices=["calibrate", "v7c", "reds_r181"])
     a = ap.parse_args()
     if a.what == "calibrate":
         r = calibrate()
         print(json.dumps({k: v for k, v in r.items() if k != "v1_objects"}, indent=1, default=str)[:6000])
+    elif a.what == "reds_r181":
+        print(json.dumps(recheck_reds_r181(), indent=1, default=str)[:3000])
     else:
         bars = jload(PH / "results/p6prime_calibration.json")["bars"]
         r = run_v7c(bars)

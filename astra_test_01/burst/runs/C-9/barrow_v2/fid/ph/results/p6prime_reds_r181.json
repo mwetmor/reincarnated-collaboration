@@ -1,0 +1,36 @@
+{
+ "red_scale_v6_porch_r181": {
+  "anisotropy": 1.63,
+  "pass": false,
+  "r11_per_region_on_v6": {
+   "porch_h": 11.3,
+   "hall_body_h": 6.5,
+   "note": "v6's porch is a separate model: per-region = per-model; R11 reads 11.3 vs 6.5 (passes) -- the RED is the scale component, unchanged"
+  }
+ },
+ "red_extent_gable_shrunk_r181": {
+  "validator": {
+   "exit": 1,
+   "fails": [
+    {
+     "rule": "R10",
+     "check": "p06: fallen_gable is outside the walkable edge and within 3.0 m of it"
+    }
+   ],
+   "n_checks": 74,
+   "stdout_tail": [
+    "  PASS  R13  CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots  {\"offenders\": []}",
+    "  PASS  R13  tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)  {\"tufts\": 63, \"cap\": 63, \"per_100m2\": 1.491}",
+    "== 66 checks, 65 PASS, 1 FAIL, plus 8 INFO -> FAIL"
+   ]
+  },
+  "r11_per_region": {
+   "porch_h": 13.117,
+   "hall_body_h": 12.143,
+   "n_verts_porch_region": 10034,
+   "n_verts_body": 24028
+  },
+  "r10_failed": true,
+  "pass": false
+ }
+}

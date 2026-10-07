@@ -1,25 +1,34 @@
 {
  "_what": "P6' on v7c (pre-registered calibration.md \u00a7 15; bars from p6prime_calibration.json)",
  "inputs": {
-  "ids_sha256": "49adb3d894b209fc829d42ddcd0f325bccc5e5be59f41af3871143c3867226c8",
-  "layout_sha256": "f8e7b5ab88f040db4234d70962caf42a063a3548f3508fea3d0428e3b94a0656",
-  "placed_fit_sha256": "521e89e9029296c068b5ff0e22936a1a7c16dd2052839dfe3db552943ba5f236"
+  "ids_sha256": "bbff1fa06deb6c4db5d032a817984d4dd41fc7c0c3012ee38de9f78ae227d12a",
+  "layout_sha256": "4c8a21a568976a03df07f59d4790617f20b1ec625b6cc071c3f079ecb5eee524",
+  "placed_fit_sha256": "b852697ee5b9a6c8d4ebe6f0cd5387eca882bf124b3f313d307b6c4a1f3dad96"
  },
  "presence": {
   "missing": [],
   "extra": [],
-  "terrain_hidden_not_by_design": {
-   "logs_and_beams": [
-    [
-     5,
-     0.5452
-    ],
-    [
-     6,
-     0.5046
-    ]
+  "terrain_hidden_not_by_design": {},
+  "hidden_by_design_accepted": {
+   "circle_stones": [
+    {
+     "instance": 2,
+     "terrain_hidden_share": 0.9182,
+     "declaration": "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground"
+    },
+    {
+     "instance": 4,
+     "terrain_hidden_share": 0.5143,
+     "declaration": "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground"
+    },
+    {
+     "instance": 5,
+     "terrain_hidden_share": 0.9165,
+     "declaration": "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground"
+    }
    ]
   },
+  "by_design_rule": "R-C9-181: accepted ONLY where the layout declares it (burial_by_design) and the declaration is in LV's commit 9601add8a",
   "by_design_exclusions": {
    "hall_porch": "no mesh of its own: PART OF the longhall build (BV2F-LV-hall): no separate model",
    "sea_cave_stair": "no mesh of its own: BUILD (lane BVP: rock kit -- cave-mouth arch + stair-cut rock); the walkable stair geometr",
@@ -54,7 +63,7 @@
    "stair_ledge",
    "stair_top_landing"
   ],
-  "pass": false
+  "pass": true
  },
  "placement": {
   "bar": 0.7872,
@@ -67,8 +76,8 @@
    "standing_stones": 1.0,
    "circle_stones": 1.0,
    "grave_markers": 1.0,
-   "logs_and_beams": 0.9589,
-   "palisade": 0.9811,
+   "logs_and_beams": 0.9577,
+   "palisade": 0.9893,
    "braziers": 1.0,
    "rock_outcrop_1": 1.0,
    "rock_outcrop_2": 1.0,
@@ -86,187 +95,20 @@
  "scale": {
   "bar": 1.1,
   "n_instances": 148,
-  "n_over": 137,
-  "over_by_slot": {
-   "standing_stones": [
-    2.338,
-    2.18,
-    2.112,
-    2.378
-   ],
-   "circle_stones": [
-    4.586,
-    4.586,
-    1.705,
-    4.586,
-    4.586,
-    1.705,
-    4.586,
-    4.586
-   ],
-   "grave_markers": [
-    1.975,
-    1.975,
-    1.975,
-    1.975,
-    1.975,
-    1.975,
-    1.975
-   ],
-   "logs_and_beams": [
-    8.07,
-    6.557,
-    5.044,
-    4.54,
-    10.088,
-    8.828,
-    7.565,
-    9.583,
-    7.063
-   ],
-   "palisade": [
-    13.498,
-    10.214,
-    11.445,
-    9.988,
-    11.342,
-    8.996,
-    9.986,
-    12.083,
-    11.771,
-    13.755,
-    11.413,
-    12.473,
-    10.514,
-    9.784,
-    11.727,
-    9.987,
-    13.105,
-    10.274,
-    9.271,
-    10.451,
-    10.201,
-    8.948,
-    12.17,
-    10.727,
-    13.585,
-    9.764,
-    9.341,
-    10.947,
-    11.51,
-    11.954,
-    9.6,
-    10.877,
-    13.097,
-    9.222,
-    11.597,
-    9.41,
-    13.088,
-    13.948,
-    10.325,
-    13.138,
-    9.049,
-    11.791,
-    13.724,
-    10.469,
-    12.364,
-    10.478,
-    12.569,
-    13.765,
-    13.917,
-    12.029,
-    12.324,
-    13.148,
-    10.199,
-    12.152,
-    13.936,
-    10.463,
-    11.883,
-    9.832,
-    12.254,
-    9.644,
-    13.195,
-    10.401,
-    9.653,
-    10.657,
-    13.483,
-    11.369,
-    13.262,
-    9.024,
-    12.432,
-    13.752,
-    10.986,
-    13.896,
-    10.059,
-    8.947,
-    13.933,
-    11.415,
-    12.404,
-    9.061,
-    10.255,
-    12.595,
-    11.352,
-    11.688,
-    13.773,
-    12.128,
-    13.077,
-    10.64,
-    10.355,
-    9.354,
-    11.931,
-    11.66,
-    11.142,
-    9.268,
-    12.706,
-    11.083,
-    11.335,
-    13.728,
-    8.904,
-    13.256,
-    12.252,
-    14.093,
-    11.22,
-    9.807
-   ],
-   "rock_outcrop_1": [
-    1.347
-   ],
-   "rock_outcrop_2": [
-    1.772
-   ],
-   "rock_outcrop_4": [
-    1.414
-   ],
-   "rock_outcrop_5": [
-    1.368
-   ],
-   "rock_outcrop_8": [
-    1.28
-   ],
-   "rock_outcrop_10": [
-    1.153
-   ],
-   "rock_outcrop_11": [
-    1.313
-   ]
-  },
+  "n_over": 0,
+  "over_by_slot": {},
   "record_mismatches_vs_ph": 0,
-  "pass": false
+  "pass": true
  },
  "extent": {
   "validator": {
-   "exit": 1,
-   "fails": [
-    {
-     "rule": "R11",
-     "check": "the porch rises ABOVE the hall's roofline (slot heights)"
-    }
-   ],
+   "exit": 0,
+   "fails": [],
    "n_checks": 74,
    "stdout_tail": [
     "  PASS  R13  CLEAN FLOOR: only flat marks (footprints, ripples, ice cracks) and small tufts (<= 0.15 m) on the floor; no beams, no taller features or model slots  {\"offenders\": []}",
     "  PASS  R13  tufts are SPARSE: under the density cap (1.5 per 100 m2 of floor)  {\"tufts\": 63, \"cap\": 63, \"per_100m2\": 1.491}",
-    "== 66 checks, 65 PASS, 1 FAIL, plus 8 INFO -> FAIL"
+    "== 66 checks, 66 PASS, 0 FAIL, plus 8 INFO -> PASS"
    ]
   },
   "replaced": {
@@ -290,35 +132,41 @@
     "feature": "wreck_hull"
    },
    "stair_cliff": {
-    "footprint_pts": 25,
+    "footprint_pts": 23,
     "h": 7.45
+   },
+   "R11_per_region": {
+    "porch_h": 13.117,
+    "hall_body_h": 12.143,
+    "n_verts_porch_region": 10034,
+    "n_verts_body": 24028
    }
   },
-  "pass": false
+  "pass": true
  },
  "iou_vs_prism_reported_non_binding": {
   "longhall": 0.694,
-  "fallen_gable": 0.51,
+  "fallen_gable": 0.509,
   "barrow_front": 0.647,
   "wreck": 0.345,
-  "standing_stones": 0.461,
-  "circle_stones": 0.205,
-  "grave_markers": 0.097,
-  "logs_and_beams": 0.232,
-  "palisade": 0.413,
+  "standing_stones": 0.483,
+  "circle_stones": 0.184,
+  "grave_markers": 0.093,
+  "logs_and_beams": 0.76,
+  "palisade": 0.798,
   "braziers": 0.462,
-  "rock_outcrop_1": 0.46,
-  "rock_outcrop_2": 0.459,
-  "rock_outcrop_4": 0.354,
-  "rock_outcrop_5": 0.643,
+  "rock_outcrop_1": 0.468,
+  "rock_outcrop_2": 0.462,
+  "rock_outcrop_4": 0.338,
+  "rock_outcrop_5": 0.658,
   "rock_outcrop_8": 0.376,
-  "rock_outcrop_10": 0.52,
-  "rock_outcrop_11": 0.347,
-  "rock_outcrop_14": 0.345,
-  "stair_cliff": 0.584,
-  "cliff_faces": 0.531
+  "rock_outcrop_10": 0.476,
+  "rock_outcrop_11": 0.349,
+  "rock_outcrop_14": 0.387,
+  "stair_cliff": 0.601,
+  "cliff_faces": 0.517
  },
- "iou_vs_prism_median_reported": 0.46,
+ "iou_vs_prism_median_reported": 0.472,
  "v1_like_for_like_reported": 0.635,
  "objects": {
   "longhall": {
@@ -328,29 +176,29 @@
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
    "iou_vs_prism_reported": 0.694
   },
   "fallen_gable": {
    "kind": "ruin",
    "instances": 1,
-   "id_px": 346562,
+   "id_px": 345776,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.51
+   "iou_vs_prism_reported": 0.509
   },
   "barrow_front": {
    "kind": "barrow",
    "instances": 1,
-   "id_px": 1594662,
+   "id_px": 1594644,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
    "iou_vs_prism_reported": 0.647
   },
@@ -361,109 +209,73 @@
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
    "iou_vs_prism_reported": 0.345
   },
   "standing_stones": {
    "kind": "stones",
    "instances": 4,
-   "id_px": 22238,
+   "id_px": 43905,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.461
+   "iou_vs_prism_reported": 0.483
   },
   "circle_stones": {
    "kind": "stones",
    "instances": 8,
-   "id_px": 22042,
+   "id_px": 19280,
    "in_frame": true,
    "missing": false,
-   "terrain_hidden_instances": [
-    [
-     0,
-     0.6218
-    ],
-    [
-     1,
-     0.606
-    ],
-    [
-     2,
-     0.6583
-    ],
-    [
-     3,
-     0.6049
-    ],
-    [
-     4,
-     0.6191
-    ],
-    [
-     5,
-     0.6842
-    ],
-    [
-     6,
-     0.5605
-    ],
-    [
-     7,
-     0.6169
-    ]
-   ],
-   "burial_by_design_words": [
-    "sunk",
-    "laid flat"
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
    ],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.205
+   "iou_vs_prism_reported": 0.184
   },
   "grave_markers": {
    "kind": "stones",
    "instances": 7,
-   "id_px": 1900,
+   "id_px": 1472,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.097
+   "iou_vs_prism_reported": 0.093
   },
   "logs_and_beams": {
    "kind": "debris",
    "instances": 9,
-   "id_px": 19938,
+   "id_px": 69927,
    "in_frame": true,
    "missing": false,
-   "terrain_hidden_instances": [
-    [
-     5,
-     0.5452
-    ],
-    [
-     6,
-     0.5046
-    ]
-   ],
-   "burial_by_design_words": [],
-   "containment": 0.9589,
-   "iou_vs_prism_reported": 0.232
+   "terrain_hidden_instances": [],
+   "burial_by_design_instances": [],
+   "containment": 0.9577,
+   "iou_vs_prism_reported": 0.76
   },
   "palisade": {
    "kind": "palisade",
    "instances": 102,
-   "id_px": 74486,
+   "id_px": 142841,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
-   "containment": 0.9811,
-   "iou_vs_prism_reported": 0.413
+   "burial_by_design_instances": [],
+   "containment": 0.9893,
+   "iou_vs_prism_reported": 0.798
   },
   "braziers": {
    "kind": "prop",
@@ -472,119 +284,119 @@
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
    "iou_vs_prism_reported": 0.462
   },
   "rock_outcrop_1": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 160539,
+   "id_px": 161805,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.46
+   "iou_vs_prism_reported": 0.468
   },
   "rock_outcrop_2": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 321086,
+   "id_px": 235431,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.459
+   "iou_vs_prism_reported": 0.462
   },
   "rock_outcrop_4": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 130486,
+   "id_px": 103825,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.354
+   "iou_vs_prism_reported": 0.338
   },
   "rock_outcrop_5": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 411629,
+   "id_px": 319549,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.643
+   "iou_vs_prism_reported": 0.658
   },
   "rock_outcrop_8": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 121411,
+   "id_px": 108434,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
    "iou_vs_prism_reported": 0.376
   },
   "rock_outcrop_10": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 105665,
+   "id_px": 80340,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.52
+   "iou_vs_prism_reported": 0.476
   },
   "rock_outcrop_11": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 44802,
+   "id_px": 43106,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.347
+   "iou_vs_prism_reported": 0.349
   },
   "rock_outcrop_14": {
    "kind": "outcrop",
    "instances": 1,
-   "id_px": 70911,
+   "id_px": 74525,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.345
+   "iou_vs_prism_reported": 0.387
   },
   "stair_cliff": {
    "kind": "cliff",
    "instances": 1,
-   "id_px": 810508,
+   "id_px": 547414,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.584
+   "iou_vs_prism_reported": 0.601
   },
   "cliff_faces": {
    "kind": "cliff",
    "instances": 3,
-   "id_px": 1000949,
+   "id_px": 785629,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
-   "burial_by_design_words": [],
+   "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.531
+   "iou_vs_prism_reported": 0.517
   }
  },
  "scale_rows": [
@@ -665,16 +477,16 @@
    "instance": "standing_stones_0",
    "kind": "box",
    "recorded_fit_scale": [
-    2.34516429901123,
+    2.5953152179718,
     2.59618830680847,
-    1.11047625541687
+    2.5966637134552
    ],
-   "anisotropy": 2.3379,
-   "pass": false,
+   "anisotropy": 1.0005,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.3452,
+    2.5953,
     2.5962,
-    1.1105
+    2.5967
    ],
    "record_agrees_1pct": true
   },
@@ -683,16 +495,16 @@
    "instance": "standing_stones_1",
    "kind": "box",
    "recorded_fit_scale": [
-    2.11594271659851,
-    2.19788360595703,
-    1.00822126865387
+    2.19663739204407,
+    2.19677472114563,
+    2.19689226150513
    ],
-   "anisotropy": 2.18,
-   "pass": false,
+   "anisotropy": 1.0001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.1159,
-    2.1979,
-    1.0082
+    2.1966,
+    2.1968,
+    2.1969
    ],
    "record_agrees_1pct": true
   },
@@ -701,16 +513,16 @@
    "instance": "standing_stones_2",
    "kind": "box",
    "recorded_fit_scale": [
-    2.34516429901123,
-    1.99706792831421,
-    1.11047625541687
+    1.99839043617249,
+    1.99807596206665,
+    1.99795842170715
    ],
-   "anisotropy": 2.1119,
-   "pass": false,
+   "anisotropy": 1.0002,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.3452,
-    1.9971,
-    1.1105
+    1.9984,
+    1.9981,
+    1.998
    ],
    "record_agrees_1pct": true
   },
@@ -719,16 +531,16 @@
    "instance": "standing_stones_3",
    "kind": "box",
    "recorded_fit_scale": [
-    2.11594271659851,
-    2.39769124984741,
-    1.00822126865387
+    2.39727926254272,
+    2.39648151397705,
+    2.39677786827087
    ],
-   "anisotropy": 2.3781,
-   "pass": false,
+   "anisotropy": 1.0003,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.1159,
-    2.3977,
-    1.0082
+    2.3973,
+    2.3965,
+    2.3968
    ],
    "record_agrees_1pct": true
   },
@@ -737,16 +549,16 @@
    "instance": "circle_stones_0",
    "kind": "box",
    "recorded_fit_scale": [
-    2.5602707862854,
-    0.558282613754272,
-    0.750641465187073
+    1.19824075698853,
+    1.19863951206207,
+    1.19746363162994
    ],
-   "anisotropy": 4.586,
-   "pass": false,
+   "anisotropy": 1.001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.5603,
-    0.5583,
-    0.7506
+    1.1982,
+    1.1986,
+    1.1975
    ],
    "record_agrees_1pct": true
   },
@@ -755,16 +567,16 @@
    "instance": "circle_stones_1",
    "kind": "box",
    "recorded_fit_scale": [
-    2.5602707862854,
-    0.558282613754272,
-    0.750641465187073
+    1.19824075698853,
+    1.19863951206207,
+    1.19746363162994
    ],
-   "anisotropy": 4.586,
-   "pass": false,
+   "anisotropy": 1.001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.5603,
-    0.5583,
-    0.7506
+    1.1982,
+    1.1986,
+    1.1975
    ],
    "record_agrees_1pct": true
   },
@@ -773,16 +585,16 @@
    "instance": "circle_stones_2",
    "kind": "box",
    "recorded_fit_scale": [
-    0.853423655033112,
-    0.558282613754272,
-    0.500427663326263
+    1.33987820148468,
+    1.33987498283386,
+    1.34014523029327
    ],
-   "anisotropy": 1.7054,
-   "pass": false,
+   "anisotropy": 1.0002,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.8534,
-    0.5583,
-    0.5004
+    1.3399,
+    1.3399,
+    1.3401
    ],
    "record_agrees_1pct": true
   },
@@ -791,16 +603,16 @@
    "instance": "circle_stones_3",
    "kind": "box",
    "recorded_fit_scale": [
-    2.5602707862854,
-    0.558282613754272,
-    0.750641465187073
+    1.19824075698853,
+    1.19863951206207,
+    1.19746363162994
    ],
-   "anisotropy": 4.586,
-   "pass": false,
+   "anisotropy": 1.001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.5603,
-    0.5583,
-    0.7506
+    1.1982,
+    1.1986,
+    1.1975
    ],
    "record_agrees_1pct": true
   },
@@ -809,16 +621,16 @@
    "instance": "circle_stones_4",
    "kind": "box",
    "recorded_fit_scale": [
-    2.5602707862854,
-    0.558282613754272,
-    0.750641465187073
+    1.19824075698853,
+    1.19863951206207,
+    1.19746363162994
    ],
-   "anisotropy": 4.586,
-   "pass": false,
+   "anisotropy": 1.001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.5603,
-    0.5583,
-    0.7506
+    1.1982,
+    1.1986,
+    1.1975
    ],
    "record_agrees_1pct": true
   },
@@ -827,16 +639,16 @@
    "instance": "circle_stones_5",
    "kind": "box",
    "recorded_fit_scale": [
-    0.853423655033112,
-    0.558282613754272,
-    0.500427663326263
+    1.33987820148468,
+    1.33987498283386,
+    1.34014523029327
    ],
-   "anisotropy": 1.7054,
-   "pass": false,
+   "anisotropy": 1.0002,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.8534,
-    0.5583,
-    0.5004
+    1.3399,
+    1.3399,
+    1.3401
    ],
    "record_agrees_1pct": true
   },
@@ -845,16 +657,16 @@
    "instance": "circle_stones_6",
    "kind": "box",
    "recorded_fit_scale": [
-    2.5602707862854,
-    0.558282613754272,
-    0.750641465187073
+    1.19824075698853,
+    1.19863951206207,
+    1.19746363162994
    ],
-   "anisotropy": 4.586,
-   "pass": false,
+   "anisotropy": 1.001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.5603,
-    0.5583,
-    0.7506
+    1.1982,
+    1.1986,
+    1.1975
    ],
    "record_agrees_1pct": true
   },
@@ -863,16 +675,16 @@
    "instance": "circle_stones_7",
    "kind": "box",
    "recorded_fit_scale": [
-    2.5602707862854,
-    0.558282613754272,
-    0.750641465187073
+    1.19824075698853,
+    1.19863951206207,
+    1.19746363162994
    ],
-   "anisotropy": 4.586,
-   "pass": false,
+   "anisotropy": 1.001,
+   "pass": true,
    "ph_size_over_aabb": [
-    2.5603,
-    0.5583,
-    0.7506
+    1.1982,
+    1.1986,
+    1.1975
    ],
    "record_agrees_1pct": true
   },
@@ -881,16 +693,16 @@
    "instance": "grave_markers_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
@@ -899,16 +711,16 @@
    "instance": "grave_markers_1",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
@@ -917,16 +729,16 @@
    "instance": "grave_markers_2",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
@@ -935,16 +747,16 @@
    "instance": "grave_markers_3",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
@@ -953,16 +765,16 @@
    "instance": "grave_markers_4",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
@@ -971,16 +783,16 @@
    "instance": "grave_markers_5",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
@@ -989,1350 +801,1461 @@
    "instance": "grave_markers_6",
    "kind": "box",
    "recorded_fit_scale": [
-    0.565796613693237,
-    0.339780241250992,
-    0.286458611488342
+    0.38021531701088,
+    0.380553841590881,
+    0.380417019128799
    ],
-   "anisotropy": 1.9751,
-   "pass": false,
+   "anisotropy": 1.0009,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5658,
-    0.3398,
-    0.2865
+    0.3802,
+    0.3806,
+    0.3804
    ],
    "record_agrees_1pct": true
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_0",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.193652957677841,
-    0.822649121284485,
-    1.56278908252716
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 8.0701,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_1",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.19365294277668,
-    0.822649121284485,
-    1.26972937583923
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 6.5567,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_2",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.19365294277668,
-    0.822649121284485,
-    0.976840853691101
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 5.0443,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_3",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.19365294277668,
-    0.822649121284485,
-    0.879265964031219
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 4.5404,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_4",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.19365294277668,
-    0.822649121284485,
-    1.95366585254669
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.0885,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_5",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.193652957677841,
-    0.822649121284485,
-    1.70948421955109
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 8.8276,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_6",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.193652957677841,
-    0.82264906167984,
-    1.46503937244415
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 7.5653,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_7",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.193652957677841,
-    0.822649121284485,
-    1.85569322109222
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.5826,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "logs_and_beams",
    "instance": "logs_and_beams_8",
-   "kind": "beam",
+   "kind": "procedural_log",
    "recorded_fit_scale": [
-    0.19365294277668,
-    0.822649121284485,
-    1.36777341365814
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 7.063,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_0",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.64301073551178
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.4978,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_1",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.2432416677475
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.2136,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_2",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.39317572116852
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.4453,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_3",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.21584069728851
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.9884,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_4",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.38064682483673
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.3424,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_5",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.09499561786652
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 8.9957,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_6",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.21556627750397
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.9862,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_7",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.47074854373932
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.0826,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_8",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.517093777656555,
-    1.43278920650482
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.7707,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_9",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.67435348033905
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.7552,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_10",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.38919639587402
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.4126,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_11",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.5182820558548
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.4731,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_12",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.27982330322266
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.5141,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_13",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.19100868701935
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.7844,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_14",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.42750263214111
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.7273,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_15",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.21565043926239
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.9869,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_16",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.59517753124237
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.1048,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_17",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.25066006183624
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.2745,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_18",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.12848615646362
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.2708,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_19",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.27220034599304
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.4515,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_20",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.24174129962921
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.2012,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_21",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.08924078941345
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 8.9484,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_22",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.48138737678528
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.17,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_23",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.30576407909393
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.7272,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_24",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.65368378162384
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.5854,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_25",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.18850755691528
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.7639,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_26",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.13704800605774
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.3411,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_27",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.33248317241669
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.9467,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_28",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.40109241008759
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.5103,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_29",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093658447266,
-    1.45514667034149
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.9544,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_30",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.16853415966034
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.5998,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_31",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724724769592,
-    0.517093777656555,
-    1.32401430606842
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.8771,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_32",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.59425616264343
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.0972,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_33",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.12258875370026
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.2224,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_34",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.41163945198059
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.597,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_35",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.14541625976562
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.4099,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_36",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.59317767620087
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.0884,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_37",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.69779336452484
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.9478,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_38",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.2567595243454
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.3246,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_39",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.59918606281281
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.1377,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_40",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.10148859024048
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.049,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_41",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.43531179428101
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.7915,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_42",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.67055833339691
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.7241,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_43",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.27436625957489
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.4692,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_44",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.50495409965515
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.3636,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_45",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.27542424201965
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.4779,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_46",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.52991390228271
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.5686,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_47",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.67558586597443
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.7654,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_48",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.69408595561981
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.9174,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_49",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.46423101425171
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.029,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_50",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.50008749961853
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.3236,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_51",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.60044205188751
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.148,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_52",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.24150216579437
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.1993,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_53",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093658447266,
-    1.47925770282745
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.1525,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_54",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.69638550281525
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.9362,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_55",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.27360188961029
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.463,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_56",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.44650685787201
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.8834,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_57",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.19681072235107
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.8321,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_58",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724724769592,
-    0.517093777656555,
-    1.49163389205933
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.2542,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_59",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.17387998104095
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.6437,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_60",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.60617816448212
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.1952,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_61",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.26603615283966
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.4008,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_62",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.17501747608185
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.6531,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_63",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.29717886447906
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.6567,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_64",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.6411954164505
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.4828,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_65",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.38387060165405
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.3689,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_66",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.61427927017212
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.2617,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_67",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.09844946861267
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.024,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_68",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.517093777656555,
-    1.51333558559418
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.4324,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_69",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.6739205121994
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.7517,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_70",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.33727431297302
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.9861,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_71",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.69147205352783
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.8959,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_72",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.22446525096893
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.0593,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_73",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.08901035785675
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 8.9465,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_74",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.69599652290344
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.9331,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_75",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.517093777656555,
-    1.38944911956787
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.4147,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_76",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.50987696647644
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.404,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_77",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.10291826725006
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.0608,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_78",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.24831604957581
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.2552,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_79",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.53310298919678
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.5948,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_80",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.38179779052734
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.3518,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_81",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.42270624637604
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.6879,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_82",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.6764897108078
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.7728,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_83",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.4763091802597
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.1283,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_84",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.59176981449127
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.0768,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_85",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.29517388343811
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.6402,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_86",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.26044249534607
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 10.3549,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_87",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.13863599300385
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.3542,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_88",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.45234441757202
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.9314,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_89",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.41928577423096
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.6598,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_90",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.35625028610229
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.1419,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_91",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.12820243835449
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.2685,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_92",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.54661273956299
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.7058,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_93",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.34912610054016
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.0834,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_94",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.379718542099
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.3347,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_95",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.6710501909256
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.7281,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_96",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.08380937576294
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 8.9038,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_97",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.6135390996933
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 13.2556,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_98",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724709868431,
-    0.51709371805191,
-    1.49133598804474
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 12.2517,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_99",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.51709371805191,
-    1.71547067165375
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 14.093,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_100",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.121724717319012,
-    0.517093777656555,
-    1.3657443523407
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 11.2199,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "palisade",
    "instance": "palisade_101",
-   "kind": "beam",
+   "kind": "procedural_post",
    "recorded_fit_scale": [
-    0.12172470241785,
-    0.51709371805191,
-    1.19375097751617
+    1.0,
+    1.0,
+    1.0
    ],
-   "anisotropy": 9.807,
-   "pass": false
+   "anisotropy": 1.0,
+   "pass": true,
+   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
   },
   {
    "slot": "braziers",
@@ -2363,16 +2286,16 @@
    "instance": "rock_outcrop_1_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.909500062465668,
-    1.12742853164673,
-    0.8367999792099
+    0.963833391666412,
+    0.963931560516357,
+    0.963747501373291
    ],
-   "anisotropy": 1.3473,
-   "pass": false,
+   "anisotropy": 1.0002,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.9095,
-    1.1274,
-    0.8368
+    0.9638,
+    0.9639,
+    0.9637
    ],
    "record_agrees_1pct": true
   },
@@ -2381,16 +2304,16 @@
    "instance": "rock_outcrop_2_0",
    "kind": "box",
    "recorded_fit_scale": [
-    1.50000011920929,
-    0.84628564119339,
-    1.44980001449585
+    1.24300014972687,
+    1.24307918548584,
+    1.24300050735474
    ],
-   "anisotropy": 1.7725,
-   "pass": false,
+   "anisotropy": 1.0001,
+   "pass": true,
    "ph_size_over_aabb": [
-    1.5,
-    0.8463,
-    1.4498
+    1.243,
+    1.2431,
+    1.243
    ],
    "record_agrees_1pct": true
   },
@@ -2399,16 +2322,16 @@
    "instance": "rock_outcrop_4_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.993166744709015,
-    0.730857133865356,
-    1.0336000919342
+    0.9216668009758,
+    0.921692132949829,
+    0.921664774417877
    ],
-   "anisotropy": 1.4142,
-   "pass": false,
+   "anisotropy": 1.0,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.9932,
-    0.7309,
-    1.0336
+    0.9217,
+    0.9217,
+    0.9217
    ],
    "record_agrees_1pct": true
   },
@@ -2417,16 +2340,16 @@
    "instance": "rock_outcrop_5_0",
    "kind": "box",
    "recorded_fit_scale": [
-    1.50000011920929,
-    1.13685703277588,
-    1.55540001392365
+    1.40400004386902,
+    1.40400230884552,
+    1.40405809879303
    ],
-   "anisotropy": 1.3682,
-   "pass": false,
+   "anisotropy": 1.0,
+   "pass": true,
    "ph_size_over_aabb": [
-    1.5,
-    1.1369,
-    1.5554
+    1.404,
+    1.404,
+    1.4041
    ],
    "record_agrees_1pct": true
   },
@@ -2435,16 +2358,16 @@
    "instance": "rock_outcrop_8_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.920333385467529,
-    0.74057137966156,
-    0.948200047016144
+    0.877000093460083,
+    0.876927495002747,
+    0.876984238624573
    ],
-   "anisotropy": 1.2804,
-   "pass": false,
+   "anisotropy": 1.0001,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.9203,
-    0.7406,
-    0.9482
+    0.877,
+    0.8769,
+    0.877
    ],
    "record_agrees_1pct": true
   },
@@ -2453,16 +2376,16 @@
    "instance": "rock_outcrop_10_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.763333380222321,
-    0.662285685539246,
-    0.763199985027313
+    0.738500118255615,
+    0.73850154876709,
+    0.738526701927185
    ],
-   "anisotropy": 1.1526,
-   "pass": false,
+   "anisotropy": 1.0,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.7633,
-    0.6623,
-    0.7632
+    0.7385,
+    0.7385,
+    0.7385
    ],
    "record_agrees_1pct": true
   },
@@ -2471,16 +2394,16 @@
    "instance": "rock_outcrop_11_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.583333373069763,
-    0.704285621643066,
-    0.536399960517883
+    0.612666726112366,
+    0.612701416015625,
+    0.612797915935516
    ],
-   "anisotropy": 1.313,
-   "pass": false,
+   "anisotropy": 1.0002,
+   "pass": true,
    "ph_size_over_aabb": [
-    0.5833,
-    0.7043,
-    0.5364
+    0.6127,
+    0.6127,
+    0.6128
    ],
    "record_agrees_1pct": true
   },
@@ -2489,16 +2412,16 @@
    "instance": "rock_outcrop_14_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.745666742324829,
-    0.688857078552246,
-    0.696200013160706
+    0.720000088214874,
+    0.719906985759735,
+    0.720083057880402
    ],
-   "anisotropy": 1.0825,
+   "anisotropy": 1.0002,
    "pass": true,
    "ph_size_over_aabb": [
-    0.7457,
-    0.6889,
-    0.6962
+    0.72,
+    0.7199,
+    0.7201
    ],
    "record_agrees_1pct": true
   },
@@ -2507,16 +2430,16 @@
    "instance": "stair_cliff",
    "kind": "box",
    "recorded_fit_scale": [
-    0.987500071525574,
-    1.00675666332245,
-    0.99999988079071
+    0.622375071048737,
+    0.622354328632355,
+    0.622377932071686
    ],
-   "anisotropy": 1.0195,
+   "anisotropy": 1.0,
    "pass": true,
    "ph_size_over_aabb": [
-    0.9875,
-    1.0068,
-    1.0
+    0.6224,
+    0.6224,
+    0.6224
    ],
    "record_agrees_1pct": true
   },
@@ -2525,16 +2448,16 @@
    "instance": "cliff_faces_0",
    "kind": "box",
    "recorded_fit_scale": [
-    0.935111165046692,
-    1.02716207504272,
-    1.0
+    0.847111105918884,
+    0.847140550613403,
+    0.847067177295685
    ],
-   "anisotropy": 1.0984,
+   "anisotropy": 1.0001,
    "pass": true,
    "ph_size_over_aabb": [
-    0.9351,
-    1.0272,
-    1.0
+    0.8471,
+    0.8471,
+    0.8471
    ],
    "record_agrees_1pct": true
   },
@@ -2543,16 +2466,16 @@
    "instance": "cliff_faces_1",
    "kind": "box",
    "recorded_fit_scale": [
-    0.974111139774323,
-    1.05770266056061,
-    1.0
+    0.872333288192749,
+    0.872328519821167,
+    0.872260928153992
    ],
-   "anisotropy": 1.0858,
+   "anisotropy": 1.0001,
    "pass": true,
    "ph_size_over_aabb": [
-    0.9741,
-    1.0577,
-    1.0
+    0.8723,
+    0.8723,
+    0.8723
    ],
    "record_agrees_1pct": true
   },
@@ -2561,19 +2484,19 @@
    "instance": "cliff_faces_2",
    "kind": "box",
    "recorded_fit_scale": [
-    0.961666643619537,
-    1.03054046630859,
-    1.0
+    0.849888920783997,
+    0.849926829338074,
+    0.849844396114349
    ],
-   "anisotropy": 1.0716,
+   "anisotropy": 1.0001,
    "pass": true,
    "ph_size_over_aabb": [
-    0.9617,
-    1.0305,
-    1.0
+    0.8499,
+    0.8499,
+    0.8498
    ],
    "record_agrees_1pct": true
   }
  ],
- "P6prime_pass": false
+ "P6prime_pass": true
 }

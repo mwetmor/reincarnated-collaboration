@@ -513,3 +513,42 @@ Inputs: `ids_v7c.png` sha `49adb3d8…` and `layout_v7c.json` (v7c_r178). Tool `
 2. **Presence:** two yard logs half in the ground.
 3. **Extent R11:** an artifact of measuring a two-part build as one height. Per § 14 it is reported as RED, not re-measured. Whether the hall/porch split needs a separate record from LV, or a ruling, is the conductor's call.
 
+## 18. P6′ RE-RUN on LV's R-C9-181 refit (9601add8a). SAME pre-registered bars (§ 16, unchanged)
+
+Inputs: ids `bbff1fa06deb…` (= guide_manifest), layout `4c8a21a56897…`, placed_fit `b852697ee5b9…`. Result: `results/p6prime_v7c.json`.
+
+**Geometry readings brought in line with what the level now builds**, applied identically to v7c and to the calibration REDs:
+- **Lying stones:** `lie_z90` turns the model 90° about Z before the uniform fit.
+- **Procedural beams:** palisade posts and logs are cylinders at their true diameter along a→b.
+- **Scale N/A for procedural primitives:** they normalise no model, the same as § 15 (3) for v1's slabs.
+- **R11 read per region of the one hall + porch mesh:**
+  - the porch's height = the maximum placed z inside `hall_porch.r11_region_footprint`;
+  - the hall body's height = the maximum placed z outside it.
+  - Measured by PH from the placed hall mesh: porch **13.117 m** (10,034 vertices), hall body **12.143 m** (24,028 vertices). These match LV's record of 13.12 against 12.14.
+
+**Hidden by design.** Accepted ONLY where the layout declares it in `burial_by_design` **and the declaration is new in LV's commit 9601add8a**: 8 `+burial_by_design` lines in the diff, none removed. The objects:
+
+| object | instance | terrain-hidden share | declaration (layout_v7c.json, 9601add8a) |
+|---|---|---|---|
+| circle_stones | #2 | 0.918 | "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground" |
+| circle_stones | #4 | 0.514 | "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground" |
+| circle_stones | #5 | 0.916 | "R13 clean floor (R-C9-155): a fallen stone in the walkable floor may stand at most 0.12 m proud; the rest of it lies in the ground" |
+
+The other 5 circle stones (all 8 carry the declaration) are within 0.50 even without it. **No other object relies on a by-design declaration.**
+
+| component | verdict | detail |
+|---|---|---|
+| presence | **PASS** | 0 missing, 0 extra, 0 terrain-hidden above 0.50 without a declaration. The yard logs are now seated on the ground |
+| placement | **PASS** | containment min 0.9577 (bar 0.7872) |
+| scale of record | **PASS** | 148 instances: 0 over 1.10 (box instances by one uniform scale; procedural posts and logs N/A). PH's size/AABB cross-check agrees with LV's record on every box instance (0 mismatches) |
+| extent | **PASS** | validator 66/66 on the own-geometry copy, with R11 per region (porch 13.117 > hall body 12.143 + 0.5) |
+
+**P6′ = PASS.**
+
+**The calibration REDs under the same readings** (`results/p6prime_reds_r181.json`):
+- **v6's 3 m porch:** still **RED**, anisotropy 1.63. The per-region R11 reading is a height reading and cannot change a fit scale. On v6 the porch was its own model, so per region means per model (11.3 m against 6.5 m), and the RED stands on scale.
+- **Shrunk gable:** run through the same own-geometry and per-region extent pipeline, it is still **RED**: validator exit 1, 1 fail(s), **R10 FAIL** (R11 per region: porch 13.117, body 12.143).
+- The presence and placement REDs do not involve these readings and stand as in § 16.
+
+**Reported, non-binding:** IoU against the slot prism, median **0.472**, beside v1's like-for-like **0.635**.
+

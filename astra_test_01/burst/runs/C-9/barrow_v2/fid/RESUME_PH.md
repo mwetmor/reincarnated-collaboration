@@ -65,3 +65,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] Calibrated: § 16 (`48dab5e17`). v1 PASS; one RED per component.
 - [x] Run on v7c: § 17. **P6′ = RED**: presence (2 yard logs half buried), scale (137/148 instances > 1.10), extent (R11, from the combined hall+porch build). Placement PASS. Reported, NOT adjusted; this is a HALT for an LV fix (charter § 14).
 - Re-run after LV's fix: `cd fid/ph/harness && python3 p6prime.py v7c`. The bars are frozen in `results/p6prime_calibration.json`; do not re-run `calibrate` unless re-registering.
+- [x] Re-run on the R-C9-181 refit (9601add8a): **P6′ = PASS** on all four components (calibration.md § 18). Bars unchanged. Hidden-by-design accepted only for circle_stones #2, #4, #5 (declared in 9601add8a). The calibration REDs still fail under the same readings. IoU 0.472 reported against 0.635.
