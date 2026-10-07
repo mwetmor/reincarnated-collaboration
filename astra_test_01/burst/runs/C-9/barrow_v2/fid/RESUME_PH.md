@@ -36,14 +36,14 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 ## State (keep current at every commit)
 - [x] harness P1–P11 built: `fid/ph/harness/` (README has the run order). Results in `fid/ph/results/`.
 - [x] calibration: `fid/ph/calibration.md` / `.json`. Rulings R-C9-167 and R-C9-168 are folded in calibration.md § 7.
-- [x] P6a ruled (R-C9-169): v0.1 candidates; outside declared dark structures = auto-fail; inside = scoped blind judge. The calibration set `fid/ph/p6_judge/` (20 items, key in `fid/ph/keys/p6_judge.json`) awaits the conductor's judge. Fallback (a), conductor triage by eye, applies if it fails.
+- [x] P6a: the ground truth was re-derived from layout v5 + the zone map + Matt's sheet (calibration.md § 9) before re-scoring (§ 10). Judge G misses item_17 (it sits on the brazier disc), catches 08/11 and the stamp, and gives 1 material "yes" -> acceptance NOT met -> fallback (a), conductor triage by eye per chunk (R-C9-169). v0.1 sees both invented features with 15 material flags.
 - [x] P4 new classes mapped (wood, shingle, sea, shore ice): ADVISORY now, BINDING in Phase 3 vs the W-B distribution.
 - [x] P8 FINAL: bar 0.4476 = v1's minimum chunk (PT reproduced all 16 exactly, T3).
-- [x] P11 v0.1 answers kept in `p11/answers/`. P11 re-instrumented as ABX: `p11/abx_cal_v1_vs_{159,158,constructed_halfdensity}/` await the conductor's judges.
+- [x] P11 v2 ABX BINDING (R-C9-171): 159 40/40, half-density 37/40, 158 36/40, all FAIL correctly; answers in `p11/answers/`. Generator fixed for future sets: different-X repeats, X_OVERLAP 0.25, content control, an UNDERPOWERED flag, PT stills in the pool. The calibration sets are NOT rebuilt.
 - [x] P10 for R-C9-159 (informational): p99 13.55 ms, PASS (`renders/perf_v159`). The Godot queue is empty.
 
 ## Next / re-run
 0a. When the P6a judge answers arrive: `python3 p6_judge.py score <answers.json>`; record the result in calibration.md § 8 and copy the answers to `fid/ph/p11/answers/p6_judge.json`.
 0. When the ABX answers arrive: copy them to `fid/ph/p11/answers/abx_<set>.json`, then `python3 calibrate.py`, then commit.
 1. A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.
-2. AFTER the current ABX judges return (not before; R-C9-169): set OVERLAP = 0.25 in `p11_abx.py`; the pool already includes `fid/pc/v1_stills/` (P.V1_STILLS globs it). Then `python3 p11_abx.py build` for the next judging round.
+2. P11 for the fid level: point SETS at its play-camera stills (>= ~12, with ID-render class masks `<still>.classes.png/.json`), run `python3 p11_abx.py build`, and check that no set is UNDERPOWERED before handing it to a judge.

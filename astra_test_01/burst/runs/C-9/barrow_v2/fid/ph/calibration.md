@@ -233,3 +233,47 @@ The painter evidently read the brazier_sw disc and the porch outline corner as a
 - Material candidates: **15** (all the others, item_07 included).
 - Constructed positive: item_18. Declared negative: item_13.
 
+## 10. Re-scored against the § 9 truth (R-C9-170), and P11 v2 binding (R-C9-171)
+
+**P6a re-score.** Evidence: `results/p6_rescore_v2.json`, `p11/answers/p6_judge_G.json`; scorer `p6_judge.py score2`.
+
+| | invented: doorway by brazier_sw (item_17) | invented: gable-end opening (items 08/11) | stamp | v1 declared door | material "yes"/flags |
+|---|---|---|---|---|---|
+| v0.1 detector | flagged | flagged | flagged | not flagged | **15 / 15 material flagged** |
+| judge G | **missed** ("no") | flagged (both 08 and 11 "yes") | flagged | not flagged | **1 / 15** (item_07) |
+
+- The **judge meets the material bound** (1 false "yes", within ≤ 2) and keeps the declared door clear. It **misses item_17**: the doorway sits on the guide's brazier_sw disc inside the porch's height outline, so it reads as declared. This is the guide ambiguity flagged in § 8, and the same one that misled the painter.
+- The **v0.1 detector sees both invented features** but carries 15 material false flags.
+- **Acceptance (all invented flagged, declared clear, ≤ 2 material "yes") is not met by the judge.** Under R-C9-169 the fallback is **(a), conductor triage by eye, logged per chunk.**
+- An observation for the ruling: a union rule ("fail the chunk if the detector flags a candidate OUTSIDE dark structures, or the judge says yes INSIDE") would still have missed item_17. Item_17 is inside the extruded porch/hall region and was judged "no". The miss comes from the guide (a brazier disc drawn like a door), not from the detector.
+- **Phase 1 note.** The Phase 1 guide is a greybox render: braziers are small 3D props, and the ID render separates door from brazier. The disc-reads-as-door confusion should not recur there. This calibration cannot show that, though.
+
+**P11 v2 ABX: BINDING (R-C9-171).** The conductor's judges scored as follows; answers are in `p11/answers/abx_<set>.json`:
+
+| set | correct / 40 | repeat inconsistency | verdict |
+|---|---|---|---|
+| v1 vs R-C9-159 | 40 | 0.00 | FAIL (correct) |
+| v1 vs half density | 37 | 0.00 | FAIL (correct) |
+| v1 vs R-C9-158 | 36 | 0.10 | FAIL (correct) |
+
+**Disclosure.** PT's six v1 stills (`fid/pc/v1_stills/`) were **already in the pool** when these three sets were built: `p11_pairs.V1_STILLS` globs that directory, and the stills had landed before the build. They are at play zoom: `views.json` gives ortho_size 10.7337 m on 1080 rows, which is 100.6 px/m, the same as v1ref. So the calibration is unaffected, but the record states it.
+
+**Generator fixes for every future set** (`harness/p11_abx.py`). The three calibration sets were built before these fixes and stand as evidence.
+1. **Repeats use a different X.** A repeat trial keeps the same A and B crops with sides swapped, and takes a **different X** from the same build: same class, new location, clear of every used crop. Reliability is now cross-crop consistency, not recall. The half-density judge had answered the identical-X repeats from memory.
+2. **X crops are spaced apart.** An X crop may share at most 25% of its area with any crop already used (X_OVERLAP = 0.25). v0 allowed 50%, and trials 06/43 of the half-density set had X crops 128 px apart.
+3. **Content control.** The 158 judge reported that foliage type and water type always fell on opposite sides.
+   - Trials are drawn only from classes v1 has (snow, rock, standing stone, ice, heather/shrub, wood), class-matched within a trial.
+   - Crops with **open sea, wreck, hall or cliff faces** are excluded.
+   - From pixels alone only snow, ice and heather-on-snow are separable. Rock, standing stone and wood are drawn **only** from stills that ship a class mask (`<still>.classes.png` + `.json`; Phase 1+: from the ID render), because pixels cannot tell v1's outcrops from barrow_v2's cliffs, crags or hull.
+4. **Underpowered sets are marked.** A set with fewer than 40 trials is flagged `UNDERPOWERED`, and must not go to a judge until stills (or class masks) are added.
+5. **Pool.** v1 stills = v1ref + PT's six. Half-density constructed sources are made from every v1 still.
+
+**Dry run of the fixed generator** (scratchpad only; the calibration sets were not rebuilt):
+- v1 vs 159: **12** trials (UNDERPOWERED). R-C9-159's three stills are mostly cliffs and sea.
+- v1 vs 158: **29** trials (UNDERPOWERED).
+- v1 vs half density: 40 trials.
+
+**Requirement for the fid level's P11:** at least about 12 play-camera stills, with ID-render class masks, so that 40 content-controlled trials exist. Lane PT/LV should plan the M1 and M2 stills with this in mind.
+
+**Known limitation (constructed sets only).** v1ref's `V1_ring` and PT's `stone_ring` are different stills of the same place. The location guard works per still, so a v1 crop and a half-density crop of the same stones can meet in one constructed-set trial. Candidate builds are separate levels, so this does not arise for them.
+

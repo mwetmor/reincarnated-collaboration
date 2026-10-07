@@ -128,15 +128,51 @@ def score(answers):
     return r
 
 
+# R-C9-170: the ground truth re-derived from layout v5 + the zone map + Matt's R-C9-155 sheet (calibration.md § 9),
+# written before re-scoring. Features: one entry per invented feature (several candidates may sit on one feature).
+TRUTH_V2 = {"invented_features": {"open doorway by brazier_sw": ["item_17"], "gable-end opening, lower section": ["item_08", "item_11"],
+                                  "stamped doorway (constructed)": ["item_18"]},
+            "declared": ["item_13"]}
+
+
+def score_v2(answers):
+    key = jload(PH / "keys/p6_judge.json")["items"]
+    ans = {k: str(v).strip().lower() for k, v in jload(answers).items()}
+    yes = lambda k: ans.get(k, "").startswith("y")
+    inv = {f: any(yes(i) for i in its) for f, its in TRUTH_V2["invented_features"].items()}
+    inv_items = {i for its in TRUTH_V2["invented_features"].values() for i in its}
+    material = [k for k in key if k not in inv_items and k not in TRUTH_V2["declared"]]
+    r = {"truth": "calibration.md § 9 (R-C9-170)", "invented_features_flagged": inv,
+         "declared_flagged": sum(yes(k) for k in TRUTH_V2["declared"]),
+         "material_yes": sorted(k for k in material if yes(k)), "material": len(material)}
+    r["acceptance"] = all(inv.values()) and r["declared_flagged"] == 0 and len(r["material_yes"]) <= 2
+    return r
+
+
+def score_v01_v2():
+    """v0.1 detector against the v2 truth: every candidate is a flag (it flags all 18 in the hall)."""
+    key = jload(PH / "keys/p6_judge.json")["items"]
+    inv_items = {i for its in TRUTH_V2["invented_features"].values() for i in its}
+    hall = [k for k, v in key.items() if v["source"] == "BVR hall T2a"]
+    return {"invented_features_flagged": {f: True for f, its in TRUTH_V2["invented_features"].items() if f != "stamped doorway (constructed)"},
+            "material_flags": len([k for k in hall if k not in inv_items]), "v1_declared_flagged": 0, "stamp_flagged": True}
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd")
     sub.add_parser("build")
     s = sub.add_parser("score")
     s.add_argument("answers")
+    s2 = sub.add_parser("score2")
+    s2.add_argument("answers")
     a = ap.parse_args()
     if a.cmd == "score":
         print(json.dumps(score(a.answers), indent=1))
+    elif a.cmd == "score2":
+        r = {"judge_G": score_v2(a.answers), "v01_detector": score_v01_v2()}
+        print(json.dumps(r, indent=1))
+        dump(r, str(PH / "results/p6_rescore_v2.json"))
     else:
         r = build()
         print(r)

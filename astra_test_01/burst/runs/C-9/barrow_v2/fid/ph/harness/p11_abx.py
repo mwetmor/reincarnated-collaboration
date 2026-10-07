@@ -6,18 +6,23 @@ white) but named v1's register the lower-fidelity one, so a build it COULD disti
 word carried a prior about which build was better. ABX asks only for identity, so it carries no direction.
 
 Design:
+  * CONTENT CONTROL (R-C9-171): trials are drawn only from classes v1 has (snow, rock, standing stone, ice,
+    heather/shrub, wood), class-matched; crops with build-specific content (open sea, wreck, hall, cliff faces) are
+    excluded. Without a class mask only snow, ice and heather-on-snow are drawn (classify_controlled).
+    The R-C9-171 calibration sets were built BEFORE this control and before the repeat fix; they stand as evidence.
   * a TRIAL is one image: three 256 x 256 crops at play zoom (100.6 screen px/m), side by side, A | B | X, 24 px white
     gaps, no text. A and B come from the two builds (v1 and the candidate; which build is A is randomised per trial,
     seeded). X is a THIRD crop from one of the two builds, same class as A and B (snow / rock / ice, p11_pairs.classify),
     at a different location: no crop in a set shares more than OVERLAP of its area with any other crop of the same
     LOCATION (a degraded copy of a v1 still counts as that still's location).
-  * 40 trials: X from v1 in 20, from the candidate in 20. Plus 10 RELIABILITY repeats: the same three crops as 10 of
-    the 40 trials, with A and B exchanged. 50 images, shuffled, named trial_01..trial_50.png; PIL writes no text chunks.
+  * 40 trials: X from v1 in 20, from the candidate in 20. Plus 10 RELIABILITY repeats: the same A and B crops as 10 of
+    the 40 trials, sides exchanged, and a DIFFERENT X from the same build (same class, new location) -- cross-crop
+    consistency, not recall (fixed after the R-C9-168 round; the calibration sets judged then used the identical X). 50 images, shuffled, named trial_01..trial_50.png; PIL writes no text chunks.
     Nothing in the judge's directory names a source, a build or a class.
   * The brief (JUDGE.md) asks: "is X from the same build as A, or as B?" -- answer A or B. No quality words.
 SCORING (p11_abx.py score <set> <answers.json>; answers = {"trial_NN": "A" | "B"}):
   accuracy = correct identifications over the 40 trials. Reliability = over the 10 repeat pairs, the share whose two
-  answers name DIFFERENT builds for X; more than 25% (3 or more of 10) VOIDS the judge (re-run with a fresh one).
+  answers name DIFFERENT builds for X (the two X crops share a build, so a consistent judge names the same build); more than 25% (3 or more of 10) VOIDS the judge (re-run with a fresh one).
   PASS (the candidate is indistinguishable from v1): accuracy <= 65% (pass if <= 26/40). Chance = 50%.
 POWER: P(pass | true accuracy p) for p in 0.5..1.0, binomial n = 40 -- printed on the row.
 """
@@ -36,7 +41,75 @@ N_TRIALS, N_REPEAT = 40, 10
 BAR = 0.65
 GAP = 24
 OVERLAP = 0.5        # max shared area between two crops of one LOCATION (0.25 once PT's v1 stills enlarge the pool)
+X_OVERLAP = 0.25     # an X crop shares <= 25% of its area with ANY crop already used (v0 allowed 50%: trials 06 and 43
+                     # of the half-density set had X crops 128 px apart -- near-duplicates a judge can recall)
 OUT = P.P11
+
+
+# ---- CONTENT CONTROL (R-C9-171 (2)): the 158 judge found foliage TYPE and water TYPE always fell on opposite sides --
+# content was a build cue. Trials are drawn only from classes v1 HAS, class-matched within a trial, and crops with
+# build-specific content are excluded:
+ALLOWED = ("snow", "rock", "standing_stone", "ice", "heather", "wood")      # classes v1 has (shrub folds into heather)
+EXCLUDED = ("sea", "wreck", "hall", "cliff")                                 # build-specific content: never in a trial
+# Pixel rules (no class mask): only snow, ice and heather-on-snow are separable from pixels alone; rock, standing stone
+# and wood are drawn ONLY from stills that ship a class mask (<still>.classes.png, ids per <still>.classes.json:
+# {"ids": {"rock": 1, ...}}), because pixels cannot tell v1's outcrops from barrow_v2's cliff faces, crags or hull.
+
+
+def _tufts(c):
+    f = c.astype(np.float32)
+    r, g, b = f[..., 0], f[..., 1], f[..., 2]
+    lum = f.mean(-1)
+    sat = (f.max(-1) - f.min(-1)) / np.maximum(f.max(-1), 1.0)
+    heather = (r > g) & (g > b) & (r - b > 42) & (sat > 0.24) & (lum < 212)      # v1's step-3 tuft classifier
+    shrub = (lum < 128) & (b < r + 6) & (g >= r - 12) & ~heather
+    return heather | shrub
+
+
+def classify_controlled(crop, mask_ids=None, ids=None):
+    lab = rgb_to_lab(ndimage.gaussian_filter(crop, (2.5, 2.5, 0)))
+    L, b = lab[..., 0], lab[..., 2]
+    sea = ((L < 40) & (b < -3)).mean()
+    if sea > 0.01:
+        return None
+    if mask_ids is not None:
+        inv = {v: k for k, v in ids.items()}
+        sh = {inv.get(int(v), "other"): float((mask_ids == v).mean()) for v in np.unique(mask_ids)}
+        if any(sh.get(k, 0) > 0 for k in EXCLUDED):
+            return None
+        best = max((k for k in sh if k in ALLOWED), key=lambda k: sh[k], default=None)
+        if best in ("rock", "standing_stone", "wood") and sh[best] >= 0.30:
+            return best
+    tu = _tufts(crop).mean()
+    snowy = ((L >= 70) & (b >= -6)).mean()
+    dark = (L < 55).mean()
+    if tu >= 0.12 and snowy >= 0.40:
+        return "heather"
+    if tu < 0.01 and dark < 0.01 and ((L >= 78) & (b >= -6)).mean() >= 0.80:
+        return "snow"
+    if tu < 0.01 and ((b < -10) & (L >= 45)).mean() >= 0.40:
+        return "ice"
+    return None
+
+
+def crops_controlled(path):
+    img = load_rgb(path)
+    H, W = img.shape[:2]
+    mp = pathlib.Path(str(path).replace(".png", ".classes.png"))
+    mask, ids = None, None
+    if mp.exists():
+        mask = np.asarray(Image.open(mp))
+        ids = jload(str(mp).replace(".png", ".json"))["ids"]
+    out = []
+    for y in range(0, H - P.CROP + 1, P.STRIDE):
+        for x in range(0, W - P.CROP + 1, P.STRIDE):
+            cx0, cx1, cy0, cy1 = 0.30 * W, 0.66 * W, 0.30 * H, 0.80 * H
+            if x < cx1 and x + P.CROP > cx0 and y < cy1 and y + P.CROP > cy0:
+                continue
+            k = classify_controlled(img[y:y + P.CROP, x:x + P.CROP], None if mask is None else mask[y:y + P.CROP, x:x + P.CROP], ids)
+            if k:
+                out.append({"src": str(path), "rect": [x, y, P.CROP, P.CROP], "class": k})
+    return out
 
 
 def _loc(c):
@@ -54,20 +127,21 @@ def _ov(a, b):
     return ox * oy / (P.CROP * P.CROP)
 
 
-def _pick(pool, rng, avoid):
+def _pick(pool, rng, avoid, limit=None):
+    limit = OVERLAP if limit is None else limit
     for i in rng.permutation(len(pool)):
         c = pool[i]
-        if all(_ov(c, u) <= OVERLAP for u in avoid):
+        if all(_ov(c, u) <= limit for u in avoid):
             return c
     return None
 
 
-def build(set_name, cand_paths, seed=168):
+def build(set_name, cand_paths, seed=168, out_root=None):
     rng = np.random.default_rng(seed)
-    v1 = [c for p in P.V1_STILLS if p.exists() for c in P.crops_of(p)]
-    cd = [c for p in cand_paths for c in P.crops_of(p)]
+    v1 = [c for p in P.V1_STILLS if p.exists() for c in crops_controlled(p)]
+    cd = [c for p in cand_paths for c in crops_controlled(p)]
     by = lambda pool, k: [c for c in pool if c["class"] == k]
-    classes = [k for k in ("snow", "rock", "ice") if len(by(v1, k)) >= 2 and len(by(cd, k)) >= 2]
+    classes = [k for k in ALLOWED if len(by(v1, k)) >= 2 and len(by(cd, k)) >= 2]
     w = np.array([min(len(by(v1, k)), len(by(cd, k))) for k in classes], float)
     w /= w.sum()
     used_v1, used_cd = [], []
@@ -83,7 +157,7 @@ def build(set_name, cand_paths, seed=168):
         if a is None or b is None:
             continue
         xsrc = xs[len(trials)]
-        x = _pick(by(v1, k) if xsrc == "v1" else by(cd, k), rng, used_v1 + used_cd + [a, b])
+        x = _pick(by(v1, k) if xsrc == "v1" else by(cd, k), rng, used_v1 + used_cd + [a, b], X_OVERLAP)
         if x is None:
             continue
         used_v1.append(a)
@@ -91,15 +165,27 @@ def build(set_name, cand_paths, seed=168):
         (used_v1 if xsrc == "v1" else used_cd).append(x)
         v1_is_A = bool(rng.integers(2))
         trials.append({"class": k, "v1": a, "cand": b, "x": x, "x_from": xsrc, "v1_is_A": v1_is_A, "repeat_of": None})
+    # REPEATS (fix after the R-C9-168 calibration round): the same A and B crops with sides SWAPPED, and a DIFFERENT X
+    # from the same build (same class, a new location clear of every crop already used). The v0 generator re-used the
+    # identical X, so a judge could answer the repeat from memory (the half-density judge said it did): reliability
+    # measured recall, not perception. Now it is CROSS-CROP CONSISTENCY.
     reps = []
-    for i in rng.choice(len(trials), N_REPEAT, replace=False):
+    for i in rng.permutation(len(trials)):
+        if len(reps) >= N_REPEAT:
+            break
         t = dict(trials[i])
+        pool = by(v1, t["class"]) if t["x_from"] == "v1" else by(cd, t["class"])
+        x2 = _pick(pool, rng, used_v1 + used_cd + [r["x"] for r in reps], X_OVERLAP)
+        if x2 is None:
+            continue
+        (used_v1 if t["x_from"] == "v1" else used_cd).append(x2)
+        t["x"] = x2
         t["v1_is_A"] = not t["v1_is_A"]
         t["repeat_of"] = int(i)
         reps.append(t)
     allt = trials + reps
     order = rng.permutation(len(allt))
-    jd = OUT / ("abx_" + set_name)
+    jd = (out_root or OUT) / ("abx_" + set_name)
     jd.mkdir(parents=True, exist_ok=True)
     for f in jd.glob("trial_*.png"):
         f.unlink()
@@ -121,16 +207,18 @@ def build(set_name, cand_paths, seed=168):
     for i, t in enumerate(allt):
         if t["repeat_of"] is not None:
             key["trials"][name_of[i]]["repeat_of"] = name_of[t["repeat_of"]]
-    (jd / "JUDGE.md").write_text(JUDGE_MD)
-    (OUT / "keys").mkdir(parents=True, exist_ok=True)
-    dump(key, str(OUT / "keys" / ("abx_" + set_name + ".json")))
+    (jd / "JUDGE.md").write_text(JUDGE_MD.format(n=len(allt)))
+    kd = (out_root or OUT) / "keys"
+    kd.mkdir(parents=True, exist_ok=True)
+    dump(key, str(kd / ("abx_" + set_name + ".json")))
     return {"set": set_name, "trials": len(trials), "repeats": len(reps), "images": len(allt),
+            "UNDERPOWERED": len(trials) < N_TRIALS,      # do not hand to a judge: add stills (or class masks) first
             "by_class": {k: sum(t["class"] == k for t in trials) for k in classes}, "judge_dir": str(jd)}
 
 
 JUDGE_MD = """# Image matching test
 
-There are 50 images, `trial_01.png` .. `trial_50.png`. Each shows three square crops side by side, separated by white
+There are {n} images, `trial_01.png` .. `trial_{n:02d}.png`. Each shows three square crops side by side, separated by white
 gaps. From left to right they are **A**, **B** and **X**.
 
 Every crop comes from one of two versions ("builds") of the same hand-painted 3D game level, seen from the same fixed
@@ -141,7 +229,7 @@ For each image, answer only: **is X from the same build as A, or from the same b
 the images are painted and rendered, not on what objects they show. Every image needs an answer, A or B; if you
 cannot tell, give your best guess.
 
-Return a JSON object {"trial_01": "A" or "B", ..., "trial_50": "A" or "B"}. For each trial, add one short sentence
+Return a JSON object {{"trial_01": "A" or "B", ..., "trial_{n:02d}": "A" or "B"}}. For each trial, add one short sentence
 naming the visual evidence for the answer.
 """
 
@@ -184,14 +272,15 @@ if __name__ == "__main__":
     s = sub.add_parser("score")
     s.add_argument("set")
     s.add_argument("answers")
+    b.add_argument("--out", help="build into this root instead of fid/ph/p11 (e.g. a dry run; the calibration sets stand)")
     a = ap.parse_args()
     if a.cmd == "score":
         print(json.dumps(score(a.set, a.answers), indent=1))
     else:
         cdir = OUT / "_constructed_src"           # v1 stills at half texel density (0.5x then 2x, bilinear), as p11_pairs
         cdir.mkdir(parents=True, exist_ok=True)
-        for p in sorted((B2 / "section_v1cam/v1ref").glob("V1_*.png")):
-            if not (cdir / ("half_" + p.name)).exists():
+        for p in P.V1_STILLS:                  # every v1 still in the pool (v1ref + PT's fid/pc/v1_stills)
+            if p.exists() and not (cdir / ("half_" + p.name)).exists():
                 im = Image.open(p).convert("RGB")
                 im.resize((im.width // 2, im.height // 2), Image.BILINEAR).resize(im.size, Image.BILINEAR).save(cdir / ("half_" + p.name))
         sets = {"cal_v1_vs_159": P.SETS["cal_v1_vs_159"], "cal_v1_vs_158": P.SETS["cal_v1_vs_158"],
@@ -199,7 +288,8 @@ if __name__ == "__main__":
         out = {"power": power_table(), "sets": {}}
         for k, paths in sets.items():
             if a.set in ("all", k):
-                out["sets"][k] = build(k, paths)
+                out["sets"][k] = build(k, paths, out_root=pathlib.Path(a.out) if a.out else None)
                 print("P11-ABX", out["sets"][k])
         print("power:", out["power"])
-        dump(out, str(PH / "results/p11_abx_build.json"))
+        if not a.out:
+            dump(out, str(PH / "results/p11_abx_build.json"))
