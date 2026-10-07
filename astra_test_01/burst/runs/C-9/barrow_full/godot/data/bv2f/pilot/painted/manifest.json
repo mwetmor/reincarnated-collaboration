@@ -179,14 +179,14 @@
  "water": {
   "sdf": {
    "file": "water_sdf.bin",
-   "sha256": "76a783168c4e035f3c6a990b6ce64eeb5536f25a5668568b621a097dff354dc2",
+   "sha256": "5b54775cf37d0ab4a0e8fb35498a3b619f5a5fd90f5de43a3ab5a562dc687838",
    "rect_xz": [
     -27.503,
     12.26,
     18.0,
-    19.7
+    19.75
    ],
-   "_": "R-C9-159's water_sdf: R = metres to the nearest floe edge / 2 (8-bit), world xz; row 0 = z0"
+   "_": "R-C9-159's water_sdf: R = metres to the nearest floe or shore edge / 2 (8-bit), world xz, 8 px/m; row 0 = z0"
   },
   "floes": 17,
   "_": "DEV-5: the animated water over the painted sea (scripts/bv2f/pt_water.gd = R-C9-159's shader, base = the painting)"

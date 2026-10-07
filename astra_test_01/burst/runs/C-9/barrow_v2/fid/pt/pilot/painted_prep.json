@@ -136,8 +136,10 @@
  "water": {
   "floes": 17,
   "sdf_px": [
-   180,
-   197
-  ]
+   144,
+   158
+  ],
+  "land_share_of_field": 0.4935,
+  "shore_edge_m": "land = terrain > sea_z + 0.18 m"
  }
 }

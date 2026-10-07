@@ -410,30 +410,43 @@ def main():
             pad = 4.0
             x0w, z0w = float(sx.min()) - pad, float(sz.min()) - pad
             ww, hw = float(sx.max() - sx.min()) + 2 * pad, float(sz.max() - sz.min()) + 2 * pad
-            cell_w = 0.1
+            # R-C9-198: R-C9-159's OWN field (barrow_v2/tools/v2sw_prep.py:159-177): 8 px/m, the floes filled AND the land
+            # (terrain above the water line) filled, distance_transform_edt / WP -- so the foam laces the shore ice edge and
+            # the cliff foot as well as each floe. Land = terrain > sea_z + 0.18 m (159 used an absolute -1.32 m on its own
+            # section terrain; the pilot's water plane is the level's sim sea_z).
+            from scipy.ndimage import distance_transform_edt
+            WP = 8.0
+            cell_w = 1.0 / WP
             nxw, nzw = int(math.ceil(ww / cell_w)), int(math.ceil(hw / cell_w))
             zz_, xx_ = np.mgrid[0:nzw, 0:nxw]
             Xw = x0w + (xx_ + 0.5) * cell_w
             Zw = z0w + (zz_ + 0.5) * cell_w
-            Us = Xw * C47 - Zw * S47                         # world xz -> (u, v) -> sim (x = u, y = -v)
+            Us = Xw * C47 - Zw * S47
             Vs = -Xw * S47 - Zw * C47
             simx, simy = Us, -Vs
-            dmin = np.full(Xw.shape, 99.0)
+            solid = np.zeros(Xw.shape, bool)
             for b in fl:
                 a_, b_ = float(b["r"][0]), float(b["r"][1])
-                th = math.radians(float(b["rot"]))           # bv2f_level.gd: Basis(UP, -rot) on the sim (x, y) plane
+                th = math.radians(float(b["rot"]))
                 dx, dy = simx - float(b["c"][0]), simy - float(b["c"][1])
                 lx = dx * math.cos(th) - dy * math.sin(th)
                 ly = dx * math.sin(th) + dy * math.cos(th)
-                q = np.sqrt((lx / a_) ** 2 + (ly / b_) ** 2)
-                dmin = np.minimum(dmin, np.maximum(q - 1.0, 0.0) * min(a_, b_))
+                solid |= (lx / a_) ** 2 + (ly / b_) ** 2 <= 1.0
+            exh = L["sim"]["heightfield"]["extent_sim_m"]
+            hi_w = np.clip(((simx - exh["x0"]) * hf["px_per_m"]).astype(int), 0, Hf.shape[1] - 1)
+            hj_w = np.clip(((simy - exh["y0"]) * hf["px_per_m"]).astype(int), 0, Hf.shape[0] - 1)
+            sea_z = float(L["sim"]["sea_z"])
+            land = Hf[hj_w, hi_w] > sea_z + 0.18
+            solid |= land
+            dmin = distance_transform_edt(~solid) / WP
             sdf8 = (np.clip(dmin / 2.0, 0.0, 1.0) * 255.0 + 0.5).astype(np.uint8)
             wp = os.path.join(OUT, "water_sdf.bin")
             Image.fromarray(sdf8, "L").save(wp, format="PNG")
             man["water"] = {"sdf": {"file": "water_sdf.bin", "sha256": sha_file(wp), "rect_xz": [round(x0w, 3), round(z0w, 3), round(nxw * cell_w, 3), round(nzw * cell_w, 3)],
-                                    "_": "R-C9-159's water_sdf: R = metres to the nearest floe edge / 2 (8-bit), world xz; row 0 = z0"},
+                                    "_": "R-C9-159's water_sdf: R = metres to the nearest floe or shore edge / 2 (8-bit), world xz, 8 px/m; row 0 = z0"},
                             "floes": len(fl), "_": "DEV-5: the animated water over the painted sea (scripts/bv2f/pt_water.gd = R-C9-159's shader, base = the painting)"}
-            rep["water"] = {"floes": len(fl), "sdf_px": [nxw, nzw]}
+            rep["water"] = {"floes": len(fl), "sdf_px": [nxw, nzw], "land_share_of_field": round(float(land.mean()), 4),
+                            "shore_edge_m": "land = terrain > sea_z + 0.18 m"}
     json.dump(man, open(os.path.join(OUT, "manifest.json"), "w"), indent=1)
     json.dump(rep, open(REPORT, "w"), indent=1)
     print(json.dumps({k: rep[k] for k in ("tufts_self_test", "heather", "snow")}, indent=1)[:1500])
