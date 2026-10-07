@@ -176,3 +176,60 @@ Two things to expect from this particular calibration set:
 **P8 is final, no longer provisional.** The bar is v1's minimum chunk value, **0.4476**. PT reproduced all 16 chunk values and the 0.5221 whole-window value exactly (T3). Results: v1 0.5221 PASS, R-C9-159 0.0212 FAIL, constructed 0.1061 FAIL.
 
 **P11.** PT's six v1 stills and `views.json` are in `fid/pc/v1_stills/`. They join the ABX pool, with OVERLAP 0.25, only **after** the current ABX judges return. The three ABX sets are not regenerated before then.
+
+## 9. P6a ground truth, re-derived from the layout (R-C9-170). Written BEFORE any re-scoring.
+
+**Why it is re-derived.** The key's "invented door at (10311, 4925)" came from the v0.1 detector's own flags, so scoring the detector against it was circular. The truth below is derived instead from (i) layout v5's declared openings (git `b267b9b00`, the layout the BVR blocks were painted from, `inputs/layout_v2_at_b267b9b00_v5.json`) projected by the BVP plate law, (ii) the zone map the painter was actually given (`paint/barrow_v2_zonemap.png`, 08:48, drawn from v5 by `bvp_zonemap.py` at `79716d1e9`), and (iii) **Matt's review sheet** for R-C9-155, `paint/test/T2a_hall_compare.jpg`, middle panel.
+
+**Declared on the hall by layout v5.** Exactly one opening system: the porch and the great door it leads to.
+- `hall_great_door`: footprint px x 10559–10953, y 4685–5017 at z 0, rising 4.8 m (291 px). 4.5 × 4.5 m.
+- `hall_porch`: footprint corners (10514, 5022), (10954, 4646), (10733, 4482), (10294, 4858). Mouth centre (44.19, 3.89) → px (10513, 4670) at z 0. The opening is "between the front posts", 4.5 m clear.
+- Two braziers flank the porch: `brazier_sw` at px (10331, 4985) and `brazier_ne` at (10894, 4503).
+
+**In the zone map:**
+- The **only** door-coloured mark (40, 30, 28) on the hall is at x 10771–10952, y 4392–4512: the great door's height outline.
+- The dark disc next to (10311, 4925) is the **brazier_sw** mark (60, 44, 36), lying inside the porch's 9 m height outline (the orange "capsule"). **It is not a door mark.**
+- At (10350, 5423) and (10184, 5392) the map shows plain hall fill with no marker.
+
+**In the painting.** The declared great door is painted where the layout puts it: the big gable with open double doors at plate ≈ (10862, 4452), braziers on either side. v0.1's candidate there, (10808, 4435), was matched to it and dropped, so it is not in the judge set.
+
+**On Matt's sheet** ("two large open doors"), at review scale, exactly two large open doorways read:
+1. the declared porch and great door (top);
+2. the doorway at (10311, 4925): an open door leaf, jambs, embers and smoke, a brazier on each side, 4.4 m from the declared porch mouth (beyond the 3.75 m match radius).
+
+The painter evidently read the brazier_sw disc and the porch outline corner as a second door. The gable-end opening at items 08/11 does **not** read as a large open door at review scale, being under fallen beams. At full resolution it is a framed opening (carved jambs) into a burning interior that the layout does not declare.
+
+**Truth table** (the 18 v0.1 candidates in the judge set, ordered up-screen to down-screen). INVENTED = a doorway or opening the layout does not declare. MATERIAL = dark material of a declared structure.
+
+| item | plate px | zone map under it | the painting shows | truth |
+|---|---|---|---|---|
+| item_16 | [10799, 4220] | land_snow + rock_face | timber of the DECLARED porch gable (finials, roof) above the declared great door; the door itself is in the crop | **MATERIAL** |
+| item_02 | [11082, 4328] | land_snow | roof timber of the declared porch's long side; the declared door is at the crop's edge | **MATERIAL** |
+| item_14 | [10351, 4345] | rock_face + land_snow | hall roof edge and timber at the NW gable | **MATERIAL** |
+| item_20 | [11303, 4467] | land_snow + rock_face | hall roof purlins and thatch | **MATERIAL** |
+| item_19 | [11453, 4641] | hall | hall roof purlins and thatch | **MATERIAL** |
+| item_01 | [11556, 4709] | land_snow + hall | hall roof purlins and thatch | **MATERIAL** |
+| item_15 | [11711, 4762] | land_snow + rock_face | hall roof purlins and thatch | **MATERIAL** |
+| item_17 | [10311, 4925] | hall_yard_ash + brazier_sw disc, inside the porch height-outline | an OPEN DOORWAY: a door leaf swung open, carved jambs, dark interior with embers and smoke, a brazier at each side, on the hall's west side SW of the porch | **INVENTED** |
+| item_09 | [11023, 4998] | hall | fallen rafters over the yard-side wall | **MATERIAL** |
+| item_05 | [11526, 5005] | hall | hall eave and charred wall boards | **MATERIAL** |
+| item_07 | [10575, 5191] | hall | collapsed roof: a hole through fallen rafters showing the interior, embers inside; no jambs, no door leaf | **MATERIAL** |
+| item_11 | [10184, 5392] | hall | the same gable-end opening, 1.7 m west: a carved jamb post and the dark doorway behind it, smoke, embers | **INVENTED** |
+| item_08 | [10350, 5423] | hall | the lower section's GABLE-END WALL: a framed opening (carved jamb posts) into a dark interior with smoke and embers, fallen beams across it | **INVENTED** |
+| item_03 | [10634, 5748] | hall | palisade and fallen rafters at the lower section's end | **MATERIAL** |
+| item_10 | [10234, 5753] | hall | roofless interior of the lower section, wall posts | **MATERIAL** |
+| item_12 | [10098, 5757] | hall | roofless interior of the lower section, wall posts | **MATERIAL** |
+| item_06 | [9862, 5849] | hall | roofless interior and the end wall of the lower section | **MATERIAL** |
+| item_04 | [9946, 5972] | hall | roofless interior of the lower section, wall posts | **MATERIAL** |
+| item_18 | stamped (constructed) | v1 guide: open snow | a 2.2 × 2.6 m dark doorway stamped on snow | **INVENTED** (constructed) |
+| item_13 | v1 barrow door | v1 guide: the door | v1's declared barrow door | **DECLARED** |
+
+**Adjudication of item_07: MATERIAL.** It is a hole through collapsed rafters showing the interior, with embers. There are no jambs and no leaf, it is in the roof plane rather than a wall, and it is not visible as a door on Matt's sheet.
+
+**Adjudication of items 08 and 11: INVENTED, as ONE feature** (two candidates 1.7 m apart, one opening). Confidence is moderate: the opening is half hidden by fallen beams, and Matt's "two" at review scale are the porch and item_17. The layout declares exactly one opening on the hall, so any other framed opening into the hall is an invention by the layout's own standard.
+
+**Ground truth, summarised:**
+- Invented features in the BVR hall block: **2** (item_17; items 08 + 11).
+- Material candidates: **15** (all the others, item_07 included).
+- Constructed positive: item_18. Declared negative: item_13.
+
