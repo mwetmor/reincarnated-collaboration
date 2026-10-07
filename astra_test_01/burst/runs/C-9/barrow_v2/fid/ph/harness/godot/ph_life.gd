@@ -169,18 +169,10 @@ func _life() -> void:
 					continue
 				saved[m] = [m.get_shader_parameter("paint_tex"), m.shader]
 				m.set_shader_parameter("paint_tex", chk)
-				# R-C9-197: the marker is drawn DEPTH-TEST-OFF, unshaded, in the transparent pass (after the opaque sea), so
-				# the waterline cannot occlude the bobbing silhouette; geometry, bob and UV law are untouched
+				# R-C9-197 (calibration.md § 31 A1): the marker keeps the floe's own (opaque) shader; the SEA meshes are hidden
+				# for the marker shots instead, so no waterline can occlude the bobbing silhouette (the depth-test-off variant
+				# drew no marker at all: § 31 A1 evidence)
 				var code: String = m.shader.code
-				var rm := "render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled;"
-				assert(code.count(rm) == 1)
-				code = code.replace(rm, "render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled, depth_test_disabled, unshaded;")
-				var fr := "	ROUGHNESS = painted_mark;\n"
-				assert(code.count(fr) == 1)
-				code = code.replace(fr, fr + "	ALPHA = 1.0;\n")
-				var shm := Shader.new()
-				shm.code = code
-				m.shader = shm
 				if floe_red:
 					var vw := "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;\n"
 					var bob := "vec3(0.03 * sin(TIME * 0.5 + bob_phase * 6.2831), 0.035 * sin(TIME * 0.9 + bob_phase * 6.2831) + 0.015 * sin(TIME * 2.1 + bob_phase * 6.2831 * 1.7), 0.03 * cos(TIME * 0.43 + bob_phase * 6.2831))"
@@ -189,6 +181,9 @@ func _life() -> void:
 					sh.code = code.replace(vw, "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz + %s;   // PH RED: projection follows the bob\n" % bob)
 					m.shader = sh
 			rep["floes_pilot"] = {"meshes": fl.size(), "materials": saved.size(), "floe_red": floe_red}
+			var sea_h: Array = scene._meshes(scene.nodes["ground_sea"]) if floe_pairs > 1 else []
+			for w in sea_h:
+				(w as Node3D).visible = false
 			await _settle()
 			for k in floe_pairs:
 				var sfx := "" if k == 0 else "_%d" % k
@@ -204,6 +199,8 @@ func _life() -> void:
 				(mi as Node3D).visible = false
 			await _settle()
 			await _shot("hide_floe")
+			for w in sea_h:
+				(w as Node3D).visible = true
 			for mi in fl:
 				(mi as Node3D).visible = true
 	if "floe_mesh" in scene and scene.floe_mesh != null:

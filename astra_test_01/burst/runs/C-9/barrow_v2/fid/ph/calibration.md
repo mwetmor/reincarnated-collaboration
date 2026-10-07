@@ -933,3 +933,8 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
 - **Pass condition for P9c to be "shown":** rest-pose PASS **and** RED FAIL on this protocol. Until then P9c stays non-binding.
 
 **Self-test (§ 30, unchanged):** rest 0.001–0.007 px; RED = the motion ± 0.02.
+
+**§ 31 A1 (amendment, committed BEFORE the measurement that counts).**
+- **What failed.** The depth-test-off / unshaded / ALPHA = 1 marker shader drew **no marker**. In `renders/pilot3/p9c_{rest,red}` (first attempt) the floe region of floe_m0 matches hide_floe, apart from the water's own animation. There are no shader errors in the log, and `p9c_measure` finds 0 floes in all 5 pairs of both runs.
+- **The mechanism now.** It keeps the floe's own opaque shader, as in § 30. The **sea meshes (`ground_sea`) are hidden for all marker shots and for hide_floe**, so no waterline can occlude the bobbing silhouette, and the background is static between the shots.
+- **Unchanged.** Intent, view, floe rule, pairs, statistic and bars are all as § 31. The first-attempt renders are kept as evidence and are not scored.
