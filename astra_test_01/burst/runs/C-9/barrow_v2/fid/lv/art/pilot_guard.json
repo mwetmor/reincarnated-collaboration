@@ -1,10 +1,10 @@
 {
  "_what": "BV2F LV (R-C9-189): does a layout change reach the PAINT PILOT window? -- a geometric pre-check, before any render.",
- "ref_dir": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/ref_art",
+ "ref_dir": "/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/ref209",
  "ref_sha256": {
-  "level.json": "c98c95d52ed4ba1576e30f4e11206ec5e68c19529b83f0e69c39b5574b8ad3ae",
-  "terrain_h.f32": "f2a8c47c5d1948fa8e4688f1eee24e57dd28003db505798c746a72544ded4347",
-  "classes.png": "a3c18beaf27ee7b145d694b7bc80cdc8f3de68f9e67186a3d16db99bf9f20597"
+  "level.json": "f42004f575e0a8b42afcdaf68fd568faba9822ae500206c3e518b6f4f2c6d418",
+  "terrain_h.f32": "a23872ac4460729079e5af32fb6f0e388c56de34d54f791812bb7be37b76fa1a",
+  "classes.png": "c7b893d2113eab267d2b3552cc21721bf42b4a6e7c9e9b60498678500aa100b6"
  },
  "pilot_px": {
   "x_lt": 4096,
@@ -16,82 +16,120 @@
  },
  "items": [
   {
-   "what": "heightfield cells changed (2796)",
-   "n_points": 5592,
-   "min_y_px_inside_pilot_columns": 2599.6,
-   "unsafe_points": 0
+   "what": "heightfield cells changed (2668)",
+   "n_points": 5336,
+   "min_y_px_inside_pilot_columns": 1034.1,
+   "unsafe_points": 4152
   },
   {
-   "what": "class cells changed (37676)",
-   "n_points": 37676,
-   "min_y_px_inside_pilot_columns": 2602.1,
-   "unsafe_points": 0
+   "what": "class cells changed (20962)",
+   "n_points": 20962,
+   "min_y_px_inside_pilot_columns": 1250.9,
+   "unsafe_points": 19344
   },
   {
-   "what": "stair blocks REMOVED (the ref's)",
-   "n_points": 248,
-   "min_y_px_inside_pilot_columns": 2707.3,
-   "unsafe_points": 0
-  },
-  {
-   "what": "stair blocks ADDED",
-   "n_points": 216,
-   "min_y_px_inside_pilot_columns": 2677.0,
-   "unsafe_points": 0
-  },
-  {
-   "what": "sea cave curtain REMOVED (the ref's)",
+   "what": "model instance REMOVED talus/12/data/bv2f/ext/data__bv2f__models__seastack.glb.bin",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 2963.9,
+   "min_y_px_inside_pilot_columns": 3349.8,
    "unsafe_points": 0
   },
   {
-   "what": "sea cave curtain ADDED",
+   "what": "model instance REMOVED talus/14/data/bv2f/ext/data__bv2f__models__seastack.glb.bin",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 2762.5,
+   "min_y_px_inside_pilot_columns": 3445.9,
    "unsafe_points": 0
   },
   {
-   "what": "cave hood brow ADDED",
+   "what": "model instance REMOVED talus/11/data/bv2f/ext/data__bv2f__models__seastack.glb.bin",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 2635.5,
+   "min_y_px_inside_pilot_columns": 3195.2,
    "unsafe_points": 0
   },
   {
-   "what": "cave hood cheek_w ADDED",
+   "what": "REMOVED non-box wreck",
+   "unsafe_points": "not judged"
+  },
+  {
+   "what": "model instance REMOVED ring_stones/6/data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 2696.1,
+   "min_y_px_inside_pilot_columns": 1980.8,
+   "unsafe_points": 8
+  },
+  {
+   "what": "model instance REMOVED ring_stones/5/data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 1608.6,
+   "unsafe_points": 8
+  },
+  {
+   "what": "model instance REMOVED ring_stones/7/data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2057.2,
+   "unsafe_points": 8
+  },
+  {
+   "what": "model instance ADDED/MOVED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 2818.9,
    "unsafe_points": 0
   },
   {
-   "what": "cave hood cheek_e ADDED",
+   "what": "model instance ADDED/MOVED",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": null,
+   "min_y_px_inside_pilot_columns": 3280.3,
    "unsafe_points": 0
   },
   {
-   "what": "cave hood back ADDED",
+   "what": "model instance ADDED/MOVED",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 2728.5,
+   "min_y_px_inside_pilot_columns": 3384.2,
    "unsafe_points": 0
   },
   {
-   "what": "model instance REMOVED cliff_faces/2/data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+   "what": "model instance ADDED/MOVED",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 2866.5,
+   "min_y_px_inside_pilot_columns": 2936.5,
    "unsafe_points": 0
   },
   {
-   "what": "model instance REMOVED cliff_faces/3/data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+   "what": "model instance ADDED/MOVED",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": 3098.6,
+   "min_y_px_inside_pilot_columns": 3504.1,
    "unsafe_points": 0
   },
   {
-   "what": "model instance REMOVED cliff_faces/4/data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+   "what": "model instance ADDED/MOVED",
    "n_points": 8,
-   "min_y_px_inside_pilot_columns": null,
+   "min_y_px_inside_pilot_columns": 3296.6,
    "unsafe_points": 0
+  },
+  {
+   "what": "model instance ADDED/MOVED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 3258.4,
+   "unsafe_points": 0
+  },
+  {
+   "what": "ADDED non-box",
+   "unsafe_points": "not judged"
+  },
+  {
+   "what": "model instance ADDED/MOVED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 1660.9,
+   "unsafe_points": 8
+  },
+  {
+   "what": "model instance ADDED/MOVED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 1395.5,
+   "unsafe_points": 8
+  },
+  {
+   "what": "model instance ADDED/MOVED",
+   "n_points": 8,
+   "min_y_px_inside_pilot_columns": 1786.0,
+   "unsafe_points": 8
   },
   {
    "what": "hall panel (the whole hall slot)",
@@ -100,10 +138,10 @@
    "unsafe_points": 0
   }
  ],
- "unsafe_points_total": 0,
+ "unsafe_points_total": 23544,
  "worst": {
-  "min_y_px": 2599.6,
-  "what": "heightfield cells changed (2796)"
+  "min_y_px": 1034.1,
+  "what": "heightfield cells changed (2668)"
  },
- "verdict": "SAFE: no change projects into the pilot tiles (or their 24 px margin)"
+ "verdict": "UNSAFE: 23544 points project into the pilot"
 }

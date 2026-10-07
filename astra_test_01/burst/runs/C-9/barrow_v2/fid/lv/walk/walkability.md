@@ -6,21 +6,21 @@ Against the art level's **colliders** (terrain HeightMapShape3D, the stair's nos
 
 | bar | measured | |
 |---|---|---|
-| continuous walk surface, cave -> clifftop (every 0.05 m) | 624 of 624 centreline samples walkable; 0 breaks | PASS |
+| continuous walk surface, cave -> clifftop (every 0.05 m) | 638 of 638 centreline samples walkable; 0 breaks | PASS |
 | stair slope <= 35 deg | 33.34 deg (collider); treads 33.34 deg | PASS |
-| shelf slope <= 10 deg | 0.00 deg | PASS |
+| shelf slope <= 10 deg | 5.09 deg | PASS |
 | no riser above v1's step height (0.103 m) | max 0.033 m between samples 0.05 m apart (treads' visual riser 0.250 m is under the ramp) | PASS |
 | stair clear width >= 5 m | min 5.40 m over 17 sections | PASS |
 | shelf clear width >= 6 m | min 6.25 m over 9 sections | PASS |
 | cave mouth clear height ~7 m | 7.40 m at the arch's lip (the first centreline sample under the roof); 4.85 m deeper in; the floor 4.67 m clear across 1 m inside | PASS |
-| v1's knight driven from inside the cave to the clifftop | reached True in 20.6 s (1234 frames, 0 off the floor); ends at uv (7.34, -15.82) z 2.50 | PASS |
+| v1's knight driven from inside the cave to the clifftop | reached True in 21.0 s (1258 frames, 0 off the floor); ends at uv (7.33, -15.83) z 2.50 | PASS |
 
 **Verdict: PASS**
 
 | segment | samples | walkable | max slope | max dz / 0.05 m | z range | min headroom |
 |---|---|---|---|---|---|---|
 | cave | 60 | 60 | 0.00 deg | 0.000 m | -3.50 .. -3.50 | 4.85 m |
-| shelf | 235 | 235 | 0.00 deg | 0.019 m | -3.50 .. -3.50 | 15.00 m |
+| shelf | 249 | 249 | 5.09 deg | 0.019 m | -3.53 .. -3.46 | 15.00 m |
 | stair | 183 | 183 | 33.34 deg | 0.033 m | -3.48 .. 2.50 | 15.00 m |
 | landing | 97 | 97 | 0.00 deg | 0.000 m | 2.50 .. 2.50 | 15.00 m |
 | clifftop | 49 | 49 | 0.00 deg | 0.000 m | -3.50 .. 2.50 | 15.00 m |
@@ -29,7 +29,7 @@ Sections (clear width = walkable run across, capped by the free run to the neare
 
 | section | surface | free between colliders | clear | headroom |
 |---|---|---|---|---|
-| stair_00 | 5.40 | 5.47 | 5.40 | 15.00 |
+| stair_00 | 5.40 | 5.50 | 5.40 | 15.00 |
 | stair_01 | 5.40 | 5.54 | 5.40 | 15.00 |
 | stair_02 | 5.40 | 5.57 | 5.40 | 15.00 |
 | stair_03 | 5.50 | 5.63 | 5.50 | 15.00 |
@@ -46,15 +46,15 @@ Sections (clear width = walkable run across, capped by the free run to the neare
 | stair_14 | 5.55 | 6.07 | 5.55 | 15.00 |
 | stair_15 | 5.50 | 6.18 | 5.50 | 15.00 |
 | stair_16 | 5.50 | 6.30 | 5.50 | 15.00 |
-| shelf_00 | 6.90 | 7.82 | 6.90 | 15.00 |
-| shelf_01 | 6.25 | 7.23 | 6.25 | 15.00 |
-| shelf_02 | 6.45 | 7.11 | 6.45 | 15.00 |
-| shelf_03 | 6.65 | 7.40 | 6.65 | 1.84 |
-| shelf_04 | 6.60 | 6.64 | 6.60 | 15.00 |
-| shelf_05 | 6.85 | 6.94 | 6.85 | 15.00 |
-| shelf_06 | 6.65 | 7.85 | 6.65 | 15.00 |
-| shelf_07 | 7.55 | 8.16 | 7.55 | 15.00 |
-| shelf_08 | 7.30 | 8.12 | 7.30 | 15.00 |
+| shelf_00 | 6.90 | 7.86 | 6.90 | 15.00 |
+| shelf_01 | 6.25 | 6.53 | 6.25 | 15.00 |
+| shelf_02 | 7.25 | 7.81 | 7.25 | 15.00 |
+| shelf_03 | 7.25 | 7.81 | 7.25 | 15.00 |
+| shelf_04 | 7.00 | 6.97 | 6.97 | 15.00 |
+| shelf_05 | 7.40 | 7.44 | 7.40 | 15.00 |
+| shelf_06 | 7.70 | 8.68 | 7.70 | 15.00 |
+| shelf_07 | 7.50 | 8.15 | 7.50 | 15.00 |
+| shelf_08 | 7.40 | 8.36 | 7.40 | 15.00 |
 | cave_mouth | 6.10 | 4.67 | 4.67 | 0.43 |
 
 Stills: `route_topdown.png` (straight down, north up) and `route_play.png` (v1's play camera) -- the magenta line is the knight's DRIVEN track (a check overlay, not in the guide); him on the stair for scale.
