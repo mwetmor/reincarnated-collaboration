@@ -43270,9 +43270,253 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LV-cliffcol",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1pp-cliff-kit",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "6b5872a7fa99c37f655f8d7611b009d0cfec1fdd34ecf8a8267b4bbad2d77f3a",
+      "started": "2026-10-07T20:16:51.228306+00:00",
+      "ended": "2026-10-07T20:19:51.251431+00:00",
+      "minutes": 3.0003697166665613,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11803-019d-75a1-a49a-8866082b5221/exec-71485360-c334-41a1-8516-ebd00d7df291.png",
+            "sha256": "40d8b9d1cac2e6fbbf70ac0db8f55278352c58cec9ee6cddd80222665993df23"
+          }
+        ]
+      },
+      "receipt_sha256": "11a646cf64f69d81c4e5390a1097986e0cf081e3d8bb43e62b52af4e0e0562a1",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-cliffcol.png",
+          "sha256": "40d8b9d1cac2e6fbbf70ac0db8f55278352c58cec9ee6cddd80222665993df23"
+        },
+        {
+          "name": "exec-71485360-c334-41a1-8516-ebd00d7df291.provenance.json",
+          "sha256": "fd809abfc886a9e88d3ef76bbf04ac68e85cc882b1e63d78837b75ccef973a9c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11803-019d-75a1-a49a-8866082b5221/exec-71485360-c334-41a1-8516-ebd00d7df291.png",
+          "sha256": "40d8b9d1cac2e6fbbf70ac0db8f55278352c58cec9ee6cddd80222665993df23"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LV-cliffcape",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1pp-cliff-kit",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "81455d625852cc2946d20af88927deb2f42e94dcedcf1effacaf82bf13002a32",
+      "started": "2026-10-07T20:19:52.554182+00:00",
+      "ended": "2026-10-07T20:21:38.015681+00:00",
+      "minutes": 1.7576813208327318,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11805-c094-7923-aac7-266875ceaa56/exec-e6324809-795a-42ef-80a8-ed0605916d04.png",
+            "sha256": "a6c5c5901670372055b4bdd6787c7b432852eaf2797c4ce33284641a1d26ec38"
+          }
+        ]
+      },
+      "receipt_sha256": "3911af937e0289259a6d4e014fd16f583db6d6031799e23def043385deb4e2a0",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-cliffcape.png",
+          "sha256": "a6c5c5901670372055b4bdd6787c7b432852eaf2797c4ce33284641a1d26ec38"
+        },
+        {
+          "name": "exec-e6324809-795a-42ef-80a8-ed0605916d04.provenance.json",
+          "sha256": "82145bf4457b82024a2fa91f240c320f075cf4d4d595f4b1d040e6e4f934c779"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11805-c094-7923-aac7-266875ceaa56/exec-e6324809-795a-42ef-80a8-ed0605916d04.png",
+          "sha256": "a6c5c5901670372055b4bdd6787c7b432852eaf2797c4ce33284641a1d26ec38"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LV-cavearch",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1pp-cliff-kit",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "40f1d6d300f5cb895b8a5fb2fabf3fee38cd68ef9e10ad61640c57194fabca80",
+      "started": "2026-10-07T20:21:38.500586+00:00",
+      "ended": "2026-10-07T20:23:23.360918+00:00",
+      "minutes": 1.7476615826502286,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11807-5e6a-7c31-9996-d402e2935204/exec-232e110c-1919-4035-a058-a2e95f818ec1.png",
+            "sha256": "ac8157b0b4c8d236692485cd34d28c38f5d8d8d2b65eb66e5ceea6fd02d69d84"
+          }
+        ]
+      },
+      "receipt_sha256": "93dc07e46071074f3d3c07accc7adbc170b834e55389defc4ad4ce307b33511e",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-cavearch.png",
+          "sha256": "ac8157b0b4c8d236692485cd34d28c38f5d8d8d2b65eb66e5ceea6fd02d69d84"
+        },
+        {
+          "name": "exec-232e110c-1919-4035-a058-a2e95f818ec1.provenance.json",
+          "sha256": "cb756ddd671e1f22544450419c12bb6afab42885c22b39838aeb3d1c2ca2b63d"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11807-5e6a-7c31-9996-d402e2935204/exec-232e110c-1919-4035-a058-a2e95f818ec1.png",
+          "sha256": "ac8157b0b4c8d236692485cd34d28c38f5d8d8d2b65eb66e5ceea6fd02d69d84"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LV-seastack",
+      "type": "GENERATE",
+      "experiment": "BV2F-P1pp-cliff-kit",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "83aebf5f4fbbb33fdb08bf68aed94daec84e84d2b97daa48ea8034588abecd8e",
+      "started": "2026-10-07T20:23:23.796764+00:00",
+      "ended": "2026-10-07T20:24:50.018907+00:00",
+      "minutes": 1.4370273958328956,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11808-f9b6-7462-96e8-8910d705f481/exec-396053ed-6ca6-4c7c-832f-023f91a451ec.png",
+            "sha256": "fe22e5ecfdefab62bf59a9e6372a0bf9305db28e0d893203064f7e143e87901f"
+          }
+        ]
+      },
+      "receipt_sha256": "556b3fd72a650b33fd53463436a0b30808789efed022764e39a967760fd1fa9d",
+      "artifacts": [
+        {
+          "name": "BV2F-LV-seastack.png",
+          "sha256": "fe22e5ecfdefab62bf59a9e6372a0bf9305db28e0d893203064f7e143e87901f"
+        },
+        {
+          "name": "exec-396053ed-6ca6-4c7c-832f-023f91a451ec.provenance.json",
+          "sha256": "0a6c418b54ab441a2d1ad1b1ed12146461b190e79fa720d2c781630406b71b4b"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11808-f9b6-7462-96e8-8910d705f481/exec-396053ed-6ca6-4c7c-832f-023f91a451ec.png",
+          "sha256": "fe22e5ecfdefab62bf59a9e6372a0bf9305db28e0d893203064f7e143e87901f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1275,
+  "images_used": 1279,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -46415,6 +46659,13 @@
         "Furthermore, similar care needs to be applied to the stairs coming out of the sea cave and the sea cave itself. This is the reason that that section has not been working at all either.. same problem but a different surface."
       ],
       "ts": "2026-10-07T20:15:30Z"
+    },
+    {
+      "id": "R-C9-207",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F P11 v3 (12 hidden catch trials, valid iff >= 10/12; PASS iff scored <= 26/40; pre-registered PH s38, 4531cb823) CALIBRATED with two fresh blind galadriel judges on neutral copies (G2-B2 re-run): v1 record-time vs v1 HEAD -- catch 11/12 VALID, scored 22/40 = 55% -> PASS (required valid AND pass); v1 vs half-density -- catch 12/12 VALID, scored 35/40 = 87.5% -> FAIL (required valid AND fail). The void-by-design defect (R-C9-195) is closed: P11 v3 is BINDING from the pilot repaint on. Disclosed risk carried (PH): catch crops are snow-only. Answers to be saved by PH as fid/ph/p11/answers/abx3_g2v3_{v1rec_vs_v1head,v1_vs_halfdensity}.json.",
+      "verbatim": [],
+      "ts": "2026-10-07T20:48:31Z"
     }
   ],
   "grok_calls": [
