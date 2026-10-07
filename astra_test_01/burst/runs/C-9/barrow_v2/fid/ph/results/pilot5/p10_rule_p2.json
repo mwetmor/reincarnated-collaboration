@@ -1,0 +1,78 @@
+{
+ "build": "c578db842",
+ "rule": "calibration.md s34: 3 fresh runs per view, worst p99 <= 16.7 ms",
+ "start": {
+  "runs": [
+   {
+    "p50_ms": 13.42,
+    "p99_ms": 19.4,
+    "max_ms": 30.55,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": false
+   },
+   {
+    "p50_ms": 13.55,
+    "p99_ms": 15.21,
+    "max_ms": 16.13,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true
+   },
+   {
+    "p50_ms": 13.47,
+    "p99_ms": 15.4,
+    "max_ms": 19.79,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true
+   }
+  ],
+  "worst_p99": 19.4,
+  "pass": false
+ },
+ "sea": {
+  "runs": [
+   {
+    "p50_ms": 11.71,
+    "p99_ms": 13.22,
+    "max_ms": 13.8,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true
+   },
+   {
+    "p50_ms": 11.69,
+    "p99_ms": 13.32,
+    "max_ms": 13.75,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true
+   },
+   {
+    "p50_ms": 11.69,
+    "p99_ms": 13.4,
+    "max_ms": 14.17,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true
+   }
+  ],
+  "worst_p99": 13.4,
+  "pass": true
+ },
+ "burn_RED": {
+  "p50_ms": 20.87,
+  "p99_ms": 21.55,
+  "max_ms": 24.0,
+  "burn_ms": 20.0,
+  "renderer": "forward_plus",
+  "pass": false
+ },
+ "p2": {
+  "value": 1.0,
+  "n": 20,
+  "unresolved": [],
+  "pass": true
+ }
+}

@@ -987,3 +987,48 @@ The waterline therefore cannot occlude the bobbing silhouette, and lighting cann
   - If a run crashes or writes no perf.json, P10 is VOID for that build, and the three are re-run as a set.
 - **Sea view.** The sea view (uv −29, −5.5) is measured under the same 3-run worst-p99 rule and reported. It binds under the same bar.
 - **RED unchanged.** The 20 ms burn must FAIL; it is a single run.
+
+## 35. P10 under the § 34 rule + P2 on PT c578db842 (load-time warm-up); THE PILOT'S FINAL ROW TABLE (for jack-ryan's Gate-2)
+
+**P10 (§ 34 rule; `results/pilot5/p10_rule_p2.json`; `renders/pilot5/p10_rule/`).**
+
+| View | Run 1 p50 / p99 / max | Run 2 | Run 3 | Worst p99 | Verdict |
+|---|---|---|---|---|---|
+| start uv (0, 0) | 13.42 / **19.40** / 30.55 | 13.55 / 15.21 / 16.13 | 13.47 / 15.40 / 19.79 | **19.40** | **FAIL** |
+| sea uv (−29, −5.5) | 11.71 / 13.22 / 13.80 | 11.69 / 13.32 / 13.75 | 11.69 / 13.40 / 14.17 | 13.40 | PASS |
+
+- **Burn RED:** p99 21.55, FAIL as required. **P2:** 20/20 at c578db842.
+- **Observation (not a re-take).** The warm-up lowered the median by about 1.1 ms (p50 14.6 → 13.5). The FIRST fresh run of each batch still carries a tail: 17.32 on 8fd69fafc, 19.40 now, with runs 2–3 at 15.2–15.4.
+- `ph_life` records no per-frame times, so where the slow frames fall in the 900 is not yet known. A per-frame dump would localise it; that change is to the instrument, not the bar. PT's own runs (15.16 / 15.31 / 15.16) were not first-of-batch runs under the heavy lock.
+
+**P3 on the current inputs (as delivered, no exclusion).** Worst class: **ground: sea 27.77** > 15.5, so FAIL. The guide-camera render carries the animated water (foam and crests over the painting, by design); the other classes are ≤ 12.73. With R-C9-159's animated-pixel exclusion (`v159_rows` `anim`; `PH_EXCLUDE_SELF_MOVING=1`) it is 11.53, PASS. R-C9-196 did not adopt that exclusion for P8; there PT fixed the input instead (water hidden for the shots). **P3 needs the same treatment or a ruling**: render_guide with the water held or hidden.
+
+### The pilot's final row table (Phase 2′, bv2art pilot window, plate px [0, 0, 4096, 2560]; frozen bars)
+
+| Row | Binds | Final reading | Bar | Verdict | Build measured | PH commit (§) |
+|---|---|---|---|---|---|---|
+| P1 texel density | yes | all 1.000 (DEV-19 bakes 117.6–163.1 px/m) | ≤ 1.05 | **PASS** | f36284352 bakes; re-read c578db842 | 37193eb63 (§ 29); this commit |
+| P2 lineage | yes | 20/20 | 100% | **PASS** | c578db842 | this commit (§ 35) |
+| P3 render vs painting | yes | sea 27.77 as delivered; 11.53 with the animated sea excluded | ≤ 15.5 per class | **FAIL as delivered — input/ruling owed** | c578db842 inputs | this commit (§ 35) |
+| P4 texture | yes | ice 0.61–0.67 (bar 0.126); snow 0_2/1_2 0.40 (bar 0.281) | v1 LOO maxima | **FAIL** (origin: the paint transfer, § 27) | painting 901f3087 (unchanged) | 4bd299a18 (§ 26), 55099e701 (§ 27) |
+| P5 seams | yes | MAD 11.97; seam 0.585 | ≤ 13.09; ≤ 0.799 | **PASS** | painting 901f3087 | 4bd299a18 (§ 26) |
+| P6a invention | yes | 1 declared, 5 MATERIAL (conductor triage), 0 invented | 0 invented | **PASS** | painting 901f3087 | 55099e701 (§ 27) |
+| P6′ presence / placement / scale | yes | 0 missing / extra / hidden; containment ≥ 0.974; 0 of 89 over 1.10 | § 16 | **PASS** | ids_built 776e265f0; re-read c578db842 | 4bd299a18 (§ 26); this commit |
+| P8 heather precision | yes | min 0.5302 (2_2), 7 chunks judged; RED fails | each ≥ 0.4476 | **PASS** | 8df01abcd mask; re-read c578db842 | 2fa1f5229 (§ 30); this commit |
+| P9 sway | yes | 6.104; no-wind RED 0 | ≥ 3× noise and ≥ 2.064 | **PASS** | 0b72461db+ (renders/pilot2) | 2fa1f5229 (§ 30) |
+| P9 flow | yes | **3.444** on the pre-registered mask; hidden-water RED 0.067 | ≥ 2.064 | **PASS** (R-C9-199) | 8fd69fafc | 4ec1c5bc8 (§ 33) |
+| P9 trail | yes | 1.000 (flat 759 m², not-flat 178 m²) | ≥ 0.99 | **PASS** | 0b72461db | 37193eb63 (§ 29) |
+| P9c floe drift | **no** (shown; binding is the conductor's call) | rest-pose 0.010 px; swimming RED 1.766 px | ≤ 0.25 | shown (§ 31 + A1) | 9c53bc067 | 3888c0d74, 96509f727, 291a54992 (§§ 31–32) |
+| P10 frame time | yes | start worst p99 **19.40**; sea 13.40; burn RED fails | worst of 3 ≤ 16.7 (§ 34) | **FAIL** | c578db842 | 02de8260f (§ 34); this commit |
+| P11 ABX | yes | judge 1 27/40, inconsistency 0.50; judge 2 24/40, 0.40 | ≤ 26/40; inconsistency ≤ 0.25 | **VOID × 2**; the void rule needs re-instrumenting (§ 28) | 47bb1a054 stills | f3af8d82c (§ 28) |
+| P7 floor/scatter | no | — | — | retired (charter § 15) | — | — |
+| P6′ extent | no | — | — | retired (charter § 15) | — | — |
+| P6b silhouette IoU | no | — | — | not in the pilot plan | — | — |
+
+**Open for rulings:**
+1. P3's animated-water input: PT should render with the water held or hidden, or a ruling is needed.
+2. P10's first-run tail: a per-frame instrument, and a PT fix.
+3. P11's void rule (§ 28).
+4. P9c binding.
+5. P9 flow's mask derivation (§ 33: exclusions from geometry, not cross-time differences).
+6. P4's paint transfer (§ 27; M2′).

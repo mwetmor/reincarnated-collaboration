@@ -1,0 +1,61 @@
+{
+ "per_chunk": {
+  "0_0": 0.5629,
+  "1_0": 0.5532,
+  "2_0": 0.5831,
+  "0_1": null,
+  "1_1": 0.5413,
+  "2_1": 0.5565,
+  "0_2": null,
+  "1_2": 0.5638,
+  "2_2": 0.5302
+ },
+ "per_chunk_as_delivered_incl_water": {
+  "0_0": 0.5629,
+  "1_0": 0.5532,
+  "2_0": 0.5831,
+  "0_1": null,
+  "1_1": 0.5413,
+  "2_1": 0.5565,
+  "0_2": null,
+  "1_2": 0.5638,
+  "2_2": 0.5302
+ },
+ "drawn_px_removed_as_self_moving": 0,
+ "chunks_judged": 7,
+ "below_bar": [],
+ "min": 0.5302,
+ "bar": 0.4476,
+ "pass": true,
+ "constructed_red_shift_1m": {
+  "per_chunk": {
+   "0_0": 0.2439,
+   "1_0": 0.2227,
+   "2_0": 0.2305,
+   "0_1": 0.0,
+   "1_1": 0.2851,
+   "2_1": 0.3076,
+   "0_2": 0.0,
+   "1_2": 0.2787,
+   "2_2": 0.278
+  },
+  "min": 0.0,
+  "pass": false
+ },
+ "DEV18": {
+  "rule": "flat = |terrain z| < 0.03 m at the pixel's ground point (bv2f_prep.py's rule); 3D heather = heather_mask.png drawn px within 24 px (P8 footprint); tufts = v1's tuft classifier on the pilot painting's ground",
+  "painted_tuft_px": 539687,
+  "share_on_flat": 0.6904,
+  "share_not_flat": 0.3096,
+  "share_without_3d_heather": 0.3027,
+  "share_not_flat_without_3d_heather": 0.1384,
+  "share_flat_without_3d_heather": 0.1643,
+  "share_on_slope_gt_5deg_without_3d_heather": 0.0399,
+  "not_flat_tufts_covered_by_3d_heather": 0.5531,
+  "slope_deg_of_not_flat_bare_tufts_p10_p50_p90": [
+   0.0,
+   0.0,
+   7.1
+  ]
+ }
+}
