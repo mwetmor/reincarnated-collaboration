@@ -534,7 +534,7 @@ def run_v7c(bars):
                       "placed_fit_sha256": sha256(Q.LV / "placed_fit_v7c.json")},
            "presence": {"missing": comp["missing"], "extra": comp["extra"], "terrain_hidden_not_by_design": hidden,
                         "hidden_by_design_accepted": comp.get("hidden_by_design", {}),
-                        "by_design_rule": "R-C9-181: accepted ONLY where the layout declares it (burial_by_design) and the declaration is in LV's commit 9601add8a",
+                        "by_design_rule": "accepted only where the layout declares the burial; provenance (I-R2, R-C9-182): circle_stones recorded 'laid flat, sunk flush: top 0.12 m' at d4c59061f, required by R13 (R-C9-155); declared on all 8",
                         "by_design_exclusions": comp["by_design_exclusions"], "non_model_ids_excluded": comp["non_model_ids_excluded"],
                         "pass": not comp["missing"] and not comp["extra"] and not hidden},
            "placement": {"bar": bars["containment_min"], "below_bar": place_fail,

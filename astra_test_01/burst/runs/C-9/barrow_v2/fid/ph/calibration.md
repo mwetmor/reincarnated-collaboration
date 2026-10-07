@@ -506,6 +506,8 @@ Inputs: `ids_v7c.png` sha `49adb3d8…` and `layout_v7c.json` (v7c_r178). Tool `
 | scale of record | **RED** | 137 of 148 instances have anisotropy above 1.10. PH's size/AABB cross-check agrees with LV's record on every box instance (0 mismatches). Over the bar: standing_stones 2.11–2.38; circle_stones 1.71–4.59; grave_markers 1.98–1.98; rock outcrops 1, 2, 4, 5, 8, 10, 11 1.15–1.77; logs_and_beams 4.54–10.09; palisade 8.90–14.09 (every stake). Within 1.10: the kit-v3 heroes (longhall, barrow_front, wreck, fallen_gable), stair_cliff, cliff_faces, rock_outcrop_14 and the brazier stand-ins |
 | extent | **RED** | validator 65/66 on the own-geometry copy. **R11 fails: "the porch rises ABOVE the hall's roofline (slot heights)".** Attribution: the porch is PART OF the longhall build (no mesh of its own), so the hall's own height as registered (maximum placed z = 13.117 m) is the porch top. The hall's roofline and the porch cannot be separated in one mesh, so the rule reads porch 13.117 against "hall" 13.117. Every other R1–R13 check passes on the models' own footprints and heights (longhall, fallen_gable, barrow_front, wreck → wreck_hull, stair_cliff replaced; R10 holds for the gable at its own extent) |
 
+**Harness change disclosed (I-R1, jack-ryan RB re-check).** Between calibration (`48dab5e17`) and this run, commit `44fb98a66` made two changes to `p6prime.py`. Beam instances are now placed as `bv2f_level.gd` `_place_beam` places them, not as drawn segments. "extra" now excludes the non-model prefixes that § 15's scope names. Both conform to § 15, leave the v1 path untouched, and make the check stricter, not looser.
+
 **Reported, non-binding:** IoU against the slot prism, median **0.46**, against v1's like-for-like **0.635**.
 
 **For the conductor.** These are three REDs of different kinds:
@@ -526,7 +528,7 @@ Inputs: ids `bbff1fa06deb…` (= guide_manifest), layout `4c8a21a56897…`, plac
   - the hall body's height = the maximum placed z outside it.
   - Measured by PH from the placed hall mesh: porch **13.117 m** (10,034 vertices), hall body **12.143 m** (24,028 vertices). These match LV's record of 13.12 against 12.14.
 
-**Hidden by design.** Accepted ONLY where the layout declares it in `burial_by_design` **and the declaration is new in LV's commit 9601add8a**: 8 `+burial_by_design` lines in the diff, none removed. The objects:
+**Hidden by design.** Provenance re-cited per I-R2 (jack-ryan, R-C9-182); the earlier test, "the declaration is new in 9601add8a", is withdrawn because a new declaration is weaker evidence than an old one. The burial **predates measurement and pre-registration**: at `d4c59061f` the layout already records circle_stones as "REUSE v1 stone_short (laid flat, sunk flush: top 0.12 m)". It is **required by R13** (FLAT = 0.15 m), Matt's clean-floor ruling **R-C9-155**. It is declared uniformly on all 8 stones. The objects that rely on it:
 
 | object | instance | terrain-hidden share | declaration (layout_v7c.json, 9601add8a) |
 |---|---|---|---|
@@ -576,3 +578,22 @@ The other 5 circle stones (all 8 carry the declaration) are within 0.50 even wit
 - the porch's height at the door, the max z inside the registered 1.287 m footprint.
 
 **If v7c fails under the ruled region, it is reported as a failure; the region does not move.**
+
+## 20. R11 under the ruled region (§ 19, R-C9-182): `harness/p6prime_r11.py` → `results/p6prime_r11_r182.json`
+
+**The region as constructed.** The outer face runs from (38.09, −3.84) to (43.29, 5.40), 10.6 m wide. The region reaches 8.774 m back to the ridge line and contains 6193 hall-mesh vertices; the body has 27869.
+
+| reading | porch_h | body_h | margin | R11 (> 0.5) |
+|---|---|---|---|---|
+| **ruled region, v7c (binding)** | 13.117 | 12.2726 | 0.8444 | **PASS** |
+| **constructed RED** (in-region vertices clipped to ≤ body + 0.5) | 12.7726 | 12.2726 | 0.5 | **FAIL** |
+| registered 1.287 m `hall_porch.footprint` (non-binding) | 5.0955 | 13.117 | -8.0215 | FAIL (49 vertices) |
+
+The constructed RED fails at the boundary: the margin is exactly 0.5 and the rule is strict.
+
+**P6′ extent therefore stands PASS under the ruled reading, and P6′ = PASS on all four components.**
+
+**For the cover clause** (measured, not part of the verdict):
+- **The tall part sits behind the door.** The 49 vertices above body + 0.5 m (12.773 m) lie **4.78–8.06 m behind the porch's outer face**, at 3.99–7.78 m along its 10.6 m width: a raised roof bay over the door axis, set back.
+- **At the door itself the porch stands 5.1 m**: the maximum z inside the registered 1.287 m-deep porch footprint.
+

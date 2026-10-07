@@ -1,0 +1,68 @@
+{
+ "_what": "R11 under the ruled porch region (R-C9-182; pre-registered calibration.md \u00a7 19, 904ac6dc0)",
+ "region_poly_sim_xy": [
+  [
+   38.0885,
+   -3.8391
+  ],
+  [
+   43.2913,
+   5.3962
+  ],
+  [
+   50.9353,
+   1.0899
+  ],
+  [
+   45.7325,
+   -8.1454
+  ]
+ ],
+ "outer_face": [
+  [
+   38.0885,
+   -3.8391
+  ],
+  [
+   43.2913,
+   5.3962
+  ]
+ ],
+ "region_depth_m": 8.774,
+ "porch_width_m": 10.6,
+ "verts_in_region": 6193,
+ "verts_body": 27869,
+ "ruled_v7c": {
+  "porch_h": 13.117,
+  "body_h": 12.2726,
+  "margin_m": 0.8444,
+  "pass": true
+ },
+ "constructed_red_clipped": {
+  "porch_h": 12.7726,
+  "body_h": 12.2726,
+  "margin_m": 0.5,
+  "pass": false
+ },
+ "registered_footprint_non_binding": {
+  "porch_h": 5.0955,
+  "body_h": 13.117,
+  "margin_m": -8.0215,
+  "pass": false,
+  "verts": 49
+ },
+ "cover_clause": {
+  "tall_verts": 49,
+  "tall_threshold_m": 12.773,
+  "tall_part_behind_outer_face_m": [
+   4.78,
+   8.06
+  ],
+  "tall_part_along_porch_width_m": [
+   3.99,
+   7.78
+  ],
+  "porch_height_at_the_door_m": 5.0955,
+  "porch_depth_m": 1.287
+ }
+}
