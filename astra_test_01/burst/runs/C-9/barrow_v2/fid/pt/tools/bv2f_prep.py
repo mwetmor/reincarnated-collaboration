@@ -149,6 +149,17 @@ def main():
                               "_": "[this run, step 3's take_report] -- the same classifier on the same painting"}
     assert rep["tufts_self_test"]["PASS"], rep["tufts_self_test"]
     tuft_px = ndimage.binary_opening(heather | shrub, iterations=1)
+    # R-C9-205 ruling 1 (DEV-21): ONE PLANT PER PAINTED TUFT -- the reed tufts (fid/pt/tools/reeds.py classify(), the
+    # mere / stream edge zone + straw colour) are taken out of the heather's cover; reeds.py cards them. Counts recorded.
+    if CFG.get("reed_split"):
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import reeds
+        RC = reeds.classify(P8, idx, idx_of)
+        reed_px = ndimage.binary_dilation(RC["reed"], iterations=2)
+        before = int(tuft_px.sum())
+        tuft_px = tuft_px & ~reed_px
+        rep["reed_split"] = dict(RC["counts"], heather_tuft_px=[before, int(tuft_px.sum())],
+                                 _="tuft px [before, after] the reed tufts (dilated 2 px) are taken out of the heather's cover")
     # the painting's light (paint_world_prep.py:173-182)
     LG = s2l(np.asarray(Image.open(LIT).convert("RGB")).astype(np.float64) / 255.0)
     assert LG.shape[:2] == (H, W)

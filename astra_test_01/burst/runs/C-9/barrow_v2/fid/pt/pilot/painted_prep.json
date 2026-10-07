@@ -13,6 +13,20 @@
   "PASS": true,
   "_": "[this run, step 3's take_report] -- the same classifier on the same painting"
  },
+ "reed_split": {
+  "straw_components": 2490,
+  "reed_components": 511,
+  "heather_components": 1979,
+  "of_which_tips_by_proximity": 222,
+  "reed_px": 35953,
+  "heather_tip_px": 88379,
+  "reed_cards": 31,
+  "heather_tuft_px": [
+   457641,
+   427950
+  ],
+  "_": "tuft px [before, after] the reed tufts (dilated 2 px) are taken out of the heather's cover"
+ },
  "shadow": {
   "painted_shadow_over_painted_light_linear": [
    0.5061,
@@ -33,7 +47,7 @@
   },
   "pixels": {
    "shadow": 18081,
-   "lit": 2890744
+   "lit": 2904993
   },
   "per_chunk_linear": {
    "1_0": [
@@ -42,7 +56,7 @@
     0.855
    ],
    "2_0": [
-    0.606,
+    0.611,
     0.701,
     0.94
    ],
@@ -80,7 +94,7 @@
      54.9,
      64.8
     ],
-    "tuft_cells_covered_share": 0.2285
+    "tuft_cells_covered_share": 0.2286
    },
    "heather": {
     "placed": 236,
@@ -89,38 +103,38 @@
      47.1,
      55.5
     ],
-    "tuft_cells_covered_share": 0.3708
+    "tuft_cells_covered_share": 0.3686
    }
   },
   "painted_mean_linear": [
-   0.24599,
-   0.121,
-   0.0583
+   0.23683,
+   0.11212,
+   0.05207
   ],
   "painted_mean_srgb": [
-   136,
-   98,
-   68
+   134,
+   94,
+   65
   ],
   "rel_mul_p10_p50_p90": [
    [
-    0.591,
-    0.976,
-    1.222
+    0.614,
+    1.015,
+    1.183
    ],
    [
-    0.736,
-    0.896,
+    0.795,
+    0.967,
+    1.211
+   ],
+   [
+    0.704,
+    0.968,
     1.248
-   ],
-   [
-    0.629,
-    0.89,
-    1.319
    ]
   ],
-  "tuft_px_per_spray_median": 1194,
-  "tufts_on_flat_land_share": 0.6678
+  "tuft_px_per_spray_median": 1216,
+  "tufts_on_flat_land_share": 0.7011
  },
  "snow": {
   "area_xz": [

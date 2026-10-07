@@ -49,13 +49,18 @@ static func terrain_code(code: String) -> String:
 	assert(code.count("uniform float floor_y;\n") == 1, "snow terrain: floor_y uniform not found once")
 	assert(code.count("\tVERTEX.y += h;\n") == 1, "snow terrain: the vertex lift not found once")
 	code = code.replace("uniform float floor_y;\n", "uniform float floor_y;\nuniform sampler2D ground_h_tex : filter_linear, repeat_disable;   // BV2F-PT DEV-18\nuniform float ground_h_on = 0.0;   // BV2F-PT DEV-18\n")
-	code = code.replace("\tVERTEX.y += h;\n", "\tVERTEX.y += h + ground_h_on * texture(ground_h_tex, UV).r;   // BV2F-PT DEV-18\n")
+	# R-C9-205 (3): the ground height is taken ONCE, at the vertex, and carried to the fragment (v_gh) -- the projection
+	# below used to re-sample the grid per fragment (bilinear), which on a steep bank is not the height the triangle was
+	# lifted to (piecewise linear between vertices): the paint was then read off the wrong height (white wavy streaks,
+	# tents round the bank's tufts -- M2' slopes sheet)
+	code = code.replace("uniform float ground_h_on = 0.0;   // BV2F-PT DEV-18\n", "uniform float ground_h_on = 0.0;   // BV2F-PT DEV-18\nvarying float v_gh;   // BV2F-PT R-C9-205\n")
+	code = code.replace("\tVERTEX.y += h;\n", "\tv_gh = ground_h_on * textureLod(ground_h_tex, UV, 0.0).r;   // BV2F-PT R-C9-205\n\tVERTEX.y += h + v_gh;   // BV2F-PT DEV-18\n")
 	# THE PAINTED SNOW (PaintedWorld.snow_shader_code) projects the painting at the UNDISTURBED surface,
 	# floor_y + D: on the terrain that surface is the ground height higher -- else the paint is sampled
 	# h x 60.6 px too low on every slope (seen as streaks on the stream banks and the mound flank)
 	var und := "guide_uv(vec3(v_world.x, floor_y + D, v_world.z))"
 	if code.count(und) == 1:   # the painted path only (v1's SHADER has no projection)
-		code = code.replace(und, "guide_uv(vec3(v_world.x, floor_y + D + ground_h_on * texture(ground_h_tex, v_uv).r, v_world.z))")   # BV2F-PT DEV-18
+		code = code.replace(und, "guide_uv(vec3(v_world.x, floor_y + D + v_gh, v_world.z))")   # BV2F-PT DEV-18 / R-C9-205: the vertex's own ground height
 	return code
 
 

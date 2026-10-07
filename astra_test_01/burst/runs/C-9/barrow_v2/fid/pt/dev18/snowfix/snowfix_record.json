@@ -1,0 +1,16 @@
+{
+ "_what": "R-C9-205 (3): DEV-18 snow artifacts fix -- pilot_03 (knight_uv [-9.6137,14.9608]), 1920x1080 stills (pt_pilot_stills.gd)",
+ "cause": "the painted snow's projection re-sampled the ground-height grid per fragment (bilinear), not the height the vertex was lifted to (piecewise linear): on steep bank cells the paint was read off the wrong height -> tents / wavy streaks",
+ "fix": "snow_field_terrain.gd: ground height taken once at the vertex, carried as varying v_gh to the projection",
+ "before_vs_snowfix_only": {
+  "px_changed_gt24": 14150,
+  "share": 0.0068,
+  "inside_bank_box_px": 5398,
+  "outside_px": 8752,
+  "_outside": "heather tips and snowflakes (wind/snowfall frame noise); open snow, ice, stones unchanged"
+ },
+ "snowfix_vs_full_after_px_gt24": 56956,
+ "_full": "the reed split re-places heather off the straw (one plant per tuft) + 31 reed cards",
+ "visible_reed_card_px_probe": 3812,
+ "isolation": "after renders in an APFS clone with HEAD bv2f_level.gd and the pilot's pinned level (LV's art/ level and bv2f_level.gd are being rebuilt in place)"
+}

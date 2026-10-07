@@ -7,9 +7,10 @@ No v1 reed or grass CARD exists in barrow_full (its only grass is R-C9-158's con
 heather-card mechanism is reused, so the reeds cost 0 images: the card IS the painted reed, at the painting's own scale
 (no resampling: a tuft wider or taller than a tile is not a card).
 
-WHICH TUFTS. Straw (Lab: 32 < L* < 90, b* > 12, a* < 12 -- straw-gold, not rust; a heather clump's lit tips can
-pass it, hence the dark-ring test) on LAND ids, within NEAR_M of the mere / stream ids; closed 2 px; a component is a tuft when it is 80-6000 px,
-at most TILE-2 px each way, not cut by the frame, at least 55% straw, its 6 px ring at most 12% dark (L* < 30: a heather clump's body -- its lit tips pass the straw colour). Its base = the mean x of its bottom 3 px rows.
+WHICH TUFTS: classify() below -- one plant per painted tuft (R-C9-205 ruling 1). Straw (Lab: 32 < L* < 90, b* > 12,
+a* < 12) on LAND ids within NEAR_M of the mere / stream ids, closed 2 px; each component is reed or heather (a clump's
+dark body or rust round it, or its lit tips); bv2f_prep.py (cfg "reed_split") takes every reed tuft out of the heather.
+A reed tuft is a card at 80-20000 px that fits a TILE; its base = the mean x of its bottom 3 px rows.
 ALPHA (v1's rule): 1 on the tuft, 0 on snow (bright and low-chroma, or the blue of snow / ice in shadow), a 1 px
 half-alpha feather where not snow.
 OUT (into the painted data dir): reeds_atlas.bin (the atlas's PNG bytes, as every painted texture ships) + reeds.json
@@ -33,9 +34,11 @@ PPM = 100.617553710938
 PITCH = math.radians(52.95354112560294)
 PXV, PXH = PPM * math.sin(PITCH), PPM * math.cos(PITCH)
 C47, S47 = math.cos(math.radians(47.0)), math.sin(math.radians(47.0))
-TILE = 128
+TILE = 192
 NEAR_M = 2.5
-DARK_RING_MAX = 0.12
+DARK_RING_MAX = 0.20
+RUST_MAX, RUST_A, TIP_PX, TIP_SEED_PX = 0.10, 16, 8, 40
+MIN_AREA, MAX_AREA = 80, 20000
 STRAW_L, STRAW_B, STRAW_A, DARK_L = (32, 90), 12, 12, 30
 WATER_IDS = ["ground_ice", "ground_stream"]
 LAND_IDS = ["ground_snow", "ground_shrub", "ground_mound", "ground_path"]
@@ -63,15 +66,14 @@ def xz_of_uv(u, v):            # bv2f_prep.py (paint_world_prep.py:83)
     return u * C47 - v * S47, -u * S47 - v * C47
 
 
-def main():
-    P8 = np.asarray(Image.open(P_(CFG["painting"])).convert("RGB"))
-    assert P8.shape[:2] == (H, W)
-    IDS = json.load(open(P_(CFG["ids_dir"]) + "/ids.json"))
-    ID8 = np.asarray(Image.open(P_(CFG["ids_dir"]) + "/ids.png").convert("RGB")).astype(np.int32)
-    is_pl = ID8[..., 2] > 100
-    idx = np.where(is_pl, np.clip(np.round((ID8[..., 1] - 8) / 16.0), 0, 15).astype(np.int32) * 16
-                   + np.clip(np.round((ID8[..., 0] - 8) / 16.0), 0, 15).astype(np.int32), 0)
-    idx_of = {v["id"]: int(k) for k, v in IDS["placements"].items()}
+def classify(P8, idx, idx_of):
+    """ONE PLANT PER PAINTED TUFT (R-C9-205 ruling 1): every straw component in the mere / stream edge zone is REED or
+    HEATHER, decided once, here; bv2f_prep.py (cfg "reed_split") takes the reed tufts out of the heather's cover and
+    this tool cards them. Heather: a component whose 6 px ring is > DARK_RING_MAX dark (L* < DARK_L: a clump's body) or
+    whose body + ring is > RUST_MAX rust (a* >= RUST_A, b* > 13), or that lies within TIP_PX of such a component of >= TIP_SEED_PX px (a
+    clump's lit sprig tips). Every other straw component is reed; a reed tuft is a CARD when it is MIN_AREA..MAX_AREA px,
+    fits a tile, is not cut by the frame and is >= 55% straw."""
+    Hh, Ww = P8.shape[:2]
     water = np.isin(idx, [idx_of[i] for i in WATER_IDS if i in idx_of])
     land = np.isin(idx, [idx_of[i] for i in LAND_IDS if i in idx_of])
     near = ndimage.distance_transform_edt(~water) <= NEAR_M * PPM
@@ -81,8 +83,73 @@ def main():
     straw = (l > STRAW_L[0]) & (l < STRAW_L[1]) & (bb > STRAW_B) & (aa < STRAW_A)
     snow = ((l > 74) & (c < 17)) | ((l > 52) & (bb < -3) & (c < 22))
     dark = (l < DARK_L) & land
-    reg = straw & land & near
-    reg = ndimage.binary_closing(reg, iterations=2) & land & near & ~snow
+    rust = (aa >= RUST_A) & (bb > 13)
+    reg = ndimage.binary_closing(straw & land & near, iterations=2) & land & near & ~snow
+    lab_r, n = ndimage.label(reg)
+    objs = ndimage.find_objects(lab_r)
+    kind = np.zeros(n + 1, np.int8)            # 1 reed, 2 heather
+    for i, sl in enumerate(objs, start=1):
+        if sl is None:
+            continue
+        m = lab_r[sl] == i
+        y0r, y1r = max(sl[0].start - 6, 0), min(sl[0].stop + 6, Hh)
+        x0r, x1r = max(sl[1].start - 6, 0), min(sl[1].stop + 6, Ww)
+        big = np.zeros((y1r - y0r, x1r - x0r), bool)
+        big[sl[0].start - y0r:sl[0].stop - y0r, sl[1].start - x0r:sl[1].stop - x0r] = m
+        ring = ndimage.binary_dilation(big, iterations=6) & ~big
+        dk = float(dark[y0r:y1r, x0r:x1r][ring].mean()) if ring.any() else 1.0
+        rs = float(rust[y0r:y1r, x0r:x1r][ring | big].mean())
+        kind[i] = 2 if (dk > DARK_RING_MAX or rs > RUST_MAX) else 1
+    # a clump's tips are found from its own straw-coloured parts big enough to be a clump (a 1-20 px speck classed
+    # heather by its ring would otherwise spread "tips" across the bank)
+    sizes = np.bincount(lab_r.ravel(), minlength=n + 1)
+    heath = (kind[lab_r] == 2) & (sizes[lab_r] >= TIP_SEED_PX)
+    near_h = ndimage.binary_dilation(heath, iterations=TIP_PX)
+    tips = 0
+    for i, sl in enumerate(objs, start=1):
+        if sl is not None and kind[i] == 1 and (near_h[sl] & (lab_r[sl] == i)).any():
+            kind[i] = 2
+            tips += 1
+    reed = kind[lab_r] == 1
+    cards, rej = [], {"area": 0, "size": 0, "frame": 0, "straw_share": 0}
+    for i, sl in enumerate(objs, start=1):
+        if sl is None or kind[i] != 1:
+            continue
+        m = lab_r[sl] == i
+        area = int(m.sum())
+        h_px, w_px = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
+        if area < MIN_AREA or area > MAX_AREA:
+            rej["area"] += 1
+            continue
+        if w_px + 4 > TILE - 2 or h_px + 4 > TILE - 2 or w_px < 6 or h_px < 8:
+            rej["size"] += 1
+            continue
+        if sl[0].start <= 3 or sl[1].start <= 3 or sl[0].stop >= Hh - 3 or sl[1].stop >= Ww - 3:
+            rej["frame"] += 1
+            continue
+        ss = float(straw[sl][m].mean())
+        if ss < 0.55:
+            rej["straw_share"] += 1
+            continue
+        cards.append({"i": i, "sl": sl, "area": area, "straw": ss})
+    cards.sort(key=lambda d: (d["sl"][0].start, d["sl"][1].start))
+    return {"lab": lab_r, "components": int(n), "reed": reed, "heather_tips": kind[lab_r] == 2, "cards": cards,
+            "rejected": rej, "snow": snow, "counts": {"straw_components": int(n), "reed_components": int((kind == 1).sum()),
+            "heather_components": int((kind == 2).sum()), "of_which_tips_by_proximity": tips,
+            "reed_px": int(reed.sum()), "heather_tip_px": int((kind[lab_r] == 2).sum()), "reed_cards": len(cards)}}
+
+
+def main():
+    P8 = np.asarray(Image.open(P_(CFG["painting"])).convert("RGB"))
+    assert P8.shape[:2] == (H, W)
+    IDS = json.load(open(P_(CFG["ids_dir"]) + "/ids.json"))
+    ID8 = np.asarray(Image.open(P_(CFG["ids_dir"]) + "/ids.png").convert("RGB")).astype(np.int32)
+    is_pl = ID8[..., 2] > 100
+    idx = np.where(is_pl, np.clip(np.round((ID8[..., 1] - 8) / 16.0), 0, 15).astype(np.int32) * 16
+                   + np.clip(np.round((ID8[..., 0] - 8) / 16.0), 0, 15).astype(np.int32), 0)
+    idx_of = {v["id"]: int(k) for k, v in IDS["placements"].items()}
+    C = classify(P8, idx, idx_of)
+    lab_r, cands, rej, snow, n = C["lab"], C["cards"], C["rejected"], C["snow"], C["components"]
     # the ground under each base: DEV-18's ray / heightfield fixed point (bv2f_prep.py, heather_on_terrain)
     Lv = json.load(open(P_(CFG["flat"]["level"])))
     hf = Lv["sim"]["heightfield"]
@@ -92,40 +159,6 @@ def main():
     def ground_h(u_, v_):
         return float(Hf[int(np.clip((-v_ - ex["y0"]) * hf["px_per_m"], 0, Hf.shape[0] - 1)),
                         int(np.clip((u_ - ex["x0"]) * hf["px_per_m"], 0, Hf.shape[1] - 1))])
-    lab_r, n = ndimage.label(reg)
-    cands, rej = [], {"area": 0, "size": 0, "frame": 0, "straw_share": 0, "heather_body": 0}
-    for i, sl in enumerate(ndimage.find_objects(lab_r), start=1):
-        if sl is None:
-            continue
-        m = lab_r[sl] == i
-        area = int(m.sum())
-        h_px, w_px = sl[0].stop - sl[0].start, sl[1].stop - sl[1].start
-        if area < 80 or area > 6000:
-            rej["area"] += 1
-            continue
-        if w_px + 4 > TILE - 2 or h_px + 4 > TILE - 2 or w_px < 6 or h_px < 8:
-            rej["size"] += 1
-            continue
-        if sl[0].start <= 3 or sl[1].start <= 3 or sl[0].stop >= H - 3 or sl[1].stop >= W - 3:
-            rej["frame"] += 1
-            continue
-        ss = float(straw[sl][m].mean())
-        if ss < 0.55:
-            rej["straw_share"] += 1
-            continue
-        # NOT A HEATHER CLUMP'S LIT TIPS: a reed tuft stands in snow / on rock; heather's pale sprig tips sit on the
-        # clump's dark body (L* < 42) -- a tuft whose 6 px ring is more than DARK_RING_MAX dark is heather, not reed
-        y0r, y1r = max(sl[0].start - 6, 0), min(sl[0].stop + 6, H)
-        x0r, x1r = max(sl[1].start - 6, 0), min(sl[1].stop + 6, W)
-        big = np.zeros((y1r - y0r, x1r - x0r), bool)
-        big[sl[0].start - y0r:sl[0].stop - y0r, sl[1].start - x0r:sl[1].stop - x0r] = m
-        ring = ndimage.binary_dilation(big, iterations=6) & ~big
-        dk = float(dark[y0r:y1r, x0r:x1r][ring].mean()) if ring.any() else 1.0
-        if dk > DARK_RING_MAX:
-            rej["heather_body"] += 1
-            continue
-        cands.append({"i": i, "sl": sl, "area": area, "straw": ss})
-    cands.sort(key=lambda d: (d["sl"][0].start, d["sl"][1].start))
     acc = np.isin(lab_r, [d["i"] for d in cands])
     cols = 16
     nrow = max((len(cands) + cols - 1) // cols, 1)
@@ -163,9 +196,9 @@ def main():
                      round(below_m, 4)] + [round(q, 6) for q in uvr])
         tiles.append({"src_box_px": [int(x0), int(y0), int(x1), int(y1)], "area_px": d["area"],
                       "straw_share": round(d["straw"], 3), "foot_px": [round(bx_px, 1), round(by_px, 1)]})
-    # the heather's 3D sprays that stand on these tufts (prep's heather classifier also passes straw): measured, stated
+    # the heather's 3D sprays that stand on reed tufts: 0 once prep runs with "reed_split" (measured, stated)
     hj = json.load(open(os.path.join(OUT, "heather.json")))
-    reg_d = ndimage.binary_dilation(acc, iterations=6)
+    reg_d = ndimage.binary_dilation(C["reed"], iterations=6)
     on_reed = 0
     for r in hj["rows"]:
         u = (r[0] * C47 - r[1] * S47)
@@ -176,9 +209,7 @@ def main():
         if 0 <= px < W and 0 <= py < H and reg_d[int(py), int(px)]:
             on_reed += 1
     rep = {"_what": "BV2F PT DEV-21: the reeds (fid/pt/tools/reeds.py)", "painting_sha256": sha_file(P_(CFG["painting"])),
-           "tufts": len(rows), "components": int(n), "rejected": rej, "reed_px": int(acc.sum()), "candidate_px": int(reg.sum()),
-           "straw_px_near_water_on_land": int((straw & land & near).sum()),
-           "heather_sprays_standing_on_reed_tufts": [on_reed, len(hj["rows"])],
+           "tufts": len(rows), "components": int(n), "split": C["counts"], "rejected": rej, "reed_px": int(acc.sum()),            "heather_sprays_standing_on_reed_tufts": [on_reed, len(hj["rows"])],
            "atlas_px": [int(atlas.shape[1]), int(atlas.shape[0])],
            "h_m": [round(float(np.min([r[4] for r in rows])), 3), round(float(np.max([r[4] for r in rows])), 3)] if rows else None,
            "ground_h_m": [round(float(np.min([r[2] for r in rows])), 3), round(float(np.max([r[2] for r in rows])), 3)] if rows else None,

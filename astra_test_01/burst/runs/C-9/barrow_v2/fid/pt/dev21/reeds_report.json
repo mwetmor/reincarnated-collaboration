@@ -1,29 +1,35 @@
 {
  "_what": "BV2F PT DEV-21: the reeds (fid/pt/tools/reeds.py)",
  "painting_sha256": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03",
- "tufts": 29,
+ "tufts": 31,
  "components": 2490,
- "rejected": {
-  "area": 2340,
-  "size": 7,
-  "frame": 3,
-  "straw_share": 54,
-  "heather_body": 57
+ "split": {
+  "straw_components": 2490,
+  "reed_components": 511,
+  "heather_components": 1979,
+  "of_which_tips_by_proximity": 222,
+  "reed_px": 35953,
+  "heather_tip_px": 88379,
+  "reed_cards": 31
  },
- "reed_px": 12117,
- "candidate_px": 124332,
- "straw_px_near_water_on_land": 85402,
+ "rejected": {
+  "area": 468,
+  "size": 0,
+  "frame": 3,
+  "straw_share": 9
+ },
+ "reed_px": 28686,
  "heather_sprays_standing_on_reed_tufts": [
-  4,
+  0,
   266
  ],
  "atlas_px": [
-  2048,
-  256
+  3072,
+  384
  ],
  "h_m": [
   0.139,
-  1.222
+  1.431
  ],
  "ground_h_m": [
   0.0,
@@ -60,6 +66,34 @@
   },
   {
    "src_box_px": [
+    2366,
+    54,
+    2539,
+    198
+   ],
+   "area_px": 6858,
+   "straw_share": 0.733,
+   "foot_px": [
+    2371.5,
+    196.0
+   ]
+  },
+  {
+   "src_box_px": [
+    2532,
+    56,
+    2685,
+    163
+   ],
+   "area_px": 4613,
+   "straw_share": 0.764,
+   "foot_px": [
+    2559.6,
+    161.0
+   ]
+  },
+  {
+   "src_box_px": [
     2639,
     95,
     2675,
@@ -84,20 +118,6 @@
    "foot_px": [
     1105.7,
     128.0
-   ]
-  },
-  {
-   "src_box_px": [
-    1167,
-    118,
-    1209,
-    148
-   ],
-   "area_px": 404,
-   "straw_share": 0.671,
-   "foot_px": [
-    1188.3,
-    146.0
    ]
   },
   {
@@ -140,6 +160,20 @@
    "foot_px": [
     2544.6,
     187.0
+   ]
+  },
+  {
+   "src_box_px": [
+    2403,
+    171,
+    2537,
+    300
+   ],
+   "area_px": 5336,
+   "straw_share": 0.742,
+   "foot_px": [
+    2462.0,
+    298.0
    ]
   },
   {
@@ -284,20 +318,6 @@
   },
   {
    "src_box_px": [
-    2659,
-    1230,
-    2679,
-    1255
-   ],
-   "area_px": 137,
-   "straw_share": 0.555,
-   "foot_px": [
-    2670.8,
-    1253.0
-   ]
-  },
-  {
-   "src_box_px": [
     2801,
     1279,
     2822,
@@ -382,20 +402,6 @@
   },
   {
    "src_box_px": [
-    1996,
-    1333,
-    2020,
-    1350
-   ],
-   "area_px": 84,
-   "straw_share": 0.643,
-   "foot_px": [
-    2003.4,
-    1348.0
-   ]
-  },
-  {
-   "src_box_px": [
     2348,
     1366,
     2374,
@@ -424,6 +430,34 @@
   },
   {
    "src_box_px": [
+    2272,
+    1408,
+    2295,
+    1429
+   ],
+   "area_px": 86,
+   "straw_share": 0.651,
+   "foot_px": [
+    2277.0,
+    1427.0
+   ]
+  },
+  {
+   "src_box_px": [
+    2088,
+    1413,
+    2121,
+    1446
+   ],
+   "area_px": 301,
+   "straw_share": 0.718,
+   "foot_px": [
+    2112.0,
+    1444.0
+   ]
+  },
+  {
+   "src_box_px": [
     2151,
     1442,
     2190,
@@ -437,6 +471,6 @@
    ]
   }
  ],
- "atlas_sha256": "254cf41d30c23e300e42970288bf2e23318c12f86860e8c3cd6ee725674d3ee1",
- "json_sha256": "c3dbbd200535eaac0fcf68ec41beb763002b193a54e4aee745cbf72853aa8eb3"
+ "atlas_sha256": "bff8e93d5de04aae305b2911b4c14b6f0179ff7c7dd230b1af89577dee8df696",
+ "json_sha256": "6ab2ad48569f10ff9856d43b479dd2e57b36a91da85bdc53c92e506b74dbbd13"
 }

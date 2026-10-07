@@ -25,6 +25,15 @@ const SNOW_TERRAIN := preload("res://scripts/bv2f/snow_field_terrain.gd")   # BV
 const PT_WATER := preload("res://scripts/bv2f/pt_water.gd")   # BV2F-PT DEV-5
 
 
+## R-C9-205: the pilot reads ITS OWN level, pinned -- data/bv2f/pilot/level/ = LV's art level as the pilot was painted
+## over (level.json sha c861f9092f23, terrain_h 2d9fbf243d77); LV's data/bv2f/art/ is being rebuilt in place
+const PILOT_LEVEL_DIR := "res://data/bv2f/pilot/level/"
+
+
+func _init() -> void:
+	BV2F_DATA = PILOT_LEVEL_DIR
+
+
 func _pilot_window() -> Dictionary:
 	var p := deg_to_rad(PaintedWorld.PITCH_DEG)
 	var w := PILOT_PX.x / PPM
