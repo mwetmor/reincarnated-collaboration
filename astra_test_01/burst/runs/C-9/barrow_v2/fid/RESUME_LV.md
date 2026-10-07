@@ -101,3 +101,11 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
   - cliff_faces moved out of the terrain face. Outcrops 3, 6, 7, 9, 12 and 13 dropped: centre outside the paint envelope (`layout_v7c.json` `v7c_r178`).
   - Check (a): one faces-camera rule (`lv_openings.faces_camera`); the probe numbers stand (hall door 6.35 m²; PH's 8.22 is the curtain box).
   - Guide/ID re-rendered (43 ids), check (a) 6/6, validator 66/66, v7c stills and M1 sheets refreshed. Next: PH re-measure.
+- [x] R-C9-180 W2: `lv/placed_fit_v7c.json`, from `barrow_full/godot/tools/bv2f/export_fit.gd` with `BV2F_VARIANT=v7c`.
+  - Contents: per-instance fit scale and anisotropy (max/min axis), plus each instance's scene footprint and height, for PH's P6′. The level now tags every placement with `bv2f_fit` metadata.
+  - Honest anisotropy: the kit-v3 heroes are 1.00. These exceed 1.10, all v6-era per-axis fits that Phase 1 left unchanged:
+    - circle stones 1.7–4.6; standing stones 2.1–2.4; grave markers 1.98;
+    - outcrops 1.15–1.77, except outcrop 14 at 1.08;
+    - beams: palisade 8.9–14.1, logs 4.5–10.1.
+  - Placements unchanged until P6′.
+- [x] W4: `lv/M1/M1_cover.jpg` (`lv/tools/lv_m1_cover.py "<P6' text>"` refills the slot) + README top.

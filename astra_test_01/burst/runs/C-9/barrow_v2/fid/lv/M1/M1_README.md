@@ -1,3 +1,16 @@
+# M1 cover (`M1_cover.jpg`, one phone screen): three asks
+
+1. **Which layout?** Recommended: **v7c**.
+   - v7c passes check (a): all six openings are visible.
+   - v7c separates the fallen gable again as its own ruin. This reverses the merged hall Matt saw after R-C9-148.
+   - v7b is **comparison only**: it fails check (a).
+2. **The burnt hall: open sides?** Recommended: **keep the ruin closed-sided except the one declared great door**, so there are no false entrances.
+3. **The walk:** Recommended: the **.command on the Mac now**. A packaged .app can come later.
+
+P6′ result: _PENDING (PH re-measure on `fid/lv/placed_fit_v7c.json`)_.
+
+---
+
 # M1 packet: barrow_v2 layout v7c (RECOMMENDED), with v7b for comparison (BV2F lane LV, Phase 1, R-C9-177)
 
 - `M1_stills_A.jpg` — stills 01–04 of v7c at v1's play camera and zoom, each framed on its hero object with him on the disc edge for scale, beside sketch A (not to scale): the start, the wreck, the barrow door, the sea cave.

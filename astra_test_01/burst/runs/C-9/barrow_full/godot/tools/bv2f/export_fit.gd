@@ -1,0 +1,58 @@
+extends SceneTree
+## BV2F LV (R-C9-180 W2): every PLACED model instance of the level, as built -- its per-axis fit scale (bv2f_level.gd
+## _place_box fits each model's AABB to its slot PER AXIS), the anisotropy (max/min axis scale), and its own scene
+## footprint (convex hull of its vertices in the sim frame, x east / y south) + height (z min/max).
+##   BV2F_VARIANT=v7c Godot --path godot --script tools/bv2f/export_fit.gd -- <out.json>
+func _initialize() -> void:
+	var out_p := OS.get_cmdline_user_args()[0]
+	var vp := SubViewport.new()
+	vp.size = Vector2i(320, 180)
+	vp.own_world_3d = true
+	root.add_child(vp)
+	var scene = load("res://scenes/bv2f_barrow_v2.tscn").instantiate()
+	scene.skip_character = true
+	vp.add_child(scene)
+	var w := 0
+	while not scene.ready_done and w < 1500:
+		await process_frame
+		w += 1
+	var inv: Transform3D = scene.level.global_transform.affine_inverse()
+	var rows := []
+	for n in scene.level.find_children("*", "Node3D", true, false):
+		if not (n as Node).has_meta("bv2f_fit"):
+			continue
+		var meta: Dictionary = (n as Node).get_meta("bv2f_fit")
+		var pts := PackedVector2Array()
+		var zlo := INF
+		var zhi := -INF
+		for mi in (n as Node).find_children("*", "MeshInstance3D", true, false):
+			var m := mi as MeshInstance3D
+			if String(m.name).ends_with("_ink") or m.mesh == null:
+				continue
+			var xf: Transform3D = inv * m.global_transform
+			for si in m.mesh.get_surface_count():
+				var vs: PackedVector3Array = m.mesh.surface_get_arrays(si)[Mesh.ARRAY_VERTEX]
+				for k in range(0, vs.size(), 3):
+					var p: Vector3 = xf * vs[k]
+					pts.append(Vector2(p.x, p.z))
+					zlo = minf(zlo, p.y)
+					zhi = maxf(zhi, p.y)
+		var hull := Geometry2D.convex_hull(pts)
+		var hp := []
+		for q in hull:
+			hp.append([snappedf(q.x, 0.001), snappedf(q.y, 0.001)])
+		var sc: Array = meta["fit_scale_xyz"]
+		var mx := maxf(float(sc[0]), maxf(float(sc[1]), float(sc[2])))
+		var mn := minf(float(sc[0]), minf(float(sc[1]), float(sc[2])))
+		var row := meta.duplicate()
+		row["anisotropy_max_over_min"] = snappedf(mx / maxf(mn, 1e-9), 0.0001)
+		row["scene_footprint_sim_xy"] = hp
+		row["z_min_m"] = snappedf(zlo, 0.001)
+		row["z_max_m"] = snappedf(zhi, 0.001)
+		row["height_m"] = snappedf(zhi - zlo, 0.001)
+		rows.append(row)
+	var f := FileAccess.open(out_p, FileAccess.WRITE)
+	f.store_string(JSON.stringify({"variant": OS.get_environment("BV2F_VARIANT"), "instances": rows}, " "))
+	f.close()
+	print("[export_fit] %d instances -> %s" % [rows.size(), out_p])
+	quit(0)

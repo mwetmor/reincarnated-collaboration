@@ -266,6 +266,8 @@ func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, 
 	holder.name = id
 	var sc := Vector3(size.x / maxf(ab.size.x, 1e-3), size.y / maxf(ab.size.y, 1e-3), size.z / maxf(ab.size.z, 1e-3))
 	holder.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(yaw_deg)) * Basis.from_scale(sc), _S(pos.x, z, pos.y))
+	holder.set_meta("bv2f_fit", {"slot": group if group != "" else id, "instance": id, "kind": "box", "fit_scale_xyz": [sc.x, sc.y, sc.z],
+		"model_aabb_m": [ab.size.x, ab.size.y, ab.size.z], "slot_size_m": [size.x, size.y, size.z]})
 	model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
 	holder.add_child(model)
 	if group != "":
@@ -306,6 +308,10 @@ func _place_beam(id: String, cls: String, model: Node3D, a: Vector3, b: Vector3,
 		cols[others[1]] = yy * (th / maxf(ab.size[others[1]], 1e-3))
 		holder.transform = Transform3D(Basis(cols[0], cols[1], cols[2]), (a + b) / 2.0)
 		model.position = -(ab.position + ab.size / 2.0)
+	var bs := holder.transform.basis
+	holder.set_meta("bv2f_fit", {"slot": group if group != "" else id, "instance": id, "kind": "beam" if not fit_height else "beam_fit_height",
+		"fit_scale_xyz": [bs.x.length(), bs.y.length(), bs.z.length()], "model_aabb_m": [ab.size.x, ab.size.y, ab.size.z],
+		"slot_size_m": [th, (b - a).length(), th]})
 	holder.add_child(model)
 	if group != "":
 		_group(group, cls).add_child(holder)
