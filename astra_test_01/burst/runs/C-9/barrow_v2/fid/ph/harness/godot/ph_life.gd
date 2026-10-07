@@ -16,7 +16,8 @@ var mode := ""
 var out_dir := ""
 var view := ""
 var no_wind := false
-var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
+var floe_red := false
+var floe_pairs := 1        # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
 var burn_ms := 0.0
 var vp: SubViewport
 var rep := {}
@@ -30,6 +31,8 @@ func _initialize() -> void:
 	view = a[3]
 	no_wind = a.has("--no-wind")
 	floe_red = a.has("--floe-red")
+	if a.has("--floe-pairs"):
+		floe_pairs = int(a[a.find("--floe-pairs") + 1])
 	if a.has("--burn-ms"):
 		burn_ms = float(a[a.find("--burn-ms") + 1])
 	DirAccess.make_dir_recursive_absolute(out_dir)
@@ -166,8 +169,19 @@ func _life() -> void:
 					continue
 				saved[m] = [m.get_shader_parameter("paint_tex"), m.shader]
 				m.set_shader_parameter("paint_tex", chk)
+				# R-C9-197: the marker is drawn DEPTH-TEST-OFF, unshaded, in the transparent pass (after the opaque sea), so
+				# the waterline cannot occlude the bobbing silhouette; geometry, bob and UV law are untouched
+				var code: String = m.shader.code
+				var rm := "render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled;"
+				assert(code.count(rm) == 1)
+				code = code.replace(rm, "render_mode ambient_light_disabled, specular_disabled, cull_back, fog_disabled, depth_test_disabled, unshaded;")
+				var fr := "	ROUGHNESS = painted_mark;\n"
+				assert(code.count(fr) == 1)
+				code = code.replace(fr, fr + "	ALPHA = 1.0;\n")
+				var shm := Shader.new()
+				shm.code = code
+				m.shader = shm
 				if floe_red:
-					var code: String = m.shader.code
 					var vw := "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;\n"
 					var bob := "vec3(0.03 * sin(TIME * 0.5 + bob_phase * 6.2831), 0.035 * sin(TIME * 0.9 + bob_phase * 6.2831) + 0.015 * sin(TIME * 2.1 + bob_phase * 6.2831 * 1.7), 0.03 * cos(TIME * 0.43 + bob_phase * 6.2831))"
 					assert(code.count(vw) == 1)
@@ -176,9 +190,13 @@ func _life() -> void:
 					m.shader = sh
 			rep["floes_pilot"] = {"meshes": fl.size(), "materials": saved.size(), "floe_red": floe_red}
 			await _settle()
-			await _shot("floe_m0")
-			await _wait_s(0.5)
-			await _shot("floe_m1")
+			for k in floe_pairs:
+				var sfx := "" if k == 0 else "_%d" % k
+				if k > 0:
+					await _wait_s(0.7)
+				await _shot("floe_m0" + sfx)
+				await _wait_s(0.5)
+				await _shot("floe_m1" + sfx)
 			for m in saved:
 				m.set_shader_parameter("paint_tex", saved[m][0])
 				m.shader = saved[m][1]

@@ -744,3 +744,36 @@ def p9c_selftest():
                 row[nm] = r["median_drift_px"]
             out.append(row)
     return out
+
+
+def plate_rect_on_screen(view_uv, size=(1920, 1080)):
+    """the screen rect showing plate px [0, W) x [0, H) at ground z = 0, for ph_life's play camera parked on view_uv
+    (1:1 plate px per screen px; the aim at the screen centre)"""
+    env = jload(GA / "guide_manifest.json")["envelope"]
+    cx = (view_uv[0] - env["u"][0]) * PPM_V1
+    cy = (env["v"][1] - view_uv[1]) * 80.3076
+    x0, y0 = size[0] / 2 - cx, size[1] / 2 - cy
+    return (max(0, int(math.ceil(x0))), max(0, int(math.ceil(y0))), min(size[0], int(x0 + W)), min(size[1], int(y0 + H)))
+
+
+def p9c_measure(dirp, view_uv, margin=12):
+    """R-C9-197 pre-registered P9c reading (calibration.md § 31): every marker pair in dirp; floes wholly inside the plate's
+    screen rect (margin px); per pair the median floe drift; the statistic = the median over pairs"""
+    x0, y0, x1, y1 = plate_rect_on_screen(view_uv)
+    valid = (x0 + margin, y0 + margin, x1 - margin, y1 - margin)
+    pairs = sorted({p.name[len("floe_m0"):-4] for p in pathlib.Path(dirp).glob("floe_m0*.png")})
+    import shutil
+    import tempfile
+    rows = []
+    for sfx in pairs:
+        with tempfile.TemporaryDirectory() as td:
+            for a, b in (("floe_m0", "floe_m0"), ("floe_m1", "floe_m1"), ("hide_floe", "hide_floe")):
+                src = pathlib.Path(dirp) / ((a + sfx if a != "hide_floe" else a) + ".png")
+                shutil.copy(src, pathlib.Path(td) / (b + ".png"))
+            r = floe_drift_v2(pathlib.Path(td), valid=valid)
+        rows.append({"pair": sfx or "_0", "floes": r["floes_measured"], "median_drift_px": r["median_drift_px"],
+                     "median_motion_px": r["median_motion_px"], "rows": r["rows"]})
+    d = [r["median_drift_px"] for r in rows if r["median_drift_px"] is not None]
+    return {"valid_rect": valid, "pairs": len(rows), "pairs_measured": len(d),
+            "median_drift_px": round(float(np.median(d)), 3) if d else None, "max_pair_drift_px": round(float(max(d)), 3) if d else None,
+            "pass": (float(np.median(d)) <= 0.25) if d else None, "per_pair": rows}

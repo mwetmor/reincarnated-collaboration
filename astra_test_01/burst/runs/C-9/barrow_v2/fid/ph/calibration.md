@@ -907,3 +907,29 @@ Its RED reading on R-C9-159 (1.91 px) was right for the wrong reason: world-anch
      - (c) add more in-plate floes, by taking a view centred on the floe field.
 
      **(b) is PH's recommendation.** It keeps the 2-D metric and removes the confound at its source.
+
+## 31. P9c PRE-REGISTRATION (R-C9-197): the depth-test-off marker shot. Committed BEFORE measuring.
+
+**Instrument.** `pilot_harness.floe_drift_v2` (§ 30) is unchanged. `p9c_measure(dir, view_uv)` aggregates it.
+
+**Capture.** `ph_life.gd life … --floe-pairs 5 [--floe-red]`. For the marker shots only, each floe material's shader is re-derived from its live code with two changes:
+- `depth_test_disabled, unshaded` added to its render_mode;
+- `ALPHA = 1.0` added, so it draws in the transparent pass after the opaque sea.
+
+The waterline therefore cannot occlude the bobbing silhouette, and lighting cannot modulate the marker's R channel. Geometry, the bob (TIME) and the UV law are untouched. The marker is as § 30: R = 0.95, G = simplex noise, B = 0.5. hide_floe is taken with the floes hidden.
+
+**The RED** (`--floe-red`) moves the projection's `v_world` by the bob, so the paint is world-anchored and swims.
+
+**View, floes and pairs.**
+- **View:** uv (−29, −5.5), the § 30 sea view.
+- **Floes:** a floe is measured only if its bbox (+12 px) lies wholly inside the plate's screen rect at ground z = 0. That rect is `plate_rect_on_screen` = (500, 0, 1920, 861) less a 12 px margin. Floes outside the plate wear clamped-edge streaks, not paint.
+- **Expected count: 1.** In the pilot plate's ID render only `blobs_shore_ice__blob_11` lies wholly inside; blob_0 is cut by the plate edge, and the other 15 are outside the pilot window.
+- **Pairs:** 5 marker pairs, m0 and m1 0.5 s apart, consecutive pairs 0.7 s apart.
+
+**Statistic and bars.** The per-pair median floe drift (2-D, px), then the median over pairs.
+- **Rest-pose build:** PASS iff ≤ 0.25 px (the frozen § 1 bar).
+- **RED:** must read > 0.25 px, i.e. FAIL.
+- **Validity:** a pair whose median silhouette motion is < 0.25 px cannot separate the two, and is reported but not counted.
+- **Pass condition for P9c to be "shown":** rest-pose PASS **and** RED FAIL on this protocol. Until then P9c stays non-binding.
+
+**Self-test (§ 30, unchanged):** rest 0.001–0.007 px; RED = the motion ± 0.02.
