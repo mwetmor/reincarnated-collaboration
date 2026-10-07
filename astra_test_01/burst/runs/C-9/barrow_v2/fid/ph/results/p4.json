@@ -1,0 +1,1778 @@
+{
+ "bars_from_v1": {
+  "snow": {
+   "hist": 0.281,
+   "spec": 0.097,
+   "n_chunks": 16
+  },
+  "rock": {
+   "hist": 0.481,
+   "spec": 0.19,
+   "n_chunks": 16
+  },
+  "ice": {
+   "hist": 0.126,
+   "spec": 0.031,
+   "n_chunks": 4
+  },
+  "cellularity": 0.681
+ },
+ "v1": {
+  "pass": true,
+  "chunks": {
+   "0_0": {
+    "classes": {
+     "rock": {
+      "px": 390516,
+      "hist_dist": 0.123,
+      "hist_bar": 0.481,
+      "spec_dist": 0.059,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 730808,
+      "hist_dist": 0.134,
+      "hist_bar": 0.281,
+      "spec_dist": 0.064,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.393,
+    "cell_windows": 249,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_0": {
+    "classes": {
+     "rock": {
+      "px": 193843,
+      "hist_dist": 0.123,
+      "hist_bar": 0.481,
+      "spec_dist": 0.031,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 671055,
+      "hist_dist": 0.15,
+      "hist_bar": 0.281,
+      "spec_dist": 0.054,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.458,
+    "cell_windows": 258,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_0": {
+    "classes": {
+     "rock": {
+      "px": 51899,
+      "hist_dist": 0.332,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 717344,
+      "hist_dist": 0.166,
+      "hist_bar": 0.281,
+      "spec_dist": 0.013,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.475,
+    "cell_windows": 296,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_0": {
+    "classes": {
+     "rock": {
+      "px": 379027,
+      "hist_dist": 0.092,
+      "hist_bar": 0.481,
+      "spec_dist": 0.025,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 501782,
+      "hist_dist": 0.244,
+      "hist_bar": 0.281,
+      "spec_dist": 0.019,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.478,
+    "cell_windows": 197,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "0_1": {
+    "classes": {
+     "rock": {
+      "px": 270002,
+      "hist_dist": 0.106,
+      "hist_bar": 0.481,
+      "spec_dist": 0.046,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 379988,
+      "hist_dist": 0.148,
+      "hist_bar": 0.281,
+      "spec_dist": 0.062,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 148619,
+      "hist_dist": 0.112,
+      "hist_bar": 0.126,
+      "spec_dist": 0.023,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.442,
+    "cell_windows": 181,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_1": {
+    "classes": {
+     "rock": {
+      "px": 93805,
+      "hist_dist": 0.195,
+      "hist_bar": 0.481,
+      "spec_dist": 0.05,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 951528,
+      "hist_dist": 0.227,
+      "hist_bar": 0.281,
+      "spec_dist": 0.055,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 222195,
+      "hist_dist": 0.057,
+      "hist_bar": 0.126,
+      "spec_dist": 0.013,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.491,
+    "cell_windows": 279,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_1": {
+    "classes": {
+     "rock": {
+      "px": 38055,
+      "hist_dist": 0.475,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 1483255,
+      "hist_dist": 0.118,
+      "hist_bar": 0.281,
+      "spec_dist": 0.029,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.63,
+    "cell_windows": 343,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_1": {
+    "classes": {
+     "rock": {
+      "px": 432628,
+      "hist_dist": 0.111,
+      "hist_bar": 0.481,
+      "spec_dist": 0.015,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 603800,
+      "hist_dist": 0.12,
+      "hist_bar": 0.281,
+      "spec_dist": 0.035,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.582,
+    "cell_windows": 239,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "0_2": {
+    "classes": {
+     "rock": {
+      "px": 372157,
+      "hist_dist": 0.111,
+      "hist_bar": 0.481,
+      "spec_dist": 0.036,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 375300,
+      "hist_dist": 0.27,
+      "hist_bar": 0.281,
+      "spec_dist": 0.036,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 307365,
+      "hist_dist": 0.083,
+      "hist_bar": 0.126,
+      "spec_dist": 0.011,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.431,
+    "cell_windows": 242,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_2": {
+    "classes": {
+     "rock": {
+      "px": 28140,
+      "hist_dist": 0.29,
+      "hist_bar": 0.481,
+      "spec_dist": 0.175,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 730931,
+      "hist_dist": 0.201,
+      "hist_bar": 0.281,
+      "spec_dist": 0.017,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 466221,
+      "hist_dist": 0.063,
+      "hist_bar": 0.126,
+      "spec_dist": 0.017,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.584,
+    "cell_windows": 337,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_2": {
+    "classes": {
+     "rock": {
+      "px": 49598,
+      "hist_dist": 0.317,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 775179,
+      "hist_dist": 0.115,
+      "hist_bar": 0.281,
+      "spec_dist": 0.035,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.653,
+    "cell_windows": 264,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_2": {
+    "classes": {
+     "rock": {
+      "px": 289291,
+      "hist_dist": 0.146,
+      "hist_bar": 0.481,
+      "spec_dist": 0.027,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 727412,
+      "hist_dist": 0.106,
+      "hist_bar": 0.281,
+      "spec_dist": 0.026,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.543,
+    "cell_windows": 216,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "0_3": {
+    "classes": {
+     "rock": {
+      "px": 278242,
+      "hist_dist": 0.157,
+      "hist_bar": 0.481,
+      "spec_dist": 0.027,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 774831,
+      "hist_dist": 0.158,
+      "hist_bar": 0.281,
+      "spec_dist": 0.062,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.476,
+    "cell_windows": 228,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_3": {
+    "classes": {
+     "rock": {
+      "px": 126929,
+      "hist_dist": 0.201,
+      "hist_bar": 0.481,
+      "spec_dist": 0.048,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 497179,
+      "hist_dist": 0.046,
+      "hist_bar": 0.281,
+      "spec_dist": 0.034,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.681,
+    "cell_windows": 239,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_3": {
+    "classes": {
+     "rock": {
+      "px": 207528,
+      "hist_dist": 0.158,
+      "hist_bar": 0.481,
+      "spec_dist": 0.03,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 467182,
+      "hist_dist": 0.141,
+      "hist_bar": 0.281,
+      "spec_dist": 0.058,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.66,
+    "cell_windows": 196,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_3": {
+    "classes": {
+     "rock": {
+      "px": 283910,
+      "hist_dist": 0.174,
+      "hist_bar": 0.481,
+      "spec_dist": 0.025,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 673444,
+      "hist_dist": 0.133,
+      "hist_bar": 0.281,
+      "spec_dist": 0.091,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.561,
+    "cell_windows": 206,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   }
+  }
+ },
+ "159": {
+  "pass": false,
+  "models_included": true,
+  "chunks": {
+   "0_0": {
+    "classes": {
+     "wood": {
+      "px": 83477,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "snow": {
+      "px": 183510,
+      "hist_dist": 0.667,
+      "hist_bar": 0.281,
+      "spec_dist": 0.708,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "ice": {
+      "px": 39227,
+      "hist_dist": 0.673,
+      "hist_bar": 0.126,
+      "spec_dist": null,
+      "spec_bar": 0.031,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 170414,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.877,
+    "cell_windows": 86,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "1_0": {
+    "classes": {
+     "wood": {
+      "px": 136330,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "snow": {
+      "px": 548699,
+      "hist_dist": 0.312,
+      "hist_bar": 0.281,
+      "spec_dist": 0.54,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "ice": {
+      "px": 152598,
+      "hist_dist": 0.684,
+      "hist_bar": 0.126,
+      "spec_dist": 0.635,
+      "spec_bar": 0.031,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 251440,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.856,
+    "cell_windows": 207,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "2_0": {
+    "classes": {
+     "snow": {
+      "px": 845048,
+      "hist_dist": 0.326,
+      "hist_bar": 0.281,
+      "spec_dist": 0.571,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "ice": {
+      "px": 106501,
+      "hist_dist": 0.743,
+      "hist_bar": 0.126,
+      "spec_dist": 0.572,
+      "spec_bar": 0.031,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 362677,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 1.017,
+    "cell_windows": 281,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "0_1": {
+    "classes": {
+     "rock": {
+      "px": 104678,
+      "hist_dist": 0.605,
+      "hist_bar": 0.481,
+      "spec_dist": 0.536,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "wood": {
+      "px": 43458,
+      "note": "no v1 class -- cellularity only (W-7)"
+     },
+     "snow": {
+      "px": 185549,
+      "hist_dist": 0.539,
+      "hist_bar": 0.281,
+      "spec_dist": 0.621,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "ice": {
+      "px": 39662,
+      "hist_dist": 0.632,
+      "hist_bar": 0.126,
+      "spec_dist": null,
+      "spec_bar": 0.031,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 545934,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.805,
+    "cell_windows": 181,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "1_1": {
+    "classes": {
+     "snow": {
+      "px": 1529292,
+      "hist_dist": 0.414,
+      "hist_bar": 0.281,
+      "spec_dist": 0.559,
+      "spec_bar": 0.097,
+      "pass": false
+     }
+    },
+    "cellularity_p95": 0.961,
+    "cell_windows": 338,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "2_1": {
+    "classes": {
+     "snow": {
+      "px": 1110715,
+      "hist_dist": 0.248,
+      "hist_bar": 0.281,
+      "spec_dist": 0.618,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "ice": {
+      "px": 431514,
+      "hist_dist": 0.776,
+      "hist_bar": 0.126,
+      "spec_dist": 0.603,
+      "spec_bar": 0.031,
+      "pass": false
+     }
+    },
+    "cellularity_p95": 1.028,
+    "cell_windows": 345,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "0_2": {
+    "classes": {
+     "rock": {
+      "px": 67133,
+      "hist_dist": 0.614,
+      "hist_bar": 0.481,
+      "spec_dist": 0.692,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 24388,
+      "hist_dist": 0.349,
+      "hist_bar": 0.281,
+      "spec_dist": null,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 440550,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.82,
+    "cell_windows": 83,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "1_2": {
+    "classes": {
+     "snow": {
+      "px": 1347787,
+      "hist_dist": 0.247,
+      "hist_bar": 0.281,
+      "spec_dist": 0.562,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 115797,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 1.014,
+    "cell_windows": 327,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "2_2": {
+    "classes": {
+     "snow": {
+      "px": 1557540,
+      "hist_dist": 0.314,
+      "hist_bar": 0.281,
+      "spec_dist": 0.581,
+      "spec_bar": 0.097,
+      "pass": false
+     }
+    },
+    "cellularity_p95": 0.99,
+    "cell_windows": 345,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "0_3": {
+    "classes": {
+     "snow": {
+      "px": 305475,
+      "hist_dist": 0.759,
+      "hist_bar": 0.281,
+      "spec_dist": 0.644,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 57190,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.939,
+    "cell_windows": 62,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "1_3": {
+    "classes": {
+     "rock": {
+      "px": 44387,
+      "hist_dist": 0.614,
+      "hist_bar": 0.481,
+      "spec_dist": 0.452,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 808814,
+      "hist_dist": 0.254,
+      "hist_bar": 0.281,
+      "spec_dist": 0.665,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 220042,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.969,
+    "cell_windows": 229,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "2_3": {
+    "classes": {
+     "snow": {
+      "px": 1557540,
+      "hist_dist": 0.343,
+      "hist_bar": 0.281,
+      "spec_dist": 0.689,
+      "spec_bar": 0.097,
+      "pass": false
+     }
+    },
+    "cellularity_p95": 1.007,
+    "cell_windows": 345,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "0_4": {
+    "classes": {
+     "snow": {
+      "px": 189872,
+      "hist_dist": 0.898,
+      "hist_bar": 0.281,
+      "spec_dist": 0.623,
+      "spec_bar": 0.097,
+      "pass": false
+     }
+    },
+    "cellularity_p95": 0.86,
+    "cell_windows": 33,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "1_4": {
+    "classes": {
+     "rock": {
+      "px": 75244,
+      "hist_dist": 0.655,
+      "hist_bar": 0.481,
+      "spec_dist": 0.596,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 584331,
+      "hist_dist": 0.407,
+      "hist_bar": 0.281,
+      "spec_dist": 0.697,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 83969,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 0.943,
+    "cell_windows": 140,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "2_4": {
+    "classes": {
+     "snow": {
+      "px": 1557540,
+      "hist_dist": 0.416,
+      "hist_bar": 0.281,
+      "spec_dist": 0.734,
+      "spec_bar": 0.097,
+      "pass": false
+     }
+    },
+    "cellularity_p95": 0.921,
+    "cell_windows": 345,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "0_5": {
+    "classes": {},
+    "cellularity_p95": null,
+    "cell_windows": 0,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_5": {
+    "classes": {
+     "rock": {
+      "px": 60840,
+      "hist_dist": 0.638,
+      "hist_bar": 0.481,
+      "spec_dist": 0.353,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 78812,
+      "hist_dist": 0.556,
+      "hist_bar": 0.281,
+      "spec_dist": 0.679,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 198715,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 1.04,
+    "cell_windows": 51,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   },
+   "2_5": {
+    "classes": {
+     "rock": {
+      "px": 37286,
+      "hist_dist": 0.699,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 1078352,
+      "hist_dist": 0.435,
+      "hist_bar": 0.281,
+      "spec_dist": 0.697,
+      "spec_bar": 0.097,
+      "pass": false
+     },
+     "shingle+cliff-back": {
+      "px": 249779,
+      "note": "no v1 class -- cellularity only (W-7)"
+     }
+    },
+    "cellularity_p95": 1.035,
+    "cell_windows": 312,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": false,
+    "pass": false
+   }
+  }
+ },
+ "constructed_patchwork_rock": {
+  "pass": true,
+  "chunks": {
+   "0_0": {
+    "classes": {
+     "rock": {
+      "px": 390516,
+      "hist_dist": 0.146,
+      "hist_bar": 0.481,
+      "spec_dist": 0.03,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 730808,
+      "hist_dist": 0.134,
+      "hist_bar": 0.281,
+      "spec_dist": 0.064,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.393,
+    "cell_windows": 249,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_0": {
+    "classes": {
+     "rock": {
+      "px": 193843,
+      "hist_dist": 0.165,
+      "hist_bar": 0.481,
+      "spec_dist": 0.043,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 671055,
+      "hist_dist": 0.15,
+      "hist_bar": 0.281,
+      "spec_dist": 0.054,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.448,
+    "cell_windows": 258,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_0": {
+    "classes": {
+     "rock": {
+      "px": 51899,
+      "hist_dist": 0.227,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 717344,
+      "hist_dist": 0.166,
+      "hist_bar": 0.281,
+      "spec_dist": 0.013,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.475,
+    "cell_windows": 296,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_0": {
+    "classes": {
+     "rock": {
+      "px": 379027,
+      "hist_dist": 0.092,
+      "hist_bar": 0.481,
+      "spec_dist": 0.039,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 501782,
+      "hist_dist": 0.244,
+      "hist_bar": 0.281,
+      "spec_dist": 0.019,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.479,
+    "cell_windows": 197,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "0_1": {
+    "classes": {
+     "rock": {
+      "px": 270002,
+      "hist_dist": 0.122,
+      "hist_bar": 0.481,
+      "spec_dist": 0.036,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 379988,
+      "hist_dist": 0.148,
+      "hist_bar": 0.281,
+      "spec_dist": 0.062,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 148619,
+      "hist_dist": 0.112,
+      "hist_bar": 0.126,
+      "spec_dist": 0.023,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.441,
+    "cell_windows": 181,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_1": {
+    "classes": {
+     "rock": {
+      "px": 93805,
+      "hist_dist": 0.266,
+      "hist_bar": 0.481,
+      "spec_dist": 0.087,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 951528,
+      "hist_dist": 0.227,
+      "hist_bar": 0.281,
+      "spec_dist": 0.055,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 222195,
+      "hist_dist": 0.057,
+      "hist_bar": 0.126,
+      "spec_dist": 0.013,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.474,
+    "cell_windows": 279,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_1": {
+    "classes": {
+     "rock": {
+      "px": 38055,
+      "hist_dist": 0.412,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 1483255,
+      "hist_dist": 0.118,
+      "hist_bar": 0.281,
+      "spec_dist": 0.029,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.63,
+    "cell_windows": 343,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_1": {
+    "classes": {
+     "rock": {
+      "px": 432628,
+      "hist_dist": 0.125,
+      "hist_bar": 0.481,
+      "spec_dist": 0.049,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 603800,
+      "hist_dist": 0.12,
+      "hist_bar": 0.281,
+      "spec_dist": 0.035,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.576,
+    "cell_windows": 239,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "0_2": {
+    "classes": {
+     "rock": {
+      "px": 372157,
+      "hist_dist": 0.151,
+      "hist_bar": 0.481,
+      "spec_dist": 0.035,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 375300,
+      "hist_dist": 0.27,
+      "hist_bar": 0.281,
+      "spec_dist": 0.036,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 307365,
+      "hist_dist": 0.083,
+      "hist_bar": 0.126,
+      "spec_dist": 0.011,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.423,
+    "cell_windows": 242,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_2": {
+    "classes": {
+     "rock": {
+      "px": 28140,
+      "hist_dist": 0.376,
+      "hist_bar": 0.481,
+      "spec_dist": 0.114,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 730931,
+      "hist_dist": 0.201,
+      "hist_bar": 0.281,
+      "spec_dist": 0.017,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 466221,
+      "hist_dist": 0.063,
+      "hist_bar": 0.126,
+      "spec_dist": 0.017,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.584,
+    "cell_windows": 337,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_2": {
+    "classes": {
+     "rock": {
+      "px": 49598,
+      "hist_dist": 0.288,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 775179,
+      "hist_dist": 0.115,
+      "hist_bar": 0.281,
+      "spec_dist": 0.035,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.653,
+    "cell_windows": 264,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_2": {
+    "classes": {
+     "rock": {
+      "px": 289291,
+      "hist_dist": 0.166,
+      "hist_bar": 0.481,
+      "spec_dist": 0.042,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 727412,
+      "hist_dist": 0.106,
+      "hist_bar": 0.281,
+      "spec_dist": 0.026,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.543,
+    "cell_windows": 216,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "0_3": {
+    "classes": {
+     "rock": {
+      "px": 278242,
+      "hist_dist": 0.158,
+      "hist_bar": 0.481,
+      "spec_dist": 0.033,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 774831,
+      "hist_dist": 0.158,
+      "hist_bar": 0.281,
+      "spec_dist": 0.062,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.476,
+    "cell_windows": 228,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "1_3": {
+    "classes": {
+     "rock": {
+      "px": 126929,
+      "hist_dist": 0.181,
+      "hist_bar": 0.481,
+      "spec_dist": 0.068,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 497179,
+      "hist_dist": 0.046,
+      "hist_bar": 0.281,
+      "spec_dist": 0.034,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.681,
+    "cell_windows": 239,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "2_3": {
+    "classes": {
+     "rock": {
+      "px": 207528,
+      "hist_dist": 0.157,
+      "hist_bar": 0.481,
+      "spec_dist": 0.046,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 467182,
+      "hist_dist": 0.141,
+      "hist_bar": 0.281,
+      "spec_dist": 0.058,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.66,
+    "cell_windows": 196,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   },
+   "3_3": {
+    "classes": {
+     "rock": {
+      "px": 283910,
+      "hist_dist": 0.182,
+      "hist_bar": 0.481,
+      "spec_dist": 0.042,
+      "spec_bar": 0.19,
+      "pass": true
+     },
+     "snow": {
+      "px": 673444,
+      "hist_dist": 0.133,
+      "hist_bar": 0.281,
+      "spec_dist": 0.091,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.561,
+    "cell_windows": 206,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": true
+   }
+  }
+ },
+ "constructed_relit_rock": {
+  "pass": false,
+  "chunks": {
+   "0_0": {
+    "classes": {
+     "rock": {
+      "px": 390516,
+      "hist_dist": 0.536,
+      "hist_bar": 0.481,
+      "spec_dist": 0.059,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 730808,
+      "hist_dist": 0.134,
+      "hist_bar": 0.281,
+      "spec_dist": 0.064,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.393,
+    "cell_windows": 249,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "1_0": {
+    "classes": {
+     "rock": {
+      "px": 193843,
+      "hist_dist": 0.523,
+      "hist_bar": 0.481,
+      "spec_dist": 0.031,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 671055,
+      "hist_dist": 0.15,
+      "hist_bar": 0.281,
+      "spec_dist": 0.054,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.458,
+    "cell_windows": 258,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "2_0": {
+    "classes": {
+     "rock": {
+      "px": 51899,
+      "hist_dist": 0.555,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 717344,
+      "hist_dist": 0.166,
+      "hist_bar": 0.281,
+      "spec_dist": 0.013,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.479,
+    "cell_windows": 296,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "3_0": {
+    "classes": {
+     "rock": {
+      "px": 379027,
+      "hist_dist": 0.531,
+      "hist_bar": 0.481,
+      "spec_dist": 0.025,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 501782,
+      "hist_dist": 0.244,
+      "hist_bar": 0.281,
+      "spec_dist": 0.019,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.479,
+    "cell_windows": 197,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "0_1": {
+    "classes": {
+     "rock": {
+      "px": 270002,
+      "hist_dist": 0.545,
+      "hist_bar": 0.481,
+      "spec_dist": 0.046,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 379988,
+      "hist_dist": 0.148,
+      "hist_bar": 0.281,
+      "spec_dist": 0.062,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 148619,
+      "hist_dist": 0.112,
+      "hist_bar": 0.126,
+      "spec_dist": 0.023,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.444,
+    "cell_windows": 181,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "1_1": {
+    "classes": {
+     "rock": {
+      "px": 93805,
+      "hist_dist": 0.506,
+      "hist_bar": 0.481,
+      "spec_dist": 0.049,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 951528,
+      "hist_dist": 0.227,
+      "hist_bar": 0.281,
+      "spec_dist": 0.055,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 222195,
+      "hist_dist": 0.057,
+      "hist_bar": 0.126,
+      "spec_dist": 0.013,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.491,
+    "cell_windows": 279,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "2_1": {
+    "classes": {
+     "rock": {
+      "px": 38055,
+      "hist_dist": 0.662,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 1483255,
+      "hist_dist": 0.118,
+      "hist_bar": 0.281,
+      "spec_dist": 0.029,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.63,
+    "cell_windows": 343,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "3_1": {
+    "classes": {
+     "rock": {
+      "px": 432628,
+      "hist_dist": 0.518,
+      "hist_bar": 0.481,
+      "spec_dist": 0.015,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 603800,
+      "hist_dist": 0.12,
+      "hist_bar": 0.281,
+      "spec_dist": 0.035,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.582,
+    "cell_windows": 239,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "0_2": {
+    "classes": {
+     "rock": {
+      "px": 372157,
+      "hist_dist": 0.562,
+      "hist_bar": 0.481,
+      "spec_dist": 0.036,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 375300,
+      "hist_dist": 0.27,
+      "hist_bar": 0.281,
+      "spec_dist": 0.036,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 307365,
+      "hist_dist": 0.083,
+      "hist_bar": 0.126,
+      "spec_dist": 0.011,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.43,
+    "cell_windows": 242,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "1_2": {
+    "classes": {
+     "rock": {
+      "px": 28140,
+      "hist_dist": 0.546,
+      "hist_bar": 0.481,
+      "spec_dist": 0.176,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 730931,
+      "hist_dist": 0.201,
+      "hist_bar": 0.281,
+      "spec_dist": 0.017,
+      "spec_bar": 0.097,
+      "pass": true
+     },
+     "ice": {
+      "px": 466221,
+      "hist_dist": 0.063,
+      "hist_bar": 0.126,
+      "spec_dist": 0.017,
+      "spec_bar": 0.031,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.584,
+    "cell_windows": 337,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "2_2": {
+    "classes": {
+     "rock": {
+      "px": 49598,
+      "hist_dist": 0.533,
+      "hist_bar": 0.481,
+      "spec_dist": null,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 775179,
+      "hist_dist": 0.115,
+      "hist_bar": 0.281,
+      "spec_dist": 0.035,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.653,
+    "cell_windows": 264,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "3_2": {
+    "classes": {
+     "rock": {
+      "px": 289291,
+      "hist_dist": 0.493,
+      "hist_bar": 0.481,
+      "spec_dist": 0.027,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 727412,
+      "hist_dist": 0.106,
+      "hist_bar": 0.281,
+      "spec_dist": 0.026,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.543,
+    "cell_windows": 216,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "0_3": {
+    "classes": {
+     "rock": {
+      "px": 278242,
+      "hist_dist": 0.557,
+      "hist_bar": 0.481,
+      "spec_dist": 0.027,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 774831,
+      "hist_dist": 0.158,
+      "hist_bar": 0.281,
+      "spec_dist": 0.062,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.476,
+    "cell_windows": 228,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "1_3": {
+    "classes": {
+     "rock": {
+      "px": 126929,
+      "hist_dist": 0.598,
+      "hist_bar": 0.481,
+      "spec_dist": 0.048,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 497179,
+      "hist_dist": 0.046,
+      "hist_bar": 0.281,
+      "spec_dist": 0.034,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.681,
+    "cell_windows": 239,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "2_3": {
+    "classes": {
+     "rock": {
+      "px": 207528,
+      "hist_dist": 0.483,
+      "hist_bar": 0.481,
+      "spec_dist": 0.029,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 467182,
+      "hist_dist": 0.141,
+      "hist_bar": 0.281,
+      "spec_dist": 0.058,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.66,
+    "cell_windows": 196,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   },
+   "3_3": {
+    "classes": {
+     "rock": {
+      "px": 283910,
+      "hist_dist": 0.492,
+      "hist_bar": 0.481,
+      "spec_dist": 0.025,
+      "spec_bar": 0.19,
+      "pass": false
+     },
+     "snow": {
+      "px": 673444,
+      "hist_dist": 0.133,
+      "hist_bar": 0.281,
+      "spec_dist": 0.091,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "cellularity_p95": 0.561,
+    "cell_windows": 206,
+    "cellularity_bar": 0.681,
+    "cellularity_pass_DISCARDED_non_binding": true,
+    "pass": false
+   }
+  }
+ }
+}

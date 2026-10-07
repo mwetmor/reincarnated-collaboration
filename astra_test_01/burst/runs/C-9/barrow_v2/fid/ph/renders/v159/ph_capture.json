@@ -1,0 +1,83 @@
+{
+ "frame": {
+  "_law": "PaintedWorld.guide_uv with g_frame = (u0, v1, ppm), g_px_per = (ppm sin, ppm cos), g_size = size_px",
+  "cols": 2.0,
+  "ppm": 50.308776855469,
+  "rows": 4.0,
+  "size_px": [
+   2816.0,
+   3328.0
+  ],
+  "stills": {
+   "S1_wreck": [
+    -44.0,
+    12.5
+   ],
+   "S2_coast": [
+    -27.0,
+    31.0
+   ],
+   "S3_cave_stair": [
+    3.5,
+    41.0
+   ]
+  },
+  "u0": -56.414388158563,
+  "v1": 35.615300885655
+ },
+ "groups": {
+  "cairn": 6,
+  "cavecliff": 1,
+  "cliffplain": 18,
+  "crag": 34,
+  "log": 18,
+  "staircliff": 1,
+  "stone_mid": 2,
+  "stone_tall": 1,
+  "wreck2": 1
+ },
+ "painted": {
+  "files_ok": 0,
+  "ground_variant": "v2_ground_only",
+  "heather": {
+   "instances": 711,
+   "multimeshes": 6
+  },
+  "loads": {
+
+  },
+  "manifest": "res://data/barrow_v2_sw/painted/",
+  "ms": 3857,
+  "pieces": {
+   "baked": 9,
+   "baked_meshes": 82,
+   "floes": 1,
+   "ground": 4,
+   "unbaked": []
+  },
+  "snow": {
+   "bake_ms": 3350.3,
+   "bare_frac_under_cut": 0.5194,
+   "drifted_frac": 0.0,
+   "extra_piles_placed": 0,
+   "field_px": 1024,
+   "m_per_px": 0.0664,
+   "mask_ms": 341.4,
+   "max_drift_m": 0.0,
+   "mean_depth_m": 0.0507,
+   "open_frac": 1.0,
+   "piles_placed": 0,
+   "snow_cut_m": 0.015,
+   "thin_px": 138,
+   "thin_zones": 711,
+   "tris": 284258,
+   "verts": 142884,
+   "wade_frac": 0.0,
+   "windrows_placed": 0
+  }
+ },
+ "renderer": {
+  "adapter": "Apple M2 (Apple8)",
+  "method": "forward_plus"
+ }
+}

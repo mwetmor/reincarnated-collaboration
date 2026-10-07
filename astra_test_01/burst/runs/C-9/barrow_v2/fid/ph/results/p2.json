@@ -1,0 +1,1162 @@
+{
+ "v1": {
+  "value": 1.0,
+  "resolved": 28,
+  "n": 28,
+  "unresolved": [],
+  "pass": true,
+  "threshold": "100% of static textures resolve to the painting sha",
+  "painting_sha": "eecb42661af490dd9cbfa71472ad33c683b752965615322344e8a6976a5ed2ed",
+  "rows": [
+   {
+    "id": "painting.bin",
+    "role": "ground + 29 primitives (projection)",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:painting.sha256 == file sha",
+     "bytes equal",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "ground_inpainted",
+    "role": "ground variant (tufts filled)",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:ground_inpainted.sha256 == file sha",
+     "producer paint_world_prep.py (take/build/painted_prep.json painting_sha256 = eecb42661af4)",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "lit",
+    "role": "painted direct-sun share",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:lit.sha256 == file sha",
+     "producer paint_world_prep.py (take/build/painted_prep.json painting_sha256 = eecb42661af4)",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_1",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_1.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_1.texture)",
+     "    plate == painting crop [3076, 2079, 122, 103] (max |d| 0 over 6732 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_2",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_2.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_2.texture)",
+     "    plate == painting crop [2335, 2482, 104, 111] (max |d| 0 over 5996 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_3",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_3.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_3.texture)",
+     "    plate == painting crop [1215, 1276, 121, 103] (max |d| 0 over 6732 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_lintel",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_lintel.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_lintel.texture)",
+     "    plate == painting crop [2774, 387, 231, 87] (max |d| 0 over 16553 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_post_L",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_post_L.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_post_L.texture)",
+     "    plate == painting crop [2775, 459, 41, 133] (max |d| 0 over 3662 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_post_R",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_post_R.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_post_R.texture)",
+     "    plate == painting crop [2953, 464, 47, 133] (max |d| 0 over 4235 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake fallen_tree_log_A",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.fallen_tree_log_A.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.fallen_tree_log_A.texture)",
+     "    plate == painting crop [1956, 2362, 237, 142] (max |d| 0 over 6989 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake fallen_tree_log_B",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.fallen_tree_log_B.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.fallen_tree_log_B.texture)",
+     "    plate == painting crop [2183, 2248, 224, 151] (max |d| 0 over 7049 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake grave_marker_E",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.grave_marker_E.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.grave_marker_E.texture)",
+     "    plate == painting crop [3543, 422, 98, 153] (max |d| 0 over 6483 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake grave_marker_W",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.grave_marker_W.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.grave_marker_W.texture)",
+     "    plate == painting crop [2134, 422, 98, 153] (max |d| 0 over 6480 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake raven",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.raven.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.raven.texture)",
+     "    plate == painting crop [3605, 669, 21, 27] (max |d| 0 over 143 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m115",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m115.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m115.texture)",
+     "    plate == painting crop [2028, 1477, 81, 124] (max |d| 0 over 5813 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m135",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m135.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m135.texture)",
+     "    plate == painting crop [2201, 1606, 92, 206] (max |d| 0 over 11731 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m155",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m155.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m155.texture)",
+     "    plate == painting crop [2463, 1758, 81, 197] (max |d| 0 over 10466 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m35",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m35.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m35.texture)",
+     "    plate == painting crop [2330, 579, 81, 125] (max |d| 0 over 5824 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m55",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m55.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m55.texture)",
+     "    plate == painting crop [2104, 689, 80, 196] (max |d| 0 over 10460 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m75",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m75.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m75.texture)",
+     "    plate == painting crop [1967, 908, 92, 206] (max |d| 0 over 11727 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m95",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m95.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m95.texture)",
+     "    plate == painting crop [1712, 1262, 282, 92] (max |d| 0 over 16970 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p115",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p115.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p115.texture)",
+     "    plate == painting crop [3663, 1474, 94, 120] (max |d| 0 over 6340 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p135",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p135.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p135.texture)",
+     "    plate == painting crop [3488, 1602, 84, 213] (max |d| 0 over 11015 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p155",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p155.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p155.texture)",
+     "    plate == painting crop [3235, 1749, 76, 204] (max |d| 0 over 9261 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p35",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p35.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p35.texture)",
+     "    plate == painting crop [3362, 577, 94, 119] (max |d| 0 over 6341 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p55",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p55.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p55.texture)",
+     "    plate == painting crop [3594, 681, 76, 202] (max |d| 0 over 9210 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p75",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p75.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p75.texture)",
+     "    plate == painting crop [3723, 904, 83, 213] (max |d| 0 over 11016 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p95",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p95.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p95.texture)",
+     "    plate == painting crop [3754, 1158, 77, 203] (max |d| 0 over 9266 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   }
+  ]
+ },
+ "159": {
+  "value": 0.1818,
+  "resolved": 2,
+  "n": 11,
+  "unresolved": [
+   "bake cliffplain",
+   "bake crag",
+   "bake cavecliff",
+   "bake staircliff",
+   "bake wreck2",
+   "v1 bake cairn_1 on cairn",
+   "v1 bake fallen_tree_log_A on log",
+   "v1 bake ring_m55 on stone_tall",
+   "v1 bake ring_m135 on stone_mid"
+  ],
+  "pass": false,
+  "threshold": "100% of static textures resolve to the painting sha",
+  "painting_sha": "212b0b0ec542a114bb9d7c8f3cc4b0d5983f20f1b0bb49ab71491f1359ff9c0f",
+  "rows": [
+   {
+    "id": "ground.png",
+    "role": "ground (projection)",
+    "resolves": true,
+    "trail": [
+     "painting sha 212b0b0ec542 == declared 212b0b0ec542"
+    ]
+   },
+   {
+    "id": "lit.png",
+    "role": "direct-sun share",
+    "resolves": true,
+    "trail": [
+     "producer v2sw_prep.py (a render of the section (v2_mode lit), not derived from the painting's pixels (barrow_v2_sw.gd v2_mode 'lit'); accepted as light data)",
+     "  painting sha 212b0b0ec542 == declared 212b0b0ec542"
+    ]
+   },
+   {
+    "id": "bake cliffplain",
+    "role": "model bake (one per GLB, all instances)",
+    "resolves": false,
+    "trail": [
+     "producer v2sw_model_bake.py (v2sw_model_bake.py bake(): t5_06b_bake.py --sheet v2sw_<name>:_cells_v2sw_<name>/painted_1536.png (v2sw_model_bake.py:183-194))",
+     "  decoded pixels equal",
+     "    FOREIGN input BV2L-m-cliffplain.png: artifacts/BV2L-m-cliffplain/receipt.json: an Astra paint-over of FOUR VIEWS OF THE MODEL ALONE (v2sw_model_bake.py views), a separate painting -- no pixel of it comes from the ground painting"
+    ]
+   },
+   {
+    "id": "bake crag",
+    "role": "model bake (one per GLB, all instances)",
+    "resolves": false,
+    "trail": [
+     "producer v2sw_model_bake.py (v2sw_model_bake.py bake(): t5_06b_bake.py --sheet v2sw_<name>:_cells_v2sw_<name>/painted_1536.png (v2sw_model_bake.py:183-194))",
+     "  decoded pixels equal",
+     "    FOREIGN input BV2L-m-crag.png: artifacts/BV2L-m-crag/receipt.json: an Astra paint-over of FOUR VIEWS OF THE MODEL ALONE (v2sw_model_bake.py views), a separate painting -- no pixel of it comes from the ground painting"
+    ]
+   },
+   {
+    "id": "bake cavecliff",
+    "role": "model bake (one per GLB, all instances)",
+    "resolves": false,
+    "trail": [
+     "producer v2sw_model_bake.py (v2sw_model_bake.py bake(): t5_06b_bake.py --sheet v2sw_<name>:_cells_v2sw_<name>/painted_1536.png (v2sw_model_bake.py:183-194))",
+     "  decoded pixels equal",
+     "    FOREIGN input BV2L-m-cavecliff.png: artifacts/BV2L-m-cavecliff/receipt.json: an Astra paint-over of FOUR VIEWS OF THE MODEL ALONE (v2sw_model_bake.py views), a separate painting -- no pixel of it comes from the ground painting"
+    ]
+   },
+   {
+    "id": "bake staircliff",
+    "role": "model bake (one per GLB, all instances)",
+    "resolves": false,
+    "trail": [
+     "producer v2sw_model_bake.py (v2sw_model_bake.py bake(): t5_06b_bake.py --sheet v2sw_<name>:_cells_v2sw_<name>/painted_1536.png (v2sw_model_bake.py:183-194))",
+     "  decoded pixels equal",
+     "    FOREIGN input BV2L-m-staircliff.png: artifacts/BV2L-m-staircliff/receipt.json: an Astra paint-over of FOUR VIEWS OF THE MODEL ALONE (v2sw_model_bake.py views), a separate painting -- no pixel of it comes from the ground painting"
+    ]
+   },
+   {
+    "id": "bake wreck2",
+    "role": "model bake (one per GLB, all instances)",
+    "resolves": false,
+    "trail": [
+     "producer v2sw_model_bake.py (v2sw_model_bake.py bake(): t5_06b_bake.py --sheet v2sw_<name>:_cells_v2sw_<name>/painted_1536.png (v2sw_model_bake.py:183-194))",
+     "  decoded pixels DIFFER"
+    ]
+   },
+   {
+    "id": "v1 bake cairn_1 on cairn",
+    "role": "v1 kit bake reused",
+    "resolves": false,
+    "trail": [
+     "FOREIGN input barrow_full_painted.png: baked from v1's painting (sha eecb4266...) at v1's placement, not from this level's painting (sha 212b0b0e...): a second painting"
+    ]
+   },
+   {
+    "id": "v1 bake fallen_tree_log_A on log",
+    "role": "v1 kit bake reused",
+    "resolves": false,
+    "trail": [
+     "FOREIGN input barrow_full_painted.png: baked from v1's painting (sha eecb4266...) at v1's placement, not from this level's painting (sha 212b0b0e...): a second painting"
+    ]
+   },
+   {
+    "id": "v1 bake ring_m55 on stone_tall",
+    "role": "v1 kit bake reused",
+    "resolves": false,
+    "trail": [
+     "FOREIGN input barrow_full_painted.png: baked from v1's painting (sha eecb4266...) at v1's placement, not from this level's painting (sha 212b0b0e...): a second painting"
+    ]
+   },
+   {
+    "id": "v1 bake ring_m135 on stone_mid",
+    "role": "v1 kit bake reused",
+    "resolves": false,
+    "trail": [
+     "FOREIGN input barrow_full_painted.png: baked from v1's painting (sha eecb4266...) at v1's placement, not from this level's painting (sha 212b0b0e...): a second painting"
+    ]
+   }
+  ]
+ },
+ "158": {
+  "value": 1.0,
+  "resolved": 1,
+  "n": 1,
+  "unresolved": [],
+  "pass": true,
+  "threshold": "100% of static textures resolve to the painting sha",
+  "painting_sha": "384ab10ef4f573bc54e82ae716a403f90de575b35031b94dfc630e2568d367e9",
+  "rows": [
+   {
+    "id": "section_sw_painted.png (projection, every static)",
+    "role": "all statics",
+    "resolves": true,
+    "trail": [
+     "painting sha 384ab10ef4f5 == declared 384ab10ef4f5"
+    ]
+   }
+  ]
+ },
+ "constructed": {
+  "value": 0.9643,
+  "resolved": 27,
+  "n": 28,
+  "unresolved": [
+   "bake ring_m95"
+  ],
+  "pass": false,
+  "threshold": "100% of static textures resolve to the painting sha",
+  "painting_sha": "eecb42661af490dd9cbfa71472ad33c683b752965615322344e8a6976a5ed2ed",
+  "rows": [
+   {
+    "id": "painting.bin",
+    "role": "ground + 29 primitives (projection)",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:painting.sha256 == file sha",
+     "bytes equal",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "ground_inpainted",
+    "role": "ground variant (tufts filled)",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:ground_inpainted.sha256 == file sha",
+     "producer paint_world_prep.py (take/build/painted_prep.json painting_sha256 = eecb42661af4)",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "lit",
+    "role": "painted direct-sun share",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:lit.sha256 == file sha",
+     "producer paint_world_prep.py (take/build/painted_prep.json painting_sha256 = eecb42661af4)",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_1",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_1.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_1.texture)",
+     "    plate == painting crop [3076, 2079, 122, 103] (max |d| 0 over 6732 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_2",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_2.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_2.texture)",
+     "    plate == painting crop [2335, 2482, 104, 111] (max |d| 0 over 5996 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_3",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_3.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_3.texture)",
+     "    plate == painting crop [1215, 1276, 121, 103] (max |d| 0 over 6732 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_lintel",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_lintel.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_lintel.texture)",
+     "    plate == painting crop [2774, 387, 231, 87] (max |d| 0 over 16553 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_post_L",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_post_L.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_post_L.texture)",
+     "    plate == painting crop [2775, 459, 41, 133] (max |d| 0 over 3662 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_post_R",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_post_R.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_post_R.texture)",
+     "    plate == painting crop [2953, 464, 47, 133] (max |d| 0 over 4235 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake fallen_tree_log_A",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.fallen_tree_log_A.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.fallen_tree_log_A.texture)",
+     "    plate == painting crop [1956, 2362, 237, 142] (max |d| 0 over 6989 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake fallen_tree_log_B",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.fallen_tree_log_B.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.fallen_tree_log_B.texture)",
+     "    plate == painting crop [2183, 2248, 224, 151] (max |d| 0 over 7049 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake grave_marker_E",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.grave_marker_E.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.grave_marker_E.texture)",
+     "    plate == painting crop [3543, 422, 98, 153] (max |d| 0 over 6483 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake grave_marker_W",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.grave_marker_W.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.grave_marker_W.texture)",
+     "    plate == painting crop [2134, 422, 98, 153] (max |d| 0 over 6480 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake raven",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.raven.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.raven.texture)",
+     "    plate == painting crop [3605, 669, 21, 27] (max |d| 0 over 143 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m115",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m115.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m115.texture)",
+     "    plate == painting crop [2028, 1477, 81, 124] (max |d| 0 over 5813 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m135",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m135.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m135.texture)",
+     "    plate == painting crop [2201, 1606, 92, 206] (max |d| 0 over 11731 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m155",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m155.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m155.texture)",
+     "    plate == painting crop [2463, 1758, 81, 197] (max |d| 0 over 10466 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m35",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m35.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m35.texture)",
+     "    plate == painting crop [2330, 579, 81, 125] (max |d| 0 over 5824 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m55",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m55.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m55.texture)",
+     "    plate == painting crop [2104, 689, 80, 196] (max |d| 0 over 10460 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m75",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m75.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m75.texture)",
+     "    plate == painting crop [1967, 908, 92, 206] (max |d| 0 over 11727 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m95",
+    "role": "baked hero",
+    "resolves": false,
+    "trail": [
+     "record manifest.json:bakes.ring_m95.sha256 != file sha",
+     "bytes DIFFER"
+    ]
+   },
+   {
+    "id": "bake ring_p115",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p115.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p115.texture)",
+     "    plate == painting crop [3663, 1474, 94, 120] (max |d| 0 over 6340 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p135",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p135.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p135.texture)",
+     "    plate == painting crop [3488, 1602, 84, 213] (max |d| 0 over 11015 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p155",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p155.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p155.texture)",
+     "    plate == painting crop [3235, 1749, 76, 204] (max |d| 0 over 9261 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p35",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p35.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p35.texture)",
+     "    plate == painting crop [3362, 577, 94, 119] (max |d| 0 over 6341 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p55",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p55.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p55.texture)",
+     "    plate == painting crop [3594, 681, 76, 202] (max |d| 0 over 9210 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p75",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p75.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p75.texture)",
+     "    plate == painting crop [3723, 904, 83, 213] (max |d| 0 over 11016 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p95",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p95.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p95.texture)",
+     "    plate == painting crop [3754, 1158, 77, 203] (max |d| 0 over 9266 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   }
+  ]
+ },
+ "constructed_foreign": {
+  "value": 0.9643,
+  "resolved": 27,
+  "n": 28,
+  "unresolved": [
+   "bake ring_m95"
+  ],
+  "pass": false,
+  "threshold": "100% of static textures resolve to the painting sha",
+  "painting_sha": "eecb42661af490dd9cbfa71472ad33c683b752965615322344e8a6976a5ed2ed",
+  "rows": [
+   {
+    "id": "painting.bin",
+    "role": "ground + 29 primitives (projection)",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:painting.sha256 == file sha",
+     "bytes equal",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "ground_inpainted",
+    "role": "ground variant (tufts filled)",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:ground_inpainted.sha256 == file sha",
+     "producer paint_world_prep.py (take/build/painted_prep.json painting_sha256 = eecb42661af4)",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "lit",
+    "role": "painted direct-sun share",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:lit.sha256 == file sha",
+     "producer paint_world_prep.py (take/build/painted_prep.json painting_sha256 = eecb42661af4)",
+     "  painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_1",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_1.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_1.texture)",
+     "    plate == painting crop [3076, 2079, 122, 103] (max |d| 0 over 6732 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_2",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_2.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_2.texture)",
+     "    plate == painting crop [2335, 2482, 104, 111] (max |d| 0 over 5996 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake cairn_3",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.cairn_3.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.cairn_3.texture)",
+     "    plate == painting crop [1215, 1276, 121, 103] (max |d| 0 over 6732 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_lintel",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_lintel.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_lintel.texture)",
+     "    plate == painting crop [2774, 387, 231, 87] (max |d| 0 over 16553 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_post_L",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_post_L.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_post_L.texture)",
+     "    plate == painting crop [2775, 459, 41, 133] (max |d| 0 over 3662 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake door_post_R",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.door_post_R.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.door_post_R.texture)",
+     "    plate == painting crop [2953, 464, 47, 133] (max |d| 0 over 4235 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake fallen_tree_log_A",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.fallen_tree_log_A.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.fallen_tree_log_A.texture)",
+     "    plate == painting crop [1956, 2362, 237, 142] (max |d| 0 over 6989 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake fallen_tree_log_B",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.fallen_tree_log_B.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.fallen_tree_log_B.texture)",
+     "    plate == painting crop [2183, 2248, 224, 151] (max |d| 0 over 7049 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake grave_marker_E",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.grave_marker_E.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.grave_marker_E.texture)",
+     "    plate == painting crop [3543, 422, 98, 153] (max |d| 0 over 6483 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake grave_marker_W",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.grave_marker_W.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.grave_marker_W.texture)",
+     "    plate == painting crop [2134, 422, 98, 153] (max |d| 0 over 6480 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake raven",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.raven.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.raven.texture)",
+     "    plate == painting crop [3605, 669, 21, 27] (max |d| 0 over 143 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m115",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m115.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m115.texture)",
+     "    plate == painting crop [2028, 1477, 81, 124] (max |d| 0 over 5813 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m135",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m135.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m135.texture)",
+     "    plate == painting crop [2201, 1606, 92, 206] (max |d| 0 over 11731 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m155",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m155.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m155.texture)",
+     "    plate == painting crop [2463, 1758, 81, 197] (max |d| 0 over 10466 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m35",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m35.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m35.texture)",
+     "    plate == painting crop [2330, 579, 81, 125] (max |d| 0 over 5824 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m55",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m55.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m55.texture)",
+     "    plate == painting crop [2104, 689, 80, 196] (max |d| 0 over 10460 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m75",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_m75.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_m75.texture)",
+     "    plate == painting crop [1967, 908, 92, 206] (max |d| 0 over 11727 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_m95",
+    "role": "baked hero",
+    "resolves": false,
+    "trail": [
+     "record manifest.json:bakes.ring_m95.sha256 == file sha",
+     "bytes equal",
+     "  FOREIGN input BV2L-m-crag.png: constructed: a per-model sheet painting"
+    ]
+   },
+   {
+    "id": "bake ring_p115",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p115.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p115.texture)",
+     "    plate == painting crop [3663, 1474, 94, 120] (max |d| 0 over 6340 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p135",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p135.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p135.texture)",
+     "    plate == painting crop [3488, 1602, 84, 213] (max |d| 0 over 11015 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p155",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p155.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p155.texture)",
+     "    plate == painting crop [3235, 1749, 76, 204] (max |d| 0 over 9261 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p35",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p35.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p35.texture)",
+     "    plate == painting crop [3362, 577, 94, 119] (max |d| 0 over 6341 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p55",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p55.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p55.texture)",
+     "    plate == painting crop [3594, 681, 76, 202] (max |d| 0 over 9210 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p75",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p75.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p75.texture)",
+     "    plate == painting crop [3723, 904, 83, 213] (max |d| 0 over 11016 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   },
+   {
+    "id": "bake ring_p95",
+    "role": "baked hero",
+    "resolves": true,
+    "trail": [
+     "record manifest.json:bakes.ring_p95.sha256 == file sha",
+     "bytes equal",
+     "  producer bake_heroes.py (bake_heroes.py runs t5_06b_bake.py --sheet <id>:PAINT, PAINT = paint/barrow_full_painted.png (bake_heroes.py:28,45); record take/build/bake_report.json pieces.ring_p95.texture)",
+     "    plate == painting crop [3754, 1158, 77, 203] (max |d| 0 over 9266 px)",
+     "      painting sha eecb42661af4 == declared eecb42661af4"
+    ]
+   }
+  ]
+ }
+}

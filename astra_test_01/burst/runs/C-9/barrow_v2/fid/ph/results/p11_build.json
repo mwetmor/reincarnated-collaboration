@@ -1,0 +1,59 @@
+{
+ "power": {
+  "pass_if_identified_le": 19,
+  "of": 30,
+  "P(pass | true identification rate p)": {
+   "0.50": 0.9506,
+   "0.55": 0.865,
+   "0.60": 0.7085,
+   "0.65": 0.4922,
+   "0.70": 0.2696,
+   "0.75": 0.1057,
+   "0.80": 0.0256,
+   "0.90": 0.0001,
+   "1.00": 0.0
+  }
+ },
+ "sets": {
+  "cal_v1_vs_159": {
+   "set": "cal_v1_vs_159",
+   "pairs": 40,
+   "by_type_class": {
+    "test/snow": 24,
+    "test/rock": 6,
+    "null/ice": 2,
+    "null/snow": 8
+   },
+   "v1_pool": 325,
+   "cand_pool": 339,
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/judge_cal_v1_vs_159"
+  },
+  "cal_v1_vs_158": {
+   "set": "cal_v1_vs_158",
+   "pairs": 40,
+   "by_type_class": {
+    "test/snow": 24,
+    "test/rock": 6,
+    "null/ice": 2,
+    "null/snow": 8
+   },
+   "v1_pool": 325,
+   "cand_pool": 346,
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/judge_cal_v1_vs_158"
+  },
+  "cal_v1_vs_constructed_halfdensity": {
+   "set": "cal_v1_vs_constructed_halfdensity",
+   "pairs": 40,
+   "by_type_class": {
+    "test/snow": 25,
+    "test/ice": 4,
+    "test/rock": 1,
+    "null/ice": 1,
+    "null/snow": 9
+   },
+   "v1_pool": 325,
+   "cand_pool": 326,
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/judge_cal_v1_vs_constructed_halfdensity"
+  }
+ }
+}

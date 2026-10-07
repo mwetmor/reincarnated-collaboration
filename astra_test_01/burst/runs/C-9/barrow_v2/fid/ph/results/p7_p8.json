@@ -1,0 +1,128 @@
+{
+ "p7": {
+  "bars_from_v1": {
+   "floor_tuft": 0.004,
+   "floor_clutter": 0.0013,
+   "lane_tuft": 0.0245,
+   "lane_clutter": 0.0793
+  },
+  "v1": {
+   "floor": {
+    "tuft": 0.0019,
+    "clutter": 0.0005,
+    "px": 1243188
+   },
+   "floor_quadrants": [
+    {
+     "tuft": 0.0,
+     "clutter": 0.0,
+     "px": 311510
+    },
+    {
+     "tuft": 0.0,
+     "clutter": 0.0,
+     "px": 311815
+    },
+    {
+     "tuft": 0.0038,
+     "clutter": 0.0013,
+     "px": 312202
+    },
+    {
+     "tuft": 0.004,
+     "clutter": 0.0007,
+     "px": 311894
+    }
+   ],
+   "lanes": {
+    "path seg 0": {
+     "tuft": 0.0,
+     "clutter": 0.0,
+     "px": 127377
+    },
+    "path seg 1": {
+     "tuft": 0.0,
+     "clutter": 0.0,
+     "px": 68374
+    },
+    "path seg 2": {
+     "tuft": 0.0,
+     "clutter": 0.0,
+     "px": 68600
+    },
+    "path seg 3": {
+     "tuft": 0.0001,
+     "clutter": 0.0,
+     "px": 68374
+    },
+    "door corridor": {
+     "tuft": 0.0245,
+     "clutter": 0.0793,
+     "px": 40239
+    }
+   },
+   "lanes_over": [],
+   "pass": true
+  },
+  "constructed": {
+   "floor": {
+    "tuft": 0.0219,
+    "clutter": 0.0125,
+    "px": 1243188
+   },
+   "lanes_over": [],
+   "pass": false
+  },
+  "159": {
+   "floor": {
+    "tuft": 0.0006,
+    "clutter": 0.0002,
+    "px": 4426022
+   },
+   "lanes": {
+    "lane_p03_stair": {
+     "tuft": 0.0001,
+     "clutter": 0.0,
+     "px": 37656
+    },
+    "lane_p01_wreck": {
+     "tuft": 0.0,
+     "clutter": 0.0,
+     "px": 52183
+    }
+   },
+   "floor_in_frame_px": 4426022,
+   "lanes_over": [],
+   "pass": true
+  }
+ },
+ "p8": {
+  "bar_provisional": 0.9,
+  "bar_rule": "0.90 x v1 measured here, PROVISIONAL until PT's reproduced v1 value (W-2)",
+  "tint_bar_provisional": 0.874,
+  "v1": {
+   "instances": 977,
+   "on_painted_tufts": 977,
+   "share": 1.0,
+   "tint_r_vs_paint_r": 0.988,
+   "tint_b_vs_paint_b": 0.971,
+   "pass": true
+  },
+  "constructed": {
+   "instances": 977,
+   "on_painted_tufts": 409,
+   "share": 0.4186,
+   "tint_r_vs_paint_r": 0.049,
+   "tint_b_vs_paint_b": 0.047,
+   "pass": false
+  },
+  "159": {
+   "instances": 711,
+   "on_painted_tufts": 286,
+   "share": 0.4023,
+   "tint_r_vs_paint_r": 0.034,
+   "tint_b_vs_paint_b": 0.057,
+   "pass": false
+  }
+ }
+}

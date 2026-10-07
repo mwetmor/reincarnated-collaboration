@@ -1,0 +1,202 @@
+{
+ "p9": {
+  "a_heather_sway": {
+   "pending": "renders/life_* not yet captured",
+   "rows": {}
+  },
+  "b_water_flow_film_DISCARDED": {
+   "why": "cannot separate the positive (R-C9-159's animated sea, median ratio 1.7-1.8) from the negative (R-C9-158, 1.38) on compressed, panning films -- discarded at calibration; the binding P9b instrument is the in-engine static pair (life_<x>: flow on the water mask vs noise; RED = the same sea with its motion layers hidden, hide_water vs hide_water_b)",
+   "bar_was": "ratio >= 2",
+   "rows": {
+    "159": {
+     "water_share_top": [
+      0.038,
+      0.038,
+      0.035
+     ],
+     "rows": [
+      {
+       "film": "R-C9-159_v2sw_coast_walk.mp4",
+       "t": 63.0,
+       "shift_px": [
+        0,
+        0
+       ],
+       "water_px": 42948,
+       "water_resid": 0.236,
+       "snow_resid": 0.13,
+       "ratio": 1.816
+      },
+      {
+       "film": "R-C9-159_v2sw_coast_walk.mp4",
+       "t": 64.0,
+       "shift_px": [
+        0,
+        0
+       ],
+       "water_px": 43296,
+       "water_resid": 0.191,
+       "snow_resid": 0.098,
+       "ratio": 1.938
+      },
+      {
+       "film": "R-C9-159_v2sw_coast_walk.mp4",
+       "t": 62.0,
+       "shift_px": [
+        49,
+        13
+       ],
+       "water_px": 32348,
+       "water_resid": 1.999,
+       "snow_resid": 1.826,
+       "ratio": 1.095
+      }
+     ],
+     "median_ratio": 1.816,
+     "pass": false
+    },
+    "159_lead": {
+     "water_share_top": [
+      0.108,
+      0.106,
+      0.101
+     ],
+     "rows": [
+      {
+       "film": "R-C9-159_v2sw_coast_walk_lead.mp4",
+       "t": 64.0,
+       "shift_px": [
+        0,
+        0
+       ],
+       "water_px": 133392,
+       "water_resid": 0.594,
+       "snow_resid": 0.271,
+       "ratio": 2.191
+      },
+      {
+       "film": "R-C9-159_v2sw_coast_walk_lead.mp4",
+       "t": 63.0,
+       "shift_px": [
+        0,
+        0
+       ],
+       "water_px": 131685,
+       "water_resid": 0.493,
+       "snow_resid": 0.288,
+       "ratio": 1.71
+      },
+      {
+       "film": "R-C9-159_v2sw_coast_walk_lead.mp4",
+       "t": 62.0,
+       "shift_px": [
+        49,
+        13
+       ],
+       "water_px": 118787,
+       "water_resid": 1.955,
+       "snow_resid": 2.17,
+       "ratio": 0.901
+      }
+     ],
+     "median_ratio": 1.71,
+     "pass": false
+    },
+    "158": {
+     "water_share_top": [
+      0.01,
+      0.009,
+      0.008
+     ],
+     "rows": [],
+     "median_ratio": null,
+     "pass": false
+    },
+    "158_v2": {
+     "water_share_top": [
+      0.096,
+      0.086,
+      0.059
+     ],
+     "rows": [
+      {
+       "film": "R-C9-158_section_sw_coast_pan_v2.mp4",
+       "t": 0.0,
+       "shift_px": [
+        157,
+        0
+       ],
+       "water_px": 91647,
+       "water_resid": 3.139,
+       "snow_resid": 2.274,
+       "ratio": 1.38
+      },
+      {
+       "film": "R-C9-158_section_sw_coast_pan_v2.mp4",
+       "t": 1.0,
+       "shift_px": [
+        201,
+        73
+       ],
+       "water_px": 59184,
+       "water_resid": 2.91,
+       "snow_resid": 2.134,
+       "ratio": 1.364
+      },
+      {
+       "film": "R-C9-158_section_sw_coast_pan_v2.mp4",
+       "t": 9.0,
+       "shift_px": [
+        48,
+        188
+       ],
+       "water_px": 27333,
+       "water_resid": 4.73,
+       "snow_resid": 2.591,
+       "ratio": 1.825
+      }
+     ],
+     "median_ratio": 1.38,
+     "pass": false
+    }
+   }
+  },
+  "c_floe_drift": {
+   "pending": "life_v159 not yet captured"
+  },
+  "d_snow_trail_coverage": {
+   "v1": {
+    "coverage": 1.0,
+    "area_xz": [
+     -22.275,
+     -19.63,
+     47.211,
+     47.211
+    ],
+    "floor": "arena disc r 7 m",
+    "pass": true
+   },
+   "159": {
+    "coverage": 0.8103,
+    "area_xz": [
+     -46.0,
+     -6.0,
+     68.0,
+     68.0
+    ],
+    "floor": "layout floor inside the section box",
+    "pass": false
+   },
+   "158": {
+    "coverage": 0.0,
+    "evidence": "R-C9-158 ran outside v1's engine: no SnowField (charter \u00a7 9 C-2; plan C3)",
+    "pass": false
+   }
+  }
+ },
+ "p10": {
+  "v1": null,
+  "v1_burn": null,
+  "v159": null
+ }
+}

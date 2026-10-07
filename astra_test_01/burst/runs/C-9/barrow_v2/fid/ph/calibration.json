@@ -1,0 +1,361 @@
+{
+ "_what": "BV2F lane PH -- the v1-parity harness P1-P11, calibrated (Phase 0 task 0.4)",
+ "assembled_utc": "2026-10-07T00:51:12Z",
+ "rows": [
+  {
+   "row": "P1",
+   "kind": "quality",
+   "neg": "R-C9-159",
+   "metric": "displayed texel density ratio (play-camera px/m \u00f7 painted-source px/m), worst static surface",
+   "threshold": "\u2264 1.05 on every static surface",
+   "threshold_source": "plan \u00a7 4 P1; v1 = 1.000 by construction (projection at the play camera, PPM 100.6176)",
+   "cells": {
+    "v1": {
+     "value": 1.0,
+     "pass": true,
+     "note": "ground + 29 primitives (projection); 0/26 surfaces over"
+    },
+    "159": {
+     "value": 4.353,
+     "pass": false,
+     "note": "bake cavecliff #0; 30/56 surfaces over"
+    },
+    "158": {
+     "value": 1.0,
+     "pass": true,
+     "note": "everything static (projection of one painting); 0/1 surfaces over"
+    },
+    "constructed": {
+     "value": 2.0,
+     "pass": false,
+     "note": "ground + 29 primitives (projection); 1/26 surfaces over"
+    }
+   },
+   "constructed": "v1 painting at half density over the same window (2688 \u00d7 1664)"
+  },
+  {
+   "row": "P2",
+   "kind": "quality",
+   "neg": "R-C9-159",
+   "metric": "lineage chain: share of static textures that resolve, link by link (sha record / bytes / pixels / plate-crop / cited producer), to the one painting's sha",
+   "threshold": "100%",
+   "threshold_source": "plan \u00a7 4 P2; Gate-1 W-7 (v1 painting sha eecb4266\u2026)",
+   "cells": {
+    "v1": {
+     "value": 1.0,
+     "pass": true,
+     "note": "28/28; unresolved: none"
+    },
+    "159": {
+     "value": 0.1818,
+     "pass": false,
+     "note": "2/11; unresolved: bake cliffplain, bake crag, bake cavecliff, bake staircliff, bake wreck2"
+    },
+    "158": {
+     "value": 1.0,
+     "pass": true,
+     "note": "1/1; unresolved: none"
+    },
+    "constructed": {
+     "value": 0.9643,
+     "pass": false,
+     "note": "27/28; unresolved: bake ring_m95"
+    },
+    "constructed_foreign": {
+     "value": 0.9643,
+     "pass": false,
+     "note": "27/28; unresolved: bake ring_m95"
+    }
+   },
+   "constructed": "v1 with bake ring_m95 swapped for a foreign texture (manifest sha breaks); v1 with one bake declared from a per-model sheet"
+  },
+  {
+   "row": "P3",
+   "kind": "quality",
+   "neg": "R-C9-159",
+   "metric": "rendered-vs-painting residual, per class: mean |render \u2212 painting| (sRGB 0\u2013255) inside each class eroded 2 px, statics as played at the paint camera",
+   "threshold": "\u2264 15.5 for every class",
+   "threshold_source": "take/build/mini_overlay.json summary.unlit_mean_abs 15.5 (lit 40.7)",
+   "cells": {
+    "v1": {
+     "value": null,
+     "pass": null,
+     "note": "renders/v1/guide_as_painted.png not yet captured"
+    },
+    "159": {
+     "value": 107.97,
+     "pass": false,
+     "note": "worst class: v1-kit stones (v1 bakes); 3 class(es) over"
+    }
+   },
+   "constructed": "v1 render re-shaded by its own lit map \u00d7 the painter's shadow (painted light lit twice)"
+  },
+  {
+   "row": "P4",
+   "kind": "quality",
+   "neg": "R-C9-159",
+   "metric": "per-class Lab-histogram (Hellinger) and spectrum-shape (RMS log-power, 4\u201332 px) distance to pooled v1, as displayed (100.6 px/m)",
+   "threshold": "each \u2264 v1's own leave-one-chunk-out maximum (snow hist 0.281 / spec 0.097; rock 0.481 / 0.190; ice 0.126 / 0.031)",
+   "threshold_source": "v1's 16 paint chunks, leave-one-out",
+   "cells": {
+    "v1": {
+     "value": 0,
+     "pass": true,
+     "note": "class\u00d7chunk samples over their v1 bar: 0"
+    },
+    "159": {
+     "value": 28,
+     "pass": false,
+     "note": "class\u00d7chunk samples over their v1 bar: 28"
+    },
+    "constructed": {
+     "value": 16,
+     "pass": false,
+     "note": "class\u00d7chunk samples over their v1 bar: 16"
+    },
+    "constructed (patchwork)": {
+     "value": 0,
+     "pass": true,
+     "note": "class\u00d7chunk samples over their v1 bar: 0"
+    }
+   },
+   "constructed": "v1 rock relit (\u00d70.7 linear, cooled); patchwork rock (cellularity) \u2014 see discards"
+  },
+  {
+   "row": "P5",
+   "kind": "quality",
+   "neg": "R-C9-158 (Gate-1 W-1)",
+   "metric": "(a) overlap MAD between neighbouring raw canvases; (b) stitched seam visibility |log2(gradient on seam \u00f7 off-seam baseline)|",
+   "threshold": "(a) \u2264 13.09; (b) \u2264 0.799",
+   "threshold_source": "v1's own 24 overlaps / 6 seams (maxima)",
+   "cells": {
+    "v1": {
+     "value": "13.09 / 0.799",
+     "pass": true,
+     "note": "pairs over 0, seams over 0"
+    },
+    "159": {
+     "value": "6.87 / 0.891",
+     "pass": false,
+     "note": "pairs over 0, seams over 2"
+    },
+    "158": {
+     "value": "15.29 / 1.274",
+     "pass": false,
+     "note": "pairs over 6, seams over 1"
+    },
+    "constructed": {
+     "value": "14.07 / 1.250",
+     "pass": false,
+     "note": "pairs over 2, seams over 1"
+    }
+   },
+   "constructed": "(b) a 6 px misregistered blend in one band; (a) one canvas from a 6%-shifted hand"
+  },
+  {
+   "row": "P6",
+   "kind": "quality",
+   "neg": "R-C9-155 BVR blocks (invention, Gate-1 W-1); R-C9-159 (silhouettes)",
+   "metric": "(a) dark openings (L* < T after 0.1 m smoothing, \u2265 0.5 m\u00b2) not at a declared opening; (b) median per-piece IoU of model silhouette vs painted non-ground class",
+   "threshold": "(a) inventions = 0, T = 32 (v1's own ceiling); (b) \u2265 0.513 (v1 median)",
+   "threshold_source": "v1 painting: largest L* with no undeclared opening; v1's per-piece IoU median",
+   "cells": {
+    "v1": {
+     "value": "0 inv / IoU 0.513",
+     "pass": true,
+     "note": ""
+    },
+    "159": {
+     "value": "IoU 0.102",
+     "pass": false,
+     "note": "silhouette agreement (invention check: BVR)"
+    },
+    "BVR hall (T2a, 7_5..8_7)": {
+     "value": "18 inventions",
+     "pass": false,
+     "note": "22 dark openings found"
+    },
+    "BVR barrow door (T2b, 4_0..6_1)": {
+     "value": "0 inventions",
+     "pass": true,
+     "note": "1 dark openings found"
+    },
+    "constructed": {
+     "value": "1 inv / IoU 0.290",
+     "pass": false,
+     "note": "stamped doorway; ID shifted 1.5 m"
+    }
+   },
+   "constructed": "a 2.2 \u00d7 2.6 m doorway stamped on v1's open snow; v1's ID silhouettes shifted 1.5 m"
+  },
+  {
+   "row": "P7",
+   "kind": "constraint",
+   "neg": "constructed (RED)",
+   "metric": "painted tuft share and clutter share (L* < 55) on the walkable floor and every lane, measured on the painting",
+   "threshold": "floor \u2264 v1 quadrant max (tuft 0.0040, clutter 0.0013); lanes \u2264 v1 segment max (tuft 0.0245, clutter 0.0793)",
+   "threshold_source": "v1 arena disc (4 quadrants), path + door corridor (2 m segments)",
+   "cells": {
+    "v1": {
+     "value": "0.0019 / 0.0005",
+     "pass": true,
+     "note": "lanes over: none"
+    },
+    "159": {
+     "value": "0.0006 / 0.0002",
+     "pass": true,
+     "note": "lanes over: none"
+    },
+    "constructed": {
+     "value": "0.0219 / 0.0125",
+     "pass": false,
+     "note": "lanes over: none"
+    }
+   },
+   "constructed": "a 3 \u00d7 3 m patch of v1 heather ground pasted onto the arena centre"
+  },
+  {
+   "row": "P8",
+   "kind": "constraint",
+   "neg": "constructed (RED)",
+   "metric": "share of 3D heather instances on painted tufts (24 px footprint) + tint correlation with the paint under them",
+   "threshold": "share \u2265 0.9 and tint r \u2265 0.874 \u2014 PROVISIONAL (0.90 \u00d7 v1 measured) until PT's reproduced v1 value lands (Gate-1 W-2)",
+   "threshold_source": "v1 heather.json (977) on v1's tuft classifier",
+   "cells": {
+    "v1": {
+     "value": "1.000 / r 0.97",
+     "pass": true,
+     "note": ""
+    },
+    "159": {
+     "value": "0.402 / r 0.03",
+     "pass": false,
+     "note": ""
+    },
+    "constructed": {
+     "value": "0.419 / r 0.05",
+     "pass": false,
+     "note": ""
+    }
+   },
+   "constructed": "v1's instances displaced 3\u20138 m (placed by noise)"
+  },
+  {
+   "row": "P9",
+   "kind": "constraint",
+   "neg": "R-C9-158; constructed (RED)",
+   "metric": "(a) heather sway in a static in-engine pair; (b) water flow in-engine; (c) floe marker UV drift; (d) snow-trail coverage of the floor",
+   "threshold": "(a) \u2265 3\u00d7 noise and \u2265 0.25\u00d7 v1; (b) \u2265 3\u00d7 noise; (c) \u2264 0.25 px; (d) \u2265 0.99",
+   "threshold_source": "v1's own sway; v1 SnowField coverage 1.00; rest-pose UV = 0 drift (DEV-5)",
+   "cells": {
+    "v1": {
+     "value": "trail 1.00",
+     "pass": null,
+     "note": "sway pending in-engine capture"
+    },
+    "159": {
+     "value": "trail 0.81",
+     "pass": null,
+     "note": "life capture pending"
+    },
+    "158": {
+     "value": "trail 0.00; no SnowField, no wind, static sea",
+     "pass": false,
+     "note": "negative control (C-2)"
+    }
+   },
+   "constructed": "v1 with the wind held; the sea with its motion layers hidden"
+  },
+  {
+   "row": "P10",
+   "kind": "constraint",
+   "neg": "constructed (RED)",
+   "metric": "p99 frame time, desktop Forward+, 1920 \u00d7 1080, vsync off, him walking a loop, 900 frames",
+   "threshold": "\u2264 16.7 ms",
+   "threshold_source": "plan \u00a7 4 P10 (10.9\u201312.4 ms target withdrawn, W-2)",
+   "cells": {
+    "v1": {
+     "value": null,
+     "pass": null,
+     "note": "capture pending"
+    },
+    "159": {
+     "value": null,
+     "pass": null,
+     "note": "capture pending"
+    },
+    "constructed": {
+     "value": null,
+     "pass": null,
+     "note": "capture pending"
+    }
+   },
+   "constructed": "v1 with a 20 ms busy-wait per frame"
+  },
+  {
+   "row": "P11",
+   "kind": "quality",
+   "neg": "R-C9-159",
+   "metric": "blind pair test: identification rate of the candidate crop over 30 test pairs (+10 v1-vs-v1 null pairs), fresh judge (C-3)",
+   "threshold": "\u2264 65% (pass if \u2264 19/30)",
+   "threshold_source": "plan \u00a7 4 P11; power table below",
+   "cells": {
+    "cal_v1_vs_159": {
+     "value": null,
+     "pass": null,
+     "note": "built: 40 pairs; NOT JUDGED (conductor spawns the judge)"
+    },
+    "cal_v1_vs_158": {
+     "value": null,
+     "pass": null,
+     "note": "built: 40 pairs; NOT JUDGED (conductor spawns the judge)"
+    },
+    "cal_v1_vs_constructed_halfdensity": {
+     "value": null,
+     "pass": null,
+     "note": "built: 40 pairs; NOT JUDGED (conductor spawns the judge)"
+    }
+   },
+   "constructed": "v1 stills at half texel density (cal_v1_vs_constructed_halfdensity)",
+   "power": {
+    "pass_if_identified_le": 19,
+    "of": 30,
+    "P(pass | true identification rate p)": {
+     "0.50": 0.9506,
+     "0.55": 0.865,
+     "0.60": 0.7085,
+     "0.65": 0.4922,
+     "0.70": 0.2696,
+     "0.75": 0.1057,
+     "0.80": 0.0256,
+     "0.90": 0.0001,
+     "1.00": 0.0
+    }
+   }
+  }
+ ],
+ "discarded": [
+  {
+   "row": "P4 (3) cellularity",
+   "why": "cannot see a mechanism-faithful constructed failure (patchwork rock p95 0.417 vs v1 rock 0.402, bar 0.681; \u00b115% Voronoi tone stamp 0.391); kept as non-binding report"
+  },
+  {
+   "row": "P9b film instrument",
+   "why": "cannot separate R-C9-159's animated sea (median ratio 1.71-1.82) from R-C9-158's static one (1.38) on compressed panning films; replaced by the in-engine static pair"
+  }
+ ],
+ "re_instrumented": [
+  {
+   "row": "P6a",
+   "from": "L* < 25, unsmoothed, 20 px opening (sees only BVR's declared door: 1 opening, 0 inventions)",
+   "to": "L* < T on a 0.1 m Gaussian, T = v1's ceiling (32), 0.2 m opening, >= 0.5 m^2",
+   "why": "a door interior is textured (planks, smoke, embers); T is computed from v1 alone"
+  },
+  {
+   "row": "P5 constructed input",
+   "from": "12 px whole-half shift (invisible to (b): 0.772 vs bar 0.799)",
+   "to": "6 px misregistered blend (ghosting, (b) 1.250)",
+   "why": "v1's partition-of-unity stitch cannot produce a hard seam; ghosting is its failure mode. Scope recorded in p5_seams.py"
+  }
+ ]
+}

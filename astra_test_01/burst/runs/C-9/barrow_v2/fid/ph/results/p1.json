@@ -1,0 +1,1344 @@
+{
+ "v1": {
+  "value": 1.0,
+  "worst_surface": "ground + 29 primitives (projection)",
+  "n_surfaces": 26,
+  "n_fail": 0,
+  "pass": true,
+  "threshold": "every static surface ratio <= 1.05",
+  "surfaces": [
+   {
+    "surface": "ground + 29 primitives (projection)",
+    "kind": "projection",
+    "source": "paint/barrow_full_painted.png",
+    "source_ppm": 100.61763054463785,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake cairn_1",
+    "kind": "bake(painting)",
+    "source": "work/bakes/cairn_1.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 553.5201722814422,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake cairn_2",
+    "kind": "bake(painting)",
+    "source": "work/bakes/cairn_2.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 552.0129371695215,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake cairn_3",
+    "kind": "bake(painting)",
+    "source": "work/bakes/cairn_3.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 552.2425108689861,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake door_lintel",
+    "kind": "bake(painting)",
+    "source": "work/bakes/door_lintel.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 311.534330698846,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake door_post_L",
+    "kind": "bake(painting)",
+    "source": "work/bakes/door_post_L.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 648.5013477447269,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake door_post_R",
+    "kind": "bake(painting)",
+    "source": "work/bakes/door_post_R.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 659.7128612949438,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake fallen_tree_log_A",
+    "kind": "bake(painting)",
+    "source": "work/bakes/fallen_tree_log_A.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 512.0562515294978,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake fallen_tree_log_B",
+    "kind": "bake(painting)",
+    "source": "work/bakes/fallen_tree_log_B.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 487.37942711364127,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake grave_marker_E",
+    "kind": "bake(painting)",
+    "source": "work/bakes/grave_marker_E.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 580.7635204283353,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake grave_marker_W",
+    "kind": "bake(painting)",
+    "source": "work/bakes/grave_marker_W.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 579.9742994851522,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake raven",
+    "kind": "bake(painting)",
+    "source": "work/bakes/raven.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 2189.86811527513,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m115",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m115.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 646.0053466584035,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m135",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m135.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 400.02191619763784,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m155",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m155.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 463.98757136754335,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m35",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m35.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 644.4905188044127,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m55",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m55.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 463.480118813399,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m75",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m75.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 398.3564658423634,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m95",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m95.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 365.7288323812676,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p115",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p115.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 611.7800120923251,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p135",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p135.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 442.76465573580373,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p155",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p155.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 472.2673228811815,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p35",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p35.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 611.0417983125405,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p55",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p55.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 472.19790977696323,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p75",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p75.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 442.28075094896775,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p95",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p95.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 472.14111255867437,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   }
+  ]
+ },
+ "159": {
+  "value": 4.353,
+  "worst_surface": "bake cavecliff #0",
+  "n_surfaces": 56,
+  "n_fail": 30,
+  "pass": false,
+  "threshold": "every static surface ratio <= 1.05",
+  "surfaces": [
+   {
+    "surface": "ground (projection)",
+    "kind": "projection",
+    "source": "data/barrow_v2_sw/painted/ground.png",
+    "source_ppm": 50.308776855469,
+    "ratio": 2.0,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #0",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 40.30810134144839,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.956,
+     1.209,
+     1.067
+    ],
+    "ratio": 2.4962116885290757,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #1",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 48.525580871715185,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.756,
+     1.169,
+     0.8
+    ],
+    "ratio": 2.0734950907014578,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #2",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 37.14880536824643,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     1.022,
+     1.284,
+     1.2
+    ],
+    "ratio": 2.708500386850732,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #3",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 46.36136735056205,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.822,
+     1.182,
+     0.833
+    ],
+    "ratio": 2.170288743861179,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #4",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 41.80386857579256,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.889,
+     1.243,
+     1.0
+    ],
+    "ratio": 2.4068957524472454,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #5",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 50.32078525629015,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.711,
+     1.162,
+     0.767
+    ],
+    "ratio": 1.9995227260162975,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #6",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 38.63299964178359,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.978,
+     1.264,
+     1.133
+    ],
+    "ratio": 2.604445801358766,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #7",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 45.429328727674765,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.8,
+     1.196,
+     0.9
+    ],
+    "ratio": 2.2148148900479683,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #8",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 40.70143672707334,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.933,
+     1.203,
+     1.067
+    ],
+    "ratio": 2.4720885010924025,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #9",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 55.13358886630184,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.497,
+     1.223,
+     0.793
+    ],
+    "ratio": 1.8249774008895758,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #10",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 52.134663967021616,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.523,
+     1.221,
+     0.892
+    ],
+    "ratio": 1.9299549676695873,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #11",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 50.88340381868406,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.564,
+     1.246,
+     0.872
+    ],
+    "ratio": 1.9774139731193037,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #12",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 51.16867077037789,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.603,
+     1.201,
+     0.833
+    ],
+    "ratio": 1.9663898279176448,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #13",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 55.846153453898125,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.516,
+     1.205,
+     0.745
+    ],
+    "ratio": 1.8016917457708053,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #14",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 51.66851413348771,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.594,
+     1.209,
+     0.814
+    ],
+    "ratio": 1.9473668906171455,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #15",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 50.60680952924454,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.637,
+     1.198,
+     0.817
+    ],
+    "ratio": 1.9882216375010435,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #16",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 50.491539144589865,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.711,
+     1.203,
+     0.733
+    ],
+    "ratio": 1.99276067665129,
+    "pass": false
+   },
+   {
+    "surface": "bake cliffplain #17",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cliffplain",
+    "source_ppm": 60.961573125100145,
+    "sheet_ppm_native": 43.21995731004046,
+    "instance_scale_xyz": [
+     0.556,
+     1.203,
+     0.533
+    ],
+    "ratio": 1.6505078289967883,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #0",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 58.24682739393383,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     1.172,
+     2.586,
+     1.008
+    ],
+    "ratio": 1.7274340631540888,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #1",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 63.237575947192056,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     1.045,
+     2.471,
+     0.924
+    ],
+    "ratio": 1.591103899918,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #2",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 56.77553682644182,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     1.235,
+     2.543,
+     1.05
+    ],
+    "ratio": 1.7721990726132215,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #3",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 63.10154911530584,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     1.077,
+     2.414,
+     0.924
+    ],
+    "ratio": 1.5945338129033715,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #4",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 204.62639213607866,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.415,
+     0.426,
+     0.398
+    ],
+    "ratio": 0.49171347185765896,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #5",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 174.19323820275696,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.463,
+     0.554,
+     0.445
+    ],
+    "ratio": 0.5776203183835498,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #6",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 211.09360722799866,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.434,
+     0.355,
+     0.416
+    ],
+    "ratio": 0.47664898540609363,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #7",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 372.6724430930266,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.247,
+     0.199,
+     0.237
+    ],
+    "ratio": 0.269989250817297,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #8",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 202.78405754198513,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.408,
+     0.453,
+     0.392
+    ],
+    "ratio": 0.4961807892127111,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #9",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 337.9037002818789,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.258,
+     0.245,
+     0.248
+    ],
+    "ratio": 0.2977699078968444,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #10",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 327.35394280407195,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.28,
+     0.229,
+     0.269
+    ],
+    "ratio": 0.3073662496594998,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #11",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 229.83239433783453,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.362,
+     0.395,
+     0.348
+    ],
+    "ratio": 0.43778664883523144,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #12",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 183.2163640835161,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.457,
+     0.49,
+     0.439
+    ],
+    "ratio": 0.5491734006088734,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #13",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 70.1707056802804,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.719,
+     2.647,
+     0.918
+    ],
+    "ratio": 1.4338968482002008,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #14",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 82.22475411719643,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.632,
+     2.514,
+     0.683
+    ],
+    "ratio": 1.2236893231389416,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #15",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 70.47908805407148,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.806,
+     2.471,
+     0.866
+    ],
+    "ratio": 1.4276228096729107,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #16",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 85.17973017839974,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.6,
+     2.543,
+     0.64
+    ],
+    "ratio": 1.1812382300367166,
+    "pass": false
+   },
+   {
+    "surface": "bake crag #17",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 133.7441703581258,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.56,
+     0.929,
+     0.485
+    ],
+    "ratio": 0.752313565828814,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #18",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 125.47396905828157,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.627,
+     1.017,
+     0.479
+    ],
+    "ratio": 0.8018998240519675,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #19",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 120.57492767105366,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.51,
+     1.182,
+     0.572
+    ],
+    "ratio": 0.8344815597603977,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #20",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 132.05585488315148,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.443,
+     1.021,
+     0.579
+    ],
+    "ratio": 0.7619317886357148,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #21",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 324.8984206802938,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.285,
+     0.293,
+     0.211
+    ],
+    "ratio": 0.309689266879963,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #22",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 213.62666400561534,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.401,
+     0.413,
+     0.374
+    ],
+    "ratio": 0.4709971677893785,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #23",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 227.93394312832885,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.387,
+     0.398,
+     0.331
+    ],
+    "ratio": 0.4414329534688452,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #24",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 234.78075616887097,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.387,
+     0.398,
+     0.302
+    ],
+    "ratio": 0.428559628790729,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #25",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 243.56172190276416,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.371,
+     0.382,
+     0.295
+    ],
+    "ratio": 0.4131090588656086,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #26",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 227.98074120659714,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.395,
+     0.406,
+     0.318
+    ],
+    "ratio": 0.4413423396134936,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #27",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 225.67203688313748,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.376,
+     0.387,
+     0.36
+    ],
+    "ratio": 0.4458574270016538,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #28",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 231.1238559852073,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.383,
+     0.394,
+     0.323
+    ],
+    "ratio": 0.435340407774167,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #29",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 118.45219994093195,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.683,
+     0.812,
+     0.655
+    ],
+    "ratio": 0.8494359223476856,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #30",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 129.3563365399555,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.597,
+     0.814,
+     0.573
+    ],
+    "ratio": 0.7778324309598805,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #31",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 116.39401164029293,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.729,
+     0.751,
+     0.7
+    ],
+    "ratio": 0.8644564466244973,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #32",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 827.3530092191191,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.102,
+     0.104,
+     0.1
+    ],
+    "ratio": 0.12161381247153968,
+    "pass": true
+   },
+   {
+    "surface": "bake crag #33",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-crag",
+    "source_ppm": 532.4878811568431,
+    "sheet_ppm_native": 84.50595691327352,
+    "instance_scale_xyz": [
+     0.159,
+     0.161,
+     0.156
+    ],
+    "ratio": 0.18895745287638074,
+    "pass": true
+   },
+   {
+    "surface": "bake wreck2 #0",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-wreck2",
+    "source_ppm": 25.052430358328717,
+    "sheet_ppm_native": 25.05243048141315,
+    "instance_scale_xyz": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "ratio": 4.0162791502377155,
+    "pass": false
+   },
+   {
+    "surface": "bake cavecliff #0",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-cavecliff",
+    "source_ppm": 23.116168601319924,
+    "sheet_ppm_native": 24.01410629870595,
+    "instance_scale_xyz": [
+     0.821,
+     1.366,
+     1.0
+    ],
+    "ratio": 4.3526916352908405,
+    "pass": false
+   },
+   {
+    "surface": "bake staircliff #0",
+    "kind": "bake(4-view sheet)",
+    "source": "artifacts/BV2L-m-staircliff",
+    "source_ppm": 30.25268106235112,
+    "sheet_ppm_native": 30.19379816402009,
+    "instance_scale_xyz": [
+     0.988,
+     1.007,
+     1.0
+    ],
+    "ratio": 3.325905347151351,
+    "pass": false
+   }
+  ]
+ },
+ "158": {
+  "value": 1.0,
+  "worst_surface": "everything static (projection of one painting)",
+  "n_surfaces": 1,
+  "n_fail": 0,
+  "pass": true,
+  "threshold": "every static surface ratio <= 1.05",
+  "surfaces": [
+   {
+    "surface": "everything static (projection of one painting)",
+    "kind": "projection",
+    "source": "paint/section_sw/section_sw_painted.png",
+    "source_ppm": 100.617553710938,
+    "ratio": 1.0,
+    "pass": true
+   }
+  ]
+ },
+ "constructed": {
+  "value": 2.0,
+  "worst_surface": "ground + 29 primitives (projection)",
+  "n_surfaces": 26,
+  "n_fail": 1,
+  "pass": false,
+  "threshold": "every static surface ratio <= 1.05",
+  "surfaces": [
+   {
+    "surface": "ground + 29 primitives (projection)",
+    "kind": "projection",
+    "source": "v1 painting resampled to 2688 x 1664 (constructed)",
+    "source_ppm": 50.308815272318924,
+    "ratio": 1.9999984727587117,
+    "pass": false
+   },
+   {
+    "surface": "bake cairn_1",
+    "kind": "bake(painting)",
+    "source": "work/bakes/cairn_1.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 553.5201722814422,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake cairn_2",
+    "kind": "bake(painting)",
+    "source": "work/bakes/cairn_2.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 552.0129371695215,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake cairn_3",
+    "kind": "bake(painting)",
+    "source": "work/bakes/cairn_3.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 552.2425108689861,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake door_lintel",
+    "kind": "bake(painting)",
+    "source": "work/bakes/door_lintel.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 311.534330698846,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake door_post_L",
+    "kind": "bake(painting)",
+    "source": "work/bakes/door_post_L.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 648.5013477447269,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake door_post_R",
+    "kind": "bake(painting)",
+    "source": "work/bakes/door_post_R.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 659.7128612949438,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake fallen_tree_log_A",
+    "kind": "bake(painting)",
+    "source": "work/bakes/fallen_tree_log_A.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 512.0562515294978,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake fallen_tree_log_B",
+    "kind": "bake(painting)",
+    "source": "work/bakes/fallen_tree_log_B.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 487.37942711364127,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake grave_marker_E",
+    "kind": "bake(painting)",
+    "source": "work/bakes/grave_marker_E.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 580.7635204283353,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake grave_marker_W",
+    "kind": "bake(painting)",
+    "source": "work/bakes/grave_marker_W.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 579.9742994851522,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake raven",
+    "kind": "bake(painting)",
+    "source": "work/bakes/raven.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 2189.86811527513,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m115",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m115.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 646.0053466584035,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m135",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m135.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 400.02191619763784,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m155",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m155.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 463.98757136754335,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m35",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m35.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 644.4905188044127,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m55",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m55.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 463.480118813399,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m75",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m75.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 398.3564658423634,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_m95",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_m95.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 365.7288323812676,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p115",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p115.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 611.7800120923251,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p135",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p135.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 442.76465573580373,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p155",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p155.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 472.2673228811815,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p35",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p35.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 611.0417983125405,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p55",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p55.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 472.19790977696323,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p75",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p75.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 442.28075094896775,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   },
+   {
+    "surface": "bake ring_p95",
+    "kind": "bake(painting)",
+    "source": "work/bakes/ring_p95.png",
+    "source_ppm": 100.61763054463785,
+    "painting_ppm": 100.61763054463785,
+    "texture_seen_ppm": 472.14111255867437,
+    "ratio": 0.9999992363793558,
+    "pass": true
+   }
+  ]
+ }
+}

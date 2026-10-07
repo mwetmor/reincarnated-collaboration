@@ -1,0 +1,85 @@
+{
+ "bar": 15.5,
+ "bar_source": "take/build/mini_overlay.json summary.unlit_mean_abs = 15.5 (lit: 40.7)",
+ "v1": {
+  "pending": "renders/v1/guide_as_painted.png not yet captured"
+ },
+ "159": {
+  "classes": {
+   "rock (cliffplain, crag, cavecliff, staircliff bakes)": {
+    "px": 115253,
+    "mean_abs": 49.37,
+    "signed_rgb": [
+     11.699999809265137,
+     -0.699999988079071,
+     -11.800000190734863
+    ]
+   },
+   "wood (wreck2 bake, v1 log bake)": {
+    "px": 64320,
+    "mean_abs": 67.25,
+    "signed_rgb": [
+     -44.400001525878906,
+     -53.0,
+     -53.5
+    ]
+   },
+   "v1-kit stones (v1 bakes)": {
+    "px": 5255,
+    "mean_abs": 107.97,
+    "signed_rgb": [
+     -104.80000305175781,
+     -107.69999694824219,
+     -108.69999694824219
+    ]
+   },
+   "ground: snow": {
+    "px": 4299319,
+    "mean_abs": 0.02,
+    "signed_rgb": [
+     -0.0,
+     -0.0,
+     -0.0
+    ]
+   },
+   "ground: ice": {
+    "px": 672028,
+    "mean_abs": 0.26,
+    "signed_rgb": [
+     -0.4000000059604645,
+     -0.30000001192092896,
+     -0.10000000149011612
+    ]
+   },
+   "ground: shingle + cliff back": {
+    "px": 817678,
+    "mean_abs": 0.28,
+    "signed_rgb": [
+     -0.4000000059604645,
+     -0.30000001192092896,
+     -0.10000000149011612
+    ]
+   }
+  },
+  "worst_class": "v1-kit stones (v1 bakes)",
+  "value": 107.97,
+  "bar": 15.5,
+  "pass": false,
+  "n_over": 3
+ },
+ "v1_recorded_overlay_check_as_painted": {
+  "rock (projected)": 0.02,
+  "birches (projected)": 0.15,
+  "ground: open snow": 0.03,
+  "ground: heather ground": 6.71,
+  "heather + shrub tufts": 8.99,
+  "ALL STATIC PIECES": 0.68,
+  "ALL GROUND (tufts apart)": 1.16,
+  "WHOLE CHUNK": 2.22,
+  "stones (baked)": 11.26,
+  "kit + raven (baked)": 13.53,
+  "mound (projected)": 0.01,
+  "ground: ice": 0.01,
+  "ground: path": 0.01
+ }
+}
