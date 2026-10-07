@@ -2,7 +2,7 @@
  "_what": "BV2F PT stills (bv2f pilot): painted, 1920x1080, MSAA 4x, pc_stills.gd recipe",
  "painted": {
   "files_bad": [],
-  "files_ok": 21,
+  "files_ok": 23,
   "ground_variant": "as_painted",
   "heather": {
    "albedo_mul": [
@@ -16,22 +16,22 @@
   },
   "loads": {
    "../bv2f/pilot/painted/bakes/barrow_front.bin": {
-    "bytes": 537643,
+    "bytes": 1572964,
     "format": "png",
     "path": "res://data/painted/../bv2f/pilot/painted/bakes/barrow_front.bin",
     "px": [
-     1024,
-     1024
+     2048,
+     2048
     ],
     "sha256_ok": true
    },
    "../bv2f/pilot/painted/bakes/cliff_faces__cliff_faces_0.bin": {
-    "bytes": 80362,
+    "bytes": 208337,
     "format": "png",
     "path": "res://data/painted/../bv2f/pilot/painted/bakes/cliff_faces__cliff_faces_0.bin",
     "px": [
-     1024,
-     1024
+     2048,
+     2048
     ],
     "sha256_ok": true
    },
@@ -186,12 +186,12 @@
     "sha256_ok": true
    },
    "../bv2f/pilot/painted/bakes/wreck.bin": {
-    "bytes": 830855,
+    "bytes": 2363215,
     "format": "png",
     "path": "res://data/painted/../bv2f/pilot/painted/bakes/wreck.bin",
     "px": [
-     1024,
-     1024
+     2048,
+     2048
     ],
     "sha256_ok": true
    },
@@ -219,17 +219,36 @@
     "bytes": 2393672,
     "path": "res://data/painted/../bv2f/pilot/painted/snow_grid.bin",
     "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/snow_ground_h.bin": {
+    "bytes": 1196836,
+    "path": "res://data/painted/../bv2f/pilot/painted/snow_ground_h.bin",
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/water_sdf.bin": {
+    "bytes": 5103,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/water_sdf.bin",
+    "px": [
+     180,
+     197
+    ],
+    "sha256_ok": true
    }
   },
   "manifest": "res://data/bv2f/pilot/painted/manifest.json",
-  "ms": 2418,
+  "ms": 2731,
   "pieces": {
    "baked": 18,
    "baked_meshes": 18,
    "bakes_missing": [],
-   "frame_rebound_materials": 21,
+   "frame_rebound_materials": 39,
    "inks_hidden": 183,
-   "projected": 106
+   "projected": 106,
+   "water": {
+    "floes_bobbing": 17,
+    "sea_meshes": 1
+   }
   },
   "snow": {
    "area_xz": [
@@ -238,10 +257,10 @@
     54.513,
     54.513
    ],
-   "bake_ms": 1836.3,
-   "bare_frac_under_cut": 0.6875,
+   "bake_ms": 1985.3,
+   "bare_frac_under_cut": 0.5953,
    "field_px": 768,
-   "mean_depth_m": 0.0343,
+   "mean_depth_m": 0.0418,
    "thin_zones": 266,
    "trail_px": 1024
   }

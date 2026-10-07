@@ -49,12 +49,32 @@
   "sheet": "fid/pt/m2/M2p_pilot_beside_v1.jpg (6 pairs, same zoom ortho 10.7337)",
   "film": {
    "file": "fid/pt/pilot/film/BV2F pilot - walk from the mere past the wreck through the stones to the barrow door.mp4",
-   "sha256": "c2b8bd8031ce5eafbe8f93706c8a24eb1b50a626ed26818e7767d165527c3a85",
-   "bytes": 56703404,
+   "sha256": "65094c1beb6bcb8342195a62330cf3c0b4594bd4d792e6139f39295d9e2d98ae",
+   "bytes": 56353246,
    "frames": 897,
    "fps": 24,
    "route": "mere -> wreck/shingle -> stone ring -> barrow door, 6/6 waypoints reached, v1 camera clamp on",
    "committed": false
+  }
+ },
+ "r_c9_194": {
+  "dev19": {
+   "sizes": {
+    "barrow_front": 2048,
+    "cliff_faces__cliff_faces_0": 2048,
+    "wreck": 2048
+   },
+   "min_baked_ppm_seen": 117.6,
+   "p1_precheck_worst_ratio": 0.856,
+   "tool": "frozen hero_surface.py --size (usage, not a patch)"
+  },
+  "dev5": "animated water over the painted sea (scripts/bv2f/pt_water.gd = R-C9-159 WATER_SHADER verbatim, paint_mix 1.0) + 17 floes bobbing with rest-pose UVs; floe sdf water_sdf.bin",
+  "dev18": "applied per R-C9-193: heather + snow on terrain (v1 counts); SnowField subclass scripts/bv2f/snow_field_terrain.gd (v1 untouched) incl. the painted snow's undisturbed-surface projection at the ground height",
+  "lineage": "refreshed by fid/pt/tools/pilot_lineage.py; P2 pre-check 20/20",
+  "rebuilt": "render_guide/heather_mask (P3/P8), 12 stills + class masks (P11), film",
+  "film": {
+   "sha256": "65094c1beb6bcb8342195a62330cf3c0b4594bd4d792e6139f39295d9e2d98ae",
+   "bytes": 56353246
   }
  }
 }

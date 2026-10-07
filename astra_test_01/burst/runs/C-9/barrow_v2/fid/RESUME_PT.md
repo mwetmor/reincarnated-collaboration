@@ -54,7 +54,13 @@ Git: commit only your own paths: `git add -- <new paths>`, `git status --porcela
 - Build: barrow_full/godot/scenes/bv2f_pilot_painted.tscn (scripts/bv2f/bv2f_pilot.gd, allowlisted): v1's _dress_painted rules, projection frame re-bound to the pilot plate; 3D heather (266, v1 counts + greedy cover, flat land) and snow field (flat ground) -- v1 assumed a flat floor; the mound flank/shore keep their painted tufts.
 - PH inputs + 12 stills with class masks: see fid/pt/pilot/pilot_record.json. Pre-checks: P2 20/20; P3 baked 11.9 / ground 0.29 (bar 15.5).
 - M2': fid/pt/m2/M2p_pilot_beside_v1.jpg; film fid/pt/pilot/film/*.mp4 (37 s, sha c2b8bd8031ce, NOT committed: 57 MB).
-Next step: STAND BY for M2' / PH's harness results.
+## R-C9-194 forensics owed by PT -- DONE (0 images)
+- DEV-19: per-instance bake size via the frozen hero_surface.py --size (usage): barrow_front / wreck / cliff_faces_0 at 2048; min baked density 117.6 px/m (P1 pre-check worst ratio 0.86).
+- DEV-5: animated water over the painted sea (pt_water.gd = R-C9-159 shader verbatim, base = painting) + 17 floes bobbing with rest-pose UVs.
+- DEV-18 applied (R-C9-193): heather + snow on terrain, v1 counts; snow_field_terrain.gd subclass (v1 untouched), painted-snow projection at ground height (fixed slope streaks).
+- Lineage refreshed (P2 pre-check 20/20). Pilot rebuilt; render_guide/heather_mask, 12 stills, film regenerated.
+- Note: three headless --check-only parse checks ran without the heavy lock (rule slip, no render); every render ran under it.
+Next step: STAND BY for PH's P1/P2/P8/P9 re-run and M2' / PH's harness results.
 
 ### 0.3 findings (first-layout notes; superseded by v1tools/PROVENANCE.md)
 - 10 tools + reference (`make_layout.py`, `cfg_t10bf.json` — the latter carries v1's `geo`/`rules`/`refs` brief, W3) copied mirroring source dirs; `SHA256SUMS` 12 files; `verify.sh` exit 0 on HEAD, exit 1 on a tampered copy and on an unlisted file (scratch tests).
