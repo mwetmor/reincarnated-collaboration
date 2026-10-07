@@ -45,4 +45,13 @@ Git: commit only your own paths: `git add -- <new paths>`, `git status --porcela
 - Unlit/lit: `take/build/mini_overlay.json` summary **unlit 15.5, lit 40.7** (ledger N-C9-PAINTED-LIGHT-RULING).
 - Heather (Gate-1 W-2: as RECORDED, three different quantities): `take/build/overlay_check.json:1781` as_painted whole-window `precision_drawn_on_painted` **0.5221** (the "52%", commit 111c85f5d "precision 0.52"); same block `coverage` **0.3407**; `take/build/painted_prep.json:127` heather `tuft_cells_covered_share` **0.4379**.
 - Frame time: `take/build/painted_captures.json:234-236` exported app **10.93 / 10.97 ms windowed, 12.40 ms fullscreen**. Note: commit 5f96ba0fe (trail polish) records the restaged desktop app at **12.8–12.9 ms fullscreen**, i.e. v1-at-HEAD was already outside 12.4 by its own record.
-Next step: 0.1 — run the v1 instruments at HEAD on a COPY (no writes into barrow_full/), heavy lock.
+### 0.1 progress
+- Method: APFS clone (`cp -Rc`, ~0 disk) of barrow_full at HEAD in the session scratchpad (`.../scratchpad/v1c/C-9/barrow_full`); v1 tools run unmodified there. `fid/pc/targets.json` + `control_shas.json` (before) committed before any measurement.
+- **T1 PASS**: capture_ids.gd → worst 0.004 px over 86 placements; ids.png sha `ed9cfcd207c1` and ids.json **byte-identical** to v1's. take_from_paint.py → take_report.json, plates.json, tufts.json, density_uv.png, ground_uv.png, splat_world.png all **byte-identical** to v1's; cell formula 0.0007 px.
+- **T2: unlit 15.5 PASS (per piece identical: 12.6/15.0/15.2/19.1); lit 36.2 vs recorded 40.7 → MISS** (door 35.9 vs 40.9, grave 34.2 vs 43.6, ring 42.7 vs 46.3, log 32.1 = 32.1). See `fid/pc/results.json`.
+- control_shas before == after; barrow_full git status unchanged.
+
+## HALT (H-C9-BV2F-PT-1, proposed; conductor appends to ledger)
+**0.1 T2 lit residual misses its record: 36.2 vs 40.7 (±0.5).** Unlit (the charter-gated number) reproduces exactly. The lit path (blockout ramp under the blockout sun, `mini_overlay.gd`) depends on `paint_stack.gd`/`barrow_full.gd`, changed by 17 commits after the record (3b8a4fbfd → HEAD; 111c85f5d replaced paint_stack.gd). Not bisected.
+**Conductor must rule:** (a) is lit a gating target (charter row 0.1 names only unlit 15.5; my targets.json registered lit as gating)? (b) if gating: bisect the lit path (≈1 Godot run per candidate commit, $0) or re-base the lit record at HEAD. T3, T4 and the stills are NOT run; resume order T3 → stills → T4 from the clone (re-clone first if barrow_full has moved).
+Next step: await ruling.
