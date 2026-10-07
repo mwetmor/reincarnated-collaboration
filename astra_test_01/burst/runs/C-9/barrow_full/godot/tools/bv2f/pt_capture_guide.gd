@@ -91,15 +91,22 @@ func _guide() -> void:
 			m.set_shader_parameter("id_black", true)
 			saved[m] = true
 	scene.snow.set_id_black(true)
-	# BV2F-PT (R-C9-196): the animated water and the floes are not pieces of v1's id_black set -- hidden for the
-	# heather shots, else the sea reads as heather in the mask
-	var hid := []
+	# BV2F-PT (R-C9-196): the animated water and the floes are not pieces of v1's id_black set -- drawn BLACK for the heather
+	# shots (hiding them exposed the grey background, which reads as heather), and the background black too
+	var blk := StandardMaterial3D.new()
+	blk.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	blk.albedo_color = Color(0, 0, 0)
+	var hid := {}
 	for id in scene.nodes:
 		if String(id) == "ground_sea" or String(id).begins_with("blobs_shore_ice__"):
 			for mi in scene._meshes(scene.nodes[id]):
-				if (mi as Node3D).visible:
-					(mi as Node3D).visible = false
-					hid.append(mi)
+				hid[mi] = (mi as GeometryInstance3D).material_override
+				(mi as GeometryInstance3D).material_override = blk
+	var env: Environment = scene.env_node.environment
+	var bg_mode := env.background_mode
+	var bg_col := env.background_color
+	env.background_mode = Environment.BG_COLOR
+	env.background_color = Color(0, 0, 0)
 	scene.post_q.visible = false
 	# AND ITS COLOUR, alone: the sprays as drawn, over black -- with the mask's coverage this is the
 	# stems' own colour, unmixed with the ground between them (the grade is calibrated on it)
@@ -112,7 +119,9 @@ func _guide() -> void:
 		(m as ShaderMaterial).set_shader_parameter("id_black", false)
 	scene.snow.set_id_black(false)
 	for mi in hid:   # BV2F-PT (R-C9-196)
-		(mi as Node3D).visible = true
+		(mi as GeometryInstance3D).material_override = hid[mi]
+	env.background_mode = bg_mode
+	env.background_color = bg_col
 	scene.heather_mat.set_shader_parameter("id_white", false)
 	scene.post_q.visible = true
 	scene.heather_mat.set_shader_parameter("wind_on", 1.0)

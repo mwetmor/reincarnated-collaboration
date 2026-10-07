@@ -80,12 +80,16 @@
  "r_c9_196": {
   "heather_mask": {
    "file": "fid/pt/pilot/heather_mask.png",
-   "sha256": "7f486b7745ef6ab380e8d625ba09dc00aebe99fdbe6d0a939c0dbc9af5da03a4"
+   "sha256": "062525d2debdb5ce4827af09a3b0de962ccd9e4d8641b1dd233e7e5d70a18ce4",
+   "px_on_sea": 0,
+   "px_on_floes": 0,
+   "px_total": 232532
   },
   "heather_colour": {
    "file": "fid/pt/pilot/heather_colour.png",
-   "sha256": "f1c3852bea1f310017f77d5e90b277471a6f577f3da0863ed2a5525af04335d9"
+   "sha256": "c060fb0894fe63dc6155dc44a7ff80b54db17680adcd9349758c6b0e52794fd9"
   },
-  "fix": "pt_capture_guide.gd hides the animated sea + floes for the heather shots (they are not in v1's id_black set); render_guide.png unchanged as PH's P3 input (not refreshed)"
+  "fix": "pt_capture_guide.gd draws the animated sea + floes BLACK and the background black for the heather shots (they are outside v1's id_black set). Correction: the first attempt (ab50b14a9) HID them, which exposed the grey background (252,240 sea px still in the mask) -- superseded by this render",
+  "render_guide": "PH's P3 input render_guide.png not refreshed (unchanged by this fix)"
  }
 }
