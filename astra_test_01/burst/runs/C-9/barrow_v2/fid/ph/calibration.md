@@ -1,6 +1,6 @@
 # BV2F lane PH — the v1-parity harness, calibrated (Phase 0 task 0.4)
 
-**Lane:** PH (galadriel). **Charter:** BV2F v0.3 (§ 9, § 12 Gate-1 folds, § 13 Gate-2 folds). **Status:** Phase 0 CLOSED (Gate-2 PASS-WITH-FOLDS, R-C9-173); the folds are recorded in § 11. Rulings R-C9-167 through R-C9-171 are folded in §§ 7–10. v1 passes every measured row. R-C9-159 fails P1–P4, P6b and P8. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED. **P6a binding = fallback (a), conductor triage by eye with the layout overlay (§ 10, § 11). P11 = ABX, binding (R-C9-171); the v1 GREEN sets (G2-B2) await judges.**
+**Lane:** PH (galadriel). **Charter:** BV2F v0.3 (§ 9, § 12 Gate-1 folds, § 13 Gate-2 folds). **Status:** Phase 0 CLOSED (Gate-2 PASS-WITH-FOLDS, R-C9-173); the folds are recorded in § 11. Rulings R-C9-167 through R-C9-171 are folded in §§ 7–10. v1 passes every measured row. R-C9-159 fails P1–P4, P6b and P8. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED. **P6a binding = fallback (a), conductor triage by eye with the layout overlay (§ 10, § 11). P11 = ABX, binding (R-C9-171); v1 GREEN confirmed (R-C9-175, § 12).**
 **Machine-readable:** `calibration.json`. **Harness + run commands:** `harness/README.md`. **Per-row evidence:** `results/*.json`.
 
 Rule applied throughout: thresholds come from v1's own distribution; a quality row that cannot separate v1 from its
@@ -23,7 +23,7 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 | P8 | constraint | constructed (RED, graded) | every chunk with heather (≥ 2000 drawn px) ≥ 0.4476 = v1's minimum chunk | min 0.4476, 0/15 below **PASS** | min 0.0009, 6/6 below **FAIL** | — | min 0.4119, 3/15 below **FAIL** | — |
 | P9 | constraint | R-C9-158; constructed (RED) | (a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99 | sway 8.26; trail 1.00 **PASS** | sway 13.06; flow 6.48; drift 1.913 px; trail 0.81 **FAIL** | trail 0.00; no SnowField, no wind, static sea **FAIL** | sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden) **FAIL** | — |
 | P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | 13.55 **PASS** | — | 21.33 **FAIL** | — |
-| P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | None **—** | ABX 100% (inconsistency 0%) **FAIL** | ABX 90% (inconsistency 10%) **FAIL** | ABX 92% (inconsistency 0%) **FAIL** | constructed (G2, fixed generator): None **—** |
+| P11 | quality | R-C9-159 | ABX accuracy ≤ 65% (≤ 26/40); judge void if repeat inconsistency > 25% | ABX 55% (inconsistency 10%) **PASS** | ABX 100% (inconsistency 0%) **FAIL** | ABX 90% (inconsistency 10%) **FAIL** | ABX 92% (inconsistency 0%) **FAIL** | constructed (G2, fixed generator): ABX 82% (inconsistency 20%) **FAIL** |
 <!-- /CALIBRATION-TABLE -->
 
 ## 2. Thresholds and their v1 sources
@@ -309,4 +309,16 @@ Both pass the scorer self-test: the key scores 100% with 0 inconsistency, random
 - The whole-window value (0.5221, reproduced exactly) is still reported.
 
 **I-4.** Stale lines in §§ 0–6 are updated: the status header, the P8 and P11 threshold rows, P6a's flag count, the pending list, and § 6.
+
+## 12. Ruling R-C9-175: the G2 judges, recorded
+
+Answers are saved as evidence in `p11/answers/` (`abx_g2_v1rec_vs_v1head.json`, `abx_g2_v1_vs_halfdensity.json`, `p6_overlay_J.json`). Each was scored with the harness's own scorer.
+
+**P11 v1 cell, GREEN.** The record-time v1 against HEAD v1 test scores **22/40 = 55%** (the bar is ≤ 65%), with repeat inconsistency 0.10, so the judge is valid. **PASS**: the judge cannot tell v1 from itself beyond chance.
+
+**P11 constructed, on the fixed generator.** v1 against half density scores **33/40 = 82.5%**, with repeat inconsistency 0.20, so the judge is valid. **FAIL**, which is correct.
+
+**P11 counts from W-A on** (R-C9-175).
+
+**P6a overlay judge (J)** (`results/p6_overlay_score_J.json`): both invented features flagged (the doorway by brazier_sw and the gable-end opening), declared door not flagged, **stamp missed**, material "yes" **5/15** (old items 04, 06, 07, 10, 12). **Acceptance not met.** The conductor reads P6a candidates by eye under charter § 13, using the triage tool and its jsonl record.
 
