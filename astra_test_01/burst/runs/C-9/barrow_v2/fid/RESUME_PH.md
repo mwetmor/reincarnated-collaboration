@@ -76,4 +76,5 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
   - crag #2 and log #3 sit wholly below the sea surface;
   - slope stone #4 is at the frame edge (13 px in frame).
   - Re-run: `python3 harness/p6prime_art.py`.
+- [x] Re-run after LV fix 550682c73: P6′ = PASS (presence, placement, scale; § 23).
 - [x] W-4(2): the minimum pilot window is 3 × 3 (cols 0–2, rows 0–2; 40 trials, 10 repeats). The home ground's extent decides it (§ 22). The conductor rules the pilot.

@@ -644,3 +644,17 @@ Tool: `harness/p11_window.py` → `results/p11_window_bv2art.json`. The fixed AB
 
 **Caveat.** The candidate classes come from the class map, not from painted pixels. Once the pilot is painted, the real generator must be re-run on its stills; the UNDERPOWERED guard applies before any judge.
 
+
+## 23. P6′ re-run on LV's fix (550682c73): bv2art, frozen bars
+
+Inputs: ids_art `aeaecf49ce26…` (= manifest), layout_bv2art `c30e0d449dfa…`, placed_fit `bba80944e10d…`.
+- **Slot cross-check:** 34 of 34 match. PASS.
+- **I-4 shift RED:** still FAILS, 5 of 10 objects below the bar.
+
+| component | verdict | detail |
+|---|---|---|
+| presence | **PASS** | 0 missing, 0 extra, 0 terrain-hidden above 0.50. Crag #2 and log #3 are on the shingle; slope stone #4 is inside the envelope |
+| placement | **PASS** | min containment 0.978 (bar 0.7872) |
+| scale | **PASS** | 88 instances, 0 over 1.10, 0 record mismatches |
+
+**P6′ = PASS** (presence, placement, scale; extent retired). IoU against the slot prism, reported and non-binding: 0.481 (v1 0.635).
