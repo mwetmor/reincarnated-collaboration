@@ -1,7 +1,7 @@
 {
   "layout": "fid/lv/layout_v7b.json",
-  "layout_sha256": "05947a45708417c9d401c081f0c9b5c6d8e686af2abb5c6c7b6874f2fd965a1e",
-  "pass": false,
+  "layout_sha256": "636a697cdb60dc532952908f414cf9d3c39c2294b650cee651242829f80b3e92",
+  "pass": true,
   "checks": [
     {
       "rule": "R1",
@@ -44,7 +44,7 @@
       "rule": "R4",
       "check": "floor area and extents (>= the brief's ~84 x 82 m, ~4,026 m2)",
       "PASS": true,
-      "area_m2": 4224.72,
+      "area_m2": 4224.62,
       "width_x_m": 84.628,
       "depth_y_m": 82.269,
       "x": [
@@ -63,7 +63,7 @@
       "worst_hull_vertex_clearance_m": -0.0004,
       "deepest_floor_vertex_inside_hull_m": 0.0,
       "hull_min_area_m2": 4026.52,
-      "floor_minus_hull_m2": 198.21
+      "floor_minus_hull_m2": 198.1
     },
     {
       "rule": "R4",
@@ -137,7 +137,7 @@
       "check": "p04 8 m box (the pack's stale prose; not the oracle's law) coverage",
       "PASS": true,
       "severity": "INFO",
-      "box_on_floor_pct": 97.196,
+      "box_on_floor_pct": 97.157,
       "corner_clearance_m": -2.1675
     },
     {
@@ -205,8 +205,8 @@
       "check": "line (0,0) -> p04 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 31.948,
-      "nearest_blocker": "yard_beam_2",
-      "nearest_blocker_gap_m": 10.507
+      "nearest_blocker": "brazier_sw",
+      "nearest_blocker_gap_m": 10.485
     },
     {
       "rule": "R3",
@@ -221,14 +221,14 @@
       "check": "line (0,0) -> p06 on the floor and clear of every blocker",
       "PASS": true,
       "length_m": 27.493,
-      "nearest_blocker": "yard_beam_4",
-      "nearest_blocker_gap_m": 11.574
+      "nearest_blocker": "fallen_gable",
+      "nearest_blocker_gap_m": 11.25
     },
     {
       "rule": "R5",
       "check": "every blocker (blocks movement or sight, or taller than walk-over) has zero area inside the floor",
       "PASS": true,
-      "n_blockers": 189,
+      "n_blockers": 191,
       "worst_overlap_m2": 0.0,
       "worst_id": "stair_wall_rock",
       "closest_blocker_gap_m": 0.0,
@@ -238,7 +238,7 @@
       "rule": "R5",
       "check": "every interior feature is walk-over (z_top <= 0.4 m, blocks nothing)",
       "PASS": true,
-      "n_interior": 353,
+      "n_interior": 354,
       "tallest_interior_m": 0.1494,
       "offenders": []
     },
@@ -261,8 +261,8 @@
       "rule": "R5",
       "check": "sculpt: every blob taller than walk-over (0.4 m) lies outside the floor",
       "PASS": true,
-      "n_blobs": 441,
-      "n_tall": 47,
+      "n_blobs": 444,
+      "n_tall": 49,
       "offenders": []
     },
     {
@@ -448,14 +448,14 @@
       "check": "p04: hall_porch is outside the walkable edge and within 3.0 m of it",
       "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 1.786
+      "gap_to_floor_m": 1.665
     },
     {
       "rule": "R10",
       "check": "p06: fallen_gable is outside the walkable edge and within 3.0 m of it",
-      "PASS": false,
+      "PASS": true,
       "overlap_m2": 0.0,
-      "gap_to_floor_m": 13.245
+      "gap_to_floor_m": 1.565
     },
     {
       "rule": "R10",
@@ -476,19 +476,19 @@
       "check": "p04: the longhall slot has EXACTLY ONE great door, >= 4.5 x 4.5 m, inside the porch; the porch opening >= 4.5 x 4.5 m",
       "PASS": true,
       "great_doors": 1,
-      "door_w_m": 4.5,
-      "door_h_m": 4.5,
+      "door_w_m": 4.55,
+      "door_h_m": 4.75,
       "porch_opening": [
-        4.511,
-        4.728
+        4.55,
+        4.75
       ]
     },
     {
       "rule": "R11",
       "check": "the porch rises ABOVE the hall's roofline (slot heights)",
-      "PASS": false,
-      "porch_h_m": 10.97,
-      "hall_h_m": 10.509
+      "PASS": true,
+      "porch_h_m": 13.117,
+      "hall_h_m": 11.823
     },
     {
       "rule": "R11",
@@ -524,13 +524,13 @@
     },
     {
       "rule": "R12",
-      "check": "lane_p04_hall: >= 4.511 m wide, starts at the hall_porch opening, reaches p04's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
+      "check": "lane_p04_hall: >= 4.55 m wide, starts at the hall_porch opening, reaches p04's disc, and NOTHING stands or lies in it (features, model slots, beams, blobs > 0.15 m, terrain)",
       "PASS": true,
-      "width_min_m": 4.6,
-      "required_m": 4.511,
-      "length_m": 8.841,
+      "width_min_m": 4.65,
+      "required_m": 4.55,
+      "length_m": 9.164,
       "starts_at_opening": true,
-      "on_disc_m2": 10.7,
+      "on_disc_m2": 10.83,
       "obstructions": [],
       "terrain_max_z_m": 0.05
     },
@@ -540,11 +540,11 @@
       "PASS": true,
       "width_min_m": 4.1,
       "required_m": 4.0,
-      "length_m": 17.441,
+      "length_m": 5.219,
       "starts_at_opening": true,
-      "on_disc_m2": 9.48,
+      "on_disc_m2": 9.49,
       "obstructions": [],
-      "terrain_max_z_m": 0.05
+      "terrain_max_z_m": 0.017
     },
     {
       "rule": "R12",

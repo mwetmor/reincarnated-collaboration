@@ -201,61 +201,66 @@ def main():
     # (R-C9-154) the great door + porch move NE along the hall wall to where the p04 arc has fallen away
     # far enough for the grown porch + its stone apron to stay outside the floor: the first station from
     # p04's ray at which the porch+apron clears the disc hull by >= 0.75 m (0.35 m bulge cap + 0.4 m)
-    # BV2F-LV (C7, R-C9-174): the hall kit at TRUE proportions, each piece ONE uniform scale (lv/models/stills/*_dims.json):
-    # body (BVP hall build) 30 m; porch (BVP porch build) scaled so its see-through opening is 4.5 m -- a deep gatehouse
-    # porch, 13.2 x 11.7 x 11.0 m, its ridge above the body's 10.5 m roof; the gable (BVP gable build) square, side = the
-    # body's depth. v6's heading is kept (the p04<->p06 tangent, R-C9-174 option a). Searched, not hand-placed: the wall
-    # offset, the gable's slide along the wall (p06's ray must still cross it) and the porch's station (it must cover the
-    # body's own door, 0.2117 L SW of the body's centre, BVP/BX's measurement) -- minimising the worse of the gable's and
-    # the porch's gap to the disc hull, with the clearances v6 used (porch 0.75 m; body/gable 0.75 m: E-sector bulge <= 0.58).
+    # BV2F-LV (C7, R-C9-174, R-C9-176): the hall kit at TRUE proportions, ONE uniform scale each.
+    #   body: BV2F-LV-hall (ONE build: the longhall WITH its shallow grand porch), 32.4 m so the porch's clear opening is
+    #         >= 4.5 m wide -- measured on its orthographic elevation (lv/models/measure/hall_*: opening 4.55 x 4.75 m,
+    #         centre 3.59 m NE of the build's centre, porch 10.6 m wide and 1.29 m proud of the body's front wall; body front
+    #         6.95 m and back wall 4.0 m from the centre, a rear wing to 8.26 m; porch ridge/finials 13.12 m, body roof max 11.82 m);
+    #   gable: BVP's collapsed-end build (square), its side = the body's depth; at the body's SW end, on p06's ray (R-C9-148).
+    # v6's heading is kept (the p04<->p06 tangent, R-C9-174 option a). SEARCHED, not hand-placed: the front-wall offset and
+    # the gable's slide along the wall (p06's ray must cross it) -- minimising the worse of the gable's and the porch's gap
+    # to the disc hull, with v6's clearance (0.75 m) for every piece.
     _ane = (-_ax[0], -_ax[1])
     _nin0 = (-_nT[0], -_nT[1])
-    _dims = {k: json.load(open(os.path.join(LV, "models", "stills", k + "_dims.json"))) for k in ("hall", "porch", "gable")}
-    _hs = float(os.environ.get("LV_HALL_L", _dims["hall"]["W_m"])) / _dims["hall"]["W_m"]   # experiment knob: ONE uniform re-scale of the body
-    HK = {"L": _dims["hall"]["W_m"] * _hs, "D": _dims["hall"]["D_m"] * _hs, "H": _dims["hall"]["H_m"] * _hs,
-          "GL": _dims["gable"]["W_m"], "GH": _dims["gable"]["H_m"], "door_sw_of_centre": 0.2117 * _dims["hall"]["W_m"] * _hs}
-    PORCH.update({"width": _dims["porch"]["W_m"], "depth": _dims["porch"]["D_m"], "height": _dims["porch"]["H_m"], "apron": 1.4,
-                  "ridge": _dims["porch"]["H_m"] - 1.2})
+    _dims = {k: json.load(open(os.path.join(LV, "models", "stills", k + "_dims.json"))) for k in ("hall", "gable")}
+    _k = _dims["hall"]["W_m"] / 32.4
+    HK = {"L": _dims["hall"]["W_m"], "D": _dims["hall"]["D_m"], "H_roof": 11.823 * _k, "H_porch": 13.117 * _k,
+          "front": 6.9465 * _k, "back": 3.998 * _k, "door_ne": 3.5875 * _k, "open": (4.55 * _k, 4.75 * _k),
+          "porch_ne": (-1.2 * _k, 9.4 * _k), "proud": 1.287 * _k}
+    HK["body_d"] = HK["front"] + HK["back"]
+    HK["GL"] = HK["body_d"]
+    HK["full_d"] = HK["front"] + 8.257 * _k
+    HK["GH"] = _dims["gable"]["H_m"] * HK["GL"] / _dims["gable"]["W_m"]
+    PORCH.update({"width": HK["porch_ne"][1] - HK["porch_ne"][0], "depth": HK["proud"], "apron": 1.4, "open_w": round(HK["open"][0], 3),
+                  "open_h": round(HK["open"][1], 3), "ridge": HK["H_porch"] - 1.2, "height": HK["H_porch"]})
     _d6 = unit(*A["p06"])
 
-    def _rect_on_wall(c0, s0, s1, depth, side):
-        return [along(c0, _ane, s0), along(c0, _ane, s1), along(along(c0, _ane, s1), side, depth), along(along(c0, _ane, s0), side, depth)]
+    def _rect_on_wall(c0, s0, s1, d0, d1):
+        """wall-line stretch c0 + s*ane (s0..s1), from d0 to d1 along the outward normal nT."""
+        return [along(along(c0, _ane, s0), _nT, d0), along(along(c0, _ane, s1), _nT, d0),
+                along(along(c0, _ane, s1), _nT, d1), along(along(c0, _ane, s0), _nT, d1)]
 
     def _clr(poly):
         if any(G.point_in_poly(q, disc_hull) for q in poly):
             return -1.0
         return G.poly_poly_gap(poly, disc_hull)
     best_ = None
-    for wk in range(0, 81):
-        w_ = 0.0 + 0.25 * wk
-        Gr = along((0, 0), _d6, (_cw + w_) / (_d6[0] * _nT[0] + _d6[1] * _nT[1]))
-        for g_ in np.linspace(-HK["GL"] / 2 + 0.6, HK["GL"] / 2 - 0.6, 9):
-            Gc = along(Gr, _ane, -g_)                                 # the ray crosses the gable g_ from its centre
-            gfp = _rect_on_wall(Gc, -HK["GL"] / 2, HK["GL"] / 2, HK["D"], _nT)
+    for wk in range(0, 121):
+        w_ = 0.25 * wk
+        Wr = along((0, 0), _d6, (_cw + w_) / (_d6[0] * _nT[0] + _d6[1] * _nT[1]))     # p06's ray on the front-wall line
+        for g_ in np.linspace(-HK["GL"] / 2 + 0.6, HK["GL"] / 2 - 0.6, 11):
+            G0 = along(Wr, _ane, -g_)                                                   # the gable's centre, on the wall line
+            gfp = _rect_on_wall(G0, -HK["GL"] / 2, HK["GL"] / 2, 0.0, HK["GL"])
             cg = _clr(gfp)
             if cg < 0.75 or (best_ and cg > best_[0] + 1e-9):
                 continue
-            hfp = _rect_on_wall(Gc, HK["GL"] / 2, HK["GL"] / 2 + HK["L"], HK["D"], _nT)
+            H0 = along(G0, _ane, HK["GL"] / 2 + HK["L"] / 2)                         # the hall's centre, on the wall line
+            hfp = _rect_on_wall(H0, -HK["L"] / 2, HK["L"] / 2, -HK["proud"], HK["front"] + 8.26 * _k)   # the build's AABB (R13 reads the slot)
             if _clr(hfp) < 0.75:
                 continue
-            door_s = HK["GL"] / 2 + HK["L"] / 2 - HK["door_sw_of_centre"]
-            for st_ in np.arange(HK["GL"] / 2 + PORCH["width"] / 2, HK["GL"] / 2 + HK["L"] - PORCH["width"] / 2 + 1e-9, 0.25):
-                if abs(st_ - door_s) > PORCH["width"] / 2 - 2.0 and not os.environ.get("LV_NO_DOOR_COVER"):
-                    continue
-                pc_ = along(Gc, _ane, st_)
-                pfp = _rect_on_wall(pc_, -PORCH["width"] / 2, PORCH["width"] / 2, PORCH["depth"] + PORCH["apron"], _nin0)
-                cp = _clr(pfp)
-                if cp < 0.75:
-                    continue
-                m_ = max(cg, cp)
-                if best_ is None or m_ < best_[0] - 1e-9:
-                    best_ = (m_, w_, float(g_), float(st_), Gc, pc_, cg, cp)
+            pfp = _rect_on_wall(H0, HK["porch_ne"][0], HK["porch_ne"][1], -(HK["proud"] + PORCH["apron"]), 0.0)
+            cp = _clr(pfp)
+            if cp < 0.75:
+                continue
+            m_ = max(cg, cp)
+            if best_ is None or m_ < best_[0] - 1e-9:
+                best_ = (m_, w_, float(g_), G0, H0, cg, cp)
     assert best_ is not None, "BV2F-LV HALT: no placement of the true-proportion hall kit clears the floor"
-    HK.update({"wall_off": best_[1], "gable_slide": best_[2], "porch_s": best_[3], "Gc": best_[4], "gap_gable_hull": best_[6], "gap_porch_hull": best_[7]})
-    PORCH["station"] = best_[3]
-    PORCH["centre0"] = best_[5]
-    print("[v7b] hall kit: wall offset %.2f m, gable slide %.2f, porch station %.2f; hull gaps gable %.2f porch %.2f" % (
-        best_[1], best_[2], best_[3], best_[6], best_[7]))
+    HK.update({"wall_off": best_[1], "gable_slide": best_[2], "G0": best_[3], "H0": best_[4], "gap_gable_hull": best_[5], "gap_porch_hull": best_[6]})
+    PORCH["station"] = HK["door_ne"]
+    PORCH["centre0"] = along(along(best_[4], _ane, HK["door_ne"]), _nT, -HK["proud"])        # the porch's mouth (door line)
+    print("[v7b] hall kit: front-wall offset %.2f m, gable slide %.2f; hull gaps gable %.2f porch %.2f; opening %.2f x %.2f m" % (
+        best_[1], best_[2], best_[5], best_[6], HK["open"][0], HK["open"][1]))
     _p3arc = lambda b_: _arc(b_)
     protect = [(*_arc(STAIR["tangent_beta_deg"]), 6.5, 0.0), (*_arc(46.0), 2.5, 0.0), (*_arc(22.0), 4.0, 0.3), (*_arc(121.0), 7.0, 0.6),
                (*along(PORCH["centre0"], _nin0, PORCH["depth"] + PORCH["apron"]), 8.0, 0.35),   # BV2F-LV: at the deep porch's apron
@@ -359,12 +364,12 @@ def main():
         nT = (-nT[0], -nT[1])                                   # outward (away from the start)
     c_edge = nT[0] * p4[0] + nT[1] * p4[1] + h + FLOOR_MARGIN_M  # the floor's straight edge p04 <-> p06
     c_wall = c_edge + HK["wall_off"]                            # BV2F-LV: the searched wall line (true-proportion kit)
-    HALL_D = HK["D"]
+    HALL_D = HK["full_d"]
 
     def on_wall(dray):
         return along((0, 0), dray, c_wall / (dray[0] * nT[0] + dray[1] * nT[1]))
     D = on_wall(d4)                                             # the great door
-    Gp = HK["Gc"]                                               # BV2F-LV: the gable's centre on the wall line (p06's ray crosses it)
+    Gp = HK["G0"]                                               # BV2F-LV: the gable's centre on the wall line (p06's ray crosses it)
     ax_ne = (-ax_sw[0], -ax_sw[1])
 
     def hall_rect(s0, s1, base):
@@ -374,14 +379,14 @@ def main():
         return [a0, a1, along(a1, nT, HALL_D), along(a0, nT, HALL_D)]
     GABLE_BACK, GABLE_FWD = HK["GL"] / 2, HK["GL"] / 2         # BV2F-LV: the square gable build
     D_ray = D                                                   # where p04's ray meets the wall (v4's door)
-    D = PORCH["centre0"]                                        # BV2F-LV: the searched porch station
+    D = along(HK["H0"], ax_ne, HK["door_ne"])                   # BV2F-LV: the build's own great door, on the front-wall line
     L_GD = math.dist(Gp, D)
-    NE_PAST_DOOR = GABLE_FWD + HK["L"] - L_GD                   # BV2F-LV: the body is exactly the build's 30 m
+    NE_PAST_DOOR = HK["L"] / 2 - HK["door_ne"]                  # BV2F-LV: the body is exactly the build's length
     rot_ax = math.degrees(math.atan2(ax_ne[1], ax_ne[0]))
-    feat("longhall", "hall", hall_rect(GABLE_FWD, L_GD + NE_PAST_DOOR, Gp), 0.0, HK["H"], True,
-         "the burnt longhall (BV2F-LV: the BVP build at ONE uniform scale, %.1f x %.1f x %.1f m): ONE building angled NE -> SW along the floor edge between p04 and p06; its long west wall faces the floor %.2f m beyond the disc hull; roof half fallen" % (HK["L"], HK["D"], HK["H"], HK["wall_off"]),
+    feat("longhall", "hall", hall_rect(GABLE_FWD, L_GD + NE_PAST_DOOR, Gp), 0.0, HK["H_roof"], True,
+         "the burnt longhall WITH its shallow grand porch (BV2F-LV: ONE build, BV2F-LV-hall, at ONE uniform scale, %.1f x %.1f x %.1f m): angled NE -> SW along the floor edge between p04 and p06; its front wall %.2f m beyond the disc hull; roof half fallen" % (HK["L"], HK["D"], HK["H_porch"], HK["wall_off"]),
          axis_compass_deg_sw=G.rnd(G.compass_deg(*ax_sw), 2), length_m=G.rnd(L_GD + NE_PAST_DOOR + GABLE_BACK, 2), depth_m=HALL_D)
-    feat("hall_great_door", "door", G.rect_poly(*along(D, nT, 0.3), PORCH["open_w"] + 0.6, 0.6, rot_ax), 0.0, PORCH["open_h"] + 0.3, True,
+    feat("hall_great_door", "door", G.rect_poly(*along(D, nT, -HK["proud"] + 0.3), PORCH["open_w"] + 0.6, 0.6, rot_ax), 0.0, PORCH["open_h"] + 0.3, True,
          "the hall's GREAT door (R-C9-154): a %.1f m wide x %.1f m high clear opening (sized for the %s), in the long west wall %.2f m NE of p04's ray, where the p04 arc falls away enough for the grown porch (p04: out of smoke)" % (
              PORCH["open_w"], PORCH["open_h"], PORCH["sized_for"], PORCH["station"]),
          faces_deg=G.rnd(G.compass_deg(-nT[0], -nT[1]), 2),
@@ -393,9 +398,10 @@ def main():
     _pc = D
     _nin = (-nT[0], -nT[1])
     _hw = PORCH["width"] / 2
-    porch_fp = [along(_pc, ax_ne, -_hw), along(_pc, ax_ne, _hw), along(along(_pc, ax_ne, _hw), _nin, PORCH["depth"]),
-                along(along(_pc, ax_ne, -_hw), _nin, PORCH["depth"])]
-    feat("hall_porch", "porch", porch_fp, 0.0, PORCH["ridge"] + 1.2, True,
+    _h0 = HK["H0"]
+    porch_fp = [along(_h0, ax_ne, HK["porch_ne"][0]), along(_h0, ax_ne, HK["porch_ne"][1]), along(along(_h0, ax_ne, HK["porch_ne"][1]), _nin, PORCH["depth"]),
+                along(along(_h0, ax_ne, HK["porch_ne"][0]), _nin, PORCH["depth"])]   # BV2F-LV: the build's own porch (not centred on the door)
+    feat("hall_porch", "porch", porch_fp, 0.0, HK["H_porch"], True,
          "the great door's gabled porch, GROWN (R-C9-154): %.1f x %.1f m, eaves %.1f m, ridge %.1f m running OUT toward p04's patch, ABOVE the hall's roofline; carved finials on its gable; the double doors stand open; smoke rolls out (p04: out of smoke)" % (
              PORCH["width"], PORCH["depth"], PORCH["eave"], PORCH["ridge"]),
          opening={"clear_w_m": PORCH["open_w"], "clear_h_m": PORCH["open_h"], "between": "the front posts, under the eave beam"},
@@ -1087,27 +1093,33 @@ def main():
         if note:
             m["fit_note"] = note
     MS = {m["id"]: m for m in models}
-    # BV2F-LV (C7): the hall kit at ONE uniform scale each -- no per-slot stretch. Openings measured by BVP/BX on the
-    # front stills (MEAS) are carried as FRACTIONS of the build (the build's proportions are its own).
+    # BV2F-LV (C7, R-C9-176): the hall kit at ONE uniform scale each -- no per-slot stretch. The longhall slot carries the
+    # ONE build (body + porch); the porch slot is that build's porch (no separate model); the gable is BVP's collapsed end.
     BV2F = "data/bv2f/models/"
-    (W0, H0), ow, oh, ob, ox = MEAS["porch"]
-    Wp, Dp, Hp = PORCH["width"], PORCH["depth"], PORCH["height"]
-    set_box(MS["hall_porch"], along(_pc, _nin, Dp / 2), _nin, Wp, Dp, Hp, 0.0, BV2F + "porch.glb",
-            "BV2F-LV: ONE uniform scale %.3f (lv/models/stills/porch_dims.json): the see-through opening is %.2f of the build's width -> %.2f m" % (
-                _dims["porch"]["uniform_scale"], ow / W0, ow / W0 * Wp))
-    MS["hall_porch"]["opening"].update({"w": G.rnd(ow / W0 * Wp, 3), "h": G.rnd(oh / H0 * Hp, 3), "measured": "barrow_v2/models/stills/porch_front.png (fractions)"})
-    MS["hall_porch"]["status"] = "PLACED (BVP build, lane LV uniform scale)"
-    (W0, H0), ow, oh, ob, ox = MEAS["hall"]
-    Lb = HK["L"]
+    _dd = json.load(open(os.path.join(LV, "models", "stills", "hall_dims.json")))
+    _gd = json.load(open(os.path.join(LV, "models", "stills", "gable_dims.json")))
     Xh = xdir(_nin)
-    _hall_c = along(along(Gp, ax_ne, GABLE_FWD + Lb / 2), nT, HALL_D / 2)
-    set_box(MS["longhall"], _hall_c, _nin, Lb, HALL_D, HK["H"], 0.0, BV2F + "hall.glb",
-            "BV2F-LV: ONE uniform scale %.3f; the build's own door (%.1f x %.1f m, %.2f m SW of centre) lies under the porch (porch station %.2f m from the gable centre)" % (
-                _dims["hall"]["uniform_scale"], ow / W0 * Lb, oh / H0 * HK["H"], HK["door_sw_of_centre"], HK["porch_s"]))
-    MS["longhall"]["opening"]["openings"][0]["model_own_door_m"] = [G.rnd(ow / W0 * Lb, 2), G.rnd(oh / H0 * HK["H"], 2)]
-    MS["longhall"]["status"] = "PLACED (BVP build, lane LV uniform scale)"
-    set_box(MS["fallen_gable"], _cen(MS["fallen_gable"]["footprint"]), _nin, HK["GL"], HALL_D, HK["GH"], 0.0, BV2F + "gable.glb",
-            "BV2F-LV: ONE uniform scale %.3f (square build, side = the body's depth)" % _dims["gable"]["uniform_scale"])
+    _door_side = Xh[0] * ax_ne[0] + Xh[1] * ax_ne[1]
+    assert _door_side < 0, "BV2F-LV HALT: the hall build's door would sit SW of its centre (the build would need mirroring)"
+    _hall_c = along(HK["H0"], nT, HK["front"] + (8.257 * _k - 8.233 * _k) / 2)    # the build's AABB centre
+    set_box(MS["longhall"], _hall_c, _nin, _dd["W_m"], _dd["D_m"], _dd["H_m"], 0.0, BV2F + "hall.glb",
+            "BV2F-LV: ONE build (BV2F-LV-hall, body + shallow porch) at ONE uniform scale %.3f (lv/models/stills/hall_dims.json); its own great door, %.2f x %.2f m, %.2f m NE of centre, measured on lv/models/measure/hall_elev_front.png" % (
+                _dd["uniform_scale"], HK["open"][0], HK["open"][1], HK["door_ne"]))
+    MS["longhall"]["size_m"]["h"] = G.rnd(HK["H_roof"], 3)             # the ROOFLINE (body roof max), for R11; the AABB height is the porch's finials
+    MS["longhall"]["aabb_h_m"] = G.rnd(_dd["H_m"], 3)
+    MS["longhall"]["opening"]["openings"][0].update({"w": G.rnd(HK["open"][0], 3), "h": G.rnd(HK["open"][1], 3), "centre": G.rnd(along(D, _nin, HK["proud"]))})
+    MS["longhall"]["opening"]["openings"][0].pop("model_own_door_m", None)
+    MS["longhall"]["status"] = "PLACED (model kit v3, lane LV; uniform scale)"
+    MS["longhall"].pop("fit_note", None) if False else None
+    _pfc = _cen(porch_fp)
+    MS["hall_porch"].update({"pos": G.rnd(_pfc), "footprint": G.rnd(porch_fp), "glb": None, "placeholder": "procedural",
+                             "status": "PART OF the longhall build (BV2F-LV-hall): no separate model",
+                             "size_m": {"w_local_x": G.rnd(PORCH["width"], 3), "d_local_z": G.rnd(HK["proud"], 3), "h": G.rnd(HK["H_porch"], 3)},
+                             "fit_note": "the porch is the longhall build's own; its ridge/finials %.2f m vs the body roof %.2f m" % (HK["H_porch"], HK["H_roof"])})
+    MS["hall_porch"]["opening"].update({"w": G.rnd(HK["open"][0], 3), "h": G.rnd(HK["open"][1], 3), "centre": G.rnd(along(D, _nin, HK["proud"])),
+                                        "measured": "fid/lv/models/measure/hall_elev_front.png (orthographic elevation, 40 px/m)"})
+    set_box(MS["fallen_gable"], along(Gp, nT, HK["GL"] / 2), _nin, _gd["W_m"], _gd["D_m"], _gd["H_m"], 0.0, BV2F + "gable.glb",
+            "BV2F-LV: BVP's collapsed-end build at ONE uniform scale %.3f (square; side = the body's depth)" % _gd["uniform_scale"])
     MS["fallen_gable"]["status"] = "PLACED (BVP build, lane LV uniform scale)"
     set_box(MS["wreck"], hull_c, _wface, WRECK["L"], WRECK["B"], WRECK["H"], -WRECK["sink"], "data/bv2f/models/wreck.glb",
             "BV2F-LV model kit v3: ONE uniform scale %.3f (lv/models/stills/wreck_dims.json); front (low side, open hull) faces SW to the camera; sunk %.1f m into the shore ice; height includes the snapped mast" % (_wd["uniform_scale"], WRECK["sink"]))
