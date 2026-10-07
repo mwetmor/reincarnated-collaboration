@@ -34,7 +34,7 @@ func _initialize() -> void:
 		if args[i] == "--out" and i + 1 < args.size():
 			out_dir = args[i + 1]
 		if args[i] == "--frame-grid" and i + 1 < args.size():   # BV2F Tier-B
-			_bv2f_frame_grid(args[i + 1])
+			_bv2f_frame_grid(args[i + 1])   # BV2F
 	if out_dir == "":
 		print("[ids] HALT: --out DIR is required")
 		quit(2)
@@ -151,12 +151,14 @@ func _initialize() -> void:
 		"instrument_check": {"placements_checked": n_chk, "worst_px_camera_vs_formula": snappedf(worst, 0.001),
 			"formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0"},
 	}, " "))
+	# BV2F-BEGIN (label formatted from GUIDE)
 	print("[ids] ids.png %dx%d, %d placements, camera vs px_from_uv worst %.3f px over %d points" % [
 		GUIDE.x, GUIDE.y, idx, worst, n_chk])   # BV2F Tier-B
+	# BV2F-END
 	quit(0)
 
 
-# ---- BV2F Tier-B patch (fid/v1tools/ALLOWLIST.md): frame/grid/scene from --frame-grid JSON; ----
+# ---- BV2F-BEGIN Tier-B patch (fid/v1tools/ALLOWLIST.md): frame/grid/scene from --frame-grid JSON; ----
 # ---- with no --frame-grid every value is v1's own, so v1's behaviour is unchanged.            ----
 func _bv2f_frame_grid(p: String) -> void:
 	var fg = JSON.parse_string(FileAccess.get_file_as_string(p))
@@ -169,3 +171,4 @@ func _bv2f_frame_grid(p: String) -> void:
 	if fg.has("scene"):
 		SCENE = String(fg["scene"])
 	print("[bv2f] frame-grid %s: guide %dx%d scene %s" % [p, GUIDE.x, GUIDE.y, SCENE])
+# BV2F-END

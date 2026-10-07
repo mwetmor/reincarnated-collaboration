@@ -3,36 +3,38 @@
 # Each wave = every chunk whose neighbours are painted; stage -> brief -> refs_guard -> wave.sh (parallel) -> check.
 # A chunk whose burst is not exit 0 gets ONE retry (SUF=-r1); a second failure HALTs (lane two-attempt rule).
 # Disk guard: lane bursts are light (a few MB each), so storage gate 20 GiB (Matt R-C9-88; was 25 under R-C9-87).
-# BV2F Tier-B (fid/v1tools/ALLOWLIST.md): every tool call goes to the FROZEN copies ($A), verified first;
+# BV2F-BEGIN Tier-B (fid/v1tools/ALLOWLIST.md): every tool call goes to the FROZEN copies ($A), verified first;
 # the cfg is an argument; the prefix and the log name come from the cfg; a usage-limit message exits 7 (DEV-15).
 V=$(cd "$(dirname "$0")/../.." && pwd); A=$V/tierA/conductor_scripts
 bash $V/verify.sh || { echo "HALT: v1tools verify failed" >&2; exit 8; }
 B=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst; CFG=${1:?usage: t10bf_drive.sh <cfg.json>}
 P=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['prefix'])" $CFG)
-L=$HOME/astra-burst/logs/C-9; mkdir -p $L; LOG=$L/${P}_drive.log
+L=$HOME/astra-burst/logs/C-9; mkdir -p $L; LOG=$L/${P}_drive.log   # BV2F
+python3 $V/cfg_check.py $CFG || { echo "HALT: cfg rules/refs != v1 + DEV-12/DEV-11 (W-2a)" >&2; exit 9; }
+# BV2F-END
 cd $B
 echo "$(date -u +%FT%TZ) $P DRIVE START (frozen v1 driver, BV2F)" >> $LOG
 typeset -A tried
 while true; do
   until [ $(df -g /System/Volumes/Data | tail -1 | awk '{print $4}') -ge 20 ]; do echo "$(date -u +%FT%TZ) DISK GUARD: waiting (<20 GiB)" >> $LOG; sleep 120; done
-  ready=($(python3 $A/guided_paint.py $CFG ready))
-  [ ${#ready} -eq 0 ] && { echo "$(date -u +%FT%TZ) $P DRIVE DONE (nothing ready)" >> $LOG; break; }
+  ready=($(python3 $A/guided_paint.py $CFG ready))   # BV2F
+  [ ${#ready} -eq 0 ] && { echo "$(date -u +%FT%TZ) $P DRIVE DONE (nothing ready)" >> $LOG; break; }   # BV2F
   specs=()
   for k in $ready; do
     suf=""; [ -n "${tried[$k]}" ] && suf="-r1"
-    SUF=$suf python3 $A/guided_paint.py $CFG stage $k >> $LOG 2>&1
-    SUF=$suf python3 $A/guided_paint.py $CFG brief $k >> $LOG 2>&1
-    if ! python3 $A/refs_guard.py briefs/C-9/$P-$k$suf.task.json >> $LOG 2>&1; then
-      echo "$(date -u +%FT%TZ) HALT H-guard on $P-$k$suf" >> $LOG; exit 3; fi
-    specs+=("$P-$k$suf:GENERATE")
+    SUF=$suf python3 $A/guided_paint.py $CFG stage $k >> $LOG 2>&1   # BV2F
+    SUF=$suf python3 $A/guided_paint.py $CFG brief $k >> $LOG 2>&1   # BV2F
+    if ! python3 $A/refs_guard.py briefs/C-9/$P-$k$suf.task.json >> $LOG 2>&1; then   # BV2F
+      echo "$(date -u +%FT%TZ) HALT H-guard on $P-$k$suf" >> $LOG; exit 3; fi   # BV2F
+    specs+=("$P-$k$suf:GENERATE")   # BV2F
   done
-  wl="${P}_w$(date +%s)"
-  zsh $A/wave.sh $wl ${specs[@]}
+  wl="${P}_w$(date +%s)"   # BV2F
+  zsh $A/wave.sh $wl ${specs[@]}   # BV2F
   for s in $specs; do
-    bid=${s%%:*}; k=${${bid#$P-}%-r1}
+    bid=${s%%:*}; k=${${bid#$P-}%-r1}   # BV2F
     ex=$(python3 -c "import json,sys;print(json.load(open(sys.argv[1]))['exit'])" $L/${bid}_run.json 2>/dev/null)
     echo "$(date -u +%FT%TZ) $bid exit=$ex" >> $LOG
-    if grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err 2>/dev/null; then
+    if grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err 2>/dev/null; then   # BV2F
       echo "$(date -u +%FT%TZ) HALT USAGE LIMIT seen in $bid" >> $LOG; exit 7; fi   # BV2F Tier-B DEV-15
     if [ "$ex" != "0" ]; then
       if [ -n "${tried[$k]}" ]; then echo "$(date -u +%FT%TZ) HALT: $k failed twice" >> $LOG; exit 2; fi

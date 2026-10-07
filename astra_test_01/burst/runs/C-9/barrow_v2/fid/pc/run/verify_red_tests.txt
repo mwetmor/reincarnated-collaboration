@@ -12,3 +12,11 @@ red2 exit=1
 [v1tools] FAIL: driver references $C/ (v1 conductor_scripts)
 [v1tools] FAIL: driver call outside v1tools: python3 $C/refs_guard.py
 red3 exit=1
+RED W-1: unmarked 'var PX_OVERRIDE := 101.0' added to tierB/barrow_full/godot/tools/capture_ids.gd, its diff and SHA256SUMS row regenerated to match
+unmarked added line: var PX_OVERRIDE := 101.0
+[v1tools] FAIL: patch /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/patches/capture_ids.gd.diff adds a line without a BV2F marker (W-1)
+exit=1
+godot_run: [godot_run] HALT: ../../../../barrow_full/godot/tools/capture_ids.gd is not under fid/v1tools/tier{A,B}/
+godot_run: outside-path exit=10
+godot_run: [godot_run] HALT: tierB/barrow_full/godot/tools/nonexistent.gd sha  != SHA256SUMS 
+godot_run: unlisted exit=10

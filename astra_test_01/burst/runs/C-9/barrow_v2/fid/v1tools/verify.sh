@@ -39,6 +39,9 @@ while read -r shipped v1 pin path; do
         FNR==NR { if ($0 ~ "^```allow "F"$") {on=1; next} if (on && $0 ~ /^```/) {on=0} if (on) A[$0]=1; next }
         /^---/ { next } /^-/ { l=substr($0,2); if (!(l in A)) { print "unlisted removed line: " l; bad=1 } }
         END { exit bad }' "$V/ALLOWLIST.md" "$d" || bad "patch $d removes a v1 line not in ALLOWLIST.md"
+      # W-1 (Gate-2): every non-blank ADDED line carries BV2F or sits inside a BV2F-BEGIN ... BV2F-END block
+      awk '/^\+\+\+/ { next } /^\+/ { l=substr($0,2); if (l ~ /BV2F-BEGIN/) blk=1; if (l !~ /^[[:space:]]*$/ && !(l ~ /BV2F/) && !blk) { print "unmarked added line: " l; bad=1 } if (l ~ /BV2F-END/) blk=0 }
+        END { exit bad }' "$d" || bad "patch $d adds a line without a BV2F marker (W-1)"
       ;;
   esac
 done < "$V/SHA256SUMS"
@@ -56,6 +59,12 @@ while read -r c; do
   [ -z "$c" ] && continue
   echo "$c" | grep -qE '^(python3|zsh|bash)[[:space:]]+\$(A|V)/' || bad "driver call outside v1tools: $c"
 done <<< "$calls"
+
+# W-2(b): lane/run_burst.py is shared lane infrastructure (not a v1 tool): its sha at the pin is recorded in
+# PROVENANCE; a drift is a WARNING (not a failure) so another seam's edit cannot halt BV2F silently -- or loudly.
+RB="$REPO/astra_test_01/burst/lane/run_burst.py"; RBPIN=$(awk '/^run_burst_pin_sha256/ {print $2}' "$V/PROVENANCE.md")
+rb=$(shasum -a 256 "$RB" | cut -d' ' -f1)
+[ -n "$RBPIN" ] && [ "$rb" != "$RBPIN" ] && echo "[v1tools] WARN: lane/run_burst.py ${rb:0:12} != pin ${RBPIN:0:12} (shared infra changed since the freeze)"
 
 rm -f "$TMP/v1" "$TMP/patched"; rmdir "$TMP" 2>/dev/null
 [ $fail -eq 0 ] && echo "[v1tools] OK: $n files; Tier A byte-identical to v1 @ $(cat "$V/PIN_COMMIT"); Tier B = v1 + allowlisted patches; driver calls only v1tools"

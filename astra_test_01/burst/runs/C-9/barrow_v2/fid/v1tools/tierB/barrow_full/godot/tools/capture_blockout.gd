@@ -59,7 +59,7 @@ func _initialize() -> void:
 		if args[i] == "--painted":
 			painted = true
 		if args[i] == "--frame-grid" and i + 1 < args.size():   # BV2F Tier-B
-			_bv2f_frame_grid(args[i + 1])
+			_bv2f_frame_grid(args[i + 1])   # BV2F
 	if out_dir == "":
 		print("[capture] HALT: --out DIR is required")
 		quit(2)
@@ -631,7 +631,7 @@ func _write(nm: String, d: Dictionary) -> void:
 	f.close()
 
 
-# ---- BV2F Tier-B patch (fid/v1tools/ALLOWLIST.md): frame/grid/scene from --frame-grid JSON; ----
+# ---- BV2F-BEGIN Tier-B patch (fid/v1tools/ALLOWLIST.md): frame/grid/scene from --frame-grid JSON; ----
 # ---- with no --frame-grid every value is v1's own, so v1's behaviour is unchanged.            ----
 func _bv2f_frame_grid(p: String) -> void:
 	var fg = JSON.parse_string(FileAccess.get_file_as_string(p))
@@ -651,3 +651,4 @@ func _bv2f_frame_grid(p: String) -> void:
 		GRID_V = Vector2(float(fg["walk_grid"]["v"][0]), float(fg["walk_grid"]["v"][1]))
 		GRID_STEP = float(fg["walk_grid"]["step"])
 	print("[bv2f] frame-grid %s: guide %dx%d scene %s" % [p, GUIDE.x, GUIDE.y, SCENE])
+# BV2F-END

@@ -31,7 +31,7 @@ from PIL import Image
 from scipy import ndimage
 
 # BV2F Tier-B (fid/v1tools/ALLOWLIST.md): frame + painting from $BV2F_FRAME_GRID; unset = v1's own values.
-_FG = json.load(open(os.environ["BV2F_FRAME_GRID"])) if os.environ.get("BV2F_FRAME_GRID") else {}
+_FG = json.load(open(os.environ["BV2F_FRAME_GRID"])) if os.environ.get("BV2F_FRAME_GRID") else {}   # BV2F
 BF = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAINTING = os.path.join(BF, _FG.get("painting", os.path.join("paint", "barrow_full_painted.png")))   # BV2F Tier-B
 PAINT_SHA_PREFIX = _FG.get("painting_sha_prefix", "eecb42661af490dd")   # BV2F Tier-B

@@ -18,13 +18,12 @@
 | A | `tierA/barrow_full/tools/t5_06b_bake.py` | `barrow_full/tools/t5_06b_bake.py` | 28b2dc11dcd1 | = | **Two copies exist and are byte-identical**: `nb_t8/scripts/t5_06b_bake.py` is also `28b2dc11dcd1`. v1 ran the `barrow_full/tools` copy: `bake_heroes.py:27` (`BAKE = HERE/t5_06b_bake.py`) asserts it equals nb_t8's (`:36`), and `take/build/bake_report.json:3` records the sha `28b2dc11dcd18b6b…`. |
 | A | `tierA/barrow_full/tools/make_layout.py` | `barrow_full/tools/make_layout.py` | 3629eaaf5fc8 | = | Reference only. b65f1dfae (kerb text) is the layout's last commit. It imports the sibling `geom2d.py`, which is not frozen. |
 | A | `tierA/nb_t8/scripts/t5_06a_surface.py` | `nb_t8/scripts/t5_06a_surface.py` | b954e825bc24 | = | Frozen per R-C9-163. **v1's level did not run it**: `hero_surface.py:13-24` ("WHY NOT t5_06a ITSELF") replaced it for the placed heroes. It is a Blender script. |
-| B | `tierB/barrow_full/godot/tools/capture_blockout.gd` | `barrow_full/godot/tools/capture_blockout.gd` | f630f564c1fd | e2b701c7bd21 | The guide was rendered by **`feaa1c94f1ff` (e0462ab03)**. HEAD (111c85f5d) adds `--painted` with default false, so the blockout path is unchanged. **There is a second copy, `barrow_full/app/tools/`, byte-identical (`f630f564c1fd`).** It is the export mirror (`build_app_painted.sh:65` rsyncs `godot/` → `app/`; `app/` is gitignored at `barrow_full/.gitignore:7`). v1 ran the `godot/` copy. |
-| B | `tierB/barrow_full/godot/tools/capture_ids.gd` | `barrow_full/godot/tools/capture_ids.gd` | 7e6e16369489 | 0d365f4d478f | Same as HEAD. 46181364c is the only commit. **The `app/tools/` copy is byte-identical** (the mirror, as above). `take/take_report.json` `regenerate` records `Godot --path godot … tools/capture_ids.gd`. Re-run at HEAD in 0.1 T1: ids.png and ids.json are byte-identical to v1's. |
-| B | `tierB/barrow_full/tools/paint_world_prep.py` | `barrow_full/tools/paint_world_prep.py` | b77325d07621 | 7e2340f15e9e | The level was built by **`21ca10b2c89a` (111c85f5d)**. HEAD (5f96ba0fe) only adds `web()` / `--web`; `main()` is unchanged. |
-| B | `tierB/barrow_full/tools/take_from_paint.py` | `barrow_full/tools/take_from_paint.py` | 17998c5a986a | f644e00d4d7a | The first take used **`8c745b812ad6` (46181364c)**. HEAD (3b8a4fbfd) changed the tuft density base line, and `tufts.json` was re-made with it in that commit, so HEAD is v1's final take tool. Re-run at HEAD in 0.1: all take outputs are byte-identical to the tracked ones. |
-| B | `tierB/conductor_scripts/t10bf_drive.sh` | `conductor_scripts/t10bf_drive.sh` | 8c2c32ec21a5 | 43a0a93d94b2 | **HEAD never ran.** It was committed at 174512232 (06:28 = 10:28Z), after the last chunk ended at 06:12:15Z. As run: **`e2f5f37d68a0` (816fd84b8, 41 GiB guard)** from 02:33Z to 06:00Z, then **`4ba9b86c6544` (32d068af9, 25 GiB)** from the 06:00:49Z restart (ledger N-C9-DRIVE-STALL). The three versions differ only in the disk-guard constant and its comment. |
-| own | `v1run.py` | — | — | 96ad892b7480 | BV2F runner (see the hazard below). |
-| own | `frame_grid.v1.json` | — | — | df95809769ef | v1's own frame/grid values, for the Tier-B config. |
+| B | `tierB/barrow_full/godot/tools/capture_blockout.gd` | `barrow_full/godot/tools/capture_blockout.gd` | f630f564c1fd | see SHA256SUMS | The guide was rendered by **`feaa1c94f1ff` (e0462ab03)**. HEAD (111c85f5d) adds `--painted` with default false, so the blockout path is unchanged. **There is a second copy, `barrow_full/app/tools/`, byte-identical (`f630f564c1fd`).** It is the export mirror (`build_app_painted.sh:65` rsyncs `godot/` → `app/`; `app/` is gitignored at `barrow_full/.gitignore:7`). v1 ran the `godot/` copy. |
+| B | `tierB/barrow_full/godot/tools/capture_ids.gd` | `barrow_full/godot/tools/capture_ids.gd` | 7e6e16369489 | see SHA256SUMS | Same as HEAD. 46181364c is the only commit. **The `app/tools/` copy is byte-identical** (the mirror, as above). `take/take_report.json` `regenerate` records `Godot --path godot … tools/capture_ids.gd`. Re-run at HEAD in 0.1 T1: ids.png and ids.json are byte-identical to v1's. |
+| B | `tierB/barrow_full/tools/paint_world_prep.py` | `barrow_full/tools/paint_world_prep.py` | b77325d07621 | see SHA256SUMS | The level was built by **`21ca10b2c89a` (111c85f5d)**. HEAD (5f96ba0fe) only adds `web()` / `--web`; `main()` is unchanged. |
+| B | `tierB/barrow_full/tools/take_from_paint.py` | `barrow_full/tools/take_from_paint.py` | 17998c5a986a | see SHA256SUMS | The first take used **`8c745b812ad6` (46181364c)**. HEAD (3b8a4fbfd) changed the tuft density base line, and `tufts.json` was re-made with it in that commit, so HEAD is v1's final take tool. Re-run at HEAD in 0.1: all take outputs are byte-identical to the tracked ones. |
+| B | `tierB/conductor_scripts/t10bf_drive.sh` | `conductor_scripts/t10bf_drive.sh` | 8c2c32ec21a5 | see SHA256SUMS | **HEAD never ran.** It was committed at 174512232 (06:28 = 10:28Z), after the last chunk ended at 06:12:15Z. As run: **`e2f5f37d68a0` (816fd84b8, 41 GiB guard)** from 02:33Z to 06:00Z, then **`4ba9b86c6544` (32d068af9, 25 GiB)** from the 06:00:49Z restart (ledger N-C9-DRIVE-STALL). The three versions differ only in the disk-guard constant and its comment. |
+| own | `v1run.py`, `godot_run.sh`, `cfg_check.py`, `frame_grid.v1.json`, `DEV12_substitutions.json`, `DEV11_refs.json` | — | — | see `SHA256SUMS` | BV2F-own files (runners, cfg check, config, DEV tables). |
 
 ## Hard-coded frame/grid constants (audit list; Tier-B patches touch only the ALLOWLIST lines)
 
@@ -55,3 +54,28 @@ The GD tools run inside a Godot project. Use `--script <abs path to tierB/…gd>
 - `verify.sh` is green at the pin. It goes RED, exit 1, on each of: a tampered Tier-A copy, a driver line naming the original `conductor_scripts/wave.sh`, and a driver line calling `$C/refs_guard.py`. The tests were run in place and restored from backups; the log is `fid/pc/run/verify_red_tests.txt`.
 - DEV-15: the driver's exit-7 clause, run on a simulated limit message, gives exit 7 plus a HALT log line; on a clean run it gives no exit. The log is `fid/pc/run/dev15_dryrun.txt`.
 - Freeze proof: 0.1's ID self-test re-run through the patched `capture_ids.gd` with `frame_grid.v1.json` must reproduce the unpatched result. See `RESUME_PT.md`.
+
+## Gate-2 folds (R-C9-173; jack-ryan W-1, W-2)
+
+- **W-1:** `verify.sh` now fails any non-blank added patch line that neither carries `BV2F` nor sits inside a `BV2F-BEGIN` … `BV2F-END` block. The Tier-B files gained comment-only markers for this (same pin; only the shipped shas changed).
+  - RED test: an unmarked `var PX_OVERRIDE := 101.0`, with its diff and SUMS row regenerated so that only W-1 can catch it, gives exit 1 (`fid/pc/run/verify_red_tests.txt`).
+  - Re-proofs after the markers: `take_from_paint.py` via `v1run.py` gives 6/6 outputs byte-identical; `capture_ids.gd` via `godot_run.sh` gives ids.png `ed9cfcd207c1` and ids.json `f9e63ebe605c`, equal to v1.
+- **W-2(a):** `cfg_check.py <cfg>` is called by the driver before staging (exit 9). It requires `rules` == v1 `rules` with `DEV12_substitutions.json` applied, and `refs` == v1 `refs` + `DEV11_refs.json`. Both tables are empty until LV's Phase-1 class list and the Phase-2 A/B fill them; empty means verbatim v1. Tested: the v1 cfg gives OK; one changed word in `rules` gives HALT.
+- **W-2(b):** `lane/run_burst.py` is shared lane infrastructure, not a v1 tool, so it is recorded rather than frozen. `verify.sh` WARNs (it does not fail) if it drifts from:
+
+run_burst_pin_sha256 2d6607679807ea4f9e076bb78d0bd6e777634fd62ddb2809b5e91e528e75e966
+
+- **W-2(c):** `godot_run.sh <project> <tier/path.gd> [-- args]` runs `verify.sh`. It checks that the `.gd` is a SHA256SUMS row under `tierA/` or `tierB/` with a matching sha (else exit 10), applies the disk gate of 21, and runs Godot by absolute path behind the heavy lock. Tested: an outside path gives exit 10; an unlisted file gives exit 10.
+
+### Control-file shas at this fold (record for the ledger milestone)
+
+```
+b7e68c0f3f267c1ab2b257b0a2f645182b3d07e14751f993ac0271747119e65a  verify.sh
+2098d92f850e475544888ba1965eeef9ba99953b4ddeadb812657cb2d71217db  ALLOWLIST.md
+197abbac7212e2595807dd1cdac2005aee3203701312abf7071a0dad915fdb9a  patches/capture_blockout.gd.diff
+41ce20ec30f15104376f0ab011760cb4aba15314aa3a823c1ed5cb4e7fb5b45f  patches/capture_ids.gd.diff
+6fb95f2d7c13ebbfa1fd93e93b99631ba0ab1f033574234f8490f41e55dff260  patches/paint_world_prep.py.diff
+bdc2532e2fe78ed2c9ad72ee96884ce5c7db6bc919574b29e2841e666a1837f7  patches/t10bf_drive.sh.diff
+8e4fe6821f6b45c9f0c89331967b6cd912cefbf1206959ea74822541acbad625  patches/take_from_paint.py.diff
+49c2633b7646b4017b1c6da37f69b77bc792a93ae8dd53d20ea07bbf07374d8c  SHA256SUMS
+```

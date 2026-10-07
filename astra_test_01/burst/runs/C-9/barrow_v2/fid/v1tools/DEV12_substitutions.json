@@ -1,0 +1,5 @@
+{
+ "_what": "DEV-12 (charter § 7 / R-C9-163 W-3c): the ONLY permitted differences between a BV2F paint cfg's `rules` and v1's (tierA/conductor_scripts/cfg_t10bf.json). Each entry replaces one exact v1 substring with its barrow_v2 replacement, applied in order, every occurrence. cfg_check.py fails the driver if `rules` != v1 rules with this table applied.",
+ "status": "EMPTY: no site nouns yet. To be filled when lane LV's Phase-1 class list lands (every v1-site noun in v1's rules -> its replacement). An empty table means the BV2F rules must equal v1's verbatim.",
+ "substitutions": []
+}

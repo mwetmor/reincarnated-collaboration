@@ -1,6 +1,6 @@
 # BV2F Tier-B ALLOWLIST (lane PT, 0.3; R-C9-163 B-1, R-C9-166)
 
-Each Tier-B file may differ from its v1 source (git at the pin in `PIN_COMMIT`) ONLY by replacing the v1 lines listed in its `allow` block. Added lines are free-form but every one carries `BV2F` or sits in the appended `_bv2f_frame_grid` loader / the marked block. `verify.sh` fails if a patch removes any v1 line not listed here, or if `patch(v1, patches/<file>.diff) != shipped file`.
+Each Tier-B file may differ from its v1 source (git at the pin in `PIN_COMMIT`) ONLY by replacing the v1 lines listed in its `allow` block. **Added lines (Gate-2 W-1, enforced by `verify.sh`):** every non-blank added line carries `BV2F` or sits inside a `BV2F-BEGIN` … `BV2F-END` block. Blank lines are exempt. `verify.sh` fails if a patch removes any v1 line not listed here, or if `patch(v1, patches/<file>.diff) != shipped file`.
 
 ## capture_blockout.gd
 
