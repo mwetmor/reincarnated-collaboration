@@ -91,3 +91,9 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [ ] PT rebuilding the pilot (bake res, water, terrain heather): on hand-back re-run `pilot_harness.py p1 p2 p8 p9p10` (+ `run_pilot_godot.sh` and the life_sea view uv:-29,-5.5), and P3 (DEV-18 changes heather). P2: point PILOT_COMMIT at PT's hand-back commit.
 - [x] R-C9-195: pilot P11 VOID x2 (27/40 inc 0.50; 24/40 inc 0.40); answers saved `p11/answers/abx_pilot_judge{1,2}.json`; void-rule analysis calibration.md § 28 (guesser inc mean 0.50, P(valid) 5.5%; no judge reaches valid+PASS > ~5% on the fixed generator) -- for Gate-2 / a ruling; no bar change.
 - DEV-18 heather/snow-on-terrain adopted by R-C9-193 AFTER this baseline: re-run `pilot_harness.py p3 p8` and the P9 runs on the rebuilt pilot when PT lands it.
+
+## R-C9-194 rebuilt pilot (0b72461db) -- DISK HALT (conductor, /System/Volumes/Data 18 GiB < 21)
+- [x] Measured (calibration.md § 29, `ph/results/pilot2/`): P1 PASS (1.000; DEV-19 bakes 117.6-163.1 px/m, painting-bound), P2 PASS 20/20 at 0b72461db, P3 PASS 11.53 (informational), P8 PASS min 0.5302 with self-moving water excluded (as delivered 0_2 = 0.000: the heather mask captured the animated sea), P9 trail PASS 1.000.
+- [x] P9c instrument finding: calibrated floe_drift is blind to texture motion (hard shared window); sub-pixel tapered version in pilot_harness (self-test rest 0.15-0.25 / world 1.26-2.00) -- not calibrated to bind; needs a ruling.
+- [ ] HALTED: no Godot run made. On resume (disk >= 21 GiB): `harness/run_pilot2_godot.sh` (life_sea, life_sea_floered, life, life_nowind, perf, perf_sea, perf_burn -> ph/renders/pilot2/), then P9 (`PH_PILOT_RENDERS=renders/pilot2 PH_PILOT_OUT=results/pilot2 pilot_harness.py p9p10`), `floe_drift_subpx` on life_sea vs life_sea_floered, P10. ph_life.gd pilot hooks are untested.
+- Ask to PT: capture heather_mask/render_guide with water time held.

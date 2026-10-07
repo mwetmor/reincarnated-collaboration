@@ -1,0 +1,131 @@
+{
+ "p9_trail": {
+  "coverage": 1.0,
+  "bar": 0.99,
+  "pass": true,
+  "by_terrain": {
+   "flat": {
+    "walkable_m2": 758.9,
+    "inside_field": 1.0,
+    "snow_carrying": 0.6795
+   },
+   "not_flat (slopes, mound, swells)": {
+    "walkable_m2": 178.2,
+    "inside_field": 1.0,
+    "snow_carrying": 0.2577
+   }
+  },
+  "walkable_m2_in_window": 937.1,
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "informational_snow_carrying_share_of_walkable": 0.5993
+ },
+ "p9c_instrument_finding": {
+  "selftest_subpx_tapered": [
+   {
+    "offset": [
+     0.4,
+     1.3
+    ],
+    "rest_pose_drift": 0.202,
+    "world_anchored_drift": 1.299,
+    "true_offset_norm": 1.36
+   },
+   {
+    "offset": [
+     1.7,
+     -0.6
+    ],
+    "rest_pose_drift": 0.154,
+    "world_anchored_drift": 1.939,
+    "true_offset_norm": 1.803
+   },
+   {
+    "offset": [
+     0.0,
+     2.25
+    ],
+    "rest_pose_drift": 0.25,
+    "world_anchored_drift": 2.0,
+    "true_offset_norm": 2.25
+   }
+  ],
+  "v159_red_calibrated_integer": {
+   "floes_measured": 5,
+   "median_drift_px": 1.913,
+   "max_drift_px": 3.631
+  },
+  "v159_red_subpx_tapered": {
+   "floes_measured": 5,
+   "median_drift_px": 3.357,
+   "max_drift_px": 6.914,
+   "rows": [
+    {
+     "px": 41774,
+     "silhouette_shift": [
+      2.411,
+      2.715
+     ],
+     "texture_shift": [
+      -0.95,
+      -0.7
+     ],
+     "drift": 4.791
+    },
+    {
+     "px": 2199,
+     "silhouette_shift": [
+      0.363,
+      0.138
+     ],
+     "texture_shift": [
+      -2.9,
+      -0.65
+     ],
+     "drift": 3.357
+    },
+    {
+     "px": 7569,
+     "silhouette_shift": [
+      -2.437,
+      0.641
+     ],
+     "texture_shift": [
+      -0.9,
+      -6.1
+     ],
+     "drift": 6.914
+    },
+    {
+     "px": 3469,
+     "silhouette_shift": [
+      -1.685,
+      0.906
+     ],
+     "texture_shift": [
+      0.0,
+      0.1
+     ],
+     "drift": 1.868
+    },
+    {
+     "px": 2194,
+     "silhouette_shift": [
+      -0.765,
+      -0.321
+     ],
+     "texture_shift": [
+      -0.2,
+      -0.15
+     ],
+     "drift": 0.59
+    }
+   ]
+  }
+ },
+ "pending": "P9 sway/flow/floe + P10: Godot runs not started (heavy lock held by JOIN-1; DISK HALT 18 GiB)"
+}

@@ -820,3 +820,44 @@ The guide snow is (79.2–79.9, 1.2–1.7, 5.0–5.5) in every chunk; v1's is (7
    - **Same-X calibration rows:** the three v0 sets re-used X, so consistency could come from recall. R-C9-171 removed that, after the half-density judge reported answering the repeat from memory.
    - **G2 v1-vs-v1:** this is the only GREEN on the fixed generator, at 22/40 with inconsistency 0.10. Under pure guessing, P(≤ 1 of 10) = 11/1024 ≈ 1.1%. So that judge was consistent through some stable cue, while being at chance on the build. The cue could be content shared by X and one side, or a consistent preference applied to the A/B pair. Its validity was not the "reliable perceiver" the gate assumes.
 3. **What the gate measures now.** The repeat-consistency check as built measures whether a judge's build preference is stable across a different X. Under the null this is not a reliability property; it is chance. This is a re-instrumentation question (e.g. scoring consistency only on trials the judge got right, a fixed-X control, or more repeats), **not a threshold to tune**. It is for the conductor and jack-ryan to rule; PH changes nothing here.
+
+## 29. Rebuilt pilot (R-C9-194 hand-back: f36284352, 2d95cfe5b, 0b72461db): PARTIAL, DISK HALT. Frozen bars. `PH_PILOT_COMMIT=0b72461db PH_PILOT_OUT=results/pilot2 pilot_harness.py p1 p2 p3 p8` → `results/pilot2/`
+
+**Measured** (non-rendering, from files on disk):
+
+| Row | Rebuilt pilot | Bar | Verdict |
+|---|---|---|---|
+| P1 | every surface 1.000. The three DEV-19 bakes are now 2048² (textures checked: 2048 px, shas = manifest); their seen-texel density is barrow_front 117.6, wreck 144.7 and cliff_faces_0 163.1 px/m | ≤ 1.05 | PASS |
+| P2 | 20/20 at 0b72461db; working tree 20/20 | 100% | PASS |
+| P3 (informational; not requested) | worst 11.53 (wood, baked); ground rock 5.57, snow 0.77; the reshade RED fails | ≤ 15.5 | PASS, water excluded (below) |
+| P8 | min 0.5302 (2_2); chunks judged: 0_0 0.563, 1_0 0.553, 2_0 0.583, 1_1 0.541, 2_1 0.557, 1_2 0.564, 2_2 0.530. As delivered, **0_2 = 0.000** (below) | each chunk ≥ 0.4476 | PASS, water excluded |
+| P9 trail | coverage 1.000 (flat 759 m² and not-flat 178 m² both entirely inside the field). Snow-carrying share: flat 0.68, not flat 0.26 (informational) | ≥ 0.99 | PASS |
+
+**P1, read (the conductor's "0.86").** PT's 0.86 is 100.6 / 117.6: the bake's own texel density over the painting's. The frozen instrument displays min(painting ppm, texture ppm), because a bake cannot show more painted detail than the painting it samples. So the displayed ratio floors at 1.000. That is v1's own value, not better than v1. Sensitivity with the hidden silhouette dropped: all 1.000.
+
+**Water in the P3 / P8 inputs: re-instrumentation, as R-C9-159.**
+- **What happened.** PT's guide-camera `heather_mask.png` and `render_guide.png` were captured with the animated sea running. In 0_2, all 44 823 "drawn heather" px are sea (44 249) or its edge: the frame-differencing mask sees moving water as heather. The same capture puts the sea class at 39.2 in P3.
+- **The fix.** PH now excludes self-moving pixels (the `ground_sea` and `blobs_shore_ice__*` ids from ids_built, dilated 6 px), exactly as R-C9-159's animated sea was excluded in P3 (`v159_rows` `anim`) and in P9 (`selfmove`).
+- **Effect.** 44 765 px are removed; 0_2 drops below 2000 drawn px (n/a).
+- **What stays the same.** The first pilot had no water, so its results are unchanged. Both the as-delivered and the excluded readings are in `results/pilot2/p8.json`.
+- **PT can make the input clean** by capturing the mask with water time held (heather off/on in the same frame).
+
+**DEV-18 (re-measured).** 28.8% of painted tuft px have no 3D heather within 24 px, down from 50.4%. On not-flat ground the figure is 12.3% (was 30.9%), and 60.2% of not-flat tufts are now covered (was 0.27%).
+
+**P9c instrument finding (for the ruling; no bar change).** The calibrated `floe_drift` reads the TEXTURE shift by phase correlation of `luma × core`. Both frames share the same hard 0/1 core window, and that window correlates with itself at zero shift, so the texture shift reads ≈ 0 whatever the texture does. A constructed self-test shows it:
+- a textured disc moved 1.36–2.25 px with its texture (rest-pose, true drift 0) reads texture shift (0.00, 0.04) with the hard window;
+- so the calibrated instrument would report the full silhouette motion as drift on a CORRECT rest-pose build.
+
+Its RED reading on R-C9-159 (1.91 px) was right for the wrong reason: world-anchored texture also reads 0. A re-instrumented reading is in `pilot_harness.floe_drift_subpx` (mean-removed, Gaussian-tapered window; locally upsampled DFT peak):
+- on the self-test it gives drift 0.15–0.25 px for rest-pose and 1.26–2.00 px for world-anchored motion;
+- its rest-pose floor (≤ 0.25) sits at the bar, so it does not yet separate a true 0 from the bar;
+- on R-C9-159 its per-floe readings are unstable (0.10–6.10 px; the 8-texel checker in mesh UV is periodic on screen).
+
+**P9c is not calibrated to bind.** The positive control run (`--floe-red` RED added to `ph_life.gd`) is pending, and so is a re-instrument ruling.
+
+**PENDING (Godot, DISK HALT).** `harness/run_pilot2_godot.sh` was queued behind the heavy lock (held by JOIN1-J0F-port-emit) and was stopped before it rendered anything; disk is 18–25 GiB, under the 21 GiB gate. Still owed:
+- P9 heather sway and its no-wind RED (uv −3, 11.7);
+- P9 water flow and floe drift with the `--floe-red` RED (uv −29, −5.5);
+- P10 frame time at the start and at the sea, plus the burn RED.
+
+`ph_life.gd` now has the pilot hooks: `water_mat_pt` / `ground_sea` for the water pair, `blobs_shore_ice__*` floes with a plate-space 16 px checker, and `--floe-red`. They are untested in Godot until the run.

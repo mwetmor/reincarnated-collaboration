@@ -15,7 +15,7 @@ sys.path.insert(0, __import__("os").path.dirname(__file__))
 from common import *  # noqa
 
 PT = FID / "pt/pilot"
-OUT = PH / "results/pilot"
+OUT = PH / os.environ.get("PH_PILOT_OUT", "results/pilot")
 W, H = 4096, 2560
 CHUNKS = [("%d_%d" % (c, r), (1280 * c, 768 * r, 1280 * c + 1536, 768 * r + 1024)) for r in range(3) for c in range(3)]
 GA = FID / "lv/guide_art"
@@ -62,6 +62,21 @@ def ground_mask():
     return (idx == 0) | np.isin(idx, gids)
 
 
+def self_moving():
+    """pixels that move by themselves in the rebuilt pilot (DEV-5): the animated sea (ground_sea ids) and the bobbing floes
+    (blobs_shore_ice ids), dilated 6 px. Excluded from P3 and P8 inputs exactly as R-C9-159's animated sea was (p3_residual
+    v159_rows `anim`; p9 sway `selfmove`): a heather mask or render taken from frames in which water moves sees the water."""
+    if "SM" not in _C:
+        man = jload(BF / "godot/data/bv2f/pilot/painted/manifest.json")
+        idx, tab = ids_built()
+        if not man.get("water"):
+            _C["SM"] = np.zeros((H, W), bool)
+        else:
+            ks = [k for k, v in tab.items() if v["id"] == "ground_sea" or v["id"].startswith("blobs_shore_ice__")]
+            _C["SM"] = ndimage.binary_dilation(np.isin(idx, ks), iterations=6)
+    return _C["SM"]
+
+
 def tufts():
     if "T" not in _C:
         import importlib.util
@@ -100,7 +115,7 @@ def p1():
 
 # ---------------------------------------------------------------------------------------------------------- P2
 REPO = C9.parents[3]
-PILOT_COMMIT = "47bb1a054"     # the pilot as handed over (R-C9-192; PT 776e265f0 + conductor 47bb1a054)
+PILOT_COMMIT = os.environ.get("PH_PILOT_COMMIT", "47bb1a054")     # the pilot as handed over (R-C9-192: 47bb1a054; rebuilt R-C9-194: 0b72461db)
 
 
 def _at_commit(spec, commit, root):
@@ -169,8 +184,9 @@ def p3_masks():
         m = g & (cls == i)
         if m.sum() > 2000:
             M["ground: " + n] = m
+    sm = self_moving()
     for k in M:
-        M[k] &= ~hm
+        M[k] &= ~hm & ~sm
     return M
 
 
@@ -391,7 +407,9 @@ def p6prime():
 def p8():
     import p7_p8_floor_heather as F
     T_ = tufts()
-    HM = np.asarray(Image.open(PT / "heather_mask.png").convert("L")) > 127
+    HM_raw = np.asarray(Image.open(PT / "heather_mask.png").convert("L")) > 127
+    HM = HM_raw & ~self_moving()
+    rows_as_delivered = F.precision_chunks(HM_raw, T_)
     rows = F.precision_chunks(HM, T_)
     vals = [v for v in rows.values() if v is not None]
     below = [k for k, v in rows.items() if v is not None and v < 0.4476]
@@ -417,7 +435,8 @@ def p8():
            "not_flat_tufts_covered_by_3d_heather": round(float((T_ & ~flat & near).sum() / max(int((T_ & ~flat).sum()), 1)), 4),
            "slope_deg_of_not_flat_bare_tufts_p10_p50_p90": [round(float(np.percentile(slope[bare & ~flat], q)), 1) for q in (10, 50, 90)]
            if (bare & ~flat).any() else None}
-    return save("p8", {"per_chunk": rows, "chunks_judged": len(vals), "below_bar": below, "min": min(vals) if vals else None,
+    return save("p8", {"per_chunk": rows, "per_chunk_as_delivered_incl_water": rows_as_delivered,
+                       "drawn_px_removed_as_self_moving": int((HM_raw & self_moving()).sum()), "chunks_judged": len(vals), "below_bar": below, "min": min(vals) if vals else None,
                        "bar": 0.4476, "pass": bool(vals) and not below,
                        "constructed_red_shift_1m": {"per_chunk": red, "min": min(rv) if rv else None,
                                                     "pass": bool(rv) and all(v >= 0.4476 for v in rv)},
@@ -463,7 +482,7 @@ def p11():
 # ---------------------------------------------------------------------------------------------------------- P9 / P10
 def p9p10():
     import p9_p10_life_perf as L9
-    R = PH / "renders/pilot"
+    R = PH / os.environ.get("PH_PILOT_RENDERS", "renders/pilot")
     v1 = jload(PH / "results/p9_p10.json") if (PH / "results/p9_p10.json").exists() else None
     bar = 2.064
     out = {"sway_bar": bar}
@@ -507,7 +526,18 @@ def trail_pilot():
     gj = np.clip(((Zw - g["origin_xz"][1]) / g["cell_m"]).astype(int), 0, nz - 1)
     has = mul[gj, gi] > 0
     n = max(int(walk.sum()), 1)
+    hf = lvl["sim"]["heightfield"]
+    Zh = np.fromfile(BF / "godot/data/bv2f/art" / hf["file"], dtype="<f4").reshape(hf["shape"])
+    ex, k = hf["extent_sim_m"], float(hf["px_per_m"])
+    zi = np.clip(np.round((-pts[:, 1] - ex["y0"]) * k).astype(int), 0, Zh.shape[0] - 1)
+    zj = np.clip(np.round((pts[:, 0] - ex["x0"]) * k).astype(int), 0, Zh.shape[1] - 1)
+    flat = np.abs(Zh[zi, zj]) < 0.03
+    split = {nm: {"walkable_m2": round(float((walk & m).sum()) * 0.01, 1),
+                  "inside_field": round(float((walk & m & inr).sum() / max(int((walk & m).sum()), 1)), 4),
+                  "snow_carrying": round(float((walk & m & inr & has).sum() / max(int((walk & m).sum()), 1)), 4)}
+             for nm, m in (("flat", flat), ("not_flat (slopes, mound, swells)", ~flat))}
     return {"coverage": round(float((walk & inr).sum() / n), 4), "bar": 0.99, "pass": float((walk & inr).sum() / n) >= 0.99,
+            "by_terrain": split,
             "walkable_m2_in_window": round(n * 0.01, 1), "area_xz": sn["area_xz"],
             "informational_snow_carrying_share_of_walkable": round(float((walk & inr & has).sum() / n), 4)}
 
@@ -521,3 +551,97 @@ if __name__ == "__main__":
         brief = {kk: vv for kk, vv in r.items() if kk in ("pass", "verdict", "worst", "median_iou", "min", "whole_window", "candidates",
                                                             "unmatched", "chunks_failing_by_rule", "binding_fails", "value", "worst_class", "below_bar", "trials", "repeats", "images", "UNDERPOWERED")}
         print(k, json.dumps(brief, default=str)[:600])
+
+
+# ---------------------------------------------------------------------------------------------------------- P9c sub-pixel
+def _phase_subpx(a, b, up=20):
+    """shift (dy, dx) with b(x) = a(x - d)... read as in p9's phase_shift(b, a): the integer peak of the normalised
+    cross-power, refined by a locally UPSAMPLED inverse DFT (factor `up`, +-1.5 px around the peak; Guizar-Sicairos 2008)"""
+    A = np.fft.fft2(a)
+    B = np.fft.fft2(b)
+    Rr = A * np.conj(B)
+    Rr /= np.abs(Rr) + 1e-9
+    r = np.fft.ifft2(Rr).real
+    Hh, Ww = r.shape
+    y, x = np.unravel_index(np.argmax(r), r.shape)
+    y = y - Hh if y > Hh // 2 else y
+    x = x - Ww if x > Ww // 2 else x
+    fy, fx = np.fft.fftfreq(Hh), np.fft.fftfreq(Ww)
+    oy = y + np.arange(-1.5, 1.5 + 1e-9, 1.0 / up)
+    ox = x + np.arange(-1.5, 1.5 + 1e-9, 1.0 / up)
+    Ey = np.exp(2j * np.pi * np.outer(oy, fy))
+    Ex = np.exp(2j * np.pi * np.outer(fx, ox))
+    loc = (Ey @ Rr @ Ex).real
+    iy, ix = np.unravel_index(np.argmax(loc), loc.shape)
+    return float(oy[iy]), float(ox[ix])
+
+
+def _sil_shift(p0, p1):
+    """the silhouette's own motion, sub-pixel: phase correlation of the two (1 px-blurred) binary masks, upsampled"""
+    a = ndimage.gaussian_filter(p0.astype(float), 1.0)
+    b = ndimage.gaussian_filter(p1.astype(float), 1.0)
+    return _phase_subpx(b - b.mean(), a - a.mean())
+
+
+def _taper(im, core):
+    """mean-removed inside the core, multiplied by a smooth (Gaussian-blurred) core window: a hard 0/1 window shared by
+    both frames correlates with ITSELF at zero shift and hides the texture's motion (found in R-C9-194's self-test)"""
+    w = ndimage.gaussian_filter(core.astype(float), 4)
+    return (im - im[core].mean()) * w
+
+
+def floe_drift_subpx(dirp):
+    """P9c, re-instrumented to sub-pixel (R-C9-194 positive control): p9_p10_life_perf.floe_drift with the texture shift
+    read by a parabolic-peak phase correlation instead of the integer peak -- the integer peak alone carries up to
+    ~0.7 px of quantisation against a 0.25 px bar. Same masks, same pieces, same silhouette centroids."""
+    import p9_p10_life_perf as L
+    m0, m1 = load_rgb(dirp / "floe_m0.png"), load_rgb(dirp / "floe_m1.png")
+    hf = load_rgb(dirp / "hide_floe.png")
+    k0 = ndimage.binary_opening(L._d(m0, hf) > 20, iterations=1)
+    k1 = ndimage.binary_opening(L._d(m1, hf) > 20, iterations=1)
+    lab, n = ndimage.label(k0)
+    rows = []
+    for i, sl in enumerate(ndimage.find_objects(lab)):
+        if sl is None:
+            continue
+        piece0 = lab[sl] == i + 1
+        if piece0.sum() < 1500:
+            continue
+        y0, y1 = max(sl[0].start - 8, 0), sl[0].stop + 8
+        x0, x1 = max(sl[1].start - 8, 0), sl[1].stop + 8
+        p0, p1 = k0[y0:y1, x0:x1], k1[y0:y1, x0:x1]
+        c0, c1 = ndimage.center_of_mass(p0), ndimage.center_of_mass(p1)
+        sil = (c1[0] - c0[0], c1[1] - c0[1])
+        core = ndimage.binary_erosion(p0 & p1, iterations=4)
+        if core.sum() < 500:
+            continue
+        a = _taper(luma(m0[y0:y1, x0:x1]), core)
+        b = _taper(luma(m1[y0:y1, x0:x1]), core)
+        ty, tx = _phase_subpx(b, a)
+        rows.append({"px": int(piece0.sum()), "silhouette_shift": [round(sil[0], 3), round(sil[1], 3)],
+                     "texture_shift": [round(ty, 3), round(tx, 3)], "drift": round(math.hypot(sil[0] - ty, sil[1] - tx), 3)})
+    d = [r["drift"] for r in rows]
+    return {"floes_measured": len(rows), "median_drift_px": round(float(np.median(d)), 3) if d else None,
+            "max_drift_px": round(float(np.max(d)), 3) if d else None, "rows": rows}
+
+
+def subpx_selftest():
+    """constructed: a textured disc moved by a known sub-pixel offset (Fourier shift) in BOTH silhouette and texture
+    (rest-pose: drift 0) and in silhouette only (world-anchored: drift = the offset)"""
+    rng = np.random.default_rng(194)
+    out = []
+    for off in ((0.4, 1.3), (1.7, -0.6), (0.0, 2.25)):
+        tex = ndimage.gaussian_filter(rng.random((160, 160)), 1.2)
+        yy, xx = np.mgrid[0:160, 0:160]
+        disc = (((yy - 80) / 45.0) ** 2 + ((xx - 80) / 60.0) ** 2 <= 1).astype(float)
+        sh = lambda im, o: np.fft.ifft2(ndimage.fourier_shift(np.fft.fft2(im), o)).real
+        d1 = sh(disc, off) > 0.5
+        t_rest = sh(tex, off)
+        core = ndimage.binary_erosion((disc > 0.5) & d1, iterations=4)
+        c0, c1 = ndimage.center_of_mass(disc > 0.5), ndimage.center_of_mass(d1)
+        sil = (c1[0] - c0[0], c1[1] - c0[1])
+        ty, tx = _phase_subpx(_taper(t_rest, core), _taper(tex, core))
+        ty2, tx2 = _phase_subpx(_taper(tex, core), _taper(tex, core))
+        out.append({"offset": off, "rest_pose_drift": round(math.hypot(sil[0] - ty, sil[1] - tx), 3),
+                    "world_anchored_drift": round(math.hypot(sil[0] - ty2, sil[1] - tx2), 3), "true_offset_norm": round(math.hypot(*off), 3)})
+    return out

@@ -16,6 +16,7 @@ var mode := ""
 var out_dir := ""
 var view := ""
 var no_wind := false
+var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
 var burn_ms := 0.0
 var vp: SubViewport
 var rep := {}
@@ -28,6 +29,7 @@ func _initialize() -> void:
 	out_dir = a[2]
 	view = a[3]
 	no_wind = a.has("--no-wind")
+	floe_red = a.has("--floe-red")
 	if a.has("--burn-ms"):
 		burn_ms = float(a[a.find("--burn-ms") + 1])
 	DirAccess.make_dir_recursive_absolute(out_dir)
@@ -127,6 +129,60 @@ func _life() -> void:
 		await _shot("hide_water_b")         # the sea with its motion layers gone, 0.5 s on: P9b's RED pair
 		for w in scene.water_meshes:
 			(w as Node3D).visible = true
+	# BV2F pilot (bv2f_pilot.gd DEV-5): the sea is ground_sea's meshes wearing water_mat_pt; the floes are the
+	# blobs_shore_ice__* placements, each with its own projected PAINTED material (rest-pose UVs)
+	if "water_mat_pt" in scene and scene.water_mat_pt != null:
+		var sea: Array = scene._meshes(scene.nodes["ground_sea"])
+		for w in sea:
+			(w as Node3D).visible = false
+		await _settle()
+		await _shot("hide_water")
+		await _wait_s(0.5)
+		await _shot("hide_water_b")
+		for w in sea:
+			(w as Node3D).visible = true
+		var fl: Array = []
+		for id in scene.nodes:
+			if String(id).begins_with("blobs_shore_ice__"):
+				fl += scene._meshes(scene.nodes[id])
+		if not fl.is_empty():
+			# a plate-space checker (projected paint): 2048 x 1280 texels over the 4096 x 2560 plate, 8-texel cells = 16 px
+			var img := Image.create(2048, 1280, false, Image.FORMAT_RGB8)
+			img.fill(Color(0.1, 0.1, 0.1))
+			for cy in 160:
+				for cx in 256:
+					if (cx + cy) % 2 == 0:
+						img.fill_rect(Rect2i(cx * 8, cy * 8, 8, 8), Color(0.95, 0.95, 0.95))
+			var chk := ImageTexture.create_from_image(img)
+			var saved := {}
+			for mi in fl:
+				var m := (mi as MeshInstance3D).material_override as ShaderMaterial
+				if m == null or saved.has(m):
+					continue
+				saved[m] = [m.get_shader_parameter("paint_tex"), m.shader]
+				m.set_shader_parameter("paint_tex", chk)
+				if floe_red:
+					var code: String = m.shader.code
+					var vw := "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;\n"
+					var bob := "vec3(0.03 * sin(TIME * 0.5 + bob_phase * 6.2831), 0.035 * sin(TIME * 0.9 + bob_phase * 6.2831) + 0.015 * sin(TIME * 2.1 + bob_phase * 6.2831 * 1.7), 0.03 * cos(TIME * 0.43 + bob_phase * 6.2831))"
+					assert(code.count(vw) == 1)
+					var sh := Shader.new()
+					sh.code = code.replace(vw, "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz + %s;   // PH RED: projection follows the bob\n" % bob)
+					m.shader = sh
+			rep["floes_pilot"] = {"meshes": fl.size(), "materials": saved.size(), "floe_red": floe_red}
+			await _settle()
+			await _shot("floe_m0")
+			await _wait_s(0.5)
+			await _shot("floe_m1")
+			for m in saved:
+				m.set_shader_parameter("paint_tex", saved[m][0])
+				m.shader = saved[m][1]
+			for mi in fl:
+				(mi as Node3D).visible = false
+			await _settle()
+			await _shot("hide_floe")
+			for mi in fl:
+				(mi as Node3D).visible = true
 	if "floe_mesh" in scene and scene.floe_mesh != null:
 		var fm := scene.floe_mesh as MeshInstance3D
 		var mat := fm.material_override as ShaderMaterial
