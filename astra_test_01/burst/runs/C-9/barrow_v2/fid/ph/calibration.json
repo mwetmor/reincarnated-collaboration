@@ -1,6 +1,6 @@
 {
  "_what": "BV2F lane PH -- the v1-parity harness P1-P11, calibrated (Phase 0 task 0.4)",
- "assembled_utc": "2026-10-07T00:51:12Z",
+ "assembled_utc": "2026-10-07T02:27:15Z",
  "rows": [
   {
    "row": "P1",
@@ -78,14 +78,19 @@
    "threshold_source": "take/build/mini_overlay.json summary.unlit_mean_abs 15.5 (lit 40.7)",
    "cells": {
     "v1": {
-     "value": null,
-     "pass": null,
-     "note": "renders/v1/guide_as_painted.png not yet captured"
+     "value": 13.57,
+     "pass": true,
+     "note": "worst class: kit + raven (baked); 0 class(es) over"
     },
     "159": {
      "value": 107.97,
      "pass": false,
      "note": "worst class: v1-kit stones (v1 bakes); 3 class(es) over"
+    },
+    "constructed": {
+     "value": 25.38,
+     "pass": false,
+     "note": "worst class: stones (baked); 3 class(es) over"
     }
    },
    "constructed": "v1 render re-shaded by its own lit map \u00d7 the painter's shadow (painted light lit twice)"
@@ -245,23 +250,28 @@
    "kind": "constraint",
    "neg": "R-C9-158; constructed (RED)",
    "metric": "(a) heather sway in a static in-engine pair; (b) water flow in-engine; (c) floe marker UV drift; (d) snow-trail coverage of the floor",
-   "threshold": "(a) \u2265 3\u00d7 noise and \u2265 0.25\u00d7 v1; (b) \u2265 3\u00d7 noise; (c) \u2264 0.25 px; (d) \u2265 0.99",
+   "threshold": "(a),(b) \u2265 3\u00d7 noise and \u2265 0.25\u00d7 v1 heather sway (2.06); (c) \u2264 0.25 px; (d) \u2265 0.99",
    "threshold_source": "v1's own sway; v1 SnowField coverage 1.00; rest-pose UV = 0 drift (DEV-5)",
    "cells": {
     "v1": {
-     "value": "trail 1.00",
-     "pass": null,
-     "note": "sway pending in-engine capture"
+     "value": "sway 8.26; trail 1.00",
+     "pass": true,
+     "note": "noise 0.003"
     },
     "159": {
-     "value": "trail 0.81",
-     "pass": null,
-     "note": "life capture pending"
+     "value": "sway 13.06; flow 6.48; drift 1.913 px; trail 0.81",
+     "pass": false,
+     "note": "informational (not a P9 negative)"
     },
     "158": {
      "value": "trail 0.00; no SnowField, no wind, static sea",
      "pass": false,
      "note": "negative control (C-2)"
+    },
+    "constructed": {
+     "value": "sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden)",
+     "pass": false,
+     "note": "each RED"
     }
    },
    "constructed": "v1 with the wind held; the sea with its motion layers hidden"
@@ -275,9 +285,9 @@
    "threshold_source": "plan \u00a7 4 P10 (10.9\u201312.4 ms target withdrawn, W-2)",
    "cells": {
     "v1": {
-     "value": null,
-     "pass": null,
-     "note": "capture pending"
+     "value": 14.87,
+     "pass": true,
+     "note": "p50 12.83"
     },
     "159": {
      "value": null,
@@ -285,9 +295,9 @@
      "note": "capture pending"
     },
     "constructed": {
-     "value": null,
-     "pass": null,
-     "note": "capture pending"
+     "value": 21.33,
+     "pass": false,
+     "note": "p50 20.66"
     }
    },
    "constructed": "v1 with a 20 ms busy-wait per frame"

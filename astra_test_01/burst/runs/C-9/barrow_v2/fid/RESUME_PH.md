@@ -35,14 +35,14 @@ Git: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git 
 
 ## State (keep current at every commit)
 - [x] harness P1–P11 built: `fid/ph/harness/` (README has the run order). Results in `fid/ph/results/`.
-- [~] calibration table: `fid/ph/calibration.md` / `.json`. DONE: P1, P2, P4, P5, P6, P7, P8 (provisional bar), P3 for R-C9-159, P9d trail.
-      PENDING Godot (queued behind the heavy lock, held by JOIN1 jobs): P3 v1 + constructed re-shade (`renders/v1`), P9a/b/c (`renders/life_*`), P10 (`renders/perf_*`).
+- [x] calibration table: `fid/ph/calibration.md` / `.json`. v1 PASS on every row. R-C9-159 FAIL P1–P4 and P6b. R-C9-158 FAIL P5 and P9. BVR FAIL P6a. Every row's constructed failure is RED (P11 is built, not judged).
+      Only P10 for R-C9-159 (informational) is still queued: `renders/perf_v159`.
 - [x] P11 pair generator + answer key + scorer: `fid/ph/p11/judge_<set>/` (the ONLY thing the judge gets), keys in `fid/ph/p11/keys/`. NOT judged (C-3).
 - Discarded: P4 cellularity (cannot see a constructed patchwork); P9b film instrument. Re-instrumented: P6a (0.1 m smoothing, T = v1 ceiling 32); P5 constructed input (ghost blend).
-- No HALT. Disk 36 GiB free at last check.
+- Provisional: P8 bar (0.90 × v1, until PT's reproduced value). No positive control: P9c floe drift (until DEV-5).
+- No HALT. Disk 34 GiB free at last check.
 
 ## Next / re-run
-1. When the queue finishes: `cd fid/ph/harness && python3 p3_residual.py && python3 p9_p10_life_perf.py && python3 calibrate.py`, then commit.
-   If it has not started: `./run_godot_queue.sh capture` (v1 only needed: v159 done), `./run_godot_queue.sh life`, `./run_godot_queue.sh perf`.
+1. When `renders/perf_v159/perf.json` lands: `cd fid/ph/harness && python3 p9_p10_life_perf.py && python3 calibrate.py`, then commit. (A fresh level: `./run_godot_queue.sh all`, then every row script, then `calibrate.py`.)
 2. When PT lands `fid/pc/v1_stills/`: set `OVERLAP = 0.25` in `p11_pairs.py`, `python3 p11_pairs.py build`, `python3 calibrate.py`.
 3. When PT records its reproduced v1 heather value: re-base P8's bar in `p7_p8_floor_heather.py` (currently 0.90 × v1 measured).

@@ -4,10 +4,13 @@ where v1 has the system, RED shown once; negative control for P9 = R-C9-158 (no 
 snow trail).
 
 P9a HEATHER SWAY   renders/life_<x>: f0, f1 (static play camera, 0.5 s apart, him absent, falling snow hidden) and
-                   hide_heather (heather shadow-only). Heather mask = |f0 - hide_heather| > 12 (dilated 2 px).
+                   hide_heather (heather shadow-only). Heather mask = |f0 - hide_heather| > 12 (dilated 2 px), less what
+                   moves with the heather HELD (hide_heather vs hide_heather_b: water, floes) and the floes.
                    sway = mean |f1 - f0| (0-255) on the mask; noise = the same off the mask (static ground).
                    PASS: sway >= 3 x noise AND sway >= 0.25 x v1's sway. RED: v1 with the wind held (--no-wind).
-P9b WATER FLOW     (in-engine, BINDING) the same pair inside the water mask (|f0 - hide_water| > 6): flow >= 3 x noise.
+P9b WATER FLOW     (in-engine, BINDING) the same pair inside the water mask (|f0 - hide_water| > 6, less heather and the
+                   floes -- the floes are P9c's): flow >= 3 x noise AND >= 0.25 x v1's heather sway (v1's scale of
+                   visible life; v1 has no water).
                    RED: the sea with its motion layers hidden, two frames 0.5 s apart (hide_water, hide_water_b).
                    (film, DISCARDED at calibration -- see results) two frames 0.5 s apart from a walk/pan film, registered by phase correlation (an ortho pan is
                    a pure translation), residual on the painted-water class (Lab L < 40, b < -3) vs residual on snow:
@@ -46,19 +49,25 @@ def _d(a, b):
 def sway(dirp):
     f0, f1 = load_rgb(dirp / "f0.png"), load_rgb(dirp / "f1.png")
     hh = load_rgb(dirp / "hide_heather.png")
-    m = ndimage.binary_dilation(_d(f0, hh) > 12, iterations=2)
+    selfmove = np.zeros(f0.shape[:2], bool)       # pixels that move with the heather HELD (water, floes): not heather
+    if (dirp / "hide_heather_b.png").exists():
+        selfmove = ndimage.binary_dilation(_d(hh, load_rgb(dirp / "hide_heather_b.png")) > 3, iterations=3)
+    floes = np.zeros(f0.shape[:2], bool)
+    if (dirp / "floe_m0.png").exists():
+        floes = ndimage.binary_dilation(_d(load_rgb(dirp / "floe_m0.png"), load_rgb(dirp / "hide_floe.png")) > 20, iterations=3)
+    m = ndimage.binary_dilation(_d(f0, hh) > 12, iterations=2) & ~selfmove & ~floes
     d = _d(f1, f0)
+    still = ~m & ~selfmove & ~floes
     out = {"heather_px": int(m.sum()), "sway": round(float(d[m].mean()), 3) if m.any() else 0.0,
-           "noise": round(float(d[~m].mean()), 3)}
+           "noise": round(float(d[still].mean()), 3)}
     if (dirp / "hide_water.png").exists():
-        w = _d(f0, load_rgb(dirp / "hide_water.png")) > 6
-        w &= ~m
+        w = (_d(f0, load_rgb(dirp / "hide_water.png")) > 6) & ~m & ~floes
         out["water_px"] = int(w.sum())
         out["flow"] = round(float(d[w].mean()), 3) if w.any() else 0.0
         if (dirp / "hide_water_b.png").exists():          # RED pair: the sea without its motion layers, 0.5 s apart
             d2 = _d(load_rgb(dirp / "hide_water_b.png"), load_rgb(dirp / "hide_water.png"))
             out["flow_static_sea_RED"] = round(float(d2[w].mean()), 3) if w.any() else 0.0
-            out["noise_static_sea"] = round(float(d2[~w & ~m].mean()), 3)
+            out["noise_static_sea"] = round(float(d2[still & ~w].mean()), 3)
     return out
 
 
@@ -192,10 +201,10 @@ if __name__ == "__main__":
         for k, v in s.items():
             v["sway_pass"] = v["sway"] >= 3 * v["noise"] and v["sway"] >= bar
             if "flow" in v:
-                v["flow_pass"] = v["flow"] >= 3 * v["noise"]
+                v["flow_pass"] = v["flow"] >= 3 * v["noise"] and v["flow"] >= bar
             if "flow_static_sea_RED" in v:
-                v["flow_static_sea_pass"] = v["flow_static_sea_RED"] >= 3 * v["noise_static_sea"]
-        out["p9"]["a_heather_sway"] = {"bar": "sway >= 3 x noise and >= %.3f (0.25 x v1)" % bar, "rows": s}
+                v["flow_static_sea_pass"] = v["flow_static_sea_RED"] >= 3 * v["noise_static_sea"] and v["flow_static_sea_RED"] >= bar
+        out["p9"]["a_heather_sway"] = {"bar": "sway (and water flow) >= 3 x noise and >= %.3f (0.25 x v1 heather sway)" % bar, "rows": s}
     else:
         out["p9"]["a_heather_sway"] = {"pending": "renders/life_* not yet captured", "rows": s}
     films = {"159": B2 / "section_v1cam/look/R-C9-159_v2sw_coast_walk.mp4",

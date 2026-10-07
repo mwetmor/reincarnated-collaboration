@@ -112,7 +112,10 @@ def v159_rows(rdir):
     D = {}
     for hp in sorted(rdir.glob("hide_*.png")):
         D[hp.stem[5:]] = np.abs(R - load_rgb(hp)).sum(-1) > 6
-    anim = sum(v.astype(int) for v in D.values()) >= 3
+    if (rdir / "render_b.png").exists():           # ph_capture.gd >= this commit: the self-moving pixels, measured
+        anim = ndimage.binary_dilation(np.abs(R - load_rgb(rdir / "render_b.png")).sum(-1) > 6, iterations=2)
+    else:                                          # the calibration capture predates render_b: pixels that change in
+        anim = sum(v.astype(int) for v in D.values()) >= 3     # >= 3 groups' frames are the animated sea, not a model
     gd = load_rgb(B2 / "section_v1cam/guide2/v2sw_guide.png")
     lab = rgb_to_lab(ndimage.gaussian_filter(gd, (4, 4, 0)))
     L, b = lab[..., 0], lab[..., 2]

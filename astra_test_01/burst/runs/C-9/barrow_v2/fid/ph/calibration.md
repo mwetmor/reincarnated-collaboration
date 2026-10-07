@@ -1,6 +1,6 @@
 # BV2F lane PH — the v1-parity harness, calibrated (Phase 0 task 0.4)
 
-**Lane:** PH (galadriel). **Charter:** BV2F v0.2 (§ 9 C-1..C-3 as amended by § 12 Gate-1 folds W-1, W-7, I-1). **Status:** see § 5.
+**Lane:** PH (galadriel). **Charter:** BV2F v0.2 (§ 9 C-1..C-3 as amended by § 12 Gate-1 folds W-1, W-7, I-1). **Status:** calibrated. v1 passes every measured row. R-C9-159 fails P1–P4 and P6b. R-C9-158 fails P5 and P9. Every row has a constructed failure that reads RED, except P4's discarded cellularity statistic and P11 (built, judged by the conductor's judge).
 **Machine-readable:** `calibration.json`. **Harness + run commands:** `harness/README.md`. **Per-row evidence:** `results/*.json`.
 
 Rule applied throughout: thresholds come from v1's own distribution; a quality row that cannot separate v1 from its
@@ -15,14 +15,14 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
 |---|---|---|---|---|---|---|---|---|
 | P1 | quality | R-C9-159 | ≤ 1.05 on every static surface | 1.0 **PASS** | 4.353 **FAIL** | 1.0 **PASS** | 2.0 **FAIL** | — |
 | P2 | quality | R-C9-159 | 100% | 1.0 **PASS** | 0.1818 **FAIL** | 1.0 **PASS** | 0.9643 **FAIL** | constructed_foreign: 0.9643 **FAIL** |
-| P3 | quality | R-C9-159 | ≤ 15.5 for every class | None **—** | 107.97 **FAIL** | — | — | — |
+| P3 | quality | R-C9-159 | ≤ 15.5 for every class | 13.57 **PASS** | 107.97 **FAIL** | — | 25.38 **FAIL** | — |
 | P4 | quality | R-C9-159 | each ≤ v1's own leave-one-chunk-out maximum (snow hist 0.281 / spec 0.097; rock 0.481 / 0.190; ice 0.126 / 0.031) | 0 **PASS** | 28 **FAIL** | — | 16 **FAIL** | constructed (patchwork): 0 **PASS** |
 | P5 | quality | R-C9-158 (Gate-1 W-1) | (a) ≤ 13.09; (b) ≤ 0.799 | 13.09 / 0.799 **PASS** | 6.87 / 0.891 **FAIL** | 15.29 / 1.274 **FAIL** | 14.07 / 1.250 **FAIL** | — |
 | P6 | quality | R-C9-155 BVR blocks (invention, Gate-1 W-1); R-C9-159 (silhouettes) | (a) inventions = 0, T = 32 (v1's own ceiling); (b) ≥ 0.513 (v1 median) | 0 inv / IoU 0.513 **PASS** | IoU 0.102 **FAIL** | — | 1 inv / IoU 0.290 **FAIL** | BVR hall (T2a, 7_5..8_7): 18 inventions **FAIL**; BVR barrow door (T2b, 4_0..6_1): 0 inventions **PASS** |
 | P7 | constraint | constructed (RED) | floor ≤ v1 quadrant max (tuft 0.0040, clutter 0.0013); lanes ≤ v1 segment max (tuft 0.0245, clutter 0.0793) | 0.0019 / 0.0005 **PASS** | 0.0006 / 0.0002 **PASS** | — | 0.0219 / 0.0125 **FAIL** | — |
 | P8 | constraint | constructed (RED) | share ≥ 0.9 and tint r ≥ 0.874 — PROVISIONAL (0.90 × v1 measured) until PT's reproduced v1 value lands (Gate-1 W-2) | 1.000 / r 0.97 **PASS** | 0.402 / r 0.03 **FAIL** | — | 0.419 / r 0.05 **FAIL** | — |
-| P9 | constraint | R-C9-158; constructed (RED) | (a) ≥ 3× noise and ≥ 0.25× v1; (b) ≥ 3× noise; (c) ≤ 0.25 px; (d) ≥ 0.99 | trail 1.00 **—** | trail 0.81 **—** | trail 0.00; no SnowField, no wind, static sea **FAIL** | — | — |
-| P10 | constraint | constructed (RED) | ≤ 16.7 ms | None **—** | None **—** | — | None **—** | — |
+| P9 | constraint | R-C9-158; constructed (RED) | (a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99 | sway 8.26; trail 1.00 **PASS** | sway 13.06; flow 6.48; drift 1.913 px; trail 0.81 **FAIL** | trail 0.00; no SnowField, no wind, static sea **FAIL** | sway 0.00 (v1, wind held); flow 0.206 (159 sea, motion layers hidden) **FAIL** | — |
+| P10 | constraint | constructed (RED) | ≤ 16.7 ms | 14.87 **PASS** | None **—** | — | 21.33 **FAIL** | — |
 | P11 | quality | R-C9-159 | ≤ 65% (pass if ≤ 19/30) | — | — | — | — | cal_v1_vs_159: None **—**; cal_v1_vs_158: None **—**; cal_v1_vs_constructed_halfdensity: None **—** |
 <!-- /CALIBRATION-TABLE -->
 
@@ -62,10 +62,12 @@ negative control is **re-instrumented or discarded, never threshold-tuned**; eve
   - P6a: the R-C9-155 BVR re-test-2 blocks (`artifacts/BVR-*`). Declared openings come from **layout v5** (git `b267b9b00`), the layout those blocks were painted from. It is copied to `inputs/`.
   - P6b: R-C9-159 silhouettes.
   - P9: R-C9-158.
-- **Pending at the time of writing.** These rows fill when the Godot queue clears the heavy lock (`harness/run_godot_queue.sh`):
-  - P3 v1 and its constructed re-shade (needs `renders/v1`).
-  - P9 sway, flow and floe drift (`renders/life_*`).
-  - P10 (`renders/perf_*`).
+- **Godot measurements done:**
+  - P3 v1 reproduces its record: stones 11.38 (recorded 11.26), kit 13.57 (13.53), projected classes ≈ 0.
+  - P9 in-engine pairs: v1 sway 8.26 against noise 0.003; with the wind held, 0.00.
+  - P10: v1 p99 14.87 ms; the 20 ms burn gives 21.33 ms.
+- **P10 for R-C9-159 is informational only** (P10 is a constraint row). It is still queued behind the heavy lock (`renders/perf_v159`).
+- **P9c floe UV drift has a RED** (R-C9-159, 1.91 px median over 5 floes) **but no positive control.** v1 has no floes, and no rest-pose implementation exists yet. DEV-5's first build will be its positive control.
 - **P8** is provisional until PT's reproduced v1 value lands.
 - **P11** is built but not judged (C-3).
 - **v1 stills:** P11 uses `section_v1cam/v1ref/V1_*.png`. `barrow_full/captures/still_*.png` are **blockout** stills and are excluded; I checked them by eye. PT's `fid/pc/v1_stills/` join the pool automatically. Regenerate the pairs with OVERLAP 0.25 once they land.
@@ -76,4 +78,4 @@ See `../RESUME_PH.md`.
 
 ## 6. For the conductor to rule
 
-See the hand-back. Recorded here: (1) the cellularity discard leaves C4's "blotchy cellular bakes" without a binding pixel instrument; (2) P6a's false positives on dark material in the hall chunks; (3) P4 new classes (sea, shingle) and wood (v1 logs are under 20,000 px in every chunk, so there is no v1 spread) have no binding P4 statistic until a nearest v1 class is named; (4) P8's threshold re-bases on PT's value.
+See the hand-back. Recorded here: (1) the cellularity discard leaves C4's "blotchy cellular bakes" without a binding pixel instrument; (2) P6a's false positives on dark material in the hall chunks; (3) P4 new classes (sea, shingle) and wood (v1 logs are under 20,000 px in every chunk, so there is no v1 spread) have no binding P4 statistic until a nearest v1 class is named; (4) P8's threshold re-bases on PT's value; (5) P9c has no positive control until DEV-5 is built; (6) P5 also flags R-C9-159's stitched seams (2 over v1's ghosting bar). P5's negative control is R-C9-158, so this is evidence, not calibration.

@@ -1,0 +1,373 @@
+{
+ "ground_loads": {
+  "as_painted": {
+   "painting.bin": {
+    "bytes": 33323121,
+    "format": "png",
+    "path": "res://data/painted/painting.bin",
+    "px": [
+     5376,
+     3328
+    ],
+    "sha256_ok": true
+   }
+  }
+ },
+ "guide": {
+  "centre_uv": [
+   -2.0,
+   -3.0
+  ],
+  "falling_snow": "hidden for the overlay",
+  "him": "absent (the guide's barbarian was painted out)",
+  "px": [
+   5376,
+   3328
+  ],
+  "shadow_atlas_px": 8192,
+  "variants": [
+   "as_painted"
+  ],
+  "wind": "held still for the overlay"
+ },
+ "launch_line": "who=barbarian slot=own loaded_from_pck files_sha_ok=28/28 painting_ok=true ground=painting.bin(as_painted)_ok=true lit_ok=true snow_grid_ok=true | plates: bakes=25/25 on the real models, painting on primitives=29/29 (the mound + 28) | birches=33 inks_hidden=25 heather=977 snow=true ms=2961",
+ "painted": {
+  "files_bad": [],
+  "files_ok": 28,
+  "ground_file": "painting.bin",
+  "ground_variant": "as_painted",
+  "heather": {
+   "albedo_mul": [
+    1.2514,
+    1.0106,
+    0.5677
+   ],
+   "instances": 977,
+   "multimeshes": 6,
+   "tris": 667216
+  },
+  "loads": {
+   "bakes/cairn_1.bin": {
+    "bytes": 247104,
+    "format": "png",
+    "path": "res://data/painted/bakes/cairn_1.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/cairn_2.bin": {
+    "bytes": 236468,
+    "format": "png",
+    "path": "res://data/painted/bakes/cairn_2.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/cairn_3.bin": {
+    "bytes": 254728,
+    "format": "png",
+    "path": "res://data/painted/bakes/cairn_3.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/door_lintel.bin": {
+    "bytes": 251945,
+    "format": "png",
+    "path": "res://data/painted/bakes/door_lintel.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/door_post_L.bin": {
+    "bytes": 138639,
+    "format": "png",
+    "path": "res://data/painted/bakes/door_post_L.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/door_post_R.bin": {
+    "bytes": 158749,
+    "format": "png",
+    "path": "res://data/painted/bakes/door_post_R.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/fallen_tree_log_A.bin": {
+    "bytes": 289921,
+    "format": "png",
+    "path": "res://data/painted/bakes/fallen_tree_log_A.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/fallen_tree_log_B.bin": {
+    "bytes": 264195,
+    "format": "png",
+    "path": "res://data/painted/bakes/fallen_tree_log_B.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/grave_marker_E.bin": {
+    "bytes": 296093,
+    "format": "png",
+    "path": "res://data/painted/bakes/grave_marker_E.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/grave_marker_W.bin": {
+    "bytes": 295298,
+    "format": "png",
+    "path": "res://data/painted/bakes/grave_marker_W.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/raven.bin": {
+    "bytes": 97051,
+    "format": "png",
+    "path": "res://data/painted/bakes/raven.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m115.bin": {
+    "bytes": 233038,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m115.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m135.bin": {
+    "bytes": 286369,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m135.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m155.bin": {
+    "bytes": 264935,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m155.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m35.bin": {
+    "bytes": 233760,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m35.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m55.bin": {
+    "bytes": 265674,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m55.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m75.bin": {
+    "bytes": 289761,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m75.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_m95.bin": {
+    "bytes": 283937,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_m95.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p115.bin": {
+    "bytes": 211163,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p115.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p135.bin": {
+    "bytes": 315187,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p135.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p155.bin": {
+    "bytes": 256223,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p155.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p35.bin": {
+    "bytes": 218326,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p35.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p55.bin": {
+    "bytes": 259813,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p55.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p75.bin": {
+    "bytes": 325756,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p75.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "bakes/ring_p95.bin": {
+    "bytes": 256152,
+    "format": "png",
+    "path": "res://data/painted/bakes/ring_p95.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "lit.bin": {
+    "bytes": 552269,
+    "format": "png",
+    "path": "res://data/painted/lit.bin",
+    "px": [
+     2688,
+     1664
+    ],
+    "sha256_ok": true
+   },
+   "painting.bin": {
+    "bytes": 33323121,
+    "format": "png",
+    "path": "res://data/painted/painting.bin",
+    "px": [
+     5376,
+     3328
+    ],
+    "sha256_ok": true
+   },
+   "snow_grid.bin": {
+    "bytes": 1797408,
+    "path": "res://data/painted/snow_grid.bin",
+    "sha256_ok": true
+   }
+  },
+  "manifest": "res://data/painted/manifest.json",
+  "ms": 2961,
+  "pieces": {
+   "baked": 25,
+   "baked_meshes": 25,
+   "bakes_missing": [],
+   "birches": 33,
+   "ground": 1,
+   "inks_hidden": 25,
+   "mound": 3,
+   "primitives": 28
+  },
+  "shadow_mul_linear": [
+   0.4188,
+   0.5479,
+   0.8918
+  ],
+  "snow": {
+   "area_xz": [
+    -22.275,
+    -19.63,
+    47.211,
+    47.211
+   ],
+   "bake_ms": 1966.2,
+   "bare_frac_under_cut": 0.3662,
+   "field_px": 768,
+   "mean_depth_m": 0.0645,
+   "thin_zones": 977,
+   "trail_px": 1024
+  },
+  "suns": {
+   "paint_sun": {
+    "casters": 1045503,
+    "cull": 3072
+   },
+   "sun": {
+    "casters": 1048575,
+    "cull": 1045503
+   }
+  }
+ },
+ "renderer": {
+  "adapter": "Apple M2 (Apple8)",
+  "method": "forward_plus",
+  "web_branches": false
+ }
+}

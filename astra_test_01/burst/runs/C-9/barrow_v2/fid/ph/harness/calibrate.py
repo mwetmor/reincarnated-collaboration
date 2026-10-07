@@ -121,10 +121,12 @@ def rows():
         c9["159"] = {"value": "trail %.2f" % tr.get("159", {}).get("coverage", float("nan")), "pass": None, "note": "life capture pending"}
     c9["158"] = {"value": "trail %.2f; no SnowField, no wind, static sea" % tr.get("158", {}).get("coverage", 0), "pass": False, "note": "negative control (C-2)"}
     if "v1_nowind" in sw:
-        c9["constructed"] = {"value": "sway %.2f (wind held)" % sw["v1_nowind"]["sway"], "pass": sw["v1_nowind"]["sway_pass"], "note": ""}
+        ss = sw.get("v159", {}).get("flow_static_sea_RED")
+        c9["constructed"] = {"value": "sway %.2f (v1, wind held); flow %s (159 sea, motion layers hidden)" % (sw["v1_nowind"]["sway"], ss),
+                             "pass": bool(sw["v1_nowind"]["sway_pass"] or sw.get("v159", {}).get("flow_static_sea_pass")), "note": "each RED"}
     out.append({"row": "P9", "kind": "constraint", "neg": "R-C9-158; constructed (RED)",
                 "metric": "(a) heather sway in a static in-engine pair; (b) water flow in-engine; (c) floe marker UV drift; (d) snow-trail coverage of the floor",
-                "threshold": "(a) ≥ 3× noise and ≥ 0.25× v1; (b) ≥ 3× noise; (c) ≤ 0.25 px; (d) ≥ 0.99",
+                "threshold": "(a),(b) ≥ 3× noise and ≥ 0.25× v1 heather sway (2.06); (c) ≤ 0.25 px; (d) ≥ 0.99",
                 "threshold_source": "v1's own sway; v1 SnowField coverage 1.00; rest-pose UV = 0 drift (DEV-5)",
                 "cells": c9, "constructed": "v1 with the wind held; the sea with its motion layers hidden"})
     p10 = j("p9_p10.json").get("p10", {})

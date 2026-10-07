@@ -11,6 +11,7 @@ extends SceneTree
 ##   hide_<group>.png       the same frame with one group of static models SHADOW-ONLY (body gone, its cast shadow kept;
 ##                          a group = one GLB key);
 ##                          |render - hide_<group>| > 0 is that group's visible silhouette, occlusion included
+##   render_b.png           the same frame again, frames later: |render - render_b| = what moves by itself (masked out)
 ##   hide_heather.png       the same frame with the 3D heather hidden (its pixels are movers, not statics)
 ##   ph_capture.json        what was hidden per frame, the frame, the renderer
 var scene
@@ -96,6 +97,8 @@ func _run() -> void:
 	rep["painted"] = scene.report.get("painted", {})
 	await _settle(30)
 	await _shot("render")
+	await _settle()
+	await _shot("render_b")                # the same state, frames later: what changes by itself (water, floes)
 	var groups := {}
 	for key in scene.model_meshes:
 		var nm := String(key).get_file().get_basename()

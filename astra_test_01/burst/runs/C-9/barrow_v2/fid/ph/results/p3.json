@@ -2,7 +2,184 @@
  "bar": 15.5,
  "bar_source": "take/build/mini_overlay.json summary.unlit_mean_abs = 15.5 (lit: 40.7)",
  "v1": {
-  "pending": "renders/v1/guide_as_painted.png not yet captured"
+  "classes": {
+   "stones (baked)": {
+    "px": 146164,
+    "mean_abs": 11.38,
+    "signed_rgb": [
+     -0.699999988079071,
+     -0.30000001192092896,
+     0.10000000149011612
+    ]
+   },
+   "kit + raven (baked)": {
+    "px": 40232,
+    "mean_abs": 13.57,
+    "signed_rgb": [
+     -1.7999999523162842,
+     -1.2999999523162842,
+     -1.100000023841858
+    ]
+   },
+   "rock (projected)": {
+    "px": 2460494,
+    "mean_abs": 0.01,
+    "signed_rgb": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "mound (projected)": {
+    "px": 671880,
+    "mean_abs": 0.02,
+    "signed_rgb": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "birches (projected)": {
+    "px": 100731,
+    "mean_abs": 0.06,
+    "signed_rgb": [
+     0.0,
+     0.10000000149011612,
+     0.0
+    ]
+   },
+   "ground: open snow": {
+    "px": 7798044,
+    "mean_abs": 0.21,
+    "signed_rgb": [
+     -0.0,
+     -0.0,
+     -0.0
+    ]
+   },
+   "ground: path": {
+    "px": 725132,
+    "mean_abs": 0.1,
+    "signed_rgb": [
+     0.0,
+     -0.0,
+     -0.0
+    ]
+   },
+   "ground: heather ground": {
+    "px": 1748172,
+    "mean_abs": 0.12,
+    "signed_rgb": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "ground: ice": {
+    "px": 656821,
+    "mean_abs": 0.1,
+    "signed_rgb": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "worst_class": "kit + raven (baked)",
+  "value": 13.57,
+  "bar": 15.5,
+  "pass": true,
+  "n_over": 0
+ },
+ "constructed_reshade": {
+  "classes": {
+   "stones (baked)": {
+    "px": 146164,
+    "mean_abs": 25.38,
+    "signed_rgb": [
+     -36.400001525878906,
+     -23.5,
+     -4.400000095367432
+    ]
+   },
+   "kit + raven (baked)": {
+    "px": 40232,
+    "mean_abs": 22.42,
+    "signed_rgb": [
+     -26.700000762939453,
+     -17.600000381469727,
+     -4.400000095367432
+    ]
+   },
+   "rock (projected)": {
+    "px": 2460494,
+    "mean_abs": 9.7,
+    "signed_rgb": [
+     -16.399999618530273,
+     -10.5,
+     -2.0999999046325684
+    ]
+   },
+   "mound (projected)": {
+    "px": 671880,
+    "mean_abs": 10.52,
+    "signed_rgb": [
+     -17.399999618530273,
+     -11.699999809265137,
+     -2.5
+    ]
+   },
+   "birches (projected)": {
+    "px": 100731,
+    "mean_abs": 24.09,
+    "signed_rgb": [
+     -40.29999923706055,
+     -26.5,
+     -5.400000095367432
+    ]
+   },
+   "ground: open snow": {
+    "px": 7798044,
+    "mean_abs": 1.21,
+    "signed_rgb": [
+     -1.600000023841858,
+     -1.2000000476837158,
+     -0.30000001192092896
+    ]
+   },
+   "ground: path": {
+    "px": 725132,
+    "mean_abs": 0.15,
+    "signed_rgb": [
+     -0.10000000149011612,
+     -0.10000000149011612,
+     -0.0
+    ]
+   },
+   "ground: heather ground": {
+    "px": 1748172,
+    "mean_abs": 2.36,
+    "signed_rgb": [
+     -3.5,
+     -2.5999999046325684,
+     -0.6000000238418579
+    ]
+   },
+   "ground: ice": {
+    "px": 656821,
+    "mean_abs": 0.72,
+    "signed_rgb": [
+     -0.8999999761581421,
+     -0.800000011920929,
+     -0.20000000298023224
+    ]
+   }
+  },
+  "worst_class": "stones (baked)",
+  "value": 25.38,
+  "bar": 15.5,
+  "pass": false,
+  "n_over": 3
  },
  "159": {
   "classes": {
