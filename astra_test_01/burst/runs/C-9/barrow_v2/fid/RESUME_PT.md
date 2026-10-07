@@ -27,10 +27,14 @@ Heavy lock for every Godot/Blender run: `python3 runs/C-7/conductor_scripts/heav
 Git: commit only your own paths: `git add -- <new paths>`, `git status --porcelain -- <paths>` before, `git commit --only <paths>`, `git show --stat HEAD` after, `git -C` cross-repo. Never `git add -A`. Do NOT edit or commit `ledger.json` (conductor only); HALTs go in this RESUME + your hand-back. Do not push (conductor releases).
 
 ## State
-- [ ] 0.1 positive control — IN PROGRESS (switched here on the conductor HOLD below)
-- [~] 0.3 frozen toolchain — **ON HOLD (conductor, Gate-1 B-1 BLOCK-narrow: two-tier freeze fold coming). Copies + SHA256SUMS + verify.sh exist in `fid/v1tools/` UNCOMMITTED; do not commit until revised 0.3 instructions land here.** PROVENANCE.md / frame_grid.json not written.
+- [~] 0.1 positive control — T1 PASS, T2 unlit PASS (lit informational 36.2, R-C9-166). T3 heather, the six stills, T4 frame time queued behind the heavy lock (JOIN1 holding). HALT H-C9-BV2F-PT-1 disposed by R-C9-166.
+- [x] 0.3 two-tier freeze — committed bf188cb9f: `fid/v1tools/` tierA (10 byte-identical) + tierB (5 patched, `patches/*.diff`, `ALLOWLIST.md`), `SHA256SUMS` (shipped + v1 git sha @ pin 0f8f73697), `verify.sh` (green; RED x3 proven: `pc/run/verify_red_tests.txt`), `v1run.py` (root-pinning runner; Tier A untouched), `frame_grid.v1.json`, `PROVENANCE.md` (as-run shas + evidence + constant audit). DEV-15 exit-7 dry-run: `pc/run/dev15_dryrun.txt`.
+  - Freeze proof (python): patched take_from_paint.py via `v1run.py --root <clone>` + `BV2F_FRAME_GRID=frame_grid.v1.json`, run from another cwd → all 6 take outputs byte-identical to v1. Freeze proof (GD): patched capture_ids.gd by absolute `--script` path + `--frame-grid` — queued.
+- Background queue (scratchpad): job b46fx53e2 = T3 capture_painted --guide then pc_stills; job bdr1gskrl = GD freeze proof, then build_app_painted.sh (STAGE→scratch) + `--frame-cost` x2.
+- Clone: `/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad/v1c/C-9/barrow_full` (cp -Rc at 0.1 start; barrow_full unchanged since).
+Next step: when T3 lands run `overlay_check.py --capture <clone>/captures/painted --out fid/pc/run/overlay`, then paint_world_prep in the clone LAST; copy stills to `fid/pc/v1_stills/`; T4 results; control shas after; commit; hand back.
 
-### 0.3 findings so far (uncommitted work in `fid/v1tools/`)
+### 0.3 findings (first-layout notes; superseded by v1tools/PROVENANCE.md)
 - 10 tools + reference (`make_layout.py`, `cfg_t10bf.json` — the latter carries v1's `geo`/`rules`/`refs` brief, W3) copied mirroring source dirs; `SHA256SUMS` 12 files; `verify.sh` exit 0 on HEAD, exit 1 on a tampered copy and on an unlisted file (scratch tests).
 - **Duplicates are byte-identical**: `capture_blockout.gd` app/=godot/ `f630f564c1fd`; `capture_ids.gd` app/=godot/ `7e6e16369489`; `t5_06b_bake.py` barrow_full/tools = nb_t8/scripts `28b2dc11dcd1`. v1 ran the `godot/` copies (`take_report.json` `regenerate`: `Godot --path godot ... tools/capture_ids.gd`; `app/` is gitignored, `barrow_full/.gitignore:7`) and `barrow_full/tools/t5_06b_bake.py` (`bake_report.json:3` records sha `28b2dc11…` = nb_t8; `bake_heroes.py:36` asserts identity).
 - **HEAD ≠ as-run for 4 tools (all non-functional for v1's outputs or re-run):**
@@ -51,7 +55,7 @@ Git: commit only your own paths: `git add -- <new paths>`, `git status --porcela
 - **T2: unlit 15.5 PASS (per piece identical: 12.6/15.0/15.2/19.1); lit 36.2 vs recorded 40.7 → MISS** (door 35.9 vs 40.9, grave 34.2 vs 43.6, ring 42.7 vs 46.3, log 32.1 = 32.1). See `fid/pc/results.json`.
 - control_shas before == after; barrow_full git status unchanged.
 
-## HALT (H-C9-BV2F-PT-1, proposed; conductor appends to ledger)
+## HALT H-C9-BV2F-PT-1 — DISPOSED by R-C9-166 (lit informational; resume)
 **0.1 T2 lit residual misses its record: 36.2 vs 40.7 (±0.5).** Unlit (the charter-gated number) reproduces exactly. The lit path (blockout ramp under the blockout sun, `mini_overlay.gd`) depends on `paint_stack.gd`/`barrow_full.gd`, changed by 17 commits after the record (3b8a4fbfd → HEAD; 111c85f5d replaced paint_stack.gd). Not bisected.
 **Conductor must rule:** (a) is lit a gating target (charter row 0.1 names only unlit 15.5; my targets.json registered lit as gating)? (b) if gating: bisect the lit path (≈1 Godot run per candidate commit, $0) or re-base the lit record at HEAD. T3, T4 and the stills are NOT run; resume order T3 → stills → T4 from the clone (re-clone first if barrow_full has moved).
 Next step: await ruling.
