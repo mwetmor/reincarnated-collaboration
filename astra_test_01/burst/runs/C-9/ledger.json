@@ -44669,6 +44669,12 @@
       "ts": "2026-10-07T06:44:33Z",
       "status": "closed",
       "what": "P6' (pre-registered 45fb5eaac, calibrated 48dab5e17: v1 PASS on all four components, each component RED on its constructed/real negative) is RED on v7c (44fb98a66): presence (two yard logs ~half buried, 0.545/0.505), scale (137 of 148 instances anisotropy > 1.10: circle/standing stones, grave markers, crags/outcrops, palisade stakes, logs/beams -- v6-era per-axis box fits), extent (R11 reads the combined hall+porch model's height as the hall's). Placement PASS. IoU-vs-prism 0.46 vs v1 0.635 (non-binding). Disposed R-C9-181. | CLOSED R-C9-183: LV refit 9601add8a; P6' PASS bc29572c3 + f99a12973."
+    },
+    {
+      "id": "H-C9-BV2F-DISK-1",
+      "ts": "2026-10-07T16:51:56Z",
+      "status": "open",
+      "what": "Shared disk 18 GiB free (< 20 GiB gate; lanes halt at 21), raised by the Sim Session conductor. Largest consumer: this conductor session's scratchpad (45 GB logical): superseded barrow_full APFS clones (v1c, v1c2, d17, d17r, pc2_*, pc3_*), pilot paint staging, raw walk AVIs. Manifest 16 (cleanup/manifest_bv2f_scratch_16.txt, 12 entries, 44.6 GiB logical; f0e8d3ef3) put to Matt; Matt runs deletions. PH's Godot queue stopped before any render."
     }
   ],
   "rulings": [
@@ -46325,6 +46331,13 @@
       "ruling": "BV2F pilot P11 (40-trial ABX, v1 vs pilot; two fresh blind galadriel judges on a neutral copy): judge 1 27/40 = 67.5%, repeat inconsistency 0.50 -> VOID; judge 2 24/40 = 60%, inconsistency 0.40 -> VOID. Both judges called the builds 'very similar' and marked many trials as near-guesses. P11 = VOID (no pass, no fail) under the pre-registered rule; the conductor does NOT run a third judge (fishing) and does NOT pool the two (not pre-registered). INSTRUMENT QUESTION routed to jack-ryan's pilot Gate-2: the void rule (> 25% repeat inconsistency) assumes a discriminating judge; a judge who genuinely cannot tell the builds apart guesses and is ~50% inconsistent, so the void rule may fire precisely in the PASS regime (calibration: v1-vs-v1 judged 55% with 0.10 inconsistency; 159 / half-density judged 90-100% with 0-0.20). Evidence on file, no bar moved: answers in the conductor scratchpad, to be saved by PH to fid/ph/p11/answers/abx_pilot_judge{1,2}.json.",
       "verbatim": [],
       "ts": "2026-10-07T15:34:57Z"
+    },
+    {
+      "id": "R-C9-196",
+      "by": "gandalf (conductor)",
+      "ruling": "BV2F rebuilt pilot (PT f36284352/2d95cfe5b/0b72461db: DEV-19 bakes at 2048 via frozen hero_surface.py --size = usage; DEV-5 water + 17 floes; DEV-18 applied; lineage refreshed) re-measured by PH before the DISK HALT (37193eb63, s29): P1 PASS (all static surfaces display at the painting's density; bake 117.6 >= painting 100.6 px/m), P2 PASS 20/20, P3 PASS 11.53, P9 trail coverage PASS 1.000. P8: as delivered chunk 0_2 = 0.000 because PT's heather_mask counted the animated sea as heather -- an INPUT defect, not a row result: PT re-renders the heather mask with the water layer hidden (PH's sea-excluded 0.5302 is NOT adopted as the measurement; the fixed input is). P9c floe drift: PH finds the calibrated instrument cannot see texture motion -> re-instrument with a constructed RED (floe texture swimming with the bob, i.e. world-space UVs) that must FAIL and the rest-pose build that must PASS, before P9c binds; it stays non-binding until then. Pending after the disk recovers: P9 sway/flow/floe, P10, P8 on the fixed mask. PT's slip (three headless parse checks run without the heavy lock) recorded; no harm, lock discipline restated. Heavy work resumes only above 21 GiB.",
+      "verbatim": [],
+      "ts": "2026-10-07T16:51:56Z"
     }
   ],
   "grok_calls": [
