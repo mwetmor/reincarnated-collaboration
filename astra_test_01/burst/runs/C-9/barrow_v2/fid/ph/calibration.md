@@ -322,3 +322,53 @@ Answers are saved as evidence in `p11/answers/` (`abx_g2_v1rec_vs_v1head.json`, 
 
 **P6a overlay judge (J)** (`results/p6_overlay_score_J.json`): both invented features flagged (the doorway by brazier_sw and the gable-end opening), declared door not flagged, **stamp missed**, material "yes" **5/15** (old items 04, 06, 07, 10, 12). **Acceptance not met.** The conductor reads P6a candidates by eye under charter § 13, using the triage tool and its jsonl record.
 
+## 13. Phase 1 support: P6 for LV's v7c guide and ID render, against the layout_v7c polygons
+
+Tool: `harness/p6_phase1.py`. Result: `results/p6_phase1_v7c.json`. Inputs:
+- `fid/lv/guide_v7c/ids_v7c.png` (48 ids, `guide_manifest.json` id_table; ids_v7b is superseded);
+- `fid/lv/layout_v7c.json`;
+- the projection law from `declared_openings.json`.
+
+**Measure.**
+- Each placed layout object's silhouette is the union of its projected placement prisms: box instances as `bv2f_level.gd` `_place_box` stands them, beams as thick segments.
+- It is clipped by every other placed object's ID pixels (occlusion), then compared with the object's ID pixels. A model's own declared-opening curtain counts as the model.
+- The same measure was run on v1 (`take/ids` against v1's built footprints) as the like-for-like baseline.
+
+**Overlay check.** The layout prisms sit on their rendered models across the frame. **Containment** (the share of an object's ID pixels inside its own layout prism) has a median of **1.0** (v1: 1.0). No rendered object stands outside its slot.
+
+**IoU.** The median over the 18 rendered objects is **0.457**.
+- Against the **ruled bar 0.513: below.**
+- Like-for-like v1 baselines: real models excluding trees **0.645** (n 23), slab primitives **0.819**, trees **0.239**.
+- The deficit comes from shape fill, not placement. Tripo crags and ruins fill their boxes less than v1's near-box stones, and terrain hides low pieces:
+  - structures: longhall 0.71, barrow_front 0.65, stair_cliff 0.58, fallen_gable 0.51, wreck 0.35 (half-sunk, z −1);
+  - crags: 0.35–0.64.
+- **For the conductor:** whether the binding Phase-1 geometry-agreement statistic is containment (placement) or IoU (shape) against a bar from v1's real models. Containment is 1.0 on every rendered piece.
+
+**Layout objects missing, hidden or extra in the render:**
+- **MISSING:**
+  - `braziers`: GLB missing (`level.json` sim.glb_missing = godot/models/build/brazier.glb).
+  - `rock_outcrop_3`: its 10.6k-px prism at the envelope's top edge shows only snow.
+- **HIDDEN / BURIED:**
+  - `standing_stones`: 3 of 4 stones render 0 px; terrain (snow, mound) covers 98.7% of the prisms. The stones stand below the sculpted ground, a **finding for LV**.
+  - `cliff_faces`: 96% covered by the terrain's own rock face.
+  - `grave_markers`: 8.8% visible, sunk in the shrub ground.
+- **Outside the envelope:** rock_outcrop_6, 9, 12, 13.
+- **Extra IDs with no layout model:** blobs_passage_dark, blobs_path, blobs_rock, blobs_shore_ice. These are the layout's sculpt blobs, expected.
+- **Not placed by design:** the birch groves (no plants), hall_porch (part of the longhall build), cave_cliff (trimmed in v7c), sea_cave_stair (the stair prisms).
+
+**Check (a), independently from the ID render.** Visible screen m² at the play camera, PH against LV:
+
+| opening | PH | LV | |
+|---|---|---|---|
+| barrow_door | 21.92 | 22.36 | agrees (−2%) |
+| sea_cave_mouth | 22.18 | 21.55 | agrees (+3%) |
+| mere_ice | 373.71 | 373.61 | agrees |
+| hall_great_door | 8.22 | 6.35 | **+30%** |
+| fallen_gable_breach | ≤ 12.83 (upper bound) | 10.98 | not separable from the ID render |
+| wreck_rail | ≤ 15.22 (upper bound) | 10.7 | not separable from the ID render |
+
+- **hall_great_door:** the curtain id's area exceeds even LV's own unoccluded reference (6.40), so the curtain geometry and LV's probe differ. The door is visible either way.
+- **fallen_gable_breach and wreck_rail:** a horizontal probe inside its own model can be hidden by that model's near side, and an ID render cannot separate the two, so PH's 100% is an upper bound, not a check.
+- **All six openings are visible, so check (a) PASS stands.**
+- **Inconsistency for LV:** wreck_rail is `faces_camera: false` in `declared_openings.json` but `true` in `check_a.json`.
+
