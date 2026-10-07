@@ -1,0 +1,1525 @@
+{
+ "models": [
+  {
+   "id": "wreck",
+   "kind": "wreck",
+   "pos": [
+    -24.0625,
+    -1.6705
+   ],
+   "z": -1.6,
+   "godot_rot_y_deg": -36.39,
+   "size_m": {
+    "w_local_x": 13.0,
+    "d_local_z": 4.6271,
+    "h": 7.4633
+   },
+   "glb": "data/bv2f/ext/data__bv2f__models__wreck.glb.bin"
+  },
+  {
+   "id": "barrow_front",
+   "kind": "barrow",
+   "pos": [
+    1.5833,
+    -19.4525
+   ],
+   "z": 0.0,
+   "godot_rot_y_deg": 0.0,
+   "size_m": {
+    "w_local_x": 11.6,
+    "d_local_z": 8.1138,
+    "h": 5.8693
+   },
+   "glb": "data/bv2f/ext/data__bv2f__models__barrow.glb.bin"
+  },
+  {
+   "id": "longhall",
+   "kind": "building",
+   "pos": [
+    25.8672,
+    -2.3352
+   ],
+   "z": 0.0,
+   "godot_rot_y_deg": -40.667,
+   "size_m": {
+    "w_local_x": 18.5,
+    "d_local_z": 9.4296,
+    "h": 7.4895
+   },
+   "glb": "data/bv2f/ext/data__bv2f__models__hall.glb.bin"
+  },
+  {
+   "id": "fallen_gable",
+   "kind": "ruin",
+   "pos": [
+    27.0833,
+    6.9432
+   ],
+   "z": -0.013,
+   "godot_rot_y_deg": -104.379,
+   "size_m": {
+    "w_local_x": 8.0,
+    "d_local_z": 7.9843,
+    "h": 2.6046
+   },
+   "glb": "data/bv2f/ext/data__bv2f__models__gable.glb.bin"
+  },
+  {
+   "id": "slope_stones",
+   "kind": "stones",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "box",
+     "pos": [
+      -7.5,
+      -21.5081
+     ],
+     "z": 3.596,
+     "godot_rot_y_deg": 48.66,
+     "size_m": [
+      0.9197,
+      1.2948,
+      2.4
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 2.39648
+    },
+    {
+     "type": "box",
+     "pos": [
+      -10.8333,
+      -18.1149
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 11.548,
+     "size_m": [
+      0.7649,
+      1.0702,
+      1.8
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 1.79827
+    },
+    {
+     "type": "box",
+     "pos": [
+      -3.75,
+      -13.9385
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": -73.902,
+     "size_m": [
+      0.8499,
+      1.1891,
+      2.0
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 1.99808
+    },
+    {
+     "type": "box",
+     "pos": [
+      6.0417,
+      -14.1996
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 19.966,
+     "size_m": [
+      0.8431,
+      1.1869,
+      2.2
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 2.19677
+    },
+    {
+     "type": "box",
+     "pos": [
+      14.5833,
+      -21.5081
+     ],
+     "z": 1.806,
+     "godot_rot_y_deg": 39.887,
+     "size_m": [
+      0.8499,
+      1.1891,
+      2.0
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 1.99808
+    },
+    {
+     "type": "box",
+     "pos": [
+      17.0833,
+      -18.8979
+     ],
+     "z": -0.054,
+     "godot_rot_y_deg": -52.479,
+     "size_m": [
+      0.8814,
+      1.2409,
+      2.3
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 2.29663
+    },
+    {
+     "type": "box",
+     "pos": [
+      -16.6667,
+      -4.5418
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": -7.948,
+     "size_m": [
+      1.099,
+      1.5619,
+      1.4
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_short.glb.bin",
+     "uniform_scale": 1.56319
+    },
+    {
+     "type": "box",
+     "pos": [
+      6.25,
+      12.9467
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 69.848,
+     "size_m": [
+      1.256,
+      1.785,
+      1.6
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_short.glb.bin",
+     "uniform_scale": 1.7865
+    }
+   ],
+   "glb": null
+  },
+  {
+   "id": "ring_stones",
+   "kind": "stones",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "box",
+     "pos": [
+      -3.75,
+      0.1566
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 0.0,
+     "size_m": [
+      0.8431,
+      1.1869,
+      2.2
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 2.19677
+    },
+    {
+     "type": "box",
+     "pos": [
+      -2.4167,
+      2.7668
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 40.722,
+     "size_m": [
+      0.7224,
+      1.0107,
+      1.7
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 1.69836
+    },
+    {
+     "type": "box",
+     "pos": [
+      0.0,
+      -3.4977
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": -72.561,
+     "size_m": [
+      0.7281,
+      1.0251,
+      1.9
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 1.89721
+    },
+    {
+     "type": "box",
+     "pos": [
+      3.4167,
+      -1.6705
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 29.661,
+     "size_m": [
+      0.8924,
+      1.2485,
+      2.1
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 2.09798
+    },
+    {
+     "type": "box",
+     "pos": [
+      2.75,
+      2.0882
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 10.742,
+     "size_m": [
+      0.7664,
+      1.079,
+      2.0
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 1.99707
+    },
+    {
+     "type": "box",
+     "pos": [
+      -1.5833,
+      -1.4095
+     ],
+     "z": -0.15,
+     "godot_rot_y_deg": 25.0,
+     "size_m": [
+      1.4,
+      0.7553,
+      0.5365
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 1.39795,
+     "lie_z90": true
+    },
+    {
+     "type": "box",
+     "pos": [
+      1.0417,
+      3.1323
+     ],
+     "z": -0.15,
+     "godot_rot_y_deg": -15.0,
+     "size_m": [
+      1.4,
+      0.7553,
+      0.5365
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 1.39795,
+     "lie_z90": true
+    },
+    {
+     "type": "box",
+     "pos": [
+      2.0833,
+      4.333
+     ],
+     "z": -0.15,
+     "godot_rot_y_deg": 60.0,
+     "size_m": [
+      1.4,
+      0.7553,
+      0.5365
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 1.39795,
+     "lie_z90": true
+    }
+   ],
+   "glb": null
+  },
+  {
+   "id": "crags",
+   "kind": "outcrop",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "box",
+     "pos": [
+      -11.0417,
+      7.7262
+     ],
+     "z": -8.669,
+     "godot_rot_y_deg": 0.0,
+     "size_m": [
+      4.1321,
+      2.6511,
+      3.0
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.68869
+    },
+    {
+     "type": "box",
+     "pos": [
+      -21.4583,
+      7.7262
+     ],
+     "z": -9.4,
+     "godot_rot_y_deg": 44.76,
+     "size_m": [
+      3.5812,
+      2.2977,
+      2.6
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.59686
+    },
+    {
+     "type": "box",
+     "pos": [
+      -25.2083,
+      9.8144
+     ],
+     "z": -9.4,
+     "godot_rot_y_deg": -14.335,
+     "size_m": [
+      3.0302,
+      1.9442,
+      2.2
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.50504
+    },
+    {
+     "type": "box",
+     "pos": [
+      -14.1667,
+      9.8144
+     ],
+     "z": -9.4,
+     "godot_rot_y_deg": -42.794,
+     "size_m": [
+      3.3057,
+      2.1209,
+      2.4
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.55095
+    },
+    {
+     "type": "box",
+     "pos": [
+      18.9583,
+      -14.4606
+     ],
+     "z": -0.4,
+     "godot_rot_y_deg": 26.295,
+     "size_m": [
+      2.7547,
+      1.7674,
+      2.0
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.45912
+    },
+    {
+     "type": "box",
+     "pos": [
+      30.0,
+      -4.8028
+     ],
+     "z": -0.4,
+     "godot_rot_y_deg": 38.607,
+     "size_m": [
+      3.3057,
+      2.1209,
+      2.4
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.55095
+    },
+    {
+     "type": "box",
+     "pos": [
+      -30.0,
+      -13.6775
+     ],
+     "z": -0.9,
+     "godot_rot_y_deg": -34.987,
+     "size_m": [
+      3.5812,
+      2.2977,
+      2.6
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__crag.glb.bin",
+     "uniform_scale": 0.59686
+    }
+   ],
+   "glb": null
+  },
+  {
+   "id": "cliff_faces",
+   "kind": "cliff",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "box",
+     "pos": [
+      -23.3709,
+      9.871
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": -49.59,
+     "size_m": [
+      7.4026,
+      4.1462,
+      7.38
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.82251
+    },
+    {
+     "type": "box",
+     "pos": [
+      -14.615,
+      10.9526
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": 16.296,
+     "size_m": [
+      8.5541,
+      4.7912,
+      8.528
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.95046
+    },
+    {
+     "type": "box",
+     "pos": [
+      3.0203,
+      17.133
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": -19.626,
+     "size_m": [
+      8.0606,
+      4.5148,
+      8.036
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.89562
+    },
+    {
+     "type": "box",
+     "pos": [
+      9.1407,
+      19.7611
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": -26.618,
+     "size_m": [
+      7.5671,
+      4.2383,
+      7.544
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.84079
+    },
+    {
+     "type": "box",
+     "pos": [
+      14.3598,
+      23.5253
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": -38.565,
+     "size_m": [
+      8.7186,
+      4.8833,
+      8.692
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.96873
+    },
+    {
+     "type": "box",
+     "pos": [
+      19.9172,
+      27.8874
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": -36.934,
+     "size_m": [
+      8.2251,
+      4.6069,
+      8.2
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.9139
+    },
+    {
+     "type": "box",
+     "pos": [
+      25.8626,
+      31.9594
+     ],
+     "z": -7.6,
+     "godot_rot_y_deg": -32.065,
+     "size_m": [
+      7.7316,
+      4.3305,
+      7.708
+     ],
+     "glb": "data/bv2f/ext/data__bv2f__models__cliffplain.glb.bin",
+     "uniform_scale": 0.85907
+    }
+   ],
+   "glb": null
+  },
+  {
+   "id": "palisade",
+   "kind": "palisade",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "beam",
+     "a": [
+      11.042,
+      -4.15,
+      -0.3
+     ],
+     "b": [
+      11.042,
+      -4.27,
+      2.1
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      11.458,
+      -4.411,
+      -0.3
+     ],
+     "b": [
+      11.559,
+      -4.443,
+      2.31
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      11.875,
+      -4.672,
+      -0.3
+     ],
+     "b": [
+      11.984,
+      -4.569,
+      2.52
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      13.125,
+      -5.455,
+      -0.3
+     ],
+     "b": [
+      13.142,
+      -5.368,
+      2.73
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      13.542,
+      -5.716,
+      -0.3
+     ],
+     "b": [
+      13.451,
+      -5.773,
+      2.24
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      13.941,
+      -5.969,
+      -0.3
+     ],
+     "b": [
+      13.826,
+      -6.086,
+      2.45
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      14.323,
+      -6.212,
+      -0.3
+     ],
+     "b": [
+      14.289,
+      -6.219,
+      2.66
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      14.705,
+      -6.456,
+      -0.3
+     ],
+     "b": [
+      14.784,
+      -6.342,
+      2.17
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      15.087,
+      -6.7,
+      -0.3
+     ],
+     "b": [
+      15.206,
+      -6.632,
+      2.38
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      15.469,
+      -6.943,
+      -0.3
+     ],
+     "b": [
+      15.518,
+      -7.021,
+      2.59
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      23.611,
+      -10.963,
+      -0.3
+     ],
+     "b": [
+      23.546,
+      -11.072,
+      2.1
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      24.074,
+      -10.824,
+      -0.3
+     ],
+     "b": [
+      23.954,
+      -10.804,
+      2.31
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      24.537,
+      -10.684,
+      -0.3
+     ],
+     "b": [
+      24.473,
+      -10.565,
+      2.52
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      25.0,
+      -10.545,
+      -0.3
+     ],
+     "b": [
+      25.05,
+      -10.501,
+      2.73
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      25.463,
+      -10.406,
+      -0.3
+     ],
+     "b": [
+      25.582,
+      -10.502,
+      2.24
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      25.926,
+      -10.267,
+      -0.3
+     ],
+     "b": [
+      26.004,
+      -10.362,
+      2.45
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      26.389,
+      -10.128,
+      -0.3
+     ],
+     "b": [
+      26.354,
+      -10.083,
+      2.66
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      27.708,
+      -9.621,
+      -0.3
+     ],
+     "b": [
+      27.593,
+      -9.502,
+      2.17
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      28.125,
+      -9.423,
+      -0.3
+     ],
+     "b": [
+      28.035,
+      -9.404,
+      2.38
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      28.542,
+      -9.224,
+      -0.3
+     ],
+     "b": [
+      28.56,
+      -9.333,
+      2.59
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      28.958,
+      -9.026,
+      -0.3
+     ],
+     "b": [
+      29.068,
+      -9.104,
+      2.1
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      29.375,
+      -8.828,
+      -0.3
+     ],
+     "b": [
+      29.475,
+      -8.76,
+      2.31
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      29.792,
+      -8.629,
+      -0.3
+     ],
+     "b": [
+      29.791,
+      -8.516,
+      2.52
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      30.208,
+      -8.431,
+      -0.3
+     ],
+     "b": [
+      30.107,
+      -8.438,
+      2.73
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      15.547,
+      5.85,
+      -0.3
+     ],
+     "b": [
+      15.438,
+      5.733,
+      2.24
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      15.807,
+      6.274,
+      -0.3
+     ],
+     "b": [
+      15.791,
+      6.218,
+      2.45
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      16.068,
+      6.698,
+      -0.3
+     ],
+     "b": [
+      16.159,
+      6.786,
+      2.66
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      16.328,
+      7.123,
+      -0.3
+     ],
+     "b": [
+      16.443,
+      7.225,
+      2.17
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      16.589,
+      7.547,
+      -0.3
+     ],
+     "b": [
+      16.621,
+      7.515,
+      2.38
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      16.849,
+      7.971,
+      -0.3
+     ],
+     "b": [
+      16.769,
+      7.851,
+      2.59
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      17.109,
+      8.395,
+      -0.3
+     ],
+     "b": [
+      16.991,
+      8.363,
+      2.1
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      17.951,
+      9.597,
+      -0.3
+     ],
+     "b": [
+      17.903,
+      9.7,
+      2.31
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      18.252,
+      9.974,
+      -0.3
+     ],
+     "b": [
+      18.318,
+      10.061,
+      2.52
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      18.553,
+      10.351,
+      -0.3
+     ],
+     "b": [
+      18.673,
+      10.295,
+      2.73
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      18.854,
+      10.728,
+      -0.3
+     ],
+     "b": [
+      18.918,
+      10.611,
+      2.24
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      19.155,
+      11.105,
+      -0.294
+     ],
+     "b": [
+      19.104,
+      11.099,
+      2.456
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      19.456,
+      11.482,
+      -0.277
+     ],
+     "b": [
+      19.337,
+      11.596,
+      2.683
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      19.757,
+      11.859,
+      -0.264
+     ],
+     "b": [
+      19.68,
+      11.926,
+      2.206
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      20.9,
+      12.492,
+      -0.209
+     ],
+     "b": [
+      20.936,
+      12.414,
+      2.471
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      21.362,
+      12.536,
+      -0.2
+     ],
+     "b": [
+      21.477,
+      12.428,
+      2.69
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      21.823,
+      12.581,
+      -0.182
+     ],
+     "b": [
+      21.912,
+      12.601,
+      2.218
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      22.284,
+      12.626,
+      -0.163
+     ],
+     "b": [
+      22.265,
+      12.745,
+      2.447
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      22.746,
+      12.671,
+      -0.146
+     ],
+     "b": [
+      22.636,
+      12.715,
+      2.674
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      23.207,
+      12.715,
+      -0.13
+     ],
+     "b": [
+      23.107,
+      12.62,
+      2.9
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      23.668,
+      12.76,
+      -0.115
+     ],
+     "b": [
+      23.67,
+      12.665,
+      2.425
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      25.052,
+      12.894,
+      -0.088
+     ],
+     "b": [
+      25.154,
+      12.939,
+      2.662
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      25.513,
+      12.939,
+      -0.08
+     ],
+     "b": [
+      25.622,
+      13.058,
+      2.88
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      25.975,
+      12.984,
+      -0.075
+     ],
+     "b": [
+      25.99,
+      13.003,
+      2.395
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      26.436,
+      13.029,
+      -0.072
+     ],
+     "b": [
+      26.344,
+      12.92,
+      2.608
+     ],
+     "thickness_m": 0.22,
+     "procedural": "post",
+     "glb": null
+    }
+   ],
+   "glb": null
+  },
+  {
+   "id": "logs",
+   "kind": "debris",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "beam",
+     "a": [
+      24.583,
+      -9.919,
+      0.17
+     ],
+     "b": [
+      27.708,
+      -7.831,
+      0.17
+     ],
+     "thickness_m": 0.34,
+     "procedural": "log",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      19.583,
+      5.899,
+      0.17
+     ],
+     "b": [
+      22.917,
+      8.875,
+      0.28
+     ],
+     "thickness_m": 0.34,
+     "procedural": "log",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      21.667,
+      9.031,
+      0.235
+     ],
+     "b": [
+      25.208,
+      10.858,
+      0.388
+     ],
+     "thickness_m": 0.34,
+     "procedural": "log",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      -31.458,
+      1.723,
+      -8.83
+     ],
+     "b": [
+      -28.333,
+      2.767,
+      -8.83
+     ],
+     "thickness_m": 0.34,
+     "procedural": "log",
+     "glb": null
+    },
+    {
+     "type": "beam",
+     "a": [
+      23.125,
+      -0.626,
+      0.17
+     ],
+     "b": [
+      25.625,
+      1.201,
+      0.17
+     ],
+     "thickness_m": 0.34,
+     "procedural": "log",
+     "glb": null
+    }
+   ],
+   "glb": null
+  }
+ ],
+ "features": [],
+ "_what": "PH synthetic: level.json sim.models of the art variant"
+}

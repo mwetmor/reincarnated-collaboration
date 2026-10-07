@@ -597,3 +597,34 @@ The constructed RED fails at the boundary: the margin is exactly 0.5 and the rul
 - **The tall part sits behind the door.** The 49 vertices above body + 0.5 m (12.773 m) lie **4.78–8.06 m behind the porch's outer face**, at 3.99–7.78 m along its 10.6 m width: a raised roof bay over the door axis, set back.
 - **At the door itself the porch stands 5.1 m**: the maximum z inside the registered 1.287 m-deep porch footprint.
 
+## 21. P6′ on LV's ART blockout (charter § 15/15.1; R-C9-185/186). FROZEN bars from § 16; extent retired
+
+Tool: `harness/p6prime_art.py` → `results/p6prime_art.json`. Inputs:
+- `fid/lv/art/layout_bv2art.json` (sha `28f0bcb5f2bb…`);
+- `fid/lv/guide_art/ids_art.png` (sha `1b902715b6e8…` = guide_manifest);
+- the art `level.json` sim.models;
+- `fid/lv/placed_fit_bv2art.json`;
+- frame `frame_grid.bv2art.json` (v1's camera-aligned frame, so the same projection law as before).
+
+**Slot cross-check first.** All 34 layout_bv2art placements match a level slot: position within 0.02 m, z, size within 0.01 m. **PASS.** The slots measured are therefore the layout's.
+
+**I-4, the constructed 1.5 m-shift RED on bv2art** (bar 0.7872):
+- 5 of 10 objects fall below the bar: slope_stones 0.031, ring_stones 0.029, palisade 0.144, logs 0.000, crags 0.637. **RED.**
+- The large models stay above the bar under a 1.5 m shift (wreck 0.988, barrow 1.000, hall 0.975, gable 0.951, cliff_faces 0.988). The row fails on the small pieces.
+
+| component | verdict | detail |
+|---|---|---|
+| presence | **RED** | 0 missing, 0 extra. **3 instances are terrain-hidden above 0.50:** see the list below |
+| placement | PASS | min containment 0.9789 (bar 0.7872) |
+| scale of record | PASS | 88 instances, 0 over 1.10; 0 mismatches between LV's record and PH's cross-check (procedural pieces N/A) |
+| extent | retired (§ 15) | — |
+
+The three terrain-hidden instances (above 0.50), none declared by design:
+- slope_stones #4, 1.0: **frame edge**, only 13 px of its own silhouette lie inside the paint envelope;
+- crags #2, 0.6506: **wholly below the sea surface** (top z −7.20 < sea_z −6.0);
+- logs #3, 1.0: **wholly below the sea surface** (top z −8.67).
+
+**P6′ on bv2art = RED (presence), reported, not adjusted.** It is a HALT for an LV fix: re-seat the crag and the log above the sea, and the edge stone is LV's call. The frame-edge case is a property of the pre-registered rule, which has no minimum pixel count for (1c); I state that and do not change it.
+
+**Reported, non-binding:** IoU against the slot prism, median 0.475, beside v1's 0.635.
+

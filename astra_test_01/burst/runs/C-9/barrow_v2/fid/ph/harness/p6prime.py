@@ -21,6 +21,7 @@ sys.path.insert(0, __import__("os").path.dirname(__file__))
 from common import *  # noqa
 import p6_phase1 as Q
 
+PLACED_FIT = None                  # variant override (p6prime_art.py)
 TERRAIN_HIDDEN_MAX = 0.50          # § 15 (1c), written rule
 ANISO_MAX = 1.10                   # § 15 (3), principle 3
 MIN_PX = 400                       # § 15 (2): v1 pieces with >= 400 ID px enter the bar
@@ -267,14 +268,14 @@ def _instances(m):
 
 
 def v7c_components(layout_path=None, ids=None):
-    layout_path = layout_path or (Q.LV / "layout_v7c.json")
+    layout_path = layout_path or Q.LAYOUT
     L = jload(layout_path)
     man = jload(Q.GV / "guide_manifest.json")
     idm = Q.ids_v7c() if ids is None else ids
     shape = idm.shape
     law = Q.law7()
     env = man["envelope"]
-    lvl = jload(BF / "godot/data/bv2f/v7c/level.json")
+    lvl = jload(Q.LEVEL)
     skip = set(lvl["sim"].get("skip_models", []))
     name_of = {int(k): v["id"] for k, v in man["id_table"].items()}
     kinds = {v["id"]: v["piece"] for v in man["id_table"].values()}
@@ -350,7 +351,7 @@ def v7c_components(layout_path=None, ids=None):
 
 def v7c_scale(L, cache):
     """LV's per-instance record (fid/lv/placed_fit_v7c.json) + PH's cross-check size / GLB AABB"""
-    rec = jload(Q.LV / "placed_fit_v7c.json")
+    rec = jload(PLACED_FIT if PLACED_FIT else Q.LV / "placed_fit_v7c.json")
     rows = []
     by_slot = {}
     for r in rec["instances"]:

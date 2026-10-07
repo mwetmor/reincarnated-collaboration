@@ -37,6 +37,10 @@ from common import *  # noqa
 
 LV = FID / "lv"
 GV = LV / "guide_v7c"
+# variant paths (v7c by default; p6prime_art.py re-points them at the bv2art blockout)
+LAYOUT = LV / "layout_v7c.json"
+IDS = GV / "ids_v7c.png"
+LEVEL = BF / "godot/data/bv2f/v7c/level.json"
 PXV = 80.3076
 PXH = 60.6137
 
@@ -80,7 +84,7 @@ def box_hull(law, pos, z, rot_deg, w, d, h):
 
 
 def layout_masks(shape):
-    L = jload(LV / "layout_v7c.json")
+    L = jload(LAYOUT)
     law = law7()
     H, W = shape
     out = {}
@@ -159,7 +163,7 @@ def model_alone_masks(shape, lmasks):
     bv2f_level.gd _place_box does (AABB bottom-centre to the slot origin, per-axis scale to the slot, yaw about up),
     projected and rasterised; beams = the drawn segment (the log fitted to it); the braziers' primitive stand-in
     (R-C9-178: a 0.4 m stand to 1.5 m, a 1.1 m bowl 1.5-2.3 m) as two boxes."""
-    L = jload(LV / "layout_v7c.json")
+    L = jload(LAYOUT)
     law = law7()
     H, W = shape
     out = {}
@@ -212,7 +216,7 @@ def model_alone_masks(shape, lmasks):
 
 
 def ids_v7c():
-    a = np.asarray(Image.open(GV / "ids_v7c.png").convert("RGB")).astype(np.int32)
+    a = np.asarray(Image.open(IDS).convert("RGB")).astype(np.int32)
     return (a[..., 0] << 16) | (a[..., 1] << 8) | a[..., 2]
 
 
@@ -294,7 +298,7 @@ def check_a(idm, name_of):
           behind the probe plane; its analytic box silhouette vs PH's first count (8.22 m2)."""
     A = jload(GV / "check_a.json")
     lvrows = {r["opening"]: r for r in A["rows"]}
-    lvl = jload(BF / "godot/data/bv2f/v7c/level.json")
+    lvl = jload(LEVEL)
     ops = {o["id"]: o for o in lvl["sim"]["openings"]}
     law = law7()
     k_of = {v: k for k, v in name_of.items()}
@@ -367,12 +371,12 @@ if __name__ == "__main__":
     vals = [r["iou"] for r in rows.values() if r["iou"] is not None and r["id_px"] > 0]
     missing = sorted(k for k, r in rows.items() if r["id_px"] == 0 and r["layout_px"] > 0)
     outside = sorted(k for k, r in rows.items() if r["layout_px"] == 0)
-    layout_ids = {m["id"] for m in jload(LV / "layout_v7c.json")["models"]}
+    layout_ids = {m["id"] for m in jload(LAYOUT)["models"]}
     extra = sorted(v["id"] for v in man["id_table"].values()
                    if v["piece"] in ("model", "group") and OWN_CURTAIN.get(v["id"], v["id"]) not in layout_ids)
-    not_placed = sorted(m["id"] for m in jload(LV / "layout_v7c.json")["models"] if m["id"] not in lm)
+    not_placed = sorted(m["id"] for m in jload(LAYOUT)["models"] if m["id"] not in lm)
     res = {"_what": "P6 Phase 1: LV's v7c ID render vs the layout_v7c polygons (PH, conductor task)",
-           "inputs": {"ids": man["ids"], "layout": {"file": "fid/lv/layout_v7c.json", "sha256": sha256(LV / "layout_v7c.json")}},
+           "inputs": {"ids": man["ids"], "layout": {"file": "fid/lv/layout_v7c.json", "sha256": sha256(LAYOUT)}},
            "bar_ruled_v1_p6b": 0.513, "bar_like_for_like_v1": v1["median"], "v1_like_for_like_n": v1["n"],
            "median_iou_v7c": round(float(np.median(vals)), 3) if vals else None, "n": len(vals),
            "objects": rows, "missing_from_render": missing, "outside_envelope": outside, "extra_in_render": extra,
@@ -432,7 +436,7 @@ if __name__ == "__main__":
                                             "prism); occlusion = IoU(alone) - IoU(observed); placement = the share of its ID pixels "
                                             "outside its own prism. id_px_inside_model_alone_silhouette ~ 1 confirms the render places "
                                             "the GLB exactly where the layout says"), "rows": att}
-    res["glb_missing_in_level"] = jload(BF / "godot/data/bv2f/v7c/level.json")["sim"].get("glb_missing")
+    res["glb_missing_in_level"] = jload(LEVEL)["sim"].get("glb_missing")
     dump(res, str(PH / "results/p6_phase1_v7c.json"))
     print("containment v7c median %s, v1 median (excl trees) %s" % (res["containment_v7c_median"], res["containment_v1_median_excl_trees"]))
     print("rendered median %s (n %d); v1 baselines %s" % (res["median_iou_v7c_rendered"], res["n_rendered"], res["v1_baselines"]))
