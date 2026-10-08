@@ -1,0 +1,175 @@
+diff --git a/src/join2_rulebook/forms.py b/src/join2_rulebook/forms.py
+index f96d9cb6..8eb35d81 100644
+--- a/src/join2_rulebook/forms.py
++++ b/src/join2_rulebook/forms.py
+@@ -247,6 +247,139 @@ def kit_hits_per_tick(ops, levers=None) -> float:
+     return eff / ops.world_as_pct
+ 
+ 
++# ══════════════════════════════════════════════════════════════════════════════════════════════
++# J3d (prereg dfdb6a9f + AMENDMENT-1): the PORT-EMITTED levers' forms -- PURE, installed on NO A-2 row.
++# Engine side = arithmetic only ("PORT-EMITTED · ENGINE-GRID (arithmetic only)"); the port equals them bit for bit.
++# ══════════════════════════════════════════════════════════════════════════════════════════════
++
++L07_KINDS = ("off", "pct-current", "pct-max")
++L08_VALUES = ("yes", "no", "pct-resist-only")      # AMENDMENT-2 § 3: the third mode (D2 CB vs DR%)
++PROP_ORDERS = ("before", "after")                   # AMENDMENT-2 § 1: 'before' SOURCED (D2MOO 1.10f)
++L03_POLICIES = ("preserve-current", "preserve-fraction")
++
++
++def packets_applied(raws_banner, armor: float, absorption_pct: float, res_physical_pct: float,
++                    res_bonus_pct: float, hp: float, crit_mult: float = 1.0, k: Optional[float] = None
++                    ) -> Dict[str, Any]:
++    """L-02. Each packet is the SEALED damage_against expression (player_offense.py:516-541): applied_damage(raw x
++    banner, armor, absorption, res + res_bonus, crit), x k when > 0; then min with the HP left (run.py:3066-3150).
++    A packet after the body's death applies 0.0 (after_death). leech_pool = the left-to-right sum of applied (linear);
++    the sustain basis is ONE record per packet: (applied, raw_damage = a) with frac = applied / a."""
++    ad = _kc2("player_offense").applied_damage
++    hp_k = hp
++    total = 0.0
++    packets = []
++    for raw in raws_banner:
++        if hp_k <= 0.0:
++            packets.append({"a": 0.0, "applied": 0.0, "hp_after": hp_k, "after_death": True, "frac": None})
++            continue
++        a = ad(raw=raw, armor=armor, absorption_pct=absorption_pct,
++               res_physical_pct=res_physical_pct + res_bonus_pct, crit_mult=crit_mult)
++        if k is not None and a > 0.0:
++            a *= k
++        applied = min(a, hp_k)
++        hp_k -= applied
++        total += applied
++        packets.append({"a": a, "applied": applied, "hp_after": hp_k, "after_death": False,
++                        "frac": (applied / a) if a > 0.0 else None})
++    return {"packets": packets, "applied_total": total, "hp_after": hp_k, "leech_pool": total,
++            "sustain_records": [(p["applied"], p["a"]) for p in packets if not p["after_death"]]}
++
++
++def hp_after_max_change(h: float, M: float, M2: float, policy: str) -> float:
++    """L-03 (NONE -- no GD rule; declared-invented default preserve-current). f64 in the written order."""
++    if policy not in L03_POLICIES:
++        raise ValueError(f"L-03 policy {policy!r} not in {L03_POLICIES}")
++    if not (M > 0.0 and M2 > 0.0 and 0.0 <= h <= M):
++        raise ValueError(f"L-03 domain: need M > 0, M2 > 0, 0 <= h <= M; got h={h!r} M={M!r} M2={M2!r}")
++    if policy == "preserve-current":
++        return min(h, M2)
++    return min((h * M2) / M, M2)
++
++
++def proportional_raw(kind: str, pct: float, hp: float, hp_max: float, floor: bool = False) -> Optional[float]:
++    """L-07: off (GD) -> no packet; pct-current -> pct/100 . hp (hp = the PRE-hit HP under the SOURCED order,
++    AMENDMENT-2 § 1); pct-max -> pct/100 . hp_max. floor=True: D2's integer floor (AMENDMENT-2 § 4; default off)."""
++    if kind not in L07_KINDS:
++        raise ValueError(f"L-07 kind {kind!r} not in {L07_KINDS}")
++    if kind == "off":
++        return None
++    v = (pct / 100.0) * (hp if kind == "pct-current" else hp_max)
++    return float(math.floor(v)) if floor else v
++
++
++def proportional_applied(raw: float, mitigable: str, armor: float, absorption_pct: float,
++                         res_physical_pct: float, res_bonus_pct: float = 0.0) -> float:
++    """L-08 (ratified, decisions-log 77d45b23): yes = the sealed chain at crit 1.0 with res incl. the aura bonus and
++    NO vector fold k (JUDGED); no = raw (bypass)."""
++    if mitigable not in L08_VALUES:
++        raise ValueError(f"L-08 {mitigable!r} not in {L08_VALUES}")
++    if mitigable == "no":
++        return raw
++    if mitigable == "pct-resist-only":
++        # AMENDMENT-2 § 3 (D2 CB, SkillItem.cpp L1425-1434): positive DR% only, capped at 100; no armour, no flat,
++        # no absorption, no k, no crit; negative DR does not amplify
++        dr = min(res_physical_pct + res_bonus_pct, 100.0)
++        return raw - raw * dr / 100.0 if dr > 0.0 else raw
++    return _kc2("player_offense").applied_damage(raw=raw, armor=armor, absorption_pct=absorption_pct,
++                                                res_physical_pct=res_physical_pct + res_bonus_pct, crit_mult=1.0)
++
++
++def killable_under(res_physical_pct: float, l07_kind: str, l08: str) -> bool:
++    """A-7: a body is killable iff res < 100, or a proportional packet bypasses the chain (L-07 on, L-08 no)."""
++    return res_physical_pct < 100.0 or (l07_kind != "off" and l08 == "no")
++
++
++def port_lever_profile(settings: Dict[str, Any]) -> Dict[str, Any]:
++    """The port levers' profile law (R-5; design § 4.6): L-07 on requires L-08 stated explicitly."""
++    from . import levers as _lv
++    bad = set(settings) - {"L-02", "L-03", "L-07", "L-08"}
++    if bad:
++        raise _lv.LeverRefused(f"not a port lever: {sorted(bad)}")
++    l07 = dict(settings.get("L-07") or {"kind": "off"})
++    if l07.get("kind", "off") not in L07_KINDS:
++        raise ValueError(f"L-07 kind {l07.get('kind')!r} not in {L07_KINDS}")
++    if l07.get("kind", "off") != "off" and "L-08" not in settings:
++        raise _lv.L08Unset("L-07 is on and L-08 is not stated (design § 4.6; decisions-log L-08 ratification)")
++    if "L-08" in settings and settings["L-08"] not in L08_VALUES:
++        raise ValueError(f"L-08 {settings['L-08']!r} not in {L08_VALUES}")
++    return {"L-02": settings.get("L-02"), "L-03": settings.get("L-03"), "L-07": l07, "L-08": settings.get("L-08")}
++
++
++def hit_with_proportional(weapon_raws_banner, prop_kind: str, pct: float, mitigable: str, armor: float,
++                          absorption_pct: float, res_physical_pct: float, res_bonus_pct: float, hp: float,
++                          hp_max: float, crit_mult: float = 1.0, k: Optional[float] = None,
++                          l07_leeches: str = "no", prop_order: str = "before", floor: bool = False) -> Dict[str, Any]:
++    """ADJ-J4, SOURCED (AMENDMENT-2; legolas D2 CB decode, D2MOO 1.10f):
++    (b) prop_order 'before' (default): the proportional packet reads the PRE-hit HP and applies FIRST; the weapon
++        packets are then capped to the life left after it. 'after' = the declared alternate (post-weapon HP).
++    (a) it does NOT feed the leech pool unless l07_leeches == 'yes' (default 'no'); the leech pool is the weapon
++        packets' applied total, which the order already caps to the post-CB life (CB lowers the leech cap)."""
++    if prop_order not in PROP_ORDERS:
++        raise ValueError(f"prop_order {prop_order!r} not in {PROP_ORDERS}")
++
++    def prop(hp_now):
++        r = proportional_raw(prop_kind, pct, hp_now, hp_max, floor=floor) if hp_now > 0.0 else None
++        if r is None:
++            return None, 0.0, hp_now
++        pa = proportional_applied(r, mitigable, armor, absorption_pct, res_physical_pct, res_bonus_pct)
++        ap = min(pa, hp_now)
++        return r, ap, hp_now - ap
++
++    if prop_order == "before":
++        prop_raw, prop_applied, hp1 = prop(hp)
++        w = packets_applied(weapon_raws_banner, armor, absorption_pct, res_physical_pct, res_bonus_pct, hp1,
++                            crit_mult=crit_mult, k=k)
++        hp_after = w["hp_after"]
++    else:
++        w = packets_applied(weapon_raws_banner, armor, absorption_pct, res_physical_pct, res_bonus_pct, hp,
++                            crit_mult=crit_mult, k=k)
++        prop_raw, prop_applied, hp_after = prop(w["hp_after"])
++    leech = w["leech_pool"] + (prop_applied if l07_leeches == "yes" else 0.0)
++    return {"weapon": w, "prop_raw": prop_raw, "prop_applied": prop_applied, "hp_after": hp_after,
++            "leech_pool": leech, "prop_order": prop_order}
++
++
+ # ══════════════════════════════════════════════════════════════════════════════════════════════
+ # bind(): sealed-signature callables, keyed by A-2 row names
+ # ══════════════════════════════════════════════════════════════════════════════════════════════
+diff --git a/src/join2_rulebook/levers.py b/src/join2_rulebook/levers.py
+index 8b798dd1..9c2e0e83 100644
+--- a/src/join2_rulebook/levers.py
++++ b/src/join2_rulebook/levers.py
+@@ -35,6 +35,15 @@ class FloorAboveCeiling(LeverRefused):
+     """L-04 > L-05 on a lane."""
+ 
+ 
++class PortOnlyLever(LeverRefused):
++    """J3d: L-02 / L-03 / L-07 / L-08 have no engine emission site (run.simulate_wave's per-body loop is
++    do-not-substitute); the engine JOIN refuses them (R-5). Engine side = pure forms + grids only."""
++
++
++class L08Unset(LeverRefused):
++    """L-07 on with L-08 not stated explicitly (design § 4.6; decisions-log L-08 ratification)."""
++
++
+ class SplitRecordRefused(LeverRefused):
+     """The emitted G1 floor record (recomputed from threat.PTH_MINIMUM) would contradict the applied floor (A-2.3)."""
+ 
+@@ -42,6 +51,10 @@ class SplitRecordRefused(LeverRefused):
+ class LeverProfile:
+     def __init__(self, settings: Optional[Dict[str, Any]] = None):
+         s = dict(settings or {})
++        port_only = set(s) & {"L-02", "L-03", "L-07", "L-08"}
++        if port_only:
++            raise PortOnlyLever(f"{sorted(port_only)} are PORT-EMITTED (engine grid only, J3d); the engine JOIN "
++                                "refuses them (R-5)")
+         unknown = set(s) - {"L-01", "L-04", "L-05"}
+         if unknown:
+             raise LeverRefused(f"J3b implements L-01/L-04/L-05 only; got {sorted(unknown)}")
