@@ -49929,6 +49929,20 @@
       "ts": "2026-10-08T12:19:14-04:00",
       "verbatim": "",
       "ruling": "PILOT 3 HARNESS (PT 72a9a0ec5; PH 72301c875, calibration s45): PASS P1, P2, P3, P6a, P6' (57/57), P8, P9 sway/flow/trail. FAIL: P4 (ice vs sketch A dE 12.0-17.3 in all 6 ice chunks, painted L* ~87 vs sketch A 72.9, i.e. the mere painted far paler than sketch A, partly the conductor's 'pale mere' paint direction; snow 0.33-0.49 in 6/9 chunks; rock 2_1 spectrum 0.303); P5 v2 a1 10.54 at 0_1/0_2 (the predicted y1792 bay seam; b 0.789 passes); P10 (start worst p99 25.61 ms, p50 13.5 -> 16.3; sea 17.23; bar 16.7). P9c cannot bind (no bobbing floe inside the pilot plate). The P11 v3 blind judge has been spawned (fresh galadriel, crops only). ROUTING: (1) P10 to PT: profile the start and sea views (heather 264 sprays, 65 reed cards, DEV-21/22, the bake count) and find what moved p50 13.5 -> 16.3 ms; no images; propose a fix. (2) P4 ice value is a Matt taste question (sketch A's mid-blue mere vs the pale mere), with the conductor's recommendation. (3) P4 snow/rock and P5 a1 go to jack-ryan Gate-2 with the P11 result; the bay seam is already a Phase 3' prerequisite (R-C9-252)."
+    },
+    {
+      "id": "R-C9-255",
+      "by": "gandalf (conductor), on Matt's choice",
+      "ts": "2026-10-08T14:52:28-04:00",
+      "verbatim": "Sketch A's blue, few veins (Recommended)",
+      "ruling": "MERE ICE COLOUR: sketch A's mid-blue clear ice, mostly unbroken with only a few soft veins; distinct from the white broken sea ice. Supersedes the conductor's 'pale mere' paint direction (R-C9-240/245), which caused P4's ice FAIL (L* ~87 vs sketch A 72.9)."
+    },
+    {
+      "id": "R-C9-256",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T14:52:28-04:00",
+      "verbatim": "",
+      "ruling": "P11 v3 on pilot 3 (blind galadriel judge, crops only; scored by the conductor against keys/abx3_pilot3_v1_vs_pilot.json): catch 10/12 = VALID (>= 10); repeats 10/10 consistent; scored 38/40 correct = FAIL (PASS iff <= 26/40). By class: snow 24/25, ice 6/6, heather 8/9. The judge reported 'near chance' on snow yet was right 24/25: a consistent snow-painting difference from v1 (cues: v1 peach snow with distinct blue shadow blobs vs the pilot's smoother cream wash / soft mosaic), matching P4 snow 0.33-0.49 in 6/9 chunks. The judge's 'duplicate crops' note is the designed n_repeats=10 consistency set, not a leak. P10: PT profiled the start view (b2835ade4): heather +1.31 ms p50 (93 -> 264 sprays), stair snow +0.33, ~1.7 ms unattributed since phase2p, and random 20 ms+ bursts in every cell incl. phase2p, with mediaanalysisd ~33% CPU; sea view not yet profiled (stopped by the disk gate). DISK: 17 GiB free, below both runs' gates; manifest 18 (cleanup/manifest_bv2f_scratch_18.txt, 273 untracked entries, 4.42 GiB) goes to Matt. PILOT VERDICT: not at v1 parity; pilot 3 will NOT go to Gate-2 as a candidate. Next is a SNOW PARITY investigation (PH/PT, no images: v1 vs pilot snow palette, shadow blobs, grain, prompt/geo direction diff) feeding a pilot repaint 4 that also carries Matt's blue mere and the both-sides bay blockout fix."
     }
   ],
   "grok_calls": [
