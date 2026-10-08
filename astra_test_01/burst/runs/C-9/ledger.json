@@ -47769,6 +47769,13 @@
       "ts": "2026-10-08T06:20:49-04:00",
       "verbatim": "",
       "ruling": "SO R-C9-233 steps 0-2 received (collab 70c774b86). Findings: head pitches down 9/13/5 deg (idle/walk/Fire Ball) but zeroing it does not help (hood follows head); front hair covers ~21% of face, hood brim ~19%; face texture itself dark (luma 54) with fringe painted on forehead; web lines = screen-space outline pass. Proposed fix G: hair tucked inside hood while hooded, head skin lightened + fringe painted out, light hood lining: visible face 39->53%, luma 54->100; releases unchanged. Fix G narrows R-C9-152's front-hair and R-C9-233's 'hair still frames the face' (cheek strands still crossed the face) -> goes to Matt with the stills; no deploy until Matt rules. DISPOSITION of lock note: SO resumed the heavy lock after ~17 min idle without the conductor's go; harmless (JOIN-1 released 02:34:47) but against the hold instruction; recorded, no further action. 125 MB so_r233 test variants dir flagged for Matt's cleanup manifest."
+    },
+    {
+      "id": "R-C9-236",
+      "by": "gandalf (conductor), on Matt's choice",
+      "ts": "2026-10-08T06:22:45-04:00",
+      "verbatim": "Fix G + cleaner rim (Recommended)",
+      "ruling": "SORCERESS: fix G ratified (hair tucked inside the hood while hooded; face skin lightened + forehead fringe painted out; light hood lining). This narrows R-C9-152's keep-the-front-hair and R-C9-233's hair-frames-face (Matt accepts losing the framing strands). ADD: clean the hood-opening rim, i.e. thin or remove the dark speckled outline / ink noise around the face opening (screen-space outline pass and/or texture speckle) without losing the hood silhouette line. Releases stay Fire Ball 0.2667 s / Meteor 1.80 s. Deliver live vs G+rim stills at the play camera (z1 and z3) to Matt for one more look BEFORE any Barrow web rebuild, loadout commit or JOIN-1 pack. Barrow BV2F work keeps priority on the heavy lock."
     }
   ],
   "grok_calls": [
