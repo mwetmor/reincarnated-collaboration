@@ -1,0 +1,57 @@
+{
+ "rule": "s48 (b) class exclusion; record-time v1 pool = v1ref 3 stills + 5 NEW record-time stills (v2sw_run.gd v1stills recipe, non-ice views; ph_v1rec_stills.gd)",
+ "set": {
+  "set": "g2v4b_v1rec_vs_v1head",
+  "scored": 40,
+  "repeats": 10,
+  "catches": 12,
+  "images": 62,
+  "catch_correct_A": 6,
+  "catch_correct_B": 6,
+  "UNDERPOWERED": false,
+  "VOID_if_underpowered": true,
+  "rule_exclusion": true,
+  "scored_allowed": [
+   "snow",
+   "rock",
+   "standing_stone",
+   "heather",
+   "wood"
+  ],
+  "by_class": {
+   "heather": 6,
+   "snow": 34
+  },
+  "catch_by_class": {
+   "heather": 1,
+   "snow": 11
+  },
+  "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx3_g2v4b_v1rec_vs_v1head"
+ },
+ "rec_stills": [
+  "V1_door.png",
+  "V1_ring.png",
+  "V1_tarn.png",
+  "V1R_e.png",
+  "V1R_ne.png",
+  "V1R_nw.png",
+  "V1R_se.png",
+  "V1R_w.png"
+ ],
+ "head_stills": [
+  "barrow_door.png",
+  "mere.png",
+  "outcrop_field.png",
+  "shore.png",
+  "start.png",
+  "stone_ring.png"
+ ],
+ "supersedes_VOID": "abx3_g2v4_v1rec_vs_v1head (37 scored; never judged)",
+ "new_stills_sha256": {
+  "V1R_e.png": "5b09eae3214ab994bd9ce15cb6aca39a08e4801b39d579f66b918a1651f731d6",
+  "V1R_ne.png": "6f440a43019072333bae24f522a04a188f177bf3330a3254c5844cc7635d961d",
+  "V1R_nw.png": "266f8d440cff12591425455bad937f898e279aa6b8005b326be1e7f99aeca1ee",
+  "V1R_se.png": "8e517c6ddadd4f909c98481840141949162eec2e369a202b2fcff5b06c3b7197",
+  "V1R_w.png": "4d88e7f647b3add0ffe8e0bab676f602fc525793a969ee412140cd0724b25c3b"
+ }
+}

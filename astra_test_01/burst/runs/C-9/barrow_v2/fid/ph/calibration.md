@@ -1575,3 +1575,12 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **The window record** (`window_log.json`) holds the start/stop times, what was paused, every run's quiescence and VOID result, and the binding readout.
 - **If the window cannot reach quiescence in 20 tries → HALT → matt_to_do** (a host-level change). It is not a bar move.
 - **Until the conductor calls the first window: no P10 runs.**
+
+**§ 49 (b) follow-up: the v1-vs-v1 control rebuilt with a CAPTURE** (conductor; jack-ryan Addendum A INFO). Five NEW record-time v1 stills were rendered in v1's level with the v1ref recipe copied unchanged in method (`barrow_full/godot/tools/v2sw_run.gd` `v1stills`: `barrow_painted.tscn`, root window 1726 × 971 as the original V1_*.png, him at (u − 1.5, v − 1) facing S, park_camera, settle 10 + 30), only at **non-ice views** (`harness/godot/ph_v1rec_stills.gd`; under the heavy lock).
+- **Views:** V1R_se (8, −11), V1R_e (11, −1), V1R_ne (6, 7), V1R_nw (−6, 8), V1R_w (−12, 9). The tarn ellipse stays outside every frame.
+- **Output:** `p11/v1rec_ph/` (sha256 in `results/p11_abx3_g2v4b_build.json`).
+
+**`p11/abx3_g2v4b_v1rec_vs_v1head/`:** 40 scored (snow 34, heather 6) + 10 repeats + 12 catch (6 A / 6 B), 62 images; key `p11/keys/abx3_g2v4b_v1rec_vs_v1head.json`.
+- **Pool:** record-time v1 = v1ref 3 + the 5 new stills. The same seed rule applies, a new set name, no seed shopping (one build, seed 2683).
+- **Self-test:** the key scores valid PASS-format (40/40, 12/12); always-A gives 6/12 → VOID.
+- **Judge-ready.** It **supersedes the VOID 37-trial set**, which is never judged.
