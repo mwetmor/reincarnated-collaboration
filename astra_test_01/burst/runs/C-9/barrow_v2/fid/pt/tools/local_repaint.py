@@ -38,7 +38,26 @@ bid = "%s-%s-%s" % (S["prefix"], S["name"], ATT)
 
 
 def region():
-    """the pixels to repaint, canvas-local: the seed (thin dark lines on bright ground) dilated, inside the region classes"""
+    """the pixels to repaint, canvas-local. mode "dark_lines" (default): thin dark lines on bright ground, dilated, inside
+    the region classes; "classes" (R-C9-263): the seed classes inside seed_box, dilated, inside the region classes;
+    "box": the seed_box itself, inside the region classes"""
+    mode = S["region"].get("mode", "dark_lines")
+    if mode in ("classes", "box"):
+        bx = S["region"]["seed_box"]
+        keep = np.zeros((CH, CW), bool); keep[bx[1]:bx[3], bx[0]:bx[2]] = True
+        rc = crop(cls_in(S["region"]["classes"]))
+        if mode == "box":
+            return keep & rc
+        seed = crop(cls_in(S["region"]["seed_classes"])) & keep
+        R = ndimage.binary_dilation(seed, iterations=int(S["region"]["dilate_px"]))
+        up = int(S["region"].get("extend_up_px", 0))   # painted stalks stand UP the screen from their ground footprint
+        if up:
+            col = R.copy()
+            for k in range(1, up + 1):
+                col[:-k] |= R[k:]
+            R = col
+        R &= rc
+        return ndimage.binary_closing(R, iterations=4) & rc
     L = P8.astype(np.float64).mean(-1)
     loc = ndimage.gaussian_filter(L, 8)
     th, lmin = S["region"].get("seed_dark", 45), S["region"].get("seed_loc_min", 170)   # R-C9-262: the blue mere is darker than rp3's
@@ -53,7 +72,32 @@ def region():
 if CMD == "stage":
     R = region()
     can = crop(P8).copy()
-    can[R] = np.array(S["fill_rgb"], np.uint8)          # a flat greybox patch: the painter paints it, as it paints a guide
+    if S.get("fill") == "class_tint":
+        # R-C9-263: the guide's flat CLASS TINTS (no rendered geometry): LV's reed_tufts are stiff vertical posts in the
+        # render, which is what the painter copied as cattail stalks -- a post pixel takes the reed tint only on the reed
+        # bed's footprint (ground_reed, grown 3 px), the snow tint elsewhere
+        import subprocess
+        mf = json.loads(subprocess.check_output(["git", "-C", FID, "show", "%s:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/guide_art/guide_manifest.json" % S["class_commit"]]))
+        assert hashlib.sha256(open(S["ids_png"], "rb").read()).hexdigest() == S["ids_sha256"], "ids are not the pinned ones"
+        I = np.asarray(Image.open(S["ids_png"]).convert("RGB")).astype(np.int64)
+        gid = crop((I[..., 0] << 16) | (I[..., 1] << 8) | I[..., 2])
+        n2i = {v["id"]: int(k) for k, v in mf["id_table"].items()}
+        tint = {i: np.rint(np.array(mf["tints_srgb"].get(n, [0.5, 0.5, 0.5])) * 255).astype(np.uint8) for i, n in enumerate(cm["classes"])}
+        C = crop(CL)
+        fillimg = np.zeros((CH, CW, 3), np.uint8)
+        for i, t in tint.items():
+            fillimg[C == i] = t
+        post = gid == n2i["reed_tufts"]
+        bed = ndimage.binary_dilation(gid == n2i["ground_reed"], iterations=3)
+        fillimg[post & bed] = tint[cm["classes"].index("reed")]
+        fillimg[post & ~bed] = tint[cm["classes"].index("snow")]
+        can[R] = fillimg[R]
+    elif S.get("fill") == "guide":   # R-C9-263: the pinned GUIDE's own pixels in the patch (shape and class layout to paint)
+        assert hashlib.sha256(open(S["guide_png"], "rb").read()).hexdigest() == S["guide_sha256"], "guide is not the pinned one"
+        can[R] = crop(np.asarray(Image.open(S["guide_png"]).convert("RGB")))[R]
+    else:
+        can[R] = np.array(S["fill_rgb"], np.uint8)          # a flat greybox patch: the painter paints it, as it paints a guide
+    Image.fromarray((crop(cls_in(S["paste_classes"])) * 255).astype(np.uint8)).save(os.path.join(OUT, "paste_classes.png"))
     Image.fromarray(can).save(os.path.join(OUT, "canvas.png"))
     # registered as the frozen guided_paint stages its canvases (CS9-guides/manifest.json: refs_guard's (b)-class rule)
     cp = A9 + "/CS9-guides/%s_canvas.png" % bid
@@ -84,22 +128,23 @@ elif CMD == "brief":
                "outputs": ["out/%s.png" % bid], "effort": "high", "add_dirs": [], "experiment": cfg["experiment"]},
               open(B + "/briefs/C-9/%s.task.json" % bid, "w"), indent=1, ensure_ascii=False)
     print(bid, "brief ok")
+elif CMD == "pin":
+    # R-C9-263: the cfg dev24 entry for this patch (attempt ATT), every file sha-pinned
+    sh = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
+    np_ = "%s/%s/%s.png" % (A9, bid, bid)
+    ent = {"name": "%s-%s" % (S["name"], ATT), "rect_xy": [x0, y0],
+           "region_png": os.path.join(OUT, "region.png"), "region_sha256": sh(os.path.join(OUT, "region.png")),
+           "paste_png": os.path.join(OUT, "paste_classes.png"), "paste_sha256": sh(os.path.join(OUT, "paste_classes.png")),
+           "new_png": np_, "new_sha256": sh(np_)}
+    json.dump(ent, open(os.path.join(OUT, "pin_%s.json" % ATT), "w"), indent=1)
+    print(json.dumps(ent))
 elif CMD == "paste":
     R = np.asarray(Image.open(os.path.join(OUT, "region.png"))) > 127
     new = np.asarray(Image.open("%s/%s/%s.png" % (A9, bid, bid)).convert("RGB")).astype(np.float64)
     old = crop(P8).astype(np.float64)
     pc = crop(cls_in(S["paste_classes"]))
-    # the paste: the region grown 12 px, within the paste classes, feathered 6 px
-    M = ndimage.binary_dilation(R, iterations=12) & pc
-    w = ndimage.gaussian_filter(M.astype(np.float64), 6) * pc
-    # tone match: on a ring of paste-class pixels just OUTSIDE the paste, the low-frequency difference old - new,
-    # spread by normalised convolution (sigma 48) over the paste
-    ring = ndimage.binary_dilation(M, iterations=40) & ~ndimage.binary_dilation(M, iterations=8) & pc
-    num = np.stack([ndimage.gaussian_filter((old - new)[..., i] * ring, 48) for i in range(3)], -1)
-    den = ndimage.gaussian_filter(ring.astype(np.float64), 48)[..., None]
-    corr = num / np.maximum(den, 1e-6) * (den > 0.02)
-    newc = new + corr
-    out = old * (1 - w[..., None]) + newc * w[..., None]
+    sys.path.insert(0, os.path.join(FID, "v1tools")); import dev24   # R-C9-263: the ONE paste the Tier-B stitch also runs
+    out, w, corr, M = dev24.paste_local(old, new, R, pc)
     full = P8.copy()
     full[y0:y0 + CH, x0:x0 + CW] = np.clip(out + 0.5, 0, 255).astype(np.uint8)
     Image.fromarray(full).save(os.path.join(OUT, "painting_patched_%s.png" % ATT))

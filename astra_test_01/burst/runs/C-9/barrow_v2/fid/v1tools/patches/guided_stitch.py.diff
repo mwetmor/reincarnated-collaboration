@@ -1,6 +1,6 @@
 --- tierA/conductor_scripts/guided_stitch.py	2026-10-06 20:36:42
-+++ tierB/conductor_scripts/guided_stitch.py	2026-10-08 11:47:07
-@@ -18,20 +18,296 @@
++++ tierB/conductor_scripts/guided_stitch.py	2026-10-08 16:29:33
+@@ -18,20 +18,306 @@
      sys.exit(f'chunk {k} is not painted')
  acc = np.zeros(((ROWS-1)*SY + H, (COLS-1)*SX + W, 3)); wsum = np.zeros(acc.shape[:2])
  up = np.linspace(0, 1, OV, endpoint=False) + 0.5/OV
@@ -289,11 +289,21 @@
          acc[r*SY:r*SY+H, c*SX:c*SX+W] += im * w[..., None]; wsum[r*SY:r*SY+H, c*SX:c*SX+W] += w
  assert abs(wsum.min() - 1) < 1e-9 and abs(wsum.max() - 1) < 1e-9, (wsum.min(), wsum.max())
  out = Image.fromarray((acc / wsum[..., None]).clip(0, 255).round().astype(np.uint8))
++# BV2F-BEGIN DEV-24 (R-C9-262/263): MASKED LOCAL REPAINT patches, pasted AFTER the stitch. BV2F_DEV24=1 applies the cfg's
++# `dev24` layers (fid/v1tools/dev24.py: each layer verified against the image it was staged on, every file sha-pinned,
++# patches in a layer disjoint); unset = v1's stitch byte for byte.
++DEV24_REP = None
++if __import__('os').environ.get('BV2F_DEV24') == '1':
++    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2])); import dev24
++    _a24, DEV24_REP = dev24.apply(np.asarray(out), cfg['dev24'])
++    out = Image.fromarray(_a24)
++# BV2F-END
  out.save(sys.argv[2], optimize=True)
  print(pathlib.Path(sys.argv[2]).name, out.size, 'sha256', hashlib.sha256(pathlib.Path(sys.argv[2]).read_bytes()).hexdigest())
 +print('DEV-23', 'on' if DEV23 else 'off', DEV23_REP)   # BV2F DEV-23
 +print('DEV-25', 'on' if DEV25 else 'off', DEV25_REP)   # BV2F DEV-25
 +print('DEV-26', 'on' if DEV26 else 'off', DEV26_REP)   # BV2F DEV-26
 +print('DEV-27', 'on' if DEV27 else 'off', {k: v for k, v in DEV27_REP.items()})   # BV2F DEV-27
++print('DEV-24', 'on' if DEV24_REP else 'off', DEV24_REP)   # BV2F DEV-24
  if len(sys.argv) > 3:
      out.resize((out.width // 2, out.height // 2), Image.LANCZOS).save(sys.argv[3], quality=86)

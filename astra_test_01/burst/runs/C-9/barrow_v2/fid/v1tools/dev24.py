@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""BV2F DEV-24 (R-C9-243 design, revived R-C9-262/263): MASKED LOCAL REPAINT, the paste. A region of the finished stitch is
+repainted by the image service with its painted surroundings as context (fid/pt/tools/local_repaint.py stages it and
+writes the brief); this module pastes the result back:
+  M    = the region grown GROW px, inside the patch's paste classes (a canvas-local mask pinned with the patch)
+  w    = M feathered (Gaussian FEATHER px), zero outside the paste classes
+  corr = DEV-23's idea on a ring of paste-class pixels just OUTSIDE M (RING_IN..RING_OUT px): the low-frequency difference
+         old - new, spread over the patch by normalised convolution (sigma CORR_SIGMA)
+  out  = old * (1 - w) + (new + corr) * w
+Everything the painter changed outside w is discarded. No cascade: a patch touches only its own w > 0 pixels.
+
+guided_stitch.py (Tier-B) calls apply() after the stitch only with BV2F_DEV24=1 and a cfg `dev24` block:
+  {"layers": [{"base_pixels_sha256": <sha256 of the raw RGB bytes of the image this layer was staged on: the stitch for
+                                      layer 1, the previous layer's result after>,
+               "patches": [{"name", "rect_xy": [x, y], "region_png", "region_sha256", "paste_png", "paste_sha256",
+                            "new_png", "new_sha256"}, ...]}, ...]}
+Patches in one layer have disjoint supports; a patch that must overlap another is staged on its result (a later layer).
+A changed base, a moved file or an overlap inside a layer HALTs. Unset = v1's stitch byte for byte."""
+import hashlib
+import numpy as np
+from PIL import Image
+from scipy import ndimage
+
+CW, CH = 1536, 1024
+GROW, FEATHER, RING_IN, RING_OUT, CORR_SIGMA = 12, 6, 8, 40, 48
+
+
+def _sha(p):
+    return hashlib.sha256(open(p, "rb").read()).hexdigest()
+
+
+def pixels_sha(a: np.ndarray) -> str:
+    return hashlib.sha256(np.ascontiguousarray(a, dtype=np.uint8).tobytes()).hexdigest()
+
+
+def weights(R: np.ndarray, pc: np.ndarray):
+    M = ndimage.binary_dilation(R, iterations=GROW) & pc
+    w = ndimage.gaussian_filter(M.astype(np.float64), FEATHER) * pc
+    return M, w
+
+
+def paste_local(old: np.ndarray, new: np.ndarray, R: np.ndarray, pc: np.ndarray):
+    """old, new: canvas-local float64 RGB; R region, pc paste classes (bool). -> (out float64, w, corr, M)"""
+    M, w = weights(R, pc)
+    ring = ndimage.binary_dilation(M, iterations=RING_OUT) & ~ndimage.binary_dilation(M, iterations=RING_IN) & pc
+    num = np.stack([ndimage.gaussian_filter((old - new)[..., i] * ring, CORR_SIGMA) for i in range(3)], -1)
+    den = ndimage.gaussian_filter(ring.astype(np.float64), CORR_SIGMA)[..., None]
+    corr = num / np.maximum(den, 1e-6) * (den > 0.02)
+    out = old * (1 - w[..., None]) + (new + corr) * w[..., None]
+    return out, w, corr, M
+
+
+def _load_mask(p, sha):
+    if _sha(p) != sha:
+        raise SystemExit("DEV-24 HALT: %s is not the pinned file" % p)
+    return np.asarray(Image.open(p)) > 127
+
+
+def apply_layer(img: np.ndarray, layer: dict):
+    """one LAYER: patches staged on the same image (base_pixels_sha256), with pairwise-disjoint supports"""
+    if pixels_sha(img) != layer["base_pixels_sha256"]:
+        raise SystemExit("DEV-24 HALT: the image is not the base this layer's patches were staged on")
+    full = img.copy()
+    support = np.zeros(img.shape[:2], bool)
+    rep = []
+    for p in layer["patches"]:
+        x0, y0 = p["rect_xy"]
+        R = _load_mask(p["region_png"], p["region_sha256"])
+        pc = _load_mask(p["paste_png"], p["paste_sha256"])
+        if _sha(p["new_png"]) != p["new_sha256"]:
+            raise SystemExit("DEV-24 HALT: %s is not the pinned repaint" % p["new_png"])
+        new = np.asarray(Image.open(p["new_png"]).convert("RGB")).astype(np.float64)
+        old = img[y0:y0 + CH, x0:x0 + CW].astype(np.float64)
+        out, w, corr, M = paste_local(old, new, R, pc)
+        sup = np.zeros_like(support); sup[y0:y0 + CH, x0:x0 + CW] = w > 0
+        if (sup & support).any():
+            raise SystemExit("DEV-24 HALT: patch %s overlaps an earlier patch's support in its layer" % p["name"])
+        support |= sup
+        loc = np.clip(out + 0.5, 0, 255).astype(np.uint8)
+        cur = full[y0:y0 + CH, x0:x0 + CW]
+        cur[w > 0] = loc[w > 0]
+        rep.append({"name": p["name"], "paste_px": int(M.sum()), "support_px": int(sup.sum()),
+                    "tone_corr_mean_abs": round(float(np.abs(corr[M]).mean()), 2) if M.any() else None})
+    return full, {"patches": rep, "changed_px": int((full != img).any(-1).sum())}
+
+
+def apply(img: np.ndarray, block: dict):
+    """img: the stitch, uint8 H x W x 3; block = {"layers": [layer, ...]} applied in order, each verified against the
+    image it was staged on (the stitch for the first, the previous layer's result after). -> (patched uint8, report)"""
+    cur, rep = img, []
+    for i, layer in enumerate(block["layers"]):
+        cur, r = apply_layer(cur, layer)
+        r["layer"] = i + 1
+        rep.append(r)
+    return cur, {"layers": rep, "changed_px": int((cur != img).any(-1).sum()), "result_pixels_sha256": pixels_sha(cur)}
