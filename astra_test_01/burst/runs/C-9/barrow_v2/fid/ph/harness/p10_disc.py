@@ -63,7 +63,7 @@ def gate():
     return st.f_bavail * st.f_frsize / 2 ** 30 >= 21
 
 
-def one_run(out, scene, view, burn=None):
+def one_run(out, scene, view, burn=None, loop=None):
     os.makedirs(out, exist_ok=True)
     for t in range(20):
         ok, over = quiescent()
@@ -77,7 +77,7 @@ def one_run(out, scene, view, burn=None):
     if not gate():
         return {"halt": "disk < 21 GiB"}
     cmd = ["python3", LOCK, "C-9", "--", G, "--path", ".", "--resolution", "1920x1080", "--script", H + "/ph_life.gd", "--",
-           "perf", scene, out, view] + (["--burn-ms", str(burn)] if burn else [])
+           "perf", scene, out, view] + (["--burn-ms", str(burn)] if burn else []) + (["--loop", loop] if loop else [])
     log = open(os.path.join(out, "log.txt"), "w")
     proc = subprocess.Popen(cmd, cwd=C9 + "/barrow_full/godot", stdout=log, stderr=subprocess.STDOUT)
     plog = open(os.path.join(out, "proclog.jsonl"), "w")
@@ -166,7 +166,12 @@ def score(base, label):
             "pass": worst is not None and worst <= 16.7 and not rec and not any(r["void"] for r in rows)}
 
 
-def window(base, scene, view, first_window, paused, envelope_from=None):
+LOOPS = {   # § 50 (c): the re-routed P10 walks on rp4, proven by position trace (renders/walk_probe/, walk_check.py)
+    "start": "-10.77,5.75;-3.25,1.26;-1.75,6.83;-6.5,7.5",
+    "sea": "-17.5,3.5;-16.2,1.0;-17.0,-1.0;-18.0,2.0"}
+
+
+def window(base, scene, view, first_window, paused, envelope_from=None, loop=None):
     """§ 48 (c) amendment A: inside a scheduled QUIET WINDOW, fresh-process runs in the order W P W P W P (W = the v1
     witness, P = the candidate); each run under the quiescence precondition and the 1 Hz VOID log. Binding: the candidate's
     worst-of-3 p99 <= 16.7 and the deterministic hitch. Report-only: the paired P p50 - adjacent W p50. First window: the
@@ -179,9 +184,9 @@ def window(base, scene, view, first_window, paused, envelope_from=None):
         json.dump(wlog, open(os.path.join(base, "window_log.json"), "w"), indent=1)
     save()
     for i in range(1, 4):
-        for lab, sc, vw in (("W", "res://scenes/barrow_painted.tscn", "uv:0,1"), ("P", scene, view)):
+        for lab, sc, vw, lp in (("W", "res://scenes/barrow_painted.tscn", "uv:0,1", None), ("P", scene, view, loop)):
             d = os.path.join(base, "%s_%d" % (lab, i))
-            r = one_run(d, sc, vw)
+            r = one_run(d, sc, vw, None, lp)
             wlog["runs"].append({"run": "%s_%d" % (lab, i), "result": r, "t": time.strftime("%H:%M:%S")})
             save()
             if r.get("halt") or r.get("void"):
@@ -225,7 +230,9 @@ if __name__ == "__main__":
         first = "--first" in a
         env = a[a.index("--envelope") + 1] if "--envelope" in a else None
         paused = a[a.index("--paused") + 1] if "--paused" in a else ""
-        r = window(a[1], a[2], a[3], first, paused, env)
+        lp = a[a.index("--loop") + 1] if "--loop" in a else None
+        lp = LOOPS.get(lp, lp)
+        r = window(a[1], a[2], a[3], first, paused, env, lp)
         print("window done", json.dumps(r.get("binding", r.get("halt_or_void"))))
     elif a[0] == "witness":
         base = a[1]

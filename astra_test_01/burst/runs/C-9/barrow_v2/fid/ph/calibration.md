@@ -1636,3 +1636,23 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **W_min(rock) = 3** windows: the smallest k from which ≥ 95 % of v1's own draws pass.
 - **Rule.** A Phase 3′ chunk with **< 3** P4 rock windows → **"rock: insufficient support" (not judged; never PASS)**, reported with its count.
 - **Pilot 4 stays as judged at § 47** (rock 2_1 FAIL on 2 windows). PT's 0.7-coverage reading (0.158) is a forensic, not a re-score.
+
+### § 50 (c) — P10 walk re-route PROVEN on rp4 (not a P10 reading; R-C9-272). `renders/walk_probe/<loop>/trace.json` (his (u, v) every window frame), `harness/walk_check.py` → `results/walk_proof_rp4.txt`
+
+| Loop | Waypoints (u, v), in order | 900-frame window | Min 1-s displacement | Path | Laps (waypoint advances) | Valid |
+|---|---|---|---|---|---|---|
+| **start** | (−10.77, 5.75) → (−3.25, 1.26) → (−1.75, 6.83) → (−6.5, 7.5) | moves the whole window | **0.732 m** | 24.8 m | 4 | **YES** |
+| **sea** | (−17.5, 3.5) → (−16.2, 1.0) → (−17.0, −1.0) → (−18.0, 2.0) | moves the whole window | **0.588 m** | 27.4 m | 14 | **YES** |
+
+**Rejected probes** (kept as evidence; none used):
+- start S1 stuck from frame 330 at (−6.12, 4.88).
+- start S2 reversed on itself at a waypoint (1-s displacement 0.00 at frame 87).
+- start S4 had 10 spans under 0.3 m.
+- sea A / C / E stuck from frame 0–3 on the slab ice near the water.
+- sea B stuck from frame 36.
+
+**How the loops were found.** The start loop runs on PT's rp4 film route (reached) and closes through (−6.5, 7.5). The sea loop is on the shingle beach slope (terrain ground, 25–35°, no slab or model ids within 0.5 m). Every point near the open water is slab ice, and the knight sticks on those slab edges.
+
+**DISCLOSED: the sea loop shows less water than the old sea view.** In-plate open-sea px in a 1920 × 1080 frame centred on him: median **15 k** (range 8–19 k), against ~230 k at the old uv (−29, −5.5). Water outside the pilot plate also renders but is not countable here. The sea view's water-cost coverage is therefore partial. That is for the conductor; no other walkable sea-edge loop exists on rp4 without slab-edge sticking.
+
+**Driver.** `p10_disc.py window ... --loop start|sea` uses these loops (`LOOPS`); the W runs keep v1's own loop.
