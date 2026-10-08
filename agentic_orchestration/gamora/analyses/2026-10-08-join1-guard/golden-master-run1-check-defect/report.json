@@ -1,0 +1,474 @@
+{
+ "cells_reported": 25,
+ "class": "EVIDENCE",
+ "compare": {
+  "G1": true,
+  "G2": true,
+  "G3": true,
+  "G4": true,
+  "G5": true,
+  "G6": true,
+  "G7": true
+ },
+ "ctl_spec": null,
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 27.1,
+  "head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "8ac3ded89ee1a14bfb1f1a07cc7c899278da17b4",
+     "blob_live": "8ac3ded89ee1a14bfb1f1a07cc7c899278da17b4",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "blob_live": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "blob_live": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "5a0073c4718d9a35b2af362a3c9643edcad301a8",
+     "blob_live": "5a0073c4718d9a35b2af362a3c9643edcad301a8",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "env_stripped_before_setting_join_keys": [],
+ "executes_set_A10": {
+  "TA-X-07 (conservation; G2 offered/applied chain)": true,
+  "TA-X-20 (hit-test predicate + multiplicity; G4 occupancy, bound radius)": true,
+  "TA-X-29 (global-magnitude fold; G2 pre_mitigation)": true,
+  "TA-X-30 (pursuit halt; G4 halt counters)": true
+ },
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 27.17056655883789,
+ "head_fixed": false,
+ "instrument_pinned": true,
+ "join_records": {
+  "bind_log": null,
+  "bind_log_identical_across_pids": false,
+  "hits": [
+   [
+    5003,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5019,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5110,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5163,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5231,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5277,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5354,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5422,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5473,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5551,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5595,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5624,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5672,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5719,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5769,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    5807,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6156,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6192,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6246,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6287,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6326,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6365,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6411,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6455,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6496,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ],
+   [
+    6532,
+    "operand pack not clean / not the tracked cut at bind",
+    {
+     "engine_root": "/Users/admin/Games/reincarnated-engine",
+     "engine_root_head": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+     "git_status_porcelain": "",
+     "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+     "n_tracked_at_head": 9,
+     "pack_digest_pin": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+     "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655"
+    }
+   ]
+  ],
+  "n_records": 26,
+  "operand_pack": null,
+  "pass": false,
+  "tree": {
+   "duplicates": [],
+   "emitter_pids": [
+    5003
+   ],
+   "expected_n_cells": 25,
+   "extra": [],
+   "grid_equal": true,
+   "launcher_pid": 4975,
+   "missing": [],
+   "mode": "emitter",
+   "n_cells": 25,
+   "n_pids": 26,
+   "pass": false,
+   "tree_ok": true,
+   "unexpected": []
+  },
+  "tree_ok": true
+ },
+ "launcher_pid": 4975,
+ "mode": "join",
+ "pass": false,
+ "prediction": "P-J2-2 GOLDEN MASTER: J-S8 7/7 ROWSET-equal to f82807fb with the rulebook installed at GD INCLUDING the D-1 binding (C-1(a), = R3-F32); TA-X-07/20/29/30 reported equal; 25 cells foreign_reads=0; exact tree over 26 join-hook records; every pid's bind log installs the same 13 rows + rows 24/25 and reads back interval_s = 0x3fc99999a0000000; (E3b amendment, before this mode's run) every NON-substituted census symbol present in a pid is EQUAL to the sealed census or an EMITTER WRAPPER of a sealed kc2 object, and every substituted symbol is owned by join2_rulebook or is an EMITTER WRAPPER of a join2_rulebook object",
+ "profile": "gd",
+ "rehome": null,
+ "reproduces_7_of_7": true,
+ "start": {
+  "free_gib": 27.2,
+  "head": "d1da424e9b7ff61043d0142d5511e63d0e45dd2c",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "8ac3ded89ee1a14bfb1f1a07cc7c899278da17b4",
+     "blob_live": "8ac3ded89ee1a14bfb1f1a07cc7c899278da17b4",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "blob_live": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "blob_live": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "5a0073c4718d9a35b2af362a3c9643edcad301a8",
+     "blob_live": "5a0073c4718d9a35b2af362a3c9643edcad301a8",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ }
+}

@@ -1,0 +1,103 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8m",
+ "head": {
+  "end": "9dbe2f34b9fd88a93c59875e540545b2411bc43f",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "blob_live": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "blob_live": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "blob_live": "e7716388e6b07443e0fdfb0c7edf69ffe27266cc",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "blob_live": "2e06489c74fdc0e04ff87930d98de06f923f569c",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "9dbe2f34b9fd88a93c59875e540545b2411bc43f"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "8f3e5b85c4b353ca0a8f471e6199c6b2e1dcc345fd23af77a1ce7a16926a2aaf",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "9dbe2f34b9fd88a93c59875e540545b2411bc43f",
+  "files_changed_between_seal_and_HEAD": [
+   "src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/manifest.json"
+  ],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 283,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 143,
+  "pass": false,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [
+    [
+     null,
+     "opened a file in a rulebook/hook directory"
+    ]
+   ],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    2445,
+    2452
+   ],
+   "n_pids": 2,
+   "pass": false,
+   "tree_ok": true
+  },
+  "witness_hits": [
+   [
+    2452,
+    "opened a file in a rulebook/hook directory",
+    null
+   ]
+  ]
+ },
+ "prediction": "B' RED: path hit 'opened a file in a rulebook/hook directory' on the HEAD child naming src/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/manifest.json; witness hit on the HEAD pid (opened_forbidden, the same file); census equal; the sealed child GREEN",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)",
+ "verdict_reason": null
+}

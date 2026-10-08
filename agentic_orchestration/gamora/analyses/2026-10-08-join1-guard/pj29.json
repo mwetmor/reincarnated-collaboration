@@ -1,0 +1,81 @@
+{
+ "NC-E5-1": {
+  "field_sets_equal": true,
+  "layers_equal": true,
+  "n_bit_equal": 29,
+  "n_fields_a": 30,
+  "n_fields_b": 30,
+  "pass_": true,
+  "python_eq_all": false,
+  "unequal": [
+   "oa_flat_tail"
+  ]
+ },
+ "NC-E5-2": {
+  "pass_": true,
+  "refused": "kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 \u00a7 A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE)."
+ },
+ "NC-E5-3": {
+  "intact_copy_bit_equal": 30,
+  "one_byte_copy_refused": "RulebookPackRefused: pack digest / member digest check failed: ['rulebook/kit_warlord.json']",
+  "pass_": true
+ },
+ "NC-E5-4": {
+  "pass_": true,
+  "refused": "E5: the pack loader at /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/pj29-scratch-guard/kc2_rulebook_pack_v0.py is FILE 4bc07ffd"
+ },
+ "P-J2-9": {
+  "field_sets_equal": true,
+  "layers_equal": true,
+  "n_bit_equal": 30,
+  "n_fields_a": 30,
+  "n_fields_b": 30,
+  "n_fields_expected": 30,
+  "oracle_const_strings_equal": [
+   "absorption_tables",
+   "armor_absorption",
+   "armour_operand_lapy",
+   "base_tick_period_s",
+   "board_basis_da",
+   "intercept_reach_delta_m",
+   "kit_as_pct",
+   "mitigation_header",
+   "no_resist_cap_pct",
+   "normal_pth_divisor",
+   "oa_flat_tail",
+   "oa_level_factor",
+   "offense_board",
+   "pcl_defence_pct",
+   "piece_armour",
+   "player_armor",
+   "player_da_base",
+   "player_defense_cap_pct",
+   "pth_minimum",
+   "pth_multipliers",
+   "pth_source",
+   "pth_thresholds",
+   "region_weight_pct",
+   "regions",
+   "resist_pct",
+   "soulfire_period_s",
+   "soulfire_projectiles",
+   "soulfire_raw_per_proc",
+   "summon_board",
+   "world_as_pct"
+  ],
+  "pack_only_operands": [
+   "intake_order_override"
+  ],
+  "pack_provenance_head": "PACK kc2-rulebook-pack-v1 0c11ef6396d926a6 <- ORACLE-CONST: threat.PTH_MINIMUM",
+  "pass": true,
+  "python_eq_all": true,
+  "sources": [
+   "ORACLE-CONST",
+   "PACK"
+  ],
+  "unequal": []
+ },
+ "interpreter_reincarnated": "/Users/admin/Games/reincarnated-engine-join1-v311/src/reincarnated/__init__.py",
+ "pass": true,
+ "rulebook_pkg": "/Users/admin/Games/reincarnated-engine-join2-rb/src/join2_rulebook"
+}
