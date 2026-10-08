@@ -1,0 +1,408 @@
+{
+ "_what": "BV2F PT (R-C9-247, read-only): trace a chunk's pasted context strip through the pipeline and measure its SHARPNESS",
+ "prefix": "BV2F-PS3",
+ "chunks": {
+  "0_0": {
+   "delivered": "BV2F-PS3-0_0/BV2F-PS3-0_0.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-1858c4d5-7d49-42db-b821-07df3f3fd946.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-bb6abca8-00a4-4682-99a3-3e7160df6bab.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ]
+  },
+  "0_1": {
+   "delivered": "BV2F-PS3-0_1/BV2F-PS3-0_1.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-8cb61464-b5ac-4a63-85a2-43c44529deda.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-e534b6ea-8cea-425b-bcfd-170001ef8514.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "top": {
+    "Lv_N": 699.5,
+    "Lv_Q": 696.3,
+    "Lv_R": 627.4,
+    "Lv_Rnew": 486.8,
+    "Q_equals_N_px_share": 0.8344,
+    "R_over_N": 0.897,
+    "Rnew_over_R": 0.776,
+    "MAD_R_Q": 6.22,
+    "hp_corr_R_Q": 0.755
+   }
+  },
+  "0_2": {
+   "delivered": "BV2F-PS3-0_2-r1/BV2F-PS3-0_2.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-a331d91c-3737-4138-8143-8965495e0622.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "top": {
+    "Lv_N": 2102.1,
+    "Lv_Q": 2176.2,
+    "Lv_R": 2600.9,
+    "Lv_Rnew": 1204.8,
+    "Q_equals_N_px_share": 0.8334,
+    "R_over_N": 1.237,
+    "Rnew_over_R": 0.463,
+    "MAD_R_Q": 15.38,
+    "hp_corr_R_Q": 0.65
+   }
+  },
+  "1_0": {
+   "delivered": "BV2F-PS3-1_0/BV2F-PS3-1_0.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-aee456dd-81fa-4920-8336-99585421d1ad.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-1069ae99-aa50-4f48-b30f-9d9213588f00.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "left": {
+    "Lv_N": 806.6,
+    "Lv_Q": 806.6,
+    "Lv_R": 595.1,
+    "Lv_Rnew": 100.4,
+    "Q_equals_N_px_share": 1.0,
+    "R_over_N": 0.738,
+    "Rnew_over_R": 0.169,
+    "MAD_R_Q": 5.15,
+    "hp_corr_R_Q": 0.747
+   }
+  },
+  "1_1": {
+   "delivered": "BV2F-PS3-1_1/BV2F-PS3-1_1.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-21f311c7-a4f3-4af0-bb14-1115506cd647.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-1589c696-51d0-45b2-9d63-c0c33856b4e4.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "left": {
+    "Lv_N": 1002.9,
+    "Lv_Q": 1007.1,
+    "Lv_R": 1200.4,
+    "Lv_Rnew": 1391.8,
+    "Q_equals_N_px_share": 0.7508,
+    "R_over_N": 1.197,
+    "Rnew_over_R": 1.159,
+    "MAD_R_Q": 10.38,
+    "hp_corr_R_Q": 0.544
+   },
+   "top": {
+    "Lv_N": 337.5,
+    "Lv_Q": 345.0,
+    "Lv_R": 330.6,
+    "Lv_Rnew": 305.7,
+    "Q_equals_N_px_share": 0.6679,
+    "R_over_N": 0.98,
+    "Rnew_over_R": 0.925,
+    "MAD_R_Q": 4.79,
+    "hp_corr_R_Q": 0.668
+   }
+  },
+  "1_2": {
+   "delivered": "BV2F-PS3-1_2-r1/BV2F-PS3-1_2.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-f2b3442e-23df-42bb-aec0-304723047841.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-1cc48936-30dc-4361-84c1-660e2e8a9fc8.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "left": {
+    "Lv_N": 1690.2,
+    "Lv_Q": 1395.4,
+    "Lv_R": 1346.0,
+    "Lv_Rnew": 2759.2,
+    "Q_equals_N_px_share": 0.7501,
+    "R_over_N": 0.796,
+    "Rnew_over_R": 2.05,
+    "MAD_R_Q": 11.8,
+    "hp_corr_R_Q": 0.58
+   },
+   "top": {
+    "Lv_N": 2505.9,
+    "Lv_Q": 2462.9,
+    "Lv_R": 2582.9,
+    "Lv_Rnew": 2126.3,
+    "Q_equals_N_px_share": 0.6668,
+    "R_over_N": 1.031,
+    "Rnew_over_R": 0.823,
+    "MAD_R_Q": 14.26,
+    "hp_corr_R_Q": 0.709
+   }
+  },
+  "2_0": {
+   "delivered": "BV2F-PS3-2_0-r1/BV2F-PS3-2_0.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-00d3bdac-fd21-41c0-9fd8-b0cfd463c630.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-c39442f6-5df8-4ebf-923a-3872eb616cbc.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "left": {
+    "Lv_N": 632.5,
+    "Lv_Q": 632.5,
+    "Lv_R": 507.7,
+    "Lv_Rnew": 574.6,
+    "Q_equals_N_px_share": 1.0,
+    "R_over_N": 0.803,
+    "Rnew_over_R": 1.132,
+    "MAD_R_Q": 7.68,
+    "hp_corr_R_Q": 0.618
+   }
+  },
+  "2_1": {
+   "delivered": "BV2F-PS3-2_1-r1/BV2F-PS3-2_1.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-5a4d45a5-340b-4d29-b2ec-39871571fd3c.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-40122233-c9d5-46e5-9833-247a864c57e6.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "left": {
+    "Lv_N": 1070.4,
+    "Lv_Q": 1063.5,
+    "Lv_R": 1152.2,
+    "Lv_Rnew": 673.9,
+    "Q_equals_N_px_share": 0.7502,
+    "R_over_N": 1.076,
+    "Rnew_over_R": 0.585,
+    "MAD_R_Q": 14.35,
+    "hp_corr_R_Q": 0.576
+   },
+   "top": {
+    "Lv_N": 358.5,
+    "Lv_Q": 358.7,
+    "Lv_R": 444.4,
+    "Lv_Rnew": 1031.3,
+    "Q_equals_N_px_share": 0.8334,
+    "R_over_N": 1.24,
+    "Rnew_over_R": 2.321,
+    "MAD_R_Q": 11.76,
+    "hp_corr_R_Q": 0.644
+   }
+  },
+  "2_2": {
+   "delivered": "BV2F-PS3-2_2-r1/BV2F-PS3-2_2.png",
+   "size": [
+    1536,
+    1024
+   ],
+   "canvas_size": [
+    1536,
+    1024
+   ],
+   "raw": [
+    {
+     "raw": "exec-ea809a85-1a6c-4110-a5f9-712281c7afa3.png",
+     "exists": true,
+     "delivered_is_raw_bytes": true,
+     "size": [
+      1536,
+      1024
+     ]
+    },
+    {
+     "raw": "exec-09610556-b29b-4cdb-b149-74032837a530.png",
+     "exists": true,
+     "delivered_is_raw_bytes": false,
+     "size": [
+      1536,
+      1024
+     ]
+    }
+   ],
+   "left": {
+    "Lv_N": 2311.2,
+    "Lv_Q": 2185.2,
+    "Lv_R": 1821.5,
+    "Lv_Rnew": 2187.9,
+    "Q_equals_N_px_share": 0.75,
+    "R_over_N": 0.788,
+    "Rnew_over_R": 1.201,
+    "MAD_R_Q": 10.49,
+    "hp_corr_R_Q": 0.759
+   },
+   "top": {
+    "Lv_N": 1016.2,
+    "Lv_Q": 986.8,
+    "Lv_R": 852.6,
+    "Lv_Rnew": 1458.5,
+    "Q_equals_N_px_share": 0.8334,
+    "R_over_N": 0.839,
+    "Rnew_over_R": 1.711,
+    "MAD_R_Q": 5.25,
+    "hp_corr_R_Q": 0.807
+   }
+  }
+ }
+}

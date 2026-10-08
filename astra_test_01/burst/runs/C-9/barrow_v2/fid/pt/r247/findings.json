@@ -1,0 +1,44 @@
+{
+ "_what": "R-C9-247 root cause (read-only, 0 images): the pasted context strip through paste -> request canvas -> service -> response -> stitch",
+ "Q1_no_scale_step": "none anywhere: request canvas 1536x1024 (v1's T10BF chunks too -- 1536x1024, not 1344x832); canvas strip == the neighbour's delivered pixels (100% where one strip, 67-83% where a corner strip overwrites); delivered PNG == the service's raw output BYTE FOR BYTE (provenance paths, all 5 prefixes incl. v1); guided_stitch asserts every chunk 1536x1024; no resize, no re-encode on our side",
+ "Q1_softness": "the service REDRAWS the strip and the redraw is usually softer: Laplacian-variance ratio redraw/neighbour median 0.93 v1 (0.79-1.34), 0.92 PS2, 0.94 PS3; worst PS2 2_0 on ICE: grain std neighbour 7.37 -> strip redraw 4.91 (0.67) while the chunk's new paint is 6.98 (= the neighbour's grain). v1's 256-px ramp ends ON the redraw exactly where the new paint starts -> soft|crisp line (mechanism 1). PS3b 2_0 is a different case: on ICE the redraw keeps grain (1.07) and new paint matches (0.91); the line there is in the MOUND class, where the NEW paint is 2.5x grainier than both strip and neighbour (12.47 vs 5.02/4.31) -- the painter's own continuation (mechanism 2)",
+ "Q2_redraw": "always: high-pass correlation response-strip vs request-strip 0.51-0.79 (v1) / 0.54-0.82 (ours); MAD 2.6-12.9 (v1) / 4.6-15.4 (ours) -- the same behaviour in v1",
+ "Q3_mad": "P5's 13.09 IS v1's own maximum join MAD (T10BF 2_2|3_2 = 13.09 exactly; v1 24 joins 3.28-9.73-13.09). MAD tracks the strip's texture: r = 0.87 (v1), 0.95 (PS2), 0.94 (PT), 0.94 (PS), 0.71 (PS3) vs Laplacian variance; -0.79..-0.94 vs smooth (snow/ice) share. v1's highest joins are its densest strips; PS3's over-threshold joins are dense shingle/rock/heather (Lv 2100-2600) with no visible seam on the 1_1/1_2 crop. A dense-texture P5 normaliser (MAD vs v1's MAD~texture fit) is jack-ryan's to rule.",
+ "Q4_proposals": [
+  {
+   "id": "DEV-25a hand-over ramp",
+   "what": "stitch: keep the NEIGHBOUR's own pixels across the overlap and ramp to the chunk only over the last K px before the context boundary (asymmetric partition of unity)",
+   "fixes": "mechanism 1 (redraw softness) -- the chunk's new paint meets the neighbour's grain (PS2 2_0 ice: 0.95)",
+   "does_not_fix": "mechanism 2: prototype on PS3b 2_0 1.68 -> 1.74 (K 128) / 1.82 (K 64)",
+   "risk": "a short crossfade between two non-identical renders (hp corr ~0.7) can ghost within K px",
+   "cost": "0 images, ~1 h",
+   "tier": "Tier-B DEV (guided_stitch weights; flag-off = v1)"
+  },
+  {
+   "id": "DEV-25b grain match",
+   "what": "stitch: scale the amplitude of the NEW paint's high frequencies (image - Gaussian 3 px) toward the strip's, ratio measured on snow/ice along the boundary, fade 300 px",
+   "fixes": "both mechanisms partly: PS3b 2_0 1.68 -> 1.37 (control 1.12); structure untouched",
+   "cost": "0 images, prototype fid/pt/tools/grain_match_proto.py",
+   "tier": "Tier-B DEV (stitch; changes HF amplitude, not detail position)"
+  },
+  {
+   "id": "DEV-25c inner-strip paste",
+   "what": "guided_paint stage: paste only the inner 128 px of the 256-px overlap; the chunk paints the outer 128 px itself, so v1's ramp blends two NEW paints over 128 px instead of handing a soft redraw to crisp paint at one column",
+   "fixes": "mechanism 1 at source; spreads mechanism 2 over 128 px",
+   "risk": "less pinned context -> larger join MAD (P5) and content drift in the overlap",
+   "cost": "a full repaint (18-24 images)",
+   "tier": "Tier-B DEV (guided_paint stage + the stitch unchanged)"
+  }
+ ],
+ "recommendation": "for repaint-free progress: DEV-25b on top of DEV-23 (0 images) + jack-ryan rules P5's dense-texture behaviour; DEV-25c only if a future full repaint is planned anyway",
+ "crops": [
+  "fid/pt/r247/mech1_PS2_2_0_ice_redraw_soft_1to1.jpg",
+  "fid/pt/r247/mech2_PS3b_2_0_mound_new_grain_1to1.jpg",
+  "fid/pt/r247/x2816_2_0_dev23_vs_grain_1to1.jpg"
+ ],
+ "data": [
+  "fid/pt/r247/strip_trace_*.json",
+  "fid/pt/r247/strip_trace_summary.json",
+  "fid/pt/r247/join_mad_*.json"
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "_what": "BV2F PT (R-C9-247, read-only): every internal join of a prefix's chunk grid -- the overlap MAD (P5's measure: mean abs",
+ "prefix": "BV2F-PS3",
+ "summary": {
+  "joins": 12,
+  "mad_min_med_max": [
+   5.02,
+   11.47,
+   16.74
+  ],
+  "over_13.09": 4,
+  "corr_mad_vs_strip_texture": 0.707,
+  "corr_mad_vs_smooth_share": -0.729
+ },
+ "joins": [
+  {
+   "join": "0_1/0_2",
+   "mad": 16.74,
+   "strip_Lv": 2102.1,
+   "smooth_share": 0.602,
+   "texture_step": 0.744
+  },
+  {
+   "join": "1_1/1_2",
+   "mad": 16.23,
+   "strip_Lv": 2505.9,
+   "smooth_share": 0.578,
+   "texture_step": 0.937
+  },
+  {
+   "join": "1_1|2_1",
+   "mad": 14.79,
+   "strip_Lv": 1070.4,
+   "smooth_share": 0.86,
+   "texture_step": 0.818
+  },
+  {
+   "join": "0_2|1_2",
+   "mad": 13.93,
+   "strip_Lv": 1690.2,
+   "smooth_share": 0.733,
+   "texture_step": 1.131
+  },
+  {
+   "join": "2_0/2_1",
+   "mad": 12.5,
+   "strip_Lv": 358.5,
+   "smooth_share": 0.953,
+   "texture_step": 1.066
+  },
+  {
+   "join": "1_2|2_2",
+   "mad": 12.34,
+   "strip_Lv": 2311.2,
+   "smooth_share": 0.604,
+   "texture_step": 1.051
+  },
+  {
+   "join": "0_1|1_1",
+   "mad": 10.6,
+   "strip_Lv": 1002.9,
+   "smooth_share": 0.836,
+   "texture_step": 0.97
+  },
+  {
+   "join": "1_0|2_0",
+   "mad": 7.68,
+   "strip_Lv": 632.5,
+   "smooth_share": 0.939,
+   "texture_step": 0.903
+  },
+  {
+   "join": "0_0/0_1",
+   "mad": 6.27,
+   "strip_Lv": 699.5,
+   "smooth_share": 0.943,
+   "texture_step": 0.994
+  },
+  {
+   "join": "2_1/2_2",
+   "mad": 5.79,
+   "strip_Lv": 1016.2,
+   "smooth_share": 0.836,
+   "texture_step": 1.042
+  },
+  {
+   "join": "0_0|1_0",
+   "mad": 5.15,
+   "strip_Lv": 806.6,
+   "smooth_share": 0.917,
+   "texture_step": 0.751
+  },
+  {
+   "join": "1_0/1_1",
+   "mad": 5.02,
+   "strip_Lv": 337.5,
+   "smooth_share": 0.964,
+   "texture_step": 1.184
+  }
+ ]
+}

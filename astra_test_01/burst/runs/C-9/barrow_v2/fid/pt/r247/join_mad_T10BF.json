@@ -1,0 +1,185 @@
+{
+ "_what": "BV2F PT (R-C9-247, read-only): every internal join of a prefix's chunk grid -- the overlap MAD (P5's measure: mean abs",
+ "prefix": "T10BF",
+ "summary": {
+  "joins": 24,
+  "mad_min_med_max": [
+   3.28,
+   9.73,
+   13.09
+  ],
+  "over_13.09": 0,
+  "corr_mad_vs_strip_texture": 0.874,
+  "corr_mad_vs_smooth_share": -0.787
+ },
+ "joins": [
+  {
+   "join": "2_2|3_2",
+   "mad": 13.09,
+   "strip_Lv": 2173.4,
+   "smooth_share": 0.737,
+   "texture_step": 0.988
+  },
+  {
+   "join": "3_0/3_1",
+   "mad": 12.94,
+   "strip_Lv": 2146.1,
+   "smooth_share": 0.698,
+   "texture_step": 0.943
+  },
+  {
+   "join": "3_1/3_2",
+   "mad": 12.87,
+   "strip_Lv": 2970.4,
+   "smooth_share": 0.678,
+   "texture_step": 0.941
+  },
+  {
+   "join": "0_1|1_1",
+   "mad": 12.71,
+   "strip_Lv": 2293.2,
+   "smooth_share": 0.628,
+   "texture_step": 0.949
+  },
+  {
+   "join": "0_1/0_2",
+   "mad": 12.38,
+   "strip_Lv": 2892.5,
+   "smooth_share": 0.506,
+   "texture_step": 1.029
+  },
+  {
+   "join": "0_3|1_3",
+   "mad": 12.21,
+   "strip_Lv": 2400.6,
+   "smooth_share": 0.771,
+   "texture_step": 1.393
+  },
+  {
+   "join": "0_2|1_2",
+   "mad": 11.4,
+   "strip_Lv": 1916.5,
+   "smooth_share": 0.461,
+   "texture_step": 1.192
+  },
+  {
+   "join": "2_3|3_3",
+   "mad": 11.27,
+   "strip_Lv": 1961.4,
+   "smooth_share": 0.676,
+   "texture_step": 1.01
+  },
+  {
+   "join": "0_0/0_1",
+   "mad": 10.44,
+   "strip_Lv": 2431.2,
+   "smooth_share": 0.802,
+   "texture_step": 1.094
+  },
+  {
+   "join": "2_2/2_3",
+   "mad": 10.36,
+   "strip_Lv": 1534.5,
+   "smooth_share": 0.78,
+   "texture_step": 1.127
+  },
+  {
+   "join": "1_0|2_0",
+   "mad": 10.3,
+   "strip_Lv": 1999.3,
+   "smooth_share": 0.692,
+   "texture_step": 1.267
+  },
+  {
+   "join": "0_2/0_3",
+   "mad": 10.05,
+   "strip_Lv": 2379.2,
+   "smooth_share": 0.757,
+   "texture_step": 1.047
+  },
+  {
+   "join": "2_0|3_0",
+   "mad": 9.41,
+   "strip_Lv": 2693.0,
+   "smooth_share": 0.771,
+   "texture_step": 1.041
+  },
+  {
+   "join": "1_0/1_1",
+   "mad": 9.07,
+   "strip_Lv": 1152.3,
+   "smooth_share": 0.877,
+   "texture_step": 1.159
+  },
+  {
+   "join": "3_2/3_3",
+   "mad": 8.69,
+   "strip_Lv": 1394.1,
+   "smooth_share": 0.728,
+   "texture_step": 1.473
+  },
+  {
+   "join": "0_0|1_0",
+   "mad": 8.49,
+   "strip_Lv": 2179.1,
+   "smooth_share": 0.808,
+   "texture_step": 0.912
+  },
+  {
+   "join": "1_1/1_2",
+   "mad": 8.24,
+   "strip_Lv": 1176.7,
+   "smooth_share": 0.581,
+   "texture_step": 1.011
+  },
+  {
+   "join": "1_2|2_2",
+   "mad": 8.0,
+   "strip_Lv": 81.8,
+   "smooth_share": 0.998,
+   "texture_step": 1.028
+  },
+  {
+   "join": "1_2/1_3",
+   "mad": 6.86,
+   "strip_Lv": 1033.0,
+   "smooth_share": 0.915,
+   "texture_step": 1.047
+  },
+  {
+   "join": "2_1/2_2",
+   "mad": 4.59,
+   "strip_Lv": 387.7,
+   "smooth_share": 0.97,
+   "texture_step": 0.985
+  },
+  {
+   "join": "2_0/2_1",
+   "mad": 3.8,
+   "strip_Lv": 317.9,
+   "smooth_share": 0.968,
+   "texture_step": 1.139
+  },
+  {
+   "join": "1_3|2_3",
+   "mad": 3.46,
+   "strip_Lv": 66.6,
+   "smooth_share": 1.0,
+   "texture_step": 1.646
+  },
+  {
+   "join": "2_1|3_1",
+   "mad": 3.39,
+   "strip_Lv": 266.3,
+   "smooth_share": 0.993,
+   "texture_step": 1.563
+  },
+  {
+   "join": "1_1|2_1",
+   "mad": 3.28,
+   "strip_Lv": 52.3,
+   "smooth_share": 1.0,
+   "texture_step": 0.917
+  }
+ ]
+}
