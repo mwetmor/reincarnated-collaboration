@@ -21,8 +21,16 @@ os.makedirs(OUT, exist_ok=True)
 CW, CH = 1536, 1024
 x0, y0 = S["rect_xy"]
 P8 = np.asarray(Image.open(S["painting"]).convert("RGB"))
-cm = json.load(open(FID + "/lv/guide_art/guide_manifest.json"))["class"]
-CL = np.asarray(Image.open(FID + "/lv/guide_art/class_art.png"))
+# R-C9-262 (revival): the class map is the PINNED one named by the spec (class_png + the LV commit whose manifest names its
+# classes), never LV's live working file; unset = the R-C9-243 behaviour (LV's guide_art files)
+if "class_png" in S:
+    import subprocess
+    cm = json.loads(subprocess.check_output(["git", "-C", FID, "show", "%s:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/guide_art/guide_manifest.json" % S["class_commit"]]))["class"]
+    assert hashlib.sha256(open(S["class_png"], "rb").read()).hexdigest() == S["class_sha256"], "class map is not the pinned one"
+    CL = np.asarray(Image.open(S["class_png"]))
+else:
+    cm = json.load(open(FID + "/lv/guide_art/guide_manifest.json"))["class"]
+    CL = np.asarray(Image.open(FID + "/lv/guide_art/class_art.png"))
 CL = (CL[..., 0] if CL.ndim == 3 else CL)[:P8.shape[0], :P8.shape[1]]
 cls_in = lambda names: np.isin(CL, [cm["classes"].index(n) for n in names if n in cm["classes"]])
 crop = lambda a: a[y0:y0 + CH, x0:x0 + CW]
@@ -33,7 +41,8 @@ def region():
     """the pixels to repaint, canvas-local: the seed (thin dark lines on bright ground) dilated, inside the region classes"""
     L = P8.astype(np.float64).mean(-1)
     loc = ndimage.gaussian_filter(L, 8)
-    seed = crop((L < loc - 45) & (loc > 170) & cls_in(S["region"].get("seed_classes", S["region"]["classes"])))
+    th, lmin = S["region"].get("seed_dark", 45), S["region"].get("seed_loc_min", 170)   # R-C9-262: the blue mere is darker than rp3's
+    seed = crop((L < loc - th) & (loc > lmin) & cls_in(S["region"].get("seed_classes", S["region"]["classes"])))
     if "seed_box" in S["region"]:     # canvas-local [x0, y0, x1, y1]: the target only
         bx = S["region"]["seed_box"]; keep = np.zeros_like(seed); keep[bx[1]:bx[3], bx[0]:bx[2]] = True; seed &= keep
     R = ndimage.binary_dilation(seed, iterations=int(S["region"]["dilate_px"])) & crop(cls_in(S["region"]["classes"]))
@@ -99,7 +108,7 @@ elif CMD == "paste":
     outside = np.ones(P8.shape[:2], bool); outside[y0:y0 + CH, x0:x0 + CW] = ~(w > 0)
     rep = {"bid": bid, "paste_px": int(M.sum()), "changed_px_outside_paste": int((ch[outside] > 0).sum()),
            "tone_corr_mean_abs": round(float(np.abs(corr[M]).mean()), 2) if M.any() else None,
-           "dark_line_px_before": int(((old.mean(-1) < ndimage.gaussian_filter(old.mean(-1), 8) - 45) & M).sum()),
-           "dark_line_px_after": int(((out.mean(-1) < ndimage.gaussian_filter(out.mean(-1), 8) - 45) & M).sum())}
+           "dark_line_px_before": int(((old.mean(-1) < ndimage.gaussian_filter(old.mean(-1), 8) - S["region"].get("seed_dark", 45)) & M).sum()),
+           "dark_line_px_after": int(((out.mean(-1) < ndimage.gaussian_filter(out.mean(-1), 8) - S["region"].get("seed_dark", 45)) & M).sum())}
     json.dump(rep, open(os.path.join(OUT, "paste_%s.json" % ATT), "w"), indent=1)
     print(rep)
