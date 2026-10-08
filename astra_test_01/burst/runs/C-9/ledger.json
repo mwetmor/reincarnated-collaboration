@@ -51275,6 +51275,13 @@
       "ts": "2026-10-08T18:28:35-04:00",
       "verbatim": "",
       "ruling": "P10 QUIESCENCE: (a) the session-hosting terminal is NOT exempt (not render path; its load varies with concurrent session output; exempting after failing = post-hoc). (b) P10 binds ONLY inside a SCHEDULED QUIET WINDOW: the conductor pauses the Sim Session's heavy work and all other lanes (no other Godot/Blender, agent git or Python jobs), other sessions idle; PH holds the heavy lock for the window and launches the P10 driver detached with output to a file (no terminal streaming); OS services are waited for, not exempted; still not quiet after 20 tries = HALT routed as a matt_to_do for a host-level change (e.g. pause Photos media analysis, or run P10 from a non-agent shell/launchd job with the terminal closed). The window is recorded (start/stop, what was paused, the quiescence log). (c) Run order interleaved W P W P W P (v1 witness / pilot); binding stays ABSOLUTE (pilot worst-of-3 p99 <= 16.7 ms + the deterministic-hitch check); the paired p50 difference is report-only; the first window's witness runs record the envelope. PH adds this as calibration s48(c) amendment A before the first window. SCHEDULING: the first quiet window is called by the conductor AFTER PT's hitch fixes land (the [Bb] P10 item), not before. The v1rec-vs-v1head P11 control set stays VOID and unjudged until PH captures new non-ice v1 stills (in hand)."
+    },
+    {
+      "id": "R-C9-270",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T18:32:26-04:00",
+      "verbatim": "",
+      "ruling": "P11 NEGATIVE CONTROL under the new class composition (g2v4 v1 vs half-density; fresh blind galadriel, crops only; scored against keys/abx3_g2v4_v1_vs_halfdensity.json): catch 12/12, repeats 10/10, scored 40/40 = the instrument FAILS the known-bad build, as required (judge cue: render sharpness). The positive control (v1rec vs v1head) stays VOID until PH's new non-ice v1 stills land; P11 cannot bind at M3' until that control is judged and passes."
     }
   ],
   "grok_calls": [
