@@ -235,3 +235,8 @@ Next: on the conductor's lock go -> `zsh fid/pt/tools/pilot_build_rp.sh` (stitch
 - Stitch: manifest OK, painting 7105731298ef == the reviewed DEV-24 painting pixel for pixel; join MAD 5.17-11.66 (none > 13.09). 23 bakes (DEV-19 sizes, min ppm 106.2); reed split 1381 reed / 4142 heather comps, 107 reed cards (rp3 65); heather 292 sprays + 2 shrub (rp3 264 + 0); DEV-5 879 slab items, 7 floes bobbing; 0 script errors in every Godot step.
 - Stills fid/pt/pilot_stills/ (12 + class masks; rp3's moved to pilot_stills_rp3/); M2'' fid/pt/m2pp/M2pp_pilot_sketchA_v1.jpg (rp3's kept as _rp3.jpg); film fid/pt/pilot/film/"BV2F pilot repaint 4 - ...mp4" (30.7 s, sha 1c0c49202314, 4/4 waypoints, not committed: 75 MB; rp3 route).
 - Watch: P10 will be heavier than rp3 (heather 294 vs 264, reed cards 107 vs 65; R-C9-254 put heather at ~1.3 ms of p50 at 264).
+
+## R-C9-268 (Matt M2'': pilot 4 KEPT; DEV-23/24/25/28 ratified) -- PT items, 0 images
+- (1) 4792b75fb snow speckle = CAPTURE PHASE: pilot stills at sub-pixel phase 0 (render == painting), v1's at 0.23-0.66 (render = painting blurred sigma ~0.5); pilot_04 at v1's phase speck 0.427 -> 0.202. Painting grain = v1's. Support per chunk in fid/pt/r268/snow_speckle.json (failing chunks 12-133 windows vs v1 >= 295).
+- (2) 1bd41986a P10: warm-up complete (0 compilations); the P10 walk is STUCK on rp4 from ~6 s (both views) -> PH re-route owed; hitches inside the stuck span; census 4.79 M tris; candidate cut BV2F_PROF_TRY=groundtiles (gated): prims 3.13 M -> 1.92 M, p50 16.47 -> 14.16 (1 run). Next levers in p10_trace_summary.json.
+- (3-5) 5090fa5fe DEV-25c registration + A/B rule; DEV register; full-site stitch plan (owed code: DEV-26 pinned prefix, DEV-24 read-region check; stand-in test P-1..P-3).
