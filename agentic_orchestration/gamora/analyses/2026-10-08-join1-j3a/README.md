@@ -33,3 +33,38 @@ gamora, 2026-10-08. **Engine commits, each ALONE:**
 **§ 4.7 v4 at `47c5c94e`** (`s47v4/`, `s47v4.stdout.txt`): **NO VERDICT.** HEAD moved during the run (`47c5c94e` → `2318cd4b`, star-lord's pack v1 commits). It is re-run at the next quiet HEAD.
 
 **Bulk:** `GM-0/{emission,records}` moved to `/Users/admin/Games/join3a-bulk-evidence/GM-0/`, with manifests.
+
+---
+
+## `pth-coupled` / `gd-decoded` (AMENDMENT-2/-3; KP-373/374)
+
+**Engine commits, each ALONE:**
+
+| Commit | What |
+|---|---|
+| `84cc0633` | AMENDMENT-3 |
+| `f1d8fe38` | fail-first tests (5 FAILED against `47c5c94e`) |
+| **`5655123c`** | **rulebook** (tree `facf986c…`) |
+| `c850a0e7` | AMENDMENT-3 corrigendum 1 (level margins) |
+
+**The rulebook worktree is at `5655123c`.**
+
+**G-D1 and G-D2 (form level; `tests/test_join3a_crit.py`, 15/15 pass):**
+- **G-D1(a), 57 %:** E = **1.0875983921933081** at DA 2770.09 and **1.207005003536779** at DA 2011.53. Bit-exact with legolas's `worked_example.py`.
+- **G-D1(b), 69 %:** E = **1.1032876564667364** / **1.2405273953024458**. Bit-exact.
+- PTH = 103.53680208248068 / 124.88782033303511, bit-exact.
+- **G-D2:** `gd-decoded` refuses at bind with `GdDecodedValueAbsent`, because the pinned pack has no v2 rows. `gd-judged` is refused as "renamed gd-decoded". M2 survives only as `bracket_sealed_d100`, labelled contradicted.
+- **The WARN-3 assertion holds:** no `p2m_*` crit, tier or E column is named in the rulebook.
+
+**GM-0 at `5655123c`** (`GM-0-5655123c/`, under the courtesy gate):
+- J-S8 7/7, **all 7 grain FILEs byte-equal**;
+- 26 records, tree ok, 0 hits;
+- **0 JOIN-stream draws** (26/26);
+- **J3-INTAKE-ROLL tripwire `intake_pth_ge_100` = 0**, as predicted;
+- lane `None` = 0.
+
+**§ 4.7 v4:**
+- My run at `5655123c` reads NO VERDICT, because HEAD moved under it (`5655123c` → `06d00fb6`, star-lord's MIGRATION). It is kept in `s47v4-5655123c/`.
+- **The covering run is star-lord's:** ORACLE BYTE-IDENTICAL at the quiet HEAD `5655123c`, per conductor KP-374.
+
+**Bulk:** `/Users/admin/Games/join3a-bulk-evidence/GM-0-5655123c/`.
