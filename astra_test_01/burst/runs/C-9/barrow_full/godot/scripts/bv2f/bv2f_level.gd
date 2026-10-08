@@ -63,6 +63,7 @@ func _class_mat(cls: String) -> ShaderMaterial:
 
 var _groups := {}
 var _cur_collider := ""
+var _cur_tilt := Vector3.ZERO
 
 
 func _xf_to(root: Node3D, n: Node3D) -> Transform3D:
@@ -211,6 +212,9 @@ func _build_ground() -> void:
 	_mesh(SV, SN, _class_mat("sea"), "mesh", sroot)
 	_register("ground_sea", sroot, "sea", "ground")
 	_hf = H
+	if hf.has("walk_file"):
+		# R-C9-214: inside the carved section the walk height is the carved rock's (the cave floor, the landing, the treads)
+		_hf = FileAccess.get_file_as_bytes(BV2F_DATA + String(hf["walk_file"])).to_float32_array()
 	_hf_rows = hrows
 	_hf_cols = hcols
 	_hf_ppm = hppm
@@ -355,7 +359,14 @@ func _place_box(id: String, cls: String, model: Node3D, pos: Vector2, z: float, 
 	var holder := Node3D.new()
 	holder.name = id
 	var sc := Vector3(size.x / maxf(ab.size.x, 1e-3), size.y / maxf(ab.size.y, 1e-3), size.z / maxf(ab.size.z, 1e-3))
-	holder.transform = Transform3D(Basis(Vector3.UP, deg_to_rad(yaw_deg)) * Basis.from_scale(sc), _S(pos.x, z, pos.y))
+	var tilt_b := Basis.IDENTITY
+	if _cur_tilt != Vector3.ZERO:
+		# P6' 6c00e6d53: a fallen stone lies on the slope -- its up turned to the ground's normal about the holder origin
+		var nn := _cur_tilt.normalized()
+		var ax := Vector3.UP.cross(nn)
+		if ax.length() > 1e-5:
+			tilt_b = Basis(ax.normalized(), acos(clampf(Vector3.UP.dot(nn), -1.0, 1.0)))
+	holder.transform = Transform3D(tilt_b * Basis(Vector3.UP, deg_to_rad(yaw_deg)) * Basis.from_scale(sc), _S(pos.x, z, pos.y))
 	holder.set_meta("bv2f_fit", {"slot": group if group != "" else id, "instance": id, "kind": "box", "fit_scale_xyz": [sc.x, sc.y, sc.z],
 		"model_aabb_m": [ab.size.x, ab.size.y, ab.size.z], "slot_size_m": [size.x, size.y, size.z]})
 	model.position = -(ab.position + Vector3(ab.size.x / 2.0, 0.0, ab.size.z / 2.0))
@@ -537,6 +548,7 @@ func _build_placements() -> void:
 				node2 = wrap
 			var iid := "%s_%d" % [sid, n]
 			_cur_collider = String(ins.get("collider", ""))
+			_cur_tilt = Vector3.ZERO if not ins.has("tilt_up_local") else Vector3(float(ins["tilt_up_local"][0]), float(ins["tilt_up_local"][1]), float(ins["tilt_up_local"][2]))
 			if String(ins["type"]) == "box":
 				var ip := Vector2(float(ins["pos"][0]), float(ins["pos"][1]))
 				var s3 := Vector3(float(ins["size_m"][0]), float(ins["size_m"][2]), float(ins["size_m"][1]))
@@ -548,9 +560,11 @@ func _build_placements() -> void:
 			model_report["loaded"] += 1
 			n += 1
 	_cur_collider = ""
+	_cur_tilt = Vector3.ZERO
 	_build_stair()
 	_build_slabs()
 	_build_ribbons()
+	_build_carved()
 	_build_blobs()
 	_build_curtains()
 	_build_probes()
@@ -1074,3 +1088,40 @@ func _build_ribbons() -> void:
 		_register(String(gid), root, cls, "ribbon")
 		rep[gid] = (g["items"] as Array).size()
 	report["ribbons"] = rep
+
+
+func _build_carved() -> void:
+	## R-C9-212/213/214: the cave section CARVED from one rock mass -- one mesh per guide class (rock, wet_rock, rime,
+	## tide_ice, snow, passage_dark), already in the Level node's local frame with welded smooth normals; ONE concave
+	## collider of all of it (the walk surface on the landing, in the cave, along the groove's walls, on the clifftop)
+	var cv: Dictionary = (sim.get("carved", {}) as Dictionary).get("files", {})
+	if cv.is_empty():
+		return
+	var body := _body(level, "carved_body")
+	var allf := PackedVector3Array()
+	var rep := {}
+	for cname in cv.keys():
+		var raw := FileAccess.get_file_as_bytes(BV2F_DATA + String(cv[cname]["file"])).to_float32_array()
+		var n := raw.size() / 6
+		var V := PackedVector3Array()
+		var N := PackedVector3Array()
+		V.resize(n)
+		N.resize(n)
+		for i in n:
+			V[i] = Vector3(raw[i * 6], raw[i * 6 + 1], raw[i * 6 + 2])
+			N[i] = Vector3(raw[i * 6 + 3], raw[i * 6 + 4], raw[i * 6 + 5])
+		allf.append_array(V)
+		var root := Node3D.new()
+		root.name = "carved_" + String(cname)
+		_mesh(V, N, _class_mat(String(cname)), "mesh", root)
+		level.add_child(root)
+		_dress(root, String(cname))
+		_register("carved_" + String(cname), root, String(cname), "carved")
+		rep[cname] = n / 3
+	var cp := ConcavePolygonShape3D.new()
+	cp.backface_collision = true                      # the carved faces are wound for drawing; a body meets them from either side
+	cp.set_faces(allf)
+	var cs := CollisionShape3D.new()
+	cs.shape = cp
+	body.add_child(cs)
+	report["carved"] = rep

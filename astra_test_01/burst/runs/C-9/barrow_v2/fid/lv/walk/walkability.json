@@ -15,41 +15,41 @@
  },
  "segments": {
   "cave": {
-   "samples": 60,
-   "walkable": 60,
+   "samples": 61,
+   "walkable": 61,
    "max_slope_deg": 0.0,
    "max_dz_m": 0.0,
    "z": [
     -3.5,
     -3.5
    ],
-   "min_headroom_m": 4.85378003120422
+   "min_headroom_m": 5.12675166130066
   },
   "shelf": {
-   "samples": 251,
-   "walkable": 251,
-   "max_slope_deg": 5.09396871281594,
-   "max_dz_m": 0.018991470336910066,
+   "samples": 172,
+   "walkable": 172,
+   "max_slope_deg": 0.0,
+   "max_dz_m": 0.019285202026369852,
    "z": [
-    -3.52879095077515,
-    -3.46244406700134
+    -3.5,
+    -3.5
    ],
    "min_headroom_m": 15.0
   },
   "stair": {
-   "samples": 183,
-   "walkable": 183,
+   "samples": 184,
+   "walkable": 184,
    "max_slope_deg": 33.340700131848,
-   "max_dz_m": 0.03290414810180997,
+   "max_dz_m": 0.03290319442748979,
    "z": [
-    -3.48100852966309,
-    2.49999785423279
+    -3.48071479797363,
+    2.5
    ],
    "min_headroom_m": 15.0
   },
   "landing": {
-   "samples": 97,
-   "walkable": 97,
+   "samples": 85,
+   "walkable": 85,
    "max_slope_deg": 0.0,
    "max_dz_m": 0.0,
    "z": [
@@ -59,8 +59,8 @@
    "min_headroom_m": 15.0
   },
   "clifftop": {
-   "samples": 47,
-   "walkable": 47,
+   "samples": 37,
+   "walkable": 37,
    "max_slope_deg": 0.0,
    "max_dz_m": 0.0,
    "z": [
@@ -75,240 +75,208 @@
   {
    "id": "stair_00",
    "kind": "stair",
-   "surface_width_m": 5.4,
-   "free_between_colliders_m": 5.5,
-   "clear_width_m": 5.4,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.13,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_01",
    "kind": "stair",
-   "surface_width_m": 5.4,
-   "free_between_colliders_m": 5.54,
-   "clear_width_m": 5.4,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.05,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_02",
    "kind": "stair",
-   "surface_width_m": 5.4,
-   "free_between_colliders_m": 5.57,
-   "clear_width_m": 5.4,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.04,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_03",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 5.63,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.08,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_04",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 5.66,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.45,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_05",
    "kind": "stair",
-   "surface_width_m": 5.45,
-   "free_between_colliders_m": 5.67,
-   "clear_width_m": 5.45,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.21,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_06",
    "kind": "stair",
-   "surface_width_m": 5.55,
-   "free_between_colliders_m": 5.75,
-   "clear_width_m": 5.55,
+   "surface_width_m": 5.25,
+   "free_between_colliders_m": 6.02,
+   "clear_width_m": 5.25,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_07",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 5.82,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.14,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_08",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 5.71,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.25,
+   "free_between_colliders_m": 5.8,
+   "clear_width_m": 5.25,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_09",
    "kind": "stair",
-   "surface_width_m": 5.45,
-   "free_between_colliders_m": 5.91,
-   "clear_width_m": 5.45,
+   "surface_width_m": 5.25,
+   "free_between_colliders_m": 6.33,
+   "clear_width_m": 5.25,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_10",
    "kind": "stair",
-   "surface_width_m": 5.55,
-   "free_between_colliders_m": 5.87,
-   "clear_width_m": 5.55,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.04,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_11",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 5.66,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.4,
+   "free_between_colliders_m": 6.19,
+   "clear_width_m": 5.4,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_12",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 5.74,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.05,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_13",
    "kind": "stair",
-   "surface_width_m": 5.45,
-   "free_between_colliders_m": 5.65,
-   "clear_width_m": 5.45,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.02,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_14",
    "kind": "stair",
-   "surface_width_m": 5.55,
-   "free_between_colliders_m": 6.07,
-   "clear_width_m": 5.55,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.11,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_15",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 6.18,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 6.25,
+   "clear_width_m": 5.35,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_16",
    "kind": "stair",
-   "surface_width_m": 5.5,
-   "free_between_colliders_m": 6.3,
-   "clear_width_m": 5.5,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 6.65,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "shelf_00",
    "kind": "shelf",
-   "surface_width_m": 8.25,
-   "free_between_colliders_m": 8.24,
-   "clear_width_m": 8.24,
-   "min_headroom_m": 0.52
+   "surface_width_m": 5.6,
+   "free_between_colliders_m": 6.42,
+   "clear_width_m": 5.6,
+   "min_headroom_m": 4.04
   },
   {
    "id": "shelf_01",
    "kind": "shelf",
-   "surface_width_m": 6.25,
-   "free_between_colliders_m": 7.35,
-   "clear_width_m": 6.25,
-   "min_headroom_m": 15.0
+   "surface_width_m": 6.2,
+   "free_between_colliders_m": 6.45,
+   "clear_width_m": 6.2,
+   "min_headroom_m": 2.15
   },
   {
    "id": "shelf_02",
    "kind": "shelf",
-   "surface_width_m": 7.85,
-   "free_between_colliders_m": 7.9,
-   "clear_width_m": 7.85,
-   "min_headroom_m": 0.18
+   "surface_width_m": 6.0,
+   "free_between_colliders_m": 6.03,
+   "clear_width_m": 6.0,
+   "min_headroom_m": 1.33
   },
   {
    "id": "shelf_03",
    "kind": "shelf",
-   "surface_width_m": 6.8,
-   "free_between_colliders_m": 7.62,
-   "clear_width_m": 6.8,
-   "min_headroom_m": 15.0
+   "surface_width_m": 6.4,
+   "free_between_colliders_m": 6.55,
+   "clear_width_m": 6.4,
+   "min_headroom_m": 1.72
   },
   {
    "id": "shelf_04",
    "kind": "shelf",
-   "surface_width_m": 7.3,
-   "free_between_colliders_m": 7.42,
-   "clear_width_m": 7.3,
-   "min_headroom_m": 1.71
-  },
-  {
-   "id": "shelf_05",
-   "kind": "shelf",
-   "surface_width_m": 7.75,
-   "free_between_colliders_m": 8.71,
-   "clear_width_m": 7.75,
-   "min_headroom_m": 6.8
-  },
-  {
-   "id": "shelf_06",
-   "kind": "shelf",
-   "surface_width_m": 7.4,
-   "free_between_colliders_m": 9.73,
-   "clear_width_m": 7.4,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "shelf_07",
-   "kind": "shelf",
-   "surface_width_m": 7.3,
-   "free_between_colliders_m": 8.03,
-   "clear_width_m": 7.3,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "shelf_08",
-   "kind": "shelf",
-   "surface_width_m": 8.4,
-   "free_between_colliders_m": 8.82,
-   "clear_width_m": 8.4,
-   "min_headroom_m": 0.55
+   "surface_width_m": 6.05,
+   "free_between_colliders_m": 6.54,
+   "clear_width_m": 6.05,
+   "min_headroom_m": 4.75
   },
   {
    "id": "cave_mouth",
    "kind": "cave",
-   "surface_width_m": 8.2,
-   "free_between_colliders_m": 4.67,
-   "clear_width_m": 4.67,
-   "min_headroom_m": 0.33
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.45,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 1.97
   }
  ],
  "drive": {
   "reached_last_waypoint": true,
-  "time_s": 20.967,
-  "frames": 1258,
+  "time_s": 18.1,
+  "frames": 1086,
   "stuck_3s": false,
   "end_uv": [
-   7.33190822601318,
-   -15.828275680542
+   8.11617660522461,
+   -9.9547176361084
   ],
-  "end_z": 2.50084018707275
+  "end_z": 2.5008556842804
  },
  "drive_frames_off_floor": 0,
  "drive_z_range": [
-  -3.529,
+  -3.499,
   2.501
  ],
  "bars": [
   {
    "bar": "continuous walk surface, cave -> clifftop (every 0.05 m)",
-   "measured": "638 of 638 centreline samples walkable; 0 breaks",
+   "measured": "539 of 539 centreline samples walkable; 0 breaks",
    "pass": true
   },
   {
@@ -317,8 +285,8 @@
    "pass": true
   },
   {
-   "bar": "shelf slope <= 10 deg",
-   "measured": "5.09 deg",
+   "bar": "iced landing (cut in the cove) slope <= 10 deg",
+   "measured": "0.00 deg",
    "pass": true
   },
   {
@@ -328,22 +296,22 @@
   },
   {
    "bar": "stair clear width >= 5 m",
-   "measured": "min 5.40 m over 17 sections",
+   "measured": "min 5.25 m over 17 sections",
    "pass": true
   },
   {
-   "bar": "shelf clear width >= 6 m",
-   "measured": "min 6.25 m over 9 sections",
+   "bar": "iced landing clear depth >= 5 m (cave mouth -> stair foot)",
+   "measured": "min 5.60 m over 5 sections",
    "pass": true
   },
   {
    "bar": "cave mouth clear height ~7 m",
-   "measured": "7.40 m at the arch's lip (the first centreline sample under the roof); 4.85 m deeper in; the floor 4.67 m clear across 1 m inside",
+   "measured": "7.18 m at the arch's lip (the first centreline sample under the roof); 5.13 m deeper in; the floor 5.35 m clear across 1 m inside",
    "pass": true
   },
   {
    "bar": "v1's knight driven from inside the cave to the clifftop",
-   "measured": "reached True in 21.0 s (1258 frames, 0 off the floor); ends at uv (7.33, -15.83) z 2.50",
+   "measured": "reached True in 18.1 s (1086 frames, 0 off the floor); ends at uv (8.12, -9.95) z 2.50",
    "pass": true
   }
  ],

@@ -23,7 +23,11 @@ S = [("01_coast_west", (-17.0, -8.0), (-12.0, -1.0), -2.0, "the W coast: the pla
      ("07_pack_ice", (-22.0, -17.0), (-12.0, -1.5), -4.2, "the sea: broken pack -- plates of every size, rims, pressure ridges, brash, dark leads (~2/3 ice)", (-22.0, -17.0, -4.2)),
      ("08_start", (0.0, -1.5), (0.0, 0.0), 0.0, "the start in the broken stone ring (unchanged)", (0.0, -1.5, 0.0)),
      ("09_stair_cave_close", mid(RP["cave_mouth"], RP["stair_foot"], 0.5), RP["shelf_mid"], -2.0, "close: the cave arch in its headland and the rock-cut stair across the face beside it (R-C9-208)",
-      (RP["cave_mouth"][0], RP["cave_mouth"][1], -3.5))]
+      (RP["cave_mouth"][0], RP["cave_mouth"][1], -3.5)),
+     ("10_cove_wide", mid(RP["cave_mouth"], RP["stair_top"], 0.4), (RP["cave_mouth"][0] + 6.0, RP["cave_mouth"][1] + 6.0), -1.0, "wide: the sea-cut cove, the cave, the iced landing and the stair groove in the existing cliff (R-C9-214)",
+      (RP["cave_mouth"][0], RP["cave_mouth"][1], -3.5)),
+     ("11_mere_sea", (-27.0, 12.0), (-20.0, 6.0), -1.5, "the mere turning into the sea through one graded ice field, reed islands (R-C9-221)", (-27.0, 12.0, -1.5)),
+     ("12_river", (-23.8, 18.5), (-18.0, 15.5), 0.0, "the river down the coast into the mere, a narrow ribbon of cracked ice (R-C9-222/223); the larger kerbed barrow", (-23.8, 18.5, 0.0))]
 spec = []
 for n, aim, him, h, what, sk in S:
     spec.append({"name": n, "uv": [round(him[0], 3), round(him[1], 3)], "aim_uv": [round(aim[0], 3), round(aim[1], 3)], "aim_h": h, "facing": "S",

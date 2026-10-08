@@ -140,6 +140,26 @@
    0.47,
    0.44,
    0.42
+  ],
+  "tide_ice": [
+   0.74,
+   0.82,
+   0.87
+  ],
+  "wet_rock": [
+   0.36,
+   0.37,
+   0.39
+  ],
+  "rime": [
+   0.9,
+   0.93,
+   0.96
+  ],
+  "ice_mid": [
+   0.75,
+   0.822,
+   0.88
   ]
  },
  "levels_m": {
@@ -164,282 +184,326 @@
  "regions": {
   "mere_outline": [
    [
-    -5.559,
-    14.6
+    -1.041,
+    12.2
    ],
    [
-    -5.761,
-    15.043
+    -1.3,
+    12.902
    ],
    [
-    -6.01,
-    15.473
+    -1.605,
+    13.582
    ],
    [
-    -6.288,
-    15.892
+    -1.935,
+    14.247
    ],
    [
-    -6.607,
-    16.304
+    -2.293,
+    14.901
    ],
    [
-    -6.999,
-    16.703
+    -2.706,
+    15.544
    ],
    [
-    -7.5,
-    17.076
+    -3.215,
+    16.161
    ],
    [
-    -8.138,
-    17.401
+    -3.856,
+    16.731
    ],
    [
-    -8.915,
-    17.658
+    -4.653,
+    17.224
    ],
    [
-    -9.803,
-    17.831
+    -5.603,
+    17.609
    ],
    [
-    -10.752,
-    17.919
+    -6.678,
+    17.868
    ],
    [
-    -11.701,
-    17.937
+    -7.824,
+    17.997
    ],
    [
-    -12.598,
-    17.915
+    -8.98,
+    18.013
    ],
    [
-    -13.417,
-    17.892
+    -10.086,
+    17.955
    ],
    [
-    -14.162,
-    17.907
+    -11.103,
+    17.874
    ],
    [
-    -14.871,
-    17.984
+    -12.02,
+    17.827
    ],
    [
-    -15.6,
-    18.132
+    -12.858,
+    17.862
    ],
    [
-    -16.404,
-    18.333
+    -13.664,
+    18.009
    ],
    [
-    -17.318,
-    18.552
+    -14.5,
+    18.273
    ],
    [
-    -18.347,
-    18.742
+    -15.425,
+    18.628
    ],
    [
-    -19.455,
-    18.858
+    -16.48,
+    19.027
    ],
    [
-    -20.581,
-    18.863
+    -17.675,
+    19.405
    ],
    [
-    -21.65,
-    18.742
+    -18.986,
+    19.694
    ],
    [
-    -22.595,
-    18.499
+    -20.359,
+    19.839
    ],
    [
-    -23.373,
-    18.156
+    -21.719,
+    19.802
    ],
    [
-    -23.974,
-    17.744
+    -22.988,
+    19.57
    ],
    [
-    -24.419,
-    17.295
+    -24.103,
+    19.158
    ],
    [
-    -24.745,
-    16.836
+    -25.024,
+    18.599
    ],
    [
-    -24.994,
-    16.38
+    -25.744,
+    17.936
    ],
    [
-    -25.192,
-    15.931
+    -26.283,
+    17.216
    ],
    [
-    -25.341,
-    15.486
+    -26.681,
+    16.476
    ],
    [
-    -25.418,
-    15.042
+    -26.983,
+    15.739
    ],
    [
-    -25.387,
-    14.6
+    -27.226,
+    15.016
    ],
    [
-    -25.211,
-    14.167
+    -27.424,
+    14.306
    ],
    [
-    -24.87,
-    13.756
+    -27.571,
+    13.601
    ],
    [
-    -24.374,
-    13.382
+    -27.635,
+    12.899
    ],
    [
-    -23.76,
-    13.054
+    -27.579,
+    12.2
    ],
    [
-    -23.086,
-    12.769
+    -27.362,
+    11.516
    ],
    [
-    -22.415,
-    12.517
+    -26.964,
+    10.864
    ],
    [
-    -21.796,
-    12.274
+    -26.388,
+    10.263
    ],
    [
-    -21.248,
-    12.017
+    -25.664,
+    9.729
    ],
    [
-    -20.757,
-    11.726
+    -24.849,
+    9.266
    ],
    [
-    -20.28,
-    11.396
+    -24.007,
+    8.863
    ],
    [
-    -19.761,
-    11.039
+    -23.202,
+    8.495
    ],
    [
-    -19.147,
-    10.683
+    -22.476,
+    8.131
    ],
    [
-    -18.407,
-    10.367
+    -21.844,
+    7.735
    ],
    [
-    -17.543,
-    10.131
+    -21.289,
+    7.281
    ],
    [
-    -16.589,
-    10.006
+    -20.767,
+    6.759
    ],
    [
-    -15.6,
+    -20.216,
+    6.181
+   ],
+   [
+    -19.576,
+    5.581
+   ],
+   [
+    -18.804,
+    5.01
+   ],
+   [
+    -17.883,
+    4.523
+   ],
+   [
+    -16.828,
+    4.174
+   ],
+   [
+    -15.68,
+    3.998
+   ],
+   [
+    -14.5,
+    4.008
+   ],
+   [
+    -13.347,
+    4.19
+   ],
+   [
+    -12.269,
+    4.507
+   ],
+   [
+    -11.286,
+    4.908
+   ],
+   [
+    -10.392,
+    5.338
+   ],
+   [
+    -9.553,
+    5.75
+   ],
+   [
+    -8.723,
+    6.116
+   ],
+   [
+    -7.855,
+    6.43
+   ],
+   [
+    -6.918,
+    6.706
+   ],
+   [
+    -5.909,
+    6.977
+   ],
+   [
+    -4.855,
+    7.279
+   ],
+   [
+    -3.809,
+    7.648
+   ],
+   [
+    -2.84,
+    8.107
+   ],
+   [
+    -2.019,
+    8.661
+   ],
+   [
+    -1.399,
+    9.301
+   ],
+   [
+    -1.008,
     10.002
    ],
    [
-    -14.634,
-    10.113
+    -0.843,
+    10.736
    ],
    [
-    -13.735,
-    10.31
-   ],
-   [
-    -12.918,
-    10.556
-   ],
-   [
-    -12.171,
-    10.813
-   ],
-   [
-    -11.456,
-    11.053
-   ],
-   [
-    -10.727,
-    11.264
-   ],
-   [
-    -9.951,
-    11.451
-   ],
-   [
-    -9.119,
-    11.635
-   ],
-   [
-    -8.257,
-    11.843
-   ],
-   [
-    -7.416,
-    12.099
-   ],
-   [
-    -6.665,
-    12.415
-   ],
-   [
-    -6.066,
-    12.794
-   ],
-   [
-    -5.662,
-    13.221
-   ],
-   [
-    -5.461,
-    13.677
-   ],
-   [
-    -5.442,
-    14.142
+    -0.87,
+    11.475
    ]
   ],
   "stream": [
    [
-    -5.0,
-    20.6
+    -3.6,
+    21.6
    ],
    [
-    -5.4,
+    -4.2,
+    20.8
+   ],
+   [
+    -5.0,
+    20.3
+   ],
+   [
+    -5.3,
     19.4
    ],
    [
-    -6.6,
-    17.9
+    -6.2,
+    18.8
+   ],
+   [
+    -7.2,
+    18.4
    ],
    [
     -8.0,
-    16.6
+    17.6
    ],
    [
-    -9.0,
-    15.8
+    -9.2,
+    17.0
    ]
   ],
   "shore_chain": [
@@ -971,14 +1035,14 @@
   ],
   "mound": {
    "centre_uv": [
-    2.083,
-    24.118
+    2.0,
+    27.981
    ],
    "semi_m": [
-    15.0,
-    8.5
+    17.0,
+    10.4
    ],
-   "rise_m": 5.5
+   "rise_m": 6.5
   },
   "hall_yard_ash": [
    [
@@ -1019,7 +1083,7 @@
    "bobbing_floes": 8
   },
   "mere_plates": 0,
-  "stream_ice_pieces": 4
+  "stream_ice_pieces": 0
  },
  "placements": [
   {
@@ -1060,22 +1124,22 @@
    "kind": "model",
    "glb": "data/bv2f/models/barrow.glb",
    "uv": [
-    1.5833,
-    19.4525
+    2.0,
+    22.3603
    ],
    "z": 0.0,
    "facing_uv": [
     0.0,
     -1.0
    ],
-   "scale": 0.44961,
+   "scale": 0.5814,
    "lying": false,
    "size_m": {
-    "w": 11.6,
-    "d": 8.114,
-    "h": 5.869
+    "w": 15.0,
+    "d": 10.492,
+    "h": 7.59
    },
-   "note": "the monumental carved door; door 2.61 x 3.00 m"
+   "note": "the monumental carved door; door 3.38 x 3.88 m"
   },
   {
    "id": "longhall",
@@ -1135,7 +1199,7 @@
     -7.5,
     21.5081
    ],
-   "z": 3.596,
+   "z": 3.622,
    "facing_uv": [
     0.7508,
     -0.6605
@@ -1154,22 +1218,22 @@
    "piece": "slope_stone_1",
    "class": "rock",
    "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
    "uv": [
-    -10.8333,
-    18.1149
+    6.0417,
+    14.1996
    ],
-   "z": -0.14,
+   "z": -0.1,
    "facing_uv": [
     0.2002,
     -0.9798
    ],
-   "scale": 1.79827,
+   "scale": 2.19677,
    "lying": false,
    "size_m": {
-    "w": 0.765,
-    "d": 1.07,
-    "h": 1.8
+    "w": 0.843,
+    "d": 1.187,
+    "h": 2.2
    },
    "note": ""
   },
@@ -1180,8 +1244,8 @@
    "kind": "model",
    "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
    "uv": [
-    -3.75,
-    13.9385
+    13.75,
+    17.0708
    ],
    "z": -0.1,
    "facing_uv": [
@@ -1204,61 +1268,13 @@
    "kind": "model",
    "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
    "uv": [
-    6.0417,
-    14.1996
-   ],
-   "z": -0.1,
-   "facing_uv": [
-    0.3415,
-    -0.9399
-   ],
-   "scale": 2.19677,
-   "lying": false,
-   "size_m": {
-    "w": 0.843,
-    "d": 1.187,
-    "h": 2.2
-   },
-   "note": ""
-  },
-  {
-   "id": "slope_stone_4",
-   "piece": "slope_stone_4",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
-   "uv": [
-    13.75,
-    17.0708
-   ],
-   "z": -0.1,
-   "facing_uv": [
-    0.6413,
-    -0.7673
-   ],
-   "scale": 1.99808,
-   "lying": false,
-   "size_m": {
-    "w": 0.85,
-    "d": 1.189,
-    "h": 2.0
-   },
-   "note": ""
-  },
-  {
-   "id": "slope_stone_5",
-   "piece": "slope_stone_5",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
     17.0833,
     18.8979
    ],
    "z": -0.054,
    "facing_uv": [
-    -0.7931,
-    -0.6091
+    0.3415,
+    -0.9399
    ],
    "scale": 2.29663,
    "lying": false,
@@ -1270,91 +1286,19 @@
    "note": ""
   },
   {
-   "id": "slope_stone_6",
-   "piece": "slope_stone_6",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_short.glb",
-   "uv": [
-    -16.6667,
-    4.5418
-   ],
-   "z": -0.328,
-   "facing_uv": [
-    -0.1383,
-    -0.9904
-   ],
-   "scale": 1.56319,
-   "lying": false,
-   "size_m": {
-    "w": 1.099,
-    "d": 1.562,
-    "h": 1.4
-   },
-   "note": ""
-  },
-  {
-   "id": "stone_0",
-   "piece": "stone_0",
+   "id": "kerb_stone_0",
+   "piece": "kerb_stone_0",
    "class": "rock",
    "kind": "model",
    "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
    "uv": [
-    -3.75,
-    -0.1566
+    -15.4754,
+    27.3089
    ],
-   "z": 2.759,
+   "z": 0.043,
    "facing_uv": [
-    0.0,
-    -1.0
-   ],
-   "scale": 2.19677,
-   "lying": false,
-   "size_m": {
-    "w": 0.843,
-    "d": 1.187,
-    "h": 2.2
-   },
-   "note": ""
-  },
-  {
-   "id": "stone_1",
-   "piece": "stone_1",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
-   "uv": [
-    -2.4167,
-    -2.7668
-   ],
-   "z": 4.471,
-   "facing_uv": [
-    0.6524,
-    -0.7579
-   ],
-   "scale": 1.69836,
-   "lying": false,
-   "size_m": {
-    "w": 0.722,
-    "d": 1.011,
-    "h": 1.7
-   },
-   "note": ""
-  },
-  {
-   "id": "stone_2",
-   "piece": "stone_2",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
-    0.0,
-    3.4977
-   ],
-   "z": 1.701,
-   "facing_uv": [
-    -0.954,
-    -0.2997
+    -0.9948,
+    -0.1023
    ],
    "scale": 1.89721,
    "lying": false,
@@ -1363,127 +1307,271 @@
     "d": 1.025,
     "h": 1.9
    },
-   "note": ""
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_1",
+   "piece": "kerb_stone_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    -14.3281,
+    24.1127
+   ],
+   "z": 0.107,
+   "facing_uv": [
+    -0.8449,
+    -0.5349
+   ],
+   "scale": 1.49856,
+   "lying": false,
+   "size_m": {
+    "w": 0.637,
+    "d": 0.892,
+    "h": 1.5
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_2",
+   "piece": "kerb_stone_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    -11.9574,
+    21.5132
+   ],
+   "z": -0.045,
+   "facing_uv": [
+    -0.6283,
+    -0.778
+   ],
+   "scale": 1.69836,
+   "lying": false,
+   "size_m": {
+    "w": 0.722,
+    "d": 1.011,
+    "h": 1.7
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_3",
+   "piece": "kerb_stone_3",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    -9.0097,
+    19.6519
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    -0.4434,
+    -0.8963
+   ],
+   "scale": 1.89721,
+   "lying": false,
+   "size_m": {
+    "w": 0.728,
+    "d": 1.025,
+    "h": 1.9
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_10",
+   "piece": "kerb_stone_10",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    13.3548,
+    19.8271
+   ],
+   "z": -0.099,
+   "facing_uv": [
+    0.4621,
+    -0.8868
+   ],
+   "scale": 1.49856,
+   "lying": false,
+   "size_m": {
+    "w": 0.637,
+    "d": 0.892,
+    "h": 1.5
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_11",
+   "piece": "kerb_stone_11",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    15.9824,
+    21.5334
+   ],
+   "z": -0.024,
+   "facing_uv": [
+    0.6302,
+    -0.7765
+   ],
+   "scale": 1.69836,
+   "lying": false,
+   "size_m": {
+    "w": 0.722,
+    "d": 1.011,
+    "h": 1.7
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_12",
+   "piece": "kerb_stone_12",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    18.1064,
+    23.7792
+   ],
+   "z": 0.094,
+   "facing_uv": [
+    0.8203,
+    -0.5719
+   ],
+   "scale": 1.89721,
+   "lying": false,
+   "size_m": {
+    "w": 0.728,
+    "d": 1.025,
+    "h": 1.9
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_13",
+   "piece": "kerb_stone_13",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    19.3651,
+    26.6065
+   ],
+   "z": 0.061,
+   "facing_uv": [
+    0.9783,
+    -0.207
+   ],
+   "scale": 1.49856,
+   "lying": false,
+   "size_m": {
+    "w": 0.637,
+    "d": 0.892,
+    "h": 1.5
+   },
+   "note": "R-C9-222: the barrow's kerb"
+  },
+  {
+   "id": "stone_0",
+   "piece": "stone_0",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    -3.6314,
+    -0.1507
+   ],
+   "z": 4.594,
+   "facing_uv": [
+    0.9987,
+    0.0501
+   ],
+   "scale": 2.19677,
+   "lying": false,
+   "size_m": {
+    "w": 0.843,
+    "d": 1.187,
+    "h": 2.2
+   },
+   "note": "R-C9-216: standing, ring position 0"
+  },
+  {
+   "id": "stone_1",
+   "piece": "stone_1",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    -1.6581,
+    -3.2046
+   ],
+   "z": 5.499,
+   "facing_uv": [
+    0.456,
+    0.89
+   ],
+   "scale": 1.89817,
+   "lying": false,
+   "size_m": {
+    "w": 0.807,
+    "d": 1.13,
+    "h": 1.9
+   },
+   "note": "R-C9-216: standing, ring position 1"
   },
   {
    "id": "stone_3",
    "piece": "stone_3",
    "class": "rock",
    "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
    "uv": [
-    3.4167,
-    1.6705
+    3.6314,
+    0.2133
    ],
-   "z": 1.462,
+   "z": 2.379,
    "facing_uv": [
-    0.4949,
-    -0.869
+    -0.9987,
+    -0.0501
    ],
-   "scale": 2.09798,
+   "scale": 2.09692,
    "lying": false,
    "size_m": {
-    "w": 0.892,
-    "d": 1.249,
+    "w": 0.805,
+    "d": 1.133,
     "h": 2.1
    },
-   "note": ""
+   "note": "R-C9-216: standing, ring position 3"
   },
   {
    "id": "stone_4",
    "piece": "stone_4",
    "class": "rock",
    "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
    "uv": [
-    2.75,
-    -2.0882
+    1.6581,
+    3.2672
    ],
-   "z": 3.539,
+   "z": 0.782,
    "facing_uv": [
-    0.1864,
-    -0.9825
+    -0.456,
+    -0.89
    ],
-   "scale": 1.99707,
+   "scale": 1.99808,
    "lying": false,
    "size_m": {
-    "w": 0.766,
-    "d": 1.079,
+    "w": 0.85,
+    "d": 1.189,
     "h": 2.0
    },
-   "note": ""
-  },
-  {
-   "id": "fallen_stone_0",
-   "piece": "fallen_stone_0",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
-    -1.5833,
-    1.4095
-   ],
-   "z": 3.366,
-   "facing_uv": [
-    0.4226,
-    -0.9063
-   ],
-   "scale": 1.39795,
-   "lying": true,
-   "size_m": {
-    "w": 1.4,
-    "d": 0.755,
-    "h": 0.536
-   },
-   "note": "P6' 761a48353: seated on the terrain surface (top ~0.12 m proud of the ground)"
-  },
-  {
-   "id": "fallen_stone_1",
-   "piece": "fallen_stone_1",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
-    1.0417,
-    -3.1323
-   ],
-   "z": 5.127,
-   "facing_uv": [
-    -0.2588,
-    -0.9659
-   ],
-   "scale": 1.39795,
-   "lying": true,
-   "size_m": {
-    "w": 1.4,
-    "d": 0.755,
-    "h": 0.536
-   },
-   "note": "P6' 761a48353: seated on the terrain surface (top ~0.12 m proud of the ground)"
-  },
-  {
-   "id": "fallen_stone_2",
-   "piece": "fallen_stone_2",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
-    2.0833,
-    -4.333
-   ],
-   "z": 4.324,
-   "facing_uv": [
-    0.866,
-    -0.5
-   ],
-   "scale": 1.39795,
-   "lying": true,
-   "size_m": {
-    "w": 1.4,
-    "d": 0.755,
-    "h": 0.536
-   },
-   "note": "P6' 761a48353: seated on the terrain surface (top ~0.12 m proud of the ground)"
+   "note": "R-C9-216: standing, ring position 4"
   },
   {
    "id": "crag_0",
@@ -1540,22 +1628,22 @@
    "kind": "model",
    "glb": "data/bv2f/models/cliffcol.glb",
    "uv": [
-    10.422,
-    -17.948
+    7.9933,
+    -17.9651
    ],
    "z": -4.9,
    "facing_uv": [
-    0.3013,
-    -0.9535
+    -0.291,
+    -0.9567
    ],
-   "scale": 1.17641,
+   "scale": 1.23687,
    "lying": false,
    "size_m": {
-    "w": 10.588,
-    "d": 3.831,
-    "h": 7.982
+    "w": 11.132,
+    "d": 4.028,
+    "h": 8.393
    },
-   "note": "kit2 column: 7.6 m sea cliff (crest 3.1)"
+   "note": "kit2 column: 8.0 m sea cliff (crest 3.5)"
   },
   {
    "id": "talus_0",
@@ -1564,20 +1652,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    11.641,
-    -21.1151
+    7.4616,
+    -20.8516
    ],
-   "z": -4.759,
+   "z": -4.538,
    "facing_uv": [
-    0.9709,
-    -0.2394
+    -0.9076,
+    0.4197
    ],
-   "scale": 0.5084,
+   "scale": 0.30803,
    "lying": false,
    "size_m": {
-    "w": 1.525,
-    "d": 0.942,
-    "h": 1.862
+    "w": 0.924,
+    "d": 0.571,
+    "h": 1.128
    },
    "note": ""
   },
@@ -1588,22 +1676,46 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    13.2387,
-    -19.6994
+    7.8754,
+    -22.2697
    ],
-   "z": -4.773,
+   "z": -4.671,
    "facing_uv": [
-    -0.9971,
-    -0.076
+    0.5444,
+    0.8388
    ],
-   "scale": 0.52184,
+   "scale": 0.42838,
    "lying": false,
    "size_m": {
-    "w": 1.566,
-    "d": 0.967,
-    "h": 1.911
+    "w": 1.285,
+    "d": 0.794,
+    "h": 1.569
    },
    "note": ""
+  },
+  {
+   "id": "cliff_1",
+   "piece": "cliffcape",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffcape.glb",
+   "uv": [
+    15.9392,
+    -17.4878
+   ],
+   "z": -4.9,
+   "facing_uv": [
+    -0.4987,
+    -0.8668
+   ],
+   "scale": 1.30779,
+   "lying": false,
+   "size_m": {
+    "w": 10.462,
+    "d": 7.001,
+    "h": 7.951
+   },
+   "note": "kit2 cape: 7.6 m sea cliff (crest 3.1)"
   },
   {
    "id": "talus_2",
@@ -1612,46 +1724,46 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    12.9383,
-    -21.9934
+    14.7433,
+    -22.0218
    ],
-   "z": -4.581,
+   "z": -4.586,
    "facing_uv": [
-    -0.9885,
-    0.1512
+    0.8926,
+    -0.4509
    ],
-   "scale": 0.34694,
+   "scale": 0.35111,
    "lying": false,
    "size_m": {
-    "w": 1.041,
-    "d": 0.643,
-    "h": 1.271
+    "w": 1.053,
+    "d": 0.65,
+    "h": 1.286
    },
    "note": ""
   },
   {
-   "id": "cliff_1",
+   "id": "cliff_2",
    "piece": "cliffcol",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/cliffcol.glb",
    "uv": [
-    17.601,
-    -20.5962
+    20.6702,
+    -22.4938
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.6461,
-    -0.7633
+    -0.4322,
+    -0.9018
    ],
-   "scale": 1.19375,
+   "scale": 1.18622,
    "lying": false,
    "size_m": {
-    "w": 10.744,
-    "d": 3.888,
-    "h": 8.1
+    "w": 10.676,
+    "d": 3.863,
+    "h": 8.049
    },
-   "note": "kit2 column: 7.7 m sea cliff (crest 3.2)"
+   "note": "kit2 column: 7.6 m sea cliff (crest 3.1)"
   },
   {
    "id": "talus_3",
@@ -1660,20 +1772,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    13.2087,
-    -20.7157
+    20.4684,
+    -25.5164
    ],
-   "z": -4.734,
+   "z": -4.652,
    "facing_uv": [
-    0.2774,
-    -0.9607
+    0.9996,
+    -0.0283
    ],
-   "scale": 0.48583,
+   "scale": 0.41103,
    "lying": false,
    "size_m": {
-    "w": 1.457,
-    "d": 0.9,
-    "h": 1.779
+    "w": 1.233,
+    "d": 0.761,
+    "h": 1.505
    },
    "note": ""
   },
@@ -1684,46 +1796,46 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    13.7105,
-    -21.9981
+    21.713,
+    -24.8223
    ],
-   "z": -4.795,
+   "z": -4.489,
    "facing_uv": [
-    -0.0418,
-    0.9991
+    0.3161,
+    0.9487
    ],
-   "scale": 0.54135,
+   "scale": 0.26303,
    "lying": false,
    "size_m": {
-    "w": 1.624,
-    "d": 1.003,
-    "h": 1.983
+    "w": 0.789,
+    "d": 0.487,
+    "h": 0.963
    },
    "note": ""
   },
   {
-   "id": "cliff_2",
+   "id": "cliff_3",
    "piece": "cliffcape",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/cliffcape.glb",
    "uv": [
-    24.147,
-    -22.1034
+    28.1423,
+    -25.0992
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.4672,
-    -0.8842
+    -0.8039,
+    -0.5948
    ],
-   "scale": 1.39462,
+   "scale": 1.51076,
    "lying": false,
    "size_m": {
-    "w": 11.157,
-    "d": 7.466,
-    "h": 8.478
+    "w": 12.086,
+    "d": 8.087,
+    "h": 9.184
    },
-   "note": "kit2 cape: 8.1 m sea cliff (crest 3.6)"
+   "note": "kit2 cape: 8.8 m sea cliff (crest 4.3)"
   },
   {
    "id": "talus_5",
@@ -1732,46 +1844,22 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    24.2286,
-    -25.7756
+    25.7376,
+    -27.6303
    ],
-   "z": -4.421,
+   "z": -4.785,
    "facing_uv": [
-    0.7548,
-    0.656
+    -0.2349,
+    0.972
    ],
-   "scale": 0.20068,
+   "scale": 0.53238,
    "lying": false,
    "size_m": {
-    "w": 0.602,
-    "d": 0.372,
-    "h": 0.735
+    "w": 1.597,
+    "d": 0.986,
+    "h": 1.95
    },
    "note": ""
-  },
-  {
-   "id": "cliff_3",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    28.5745,
-    -29.3981
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.8999,
-    -0.436
-   ],
-   "scale": 1.36985,
-   "lying": false,
-   "size_m": {
-    "w": 12.329,
-    "d": 4.461,
-    "h": 9.295
-   },
-   "note": "kit2 column: 8.9 m sea cliff (crest 4.4)"
   },
   {
    "id": "talus_6",
@@ -1780,20 +1868,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    25.9456,
-    -30.8489
+    23.9947,
+    -30.4524
    ],
-   "z": -4.773,
+   "z": -4.588,
    "facing_uv": [
-    0.5565,
-    0.8308
+    -0.6052,
+    0.7961
    ],
-   "scale": 0.52137,
+   "scale": 0.35324,
    "lying": false,
    "size_m": {
-    "w": 1.564,
-    "d": 0.966,
-    "h": 1.91
+    "w": 1.06,
+    "d": 0.654,
+    "h": 1.294
    },
    "note": ""
   },
@@ -1804,22 +1892,22 @@
    "kind": "model",
    "glb": "data/bv2f/models/cliffcol.glb",
    "uv": [
-    33.2786,
-    -34.5229
+    31.0287,
+    -33.1768
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.2332,
-    -0.9724
+    -0.7217,
+    -0.6922
    ],
-   "scale": 1.33972,
+   "scale": 1.37699,
    "lying": false,
    "size_m": {
-    "w": 12.057,
-    "d": 4.363,
-    "h": 9.091
+    "w": 12.393,
+    "d": 4.484,
+    "h": 9.343
    },
-   "note": "kit2 column: 8.7 m sea cliff (crest 4.2)"
+   "note": "kit2 column: 8.9 m sea cliff (crest 4.4)"
   },
   {
    "id": "talus_7",
@@ -1828,20 +1916,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    33.402,
-    -37.9478
+    26.1584,
+    -36.15
    ],
-   "z": -4.568,
+   "z": -4.719,
    "facing_uv": [
-    -0.9964,
-    0.0843
+    -0.4816,
+    0.8764
    ],
-   "scale": 0.33499,
+   "scale": 0.47251,
    "lying": false,
    "size_m": {
-    "w": 1.005,
-    "d": 0.621,
-    "h": 1.227
+    "w": 1.418,
+    "d": 0.875,
+    "h": 1.731
    },
    "note": ""
   },
@@ -1852,548 +1940,140 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    31.0968,
-    -38.9513
+    29.7696,
+    -36.238
    ],
-   "z": -4.509,
+   "z": -4.574,
    "facing_uv": [
-    -0.3,
-    -0.9539
+    0.6028,
+    -0.7979
    ],
-   "scale": 0.281,
+   "scale": 0.34027,
    "lying": false,
    "size_m": {
-    "w": 0.843,
-    "d": 0.521,
-    "h": 1.029
+    "w": 1.021,
+    "d": 0.63,
+    "h": 1.246
    },
    "note": ""
   },
   {
-   "id": "cave_arch",
-   "piece": "cavearch",
+   "id": "talus_9",
+   "piece": "seastack",
    "class": "rock",
    "kind": "model",
-   "glb": "data/bv2f/models/cavearch.glb",
+   "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    -7.7594,
-    -5.5667
+    30.2404,
+    -35.8252
    ],
-   "z": -3.614,
+   "z": -4.415,
    "facing_uv": [
-    -0.5231,
-    -0.8523
+    0.814,
+    -0.5809
    ],
-   "scale": 1.13827,
+   "scale": 0.19529,
    "lying": false,
    "size_m": {
-    "w": 13.659,
-    "d": 7.32,
-    "h": 10.888
+    "w": 0.586,
+    "d": 0.362,
+    "h": 0.715
    },
-   "note": "kit2 cave arch: mouth 7.0 m clear over the shelf"
+   "note": ""
   },
   {
-   "id": "cliff_route_w",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -17.2891,
-    -1.1553
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 1.68007,
-   "lying": false,
-   "size_m": {
-    "w": 15.121,
-    "d": 5.471,
-    "h": 11.4
-   },
-   "note": "the headland's face beside the cave"
-  },
-  {
-   "id": "cliff_route_e",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -1.5064,
-    -11.1788
-   ],
-   "z": -3.7,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 1.50322,
-   "lying": false,
-   "size_m": {
-    "w": 13.529,
-    "d": 4.895,
-    "h": 10.2
-   },
-   "note": "the headland's face beside the cave"
-  },
-  {
-   "id": "cliff_head_0",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -22.049,
-    -0.8258
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 0.23138,
-   "lying": false,
-   "size_m": {
-    "w": 2.082,
-    "d": 0.753,
-    "h": 1.57
-   },
-   "note": "R-C9-212: the headland's face, rock kit"
-  },
-  {
-   "id": "cliff_head_1",
+   "id": "cliff_5",
    "piece": "cliffcape",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/cliffcape.glb",
    "uv": [
-    -20.7881,
-    -1.5937
+    37.8408,
+    -33.7117
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.4212,
-    -0.907
+    -0.0671,
+    -0.9977
    ],
-   "scale": 0.34304,
+   "scale": 1.37318,
    "lying": false,
    "size_m": {
-    "w": 2.744,
-    "d": 1.836,
-    "h": 2.085
+    "w": 10.985,
+    "d": 7.351,
+    "h": 8.348
    },
-   "note": "R-C9-212: the headland's face, rock kit"
+   "note": "kit2 cape: 7.9 m sea cliff (crest 3.4)"
   },
   {
-   "id": "cliff_head_2",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -18.7348,
-    -2.1926
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.4694,
-    -0.883
-   ],
-   "scale": 0.42801,
-   "lying": false,
-   "size_m": {
-    "w": 3.852,
-    "d": 1.394,
-    "h": 2.904
-   },
-   "note": "R-C9-212: the headland's face, rock kit"
-  },
-  {
-   "id": "cliff_head_3",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -16.5315,
-    -3.76
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5915,
-    -0.8063
-   ],
-   "scale": 0.5567,
-   "lying": false,
-   "size_m": {
-    "w": 5.01,
-    "d": 1.813,
-    "h": 3.777
-   },
-   "note": "R-C9-212: the headland's face, rock kit"
-  },
-  {
-   "id": "cliff_wall_126",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    1.9042,
-    -14.4258
-   ],
-   "z": -3.355,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 0.83778,
-   "lying": false,
-   "size_m": {
-    "w": 7.54,
-    "d": 2.728,
-    "h": 5.685
-   },
-   "note": "the cliff wall behind the stair"
-  },
-  {
-   "id": "cliff_wall_184",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    3.8539,
-    -16.8708
-   ],
-   "z": 0.514,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 0.18431,
-   "lying": false,
-   "size_m": {
-    "w": 1.659,
-    "d": 0.6,
-    "h": 1.251
-   },
-   "note": "the cliff wall behind the stair"
-  },
-  {
-   "id": "cliff_under_stair_123",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -4.6622,
-    -19.065
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 0.2,
-   "lying": false,
-   "size_m": {
-    "w": 1.8,
-    "d": 0.651,
-    "h": 1.357
-   },
-   "note": ""
-  },
-  {
-   "id": "cliff_under_stair_137",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    -2.8217,
-    -19.9445
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 0.33082,
-   "lying": false,
-   "size_m": {
-    "w": 2.977,
-    "d": 1.077,
-    "h": 2.245
-   },
-   "note": ""
-  },
-  {
-   "id": "cliff_under_stair_161",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    0.2908,
-    -21.4135
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5231,
-    -0.8523
-   ],
-   "scale": 0.56176,
-   "lying": false,
-   "size_m": {
-    "w": 5.056,
-    "d": 1.829,
-    "h": 3.812
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_0",
+   "id": "talus_10",
    "piece": "seastack",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    -18.4665,
-    -11.3515
+    34.2236,
+    -38.3494
    ],
-   "z": -3.8,
+   "z": -4.717,
    "facing_uv": [
-    0.0404,
-    -0.9992
+    -0.4133,
+    -0.9106
    ],
-   "scale": 0.32763,
+   "scale": 0.47071,
    "lying": false,
    "size_m": {
-    "w": 0.983,
-    "d": 0.607,
-    "h": 1.2
+    "w": 1.412,
+    "d": 0.872,
+    "h": 1.724
    },
    "note": ""
   },
   {
-   "id": "shelf_rock_1",
+   "id": "talus_11",
    "piece": "seastack",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    -17.06,
-    -15.1775
+    40.8278,
+    -38.2571
    ],
-   "z": -3.725,
+   "z": -4.444,
    "facing_uv": [
-    0.4614,
-    0.8872
+    -0.99,
+    -0.1413
    ],
-   "scale": 0.24572,
+   "scale": 0.22212,
    "lying": false,
    "size_m": {
-    "w": 0.737,
-    "d": 0.455,
-    "h": 0.9
+    "w": 0.666,
+    "d": 0.411,
+    "h": 0.814
    },
    "note": ""
   },
   {
-   "id": "shelf_rock_2",
+   "id": "talus_12",
    "piece": "seastack",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    -12.0673,
-    -16.9837
+    40.6784,
+    -38.6107
    ],
-   "z": -3.85,
+   "z": -4.738,
    "facing_uv": [
-    0.6063,
-    -0.7953
+    -0.9762,
+    0.2168
    ],
-   "scale": 0.38223,
+   "scale": 0.48922,
    "lying": false,
    "size_m": {
-    "w": 1.147,
-    "d": 0.708,
-    "h": 1.4
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_3",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -8.7922,
-    -18.1474
-   ],
-   "z": -3.75,
-   "facing_uv": [
-    -0.9786,
-    -0.2057
-   ],
-   "scale": 0.27302,
-   "lying": false,
-   "size_m": {
-    "w": 0.819,
-    "d": 0.506,
-    "h": 1.0
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_4",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -16.4052,
-    -6.0807
-   ],
-   "z": -3.9,
-   "facing_uv": [
-    -0.2631,
-    0.9648
-   ],
-   "scale": 0.43683,
-   "lying": false,
-   "size_m": {
-    "w": 1.311,
-    "d": 0.809,
-    "h": 1.6
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_5",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -6.9947,
-    -19.4244
-   ],
-   "z": -3.7,
-   "facing_uv": [
-    0.554,
-    0.8325
-   ],
-   "scale": 0.21842,
-   "lying": false,
-   "size_m": {
-    "w": 0.655,
-    "d": 0.405,
-    "h": 0.8
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_6",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -9.8127,
-    -16.7513
-   ],
-   "z": -3.725,
-   "facing_uv": [
-    -0.5076,
-    0.8616
-   ],
-   "scale": 0.24572,
-   "lying": false,
-   "size_m": {
-    "w": 0.737,
-    "d": 0.455,
-    "h": 0.9
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_7",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -5.3533,
-    -11.3965
-   ],
-   "z": -3.825,
-   "facing_uv": [
-    0.5134,
-    -0.8581
-   ],
-   "scale": 0.35493,
-   "lying": false,
-   "size_m": {
-    "w": 1.065,
-    "d": 0.657,
-    "h": 1.3
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_8",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -12.7112,
-    -16.8859
-   ],
-   "z": -3.7,
-   "facing_uv": [
-    0.5703,
-    -0.8214
-   ],
-   "scale": 0.21842,
-   "lying": false,
-   "size_m": {
-    "w": 0.655,
-    "d": 0.405,
-    "h": 0.8
-   },
-   "note": ""
-  },
-  {
-   "id": "shelf_rock_9",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    -3.8976,
-    -12.4659
-   ],
-   "z": -3.725,
-   "facing_uv": [
-    0.8177,
-    -0.5756
-   ],
-   "scale": 0.24572,
-   "lying": false,
-   "size_m": {
-    "w": 0.737,
-    "d": 0.455,
-    "h": 0.9
+    "w": 1.468,
+    "d": 0.906,
+    "h": 1.792
    },
    "note": ""
   },
@@ -2473,25 +2153,28 @@
  "procedural": {
   "palisade_posts": 49,
   "logs": 4,
-  "stair_treads": 103,
+  "stair_treads": 0,
   "slab_groups": {
    "ice_shorefast": 10,
    "ice_plates": 55,
    "ice_floes": 27,
    "ice_floes_bob": 8,
    "mere_plates": 0,
-   "stream_ice": 4,
-   "shelf_rime": 43,
-   "stair_treads": 103,
-   "stair_snow": 88,
+   "stream_ice": 0,
    "ice_rims": 120,
    "ice_ridges": 113,
    "ice_brash": 896,
-   "mere_cracks": 90,
-   "mere_seams": 17,
-   "stair_rocks": 10,
-   "shelf_ribs": 34,
-   "shelf_pools": 7
+   "mere_cracks": 136,
+   "mere_seams": 19,
+   "trans_leads": 782,
+   "reed_islands": 11,
+   "trans_rocks": 5,
+   "stream_cracks": 9,
+   "stream_pressure": 0,
+   "ring_fallen": 2,
+   "ring_snow": 6,
+   "cove_ice": 39,
+   "icicles": 12
   }
  },
  "openings": [
@@ -2526,26 +2209,26 @@
    "point": "N",
    "model": "barrow_front",
    "centre_sim": [
-    1.5833,
-    -15.7657
+    2.0,
+    -17.5928
    ],
    "z0": 0.0,
-   "w": 2.612,
-   "h": 2.999,
+   "w": 3.378,
+   "h": 3.878,
    "faces_deg": 180.0,
    "curtain_inset_m": 0.8,
    "dark": true,
    "probe": {
     "type": "v",
     "centre": [
-     1.5833,
-     -15.7657
+     2.0,
+     -17.5928
     ],
     "faces_deg": 180.0,
-    "w": 2.612,
-    "h": 2.999,
+    "w": 3.378,
+    "h": 3.878,
     "z0": 0.0,
-    "frontal_m2": 7.833
+    "frontal_m2": 13.1
    }
   },
   {
@@ -2604,25 +2287,25 @@
   {
    "id": "sea_cave_mouth",
    "point": "S",
-   "model": "cave_arch",
+   "model": "carved_cave",
    "centre_sim": [
-    -9.6739,
-    8.6864
+    -6.274,
+    3.1464
    ],
    "z0": -3.5,
    "w": 6.0,
    "h": 7.0,
    "faces_deg": 211.537,
-   "curtain_inset_m": 2.6,
-   "curtain_w": 8.0,
-   "curtain_h": 8.5,
+   "curtain_inset_m": 4.9,
+   "curtain_w": 3.2,
+   "curtain_h": 3.6,
    "dark": true,
-   "_": "R-C9-206/208: the kit piece's own eroded arch with its modelled depth; a dark plane 2.6 m INSIDE it, larger than the passage there, so the arch's own rock frames it -- the mouth reads as a dark eroded arch, never a black rectangle on the face",
+   "_": "R-C9-213/214: the cave worn into the cove's back wall; a dark plane at the END of its tunnel (5 m in), so the mouth recedes into darkness",
    "probe": {
     "type": "v",
     "centre": [
-     -9.6739,
-     8.6864
+     -6.274,
+     3.1464
     ],
     "faces_deg": 211.537,
     "w": 6.0,
@@ -2636,8 +2319,8 @@
    "point": "NW",
    "model": "mere",
    "centre_sim": [
-    -15.6,
-    -14.6
+    -14.5,
+    -12.2
    ],
    "z0": 0.0,
    "w": null,
@@ -2648,264 +2331,296 @@
     "type": "poly",
     "polygon": [
      [
-      -5.559,
-      -14.6
+      -1.041,
+      -12.2
      ],
      [
-      -5.761,
-      -15.043
+      -1.3,
+      -12.902
      ],
      [
-      -6.01,
-      -15.473
+      -1.605,
+      -13.582
      ],
      [
-      -6.288,
-      -15.892
+      -1.935,
+      -14.247
      ],
      [
-      -6.607,
-      -16.304
+      -2.293,
+      -14.901
      ],
      [
-      -6.999,
-      -16.703
+      -2.706,
+      -15.544
      ],
      [
-      -7.5,
-      -17.076
+      -3.215,
+      -16.161
      ],
      [
-      -8.138,
-      -17.401
+      -3.856,
+      -16.731
      ],
      [
-      -8.915,
-      -17.658
+      -4.653,
+      -17.224
      ],
      [
-      -9.803,
-      -17.831
+      -5.603,
+      -17.609
      ],
      [
-      -10.752,
-      -17.919
+      -6.678,
+      -17.868
      ],
      [
-      -11.701,
-      -17.937
+      -7.824,
+      -17.997
      ],
      [
-      -12.598,
-      -17.915
+      -8.98,
+      -18.013
      ],
      [
-      -13.417,
-      -17.892
+      -10.086,
+      -17.955
      ],
      [
-      -14.162,
-      -17.907
+      -11.103,
+      -17.874
      ],
      [
-      -14.871,
-      -17.984
+      -12.02,
+      -17.827
      ],
      [
-      -15.6,
-      -18.132
+      -12.858,
+      -17.862
      ],
      [
-      -16.404,
-      -18.333
+      -13.664,
+      -18.009
      ],
      [
-      -17.318,
-      -18.552
+      -14.5,
+      -18.273
      ],
      [
-      -18.347,
-      -18.742
+      -15.425,
+      -18.628
      ],
      [
-      -19.455,
-      -18.858
+      -16.48,
+      -19.027
      ],
      [
-      -20.581,
-      -18.863
+      -17.675,
+      -19.405
      ],
      [
-      -21.65,
-      -18.742
+      -18.986,
+      -19.694
      ],
      [
-      -22.595,
-      -18.499
+      -20.359,
+      -19.839
      ],
      [
-      -23.373,
-      -18.156
+      -21.719,
+      -19.802
      ],
      [
-      -23.974,
-      -17.744
+      -22.988,
+      -19.57
      ],
      [
-      -24.419,
-      -17.295
+      -24.103,
+      -19.158
      ],
      [
-      -24.745,
-      -16.836
+      -25.024,
+      -18.599
      ],
      [
-      -24.994,
-      -16.38
+      -25.744,
+      -17.936
      ],
      [
-      -25.192,
-      -15.931
+      -26.283,
+      -17.216
      ],
      [
-      -25.341,
-      -15.486
+      -26.681,
+      -16.476
      ],
      [
-      -25.418,
-      -15.042
+      -26.983,
+      -15.739
      ],
      [
-      -25.387,
-      -14.6
+      -27.226,
+      -15.016
      ],
      [
-      -25.211,
-      -14.167
+      -27.424,
+      -14.306
      ],
      [
-      -24.87,
-      -13.756
+      -27.571,
+      -13.601
      ],
      [
-      -24.374,
-      -13.382
+      -27.635,
+      -12.899
      ],
      [
-      -23.76,
-      -13.054
+      -27.579,
+      -12.2
      ],
      [
-      -23.086,
-      -12.769
+      -27.362,
+      -11.516
      ],
      [
-      -22.415,
-      -12.517
+      -26.964,
+      -10.864
      ],
      [
-      -21.796,
-      -12.274
+      -26.388,
+      -10.263
      ],
      [
-      -21.248,
-      -12.017
+      -25.664,
+      -9.729
      ],
      [
-      -20.757,
-      -11.726
+      -24.849,
+      -9.266
      ],
      [
-      -20.28,
-      -11.396
+      -24.007,
+      -8.863
      ],
      [
-      -19.761,
-      -11.039
+      -23.202,
+      -8.495
      ],
      [
-      -19.147,
-      -10.683
+      -22.476,
+      -8.131
      ],
      [
-      -18.407,
-      -10.367
+      -21.844,
+      -7.735
      ],
      [
-      -17.543,
-      -10.131
+      -21.289,
+      -7.281
      ],
      [
-      -16.589,
-      -10.006
+      -20.767,
+      -6.759
      ],
      [
-      -15.6,
+      -20.216,
+      -6.181
+     ],
+     [
+      -19.576,
+      -5.581
+     ],
+     [
+      -18.804,
+      -5.01
+     ],
+     [
+      -17.883,
+      -4.523
+     ],
+     [
+      -16.828,
+      -4.174
+     ],
+     [
+      -15.68,
+      -3.998
+     ],
+     [
+      -14.5,
+      -4.008
+     ],
+     [
+      -13.347,
+      -4.19
+     ],
+     [
+      -12.269,
+      -4.507
+     ],
+     [
+      -11.286,
+      -4.908
+     ],
+     [
+      -10.392,
+      -5.338
+     ],
+     [
+      -9.553,
+      -5.75
+     ],
+     [
+      -8.723,
+      -6.116
+     ],
+     [
+      -7.855,
+      -6.43
+     ],
+     [
+      -6.918,
+      -6.706
+     ],
+     [
+      -5.909,
+      -6.977
+     ],
+     [
+      -4.855,
+      -7.279
+     ],
+     [
+      -3.809,
+      -7.648
+     ],
+     [
+      -2.84,
+      -8.107
+     ],
+     [
+      -2.019,
+      -8.661
+     ],
+     [
+      -1.399,
+      -9.301
+     ],
+     [
+      -1.008,
       -10.002
      ],
      [
-      -14.634,
-      -10.113
+      -0.843,
+      -10.736
      ],
      [
-      -13.735,
-      -10.31
-     ],
-     [
-      -12.918,
-      -10.556
-     ],
-     [
-      -12.171,
-      -10.813
-     ],
-     [
-      -11.456,
-      -11.053
-     ],
-     [
-      -10.727,
-      -11.264
-     ],
-     [
-      -9.951,
-      -11.451
-     ],
-     [
-      -9.119,
-      -11.635
-     ],
-     [
-      -8.257,
-      -11.843
-     ],
-     [
-      -7.416,
-      -12.099
-     ],
-     [
-      -6.665,
-      -12.415
-     ],
-     [
-      -6.066,
-      -12.794
-     ],
-     [
-      -5.662,
-      -13.221
-     ],
-     [
-      -5.461,
-      -13.677
-     ],
-     [
-      -5.442,
-      -14.142
+      -0.87,
+      -11.475
      ]
     ],
     "z": -0.01,
-    "frontal_m2": 127.921
+    "frontal_m2": 301.504
    }
   }
  ],
@@ -3097,92 +2812,36 @@
     3.495
    ],
    [
-    -19.78,
-    -5.652
+    -16.864,
+    -5.682
    ],
    [
-    -21.597,
-    -11.481
+    -15.07,
+    -4.671
    ],
    [
-    -19.84,
-    -12.442
+    -4.417,
+    -11.209
    ],
    [
-    -18.646,
-    -12.408
+    -4.704,
+    -11.677
    ],
    [
-    -18.265,
-    -13.7
+    4.876,
+    -17.557
    ],
    [
-    -17.877,
-    -14.98
-   ],
-   [
-    -17.36,
-    -16.048
-   ],
-   [
-    -16.28,
-    -16.201
-   ],
-   [
-    -15.314,
-    -16.539
-   ],
-   [
-    -14.634,
+    5.006,
     -17.343
    ],
    [
-    -13.766,
-    -17.84
+    6.651,
+    -18.353
    ],
    [
-    -12.59,
-    -17.836
-   ],
-   [
-    -11.067,
-    -17.266
-   ],
-   [
-    -10.254,
-    -17.853
-   ],
-   [
-    -9.529,
-    -18.584
-   ],
-   [
-    -9.077,
-    -19.758
-   ],
-   [
-    -7.927,
-    -19.796
-   ],
-   [
-    -7.34,
-    -20.752
-   ],
-   [
-    -6.031,
-    -19.957
-   ],
-   [
-    -5.319,
-    -18.223
-   ],
-   [
-    3.835,
-    -23.84
-   ],
-   [
-    7.052,
-    -18.599
+    7.503,
+    -18.876
    ],
    [
     8.426,
@@ -3336,34 +2995,68 @@
      -6.553
     ],
     [
-     -17.975,
-     -2.712
+     -15.248,
+     -4.386
     ]
    ],
    [
     [
-     -17.975,
-     -2.712
+     -15.248,
+     -4.386
     ],
     [
-     -3.035,
-     -11.881
-    ]
-   ],
-   [
-    [
-     -3.035,
-     -11.881
+     -10.78,
+     0.792
     ],
     [
-     5.412,
-     -17.065
+     -8.819,
+     -0.411
     ]
    ],
    [
     [
-     7.372,
-     -18.268
+     -8.819,
+     -0.411
+    ],
+    [
+     -2.683,
+     -4.177
+    ]
+   ],
+   [
+    [
+     -2.683,
+     -4.177
+    ],
+    [
+     -0.552,
+     -5.485
+    ],
+    [
+     -0.813,
+     -5.911
+    ],
+    [
+     6.636,
+     -10.482
+    ]
+   ],
+   [
+    [
+     8.596,
+     -11.685
+    ],
+    [
+     5.327,
+     -17.012
+    ],
+    [
+     6.034,
+     -17.446
+    ],
+    [
+     6.886,
+     -17.969
     ],
     [
      7.739,
@@ -3533,12 +3226,16 @@
     6.0
    ],
    [
-    3.9,
-    9.6
+    -1.5,
+    10.0
+   ],
+   [
+    4.300000000000001,
+    10.0
    ],
    [
     -1.5,
-    9.6
+    10.0
    ],
    [
     -1.5,
@@ -3566,11 +3263,11 @@
   }
  },
  "route": {
-  "_what": "R-C9-188/189/206: the walkable route from inside the sea cave over the shelf, up the rock-cut stair, onto the clifftop (lv_walkability.py checks it)",
+  "_what": "R-C9-212/213/214: the walkable route from inside the carved sea cave over the iced landing, up the stair groove cut in the cove's east wall, onto the clifftop (lv_walkability.py checks it)",
   "spec": {
    "crest": 2.5,
    "shelf_z": -3.5,
-   "stair_w": 5.5,
+   "stair_w": 5.3,
    "risers": 24,
    "tread": 0.38,
    "rise_jitter": 0.12,
@@ -3585,10 +3282,10 @@
    "shelf_out_s": 8.8,
    "pilot_t": -3.2,
    "shelf_in_s": 0.3,
-   "foot_t": 12.0,
+   "foot_t": 9.6,
    "bottom_landing_t": 10.0,
    "landing_len": 2.0,
-   "stair_s0": 0.45,
+   "stair_s0": -5.9,
    "head_z": 5.6,
    "head_t": [
     -4.0,
@@ -3598,8 +3295,8 @@
   },
   "riser_m": 0.25,
   "riser_range_m": [
-   0.2285,
-   0.2815
+   0.25,
+   0.25
   ],
   "treads": 23,
   "stair_pitch_deg": 33.341,
@@ -3612,325 +3309,124 @@
     0.852302,
     -0.523051
    ],
-   "t_foot": 12.0,
-   "t_top": 20.74,
-   "t_landing_end": 22.74,
-   "width_m": 5.5,
-   "stair_s0": 0.45,
-   "_": "t along A -> B, s SEAWARD; the stair strip is s in [S0, S0 + W], built out against the face (R-C9-208)"
+   "t_foot": 9.6,
+   "t_top": 18.34,
+   "t_landing_end": 20.34,
+   "width_m": 5.3,
+   "stair_s0": -5.9,
+   "_": "t along A -> B, s SEAWARD; the stair groove is s in [S0, S0 + W], cut into the cliff (R-C9-214)"
   },
   "points_uv": {
    "cave_back": [
-    -8.105,
-    -6.129
+    -4.705,
+    -0.59
    ],
    "cave_mouth": [
-    -9.674,
-    -8.686
+    -6.274,
+    -3.146
    ],
    "shelf_mid": [
-    -8.536,
-    -14.958
+    -4.765,
+    -7.475
    ],
    "bottom_landing": [
-    -4.798,
-    -15.081
+    -3.47,
+    -8.328
    ],
    "stair_foot": [
-    -3.69,
-    -15.761
+    -2.362,
+    -9.008
    ],
    "stair_top": [
-    3.503,
-    -20.175
+    4.831,
+    -13.423
    ],
    "landing": [
-    4.355,
-    -20.698
+    5.683,
+    -13.946
    ],
    "clifftop": [
-    7.598,
-    -15.414
+    5.553,
+    -14.159
    ]
   },
-  "polygons_uv": {
-   "shelf": [
-    [
-     -14.05,
-     -3.772
-    ],
-    [
-     -15.847,
-     -4.99
-    ],
-    [
-     -16.549,
-     -5.229
-    ],
-    [
-     -17.477,
-     -5.888
-    ],
-    [
-     -18.533,
-     -6.848
-    ],
-    [
-     -19.341,
-     -8.104
-    ],
-    [
-     -19.744,
-     -9.497
-    ],
-    [
-     -19.971,
-     -10.647
-    ],
-    [
-     -19.867,
-     -11.461
-    ],
-    [
-     -19.483,
-     -11.86
-    ],
-    [
-     -18.886,
-     -11.557
-    ],
-    [
-     -18.585,
-     -11.736
-    ],
-    [
-     -18.221,
-     -11.812
-    ],
-    [
-     -18.168,
-     -12.394
-    ],
-    [
-     -17.982,
-     -12.761
-    ],
-    [
-     -17.815,
-     -13.158
-    ],
-    [
-     -17.662,
-     -13.578
-    ],
-    [
-     -17.59,
-     -14.13
-    ],
-    [
-     -17.48,
-     -14.619
-    ],
-    [
-     -17.387,
-     -15.137
-    ],
-    [
-     -17.098,
-     -15.335
-    ],
-    [
-     -16.735,
-     -15.412
-    ],
-    [
-     -16.278,
-     -15.337
-    ],
-    [
-     -15.913,
-     -15.412
-    ],
-    [
-     -15.676,
-     -15.694
-    ],
-    [
-     -15.428,
-     -15.959
-    ],
-    [
-     -15.032,
-     -15.983
-    ],
-    [
-     -14.645,
-     -16.023
-    ],
-    [
-     -14.42,
-     -16.325
-    ],
-    [
-     -14.234,
-     -16.691
-    ],
-    [
-     -14.059,
-     -17.074
-    ],
-    [
-     -13.826,
-     -17.364
-    ],
-    [
-     -13.347,
-     -17.253
-    ],
-    [
-     -12.883,
-     -17.166
-    ],
-    [
-     -12.413,
-     -17.07
-    ],
-    [
-     -12.047,
-     -17.142
-    ],
-    [
-     -11.664,
-     -17.188
-    ],
-    [
-     -10.972,
-     -16.728
-    ],
-    [
-     -10.468,
-     -16.576
-    ],
-    [
-     -10.16,
-     -16.744
-    ],
-    [
-     -9.961,
-     -17.088
-    ],
-    [
-     -9.826,
-     -17.538
-    ],
-    [
-     -9.463,
-     -17.615
-    ],
-    [
-     -9.246,
-     -17.931
-    ],
-    [
-     -8.976,
-     -18.16
-    ],
-    [
-     -8.914,
-     -18.728
-    ],
-    [
-     -8.704,
-     -19.055
-    ],
-    [
-     -8.505,
-     -19.4
-    ],
-    [
-     -7.972,
-     -19.201
-    ],
-    [
-     -7.515,
-     -19.125
-    ],
-    [
-     -7.281,
-     -19.413
-    ],
-    [
-     -7.053,
-     -19.711
-    ],
-    [
-     -6.993,
-     -20.282
-    ],
-    [
-     -6.393,
-     -20.583
-    ],
-    [
-     -5.884,
-     -20.619
-    ],
-    [
-     -5.386,
-     -20.411
-    ],
-    [
-     -5.002,
-     -20.0
-    ],
-    [
-     -4.809,
-     -19.472
-    ],
-    [
-     -4.849,
-     -18.933
-    ],
-    [
-     -5.113,
-     -18.496
-    ],
-    [
-     -2.252,
-     -13.417
-    ],
-    [
-     -2.288,
-     -10.99
-    ]
+  "carve": {
+   "t": [
+    -8.0,
+    24.0
    ],
-   "cave_floor": [
-    [
-     -9.898,
-     -1.978
-    ],
-    [
-     -3.591,
-     -5.849
-    ],
-    [
-     -6.573,
-     -10.707
-    ],
-    [
-     -12.88,
-     -6.836
-    ]
-   ]
+   "s": [
+    -12.0,
+    3.0
+   ],
+   "step": 0.2,
+   "high_water": -2.9,
+   "s_face": 0.0,
+   "lip_h": 0.5,
+   "cove": {
+    "t_w": -3.0,
+    "round_w": 3.5,
+    "s_back": -6.2,
+    "s_edge": -0.4
+   },
+   "mouth_h_cut": 7.4,
+   "cave_depth": 5.5
+  },
+  "carved_files": {
+   "shingle": {
+    "file": "carved_shingle.f32",
+    "tris": 5647,
+    "sha256": "71698ef626b2c69f8cf8cf76bd251e53a81476ffa460986b1f0c41c266df5de5"
+   },
+   "rock": {
+    "file": "carved_rock.f32",
+    "tris": 65359,
+    "sha256": "5c2a2b2a166ce60de54ad3c4299358585181115258ec43d19bd37c9b66fdddc0"
+   },
+   "wet_rock": {
+    "file": "carved_wet_rock.f32",
+    "tris": 36585,
+    "sha256": "8f19c2689f28bbaf32c9d45c9ec64043bb5bd71001b30a5ad57f712dc71c196c"
+   },
+   "ice": {
+    "file": "carved_ice.f32",
+    "tris": 2161,
+    "sha256": "0290a58387c8f06a00b8bd2331fb7d759b0444fb4f29bb2c15a2615371695af3"
+   },
+   "snow": {
+    "file": "carved_snow.f32",
+    "tris": 48567,
+    "sha256": "f0fa01b15911ae0b81621755b7928d712ef0ca092a45d00c5103bb3e612e86b5"
+   },
+   "rime": {
+    "file": "carved_rime.f32",
+    "tris": 1535,
+    "sha256": "4348ff65cbd1bd01e31bfa89d7185514543968a2ad4b3e7535f6ed00e1b629e8"
+   },
+   "shrub": {
+    "file": "carved_shrub.f32",
+    "tris": 3420,
+    "sha256": "aac6c716c857ce29cc157f2c86875cc755fade1987ad4596168ee22508a99e34"
+   },
+   "tide_ice": {
+    "file": "carved_tide_ice.f32",
+    "tris": 4798,
+    "sha256": "78e9bb8d105aa92a0eeba561bbcd5e4843080db630f950bc9ea2ea7cb9b59895"
+   },
+   "passage_dark": {
+    "file": "carved_passage_dark.f32",
+    "tris": 19163,
+    "sha256": "01180465d33a7191568b0f5175c002cd1eeb5a9a6a3821147e1b7f2708add95d"
+   }
   },
   "ramp": {
    "id": "stair_ramp",
    "c_sim": [
-    -0.3835,
-    17.7903
+    0.9446,
+    11.0377
    ],
    "z_c": -0.5,
-   "across": 5.5,
+   "across": 5.3,
    "along_h": 9.12,
    "along": 10.9167,
    "thick": 0.3,
@@ -3945,11 +3441,11 @@
   "plate": {
    "id": "landing_plate",
    "c_sim": [
-    4.6822,
-    20.1658
+    5.6834,
+    13.9458
    ],
    "z_c": 2.5,
-   "across": 6.75,
+   "across": 5.3,
    "along_h": 2.0,
    "along": 2.0,
    "thick": 0.3,
@@ -3962,13 +3458,12 @@
    "_": "the top landing's walk surface: a plate at the crest meeting the ramp's top edge (the terrain under it 5 cm lower)"
   },
   "cave": {
-   "scale": 1.13827,
-   "width_m": 13.659,
-   "depth_m": 7.32,
-   "z": -3.614,
-   "mouth_from": "kit2/cave_mouth.json"
+   "width_m": 6.0,
+   "depth_m": 5.5,
+   "mouth_h_cut_m": 7.4,
+   "floor_z": -3.5
   },
-  "sketch_A": "cave W, stair E as sketch A draws them: the cave under the lip at u -9.5, the stair climbing east across the face to the clifftop at u 6.9"
+  "sketch_A": "cave W, stair E as sketch A draws them: the cave under the lip at u -9.5, the stair climbing east across the face to the clifftop at u 4.8"
  },
  "classes": [
   "none",
@@ -3985,19 +3480,22 @@
   "sea",
   "wood",
   "passage_dark",
-  "ash"
+  "ash",
+  "tide_ice",
+  "wet_rock",
+  "rime",
+  "ice_mid"
  ],
  "class_counts": {
-  "none": 513461,
-  "snow": 659372,
-  "ice": 30286,
-  "shrub": 45139,
-  "rock": 58232,
-  "mound": 97476,
-  "shingle": 60734,
-  "shore_ice": 19344,
-  "sea": 3582,
-  "passage_dark": 4552,
-  "ash": 56110
+  "none": 651354,
+  "snow": 541837,
+  "ice": 88051,
+  "shrub": 22669,
+  "rock": 643,
+  "mound": 132861,
+  "shingle": 19851,
+  "shore_ice": 21184,
+  "ash": 56110,
+  "ice_mid": 13728
  }
 }

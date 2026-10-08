@@ -40,7 +40,7 @@ def stills():
             sh.paste(Image.open(os.path.join(RAW, s["name"] + ".png")).convert("RGB").resize((sw, rh), Image.LANCZOS), (10, y + 36))
             sh.paste(crop(s["sketch_px"]).resize((cw, rh), Image.LANCZOS), (20 + sw, y + 36))
             d.text((10, y + 2), "%s -- %s" % (s["name"][:2], s["what"]), fill=(255, 225, 120), font=B(26))
-        p = os.path.join(M, "M1pp_stills_%s.jpg" % "AB"[si]); sh.save(p, quality=88); out.append(p)
+        p = os.path.join(M, "M1pp_stills_%s.jpg" % "ABC"[si]); sh.save(p, quality=88); out.append(p)
     return out
 
 
