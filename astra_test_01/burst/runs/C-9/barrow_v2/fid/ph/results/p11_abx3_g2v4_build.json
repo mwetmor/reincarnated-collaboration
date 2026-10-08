@@ -1,0 +1,60 @@
+{
+ "rule": "s48 (b) class exclusion by pre-registration (reed, ice)",
+ "sets": {
+  "g2v4_v1rec_vs_v1head": {
+   "set": "g2v4_v1rec_vs_v1head",
+   "scored": 37,
+   "repeats": 10,
+   "catches": 11,
+   "images": 58,
+   "catch_correct_A": 5,
+   "catch_correct_B": 6,
+   "UNDERPOWERED": true,
+   "VOID_if_underpowered": true,
+   "rule_exclusion": true,
+   "scored_allowed": [
+    "snow",
+    "rock",
+    "standing_stone",
+    "heather",
+    "wood"
+   ],
+   "by_class": {
+    "heather": 2,
+    "snow": 35
+   },
+   "catch_by_class": {
+    "heather": 1,
+    "snow": 10
+   },
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx3_g2v4_v1rec_vs_v1head"
+  },
+  "g2v4_v1_vs_halfdensity": {
+   "set": "g2v4_v1_vs_halfdensity",
+   "scored": 40,
+   "repeats": 10,
+   "catches": 12,
+   "images": 62,
+   "catch_correct_A": 6,
+   "catch_correct_B": 6,
+   "UNDERPOWERED": false,
+   "VOID_if_underpowered": true,
+   "rule_exclusion": true,
+   "scored_allowed": [
+    "snow",
+    "rock",
+    "standing_stone",
+    "heather",
+    "wood"
+   ],
+   "by_class": {
+    "heather": 3,
+    "snow": 37
+   },
+   "catch_by_class": {
+    "snow": 12
+   },
+   "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx3_g2v4_v1_vs_halfdensity"
+  }
+ }
+}

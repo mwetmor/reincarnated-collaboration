@@ -1,0 +1,87 @@
+{
+ "_what": "P5 a1 re-instrumented for DEV-25c's INNER-128 paste (\u00a7 48 (d); jack-ryan pilot-4 Gate-2 \u00a7 6 item 5). v1's 9.569 (full 256)",
+ "bands": {
+  "E": [
+   0,
+   128
+  ],
+  "C": [
+   128,
+   256
+  ]
+ },
+ "E": {
+  "v1_bar": 8.789,
+  "v1_bar_join": "1_2|2_2",
+  "C2_R-C9-158": {
+   "a1_max": 10.801,
+   "joins_over": [
+    "1_0|2_0",
+    "2_1/2_2",
+    "2_4/2_5",
+    "2_5|3_5",
+    "4_4/4_5"
+   ],
+   "FAIL": true
+  },
+  "C3_second_hand_1_1": {
+   "a1_max": 13.496,
+   "RED": true
+  },
+  "C3_dense_plus6_2_2|3_2": {
+   "a1_join": 10.306,
+   "unmodified": 6.542,
+   "RED": true
+  },
+  "masking_control_PS3b_raw": {
+   "joins_over": [
+    "0_1/0_2",
+    "0_2|1_2",
+    "1_1|2_1",
+    "2_0/2_1"
+   ],
+   "FAIL": true
+  },
+  "specificity": {
+   "PS2 0_1/0_2": 3.925,
+   "PS3a 1_1/1_2": 4.874
+  },
+  "usable": true
+ },
+ "C": {
+  "v1_bar": 11.045,
+  "v1_bar_join": "1_2|2_2",
+  "C2_R-C9-158": {
+   "a1_max": 15.703,
+   "joins_over": [
+    "1_2/1_3",
+    "2_4/2_5",
+    "3_4/3_5"
+   ],
+   "FAIL": true
+  },
+  "C3_second_hand_1_1": {
+   "a1_max": 13.96,
+   "RED": true
+  },
+  "C3_dense_plus6_2_2|3_2": {
+   "a1_join": 11.567,
+   "unmodified": 6.288,
+   "RED": true
+  },
+  "masking_control_PS3b_raw": {
+   "joins_over": [
+    "0_1/0_2",
+    "0_2|1_2",
+    "1_1|2_1",
+    "2_0/2_1"
+   ],
+   "FAIL": true
+  },
+  "specificity": {
+   "PS2 0_1/0_2": 4.508,
+   "PS3a 1_1/1_2": 5.762
+  },
+  "usable": true
+ }
+}

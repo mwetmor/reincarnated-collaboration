@@ -1526,3 +1526,36 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 1. **P6a** on the chunk (v0.1 detector, declared openings; water-class candidates go to the conductor's triage, R-C9-194);
 2. **raw a1 per join** (§ 44, or § 48 (d) for an inner-128 chunk), with the "stitch-corrected" crop rule: a join over the bar whose stitched painting shows no line at 1:1 is reported with its crop and stays a FAIL under M-1;
 3. **P4 snow per chunk** (v1 bars; with the § 46 palette measures reported).
+
+## 49. § 48 calibrations and records (computed AFTER the § 48 commit e3afc0cc8; no Phase 3′ value exists)
+
+**(d) a1, inner-128 bands** (`results/p5v2c_calibration.json`). **Both bands are usable**; the binding one is DEV-25c's pasted band, from its paste mask.
+
+| Band | v1 bar (join) | C2 R-C9-158 | C3 second hand 1_1 | C3 +6 dense 2_2\|3_2 (unmod.) | PS3b masking | Specificity PS2 0_1/0_2 / PS3a 1_1/1_2 |
+|---|---|---|---|---|---|---|
+| **E** [0, 128) (canvas-edge half) | **8.789** (1_2\|2_2) | FAIL (5 joins, max 10.80) ✓ | 13.50 RED ✓ | **10.31** (6.54) RED ✓ | FAIL (4 joins) ✓ | 3.93 / 4.87 |
+| **C** [128, 256) (interior half) | **11.045** (1_2\|2_2) | FAIL (3 joins, max 15.70) ✓ | 13.96 RED ✓ | **11.57** (6.29) RED ✓ (margin 0.52) | FAIL (4 joins) ✓ | 4.51 / 5.76 |
+
+**(b) P11 G2-B2 under the class exclusion** (`results/p11_abx3_g2v4_build.json`).
+
+| Set | Result |
+|---|---|
+| `abx3_g2v4_v1_vs_halfdensity` | 40 scored + 10 repeats + 12 catch (6 / 6), 62 images: **judge-ready** |
+| `abx3_g2v4_v1rec_vs_v1head` | **37 scored, 11 catch → VOID (cannot draw 40, rule (b)3; not shrunk)** |
+
+- **Why it is short.** With ice out, record-time v1 offers too few non-ice crops: its 3 v1ref stills (`V1_tarn`, `V1_ring`, `V1_door`) are ice-heavy at the tarn.
+- **Consequence.** The v1-vs-v1 control **cannot be built under the new composition from the current pools**, so P11 cannot bind at M3′ until it can.
+- **For the conductor / jack-ryan (no change made).** Enlarging the record-time v1 pool needs new v1 stills, which is a capture, not a rule change. Changing the seed to look for a 40 would be shopping and is not done. **The VOID dir is kept and must not go to a judge.**
+
+**(c) P10 session witness: HALT** (`renders/p10_witness/`).
+- **Run v1_1** (quiescent after 7 tries) was **VOID**: p50 11.20, p99 13.13 recorded but not counted. Other processes went over 25 % during it: `git` (63 %, from concurrent agent sessions), `mediaanalysisd` (57 %), and `Warp` (the terminal app, 33 %).
+- **The re-run set never became quiescent** in 20 tries. The terminal process (Warp, which hosts the agent sessions) averages 16.8 % on its own.
+- **Per § 48 (c) 1 → HALT to the conductor.**
+- **The witness envelope is NOT recorded:** a VOID run defines nothing.
+- **For the conductor / Matt (a matt_to_do candidate).** The § 48 (c) quiescence bar (10 %) is not reachable while the agent sessions' terminal and their git/Python jobs run. Options: (i) a quiet window with the agent sessions paused; (ii) a ruling on whether the session host (Warp) is a render-path-like exemption. That is jack-ryan's to rule, not PH's.
+
+**P4 snow support** (`results/pilot4/p4_snow_support.json`; Gate-2 § 4; report only).
+- **v1's 16 chunks:** 40–316 spectrum windows (64 px, ≥ 90 % coverage), 375 k–1.48 M eroded snow px.
+- **Pilot 4's four failing chunks have 1–18 windows**: 0_0 18, 1_0 1, 0_1 1, 0_2 2.
+- **The passing chunks have 12–130.**
+- **No minimum-support rule is proposed:** v1 has no chunk below 40 windows, so it offers nothing to calibrate a lower cut-off on (Gate-2 § 4: calibrated on v1's own low-support chunks, or not at all).

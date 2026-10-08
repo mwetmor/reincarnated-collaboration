@@ -1,0 +1,36 @@
+{
+ "runs": [
+  {
+   "run": "v1_1",
+   "p50": 11.203,
+   "p99": 13.131,
+   "max": 15.064,
+   "void": true,
+   "frames_over_25ms_at_s": [],
+   "n_over_16_7": 0,
+   "bursts": 0,
+   "p99_burst_excluded_report_only": 13.09
+  }
+ ],
+ "worst_p99": 13.131,
+ "p99_pass": true,
+ "deterministic_hitches": [],
+ "hitch_pass": true,
+ "pass": false,
+ "envelope_p50": [
+  10.703,
+  11.703
+ ],
+ "set": {
+  "halt": {
+   "halt": "never quiescent",
+   "over": [
+    [
+     16.8,
+     "stable",
+     609
+    ]
+   ]
+  }
+ }
+}
