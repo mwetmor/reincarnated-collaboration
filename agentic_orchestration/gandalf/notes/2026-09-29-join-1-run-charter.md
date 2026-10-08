@@ -1,4 +1,6 @@
 # JOIN-1 RUN — charter v0.4.1 (LAUNCH SHEET RULED; GATE-1 GO; LAUNCHES AT THE SEAL)
+> **v0.6.8, 2026-10-07 — ⏸ PAUSED (Matt; KC2 ledger KP-344, which holds the resume list).** J2 status: Python side DONE (W1, E2b–E5, S1; golden master 7/7, P-J2-9 31/31); port D1 done; D2 landed (runtime `cbe8e274`, rulebook NULL ≡ ORACLE so far) and the **port golden master 7/7**; owed: § 4.7 intent modes, the `.app` + attempt-2 + T-A pre_read, D3 controls + perf, the digest bridge, jack-ryan's D2-gate delta, and the J2 Gate-2 on the whole. Then J3 → Matt's owner-eye checkpoint.
+>
 > **v0.6.7, 2026-10-07 (KC2 KP-319…327): J-S4b RE-PINNED to ROWSET `c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9`** (corpus.db `2617c0c1…`; R-CV1 conversion stamping; it supersedes `c3e0f121…`, which superseded `66250f2d…`). J2 in progress: W1, E2b, E2c, E2e landed (ORACLE byte-identical at each); E3 (binder + golden master) is next after the E2c/E2e Gate-2. J3 known cost: a gated `resolve_attack` transcription for the intake L-06 setting (KP-321).
 >
 > **v0.6.6, 2026-10-07 (KC2 KP-310/311):** Q105 ruled (the port computes M_inst from its operand; the J-S8 port half is re-frozen to 7/7 before J2). **Annotation:** the "barrow-fit arena" (playtest P4) is UNSCHEDULED, after C-9's M3′ (Matt R-C9-185: barrow_v2 is art-first; the arena is decided later by Matt).
