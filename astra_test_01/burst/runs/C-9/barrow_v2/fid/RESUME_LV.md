@@ -251,3 +251,5 @@ Open: (a) the landing is still ~60 m2 (5 m bars); (b) still 12's river is narrow
 Open: carved column tops round the arch still angular; ledge rocks are stepped tiers.
 
 ## R-C9-230 — DONE: clifftop left of the cave lobed/notched (lip wiggled for t < ~7 only, pack ice still laid out against the passed lip0), 4 slumped rim rocks, kit gap-filler re-fit; east kit unchanged. Walk 8/8, check (a) PASS, hero PASS. Pilot: r00_c00-c02 + r01_c00 identical; r01_c01, r01_c02, r02_c00-c02 changed.
+
+## R-C9-231 (P6' 78a2f41bd) — DONE: slope_stone_0 (dropped inside the kerb) removed from the layout of record; gully_col_e_1 (74 % in the wall) dropped. Walk PASS, check (a) PASS, hero PASS; all 9 pilot shas unchanged vs 1f9eb1dc7.

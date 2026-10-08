@@ -1115,7 +1115,11 @@ def main():
             kerb_insts.append(model("kerb_stone_%d" % kk, "rock", g, c, out_, ht / ab(g)[1], z=hz_min(c, 0.4) - 0.1, note="R-C9-222: the barrow's kerb"))
         kk += 1
         th_ += 3.2 / math.hypot(a_m * math.sin(th_), b_m * math.cos(th_))
+    dropped_ = [q for q in slope_insts if math.hypot((q["pos"][0] - mc[0]) / a_m, (-q["pos"][1] - mc[1]) / b_m) <= 1.15]
     slope_insts = [q for q in slope_insts if math.hypot((q["pos"][0] - mc[0]) / a_m, (-q["pos"][1] - mc[1]) / b_m) > 1.15] + kerb_insts
+    # R-C9-231 (P6' 78a2f41bd): a slope stone dropped inside the barrow's kerb is dropped from the layout of record too
+    _dpos = {tuple(q["pos"]) for q in dropped_}
+    layout_pl[:] = [e for e in layout_pl if not (e["id"].startswith("slope_stone_") and (round(e["uv"][0], 4), round(-e["uv"][1], 4)) in _dpos)]
     group("slope_stones", "stones", slope_insts)
     # R-C9-216 (Matt): a true, SYMMETRICAL stone circle -- 6 positions evenly spaced on one circle (the ring's own centre and
     # mean radius), 4 STANDING (full models, snow caps, a weathered lean <= 5 deg) and 2 FALLEN at non-adjacent positions,
@@ -1274,6 +1278,10 @@ def main():
         a_ = rngz.uniform(0, 2 * math.pi)
         gully_insts.append(model("rim_slump_%d" % k_, "rock", g_stk, c_, (math.sin(a_), math.cos(a_)), ht / gby, z=hz(c_) - 0.45 * ht, piece="seastack", collider="box",
                                  note="R-C9-230: slumped rock on the clifftop rim"))
+    # R-C9-231 (P6' 78a2f41bd): gully_col_e_1 stood 74 % inside the gully's E wall (undeclared) -- dropped (nothing else moves)
+    _keep_ids = {e["id"] for e in layout_pl} - {"gully_col_e_1"}
+    gully_insts = [q for q, e in zip(gully_insts, [e for e in layout_pl if e["id"].startswith(("gully_col", "cave_col", "rim_slump"))]) if e["id"] != "gully_col_e_1"]
+    layout_pl[:] = [e for e in layout_pl if e["id"] != "gully_col_e_1"]
     group("gully_rock", "cliff", gully_insts)
     group("cliff_faces", "cliff", cliff_insts)
     group("talus", "talus", talus_insts)
