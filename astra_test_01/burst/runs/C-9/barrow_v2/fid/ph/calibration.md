@@ -1245,3 +1245,31 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
 **Fix:** seat each fallen slab on the slope (tilt it to the terrain normal, or set z to the footprint's upslope height less a small sink), or declare the burial with its reason.
 
 **The wreck.** Its declared 34.4% cradle reads 0.304 on PH's instrument, under the 0.50 bar. The declaration is not needed for it to pass.
+
+## 42. P6′ on LV's final blockout render (1f9eb1dc7; R-C9-230/231; gates the pilot repaint). Frozen bars. `results/p6prime_bv2pp_1f9eb1dc7.json`
+
+**Inputs.** `ids_art.png` sha 9f01c9a7…, matching the manifest; layout and level at 1f9eb1dc7.
+
+| Component | Result | Verdict |
+|---|---|---|
+| I-4 RED (1.5 m shift) | 6 of 13 objects below 0.7872 | **FAILS, as required** |
+| slot crosscheck (layout of record → level slots) | **61 layout placements against 60 level slots; 1 mismatch: `slope_stone_0`** | **FAIL** |
+| missing / extra (over the level's models) | 0 / 0 | ✓ |
+| terrain-hidden ≤ 0.50 unless declared | **gully_rock #1 0.738** (gully_col_e_1); gully_rock #0 0.477 (under the bar); wreck 0.327 ✓; ring_stones 0.03–0.17 ✓ | **RED** |
+| placement | min 0.9722 | PASS |
+| scale | 113 instances, 0 over 1.10, 0 record mismatches | PASS |
+
+**P6′ = RED, two findings.** Both are reported, not adjusted; this is a HALT for an LV fix, and the repaint stays gated.
+
+1. **`slope_stone_0` is in the layout of record but not built.**
+   - **Layout:** uv (−7.5, 21.508), z 3.622 (terrain there 4.26), stone_tall, h 2.4 m.
+   - **Level:** no slot within 0.02 m. The nearest slope_stones slot is #5 at (−9.010, −19.652), 2.39 m away, at z −0.14 with a different size.
+   - **Effect:** the build is missing one layout placement. P6′'s presence check iterates the level's own models, so only the crosscheck can see this; it is why the crosscheck exists (§ 21).
+   - **Fix:** re-emit the level slots from the layout, or correct the layout.
+2. **`gully_rock` #1 (`gully_col_e_1`, "kit rock in the stair gully's e wall", R-C9-229) is 73.8% terrain-hidden.**
+   - Box z −2.85, 5.72 m tall, centred where the terrain stands at 1.38. Its footprint spans −7.5 to 1.99 across the gully wall, so the wall covers most of its silhouette.
+   - Setting a rock into a wall may be the intent, but **no `burial_by_design` is declared**, so it is not accepted.
+   - **Fix:** declare it with its reason, or pull the rock out of the wall.
+   - gully_rock #0 (0.477) sits just under the bar.
+
+**Not counted against the build, noted.** ring_stones has 4 instances; the three fallen slabs of §§ 40–41 are no longer in the layout.
