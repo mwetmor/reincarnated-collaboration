@@ -1,0 +1,122 @@
+[c9-courtesy] 10:30:41 no C-9 wrapper present; acquiring for gamora-15611-s47
+heavy_lock: acquired after 0s (gamora-15611-s47)
+{
+ "head": {
+  "end": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "947dd8d352efc00b66e7aedba10cf8a5c434fe68",
+     "blob_live": "947dd8d352efc00b66e7aedba10cf8a5c434fe68",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "28f81d259d886cf19e1703d7bd1a579a99c5274b",
+     "blob_live": "28f81d259d886cf19e1703d7bd1a579a99c5274b",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "947dd8d352efc00b66e7aedba10cf8a5c434fe68",
+     "blob_live": "947dd8d352efc00b66e7aedba10cf8a5c434fe68",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "28f81d259d886cf19e1703d7bd1a579a99c5274b",
+     "blob_live": "28f81d259d886cf19e1703d7bd1a579a99c5274b",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "1adb76f632d382e505947730bde8db5f40a2c520ca5f60c469d9c940fa594d40",
+ "limb_A_sealed_vs_head": {
+  "command": "gamora_kc2_play_v3p11_oracle_2026_10_02 graded V311-FULL (5 arms x 5 salts)",
+  "equal": true,
+  "excluded_keys": [
+   "wall_s"
+  ],
+  "head": {
+   "FILE_sha256": "9659dcf6c77b22bc7954cc004a34a8a8282b759746b4996f7d495335f1fd4a43",
+   "canonical_sha256": "f04ef6d0aa323918652d696794e14754acf60af62460cad464e0ec25253c6a93",
+   "commit_end": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c",
+   "commit_start": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c"
+  },
+  "pass": true,
+  "sealed": {
+   "FILE_sha256": "28dce7983e2d5ee84c19b88bc151d183026b2ea051f9ad8f2ac0198a63b85385",
+   "canonical_sha256": "f04ef6d0aa323918652d696794e14754acf60af62460cad464e0ec25253c6a93",
+   "clean_after": true,
+   "clean_before": true,
+   "commit": "969fbd8d3cb7d07d05c22c80ee925dd34444118c",
+   "tag": "kc2/referent-v1-sealed-r2-oracle",
+   "tree": "/Users/admin/Games/reincarnated-engine-join1-v311"
+  }
+ },
+ "limb_B_import_closure": {
+  "HEAD": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 355,
+  "n_reincarnated_modules": 141,
+  "n_tracked": 213,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [],
+  "env_stripped": [],
+  "pass": true,
+  "path_hits": {
+   "head": [],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    44931,
+    45320
+   ],
+   "n_pids": 2,
+   "pass": true,
+   "tree_ok": true
+  },
+  "witness_hits": []
+ },
+ "limb_C_vs_pass4_artifact": {
+  "declared_exceptions": [
+   "hunt: pilot_derivation_referent.json -> kc2_hunt_pilot_derivation_v3p9.json",
+   "pilot_move: pilot_move_derivation_referent.json -> kc2_pilot_move_derivation_v3p10.json"
+  ],
+  "equal_after_declared_exceptions": true,
+  "n_declared": 10,
+  "pass4_FILE_sha256": "62aecaa6c7a53429e878705db1172ebbea552eb8e5ea47cee1acc5864c00522b",
+  "pass4_artifact": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-02-kc2-v3p11-oracle-pass4/graded_V311-FULL.json",
+  "rename_problems": [],
+  "renames_applied": 10
+ },
+ "verdict": "ORACLE BYTE-IDENTICAL",
+ "verdict_reason": "HEAD fixed; A and B and B' pass",
+ "verdict_rule": "HEAD fixed (start == end, kc2 tree too) AND A AND B AND B'; C reported"
+}
+[c9-courtesy] 10:33:05 released gamora-15611-s47 rc=0
