@@ -1,0 +1,329 @@
+{
+ "closure": {
+  "n_outside": 0,
+  "raised_cells": []
+ },
+ "limbs": {
+  "a_period": {
+   "bad": [],
+   "n_bad": 0,
+   "n_rows": 250,
+   "pass": true
+  },
+  "b_acc_bound": {
+   "pass": true,
+   "per_cell": {
+    "M-POL-2-NULL|0": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2-NULL|1": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2-NULL|2": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2-NULL|3": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2-NULL|4": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2|0": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2|1": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2|2": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2|3": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M-POL-2|4": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M0|0": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M0|1": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M0|2": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M0|3": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "M0|4": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1-NULL|0": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1-NULL|1": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1-NULL|2": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1-NULL|3": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1-NULL|4": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1|0": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1|1": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1|2": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1|3": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ],
+    "W1|4": [
+     {
+      "0.6533333333333333": 16
+     },
+     16
+    ]
+   }
+  },
+  "c_charge_bound": {
+   "calls_total": 400,
+   "pass": true,
+   "per_cell": {
+    "M-POL-2-NULL|0": {
+     "9.408": 16
+    },
+    "M-POL-2-NULL|1": {
+     "9.408": 16
+    },
+    "M-POL-2-NULL|2": {
+     "9.408": 16
+    },
+    "M-POL-2-NULL|3": {
+     "9.408": 16
+    },
+    "M-POL-2-NULL|4": {
+     "9.408": 16
+    },
+    "M-POL-2|0": {
+     "9.408": 16
+    },
+    "M-POL-2|1": {
+     "9.408": 16
+    },
+    "M-POL-2|2": {
+     "9.408": 16
+    },
+    "M-POL-2|3": {
+     "9.408": 16
+    },
+    "M-POL-2|4": {
+     "9.408": 16
+    },
+    "M0|0": {
+     "9.408": 16
+    },
+    "M0|1": {
+     "9.408": 16
+    },
+    "M0|2": {
+     "9.408": 16
+    },
+    "M0|3": {
+     "9.408": 16
+    },
+    "M0|4": {
+     "9.408": 16
+    },
+    "W1-NULL|0": {
+     "9.408": 16
+    },
+    "W1-NULL|1": {
+     "9.408": 16
+    },
+    "W1-NULL|2": {
+     "9.408": 16
+    },
+    "W1-NULL|3": {
+     "9.408": 16
+    },
+    "W1-NULL|4": {
+     "9.408": 16
+    },
+    "W1|0": {
+     "9.408": 16
+    },
+    "W1|1": {
+     "9.408": 16
+    },
+    "W1|2": {
+     "9.408": 16
+    },
+    "W1|3": {
+     "9.408": 16
+    },
+    "W1|4": {
+     "9.408": 16
+    }
+   },
+   "want_key": "9.408"
+  },
+  "e_hits_per_tick_vs_JS8": {
+   "JS8": 1.7080504694337058,
+   "P": 1.0938831205315935,
+   "pass": true,
+   "sign": {
+    "join_greater": 0,
+    "join_less": 25,
+    "p_two_sided": 5.960464477539063e-08,
+    "ties": 0
+   }
+  },
+  "f_reported_not_predicted": {
+   "intake_hp": [
+    22577595.62578006,
+    22282407.339913145
+   ],
+   "sign_ticks": {
+    "join_greater": 25,
+    "join_less": 0,
+    "p_two_sided": 5.960464477539063e-08,
+    "ties": 0
+   },
+   "survived_window": [
+    17,
+    20
+   ],
+   "ticks": [
+    174419,
+    117695
+   ]
+  }
+ },
+ "pass": true,
+ "prediction": "AMENDMENT-2 (= NC-J3-E-1): G7 tick_period == tick_period_s(300) every row; acc_bound == {repr(196/300): row31_calls}; charge_bound == {repr(14.4*(196/300)): simulate_wave calls}; all 25 sim terminal; paired total row32/ticks < J-S8's; survival/ticks/intake reported, not predicted",
+ "run": "NC-J3-L01-P",
+ "spec": {
+  "ops": {
+   "world_as_pct": 300.0
+  }
+ },
+ "statements": [
+  "INFO-V2-3: the sealed referent's fixture.CRIT_DAMAGE_PCT is 12 (the Warborn Visor alone); never fires. The referent carries 12, not 57 or 69."
+ ],
+ "terminals": {
+  "M-POL-2-NULL|0": "survived_window",
+  "M-POL-2-NULL|1": "survived_window",
+  "M-POL-2-NULL|2": "player_death",
+  "M-POL-2-NULL|3": "player_death",
+  "M-POL-2-NULL|4": "survived_window",
+  "M-POL-2|0": "survived_window",
+  "M-POL-2|1": "survived_window",
+  "M-POL-2|2": "player_death",
+  "M-POL-2|3": "survived_window",
+  "M-POL-2|4": "survived_window",
+  "M0|0": "survived_window",
+  "M0|1": "survived_window",
+  "M0|2": "player_death",
+  "M0|3": "player_death",
+  "M0|4": "survived_window",
+  "W1-NULL|0": "survived_window",
+  "W1-NULL|1": "survived_window",
+  "W1-NULL|2": "player_death",
+  "W1-NULL|3": "survived_window",
+  "W1-NULL|4": "survived_window",
+  "W1|0": "survived_window",
+  "W1|1": "survived_window",
+  "W1|2": "player_death",
+  "W1|3": "player_death",
+  "W1|4": "survived_window"
+ },
+ "valid": {
+  "all_25_sim_terminal": true,
+  "cells_25": true,
+  "closure_0": true,
+  "foreign_reads_0": true,
+  "head_fixed": true,
+  "instrument_pinned": true,
+  "join_records_pass": true
+ }
+}

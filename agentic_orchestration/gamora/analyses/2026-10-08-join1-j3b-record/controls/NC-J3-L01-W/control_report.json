@@ -1,0 +1,221 @@
+{
+ "closure": {
+  "n_outside": 0,
+  "raised_cells": []
+ },
+ "limbs": {
+  "a_rowset_equal_to_twin": {
+   "grains": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G4": true,
+    "G5": true,
+    "G6": true,
+    "G7": true
+   },
+   "pass": true
+  },
+  "b_period": {
+   "bad": [],
+   "n_bad": 0,
+   "n_rows": 250,
+   "pass": true
+  },
+  "c_acc_bound_empty": {
+   "pass": true,
+   "per_cell": {
+    "M-POL-2-NULL|0": [
+     {},
+     15
+    ],
+    "M-POL-2-NULL|1": [
+     {},
+     15
+    ],
+    "M-POL-2-NULL|2": [
+     {},
+     15
+    ],
+    "M-POL-2-NULL|3": [
+     {},
+     15
+    ],
+    "M-POL-2-NULL|4": [
+     {},
+     15
+    ],
+    "M-POL-2|0": [
+     {},
+     15
+    ],
+    "M-POL-2|1": [
+     {},
+     15
+    ],
+    "M-POL-2|2": [
+     {},
+     15
+    ],
+    "M-POL-2|3": [
+     {},
+     15
+    ],
+    "M-POL-2|4": [
+     {},
+     15
+    ],
+    "M0|0": [
+     {},
+     15
+    ],
+    "M0|1": [
+     {},
+     15
+    ],
+    "M0|2": [
+     {},
+     15
+    ],
+    "M0|3": [
+     {},
+     15
+    ],
+    "M0|4": [
+     {},
+     15
+    ],
+    "W1-NULL|0": [
+     {},
+     15
+    ],
+    "W1-NULL|1": [
+     {},
+     15
+    ],
+    "W1-NULL|2": [
+     {},
+     15
+    ],
+    "W1-NULL|3": [
+     {},
+     15
+    ],
+    "W1-NULL|4": [
+     {},
+     15
+    ],
+    "W1|0": [
+     {},
+     15
+    ],
+    "W1|1": [
+     {},
+     15
+    ],
+    "W1|2": [
+     {},
+     15
+    ],
+    "W1|3": [
+     {},
+     15
+    ],
+    "W1|4": [
+     {},
+     15
+    ]
+   }
+  },
+  "c_charge_bound_empty": {
+   "calls_total": 0,
+   "pass": true,
+   "per_cell": {
+    "M-POL-2-NULL|0": {},
+    "M-POL-2-NULL|1": {},
+    "M-POL-2-NULL|2": {},
+    "M-POL-2-NULL|3": {},
+    "M-POL-2-NULL|4": {},
+    "M-POL-2|0": {},
+    "M-POL-2|1": {},
+    "M-POL-2|2": {},
+    "M-POL-2|3": {},
+    "M-POL-2|4": {},
+    "M0|0": {},
+    "M0|1": {},
+    "M0|2": {},
+    "M0|3": {},
+    "M0|4": {},
+    "W1-NULL|0": {},
+    "W1-NULL|1": {},
+    "W1-NULL|2": {},
+    "W1-NULL|3": {},
+    "W1-NULL|4": {},
+    "W1|0": {},
+    "W1|1": {},
+    "W1|2": {},
+    "W1|3": {},
+    "W1|4": {}
+   },
+   "want_key": null
+  },
+  "d_cost_printed": {
+   "per_tick_cost_ratio": 0.9584152184552805,
+   "sum_ticks_196": 117695,
+   "sum_ticks_X": 121814,
+   "wall_s_per_tick_196_gm": 0.0012676834190067546,
+   "wall_s_per_tick_X": 0.0012149670809594956
+  },
+  "twin_valid": {
+   "pass": true
+  }
+ },
+ "pass": true,
+ "prediction": "AMENDMENT-2: 7/7 ROWSET-equal to ORACLE-TWIN@200; G7 tick_period == tick_period_s(200) bit-exact every row; acc_bound and charge_bound empty; all 25 sim terminal (twin too); per-tick cost printed",
+ "run": "NC-J3-L01-W",
+ "spec": {
+  "ops": {
+   "kit_as_pct": 200.0,
+   "world_as_pct": 200.0
+  }
+ },
+ "statements": [
+  "INFO-V2-3: the sealed referent's fixture.CRIT_DAMAGE_PCT is 12 (the Warborn Visor alone); never fires. The referent carries 12, not 57 or 69."
+ ],
+ "terminals": {
+  "M-POL-2-NULL|0": "survived_window",
+  "M-POL-2-NULL|1": "survived_window",
+  "M-POL-2-NULL|2": "survived_window",
+  "M-POL-2-NULL|3": "player_death",
+  "M-POL-2-NULL|4": "survived_window",
+  "M-POL-2|0": "survived_window",
+  "M-POL-2|1": "survived_window",
+  "M-POL-2|2": "player_death",
+  "M-POL-2|3": "survived_window",
+  "M-POL-2|4": "survived_window",
+  "M0|0": "survived_window",
+  "M0|1": "survived_window",
+  "M0|2": "survived_window",
+  "M0|3": "player_death",
+  "M0|4": "survived_window",
+  "W1-NULL|0": "survived_window",
+  "W1-NULL|1": "survived_window",
+  "W1-NULL|2": "player_death",
+  "W1-NULL|3": "survived_window",
+  "W1-NULL|4": "survived_window",
+  "W1|0": "survived_window",
+  "W1|1": "survived_window",
+  "W1|2": "player_death",
+  "W1|3": "survived_window",
+  "W1|4": "survived_window"
+ },
+ "valid": {
+  "all_25_sim_terminal": true,
+  "cells_25": true,
+  "closure_0": true,
+  "foreign_reads_0": true,
+  "head_fixed": true,
+  "instrument_pinned": true,
+  "join_records_pass": true
+ }
+}

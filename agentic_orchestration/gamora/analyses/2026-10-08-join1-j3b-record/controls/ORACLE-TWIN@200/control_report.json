@@ -1,0 +1,44 @@
+{
+ "label": "ORACLE-TWIN@200: a sealed in-memory override in a child process. It tests REACH (the rulebook at world = kit = X adds nothing beyond rows 19/36). It is NOT a claim that the oracle is faithful to GD at 200 % attack speed (AS-measured tables are identical on both sides). Never the J-S8 fixture or golden master.",
+ "limbs": {},
+ "pass": true,
+ "prediction": null,
+ "run": "ORACLE-TWIN@200",
+ "spec": null,
+ "statements": [
+  "INFO-V2-3: the sealed referent's fixture.CRIT_DAMAGE_PCT is 12 (the Warborn Visor alone); never fires. The referent carries 12, not 57 or 69."
+ ],
+ "terminals": {
+  "M-POL-2-NULL|0": "survived_window",
+  "M-POL-2-NULL|1": "survived_window",
+  "M-POL-2-NULL|2": "survived_window",
+  "M-POL-2-NULL|3": "player_death",
+  "M-POL-2-NULL|4": "survived_window",
+  "M-POL-2|0": "survived_window",
+  "M-POL-2|1": "survived_window",
+  "M-POL-2|2": "player_death",
+  "M-POL-2|3": "survived_window",
+  "M-POL-2|4": "survived_window",
+  "M0|0": "survived_window",
+  "M0|1": "survived_window",
+  "M0|2": "survived_window",
+  "M0|3": "player_death",
+  "M0|4": "survived_window",
+  "W1-NULL|0": "survived_window",
+  "W1-NULL|1": "survived_window",
+  "W1-NULL|2": "player_death",
+  "W1-NULL|3": "survived_window",
+  "W1-NULL|4": "survived_window",
+  "W1|0": "survived_window",
+  "W1|1": "survived_window",
+  "W1|2": "player_death",
+  "W1|3": "survived_window",
+  "W1|4": "survived_window"
+ },
+ "valid": {
+  "all_25_sim_terminal": true,
+  "cells_25": true,
+  "head_fixed": true,
+  "instrument_pinned": true
+ }
+}

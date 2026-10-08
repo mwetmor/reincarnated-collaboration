@@ -1,0 +1,71 @@
+diff --git a/src/join2_rulebook/a2_table.json b/src/join2_rulebook/a2_table.json
+index 58314496..508a97ab 100644
+--- a/src/join2_rulebook/a2_table.json
++++ b/src/join2_rulebook/a2_table.json
+@@ -47,7 +47,8 @@
+   {"row": 32, "target": "player_offense.PlayerOffense.damage_against", "class": "dispatch-then-delegate", "installed_by_gd": true, "form": "player_offense.PlayerOffense.damage_against", "grain": "player hits (counting site; J3a crit:player)", "note": "J3a: draws crit:player only when the player-stream lane is independent-proc; stashes the multiplier for row 33, then delegates"},
+   {"row": 33, "target": "player_offense.PlayerOffense.crit_mult", "class": "substituted property", "installed_by_gd": true, "form": "player_offense.PlayerOffense.crit_mult", "install_as": "property", "grain": "player crit multiplier (disc + leech basis)", "note": "J3a: fget returns the row-32 stash, else crit_limb.multiplier (the sealed property's own read; bit-equal at default)"},
+   {"row": 34, "target": "secondary_streams.SecondaryStreams.soulfire_damage_against", "class": "dispatch-then-delegate", "installed_by_gd": true, "form": "secondary_streams.SecondaryStreams.soulfire_damage_against", "grain": "Soulfire rows (counting site; J3a crit:soulfire)", "note": "J3a: draws crit:soulfire only when the player-stream lane is independent-proc; stash cleared in finally; row 11 stays PURE"},
+-  {"row": 35, "target": "threat.PTH_MINIMUM (the G1 floor record)", "class": "cited-live (bound only when L-04 is off-default)", "installed_by_gd": false, "grain": "G1 pth_effective", "note": "J3b (ADDENDUM-E1 A-2.3; prereg 9bd4e840): the emitter recomputes pth_effective from this constant; the row-2 form asserts the record per call (SplitRecordRefused); two different off-default lane floors refuse at bind"}
++  {"row": 35, "target": "threat.PTH_MINIMUM (the G1 floor record)", "class": "cited-live (bound only when L-04 is off-default)", "installed_by_gd": false, "grain": "G1 pth_effective", "note": "J3b (ADDENDUM-E1 A-2.3; prereg 9bd4e840): the emitter recomputes pth_effective from this constant; the row-2 form asserts the record per call (SplitRecordRefused); two different off-default lane floors refuse at bind"},
++  {"row": 36, "target": "run.charge_per_tick", "class": "alias-substitution (JOIN-only law, KP-388)", "installed_by_gd": true, "form": "run.charge_per_tick", "grain": "player energy (dry-out), G5/G7", "note": "J3b AMENDMENT-2: run.simulate_wave reads charge_per_tick as a run-module global (run.py:48/:1260); rebinding it charges per KIT pulse (sealed x h, h = effective kit AS / world AS); returns the sealed value unmultiplied at h == 1.0 (bit-identical); simulate_wave itself is not substituted"}
+  ],
+  "do_not_substitute": [
+   "intake.IntakeFold.__init__", "intake.IntakeFold.physical", "intake.order_fork_delta", "intake.armour_branch",
+diff --git a/src/join2_rulebook/crit.py b/src/join2_rulebook/crit.py
+index 4c1aa1dc..2b3ed991 100644
+--- a/src/join2_rulebook/crit.py
++++ b/src/join2_rulebook/crit.py
+@@ -138,7 +138,9 @@ COUNTERS: Dict[str, Any] = {"lane_census": {"intake": 0, "summon": 0, "None": 0}
+                             # guard's sourced set (observational; predicted n_outside == 0 in every gd-decoded run)
+                             "lookups": {"n": {}, "outside": {}, "n_outside": 0},
+                             # J3b AMENDMENT-1 (observational): every row-31 accumulator bound, by repr(hits_per_tick)
+-                            "acc_bound": {}, "row31_calls": 0}
++                            "acc_bound": {}, "row31_calls": 0,
++                            # J3b AMENDMENT-2 (observational): row 36's per-tick cost by repr, per simulate_wave call
++                            "charge_bound": {}}
+ 
+ 
+ def activate(profile: CritProfile) -> None:
+diff --git a/src/join2_rulebook/forms.py b/src/join2_rulebook/forms.py
+index 8e3b70de..f96d9cb6 100644
+--- a/src/join2_rulebook/forms.py
++++ b/src/join2_rulebook/forms.py
+@@ -388,6 +388,20 @@ def bind(ops, registry=None) -> Dict[str, Callable]:
+             _b = _crit.COUNTERS["acc_bound"]
+             _b[repr(hpt)] = _b.get(repr(hpt), 0) + 1
+ 
++    _en = _kc2("energy")
++    sealed_charge_per_tick = _en.charge_per_tick                              # row 36 capture (the sealed function)
++    _unit_default = __import__("inspect").signature(sealed_charge_per_tick).parameters["unit"].default
++
++    def charge_per_tick_(ticks_per_second, unit=_unit_default):  # row 36 (J3b AMENDMENT-2; KP-388): per KIT pulse
++        c = sealed_charge_per_tick(ticks_per_second, unit)
++        h = kit_hits_per_tick(ops)
++        if h == 1.0:                                    # kit == world: the sealed value, unmultiplied (bit-identical)
++            return c
++        out = c * h                                     # drain per second = c * h * world_tps = c * kit_eff_tps
++        _cb = _crit.COUNTERS["charge_bound"]
++        _cb[repr(out)] = _cb.get(repr(out), 0) + 1
++        return out
++
+     for f, q in ((resolve_hit_, "resolve_hit"), (mitigate_, "mitigate"),
+                  (physical_applied_, "physical_applied"), (applied_damage_, "applied_damage"),
+                  (mitigation_at_, "mitigation_at"), (defence_of_, "defence_of"),
+@@ -396,7 +410,7 @@ def bind(ops, registry=None) -> Dict[str, Callable]:
+                  (pth_for_, "pth_for"), (post_init_, "__post_init__"),
+                  (stop_where_close_enough_, "stop_where_close_enough"),
+                  (damage_against_, "damage_against"), (crit_mult_, "crit_mult"),
+-                 (soulfire_damage_against_, "soulfire_damage_against")):
++                 (soulfire_damage_against_, "soulfire_damage_against"), (charge_per_tick_, "charge_per_tick")):
+         f.__name__ = q
+         f.__qualname__ = "join2_rulebook." + q
+     return {
+@@ -416,6 +430,7 @@ def bind(ops, registry=None) -> Dict[str, Callable]:
+         "player_offense.PlayerOffense.damage_against": damage_against_,
+         "player_offense.PlayerOffense.crit_mult": crit_mult_,
+         "secondary_streams.SecondaryStreams.soulfire_damage_against": soulfire_damage_against_,
++        "run.charge_per_tick": charge_per_tick_,
+     }
+ 
+ 

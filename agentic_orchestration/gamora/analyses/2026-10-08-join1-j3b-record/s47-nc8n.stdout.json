@@ -1,0 +1,101 @@
+[c9-courtesy] 12:16:50 no C-9 wrapper present; acquiring for gamora-j3b-nc8n
+heavy_lock: acquired after 0s (gamora-j3b-nc8n)
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8n",
+ "head": {
+  "end": "d5384b4b951092911cf75a05103987ab772f6343",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "edc3af981664d898f50a2d2c05a5b02309de20ca",
+     "blob_live": "edc3af981664d898f50a2d2c05a5b02309de20ca",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "blob_live": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "edc3af981664d898f50a2d2c05a5b02309de20ca",
+     "blob_live": "edc3af981664d898f50a2d2c05a5b02309de20ca",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "blob_live": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "d5384b4b951092911cf75a05103987ab772f6343"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "a4bcd3278a61bbe518eb6b2c3f1cb84dd4660d2ca6e9e695bdd6cf4fae382878",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "d5384b4b951092911cf75a05103987ab772f6343",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 282,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 142,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [
+   "run.charge_per_tick"
+  ],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    90701,
+    90723
+   ],
+   "n_pids": 2,
+   "pass": false,
+   "tree_ok": true
+  },
+  "witness_hits": [
+   [
+    90723,
+    "fingerprint differs from the sealed census",
+    "run.charge_per_tick"
+   ]
+  ]
+ },
+ "prediction": "B' RED: census differs exactly ['run.charge_per_tick'] (the run-module global re-bound to an identical-returning function); path check GREEN; witness fingerprint hit on the HEAD pid for that key only",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)",
+ "verdict_reason": null
+}
+[c9-courtesy] 12:16:56 released gamora-j3b-nc8n rc=0
