@@ -6,7 +6,7 @@
 # 18 images = 9 chunks x 2, so a driver-level retry cannot fit: on the FIRST non-zero burst exit the watcher stops the
 # driver (between waves) and HALTs (exit 6). Usage limit -> the driver's own exit 7. Images are read from the ledger.
 FID=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid
-CFG=$FID/pt/pilot/cfg_bv2a_pilot.json; DRV=$FID/v1tools/tierB/conductor_scripts/t10bf_drive.sh
+CFG=${1:-$FID/pt/pilot/cfg_bv2a_pilot.json}; DRV=$FID/v1tools/tierB/conductor_scripts/t10bf_drive.sh
 LED=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/ledger.json
 PFX=$(python3 -c "import json;print(json.load(open('$CFG'))['prefix'])")   # BV2F-PR for the Phase 2'' repaint (R-C9-210)
 L=$HOME/astra-burst/logs/C-9; DLOG=$L/${PFX}_drive.log; CAP=18
