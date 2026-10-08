@@ -1,0 +1,88 @@
+{
+ "value": {
+  "mad_max": 13.86,
+  "vis_max": 0.359
+ },
+ "over_bar": {
+  "mad_pairs": 1,
+  "seams": 0
+ },
+ "pass": false,
+ "threshold": "overlap MAD <= 13.09 and seam |log2 ratio| <= 0.799 (v1's own maxima)",
+ "overlap_mad": [
+  {
+   "pair": "0_0|1_0",
+   "mad": 4.78
+  },
+  {
+   "pair": "0_0|0_1",
+   "mad": 4.84
+  },
+  {
+   "pair": "0_1|1_1",
+   "mad": 8.92
+  },
+  {
+   "pair": "0_1|0_2",
+   "mad": 13.86
+  },
+  {
+   "pair": "0_2|1_2",
+   "mad": 7.79
+  },
+  {
+   "pair": "1_0|2_0",
+   "mad": 5.16
+  },
+  {
+   "pair": "1_0|1_1",
+   "mad": 5.46
+  },
+  {
+   "pair": "1_1|2_1",
+   "mad": 7.75
+  },
+  {
+   "pair": "1_1|1_2",
+   "mad": 12.34
+  },
+  {
+   "pair": "1_2|2_2",
+   "mad": 10.06
+  },
+  {
+   "pair": "2_0|2_1",
+   "mad": 5.92
+  },
+  {
+   "pair": "2_1|2_2",
+   "mad": 6.36
+  }
+ ],
+ "seam_visibility": [
+  {
+   "seam": "x=1408",
+   "ratio": 1.168,
+   "score": 0.224
+  },
+  {
+   "seam": "x=2688",
+   "ratio": 1.191,
+   "score": 0.252
+  },
+  {
+   "seam": "y=896",
+   "ratio": 1.202,
+   "score": 0.266
+  },
+  {
+   "seam": "y=1664",
+   "ratio": 1.283,
+   "score": 0.359
+  }
+ ],
+ "bars": {
+  "mad_max": 13.09,
+  "vis_max": 0.799
+ }
+}

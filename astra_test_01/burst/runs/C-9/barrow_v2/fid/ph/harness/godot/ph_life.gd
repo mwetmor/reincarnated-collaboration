@@ -81,6 +81,28 @@ func _ready_scene() -> bool:
 	return true
 
 
+func _pilot_sea() -> Array:
+	"""the WATER meshes of the pilot sea (ground_sea), not the '_above_water' land split off them (R-C9-232)"""
+	var out := []
+	for mi in scene._meshes(scene.nodes["ground_sea"]):
+		if not String((mi as Node).name).ends_with("_above_water"):
+			out.append(mi)
+	return out
+
+
+func _pilot_floes() -> Array:
+	"""the BOBBING floes: blobs_shore_ice__* placements (Phase 2'), and the 'floe_N' pieces split out of the ice_floes_bob
+	slab group (R-C9-232; its original mesh is hidden)"""
+	var out := []
+	for id in scene.nodes:
+		if String(id).begins_with("blobs_shore_ice__"):
+			out += scene._meshes(scene.nodes[id])
+	if scene.nodes.has("ice_floes_bob"):
+		for n in (scene.nodes["ice_floes_bob"] as Node).get_parent().find_children("floe_*", "MeshInstance3D", true, false):
+			out.append(n)
+	return out
+
+
 func _settle(n := 10) -> void:
 	for i in n:
 		await physics_frame
@@ -137,7 +159,7 @@ func _life() -> void:
 	# BV2F pilot (bv2f_pilot.gd DEV-5): the sea is ground_sea's meshes wearing water_mat_pt; the floes are the
 	# blobs_shore_ice__* placements, each with its own projected PAINTED material (rest-pose UVs)
 	if "water_mat_pt" in scene and scene.water_mat_pt != null:
-		var sea: Array = scene._meshes(scene.nodes["ground_sea"])
+		var sea: Array = _pilot_sea()
 		for w in sea:
 			(w as Node3D).visible = false
 		await _settle()
@@ -158,19 +180,15 @@ func _life() -> void:
 		for w in sea:
 			geo_saved[w] = (w as GeometryInstance3D).material_override
 			(w as GeometryInstance3D).material_override = gm
-		for id in scene.nodes:
-			if String(id).begins_with("blobs_shore_ice__"):
-				for mi in scene._meshes(scene.nodes[id]):
-					geo_saved[mi] = (mi as GeometryInstance3D).material_override
-					(mi as GeometryInstance3D).material_override = rm
+		for mi in _pilot_floes():
+			geo_saved[mi] = (mi as GeometryInstance3D).material_override
+			(mi as GeometryInstance3D).material_override = rm
 		await _settle()
 		await _shot("geo_mask")
 		for mi in geo_saved:
 			(mi as GeometryInstance3D).material_override = geo_saved[mi]
-		var fl: Array = []
-		for id in scene.nodes:
-			if String(id).begins_with("blobs_shore_ice__"):
-				fl += scene._meshes(scene.nodes[id])
+		var fl: Array = _pilot_floes()
+		rep["pilot_water"] = {"sea_meshes": sea.size(), "floe_meshes": fl.size()}
 		if not fl.is_empty():
 			# P9c marker (R-C9-196 re-instrumentation), plate-space (projected paint), 1024 x 640 texels = 4 plate px each:
 			#   R = 0.95 everywhere -> the floe's SILHOUETTE (alpha against hide_floe's R, sub-pixel under MSAA)
@@ -204,7 +222,7 @@ func _life() -> void:
 					sh.code = code.replace(vw, "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz + %s;   // PH RED: projection follows the bob\n" % bob)
 					m.shader = sh
 			rep["floes_pilot"] = {"meshes": fl.size(), "materials": saved.size(), "floe_red": floe_red}
-			var sea_h: Array = scene._meshes(scene.nodes["ground_sea"]) if floe_pairs > 1 else []
+			var sea_h: Array = _pilot_sea() if floe_pairs > 1 else []
 			for w in sea_h:
 				(w as Node3D).visible = false
 			await _settle()

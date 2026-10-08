@@ -19,6 +19,9 @@ OUT = PH / os.environ.get("PH_PILOT_OUT", "results/pilot")
 W, H = 4096, 2560
 CHUNKS = [("%d_%d" % (c, r), (1280 * c, 768 * r, 1280 * c + 1536, 768 * r + 1024)) for r in range(3) for c in range(3)]
 GA = FID / "lv/guide_art"
+DATA = BF / "godot/data/bv2f" / os.environ.get("PH_PILOT_DATA", "pilot") / "painted"     # rp2: pilot_rp2 (R-C9-240)
+LEVELD = BF / "godot/data/bv2f" / os.environ.get("PH_PILOT_LEVEL", "art")                 # rp2: pilot_rp2/level (PIN.json)
+CANVAS_PREFIX = os.environ.get("PH_PILOT_CANVASES", "BV2F-PT")                             # rp2: BV2F-PS2
 
 
 def save(name, obj):
@@ -67,7 +70,7 @@ def self_moving():
     (blobs_shore_ice ids), dilated 6 px. Excluded from P3 and P8 inputs exactly as R-C9-159's animated sea was (p3_residual
     v159_rows `anim`; p9 sway `selfmove`): a heather mask or render taken from frames in which water moves sees the water."""
     if "SM" not in _C:
-        man = jload(BF / "godot/data/bv2f/pilot/painted/manifest.json")
+        man = jload(DATA / "manifest.json")
         idx, tab = ids_built()
         if not man.get("water") or os.environ.get("PH_EXCLUDE_SELF_MOVING") != "1":    # R-C9-196: NOT adopted (off by default)
             _C["SM"] = np.zeros((H, W), bool)
@@ -196,10 +199,10 @@ def p3():
     P = painting()
     M = p3_masks()
     rows = {k: R3.resid(R, P, m) for k, m in M.items()}
-    lit = np.asarray(Image.open(io.BytesIO(open(BF / "godot/data/bv2f/pilot/painted/lit.bin", "rb").read())).convert("L"), np.float32) / 255.0
+    lit = np.asarray(Image.open(io.BytesIO(open(DATA / "lit.bin", "rb").read())).convert("L"), np.float32) / 255.0
     lit = np.asarray(Image.fromarray((lit * 255).astype(np.uint8)).resize((W, H), Image.BILINEAR), np.float32) / 255.0
     lin = srgb_to_lin(R)
-    mul = np.array(jload(BF / "godot/data/bv2f/pilot/painted/manifest.json")["shadow_mul"]["linear"])   # the pilot's measured shadow
+    mul = np.array(jload(DATA / "manifest.json")["shadow_mul"]["linear"])   # the pilot's measured shadow
     f = lit[..., None] + (1 - lit[..., None]) * mul
     out = lin * f
     srgb = np.where(out <= 0.0031308, out * 12.92, 1.055 * np.clip(out, 0, None) ** (1 / 2.4) - 0.055) * 255
@@ -267,7 +270,7 @@ def p4():
 # ---------------------------------------------------------------------------------------------------------- P5
 def p5():
     import p5_seams as S5
-    paths = S5.canvases("BV2F-PT")
+    paths = S5.canvases(CANVAS_PREFIX)
     st = jload(PT / "stitch_record.json")["canvases"]
     shas = {k: sha256(v) for k, v in paths.items()}
     assert set(paths) == set(st) and all(shas[k] == st[k]["sha256"] for k in st), "canvases differ from PT's stitch record"
@@ -446,9 +449,9 @@ def p8():
 def ground_z_slope():
     """terrain z (m) and slope (deg) at each pilot pixel's GROUND point: the art heightfield (rows north -> south,
     make_bv2art.py), the ground point found by iterating the plate law y = (v1 - v) * 80.3076 - z * 60.6137 (4 passes)."""
-    lvl = jload(BF / "godot/data/bv2f/art/level.json")
+    lvl = jload(LEVELD / "level.json")
     hf = lvl["sim"]["heightfield"]
-    Z = np.fromfile(BF / "godot/data/bv2f/art" / hf["file"], dtype="<f4").reshape(hf["shape"])
+    Z = np.fromfile(LEVELD / hf["file"], dtype="<f4").reshape(hf["shape"])
     ex = hf["extent_sim_m"]
     k = float(hf["px_per_m"])
     gy, gx = np.gradient(Z, 1.0 / k)
@@ -505,8 +508,8 @@ def trail_pilot():
     bounds polygon (uv) inside the pilot window, world xz = v1's rotation (bv2f_prep.py xz_of_uv). Also reported: the
     share of that ground where the field carries snow at all (depth multiplier > 0; flat ground only by DEV-18)."""
     from matplotlib.path import Path
-    lvl = jload(BF / "godot/data/bv2f/art/level.json")
-    sn = jload(BF / "godot/data/bv2f/pilot/painted/manifest.json")["snow"]
+    lvl = jload(LEVELD / "level.json")
+    sn = jload(DATA / "manifest.json")["snow"]
     env = jload(GA / "guide_manifest.json")["envelope"]
     u0, v1 = env["u"][0], env["v"][1]
     u1, v0 = u0 + W / PPM_V1, v1 - H / 80.3076
@@ -520,14 +523,14 @@ def trail_pilot():
     inr = (X >= ax) & (X <= ax + aw) & (Zw >= az) & (Zw <= az + ah)
     g = sn["grid"]
     nx, nz = g["nx"], g["nz"]
-    raw = np.fromfile(BF / "godot/data/bv2f/pilot/painted" / g["file"], dtype="<f4")
+    raw = np.fromfile(DATA / g["file"], dtype="<f4")
     mul = raw[:nx * nz].reshape(nz, nx)
     gi = np.clip(((X - g["origin_xz"][0]) / g["cell_m"]).astype(int), 0, nx - 1)
     gj = np.clip(((Zw - g["origin_xz"][1]) / g["cell_m"]).astype(int), 0, nz - 1)
     has = mul[gj, gi] > 0
     n = max(int(walk.sum()), 1)
     hf = lvl["sim"]["heightfield"]
-    Zh = np.fromfile(BF / "godot/data/bv2f/art" / hf["file"], dtype="<f4").reshape(hf["shape"])
+    Zh = np.fromfile(LEVELD / hf["file"], dtype="<f4").reshape(hf["shape"])
     ex, k = hf["extent_sim_m"], float(hf["px_per_m"])
     zi = np.clip(np.round((-pts[:, 1] - ex["y0"]) * k).astype(int), 0, Zh.shape[0] - 1)
     zj = np.clip(np.round((pts[:, 0] - ex["x0"]) * k).astype(int), 0, Zh.shape[1] - 1)
@@ -543,14 +546,6 @@ def trail_pilot():
 
 
 ROWS = {"p1": p1, "p2": p2, "p3": p3, "p4": p4, "p5": p5, "p6a": p6a, "p6prime": p6prime, "p8": p8, "p11": p11, "p9p10": p9p10}
-
-if __name__ == "__main__":
-    want = sys.argv[1:] or [k for k in ROWS if k != "p9p10"]
-    for k in want:
-        r = ROWS[k]()
-        brief = {kk: vv for kk, vv in r.items() if kk in ("pass", "verdict", "worst", "median_iou", "min", "whole_window", "candidates",
-                                                            "unmatched", "chunks_failing_by_rule", "binding_fails", "value", "worst_class", "below_bar", "trials", "repeats", "images", "UNDERPOWERED")}
-        print(k, json.dumps(brief, default=str)[:600])
 
 
 # ---------------------------------------------------------------------------------------------------------- P9c sub-pixel
@@ -846,3 +841,120 @@ def p9c_measure_v2(dirp, view_uv, margin=12, min_motion=0.25):
     r["median_drift_samples_px"] = round(float(np.median(d)), 3) if d else None
     r["pass_v2"] = (float(np.median(d)) <= 0.25) if d else None
     return r
+
+
+# ---------------------------------------------------------------------------------------------------------- P4 (§ 38)
+def p4_v38():
+    """P4 under the § 38 pre-registration (R-C9-203): ICE against sketch A's mere (palette dE <= 9.40, gated b* <= 2;
+    spectrum at 24 px/m <= 0.116); SNOW and ROCK against v1 (frozen § 3 bars); coastal snow additionally reported
+    against the pilot's inland snow (non-binding). REED: no v1 class -- reported against v1's nearest, heather (v1's
+    painted tuft pixels), advisory (no frozen bar)."""
+    import p4_texture as T
+    import p4_forensic as F
+    masks_v1, static_v1 = T.v1_classes()
+    per = T.v1_pool(None, masks_v1, static_v1)
+    bars = T.v1_bars(per)
+    bind = {c: bars[c] for c in ("snow", "rock")}
+    bind["cellularity"] = bars["cellularity"]
+    idx, tab = ids_built()
+    cls, names = class_map()
+    ni = {n: i for i, n in enumerate(names)}
+    tf = tufts()
+    g = ground_mask() & ~tf
+    rock = np.isin(idx, [k for k, v in tab.items() if v["class"] == "rock" and v.get("piece") in ("model", "instance", "group") or
+                         (v["class"] == "rock" and str(v.get("piece", "")).startswith("instance"))])
+    masks = {"snow": g & (cls == ni["snow"]), "rock": rock}
+    static = ~(np.asarray(Image.open(PT / "heather_mask.png").convert("L")) > 20) & ~tf
+    P = painting()
+    lab = rgb_to_lab(P)
+    rows = {}
+    for key, (x0, y0, x1, y1) in CHUNKS:
+        st = T.stats(P[y0:y1, x0:x1], {c: m[y0:y1, x0:x1] for c, m in masks.items()}, static[y0:y1, x0:x1])
+        rows[key] = T.score(st, per, bind)
+    # ICE vs sketch A
+    SKI, skm, MERE = F.sketch_mere()
+    lsk = rgb_to_lab(SKI)
+    sk = skm & (lsk[..., 2] <= 2.0)
+    sk_med = np.median(lsk[sk], 0)
+    W_ = lambda mk: T.windows(mk, frac=0.7, step=32)
+    sk_spec = np.array(T.spectrum_shape(luma(SKI), W_(sk)))
+    f = PPM_V1 / 24.0
+    Ps = np.asarray(Image.fromarray(np.clip(P, 0, 255).astype(np.uint8)).resize((int(W / f), int(H / f)), Image.BOX)).astype(np.float32)
+    ls = rgb_to_lab(Ps)
+    ice_full = g & (cls == ni["ice"])
+    ice_rows = {}
+    for key, (x0, y0, x1, y1) in CHUNKS:
+        m = np.zeros((H, W), bool)
+        m[y0:y1, x0:x1] = ice_full[y0:y1, x0:x1]
+        m = ndimage.binary_erosion(m, iterations=3) & (lab[..., 2] <= 2.0)
+        if m.sum() < 20000:
+            continue
+        med = np.median(lab[m], 0)
+        dE = float(np.linalg.norm(med - sk_med))
+        ms = np.asarray(Image.fromarray(m.astype(np.uint8) * 255).resize((Ps.shape[1], Ps.shape[0]), Image.BOX)) > 200
+        ms &= ls[..., 2] <= 2.0
+        sp = T.spectrum_shape(luma(Ps), W_(ms))
+        dS = float(np.sqrt(np.mean((np.array(sp) - sk_spec) ** 2))) if sp is not None else None
+        hel = T.hellinger(T.lab_hist(lab[m]), T.lab_hist(lsk[sk]))
+        ice_rows[key] = {"px": int(m.sum()), "median_lab": med.round(1).tolist(), "dE_vs_sketchA": round(dE, 2), "dE_bar": 9.40,
+                         "spectrum_rms_at_24ppm": None if dS is None else round(dS, 3), "spectrum_bar": 0.116,
+                         "windows_at_24ppm": len(W_(ms)), "hellinger_reported": round(hel, 3),
+                         "pass": dE <= 9.40 and (dS is None or dS <= 0.116)}
+    # coastal / inland snow diagnostic
+    coastal = {}
+    for key, (x0, y0, x1, y1) in CHUNKS:
+        c = cls[y0:y1, x0:x1]
+        coastal[key] = bool(sum(float((c == ni[n]).mean()) for n in ("shingle", "shore_ice", "sea")) >= 0.02)
+    inland_px = np.zeros((H, W), bool)
+    for key, (x0, y0, x1, y1) in CHUNKS:
+        if not coastal[key]:
+            inland_px[y0:y1, x0:x1] |= masks["snow"][y0:y1, x0:x1]
+    diag = {}
+    if inland_px.sum() > 20000:
+        ref = T.lab_hist(lab[ndimage.binary_erosion(inland_px, iterations=3)])
+        for key, (x0, y0, x1, y1) in CHUNKS:
+            if coastal[key]:
+                m = np.zeros((H, W), bool)
+                m[y0:y1, x0:x1] = ndimage.binary_erosion(masks["snow"][y0:y1, x0:x1], iterations=3)
+                if m.sum() >= 20000:
+                    diag[key] = round(T.hellinger(T.lab_hist(lab[m]), ref), 3)
+    # REED, advisory: against v1's painted tufts (heather)
+    PW = _pw_mod()
+    V8 = np.asarray(Image.open(PW.PAINTING).convert("RGB"))
+    vidx, _ = PW.id_index()
+    vh, vs = PW.tuft_classes(V8, vidx == 0)
+    vt = ndimage.binary_opening(vh | vs, iterations=1)
+    vref = T.lab_hist(rgb_to_lab(V8.astype(np.float32))[ndimage.binary_erosion(vt, iterations=1)])
+    reed = ndimage.binary_erosion((cls == ni["reed"]), iterations=2)
+    reed_rows = {}
+    for key, (x0, y0, x1, y1) in CHUNKS:
+        m = np.zeros((H, W), bool)
+        m[y0:y1, x0:x1] = reed[y0:y1, x0:x1]
+        if m.sum() >= 5000:
+            reed_rows[key] = {"px": int(m.sum()), "hellinger_vs_v1_heather_tufts": round(T.hellinger(T.lab_hist(lab[m]), vref), 3)}
+    binding_fail = [(k, c) for k, r in rows.items() for c, v in r["classes"].items() if v.get("pass") is False]
+    binding_fail += [(k, "ice (sketch A)") for k, r in ice_rows.items() if not r["pass"]]
+    return save("p4", {"rule": "calibration.md s38: ice vs sketch A (palette dE <= 9.40 gated b*<=2; spectrum@24ppm <= 0.116); snow + rock vs v1 frozen s3 bars",
+                       "sketchA_ice_median": sk_med.round(1).tolist(), "chunks_snow_rock": rows, "ice": ice_rows,
+                       "coastal_chunks": [k for k, v in coastal.items() if v], "coastal_snow_vs_inland_hellinger_diagnostic": diag,
+                       "reed_advisory": {"nearest_v1_class": "heather (v1's painted tuft px)", "rows": reed_rows},
+                       "binding_fails": binding_fail, "pass": not binding_fail})
+
+
+def _pw_mod():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("pw_v1_readonly", BF / "tools/paint_world_prep.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+ROWS["p4v38"] = p4_v38
+
+if __name__ == "__main__":
+    want = sys.argv[1:] or [k for k in ROWS if k != "p9p10"]
+    for k in want:
+        r = ROWS[k]()
+        brief = {kk: vv for kk, vv in r.items() if kk in ("pass", "verdict", "worst", "median_iou", "min", "whole_window", "candidates",
+                                                            "unmatched", "chunks_failing_by_rule", "binding_fails", "value", "worst_class", "below_bar", "trials", "repeats", "images", "UNDERPOWERED")}
+        print(k, json.dumps(brief, default=str)[:600])
+

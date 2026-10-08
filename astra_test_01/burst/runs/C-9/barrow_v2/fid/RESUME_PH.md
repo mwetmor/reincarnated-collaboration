@@ -121,3 +121,8 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P6prime on 09ba67b23 (§ 41): RED presence -- fallen ring_stones #5 (0.897) and #7 (0.642) seated below their slope; wreck 0.304 OK; placement/scale PASS; I-4 RED fails. HALT for LV.
 - [x] P6prime on 1f9eb1dc7 (§ 42): RED -- layout slope_stone_0 not built (crosscheck 61 vs 60), gully_rock #1 0.738 hidden undeclared; placement/scale PASS; I-4 RED fails. Repaint gated; HALT for LV.
 - [x] P6prime on 368cdf791 (§ 43): PASS (crosscheck 59/59; hidden max 0.477; placement 0.9722; scale 0/112); I-4 RED fails. Repaint gate met for P6prime.
+
+## R-C9-243 -> R-C9-244: pilot-2 harness ABORTED (Matt folded all into pilot repaint 3)
+- Partial, NOT a gate record (results/pilot_rp2/: P1 PASS 1.000, P2 25/25 @bab3f1167, P3 as delivered sea 29.63 (base-only capture not run), P5 FAIL 0_1|0_2 MAD 13.86 > 13.09). No Godot step taken; no P11 pairs generated.
+- Harness ready for pilot 3: pilot_harness env PH_PILOT_DATA / PH_PILOT_LEVEL / PH_PILOT_CANVASES / PH_PILOT_COMMIT / PH_PILOT_OUT; p4_v38 (§ 38 references: ice vs sketch A, snow/rock vs v1, coastal diag, reed advisory vs v1 heather tufts); ph_life pilot floes = ice_floes_bob floe_N pieces + sea without _above_water. TODO for pilot 3: P6a water classes (sea/ice/lead) -> conductor triage; P11 v3 build3 with reed EXCLUDED (v1 has no reeds); floe_view_choose to split ice_floes_bob into components.
+- [ ] STAND BY for pilot 3.
