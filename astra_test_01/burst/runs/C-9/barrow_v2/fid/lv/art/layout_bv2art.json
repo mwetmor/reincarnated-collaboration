@@ -2997,8 +2997,8 @@
    "mere_plates": 0,
    "stream_ice": 0,
    "ice_rims": 79,
-   "ice_ridges": 89,
-   "ice_brash": 666,
+   "ice_ridges": 91,
+   "ice_brash": 612,
    "mere_cracks": 123,
    "mere_seams": 7,
    "trans_rubble": 20,
@@ -3007,7 +3007,7 @@
    "stream_pressure": 0,
    "ring_fallen": 4,
    "barrow_cutting": 11,
-   "ring_snow": 6,
+   "ring_snow": 2,
    "cove_ice": 31,
    "icicles": 40,
    "cradle_cracks": 44,
@@ -4936,8 +4936,8 @@
    },
    "snow": {
     "file": "carved_snow.f32",
-    "tris": 25763,
-    "sha256": "d819eb5a82032cf3801c12e44a10e615734deb446f28e5257d1e2425e5397d6b"
+    "tris": 23060,
+    "sha256": "8b367cc190da455a397528aceb895668b7bc445297c109b269cbf2e82298e7ab"
    },
    "wet_rock": {
     "file": "carved_wet_rock.f32",
@@ -4958,6 +4958,11 @@
     "file": "carved_passage_dark.f32",
     "tris": 9464,
     "sha256": "4efcc4a6a03e469085872639de9c7969d71fa60b1a1519da7e4af927881365c5"
+   },
+   "shrub": {
+    "file": "carved_shrub.f32",
+    "tris": 2703,
+    "sha256": "ced5b6ac35d0ba5415ca3838f99b2366ceb306798a7da498a9a08b0182b71384"
    },
    "ice": {
     "file": "carved_ice.f32",
@@ -5054,11 +5059,11 @@
  ],
  "class_counts": {
   "none": 555574,
-  "snow": 559701,
+  "snow": 530596,
   "ice": 118342,
-  "shrub": 14691,
-  "rock": 1,
-  "mound": 139953,
+  "shrub": 83118,
+  "rock": 9689,
+  "mound": 90943,
   "shingle": 17309,
   "shore_ice": 41912,
   "ash": 61031,

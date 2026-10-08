@@ -1,10 +1,10 @@
 {
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
-  "layout_bv2art_sha256": "495649b79da6d204a9f82ffc8f2757628ab97635c6bc4d5d61460cd8b9a71149",
-  "ids_art_sha256": "4898e2b7950beef0f183b167f6262bd9c6d7cb6d8a408c8917dd79c3f4e78af1",
-  "ids_manifest_sha256": "4898e2b7950beef0f183b167f6262bd9c6d7cb6d8a408c8917dd79c3f4e78af1",
-  "level_art_sha256": "de70cb9923746097de137f4bd93349df5f255420a1e314c9668c4255e8eeacfc",
+  "layout_bv2art_sha256": "ab46e0151b9c0662d305a4d69859e38d1b21d80dbf448bcfefc620b831fd3401",
+  "ids_art_sha256": "95b658fd0f7f77f6ed79e3e6c6553174398c8b33529844b92e4a41fbc4ed59e6",
+  "ids_manifest_sha256": "95b658fd0f7f77f6ed79e3e6c6553174398c8b33529844b92e4a41fbc4ed59e6",
+  "level_art_sha256": "1acadfab359e01120f571de4fce90baea199a617a0916a1c421cb863c95ba862",
   "placed_fit_sha256": "8e7227ebbf8a6aa496e566af5bd71e2dabd848dfb8dfce536dea016cbce5430e",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
@@ -25,7 +25,7 @@
   "objects": 14,
   "below_bar": 7,
   "values": {
-   "wreck": 0.9671,
+   "wreck": 0.9672,
    "wreck_mast": 0.0,
    "barrow_front": 1.0,
    "longhall": 0.9754,
@@ -109,7 +109,7 @@
   "longhall": 0.653,
   "fallen_gable": 0.397,
   "slope_stones": 0.485,
-  "ring_stones": 0.449,
+  "ring_stones": 0.508,
   "crags": 0.181,
   "gully_rock": 0.25,
   "cliff_faces": 0.42,
@@ -122,7 +122,7 @@
   "wreck": {
    "kind": "wreck",
    "instances": 1,
-   "id_px": 281858,
+   "id_px": 282079,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -144,7 +144,7 @@
   "barrow_front": {
    "kind": "barrow",
    "instances": 1,
-   "id_px": 281485,
+   "id_px": 281472,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -179,7 +179,7 @@
   "slope_stones": {
    "kind": "stones",
    "instances": 8,
-   "id_px": 60117,
+   "id_px": 60085,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -190,13 +190,13 @@
   "ring_stones": {
    "kind": "stones",
    "instances": 4,
-   "id_px": 42001,
+   "id_px": 47459,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.449
+   "iou_vs_prism_reported": 0.508
   },
   "crags": {
    "kind": "outcrop",
@@ -245,7 +245,7 @@
   "sea_stacks": {
    "kind": "stack",
    "instances": 3,
-   "id_px": 244454,
+   "id_px": 244455,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -283,8 +283,8 @@
     "type": "box",
     "z_top": 2.263,
     "own_px_in_frame": 448020,
-    "terrain_hidden_share": 0.3258,
-    "visible_share": 0.6291
+    "terrain_hidden_share": 0.3251,
+    "visible_share": 0.6296
    }
   ],
   "wreck_mast": [
@@ -311,8 +311,8 @@
     "type": "box",
     "z_top": 7.59,
     "own_px_in_frame": 464446,
-    "terrain_hidden_share": 0.3775,
-    "visible_share": 0.606
+    "terrain_hidden_share": 0.3705,
+    "visible_share": 0.6059
    }
   ],
   "longhall": [
@@ -349,8 +349,8 @@
     "type": "box",
     "z_top": 1.9,
     "own_px_in_frame": 14035,
-    "terrain_hidden_share": 0.0468,
-    "visible_share": 0.9532
+    "terrain_hidden_share": 0.0482,
+    "visible_share": 0.9518
    },
    {
     "i": 2,
@@ -377,24 +377,24 @@
     "type": "box",
     "z_top": 1.6,
     "own_px_in_frame": 8685,
-    "terrain_hidden_share": 0.0617,
-    "visible_share": 0.9383
+    "terrain_hidden_share": 0.0618,
+    "visible_share": 0.9382
    },
    {
     "i": 6,
     "type": "box",
     "z_top": 1.8,
     "own_px_in_frame": 9356,
-    "terrain_hidden_share": 0.0688,
-    "visible_share": 0.9312
+    "terrain_hidden_share": 0.0696,
+    "visible_share": 0.9304
    },
    {
     "i": 7,
     "type": "box",
     "z_top": 1.409,
     "own_px_in_frame": 7237,
-    "terrain_hidden_share": 0.0812,
-    "visible_share": 0.9188
+    "terrain_hidden_share": 0.0818,
+    "visible_share": 0.9182
    }
   ],
   "ring_stones": [
@@ -403,32 +403,32 @@
     "type": "box",
     "z_top": 4.243,
     "own_px_in_frame": 14571,
-    "terrain_hidden_share": 0.1705,
-    "visible_share": 0.7795
+    "terrain_hidden_share": 0.1764,
+    "visible_share": 0.8236
    },
    {
     "i": 1,
     "type": "box",
     "z_top": 3.871,
     "own_px_in_frame": 11736,
-    "terrain_hidden_share": 0.0308,
-    "visible_share": 0.771
+    "terrain_hidden_share": 0.0617,
+    "visible_share": 0.8393
    },
    {
     "i": 2,
     "type": "box",
     "z_top": 2.647,
     "own_px_in_frame": 14980,
-    "terrain_hidden_share": 0.0913,
-    "visible_share": 0.7658
+    "terrain_hidden_share": 0.1019,
+    "visible_share": 0.8981
    },
    {
     "i": 3,
     "type": "box",
     "z_top": 2.082,
     "own_px_in_frame": 12665,
-    "terrain_hidden_share": 0.1559,
-    "visible_share": 0.7211
+    "terrain_hidden_share": 0.1636,
+    "visible_share": 0.8364
    }
   ],
   "crags": [
@@ -739,7 +739,7 @@
     "type": "box",
     "z_top": 1.7,
     "own_px_in_frame": 198339,
-    "terrain_hidden_share": 0.0222,
+    "terrain_hidden_share": 0.0257,
     "visible_share": 0.7951
    },
    {
@@ -747,7 +747,7 @@
     "type": "box",
     "z_top": 0.1,
     "own_px_in_frame": 113356,
-    "terrain_hidden_share": 0.0007,
+    "terrain_hidden_share": 0.0017,
     "visible_share": 0.7653
    },
    {

@@ -199,7 +199,7 @@ STACKS_UV = [((-21.5, -15.5), 6.2), ((-3.5, -22.0), 4.6), ((16.5, -29.5), 5.4)]
 # INSIDE the build's own footprint (its glTF vertices, placed as the level places it) the lobe adds nothing, so the mound
 # meets the build's sides and back and never stands in front of its face.
 # The lobe sits east of the door (the mere's ice comes to within ~6 m of the door on the west).
-MOUND_FRONT = {"du": 2.0, "dv": 3.5, "semi_m": (12.0, 6.5), "rise_m": 6.0, "exponent": 0.35, "kerb": 0.10,
+MOUND_FRONT = {"du": 2.0, "dv": 3.5, "semi_m": (12.0, 6.5), "rise_m": 7.0, "exponent": 0.35, "kerb": 0.10,
                "cut_hw": 4.5, "cut_flare": 1.2, "cut_back": 0.45, "mere_clear": (0.4, 1.6)}
 # (4) the MERE -> SEA margin: ONE graded ice field from the mere's edge down to the beach foot (no land strip, no crease),
 # land/reed islands standing out of it, cracks widening into leads and rubble toward the sea. Weight fades (noisy) to the
@@ -210,6 +210,20 @@ BEACH_NOISE = {"bw_amp": 1.8, "sigma_m": 2.2, "relief_m": 0.06}
 # (2) REEDS: sketch A's tall pale reed clumps -- thin blades (class `reed`, pale straw) on a straw ground patch; on organic
 # low islands in the mere and the margin, along the mere's edges and the river's banks (PT's DEV-21 cards grow from them)
 REED_TINT = [0.80, 0.68, 0.46]
+
+
+def shard(rng, cx, cy, r):
+    """R-C9-244 (c): an irregular broken ice shard -- 4-8 sides at uneven angles, elongated, turned (never a regular cube)"""
+    nv = rng.randint(4, 8)
+    el = rng.uniform(0.4, 1.0)
+    rot = rng.uniform(0, math.pi)
+    angs = sorted(rng.uniform(0, 2 * math.pi) for _ in range(nv))
+    out = []
+    for a0 in angs:
+        rr = r * rng.uniform(0.55, 1.15)
+        x_, y_ = rr * math.cos(a0), rr * el * math.sin(a0)
+        out.append((cx + x_ * math.cos(rot) - y_ * math.sin(rot), cy + x_ * math.sin(rot) + y_ * math.cos(rot)))
+    return out
 
 
 def chaikin(poly, f=0.22):
@@ -391,6 +405,9 @@ def main():
     fp_b = ndimage.binary_closing(fp_b, iterations=3)
     fp_b = ndimage.binary_fill_holes(fp_b)
     fp_b = ndimage.binary_dilation(fp_b, iterations=2)
+    # R-C9-244 (d): only the build's FRONT (its portal block, 1.8 m deep) is kept clear of the lobe; its back and roof run
+    # under the mound (declared burial_by_design), so from the play camera the door sits INTO the mound, not a box on snow
+    fp_b &= V < bdc[1] + 1.8
     # R-C9-239 (1): the build's footprint as a SOFT edge (distance out of it, blurred) -- the hard 25 cm mask drew a sawtooth
     # diagonal along the mound's cut on both sides of the door
     fp_d = ndimage.gaussian_filter(ndimage.distance_transform_edt(~fp_b) / HF_PPM - ndimage.distance_transform_edt(fp_b) / HF_PPM, 0.5 * HF_PPM)
@@ -588,6 +605,7 @@ def main():
     # draw order -- and everything placed after the pack (talus, ...) -- is unchanged
     rngs = __import__("random").Random(2272)
     rngR = __import__("random").Random(2352)                   # R-C9-234 (5): ridge rubble shapes
+    rngR2 = __import__("random").Random(2445)                  # R-C9-244 (c): rubble-zone shards
     cw_a = np.array([w_ * math.exp(rngs.gauss(0.0, 0.6)) for w_ in cw])
     plate_of = []
     for p in fine:
@@ -673,12 +691,9 @@ def main():
                     # sparser, 5-28 cm proud of its plate (own stream 2352)
                     if rngR.random() < 0.4:
                         continue
-                    rr2 = r_ * rngR.uniform(0.55, 1.5)
-                    nv = rngR.randint(5, 8)
-                    a1 = rngR.uniform(0, 2 * math.pi)
-                    blk = [(cx + rr2 * math.cos(a1 + 2 * math.pi * q / nv + rngR.uniform(-0.3, 0.3)) * rngR.uniform(0.6, 1.15),
-                            cy + rr2 * math.sin(a1 + 2 * math.pi * q / nv + rngR.uniform(-0.3, 0.3)) * rngR.uniform(0.45, 1.0)) for q in range(nv)]
-                    ridges.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(blk)], "z0": round(SEA_Z - 0.2, 3), "z1": round(top + rngR.uniform(0.05, 0.28), 3)})
+                    # R-C9-244 (c): flat irregular shards (were 5-8-sided blocks up to 28 cm proud: read as cubes on the edges)
+                    blk = shard(rngR, cx, cy, r_ * rngR.uniform(0.5, 1.4))
+                    ridges.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(blk)], "z0": round(SEA_Z - 0.2, 3), "z1": round(top + rngR.uniform(0.03, 0.12), 3)})
         if rubble and len(ice) > n_ice0:
             # a RUBBLE ZONE in place of this plate: broken blocks of every size heaped where it was (its rims/ridges go too)
             base_ = [(round(q[0], 3), round(q[1], 3)) for q in poly]     # (the legacy outline: rngs draws unchanged)
@@ -690,14 +705,18 @@ def main():
                 if not K.point_in_poly((cx, cy), base_):
                     continue
                 r_ = rngs.uniform(0.12, 0.6) ** 1.3 * 1.6
-                pg = [(cx + r_ * math.cos(a_) * rngs.uniform(0.55, 1.2), cy + r_ * math.sin(a_) * rngs.uniform(0.55, 1.2)) for a_ in np.linspace(0, 2 * math.pi, rngs.randint(4, 7), endpoint=False)]
-                ice.append({"zone": zn, "poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg)], "top": round(ICE_TOP + rngs.uniform(-0.1, 0.35), 3), "bob": False})
+                pg_leg = [(cx + r_ * math.cos(a_) * rngs.uniform(0.55, 1.2), cy + r_ * math.sin(a_) * rngs.uniform(0.55, 1.2)) for a_ in np.linspace(0, 2 * math.pi, rngs.randint(4, 7), endpoint=False)]
+                _z_leg = rngs.uniform(-0.1, 0.35)                    # (legacy draws + legacy outline kept: the brash/talus after the pack do not move)
+                pg = shard(rngR2, cx, cy, r_)                     # R-C9-244 (c): an irregular shard, low
+                ice.append({"zone": zn, "poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg)], "top": round(ICE_TOP + rngR2.uniform(-0.1, 0.12), 3), "bob": False,
+                            "poly_leg": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg_leg)]})
     # BRASH: small broken ice in the leads beside the plates
     ice_r = np.zeros(U.shape, bool)
     for e in ice:
         ice_r |= mask([tuple(q) for q in e.get("poly_leg", e["poly"])], U, V, HF_PPM, u0, v1)     # (legacy outline: the brash draws keep their count)
     near = ndimage.binary_dilation(ice_r, iterations=4) & ~ice_r & ~solid
     brash = []
+    rngB = __import__("random").Random(2444)
     js, is_ = np.nonzero(near)
     for j, i in zip(js[::3], is_[::3]):
         if prng.random() < 0.35:
@@ -705,8 +724,23 @@ def main():
             if not (box[0] < cx < box[2] and box[1] < cy < box[3]):
                 continue
             r_ = prng.uniform(0.1, 0.32)
-            pg = [(cx + r_ * prng.uniform(0.6, 1.1) * math.cos(2 * math.pi * q / 5 + 0.3), cy + r_ * prng.uniform(0.6, 1.1) * math.sin(2 * math.pi * q / 5 + 0.3)) for q in range(5)]
-            brash.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in pg], "z0": round(SEA_Z - 0.15, 3), "z1": round(SEA_Z + prng.uniform(0.04, 0.16), 3)})
+            _leg = [prng.uniform(0.6, 1.1) for _ in range(10)]               # (legacy draws kept: the talus etc. after the pack do not move)
+            _z_leg = prng.uniform(0.04, 0.16)
+            # R-C9-244 (c): no regular pentagon "cubes" -- each brash piece an irregular broken shard: 4-8 sides at uneven
+            # angles, elongated and turned, sizes spread wide, low in the water (own stream 2444)
+            nv = rngB.randint(4, 8)
+            el = rngB.uniform(0.45, 1.0)
+            rot = rngB.uniform(0, math.pi)
+            rr0 = r_ * math.exp(rngB.gauss(0.0, 0.45))
+            angs = sorted(rngB.uniform(0, 2 * math.pi) for _ in range(nv))
+            pg = []
+            for a0 in angs:
+                rr = rr0 * rngB.uniform(0.55, 1.15)
+                x_, y_ = rr * math.cos(a0), rr * el * math.sin(a0)
+                pg.append((cx + x_ * math.cos(rot) - y_ * math.sin(rot), cy + x_ * math.sin(rot) + y_ * math.cos(rot)))
+            if K.area(K.ccw(pg)) < 0.004:
+                continue
+            brash.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(pg)], "z0": round(SEA_Z - 0.15, 3), "z1": round(SEA_Z + rngB.uniform(0.02, 0.1), 3)})
     # the ice fraction, inside the paint window, by raster (the sea = not land, not beach, not the shelf)
     win_m = (U > -33.6) & (U < 32.6) & (V > -28.6) & (V < 22.4)
     sea_area = float((~solid & win_m).sum()) / HF_PPM ** 2
@@ -1012,6 +1046,11 @@ def main():
             Lr += rngi.uniform(2.0, 3.8)
     Z = Z.astype("<f4")
     Z.tofile(os.path.join(OUT, "terrain_h.f32"))
+    ring_c_ = (sum(uv(p)[0] for p, _, _ in RING_STAND) / len(RING_STAND), sum(uv(p)[1] for p, _, _ in RING_STAND) / len(RING_STAND))
+    ring_r_ = sum(math.dist(uv(p), ring_c_) for p, _, _ in RING_STAND) / len(RING_STAND)
+
+    def to_fr_arr(Uq, Vq):
+        return (Uq - LIP_A[0]) * dR[0] + (Vq - LIP_A[1]) * dR[1], (Uq - LIP_A[0]) * nR[0] + (Vq - LIP_A[1]) * nR[1]
     # ---- classes at CLS_PPM ----
     names = ["none", "snow", "path", "ice", "shrub", "rock", "mound", "shingle", "shore_ice", "stream", "char", "sea", "wood", "passage_dark", "ash",
              "tide_ice", "wet_rock", "rime", "ice_mid", "reed", "lead"]   # R-C9-238: `lead` = open water drawn IN the ground (the river, the floe gaps) -- its own id (ground_lead), never a second ground_sea    # R-C9-213: tidal classes; R-C9-221: the mere->sea blend band; R-C9-234: reed beds
@@ -1199,6 +1238,52 @@ def main():
         rq = r_ * (1 + 0.22 * np.sin(3 * th + k_) + 0.12 * np.sin(5 * th + 2 * k_))
         sub = C[j0:j1, i0:i1]
         sub[np.hypot(uq - c[0], vq - c[1]) < rq] = names.index("reed")
+    # ================= R-C9-244 (a)/(d): HEATHER FIELDS (v1 practice: shrub ZONES x a patch noise, class `shrub`) =========
+    # Sketch A's reddish shrubs on the snowy land -- PT's 3D heather/shrub cards grow from the tufts the painter paints in
+    # the `shrub` class, so the blockout must give the painter heather to paint. Zones (soft weights, warped edges):
+    # the barrow mound (its flanks and top, and a band round its foot, v1's mound_base band), the stone circle's outside,
+    # the cliff tops, the back of the shingle. Clumps = two-scale noise over the zone weight (varied sizes, clustered, snow
+    # between). Only on cells still snow/mound on land; never the mere (+1.2 m), the river/leads, the margin, the cutting
+    # and the door's approach, the stair's cleft and top pad, the reeds, the ash yard (own streams 2441-2446).
+    def soft(x, a, b_):
+        t_ = np.clip((x - a) / (b_ - a), 0.0, 1.0)
+        return t_ * t_ * (3 - 2 * t_)
+    warp_h = 0.5 * cnoise(2441, 1.2)
+    ma_, mb_ = MOUND["semi_m"]
+    rho_mc = np.hypot((Uc - mc[0]) / ma_, (Vc - mc[1]) / mb_)
+    lfa_, lfb_ = MOUND_FRONT["semi_m"]
+    rho_lc = np.hypot((Uc - lc_[0]) / lfa_, (Vc - lc_[1]) / lfb_)
+    # the mound in metres from its rim (negative inside), over the union of the big dome and the front lobe
+    dm_ = np.minimum((rho_mc - 1.0) * min(ma_, mb_), (rho_lc - 1.0) * min(lfa_, lfb_)) + warp_h
+    w_mound = soft(-dm_, -2.6, -1.4) * (1.0 - soft(-dm_, 0.0, 0.8)) + 0.8 * soft(-dm_, 0.8, 2.0)      # the foot band + the flanks/top
+    rcu = np.hypot(Uc - ring_c_[0], Vc - ring_c_[1]) + warp_h
+    w_ring = soft(rcu, ring_r_ + 0.8, ring_r_ + 1.8) * (1.0 - soft(rcu, ring_r_ + 4.0, ring_r_ + 5.5))
+    dlc_h = dist_to_chain(lip, Uc, Vc) + warp_h
+    w_cliff = soft(dlc_h, 0.5, 1.2) * (1.0 - soft(dlc_h, 4.5, 6.5))
+    dsh_h = samp(d_shore) + warp_h
+    w_shore = soft(dsh_h, 0.3, 0.9) * (1.0 - soft(dsh_h, 3.0, 4.5)) * (1.0 - soft(samp(wG), 0.15, 0.35))
+    w_h = np.maximum.reduce([w_mound, w_ring, w_cliff, w_shore])
+    n_h = 0.6 * cnoise(2442, 0.95) + 0.4 * cnoise(2443, 0.35)
+    heath = landc & (n_h > 1.25 - 1.0 * w_h) & (w_h > 0.05)              # ~40 % cover in a zone's core: clumps, snow between
+    # keep-outs
+    d_mere_c = samp(d_mere)
+    keep = (d_mere_c < 1.2) | (samp(wG) > 0.3)
+    keep |= (np.abs(Uc - bdc[0]) < MOUND_FRONT["cut_hw"] + MOUND_FRONT["cut_flare"] + 0.6) & (Vc < v_fac + 0.6) & (Vc > toe_v - 3.5)   # the cutting + the door's approach
+    tch, sch = to_fr_arr(Uc, Vc)
+    keep |= (tch > t0s - 2.0) & (tch < t1s + 2.0) & (sch > s_land - 2.0) & (sch < s_foot + 1.0)                                          # the stair's cleft + top pad
+    keep |= np.hypot(Uc, Vc) < 3.0                                                                                                        # the start
+    for _, f_, _, _, _ in ch_fields:
+        keep |= f_(Uc, Vc)[0] < 1.2
+    heath &= ~keep & np.isin(C, [names.index("snow"), names.index("mound")])
+    heath = ndimage.binary_opening(heath, iterations=2)                    # no specks
+    C[heath] = names.index("shrub")
+    heather_stats = {"zones": "mound flanks/top + foot band, stone circle outside, cliff tops, shingle back", "shrub_cells_m2_whole_level": round(float((C == names.index("shrub")).sum()) / CLS_PPM ** 2, 1)}
+    # (d) the mound's KERB read: its steep rim face drawn as stone (v1's kerbed rim), round the lobe and the big dome
+    # the kerb band = the profile's own kerbed outer rim (v1: the outer 8 %; the lobe's outer 10 %), on the union's visible rim
+    kerb_face = landc & (((rho_mc > 0.93) & (rho_mc < 1.0) & (rho_lc > 1.0)) | ((rho_lc > 0.9) & (rho_lc < 1.0) & (rho_mc > 1.0))) & (d_mere_c > 2.0)
+    kerb_face &= ~((np.abs(Uc - bdc[0]) < MOUND_FRONT["cut_hw"] + MOUND_FRONT["cut_flare"] + 2.0) & (Vc < v_fac + 1.0))
+    kerb_face = ndimage.binary_opening(kerb_face, iterations=1) & np.isin(C, [names.index("snow"), names.index("mound"), names.index("shrub")])
+    C[kerb_face] = names.index("rock")
     southc = ~landc & ~beachc
     C[southc & (Zc > ICE_TOP + 0.05)] = names.index("rock")
     dlc = dist_to_chain(lip, Uc, Vc)
@@ -1568,7 +1653,8 @@ def main():
             r_ = ab(g)[0] * ht / ab(g)[1] * 0.42
             cap = [(c[0] + r_ * math.cos(q) * (0.85 + 0.15 * math.sin(3 * q + i)), c[1] + r_ * math.sin(q) * (0.85 + 0.15 * math.cos(2 * q + i))) for q in np.linspace(0, 2 * math.pi, 9, endpoint=False)]
             ztop = hz_min(c, 0.4) - 0.08 + ht
-            ring_snow.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(cap)], "z0": round(ztop - 0.12, 3), "z1": round(ztop + 0.06, 3)})
+            # R-C9-244 (b): NO snow-cap lump on a standing stone (it read as a small rock added on top) -- clean-cut tops,
+            # the snow is painted only
         else:
             tang = (-inward[1], inward[0])
             L_, B_ = 1.15, 0.55
