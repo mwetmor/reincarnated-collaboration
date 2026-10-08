@@ -216,10 +216,17 @@ def main():
     a_s = sum(math.dist(p, q) for p, q in zip(LIP_UV[:2], LIP_UV[1:3]))
     b_s = a_s + math.dist(LIP_A, LIP_B)
     s_route = (a_s, b_s)
-    lip, lip_s = K.wiggle(LIP_UV, lambda s: 1.8 * math.sin(s / 6.0 + 0.7) + 0.9 * math.sin(s / 2.7 + 2.1), step=1.0, taper=3.0,
-                          keep=lambda s: min(1.0, max(0.0, max(a_s - 1.0 - s, s - (b_s + 1.0)) / 3.0)))
+    lip0, _ = K.wiggle(LIP_UV, lambda s: 1.8 * math.sin(s / 6.0 + 0.7) + 0.9 * math.sin(s / 2.7 + 2.1), step=1.0, taper=3.0,
+                       keep=lambda s: min(1.0, max(0.0, max(a_s - 1.0 - s, s - (b_s + 1.0)) / 3.0)))
+    # R-C9-230: the clifftop LEFT of the sea cave is no straight block -- the lip there is lobed and notched too (only the
+    # stretch the carved cave + gully stand on, t >= ~7, stays straight); the pack ice is still laid out against lip0 (as passed)
+    wl_ = lambda s: min(1.0, max(0.0, (a_s + 7.0 - s) / 2.0))
+    lip, lip_s = K.wiggle(LIP_UV, lambda s: 1.8 * math.sin(s / 6.0 + 0.7) + 0.9 * math.sin(s / 2.7 + 2.1) + 0.6 * math.sin(s / 1.25 + 0.4) * wl_(s), step=1.0, taper=3.0,
+                          keep=lambda s: min(1.0, max(0.0, max(a_s + 6.0 - s, s - (b_s + 1.0)) / 3.0)))
+    shore0 = list(shore)
     shore[-1] = lip[0]
     coast = shore + lip[1:]
+    coast0 = shore0[:-1] + [lip0[0]] + lip0[1:]
     lip_tree = cKDTree(np.array(lip))
     crest = np.array([crest_fn(s, s_route) for s in lip_s])
     # the route frame (straight face A -> B): t along, s seaward
@@ -267,6 +274,7 @@ def main():
         return d
     land_poly = coast + [(u1 + 5, lip[-1][1]), (u1 + 5, v1 + 5), (shore[0][0], v1 + 5)]
     land = mask(land_poly, U, V, HF_PPM, u0, v1)
+    land0 = mask(coast0 + [(u1 + 5, lip0[-1][1]), (u1 + 5, v1 + 5), (shore[0][0], v1 + 5)], U, V, HF_PPM, u0, v1)   # the pack's coast (as passed)
     d_shore = dist_to_chain(shore, U, V)
     d_lip = dist_to_chain(lip, U, V)
     _, near = lip_tree.query(np.c_[U.ravel(), V.ravel()])
@@ -415,7 +423,7 @@ def main():
     Z = np.where(cradle, Z + (ICE_TOP - 0.03 - Z) * cw_r, Z)
     cradle_ice = (cw_r >= 0.999) & ~land
     # ---------------- the SEA ICE (R-C9-204 (4)): shore-fast ice, large plates, floes of every size ----------------
-    solid = land | beach | shelf_ice_m
+    solid = land0 | beach | shelf_ice_m
     D = ndimage.distance_transform_edt(~solid) / HF_PPM
 
     def D_at(p):
@@ -1191,7 +1199,7 @@ def main():
         if blocked(p, d, n):
             back = None
             if not filled_gap:
-                for sb2 in np.arange(s - 0.5, prev_s + 0.4, -0.5):     # slide back toward the last piece: fill up to the carve
+                for sb2 in np.arange(s - 0.5, prev_s - 2.5, -0.5):     # slide back toward the last piece: fill up to the carve
                     p2, d2, n2 = lip_at(sb2)
                     if not blocked(p2, d2, n2):
                         back = sb2
@@ -1255,6 +1263,17 @@ def main():
     ht = (R["crest"] + 1.2) - (SEA_Z - 0.4)
     gully_insts.append(model("cave_col_w", "rock", g_stk, fr(R["cave_t"] - 4.4, 0.7), nR, ht / gby, z=SEA_Z - 0.4, piece="seastack", collider="trimesh",
                              note="R-C9-229: kit rock flanking the cave mouth on the face"))
+    # R-C9-230: slumped rock on the eroded clifftop rim left of the cave (own stream; nothing else moves)
+    rngz = __import__("random").Random(2301)
+    for k_ in range(4):
+        tq_ = rngz.uniform(0.5, 6.5)
+        q_ = min(lip, key=lambda q: abs(to_fr(q)[0] - tq_))
+        _, d_, n_ = lip_at(lip_s[lip.index(q_)])
+        c_ = (q_[0] - n_[0] * rngz.uniform(0.3, 1.4), q_[1] - n_[1] * rngz.uniform(0.3, 1.4))
+        ht = rngz.uniform(0.9, 1.8)
+        a_ = rngz.uniform(0, 2 * math.pi)
+        gully_insts.append(model("rim_slump_%d" % k_, "rock", g_stk, c_, (math.sin(a_), math.cos(a_)), ht / gby, z=hz(c_) - 0.45 * ht, piece="seastack", collider="box",
+                                 note="R-C9-230: slumped rock on the clifftop rim"))
     group("gully_rock", "cliff", gully_insts)
     group("cliff_faces", "cliff", cliff_insts)
     group("talus", "talus", talus_insts)
