@@ -50952,6 +50952,12 @@
       "id": "N-C9-CLEANUP-M17",
       "note": "Manifest 17 (6 entries, 22.4 GiB logical: pc5_*/pc6_* control clones, iso, the st1 error log) deleted on Matt's own pasted command; 0 of 6 remain; iso2 kept (PT in use). Disk 25 -> 35 GiB free (~10 GiB real).",
       "ts": "2026-10-08T00:42:25Z"
+    },
+    {
+      "id": "N-C9-CLEANUP-M18",
+      "ts": "2026-10-08T15:16:26-04:00",
+      "by": "gandalf (conductor), Matt's command",
+      "text": "Manifest 18 (cleanup/manifest_bv2f_scratch_18.txt, 273 untracked entries, 4.42 GiB logical) executed with Matt's exact command (it arrived as a message, so the conductor ran it verbatim). Exit 0. Disk 25 -> 28 GiB free (APFS clones share blocks, so the gain is below the logical size)."
     }
   ]
 }
