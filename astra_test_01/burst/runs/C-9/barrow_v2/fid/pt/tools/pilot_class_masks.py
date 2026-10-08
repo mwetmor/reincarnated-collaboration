@@ -9,18 +9,19 @@ import json, os, sys
 import numpy as np
 from PIL import Image
 D = sys.argv[1]
-SCHEMA = ["rock", "standing_stone", "wood", "sea", "wreck", "hall", "cliff", "snow", "ice", "heather"]
+SCHEMA = ["rock", "standing_stone", "wood", "sea", "wreck", "hall", "cliff", "snow", "ice", "heather", "reed"]
 VAL = {c: i + 1 for i, c in enumerate(SCHEMA)}
 def cls_of(i):
     if i.startswith(("crags__", "ground_rock")) or i == "barrow_front": return "rock"
     if i.startswith(("ring_stones__", "slope_stones__")): return "standing_stone"
     if i.startswith(("logs__", "palisade")): return "wood"
-    if i == "ground_sea": return "sea"
+    if i in ("ground_sea", "ground_lead"): return "sea"   # R-C9-240: leads are open water
+    if i == "ground_reed": return "reed"   # R-C9-240: LV's reed beds (class appended: earlier values unchanged)
     if i == "wreck": return "wreck"
     if i in ("longhall", "fallen_gable"): return "hall"
     if i.startswith("cliff_faces"): return "cliff"
     if i in ("ground_snow", "ground_mound", "ground_path"): return "snow"
-    if i in ("ground_ice", "ground_shore_ice", "ground_stream") or i.startswith("blobs_shore_ice"): return "ice"
+    if i in ("ground_ice", "ground_shore_ice", "ground_stream", "ground_ice_mid", "ground_tide_ice") or i.startswith(("blobs_shore_ice", "ice_", "mere_", "stream_ice")): return "ice"   # R-C9-240: + the graded margin, tide ice and the slab ice groups
     if i == "ground_shrub": return "heather"
     return None
 tab = json.load(open(os.path.join(D, "ids_table.json")))["ids"]

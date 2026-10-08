@@ -38,7 +38,8 @@ HEATHER_ALBEDO_MUL = (round(1.622 * 0.7715, 4), round(1.254 * 0.8059, 4), round(
 HEATHER_ALBEDO_MUL_WHY = ("the installed Barrow's stem grade (1.622, 1.254, 0.534) x the overlay check's first "
                           "calibration (0.7715, 0.8059, 1.0631): the sprays' own colour onto the painted tufts beneath them")   # paint_world_prep.py:56-57, verbatim
 BV2ART_TO_SNOW = {"snow": "snow", "path": "path", "rock": "rock", "shingle": "rock", "shrub": "heather",
-                  "ice": "ice", "shore_ice": "ice", "stream": "ice", "sea": "ice"}
+                  "ice": "ice", "shore_ice": "ice", "stream": "ice", "sea": "ice",
+                  "reed": "heather", "lead": "ice"}   # R-C9-240: LV's reed beds take the heather's thin snow; leads are open water
 
 
 def s2l(x):

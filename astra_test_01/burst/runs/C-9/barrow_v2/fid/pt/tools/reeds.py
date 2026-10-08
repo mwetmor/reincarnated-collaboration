@@ -40,8 +40,8 @@ DARK_RING_MAX = 0.20
 RUST_MAX, RUST_A, TIP_PX, TIP_SEED_PX = 0.10, 16, 8, 40
 MIN_AREA, MAX_AREA = 80, 20000
 STRAW_L, STRAW_B, STRAW_A, DARK_L = (32, 90), 12, 12, 30
-WATER_IDS = ["ground_ice", "ground_stream"]
-LAND_IDS = ["ground_snow", "ground_shrub", "ground_mound", "ground_path"]
+WATER_IDS = ["ground_ice", "ground_ice_mid", "ground_stream"]   # R-C9-240: + the graded mere margin
+LAND_IDS = ["ground_snow", "ground_shrub", "ground_mound", "ground_path", "ground_reed"]   # R-C9-240: + LV's reed beds
 
 
 def sha_file(p):

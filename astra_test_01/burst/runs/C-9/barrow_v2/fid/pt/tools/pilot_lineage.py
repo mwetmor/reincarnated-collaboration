@@ -6,7 +6,7 @@ the bakes or their tools change (R-C9-194: the tool-sha links go stale otherwise
 import hashlib, json, os
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 C9 = os.path.dirname(os.path.dirname(FID))
-D = C9 + "/barrow_full/godot/data/bv2f/pilot_rp/painted"   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
+D = C9 + "/barrow_full/godot/data/bv2f/pilot_rp2/painted"   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
 R = FID + "/pt/pilot/root"
 paint = FID + "/pt/pilot/painting.png"
 sha = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
