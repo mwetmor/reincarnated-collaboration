@@ -34,6 +34,10 @@ CAP = {
 BEFORE = os.environ.get("P12_BEFORE", "pilot12_before")
 TAG = os.environ.get("P12_TAG", "")
 BLABEL = os.environ.get("P12_BEFORE_LABEL", "LV 368cdf791, painted as BV2F-PS")
+if TAG == "257":
+    CAP.update({"pilot_05": "the shingle foot by the wreck: no flat bay straddling the row-1/row-2 strip (R-C9-257)",
+                "pilot_06": "the shingle runs down to the wreck's ice; ragged edge with frozen-in stones (R-C9-257)",
+                "pilot_09": "the wreck's shore ice: tone patches, ragged stony edge (R-C9-257)", "pilot_10": "the shingle foot (R-C9-257)"})
 if TAG == "244":
     CAP.update({"pilot_02": "the mere; mound foot (R-C9-244)", "pilot_03": "heather on the mound's W flank; the lobe round the door (R-C9-244 a, d)",
                 "pilot_04": "the door set INTO the mound: lobe over the build's back, kerb band, heather (R-C9-244 a, d)",

@@ -561,6 +561,22 @@ def main():
     dout = np.maximum(0.0, np.hypot(np.maximum(0.0, np.abs(wl_) - half_l * 0.8), np.maximum(0.0, np.abs(wd_) - half_b * 0.55)) - 1.6 + 1.1 * _cn)
     cw_r = np.clip(1.0 - dout / 2.5, 0.0, 1.0)
     cw_r = cw_r * cw_r * (3 - 2 * cw_r)
+    # R-C9-257 / R-C9-248 (6): the cradle's flat shore-ice BAY cut into the shingle east of the hull straddled the row-1/row-2
+    # paste strip (plate y ~1792) as a flat pale plate. On the beach the cradle now holds only DEEP on the slope (d_shore >
+    # ~5.2 m, its edge ragged) and within ~2 m of the hull itself, so its shingle-side edge lies wholly in row 2 (plate y >
+    # ~1880) and the shingle runs down to it
+    _hb = ab(WRECK["glb"])[2] * (WRECK["len_m"] / ab(WRECK["glb"])[0]) / 2
+    _dh = np.hypot(np.maximum(0.0, np.abs(wl_) - WRECK["len_m"] / 2), np.maximum(0.0, np.abs(wd_) - _hb))
+    _nz = ndimage.gaussian_filter(np.random.default_rng(2571).standard_normal(U.shape), 0.7 * HF_PPM)
+    _nz /= _nz.std() + 1e-9
+    _t1 = np.clip((d_shore + 0.45 * _nz - 4.9) / 0.8, 0, 1)
+    _t2 = 1.0 - np.clip((_dh - 0.45) / 0.9, 0, 1)
+    _keep = np.where(beach0, np.maximum(_t1 * _t1 * (3 - 2 * _t1), _t2 * _t2 * (3 - 2 * _t2)), 1.0)
+    # only at the bay (the stern half, toward the shingle); along the rest of the hull the passed cradle is unchanged
+    _tb = np.clip((wl_ - 0.5) / 2.0, 0, 1)
+    _tb = _tb * _tb * (3 - 2 * _tb)
+    _keep = 1.0 - _tb * (1.0 - _keep)
+    cw_r = cw_r * _keep
     cradle = (cw_r > 0.0) & ~land & (Z > ICE_TOP - 0.03)
     Z = np.where(cradle, Z + (ICE_TOP - 0.03 - Z) * cw_r, Z)
     cradle_ice = (cw_r >= 0.999) & ~land
@@ -1044,6 +1060,8 @@ def main():
             o_ = side * (ch["hw"] + rngi.uniform(0.45, 0.9))
             clumps.append({"c": (cf_[k][0] - dd[1] * o_, cf_[k][1] + dd[0] * o_), "r": rngi.uniform(0.3, 0.6), "on": "river_bank"})
             Lr += rngi.uniform(2.0, 3.8)
+    if os.environ.get("LV_DBG_NPZ"):
+        np.savez(os.environ["LV_DBG_NPZ"], beach=beach, beach0=beach0, bay=bay_ice, cw=cw_r, land=land, wG=wG, Z=Z, d_shore=d_shore, BW=BW)
     Z = Z.astype("<f4")
     Z.tofile(os.path.join(OUT, "terrain_h.f32"))
     ring_c_ = (sum(uv(p)[0] for p, _, _ in RING_STAND) / len(RING_STAND), sum(uv(p)[1] for p, _, _ in RING_STAND) / len(RING_STAND))
@@ -1196,6 +1214,14 @@ def main():
         if os.environ.get("LV_DBG"):
             print("[dbg] cor", int(cor.sum()), "seeds", len(seeds_m), "b", np.percentile(bq_, [5, 50, 95]).round(2), "gap", int(gap.sum()), "openp>0", int((openp > 0).sum()))
     C[(samp(cw_r) > 0.97) & ~landc] = names.index("shore_ice")           # the wreck's cradle: shore ice, not beach (R-C9-234: smooth edge)
+    # R-C9-257: the cradle's ice is no flat pale plate -- its tone varies in soft patches (shore_ice / ice_mid), and along its
+    # shingle-side edge stones lie frozen into the ice (small shingle blobs, a ragged 0-1 m band) (own streams 2572-2574)
+    cr_c = (samp(cw_r) > 0.97) & ~landc & (C == names.index("shore_ice"))
+    C[cr_c & (cnoise(2572, 0.9) > 0.55)] = names.index("ice_mid")
+    d_sh_c = ndimage.distance_transform_edt(cr_c) / CLS_PPM
+    stones_c = cr_c & (d_sh_c < 1.0 + 0.4 * cnoise(2573, 0.6)) & (cnoise(2574, 0.2) > 0.8 - 0.9 * np.clip(1.0 - d_sh_c, 0, 1)) & samp(beach0).astype(bool)
+    stones_c = ndimage.binary_opening(stones_c, iterations=1)             # no single-cell specks: stones of 15-40 cm
+    C[stones_c] = names.index("shingle")
     # R-C9-226 (5): the ash yard IRREGULAR -- the outline resampled, pushed in/out by low lobes, a ragged fringe of trampled
     # ash tongues; holes of snow where drifts lie inside it
     rngy = __import__("random").Random(YARD_SEED)

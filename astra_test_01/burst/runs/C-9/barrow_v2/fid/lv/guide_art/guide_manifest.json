@@ -30,7 +30,7 @@
  "rows": 5,
  "guide": {
   "file": "guide_art/guide_art.png",
-  "sha256": "1c22764cb874150c7dce00ffe948ee14ef7e510d2fcb134eef90ae5ef3bb988a",
+  "sha256": "9639a2bb9aaf7d3ac902ad9c89b947ef2a1853aaeb3e7037232ff431facb8c57",
   "px": [
    6656,
    4096
@@ -38,12 +38,12 @@
  },
  "ids": {
   "file": "guide_art/ids_art.png",
-  "sha256": "95b658fd0f7f77f6ed79e3e6c6553174398c8b33529844b92e4a41fbc4ed59e6",
+  "sha256": "7bd071c2cd23e59e26fca49a09059f4a2dd62dad75131551a053aca440d5db56",
   "code": "R<<16 | G<<8 | B = global id (table below); 0 = nothing (sky / none)"
  },
  "class": {
   "file": "guide_art/class_art.png",
-  "sha256": "1c7ff8490aceb4bca7b62ee742319717032d826d7b4fa240866a35abf94cfabe",
+  "sha256": "d21a305e2f4da7e7d7788e8318f36808838c8e605573a2a323eb8c75e23f241f",
   "classes": [
    "none",
    "snow",
@@ -68,22 +68,22 @@
    "lead"
   ],
   "shares": {
-   "snow": 0.26743,
-   "ice": 0.12337,
+   "snow": 0.26754,
+   "ice": 0.12319,
    "shrub": 0.03631,
    "rock": 0.14569,
    "mound": 0.01631,
-   "shingle": 0.01654,
-   "shore_ice": 0.18269,
+   "shingle": 0.02117,
+   "shore_ice": 0.17419,
    "char": 0.00978,
-   "sea": 0.04641,
+   "sea": 0.0464,
    "wood": 0.06576,
    "passage_dark": 0.00767,
    "ash": 0.03847,
    "tide_ice": 0.01357,
    "wet_rock": 0.0021,
    "rime": 7e-05,
-   "ice_mid": 0.01299,
+   "ice_mid": 0.01694,
    "reed": 0.0131,
    "lead": 0.00175
   },
@@ -607,7 +607,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c00.png",
-   "sha256": "d092efd883d02b7e0dfa7b7d6f45b94881fa996a84cf22ea748563e17d4e6686"
+   "sha256": "afa271ff21db72d1964e3e351df517698143a8b6fd4cf6312f3c2f9ae17b5015"
   },
   {
    "row": 1,
@@ -617,7 +617,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c01.png",
-   "sha256": "c7316ea0ff979125985d914e92020b07a8c63ca388d2e25b82b8151c4db8ed63"
+   "sha256": "22c0c516f6d3d069f7f9747fbf55e993d664cec2bfc8fd4a904b37f982a60efa"
   },
   {
    "row": 1,
@@ -657,7 +657,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c00.png",
-   "sha256": "e245af0b155789dea0817eadad268e4fab53d8d5c55c6484398e9ad9d11c15ee"
+   "sha256": "e866969a3db2ddae993df175dc9d1a5e0bb21324e626ac4a40bb4c3344f49788"
   },
   {
    "row": 2,
@@ -667,7 +667,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c01.png",
-   "sha256": "8652b96da72a2bb45bc3986d04c7ccb8ebc021b20eac9b3d7658e6624247e5ef"
+   "sha256": "1ee459bdfbfce7cc262e20475322270bfa26abbb77998fd911baf8e26d885e33"
   },
   {
    "row": 2,
@@ -707,7 +707,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c00.png",
-   "sha256": "0ce2ba9ca556c1e61e0fab90dd75278ed9976c70f7f11c0953d11cb502cf771a"
+   "sha256": "32509f89149cd32098b79645bd21af123a8e3c2e43fd8e74d784e7249f0e0d4f"
   },
   {
    "row": 3,
@@ -717,7 +717,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c01.png",
-   "sha256": "ee75f25259e4b8807ba101eda4c8ae3c8901072f6888aa62de1cc7bec3d838a9"
+   "sha256": "a70acda533d32fa635f65d94d2c3251fcaba37f84233ebbfee4c8648a55cc221"
   },
   {
    "row": 3,
@@ -802,16 +802,16 @@
  ],
  "sections": {
   "s00": {
-   "guide_sha256": "b1d7e19cc3f3ad1399ad3f30c79713b3c7e449ccaa4e645437c115c92905496c",
-   "ids_sha256": "d1f3ca939d53951f43b1c9775aa0c96898c79a91f2cbdc78736180836942df9e"
+   "guide_sha256": "d748a65933a1d798cc4263cfb14ec5591106e52e5a3c9d80dd0ceccc1fd8ca85",
+   "ids_sha256": "33ff9b0f51ceb63d5148aa89e7842d3f4bb7ddf1eec36aa7bd7c90da411089ad"
   },
   "s01": {
    "guide_sha256": "a5f5b4d7e6e1a668e21080fb2e26261c32cccb04eaefadfaa186046f6dcaa57e",
    "ids_sha256": "e41e68ccb2bdd5b3558c4c66d70a3938a55bf1570be61097591ff93a7d841c68"
   },
   "s10": {
-   "guide_sha256": "895caf0f9daa7316644d98c5e08ffb798888c58b32147acb80107e5c2ddf3221",
-   "ids_sha256": "d4f392c01213cb834caa9ddd9f3801248e6e8ca9c5b6cbcec339d922fecc2b35"
+   "guide_sha256": "63718066484550a3e55a7bac2c76b25b3340e0318ab4674dd78b77803a0600b0",
+   "ids_sha256": "074af36f36459f30ab0b7968a96fffb2fda43adf6a8f36140cf859d67b01b04d"
   },
   "s11": {
    "guide_sha256": "184f48debdde01a9db41669caef0516935df0f68370278a86103981dc5914b7b",
