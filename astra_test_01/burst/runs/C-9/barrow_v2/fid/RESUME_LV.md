@@ -206,3 +206,18 @@ Validator R1–R13 green on v7a (and v7b); PH's P6 geometry agreement on the gui
 - `*.f32`, `*.bin`, `classes.png`, `ext/`, `models/` under `data/bv2f/` are git-ignored (regenerable by step 1 / lv_build normalise); PNGs under astra_test_01 are ignored too.
 - New guide classes (provisional tints in make_bv2art): `tide_ice`, `wet_rock`, `rime`, `ice_mid` — PT/PH palette needs them.
 - Never edit ledger.json; commits `git commit --only`; the conductor pushes.
+
+---
+
+# CONDUCTOR BRIEF for the fresh LV lane (R-C9-226) — the Phase 1″ close-out. GOVERNS.
+
+Read the handover section above first (tools, re-run steps). Then fix exactly these, against `barrow_v2/sites/BV3r2-A.png` (sketch A, look of record), 0 images:
+
+1. **COVE / CAVE / STAIR (the failing section).** In pass 8ab6484c7 the cove is a large flat ice pool cut into smooth snowy slopes; the walls are not rock, the cave mouth is not visible, the stair reads as plank stripes. Target, as sketch A draws it (crop around the cave, lower-middle): a **vertical eroded rock-column cliff** exactly like the cliff east of the cove (same rock-kit pieces/material, snow on ledges), with a **shallow** sea-cut cove (≤ 6–8 m deep into the cliff line, never a big basin). The **cave** is a dark wave-worn arch at the cove's back wall, **clearly visible from the camera** (check (a) on the mouth + a still); the sea and floes reach into the mouth; the **landing** is small — a ~6 m flat tide-iced ledge cut at the mouth just above the water; the **stair** is cut between rock columns on the cove's right wall from the landing to the clifftop, **individual stone treads** (each its own block: snow class on top, rock class on the front) so it can never read as stripes/planks, 5 m clear, low broken uncut lip on the sea side. Everything else about the coast outside the cove stays. Matt's rule: SUBTRACTIVE — carved from the existing rock mass, nothing added.
+2. **MERE SIZE** back to Matt's ruling R-C9-220: **400–500 m²**, irregular, plated, cracks to the whole polygon. Do NOT trade it for the river — move the composition instead (see 3).
+3. **RIVER IN FRAME**: sketch A's river is visible in the scene's upper-left, running down alongside the coast (a little inland from the ledge, roughly parallel) into the mere. It must lie **inside the painted window** for a clear stretch (it may enter from the top-left edge). Narrow ribbon, flat ice with thin cracks, NO block ice (R-C9-223), seamless into the mere.
+4. **REED ISLANDS** are reeds, not flat olive patches: small raised snow/earth hummocks in the ice with reed/shrub class tufts on them (the 3D reed cards come from the painted tufts later).
+5. **No straight edges**: the mere's edge near the cove (cut straight), and the **hall's ash yard** (a big rectangle) → irregular trampled-ash shape as in sketch A.
+6. Keep: v1-size barrow with kerb stones; 6-stone circle (4 standing, 2 fallen low blocks); no barrow stream; seamless mere → sea ice transition; stair_treads.json export for PT's DEV-22.
+7. **Stills sheet**: regenerate the M1″ sheets with CORRECT captions and the MATCHING sketch-A crop beside each still (the last sheet had stale captions and ring crops beside the cave stills). One close still of the cove/cave/stair beside sketch A's cave; one wide; the mere + river beside sketch A's upper-left.
+8. Report: walkability, check (a), hero coverage, P6′-ready exports, the 9 pilot-tile shas.
