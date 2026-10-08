@@ -19,6 +19,7 @@ var no_wind := false
 var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
 var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
 var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
+var loop_arg := ""        # --loop "u,v;u,v;...": absolute walk waypoints (R-C9-272: the default loop is not reachable on rp4)
 var burn_ms := 0.0
 var vp: SubViewport
 var rep := {}
@@ -32,6 +33,8 @@ func _initialize() -> void:
 	view = a[3]
 	no_wind = a.has("--no-wind")
 	floe_red = a.has("--floe-red")
+	if a.has("--loop"):
+		loop_arg = a[a.find("--loop") + 1]
 	if a.has("--floe-pairs"):
 		floe_pairs = int(a[a.find("--floe-pairs") + 1])
 	if a.has("--burn-ms"):
@@ -281,6 +284,11 @@ func _perf() -> void:
 	k.set_physics_process(false)
 	var c: Vector2 = scene.world_to_uv(_aim())
 	var loop := [c + Vector2(4.0, 1.0), c + Vector2(0.0, 5.0), c + Vector2(-4.0, 1.0), c + Vector2(0.0, -3.0)]
+	if loop_arg != "":
+		loop = []
+		for pt in loop_arg.split(";"):
+			var xy := pt.split(",")
+			loop.append(Vector2(float(xy[0]), float(xy[1])))
 	scene.place_knight(loop[3].x, loop[3].y, "N")
 	var wi := 0
 	var dt := 1.0 / 60.0
@@ -293,6 +301,7 @@ func _perf() -> void:
 		pre.append(float(tq - tp) / 1000.0)
 		tp = tq
 	var n := 900
+	var kpos := []            # R-C9-272: the knight's (u, v) every frame of the window -- the walk-validity trace
 	var times := PackedFloat64Array()
 	var t_prev := Time.get_ticks_usec()
 	var t_win0 := t_prev
@@ -308,6 +317,8 @@ func _perf() -> void:
 		var t := Time.get_ticks_usec()
 		times.append(float(t - t_prev) / 1000.0)
 		t_prev = t
+		var ku: Vector2 = scene.knight_uv()
+		kpos.append([snappedf(ku.x, 0.001), snappedf(ku.y, 0.001), wi])
 	var s := Array(times)
 	s.sort()
 	var total := 0.0
@@ -322,7 +333,8 @@ func _perf() -> void:
 	f.close()
 	# R-C9-201: the frame-time TRACE aligned to the load timeline (ms; zero = ready_done as this tool sees it)
 	var tr := {"t_ready_since_engine_start_ms": float(t_ready_us) / 1000.0, "window_start_rel_ready_ms": float(t_win0 - t_ready_us) / 1000.0,
-		"preroll_frames_ms": Array(pre), "window_frames_ms": Array(times)}
+		"preroll_frames_ms": Array(pre), "window_frames_ms": Array(times), "knight_uv_wp": kpos,
+		"loop": loop.map(func(q): return [q.x, q.y])}
 	var f2 := FileAccess.open(out_dir.path_join("trace.json"), FileAccess.WRITE)
 	f2.store_string(JSON.stringify(tr))
 	f2.close()

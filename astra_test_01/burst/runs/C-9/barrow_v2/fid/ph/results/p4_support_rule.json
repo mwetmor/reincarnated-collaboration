@@ -1,0 +1,44 @@
+{
+ "_what": "P4 SNOW MINIMUM-SUPPORT RULE, calibrated on v1 subsamples (R-C9-272; jack-ryan pilot-4 Gate-2 \u00a7 4: \"calibrated on v1's",
+ "bars": {
+  "hist": 0.28093918460733763,
+  "spec": 0.0969842215942922
+ },
+ "draws_per_chunk_per_k": 60,
+ "v1_pass_rate_by_k": {
+  "1": 0.0396,
+  "2": 0.1896,
+  "3": 0.3781,
+  "4": 0.4708,
+  "6": 0.6479,
+  "8": 0.6958,
+  "12": 0.7604,
+  "16": 0.8021,
+  "24": 0.8187,
+  "32": 0.8323,
+  "40": 0.8406,
+  "60": 0.9282,
+  "80": 0.9288,
+  "100": 0.9792,
+  "120": 0.99
+ },
+ "draws_by_k": {
+  "1": 960,
+  "2": 960,
+  "3": 960,
+  "4": 960,
+  "6": 960,
+  "8": 960,
+  "12": 960,
+  "16": 960,
+  "24": 960,
+  "32": 960,
+  "40": 960,
+  "60": 780,
+  "80": 660,
+  "100": 480,
+  "120": 300
+ },
+ "W_min": 100,
+ "rule": "Phase 3' only: a chunk with < W_min P4 snow windows -> 'snow: insufficient support' (not judged); never applied to pilot 4"
+}

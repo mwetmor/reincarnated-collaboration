@@ -1584,3 +1584,46 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **Pool:** record-time v1 = v1ref 3 + the 5 new stills. The same seed rule applies, a new set name, no seed shopping (one build, seed 2683).
 - **Self-test:** the key scores valid PASS-format (40/40, 12/12); always-A gives 6/12 → VOID.
 - **Judge-ready.** It **supersedes the VOID 37-trial set**, which is never judged.
+
+## 50. PRE-REGISTRATION (R-C9-272; PT r268): CAPTURE PHASE for P11 / comparison stills, the P4 snow MINIMUM-SUPPORT rule, the P10 WALK re-route. Committed BEFORE any Phase 3′ still. No bar moves.
+
+### (a) Capture phase (`harness/capture_phase.py`; v1 readings `results/capture_phase_v1.json`)
+**Instrument.**
+- A still shows plate px X = X_c + (x − W/2), with X_c = (u_c − u0) · 100.6176 and Y_c likewise from the camera's centre_ground_uv. Its fractional offset is the PHASE.
+- **Measured:** iterative LK on L\* (σ 0.7) over ≤ 40 open-snow 128-px patches, still against painting at the integer offset. The circular median over patches is the view's (phase_x, phase_y).
+- **Constructed check (passes):** the painting resampled bilinearly at known phases (0, 0), (0.25, 0.5), (0.44, 0.60), (0.7, 0.1) reads back (0.00, 0.00), (0.24, 0.50), (0.437, 0.609), (0.71, 0.088), all within ± 0.05.
+- **PT's own phase captures read correctly:** pilot_04 ph00 → (0.000, 0.000); ph44_60 → (0.438, 0.610); ph50_50 → (0.505, 0.499).
+
+**v1's recorded phases** (PT's v1 stills, `fid/pc/v1_stills/`, pc_stills.gd 1920 × 1080 recipe: the clean reference; spreads ≤ 0.04, residual L\* ≤ 0.14):
+
+| v1 view | phase_x | phase_y | spread x / y | resid L\* |
+|---|---|---|---|---|
+| barrow_door | 0.222 | 0.840 | 0.004 / 0.009 | 0.066 |
+| mere | 0.438 | 0.587 | 0.009 / 0.011 | 0.099 |
+| outcrop_field | 0.251 | 0.897 | 0.024 / 0.038 | 0.081 |
+| shore | 0.668 | 0.177 | 0.026 / 0.016 | 0.083 |
+| start | 0.373 | 0.666 | 0.012 / 0.024 | 0.140 |
+| stone_ring | 0.219 | 0.943 | 0.006 / 0.004 | 0.048 |
+- **The window-capture v1 stills** (v1ref and the § 49 v1rec_ph, 1726 × 971 root window with snowfall in frame) read noisily: spread 0.18–0.38, residual 1.3–4.1. They are v1 by definition and are not phase targets.
+
+**Rule.**
+- **Targets.** Every candidate still for P11, and every still used in a v1 comparison, is captured at a sub-pixel phase matched to v1's recorded set above. **Candidate view k takes target T[k mod 6]** in the table's order: barrow_door, mere, outcrop_field, shore, start, stone_ring.
+- **Acceptance.** PH measures each delivered still with `capture_phase.phase_of`. It is accepted iff |measured − target| ≤ **0.10 px** on each axis (circular), with n ≥ 10 patches. A failing still is re-captured; it is never used.
+- **Per set.** The constructed check is re-run on that set's painting before measuring.
+
+### (b) P4 snow minimum-support rule (`harness/p4_support.py` → `results/p4_support_rule.json`; Phase 3′ only; **never applied to pilot 4**)
+- **Calibration.**
+  - **Support** = a chunk's number of P4 spectrum windows (64 px, ≥ 90 % snow, step 64).
+  - **Subsampling:** v1's chunks drawn at k windows (60 draws per chunk per k; each draw against the pool of the other 15 chunks; the frozen § 3 bars).
+  - **Pass rate by k:** 1: 0.04 · 4: 0.47 · 8: 0.70 · 16: 0.80 · 40: 0.84 · 60: 0.93 · 80: 0.93 · **100: 0.979** · 120: 0.99.
+  - **W_min = 100** windows: the smallest k from which ≥ 95 % of v1's own draws pass.
+- **Disclosed.** Above k = 40, only v1 chunks holding ≥ k windows can be drawn: 13 chunks at 60, 8 at 100, 5 at 120.
+- **Rule.** A Phase 3′ chunk with **< 100** P4 snow windows → **"snow: insufficient support" (not judged; never PASS)**, reported with its count. **Pilot 4 stays as judged at § 47.**
+
+### (c) P10 walk re-route (R-C9-272: the default loop sticks on rp4 at ~6 s; every hitch lies in the stuck span)
+- **Tool.** `ph_life.gd perf --loop "u,v;u,v;u,v;u,v"` sets absolute waypoints. It places him at the 4th and records **his (u, v) every window frame** in `trace.json` (`knight_uv_wp`).
+- **Walk-validity rule (binding precondition for any P10 reading).** Over the 900-frame window, **no 1-s span (60 frames) with displacement < 0.3 m**: he moves the whole window. A loop that fails is not used.
+- **Candidate loops** (`harness/walk_probe.sh`). They must be proven by a position trace and committed before the quiet window.
+  - **start:** (−3.25, 1.26) → (−1.75, 6.83) → (−6.0, 6.0) → (−6.5, 1.5). The first leg is on PT's rp4 film route (reached).
+  - **sea:** (−27.5, 1.2) → (−22.5, 1.6) → (−21.5, 0.0) → (−26.5, 0.6), on the shore-fast ice (z −4.2) inside the level bounds, with open sea at u ≤ −30 in frame.
+- **The proof runs are HALTED** by the disk gate (20 GiB < 21). Nothing has been probed yet; PH runs `walk_probe.sh` when disk allows.
