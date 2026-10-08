@@ -34,6 +34,10 @@ CAP = {
 BEFORE = os.environ.get("P12_BEFORE", "pilot12_before")
 TAG = os.environ.get("P12_TAG", "")
 BLABEL = os.environ.get("P12_BEFORE_LABEL", "LV 368cdf791, painted as BV2F-PS")
+if TAG == "239":
+    CAP.update({"pilot_03": "the mound's W cut edge: smooth (R-C9-239 1)", "pilot_04": "the cutting's edges both sides: smooth, no sawtooth (R-C9-239 1)",
+                "pilot_05": "no dark wedge along the shingle foot (R-C9-239 2)", "pilot_06": "rounded drifts on the shingle (R-C9-239 3)",
+                "pilot_09": "the shingle foot by the wreck: no lead wedge (R-C9-239 2)", "pilot_10": "rounded wind-scalloped drifts (R-C9-239 3)"})
 if TAG == "238":
     CAP.update({"pilot_04": "barrow door: smooth mound flank (8 px/m terrain), rough stone wall ends (R-C9-238 c, d)",
                 "pilot_05": "wreck + margin: leads = gaps between rounded floes, widening to the sea (R-C9-238 b); no ripples (c)",

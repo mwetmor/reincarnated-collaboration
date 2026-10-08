@@ -359,9 +359,12 @@ def main():
     v_fac = bdc[1] - MF["cut_back"]                                  # the cutting runs from the toe to just behind the facade's front
     toe_v = lc_[1] - MF["semi_m"][1]
     hw_cut = MF["cut_hw"] + MF["cut_flare"] * np.clip((v_fac - V) / max(v_fac - toe_v, 0.1), 0, 1)
-    cut_w = np.clip((np.abs(U - bdc[0]) - hw_cut) / 0.9, 0, 1)            # the cutting's sides (behind the dry-stone walls)
-    in_cut_v = V < v_fac
-    lobe = np.where(in_cut_v, lobe * cut_w, lobe)
+    cut_w = np.clip((np.abs(U - bdc[0]) - hw_cut) / 1.8, 0, 1)            # the cutting's sides (behind the dry-stone walls); R-C9-239: 1.8 m (a 0.9 m face aliased into a sawtooth)
+    cut_w = cut_w * cut_w * (3 - 2 * cut_w)
+    # R-C9-239 (1): the cutting's mouth eased over 0.8 m (no hard row at the facade line -> no 25 cm sawtooth)
+    in_cut_w = np.clip((v_fac + 0.4 - V) / 0.8, 0, 1)
+    in_cut_w = in_cut_w * in_cut_w * (3 - 2 * in_cut_w)
+    lobe = lobe * (1.0 - in_cut_w * (1.0 - cut_w))
     # the barrow build's footprint (+0.5 m): read its vertices, placed as the level places it (yaw 0, one uniform scale,
     # the AABB centre on the slot's position)
     import struct as _st2
@@ -388,7 +391,11 @@ def main():
     fp_b = ndimage.binary_closing(fp_b, iterations=3)
     fp_b = ndimage.binary_fill_holes(fp_b)
     fp_b = ndimage.binary_dilation(fp_b, iterations=2)
-    lobe = np.where(fp_b, 0.0, lobe)
+    # R-C9-239 (1): the build's footprint as a SOFT edge (distance out of it, blurred) -- the hard 25 cm mask drew a sawtooth
+    # diagonal along the mound's cut on both sides of the door
+    fp_d = ndimage.gaussian_filter(ndimage.distance_transform_edt(~fp_b) / HF_PPM - ndimage.distance_transform_edt(fp_b) / HF_PPM, 0.5 * HF_PPM)
+    fp_w = np.clip(fp_d / 1.5, 0, 1)
+    lobe = lobe * fp_w * fp_w * (3 - 2 * fp_w)
     lobe_excess = np.where(land, np.maximum(0.0, lobe - dome), 0.0)      # what the lobe adds over the big dome (tapered at the mere below)
     dome = np.maximum(dome, lobe)
     Z = np.where(land, np.maximum(Z, dome), Z)
@@ -1080,9 +1087,14 @@ def main():
         du_, dv_ = Uc[j0_:j1_, i0_:i1_] - q2[0], Vc[j0_:j1_, i0_:i1_] - q2[1]
         al = du_ * dw[0] + dv_ * dw[1]                                        # along the wind (0 = head, L = tail tip)
         ac = -du_ * dw[1] + dv_ * dw[0]
-        tt = np.clip(al / L_, 0, 1)
-        half = B_ * np.where(al < 0, np.sqrt(np.clip(1 - (al / (0.35 * B_)) ** 2, 0, 1)), (1 - tt) ** 0.8 * (1 + 0.25 * np.sin(tt * 7 + rot_ * 9)))
-        m_ = (al > -0.35 * B_) & (al < L_) & (np.abs(ac) < half * (1 + 0.4 * wnz[j0_:j1_, i0_:i1_]))
+        # R-C9-239 (3): ROUNDED, wind-scalloped -- a chain of 3 overlapping soft ellipses shrinking downwind (a full head, a
+        # scalloped tail), never a tapering point
+        fld = np.full(al.shape, -9.0)
+        for f_k, r_k in ((0.0, 1.0), (0.42, 0.78), (0.74, 0.55)):
+            ra = max(L_ * 0.34 * r_k, B_ * 0.9 * r_k)
+            rb = B_ * r_k
+            fld = np.maximum(fld, 1.0 - ((al - f_k * L_ * 0.75) / ra) ** 2 - (ac / rb) ** 2)
+        m_ = fld + 0.18 * wnz[j0_:j1_, i0_:i1_] > 0.0
         sub = C[j0_:j1_, i0_:i1_]
         sub[m_ & shin[j0_:j1_, i0_:i1_]] = names.index("snow")
     C[bay_c | (shin & (btc > 0.84 + 0.07 * cnoise(2348, 0.8)))] = names.index("shore_ice")
@@ -1133,6 +1145,10 @@ def main():
         bs_ = np.array(bs_m)
         R_s = nn_s * (0.68 + 0.52 * np.clip((0.78 - bs_) / 0.38, 0, 1))
         gap |= (dd_[:, 0] > R_s[ii2[:, 0]]) & (bq_ > 0.42)          # (only where the field is breaking up -- never at the mere)
+        # R-C9-239 (2): no open water within ~1.3 m of the field's own edge (it drew a sawtooth dark wedge along the shingle
+        # foot by the wreck): the gaps close smoothly toward the edge
+        d_in = ndimage.distance_transform_edt(cor)[cor] / CLS_PPM
+        gap &= d_in > 1.3 + 0.5 * cnoise(2391, 0.8)[cor]
         rng_t = np.array([rngf2.uniform(-0.14, 0.14) for _ in seeds_m])
         tone = np.array(bs_m)[ii2[:, 0]] + rng_t[ii2[:, 0]]
         cls_ = np.where(tone < 0.36, names.index("ice"), np.where(tone < 0.68, names.index("ice_mid"), names.index("shore_ice")))
