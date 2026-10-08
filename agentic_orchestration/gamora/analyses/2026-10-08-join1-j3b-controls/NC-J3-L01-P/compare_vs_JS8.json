@@ -1,0 +1,28 @@
+{
+ "executes_set": null,
+ "fallback": "b0n summary raised TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'; per-grain canonical rowset compare used",
+ "grains": {
+  "G1": {
+   "rowset_equal": false
+  },
+  "G2": {
+   "rowset_equal": false
+  },
+  "G3": {
+   "rowset_equal": false
+  },
+  "G4": {
+   "rowset_equal": false
+  },
+  "G5": {
+   "rowset_equal": false
+  },
+  "G6": {
+   "rowset_equal": true
+  },
+  "G7": {
+   "rowset_equal": false
+  }
+ },
+ "reproduces_all_7": false
+}

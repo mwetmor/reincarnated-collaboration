@@ -1,0 +1,215 @@
+{
+ "approx_ceiling": "APPROX-CEILING: J-S4b mapping grade NULL (owed at J4a) -> every B0-N figure carries the charter s4.2 APPROX ceiling",
+ "reference": "J-S8 MANIFEST f82807fb6de68a6cee4eff69bb7028457143b4951fe9abccee94caa735c4d217",
+ "run": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-08-join1-j3b-controls/NC-J3-L05-2/emission",
+ "run_status": "DRY-RUN \u00b7 NOT THE FIXTURE",
+ "grains": {
+  "G1": {
+   "rows_ref": 56511,
+   "rows_run": 58001,
+   "rowset_ref": "725cbe3dbbc3ed246b1cc02206210c943e13e28dd7c86d38654bce5274182ed0",
+   "rowset_run": "e7df7611f5d38739beb6114a2e1c99bececca488b9d5737ba663d71ec309f8aa",
+   "rowset_equal": false,
+   "only_ref": 1821,
+   "only_run": 3311,
+   "common_value_diff": 1412,
+   "field_diff_counts": {
+    "hit": 1067,
+    "damage_multiplier": 1117,
+    "crit_tier": 1161,
+    "da_used": 272,
+    "pth_raw": 272,
+    "pth_used": 272,
+    "pth_effective": 272,
+    "roll": 399
+   },
+   "cells_differing": 25,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2-NULL|0": 190,
+    "M-POL-2-NULL|1": 586,
+    "M-POL-2-NULL|2": 163,
+    "M-POL-2-NULL|3": 199,
+    "M-POL-2-NULL|4": 511,
+    "M-POL-2|0": 271,
+    "M-POL-2|1": 264,
+    "M-POL-2|2": 190,
+    "M-POL-2|3": 199,
+    "M-POL-2|4": 552,
+    "M0|0": 190,
+    "M0|1": 586,
+    "M0|2": 163,
+    "M0|3": 199,
+    "M0|4": 511,
+    "W1-NULL|0": 271,
+    "W1-NULL|1": 264,
+    "W1-NULL|2": 190,
+    "W1-NULL|3": 199,
+    "W1-NULL|4": 552,
+    "W1|0": 271,
+    "W1|1": 264,
+    "W1|2": 190,
+    "W1|3": 199,
+    "W1|4": 552
+   }
+  },
+  "G2": {
+   "rows_ref": 105045,
+   "rows_run": 108226,
+   "rowset_ref": "ec0b1af5f89019e67a7907b249e2136931909e72f50b76c176b0024a9198f957",
+   "rowset_run": "242f52cb6939be8e300aa23430eae6aff6ebeb37214ee10d2183b661ef0f867c",
+   "rowset_equal": false,
+   "only_ref": 4166,
+   "only_run": 7347,
+   "common_value_diff": 4,
+   "field_diff_counts": {
+    "family": 4,
+    "pre_mitigation": 4,
+    "resist_used_frac": 2,
+    "stage_order": 2,
+    "regions": 2,
+    "after_stage_1": 4,
+    "after_stage_2": 2,
+    "recomputed": 2,
+    "armour_branch": 2,
+    "applied": 4,
+    "attribution": 4
+   },
+   "cells_differing": 3,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2|2": 2875,
+    "W1-NULL|2": 2875,
+    "W1|2": 2875
+   }
+  },
+  "G3": {
+   "rows_ref": 250,
+   "rows_run": 250,
+   "rowset_ref": "46c18ed8e57ca1c63ee150eebef977da9783a2d5f4a78875360245ed6f2334b5",
+   "rowset_run": "939baacc988ba1f5105c1c274faf611d170023a68f27f4d8ba2430b8492462f5",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 0,
+   "common_value_diff": 57,
+   "field_diff_counts": {
+    "intake_hp": 42,
+    "heal_hp": 57,
+    "n_leech_events": 12,
+    "n_bodies_hit": 12
+   },
+   "cells_differing": 25,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2-NULL|0": 157,
+    "M-POL-2-NULL|1": 154,
+    "M-POL-2-NULL|2": 156,
+    "M-POL-2-NULL|3": 160,
+    "M-POL-2-NULL|4": 160,
+    "M-POL-2|0": 154,
+    "M-POL-2|1": 154,
+    "M-POL-2|2": 157,
+    "M-POL-2|3": 154,
+    "M-POL-2|4": 160,
+    "M0|0": 157,
+    "M0|1": 154,
+    "M0|2": 156,
+    "M0|3": 160,
+    "M0|4": 160,
+    "W1-NULL|0": 154,
+    "W1-NULL|1": 154,
+    "W1-NULL|2": 157,
+    "W1-NULL|3": 154,
+    "W1-NULL|4": 160,
+    "W1|0": 154,
+    "W1|1": 154,
+    "W1|2": 157,
+    "W1|3": 154,
+    "W1|4": 160
+   },
+   "heal_hp_sum_ref": 21843286.033435244,
+   "heal_hp_sum_run": 22970214.61126505
+  },
+  "G4": {
+   "rows_ref": 117695,
+   "rows_run": 119111,
+   "rowset_ref": "ee43132997bc9886a7f625d90f9aba4d1b21c9c704183f9c9e4572a698ac7fbd",
+   "rowset_run": "c03a707df1b8b9adda0b36f314446cd20a05134cfdbba58b1a941f314264e716",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 1416,
+   "common_value_diff": 4071,
+   "field_diff_counts": {
+    "n_bodies_in_disc": 2402,
+    "min_body_distance_m": 4071,
+    "n_bodies_halted": 2840
+   },
+   "cells_differing": 3,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2|2": 2876,
+    "W1-NULL|2": 2876,
+    "W1|2": 2876
+   },
+   "n_bodies_in_disc_sum_ref": 149821,
+   "n_bodies_in_disc_sum_run": 154254
+  },
+  "G5": {
+   "rows_ref": 25,
+   "rows_run": 25,
+   "rowset_ref": "0757ec07c412117b1d54327630e4624ca9e4ee227f9a05b5b9356f94b5cee231",
+   "rowset_run": "d20ab3d5cf06c3ce5b89da1c0edaa3634cfd9ddcf2f5101bf13d3bb8c4df8c0c",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 0,
+   "common_value_diff": 5,
+   "field_diff_counts": {
+    "terminal_reason": 3,
+    "death_tick": 3,
+    "final_hp": 5,
+    "n_ticks": 3
+   },
+   "cells_differing": 5,
+   "first_divergent_tick_per_cell": {},
+   "terminal_wave_flips": 0,
+   "terminal_reason_flips": 3
+  },
+  "G6": {
+   "rows_ref": 0,
+   "rows_run": 0,
+   "rowset_ref": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "rowset_run": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "rowset_equal": true
+  },
+  "G7": {
+   "rows_ref": 250,
+   "rows_run": 250,
+   "rowset_ref": "69a7e00efb53540d944198654a34656fcf9e02ff43ad1c7643d8fedb381f482d",
+   "rowset_run": "484b0bae6bc0d7cb60073ec04fddb940c7165f6cbaad5f8c4a4ce2e6d99a03f9",
+   "rowset_equal": false,
+   "only_ref": 0,
+   "only_run": 0,
+   "common_value_diff": 12,
+   "field_diff_counts": {
+    "n_ticks": 11,
+    "wave_start_tick": 9,
+    "wave_end_tick": 12
+   },
+   "cells_differing": 3,
+   "first_divergent_tick_per_cell": {
+    "M-POL-2|2": 157,
+    "W1-NULL|2": 157,
+    "W1|2": 157
+   }
+  }
+ },
+ "obs1": {
+  "n_complete": 25,
+  "n_cells": 25,
+  "truncated_or_failed": [],
+  "complete": true
+ },
+ "executes_set": {
+  "TA-X-07 (conservation; G2 offered/applied chain)": false,
+  "TA-X-20 (hit-test predicate + multiplicity; G4 occupancy, bound radius)": false,
+  "TA-X-29 (global-magnitude fold; G2 pre_mitigation)": false,
+  "TA-X-30 (pursuit halt; G4 halt counters)": false
+ },
+ "reproduces_all_7": false
+}

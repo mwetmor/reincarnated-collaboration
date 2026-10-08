@@ -1,0 +1,44 @@
+{
+ "label": "ORACLE-TWIN@300: a sealed in-memory override in a child process. It tests REACH (the rulebook at world = kit = X adds nothing beyond row 19). It is NOT a claim that the oracle is faithful to GD at 300 % attack speed (AS-measured tables are identical on both sides). Never the J-S8 fixture or golden master.",
+ "limbs": {},
+ "pass": false,
+ "prediction": null,
+ "run": "ORACLE-TWIN@300",
+ "spec": null,
+ "statements": [
+  "INFO-V2-3: the sealed referent's fixture.CRIT_DAMAGE_PCT is 12 (the Warborn Visor alone); never fires. The referent carries 12, not 57 or 69."
+ ],
+ "terminals": {
+  "M-POL-2-NULL|0": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|1": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|2": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|3": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|4": "harness_error:TruncatedSalt",
+  "M-POL-2|0": "harness_error:TruncatedSalt",
+  "M-POL-2|1": "harness_error:TruncatedSalt",
+  "M-POL-2|2": "harness_error:TruncatedSalt",
+  "M-POL-2|3": "harness_error:TruncatedSalt",
+  "M-POL-2|4": "harness_error:TruncatedSalt",
+  "M0|0": "harness_error:TruncatedSalt",
+  "M0|1": "harness_error:TruncatedSalt",
+  "M0|2": "harness_error:TruncatedSalt",
+  "M0|3": "harness_error:TruncatedSalt",
+  "M0|4": "harness_error:TruncatedSalt",
+  "W1-NULL|0": "harness_error:TruncatedSalt",
+  "W1-NULL|1": "harness_error:TruncatedSalt",
+  "W1-NULL|2": "harness_error:TruncatedSalt",
+  "W1-NULL|3": "harness_error:TruncatedSalt",
+  "W1-NULL|4": "harness_error:TruncatedSalt",
+  "W1|0": "harness_error:TruncatedSalt",
+  "W1|1": "harness_error:TruncatedSalt",
+  "W1|2": "harness_error:TruncatedSalt",
+  "W1|3": "harness_error:TruncatedSalt",
+  "W1|4": "harness_error:TruncatedSalt"
+ },
+ "valid": {
+  "all_25_sim_terminal": false,
+  "cells_25": true,
+  "head_fixed": true,
+  "instrument_pinned": true
+ }
+}

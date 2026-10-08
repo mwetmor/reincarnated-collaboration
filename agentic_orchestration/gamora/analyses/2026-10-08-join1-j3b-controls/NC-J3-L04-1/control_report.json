@@ -1,0 +1,69 @@
+{
+ "closure": {
+  "n_outside": 0,
+  "raised_cells": []
+ },
+ "limbs": {
+  "file_equal_7": {
+   "grains": {
+    "G1.jsonl": true,
+    "G2.jsonl.gz": true,
+    "G3.jsonl": true,
+    "G4.jsonl": true,
+    "G5.jsonl": true,
+    "G6.jsonl": true,
+    "G7.jsonl": true
+   },
+   "pass": true
+  }
+ },
+ "pass": true,
+ "prediction": "7/7 FILE-equal to J-S8 (REACHED-INSENSITIVE)",
+ "run": "NC-J3-L04-1",
+ "spec": {
+  "levers": {
+   "L-04": {
+    "intake": 5.0
+   }
+  }
+ },
+ "statements": [
+  "INFO-V2-3: the sealed referent's fixture.CRIT_DAMAGE_PCT is 12 (the Warborn Visor alone); never fires. The referent carries 12, not 57 or 69."
+ ],
+ "terminals": {
+  "M-POL-2-NULL|0": "survived_window",
+  "M-POL-2-NULL|1": "survived_window",
+  "M-POL-2-NULL|2": "survived_window",
+  "M-POL-2-NULL|3": "player_death",
+  "M-POL-2-NULL|4": "survived_window",
+  "M-POL-2|0": "survived_window",
+  "M-POL-2|1": "survived_window",
+  "M-POL-2|2": "player_death",
+  "M-POL-2|3": "survived_window",
+  "M-POL-2|4": "survived_window",
+  "M0|0": "survived_window",
+  "M0|1": "survived_window",
+  "M0|2": "survived_window",
+  "M0|3": "player_death",
+  "M0|4": "survived_window",
+  "W1-NULL|0": "survived_window",
+  "W1-NULL|1": "survived_window",
+  "W1-NULL|2": "player_death",
+  "W1-NULL|3": "survived_window",
+  "W1-NULL|4": "survived_window",
+  "W1|0": "survived_window",
+  "W1|1": "survived_window",
+  "W1|2": "player_death",
+  "W1|3": "survived_window",
+  "W1|4": "survived_window"
+ },
+ "valid": {
+  "all_25_sim_terminal": true,
+  "cells_25": true,
+  "closure_0": true,
+  "foreign_reads_0": true,
+  "head_fixed": true,
+  "instrument_pinned": true,
+  "join_records_pass": true
+ }
+}

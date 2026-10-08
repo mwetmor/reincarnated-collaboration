@@ -1,0 +1,105 @@
+{
+ "cells_reported": 25,
+ "class": "NON-GRADED-CONTROL",
+ "compare_vs_JS8": {
+  "G1": false,
+  "G2": false,
+  "G3": false,
+  "G4": false,
+  "G5": false,
+  "G6": true,
+  "G7": false
+ },
+ "control": null,
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 25.0,
+  "head": "1ec7c7760dcd1caa65f71c1641675e2cbcf13a2a",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "a52c04c273448fc4683d425ffb77c0f238e3be15",
+     "blob_live": "a52c04c273448fc4683d425ffb77c0f238e3be15",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "blob_live": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "blob_live": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "86484076c6f3313b608e5ef80bdbf511cf072dcc",
+     "blob_live": "86484076c6f3313b608e5ef80bdbf511cf072dcc",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 25.014503479003906,
+ "head_fixed": true,
+ "instrument_pinned": true,
+ "mode": "oracle-twin",
+ "prediction": "ORACLE-TWIN@300: a sealed in-memory override in a child process. It tests REACH (the rulebook at world = kit = X adds nothing beyond row 19). It is NOT a claim that the oracle is faithful to GD at 300 % attack speed (AS-measured tables are identical on both sides). Never the J-S8 fixture or golden master.",
+ "start": {
+  "free_gib": 25.0,
+  "head": "1ec7c7760dcd1caa65f71c1641675e2cbcf13a2a",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "a52c04c273448fc4683d425ffb77c0f238e3be15",
+     "blob_live": "a52c04c273448fc4683d425ffb77c0f238e3be15",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "blob_live": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "blob_live": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "86484076c6f3313b608e5ef80bdbf511cf072dcc",
+     "blob_live": "86484076c6f3313b608e5ef80bdbf511cf072dcc",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "twin": {
+  "cited": [
+   [
+    "FIXTURE_ATTACK_SPEED_PCT",
+    300.0
+   ]
+  ]
+ }
+}

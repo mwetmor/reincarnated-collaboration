@@ -1,0 +1,227 @@
+{
+ "closure": {
+  "n_outside": 0,
+  "raised_cells": []
+ },
+ "limbs": {
+  "a_period": {
+   "bad": [],
+   "n_bad": 0,
+   "n_rows": 25,
+   "pass": true
+  },
+  "b_acc_bound": {
+   "pass": true,
+   "per_cell": {
+    "M-POL-2-NULL|0": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2-NULL|1": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2-NULL|2": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2-NULL|3": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2-NULL|4": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2|0": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2|1": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2|2": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2|3": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M-POL-2|4": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M0|0": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M0|1": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M0|2": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M0|3": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "M0|4": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1-NULL|0": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1-NULL|1": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1-NULL|2": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1-NULL|3": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1-NULL|4": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1|0": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1|1": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1|2": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1|3": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ],
+    "W1|4": [
+     {
+      "0.6533333333333333": 2
+     },
+     2
+    ]
+   }
+  },
+  "c_hits_per_tick_vs_W": {
+   "P": 1.2066242038216561,
+   "W": 1.3056050955414014,
+   "pass": true,
+   "sign": {
+    "join_greater": 3,
+    "join_less": 22,
+    "p_two_sided": 0.00015652179718017578,
+    "ties": 0
+   }
+  }
+ },
+ "pass": false,
+ "prediction": "G7 tick_period == tick_period_s(300) every row; acc_bound == {repr(196/300): row31_calls} per cell; paired total row32/ticks < L01-W's",
+ "run": "NC-J3-L01-P",
+ "spec": {
+  "ops": {
+   "world_as_pct": 300.0
+  }
+ },
+ "statements": [
+  "INFO-V2-3: the sealed referent's fixture.CRIT_DAMAGE_PCT is 12 (the Warborn Visor alone); never fires. The referent carries 12, not 57 or 69."
+ ],
+ "terminals": {
+  "M-POL-2-NULL|0": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|1": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|2": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|3": "harness_error:TruncatedSalt",
+  "M-POL-2-NULL|4": "harness_error:TruncatedSalt",
+  "M-POL-2|0": "harness_error:TruncatedSalt",
+  "M-POL-2|1": "harness_error:TruncatedSalt",
+  "M-POL-2|2": "harness_error:TruncatedSalt",
+  "M-POL-2|3": "harness_error:TruncatedSalt",
+  "M-POL-2|4": "harness_error:TruncatedSalt",
+  "M0|0": "harness_error:TruncatedSalt",
+  "M0|1": "harness_error:TruncatedSalt",
+  "M0|2": "harness_error:TruncatedSalt",
+  "M0|3": "harness_error:TruncatedSalt",
+  "M0|4": "harness_error:TruncatedSalt",
+  "W1-NULL|0": "harness_error:TruncatedSalt",
+  "W1-NULL|1": "harness_error:TruncatedSalt",
+  "W1-NULL|2": "harness_error:TruncatedSalt",
+  "W1-NULL|3": "harness_error:TruncatedSalt",
+  "W1-NULL|4": "harness_error:TruncatedSalt",
+  "W1|0": "harness_error:TruncatedSalt",
+  "W1|1": "harness_error:TruncatedSalt",
+  "W1|2": "harness_error:TruncatedSalt",
+  "W1|3": "harness_error:TruncatedSalt",
+  "W1|4": "harness_error:TruncatedSalt"
+ },
+ "valid": {
+  "all_25_sim_terminal": false,
+  "cells_25": true,
+  "closure_0": true,
+  "foreign_reads_0": true,
+  "head_fixed": true,
+  "instrument_pinned": true,
+  "join_records_pass": true
+ }
+}
