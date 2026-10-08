@@ -51317,6 +51317,13 @@
       "ts": "2026-10-08T19:19:50-04:00",
       "verbatim": "",
       "ruling": "ROCK LOD NOT ADOPTED: look-neutral (frozen A/B within capture noise on 11/12 views; pilot_09 differs by 1 px, 1 level) but no gain (1.92 -> 1.88 M primitives, p50 13.63 -> 13.64 ms; the 3 m rocks stay at LOD0 at play zoom). It stays available behind BV2F_PROF_TRY=rocklod only. Indicative start p50 with groundtiles alone is 13.63 ms (under the 15.0 target, stuck walk), so SnowSurface/StairSnow tiling is not needed now. Next: PH's walk proof, then the conductor's quiet window for the binding P10."
+    },
+    {
+      "id": "R-C9-276",
+      "by": "gandalf (conductor), on PH 2fbbadc59",
+      "ts": "2026-10-08T19:31:30-04:00",
+      "verbatim": "",
+      "ruling": "P10 WALK PROVEN on rp4: start loop (PT's film route, 24.8 m, min 1-s move 0.73 m) and sea loop (on the shingle beach slope, 27.4 m, min 0.59 m); every waterside candidate stuck on the slab ice. Both loops BIND in the quiet window. Because the sea loop frames far less water (median ~15k sea px vs ~230k at the old view), ADD a third, REPORT-ONLY view: the old sea position with the knight IDLE (standing, not pushing into geometry), to see the water cost; it is not binding (not pre-registered as such), and if it exceeds the bar the conductor routes a water-cost fix before the full-site build. QUIET WINDOW: the conductor coordinates the pause with the Sim Session; PH starts only on the conductor's go."
     }
   ],
   "grok_calls": [
