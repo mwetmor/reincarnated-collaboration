@@ -1,0 +1,82 @@
+{
+ "G-REC-1": {
+  "pass": true,
+  "per_cell": {
+   "M-POL-2-NULL|0": true,
+   "M-POL-2-NULL|1": true,
+   "M-POL-2-NULL|2": true,
+   "M-POL-2-NULL|3": true,
+   "M-POL-2-NULL|4": true,
+   "M-POL-2|0": true,
+   "M-POL-2|1": true,
+   "M-POL-2|2": true,
+   "M-POL-2|3": true,
+   "M-POL-2|4": true,
+   "M0|0": true,
+   "M0|1": true,
+   "M0|2": true,
+   "M0|3": true,
+   "M0|4": true,
+   "W1-NULL|0": true,
+   "W1-NULL|1": true,
+   "W1-NULL|2": true,
+   "W1-NULL|3": true,
+   "W1-NULL|4": true,
+   "W1|0": true,
+   "W1|1": true,
+   "W1|2": true,
+   "W1|3": true,
+   "W1|4": true
+  },
+  "totals": {
+   "crit:player": [
+    158047,
+    158047
+   ],
+   "crit:soulfire": [
+    65462,
+    65462
+   ]
+  }
+ },
+ "G-REC-2": "enforced per cell by forms(): whole == prepass ++ window and offset == len(prepass) (a violation HALTs the cell)",
+ "G-REC-3": {
+  "against": "/Users/admin/Games/join3a-bulk-evidence/gd3-v3-emission-06b9bdb3/emission/G5.jsonl",
+  "pass": true,
+  "per_cell": {
+   "M-POL-2-NULL|0": true,
+   "M-POL-2-NULL|1": true,
+   "M-POL-2-NULL|2": true,
+   "M-POL-2-NULL|3": true,
+   "M-POL-2-NULL|4": true,
+   "M-POL-2|0": true,
+   "M-POL-2|1": true,
+   "M-POL-2|2": true,
+   "M-POL-2|3": true,
+   "M-POL-2|4": true,
+   "M0|0": true,
+   "M0|1": true,
+   "M0|2": true,
+   "M0|3": true,
+   "M0|4": true,
+   "W1-NULL|0": true,
+   "W1-NULL|1": true,
+   "W1-NULL|2": true,
+   "W1-NULL|3": true,
+   "W1-NULL|4": true,
+   "W1|0": true,
+   "W1|1": true,
+   "W1|2": true,
+   "W1|3": true,
+   "W1|4": true
+  }
+ },
+ "label": "join2_rulebook/crit.py:stream|<signed seed>",
+ "label_status": "PROVISIONAL",
+ "n_cells": 25,
+ "profile": "gd-decoded",
+ "rulebook_commit": "d5384b4b951092911cf75a05103987ab772f6343",
+ "spec": {
+  "crit": "gd-decoded"
+ }
+}
