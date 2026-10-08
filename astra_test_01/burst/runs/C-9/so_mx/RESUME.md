@@ -1,5 +1,38 @@
 # Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2; resumed R-C9-224, PAUSED AGAIN 2026-10-08
 
+## R-C9-233 (2026-10-08): the sorceress's FACE under the hood -- STEPS 0-2 DONE, stills with the conductor for Matt. NO deploy, NO loadout commit until Matt approves
+
+Brief (ledger R-C9-233): diagnose (isolation grid at the play camera), fix, live-vs-fix stills.
+- Tools: `scripts/r233_01_class_tex.py` (UV class texture: face / front hair / other hair -> `work/r233/class.png`),
+  `scripts/r233_02_head_pitch.py` (head/neck pitch per clip, glTF FK -> `work/r233/head_pitch.json`),
+  `barrow_full/godot/tools/probe_face_r233.gd` (the grid IN the painted Barrow, web renderer; one frozen pose per clip x
+  heading; variants live / nofronthair / nohood / headzero / fill / noink (= the web pen off) / fixA..G (an IMPORTED body,
+  and optionally hood, swapped on); passes beauty z1+z3, pen-off, ID, face footprint), `scripts/r233_03_measure.py`
+  (coverage %, pen %, face luma, sheets), `scripts/r233_04_build.py` (the fix body), `scripts/r233_05_lining.py` (hood
+  lining), `scripts/r233_06_stills.py` (live vs fix sheets). Every Godot run: heavy lock + `scripts/r152_06_godot_guard.py`
+  (timeout, SCRIPT ERROR abort, log cap).
+- DIAGNOSIS (look/r233_final, final_measure.json; means over S/SE/SW/E/W): live idle -- face visible 39% of its footprint,
+  front hair over it 21%, hood brim 19%, pen 11%, visible-face luma 54/255 (footprint 47). Hiding the front hair -> 55%
+  visible; hiding the hood -> 51%; head+neck at rest -> 39% (NO help: the hood rides on the head); fill light -> luma 101
+  (but it washes her whole figure); pen off -> footprint luma 54. Head pitch DOWN 8.9 deg idle / 13.2 walk / 4.8 Fire Ball
+  at the shot (r233_02). ON THE WEB BUILD HER HULL INKS ARE HIDDEN (barrow_full.gd "one pen"): the lines on her face are
+  the depth-only screen pen. Cause: dark painted face (albedo luma ~101, painted fringe streaks on the forehead) in the
+  ramp's shadow band + front strands across it + the opening framed by dark hair. Runs are not bit-repeatable (pen lines
+  vary run to run, ~3000 px): compare variants only within one run. look/r233_grid (grid0) is CONTAMINATED -- superseded.
+- FIX G (proposed): body `export/ss233g/so-body_ss233.glb` (from work/ss138a_pre.glb): hood_braid now takes ALL her hair in
+  while the hood is worn (braid as ss152b, exactly); the head's non-hair texels lifted (gamma 0.65 x1.18: luma 107 -> 177)
+  and the forehead above 1.60 m repainted as her skin; hood `export/ss233d/hood.glb` = ss152b's + an inward LINING
+  (inset 2.5 mm, one light hood-red texel). Idle: face visible 53%, front hair 0%, visible-face luma 100 (live 54),
+  footprint 77 (live 47); walk 95/71; Fire Ball 96/74. Orb-tip trace identical to ss152b: releases 0.2667 / 1.80 s.
+  NOTE: G takes ALL front hair in -- R-C9-233 asked "hair still frames the face"; E (outer cheek strands kept) measured
+  the same but the kept strands crossed her face at our camera angle. A ruling item.
+- Stills for Matt: `look/r233_final/R-C9-233_live_vs_fixG_z1.jpg` (play scale) and `_z3.jpg`; isolation sheets
+  `look/r233_final/final_sheet_<clip>_z{1,3}.jpg`.
+- Candidates imported for the probe only: `barrow_full/godot/models/variants/so_r233/` (r233a..g bodies, hood_r233d) --
+  in no slot and no pack (VARIANTS in build_web_painted.sh is explicit). Matt deletes the folder when done (lanes do not).
+- AFTER MATT APPROVES: copy ss233g body + ss233d hood into so_bm134 via make_slots (body file name + slot json), re-run
+  texture_provenance, web rebuild (EOR2 pin as before), select_check + web_perf, ONE loadout commit; conductor pushes.
+
 ## RESUMED (R-C9-231/232) AND STEPS 2-5 DONE, 2026-10-08 -- only Matt's look + the conductor's push remain
 
 - Step 2: the paused build (`barrow_full/work/r224_build.log`, EOR2 pin b4de84e65, EXIT 0) re-staged unchanged into loadout (only barrow_v2_sw files had changed in the source since; staged pcks hash-equal to the build).

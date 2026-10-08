@@ -4,6 +4,7 @@
   * WALL-CLOCK TIMEOUT per Godot run (GG_TIMEOUT_S, default 1200): the whole process group is killed (exit 124);
   * SCRIPT ERRORS ARE FATAL: the first line with "SCRIPT ERROR" or "Parse Error" kills the group (exit 125), so a
     harness erroring every frame cannot hold the shared C-9 heavy lock (the 85-min hang, conductor 2026-10-07);
+  * LOG CAP (GG_LOG_CAP_MB, default 16): past it the output is dropped and the run killed (exit 126);
   * output passes through to stdout unchanged (the caller's own log redirection keeps working).
 The heavy lock itself is taken once around the whole build by the caller (heavy_lock.py C-9 -- ...).
 Shape after lane PT's barrow_v2/fid/pt/tools/pt_godot.py."""
@@ -11,10 +12,11 @@ import os, signal, subprocess, sys, time
 
 REAL = os.environ.get("GG_REAL_GODOT", "/Applications/Godot.app/Contents/MacOS/Godot")
 TIMEOUT = float(os.environ.get("GG_TIMEOUT_S", "1200"))
+CAP = int(float(os.environ.get("GG_LOG_CAP_MB", "16")) * 1024 * 1024)   # R-C9-233: output cap (pt_godot's third guard)
 p = subprocess.Popen([REAL] + sys.argv[1:], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, start_new_session=True)
 os.set_blocking(p.stdout.fileno(), False)
 out = sys.stdout.buffer
-t0, buf, why = time.time(), b"", None
+t0, buf, why, written = time.time(), b"", None, 0
 while True:
     rc = p.poll()
     try:
@@ -22,8 +24,12 @@ while True:
     except BlockingIOError:
         chunk = b""
     if chunk:
-        out.write(chunk)
-        out.flush()
+        if written < CAP:
+            out.write(chunk)
+            out.flush()
+            written += len(chunk)
+        elif why is None:
+            why = ("log_cap", 126)
         buf = (buf + chunk)[-4096:]
         if why is None and (b"SCRIPT ERROR" in buf or b"Parse Error" in buf):
             why = ("script_error", 125)
