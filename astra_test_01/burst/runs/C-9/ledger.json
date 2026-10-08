@@ -43733,9 +43733,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PS-0_0",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "78e5dfc68c16695864fc421c383b6544c8d3fb5596c58f8dcab244a679760cd2",
+      "started": "2026-10-08T05:09:01.508425+00:00",
+      "ended": "2026-10-08T05:12:42.338789+00:00",
+      "minutes": 3.680456973616189,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a119ea-37c1-7813-b2f3-9fcc19bff624/exec-b31d102c-aca8-4c18-acb5-368512facced.png",
+            "sha256": "a8a719a3cf9a958132522685879a65639174b42aa7d6539e31cc22b430adc4da"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a119ea-37c1-7813-b2f3-9fcc19bff624/exec-e00aa5ad-4fe4-4988-9729-ab56ae2a675c.png",
+            "sha256": "99d0237ac756b16bcb997b6aed713475e4b36e472177b828b61f574cc339a952"
+          }
+        ]
+      },
+      "receipt_sha256": "bfd1cb2cc75a00d2e739f9cd3aadf52f532a6f151b3d827db9b1ff83877c3488",
+      "artifacts": [
+        {
+          "name": "BV2F-PS-0_0.png",
+          "sha256": "99d0237ac756b16bcb997b6aed713475e4b36e472177b828b61f574cc339a952"
+        },
+        {
+          "name": "exec-b31d102c-aca8-4c18-acb5-368512facced.provenance.json",
+          "sha256": "6643810f266165e9eaf42b6ba2a89a52e36eaa00afe5ed30272e373713f14a69"
+        },
+        {
+          "name": "exec-e00aa5ad-4fe4-4988-9729-ab56ae2a675c.provenance.json",
+          "sha256": "920c97a7f236c11f89ed71bd550c89187179ab06abe066ad79df4a35eb9be9ad"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a119ea-37c1-7813-b2f3-9fcc19bff624/exec-b31d102c-aca8-4c18-acb5-368512facced.png",
+          "sha256": "a8a719a3cf9a958132522685879a65639174b42aa7d6539e31cc22b430adc4da"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a119ea-37c1-7813-b2f3-9fcc19bff624/exec-e00aa5ad-4fe4-4988-9729-ab56ae2a675c.png",
+          "sha256": "99d0237ac756b16bcb997b6aed713475e4b36e472177b828b61f574cc339a952"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1285,
+  "images_used": 1287,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -45051,6 +45124,11 @@
       "id": "M-C9-BV2F-PHASE1-GATES",
       "note": "BV2F Phase 1 gates complete (jack-ryan e852dbf10 + re-check 5cad69d0d; folds R-C9-180..183): layout v7c validator 66/66, check (a) 6/6, P6' PASS (4/4), control unchanged at pin and HEAD. M1 packet to Matt. Spend 6 images, $1.20.",
       "ts": "2026-10-07T07:11:47Z"
+    },
+    {
+      "id": "M-C9-SO-R152-DEPLOYED",
+      "note": "Sorceress hood fix R-C9-152 option B deployed: loadout 68ab873 pushed (Vercel deploys on push) -- Barrow build pinned EOR2 b4de84e65; select_check 19/19; web_perf_eor +0.000 ms/frame, worst 19.1 ms, 0 frames > 33 ms; JOIN-1 sorceress v5 pack 64/64 cells (Fire Ball release frame 3 = 0.2667 s, Meteor frame 9 = 1.80 s, sockets match v4), lint 0 mismatches with 3 negative controls failing; hood stills barrow_full/take/build/r224_hood/ (crown/back closed red fabric at 4 headings). v5 pack supersedes v4. Lane files collab 513909f2f.",
+      "ts": "2026-10-08T05:14:09Z"
     }
   ],
   "halts": [
