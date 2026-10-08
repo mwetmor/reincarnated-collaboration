@@ -221,3 +221,22 @@ Read the handover section above first (tools, re-run steps). Then fix exactly th
 6. Keep: v1-size barrow with kerb stones; 6-stone circle (4 standing, 2 fallen low blocks); no barrow stream; seamless mere → sea ice transition; stair_treads.json export for PT's DEV-22.
 7. **Stills sheet**: regenerate the M1″ sheets with CORRECT captions and the MATCHING sketch-A crop beside each still (the last sheet had stale captions and ring crops beside the cave stills). One close still of the cove/cave/stair beside sketch A's cave; one wide; the mere + river beside sketch A's upper-left.
 8. Report: walkability, check (a), hero coverage, P6′-ready exports, the 9 pilot-tile shas.
+
+---
+
+# LV lane (fresh, R-C9-226) — state: brief items 1-8 DONE (0 images)
+
+| Item | What changed |
+|---|---|
+| 1 cove/cave/stair | NEW `lv/tools/bv2pp_cove.py` (replaces bv2pp_carve's builder; marching tets reused): the cliff mass is VERTICAL ROCK COLUMNS (jittered-Voronoi plan cells ~1.7 m, vertical cracks, per-column snow-capped tops stepping at the edges, wave notch at high water). Shallow sea-cut COVE (back wall 5.0 m in; 7.2 m in at the stair's foot alcove); CAVE = dark arch in its back wall (7.16 m clear at the lip, tunnel 2.6 m to a dark plane, axis angled inland so its roof knoll misses the stone circle); sea + floes in the cove's W part reach into the mouth's W side; iced LANDING ~5.3 m deep in front of mouth + stair foot (5 m bar forces mouth-width + stair-width long). STAIR climbs INLAND (up-screen, risers face the camera, as sketch A) in a cleft between column walls from the cove's back-right corner: 17 risers 0.253 / 0.39 treads = 32.7 deg, 5.3 m band; every tread 3-4 separate stone slabs (`stair_treads` rock + `stair_snow` caps, bare stone nosing). The sea-side lip no longer applies (no sea side on an inland flight). ⚑ Space forced the cove ~9 m EAST of sketch A's cave (cave mouth uv (-1.7,-7.4), stair top (8.6,-3.7)): an up-screen 5 m stair needs ~6 m inland run, which ends inside the stone circle anywhere west of it. Cover ask 2. |
+| 2 mere | explicit `MERE_POLY`, organic, scaled to 440 m2 on land (N lobe runs off the window top like the barrow); shore N of the wreck moved W (`SHORE_UV`). |
+| 3 river | `RIVER_UV` enters the window's top-left (u ~-28), runs down ~3 m inland of the beach into the mere. |
+| 4 reeds | `reed_islands` = stepped snow hummocks; `reed_tufts` (shrub) clumps on/around them. |
+| 5 straight edges | carve footprint is now an organic mask (2 m blend), no box; mere far from it; ash yard irregular (lobed + opened/closed noise); mere->sea field's S limit and the shore wiggle de-straightened; old-shelf floes dropped whole near the cove (no clip line). |
+| 6 kept | barrow + kerb, 6-stone circle, no barrow stream, graded mere->sea, `art/stair_treads.json` (now one entry per tread STONE cap). Pack ice re-rolled by the coast move: gaps x0.8 + fewer dropped floes -> 68 % ice. |
+| 7 sheets | `M1pp/M1pp_{cover,stills_A,stills_B,stills_C,section,map,guide}.jpg`; spec carries a hand-picked sketch-A pixel of the SAME feature per still (`lv_m1pp_spec.py`). |
+
+Checks: walkability PASS 8/8 (`walk/walkability.md`); check (a) PASS 6/6 (cave 17.4 m2 visible, 98.6 %); hero coverage PASS 8/8 (`M1pp/hero_coverage.md`); placed_fit 91 inst, max aniso 1.0001; declared_openings refreshed. Pilot tiles: all 9 changed (shas in the hand-back / `shasum -a 256 guide_art/tiles_5x5/guide_r0[0-2]_c0[0-2].png`).
+
+New tools: `lv_guard_lock.py` (heavy_lock drop-in with pt_godot's timeout / script-error / log-cap guards; used by walkability, placed_fit, and `HEAVY_LOCK=` for godot_run.sh); `lv_quickview.py` (no-Godot software view, check only).
+Open: (a) the landing is still ~60 m2 (5 m bars); (b) still 12's river is narrow at play zoom; (c) the circle's S stones now stand ~2 m from the knoll's edge; (d) stale `lv/guide_art/tiles/` + scratch dirs (Matt deletes).

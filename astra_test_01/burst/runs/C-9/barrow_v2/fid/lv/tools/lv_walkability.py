@@ -32,7 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LV = os.path.dirname(HERE)
 C9 = os.path.normpath(os.path.join(LV, "..", "..", ".."))
 BF = os.path.join(C9, "barrow_full", "godot")
-LOCK = os.path.join(os.path.dirname(C9), "C-7", "conductor_scripts", "heavy_lock.py")
+LOCK = os.path.join(HERE, "lv_guard_lock.py")          # R-C9-226: heavy lock + wall-clock timeout + quit on a script error
 GODOT = os.environ.get("GODOT", "/Applications/Godot.app/Contents/MacOS/Godot")
 OUT = os.path.join(LV, "walk")
 DS = 0.05
@@ -56,48 +56,35 @@ def frame(f):
 
 
 def build_spec(L):
-    """Phase 1'' route (one straight-face frame: t along, s seaward; the stair strip s in [-W, 0] cut into the land)."""
+    """R-C9-226 route: out of the cave (its axis inland), over the iced landing past the jamb, up the stair cleft INLAND (toward
+    -s) to its top pad and the clifftop. Every centreline sample is labelled by the leg it lies on."""
     R = L["route"]
     sp = R["spec"]
     F = R["frame"]
     o, d = F["origin_uv"], F["along_uv"]
     n = (d[1], -d[0])
     fr = lambda t, s_: (o[0] + d[0] * t + n[0] * s_, o[1] + d[1] * t + n[1] * s_)
+    P = {k: tuple(v) for k, v in R["points_uv"].items()}
+    t0, t1 = F["stair_t"]
     W = F["width_m"]
-    S0 = F.get("stair_s0", -W)
-    t_foot, t_top, t_land = F["t_foot"], F["t_top"], F["t_landing_end"]
-    CV = R["carve"]
-    ct, cf = sp["cave_t"], CV["cove"]["s_back"]                 # R-C9-214: the cave mouth in the cove's back wall
-    s_edge = CV["cove"]["s_edge"]
-    shelf_s = (cf + s_edge) / 2
-    wp = [("cave", fr(ct, cf - 3.0)), ("cave", fr(ct, cf)), ("shelf", fr(ct, shelf_s)), ("shelf", fr(t_foot - 1.0, S0 + W / 2)),
-          ("stair", fr(t_top, S0 + W / 2)), ("landing", fr((t_top + t_land) / 2, S0 + W / 2)),
-          ("landing", fr((t_top + t_land) / 2, S0 - 0.3)), ("clifftop", fr((t_top + t_land) / 2, S0 - 2.5))]
-    samples = []
-    for (_, a), (_, b) in zip(wp[:-1], wp[1:]):
-        k = max(1, int(round(math.dist(a, b) / DS)))
+    s_foot, s_top, s_land = F["s_foot"], F["s_top"], F["s_land"]
+    tm = (t0 + t1) / 2
+    ax = R["cave_axis_ts"]
+    ct, cf = sp["cave_t"], R["carve"]["cove"]["s_back"]
+    legs = [("cave", P["cave_back"], P["cave_mouth"]), ("shelf", P["cave_mouth"], P["shelf_mid"]), ("shelf", P["shelf_mid"], P["bottom_landing"]),
+            ("shelf", P["bottom_landing"], fr(tm, s_foot + sp["tread"])), ("stair", fr(tm, s_foot + sp["tread"]), P["stair_top"]),
+            ("landing", P["stair_top"], P["landing"]), ("landing", P["landing"], fr(tm, s_land)), ("clifftop", fr(tm, s_land), P["clifftop"])]
+    samples, seg_of = [], []
+    for nm, a_, b_ in legs:
+        k = max(1, int(round(math.dist(a_, b_) / DS)))
         for i in range(k):
             f = i / k
-            samples.append([round(a[0] + (b[0] - a[0]) * f, 4), round(a[1] + (b[1] - a[1]) * f, 4)])
-    samples.append([round(wp[-1][1][0], 4), round(wp[-1][1][1], 4)])
+            samples.append([round(a_[0] + (b_[0] - a_[0]) * f, 4), round(a_[1] + (b_[1] - a_[1]) * f, 4)])
+            seg_of.append(nm)
+    samples.append([round(P["clifftop"][0], 4), round(P["clifftop"][1], 4)])
+    seg_of.append("clifftop")
+    wp = [P["cave_back"], P["cave_mouth"], P["shelf_mid"], P["bottom_landing"], fr(tm, s_foot + sp["tread"]), P["stair_top"], P["landing"], P["clifftop"]]
     n_centre = len(samples)
-
-    def tsf(p):
-        dx, dy = p[0] - o[0], p[1] - o[1]
-        return dx * d[0] + dy * d[1], dx * n[0] + dy * n[1]
-
-    def where(p):
-        t, s_ = tsf(p)
-        if S0 <= s_ <= S0 + W and t_foot - sp["tread"] <= t <= t_top + 0.05:
-            return "stair"
-        if S0 - 0.7 <= s_ <= S0 + W and t_top < t <= t_land:
-            return "landing"
-        if abs(t - ct) <= sp["mouth_w"] / 2 + 0.5 and cf - 6.0 <= s_ <= cf:
-            return "cave"
-        if CV["cove"]["t_w"] <= t <= t_foot and cf <= s_ <= s_edge + 0.3:
-            return "shelf"
-        return "clifftop"
-    seg_of = [where(q) for q in samples]
     sections = []
     dvec, nvec = (d[0], d[1]), (n[0], n[1])
 
@@ -109,28 +96,29 @@ def build_spec(L):
             samples.append([round(origin[0] + axis[0] * x, 4), round(origin[1] + axis[1] * x, 4)])
         sections.append({"id": sid, "kind": kind, "centre": [round(centre[0], 4), round(centre[1], 4)], "across": [axis[0], axis[1]],
                          "i0": idx0, "n": k + 1, "a0": a0, "centre_a": round(((centre[0] - origin[0]) * axis[0] + (centre[1] - origin[1]) * axis[1]), 4)})
-    t = t_foot + 0.25
+    # the stair: across the band (along t), every 0.5 m of its run
+    s_ = s_foot - 0.25
     j = 0
-    while t <= t_top - 0.2:
-        add_section("stair_%02d" % j, "stair", fr(t, S0 + W / 2), S0 - 1.0, S0 + W + 1.0, nvec, fr(t, 0.0))
-        t += 0.5
+    while s_ >= s_top + 0.2:
+        add_section("stair_%02d" % j, "stair", fr(tm, s_), t0 - 1.5 - tm, t1 + 1.5 - tm, dvec, fr(tm, s_))
+        s_ -= 0.5
         j += 1
-    t = ct + sp["mouth_w"] / 2 + 0.5
+    # the landing: across it (along s), from the cave's mouth past the jamb to the stair's foot
     j = 0
-    while t <= t_foot - 0.6:
-        add_section("shelf_%02d" % j, "shelf", fr(t, shelf_s), cf - 1.5, s_edge + 1.0, nvec, fr(t, 0.0))
-        t += 0.5
+    for t_ in (ct + 3.4, ct + 3.9, t0 - 0.6, t0 - 0.1, t0 + 0.6, tm, t1 - 0.6):
+        c_ = fr(t_, -2.4 if t_ < t0 else s_foot + 2.4)
+        add_section("shelf_%02d" % j, "shelf", c_, -9.5, 2.5, nvec, fr(t_, 0.0))
         j += 1
-    add_section("cave_mouth", "cave", fr(ct, cf - 1.0), -sp["mouth_w"] / 2 - 3.0, sp["mouth_w"] / 2 + 3.0, dvec, fr(ct, cf - 1.0))
-    pa = fr(ct, cf)
-    pb = fr(t_land, S0 + W / 2)
+    mc = fr(ct + ax[0] * 1.0, cf + ax[1] * 1.0)
+    add_section("cave_mouth", "cave", mc, -sp["mouth_w"] / 2 - 3.0, sp["mouth_w"] / 2 + 3.0, dvec, mc)
     xs = [q[0] for q in samples[:n_centre]]
     ys = [q[1] for q in samples[:n_centre]]
     w_m, h_m = max(xs) - min(xs) + 8.0, max(ys) - min(ys) + 8.0
-    spec = {"samples": samples, "sections": sections, "waypoints": [list(q) for _, q in wp], "waypoint_radius_m": 0.5, "drive_timeout_s": 90.0,
-            "stills": {"play_aim": [round((pa[0] + pb[0]) / 2, 3), round((pa[1] + pb[1]) / 2, 3), -1.0], "him_uv": list(fr((t_foot + t_top) / 2, S0 + W / 2)),
+    pa, pb = P["cave_mouth"], P["landing"]
+    spec = {"samples": samples, "sections": sections, "waypoints": [list(q) for q in wp], "waypoint_radius_m": 0.5, "drive_timeout_s": 90.0,
+            "stills": {"play_aim": [round((pa[0] + pb[0]) / 2, 3), round((pa[1] + pb[1]) / 2, 3), -1.0], "him_uv": list(fr(tm, (s_foot + s_top) / 2)),
                        "topdown": [round((max(xs) + min(xs)) / 2, 3), round((max(ys) + min(ys)) / 2, 3), round(max(h_m, w_m * 1400 / 2000), 2), 2000, 1400]}}
-    meta = {"n_centre": n_centre, "seg_of": seg_of, "waypoint_names": [nm for nm, _ in wp]}
+    meta = {"n_centre": n_centre, "seg_of": seg_of, "waypoint_names": ["cave_back", "cave_mouth", "shelf_mid", "bottom_landing", "stair_foot", "stair_top", "landing", "clifftop"]}
     return spec, meta
 
 
@@ -216,11 +204,11 @@ def analyse(L, spec, meta, W_):
     bars = [
         ("continuous walk surface, cave -> clifftop (every 0.05 m)", "%d of %d centreline samples walkable; %d breaks" % (sum(r["walkable"] for r in rows.values()), nC, len(breaks)), len(breaks) == 0),
         ("stair slope <= 35 deg", "%.2f deg (collider); treads %.2f deg" % (rows["stair"]["max_slope_deg"], L["route"]["stair_pitch_deg"]), rows["stair"]["max_slope_deg"] <= 35.0),
-        ("iced landing (cut in the cove) slope <= 10 deg", "%.2f deg" % rows["shelf"]["max_slope_deg"], rows["shelf"]["max_slope_deg"] <= 10.0),
+        ("iced landing (in the cove) slope <= 10 deg", "%.2f deg" % rows["shelf"]["max_slope_deg"], rows["shelf"]["max_slope_deg"] <= 10.0),
         ("no riser above v1's step height (%.3f m)" % step_h, "max %.3f m between samples 0.05 m apart (treads' visual riser %.3f m is under the ramp)" % (max(r["max_dz_m"] for r in rows.values()), L["route"]["riser_m"]),
          max(r["max_dz_m"] for r in rows.values()) <= step_h),
         ("stair clear width >= 5 m", "min %.2f m over %d sections" % (min(s["clear_width_m"] for s in st_secs), len(st_secs)), min(s["clear_width_m"] for s in st_secs) >= 5.0),
-        ("iced landing clear depth >= 5 m (cave mouth -> stair foot)", "min %.2f m over %d sections" % (min(s["clear_width_m"] for s in sh_secs), len(sh_secs)), min(s["clear_width_m"] for s in sh_secs) >= 5.0),
+        ("iced landing clear width >= 5 m (cave mouth -> past the jamb -> stair foot)", "min %.2f m over %d sections" % (min(s["clear_width_m"] for s in sh_secs), len(sh_secs)), min(s["clear_width_m"] for s in sh_secs) >= 5.0),
         ("cave mouth clear height ~7 m", "%.2f m at the arch's lip (the first centreline sample under the roof); %.2f m deeper in; the floor %.2f m clear across 1 m inside" % (
             lip_h, deep_h, mouth["clear_width_m"]), lip_h >= 6.5),
         ("v1's knight driven from inside the cave to the clifftop", "reached %s in %.1f s (%d frames, %d off the floor); ends at uv (%.2f, %.2f) z %.2f" % (

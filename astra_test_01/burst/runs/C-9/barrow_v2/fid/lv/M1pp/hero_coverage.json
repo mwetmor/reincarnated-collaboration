@@ -19,74 +19,71 @@
   "cliffs": {
    "visible_in": [
     "01_coast_west",
-    "02_wreck_beach",
     "03_cliffs_south",
-    "04_cave_stair",
+    "04_cove_close",
     "05_cave_mouth",
+    "07_pack_ice",
     "08_start",
-    "09_stair_cave_close",
-    "10_cove_wide"
+    "09_stair_close",
+    "10_cove_wide",
+    "13_hall_yard"
    ],
    "with_neighbour_in": [
     "01_coast_west",
-    "02_wreck_beach",
     "03_cliffs_south",
-    "04_cave_stair",
+    "04_cove_close",
     "05_cave_mouth",
+    "07_pack_ice",
     "08_start",
-    "09_stair_cave_close",
-    "10_cove_wide"
+    "09_stair_close",
+    "10_cove_wide",
+    "13_hall_yard"
    ],
    "PASS": true
   },
   "cave_stair": {
    "visible_in": [
-    "01_coast_west",
     "03_cliffs_south",
-    "04_cave_stair",
+    "04_cove_close",
     "05_cave_mouth",
     "08_start",
-    "09_stair_cave_close",
-    "10_cove_wide"
+    "09_stair_close",
+    "10_cove_wide",
+    "13_hall_yard"
    ],
    "with_neighbour_in": [
-    "01_coast_west",
     "03_cliffs_south",
-    "04_cave_stair",
+    "04_cove_close",
     "05_cave_mouth",
     "08_start",
-    "09_stair_cave_close",
-    "10_cove_wide"
+    "09_stair_close",
+    "10_cove_wide",
+    "13_hall_yard"
    ],
    "PASS": true
   },
   "mere": {
    "visible_in": [
     "02_wreck_beach",
-    "06_mere_stream",
+    "06_mere",
+    "08_start",
     "11_mere_sea",
-    "12_river"
+    "12_river_mere"
    ],
    "with_neighbour_in": [
     "02_wreck_beach",
-    "06_mere_stream",
+    "08_start",
     "11_mere_sea",
-    "12_river"
+    "12_river_mere"
    ],
    "PASS": true
   },
   "river": {
    "visible_in": [
-    "02_wreck_beach",
-    "06_mere_stream",
-    "11_mere_sea",
-    "12_river"
+    "12_river_mere"
    ],
    "with_neighbour_in": [
-    "02_wreck_beach",
-    "06_mere_stream",
-    "11_mere_sea",
-    "12_river"
+    "12_river_mere"
    ],
    "PASS": true
   },
@@ -95,17 +92,13 @@
     "01_coast_west",
     "02_wreck_beach",
     "03_cliffs_south",
-    "07_pack_ice",
-    "11_mere_sea",
-    "12_river"
+    "07_pack_ice"
    ],
    "with_neighbour_in": [
     "01_coast_west",
     "02_wreck_beach",
     "03_cliffs_south",
-    "07_pack_ice",
-    "11_mere_sea",
-    "12_river"
+    "07_pack_ice"
    ],
    "PASS": true
   },
@@ -124,51 +117,53 @@
   },
   "ring": {
    "visible_in": [
-    "05_cave_mouth",
-    "08_start"
+    "08_start",
+    "09_stair_close",
+    "13_hall_yard"
    ],
    "with_neighbour_in": [
-    "05_cave_mouth",
-    "08_start"
+    "08_start",
+    "09_stair_close",
+    "13_hall_yard"
    ],
    "PASS": true
   }
  },
  "px_per_still": {
   "01_coast_west": {
-   "wreck": 17923,
-   "cliffs": 127304,
-   "cave_stair": 416227,
+   "wreck": 25779,
+   "cliffs": 446218,
+   "cave_stair": 376,
    "mere": 0,
    "river": 0,
-   "sea_ice": 536292,
-   "stacks_talus": 45329,
+   "sea_ice": 540884,
+   "stacks_talus": 35311,
    "ring": 0
   },
   "02_wreck_beach": {
-   "wreck": 284350,
-   "cliffs": 33070,
-   "cave_stair": 4585,
-   "mere": 138488,
-   "river": 135894,
-   "sea_ice": 511167,
+   "wreck": 284489,
+   "cliffs": 0,
+   "cave_stair": 0,
+   "mere": 196834,
+   "river": 0,
+   "sea_ice": 280878,
    "stacks_talus": 0,
    "ring": 0
   },
   "03_cliffs_south": {
    "wreck": 0,
-   "cliffs": 1064030,
-   "cave_stair": 6706,
+   "cliffs": 737661,
+   "cave_stair": 62217,
    "mere": 0,
    "river": 0,
-   "sea_ice": 564680,
-   "stacks_talus": 15712,
+   "sea_ice": 558263,
+   "stacks_talus": 9484,
    "ring": 0
   },
-  "04_cave_stair": {
+  "04_cove_close": {
    "wreck": 0,
-   "cliffs": 455963,
-   "cave_stair": 599289,
+   "cliffs": 438286,
+   "cave_stair": 835692,
    "mere": 0,
    "river": 0,
    "sea_ice": 0,
@@ -177,83 +172,93 @@
   },
   "05_cave_mouth": {
    "wreck": 0,
-   "cliffs": 517284,
-   "cave_stair": 695977,
+   "cliffs": 551854,
+   "cave_stair": 673658,
    "mere": 0,
    "river": 0,
    "sea_ice": 0,
    "stacks_talus": 0,
-   "ring": 18284
+   "ring": 3392
   },
-  "06_mere_stream": {
+  "06_mere": {
    "wreck": 0,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 1622431,
-   "river": 1586494,
+   "mere": 1884103,
+   "river": 0,
    "sea_ice": 0,
    "stacks_talus": 0,
    "ring": 0
   },
   "07_pack_ice": {
    "wreck": 0,
-   "cliffs": 0,
+   "cliffs": 21141,
    "cave_stair": 0,
    "mere": 0,
    "river": 0,
-   "sea_ice": 1112430,
-   "stacks_talus": 162502,
+   "sea_ice": 991528,
+   "stacks_talus": 161038,
    "ring": 0
   },
   "08_start": {
    "wreck": 0,
-   "cliffs": 379515,
-   "cave_stair": 340670,
-   "mere": 0,
+   "cliffs": 477984,
+   "cave_stair": 246544,
+   "mere": 30766,
    "river": 0,
    "sea_ice": 0,
    "stacks_talus": 0,
-   "ring": 45683
+   "ring": 45902
   },
-  "09_stair_cave_close": {
+  "09_stair_close": {
    "wreck": 0,
-   "cliffs": 466520,
-   "cave_stair": 784303,
+   "cliffs": 351752,
+   "cave_stair": 656083,
    "mere": 0,
    "river": 0,
    "sea_ice": 0,
    "stacks_talus": 0,
-   "ring": 0
+   "ring": 6646
   },
   "10_cove_wide": {
    "wreck": 0,
-   "cliffs": 448957,
-   "cave_stair": 688751,
+   "cliffs": 420556,
+   "cave_stair": 866048,
    "mere": 0,
    "river": 0,
-   "sea_ice": 0,
+   "sea_ice": 883,
    "stacks_talus": 0,
    "ring": 0
   },
   "11_mere_sea": {
-   "wreck": 48971,
+   "wreck": 181951,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 858871,
-   "river": 846702,
-   "sea_ice": 228472,
+   "mere": 894518,
+   "river": 0,
+   "sea_ice": 0,
    "stacks_talus": 0,
    "ring": 0
   },
-  "12_river": {
+  "12_river_mere": {
    "wreck": 0,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 872374,
-   "river": 858719,
-   "sea_ice": 26375,
-   "stacks_talus": 1,
+   "mere": 1681539,
+   "river": 6952,
+   "sea_ice": 0,
+   "stacks_talus": 0,
    "ring": 0
+  },
+  "13_hall_yard": {
+   "wreck": 0,
+   "cliffs": 34717,
+   "cave_stair": 34435,
+   "mere": 0,
+   "river": 0,
+   "sea_ice": 0,
+   "stacks_talus": 0,
+   "ring": 11638
   }
  }
 }

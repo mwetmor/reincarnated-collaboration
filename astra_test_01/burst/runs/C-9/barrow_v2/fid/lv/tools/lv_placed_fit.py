@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LV = os.path.dirname(HERE)
 C9 = os.path.normpath(os.path.join(LV, "..", "..", ".."))
 BF = os.path.join(C9, "barrow_full", "godot")
-LOCK = os.path.join(os.path.dirname(C9), "C-7", "conductor_scripts", "heavy_lock.py")
+LOCK = os.path.join(HERE, "lv_guard_lock.py")          # R-C9-226: heavy lock + wall-clock timeout + quit on a script error
 GODOT = os.environ.get("GODOT", "/Applications/Godot.app/Contents/MacOS/Godot")
 
 

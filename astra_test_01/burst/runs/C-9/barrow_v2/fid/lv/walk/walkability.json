@@ -15,21 +15,21 @@
  },
  "segments": {
   "cave": {
-   "samples": 61,
-   "walkable": 61,
+   "samples": 40,
+   "walkable": 40,
    "max_slope_deg": 0.0,
    "max_dz_m": 0.0,
    "z": [
     -3.5,
     -3.5
    ],
-   "min_headroom_m": 5.12675166130066
+   "min_headroom_m": 4.78048396110535
   },
   "shelf": {
-   "samples": 172,
-   "walkable": 172,
+   "samples": 213,
+   "walkable": 213,
    "max_slope_deg": 0.0,
-   "max_dz_m": 0.019285202026369852,
+   "max_dz_m": 0.0,
    "z": [
     -3.5,
     -3.5
@@ -37,35 +37,35 @@
    "min_headroom_m": 15.0
   },
   "stair": {
-   "samples": 184,
-   "walkable": 184,
-   "max_slope_deg": 33.340700131848,
-   "max_dz_m": 0.03290319442748979,
+   "samples": 133,
+   "walkable": 133,
+   "max_slope_deg": 32.660901079695,
+   "max_dz_m": 0.031971454620359996,
    "z": [
-    -3.48071479797363,
-    2.5
+    -3.5,
+    0.718111157417297
    ],
    "min_headroom_m": 15.0
   },
   "landing": {
-   "samples": 85,
-   "walkable": 85,
+   "samples": 40,
+   "walkable": 40,
    "max_slope_deg": 0.0,
-   "max_dz_m": 0.0,
+   "max_dz_m": 5.960464499743523e-08,
    "z": [
-    2.5,
-    2.5
+    0.75,
+    0.750000059604645
    ],
    "min_headroom_m": 15.0
   },
   "clifftop": {
-   "samples": 37,
-   "walkable": 37,
-   "max_slope_deg": 0.0,
-   "max_dz_m": 0.0,
+   "samples": 51,
+   "walkable": 51,
+   "max_slope_deg": 4.6378940339587,
+   "max_dz_m": 0.004049181938171942,
    "z": [
-    2.5,
-    2.5
+    0.707751631736755,
+    0.750000059604645
    ],
    "min_headroom_m": 15.0
   }
@@ -76,7 +76,7 @@
    "id": "stair_00",
    "kind": "stair",
    "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.13,
+   "free_between_colliders_m": 7.0,
    "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
@@ -84,7 +84,7 @@
    "id": "stair_01",
    "kind": "stair",
    "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.05,
+   "free_between_colliders_m": 7.07,
    "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
@@ -92,7 +92,7 @@
    "id": "stair_02",
    "kind": "stair",
    "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.04,
+   "free_between_colliders_m": 6.11,
    "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
@@ -100,218 +100,194 @@
    "id": "stair_03",
    "kind": "stair",
    "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.08,
+   "free_between_colliders_m": 5.42,
    "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_04",
    "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.45,
-   "clear_width_m": 5.3,
+   "surface_width_m": 5.15,
+   "free_between_colliders_m": 5.39,
+   "clear_width_m": 5.15,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_05",
    "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.21,
-   "clear_width_m": 5.3,
+   "surface_width_m": 5.15,
+   "free_between_colliders_m": 5.39,
+   "clear_width_m": 5.15,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_06",
    "kind": "stair",
-   "surface_width_m": 5.25,
-   "free_between_colliders_m": 6.02,
-   "clear_width_m": 5.25,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 5.63,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_07",
    "kind": "stair",
    "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.14,
+   "free_between_colliders_m": 5.61,
    "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_08",
    "kind": "stair",
-   "surface_width_m": 5.25,
-   "free_between_colliders_m": 5.8,
-   "clear_width_m": 5.25,
+   "surface_width_m": 5.3,
+   "free_between_colliders_m": 5.57,
+   "clear_width_m": 5.3,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_09",
    "kind": "stair",
-   "surface_width_m": 5.25,
-   "free_between_colliders_m": 6.33,
-   "clear_width_m": 5.25,
+   "surface_width_m": 5.2,
+   "free_between_colliders_m": 5.33,
+   "clear_width_m": 5.2,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_10",
    "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.04,
-   "clear_width_m": 5.3,
+   "surface_width_m": 5.2,
+   "free_between_colliders_m": 5.29,
+   "clear_width_m": 5.2,
    "min_headroom_m": 15.0
   },
   {
    "id": "stair_11",
    "kind": "stair",
-   "surface_width_m": 5.4,
-   "free_between_colliders_m": 6.19,
-   "clear_width_m": 5.4,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "stair_12",
-   "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.05,
-   "clear_width_m": 5.3,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "stair_13",
-   "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.02,
-   "clear_width_m": 5.3,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "stair_14",
-   "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.11,
-   "clear_width_m": 5.3,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "stair_15",
-   "kind": "stair",
-   "surface_width_m": 5.35,
-   "free_between_colliders_m": 6.25,
-   "clear_width_m": 5.35,
-   "min_headroom_m": 15.0
-  },
-  {
-   "id": "stair_16",
-   "kind": "stair",
-   "surface_width_m": 5.3,
-   "free_between_colliders_m": 6.65,
-   "clear_width_m": 5.3,
+   "surface_width_m": 5.15,
+   "free_between_colliders_m": 6.6,
+   "clear_width_m": 5.15,
    "min_headroom_m": 15.0
   },
   {
    "id": "shelf_00",
    "kind": "shelf",
-   "surface_width_m": 5.6,
-   "free_between_colliders_m": 6.42,
-   "clear_width_m": 5.6,
-   "min_headroom_m": 4.04
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 5.77,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 1.21
   },
   {
    "id": "shelf_01",
    "kind": "shelf",
-   "surface_width_m": 6.2,
-   "free_between_colliders_m": 6.45,
-   "clear_width_m": 6.2,
-   "min_headroom_m": 2.15
+   "surface_width_m": 9.7,
+   "free_between_colliders_m": 10.1,
+   "clear_width_m": 9.7,
+   "min_headroom_m": 1.19
   },
   {
    "id": "shelf_02",
    "kind": "shelf",
-   "surface_width_m": 6.0,
-   "free_between_colliders_m": 6.03,
-   "clear_width_m": 6.0,
-   "min_headroom_m": 1.33
+   "surface_width_m": 5.25,
+   "free_between_colliders_m": 5.77,
+   "clear_width_m": 5.25,
+   "min_headroom_m": 15.0
   },
   {
    "id": "shelf_03",
    "kind": "shelf",
-   "surface_width_m": 6.4,
-   "free_between_colliders_m": 6.55,
-   "clear_width_m": 6.4,
-   "min_headroom_m": 1.72
+   "surface_width_m": 9.95,
+   "free_between_colliders_m": 10.48,
+   "clear_width_m": 9.95,
+   "min_headroom_m": 1.36
   },
   {
    "id": "shelf_04",
    "kind": "shelf",
-   "surface_width_m": 6.05,
-   "free_between_colliders_m": 6.54,
-   "clear_width_m": 6.05,
-   "min_headroom_m": 4.75
+   "surface_width_m": 7.55,
+   "free_between_colliders_m": 8.68,
+   "clear_width_m": 7.55,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_05",
+   "kind": "shelf",
+   "surface_width_m": 5.35,
+   "free_between_colliders_m": 6.57,
+   "clear_width_m": 5.35,
+   "min_headroom_m": 15.0
+  },
+  {
+   "id": "shelf_06",
+   "kind": "shelf",
+   "surface_width_m": 5.5,
+   "free_between_colliders_m": 6.55,
+   "clear_width_m": 5.5,
+   "min_headroom_m": 15.0
   },
   {
    "id": "cave_mouth",
    "kind": "cave",
-   "surface_width_m": 5.35,
-   "free_between_colliders_m": 5.45,
-   "clear_width_m": 5.35,
-   "min_headroom_m": 1.97
+   "surface_width_m": 4.1,
+   "free_between_colliders_m": 6.45,
+   "clear_width_m": 4.1,
+   "min_headroom_m": 1.77
   }
  ],
  "drive": {
   "reached_last_waypoint": true,
-  "time_s": 18.1,
-  "frames": 1086,
+  "time_s": 14.683,
+  "frames": 881,
   "stuck_3s": false,
   "end_uv": [
-   8.11617660522461,
-   -9.9547176361084
+   10.6475229263306,
+   -0.331611156463623
   ],
-  "end_z": 2.5008556842804
+  "end_z": 0.738801121711731
  },
  "drive_frames_off_floor": 0,
  "drive_z_range": [
   -3.499,
-  2.501
+  0.752
  ],
  "bars": [
   {
    "bar": "continuous walk surface, cave -> clifftop (every 0.05 m)",
-   "measured": "539 of 539 centreline samples walkable; 0 breaks",
+   "measured": "477 of 477 centreline samples walkable; 0 breaks",
    "pass": true
   },
   {
    "bar": "stair slope <= 35 deg",
-   "measured": "33.34 deg (collider); treads 33.34 deg",
+   "measured": "32.66 deg (collider); treads 32.66 deg",
    "pass": true
   },
   {
-   "bar": "iced landing (cut in the cove) slope <= 10 deg",
+   "bar": "iced landing (in the cove) slope <= 10 deg",
    "measured": "0.00 deg",
    "pass": true
   },
   {
    "bar": "no riser above v1's step height (0.103 m)",
-   "measured": "max 0.033 m between samples 0.05 m apart (treads' visual riser 0.250 m is under the ramp)",
+   "measured": "max 0.032 m between samples 0.05 m apart (treads' visual riser 0.250 m is under the ramp)",
    "pass": true
   },
   {
    "bar": "stair clear width >= 5 m",
-   "measured": "min 5.25 m over 17 sections",
+   "measured": "min 5.15 m over 12 sections",
    "pass": true
   },
   {
-   "bar": "iced landing clear depth >= 5 m (cave mouth -> stair foot)",
-   "measured": "min 5.60 m over 5 sections",
+   "bar": "iced landing clear width >= 5 m (cave mouth -> past the jamb -> stair foot)",
+   "measured": "min 5.25 m over 7 sections",
    "pass": true
   },
   {
    "bar": "cave mouth clear height ~7 m",
-   "measured": "7.18 m at the arch's lip (the first centreline sample under the roof); 5.13 m deeper in; the floor 5.35 m clear across 1 m inside",
+   "measured": "7.16 m at the arch's lip (the first centreline sample under the roof); 4.78 m deeper in; the floor 4.10 m clear across 1 m inside",
    "pass": true
   },
   {
    "bar": "v1's knight driven from inside the cave to the clifftop",
-   "measured": "reached True in 18.1 s (1086 frames, 0 off the floor); ends at uv (8.12, -9.95) z 2.50",
+   "measured": "reached True in 14.7 s (881 frames, 0 off the floor); ends at uv (10.65, -0.33) z 0.74",
    "pass": true
   }
  ],

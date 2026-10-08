@@ -34,7 +34,7 @@ def stills():
     for si, ch in enumerate([spec[i:i + 5] for i in range(0, len(spec), 5)]):
         rh, sw, cw = 450, 800, 675
         sh = Image.new("RGB", (sw + cw + 30, 60 + len(ch) * (rh + 50)), (24, 24, 28)); d = ImageDraw.Draw(sh)
-        d.text((10, 12), "barrow_v2 Phase 1'' blockout at the PLAY camera (v1 camera + zoom)  |  sketch A, same area", fill=(255, 255, 255), font=B(24))
+        d.text((10, 12), "barrow_v2 Phase 1'' close-out (R-C9-226) at the PLAY camera (v1 camera + zoom)  |  sketch A, the SAME feature", fill=(255, 255, 255), font=B(24))
         for i, s in enumerate(ch):
             y = 60 + i * (rh + 50)
             sh.paste(Image.open(os.path.join(RAW, s["name"] + ".png")).convert("RGB").resize((sw, rh), Image.LANCZOS), (10, y + 36))
@@ -54,33 +54,33 @@ def section():
     wr = L["placements"][[p["id"] for p in L["placements"]].index("wreck")]["uv"]
     profs = [("W: the plateau -> the shingle beach -> the shore ice (the wreck)", (-8.0, wr[1]), (-38.0, wr[1]), [("wreck", math.dist((-8.0, wr[1]), wr))]),
              ("S: the clifftop -> the sea cliff -> the shore-fast ice", (12.0, -8.0), (12.0, -27.0), []),
-             ("THE ROUTE: inside the cave -> the shelf -> the rock-cut stair -> the clifftop", None, None, [])]
+             ("THE ROUTE: inside the cave -> the iced landing -> the stair cleft, climbing inland -> the clifftop", None, None, [])]
     Wd, Hd = 1600, 1560
     im = Image.new("RGB", (Wd, Hd), (250, 248, 243)); d = ImageDraw.Draw(im)
     d.text((30, 20), "barrow_v2 Phase 1'' -- cross-sections (metres, off the terrain the knight walks; true scale, no exaggeration)", fill=(20, 20, 20), font=B(28))
     y0 = 90
     for k, (title, a, b, marks) in enumerate(profs):
         if a is None:
-            sp = L["route"]["spec"]
-            pts = [fr(sp["cave_t"], sp["cave_front_s"] - 3.0), fr(sp["cave_t"], 2.0), fr(sp["bottom_landing_t"] + 0.5, 2.0)]
-            dist, zs, acc = [], [], 0.0
-            c_ = F.get("stair_s0", -F["width_m"]) + F["width_m"] / 2
-            seq = [fr(sp["cave_t"], sp["cave_front_s"] - 3.0), fr(sp["cave_t"], sp["cave_front_s"] + 3.0), fr(F["t_foot"] - 1.0, c_),
-                   fr(F["t_top"], c_), fr(F["t_landing_end"] - 0.2, c_), fr(F["t_landing_end"] - 0.2, -3.0)]
-            for p0, p1 in zip(seq[:-1], seq[1:]):
-                n_ = int(math.dist(p0, p1) / 0.1)
+            RP = L["route"]["points_uv"]
+            Zw = np.fromfile(os.path.join(BFD, hf["walk_file"]), "<f4").reshape(H, W)
+            zw = lambda u, v: float(Zw[min(max(int(round((-v - ex["y0"]) * 4)), 0), H - 1), min(max(int(round((u - ex["x0"]) * 4)), 0), W - 1)])
+            names_ = ["cave_back", "cave_mouth", "shelf_mid", "bottom_landing", "stair_foot", "stair_top", "landing", "clifftop"]
+            seq = [tuple(RP[k]) for k in names_]
+            Fs = L["route"]["frame"]
+            dist, zs, acc, marks = [], [], 0.0, []
+            for k_, (p0, p1) in enumerate(zip(seq[:-1], seq[1:])):
+                marks.append((names_[k_].replace("_", " "), acc))
+                n_ = max(1, int(math.dist(p0, p1) / 0.1))
                 for i in range(n_):
-                    f = i / n_; p = (p0[0] + (p1[0] - p0[0]) * f, p0[1] + (p1[1] - p0[1]) * f)
-                    dist.append(acc + math.dist(p0, p) ); acc_p = p
-                    tq = (p[0] - o[0]) * dd[0] + (p[1] - o[1]) * dd[1]
-                    if F["t_foot"] - sp["tread"] <= tq <= F["t_top"]:
-                        zs.append(sp["shelf_z"] + (tq - (F["t_foot"] - sp["tread"])) * L["route"]["riser_m"] / sp["tread"])
-                    elif F["t_top"] < tq <= F["t_landing_end"]:
-                        zs.append(sp["crest"])
+                    f = i / n_
+                    p = (p0[0] + (p1[0] - p0[0]) * f, p0[1] + (p1[1] - p0[1]) * f)
+                    dist.append(acc + math.dist(p0, p))
+                    if names_[k_] == "stair_foot":
+                        zs.append(L["levels_m"]["shelf"] + f * (Fs["top_z"] - L["levels_m"]["shelf"]))
                     else:
-                        zs.append(zat(*p))
+                        zs.append(zw(*p))
                 acc += math.dist(p0, p1)
-            marks = [("cave mouth (7.3 m clear)", 3.0), ("stair foot", 6.0 + math.dist(seq[1], seq[2]) - 1.0), ("landing", acc - 3.0 - (F["t_landing_end"] - F["t_top"]) / 2)]
+            marks = [m for m in marks if m[0] in ("cave mouth", "stair foot", "stair top")]
         else:
             n_ = int(math.dist(a, b) / 0.1)
             dist = [math.dist(a, b) * i / n_ for i in range(n_ + 1)]
@@ -98,7 +98,7 @@ def section():
         d.rectangle([X(0), Y(sea), X(L_), Y(zmin)], fill=(60, 85, 115))
         poly = [(X(x), Y(z)) for x, z in zip(dist, zs)] + [(X(L_), Y(zmin)), (X(0), Y(zmin))]
         d.polygon(poly, fill=(205, 198, 186), outline=(60, 50, 40))
-        for z, lab in ((0.0, "plateau 0"), (LEV["shore_ice_top"], "shore ice %.1f" % LEV["shore_ice_top"]), (sea, "sea %.1f" % sea), (LEV["shelf"], "shelf %.1f" % LEV["shelf"]),
+        for z, lab in ((0.0, "plateau 0"), (LEV["shore_ice_top"], "shore ice %.1f" % LEV["shore_ice_top"]), (sea, "sea %.1f" % sea), (LEV["shelf"], "iced landing %.1f" % LEV["shelf"]),
                        (2.5, "crest +2.5")):
             d.line([X(0), Y(z), X(L_), Y(z)], fill=(150, 150, 150), width=1)
             d.text((X(L_) + 6, Y(z) - 10), lab, fill=(80, 80, 80), font=R(18))
@@ -124,8 +124,9 @@ def map_sheet():
     RP = L["route"]["points_uv"]
     mere = L["regions"]["mere_outline"]
     labels = [("the wreck (on the shore ice)", pl["wreck"]["uv"]), ("barrow door", pl["barrow_front"]["uv"]), ("burnt hall", pl["longhall"]["uv"]),
-              ("fallen gable", pl["fallen_gable"]["uv"]), ("sea cave", RP["cave_mouth"]), ("rock-cut stair", RP["stair_top"]), ("start / stone ring", [0.0, 0.0]),
-              ("mere (cracked plates)", [sum(q[0] for q in mere) / len(mere), sum(q[1] for q in mere) / len(mere)]), ("shingle beach", [-17.0, 4.0]),
+              ("fallen gable", pl["fallen_gable"]["uv"]), ("sea cave", RP["cave_mouth"]), ("stair (inland)", RP["stair_top"]), ("start / stone ring", [0.0, 0.0]),
+              ("mere ~%.0f m2" % L["route"]["mere_area_m2"], [sum(q[0] for q in mere) / len(mere), sum(q[1] for q in mere) / len(mere)]), ("river", [-27.6, 20.0]),
+              ("shingle beach", [-22.0, 1.0]),
               ("shore-fast ice", [-24.0, -10.0]), ("pack ice + floes", [-10.0, -26.0]), ("sea cliffs 6-8 m", [16.0, -20.0])]
     for t, q in labels:
         x, y = P(*q)
@@ -150,16 +151,18 @@ def cover():
     W, H = 1080, 1920
     im = Image.new("RGB", (W, H), (22, 22, 26)); d = ImageDraw.Draw(im)
     y = 40
-    d.text((40, y), "barrow_v2 - M1'' (coast, water, cave)", fill=(255, 255, 255), font=B(52)); y += 80
+    d.text((40, y), "barrow_v2 - M1'' close-out (cave, mere, river)", fill=(255, 255, 255), font=B(48)); y += 80
     mp = Image.open(os.path.join(M, "M1pp_map.jpg")).convert("RGB"); mp.thumbnail((1000, 600))
     im.paste(mp, ((W - mp.width) // 2, y)); y += mp.height + 26
     si = L["regions"]["sea_ice"]
-    asks = [("1. The new coast and water: approve for the pilot repaint?", "RECOMMENDED: yes -- repaint the pilot from this guide.",
-             "Real levels (plateau 0, shingle beach down 4.2 m to the wreck on the shore ice, sea -4.5), sea cliffs %.0f-%.0f m from a rock kit built off sketch A's own cliffs, talus and 3 stacks; the mere in cracked plates, the stream a channel; paths gone." % tuple(LEV["sea_cliff_height_m"])),
-            ("2. The sea cave + stair (sketch A's order, cave W, stair E): approve?", "RECOMMENDED: yes -- the cave in its headland, the stair across the face.",
-             "The 7 m mouth sits in a rock headland (clifftop +5.6 there) with rock above it, reading as a dark arch; the stair climbs ACROSS the face beside it (24 rough stone treads, 2-3 blocks each, cliff wall behind, open to the sea, 33 deg, 5.4 m clear); walk-checked PASS."),
-            ("3. The sea ice: about two-thirds ice -- enough?", "RECOMMENDED: yes, as built (%.0f %% ice)." % (100 * si["ice_fraction"]),
-             "Broken pack: plates of every size and freeboard, snow-heaped rims, pressure ridges, brash in the leads, dark leads of varied width -- dense at the shore-fast edge, looser offshore; %d loose outer floes tagged to bob." % si["bobbing_floes"])]
+    R_ = L["route"]
+    asks = [("1. The cave section (R-C9-226): approve for the paint?", "RECOMMENDED: yes -- paint the pilot from this guide.",
+             "A shallow sea-cut cove (%.1f m into the cliff, deeper at the stair's foot) in vertical rock columns like the cliff east of it; the cave a dark arch in its back wall, 7 m clear, the sea and floes reaching into it; a small iced landing at the mouth; the stair cut INLAND between rock columns from the cove's right side, every tread its own stone (snow on top, stone at the front), %.0f deg, 5 m clear. Walk-checked PASS." % (
+                 -R_["carve"]["cove"]["s_back"], R_["stair_pitch_deg"])),
+            ("2. The cove sits ~9 m EAST of sketch A's cave (S of the start, stair to its right). Keep?", "RECOMMENDED: keep.",
+             "A stair that climbs up-screen like sketch A's needs ~6-7 m of run inland; west of here that run would end in the stone circle. The order (cave, then stair to its right) and the look are sketch A's."),
+            ("3. The mere at Matt's 400-500 m2 (now %.0f m2) with the river in frame: right?" % R_["mere_area_m2"], "RECOMMENDED: yes.",
+             "The plateau's W edge moved west north of the wreck and the mere's N lobe runs off the top edge like the barrow, so the river keeps a clear stretch down the coast into it; reed islands are snow hummocks with reed tufts; the ash yard is an irregular patch.")]
     for t, rec, why in asks:
         d.text((40, y), t, fill=(255, 225, 120), font=B(38)); y += 50
         for line in textwrap.wrap(rec, 46):
