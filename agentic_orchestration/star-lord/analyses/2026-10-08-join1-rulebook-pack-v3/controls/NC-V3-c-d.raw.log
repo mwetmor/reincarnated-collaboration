@@ -1,0 +1,41 @@
+clean dry pack: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v3dry2/kc2-rulebook-pack-v3-20261008_102842
+NC-V3-d load_operands 'ORACLE' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V3-d load_offense_da 'ORACLE' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V3-d load_operands 'PLAY' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V3-d load_offense_da 'PLAY' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V3-d load_operands 'join' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V3-d load_offense_da 'join' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V3-d load_operands '' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V3-d load_offense_da '' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V3-d load_operands None REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V3-d load_offense_da None REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+clean JOIN offense rows 248
+tampered copy: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v3nc_c_pack
+offset 180284 was u
+NC-V3-c verify rc 1
+{
+ "ROWSET_equal_manifest": false,
+ "ROWSET_rederived": {
+  "rulebook/families.json": "26d88b36cc6d3e965f17ff76eaac6dec547dd7249e4c8a124f04135bf44907a4",
+  "rulebook/hooks.json": "6a856ca35e5b42082b7a804b35cb529ada185afa64322166641e75ebe3ced5f3",
+  "rulebook/kit_warlord.json": "3b47b5e4bd80c3a8229ebe4125063d751fc4a5d0d0cb9c6b605acf2ebf4ba1f6",
+  "rulebook/kit_warlord_crit.json": "9be797233f931d8d6927da725abd0ef2f990444221cd14a348dbdfc28f541071",
+  "rulebook/laws.json": "efaf306cc885ebdcb4677abe4f56aaaef593e256fb36a8ca7d1eda0b9cad49eb",
+  "rulebook/laws_crit.json": "9c6bf3457ff513cd639732864d763e26be138026ab26554f8c8c007b89acad66",
+  "rulebook/meta.json": "8210961a5d5c6f7ee503e218e49c3e570614c924a31aeb669bee4ff7494aaaf1",
+  "rulebook/offense_da.json": "a74e96228d9536f4cfbecc36a9f999db6927c37f9a72ebce15c367621a8dd093",
+  "rulebook/offense_da_population.json": "803fe16feb984702b498987310fdeb2dc58918bcee8dae2068e7831afbaf489c",
+  "rulebook/world_gd.json": "f0f30cf9a4babe9bfab75d996e4cc98aedcfb7ba2e3062257656bf50d3337d0c"
+ },
+ "dir": "v3nc_c_pack",
+ "manifest_FILE_sha256": "fc3537f0c118e7ea66fa98a39ef64f35f0de099d6b2117bc1fd6d4110e64ed47",
+ "manifest_pack_digest": "2713e4cd77353b1fc082ddb163ce179d3d250199997e73e05adc79edb8dc1dec",
+ "member_failures": [
+  "rulebook/offense_da_population.json"
+ ],
+ "n_members": 10,
+ "recomputed_pack_digest": "be846f5f637c9e98580f4d7095e0652ffa5715488c498fa83397153a33311833",
+ "self_consistent": false
+}
+
+NC-V3-c load_offense_da REFUSED: pack digest / member digest check failed: ['rulebook/offense_da_population.json']

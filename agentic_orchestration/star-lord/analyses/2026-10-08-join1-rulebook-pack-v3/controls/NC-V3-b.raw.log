@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v3.py", line 532, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v3.py", line 514, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False, scratch=out / f"scratch-{stamp}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v3.py", line 436, in main_build
+    raise RulebookPackHalt(f"gate failed: {json.dumps({'n_checks': gates['n_checks'], 'failures': gates['failures']})[:4000]}")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: {"n_checks": 656, "failures": [{"row": "RB-DA-records/creatures/enemies/bounties/bl_bounty08.dbr|153", "check": "da bits == s2b DA"}, {"row": "RB-DA-records/creatures/enemies/bounties/bl_bounty08.dbr|153", "check": "p(da+E_L) bits == s2b"}, {"row": "RB-DA-records/creatures/enemies/bounties/bl_bounty08.dbr|153", "check": "level_margin_levels bits == s2b level_margin"}]}

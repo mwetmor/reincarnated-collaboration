@@ -1,0 +1,75 @@
+{
+ "G-10": {
+  "cut_commit_name_status": [
+   "A\tsrc/reincarnated/export/kc2_rulebook_pack_v3.py",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/manifest.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/families.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/hooks.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/kit_warlord.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/kit_warlord_crit.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/laws.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/laws_crit.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/meta.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/offense_da.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/offense_da_population.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954/rulebook/world_gd.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v3-cut-receipt-20261008_102954.json"
+  ],
+  "ok": true,
+  "ok_against_prereg_literal": false,
+  "prereg_count_error": "PREREG MISCOUNT, stated: prereg c795a1c2 § 2 says 'the tool + 12 pack files + the receipt' (14). The pack has 11 files (manifest + 10 members: 7 carried + offense_da + offense_da_population + meta), so the correct count is 13. The commit holds exactly those 13 (all adds: tool, 11 pack files, receipt); no other path. The miscount is in the prereg's arithmetic, not in the commit."
+ },
+ "G-8": {
+  "cut_is_ancestor": true,
+  "head_end": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c",
+  "head_start": "e0cd5f741c75b6c655be481e1e73069db6bf1e0c",
+  "heavy_lock": "not taken (the s4.7 v4 script takes none; KP-346)",
+  "instrument_pinned": true,
+  "limb_Bprime_pass": true,
+  "ok": true,
+  "oracle_children_opened_file_scan": {
+   "head": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 631,
+    "pack_path_hits": []
+   },
+   "sealed": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 720,
+    "pack_path_hits": []
+   }
+  },
+  "reason": "HEAD fixed; A and B and B' pass",
+  "s47v4_evidence_FILE_sha256": "fd9c4970a56dc160782f22bee93cbd0492dd7888629ad465b34799e4110b07bc",
+  "verdict": "ORACLE BYTE-IDENTICAL"
+ },
+ "artifact": "JOIN-1 KP-381/382 pack v3 gate evidence (G-8, G-10) + controls NC-V3-a..d (raw outputs in controls/)",
+ "author": "star-lord",
+ "controls": {
+  "NC-V3-a": {
+   "as_predicted": true,
+   "log": "controls/NC-V3-a.raw.log",
+   "observed": "HALT; exactly 1 failure on RB-DA-CONST-DA_STAR (the first carried row, id-sorted): v2 row carried byte-identical; nothing written"
+  },
+  "NC-V3-b": {
+   "as_predicted": true,
+   "log": "controls/NC-V3-b.raw.log",
+   "observed": "HALT; 3 failures, all on bl_bounty08|153: da, p(da+E_L), level_margin_levels (pth did not move at +1 ulp: reported); minima check did not fail; nothing written"
+  },
+  "NC-V3-c": {
+   "as_predicted": true,
+   "log": "controls/NC-V3-c-d.raw.log",
+   "observed": "verify rc 1, member_failures ['rulebook/offense_da_population.json']; load_offense_da(JOIN) refused"
+  },
+  "NC-V3-d": {
+   "as_predicted": true,
+   "log": "controls/NC-V3-c-d.raw.log",
+   "observed": "10/10 refused; clean JOIN 248 offense rows"
+  }
+ },
+ "engine_cut_commit": "e0cd5f74",
+ "engine_prereg_commit": "c795a1c2",
+ "pack_digest": "2713e4cd77353b1fc082ddb163ce179d3d250199997e73e05adc79edb8dc1dec"
+}
