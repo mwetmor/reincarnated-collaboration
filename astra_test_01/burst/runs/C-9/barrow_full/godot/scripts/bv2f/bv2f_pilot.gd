@@ -26,6 +26,13 @@ var pilot_set := PILOT_SETS.get(OS.get_environment("BV2F_PILOT") if OS.get_envir
 var PILOT_REL := "../bv2f/%s/painted/" % pilot_set
 var PILOT_MANIFEST := "res://data/bv2f/%s/painted/manifest.json" % pilot_set
 const SNOW_TERRAIN := preload("res://scripts/bv2f/snow_field_terrain.gd")   # BV2F-PT DEV-18
+## R-C9-254 PROFILING INSTRUMENT ONLY: env BV2F_PROF_OFF = comma list of {heather, reeds, stairsnow, water, bakes1k} turns
+## that subsystem off (bakes1k: every bake over 1024 px loaded at 1024) for P10 A/B runs. Unset (every build, every
+## capture): nothing changes.
+var prof_off: PackedStringArray = OS.get_environment("BV2F_PROF_OFF").split(",", false)
+## R-C9-254 candidate-fix instruments (env BV2F_PROF_TRY, comma list): heathercell (heather MultiMeshes split per 6 m cell);
+## stair_snow.gd reads stairnotrack / staircoarse itself. Unset: nothing changes.
+var prof_try: PackedStringArray = OS.get_environment("BV2F_PROF_TRY").split(",", false)
 const PT_WATER := preload("res://scripts/bv2f/pt_water.gd")   # BV2F-PT DEV-5
 
 
@@ -138,6 +145,12 @@ func _dress_painted() -> void:
 		if bakes.has(id):
 			var b: Dictionary = bakes[id]
 			var tex := PaintedWorld.load_png_bin(PILOT_REL + String(b["file"]), String(b["sha256"]), true, loads)
+			if prof_off.has("bakes1k") and tex != null and tex.get_width() > 1024:   # R-C9-254 profiling only
+				var img := tex.get_image()
+				img.clear_mipmaps()
+				img.resize(1024, 1024, Image.INTERPOLATE_LANCZOS)
+				img.generate_mipmaps()
+				tex = ImageTexture.create_from_image(img)
 			var mat := PaintedWorld.painted_material(tex, false, lit, shadow_mul, u_hat, v_hat)
 			for mi in _meshes(root):
 				_paint_mesh(mi, mat, true)
@@ -185,6 +198,9 @@ func _dress_painted() -> void:
 		if (man["snow"] as Dictionary).has("ground_h"):   # BV2F-PT DEV-18
 			vman["snow"]["ground_h"]["file"] = PILOT_REL + String(man["snow"]["ground_h"]["file"])
 	_build_painted_heather(vman, lit, shadow_mul)
+	if prof_off.has("heather"):   # R-C9-254 profiling only
+		for mmi in _heather_mmi:
+			(mmi as Node3D).visible = false
 	if man.has("reeds"):   # BV2F-PT DEV-21
 		_build_painted_reeds(man, lit, shadow_mul, loads)
 	if vman.has("snow"):
@@ -233,7 +249,27 @@ func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3
 		by_var[int(fposmod(float(i) * 7.0 + 3.0, float(BarrowHeather.VARIANTS)))].append(i)
 	var thin := []
 	var tris := 0
-	for v in BarrowHeather.VARIANTS:
+	# R-C9-254 PROFILING INSTRUMENT ONLY (env BV2F_PROF_TRY has "heathercell"): the same sprays, the same transforms and
+	# colours, grouped per variant AND per 6 m ground cell, so each MultiMesh's AABB is small and the camera culls the
+	# cells it does not see. Unset: one MultiMesh per variant, as v1.
+	var groups := []   # [variant, [row indices]]
+	if prof_try.has("heathercell"):
+		var cells := {}
+		for v in BarrowHeather.VARIANTS:
+			for i in (by_var[v] as Array):
+				var r: Array = rows[i]
+				var key := Vector3i(v, int(floor(float(r[0]) / 6.0)), int(floor(float(r[1]) / 6.0)))
+				if not cells.has(key):
+					cells[key] = []
+				(cells[key] as Array).append(i)
+		for key in cells:
+			groups.append([(key as Vector3i).x, cells[key]])
+	else:
+		for v in BarrowHeather.VARIANTS:
+			groups.append([v, by_var[v]])
+	for g in groups:
+		var v: int = g[0]
+		var gi: Array = g[1]
 		var mesh := BarrowHeather.spray_mesh(v)
 		var ab := mesh.get_aabb()
 		var mm := MultiMesh.new()
@@ -245,9 +281,9 @@ func _build_painted_heather(man: Dictionary, lit: Texture2D, shadow_mul: Vector3
 		# a spray's whole colour, stem to sprig, is in its vertices: every spray drew black on the web
 		mm.use_colors = true
 		mm.mesh = mesh
-		mm.instance_count = (by_var[v] as Array).size()
-		for k in (by_var[v] as Array).size():
-			var i: int = by_var[v][k]
+		mm.instance_count = gi.size()
+		for k in gi.size():
+			var i: int = gi[k]
 			var r: Array = rows[i]
 			# [x, z, height_m, class (0 heather, 1 shrub), mul r, g, b]
 			var hh := float(r[2]) * (0.85 + 0.30 * fposmod(float(i) * 0.6180339, 1.0))
@@ -328,6 +364,8 @@ var stair_snow: SnowField = null
 
 
 func _build_stair_snow(painting: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
+	if prof_off.has("stairsnow"):   # R-C9-254 profiling only
+		return
 	var dd := "res://data/bv2f/%s/stair_snow/" % pilot_set
 	if not FileAccess.file_exists(dd + "stair_snow.json"):
 		paint["stair_snow"] = {"built": false, "_": "no %sstair_snow.json" % dd}
@@ -345,6 +383,9 @@ func _build_stair_snow(painting: Texture2D, lit: Texture2D, shadow_mul: Vector3)
 
 # --- DEV-5 (R-C9-194): the animated water over the painted sea, the floes riding the swell -------------------------
 func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_mul: Vector3, loads: Dictionary, n: Dictionary) -> void:
+	if prof_off.has("water"):   # R-C9-254 profiling only (the sea keeps the painted projection)
+		n["water"] = "profiling off"
+		return
 	if not man.has("water") or not nodes.has("ground_sea"):
 		n["water"] = "none"
 		return
@@ -554,6 +595,8 @@ void light() {
 
 
 func _build_painted_reeds(man: Dictionary, lit: Texture2D, shadow_mul: Vector3, loads: Dictionary) -> void:
+	if prof_off.has("reeds"):   # R-C9-254 profiling only
+		return
 	var r: Dictionary = man["reeds"]
 	var atlas := PaintedWorld.load_png_bin(PILOT_REL + String(r["atlas"]["file"]), String(r["atlas"]["sha256"]), true, loads)
 	var jp := PaintedWorld.data_dir() + PILOT_REL + String(r["file"])

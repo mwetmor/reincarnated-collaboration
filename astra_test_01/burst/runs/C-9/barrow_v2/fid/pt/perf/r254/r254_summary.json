@@ -1,0 +1,394 @@
+{
+ "_what": "R-C9-254 P10 A/B profiling (lane PT): ph_life.gd perf, 900 frames, vsync off, 1920x1080, s34 3 fresh runs per cell, each its own pt_godot heavy-lock hold; BV2F_PROF_OFF / BV2F_PROF_TRY instruments (unset = the pinned pilot build)",
+ "build": "72a9a0ec5 + env-gated instruments",
+ "cells": {
+  "bakes1k_start": {
+   "runs": [
+    {
+     "run": "bakes1k_start_1",
+     "p50": 16.379,
+     "p90": 17.14,
+     "p99": 24.133,
+     "max": 35.586,
+     "frames_over_20ms": 13
+    },
+    {
+     "run": "bakes1k_start_2",
+     "p50": 16.388,
+     "p90": 17.02,
+     "p99": 17.945,
+     "max": 19.191,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "bakes1k_start_3",
+     "p50": 16.394,
+     "p90": 17.15,
+     "p99": 22.866,
+     "max": 35.213,
+     "frames_over_20ms": 11
+    }
+   ],
+   "p50_mean": 16.39,
+   "worst_p99": 24.133,
+   "n": 3
+  },
+  "baseline_start": {
+   "runs": [
+    {
+     "run": "baseline_start_1",
+     "p50": 16.358,
+     "p90": 17.28,
+     "p99": 33.355,
+     "max": 49.901,
+     "frames_over_20ms": 18
+    },
+    {
+     "run": "baseline_start_2",
+     "p50": 16.392,
+     "p90": 17.06,
+     "p99": 18.105,
+     "max": 30.591,
+     "frames_over_20ms": 2
+    },
+    {
+     "run": "baseline_start_3",
+     "p50": 16.336,
+     "p90": 17.09,
+     "p99": 23.868,
+     "max": 35.684,
+     "frames_over_20ms": 16
+    }
+   ],
+   "p50_mean": 16.36,
+   "worst_p99": 33.355,
+   "n": 3
+  },
+  "heather_start": {
+   "runs": [
+    {
+     "run": "heather_start_1",
+     "p50": 15.007,
+     "p90": 15.79,
+     "p99": 19.353,
+     "max": 32.72,
+     "frames_over_20ms": 5
+    },
+    {
+     "run": "heather_start_2",
+     "p50": 15.126,
+     "p90": 15.82,
+     "p99": 16.924,
+     "max": 18.014,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "heather_start_3",
+     "p50": 15.013,
+     "p90": 15.76,
+     "p99": 26.958,
+     "max": 33.712,
+     "frames_over_20ms": 22
+    }
+   ],
+   "p50_mean": 15.05,
+   "worst_p99": 26.958,
+   "n": 3
+  },
+  "phase2p_baseline_start": {
+   "runs": [
+    {
+     "run": "phase2p_baseline_start_1",
+     "p50": 13.448,
+     "p90": 14.29,
+     "p99": 20.785,
+     "max": 27.85,
+     "frames_over_20ms": 9
+    }
+   ],
+   "p50_mean": 13.45,
+   "worst_p99": 20.785,
+   "n": 1
+  },
+  "reeds_start": {
+   "runs": [
+    {
+     "run": "reeds_start_1",
+     "p50": 16.433,
+     "p90": 17.13,
+     "p99": 18.539,
+     "max": 47.944,
+     "frames_over_20ms": 2
+    },
+    {
+     "run": "reeds_start_2",
+     "p50": 16.38,
+     "p90": 17.06,
+     "p99": 29.423,
+     "max": 35.277,
+     "frames_over_20ms": 24
+    },
+    {
+     "run": "reeds_start_3",
+     "p50": 16.38,
+     "p90": 17.0,
+     "p99": 18.215,
+     "max": 54.057,
+     "frames_over_20ms": 1
+    }
+   ],
+   "p50_mean": 16.4,
+   "worst_p99": 29.423,
+   "n": 3
+  },
+  "rp2_baseline_start": {
+   "runs": [
+    {
+     "run": "rp2_baseline_start_1",
+     "p50": 15.499,
+     "p90": 16.09,
+     "p99": 17.032,
+     "max": 18.369,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "rp2_baseline_start_2",
+     "p50": 15.5,
+     "p90": 16.07,
+     "p99": 17.066,
+     "max": 54.262,
+     "frames_over_20ms": 1
+    },
+    {
+     "run": "rp2_baseline_start_3",
+     "p50": 15.52,
+     "p90": 16.11,
+     "p99": 17.266,
+     "max": 38.48,
+     "frames_over_20ms": 2
+    }
+   ],
+   "p50_mean": 15.51,
+   "worst_p99": 17.266,
+   "n": 3
+  },
+  "rp2_heather_start": {
+   "runs": [
+    {
+     "run": "rp2_heather_start_1",
+     "p50": 15.102,
+     "p90": 15.72,
+     "p99": 16.593,
+     "max": 48.498,
+     "frames_over_20ms": 1
+    },
+    {
+     "run": "rp2_heather_start_2",
+     "p50": 15.095,
+     "p90": 15.74,
+     "p99": 16.716,
+     "max": 45.652,
+     "frames_over_20ms": 3
+    },
+    {
+     "run": "rp2_heather_start_3",
+     "p50": 15.092,
+     "p90": 15.72,
+     "p99": 16.779,
+     "max": 23.066,
+     "frames_over_20ms": 1
+    }
+   ],
+   "p50_mean": 15.1,
+   "worst_p99": 16.779,
+   "n": 3
+  },
+  "rp2_stairsnow_start": {
+   "runs": [
+    {
+     "run": "rp2_stairsnow_start_1",
+     "p50": 15.131,
+     "p90": 15.76,
+     "p99": 16.813,
+     "max": 17.782,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "rp2_stairsnow_start_2",
+     "p50": 15.167,
+     "p90": 15.88,
+     "p99": 16.81,
+     "max": 20.544,
+     "frames_over_20ms": 1
+    },
+    {
+     "run": "rp2_stairsnow_start_3",
+     "p50": 15.156,
+     "p90": 15.82,
+     "p99": 16.786,
+     "max": 29.25,
+     "frames_over_20ms": 2
+    }
+   ],
+   "p50_mean": 15.15,
+   "worst_p99": 16.813,
+   "n": 3
+  },
+  "stairsnow_start": {
+   "runs": [
+    {
+     "run": "stairsnow_start_1",
+     "p50": 16.02,
+     "p90": 16.64,
+     "p99": 17.693,
+     "max": 23.621,
+     "frames_over_20ms": 2
+    },
+    {
+     "run": "stairsnow_start_2",
+     "p50": 16.014,
+     "p90": 16.59,
+     "p99": 17.495,
+     "max": 20.147,
+     "frames_over_20ms": 1
+    },
+    {
+     "run": "stairsnow_start_3",
+     "p50": 16.07,
+     "p90": 16.76,
+     "p99": 17.713,
+     "max": 53.548,
+     "frames_over_20ms": 1
+    }
+   ],
+   "p50_mean": 16.03,
+   "worst_p99": 17.713,
+   "n": 3
+  },
+  "try-heathercell_start": {
+   "runs": [
+    {
+     "run": "try-heathercell_start_1",
+     "p50": 16.303,
+     "p90": 16.92,
+     "p99": 18.374,
+     "max": 80.299,
+     "frames_over_20ms": 2
+    },
+    {
+     "run": "try-heathercell_start_2",
+     "p50": 16.48,
+     "p90": 17.29,
+     "p99": 24.343,
+     "max": 56.134,
+     "frames_over_20ms": 11
+    },
+    {
+     "run": "try-heathercell_start_3",
+     "p50": 16.371,
+     "p90": 16.98,
+     "p99": 18.108,
+     "max": 42.642,
+     "frames_over_20ms": 1
+    }
+   ],
+   "p50_mean": 16.38,
+   "worst_p99": 24.343,
+   "n": 3
+  },
+  "try-staircoarse_start": {
+   "runs": [
+    {
+     "run": "try-staircoarse_start_1",
+     "p50": 16.24,
+     "p90": 16.84,
+     "p99": 18.13,
+     "max": 45.063,
+     "frames_over_20ms": 2
+    },
+    {
+     "run": "try-staircoarse_start_2",
+     "p50": 16.25,
+     "p90": 16.84,
+     "p99": 18.199,
+     "max": 19.829,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "try-staircoarse_start_3",
+     "p50": 16.277,
+     "p90": 16.96,
+     "p99": 18.079,
+     "max": 65.256,
+     "frames_over_20ms": 1
+    }
+   ],
+   "p50_mean": 16.26,
+   "worst_p99": 18.199,
+   "n": 3
+  },
+  "try-stairnotrack_start": {
+   "runs": [
+    {
+     "run": "try-stairnotrack_start_1",
+     "p50": 16.335,
+     "p90": 16.96,
+     "p99": 18.005,
+     "max": 19.336,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "try-stairnotrack_start_2",
+     "p50": 16.327,
+     "p90": 16.99,
+     "p99": 18.0,
+     "max": 18.783,
+     "frames_over_20ms": 0
+    },
+    {
+     "run": "try-stairnotrack_start_3",
+     "p50": 16.326,
+     "p90": 17.1,
+     "p99": 32.204,
+     "max": 35.292,
+     "frames_over_20ms": 20
+    }
+   ],
+   "p50_mean": 16.33,
+   "worst_p99": 32.204,
+   "n": 3
+  },
+  "water_start": {
+   "runs": [
+    {
+     "run": "water_start_1",
+     "p50": 16.397,
+     "p90": 17.07,
+     "p99": 18.171,
+     "max": 57.932,
+     "frames_over_20ms": 4
+    },
+    {
+     "run": "water_start_2",
+     "p50": 16.397,
+     "p90": 17.16,
+     "p99": 27.097,
+     "max": 37.263,
+     "frames_over_20ms": 20
+    },
+    {
+     "run": "water_start_3",
+     "p50": 16.419,
+     "p90": 17.11,
+     "p99": 18.071,
+     "max": 67.746,
+     "frames_over_20ms": 1
+    }
+   ],
+   "p50_mean": 16.4,
+   "worst_p99": 27.097,
+   "n": 3
+  }
+ },
+ "halt": "disk gate: 17 GiB free < 21 GiB (pt_godot refused); phase2p runs 2-3, rp runs 1-3 and every sea cell NOT run"
+}

@@ -202,3 +202,9 @@ Next: on the conductor's lock go -> `zsh fid/pt/tools/pilot_build_rp.sh` (stitch
 ## Phase 3' PREREQUISITES (R-C9-252)
 - (a) The shore-ice bay at the shingle foot (0_1/0_2 y1792, x ~1250-1400) is fixed in the BLOCKOUT on BOTH sides of the pasted strip (LV) -- a paint-side change across the strip cannot work (the paste rule).
 - (b) DEV-25c (paste only the inner 128 px of each overlap; the chunk paints the outer 128 px) + DEV-26 quilting cut inside that outer half is TRIALLED on the first Phase 3' canvases.
+
+## R-C9-254 P10 profiling (start view) -- PARTIAL, HALTED at the disk gate (build unchanged)
+- Instruments (env-gated, unset = pinned build): `BV2F_PROF_OFF` {heather, reeds, stairsnow, water, bakes1k} and `BV2F_PROF_TRY` {heathercell, stairnotrack, staircoarse} in bv2f_pilot.gd / stair_snow.gd; runner `fid/pt/tools/perf_ab_r254.sh` (PILOTSET= for older sets); census probe `godot/tools/bv2f/pt_view_census.gd`. Record: `fid/pt/perf/r254/r254_summary.json`.
+- Start p50: rp3 16.36; heather off 15.05 (-1.31); stairsnow off 16.03 (-0.33); reeds/water/bakes1k 0. rp2 today 15.51 (heather off 15.10); phase2p today 13.45 (1 run, machine reproduces PH's 13.5). heathercell / stairnotrack / staircoarse: no gain. Census: 150-175 of 264 sprays in frustum at every loop point.
+- Worst p99 is set by 10-20-frame bursts >20 ms at random frames in ~half the runs, every toggle (phase2p too); mediaanalysisd ~33% CPU throughout.
+- OWED: sea-view cells (all toggles), phase2p runs 2-3, rp runs 1-3, combo heather+stairsnow -- disk 17 GiB < 21 GiB gate.

@@ -50,6 +50,9 @@ static func build(parent: Node, knight: Node3D, fbm: Texture2D, wind: Vector2, p
 	s.field_px = int(man["field_px"])
 	s.trail_px = 1024
 	s.grid_quad_m = float(man.get("grid_quad_m", 0.04))
+	var prof_try: PackedStringArray = OS.get_environment("BV2F_PROF_TRY").split(",", false)   # R-C9-254 profiling only
+	if prof_try.has("staircoarse"):
+		s.grid_quad_m *= 2.0
 	s.windrow_count = 0
 	s.pile_count = 0
 	s.cast_shadows = false
@@ -59,7 +62,7 @@ static func build(parent: Node, knight: Node3D, fbm: Texture2D, wind: Vector2, p
 		s.shader_code_override = PaintedWorld.snow_shader_code()
 	s.setup(Rect2(origin.x, origin.y, float(ar[2]), float(ar[3])), 0.0, [], wind)
 	parent.add_child(s)
-	if knight != null:
+	if knight != null and not prof_try.has("stairnotrack"):
 		s.track(knight)
 	if not painted.is_empty():
 		var m := s.material()
