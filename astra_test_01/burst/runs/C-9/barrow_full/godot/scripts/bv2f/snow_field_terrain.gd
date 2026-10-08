@@ -16,6 +16,9 @@ var gh_cell := 0.1
 var gh_nx := 0
 var gh_nz := 0
 var ground_h_tex: Texture2D = null
+## BV2F-PT DEV-22: the stamp's lift test (v1: 0.13 m). The stair's walk surface is a ramp through the nosings, so his
+## foot can stand up to half a rise above the tread top it is over; the stair field raises it. Terrain snow: unchanged.
+var lift_max_m := 0.13
 
 
 func set_ground_height(buf: PackedFloat32Array, origin: Vector2, cell: float, nx: int, nz: int) -> void:
@@ -96,7 +99,7 @@ func _physics_process(dt: float) -> void:  # BV2F-PT DEV-18 copy
 		var here := Vector2(fp.x, fp.z) if tp == Vector3.INF \
 			else Vector2((fp.x + tp.x) * 0.5, (fp.z + tp.z) * 0.5)
 		var lift := contact_y - (floor_y + ground_h_at(here))   # BV2F-PT DEV-18: the foot over the GROUND under it
-		if lift > 0.13:
+		if lift > lift_max_m:   # BV2F-PT DEV-22 (v1 0.13; the terrain field keeps 0.13)
 			continue
 		var last: Variant = _last_stamp.get(side, null)
 		if last != null and here.distance_to(last) < stamp_stride_m:

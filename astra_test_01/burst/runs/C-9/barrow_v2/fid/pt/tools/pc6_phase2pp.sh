@@ -1,5 +1,6 @@
 #!/bin/bash
 # BV2F R-C9-210 (3): positive control T1-T3 at pin f1aa715ac and at HEAD (pc5 recipe, pc6 clones), each in its own APFS clone.
+PG=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/tools/pt_godot.py   # every PT Godot run: lock + timeout + fatal script errors + log cap
 SP=/private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/df21e264-6571-4d04-96ee-b8e2bd6d97fa/scratchpad
 O=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full
 HL=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py
@@ -11,14 +12,14 @@ for tag in pin head; do
   OUT=$SP/pc6_$tag/out; mkdir -p $OUT $BF/work/overlay_new
   # T1
   mv $BF/take/ids $BF/take/ids_v1orig; mkdir -p $BF/take/ids
-  (cd $BF/godot && gate; python3 $HL C-9 -- $G --path $BF/godot --resolution 640x360 --script tools/capture_ids.gd -- --out $BF/take/ids) > $OUT/t1.log 2>&1; echo "$tag T1 rc=$?"
+  (cd $BF/godot && gate; python3 $PG --log $OUT/t1.log -- $G --path $BF/godot --resolution 640x360 --script tools/capture_ids.gd -- --out $BF/take/ids); echo "$tag T1 rc=$?"
   (cd $BF && python3 tools/take_from_paint.py) > $OUT/t1b.log 2>&1; echo "$tag T1b rc=$?"
   # T2
   [ -d $BF/work/overlay ] && mv $BF/work/overlay $SP/pc6_$tag/moved_out/work_overlay_old; mv $BF/work/overlay_new $BF/work/overlay
-  (cd $BF/godot && gate; python3 $HL C-9 -- $G --path $BF/godot --resolution 640x360 --script tools/mini_overlay.gd -- --out $BF/work/overlay --ids ring_p155,door_lintel,grave_marker_W,fallen_tree_log_A --bakes $BF/work/bakes) > $OUT/t2.log 2>&1; echo "$tag T2 rc=$?"
+  (cd $BF/godot && gate; python3 $PG --log $OUT/t2.log -- $G --path $BF/godot --resolution 640x360 --script tools/mini_overlay.gd -- --out $BF/work/overlay --ids ring_p155,door_lintel,grave_marker_W,fallen_tree_log_A --bakes $BF/work/bakes); echo "$tag T2 rc=$?"
   (cd $BF && python3 tools/mini_overlay.py) > $OUT/t2b.log 2>&1; echo "$tag T2b rc=$?"
   # T3
-  (cd $BF/godot && gate; python3 $HL C-9 -- $G --path $BF/godot --resolution 640x360 --script tools/capture_painted.gd -- --out $OUT/painted --guide --variants inpainted,as_painted) > $OUT/t3.log 2>&1; echo "$tag T3 rc=$?"
+  (cd $BF/godot && gate; python3 $PG --log $OUT/t3.log -- $G --path $BF/godot --resolution 640x360 --script tools/capture_painted.gd -- --out $OUT/painted --guide --variants inpainted,as_painted); echo "$tag T3 rc=$?"
   (cd $BF && python3 tools/overlay_check.py --capture $OUT/painted --out $OUT) > $OUT/t3b.log 2>&1; echo "$tag T3b rc=$?"
   (cd $BF && python3 tools/paint_world_prep.py) > $OUT/t3c.log 2>&1; echo "$tag T3c rc=$?"
 done
