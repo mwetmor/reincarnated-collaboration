@@ -1,0 +1,21 @@
+{
+ "T1": {
+  "_bv2f_tone": true,
+  "_bv2f_grain": true,
+  "_dev27_ctx": true,
+  "_bv2f_poisson": true
+ },
+ "T2": {
+  "tone_then_grain_bit_equal_9_cases": true,
+  "_cb_unset": true
+ },
+ "T3": {
+  "stitch_dev26_confinement_guarded": true,
+  "stitch_chunks_empty_unless_flag": true,
+  "paint_block_guarded": true,
+  "paint_unchanged_outside_block": true
+ },
+ "T4_verify": "[v1tools] OK: 25 files; Tier A byte-identical to v1 @ 0f8f73697; Tier B = v1 + allowlisted patches; driver calls only v1tools",
+ "pass": true,
+ "owed_when_disk_allows": "byte-level: BV2F_DEV25C unset, cfg_bv2a_pilot_ps4 stitch == fid/pt/ps4_dry/painting.png (a25fb3); all flags 0 == Tier-A v1 (cmp)"
+}

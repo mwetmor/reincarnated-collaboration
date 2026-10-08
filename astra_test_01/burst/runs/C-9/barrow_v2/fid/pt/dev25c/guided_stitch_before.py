@@ -33,10 +33,6 @@ from scipy import ndimage
 DEV23 = os.environ.get('BV2F_DEV23', '1') != '0'
 DEV23_SIGMA, DEV23_FADE, DEV23_BAND, DEV23_EDGE = 56.0, 300, 48, 4   # BV2F: EDGE = the first new columns/rows, matched one by one (the model's own transition is 1-2 px wide)
 DEV23_REP = {}
-DEV25C = os.environ.get('BV2F_DEV25C') == '1'   # BV2F DEV-25c (R-C9-278): inner-128 paste chunks, cfg['dev25c_chunks']
-DEV25C_CHUNKS = set(cfg.get('dev25c_chunks', [])) if DEV25C else set()   # BV2F DEV-25c
-def _cb(c, r):   # BV2F DEV-25c: the chunk's context boundary -- 128 for an inner-128 chunk, else v1's 256 (OV)
-    return OV // 2 if f'{c}_{r}' in DEV25C_CHUNKS else OV   # BV2F DEV-25c
 def _fade(n):
     t = np.clip(np.arange(n) / float(DEV23_FADE), 0.0, 1.0)
     return 1.0 - t * t * (3.0 - 2.0 * t)
@@ -61,26 +57,25 @@ def _bv2f_tone(im, c, r):
     if not DEV23:
         return im
     rep = {}
-    cb = _cb(c, r)   # BV2F DEV-25c (= OV unless an inner-128 chunk)
     soft = lambda a: ndimage.gaussian_filter(_icesnow(a), 3.0)
     if c > 0:   # left context: columns 0..255; new paint from column 256
-        ctx = im[:, cb - DEV23_BAND:cb]
-        st = _step_along(ctx, im[:, cb + DEV23_EDGE:cb + DEV23_EDGE + DEV23_BAND])
-        edge = [_step_along(ctx, im[:, cb + e:cb + e + 1]) for e in range(DEV23_EDGE)]
-        sm = soft(im[:, cb:])
-        im = im.copy(); im[:, cb + DEV23_EDGE:] += st[:, None, :] * (_fade(W - cb)[None, DEV23_EDGE:] * sm[:, DEV23_EDGE:])[..., None]
+        ctx = im[:, OV - DEV23_BAND:OV]
+        st = _step_along(ctx, im[:, OV + DEV23_EDGE:OV + DEV23_EDGE + DEV23_BAND])
+        edge = [_step_along(ctx, im[:, OV + e:OV + e + 1]) for e in range(DEV23_EDGE)]
+        sm = soft(im[:, OV:])
+        im = im.copy(); im[:, OV + DEV23_EDGE:] += st[:, None, :] * (_fade(W - OV)[None, DEV23_EDGE:] * sm[:, DEV23_EDGE:])[..., None]
         for e in range(DEV23_EDGE):
-            im[:, cb + e] += edge[e] * sm[:, e:e + 1]
+            im[:, OV + e] += edge[e] * sm[:, e:e + 1]
         rep['left_step_mean_abs'] = round(float(np.abs(st).mean()), 2)
     if r > 0:   # top context: rows 0..255; new paint from row 256
         T = lambda a: np.transpose(a, (1, 0, 2))
-        ctx = T(im[cb - DEV23_BAND:cb])
-        st = _step_along(ctx, T(im[cb + DEV23_EDGE:cb + DEV23_EDGE + DEV23_BAND]))
-        edge = [_step_along(ctx, T(im[cb + e:cb + e + 1])) for e in range(DEV23_EDGE)]
-        sm = soft(im[cb:, :])
-        im = im.copy(); im[cb + DEV23_EDGE:, :] += st[None, :, :] * (_fade(H - cb)[DEV23_EDGE:, None] * sm[DEV23_EDGE:, :])[..., None]
+        ctx = T(im[OV - DEV23_BAND:OV])
+        st = _step_along(ctx, T(im[OV + DEV23_EDGE:OV + DEV23_EDGE + DEV23_BAND]))
+        edge = [_step_along(ctx, T(im[OV + e:OV + e + 1])) for e in range(DEV23_EDGE)]
+        sm = soft(im[OV:, :])
+        im = im.copy(); im[OV + DEV23_EDGE:, :] += st[None, :, :] * (_fade(H - OV)[DEV23_EDGE:, None] * sm[DEV23_EDGE:, :])[..., None]
         for e in range(DEV23_EDGE):
-            im[cb + e, :] += edge[e] * sm[e][:, None]
+            im[OV + e, :] += edge[e] * sm[e][:, None]
         rep['top_step_mean_abs'] = round(float(np.abs(st).mean()), 2)
     DEV23_REP[f'{c}_{r}'] = rep
     return im
@@ -115,18 +110,17 @@ def _bv2f_grain(im, c, r):
     if not DEV25:
         return im
     rep = {}
-    cb = _cb(c, r)   # BV2F DEV-25c (= OV unless an inner-128 chunk)
     if c > 0:
         d = _det(im); m = _icesnow(im)
-        k = _grain_ratio(d[:, cb - DEV25_BAND:cb], d[:, cb:cb + DEV25_BAND], m[:, cb - DEV25_BAND:cb], m[:, cb:cb + DEV25_BAND])
-        g = (k[:, None] - 1.0) * _fade(W - cb)[None, :]
-        im = im.copy(); im[:, cb:] += d[:, cb:] * g[..., None]
+        k = _grain_ratio(d[:, OV - DEV25_BAND:OV], d[:, OV:OV + DEV25_BAND], m[:, OV - DEV25_BAND:OV], m[:, OV:OV + DEV25_BAND])
+        g = (k[:, None] - 1.0) * _fade(W - OV)[None, :]
+        im = im.copy(); im[:, OV:] += d[:, OV:] * g[..., None]
         rep['left_k_median'] = round(float(np.median(k)), 3)
     if r > 0:
         d = _det(im); m = _icesnow(im); T = lambda a: np.swapaxes(a, 0, 1)
-        k = _grain_ratio(T(d[cb - DEV25_BAND:cb]), T(d[cb:cb + DEV25_BAND]), T(m[cb - DEV25_BAND:cb]), T(m[cb:cb + DEV25_BAND]))
-        g = (k[None, :] - 1.0) * _fade(H - cb)[:, None]
-        im = im.copy(); im[cb:, :] += d[cb:, :] * g[..., None]
+        k = _grain_ratio(T(d[OV - DEV25_BAND:OV]), T(d[OV:OV + DEV25_BAND]), T(m[OV - DEV25_BAND:OV]), T(m[OV:OV + DEV25_BAND]))
+        g = (k[None, :] - 1.0) * _fade(H - OV)[:, None]
+        im = im.copy(); im[OV:, :] += d[OV:, :] * g[..., None]
         rep['top_k_median'] = round(float(np.median(k)), 3)
     DEV25_REP[f'{c}_{r}'] = rep
     return im
@@ -183,29 +177,27 @@ def _dev27_final(c, r):
 def _dev27_ctx(im, c, r, axis):
     # the COMPOSITE's context band just before the boundary: this chunk's strip blended with the earlier neighbour's
     # pixels by the weights the stitch will use (DEV-26's cut ramp, or v1's linear ramp)
-    cb = _cb(c, r)   # BV2F DEV-25c (= OV unless an inner-128 chunk)
     if axis == 'x':
-        A_ = _dev27_final(c - 1, r)[:, SX + cb - DEV27_BAND:SX + cb]; B_ = im[:, cb - DEV27_BAND:cb]
-        wB = _dev26_ramp(_dev26_band('x', c))[r * SY:r * SY + H, cb - DEV27_BAND:cb] if DEV26 else np.broadcast_to(up[cb - DEV27_BAND:cb], (H, DEV27_BAND))
+        A_ = _dev27_final(c - 1, r)[:, SX + OV - DEV27_BAND:SX + OV]; B_ = im[:, OV - DEV27_BAND:OV]
+        wB = _dev26_ramp(_dev26_band('x', c))[r * SY:r * SY + H, OV - DEV27_BAND:OV] if DEV26 else np.broadcast_to(up[OV - DEV27_BAND:], (H, DEV27_BAND))
     else:
-        A_ = np.swapaxes(_dev27_final(c, r - 1)[SY + cb - DEV27_BAND:SY + cb, :], 0, 1); B_ = np.swapaxes(im[cb - DEV27_BAND:cb, :], 0, 1)
-        wB = _dev26_ramp(_dev26_band('y', r))[c * SX:c * SX + W, cb - DEV27_BAND:cb] if DEV26 else np.broadcast_to(up[cb - DEV27_BAND:cb], (W, DEV27_BAND))
+        A_ = np.swapaxes(_dev27_final(c, r - 1)[SY + OV - DEV27_BAND:SY + OV, :], 0, 1); B_ = np.swapaxes(im[OV - DEV27_BAND:OV, :], 0, 1)
+        wB = _dev26_ramp(_dev26_band('y', r))[c * SX:c * SX + W, OV - DEV27_BAND:OV] if DEV26 else np.broadcast_to(up[OV - DEV27_BAND:], (W, DEV27_BAND))
     return wB[..., None] * B_ + (1.0 - wB[..., None]) * A_
 def _bv2f_poisson(im, c, r):
     if not DEV27:
         return im
     rep = {}
-    cb = _cb(c, r)   # BV2F DEV-25c (= OV unless an inner-128 chunk)
     if c > 0:
-        d = _dev27_step(_dev27_ctx(im, c, r, 'x'), im[:, cb:cb + DEV27_BAND])
-        u = _dev27_field(d, min(DEV27_DEPTHS, W - cb))
-        im = im.copy(); im[:, cb:cb + u.shape[1]] += u
+        d = _dev27_step(_dev27_ctx(im, c, r, 'x'), im[:, OV:OV + DEV27_BAND])
+        u = _dev27_field(d, min(DEV27_DEPTHS, W - OV))
+        im = im.copy(); im[:, OV:OV + u.shape[1]] += u
         rep['left_step_mean_abs'] = round(float(np.abs(d).mean()), 2)
     if r > 0:
         T = lambda a: np.swapaxes(a, 0, 1)
-        d = _dev27_step(_dev27_ctx(im, c, r, 'y'), T(im[cb:cb + DEV27_BAND]))
-        u = _dev27_field(d, min(DEV27_DEPTHS, H - cb))
-        im = im.copy(); im[cb:cb + u.shape[1], :] += np.swapaxes(u, 0, 1)
+        d = _dev27_step(_dev27_ctx(im, c, r, 'y'), T(im[OV:OV + DEV27_BAND]))
+        u = _dev27_field(d, min(DEV27_DEPTHS, H - OV))
+        im = im.copy(); im[OV:OV + u.shape[1], :] += np.swapaxes(u, 0, 1)
         rep['top_step_mean_abs'] = round(float(np.abs(d).mean()), 2)
     DEV27_REP[f'{c}_{r}'] = rep
     return im
@@ -294,12 +286,6 @@ def _dev26_band(axis, k):
     obj = ~(_icesnow(A_).astype(bool) & _icesnow(B_).astype(bool))
     cost = cost + DEV26_OBJ * obj
     cost[:, :DEV26_MARGIN + DEV26_FEATHER // 2] = np.inf; cost[:, OV - DEV26_MARGIN - DEV26_FEATHER // 2:] = np.inf
-    if DEV25C_CHUNKS:   # BV2F DEV-25c: where the LATER chunk is inner-128, the cut stays in the band's interior half
-        for q in range(ROWS if axis == 'x' else COLS):   # BV2F DEV-25c
-            ck = f'{k}_{q}' if axis == 'x' else f'{q}_{k}'   # BV2F DEV-25c
-            if ck in DEV25C_CHUNKS:   # BV2F DEV-25c
-                a0 = q * (SY if axis == 'x' else SX)   # BV2F DEV-25c
-                cost[a0:a0 + (H if axis == 'x' else W), :OV // 2 + DEV26_MARGIN + DEV26_FEATHER // 2] = np.inf   # BV2F DEV-25c
     cost = _dev26_pin_cost(cost, axis, k)   # BV2F DEV-26 pin (R-C9-272): a recorded prefix is forced; no pin = unchanged
     path = _dev26_dp(cost)
     _dev26_paths[key] = path
@@ -353,7 +339,6 @@ print('DEV-25', 'on' if DEV25 else 'off', DEV25_REP)   # BV2F DEV-25
 print('DEV-26', 'on' if DEV26 else 'off', DEV26_REP)   # BV2F DEV-26
 print('DEV-27', 'on' if DEV27 else 'off', {k: v for k, v in DEV27_REP.items()})   # BV2F DEV-27
 print('DEV-24', 'on' if DEV24_REP else 'off', DEV24_REP)   # BV2F DEV-24
-print('DEV-25c', sorted(DEV25C_CHUNKS) if DEV25C else 'off')   # BV2F DEV-25c
 if __import__('os').environ.get('BV2F_DEV26_DUMP'):   # BV2F DEV-26: record the band paths for a later pin
     json.dump({k_: [int(v) for v in p_] for (a_, b_), p_ in _dev26_paths.items() for k_ in [f'{a_}{b_}']}, open(__import__('os').environ['BV2F_DEV26_DUMP'], 'w'))   # BV2F DEV-26
 if len(sys.argv) > 3:

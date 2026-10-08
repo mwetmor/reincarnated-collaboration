@@ -17,7 +17,36 @@
  canvas = GUIDE.crop((ox, oy, ox + 1536, oy + 1024)); kept = []
  for (nc, nr) in [(c-1, r), (c, r-1), (c+1, r-1), (c-1, r-1)]:
      if nc < 0 or nr < 0 or nc >= COLS: continue
-@@ -44,6 +54,7 @@
+@@ -33,6 +43,28 @@
+     if x1 > x0 and y1 > y0:
+         canvas.paste(im.crop((x0 - dx, y0 - dy, x1 - dx, y1 - dy)), (x0, y0))
+         kept.append({(-1, 0): 'its LEFT 256 columns', (0, -1): 'its TOP 256 rows', (1, -1): 'its top-right 256x256 corner', (-1, -1): 'its top-left 256x256 corner'}[(nc - c, nr - r)])
++# BV2F-BEGIN DEV-25c (R-C9-278): INNER-128 PASTE. For a chunk listed in cfg['dev25c_chunks'] with BV2F_DEV25C=1, only the
++# 128 px of each painted overlap next to the canvas EDGE are kept as pasted context (columns 0..127 under a painted left
++# neighbour, rows 0..127 under a painted top / top-left / top-right neighbour): PH's half E. The rest of v1's 256-px
++# strip goes back to the GUIDE, so the chunk paints it itself (half C, where the stitch's cut then runs between two fresh
++# paints). The brief names 128-px strips. Unset = v1's canvas and brief.
++if os.environ.get('BV2F_DEV25C') == '1' and k in cfg.get('dev25c_chunks', []):
++    import numpy as _np
++    _g = _np.asarray(GUIDE.crop((ox, oy, ox + 1536, oy + 1024)))
++    _a = _np.asarray(canvas).copy()
++    _left = c > 0 and done(f'{c-1}_{r}')
++    _top = r > 0 and any(0 <= c + d < COLS and done(f'{c+d}_{r-1}') for d in (-1, 0, 1))
++    _inner = _np.zeros((1024, 1536), bool)
++    if _left: _inner[:, :128] = True
++    if _top: _inner[:128, :] = True
++    _pasted = _np.zeros((1024, 1536), bool)
++    if _left: _pasted[:, :256] = True
++    if _top: _pasted[:256, :] = True
++    _a[_pasted & ~_inner] = _g[_pasted & ~_inner]
++    canvas = Image.fromarray(_a)
++    kept = [s_.replace('256x256', '128x128').replace('256', '128') for s_ in kept]
++    print(k, 'DEV-25c inner-128: pasted px', int((_pasted & _inner).sum()), 'returned to the guide', int((_pasted & ~_inner).sum()))
++# BV2F-END
+ cp = S/f'{P}-{k}{SUF}_canvas.png'
+ if cmd == 'stage': canvas.save(cp); manifest_add(cp); print(k, 'staged', kept); sys.exit()
+ bid = f'{P}-{k}{SUF}'; geo = cfg['geo']; rules = cfg['rules']
+@@ -44,6 +76,7 @@
      text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + '; '.join(kept) + " are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, " + geo + "\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and " + FILL + " that CONTINUES them seamlessly (no visible join). " + rules
  else:
      text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + geo + "\nUse image_gen in EDIT mode on IMAGE 1 and " + FILL + ". " + rules

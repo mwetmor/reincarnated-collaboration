@@ -1,0 +1,7 @@
+{
+ "_what": "R-C9-278 B-1: DEV-25c's BUILT paste mask, for PH to record the binding a1 band BEFORE any arm exists (calibration s48 (d))",
+ "pasted_half": "E",
+ "definition": "in the NEWER chunk's canvas: columns [0, 128) under a painted left neighbour, rows [0, 128) under a painted top / top-left / top-right neighbour = the 128 px next to the canvas EDGE (the neighbour-interior side) = PH's E = band offsets [0, 128). Offsets [128, 256) (C) return to the guide and are painted fresh by the chunk; the stitch's DEV-26 cut is confined to C for that chunk (offsets >= 128 + margin 8 + feather/2 6 = 142).",
+ "code": "fid/v1tools/tierB/conductor_scripts/guided_paint.py (BV2F-BEGIN DEV-25c block: _inner[:, :128] / _inner[:128, :]); guided_stitch.py _cb(c, r) = OV // 2 = 128",
+ "both_arms_scored_on": "E (jack-ryan Addendum B, B-1)"
+}
