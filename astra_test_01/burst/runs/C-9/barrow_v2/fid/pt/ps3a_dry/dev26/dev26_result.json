@@ -1,0 +1,9 @@
+{
+ "_what": "R-C9-249 DEV-26 result",
+ "changed_px": 633932,
+ "changed_inside_bands": 633932,
+ "changed_outside_bands": 0,
+ "texture_steps_after": "2_0|x2816 1.251 (ctrl 1.199); 2_2|x2816 1.037 (1.045); 2_2|y1792 1.328 (1.473)",
+ "verdict": "FAIL on acceptance: the straight edges Matt/the conductor see (2_0 x2816, the lighter rectangle round the stone circle at 2_2 x2816 / y1792) sit at the overlap END -- the newer chunk's own boundary between its redrawn context strip and its new paint, where it is the ONLY source; DEV-26 can only re-route the hand-over INSIDE the 256-px overlap (paths 14..241 px), so those edges are unchanged (before/after crops identical there)",
+ "tone_control_2_2_x2816_rows2304-2432": "cliff-top content: the dE 9.6 lies where the cut-rock cliff top's snow cap meets the cliff wall shading (crop 2_2_x2816_1to1.jpg rows 768-896 of the crop); not a seam"
+}

@@ -1,6 +1,6 @@
 --- tierA/conductor_scripts/guided_stitch.py	2026-10-06 20:36:42
-+++ tierB/conductor_scripts/guided_stitch.py	2026-10-08 11:38:00
-@@ -18,10 +18,119 @@
++++ tierB/conductor_scripts/guided_stitch.py	2026-10-08 11:41:38
+@@ -18,20 +18,217 @@
      sys.exit(f'chunk {k} is not painted')
  acc = np.zeros(((ROWS-1)*SY + H, (COLS-1)*SX + W, 3)); wsum = np.zeros(acc.shape[:2])
  up = np.linspace(0, 1, OV, endpoint=False) + 0.5/OV
@@ -111,6 +111,90 @@
 +    DEV25_REP[f'{c}_{r}'] = rep
 +    return im
 +# BV2F-END
++# BV2F-BEGIN DEV-26 (R-C9-249): MINIMUM-ERROR BOUNDARY CUT (image-quilting style) in place of v1's straight linear ramps.
++# In every overlap band the two chunks' pixels (each after DEV-23/25) are compared and the hand-over runs along the path
++# of LEAST difference (dynamic programming, one path per GLOBAL band so the four-chunk corners stay a partition of unity),
++# never through an object: a pixel that is not snow/ice in either chunk (dark or chromatic: rock, stone, reed, heather,
++# wood) costs DEV26_OBJ, so the cut threads the snow and ice between them. The hand-over is feathered DEV26_FEATHER px
++# across the irregular path (smoothstep). Paths are confined to the band's inner part [DEV26_MARGIN, OV - DEV26_MARGIN] so
++# the feather stays inside the overlap. BV2F_DEV26=0 turns it off (v1's ramps); with DEV23/25 off as well the stitch is
++# v1's byte for byte.
++DEV26 = os.environ.get('BV2F_DEV26', '1') != '0'
++DEV26_FEATHER, DEV26_OBJ, DEV26_MARGIN, DEV26_SMOOTH = 12, 4000.0, 8, 2
++DEV26_REP = {}
++_dev26_img = {}
++_dev26_paths = {}
++def _dev26_load(c, r):
++    if (c, r) not in _dev26_img:
++        a = np.asarray(Image.open(src(f'{c}_{r}')).convert('RGB'), dtype=np.float64)
++        _dev26_img[(c, r)] = _bv2f_grain(_bv2f_tone(a, c, r), c, r)
++    return _dev26_img[(c, r)]
++def _dev26_dp(cost):
++    # cost (L, N): one column index per line, |step| <= DEV26_SMOOTH, minimum total cost
++    L, N = cost.shape
++    acc_ = cost.copy(); back = np.zeros((L, N), np.int32)
++    for i in range(1, L):
++        prev = acc_[i - 1]
++        best = np.full(N, np.inf); arg = np.zeros(N, np.int32)
++        for d in range(-DEV26_SMOOTH, DEV26_SMOOTH + 1):
++            sh = np.full(N, np.inf)
++            if d < 0: sh[:d] = prev[-d:]
++            elif d > 0: sh[d:] = prev[:-d]
++            else: sh = prev
++            better = sh < best
++            best = np.where(better, sh, best); arg = np.where(better, np.arange(N) - d, arg)
++        acc_[i] = cost[i] + best; back[i] = arg
++    path = np.zeros(L, np.int32); path[-1] = int(np.argmin(acc_[-1]))
++    for i in range(L - 1, 0, -1):
++        path[i - 1] = back[i, path[i]]
++    return path
++def _dev26_band(axis, k):
++    """the cut for the k-th vertical (axis 'x': between column k-1 and k) or horizontal (axis 'y': between row k-1 and k)
++    overlap band, over the whole plate: offsets 0..OV-1 into the band, one per plate row (x) / column (y)."""
++    key = (axis, k)
++    if key in _dev26_paths:
++        return _dev26_paths[key]
++    if axis == 'x':
++        Lp = (ROWS - 1) * SY + H
++        A_ = np.zeros((Lp, OV, 3)); B_ = np.zeros((Lp, OV, 3))
++        for r in range(ROWS):
++            wy_ = np.ones(H)
++            if r > 0: wy_[:OV] *= up
++            if r < ROWS - 1: wy_[H - OV:] *= up[::-1]
++            A_[r * SY:r * SY + H] += _dev26_load(k - 1, r)[:, SX:SX + OV] * wy_[:, None, None]
++            B_[r * SY:r * SY + H] += _dev26_load(k, r)[:, :OV] * wy_[:, None, None]
++    else:
++        Lp = (COLS - 1) * SX + W
++        A_ = np.zeros((Lp, OV, 3)); B_ = np.zeros((Lp, OV, 3))
++        for c in range(COLS):
++            wx_ = np.ones(W)
++            if c > 0: wx_[:OV] *= up
++            if c < COLS - 1: wx_[W - OV:] *= up[::-1]
++            A_[c * SX:c * SX + W] += np.swapaxes(_dev26_load(c, k - 1)[SY:SY + OV, :], 0, 1) * wx_[:, None, None]
++            B_[c * SX:c * SX + W] += np.swapaxes(_dev26_load(c, k)[:OV, :], 0, 1) * wx_[:, None, None]
++    cost = ((A_ - B_) ** 2).sum(-1)
++    obj = ~(_icesnow(A_).astype(bool) & _icesnow(B_).astype(bool))
++    cost = cost + DEV26_OBJ * obj
++    cost[:, :DEV26_MARGIN + DEV26_FEATHER // 2] = np.inf; cost[:, OV - DEV26_MARGIN - DEV26_FEATHER // 2:] = np.inf
++    path = _dev26_dp(cost)
++    _dev26_paths[key] = path
++    DEV26_REP[f'{axis}{k}'] = {"path_min_max": [int(path.min()), int(path.max())],
++                               "object_px_on_path": int(obj[np.arange(len(path)), path].sum())}
++    return path
++def _dev26_ramp(path):
++    # weight of the LATER chunk across the band: 0 before the path, 1 after, smoothstep over DEV26_FEATHER px
++    t = np.clip((np.arange(OV)[None, :] - (path[:, None] - DEV26_FEATHER / 2.0)) / float(DEV26_FEATHER), 0.0, 1.0)
++    return t * t * (3.0 - 2.0 * t)
++def _bv2f_cut_w(w, c, r):
++    if not DEV26:
++        return w
++    WX = np.ones((H, W)); WY = np.ones((H, W))
++    if c > 0: WX[:, :OV] = _dev26_ramp(_dev26_band('x', c))[r * SY:r * SY + H]
++    if c < COLS - 1: WX[:, W - OV:] = 1.0 - _dev26_ramp(_dev26_band('x', c + 1))[r * SY:r * SY + H]
++    if r > 0: WY[:OV, :] = _dev26_ramp(_dev26_band('y', r))[c * SX:c * SX + W].T
++    if r < ROWS - 1: WY[H - OV:, :] = 1.0 - _dev26_ramp(_dev26_band('y', r + 1))[c * SX:c * SX + W].T
++    return WX * WY
++# BV2F-END
  for r in range(ROWS):
      for c in range(COLS):
          im = np.asarray(Image.open(src(f'{c}_{r}')).convert('RGB'), dtype=np.float64)
@@ -120,11 +204,17 @@
          wx, wy = np.ones(W), np.ones(H)
          if c > 0: wx[:OV] *= up
          if c < COLS-1: wx[W-OV:] *= up[::-1]
-@@ -33,5 +142,7 @@
+         if r > 0: wy[:OV] *= up
+         if r < ROWS-1: wy[H-OV:] *= up[::-1]
+         w = np.outer(wy, wx)
++        w = _bv2f_cut_w(w, c, r)   # BV2F DEV-26
+         acc[r*SY:r*SY+H, c*SX:c*SX+W] += im * w[..., None]; wsum[r*SY:r*SY+H, c*SX:c*SX+W] += w
+ assert abs(wsum.min() - 1) < 1e-9 and abs(wsum.max() - 1) < 1e-9, (wsum.min(), wsum.max())
  out = Image.fromarray((acc / wsum[..., None]).clip(0, 255).round().astype(np.uint8))
  out.save(sys.argv[2], optimize=True)
  print(pathlib.Path(sys.argv[2]).name, out.size, 'sha256', hashlib.sha256(pathlib.Path(sys.argv[2]).read_bytes()).hexdigest())
 +print('DEV-23', 'on' if DEV23 else 'off', DEV23_REP)   # BV2F DEV-23
 +print('DEV-25', 'on' if DEV25 else 'off', DEV25_REP)   # BV2F DEV-25
++print('DEV-26', 'on' if DEV26 else 'off', DEV26_REP)   # BV2F DEV-26
  if len(sys.argv) > 3:
      out.resize((out.width // 2, out.height // 2), Image.LANCZOS).save(sys.argv[3], quality=86)
