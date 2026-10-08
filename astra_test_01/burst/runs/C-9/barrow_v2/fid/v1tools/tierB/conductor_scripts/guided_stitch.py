@@ -239,6 +239,25 @@ def _dev26_dp(cost):
     for i in range(L - 1, 0, -1):
         path[i - 1] = back[i, path[i]]
     return path
+# BV2F DEV-26 PINNED PREFIX, inside the DEV-26 block (R-C9-272; jack-ryan pilot-4 Gate-2 s5(a)): the full site lengthens every global band,
+# and the DP backtracks from the band's END, so a longer band could move the pilot's cut. cfg['dev26_pin'] = {"file":
+# the recorded paths (BV2F_DEV26_DUMP of the pilot stitch), "sha256", "x_len": plate rows pinned on x-bands, "y_len":
+# plate columns pinned on y-bands}: on those rows/columns only the recorded offset is allowed, so the DP reproduces the
+# recorded prefix exactly and continues past it from its end. No pin = the DP as before.
+_dev26_pin = None
+if cfg.get('dev26_pin'):
+    _pp = pathlib.Path(cfg['dev26_pin']['file'])
+    if hashlib.sha256(_pp.read_bytes()).hexdigest() != cfg['dev26_pin']['sha256']:
+        sys.exit('DEV-26 HALT: %s is not the pinned path record' % _pp)
+    _dev26_pin = json.loads(_pp.read_text())
+def _dev26_pin_cost(cost, axis, k):
+    if _dev26_pin is None or f'{axis}{k}' not in _dev26_pin:
+        return cost
+    n_ = int(cfg['dev26_pin']['x_len' if axis == 'x' else 'y_len'])
+    pp = np.asarray(_dev26_pin[f'{axis}{k}'], np.int64)[:n_]
+    cost = cost.copy(); cost[:len(pp)] = np.inf; cost[np.arange(len(pp)), pp] = 0.0
+    DEV26_REP[f'{axis}{k}_pinned_rows'] = int(len(pp))
+    return cost
 def _dev26_band(axis, k):
     """the cut for the k-th vertical (axis 'x': between column k-1 and k) or horizontal (axis 'y': between row k-1 and k)
     overlap band, over the whole plate: offsets 0..OV-1 into the band, one per plate row (x) / column (y)."""
@@ -267,6 +286,7 @@ def _dev26_band(axis, k):
     obj = ~(_icesnow(A_).astype(bool) & _icesnow(B_).astype(bool))
     cost = cost + DEV26_OBJ * obj
     cost[:, :DEV26_MARGIN + DEV26_FEATHER // 2] = np.inf; cost[:, OV - DEV26_MARGIN - DEV26_FEATHER // 2:] = np.inf
+    cost = _dev26_pin_cost(cost, axis, k)   # BV2F DEV-26 pin (R-C9-272): a recorded prefix is forced; no pin = unchanged
     path = _dev26_dp(cost)
     _dev26_paths[key] = path
     DEV26_REP[f'{axis}{k}'] = {"path_min_max": [int(path.min()), int(path.max())],
@@ -319,5 +339,7 @@ print('DEV-25', 'on' if DEV25 else 'off', DEV25_REP)   # BV2F DEV-25
 print('DEV-26', 'on' if DEV26 else 'off', DEV26_REP)   # BV2F DEV-26
 print('DEV-27', 'on' if DEV27 else 'off', {k: v for k, v in DEV27_REP.items()})   # BV2F DEV-27
 print('DEV-24', 'on' if DEV24_REP else 'off', DEV24_REP)   # BV2F DEV-24
+if __import__('os').environ.get('BV2F_DEV26_DUMP'):   # BV2F DEV-26: record the band paths for a later pin
+    json.dump({k_: [int(v) for v in p_] for (a_, b_), p_ in _dev26_paths.items() for k_ in [f'{a_}{b_}']}, open(__import__('os').environ['BV2F_DEV26_DUMP'], 'w'))   # BV2F DEV-26
 if len(sys.argv) > 3:
     out.resize((out.width // 2, out.height // 2), Image.LANCZOS).save(sys.argv[3], quality=86)

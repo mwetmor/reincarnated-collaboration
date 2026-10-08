@@ -15,7 +15,9 @@ guided_stitch.py (Tier-B) calls apply() after the stitch only with BV2F_DEV24=1 
                "patches": [{"name", "rect_xy": [x, y], "region_png", "region_sha256", "paste_png", "paste_sha256",
                             "new_png", "new_sha256"}, ...]}, ...]}
 Patches in one layer have disjoint supports; a patch that must overlap another is staged on its result (a later layer).
-A changed base, a moved file or an overlap inside a layer HALTs. Unset = v1's stitch byte for byte."""
+A changed base, a moved file or an overlap inside a layer HALTs. Unset = v1's stitch byte for byte.
+R-C9-272: a patch may pin `read_sha256` (read_sha() of its staged base over its read region); when every patch of a
+layer does, the layer is checked per patch over what it reads instead of over the whole image."""
 import hashlib
 import numpy as np
 from PIL import Image
@@ -56,9 +58,31 @@ def _load_mask(p, sha):
     return np.asarray(Image.open(p)) > 127
 
 
+def read_region(R: np.ndarray, pc: np.ndarray) -> np.ndarray:
+    """R-C9-272: the canvas-local pixels a paste READS from the base -- its support (w > 0: the blend reads old there)
+    and its tone ring (the only pixels the correction samples). Nothing else in the rect affects the result."""
+    M, w = weights(R, pc)
+    ring = ndimage.binary_dilation(M, iterations=RING_OUT) & ~ndimage.binary_dilation(M, iterations=RING_IN) & pc
+    return (w > 0) | ring
+
+
+def read_sha(img: np.ndarray, p: dict) -> str:
+    x0, y0 = p["rect_xy"]
+    R = _load_mask(p["region_png"], p["region_sha256"])
+    pc = _load_mask(p["paste_png"], p["paste_sha256"])
+    rr = read_region(R, pc)
+    return pixels_sha(img[y0:y0 + CH, x0:x0 + CW][rr])
+
+
 def apply_layer(img: np.ndarray, layer: dict):
-    """one LAYER: patches staged on the same image (base_pixels_sha256), with pairwise-disjoint supports"""
-    if pixels_sha(img) != layer["base_pixels_sha256"]:
+    """one LAYER: patches staged on the same image, with pairwise-disjoint supports. Base check: per patch over its READ
+    REGION when every patch pins `read_sha256` (R-C9-272: a full-site stitch may change pixels no patch reads), else the
+    whole image (`base_pixels_sha256`)."""
+    if all("read_sha256" in p for p in layer["patches"]):
+        for p in layer["patches"]:
+            if read_sha(img, p) != p["read_sha256"]:
+                raise SystemExit("DEV-24 HALT: patch %s reads pixels that differ from its staged base" % p["name"])
+    elif pixels_sha(img) != layer["base_pixels_sha256"]:
         raise SystemExit("DEV-24 HALT: the image is not the base this layer's patches were staged on")
     full = img.copy()
     support = np.zeros(img.shape[:2], bool)
