@@ -64,3 +64,12 @@
 - **This is not a baseline of record:** 4/25 cells were refused. It becomes one once the JOIN-reachable bodies are sourced (see the HOLD in AMENDMENT-4 § 5).
 
 **G-D4** (prereg § 5 reading, flagged): with no joined kit, X = 196, and this emission **is** the G-D4 baseline row. It inherits the same 4/25 hole.
+
+---
+
+## AMENDMENT (KP-380, jack-ryan WARN at collab `13cc43bd8`; append-only, 2026-10-08)
+
+- **The survival wording is restated.** The reading above ("no measurable survival gain") becomes: **no detectable gain at low power; observed direction ADVERSE (13/21 vs 16/21; 5 survive→die vs 1 die→survive; exact sign test p = 0.219).**
+- **The exclusion was NOT random.** The 4 refused cells (M0|1, M0|4, W1-NULL|1, W1-NULL|4) are **exactly the runs that reached the pet** `ghost_a01_summon@153`. The 21-cell comparison is therefore conditioned on not reaching it, and is **not** an unbiased estimate of the 25-cell baseline.
+- **D-1 is re-tested as a FRESH prediction on the G-D3 re-emission** (after PACK_PIN v3), with the id-reuse-safe Soulfire anchor (`ea28195a`) and the step-2b closure test (lookups outside the sourced set, predicted 0).
+- **The ghost summon's source**, established by the step-2b census (`../2026-10-08-join1-pj25-step2b/`): it is a pet of the **pre-pass** ghosts. The pre-pass is the line-up-free waves 151–156 run inside `c11a._period()`. It is not a line-up body's pet.
