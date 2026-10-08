@@ -80,11 +80,57 @@ def _bv2f_tone(im, c, r):
     DEV23_REP[f'{c}_{r}'] = rep
     return im
 # BV2F-END
+# BV2F-BEGIN DEV-25 (R-C9-248): GRAIN-AMPLITUDE MATCH at the pasted-context boundary, after DEV-23's tone match. The
+# image service redraws the pasted strip (R-C9-247: softer than the neighbour by 0.67-1.07 on ice) and paints the new area
+# at its own grain (up to 2.5x the strip's on the mound): a straight grain line at x/y = 256. Per chunk: the detail
+# (image - Gaussian sigma DEV25_SIGMA) is measured on snow/ice pixels (bright, low chroma) in the strip's last DEV25_BAND
+# px and the new paint's first DEV25_BAND px; the ratio strip/new, smoothed along the boundary (normalised Gaussian
+# sigma 56; 1 where the boundary crosses no snow/ice), clipped 0.5..1.0 (soften only), scales the NEW paint's detail, fading to 1 over
+# DEV25_FADE px into the chunk (smoothstep). No pixel moves and no detail is added or removed: only its amplitude.
+# BV2F_DEV25=0 turns it off; with BV2F_DEV23=0 as well the stitch is v1's byte for byte.
+DEV25 = os.environ.get('BV2F_DEV25', '1') != '0'
+DEV25_SIGMA, DEV25_BAND, DEV25_FADE = 3.0, 48, 300
+DEV25_REP = {}
+def _det(a):
+    return a - np.stack([ndimage.gaussian_filter(a[..., i], DEV25_SIGMA) for i in range(3)], -1)
+def _grain_ratio(cd, nd, cm, nm):
+    def s(d, m):
+        n = m.sum(1)
+        mu = (d * m[..., None]).sum(1) / np.maximum(n, 1)[:, None]
+        v = (((d - mu[:, None, :]) ** 2) * m[..., None]).sum(1) / np.maximum(n, 1)[:, None]
+        return np.sqrt(v.mean(-1)), n
+    sc, nc = s(cd, cm)
+    sn, nn = s(nd, nm)
+    w = ((nc >= 12) & (nn >= 12)).astype(np.float64)
+    k = np.where(w > 0, sc / np.maximum(sn, 1e-6), 1.0)
+    gw = ndimage.gaussian_filter1d(w, DEV23_SIGMA, mode='constant')
+    ks = ndimage.gaussian_filter1d(k * w, DEV23_SIGMA, mode='constant') / np.maximum(gw, 1e-6)
+    return np.clip(np.where(gw > 0.05, ks, 1.0), 0.5, 1.0)   # BV2F: soften only -- amplifying new grain toward a busier strip made two joins worse (R-C9-248 dry run)
+def _bv2f_grain(im, c, r):
+    if not DEV25:
+        return im
+    rep = {}
+    if c > 0:
+        d = _det(im); m = _icesnow(im)
+        k = _grain_ratio(d[:, OV - DEV25_BAND:OV], d[:, OV:OV + DEV25_BAND], m[:, OV - DEV25_BAND:OV], m[:, OV:OV + DEV25_BAND])
+        g = (k[:, None] - 1.0) * _fade(W - OV)[None, :]
+        im = im.copy(); im[:, OV:] += d[:, OV:] * g[..., None]
+        rep['left_k_median'] = round(float(np.median(k)), 3)
+    if r > 0:
+        d = _det(im); m = _icesnow(im); T = lambda a: np.swapaxes(a, 0, 1)
+        k = _grain_ratio(T(d[OV - DEV25_BAND:OV]), T(d[OV:OV + DEV25_BAND]), T(m[OV - DEV25_BAND:OV]), T(m[OV:OV + DEV25_BAND]))
+        g = (k[None, :] - 1.0) * _fade(H - OV)[:, None]
+        im = im.copy(); im[OV:, :] += d[OV:, :] * g[..., None]
+        rep['top_k_median'] = round(float(np.median(k)), 3)
+    DEV25_REP[f'{c}_{r}'] = rep
+    return im
+# BV2F-END
 for r in range(ROWS):
     for c in range(COLS):
         im = np.asarray(Image.open(src(f'{c}_{r}')).convert('RGB'), dtype=np.float64)
         assert im.shape == (H, W, 3), (c, r, im.shape)
         im = _bv2f_tone(im, c, r)   # BV2F DEV-23
+        im = _bv2f_grain(im, c, r)   # BV2F DEV-25
         wx, wy = np.ones(W), np.ones(H)
         if c > 0: wx[:OV] *= up
         if c < COLS-1: wx[W-OV:] *= up[::-1]
@@ -97,5 +143,6 @@ out = Image.fromarray((acc / wsum[..., None]).clip(0, 255).round().astype(np.uin
 out.save(sys.argv[2], optimize=True)
 print(pathlib.Path(sys.argv[2]).name, out.size, 'sha256', hashlib.sha256(pathlib.Path(sys.argv[2]).read_bytes()).hexdigest())
 print('DEV-23', 'on' if DEV23 else 'off', DEV23_REP)   # BV2F DEV-23
+print('DEV-25', 'on' if DEV25 else 'off', DEV25_REP)   # BV2F DEV-25
 if len(sys.argv) > 3:
     out.resize((out.width // 2, out.height // 2), Image.LANCZOS).save(sys.argv[3], quality=86)

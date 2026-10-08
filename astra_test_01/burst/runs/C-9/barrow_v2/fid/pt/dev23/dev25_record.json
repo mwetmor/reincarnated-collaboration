@@ -1,0 +1,29 @@
+{
+ "_what": "R-C9-248 DEV-25: grain-amplitude match in the Tier-B stitch (after DEV-23); soften-only (k clipped 0.5..1.0)",
+ "flag_off": "BV2F_DEV23=0 BV2F_DEV25=0 = the Tier-A stitch byte for byte (proven on the PS2 cfg)",
+ "texture_step_ratio_join_vs_control": null,
+ "first_try_note": "k clipped 0.5..1.5 made 2_2|x2816 (1.06->1.37) and 0_2|y1792 (0.98->1.29) worse by amplifying new grain toward a busier strip; now soften-only",
+ "results": {
+  "2_0|x2816": [
+   1.775,
+   1.271,
+   1.201
+  ],
+  "2_2|y1792": [
+   2.054,
+   1.344,
+   1.475
+  ],
+  "2_2|x2816": [
+   1.058,
+   1.037,
+   1.013
+  ],
+  "0_2|y1792": [
+   0.983,
+   0.958,
+   0.849
+  ],
+  "_cols": "[DEV-23 only, DEV-23+25, control]"
+ }
+}
