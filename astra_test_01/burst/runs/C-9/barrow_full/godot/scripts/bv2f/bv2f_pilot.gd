@@ -21,8 +21,8 @@ const PILOT_PX := Vector2(4096.0, 2560.0)
 ## the pilot's painted data, RELATIVE to PaintedWorld.data_dir() (res://data/painted/) so v1's loaders read it unchanged
 ## R-C9-232: WHICH PILOT. Default = the REPAINT (data/bv2f/pilot_rp/: its painted data + its pinned level, LV 368cdf791);
 ## env BV2F_PILOT=phase2p = the Phase 2' pilot as pinned (data/bv2f/pilot/: M2' evidence, kept as-is).
-const PILOT_SETS := {"rp3": "pilot_rp3", "rp2": "pilot_rp2", "rp": "pilot_rp", "phase2p": "pilot"}   # R-C9-245: rp3 = PILOT REPAINT 3 (default)
-var pilot_set := PILOT_SETS.get(OS.get_environment("BV2F_PILOT") if OS.get_environment("BV2F_PILOT") != "" else "rp3", "pilot_rp3") as String
+const PILOT_SETS := {"rp4": "pilot_rp4", "rp3": "pilot_rp3", "rp2": "pilot_rp2", "rp": "pilot_rp", "phase2p": "pilot"}   # R-C9-264: rp4 = PILOT REPAINT 4 (default); R-C9-245 rp3
+var pilot_set := PILOT_SETS.get(OS.get_environment("BV2F_PILOT") if OS.get_environment("BV2F_PILOT") != "" else "rp4", "pilot_rp4") as String
 var PILOT_REL := "../bv2f/%s/painted/" % pilot_set
 var PILOT_MANIFEST := "res://data/bv2f/%s/painted/manifest.json" % pilot_set
 const SNOW_TERRAIN := preload("res://scripts/bv2f/snow_field_terrain.gd")   # BV2F-PT DEV-18
@@ -43,7 +43,7 @@ var PILOT_LEVEL_DIR := "res://data/bv2f/%s/level/" % pilot_set
 
 func _init() -> void:
 	BV2F_DATA = PILOT_LEVEL_DIR
-	if not PILOT_SETS.values().has(pilot_set) or OS.get_environment("BV2F_PILOT") not in ["", "rp3", "rp2", "rp", "phase2p"]:
+	if not PILOT_SETS.values().has(pilot_set) or OS.get_environment("BV2F_PILOT") not in ["", "rp4", "rp3", "rp2", "rp", "phase2p"]:
 		push_error("bv2f_pilot: BV2F_PILOT=%s is not rp or phase2p" % OS.get_environment("BV2F_PILOT"))
 
 

@@ -9,8 +9,12 @@ C9=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9
 FID=$C9/barrow_v2/fid; T=$FID/pt/tools; P=$FID/pt/pilot; V=$FID/v1tools; GP=$C9/barrow_full/godot
 G=/Applications/Godot.app/Contents/MacOS/Godot
 pg() { python3 $T/pt_godot.py "$@"; }
-CFG=$P/cfg_bv2a_pilot.json
-export BV2F_VARIANT=art BV2F_UNGROUP=1 BV2F_PILOT=rp3
+# R-C9-264: the repaint is chosen by env (defaults = repaint 3 as built): PT_CFG, PT_MANIFEST, PT_PILOT
+CFG=${PT_CFG:-$P/cfg_bv2a_pilot.json}; MANIFEST=${PT_MANIFEST:-$P/build_manifest_ps3a.json}
+export BV2F_VARIANT=art BV2F_UNGROUP=1 BV2F_PILOT=${PT_PILOT:-rp3}
+# R-C9-263 DEV-24: local-repaint patches pasted after the stitch exactly when the cfg carries a dev24 block
+if python3 -c "import json,sys;sys.exit(0 if json.load(open('$CFG')).get('dev24') else 1)"; then export BV2F_DEV24=1; else unset BV2F_DEV24; fi
+echo "cfg $CFG | manifest $MANIFEST | pilot $BV2F_PILOT | DEV-24 ${BV2F_DEV24:-off}"
 STEPS=(stitch ids export light take heather bake prep lineage guide stills)
 FIRST=${1:-stitch}; go=0
 step() { echo "=== $1 $(date -u +%T)"; }
@@ -23,7 +27,7 @@ for s in $STEPS; do
       # R-C9-251 C5: the chunks the stitch will resolve must be exactly the pinned manifest (sha256)
       python3 -c "
 import json,hashlib,os,sys
-A='$C9/artifacts'; m=json.load(open('$P/build_manifest_ps3a.json')); P_=m['prefix']; bad=[]
+A='$C9/artifacts'; m=json.load(open('$MANIFEST')); P_=m['prefix']; bad=[]
 for k,v in m['chunks'].items():
     p=next((f'{A}/{d}/{P_}-{k}.png' for d in (f'{P_}-{k}-r1',f'{P_}-{k}') if os.path.exists(f'{A}/{d}/{P_}-{k}.png')),None)
     if p is None or os.path.relpath(p,A)!=v['file'] or hashlib.sha256(open(p,'rb').read()).hexdigest()!=v['sha256']: bad.append(k)

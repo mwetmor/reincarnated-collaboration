@@ -3,10 +3,10 @@
 static texture the painted pilot wears -> its producing record -> the pilot painting's sha. Re-run whenever the prep,
 the bakes or their tools change (R-C9-194: the tool-sha links go stale otherwise).
     python3 fid/pt/tools/pilot_lineage.py"""
-import hashlib, json, os
+import os, hashlib, json
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 C9 = os.path.dirname(os.path.dirname(FID))
-D = C9 + "/barrow_full/godot/data/bv2f/pilot_rp3/painted"   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
+D = C9 + "/barrow_full/godot/data/bv2f/%s/painted" % {"rp4": "pilot_rp4", "rp3": "pilot_rp3"}[os.environ.get("BV2F_PILOT", "rp3")]   # R-C9-264: the set being built   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
 R = FID + "/pt/pilot/root"
 paint = FID + "/pt/pilot/painting.png"
 sha = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
