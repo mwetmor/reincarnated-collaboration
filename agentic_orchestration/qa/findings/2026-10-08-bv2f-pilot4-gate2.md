@@ -250,3 +250,42 @@ Random OS work (mediaanalysisd) does not align to 10 ms across fresh processes. 
 **PH:** append this as § 48 (c) amendment A, committed before the first quiet-window run. **Conductor:** schedule the window; this will be the Sim Session pause it coordinates.
 
 *INFO, not ruled here:* § 49 (b) `abx3_g2v4_v1rec_vs_v1head` is VOID at 37 scored. PH's reading is correct: the remedy is a **capture** (new record-time v1 stills of non-ice ground), never a seed change. The VOID dir must not go to a judge. Route to the conductor.
+
+---
+
+## ADDENDUM B — [B] closure check: the narrow BLOCK on the Phase 3′ PAINT release LIFTS (2026-10-08)
+
+**Severity:** INFO. **The BLOCK-narrow of § 1 is LIFTED for Phase 3′ painting.** The [Bb] items stay open and gate the Phase 3′ **build**.
+
+Each item was verified against the record itself, not the summary.
+
+| # | Item | Evidence read | State |
+|---|---|---|---|
+| 1 [M] | M2″ ruling | R-C9-268 (Matt: "Keep pilot 4, fix rest" / "Approve all four") | **CLOSED** |
+| 2 [B][M] | Consolidated DEV register | Charter **§ 16** present (DEV-17..28 + DEV-25c; source `fid/pt/r268/dev_register.json`, PT `5090fa5fe`). Matt ratified DEV-23/24/25/28, with 26/27 riding on them (R-C9-268), and DEV-21/22 (R-C9-273). DEV-24's limit (clear defects only, crops logged) and its seam-patch count against the Phase 3′ repair cap are both recorded. | **CLOSED** |
+| 3 [B] | LV source fixes | R-C9-268: pilot kept, so `mere_cracks` / `reed_tufts` / `cradle_cracks` are known and inert. No blockout change, so no pilot-tile difference arises. | **CLOSED** |
+| 4 [B] | Bay | PS4 painted from the R-C9-259/260 fix; a1 0_1/0_2 = 6.02 | **CLOSED** |
+| 5 [B] | DEV-25c + a1 re-instrumented | `fid/pt/r268/dev25c_registration.json`: A/B on the first Phase 3′ chunk; adopt B iff a1(B) ≤ a1(A), the line is gone at 1:1 and P6a passes; the losing arm is never used as context; no third arm and no re-choice. Calibration § 48 (d) / § 49: bars E 8.789, C 11.045, both bands passing their C2/C3/masking/specificity analogues; the binding half is read from the built paste mask. | **CLOSED**, with conditions B-1 and B-2 below |
+| 6 [B] | Snow-grain forensic | R-C9-272: the speckle is **capture phase**. Pilot stills sat at phase 0.00 and v1's at 0.23–0.66; speckle 0.427 → 0.202 at v1's phase; the painting's grain matches v1 (0.438 vs 0.466). There is no paint-direction change, and the result is folded into **§ 50 (a)** (phase-matched capture, ± 0.10 px, constructed check passes) and **§ 50 (b)** (snow W_min = 100) plus the rock extension (W_min = 3), `c7b04ee95` / `2f6047ad3`. Both are Phase 3′ only; pilot 4 stays as judged. | **CLOSED** |
+| 7 [B] | P11 exclusion + controls | § 48 (b). Negative control 40/40 FAIL (R-C9-270); positive control (new non-ice v1 stills) 23/40 PASS, catch 12/12 (R-C9-271). | **CLOSED** |
+| 8 [B] | P4 ice frozen | § 48 (a): Lab (64.58, −2.75, −21.49); `self` raises | **CLOSED** |
+| 9 [B] | Per-chunk QA | § 48 (e): P6a → raw a1 (§ 44, or § 48 (d) for inner-128) → P4 snow, with the § 50 (b) support rule | **CLOSED** |
+| 10 [Bb] | DEV-24/26 full-site stitch | R-C9-274: proven on the stand-in. P-1/P-2 changed 0 px; the P-3 unpinned control moved 123 px, so the proof *can* fail. P-4 runs on the real canvases at the build. | **OPEN for the build**; satisfied in principle |
+| 11 [Bb] | P10 | Walk proven (§ 50 (c), R-C9-276); groundtiles adopted (look-neutral); indicative start p50 13.63 (not binding, stuck walk). Quiet window 1 HALTED and parked as `matt_to_do` T34 (R-C9-277). | **OPEN for the build** |
+
+**Conditions on painting (B-1 and B-2 bind before the first Phase 3′ burst; B-3 at stills):**
+- **B-1 (DEV-25c A/B).**
+  - Before either arm is painted, PT builds DEV-25c's Tier-B patch and commits its **flag-off proof**.
+  - PH records **which half (E or C) the built paste mask pastes**, so the binding band is known **before** any arm exists.
+  - **Both arms are scored on that same band.** The registration's "inner / far / outer" wording is ambiguous against PH's E/C naming. The mask settles it, and it must settle it pre-data.
+- **B-2 (pins).** PT re-pins the Phase 3′ guide tiles from LV `b5894d440` and runs `pilot_pins_check.py`: the pilot tiles must be unchanged (R-C9-189). This takes copies, as the standing practice since R-C9-258.
+- **B-3 (stills).** § 50 (a) covers **every** candidate still at M3′, the pilot region's included. Pilot 4's phase-0 stills are not reused in any M3′ comparison. Pilot 4's P11 30/40 stays the record; it is not re-judged.
+
+**Carried, unchanged:**
+- P5 a1 ×3 pilot-internal (disclosed under R-C9-268);
+- rock 2_1 (forensic done, R-C9-274: paint on 2 windows; stays FAIL as judged);
+- the 4 pilot snow chunks;
+- the 2_1|x2816 line;
+- P9c (first floe build).
+
+*INFO:* disk at 19–20 GiB is under the 21 GiB heavy-work gate (R-C9-274). That does not block service-side painting, but it does block the guide re-pin render (if one is needed), the stitch and anything Godot. The manifest-19 cleanup is with Matt.
