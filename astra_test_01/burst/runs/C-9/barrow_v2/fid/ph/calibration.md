@@ -1656,3 +1656,11 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 **DISCLOSED: the sea loop shows less water than the old sea view.** In-plate open-sea px in a 1920 × 1080 frame centred on him: median **15 k** (range 8–19 k), against ~230 k at the old uv (−29, −5.5). Water outside the pilot plate also renders but is not countable here. The sea view's water-cost coverage is therefore partial. That is for the conductor; no other walkable sea-edge loop exists on rp4 without slab-edge sticking.
 
 **Driver.** `p10_disc.py window ... --loop start|sea` uses these loops (`LOOPS`); the W runs keep v1's own loop.
+
+### § 50 (c) addendum — R-C9-276: both loops BIND; a third, REPORT-ONLY view
+- **Binding views:** `start` and `sea` (the proven loops above).
+- **Report-only view:** **`sea_idle`**, the old sea position uv (−28.56, −1.45), where the default loop stuck (PT r268). Him **IDLE**: placed there, standing, never driven (`ph_life.gd perf --idle`). It shows the water cost.
+- **Same window, same interleave.** Per round i = 1..3: W_i (v1 witness), start_i, sea_i, sea_idle_i, each a fresh process under the quiescence precondition and the 1 Hz VOID log.
+- **Binding:** start and sea, each worst-of-3 p99 ≤ 16.7 ms + the deterministic hitch.
+- **Report-only:** sea_idle, and every paired P p50 − preceding W p50. A VOID on any run (sea_idle included) voids the set, as § 34.
+- **Prepared, not started:** `nohup python3 harness/p10_disc.py window <base> res://scenes/bv2f_pilot_painted.tscn --first --paused "<conductor's pause list>" > <base>/driver.log 2>&1 &`. It **waits for the conductor's "QUIET WINDOW GO".**

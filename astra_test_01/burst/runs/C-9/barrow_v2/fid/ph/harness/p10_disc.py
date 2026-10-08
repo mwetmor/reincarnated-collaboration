@@ -63,7 +63,7 @@ def gate():
     return st.f_bavail * st.f_frsize / 2 ** 30 >= 21
 
 
-def one_run(out, scene, view, burn=None, loop=None):
+def one_run(out, scene, view, burn=None, loop=None, idle=False):
     os.makedirs(out, exist_ok=True)
     for t in range(20):
         ok, over = quiescent()
@@ -77,7 +77,7 @@ def one_run(out, scene, view, burn=None, loop=None):
     if not gate():
         return {"halt": "disk < 21 GiB"}
     cmd = ["python3", LOCK, "C-9", "--", G, "--path", ".", "--resolution", "1920x1080", "--script", H + "/ph_life.gd", "--",
-           "perf", scene, out, view] + (["--burn-ms", str(burn)] if burn else []) + (["--loop", loop] if loop else [])
+           "perf", scene, out, view] + (["--burn-ms", str(burn)] if burn else []) + (["--loop", loop] if loop else []) + (["--idle"] if idle else [])
     log = open(os.path.join(out, "log.txt"), "w")
     proc = subprocess.Popen(cmd, cwd=C9 + "/barrow_full/godot", stdout=log, stderr=subprocess.STDOUT)
     plog = open(os.path.join(out, "proclog.jsonl"), "w")
@@ -127,7 +127,8 @@ def run_set(base, scene, view, runs=3, burn=None, label="start"):
 
 
 def score(base, label):
-    runs = sorted(d for d in os.listdir(base) if d.startswith(label + "_") and os.path.exists(os.path.join(base, d, "trace.json")))
+    import re
+    runs = sorted(d for d in os.listdir(base) if re.fullmatch(re.escape(label) + r"_\d+(_set\d+)?", d) and os.path.exists(os.path.join(base, d, "trace.json")))
     rows, hitch_times = [], []
     for d in runs:
         perf = json.load(open(os.path.join(base, d, "perf.json")))
@@ -171,22 +172,31 @@ LOOPS = {   # § 50 (c): the re-routed P10 walks on rp4, proven by position trac
     "sea": "-17.5,3.5;-16.2,1.0;-17.0,-1.0;-18.0,2.0"}
 
 
-def window(base, scene, view, first_window, paused, envelope_from=None, loop=None):
-    """§ 48 (c) amendment A: inside a scheduled QUIET WINDOW, fresh-process runs in the order W P W P W P (W = the v1
-    witness, P = the candidate); each run under the quiescence precondition and the 1 Hz VOID log. Binding: the candidate's
-    worst-of-3 p99 <= 16.7 and the deterministic hitch. Report-only: the paired P p50 - adjacent W p50. First window: the
-    3 W runs RECORD the envelope (p50 range +- 0.5 ms). Later windows: a W p50 outside the recorded envelope VOIDs the session.
-    Launch DETACHED with output to a file, e.g.  nohup python3 p10_disc.py window ... > <base>/driver.log 2>&1 &"""
+SEA_IDLE = ("uv:-28.56,-1.45", "R-C9-276 REPORT-ONLY: the old sea position (where the default loop stuck, PT r268), him IDLE (standing)")
+
+
+def window(base, scene, first_window, paused, envelope_from=None, views=None):
+    """§ 48 (c) amendment A + R-C9-276. Inside a scheduled QUIET WINDOW, fresh-process runs per round i (3 rounds):
+    W_i (v1 witness), then each candidate view's run i. Candidate views (R-C9-276): start + sea (BINDING; proven loops,
+    § 50 (c)) and sea_idle (REPORT-ONLY: the old sea position, him standing). Each run under the quiescence precondition and
+    the 1 Hz VOID log. Binding per binding view: worst-of-3 p99 <= 16.7 and the deterministic hitch. Report-only: sea_idle,
+    and the paired P p50 - preceding W p50. First window: the 3 W runs RECORD the envelope (p50 range +- 0.5 ms).
+    Launch DETACHED:  nohup python3 p10_disc.py window <base> <scene> --first --paused "..." > <base>/driver.log 2>&1 &"""
+    views = views or [("start", "uv:0,0", LOOPS["start"], False, True), ("sea", "uv:0,0", LOOPS["sea"], False, True),
+                      ("sea_idle", SEA_IDLE[0], None, True, False)]
     os.makedirs(base, exist_ok=True)
     wlog = {"start": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "paused_by_conductor": paused, "first_window": first_window,
-            "order": "W P W P W P", "runs": []}
+            "order": "per round: W, " + ", ".join(v[0] for v in views), "views": [{"name": v[0], "view": v[1], "loop": v[2], "idle": v[3],
+                                                                                 "binding": v[4]} for v in views], "runs": []}
+
     def save():
         json.dump(wlog, open(os.path.join(base, "window_log.json"), "w"), indent=1)
     save()
     for i in range(1, 4):
-        for lab, sc, vw, lp in (("W", "res://scenes/barrow_painted.tscn", "uv:0,1", None), ("P", scene, view, loop)):
+        seq = [("W", "res://scenes/barrow_painted.tscn", "uv:0,1", None, False)] + [(v[0], scene, v[1], v[2], v[3]) for v in views]
+        for lab, sc, vw, lp, idl in seq:
             d = os.path.join(base, "%s_%d" % (lab, i))
-            r = one_run(d, sc, vw, None, lp)
+            r = one_run(d, sc, vw, None, lp, idl)
             wlog["runs"].append({"run": "%s_%d" % (lab, i), "result": r, "t": time.strftime("%H:%M:%S")})
             save()
             if r.get("halt") or r.get("void"):
@@ -195,23 +205,27 @@ def window(base, scene, view, first_window, paused, envelope_from=None, loop=Non
                 save()
                 return wlog
     W = score(base, "W")
-    Pp = score(base, "P")
-    pairs = []
-    for i in range(1, 4):
-        wp = [x for x in W["runs"] if x["run"] == "W_%d" % i][0]["p50"]
-        pp = [x for x in Pp["runs"] if x["run"] == "P_%d" % i][0]["p50"]
-        pairs.append({"pair": i, "P_p50": pp, "W_p50": wp, "diff_report_only": round(pp - wp, 3)})
-    wp50 = [x["p50"] for x in W["runs"]]
+    wp50 = {x["run"]: x["p50"] for x in W["runs"]}
     if first_window:
-        env = [round(min(wp50) - 0.5, 3), round(max(wp50) + 0.5, 3)]
+        env = [round(min(wp50.values()) - 0.5, 3), round(max(wp50.values()) + 0.5, 3)]
         session_void = False
     else:
         env = json.load(open(envelope_from))["envelope_p50"]
-        session_void = any(not (env[0] <= x <= env[1]) for x in wp50)
-    wlog.update(stop=time.strftime("%Y-%m-%dT%H:%M:%S%z"), witness=W, candidate=Pp, paired_report_only=pairs,
-                envelope_p50=env, envelope_recorded_here=first_window, session_void=session_void,
-                binding={"worst_p99": Pp["worst_p99"], "p99_pass": Pp["p99_pass"], "hitch_pass": Pp["hitch_pass"],
-                         "pass": (not session_void) and Pp["pass"]})
+        session_void = any(not (env[0] <= x <= env[1]) for x in wp50.values())
+    res = {}
+    for v in views:
+        sc_ = score(base, v[0])
+        pairs = [{"round": i, "P_p50": [x for x in sc_["runs"] if x["run"] == "%s_%d" % (v[0], i)][0]["p50"],
+                  "W_p50": wp50["W_%d" % i]} for i in range(1, 4)]
+        for p in pairs:
+            p["diff_report_only"] = round(p["P_p50"] - p["W_p50"], 3)
+        res[v[0]] = {"binding": v[4], "score": sc_, "paired_report_only": pairs}
+    binding_views = [v[0] for v in views if v[4]]
+    wlog.update(stop=time.strftime("%Y-%m-%dT%H:%M:%S%z"), witness=W, candidates=res, envelope_p50=env,
+                envelope_recorded_here=first_window, session_void=session_void,
+                binding={"views": binding_views, "pass": (not session_void) and all(res[b]["score"]["pass"] for b in binding_views),
+                         "per_view": {b: {"worst_p99": res[b]["score"]["worst_p99"], "hitch_pass": res[b]["score"]["hitch_pass"],
+                                          "pass": res[b]["score"]["pass"]} for b in binding_views}})
     save()
     return wlog
 
@@ -226,13 +240,11 @@ if __name__ == "__main__":
     elif a[0] == "score":
         print(json.dumps(score(a[1], a[2] if len(a) > 2 else "run"), indent=1))
     elif a[0] == "window":
-        # window <base> <scene> <view> --first | --envelope <window_log.json of the founding window>  [--paused "..."]
+        # window <base> <scene> --first | --envelope <window_log.json of the founding window>  [--paused "..."]
         first = "--first" in a
         env = a[a.index("--envelope") + 1] if "--envelope" in a else None
         paused = a[a.index("--paused") + 1] if "--paused" in a else ""
-        lp = a[a.index("--loop") + 1] if "--loop" in a else None
-        lp = LOOPS.get(lp, lp)
-        r = window(a[1], a[2], a[3], first, paused, env, lp)
+        r = window(a[1], a[2], first, paused, env)
         print("window done", json.dumps(r.get("binding", r.get("halt_or_void"))))
     elif a[0] == "witness":
         base = a[1]

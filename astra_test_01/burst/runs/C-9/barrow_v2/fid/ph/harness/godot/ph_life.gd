@@ -19,6 +19,7 @@ var no_wind := false
 var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
 var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
 var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
+var idle := false         # --idle: perf with him STANDING at <view> (R-C9-276 report-only water-cost view)
 var loop_arg := ""        # --loop "u,v;u,v;...": absolute walk waypoints (R-C9-272: the default loop is not reachable on rp4)
 var burn_ms := 0.0
 var vp: SubViewport
@@ -33,6 +34,7 @@ func _initialize() -> void:
 	view = a[3]
 	no_wind = a.has("--no-wind")
 	floe_red = a.has("--floe-red")
+	idle = a.has("--idle")
 	if a.has("--loop"):
 		loop_arg = a[a.find("--loop") + 1]
 	if a.has("--floe-pairs"):
@@ -289,13 +291,17 @@ func _perf() -> void:
 		for pt in loop_arg.split(";"):
 			var xy := pt.split(",")
 			loop.append(Vector2(float(xy[0]), float(xy[1])))
-	scene.place_knight(loop[3].x, loop[3].y, "N")
+	if idle:
+		scene.place_knight(c.x, c.y, "S")
+	else:
+		scene.place_knight(loop[3].x, loop[3].y, "N")
 	var wi := 0
 	var dt := 1.0 / 60.0
 	var pre := PackedFloat64Array()
 	var tp := Time.get_ticks_usec()
 	for i in 180:
-		k.drive_dir(scene.canvas_dir_uv(scene.knight_uv(), loop[wi]), false, dt)
+		if not idle:
+			k.drive_dir(scene.canvas_dir_uv(scene.knight_uv(), loop[wi]), false, dt)
 		await process_frame
 		var tq := Time.get_ticks_usec()
 		pre.append(float(tq - tp) / 1000.0)
@@ -306,9 +312,10 @@ func _perf() -> void:
 	var t_prev := Time.get_ticks_usec()
 	var t_win0 := t_prev
 	for i in n:
-		if scene.knight_uv().distance_to(loop[wi]) < 0.6:
-			wi = (wi + 1) % loop.size()
-		k.drive_dir(scene.canvas_dir_uv(scene.knight_uv(), loop[wi]), false, dt)
+		if not idle:
+			if scene.knight_uv().distance_to(loop[wi]) < 0.6:
+				wi = (wi + 1) % loop.size()
+			k.drive_dir(scene.canvas_dir_uv(scene.knight_uv(), loop[wi]), false, dt)
 		if burn_ms > 0.0:
 			var b0 := Time.get_ticks_usec()
 			while Time.get_ticks_usec() - b0 < int(burn_ms * 1000.0):
@@ -324,7 +331,7 @@ func _perf() -> void:
 	var total := 0.0
 	for x in s:
 		total += float(x)
-	rep = {"scene": scene.scene_file_path, "view": view, "burn_ms": burn_ms, "frames": n, "mean_ms": total / n,
+	rep = {"scene": scene.scene_file_path, "view": view, "burn_ms": burn_ms, "frames": n, "idle": idle, "mean_ms": total / n,
 		"p50_ms": s[int(n * 0.5)], "p99_ms": s[int(n * 0.99)], "max_ms": s[n - 1],
 		"render": [root.get_texture().get_width(), root.get_texture().get_height()],
 		"renderer": RenderingServer.get_current_rendering_method(), "adapter": RenderingServer.get_video_adapter_name()}
