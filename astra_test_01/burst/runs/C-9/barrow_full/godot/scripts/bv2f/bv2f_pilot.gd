@@ -211,6 +211,8 @@ func _dress_painted() -> void:
 	snowfall.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(snowfall)
 	n["frame_rebound_materials"] = _rebind_frame(self)
+	if prof_try.has("groundtiles"):   # R-C9-268 item 2 candidate cut (instrument until ruled): ground meshes split into tiles
+		n["ground_tiles"] = _tile_ground_meshes(8.0)
 	n["warmup"] = _warm_pipelines()   # BV2F-PT R-C9-200
 	var ok := 0
 	var bad := []
@@ -677,6 +679,65 @@ func _physics_process(dt: float) -> void:
 	# DEV-21: the reeds' wind on the snow's clock, as v1 runs the heather's
 	if snow != null and reed_mat != null:
 		reed_mat.set_shader_parameter("wind_time", snow.clock())
+
+
+func _tile_ground_meshes(tile_m: float) -> Dictionary:
+	"""R-C9-268 candidate LOOK-NEUTRAL cut: LV's ground class meshes are ONE mesh each over the whole ~79 x 72 m site
+	(ground_snow alone 0.70 M triangles), so the renderer draws every triangle every frame although the play camera sees
+	~19 x 17 m. Each is split into tile_m x tile_m tiles -- the SAME triangles, vertices, normals and material -- so
+	frustum culling drops the off-screen tiles. The original MeshInstance3D is hidden, not freed."""
+	var rep := {"meshes": 0, "tiles": 0, "tris": 0}
+	for root in level.get_children():
+		if not String(root.name).begins_with("ground_"):
+			continue
+		var mi := root.get_node_or_null("mesh") as MeshInstance3D
+		if mi == null or mi.mesh == null or mi.mesh.get_surface_count() != 1:
+			continue
+		var arr := mi.mesh.surface_get_arrays(0)
+		if arr[Mesh.ARRAY_INDEX] != null and (arr[Mesh.ARRAY_INDEX] as PackedInt32Array).size() > 0:
+			continue
+		var V: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		var N: PackedVector3Array = arr[Mesh.ARRAY_NORMAL]
+		if V.size() < 30000:
+			continue
+		var xf := mi.global_transform
+		var TV := {}
+		var TN := {}
+		var nt := V.size() / 3
+		for t in nt:
+			var c := xf * ((V[3 * t] + V[3 * t + 1] + V[3 * t + 2]) / 3.0)
+			var key := Vector2i(int(floor(c.x / tile_m)), int(floor(c.z / tile_m)))
+			if not TV.has(key):
+				TV[key] = PackedVector3Array()
+				TN[key] = PackedVector3Array()
+			var tv: PackedVector3Array = TV[key]
+			tv.append(V[3 * t]); tv.append(V[3 * t + 1]); tv.append(V[3 * t + 2])
+			TV[key] = tv
+			var tn: PackedVector3Array = TN[key]
+			tn.append(N[3 * t]); tn.append(N[3 * t + 1]); tn.append(N[3 * t + 2])
+			TN[key] = tn
+		for key in TV:
+			var a2 := []
+			a2.resize(Mesh.ARRAY_MAX)
+			a2[Mesh.ARRAY_VERTEX] = TV[key]
+			a2[Mesh.ARRAY_NORMAL] = TN[key]
+			var am := ArrayMesh.new()
+			am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, a2)
+			var tmi := MeshInstance3D.new()
+			tmi.name = "tile_%d_%d" % [key.x, key.y]
+			tmi.mesh = am
+			tmi.transform = mi.transform
+			tmi.material_override = mi.material_override
+			tmi.material_overlay = mi.material_overlay
+			tmi.cast_shadow = mi.cast_shadow
+			tmi.layers = mi.layers
+			tmi.gi_mode = mi.gi_mode
+			root.add_child(tmi)
+			rep["tiles"] += 1
+		mi.visible = false
+		rep["meshes"] += 1
+		rep["tris"] += nt
+	return rep
 
 
 func _warm_pipelines() -> Dictionary:

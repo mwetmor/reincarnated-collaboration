@@ -1,0 +1,213 @@
+{
+ "_what": "R-C9-268 item 2: P10 hitch trace + content census + first look-neutral cut candidate (pilot 4, rp4). Traces: fid/pt/r268/hitch/{start1..3,sea1..2}/hitch_trace.json (godot/tools/bv2f/pt_hitch_trace.gd = PH's ph_life perf walk + engine counters)",
+ "warmup_coverage": "COMPLETE: 0 pipeline compilations of any kind (canvas/mesh/surface/draw/specialization) in preroll or window, 5 runs",
+ "walk_validity": "BROKEN on the rp4 level: the knight stops at frame ~343-356 (~6 s) and never moves again -- start view stuck at uv (2.29, 2.94) (stone circle) heading for waypoint (0,5); sea view stuck at (-28.56,-1.45). ~80% of the 900-frame window is a standing knight pushing into geometry. PH's loop needs re-routing (reachable waypoints) before any P10 reading on rp4 binds.",
+ "hitches": "all > 22 ms window frames fall INSIDE the stuck span: start 10.45-10.73 s (3/3 runs) + 13.7 s (1/3); sea 11.0 / 13.45-13.49 s (1/2), matching PH's 12.2-13.4 s. No compilation at any of them; a 60-65 ms frame followed by a ~3 ms frame (a GPU sync / presentation stall), not CPU work. They are tied to the stuck push, not to a walk position; re-test on a valid route.",
+ "content_census": "fid/pt/r268/census/mesh_census.json: 4.79 M triangles visible-in-tree, 2.46 M shadow-casting (Level models 2.17 M: tripo rocks at 40 k each -- talus 640 k, gully_rock 480 k, cliff_faces 320 k, sea_stacks 120 k; knight 289 k + its InkLine copy). LV ground class meshes are ONE mesh each over ~79 x 72 m: ground_snow 702 k, ice 234 k, mound 180 k, shrub 132 k ... ~1.5 M triangles drawn whole every frame although the camera sees ~19 x 17 m.",
+ "per_subsystem_start_frame": {
+  "baseline": {
+   "prims": 3129737,
+   "p50_ms": 16.47
+  },
+  "heather_off": {
+   "prims": 2928935,
+   "p50_ms": 15.18
+  },
+  "stairsnow_off": {
+   "prims": 3009479,
+   "p50_ms": 16.02
+  },
+  "reeds_off": {
+   "prims": 3129523,
+   "p50_ms": 16.46
+  },
+  "water_off": {
+   "prims": 3129737,
+   "p50_ms": 16.43
+  },
+  "_": "single traced runs, stuck walk: indicative only"
+ },
+ "cut_1_groundtiles": {
+  "what": "BV2F_PROF_TRY=groundtiles (bv2f_pilot.gd _tile_ground_meshes): each ground class mesh split into 8 m tiles -- the SAME triangles, vertices, normals, material; the original hidden -- so frustum culling drops off-screen ground",
+  "start_prims": 1921156,
+  "start_p50_ms": 14.16,
+  "still_diff": {
+   "pilot_01.png": {
+    "noise_build_vs_base2": [
+     0.3839351851851852,
+     29397
+    ],
+    "tiles_vs_build": [
+     0.2642140882201646,
+     20948
+    ],
+    "tiles_vs_base2": [
+     0.43108297968106996,
+     34970
+    ]
+   },
+   "pilot_02.png": {
+    "noise_build_vs_base2": [
+     0.5395346257716049,
+     42939
+    ],
+    "tiles_vs_build": [
+     0.5570566486625514,
+     42059
+    ],
+    "tiles_vs_base2": [
+     0.6983142039609054,
+     51989
+    ]
+   },
+   "pilot_03.png": {
+    "noise_build_vs_base2": [
+     0.36448575745884776,
+     28671
+    ],
+    "tiles_vs_build": [
+     0.33253504372427983,
+     25836
+    ],
+    "tiles_vs_base2": [
+     0.4819671103395062,
+     38269
+    ]
+   },
+   "pilot_04.png": {
+    "noise_build_vs_base2": [
+     0.22742589377572017,
+     20190
+    ],
+    "tiles_vs_build": [
+     0.2819725758744856,
+     24191
+    ],
+    "tiles_vs_base2": [
+     0.33428176440329216,
+     28459
+    ]
+   },
+   "pilot_05.png": {
+    "noise_build_vs_base2": [
+     0.17249421296296297,
+     14959
+    ],
+    "tiles_vs_build": [
+     0.16922968106995884,
+     14751
+    ],
+    "tiles_vs_base2": [
+     0.2274607767489712,
+     20196
+    ]
+   },
+   "pilot_06.png": {
+    "noise_build_vs_base2": [
+     0.2712808641975309,
+     25313
+    ],
+    "tiles_vs_build": [
+     0.25461178626543207,
+     23793
+    ],
+    "tiles_vs_base2": [
+     0.3769272440843621,
+     32757
+    ]
+   },
+   "pilot_07.png": {
+    "noise_build_vs_base2": [
+     0.23287680041152264,
+     21934
+    ],
+    "tiles_vs_build": [
+     0.19758937757201647,
+     18794
+    ],
+    "tiles_vs_base2": [
+     0.3150848765432099,
+     29546
+    ]
+   },
+   "pilot_08.png": {
+    "noise_build_vs_base2": [
+     0.25063577031893003,
+     25568
+    ],
+    "tiles_vs_build": [
+     0.242768454218107,
+     23723
+    ],
+    "tiles_vs_base2": [
+     0.36627105838477364,
+     35301
+    ]
+   },
+   "pilot_09.png": {
+    "noise_build_vs_base2": [
+     1.2931545781893004,
+     68830
+    ],
+    "tiles_vs_build": [
+     1.7335492219650206,
+     78237
+    ],
+    "tiles_vs_base2": [
+     0.6195400913065844,
+     48578
+    ]
+   },
+   "pilot_10.png": {
+    "noise_build_vs_base2": [
+     0.2365694122942387,
+     19061
+    ],
+    "tiles_vs_build": [
+     0.2665406378600823,
+     20581
+    ],
+    "tiles_vs_base2": [
+     0.2373461612654321,
+     21991
+    ]
+   },
+   "pilot_11.png": {
+    "noise_build_vs_base2": [
+     0.2614485275205761,
+     25017
+    ],
+    "tiles_vs_build": [
+     0.29711869855967077,
+     27583
+    ],
+    "tiles_vs_base2": [
+     0.3366774369855967,
+     31273
+    ]
+   },
+   "pilot_12.png": {
+    "noise_build_vs_base2": [
+     0.2728883744855967,
+     25134
+    ],
+    "tiles_vs_build": [
+     0.2785238233024691,
+     25795
+    ],
+    "tiles_vs_base2": [
+     0.27547437628600824,
+     25966
+    ]
+   }
+  },
+  "still_diff_summary": "12 stills: mean |d| tiles-vs-build 0.43, tiles-vs-rerun 0.39, against same-build noise (build vs rerun) 0.39 (animated wind/snow): within noise, 7/12 at or below the noise pair, 5/12 slightly above it. A frozen-wind static diff is the stricter proof to run under PH's pre-registered protocol.",
+  "status": "CANDIDATE, gated off (instrument); adoption = conductor ruling after a valid-route P10 under PH's discipline. NB tools that walk a ground root's meshes (ID capture, take) must ignore the tiles or the hidden original -- check before adoption."
+ },
+ "next_levers": [
+  "mesh LOD for the 40 k-triangle tripo rocks (generate_lods at load; <= 1 px screen error) -- needs a still-diff",
+  "SnowField/SnowSurface 184 k + StairSnow 120 k tiled the same way",
+  "shadow casting off for models whose shadow is already in the painting -- NOT look-neutral by assumption: still-diff",
+  "heather thinning LAST, ABX-bound (jack-ryan s3)"
+ ]
+}
