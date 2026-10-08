@@ -137,3 +137,8 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P10 walk re-route PROVEN on rp4 (§ 50 (c)): start (-10.77,5.75)/(-3.25,1.26)/(-1.75,6.83)/(-6.5,7.5) min 1-s 0.73 m; sea (-17.5,3.5)/(-16.2,1.0)/(-17.0,-1.0)/(-18.0,2.0) min 0.59 m (less water in frame, disclosed). p10_disc window --loop start|sea.
 - [x] R-C9-276: sea_idle report-only view added (ph_life --idle; p10_disc window: per round W, start, sea, sea_idle). [ ] WAIT for "QUIET WINDOW GO" -> nohup python3 harness/p10_disc.py window ph/renders/p10_window1 res://scenes/bv2f_pilot_painted.tscn --first --paused "..." > ph/renders/p10_window1/driver.log 2>&1 & (BV2F_PILOT rp4 default). Stay idle until then.
 - [x] QUIET WINDOW 1: HALT never quiescent (mediaanalysisd 20-48%, mds_stores 13-33%, Warp ~19%); 0 runs; lock released 19:47:38 -> matt_to_do (host-level). Driver: heavy_lock -- env PH_LOCK_HELD=1 p10_disc.py window (detached).
+
+## R-C9-278 (Phase 3 paint block lifted) -- PH duties
+- [ ] B-1: when PT reports which a1 half the BUILT DEV-25c paste mask pastes (E = [0,128) canvas-edge / C = [128,256) interior; § 48 (d)), RECORD it in calibration.md and COMMIT before either A/B arm exists; both arms scored on that half (bars E 8.789 / C 11.045, § 49). (PT registration text says "the strip far half" = E by reading; the binding half comes from the built mask only.)
+- [ ] B-3 at M3: every candidate still phase-matched per § 50 (a), the pilot region included (view k <- T[k mod 6], +-0.10 px).
+- No Godot until disk >= 21 GiB (16-20 now: macOS update download, Matt T34).
