@@ -177,7 +177,7 @@ CARVE = {"t": (-7.0, 24.0), "s": (-19.5, 5.0), "step": 0.2, "high_water": SEA_Z 
          # R-C9-228: NO cove -- the cliff line is continuous (cliff kit, as 3686cea98/09ba67b23); s_back = the cave mouth's s (the
          # arch is worn into the corner where the face meets the stair gully's W wall, facing the camera); parts = [] (nothing cut)
          "cove": {"t_w": 8.8, "t_e": 19.9, "s_back": -1.5, "round_r": 1.2, "parts": []},
-         "landing": {"t_w": 8.8, "t_e": 19.4, "s_front": 1.45, "mouth_r": 3.0},
+         "landing": {"t_w": 8.8, "t_e": 19.4, "s_front": 1.95, "mouth_r": 3.0},
          "cave_axis_ts": (-0.6, -0.8), "mouth_h_cut": 7.4, "mouth_w_cut": 6.5, "cave_depth": 3.0,
          "col_spacing": 1.7, "land_thr": -1.0, "bed_below": 0.55, "head_margin": 0.4}
 # THE CLIFF KIT (Phase 1'' sheets -> Tripo -> uniform scale). Until a piece exists the nearest Phase 1' build stands in.
@@ -753,31 +753,45 @@ def main():
         tseeds = K.jitter_seeds(tb_, 1.5, rngw, in_trans)
         # the transition's ice IS the ground (classed ice -> ice_mid -> shore_ice down the slope); its plate boundaries are
         # drawn as CRACKS that widen westward into dark LEADS -- no blocks on the slope
-        seen_e = set()
-        for cell in K.voronoi_cells(tseeds, tb_):
-            for q0, q1 in zip(cell, cell[1:] + cell[:1]):
-                key = tuple(sorted([(round(q0[0], 2), round(q0[1], 2)), (round(q1[0], 2), round(q1[1], 2))]))
-                if key in seen_e:
-                    continue
-                seen_e.add(key)
-                L_ = math.dist(q0, q1)
-                if L_ < 0.1:
-                    continue
-                n_p = max(1, int(L_ / 0.18))
-                for k in range(n_p):
-                    e0 = (q0[0] + (q1[0] - q0[0]) * k / n_p, q0[1] + (q1[1] - q0[1]) * k / n_p)
-                    e1 = (q0[0] + (q1[0] - q0[0]) * (k + 1) / n_p, q0[1] + (q1[1] - q0[1]) * (k + 1) / n_p)
-                    mid_ = ((e0[0] + e1[0]) / 2, (e0[1] + e1[1]) / 2)
-                    if not in_trans(mid_):
-                        continue
-                    jq, iq = min(max(int(round((v1 - mid_[1]) * HF_PPM)), 0), H - 1), min(max(int(round((mid_[0] - u0) * HF_PPM)), 0), W - 1)
-                    w_ = min(1.0, float(d_shore[jq, iq]) / 9.0)
-                    wd = 0.03 + 0.5 * w_ ** 1.6
-                    nn = (-(e1[1] - e0[1]) / (L_ / n_p), (e1[0] - e0[0]) / (L_ / n_p))
-                    poly = [(e0[0] - nn[0] * wd / 2, e0[1] - nn[1] * wd / 2), (e1[0] - nn[0] * wd / 2, e1[1] - nn[1] * wd / 2),
-                            (e1[0] + nn[0] * wd / 2, e1[1] + nn[1] * wd / 2), (e0[0] + nn[0] * wd / 2, e0[1] + nn[1] * wd / 2)]
-                    zq = float(Z[jq, iq])
-                    trans_plates.append({"cls": "lead", "poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(poly)], "z0": round(zq - 0.15, 3), "z1": round(zq + 0.09, 3)})
+        # R-C9-229 (4): no regular net -- long irregular cracks wandering WEST from the mere's ice, branching, widening into
+        # dark leads as the ice breaks up toward the sea, plus broken plates and rubble near its sea edge (own stream 2291)
+        rngt2 = __import__("random").Random(2291)
+        jq_ = lambda q: (min(max(int(round((v1 - q[1]) * HF_PPM)), 0), H - 1), min(max(int(round((q[0] - u0) * HF_PPM)), 0), W - 1))
+
+        def tvein(p, hd, length, depth):
+            L_ = 0.0
+            while L_ < length:
+                hd += rngt2.gauss(0.0, 0.3)
+                q = (p[0] + 0.35 * math.cos(hd), p[1] + 0.35 * math.sin(hd))
+                if not in_trans(q):
+                    return
+                jq, iq = jq_(q)
+                w_ = min(1.0, float(d_shore[jq, iq]) / 9.0)
+                wd = (0.03 + 0.55 * w_ ** 1.7) * rngt2.uniform(0.6, 1.5)
+                nn = (-math.sin(hd) * wd / 2, math.cos(hd) * wd / 2)
+                poly = [(p[0] - nn[0], p[1] - nn[1]), (q[0] - nn[0], q[1] - nn[1]), (q[0] + nn[0], q[1] + nn[1]), (p[0] + nn[0], p[1] + nn[1])]
+                zq = float(Z[jq, iq])
+                trans_plates.append({"cls": "lead", "poly": [[round(x[0], 3), round(x[1], 3)] for x in K.ccw(poly)], "z0": round(zq - 0.15, 3), "z1": round(zq + 0.09, 3)})
+                p = q
+                L_ += 0.35
+                if depth < 2 and rngt2.random() < 0.06 + 0.08 * w_:
+                    tvein(p, hd + rngt2.choice((-1, 1)) * rngt2.uniform(0.6, 1.4), length * rngt2.uniform(0.3, 0.7), depth + 1)
+        ii_t, jj_t = ii, jj
+        for _v in range(16):
+            k_ = rngt2.randrange(len(ii_t))
+            p0 = (us[ii_t[k_]], vs[jj_t[k_]])
+            tvein(p0, math.pi + rngt2.gauss(0.0, 0.7), rngt2.uniform(3.0, 12.0), 0)
+        for _r in range(70):                                # broken plates and rubble where the field meets the sea
+            k_ = rngt2.randrange(len(ii_t))
+            q = (us[ii_t[k_]] + rngt2.uniform(-0.2, 0.2), vs[jj_t[k_]] + rngt2.uniform(-0.2, 0.2))
+            jq, iq = jq_(q)
+            w_ = float(d_shore[jq, iq]) / 9.0
+            if w_ < 0.6 or rngt2.random() > w_:
+                continue
+            r_ = rngt2.uniform(0.12, 0.7) ** 1.4 * 1.5
+            pg = [(q[0] + r_ * math.cos(b_) * rngt2.uniform(0.55, 1.2), q[1] + r_ * math.sin(b_) * rngt2.uniform(0.55, 1.2)) for b_ in np.linspace(0, 2 * math.pi, rngt2.randint(4, 7), endpoint=False)]
+            zq = float(Z[jq, iq])
+            trans_plates.append({"cls": "rubble", "poly": [[round(x[0], 3), round(x[1], 3)] for x in K.ccw(pg)], "z0": round(zq - 0.1, 3), "z1": round(zq + rngt2.uniform(0.08, 0.3), 3)})
         for k in range(10):                                # reed islands and snow-covered low rocks through the transition
             q = (us[ii[rngw.randrange(len(ii))]] + rngw.uniform(-0.3, 0.3), vs[jj[rngw.randrange(len(jj))]])
             q = (us[ii[(k * 37) % len(ii)]], vs[jj[(k * 37) % len(jj)]])
@@ -872,9 +886,10 @@ def main():
     m_c = (R["cave_t"] - CR["cave_axis_ts"][0] * 1.4, sb_ - CR["cave_axis_ts"][1] * 1.4)   # the floor just out of the mouth
 
     def landing_fn(tq, sq):
-        sfr = LD_["s_front"] + 0.25 * np.sin(tq * 1.3 + 0.9) + 0.12 * np.sin(tq * 3.3 + 0.2)
+        sfr = LD_["s_front"] + 0.55 * np.sin(tq * 0.9 + 0.4) + 0.3 * np.sin(tq * 2.3 + 1.7) + 0.15 * np.sin(tq * 5.1)   # R-C9-229 (3): lobed, ragged
         gully = (tq >= t0s - 0.2) & (tq <= t1s + 0.2) & (sq >= s_foot - 0.3) & (sq <= sfr)
-        mouth = (np.hypot(tq - m_c[0], sq - m_c[1]) < LD_["mouth_r"] + 0.3 * np.sin(np.arctan2(sq - m_c[1], tq - m_c[0]) * 3 + 0.5)) & (sq <= sfr)
+        ang = np.arctan2(sq - m_c[1], tq - m_c[0])
+        mouth = (np.hypot(tq - m_c[0], sq - m_c[1]) < LD_["mouth_r"] + 0.55 * np.sin(ang * 3 + 0.5) + 0.3 * np.sin(ang * 5 + 2.0)) & (sq <= sfr)
         return gully | mouth
     carve_P = {"step": CR["step"], "t0": CR["t"][0], "t1": CR["t"][1], "s0": CR["s"][0], "s1": CR["s"][1], "z0": SEA_FLOOR - 0.6, "z1": head_z_max + 1.6,
                "H": H_ts, "z_floor": SEA_FLOOR, "landing_z": R["shelf_z"], "high_water": CR["high_water"], "land_thr": CR["land_thr"],
@@ -1160,16 +1175,35 @@ def main():
         return math.degrees(math.atan2(d0[0] * d1[1] - d0[1] * d1[0], d0[0] * d1[0] + d0[1] * d1[1]))   # < 0: the coast turns seaward-convex
     s = 2.0
     k = 0
+    prev_s, filled_gap = -99.0, False
     while s < lip_s[-1] - 1.0:
         p, d, n = lip_at(s)
-        if max(float(carved_mask_at(*to_fr((p[0] + d[0] * k_ * 4.5 - n[0] * 1.0, p[1] + d[1] * k_ * 4.5 - n[1] * 1.0)))) for k_ in (-1, 0, 1)) > 0.45:   # R-C9-228: the kit runs right up to the carved gully
-            s += 1.0
-            continue
         cape = turn(s) < -12.0
         g = g_cape if cape else g_col
         bx, by, bz = ab(g)
         top = float(np.interp(s, lip_s, crest)) + 1.0 + 0.3 * math.sin(k * 2.1)          # the columns stand ~1 m proud of the snow
         sc = (top - foot_z) / by
+        hw_k = bx * sc / 2 - 0.8
+        # R-C9-229 (1): the kit runs right up to the carved cave/gully (no bare skirt wall left showing): a piece is set
+        # wherever its own width stays out of the carve mask's core
+        blocked = lambda p_, d_, n_: max(float(carved_mask_at(*to_fr((p_[0] + d_[0] * k_ * hw_k - n_[0] * 1.0, p_[1] + d_[1] * k_ * hw_k - n_[1] * 1.0))))
+                                         for k_ in (-1, -0.5, 0, 0.5, 1)) > 0.6
+        if blocked(p, d, n):
+            back = None
+            if not filled_gap:
+                for sb2 in np.arange(s - 0.5, prev_s + 0.4, -0.5):     # slide back toward the last piece: fill up to the carve
+                    p2, d2, n2 = lip_at(sb2)
+                    if not blocked(p2, d2, n2):
+                        back = sb2
+                        break
+            filled_gap = True
+            if back is None:
+                s += 0.5
+                continue
+            s = back
+            p, d, n = lip_at(s)
+        else:
+            filled_gap = False
         dep = bz * sc
         c = (p[0] + n[0] * (1.0 - dep / 2), p[1] + n[1] * (1.0 - dep / 2))          # front 1.0 m out: the face behind is the skirt
         cliff_insts.append(model("cliff_%d" % k, "rock", g, c, n, sc, z=foot_z, piece="cliffcape" if cape else "cliffcol", collider="trimesh",
@@ -1181,6 +1215,7 @@ def main():
             a = prng.uniform(0, 2 * math.pi)
             talus_insts.append(model("talus_%d" % len(talus_insts), "rock", g_stk, q, (math.sin(a), math.cos(a)), ht / ab(g_stk)[1], z=ICE_TOP - 0.3 * ht, piece="seastack",
                                      collider="box"))
+        prev_s = s
         s += bx * sc * 0.62
         k += 1
     # -- R-C9-212/213/214: the route's rock is the CARVED mass (bv2pp_carve) -- no kit pieces, no shelf, nothing added onto it
@@ -1192,6 +1227,35 @@ def main():
     for i, (p, ht) in enumerate(STACKS_UV):
         a = 0.7 + i * 2.1
         stack_insts.append(model("stack_%d" % i, "rock", g_stk, p, (math.sin(a), math.cos(a)), (ht + 0.5) / ab(g_stk)[1], z=SEA_Z - 0.5, piece="seastack", collider="trimesh"))
+    # R-C9-229 (1)/(2): the cliff-kit's own rounded rock round the cave and up both sides of the stair gully (seastack pieces,
+    # one uniform scale each, rotation only): columns set into the gully's walls rising above the treads on both sides, two
+    # on the knoll over the arch, one flanking the mouth on the face -- the carved mass behind them stays the walk surface
+    rngg = __import__("random").Random(2292)
+    gully_insts = []
+    gbx, gby, gbz = ab(g_stk)
+    sm_ = s_foot - 0.4
+    while sm_ > s_top - 0.8:
+        for side, t_edge, face_dir in (("w", t0s, dR), ("e", t1s, (-dR[0], -dR[1]))):
+            plane_z = R["shelf_z"] + max(0.0, (s_foot + R["tread"]) - sm_) * rise / R["tread"]
+            base = plane_z - 1.2
+            topz = float(H_ts(np.array([t_edge + (-1.6 if side == "w" else 1.6)]), np.array([sm_]))[0]) + rngg.uniform(0.5, 1.9)
+            sc_ = max(0.6, (topz - base) / gby)
+            off = gbz * sc_ / 2 + 0.75 + rngg.uniform(0.0, 0.35)
+            tc_ = t_edge - off if side == "w" else t_edge + off
+            sc_c = sm_ + rngg.uniform(-0.4, 0.4)
+            if side == "w" and sc_c + gbx * sc_ / 2 > -5.6:
+                continue                                     # the cave's tunnel runs under the gully's W wall near its foot
+            gully_insts.append(model("gully_col_%s_%d" % (side, len(gully_insts)), "rock", g_stk, fr(tc_, sc_c), face_dir, sc_, z=base, piece="seastack", collider="trimesh",
+                                     note="R-C9-229: kit rock in the stair gully's %s wall" % side))
+        sm_ -= rngg.uniform(1.8, 2.6)
+    for k_, (aa, cc, zb, ht) in enumerate([(1.8, -2.1, 4.4, 2.6), (1.4, 2.0, 4.4, 2.2)]):     # on the knoll over the arch
+        c_ = (R["cave_t"] + cax[0] * aa + (-cax[1]) * cc, CARVE["cove"]["s_back"] + cax[1] * aa + cax[0] * cc)
+        sc_ = ht / gby
+        gully_insts.append(model("cave_col_%d" % k_, "rock", g_stk, fr(*c_), nR, sc_, z=zb, piece="seastack", collider="trimesh", note="R-C9-229: kit rock over the cave's arch"))
+    ht = (R["crest"] + 1.2) - (SEA_Z - 0.4)
+    gully_insts.append(model("cave_col_w", "rock", g_stk, fr(R["cave_t"] - 4.4, 0.7), nR, ht / gby, z=SEA_Z - 0.4, piece="seastack", collider="trimesh",
+                             note="R-C9-229: kit rock flanking the cave mouth on the face"))
+    group("gully_rock", "cliff", gully_insts)
     group("cliff_faces", "cliff", cliff_insts)
     group("talus", "talus", talus_insts)
     group("sea_stacks", "stack", stack_insts)
@@ -1204,7 +1268,7 @@ def main():
     # TIDAL SIGNS (R-C9-212/213): sea ice in the cove's water and pushed into the mouth's west side; icicles under the rime line
     LDc = CARVE["landing"]
     def sedge_f(t_):
-        return LDc["s_front"] + 0.25 * math.sin(t_ * 1.3 + 0.9) + 0.12 * math.sin(t_ * 3.3 + 0.2)
+        return LDc["s_front"] + 0.55 * math.sin(t_ * 0.9 + 0.4) + 0.3 * math.sin(t_ * 2.3 + 1.7) + 0.15 * math.sin(t_ * 5.1)
     rngc = __import__("random").Random(2263)
     cove_ice, icicles = [], []
     placed_ = []
@@ -1262,8 +1326,8 @@ def main():
         sf_ = s_foot - i * R["tread"]                       # the row's FRONT (downhill, seaward) edge; it climbs toward -s
         ztop = R["shelf_z"] + (i + 1) * rise
         rough_ = 1.0 if i >= 3 else 1.8
-        nb = rngt.choice((3, 3, 4))
-        wts = [rngt.uniform(0.7, 1.3) for _ in range(nb)]
+        nb = rngt.choice((2, 3, 3, 4))
+        wts = [rngt.uniform(0.45, 1.6) for _ in range(nb)]           # R-C9-229 (2): stones of very different lengths, staggered joints
         edges = [t0s]
         for w_ in wts:
             edges.append(edges[-1] + W_ * w_ / sum(wts))
@@ -1271,8 +1335,8 @@ def main():
         for j in range(nb):
             ta_ = edges[j] + (0.0 if j == 0 else 0.065)
             tb_ = edges[j + 1] - (0.0 if j == nb - 1 else 0.065)
-            f0 = sf_ - rngt.uniform(0.0, 0.08) * rough_            # fronts only ever set BACK (inland) of the nosing line
-            f1 = sf_ - rngt.uniform(0.0, 0.08) * rough_
+            f0 = sf_ - rngt.uniform(0.0, 0.14) * rough_            # fronts only ever set BACK (inland) of the nosing line, unevenly
+            f1 = sf_ - rngt.uniform(0.0, 0.14) * rough_
             bk = sf_ - R["tread"] + rngt.uniform(0.045, 0.075)
             ch = rngt.uniform(0.06, 0.12) * rough_
             fm = lambda x_: f0 + (f1 - f0) * x_
@@ -1281,13 +1345,21 @@ def main():
             poly = [fr(q[0], q[1]) for q in pts_]
             zt = ztop - rngt.uniform(0.0, 0.03) * rough_ - side_drop[j]
             tread_blocks.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(poly)], "z0": round(ztop - rise - 0.45, 3), "z1": round(zt, 3)})
-            nose = rngt.uniform(0.1, 0.17)
-            ins_ = 0.06
-            cap = [fr(q[0], q[1]) for q in [(ta_ + ins_, fm(0) - nose + rngt.uniform(-0.03, 0.03)), (ta_ + (tb_ - ta_) * 0.33, fm(0.33) - nose + rngt.uniform(-0.02, 0.04)),
-                                             (ta_ + (tb_ - ta_) * 0.66, fm(0.66) - nose + rngt.uniform(-0.02, 0.04)), (tb_ - ins_, fm(1) - nose + rngt.uniform(-0.03, 0.03)),
-                                             (tb_ - ins_ - 0.02, bk + ins_), (ta_ + ins_ + 0.02, bk + ins_)]]
-            tread_snow.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(cap)], "z0": round(zt - 0.03, 3), "z1": round(zt + 0.04, 3)})
-            treads_uv.append({"id": "tread_%02d_%d" % (i, j), "z_m": round(zt, 4), "outline_uv": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(cap)]})
+            # R-C9-229 (2): SNOW in irregular patches on the stone (drifted against the back and the gully walls), never a full-width
+            # band; some stones bare
+            if rngt.random() < 0.18:
+                continue
+            for _pt in range(rngt.choice((1, 1, 2))):
+                wid = (tb_ - ta_) * rngt.uniform(0.25, 0.7)
+                bias = -0.25 if j == 0 else (0.25 if j == nb - 1 else 0.0)
+                tcn = ta_ + (tb_ - ta_) * min(0.85, max(0.15, 0.5 + bias + rngt.uniform(-0.25, 0.25)))
+                scn = bk + (fm(0.5) - bk) * rngt.uniform(0.25, 0.55)
+                dep = (fm(0.5) - bk) * rngt.uniform(0.35, 0.7)
+                ph = rngt.uniform(0, 6.3)
+                cap = [fr(tcn + wid / 2 * math.cos(a_) * (1 + 0.18 * math.sin(3 * a_ + ph)), scn + dep / 2 * math.sin(a_) * (1 + 0.15 * math.cos(2 * a_ + ph)))
+                       for a_ in np.linspace(0, 2 * math.pi, 10, endpoint=False)]
+                tread_snow.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(cap)], "z0": round(zt - 0.03, 3), "z1": round(zt + rngt.uniform(0.025, 0.05), 3)})
+                treads_uv.append({"id": "tread_%02d_%d_%d" % (i, j, _pt), "z_m": round(zt, 4), "outline_uv": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(cap)]})
     json.dump({"_what": "R-C9-216/226: the stair's tread stones (each block's top), for PT's 3D snow layer (DEV-22); z = the block's top (m; the walk ramp runs through the nosings)",
                "frame": "v1 (u, v) metres", "treads": treads_uv}, open(os.path.join(ART, "stair_treads.json"), "w"), indent=1)
     jit = [0.0] * n_r
@@ -1357,7 +1429,8 @@ def main():
         slabs["mere_plates"]["items"].append({"poly": sim_poly(e["poly"]), "z0": MERE_SHAPE["bed_z"] - 0.05, "z1": e["top"]})
     slabs["mere_cracks"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_cracks]}
     slabs["mere_seams"] = {"class": "snow", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_seams]}
-    slabs["trans_leads"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in trans_plates]}
+    slabs["trans_leads"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in trans_plates if e["cls"] == "lead"]}
+    slabs["trans_rubble"] = {"class": "shore_ice", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in trans_plates if e["cls"] == "rubble"]}
     # R-C9-226 (4): REED ISLANDS are reeds, not flat patches -- each a small raised snow hummock (stepped into a low dome) in the
     # ice, with clumps of reed tufts (shrub class) standing on it and round its foot; PT's 3D reed cards grow from the tufts
     rngr = __import__("random").Random(2265)
@@ -1409,6 +1482,19 @@ def main():
                              "z0": round(ICE_TOP - 0.06, 3), "z1": round(ICE_TOP - 0.02, 3)})
             p_ = q_
     slabs["cradle_cracks"] = {"class": "sea", "items": cr_items}
+    # R-C9-229 (3): a few rocks on the iced ledge, along its ragged sea edge and against the cliff (kept off the route's middle)
+    rngl = __import__("random").Random(2293)
+    lrocks = []
+    spots = [(t_, sedge_f(t_) - rngl.uniform(0.3, 0.7)) for t_ in (rngl.uniform(R["cave_t"] - 3.5, R["cave_t"] - 1.5), rngl.uniform(t0s + 0.5, t0s + 2.0),
+                                                                       rngl.uniform(t1s - 2.0, t1s - 0.4), rngl.uniform(R["cave_t"] + 0.5, t0s - 0.5))] + \
+            [(t1s - rngl.uniform(0.3, 0.8), s_foot + rngl.uniform(0.3, 1.2)), (t0s + rngl.uniform(0.3, 0.8), s_foot + rngl.uniform(0.6, 1.6))]
+    for (t_, s_) in spots:
+        r_ = rngl.uniform(0.3, 0.7)
+        base_ = [fr(t_ + r_ * math.cos(b_) * rngl.uniform(0.7, 1.2), s_ + r_ * math.sin(b_) * rngl.uniform(0.7, 1.2)) for b_ in np.linspace(0, 2 * math.pi, 8, endpoint=False)]
+        h_ = rngl.uniform(0.3, 0.8)
+        for f_, dz in ((1.0, 0.0), (0.7, h_ * 0.55), (0.4, h_)):
+            lrocks.append({"poly": sim_poly(K.scale_about(K.ccw(base_), f_)), "z0": round(R["shelf_z"] - 0.1, 3), "z1": round(R["shelf_z"] + h_ * 0.5 + dz, 3)})
+    slabs["ledge_rocks"] = {"class": "rock", "items": lrocks}
     slabs["stair_treads"] = {"class": "rock", "items": tread_blocks}      # R-C9-226 (1): every tread its own stone
     slabs["stair_snow"] = {"class": "snow", "items": tread_snow}
     # the CLIFF SKIRT: the face behind the kit, a 0.35 m rock band along the lip from the sea to the crest (the heightfield's
@@ -1529,7 +1615,7 @@ def main():
                 "route": route_sim, "hall_panels": HALL_PANELS,
                 "stair": None, "skip_models": [], "glb_copies": glb_copies, "glb_missing": [],
                 "model_class": {"wreck": "wood", "barrow_front": "rock", "longhall": "wood", "fallen_gable": "char", "ring_stones": "rock", "slope_stones": "rock", "crags": "rock",
-                                "cliff_faces": "rock", "talus": "rock", "sea_stacks": "rock", "palisade": "wood", "logs": "wood"},
+                                "cliff_faces": "rock", "gully_rock": "rock", "talus": "rock", "sea_stacks": "rock", "palisade": "wood", "logs": "wood"},
                 "blob_class": {}, "colliders": True,
                 "_frame": "sim (x, y) = (u, -v): the Level node's local frame IS v1's (u, v) -- no site rotation (R-C9-185)"},
     }

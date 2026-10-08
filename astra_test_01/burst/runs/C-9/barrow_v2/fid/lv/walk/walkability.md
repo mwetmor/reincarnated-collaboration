@@ -11,7 +11,7 @@ Against the art level's **colliders** (terrain HeightMapShape3D, the stair's nos
 | iced landing (in the cove) slope <= 10 deg | 0.00 deg | PASS |
 | no riser above v1's step height (0.103 m) | max 0.032 m between samples 0.05 m apart (treads' visual riser 0.250 m is under the ramp) | PASS |
 | stair clear width >= 5 m | min 5.15 m over 12 sections | PASS |
-| iced landing clear width >= 5 m (cave mouth -> past the jamb -> stair foot) | min 5.05 m over 7 sections | PASS |
+| iced landing clear width >= 5 m (cave mouth -> past the jamb -> stair foot) | min 5.60 m over 7 sections | PASS |
 | cave mouth clear height ~7 m | 7.10 m at the arch's lip (the first centreline sample under the roof); 4.74 m deeper in; the floor 8.35 m clear across 1 m inside | PASS |
 | v1's knight driven from inside the cave to the clifftop | reached True in 12.7 s (761 frames, 0 off the floor); ends at uv (9.30, -2.54) z 0.74 | PASS |
 
@@ -41,13 +41,13 @@ Sections (clear width = walkable run across, capped by the free run to the neare
 | stair_09 | 5.25 | 5.62 | 5.25 | 15.00 |
 | stair_10 | 5.20 | 5.61 | 5.20 | 15.00 |
 | stair_11 | 5.35 | 6.60 | 5.35 | 15.00 |
-| shelf_00 | 5.70 | 6.83 | 5.70 | 15.00 |
-| shelf_01 | 5.35 | 6.52 | 5.35 | 15.00 |
-| shelf_02 | 5.05 | 5.54 | 5.05 | 1.62 |
-| shelf_03 | 5.30 | 5.69 | 5.30 | 2.85 |
-| shelf_04 | 5.75 | 6.70 | 5.75 | 15.00 |
-| shelf_05 | 5.35 | 6.43 | 5.35 | 15.00 |
-| shelf_06 | 5.40 | 6.45 | 5.40 | 15.00 |
+| shelf_00 | 6.50 | 7.53 | 6.50 | 15.00 |
+| shelf_01 | 6.70 | 7.77 | 6.70 | 15.00 |
+| shelf_02 | 5.65 | 6.14 | 5.65 | 1.62 |
+| shelf_03 | 6.25 | 6.50 | 6.25 | 2.85 |
+| shelf_04 | 6.25 | 7.33 | 6.25 | 15.00 |
+| shelf_05 | 6.55 | 7.57 | 6.55 | 15.00 |
+| shelf_06 | 5.60 | 6.55 | 5.60 | 15.00 |
 | cave_mouth | 8.35 | 9.87 | 8.35 | 2.40 |
 
 Stills: `route_topdown.png` (straight down, north up) and `route_play.png` (v1's play camera) -- the magenta line is the knight's DRIVEN track (a check overlay, not in the guide); him on the stair for scale.

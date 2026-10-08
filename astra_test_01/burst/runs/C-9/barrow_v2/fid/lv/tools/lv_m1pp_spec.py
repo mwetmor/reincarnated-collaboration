@@ -31,7 +31,7 @@ S = [("01_coast_west", (-17.0, -7.0), (-12.0, -1.0), -2.0, "the W coast: the pla
       "CLOSE: the stair -- every tread its own stone (snow on top, bare stone at the front), 5 m clear, climbing inland", (645, 740)),
      ("10_cove_wide", cove_c, (cove_c[0] - 1.0, cove_c[1] + 6.0), -1.5,
       "WIDE: the continuous cliff line -- the cave in the face, the stair gully between rock columns", (610, 770)),
-     ("11_mere_sea", (-29.0, 9.0), (-22.0, 6.0), -1.5, "the mere turning into the sea through one graded ice field and reed islands (R-C9-221)", (170, 330)),
+     ("11_mere_sea", (-29.0, 9.0), (-22.0, 6.0), -1.5, "the mere turning into the sea: irregular cracks widening westward into leads and rubble, reed islands (R-C9-229)", (170, 330)),
      ("12_river_mere", (-25.5, 17.5), (-18.0, 13.0), 0.0, "the river: a tiny UN-FROZEN ribbon of open water down the coast into the mere's ice (R-C9-227)", (230, 110)),
      ("13_hall_yard", (12.5, 2.5), (6.0, 0.0), 0.0, "the burnt hall's ash yard: an irregular trampled patch, no straight edges", (1290, 520))]
 spec = []
