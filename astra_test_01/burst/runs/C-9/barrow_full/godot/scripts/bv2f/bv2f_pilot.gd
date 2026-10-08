@@ -213,6 +213,8 @@ func _dress_painted() -> void:
 	n["frame_rebound_materials"] = _rebind_frame(self)
 	if not prof_off.has("groundtiles"):   # P10 CUT 1 (R-C9-272, adopted): ground meshes split into 8 m tiles; BV2F_PROF_OFF=groundtiles = before
 		n["ground_tiles"] = _tile_ground_meshes(8.0)
+	if prof_try.has("rocklod"):   # R-C9-272 (b) candidate cut (instrument until ruled): mesh LODs on the 40 k-tri rocks
+		n["rock_lod"] = _lod_rocks(["talus", "gully_rock"])
 	n["warmup"] = _warm_pipelines()   # BV2F-PT R-C9-200
 	var ok := 0
 	var bad := []
@@ -679,6 +681,43 @@ func _physics_process(dt: float) -> void:
 	# DEV-21: the reeds' wind on the snow's clock, as v1 runs the heather's
 	if snow != null and reed_mat != null:
 		reed_mat.set_shader_parameter("wind_time", snow.clock())
+
+
+func _lod_rocks(prefixes: Array) -> Dictionary:
+	"""R-C9-272 (b) candidate cut: the tripo rock models (talus, gully_rock) carry 40 k triangles each whatever their
+	size on screen. Each mesh gets Godot's own LOD chain (ImporterMesh.generate_lods: meshoptimizer, the import
+	pipeline's), chosen per frame at the renderer's default 1-px screen-error threshold; the original mesh is kept in
+	meta "lod_orig" so a probe can swap back (pt_cut_ab.gd)."""
+	var rep := {"meshes": 0, "lods": []}
+	for root in level.get_children():
+		var nm := String(root.name)
+		var hit := false
+		for p in prefixes:
+			if nm.begins_with(String(p)):
+				hit = true
+		if not hit:
+			continue
+		var stack := [root]
+		while not stack.is_empty():
+			var nd: Node = stack.pop_back()
+			for c in nd.get_children():
+				stack.append(c)
+			if not (nd is MeshInstance3D) or (nd as MeshInstance3D).mesh == null:
+				continue
+			var mi := nd as MeshInstance3D
+			var m: Mesh = mi.mesh
+			var im := ImporterMesh.new()
+			for si in m.get_surface_count():
+				im.add_surface(m.surface_get_primitive_type(si), m.surface_get_arrays(si), [], {}, m.surface_get_material(si), "")
+			im.generate_lods(25.0, 60.0, [])
+			var lm := im.get_mesh()
+			mi.set_meta("lod_orig", m)
+			mi.set_meta("lod_mesh", lm)
+			mi.mesh = lm
+			rep["meshes"] += 1
+			if rep["lods"].size() < 3:
+				rep["lods"].append(lm.surface_get_lod_count(0) if lm.get_surface_count() > 0 else 0)
+	return rep
 
 
 func _tile_ground_meshes(tile_m: float) -> Dictionary:
