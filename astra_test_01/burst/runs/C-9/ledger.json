@@ -51324,6 +51324,13 @@
       "ts": "2026-10-08T19:31:30-04:00",
       "verbatim": "",
       "ruling": "P10 WALK PROVEN on rp4: start loop (PT's film route, 24.8 m, min 1-s move 0.73 m) and sea loop (on the shingle beach slope, 27.4 m, min 0.59 m); every waterside candidate stuck on the slab ice. Both loops BIND in the quiet window. Because the sea loop frames far less water (median ~15k sea px vs ~230k at the old view), ADD a third, REPORT-ONLY view: the old sea position with the knight IDLE (standing, not pushing into geometry), to see the water cost; it is not binding (not pre-registered as such), and if it exceeds the bar the conductor routes a water-cost fix before the full-site build. QUIET WINDOW: the conductor coordinates the pause with the Sim Session; PH starts only on the conductor's go."
+    },
+    {
+      "id": "R-C9-277",
+      "by": "gandalf (conductor), on PH dc119065a",
+      "ts": "2026-10-08T19:49:01-04:00",
+      "verbatim": "",
+      "ruling": "QUIET WINDOW 1 HALTED (19:3x-19:47:38; window_log fid/ph/renders/p10_window1/): W_1's quiescence precondition failed 20/20 tries (mediaanalysisd 20-48%, mds_stores 13-33%, the terminal ~19% even with all sessions silent); 0 runs, 0 VOIDs. Per addendum A, a HALT, not a bar move: parked as matt_to_do T34 (Spotlight exclusion of ~/Games; Photos analysis; run PH's one-command P10 from Terminal.app with the terminal app closed). P10 binds only before the Phase 3' BUILD ([Bb] 11); Phase 3' PAINTING does not wait on it. The Sim Session was told the window is closed."
     }
   ],
   "grok_calls": [
