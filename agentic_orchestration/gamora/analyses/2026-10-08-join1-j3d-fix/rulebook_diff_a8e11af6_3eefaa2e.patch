@@ -1,0 +1,17 @@
+diff --git a/src/join2_rulebook/forms.py b/src/join2_rulebook/forms.py
+index 8eb35d81..a84becf6 100644
+--- a/src/join2_rulebook/forms.py
++++ b/src/join2_rulebook/forms.py
+@@ -319,8 +319,10 @@ def proportional_applied(raw: float, mitigable: str, armor: float, absorption_pc
+     if mitigable == "pct-resist-only":
+         # AMENDMENT-2 § 3 (D2 CB, SkillItem.cpp L1425-1434): positive DR% only, capped at 100; no armour, no flat,
+         # no absorption, no k, no crit; negative DR does not amplify
+-        dr = min(res_physical_pct + res_bonus_pct, 100.0)
+-        return raw - raw * dr / 100.0 if dr > 0.0 else raw
++        dr = res_physical_pct + res_bonus_pct
++        if dr >= 100.0:                                  # immune: EXACTLY 0.0 (jack-ryan J3d WARN-1: raw - raw*1.0
++            return 0.0                                   # leaves a +-ulp residue on ~13 % of f64 raws)
++        return max(0.0, raw - raw * dr / 100.0) if dr > 0.0 else raw
+     return _kc2("player_offense").applied_damage(raw=raw, armor=armor, absorption_pct=absorption_pct,
+                                                 res_physical_pct=res_physical_pct + res_bonus_pct, crit_mult=1.0)
+ 
