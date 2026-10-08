@@ -1,5 +1,27 @@
 # Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2; resumed R-C9-224, PAUSED AGAIN 2026-10-08
 
+## R-C9-236 (2026-10-08): fix G RATIFIED + "cleaner rim" -- G+RIM stills with the conductor for Matt's look. NO web rebuild, loadout commit or JOIN-1 pack until he has looked
+
+- G + RIM (proposed) = body `export/ss233g/so-body_ss233.glb` (G, unchanged) + hood `export/ss233m/hood.glb` + a pen change:
+  * hood ss233m = ss233d (G's lining) through `scripts/r233_07_hood_clean.py --smooth-rim 3 --smooth-band 0.04,8 --cap-too
+    --rim-m 0.08`: shell vertices within 8 cm of the face opening that sampled the atlas's hair/shadow texels (the dark
+    speckle; it stays with the pen OFF) re-UV'd to the nearest well-lit red cloth (2143 shell + 1015 cap vertices); the
+    ragged opening edge smoothed (3 boundary passes) and the brim's crumpled band within 4 cm smoothed (8 passes, faded);
+    the lining moved with its shell. Report `work/r233/hood_clean_m.json`.
+  * THE PEN (web, depth-only screen pen): her BODY and the hood's LINING surfaces write the pen's THIN stencil class
+    (PaintStack.stencil_write, STENCIL_THIN: lines whose near side is them draw at thin_pen_scale 0.28); the hood's shell
+    and every other piece stay full, so her silhouette and the hood's outline keep their line. Probe variant
+    "fixE+thin+thinlining" in tools/probe_face_r233.gd. "thinall" (everything thin) was tried and LOSES the silhouette.
+  * Measured (face-toward headings, idle): face visible 39% -> 71%, visible-face luma 66 -> 117, footprint 56 -> 108; walk
+    and Fire Ball the same shape (look/r236_final/final236_measure.json). Releases unchanged (body = G's, orb-tip identical).
+- Stills: `look/r236_final/R-C9-236_live_vs_G_rim_z1.jpg` (play scale) and `_z3.jpg`.
+- TO SHIP (after Matt's look): (1) give the lining primitives their own glTF material (e.g. "hood_lining", same texture)
+  in r233_05 so the live code can find them; (2) barrow_full.gd, Compatibility path after adopt_character: her body's ramp
+  -> stencil_write(STENCIL_THIN); any character mesh with a "lining" surface -> per-surface overrides (lining = thin copy);
+  (3) fold ss233g body + ss233m hood into so_bm134 (make_slots), texture_provenance, web rebuild (EOR2 pin), select_check +
+  web_perf, ONE loadout commit; then the JOIN-1 v6 pack from the same body (releases re-checked).
+
+
 ## R-C9-233 (2026-10-08): the sorceress's FACE under the hood -- STEPS 0-2 DONE, stills with the conductor for Matt. NO deploy, NO loadout commit until Matt approves
 
 Brief (ledger R-C9-233): diagnose (isolation grid at the play camera), fix, live-vs-fix stills.

@@ -94,7 +94,7 @@ json.dump({'tag': TAG, 'mean_over_headings': summary, 'rows': rows}, open('%s/%s
 # --- sheets: rows = variants, columns = headings; z1 (the play camera, x2 nearest) and z3 (x0.67) -----------------------
 LABEL = {'live': 'live (as played)', 'nofronthair': 'front hair hidden', 'nohood': 'hood hidden', 'headzero': 'head+neck at rest',
          'fill': 'face fill light', 'noink': 'no ink in the face opening', 'inksync': 'ink follows her morphs',
-         'fixA': 'FIX A: + face strands tucked', 'fixB': 'FIX B: + face lifted', 'fixC': 'FIX C', 'fixD': 'FIX D: all hair in, lifted, lining', 'fixE': 'FIX E: D, outer strands kept', 'fixF': 'FIX F: all hair in, head lifted, lining', 'fixG': 'FIX G: F + forehead repainted'}
+         'fixA': 'FIX A: + face strands tucked', 'fixB': 'FIX B: + face lifted', 'fixC': 'FIX C', 'fixD': 'FIX D: all hair in, lifted, lining', 'fixE': 'FIX E: D, outer strands kept', 'fixF': 'FIX F: all hair in, head lifted, lining', 'fixG': 'FIX G: F + forehead repainted', 'fixE+thin+thinlining': 'G + RIM'}
 for clip in CLIPS:
     for zoom, cell, src_px in ((1, 280, 70), (3, 300, 200)):
         vs = [v for v in VARS if os.path.exists('%s/%s_%s_S_z%d_beauty.png' % (D, 'noinkface' if v == 'noink' else v, clip, zoom)) or v == 'noink']

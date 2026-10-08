@@ -120,17 +120,20 @@ func _initialize() -> void:
 			for zoom in [1, 3]:
 				scene.park_camera(scene.aim_for(k.global_position), float(zoom))
 				for vname in variants:
-					await _variant(String(vname), true)
+					for part in String(vname).split("+"):
+						await _variant(part, true)
 					var base := "%s/%s_%s_%s_z%d" % [out_dir, vname, shot[0], h, zoom]
 					await _shoot(base + "_beauty.png", zoom)
-					if zoom == 3 and String(vname) in ID_VARIANTS:
+					if zoom == 3 and String(vname).split("+")[0] in ID_VARIANTS:
 						PaintStack.post_set(scene.post_mat, "ink_on", 0.0)
 						await _shoot(base + "_nopen.png", zoom)
 						PaintStack.post_set(scene.post_mat, "ink_on", 1.0)
 						await _id_pass("a"); await _shoot(base + "_ida.png", zoom); _restore_all()
 					if String(vname) in ["live", "headzero"]:
 						await _id_pass("foot"); await _shoot(base + "_foot.png", zoom); _restore_all()
-					await _variant(String(vname), false)
+					var parts := String(vname).split("+"); parts.reverse()
+					for part in parts:
+						await _variant(part, false)
 			var hp := _head_pitch()
 			rep["poses"].append({"clip": shot[0], "t": shot[1], "heading": h, "head": hp})
 			print("[face233] %s@%.4f %s head %s" % [shot[0], shot[1], h, JSON.stringify(hp)])
@@ -185,6 +188,7 @@ func _shoot(path: String, zoom: int) -> void:
 
 # --- variants --------------------------------------------------------------------------------------------------------
 var _fill: DirectionalLight3D
+var _thin_save := {}
 var _headsave := {}
 var _nfh := {}
 
@@ -222,6 +226,44 @@ func _variant(v: String, on: bool) -> void:
 				var ink = (mi as MeshInstance3D).get_meta("ink", null)
 				if ink != null:
 					(ink as MeshInstance3D).visible = not on
+		"thin", "thinall":
+			# R-C9-236: THE WEB PEN AT ITS "THIN" STRENGTH on her: her ramp material(s) write the pen's THIN stencil class
+			# (PaintStack.stencil_write, STENCIL_THIN -- the class the heather and twigs write; the post pass draws a line
+			# whose NEAR side is that class at thin_pen_scale, 0.28). "thin" = her BODY only (face, neck, tucked hair: the
+			# lines inside the opening whose near side is her face), so the hood's own lines -- its silhouette and the
+			# opening's rim, whose near side is the hood -- stay full; "thinall" = body and every gear piece
+			var tg: Array = [k._mesh] if v == "thin" else [k._mesh] + hood_mis + gear_mis
+			for mi in tg:
+				if on:
+					_thin_save[mi] = (mi as MeshInstance3D).material_override
+					var sm := (mi as MeshInstance3D).material_override as ShaderMaterial
+					var sh := Shader.new(); sh.code = PaintStack.stencil_write(sm.shader.code, PaintStack.STENCIL_THIN)
+					var nm := ShaderMaterial.new(); nm.shader = sh
+					for u in sm.shader.get_shader_uniform_list():
+						nm.set_shader_parameter(String(u["name"]), sm.get_shader_parameter(String(u["name"])))
+					(mi as MeshInstance3D).material_override = nm
+				else:
+					(mi as MeshInstance3D).material_override = _thin_save[mi]
+		"thinlining":
+			# the hood's LINING surfaces (index >= 2: r233_05 appends them after the shell and the cap) at the THIN pen
+			# strength, the shell and cap at full: the brim's underside seen through the opening is the lining, so its
+			# lines thin, while the hood's silhouette (near side: the outer shell) keeps its full line
+			for mi in hood_mis:
+				var hm := mi as MeshInstance3D
+				if on:
+					var ramp := hm.material_override as ShaderMaterial
+					_thin_save[hm] = ramp
+					var sh := Shader.new(); sh.code = PaintStack.stencil_write(ramp.shader.code, PaintStack.STENCIL_THIN)
+					var nm := ShaderMaterial.new(); nm.shader = sh
+					for u in ramp.shader.get_shader_uniform_list():
+						nm.set_shader_parameter(String(u["name"]), ramp.get_shader_parameter(String(u["name"])))
+					hm.material_override = null
+					for s in hm.mesh.get_surface_count():
+						hm.set_surface_override_material(s, nm if s >= 2 else ramp)
+				else:
+					for s in hm.mesh.get_surface_count():
+						hm.set_surface_override_material(s, null)
+					hm.material_override = _thin_save[hm]
 		"headzero":
 			for b in ["Head", "neck"]:
 				var i := skel.find_bone(b)
