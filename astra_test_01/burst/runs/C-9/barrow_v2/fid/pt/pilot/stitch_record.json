@@ -1,5 +1,5 @@
 {
- "_what": "BV2F PT pilot REPAINT stitch record (v1 guided_stitch.py, Tier A, partition of unity) -- R-C9-232",
+ "_what": "BV2F PT pilot stitch record (the TIER-B guided_stitch.py: v1 + DEV-23/25/26/27 [+ DEV-24 post-stitch], flags below; partition of unity) -- R-C9-232, label fixed R-C9-268 (jack-ryan pilot-4 Gate-2 s5(b)); pilot 4 = all five ON (build log)",
  "painting": "fid/pt/pilot/painting.png",
  "sha256": "7105731298efc40265979df0dcd795c161d82d2d5483d54c8c0e3eff51cd1c8f",
  "prefix": "BV2F-PS4",
@@ -55,10 +55,16 @@
   "0_2|1_2": 8.16,
   "1_2|2_2": 11.21
  },
- "dev24": true,
  "overlap_mad_range": [
   5.17,
   11.66
  ],
- "_ref": "Phase 2' 5.29-11.97; v1 2.7-13.1"
+ "_ref": "Phase 2' 5.29-11.97; v1 2.7-13.1",
+ "flags": {
+  "DEV23": true,
+  "DEV25": true,
+  "DEV26": true,
+  "DEV27": true,
+  "DEV24": true
+ }
 }

@@ -32,8 +32,8 @@ for r in range(R):
         if r + 1 < R:
             mad["%s/%d_%d" % (k, c, r + 1)] = round(float(np.abs(im[k][768:, :] - im["%d_%d" % (c, r + 1)][:256, :]).mean()), 2)
 pp = os.path.join(P, "painting.png")
-json.dump({"_what": "BV2F PT pilot REPAINT stitch record (v1 guided_stitch.py, Tier A, partition of unity) -- R-C9-232",
+json.dump({"_what": "BV2F PT pilot stitch record (the TIER-B guided_stitch.py: v1 + DEV-23/25/26/27 [+ DEV-24 post-stitch], flags below; partition of unity) -- R-C9-232, label fixed R-C9-268 (jack-ryan pilot-4 Gate-2 s5(b))",
            "painting": "fid/pt/pilot/painting.png", "sha256": sha(pp), "prefix": PX, "canvases": can,
-           "overlap_mad": mad, "dev24": os.environ.get("BV2F_DEV24") == "1", "overlap_mad_range": [min(mad.values()), max(mad.values())],
+           "overlap_mad": mad, "flags": {f: (os.environ.get("BV2F_" + f, "1" if f != "DEV24" else "0") != "0") for f in ("DEV23", "DEV25", "DEV26", "DEV27", "DEV24")}, "overlap_mad_range": [min(mad.values()), max(mad.values())],
            "_ref": "Phase 2' 5.29-11.97; v1 2.7-13.1"}, open(os.path.join(P, "stitch_record.json"), "w"), indent=1)
 print(json.dumps({"sha": sha(pp)[:12], "mad": [min(mad.values()), max(mad.values())]}))

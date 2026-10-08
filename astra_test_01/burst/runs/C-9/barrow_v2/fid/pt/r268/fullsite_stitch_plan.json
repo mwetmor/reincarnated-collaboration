@@ -1,0 +1,20 @@
+{
+ "_what": "R-C9-268 item 5: DEV-26/DEV-24 under the FULL-SITE stitch (5 x 5) -- proof plan and re-base rule (jack-ryan Gate-2 s5(a), [Bb]).",
+ "what_moves": {
+  "DEV-26": "one DP path per GLOBAL band; the full site lengthens every x-band (rows 0-4) and every y-band (cols 0-4). The DP backtracks from the band's END, so a longer band can move the path inside the pilot extent.",
+  "DEV-27": "reads the already-placed composite, which carries DEV-26's weights -> moves wherever (DEV-26) moves",
+  "DEV-23/25": "per chunk from its OWN left/top context only: pilot chunks' values unchanged (their neighbours are pilot chunks)",
+  "expected_change_zone": "the pilot's outgoing overlaps x >= 3840 and y >= 2304 change by design (they gain a neighbour)",
+  "DEV-24": "its layer-1 check is a WHOLE-IMAGE sha -> it HALTS on any full-site stitch by design"
+ },
+ "fix_1_pin_paths": "DEV-26 PINNED PREFIX: the pilot stitch's band paths are recorded (fid/pt/pilot/dev26_paths.json: x1, x2 over rows 0..2559; y1, y2 over cols 0..4095). In the full-site stitch the DP cost is +inf off the recorded offset on those rows/cols, so the prefix is forced and the DP only continues past it (continuous at the junction). Tier-B: one more BV2F line in _dev26_band reading cfg['dev26_pin']; unset = today.",
+ "fix_2_dev24_region_check": "DEV-24 base check per patch over its READ REGION (the rect pixels the paste reads: dilate(M, RING_OUT) grown by 4 x CORR_SIGMA, inside the rect) instead of the whole image. The 8 pilot-4 patches' read regions are checked to lie inside x < 3840, y < 2304 (seam2's rect reaches y 2560 but its support ends ~2250: to verify).",
+ "proof": [
+  "P-1 stand-in full-site stitch NOW, no images: cols 3-4 / rows 3-4 filled with the pinned GUIDE's own tiles (any pixels serve; only the mechanics are under test), pins on",
+  "P-2 assert: pilot region x < 3840, y < 2304 byte-identical to fid/pt/ps4_dry/painting.png (DEV-24 unset) and to the pilot-4 build (DEV-24 on, read-region checks)",
+  "P-3 assert the reverse: with pins OFF the same stand-in MOVES pilot pixels (the control: the proof can fail)",
+  "P-4 repeat P-2 on the real Phase 3' canvases at the Phase 3' build ([Bb])"
+ ],
+ "re_base_rule_if_pins_are_refused": "DEV-24 RE-PASTE: the 8 patches' repaint canvases are pinned files, so re-basing needs NO images -- the same canvases are pasted onto the full-site stitch (tone ring recomputed on the new base), the 8 crop pairs re-reviewed by the conductor; any patch whose crop changes visibly goes back to review. The pilot-region diff (old vs new) is recorded.",
+ "status": "plan; P-1..P-3 can run now (0 images); the Tier-B pin line and the region check are code owed"
+}

@@ -1,0 +1,23 @@
+{
+ "_what": "R-C9-268 item 3: DEV-25c REGISTERED (not built, not painted). Pre-registered A/B adoption rule for the FIRST Phase 3' wavefront chunk.",
+ "what": "INNER-128 PASTE + QUILTING. guided_paint stage pastes only the INNER 128 px of each 256-px overlap from the painted neighbour (the strip's far half); the chunk paints the OUTER 128 px itself. The stitch's DEV-26 cut is then confined to that outer half, where BOTH chunks hold their own new paint, so the hand-over runs between two fresh paints instead of ending on the redrawn strip (R-C9-247 mechanism 1, R-C9-249 finding: no cut inside today's overlap can reach the overlap-END line).",
+ "tier": "Tier-B: guided_paint.py (stage: the paste rect; brief: the 'ALREADY PAINTED' strip text says 128 px) + guided_stitch.py (DEV-26 margin -> the band's outer half; the ramps unchanged as a partition of unity). Both BV2F-BEGIN/END blocks, ALLOWLIST, SHA256SUMS, verify.",
+ "flag": "BV2F_DEV25C=1 (unset = today's full-256 paste and cut; with DEV23/25/26/27 also 0 = v1 byte for byte, proven by verify + a flag-off stitch cmp before use)",
+ "ab_rule": {
+  "when": "the FIRST Phase 3' wavefront chunk only",
+  "arms": {
+   "A": "v1 paste (full 256 px), DEV-23/25/26/27 on",
+   "B": "DEV-25c (inner 128 px), DEV-23/25/26/27 on"
+  },
+  "images": "+2 (one per arm) inside Phase 3' retries; each arm keeps v1's one-retry rule",
+  "adopt_B_iff": [
+   "(i) P5 a1 RE-INSTRUMENTED for the inner-128 geometry (PH: a1 over the pasted inner band; v1's bar re-derived on v1 under the same restriction; C1-C3 analogues; committed BEFORE any arm's value is read): a1(B) <= a1(A)",
+   "(ii) the context-boundary line is GONE at 1:1 in B: crops at the chunk's left/top boundary, both arms, conductor's eye, recorded",
+   "(iii) P6a (0 invented) passes for B"
+  ],
+  "else": "A; the losing arm is discarded (never pasted, never a neighbour's context)",
+  "not_allowed": "no third arm, no threshold change after reading, no per-chunk re-choice: the winner governs every later Phase 3' chunk"
+ },
+ "records_owed": "fid/pt/dev25c/{patch diffs, flag-off proof, ab_result.json}",
+ "jack_ryan": "Gate-2 s6 item 5"
+}
