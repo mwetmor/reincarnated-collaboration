@@ -1,0 +1,79 @@
+{
+ "G-10": {
+  "cut_commit_name_status": [
+   "A\tsrc/reincarnated/export/kc2_rulebook_pack_v2.py",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/manifest.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/families.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/hooks.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/kit_warlord.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/kit_warlord_crit.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/laws.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/laws_crit.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/meta.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/offense_da.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-20261008_091157/rulebook/world_gd.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v2-cut-receipt-20261008_091157.json"
+  ],
+  "ok": true
+ },
+ "G-8": {
+  "cut_is_ancestor": true,
+  "head_end": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+  "head_start": "02bff63f14bd8f7168f83de616a7ec9073cd3176",
+  "heavy_lock": "not taken (the s4.7 v4 script takes no heavy_lock; KP-346)",
+  "instrument_pinned": true,
+  "limb_Bprime_pass": true,
+  "ok": true,
+  "oracle_children_opened_file_scan": {
+   "head": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 631,
+    "pack_path_hits": []
+   },
+   "sealed": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 720,
+    "pack_path_hits": []
+   }
+  },
+  "reason": "HEAD fixed; A and B and B' pass",
+  "s47v4_evidence_FILE_sha256": "b7bdffde53acea95343961e1b713b33ac27eb569349d8957d17f59739906b32f",
+  "verdict": "ORACLE BYTE-IDENTICAL"
+ },
+ "artifact": "JOIN-1 KP-373/375/376 pack v2 gate evidence (G-8, G-10) + controls NC-V2-a..d (raw outputs in controls/)",
+ "author": "star-lord",
+ "controls": {
+  "NC-V2-a": {
+   "r1": {
+    "as_predicted": false,
+    "log": "controls/NC-V2-a.raw.log",
+    "observed": "INSTRUMENT DEFECT IN THE CONTROL HARNESS: AssertionError -- the control picked kit_crit rows[0], which after the id sort is the BRACKET row, not crit_damage_pct_eor. Not the predicted outcome; nothing written. Fixed (select by operand) in the uncommitted tool before the cut; the tool sha in the receipt is the fixed one"
+   },
+   "r2": {
+    "as_predicted": true,
+    "log": "controls/NC-V2-a.r2.raw.log",
+    "observed": "HALT; exactly 1 failure: crit_damage_pct_eor value == 57.0 + 12.0 (bits); nothing written"
+   }
+  },
+  "NC-V2-b": {
+   "as_predicted": true,
+   "log": "controls/NC-V2-b.raw.log",
+   "observed": "HALT; exactly 1 failure: OPERAND rows == GD_DECODED_ROWS (got pth_roll_span); nothing written"
+  },
+  "NC-V2-c": {
+   "as_predicted": true,
+   "log": "controls/NC-V2-c-d.raw.log",
+   "observed": "verify rc 1, member_failures ['rulebook/kit_warlord_crit.json']; load_operands(JOIN) refused"
+  },
+  "NC-V2-d": {
+   "as_predicted": true,
+   "log": "controls/NC-V2-c-d.raw.log",
+   "observed": "10/10 refused (load_operands + load_offense_da x ORACLE, PLAY, join, empty, None); clean JOIN 35 operands. Note: the refusal text names the reused loaders pack (v0 / v1), cosmetic"
+  }
+ },
+ "engine_cut_commit": "02bff63f",
+ "engine_prereg_commit": "d1da424e",
+ "pack_digest": "95e9c600de4eb215fae8547285e750bfae2de9fe1e492bcc89b29d15cb7ea73e"
+}

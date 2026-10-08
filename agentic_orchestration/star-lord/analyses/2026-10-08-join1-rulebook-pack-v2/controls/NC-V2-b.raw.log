@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v2.py", line 474, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v2.py", line 457, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False, scratch=out / f"scratch-{stamp}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v2.py", line 372, in main_build
+    raise RulebookPackHalt(f"gate failed: {json.dumps({'n_checks': gates['n_checks'], 'failures': gates['failures']})[:4000]}")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: {"n_checks": 26, "failures": [{"row": "(names)", "check": "OPERAND rows == GD_DECODED_ROWS", "got": ["pth_roll_span", "crit_damage_pct_eor", "crit_damage_pct_soulfire", "crit_model_player_stream_gd_decoded"]}]}
