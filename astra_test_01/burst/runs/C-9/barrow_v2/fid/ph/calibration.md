@@ -1377,3 +1377,44 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **Evidence-file note.** The pilot-3 life captures first wrote into `renders/pilot3/` (the § 32 directory). Its tracked files were restored from git. The untracked § 32 `life_sea` PNGs were overwritten by the pilot-3 frames, which also sit in `renders/pilot_ps3a/life_sea/`. The § 32 numbers are unaffected (recorded in `results/pilot3/p9c_flow_p10.json`). **That file name now collides with this section's `results/pilot3/`; this section's files are the new ones listed above.**
 
 **P11 v3 crops for the blind judge:** `fid/ph/p11/abx3_pilot3_v1_vs_pilot/` (62 PNG + JUDGE.md, no metadata). Key: `fid/ph/p11/keys/abx3_pilot3_v1_vs_pilot.json` (outside the judge dir). Score: `python3 harness/p11_abx3.py score pilot3_v1_vs_pilot <answers.json>`.
+
+## 46. SNOW PARITY investigation (R-C9-256; P11 pilot 3 = valid FAIL 38/40, the judge's cue being snow). No images, no Godot. `harness/snow_parity.py` → `results/pilot3/snow_parity.json`, sheet `results/pilot3/snow_parity_sheet.jpg`
+
+**Method.**
+- **Class.** Open snow on ground, tufts removed, eroded 3 px: v1 `p4_texture.v1_classes`; pilot 3 class_art `snow` on ground.
+- **Zoom.** Both plates are 100.6 px/m, so play zoom = 1:1.
+- **Grouping.** Per paint chunk: v1's 16 against the pilot's 9. Each pilot value is placed against v1's chunk-to-chunk range and SD.
+- **Sheet.** v1 | pilot, 6 patches each, 1:1 and 2×. The pilot's snow is fragmented, so its patches needed a coverage threshold of 0.85 against v1's 0.97, and they cluster in column 2. This is disclosed.
+
+| Measure | v1 chunks (min–max; mean ± sd) | Pilot 3 median [range] | Pilot chunks outside v1 range | z |
+|---|---|---|---|---|
+| **lit snow a\*** (peach, red side) | 1.83–3.07; 2.50 ± 0.37 | **1.43** [1.10–1.79] | **9/9** | **−2.9** |
+| **lit snow b\*** (peach, yellow side) | 5.68–10.24; 8.19 ± 1.30 | **5.05** [3.86–5.86] | **8/9** | **−2.4** |
+| **shadow a\*** (violet) | 2.93–4.50; 3.68 ± 0.50 | **1.74** [0.29–2.40] | **9/9** | **−3.9** |
+| shadow − lit a\* | 0.79–1.62; 1.18 ± 0.22 | 0.36 | 9/9 | −3.8 |
+| **shadow − lit b\*** (blue against the peach) | −23.9 … −14.4; −18.6 ± 2.6 | **−13.5** | **7/9** | **+2.0** |
+| shadow − lit L\* | −20.5 … −13.7; −16.8 | −15.2 | 0/9 | +0.9 |
+| median L\* | 92.3–94.4 | 92.3 | 4/9 | −1.7 |
+| L\* spread (std) | 3.25–8.15 | 6.96 | 1/9 | +1.3 |
+| shadow share of snow | 0.03–0.13 | 0.10 | 4/9 | +1.2 |
+| shadow blobs per m² | 0.58–4.03; 2.12 ± 0.97 | **6.69** | **6/9** | **+4.7** |
+| blob area median / p90 (m²) | 0.005–0.009 / 0.017–0.087 | 0.008 / 0.049 | 4/9, 2/9 | +1.3, +1.0 |
+| blob contrast (ΔL\*) | 13.7–20.6 | 15.2 | 0/9 | −1.0 |
+| blob edge width (px) | 4.0–6.7 | 5.1 | 0/9 | +0.2 |
+| **grain spectrum RMS vs v1 pool** | 0.013–0.091; 0.043 ± 0.021 | **0.116** | **6/9** | **+3.5** |
+| **cellular-mosaic p95 (P4 detector)** | 0.39–0.75; 0.57 ± 0.10 | **0.36** | **6/9** | **−2.0** |
+
+**The differences that matter (for the repaint-4 paint direction).**
+1. **The peach cast is missing (largest, consistent: 9/9 chunks).** v1's lit snow is warm peach-cream (a\* +2.5, b\* +8.2); the pilot's is cool cream (a\* +1.4, b\* +5.1). Direction: warmer, rosier lit snow, about +1 a\* and +3 b\*.
+2. **The shadows are not v1's violet-blue, and contrast less with the lit snow.**
+   - v1's shadow blobs are violet-blue (a\* +3.7) and sit about 19 b\* bluer than the peach around them.
+   - The pilot's are grey-blue (a\* +1.7) and only about 13 b\* bluer.
+   - Lightness drop, size and edge sharpness are all within v1's range; the HUE and the warm/cool SPLIT are what differ.
+   - Direction: shadow blobs a clear lavender / violet-blue against peach.
+3. **The surface grain lacks v1's cellular "cobble" mosaic.**
+   - The spectrum shape is 3.5 sd off v1's pool, and the cellular-mosaic signature is 2 sd low.
+   - The pilot's shadows break into many small, soft, low-contrast fragments (6.7 against 2.1 blobs per m²): a mottled wash.
+   - v1 groups them into fewer clusters of rounded, cell-like blobs on a fine paper grain.
+   - Direction: snow as v1's clustered rounded shadow cells, not an even mottle.
+
+**Not different (so not the cue).** Brightness (median L\*), shadow depth (ΔL\*), blob contrast, blob edge width and shadow coverage are all inside v1's spread.
