@@ -165,6 +165,11 @@
    0.8,
    0.68,
    0.46
+  ],
+  "lead": [
+   0.2,
+   0.3,
+   0.4
   ]
  },
  "levels_m": {
@@ -2996,13 +3001,12 @@
    "ice_brash": 666,
    "mere_cracks": 123,
    "mere_seams": 7,
-   "trans_leads": 357,
-   "trans_rubble": 27,
+   "trans_rubble": 20,
    "reed_tufts": 660,
    "stream_cracks": 0,
    "stream_pressure": 0,
    "ring_fallen": 4,
-   "barrow_cutting": 4,
+   "barrow_cutting": 11,
    "ring_snow": 6,
    "cove_ice": 31,
    "icicles": 40,
@@ -4955,8 +4959,8 @@
     "tris": 9464,
     "sha256": "4efcc4a6a03e469085872639de9c7969d71fa60b1a1519da7e4af927881365c5"
    },
-   "ice_mid": {
-    "file": "carved_ice_mid.f32",
+   "ice": {
+    "file": "carved_ice.f32",
     "tris": 61,
     "sha256": "1f6eada65d1acfabf758891000e78cb1e150ffd69ff40dbd33d9a6979772a00a"
    }
@@ -5045,20 +5049,21 @@
   "wet_rock",
   "rime",
   "ice_mid",
-  "reed"
+  "reed",
+  "lead"
  ],
  "class_counts": {
   "none": 555574,
-  "snow": 568424,
-  "ice": 120777,
+  "snow": 558810,
+  "ice": 117705,
   "shrub": 14691,
   "rock": 1,
   "mound": 140353,
-  "shingle": 8394,
-  "shore_ice": 42241,
-  "sea": 1624,
+  "shingle": 17800,
+  "shore_ice": 34586,
   "ash": 61031,
-  "ice_mid": 18616,
-  "reed": 16562
+  "ice_mid": 13335,
+  "reed": 16562,
+  "lead": 17840
  }
 }

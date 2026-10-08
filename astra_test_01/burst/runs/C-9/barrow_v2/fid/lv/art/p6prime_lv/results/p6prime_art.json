@@ -1,10 +1,10 @@
 {
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
-  "layout_bv2art_sha256": "47d7f9b714f121882dd199a8a61cc57e737cda10be405619431ac9666aa4ed17",
-  "ids_art_sha256": "68da6fdf525a6fb835d5a966e46ee1da70ba9eb672a1c67df42b5f25f0d91ad2",
-  "ids_manifest_sha256": "68da6fdf525a6fb835d5a966e46ee1da70ba9eb672a1c67df42b5f25f0d91ad2",
-  "level_art_sha256": "c68fa669595152a5a9a2fb28c52718f0c1706aed92ceecd65de44c2547c30452",
+  "layout_bv2art_sha256": "67bf14154c453b9b386e0e42213c9a1dde183591e2c96d65e803d81514e0dfa4",
+  "ids_art_sha256": "dbf81e09e671de44652cfdf5c29ef807a5c7b2cfd1a7fd25f0c449664552f950",
+  "ids_manifest_sha256": "dbf81e09e671de44652cfdf5c29ef807a5c7b2cfd1a7fd25f0c449664552f950",
+  "level_art_sha256": "2540723ff0b8f03eac753bf1fe6ae3eb2280f39668873a9b722af2227194835f",
   "placed_fit_sha256": "8e7227ebbf8a6aa496e566af5bd71e2dabd848dfb8dfce536dea016cbce5430e",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
@@ -30,7 +30,7 @@
    "barrow_front": 1.0,
    "longhall": 0.9754,
    "fallen_gable": 0.9489,
-   "slope_stones": 0.2726,
+   "slope_stones": 0.2727,
    "ring_stones": 0.0,
    "crags": 0.4563,
    "gully_rock": 0.8511,
@@ -58,6 +58,7 @@
    "ground_ash",
    "ground_ice",
    "ground_ice_mid",
+   "ground_lead",
    "ground_mound",
    "ground_reed",
    "ground_rock",
@@ -121,7 +122,7 @@
   "wreck": {
    "kind": "wreck",
    "instances": 1,
-   "id_px": 281809,
+   "id_px": 281858,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -143,7 +144,7 @@
   "barrow_front": {
    "kind": "barrow",
    "instances": 1,
-   "id_px": 275538,
+   "id_px": 275597,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -167,7 +168,7 @@
   "fallen_gable": {
    "kind": "ruin",
    "instances": 1,
-   "id_px": 266592,
+   "id_px": 266618,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -178,7 +179,7 @@
   "slope_stones": {
    "kind": "stones",
    "instances": 8,
-   "id_px": 60037,
+   "id_px": 60117,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -189,7 +190,7 @@
   "ring_stones": {
    "kind": "stones",
    "instances": 4,
-   "id_px": 42010,
+   "id_px": 42001,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -200,7 +201,7 @@
   "crags": {
    "kind": "outcrop",
    "instances": 2,
-   "id_px": 33764,
+   "id_px": 33765,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -211,7 +212,7 @@
   "gully_rock": {
    "kind": "cliff",
    "instances": 12,
-   "id_px": 349291,
+   "id_px": 349277,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -222,7 +223,7 @@
   "cliff_faces": {
    "kind": "cliff",
    "instances": 8,
-   "id_px": 1731759,
+   "id_px": 1731315,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -255,7 +256,7 @@
   "palisade": {
    "kind": "palisade",
    "instances": 49,
-   "id_px": 136009,
+   "id_px": 136005,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -282,8 +283,8 @@
     "type": "box",
     "z_top": 2.263,
     "own_px_in_frame": 448020,
-    "terrain_hidden_share": 0.3256,
-    "visible_share": 0.629
+    "terrain_hidden_share": 0.3258,
+    "visible_share": 0.6291
    }
   ],
   "wreck_mast": [
@@ -310,8 +311,8 @@
     "type": "box",
     "z_top": 7.59,
     "own_px_in_frame": 464446,
-    "terrain_hidden_share": 0.3523,
-    "visible_share": 0.5932
+    "terrain_hidden_share": 0.3672,
+    "visible_share": 0.5933
    }
   ],
   "longhall": [
@@ -330,8 +331,8 @@
     "type": "box",
     "z_top": 2.592,
     "own_px_in_frame": 347237,
-    "terrain_hidden_share": 0.1497,
-    "visible_share": 0.7677
+    "terrain_hidden_share": 0.1496,
+    "visible_share": 0.7678
    }
   ],
   "slope_stones": [
@@ -348,8 +349,8 @@
     "type": "box",
     "z_top": 1.9,
     "own_px_in_frame": 14035,
-    "terrain_hidden_share": 0.0489,
-    "visible_share": 0.9511
+    "terrain_hidden_share": 0.0468,
+    "visible_share": 0.9532
    },
    {
     "i": 2,
@@ -376,24 +377,24 @@
     "type": "box",
     "z_top": 1.6,
     "own_px_in_frame": 8685,
-    "terrain_hidden_share": 0.0618,
-    "visible_share": 0.9382
+    "terrain_hidden_share": 0.0617,
+    "visible_share": 0.9383
    },
    {
     "i": 6,
     "type": "box",
     "z_top": 1.8,
     "own_px_in_frame": 9356,
-    "terrain_hidden_share": 0.0717,
-    "visible_share": 0.9283
+    "terrain_hidden_share": 0.0688,
+    "visible_share": 0.9312
    },
    {
     "i": 7,
     "type": "box",
     "z_top": 1.409,
     "own_px_in_frame": 7237,
-    "terrain_hidden_share": 0.0844,
-    "visible_share": 0.9156
+    "terrain_hidden_share": 0.0812,
+    "visible_share": 0.9188
    }
   ],
   "ring_stones": [
@@ -402,16 +403,16 @@
     "type": "box",
     "z_top": 4.243,
     "own_px_in_frame": 14571,
-    "terrain_hidden_share": 0.1702,
-    "visible_share": 0.7798
+    "terrain_hidden_share": 0.1705,
+    "visible_share": 0.7795
    },
    {
     "i": 1,
     "type": "box",
     "z_top": 3.871,
     "own_px_in_frame": 11736,
-    "terrain_hidden_share": 0.0302,
-    "visible_share": 0.7715
+    "terrain_hidden_share": 0.0308,
+    "visible_share": 0.771
    },
    {
     "i": 2,
@@ -426,8 +427,8 @@
     "type": "box",
     "z_top": 2.082,
     "own_px_in_frame": 12665,
-    "terrain_hidden_share": 0.1561,
-    "visible_share": 0.721
+    "terrain_hidden_share": 0.1559,
+    "visible_share": 0.7211
    }
   ],
   "crags": [
@@ -454,8 +455,8 @@
     "type": "box",
     "z_top": 2.67,
     "own_px_in_frame": 181405,
-    "terrain_hidden_share": 0.4768,
-    "visible_share": 0.0406
+    "terrain_hidden_share": 0.4667,
+    "visible_share": 0.0405
    },
    {
     "i": 1,
@@ -470,7 +471,7 @@
     "type": "box",
     "z_top": 1.495,
     "own_px_in_frame": 34874,
-    "terrain_hidden_share": 0.3494,
+    "terrain_hidden_share": 0.3615,
     "visible_share": 0.145
    },
    {
@@ -518,15 +519,15 @@
     "type": "box",
     "z_top": 3.094,
     "own_px_in_frame": 5419,
-    "terrain_hidden_share": 0.0057,
-    "visible_share": 0.4802
+    "terrain_hidden_share": 0.0065,
+    "visible_share": 0.4805
    },
    {
     "i": 9,
     "type": "box",
     "z_top": 3.051,
     "own_px_in_frame": 3785,
-    "terrain_hidden_share": 0.0764,
+    "terrain_hidden_share": 0.079,
     "visible_share": 0.7036
    },
    {
@@ -534,16 +535,16 @@
     "type": "box",
     "z_top": 3.065,
     "own_px_in_frame": 3865,
-    "terrain_hidden_share": 0.4119,
-    "visible_share": 0.467
+    "terrain_hidden_share": 0.4155,
+    "visible_share": 0.4673
    },
    {
     "i": 11,
     "type": "box",
     "z_top": 3.142,
     "own_px_in_frame": 5393,
-    "terrain_hidden_share": 0.0912,
-    "visible_share": 0.751
+    "terrain_hidden_share": 0.0901,
+    "visible_share": 0.7519
    }
   ],
   "cliff_faces": [
@@ -552,8 +553,8 @@
     "type": "box",
     "z_top": 1.861,
     "own_px_in_frame": 407120,
-    "terrain_hidden_share": 0.0073,
-    "visible_share": 0.9251
+    "terrain_hidden_share": 0.0078,
+    "visible_share": 0.9247
    },
    {
     "i": 1,
@@ -561,47 +562,47 @@
     "z_top": 3.759,
     "own_px_in_frame": 953624,
     "terrain_hidden_share": 0.2529,
-    "visible_share": 0.5372
+    "visible_share": 0.5367
    },
    {
     "i": 2,
     "type": "box",
     "z_top": 3.239,
     "own_px_in_frame": 603014,
-    "terrain_hidden_share": 0.1919,
-    "visible_share": 0.5142
+    "terrain_hidden_share": 0.192,
+    "visible_share": 0.5137
    },
    {
     "i": 3,
     "type": "box",
     "z_top": 3.213,
     "own_px_in_frame": 596468,
-    "terrain_hidden_share": 0.0698,
-    "visible_share": 0.7509
+    "terrain_hidden_share": 0.0696,
+    "visible_share": 0.7513
    },
    {
     "i": 4,
     "type": "box",
     "z_top": 3.152,
     "own_px_in_frame": 526775,
-    "terrain_hidden_share": 0.0783,
-    "visible_share": 0.7113
+    "terrain_hidden_share": 0.0777,
+    "visible_share": 0.7114
    },
    {
     "i": 5,
     "type": "box",
     "z_top": 3.485,
     "own_px_in_frame": 877283,
-    "terrain_hidden_share": 0.4092,
-    "visible_share": 0.3408
+    "terrain_hidden_share": 0.4087,
+    "visible_share": 0.3409
    },
    {
     "i": 6,
     "type": "box",
     "z_top": 4.398,
     "own_px_in_frame": 266185,
-    "terrain_hidden_share": 0.3411,
-    "visible_share": 0.4502
+    "terrain_hidden_share": 0.341,
+    "visible_share": 0.4501
    },
    {
     "i": 7,
@@ -970,8 +971,8 @@
     "type": "beam",
     "z_top": 3.449,
     "own_px_in_frame": 4368,
-    "terrain_hidden_share": 0.2418,
-    "visible_share": 0.7582
+    "terrain_hidden_share": 0.242,
+    "visible_share": 0.758
    },
    {
     "i": 27,
@@ -1002,8 +1003,8 @@
     "type": "beam",
     "z_top": 3.237,
     "own_px_in_frame": 3719,
-    "terrain_hidden_share": 0.2267,
-    "visible_share": 0.7733
+    "terrain_hidden_share": 0.2269,
+    "visible_share": 0.7731
    },
    {
     "i": 31,
@@ -1066,8 +1067,8 @@
     "type": "beam",
     "z_top": 4.073,
     "own_px_in_frame": 4186,
-    "terrain_hidden_share": 0.2487,
-    "visible_share": 0.7513
+    "terrain_hidden_share": 0.2492,
+    "visible_share": 0.7508
    },
    {
     "i": 39,

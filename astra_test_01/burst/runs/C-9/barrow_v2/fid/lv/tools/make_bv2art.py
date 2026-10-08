@@ -60,6 +60,7 @@ ICE_TOP = SEA_Z + 0.3                      # shore-fast ice / plates freeboard 0
 SEA_FLOOR = SEA_Z - 2.0
 BEACH_W = 10.0                             # the shingle beach: 0 -> ICE_TOP over 10 m (23 deg)
 HF_PPM = 4.0
+HF_OUT = 8                                 # R-C9-238 (c): the written (drawn + walked) terrain's px/m (smooth upsample of HF_PPM)
 EXT_UV = {"u": [-42.0, 42.0], "v": [-36.0, 36.0]}
 CLS_PPM = 16.0
 V1M = "runs/C-9/barrow_full/web_painted/models/barrow/"
@@ -470,12 +471,16 @@ def main():
     rn_c = smooth_noise(2343, CO["noise_m"])
     jit_v = 1.3 * rn_c
     sd_shore = np.where(land, -d_shore, d_shore)                      # signed: + seaward of the shore chain
+    # R-C9-238 (c): the sign flips on the 25 cm land mask, so the raw field jitters by a cell along the old shore and drew a
+    # row of teeth on the slope -- smoothed (a signed distance stays linear under a blur), as is the mere's distance
+    sd_shore = ndimage.gaussian_filter(sd_shore, 0.6 * HF_PPM)
     to_foot = np.maximum(BW - sd_shore, 0.3)
-    b_f = np.clip(d_mere / (d_mere + to_foot), 0.0, 1.0)
-    wG = ramp(V + jit_v, *CO["v_south"]) * np.where(land, 1.0 - ramp(V + jit_v, *CO["v_north"]), 1.0) * (1.0 - ramp(d_mere + 1.2 * rn_c, *CO["d_mere"])) \
+    b_f = np.clip(ndimage.gaussian_filter(d_mere, 0.4 * HF_PPM) / (ndimage.gaussian_filter(d_mere, 0.4 * HF_PPM) + to_foot), 0.0, 1.0)
+    wG = ramp(V + jit_v, *CO["v_south"]) * (1.0 - ramp(V + jit_v, *CO["v_north"]) * ramp(-sd_shore, -1.5, 1.5)) * (1.0 - ramp(d_mere + 1.2 * rn_c, *CO["d_mere"])) \
         * ramp(d_st + 0.4 * rn_c, *CO["river_clear"]) * (1.0 - ramp(np.where(land, d_shore, 0.0) + 1.0 * rn_c, 6.0, 9.0))
     wG = np.where((land | beach) & ~mere_m, wG, 0.0)
-    Z_G = MERE_SHAPE["plate_top"] + (ICE_TOP - MERE_SHAPE["plate_top"]) * (0.35 * b_f * b_f * (3 - 2 * b_f) + 0.65 * b_f)
+    # R-C9-238 (c): the profile leaves the mere's ice with ZERO slope (no crease along the mere's 25 cm edge raster)
+    Z_G = MERE_SHAPE["plate_top"] + (ICE_TOP - MERE_SHAPE["plate_top"]) * (0.7 * b_f * b_f * (3 - 2 * b_f) + 0.3 * b_f * b_f)
     Z = np.where(wG > 0.0, Z * (1.0 - wG) + Z_G * wG, Z)
     Tq = (U - LIP_A[0]) * dR[0] + (V - LIP_A[1]) * dR[1]
     Sq = (U - LIP_A[0]) * nR[0] + (V - LIP_A[1]) * nR[1]
@@ -1002,7 +1007,7 @@ def main():
     Z.tofile(os.path.join(OUT, "terrain_h.f32"))
     # ---- classes at CLS_PPM ----
     names = ["none", "snow", "path", "ice", "shrub", "rock", "mound", "shingle", "shore_ice", "stream", "char", "sea", "wood", "passage_dark", "ash",
-             "tide_ice", "wet_rock", "rime", "ice_mid", "reed"]    # R-C9-213: tidal classes; R-C9-221: the mere->sea blend band; R-C9-234: reed beds
+             "tide_ice", "wet_rock", "rime", "ice_mid", "reed", "lead"]   # R-C9-238: `lead` = open water drawn IN the ground (the river, the floe gaps) -- its own id (ground_lead), never a second ground_sea    # R-C9-213: tidal classes; R-C9-221: the mere->sea blend band; R-C9-234: reed beds
     Wc = int((u1 - u0) * CLS_PPM)
     Hc_ = int((v1 - v0) * CLS_PPM)
     Uc, Vc = np.meshgrid(u0 + (np.arange(Wc) + 0.5) / CLS_PPM, v1 - (np.arange(Hc_) + 0.5) / CLS_PPM)
@@ -1040,16 +1045,101 @@ def main():
     shin = beach_c
     C[shin] = names.index("shingle")
     btc = np.clip(ds_c / bw_c, 0, 1)
-    drift = 0.85 * cnoise(2346, 1.3, 0.6) + 0.5 * cnoise(2347, 0.45) + 1.2 * (0.3 - btc)
-    C[shin & (drift > -0.25)] = names.index("snow")
+    # R-C9-238 (a): ONE continuous shingle beach -- no noise bands. Snow only as (i) a thin ragged rim where the plateau's
+    # snow spills over the beach top, (ii) SMALL wind-shaped drifts (wind off the sea, from the W/NW): a tapering tongue in
+    # the lee (E/SE) of every obstacle on or by the beach (the wreck's hull, rocks) and a few lone scallops (own stream 2381)
+    C[shin & (btc < 0.05 + 0.035 * cnoise(2346, 0.6))] = names.index("snow")
+    wind = unit(0.93, -0.36)                                             # downwind (u, v): toward the E-SE
+    ax_w = unit(WRECK["stern_uv"][0] - WRECK["prow_uv"][0], WRECK["stern_uv"][1] - WRECK["prow_uv"][1])
+    obst = [(((WRECK["prow_uv"][0] + WRECK["stern_uv"][0]) / 2, (WRECK["prow_uv"][1] + WRECK["stern_uv"][1]) / 2), 2.3, "wreck")]   # (centre uv, half-size m)
+    for e in islands:                                                     # the low rocks / land showing through by the beach
+        if e["kind"] == "rock":
+            obst.append((e["c"], e["R"] * 0.8, "rock"))
+    rngd = __import__("random").Random(2381)
+    drifts = []
+    for (q_, r_, oid) in obst:
+        for _k in range(5 if oid == "wreck" else 2):
+            if oid == "wreck":                                       # along the hull's lee side
+                f_ = rngd.uniform(-0.45, 0.45)
+                q2 = (q_[0] + ax_w[0] * f_ * WRECK["len_m"] + wind[0] * r_ * 1.1, q_[1] + ax_w[1] * f_ * WRECK["len_m"] + wind[1] * r_ * 1.1)
+            else:
+                q2 = (q_[0] + wind[0] * r_ * 0.9 + rngd.uniform(-0.4, 0.4), q_[1] + wind[1] * r_ * 0.9 + rngd.uniform(-0.4, 0.4))
+            drifts.append((q2, rngd.uniform(1.0, 2.2), rngd.uniform(0.28, 0.6), rngd.uniform(-0.25, 0.25)))
+    jj_s, ii_s = np.nonzero(shin)
+    for _k in range(70):                                                  # lone scallops on the open shingle (lee of its bigger stones)
+        k_ = rngd.randrange(len(jj_s))
+        drifts.append(((Uc[jj_s[k_], ii_s[k_]], Vc[jj_s[k_], ii_s[k_]]), rngd.uniform(0.6, 1.6), rngd.uniform(0.18, 0.45), rngd.uniform(-0.35, 0.35)))
+    wnz = cnoise(2382, 0.18)
+    for (q2, L_, B_, rot_) in drifts:
+        ca_, sa_ = math.cos(rot_), math.sin(rot_)
+        dw = (wind[0] * ca_ - wind[1] * sa_, wind[0] * sa_ + wind[1] * ca_)
+        i0_, i1_ = max(0, int((q2[0] - L_ - 1 - u0) * CLS_PPM)), min(Wc, int((q2[0] + L_ + 1 - u0) * CLS_PPM))
+        j0_, j1_ = max(0, int((v1 - q2[1] - L_ - 1) * CLS_PPM)), min(Hc_, int((v1 - q2[1] + L_ + 1) * CLS_PPM))
+        if i1_ <= i0_ or j1_ <= j0_:
+            continue
+        du_, dv_ = Uc[j0_:j1_, i0_:i1_] - q2[0], Vc[j0_:j1_, i0_:i1_] - q2[1]
+        al = du_ * dw[0] + dv_ * dw[1]                                        # along the wind (0 = head, L = tail tip)
+        ac = -du_ * dw[1] + dv_ * dw[0]
+        tt = np.clip(al / L_, 0, 1)
+        half = B_ * np.where(al < 0, np.sqrt(np.clip(1 - (al / (0.35 * B_)) ** 2, 0, 1)), (1 - tt) ** 0.8 * (1 + 0.25 * np.sin(tt * 7 + rot_ * 9)))
+        m_ = (al > -0.35 * B_) & (al < L_) & (np.abs(ac) < half * (1 + 0.4 * wnz[j0_:j1_, i0_:i1_]))
+        sub = C[j0_:j1_, i0_:i1_]
+        sub[m_ & shin[j0_:j1_, i0_:i1_]] = names.index("snow")
     C[bay_c | (shin & (btc > 0.84 + 0.07 * cnoise(2348, 0.8)))] = names.index("shore_ice")
-    # R-C9-234 (4): the mere -> sea margin, classes graded along b (ice -> ice_mid -> shore_ice) with soft noisy limits
+    # R-C9-238 (b): THE MARGIN'S FLOES -- the mere -> sea field is broken into floes (big and whole by the mere, smaller and
+    # looser toward the sea); the LEADS are the gaps BETWEEN them: closed near the mere, opening narrow -> wide toward the
+    # sea, each gap irregular along its length (some boundaries stay shut); never a branching line. Each floe takes ONE ice
+    # tone from its own grade (no continuous bands). Floe edges are warped (no straight lines). Own stream 2383.
     wGc = samp(wG) + 0.22 * cnoise(2349, 0.9)
-    bfc = samp(b_f) + 0.09 * cnoise(2350, 1.1)
+    bfc = samp(b_f)
     cor = (wGc > 0.5) & (landc | beachc)
-    C[cor & (bfc < 0.36)] = names.index("ice")
-    C[cor & (bfc >= 0.36) & (bfc < 0.68)] = names.index("ice_mid")
-    C[cor & (bfc >= 0.68)] = names.index("shore_ice")
+    rngf2 = __import__("random").Random(2383)
+    jc_, ic_ = np.nonzero(cor)
+    seeds_m, bs_m = [], []
+    if len(jc_):
+        ub0, ub1, vb0, vb1 = Uc[0, ic_.min()] - 2, Uc[0, ic_.max()] + 2, Vc[jc_.max(), 0] - 2, Vc[jc_.min(), 0] + 2
+        bfi = lambda q: float(ndimage.map_coordinates(b_f, [[(v1 - q[1]) * HF_PPM], [(q[0] - u0) * HF_PPM]], order=1, mode="nearest")[0])
+        uu_ = ub0
+        while uu_ < ub1:
+            vv_ = vb0
+            while vv_ < vb1:
+                q = (uu_ + rngf2.uniform(0, 0.9), vv_ + rngf2.uniform(0, 0.9))
+                bq = bfi(q)
+                sp = 4.2 - 2.6 * min(1.0, max(0.0, bq))                    # floe size: ~4 m by the mere, ~1.6 m at the sea
+                if rngf2.random() < (0.9 / sp) ** 2:
+                    seeds_m.append(q)
+                    bs_m.append(bq)
+                vv_ += 0.9
+            uu_ += 0.9
+    if len(seeds_m) >= 3:
+        S_ = np.array(seeds_m)
+        trf = cKDTree(S_)
+        wu_ = 0.3 * cnoise(2384, 1.0)
+        wv_ = 0.3 * cnoise(2385, 1.0)
+        Q_ = np.c_[Uc[cor] + wu_[cor], Vc[cor] + wv_[cor]]
+        dd_, ii2 = trf.query(Q_, k=2)
+        s1, s2 = S_[ii2[:, 0]], S_[ii2[:, 1]]
+        db = (dd_[:, 1] ** 2 - dd_[:, 0] ** 2) / (2 * np.linalg.norm(s2 - s1, axis=1) + 1e-9)        # distance to the floes' shared edge
+        bq_ = bfc[cor]
+        a_, b2_ = np.minimum(ii2[:, 0], ii2[:, 1]), np.maximum(ii2[:, 0], ii2[:, 1])
+        hsh = ((a_ * 73856093) ^ (b2_ * 19349663)) % 1000 / 1000.0                     # one draw per floe pair
+        hsh2 = ((a_ * 83492791) ^ (b2_ * 2654435761)) % 997 / 997.0
+        openp = np.clip((bq_ - 0.25) * 2.2, 0, 1)
+        wgap = np.clip((bq_ - 0.2) / 0.65, 0, 1) ** 1.2 * 1.3 * (0.45 + 0.8 * hsh2) * (0.6 + 0.4 * np.clip(1 + cnoise(2386, 0.6)[cor], 0, 2))
+        gap = (hsh < openp) & (db < wgap / 2)
+        # floes ROUNDED toward the sea: a point farther from its floe's seed than R (a share of the floe's own size,
+        # shrinking with b) is water -- the corners open into pools, so the floes read as pancakes, never a line network
+        nn_s = trf.query(S_, k=2)[0][:, 1]
+        bs_ = np.array(bs_m)
+        R_s = nn_s * (0.68 + 0.52 * np.clip((0.78 - bs_) / 0.38, 0, 1))
+        gap |= (dd_[:, 0] > R_s[ii2[:, 0]]) & (bq_ > 0.42)          # (only where the field is breaking up -- never at the mere)
+        rng_t = np.array([rngf2.uniform(-0.14, 0.14) for _ in seeds_m])
+        tone = np.array(bs_m)[ii2[:, 0]] + rng_t[ii2[:, 0]]
+        cls_ = np.where(tone < 0.36, names.index("ice"), np.where(tone < 0.68, names.index("ice_mid"), names.index("shore_ice")))
+        cls_ = np.where(gap, names.index("lead"), cls_)
+        C[cor] = cls_.astype(np.uint8)
+        if os.environ.get("LV_DBG"):
+            print("[dbg] cor", int(cor.sum()), "seeds", len(seeds_m), "b", np.percentile(bq_, [5, 50, 95]).round(2), "gap", int(gap.sum()), "openp>0", int((openp > 0).sum()))
     C[(samp(cw_r) > 0.97) & ~landc] = names.index("shore_ice")           # the wreck's cradle: shore ice, not beach (R-C9-234: smooth edge)
     # R-C9-226 (5): the ash yard IRREGULAR -- the outline resampled, pushed in/out by low lobes, a ragged fringe of trampled
     # ash tongues; holes of snow where drifts lie inside it
@@ -1077,7 +1167,7 @@ def main():
         dstc, hwc, _, tmc = f_(Uc, Vc)
         # R-C9-227: open water, no ice. R-C9-234: drawn as the GROUND's own dark-water class along the channel floor (one
         # continuous ribbon down the slope) -- the per-segment prisms stepped and read as a dark zig-zag notch
-        C[landc & (dstc < (hwc - (1.0 - tmc) * ch_fields[0][0]["widen"]) * 0.92) & ~mask(mere, Uc, Vc, CLS_PPM, u0, v1)] = names.index("sea")   # a tiny river: no flared mouth
+        C[landc & (dstc < (hwc - (1.0 - tmc) * ch_fields[0][0]["widen"]) * 0.92) & ~mask(mere, Uc, Vc, CLS_PPM, u0, v1)] = names.index("lead")   # a tiny river: no flared mouth
     # R-C9-234 (2): the islands (snow on the raised ground) and the reed beds' straw ground under every clump
     for e in islands:
         C[isl_rho(e, Uc, Vc) < 0.93] = names.index("snow")
@@ -1153,10 +1243,22 @@ def main():
     C[mask_c > 0.5] = names.index("none")
     fp_hf = mask_hf > 0.85
     Z_out = np.where(fp_hf, SEA_FLOOR - 1.0, Z).astype("<f4")
-    Z_out.tofile(os.path.join(OUT, "terrain_h.f32"))
+    # R-C9-238 (c): the DRAWN/WALKED terrain at HF_OUT px/m -- a cubic spline through the 25 cm grid, clamped to each coarse
+    # cell's own min/max (no overshoot at the cliffs, the beach foot or the carve): no 25 cm stair-steps on the mound's flank
+    # and no banded shading on the slopes. Every placement and class above still reads the 25 cm grid (nothing moves).
+    def fine(A_):
+        A_ = np.asarray(A_, np.float64)
+        f_ = int(HF_OUT // HF_PPM)
+        Hf_, Wf_ = (H - 1) * f_ + 1, (W - 1) * f_ + 1
+        jf, if_ = np.mgrid[0:Hf_, 0:Wf_].astype(np.float64) / f_
+        cub = ndimage.map_coordinates(A_, [jf, if_], order=3, mode="nearest")
+        j0_, i0_ = np.clip(np.floor(jf).astype(int), 0, H - 2), np.clip(np.floor(if_).astype(int), 0, W - 2)
+        q4 = np.stack([A_[j0_, i0_], A_[j0_ + 1, i0_], A_[j0_, i0_ + 1], A_[j0_ + 1, i0_ + 1]])
+        return np.clip(cub, q4.min(0), q4.max(0)).astype("<f4")
+    fine(Z_out).tofile(os.path.join(OUT, "terrain_h.f32"))
     _wi = _RGI(carved["grid_ts"], carved["walk_h"], bounds_error=False, fill_value=None)
     Z_walk = np.where(fp_hf, _wi(np.stack([Tq, Sq], axis=-1)), Z).astype("<f4")
-    Z_walk.tofile(os.path.join(OUT, "terrain_walk_h.f32"))
+    fine(Z_walk).tofile(os.path.join(OUT, "terrain_walk_h.f32"))
     # to the Level node's local frame (u, h, -v), classed meshes + smooth normals (welded), Godot's winding
     TT = carved["tris_ts"]
     UU = LIP_A[0] + dR[0] * TT[..., 0] + nR[0] * TT[..., 1]
@@ -1379,21 +1481,49 @@ def main():
                                         note="R-C9-222/234: the barrow's kerb" + (" (front lobe)" if ec is lc_ else "")))
                 kk += 1
             th_ += 3.2 / math.hypot(ea * math.sin(th_), eb * math.cos(th_))
-    # the CUTTING's dry-stone walls (v1's stone-lined cutting): both sides from the lobe's toe to the facade, in ~0.9 m
-    # courses, each course as high as the mound beside it (procedural rock at true size)
+    # the CUTTING's dry-stone walls (v1's stone-lined cutting): both sides from the lobe's toe to the facade.
+    # R-C9-238 (d): ROUGH STONE, not courses of boxes -- each wall is a run of separate irregular stones (6-9 sided, 0.35-0.75 m
+    # long, set on a wobbling line), every stone's top just under/over the mound beside it (so the wall's top follows the
+    # slope in small steps of a stone, never a cube); at the toe the wall ENDS in a broken, falling run of smaller, lower
+    # stones and a couple of tumbled ones (own stream 2387)
+    rngw2 = __import__("random").Random(2387)
     cut_walls = []
-    v_c = toe_v - 0.3
-    while v_c < v_fac + 0.3:
-        hw_v = MF["cut_hw"] + MF["cut_flare"] * min(1.0, max(0.0, (v_fac - v_c) / max(v_fac - toe_v, 0.1)))
-        for side in (-1, 1):
-            ui = bdc[0] + side * (hw_v - 0.05)
-            uo = bdc[0] + side * (hw_v + 0.95)
-            hgt = hz((bdc[0] + side * (hw_v + 1.2), v_c + 0.42))
-            if hgt < 0.25:
-                continue
-            q4 = [(ui, v_c), (uo, v_c), (uo, v_c + 0.86), (ui, v_c + 0.86)]
-            cut_walls.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(q4)], "z0": -0.3, "z1": round(min(hgt, 6.0) + 0.05, 3)})
-        v_c += 0.9
+
+    def hw_at(v_):
+        return MF["cut_hw"] + MF["cut_flare"] * min(1.0, max(0.0, (v_fac - v_) / max(v_fac - toe_v, 0.1)))
+    for side in (-1, 1):
+        v_c = v_fac + 0.25
+        end_v = None
+        while v_c > toe_v - 1.6:
+            L_ = rngw2.uniform(0.35, 0.75)
+            vm = v_c - L_ / 2
+            hw_v = hw_at(vm)
+            hgt = hz((bdc[0] + side * (hw_v + 1.25), vm))
+            if end_v is None and hgt < 0.55:
+                end_v = vm                                            # the wall's end: from here it breaks down
+            if end_v is not None and vm < end_v - 1.3:
+                break
+            th_ = rngw2.uniform(0.7, 1.0) * (0.75 if end_v is not None else 1.0)
+            off = rngw2.uniform(-0.08, 0.1)
+            cu = bdc[0] + side * (hw_v + th_ / 2 + off)
+            nv = rngw2.randint(5, 8)
+            ph = rngw2.uniform(0, 6.3)
+            st = []
+            for q in range(nv):
+                aq = ph + 2 * math.pi * (q + rngw2.uniform(-0.3, 0.3)) / nv
+                rr = rngw2.uniform(0.7, 1.25)
+                st.append((cu + math.cos(aq) * th_ / 2 * rr, vm + math.sin(aq) * L_ / 2 * rr))
+            if end_v is None:
+                z1_ = min(max(hgt, 0.3), 6.0) + rngw2.uniform(-0.18, 0.12)
+            else:
+                z1_ = max(0.18, min(hgt, 0.55) * (1 - (end_v - vm) / 1.5)) + rngw2.uniform(0.0, 0.2)
+            cut_walls.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(st)], "z0": -0.3, "z1": round(z1_, 3)})
+            v_c -= L_ + rngw2.uniform(0.02, 0.08)
+        for _k in range(2):                                           # tumbled stones at the end, out on the cutting's floor
+            q0 = (bdc[0] + side * (hw_at(toe_v) - rngw2.uniform(0.3, 0.9)), (end_v if end_v is not None else toe_v) - rngw2.uniform(0.3, 1.4))
+            r_ = rngw2.uniform(0.18, 0.32)
+            st = [(q0[0] + r_ * math.cos(a) * rngw2.uniform(0.75, 1.2), q0[1] + r_ * math.sin(a) * rngw2.uniform(0.6, 1.0)) for a in np.linspace(0, 2 * math.pi, 7, endpoint=False)]
+            cut_walls.append({"poly": [[round(q[0], 3), round(-q[1], 3)] for q in K.ccw(st)], "z0": -0.3, "z1": round(rngw2.uniform(0.15, 0.32), 3)})
     dropped_ = [q for q in slope_insts if math.hypot((q["pos"][0] - mc[0]) / a_m, (-q["pos"][1] - mc[1]) / b_m) <= 1.15]
     slope_insts = [q for q in slope_insts if math.hypot((q["pos"][0] - mc[0]) / a_m, (-q["pos"][1] - mc[1]) / b_m) > 1.15] + kerb_insts
     # R-C9-231 (P6' 78a2f41bd): a slope stone dropped inside the barrow's kerb is dropped from the layout of record too
@@ -1749,7 +1879,8 @@ def main():
         slabs["mere_plates"]["items"].append({"poly": sim_poly(e["poly"]), "z0": MERE_SHAPE["bed_z"] - 0.05, "z1": e["top"]})
     slabs["mere_cracks"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_cracks]}
     slabs["mere_seams"] = {"class": "snow", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_seams]}
-    slabs["trans_leads"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in trans_plates if e["cls"] == "lead"]}
+    # R-C9-238 (b): no branching-tree leads (their draws still run so the rubble keeps its place): the leads are now the
+    # GAPS BETWEEN FLOES of the margin, drawn in the ground's class map (see "the margin's floes")
     slabs["trans_rubble"] = {"class": "shore_ice", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in trans_plates if e["cls"] == "rubble"]}
     # R-C9-234 (2): no octagon pads (the islands are raised GROUND now, see above). REED BEDS: every clump a tuft of thin tall
     # blades (sketch A's pale reeds, 0.5-1.2 m, taller in the middle), class `reed`, standing on its straw ground patch
@@ -1915,8 +2046,8 @@ def main():
     tints.update(json.load(open(os.path.join(LV, "DEV12_proposal.json")))["class_list"]["new_classes_DEV2_provisional"])
     # R-C9-213 tidal classes (provisional tints, for PT/PH's palette): the iced landing, the wet rock below high water, the rime line
     tints.update({"tide_ice": [0.74, 0.82, 0.87], "wet_rock": [0.36, 0.37, 0.39], "rime": [0.9, 0.93, 0.96], "ice_mid": [0.75, 0.822, 0.88]})
-    tints.update({"reed": REED_TINT})                    # R-C9-234 (2): the reed beds (provisional, for PT/PH's palette)
-    hf = {"file": "terrain_h.f32", "walk_file": "terrain_walk_h.f32", "shape": [H, W], "px_per_m": HF_PPM, "extent_sim_m": {"x0": u0, "x1": u1, "y0": -v1, "y1": -v0}, "sha256": sha(os.path.join(OUT, "terrain_h.f32"))}
+    tints.update({"reed": REED_TINT, "lead": list(tints["sea"])})                    # R-C9-234 (2): the reed beds (provisional, for PT/PH's palette)
+    hf = {"file": "terrain_h.f32", "walk_file": "terrain_walk_h.f32", "shape": [int((H - 1) * (HF_OUT // HF_PPM) + 1), int((W - 1) * (HF_OUT // HF_PPM) + 1)], "px_per_m": HF_OUT, "extent_sim_m": {"x0": u0, "x1": u1, "y0": -v1, "y1": -v0}, "sha256": sha(os.path.join(OUT, "terrain_h.f32"))}
     route_sim = {"ramp": ramp, "walk_boxes": [ramp, plate], "heightfield_collider": True, "hf_collider_v_max": 99.0, "floor_box_v_min": 999.0, "shelf_z": R["shelf_z"],
                  "hood": [], "_": "Phase 1'': the terrain is the walk collider everywhere (HeightMapShape3D); the stair's walk ramp and the landing plate (colliders only)"}
     level = {

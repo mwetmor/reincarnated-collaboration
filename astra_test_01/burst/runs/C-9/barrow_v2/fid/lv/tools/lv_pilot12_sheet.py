@@ -3,6 +3,7 @@
 views; the frame is the plate crop, him at knight_uv facing S), at the play camera (tools/bv2f/m1_stills.gd), as sheets.
 
     python3 fid/lv/tools/lv_pilot12_sheet.py   -> fid/lv/M1pp/pilot12_sheet_{A,B,C}.jpg (4 pairs each, <= 2000 px wide)
+    P12_BEFORE=pilot12_before_238 P12_TAG=238 P12_BEFORE_LABEL="aab3357eb" python3 ...  -> pilot12_238_sheet_{A,B,C}.jpg (R-C9-238)
 
 BEFORE = M1pp/pilot12_before/ (LV 368cdf791, the blockout the BV2F-PS pilot was painted from); AFTER = M1pp/pilot12_after/.
 """
@@ -30,6 +31,17 @@ CAP = {
 }
 
 
+BEFORE = os.environ.get("P12_BEFORE", "pilot12_before")
+TAG = os.environ.get("P12_TAG", "")
+BLABEL = os.environ.get("P12_BEFORE_LABEL", "LV 368cdf791, painted as BV2F-PS")
+if TAG == "238":
+    CAP.update({"pilot_04": "barrow door: smooth mound flank (8 px/m terrain), rough stone wall ends (R-C9-238 c, d)",
+                "pilot_05": "wreck + margin: leads = gaps between rounded floes, widening to the sea (R-C9-238 b); no ripples (c)",
+                "pilot_06": "margin + shingle: one continuous beach, small wind drifts (R-C9-238 a, b, c)",
+                "pilot_09": "shingle foot by the wreck, drifts in its lee (R-C9-238 a)",
+                "pilot_10": "the shingle: continuous, ragged foot, small drifts (R-C9-238 a)"})
+
+
 def main():
     spec = json.load(open(os.path.join(M, "pilot12_spec.json")))
     names = [s["name"] for s in spec]
@@ -38,14 +50,14 @@ def main():
         chunk = names[si * 4:(si + 1) * 4]
         sheet = Image.new("RGB", (2 * pw + 30, len(chunk) * (ph + cap_h) + 40), (246, 243, 236))
         d = ImageDraw.Draw(sheet)
-        d.text((10, 12), "R-C9-234 blockout fix -- the 12 pilot views at the play camera: BEFORE (LV 368cdf791, painted as BV2F-PS) | AFTER", fill=(0, 0, 0))
+        d.text((10, 12), "R-C9-%s blockout fix -- the 12 pilot views at the play camera: BEFORE (%s) | AFTER" % (TAG or "234", BLABEL), fill=(0, 0, 0))
         for k, nm in enumerate(chunk):
             y = 40 + k * (ph + cap_h)
             d.text((10, y + 8), "%s -- %s" % (nm, CAP.get(nm, "")), fill=(0, 0, 0))
-            for j, sub in enumerate(("pilot12_before", "pilot12_after")):
+            for j, sub in enumerate((BEFORE, "pilot12_after")):
                 im = Image.open(os.path.join(M, sub, nm + ".png")).convert("RGB").resize((pw, ph), Image.LANCZOS)
                 sheet.paste(im, (10 + j * (pw + 10), y + cap_h))
-        out = os.path.join(M, "pilot12_sheet_%s.jpg" % part)
+        out = os.path.join(M, ("pilot12_%s_sheet_%s.jpg" % (TAG, part)) if TAG else ("pilot12_sheet_%s.jpg" % part))
         sheet.save(out, quality=88)
         print(out, sheet.size)
 
