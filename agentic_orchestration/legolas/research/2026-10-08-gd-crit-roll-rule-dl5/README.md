@@ -5,6 +5,8 @@
 **Scope:** read-only. The Grim Dawn binary was disassembled read-only from the vendored copy. No engine code was touched.
 **Sources consulted:** the GD `x64/Game.dll` binary, build 24825149 (disassembled); `combatformulas.dbr` (already extracted); Crate's official combat guide; the Fandom wiki; Crate forum and Steam threads; prior legolas Lap B and Lap N notes. Full list in § 8.
 
+**⚑ ERRATA, 2026-10-08:** jack-ryan's Gate-1 corrected five points, E-1 to E-5 (see § ERRATA). The roll rule stands. The intake PTH range is corrected (E-1). The § 4 worked example is a **lower-side** estimate against the referent footage (E-2).
+
 ---
 
 ## 0 · Verdict
@@ -41,7 +43,7 @@ For the player at PTH above 100, the roll runs over **(0, PTH)**, not (0, 100). 
 1. **Loader** (func `0x109080`). This reads `records/game/combatformulas.dbr` into the CombatManager. `pthMinimum` goes to `+0x278`. Thresholds 1–6 go to `+0x280, +0x288 … +0x2a8`, and modifiers 1–6 go to `+0x284 … +0x2ac`.
 2. **Constructor** (func `0x1087c0`) writes **`+0x27c = 100.0f`**. That is a hard-coded constant, not a DBR field. It is the roll-span floor. (It also writes `+0x278 = 66.0f`, the pre-DBR default for `pthMinimum`.)
 3. **PTH** (func `0x10e490`; debug strings `PTH Offensive Ability %f / PTH Defensive Ability %f / PTH %f`). This evaluates `probabilityToHitEquation(OA, DA)` and clamps from below to `pthMinimum`. **There is no upper clamp.**
-4. **Draw** (attack resolver `0x10a650`; melee site `0x10af5e`, plus ranged `0x10b3fa` and direct `0x10b716`). The seed step is `seed ← 16807·seed mod (2³¹−1)` (Park–Miller, Schrage form). Then `u = seed × 4.656613e-10`, which is 1/(2³¹−1). `u` is passed as the second float argument.
+4. **Draw** (attack resolver `0x10a650`; melee site `0x10af5e`, plus ranged `0x10b3fa` and direct `0x10b716`). The seed step is `seed ← 16807·seed mod (2³¹−1)` (Park–Miller, Schrage form). Then `u = seed × 4.656613e-10`, ~~which is 1/(2³¹−1)~~ *(→ ERRATUM E-5)*. `u` is passed as the second float argument.
 5. **Roll and tier** (func `0x10d810`; debug strings `PTH %f, Rand Value %f`, `PTH Random Number %f`, `PTH Missed Hit`, `PTH Uber Hit`, `PTH Modifier value %f`):
    - `ROLL = max([+0x27c]=100, PTH) * u`
    - if `PTH < 100` and `ROLL > PTH`: return 0.0 (**miss**)
@@ -84,7 +86,7 @@ The Lap N footage decode (`legolas/notes/2026-08-14-kc2-pm4-lap-n-crit-and-colli
 
 - **Sealed d100 M2** predicts **100 % ×1.1**. Contradicted.
 - **M1** predicts all ×1.5. Contradicted.
-- **The decoded rule** predicts multiple tiers, falling off with height. Lap N read the tier densities as a PTH survival curve with median PTH ≈ 112. Our board's `p2m_pth_effective` median is **111.83** (95 monster rows, `data/kc2/pm4o_oa_da.csv`). **INFERRED, but it is a strong independent match.**
+- **The decoded rule** predicts multiple tiers, falling off with height. Lap N read the tier densities as a PTH survival curve with median PTH ≈ 112. Our board's `p2m_pth_effective` median is **111.83** (95 monster rows, `data/kc2/pm4o_oa_da.csv`). ~~**INFERRED, but it is a strong independent match.**~~ *(→ ERRATUM E-2: the medians agree, the distributions do not)*
 
 At the time, Lap N could not reconcile this with the old PTH figure of 149–182. `F-B1r-1` has since shown that figure was wrong, which removes Lap N's reading (i).
 
@@ -112,7 +114,7 @@ There are also **per-skill** crit-damage modifiers ("+15 % Crit Damage to Forcew
 
 Any asymmetry comes from the **inputs**: OA/DA, and crit-damage stats such as the per-wave `wave_crit_damage_modifier_pct` column already in `pm4o_oa_da.csv`.
 
-On our board, monster PTH runs from 66 to 85, which is below 100, so the span question does not affect the intake lane (§ 5.2).
+~~On our board, monster PTH runs from 66 to 85, which is below 100, so the span question does not affect the intake lane (§ 5.2).~~ *(→ ERRATUM E-1)*
 
 ---
 
@@ -150,7 +152,7 @@ The pinned "damage per hit 43,691–59,761 non-crit" is a non-crit figure. The e
 
 ### 5.2 Intake lane (`threat.resolve_hit`, "Crate's published loop")
 The docstring's label is accurate in form. Its d100 parameterisation differs from the binary in three ways:
-- **Range when PTH ≥ 100.** The roll is capped at 100. This does not bind on the current board, where monster PTH is 66–85.
+- **Range when PTH ≥ 100.** The roll is capped at 100. ~~This does not bind on the current board, where monster PTH is 66–85.~~ *(→ ERRATUM E-1: the range is 77.15–99.98 and the cap misses binding by 0.02 PTH)*
 - **Integer roll with `≥` instead of continuous roll with `>`.** The sealed hit chance is `floor(p)/100`, against the binary's `p/100`. Crit chance for p between 90 and 100 is `(floor(p)−89)/100`, against `(p−90)/100`. **Each difference is ≤ 1 percentage point.** Example: at p = 77.8 the sealed hit chance is 0.77 and the binary's is 0.778.
 - **The sub-threshold boundary.** The binary applies PTH/70 when p ≤ 70; the sealed code uses p < 70. This makes no difference to any value.
 
@@ -165,7 +167,7 @@ Whether that ≤ 1 pp matters is not my call.
 | Fandom wiki *Game Mechanics* (`captures/fandom-game-mechanics.wikitext`) | Crit chance = PTH − 90 (out of 100); threshold-1 = 75; floor 60; *"x3.5"* max; tiers 4–6 marked "UNCONFIRMED" | **Stale.** It conflicts with the `.arz` (70/55) and the binary on every point it can be checked against. Lap B § 5 already flagged it. Its crit-damage additivity statement is the only part I use, and it is graded SECONDARY. |
 | Raiyaz 2015 thread | Thresholds 90/110/130/150/170 → ×1.25…×2.5 | Pre-release constants. Its span formula matches the binary; its thresholds do not. |
 | Sealed M2 (`threat.py:390–405`, J3a § 3.1) | Roll is d100 (1–100) | Contradicted by the binary and the guide when PTH > 100. |
-| **Lap N apparent crit share** | Non-crit 87 against crit 57, so a crit share of at least 39.6 % (graded INDICATIVE) | **Unresolved tension.** Under the decoded rule, a single PTH of 135 or less gives at most 33.3 % crits. The 0 % at ×1.5 rules out higher PTH. So either the share is biased upward by OCR or attribution (Lap N argued the bias runs downward), or some sources print crits by another route. **I do not resolve this.** It does not affect the tier-shape agreement in § 1.4. |
+| **Lap N apparent crit share** | Non-crit 87 against crit 57, so a crit share of at least 39.6 % (graded INDICATIVE) | **Unresolved tension.** Under the decoded rule, a single PTH of 135 or less gives at most 33.3 % crits. The 0 % at ×1.5 rules out higher PTH. So either the share is biased upward by OCR or attribution ~~(Lap N argued the bias runs downward)~~ *(→ ERRATUM E-3: that is an unverified assumption)*, or some sources print crits by another route. **I do not resolve this.** It does not affect the tier-shape agreement in § 1.4. |
 
 ---
 
@@ -173,9 +175,62 @@ Whether that ≤ 1 pp matters is not my call.
 
 1. **Crit-damage addition is not binary-verified.** Tracing it means following the tier multiplier (`[attack+0x9c]`) into the `DamageAttributeAbsMod_CritDamageModifier` virtual methods. That needs vtable/RTTI reconstruction. Next step if wanted: rebuild the class vtables from RTTI in `.rdata` and decompile the attribute's apply method.
 2. **Whether DoT and bleed damage gets the multiplier**, and whether crit damage applies to the over-time component. The resolver logs `Absolute` and `Over Time` totals separately. A community report says skill crit damage did not reach DoT ticks. Not checked.
-3. **Other paths that call the roll:** `0x48dd10` (a dispel skill) and `0x5135c0` call the same roll function with their own Park–Miller draw. The Retaliation and Reflection attack types never call it, which suggests they cannot crit. **INFERRED, not verified.**
+3. **Other paths that call the roll:** `0x48dd10` (a dispel skill) and `0x5135c0` call the same roll function with their own Park–Miller draw. The Retaliation and Reflection attack types never call it *(→ ERRATUM E-4: nor does Debuff Attack)*, which suggests they cannot crit. **INFERRED, not verified.**
 4. **The Lap N crit-share tension** (§ 6).
 5. **The RNG seed and stream**: the seed source and per-actor sharing are not examined. It does not matter for a distribution-level model.
+
+---
+
+## ERRATA — 2026-10-08 (after jack-ryan Gate-1, collab 7215b9bb3)
+
+Source: jack-ryan, `agentic_orchestration/qa/findings/2026-10-08-join1-dl5-decode-gate1.md`, verdict GO-WITH-AMENDMENTS. He re-derived every PRIMARY claim independently, and the roll rule is unchanged. These errata fix the README's statements about **inputs** and **corroboration**. The original lines are struck through above and point here.
+
+**E-1 · Intake monster PTH range (Gate-1 WARN-2). "66–85" was wrong.**
+- The sealed intake lane at waves 151–160 reads `m2p_pth_effective` from `pm4o_oa_da.csv` (through `measured_board.pth_for`).
+- That column runs **77.15–99.98**, with **55 of 95 rows in the crit band [90, 100)**. I re-checked this against the CSV: min 77.1484, max 99.9799, 55 rows.
+- "66–85" is the sim's own dex-absent `effective_oa` fallback PTH, not the lane's input.
+
+What still holds, per jack-ryan:
+- The d100 range cap does not bind on this board. **The margin is 0.02 PTH, not about 15.**
+- The difference between the sealed law and the binary stays within the "≤ 1 pp" stated in § 5.2. The maximum change is 0.984 pp in hit chance and 0.990 pp in crit chance.
+
+What § 5.2 should have said:
+- **The bias is one-signed.** Per swing, the sealed intake expectation averages **−0.58 %** against the binary (range −1.08 % to +0.10 %). That direction flatters the Warlord.
+- **JOIN predicate:** `m2p` is keyed to the Warlord's DA of 2591. A joined kit with lower DA pushes these rows to PTH ≥ 100, where the d100 cap **does** bind. (The conductor records this.)
+
+**E-2 · The Lap N tier-shape corroboration was overstated (Gate-1 WARN-1).**
+- The two medians agree (about 112 against 111.83), but the distributions do not.
+- Applied to the board's 95 player-PTH rows (103.54–124.89), the decoded rule predicts these shares among crits:
+
+  | Tier | Board prediction | Footage |
+  |---|---|---|
+  | ×1.1 | about 0.59–0.64 | 0.507 |
+  | ×1.2 | about 0.35–0.39 | 0.412 |
+  | ×1.3 | about 0.014 | 0.068 |
+  | ×1.4 | 0 | 0.014 |
+
+- ×1.3 and ×1.4 together: **12 observed against about 2.1 expected**, Poisson P ≈ 2×10⁻⁶.
+- ×1.4 requires PTH > 130, but the board's maximum is 124.89.
+
+This does not threaten the rule; d100 M2 predicts 100 % ×1.1 and is falsified either way. It does show that **the realised in-run PTH sits above the board's static PTH**. Candidate causes are DA shred, temporary OA, or a higher-OA damage source (family B is one candidate).
+
+jack-ryan's best two-point fit to the footage is 80 % at PTH 116.5 and 20 % at PTH 132. That implies a crit share of **22–27 %**, against **20.8–21.9 %** for the board-fed profile.
+
+**⚑ So a board-fed decoded profile, including the § 4 worked example, is the LOWER-SIDE estimate relative to the referent footage.** AMENDMENT-2 (gamora) carries either the footage-implied PTH lift as a sensitivity, or a named input gap.
+
+**E-3 · The Lap N crit-share bias direction is an assumption, not a measurement (Gate-1 INFO-4).**
+- Lap N's claim that the 39.6 % share is biased only **downward** was never verified. FCT lifetime was measured only on crit strings.
+- If crit text persists longer than non-crit text, snapshot sampling over-counts crits (length bias). There are other upward routes too: small-number filtering, and how confidence-1.0 OCR treats bare numbers against suffixed ones.
+- **Re-grade: ASSUMPTION.** 39.6 % must not enter any calibration. The binary is direct evidence, and the footage share cannot override it.
+
+**E-4 · § 7.3 missed one path (Gate-1 INFO-5).**
+- **Debuff Attack** also never calls the roll. It reuses the stored multiplier.
+- Separately, the resolver has **miss channels that run before the PTH roll**: `Fumble Chance … caused a miss`, `Defender Dodged Attack`, and `Defender Deflected Attack` (ranged). HIT_CHANCE = 1.0 at PTH ≥ 100 covers only PTH misses. Fumble debuffs or dodge reaching the Warlord would be a separate route.
+
+**E-5 · RNG scale constant (Gate-1 INFO-6).**
+- The float32 constant 4.656613e-10 is exactly **2⁻³¹**, not 1/(2³¹−1).
+- So `u` lies in (0, 1], with P(u = 1) ≈ 3×10⁻⁸ and float32 granularity near 1.
+- This has no effect at the distribution level.
 
 ---
 
