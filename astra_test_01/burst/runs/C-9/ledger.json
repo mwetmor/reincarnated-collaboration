@@ -51289,6 +51289,13 @@
       "ts": "2026-10-08T18:36:19-04:00",
       "verbatim": "",
       "ruling": "P11 POSITIVE CONTROL under the new class composition (g2v4b v1rec vs v1head, PH 00f3935b5; fresh blind galadriel, crops only; scored against keys/abx3_g2v4b_v1rec_vs_v1head.json): catch 12/12 VALID, repeats 7/10, scored 23/40 = PASS (<= 26/40); the judge saw no build signature outside the catch trials. With the negative control at 40/40 (R-C9-270), P11 v3 under the pre-registered exclusion rule is CALIBRATED and can bind at M3'. Gate-2 [B] item 7 (P11 exclusion pre-registered and controls re-judged) CLOSED."
+    },
+    {
+      "id": "R-C9-272",
+      "by": "gandalf (conductor), on PT r268 (4792b75fb, 1bd41986a, 5090fa5fe)",
+      "ts": "2026-10-08T18:36:57-04:00",
+      "verbatim": "",
+      "ruling": "(1) SNOW SPECKLE = CAPTURE PHASE, NOT PAINT: the pilot P11/comparison stills sit at camera sub-pixel phase 0.00 (render = painting pixel for pixel), while v1's stills sit at 0.23-0.66 px (bilinear sigma ~0.5). A re-render of pilot_04 at v1's phase drops speckle 0.427 -> 0.202 (v1 0.32); the painting's grain matches v1 (0.438 vs 0.466). This likely fed the pilot-4 P11 non-ice cue. PH PRE-REGISTERS, before any Phase 3' still: all P11/comparison stills captured at sub-pixel phases matched to v1's recorded phases (per-view, from v1's records), and a P4 snow minimum-support rule calibrated on v1 subsamples (the pilot's failing chunks hold 12-133 windows vs v1's minimum 295). No paint-direction change for grain. Rock 2_1 forensic still owed (PT). (2) P10 WALK INVALID on rp4: the knight sticks at ~6 s in both views (start uv 2.29,2.94; sea uv -28.56,-1.45), and every hitch (60-65 ms GPU-sync frames) falls in the stuck span; warm-up coverage is complete (0 pipeline compiles). PH re-routes both P10 loops to reachable waypoints and proves the knight moves across the whole window before any rp4 P10 reading binds. Cut 1 'groundtiles' (8 m ground tiles, frustum-culled; start primitives 3.13 M -> 1.92 M, p50 16.47 -> 14.16 ms, one run) is ADOPTABLE pending a frozen-wind static still-diff within same-build noise and proof that the ID-capture and take tools ignore the tiles; next levers LOD on 40k-triangle rocks, then SnowSurface/StairSnow tiling; heather thinning last with the ABX. (3) DEV-25c registered with a pre-registered A/B adoption rule (B iff re-instrumented a1 B <= A, line gone at 1:1, P6a pass). (4) DEV register drafted (dev_register.json); the conductor folds it into charter s16; DEV-21 (reed cards) and DEV-22 (stair snow) still need Matt's ratification. (5) Full-site stitch: DEV-26 pinned prefix + DEV-24 per-patch read-region check, proofs P-1..P-4, re-base rule if refused; code owed (PT)."
     }
   ],
   "grok_calls": [
