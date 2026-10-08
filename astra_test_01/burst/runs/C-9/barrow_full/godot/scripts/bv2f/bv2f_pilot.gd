@@ -716,7 +716,7 @@ func _lod_rocks(prefixes: Array) -> Dictionary:
 			mi.mesh = lm
 			rep["meshes"] += 1
 			if rep["lods"].size() < 3:
-				rep["lods"].append(lm.surface_get_lod_count(0) if lm.get_surface_count() > 0 else 0)
+				rep["lods"].append(im.get_surface_lod_count(0) if im.get_surface_count() > 0 else 0)
 	return rep
 
 

@@ -3,6 +3,7 @@ extends SceneTree
 ## (tiles built, originals hidden). Per P11 view, with time held still (Engine.time_scale 0: the snow clock, the reeds'
 ## wind clock and every _process step stop; heather wind_on 0), him and the falling snow hidden:
 ##   A  = tiles shown           B = the ORIGINAL meshes shown (tiles hidden)          A2 = tiles again
+## --cut rocklod: the same with the rock LOD meshes (A, A2) against their originals (B).
 ## A vs A2 = the same-build noise of this exact capture (what TIME-driven shaders still move); B vs A = the cut.
 ##   Godot --path . --resolution 640x360 --script res://tools/bv2f/pt_tiles_ab.gd -- --spec <views.json> --out DIR
 const PLAY := Vector2i(1920, 1080)
@@ -13,6 +14,8 @@ func _initialize() -> void:
 	var a := OS.get_cmdline_user_args()
 	var spec: String = a[a.find("--spec") + 1]
 	var out: String = a[a.find("--out") + 1]
+	if a.has("--cut"):
+		cut = a[a.find("--cut") + 1]   # R-C9-272 (b): "rocklod" = A/A2 the LOD meshes, B the original meshes
 	DirAccess.make_dir_recursive_absolute(out)
 	vp = SubViewport.new()
 	vp.size = PLAY
@@ -24,7 +27,23 @@ func _initialize() -> void:
 	vp.add_child(scene)
 	_run(JSON.parse_string(FileAccess.get_file_as_string(spec))["views"], out)
 
+var cut := "groundtiles"
+
+func _lods(on: bool) -> int:
+	var n := 0
+	var stack := [scene.level]
+	while not stack.is_empty():
+		var nd: Node = stack.pop_back()
+		for c in nd.get_children():
+			stack.append(c)
+		if nd is MeshInstance3D and nd.has_meta("lod_mesh"):
+			(nd as MeshInstance3D).mesh = nd.get_meta("lod_mesh") if on else nd.get_meta("lod_orig")
+			n += 1
+	return n
+
 func _tiles(show: bool) -> int:
+	if cut == "rocklod":
+		return _lods(show)
 	var n := 0
 	for root in scene.level.get_children():
 		if not String(root.name).begins_with("ground_"):
