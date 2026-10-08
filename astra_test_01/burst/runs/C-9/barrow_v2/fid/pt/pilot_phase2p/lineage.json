@@ -1,0 +1,945 @@
+{
+ "name": "bv2f pilot",
+ "painting": {
+  "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+  "sha": "901f3087799eadab4bea7ff40ba7ea6cbc6dfed7c7b770ba757404e0d5997b03"
+ },
+ "textures": [
+  {
+   "id": "painting.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/painting.bin",
+   "role": "ground + every primitive + the heather/snow albedo + the water's base (projection)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "painting.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png"
+    }
+   ]
+  },
+  {
+   "id": "lit",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/lit.bin",
+   "role": "painted direct-sun share (his shadow's mask)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "lit.sha256"
+    },
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/tools/bv2f_prep.py",
+     "tool_sha": "ae01fe9e57ae05849c2a68f9f45682b85807a391d6f1e3e601af26d82275d7bf",
+     "evidence": "fid/pt/pilot/painted_prep.json painting_sha256 = 901f3087799e",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png"
+    }
+   ]
+  },
+  {
+   "id": "bake barrow_front",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/barrow_front.bin",
+   "role": "baked real model (2048 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.barrow_front.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/barrow_front.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake barrow_front",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/barrow_front.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.barrow_front.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/barrow_front.png"
+    }
+   ]
+  },
+  {
+   "id": "plate barrow_front",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/barrow_front.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3092,
+      0,
+      900,
+      560
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake cliff_faces__cliff_faces_0",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/cliff_faces__cliff_faces_0.bin",
+   "role": "baked real model (2048 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.cliff_faces__cliff_faces_0.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/cliff_faces__cliff_faces_0.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake cliff_faces__cliff_faces_0",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/cliff_faces__cliff_faces_0.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.cliff_faces__cliff_faces_0.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/cliff_faces__cliff_faces_0.png"
+    }
+   ]
+  },
+  {
+   "id": "plate cliff_faces__cliff_faces_0",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/cliff_faces__cliff_faces_0.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      782,
+      2443,
+      269,
+      117
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake wreck",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/wreck.bin",
+   "role": "baked real model (2048 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.wreck.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/wreck.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake wreck",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/wreck.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.wreck.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/wreck.png"
+    }
+   ]
+  },
+  {
+   "id": "plate wreck",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/wreck.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      437,
+      994,
+      1048,
+      1029
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake crags__crags_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/crags__crags_2.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.crags__crags_2.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/crags__crags_2.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake crags__crags_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/crags__crags_2.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.crags__crags_2.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/crags__crags_2.png"
+    }
+   ]
+  },
+  {
+   "id": "plate crags__crags_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/crags__crags_2.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      1348,
+      2055,
+      281,
+      208
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake crags__crags_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/crags__crags_6.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.crags__crags_6.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/crags__crags_6.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake crags__crags_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/crags__crags_6.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.crags__crags_6.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/crags__crags_6.png"
+    }
+   ]
+  },
+  {
+   "id": "plate crags__crags_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/crags__crags_6.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      194,
+      553,
+      302,
+      280
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake logs__logs_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/logs__logs_3.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.logs__logs_3.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/logs__logs_3.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake logs__logs_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/logs__logs_3.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.logs__logs_3.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/logs__logs_3.png"
+    }
+   ]
+  },
+  {
+   "id": "plate logs__logs_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/logs__logs_3.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      1357,
+      1795,
+      311,
+      126
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_0",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_0.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_0.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_0.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_0",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_0.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_0.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_0.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_0",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_0.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      2954,
+      1672,
+      94,
+      184
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_1",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_1.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_1.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_1.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_1",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_1.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_1.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_1.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_1",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_1.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3084,
+      1914,
+      98,
+      146
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_2.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_2.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_2.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_2.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_2.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_2.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_2.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3324,
+      1387,
+      110,
+      162
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_3.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_3.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_3.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_3.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_3.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_3.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_3.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3664,
+      1531,
+      113,
+      182
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_4",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_4.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_4.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_4.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_4",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_4.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_4.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_4.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_4",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_4.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3610,
+      1842,
+      87,
+      166
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_5",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_5.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_5.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_5.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_5",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_5.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_5.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_5.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_5",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_5.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3154,
+      1615,
+      147,
+      109
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_6.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_6.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_6.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_6.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_6.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_6.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_6.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3409,
+      2009,
+      154,
+      83
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_7",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/ring_stones__ring_stones_7.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.ring_stones__ring_stones_7.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_7.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake ring_stones__ring_stones_7",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_7.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_7.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_7.png"
+    }
+   ]
+  },
+  {
+   "id": "plate ring_stones__ring_stones_7",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_7.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3543,
+      2060,
+      113,
+      141
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake slope_stones__slope_stones_1",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/slope_stones__slope_stones_1.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.slope_stones__slope_stones_1.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_1.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake slope_stones__slope_stones_1",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_1.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.slope_stones__slope_stones_1.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_1.png"
+    }
+   ]
+  },
+  {
+   "id": "plate slope_stones__slope_stones_1",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_1.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      2241,
+      227,
+      92,
+      161
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake slope_stones__slope_stones_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/slope_stones__slope_stones_2.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.slope_stones__slope_stones_2.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_2.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake slope_stones__slope_stones_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_2.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.slope_stones__slope_stones_2.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_2.png"
+    }
+   ]
+  },
+  {
+   "id": "plate slope_stones__slope_stones_2",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_2.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      2939,
+      549,
+      124,
+      169
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake slope_stones__slope_stones_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/slope_stones__slope_stones_3.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.slope_stones__slope_stones_3.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_3.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake slope_stones__slope_stones_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_3.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.slope_stones__slope_stones_3.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_3.png"
+    }
+   ]
+  },
+  {
+   "id": "plate slope_stones__slope_stones_3",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_3.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      3933,
+      525,
+      99,
+      181
+     ],
+     "alpha_min": 255
+    }
+   ]
+  },
+  {
+   "id": "bake slope_stones__slope_stones_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/bakes/slope_stones__slope_stones_6.bin",
+   "role": "baked real model (1024 px, DEV-19)",
+   "links": [
+    {
+     "kind": "sha_record",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted/manifest.json",
+     "field": "bakes.slope_stones__slope_stones_6.sha256"
+    },
+    {
+     "kind": "bytes_equal",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_6.png"
+    }
+   ]
+  },
+  {
+   "id": "work bake slope_stones__slope_stones_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_6.png",
+   "role": "bake output",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "producer",
+     "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py",
+     "tool_sha": "28b2dc11dcd18b6b4b239d975ce082e66d2a3c3c64a5928052cbfbbfead3e774",
+     "evidence": "fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.slope_stones__slope_stones_6.texture",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_6.png"
+    }
+   ]
+  },
+  {
+   "id": "plate slope_stones__slope_stones_6",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_6.png",
+   "role": "plate",
+   "intermediate": true,
+   "links": [
+    {
+     "kind": "crop_of",
+     "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+     "rect": [
+      1641,
+      1326,
+      115,
+      169
+     ],
+     "alpha_min": 255
+    }
+   ]
+  }
+ ],
+ "_note": "no texels of their own (data, not painted texture): heather.json, snow_grid.bin, snow_ground_h.bin (heights), water_sdf.bin (the floes' distance field for the foam). The sprays, the snow, the floes and the water WEAR painting.bin (projected); the water's swell/foam are procedural motion over it (DEV-5)."
+}

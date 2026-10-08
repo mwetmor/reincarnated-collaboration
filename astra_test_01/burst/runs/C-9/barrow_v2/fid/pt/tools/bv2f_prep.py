@@ -394,6 +394,20 @@ def main():
         keep = keep * keep * (3 - 2 * keep) if patch > 0 else 1.0
         mulg += wk * m_ * keep
         trod += wk * tr
+    # DEV-22 (R-C9-216/232): where the stair's TREAD snow field lies (fid/lv/art/stair_treads.json), the terrain snow is
+    # cut -- one snow per surface: the treads carry their own field (scripts/bv2f/stair_snow.gd)
+    if CFG.get("stair_treads_cut"):
+        from PIL import ImageDraw
+        ST = json.load(open(P_(CFG["stair_treads_cut"]["file"])))
+        msk = Image.new("L", (nx, nx), 0)
+        dr = ImageDraw.Draw(msk)
+        for t in ST["treads"]:
+            pts = [xz_of_uv(float(q[0]), float(q[1])) for q in t["outline_uv"]]
+            dr.polygon([((x_ - gx0) / cell, (z_ - gz0) / cell) for x_, z_ in pts], fill=255)
+        cut = ndimage.binary_dilation(np.asarray(msk) > 0, iterations=int(round(float(CFG["stair_treads_cut"].get("pad_m", 0.2)) / cell)))
+        mulg[cut] = 0.0
+        trod[cut] = 0.0
+        rep["stair_treads_cut"] = {"cells": int(cut.sum()), "treads": len(ST["treads"]), "file_sha256": sha_file(P_(CFG["stair_treads_cut"]["file"]))}
     gridp = os.path.join(OUT, "snow_grid.bin")
     np.concatenate([mulg.astype("<f4").ravel(), trod.astype("<f4").ravel()]).tofile(gridp)
     if CFG.get("snow_on_terrain") and not sn.get("v1_splat"):
@@ -414,8 +428,11 @@ def main():
     # the nearest floe edge / 2, world xz), from the level's own floe ellipses -- pilot config only
     if CFG.get("water_floes") and L is not None:
         fl = [b for b in L["sim"]["blobs"] if b["k"] == "floe"]
+        # R-C9-232: LV's Phase-1'' sea is SLABS (ice_shorefast / plates / floes / floes_bob / brash / rims / ridges: polygons),
+        # not floe blobs -- the foam's solids are those polygons
+        ice_slabs = [it for gk, gv in (L["sim"].get("slabs") or {}).items() if str(gk).startswith("ice_") for it in gv["items"]]
         sea_px = np.argwhere(idx == idx_of.get("ground_sea", -1))
-        if len(fl) and len(sea_px):
+        if (len(fl) or len(ice_slabs)) and len(sea_px):
             su, sv = uv_of_px(sea_px[:, 1] + 0.5, sea_px[:, 0] + 0.5, -6.0)
             sx, sz = xz_of_uv(su, sv)
             pad = 4.0
@@ -443,6 +460,18 @@ def main():
                 lx = dx * math.cos(th) - dy * math.sin(th)
                 ly = dx * math.sin(th) + dy * math.cos(th)
                 solid |= (lx / a_) ** 2 + (ly / b_) ** 2 <= 1.0
+            if ice_slabs:
+                from PIL import ImageDraw
+                sm_ = Image.new("L", (nxw, nzw), 0)
+                dr_ = ImageDraw.Draw(sm_)
+                for it in ice_slabs:
+                    pts = []
+                    for q in it["poly"]:
+                        wx_, wz_ = xz_of_uv(float(q[0]), -float(q[1]))
+                        pts.append(((wx_ - x0w) / cell_w - 0.5, (wz_ - z0w) / cell_w - 0.5))
+                    if len(pts) >= 3:
+                        dr_.polygon(pts, fill=255)
+                solid |= np.asarray(sm_) > 0
             exh = L["sim"]["heightfield"]["extent_sim_m"]
             hi_w = np.clip(((simx - exh["x0"]) * hf["px_per_m"]).astype(int), 0, Hf.shape[1] - 1)
             hj_w = np.clip(((simy - exh["y0"]) * hf["px_per_m"]).astype(int), 0, Hf.shape[0] - 1)
@@ -455,8 +484,8 @@ def main():
             Image.fromarray(sdf8, "L").save(wp, format="PNG")
             man["water"] = {"sdf": {"file": "water_sdf.bin", "sha256": sha_file(wp), "rect_xz": [round(x0w, 3), round(z0w, 3), round(nxw * cell_w, 3), round(nzw * cell_w, 3)],
                                     "_": "R-C9-159's water_sdf: R = metres to the nearest floe or shore edge / 2 (8-bit), world xz, 8 px/m; row 0 = z0"},
-                            "floes": len(fl), "_": "DEV-5: the animated water over the painted sea (scripts/bv2f/pt_water.gd = R-C9-159's shader, base = the painting)"}
-            rep["water"] = {"floes": len(fl), "sdf_px": [nxw, nzw], "land_share_of_field": round(float(land.mean()), 4),
+                            "floes": len(fl), "ice_slab_items": len(ice_slabs), "_": "DEV-5: the animated water over the painted sea (scripts/bv2f/pt_water.gd = R-C9-159's shader, base = the painting)"}
+            rep["water"] = {"floes": len(fl), "ice_slab_items": len(ice_slabs), "sdf_px": [nxw, nzw], "land_share_of_field": round(float(land.mean()), 4),
                             "shore_edge_m": "land = terrain > sea_z + 0.18 m"}
     json.dump(man, open(os.path.join(OUT, "manifest.json"), "w"), indent=1)
     json.dump(rep, open(REPORT, "w"), indent=1)

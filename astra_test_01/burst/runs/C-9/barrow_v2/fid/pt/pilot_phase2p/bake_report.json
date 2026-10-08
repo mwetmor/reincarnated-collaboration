@@ -1,0 +1,397 @@
+{
+ "_what": "BV2F PT pilot: every real model in the pilot window baked from the pilot painting with v1's t5_06b_bake (frozen, Tier A)",
+ "bake_script": "fid/v1tools/tierA/barrow_full/tools/t5_06b_bake.py (sha in SHA256SUMS; = v1 barrow_full/tools/t5_06b_bake.py)",
+ "texture_px": "per instance (DEV-19): see pieces.<id>.texture_px",
+ "pieces": {
+  "barrow_front": {
+   "surface": {
+    "tris": 40000,
+    "uv_coverage_pct": 60.33,
+    "tris_facing": 22275,
+    "tris_seen": 8693,
+    "silhouette_px_in_cell": 462440,
+    "hidden_by_another_piece_px": 189195
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 2530273,
+   "unseen_before_fill_pct": 75.0334,
+   "unseen_after_fill_pct": 58.539,
+   "filled_in_island": 417361,
+   "islands": 375,
+   "painted_from_an_occluder_pct": 8.689,
+   "silhouette_px_in_cell": 462440,
+   "texture": "pt/pilot/root/work/bakes/barrow_front.png",
+   "texture_px": 2048,
+   "baked_ppm_seen": 117.6
+  },
+  "cliff_faces__cliff_faces_0": {
+   "surface": {
+    "tris": 10000,
+    "uv_coverage_pct": 62.78,
+    "tris_facing": 5386,
+    "tris_seen": 3063,
+    "silhouette_px_in_cell": 24609,
+    "hidden_by_another_piece_px": 214
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 2633039,
+   "unseen_before_fill_pct": 97.5456,
+   "unseen_after_fill_pct": 90.573,
+   "filled_in_island": 183598,
+   "islands": 234,
+   "painted_from_an_occluder_pct": 0.0,
+   "silhouette_px_in_cell": 24609,
+   "texture": "pt/pilot/root/work/bakes/cliff_faces__cliff_faces_0.png",
+   "texture_px": 2048,
+   "baked_ppm_seen": 163.1
+  },
+  "wreck": {
+   "surface": {
+    "tris": 40000,
+    "uv_coverage_pct": 62.65,
+    "tris_facing": 20696,
+    "tris_seen": 14953,
+    "silhouette_px_in_cell": 434433,
+    "hidden_by_another_piece_px": 181885
+   },
+   "self_test": "99.991% of in-cell vertices on silhouette",
+   "texels_on_mesh": 2627651,
+   "unseen_before_fill_pct": 65.8012,
+   "unseen_after_fill_pct": 29.409,
+   "filled_in_island": 956264,
+   "islands": 203,
+   "painted_from_an_occluder_pct": 13.322,
+   "silhouette_px_in_cell": 434433,
+   "texture": "pt/pilot/root/work/bakes/wreck.png",
+   "texture_px": 2048,
+   "baked_ppm_seen": 144.7
+  },
+  "crags__crags_2": {
+   "surface": {
+    "tris": 10000,
+    "uv_coverage_pct": 58.32,
+    "tris_facing": 5605,
+    "tris_seen": 3423,
+    "silhouette_px_in_cell": 46915,
+    "hidden_by_another_piece_px": 7574
+   },
+   "self_test": "99.989% of in-cell vertices on silhouette",
+   "texels_on_mesh": 611523,
+   "unseen_before_fill_pct": 64.4802,
+   "unseen_after_fill_pct": 44.816,
+   "filled_in_island": 120249,
+   "islands": 530,
+   "painted_from_an_occluder_pct": 4.301,
+   "silhouette_px_in_cell": 46915,
+   "texture": "pt/pilot/root/work/bakes/crags__crags_2.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 216.5
+  },
+  "crags__crags_6": {
+   "surface": {
+    "tris": 10000,
+    "uv_coverage_pct": 58.32,
+    "tris_facing": 5619,
+    "tris_seen": 3429,
+    "silhouette_px_in_cell": 64129,
+    "hidden_by_another_piece_px": 9200
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 611523,
+   "unseen_before_fill_pct": 65.0924,
+   "unseen_after_fill_pct": 44.277,
+   "filled_in_island": 127294,
+   "islands": 530,
+   "painted_from_an_occluder_pct": 3.902,
+   "silhouette_px_in_cell": 64129,
+   "texture": "pt/pilot/root/work/bakes/crags__crags_6.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 183.6
+  },
+  "logs__logs_3": {
+   "surface": {
+    "tris": 120,
+    "uv_coverage_pct": 86.71,
+    "tris_facing": 50,
+    "tris_seen": 50,
+    "silhouette_px_in_cell": 10490,
+    "hidden_by_another_piece_px": 202
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 909200,
+   "unseen_before_fill_pct": 64.3258,
+   "unseen_after_fill_pct": 0.0,
+   "filled_in_island": 584850,
+   "islands": 1,
+   "painted_from_an_occluder_pct": 0.0,
+   "silhouette_px_in_cell": 10490,
+   "texture": "pt/pilot/root/work/bakes/logs__logs_3.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 559.5
+  },
+  "ring_stones__ring_stones_0": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5243,
+    "tris_seen": 3768,
+    "silhouette_px_in_cell": 11615,
+    "hidden_by_another_piece_px": 104
+   },
+   "self_test": "99.969% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 64.9552,
+   "unseen_after_fill_pct": 24.405,
+   "filled_in_island": 251926,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.013,
+   "silhouette_px_in_cell": 11615,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_0.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 435.6
+  },
+  "ring_stones__ring_stones_1": {
+   "surface": {
+    "tris": 9998,
+    "uv_coverage_pct": 60.19,
+    "tris_facing": 4927,
+    "tris_seen": 3300,
+    "silhouette_px_in_cell": 9107,
+    "hidden_by_another_piece_px": 99
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 631099,
+   "unseen_before_fill_pct": 70.4092,
+   "unseen_after_fill_pct": 37.189,
+   "filled_in_island": 209652,
+   "islands": 67,
+   "painted_from_an_occluder_pct": 0.022,
+   "silhouette_px_in_cell": 9107,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_1.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 455.6
+  },
+  "ring_stones__ring_stones_2": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5434,
+    "tris_seen": 4458,
+    "silhouette_px_in_cell": 12015,
+    "hidden_by_another_piece_px": 156
+   },
+   "self_test": "99.938% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 59.6625,
+   "unseen_after_fill_pct": 30.621,
+   "filled_in_island": 180427,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.062,
+   "silhouette_px_in_cell": 12015,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_2.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 459.5
+  },
+  "ring_stones__ring_stones_3": {
+   "surface": {
+    "tris": 9998,
+    "uv_coverage_pct": 60.19,
+    "tris_facing": 4923,
+    "tris_seen": 3359,
+    "silhouette_px_in_cell": 13496,
+    "hidden_by_another_piece_px": 68
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 631099,
+   "unseen_before_fill_pct": 69.117,
+   "unseen_after_fill_pct": 36.072,
+   "filled_in_island": 208546,
+   "islands": 67,
+   "painted_from_an_occluder_pct": 0.002,
+   "silhouette_px_in_cell": 13496,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_3.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 382.4
+  },
+  "ring_stones__ring_stones_4": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5153,
+    "tris_seen": 3667,
+    "silhouette_px_in_cell": 9586,
+    "hidden_by_another_piece_px": 95
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 63.6839,
+   "unseen_after_fill_pct": 28.176,
+   "filled_in_island": 220600,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.055,
+   "silhouette_px_in_cell": 9586,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_4.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 488.1
+  },
+  "ring_stones__ring_stones_5": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5073,
+    "tris_seen": 4153,
+    "silhouette_px_in_cell": 7831,
+    "hidden_by_another_piece_px": 22
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 63.03,
+   "unseen_after_fill_pct": 32.319,
+   "filled_in_island": 190799,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.006,
+   "silhouette_px_in_cell": 7831,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_5.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 544.9
+  },
+  "ring_stones__ring_stones_6": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5034,
+    "tris_seen": 4072,
+    "silhouette_px_in_cell": 7724,
+    "hidden_by_another_piece_px": 32
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 57.2502,
+   "unseen_after_fill_pct": 31.139,
+   "filled_in_island": 162218,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.0,
+   "silhouette_px_in_cell": 7724,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_6.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 590.0
+  },
+  "ring_stones__ring_stones_7": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5300,
+    "tris_seen": 4541,
+    "silhouette_px_in_cell": 7837,
+    "hidden_by_another_piece_px": 2
+   },
+   "self_test": "99.969% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 59.174,
+   "unseen_after_fill_pct": 31.3,
+   "filled_in_island": 173173,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.0,
+   "silhouette_px_in_cell": 7837,
+   "texture": "pt/pilot/root/work/bakes/ring_stones__ring_stones_7.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 572.4
+  },
+  "slope_stones__slope_stones_1": {
+   "surface": {
+    "tris": 9998,
+    "uv_coverage_pct": 60.19,
+    "tris_facing": 5169,
+    "tris_seen": 3624,
+    "silhouette_px_in_cell": 9657,
+    "hidden_by_another_piece_px": 90
+   },
+   "self_test": "99.985% of in-cell vertices on silhouette",
+   "texels_on_mesh": 631099,
+   "unseen_before_fill_pct": 66.347,
+   "unseen_after_fill_pct": 34.888,
+   "filled_in_island": 198537,
+   "islands": 67,
+   "painted_from_an_occluder_pct": 0.004,
+   "silhouette_px_in_cell": 9657,
+   "texture": "pt/pilot/root/work/bakes/slope_stones__slope_stones_1.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 471.9
+  },
+  "slope_stones__slope_stones_2": {
+   "surface": {
+    "tris": 9998,
+    "uv_coverage_pct": 60.19,
+    "tris_facing": 5141,
+    "tris_seen": 3762,
+    "silhouette_px_in_cell": 14035,
+    "hidden_by_another_piece_px": 86
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 631099,
+   "unseen_before_fill_pct": 62.9385,
+   "unseen_after_fill_pct": 31.852,
+   "filled_in_island": 196188,
+   "islands": 67,
+   "painted_from_an_occluder_pct": 0.018,
+   "silhouette_px_in_cell": 14035,
+   "texture": "pt/pilot/root/work/bakes/slope_stones__slope_stones_2.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 410.8
+  },
+  "slope_stones__slope_stones_3": {
+   "surface": {
+    "tris": 9999,
+    "uv_coverage_pct": 59.25,
+    "tris_facing": 5046,
+    "tris_seen": 3631,
+    "silhouette_px_in_cell": 12016,
+    "hidden_by_another_piece_px": 109
+   },
+   "self_test": "100.000% of in-cell vertices on silhouette",
+   "texels_on_mesh": 621268,
+   "unseen_before_fill_pct": 63.4097,
+   "unseen_after_fill_pct": 33.225,
+   "filled_in_island": 187528,
+   "islands": 47,
+   "painted_from_an_occluder_pct": 0.033,
+   "silhouette_px_in_cell": 12016,
+   "texture": "pt/pilot/root/work/bakes/slope_stones__slope_stones_3.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 437.6
+  },
+  "slope_stones__slope_stones_6": {
+   "surface": {
+    "tris": 9998,
+    "uv_coverage_pct": 60.46,
+    "tris_facing": 5335,
+    "tris_seen": 4599,
+    "silhouette_px_in_cell": 13672,
+    "hidden_by_another_piece_px": 607
+   },
+   "self_test": "99.925% of in-cell vertices on silhouette",
+   "texels_on_mesh": 633917,
+   "unseen_before_fill_pct": 61.1784,
+   "unseen_after_fill_pct": 36.028,
+   "filled_in_island": 159430,
+   "islands": 67,
+   "painted_from_an_occluder_pct": 0.753,
+   "silhouette_px_in_cell": 13672,
+   "texture": "pt/pilot/root/work/bakes/slope_stones__slope_stones_6.png",
+   "texture_px": 1024,
+   "baked_ppm_seen": 426.9
+  }
+ },
+ "dev19_sizes": {
+  "barrow_front": 2048,
+  "cliff_faces__cliff_faces_0": 2048,
+  "wreck": 2048
+ },
+ "summary": {
+  "baked": 18,
+  "failed": [],
+  "unseen_after_fill_pct_median": 32.77,
+  "unseen_after_fill_pct_max": 90.57,
+  "min_baked_ppm_seen": 117.6
+ }
+}

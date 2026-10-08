@@ -1,0 +1,634 @@
+{
+ "_what": "BV2F PT stills (bv2f pilot): painted, 1920x1080, MSAA 4x, pc_stills.gd recipe",
+ "painted": {
+  "files_bad": [],
+  "files_ok": 23,
+  "ground_variant": "as_painted",
+  "heather": {
+   "albedo_mul": [
+    1.2514,
+    1.0106,
+    0.5677
+   ],
+   "instances": 266,
+   "multimeshes": 6,
+   "tris": 181700
+  },
+  "loads": {
+   "../bv2f/pilot/painted/bakes/barrow_front.bin": {
+    "bytes": 1572964,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/barrow_front.bin",
+    "px": [
+     2048,
+     2048
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/cliff_faces__cliff_faces_0.bin": {
+    "bytes": 208337,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/cliff_faces__cliff_faces_0.bin",
+    "px": [
+     2048,
+     2048
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/crags__crags_2.bin": {
+    "bytes": 531225,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/crags__crags_2.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/crags__crags_6.bin": {
+    "bytes": 622652,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/crags__crags_6.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/logs__logs_3.bin": {
+    "bytes": 115648,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/logs__logs_3.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_0.bin": {
+    "bytes": 302286,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_0.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_1.bin": {
+    "bytes": 260461,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_1.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_2.bin": {
+    "bytes": 307859,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_2.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_3.bin": {
+    "bytes": 305142,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_3.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_4.bin": {
+    "bytes": 270762,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_4.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_5.bin": {
+    "bytes": 246496,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_5.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_6.bin": {
+    "bytes": 243206,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_6.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/ring_stones__ring_stones_7.bin": {
+    "bytes": 282141,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/ring_stones__ring_stones_7.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/slope_stones__slope_stones_1.bin": {
+    "bytes": 300317,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/slope_stones__slope_stones_1.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/slope_stones__slope_stones_2.bin": {
+    "bytes": 361506,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/slope_stones__slope_stones_2.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/slope_stones__slope_stones_3.bin": {
+    "bytes": 287269,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/slope_stones__slope_stones_3.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/slope_stones__slope_stones_6.bin": {
+    "bytes": 318115,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/slope_stones__slope_stones_6.bin",
+    "px": [
+     1024,
+     1024
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/bakes/wreck.bin": {
+    "bytes": 2363215,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/bakes/wreck.bin",
+    "px": [
+     2048,
+     2048
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/lit.bin": {
+    "bytes": 249253,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/lit.bin",
+    "px": [
+     2048,
+     1280
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/painting.bin": {
+    "bytes": 18986848,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/painting.bin",
+    "px": [
+     4096,
+     2560
+    ],
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/snow_grid.bin": {
+    "bytes": 2393672,
+    "path": "res://data/painted/../bv2f/pilot/painted/snow_grid.bin",
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/snow_ground_h.bin": {
+    "bytes": 1196836,
+    "path": "res://data/painted/../bv2f/pilot/painted/snow_ground_h.bin",
+    "sha256_ok": true
+   },
+   "../bv2f/pilot/painted/water_sdf.bin": {
+    "bytes": 3090,
+    "format": "png",
+    "path": "res://data/painted/../bv2f/pilot/painted/water_sdf.bin",
+    "px": [
+     144,
+     158
+    ],
+    "sha256_ok": true
+   }
+  },
+  "manifest": "res://data/bv2f/pilot/painted/manifest.json",
+  "ms": 2879,
+  "pieces": {
+   "baked": 18,
+   "baked_meshes": 18,
+   "bakes_missing": [],
+   "frame_rebound_materials": 39,
+   "inks_hidden": 183,
+   "projected": 106,
+   "water": {
+    "floes_bobbing": 17,
+    "sea_meshes": 1
+   }
+  },
+  "snow": {
+   "area_xz": [
+    -40.977,
+    -21.973,
+    54.513,
+    54.513
+   ],
+   "bake_ms": 2076.1,
+   "bare_frac_under_cut": 0.5953,
+   "field_px": 768,
+   "mean_depth_m": 0.0418,
+   "thin_zones": 266,
+   "trail_px": 1024
+  }
+ },
+ "renderer": {
+  "adapter": "Apple M2 (Apple8)",
+  "method": "forward_plus"
+ },
+ "views": {
+  "pilot_01": {
+   "camera": {
+    "centre_ground_uv": [
+     -24.035,
+     15.646
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     -1.216,
+     48.219,
+     31.73
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -24.035,
+    14.961
+   ],
+   "png": "pilot_01.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_02": {
+   "camera": {
+    "centre_ground_uv": [
+     -16.829,
+     15.646
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     3.699,
+     48.219,
+     26.46
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -16.829,
+    14.961
+   ],
+   "png": "pilot_02.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_03": {
+   "camera": {
+    "centre_ground_uv": [
+     -9.614,
+     15.646
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     8.62,
+     48.219,
+     21.183
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -9.614,
+    14.961
+   ],
+   "png": "pilot_03.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_04": {
+   "camera": {
+    "centre_ground_uv": [
+     -2.408,
+     15.646
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     13.534,
+     48.219,
+     15.913
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -2.408,
+    14.961
+   ],
+   "png": "pilot_04.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_05": {
+   "camera": {
+    "centre_ground_uv": [
+     -24.035,
+     6.432
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     5.524,
+     48.219,
+     38.014
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -24.035,
+    5.746
+   ],
+   "png": "pilot_05.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_06": {
+   "camera": {
+    "centre_ground_uv": [
+     -16.829,
+     6.432
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     10.438,
+     48.219,
+     32.744
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -16.829,
+    5.746
+   ],
+   "png": "pilot_06.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_07": {
+   "camera": {
+    "centre_ground_uv": [
+     -9.614,
+     6.432
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     15.359,
+     48.219,
+     27.467
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -9.614,
+    5.746
+   ],
+   "png": "pilot_07.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_08": {
+   "camera": {
+    "centre_ground_uv": [
+     -2.408,
+     6.432
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     20.273,
+     48.219,
+     22.198
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -2.408,
+    5.746
+   ],
+   "png": "pilot_08.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_09": {
+   "camera": {
+    "centre_ground_uv": [
+     -24.035,
+     -2.784
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     12.263,
+     48.218,
+     44.298
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -24.035,
+    -3.468
+   ],
+   "png": "pilot_09.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_10": {
+   "camera": {
+    "centre_ground_uv": [
+     -16.829,
+     -2.783
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     17.177,
+     48.218,
+     39.029
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -16.829,
+    -3.468
+   ],
+   "png": "pilot_10.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_11": {
+   "camera": {
+    "centre_ground_uv": [
+     -9.614,
+     -2.783
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     22.098,
+     48.219,
+     33.752
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -9.614,
+    -3.468
+   ],
+   "png": "pilot_11.png",
+   "px": [
+    1920,
+    1080
+   ]
+  },
+  "pilot_12": {
+   "camera": {
+    "centre_ground_uv": [
+     -2.445,
+     -2.95
+    ],
+    "forward_world": [
+     -0.4406,
+     -0.7981,
+     -0.4109
+    ],
+    "ortho_size_m": 10.7337,
+    "position_world": [
+     27.109,
+     48.218,
+     28.623
+    ],
+    "projection": "orthogonal"
+   },
+   "facing": "S",
+   "knight_uv": [
+    -2.445,
+    -3.635
+   ],
+   "png": "pilot_12.png",
+   "px": [
+    1920,
+    1080
+   ]
+  }
+ }
+}

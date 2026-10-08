@@ -23,20 +23,20 @@ static func _f32(path: String, want: String, rep: Dictionary) -> PackedFloat32Ar
 	return FileAccess.get_file_as_bytes(path).to_float32_array()
 
 
-static func build(parent: Node, knight: Node3D, fbm: Texture2D, wind: Vector2, painted := {}) -> SnowField:
+static func build(parent: Node, knight: Node3D, fbm: Texture2D, wind: Vector2, painted := {}, data := DATA) -> SnowField:
 	"""The stair's snow field, added under `parent`, tracking `knight`. `painted` = {} (v1's shader) or
 	{"paint_tex": Texture2D, "lit": Texture2D, "shadow_mul": Vector3, "u_hat": Vector3, "v_hat": Vector3,
 	 "g_frame": Vector3, "g_size": Vector2} (the painting's snow, PaintedWorld's projection re-bound to that frame)."""
-	var j = JSON.parse_string(FileAccess.get_file_as_string(DATA + "stair_snow.json"))
+	var j = JSON.parse_string(FileAccess.get_file_as_string(data + "stair_snow.json"))
 	if typeof(j) != TYPE_DICTIONARY:
-		push_error("stair_snow: no %sstair_snow.json" % DATA)
+		push_error("stair_snow: no %sstair_snow.json" % data)
 		return null
 	var man: Dictionary = j
 	var rep := {}
 	var nx := int(man["nx"])
 	var nz := int(man["nz"])
-	var grid := _f32(DATA + String(man["grid"]["file"]), String(man["grid"]["sha256"]), rep)
-	var gh := _f32(DATA + String(man["ground_h"]["file"]), String(man["ground_h"]["sha256"]), rep)
+	var grid := _f32(data + String(man["grid"]["file"]), String(man["grid"]["sha256"]), rep)
+	var gh := _f32(data + String(man["ground_h"]["file"]), String(man["ground_h"]["sha256"]), rep)
 	if grid.size() != 2 * nx * nz or gh.size() != nx * nz:
 		push_error("stair_snow: grid sizes %d / %d, want %d / %d" % [grid.size(), gh.size(), 2 * nx * nz, nx * nz])
 		return null

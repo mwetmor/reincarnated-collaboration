@@ -2,11 +2,19 @@
  "_what": "R-C9-232: the pilot REPAINT's level, pinned from LV 368cdf791 (art/ as committed; P6' PASS PH d6ed867d1); the Phase 2' pilot keeps pilot/level/",
  "lv_commit": "368cdf791",
  "files": {
-  "level.json": "c952550b80f55605dc6fddb294603fb7418670b6f3e24224c71ad37e6881cd4c",
+  "terrain_walk_h.f32": "12c5461f6e43d2d3f7528f5887ea8f94c711817b1f1b69cc820fc9cb545dcc42",
   "terrain_h.f32": "32f686ef5ce72673240ecab23cd927c81409be73955cd9bfbcad537e08006d2e",
-  "classes_png.bin": "e83b3595814624c1abf218ce4f51d5770d888e7d2a0c665a7e1560270df8fc50"
+  "carved_rime.f32": "1379dc3989dea633abdc10c96e0ceb38cf0931833eca7213bed401cf78dcf6e7",
+  "carved_snow.f32": "1f86e4297c6663e3aad7178b53f6533f2b6cfd5cdc684f98be35cd7560c83f3c",
+  "carved_passage_dark.f32": "4efcc4a6a03e469085872639de9c7969d71fa60b1a1519da7e4af927881365c5",
+  "classes_png.bin": "e83b3595814624c1abf218ce4f51d5770d888e7d2a0c665a7e1560270df8fc50",
+  "carved_wet_rock.f32": "6d4e7d891db878577093dccee1ad4f0b52f2a3e654ba26e924403bd1223cc068",
+  "carved_tide_ice.f32": "d13302f45c412a69c89b5754df913edec4dc7416e0031f45b216948d6f02a150",
+  "carved_rock.f32": "fa377bf4c2461a31066e174584326fdfc34261c207b62e3566293f227f45ae79",
+  "level.json": "c952550b80f55605dc6fddb294603fb7418670b6f3e24224c71ad37e6881cd4c"
  },
  "terrain_sha_ok": true,
  "classes_sha_ok": true,
- "glb_copies_sha_ok": true
+ "glb_copies_sha_ok": true,
+ "_fix": "R-C9-232: the first pin copied only terrain/classes; the carved section (carved_*.f32) and the walk heightfield (terrain_walk_h.f32) are now pinned too"
 }

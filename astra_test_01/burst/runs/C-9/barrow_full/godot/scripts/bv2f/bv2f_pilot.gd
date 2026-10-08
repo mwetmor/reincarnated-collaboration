@@ -19,19 +19,25 @@ const PILOT_U0 := -33.57573954303182
 const PILOT_V1 := 22.36993715728635
 const PILOT_PX := Vector2(4096.0, 2560.0)
 ## the pilot's painted data, RELATIVE to PaintedWorld.data_dir() (res://data/painted/) so v1's loaders read it unchanged
-const PILOT_REL := "../bv2f/pilot/painted/"
-const PILOT_MANIFEST := "res://data/bv2f/pilot/painted/manifest.json"
+## R-C9-232: WHICH PILOT. Default = the REPAINT (data/bv2f/pilot_rp/: its painted data + its pinned level, LV 368cdf791);
+## env BV2F_PILOT=phase2p = the Phase 2' pilot as pinned (data/bv2f/pilot/: M2' evidence, kept as-is).
+const PILOT_SETS := {"rp": "pilot_rp", "phase2p": "pilot"}
+var pilot_set := PILOT_SETS.get(OS.get_environment("BV2F_PILOT") if OS.get_environment("BV2F_PILOT") != "" else "rp", "pilot_rp") as String
+var PILOT_REL := "../bv2f/%s/painted/" % pilot_set
+var PILOT_MANIFEST := "res://data/bv2f/%s/painted/manifest.json" % pilot_set
 const SNOW_TERRAIN := preload("res://scripts/bv2f/snow_field_terrain.gd")   # BV2F-PT DEV-18
 const PT_WATER := preload("res://scripts/bv2f/pt_water.gd")   # BV2F-PT DEV-5
 
 
 ## R-C9-205: the pilot reads ITS OWN level, pinned -- data/bv2f/pilot/level/ = LV's art level as the pilot was painted
 ## over (level.json sha c861f9092f23, terrain_h 2d9fbf243d77); LV's data/bv2f/art/ is being rebuilt in place
-const PILOT_LEVEL_DIR := "res://data/bv2f/pilot/level/"
+var PILOT_LEVEL_DIR := "res://data/bv2f/%s/level/" % pilot_set
 
 
 func _init() -> void:
 	BV2F_DATA = PILOT_LEVEL_DIR
+	if not PILOT_SETS.values().has(pilot_set) or OS.get_environment("BV2F_PILOT") not in ["", "rp", "phase2p"]:
+		push_error("bv2f_pilot: BV2F_PILOT=%s is not rp or phase2p" % OS.get_environment("BV2F_PILOT"))
 
 
 func _pilot_window() -> Dictionary:
@@ -183,6 +189,7 @@ func _dress_painted() -> void:
 		_build_painted_reeds(man, lit, shadow_mul, loads)
 	if vman.has("snow"):
 		_build_painted_snow(vman, painting, lit, shadow_mul)
+	_build_stair_snow(painting, lit, shadow_mul)   # BV2F-PT DEV-22
 	var flake := PaintStack.make_flake_texture()
 	snowfall = PaintStack.snowfall(flake, Vector3(46, 28, 46), 1700)
 	snowfall.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -315,6 +322,27 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 					 "thin_zones": br.get("thin_zones"), "bake_ms": br.get("ms", br.get("bake_ms"))}
 
 
+# --- DEV-22 (R-C9-216/232): the stair's TREAD snow, when the stair falls in the pilot (its grids exist) ---------------
+const STAIR_SNOW := preload("res://scripts/bv2f/stair_snow.gd")
+var stair_snow: SnowField = null
+
+
+func _build_stair_snow(painting: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
+	var dd := "res://data/bv2f/%s/stair_snow/" % pilot_set
+	if not FileAccess.file_exists(dd + "stair_snow.json"):
+		paint["stair_snow"] = {"built": false, "_": "no %sstair_snow.json" % dd}
+		return
+	stair_snow = STAIR_SNOW.build(self, knight, fbm, WIND, {"paint_tex": painting, "lit": lit, "shadow_mul": shadow_mul,
+		"u_hat": u_hat, "v_hat": v_hat, "g_frame": Vector3(PILOT_U0, PILOT_V1, PPM), "g_size": PILOT_PX}, dd)
+	# LV's static tread-snow strips give way to the 3D tread snow (one snow per surface)
+	var hid := false
+	if nodes.has("stair_snow"):
+		(nodes["stair_snow"] as Node3D).visible = false
+		hid = true
+	paint["stair_snow"] = {"built": stair_snow != null, "lv_strips_hidden": hid,
+						   "dev22": stair_snow.get_meta("dev22") if stair_snow != null else null}
+
+
 # --- DEV-5 (R-C9-194): the animated water over the painted sea, the floes riding the swell -------------------------
 func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_mul: Vector3, loads: Dictionary, n: Dictionary) -> void:
 	if not man.has("water") or not nodes.has("ground_sea"):
@@ -339,10 +367,25 @@ func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_m
 	wm.set_shader_parameter("g_size", PILOT_PX)
 	wm.set_shader_parameter("paint_mix", 0.75)         # R-C9-197: R-C9-159's own value (the water Matt accepted as moving)
 	var ns := 0
+	# R-C9-232: LV's Phase-1'' ground_sea piece also carries terrain ABOVE the water (the carved headland's top sits in
+	# its class region) -- the water is laid only on triangles at the water line; the rest keep the painted projection
+	var sea_y := float(sim.get("sea_z", -5.0)) + 0.35
+	var mat_land := PaintedWorld.painted_material(painting, true, lit, shadow_mul, u_hat, v_hat)
+	var n_land := 0
 	for mi in _meshes(nodes["ground_sea"]):
+		var parts := _split_by_height(mi, sea_y)
 		mi.material_override = wm
 		mi.layers = PaintedWorld.LAYER_PAINTED
 		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		if parts.size() == 2:
+			mi.mesh = parts[0]
+			var land := MeshInstance3D.new()
+			land.name = String(mi.name) + "_above_water"
+			land.mesh = parts[1]
+			mi.get_parent().add_child(land)
+			land.global_transform = mi.global_transform
+			_paint_mesh(land, mat_land, false)
+			n_land += 1
 		ns += 1
 	var fsh := PaintedWorld._shader("bv2f_floes", PT_WATER.floe_shader_code())
 	var nf := 0
@@ -359,8 +402,117 @@ func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_m
 		for mi in _meshes(nodes[id]):
 			_paint_mesh(mi, fm, false)
 		nf += 1
+	# R-C9-232: LV's Phase-1'' sea has no floe blobs -- its loose floes are ONE slab group (ice_floes_bob, tagged to bob).
+	# Each floe is split out of the group mesh as its own piece (connected triangles) and bobs on its own phase.
+	if nodes.has("ice_floes_bob"):
+		for mi in _meshes(nodes["ice_floes_bob"]):
+			for am in _split_components(mi.mesh):
+				var fm := ShaderMaterial.new()
+				fm.shader = fsh
+				fm.set_shader_parameter("paint_tex", painting)
+				fm.set_shader_parameter("project_uv", true)
+				fm.set_shader_parameter("painted_mark", PaintedWorld.PAINTED_MARK)
+				PaintedWorld.bind_projection(fm, lit, shadow_mul, u_hat, v_hat)
+				fm.set_shader_parameter("bob_phase", fposmod(float(nf) * 0.6180339, 1.0))
+				var piece := MeshInstance3D.new()
+				piece.name = "floe_%d" % nf
+				piece.mesh = am
+				mi.get_parent().add_child(piece)
+				piece.global_transform = mi.global_transform
+				_paint_mesh(piece, fm, false)
+				nf += 1
+			mi.visible = false
 	water_mat_pt = wm
-	n["water"] = {"sea_meshes": ns, "floes_bobbing": nf}
+	n["water"] = {"sea_meshes": ns, "floes_bobbing": nf, "sea_above_water_split": n_land, "sea_y": sea_y}
+
+
+static func _split_by_height(mi: MeshInstance3D, y_cut: float) -> Array:
+	"""[at the water line, above it]: a mesh's triangles split by whether any vertex stands above y_cut (world y);
+	[] if nothing is above (the mesh is left as it is)."""
+	var lo := PackedVector3Array()
+	var lon := PackedVector3Array()
+	var hi := PackedVector3Array()
+	var hin := PackedVector3Array()
+	var xf := mi.global_transform
+	for si in mi.mesh.get_surface_count():
+		var arr: Array = mi.mesh.surface_get_arrays(si)
+		var V: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		var N := PackedVector3Array(arr[Mesh.ARRAY_NORMAL]) if arr[Mesh.ARRAY_NORMAL] != null else PackedVector3Array()
+		var I := PackedInt32Array(arr[Mesh.ARRAY_INDEX]) if arr[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(V.size()))
+		for t in range(0, I.size(), 3):
+			var up := false
+			for q in 3:
+				if (xf * V[I[t + q]]).y > y_cut:
+					up = true
+			for q in 3:
+				(hi if up else lo).append(V[I[t + q]])
+				(hin if up else lon).append(N[I[t + q]] if N.size() == V.size() else Vector3.UP)
+	if hi.is_empty():
+		return []
+	var out := []
+	for pr in [[lo, lon], [hi, hin]]:
+		var a := []
+		a.resize(Mesh.ARRAY_MAX)
+		a[Mesh.ARRAY_VERTEX] = pr[0]
+		a[Mesh.ARRAY_NORMAL] = pr[1]
+		var am := ArrayMesh.new()
+		if (pr[0] as PackedVector3Array).size() > 0:
+			am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, a)
+		out.append(am)
+	return out
+
+
+static func _split_components(mesh: Mesh) -> Array:
+	"""R-C9-232: a slab-group mesh (LV _build_slabs: every item a prism of its own, no vertex shared between items) cut
+	into one ArrayMesh per connected piece -- triangles joined where they share a vertex POSITION (mm-rounded)."""
+	var out := []
+	for si in mesh.get_surface_count():
+		var arr: Array = mesh.surface_get_arrays(si)
+		var V: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		var N := PackedVector3Array(arr[Mesh.ARRAY_NORMAL]) if arr[Mesh.ARRAY_NORMAL] != null else PackedVector3Array()
+		var I := PackedInt32Array(arr[Mesh.ARRAY_INDEX]) if arr[Mesh.ARRAY_INDEX] != null else PackedInt32Array(range(V.size()))   # LV's slab meshes are unindexed
+		var key_of := {}
+		var parent: Array = []   # an Array (shared by reference into the find lambda; a packed array is copied)
+		var vkey := PackedInt32Array()
+		vkey.resize(V.size())
+		for i in V.size():
+			var k := Vector3i(roundi(V[i].x * 1000.0), roundi(V[i].y * 1000.0), roundi(V[i].z * 1000.0))
+			if not key_of.has(k):
+				key_of[k] = parent.size()
+				parent.append(parent.size())
+			vkey[i] = key_of[k]
+		var find := func(x: int) -> int:
+			while parent[x] != x:
+				parent[x] = parent[parent[x]]
+				x = parent[x]
+			return x
+		for t in range(0, I.size(), 3):
+			var a: int = find.call(vkey[I[t]])
+			for q in [I[t + 1], I[t + 2]]:
+				var b: int = find.call(vkey[q])
+				if a != b:
+					parent[b] = a
+		var groups := {}
+		for t in range(0, I.size(), 3):
+			var r: int = find.call(vkey[I[t]])
+			if not groups.has(r):
+				groups[r] = []
+			groups[r].append(t)
+		for r in groups:
+			var v2 := PackedVector3Array()
+			var n2 := PackedVector3Array()
+			for t in groups[r]:
+				for q in 3:
+					v2.append(V[I[t + q]])
+					n2.append(N[I[t + q]] if N.size() == V.size() else Vector3.UP)
+			var a2 := []
+			a2.resize(Mesh.ARRAY_MAX)
+			a2[Mesh.ARRAY_VERTEX] = v2
+			a2[Mesh.ARRAY_NORMAL] = n2
+			var am := ArrayMesh.new()
+			am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, a2)
+			out.append(am)
+	return out
 
 
 # --- R-C9-200: the load-time pipeline warm-up -------------------------------------------------------------------

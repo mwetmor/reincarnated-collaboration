@@ -2,7 +2,7 @@
  "_what": "bv2f_prep.py config: the PILOT (DEV-17/18 adaptations)",
  "painting": "pt/pilot/painting.png",
  "lit": "pt/pilot/root/work/light/lit_guide.png",
- "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot/painted",
+ "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp/painted",
  "report": "pt/pilot/painted_prep.json",
  "ids_dir": "pt/pilot/ids_built",
  "take_report": "pt/pilot/root/take/take_report.json",
@@ -131,5 +131,11 @@
  "_dev18": "R-C9-193: heather_on_terrain + snow_on_terrain (fid/pt/dev18 proposal (a)); counts stay v1's",
  "water_floes": true,
  "reed_split": true,
- "_reed_split": "R-C9-205 ruling 1: one plant per painted tuft -- reed tufts out of the heather's cover (DEV-21)"
+ "_reed_split": "R-C9-205 ruling 1: one plant per painted tuft -- reed tufts out of the heather's cover (DEV-21)",
+ "stair_treads_cut": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp/level/stair_treads.json",
+  "pad_m": 0.2,
+  "_": "DEV-22: the terrain snow is cut where the stair's tread snow lies"
+ },
+ "_rp": "R-C9-232 repaint: out = data/bv2f/pilot_rp/painted (the Phase 2' pilot's data/bv2f/pilot/painted stays as pinned)"
 }

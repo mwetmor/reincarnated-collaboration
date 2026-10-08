@@ -73,6 +73,13 @@ func _initialize() -> void:
 			k.drive_dir(Vector2.ZERO, false, DT)
 			await physics_frame
 		await _settle(4)
+		# R-C9-232: the frame is the SPEC's (P11's plate frame), not wherever the camera's follow of him puts it -- on the
+		# repaint's blockout he can stand below the ground plane (the cove shelf), which lifts the follow camera's centre off
+		# the plate and shows unpainted ground. Parked at the spec's ground centre (h = 0) when the spec gives one.
+		if s.has("camera_centre_ground_uv"):
+			var cc: Array = s["camera_centre_ground_uv"]
+			scene.park_camera(scene.uv_to_world(float(cc[0]), float(cc[1])), 1.0)
+			await _settle(2)
 		await _shot(nm)
 		var at: Vector2 = scene.knight_uv()
 		var cam: Camera3D = scene.cam

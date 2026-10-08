@@ -9,7 +9,7 @@ const DT := 1.0 / 24.0
 const SETTLE_MIN := 72
 const HOLD_IN := 12
 const HOLD_OUT := 36
-const ROUTE := [Vector2(-10.0, 4.0), Vector2(-15.5, 1.5), Vector2(-13.0, -4.0), Vector2(-4.0, -2.5),
+var ROUTE := [Vector2(-10.0, 4.0), Vector2(-15.5, 1.5), Vector2(-13.0, -4.0), Vector2(-4.0, -2.5),
 				Vector2(0.0, 1.0), Vector2(0.5, 7.0), Vector2(1.5, 13.6)]
 
 var scene
@@ -24,6 +24,14 @@ var report := {"route_uv": [], "reached": [], "skipped": []}
 
 
 func _initialize() -> void:
+	# R-C9-232: --route "u,v;u,v;..." overrides the Phase 2' route (the repaint's blockout moved the coast and the ring)
+	var args := OS.get_cmdline_user_args()
+	for i in args.size():
+		if args[i] == "--route" and i + 1 < args.size():
+			ROUTE = []
+			for q in args[i + 1].split(";"):
+				var xy := q.split(",")
+				ROUTE.append(Vector2(float(xy[0]), float(xy[1])))
 	scene = load("res://scenes/bv2f_pilot_painted.tscn").instantiate()
 	root.add_child(scene)
 
