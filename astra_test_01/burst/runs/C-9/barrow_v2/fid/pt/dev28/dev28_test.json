@@ -1,0 +1,91 @@
+{
+ "_what": "DEV-28 constructed test (R-C9-257 (c)); dev28.py sha12 44714e01073c",
+ "synthetic": {
+  "rock_px_changed": 0,
+  "hard_shadow_region_px_changed": 0,
+  "flat_far_px_changed": 0,
+  "dither_ramp_checker_energy": [
+   10.31,
+   0.044
+  ],
+  "dither_ramp_mean_grey": [
+   171.49,
+   171.82
+  ]
+ },
+ "flag": {
+  "unset": {
+   "same_object": true,
+   "bytes_equal": true
+  },
+  "on": {
+   "same_object": false,
+   "bytes_equal": false
+  },
+  "on_wrong_sha": {
+   "halt": "DEV-28 HALT: /Users/admin/Games/reincarnated-collaboration/a"
+  }
+ },
+ "v1_guide": {
+  "guide": "barrow_full/paint/barrow_full_guide.png",
+  "guide_sha12": "e866051cebf2",
+  "ids": "barrow_full/take/ids/ids.png",
+  "ids_sha12": "ed9cfcd207c1",
+  "dev28": {
+   "params": {
+    "T_CHECK": 3.0,
+    "MIN_DENS": 8,
+    "DIL": 2,
+    "SIGMA": 1.6,
+    "RAD": 4,
+    "TOL_CHROMA": 0.015,
+    "INK_GREY": 70
+   },
+   "shadow_tint_k": [
+    0.7823,
+    0.8068,
+    0.8643
+   ],
+   "px": [
+    5376,
+    3328
+   ],
+   "dither_px": 1275284,
+   "zone_px": 1679060,
+   "changed_px": 1445287,
+   "zone_share": 0.09384770096440018
+  },
+  "changed_outside_zone_px": 0,
+  "changed_share_of_frame": 0.08078142662188072,
+  "object_mean_colour_drift_max_levels": 0.299,
+  "boundary_px_changed_share": 0.0,
+  "zone_checker_energy": [
+   2.872,
+   0.596
+  ],
+  "ink_px_changed": 0,
+  "lit_snow_px_changed": 3709,
+  "lit_snow_px": 4549758,
+  "shadow_edge_checker_energy": [
+   2.42,
+   1.582
+  ],
+  "shadow_on_snow_checker_energy": [
+   0.44,
+   0.194
+  ],
+  "shadow_on_snow_mean_rgb": [
+   [
+    126.2,
+    121.92,
+    102.41
+   ],
+   [
+    125.95,
+    121.72,
+    102.32
+   ]
+  ]
+ },
+ "our_guide": "SKIPPED: no pinned guide+ID+class set given (pilot pin kept no ID copy; LV re-rendering)"
+}

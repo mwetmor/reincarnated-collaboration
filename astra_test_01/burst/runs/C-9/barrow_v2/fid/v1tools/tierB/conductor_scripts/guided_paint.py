@@ -23,6 +23,16 @@ if cmd == 'ready':
         if all(done(n) for n in need): out.append(k)
     print(' '.join(out)); sys.exit()
 k = sys.argv[3]; c, r = map(int, k.split('_')); ox, oy = c * 1280, r * 768; SUF = os.environ.get('SUF', '')
+# BV2F-BEGIN DEV-28 (R-C9-257 (c)): GUIDE SHADOW SMOOTHING before the canvas is cut (stage only; brief never reads pixels).
+# BV2F_DEV28=1 fills and softens the renderer's PCF shadow dither (fid/v1tools/dev28.py), guarded by the guide's own ID render
+# cfg['dev28_ids'] (sha-pinned in cfg['dev28_ids_sha256']); unset = v1's guide byte for byte.
+if os.environ.get('BV2F_DEV28') == '1' and cmd == 'stage':
+    _ids = pathlib.Path(cfg['dev28_ids'])
+    if hashlib.sha256(_ids.read_bytes()).hexdigest() != cfg['dev28_ids_sha256']:
+        sys.exit('DEV-28 HALT: %s is not the pinned ID render' % _ids)
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2])); import dev28
+    GUIDE, _rep = dev28.smooth(GUIDE, Image.open(_ids)); print('DEV-28', json.dumps(_rep))
+# BV2F-END
 canvas = GUIDE.crop((ox, oy, ox + 1536, oy + 1024)); kept = []
 for (nc, nr) in [(c-1, r), (c, r-1), (c+1, r-1), (c-1, r-1)]:
     if nc < 0 or nr < 0 or nc >= COLS: continue

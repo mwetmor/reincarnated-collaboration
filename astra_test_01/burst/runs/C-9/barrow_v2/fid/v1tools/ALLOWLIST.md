@@ -71,7 +71,7 @@ PAINT_SHA_PREFIX = "eecb42661af490dd"          # the stitched paint-over the coo
 
 ## guided_paint.py
 
-DEV-10 (charter § 7, R-C9-189 Phase 2'): ONE added line appends `cfg['chunk_notes'][k]` (per-chunk notes generated from the ID render by fid/pt/tools/chunk_notes.py) to the brief when the cfg carries it; a cfg without `chunk_notes` gives v1's brief byte for byte. No v1 line is removed. The Tier-A v1 copy (tierA/conductor_scripts/guided_paint.py) is kept unchanged; the driver calls this Tier-B copy.
+DEV-10 (charter § 7, R-C9-189 Phase 2'): ONE added line appends `cfg['chunk_notes'][k]` (per-chunk notes generated from the ID render by fid/pt/tools/chunk_notes.py) to the brief when the cfg carries it; a cfg without `chunk_notes` gives v1's brief byte for byte. No v1 line is removed. DEV-28 (R-C9-257 (c)): a BV2F-BEGIN/END block before the canvas crop, `stage` only: with BV2F_DEV28=1 the guide's renderer shadow dither is filled and softened by fid/v1tools/dev28.py (BV2F-own, in SHA256SUMS), guarded by the guide's own ID render (cfg `dev28_ids` + `dev28_ids_sha256`, a HALT on mismatch): only dither-zone pixels change, never a silhouette rim (two IDs in 3 x 3) or the pen's ink, and each changed pixel averages only same-ID, same shadow-invariant-chromaticity neighbours. Unset = v1's guide byte for byte. Constructed test fid/pt/tools/dev28_test.py -> fid/pt/dev28/dev28_test.json. No v1 line removed. The Tier-A v1 copy (tierA/conductor_scripts/guided_paint.py) is kept unchanged; the driver calls this Tier-B copy.
 
 ```allow guided_paint.py
 ```
