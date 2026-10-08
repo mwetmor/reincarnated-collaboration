@@ -50,3 +50,26 @@ Under (b), S2-CAL-1 is exactly the check that detects drift: the library must re
 - the level rule of record, L-RULE-B (board level), with its 39/74 disagreement carried as E_L.
 
 **Next, per the prereg's § 4:** star-lord's sourced-DA pack member (provenance `SOURCED (step 2; L-RULE-B; E_L; edition IV)`), then the `OffenseHitUndecided` guard with NC-S2-G1. At GD on J-S8 the guard is predicted never to fire.
+
+---
+
+## INFO-S2a / INFO-S2b: reported columns (engine `6b35abb9`; `run-edition-IV/s2_classes.json`)
+
+**Declared:** these columns were added **after** the run of record's results were read. They change no verdict class.
+
+- **Class rule:** declared, from the record path.
+- **Level margin:** `(DA* − DA) / (12·(1 + mod/100))`, the levels of level-rule error needed to flip the verdict.
+
+| Class | in the 74 measured | among the 122 unmeasured | closest to DA\* (smallest level margin) | label |
+|---|---|---|---|---|
+| common | 41 | 42 | `devotion/chthonianherald_h01` w157: **32.9 levels** | CERTAIN |
+| hero | 16 | 27 | `hero/springscrab_h03` w152: **21.2 levels** | CERTAIN |
+| boss_quest | 9 | 9 | `boss&quest/humanascendant_mindthief_01` w155: **17.6 levels** | CERTAIN |
+| bounty | 6 | 13 | `bounties/bl_bounty10` w153: **33.1 levels** | CERTAIN |
+| nemesis | 2 | 6 | `nemesis/nemesis_beast_01_p1` w160: **24.5 levels** | CERTAIN |
+| **summon** | **0** | **25** | `swampcrab_c01_summon` w152: **21.1 levels** | **CERTAIN under L-RULE-B; class uncalibrated** |
+
+**What this means:**
+- **25 rows are class-uncalibrated (summons).** Their level rule is not represented among the 74; per Lap B R-P4, pets inherit the owner's level. Even so, a summon's verdict would flip only with a level error of **≥ 21.1 levels**.
+- **The smallest margin anywhere is 17.6 levels** (boss_quest). The measured level-rule disagreement on the 74 is 2–7 levels (E_L = 130.4 DA).
+- **This is for Matt's sheet as reported:** all CERTAIN, the summon class uncalibrated, margin ≥ 21 levels.
