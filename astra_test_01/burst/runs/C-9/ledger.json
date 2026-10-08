@@ -44919,6 +44919,12 @@
       "ts": "2026-10-07T16:51:56Z",
       "status": "closed",
       "what": "Shared disk 18 GiB free (< 20 GiB gate; lanes halt at 21), raised by the Sim Session conductor. Largest consumer: this conductor session's scratchpad (45 GB logical): superseded barrow_full APFS clones (v1c, v1c2, d17, d17r, pc2_*, pc3_*), pilot paint staging, raw walk AVIs. Manifest 16 (cleanup/manifest_bv2f_scratch_16.txt, 12 entries, 44.6 GiB logical; f0e8d3ef3) put to Matt; Matt runs deletions. PH's Godot queue stopped before any render. | CLOSED: disk recovered to 24-29 GiB (other deletions); manifest 16 still offered to Matt."
+    },
+    {
+      "id": "H-C9-BV2F-PT-LOCK-1",
+      "ts": "2026-10-08T00:32:50Z",
+      "status": "closed",
+      "what": "PT's stair-snow test (Godot PID 78315, tools/bv2f/pt_stair_snow_test.gd) looped every frame for ~85 min on a script error ('ready_done' on a Node3D, line 80) while holding the SHARED heavy lock, blocking the Sim Session's JOIN-1/KC2 heavy runs; log reached 88 MB (scratchpad/st1/log.txt). Reported by the Sim Session conductor; the C-9 conductor verified and terminated it; lock released (next holder: LV's walkability check, then the Sim Session's queued jobs). Remedy ordered: fix the script error, a quit-on-script-error + wall-clock timeout guard in every PT Godot harness, a log cap; the log is listed for Matt's cleanup."
     }
   ],
   "rulings": [
