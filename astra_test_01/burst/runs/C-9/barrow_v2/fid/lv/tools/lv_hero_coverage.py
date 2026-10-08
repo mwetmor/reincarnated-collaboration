@@ -14,7 +14,7 @@ HEROES = {"wreck": ["wreck"], "cave_stair": ["curtain_sea_cave_mouth", "stair_st
           "mere": ["ground_ice", "mere_plates"], "ring": ["ring_stones"], "hall_door": ["curtain_hall_great_door", "longhall"], "gable": ["fallen_gable"]}
 if M1 == "M1pp":   # Phase 1'': the heroes Matt asked to see (R-C9-204/206); the rest are unchanged and outside these stills
     HEROES = {"wreck": ["wreck"], "cliffs": ["cliff_faces", "cliff_skirt_wall", "carved_rock"], "cave_stair": ["carved_passage_dark", "carved_tide_ice", "curtain_sea_cave_mouth", "stair_treads", "stair_snow"],
-              "mere": ["ground_ice", "mere_cracks", "reed_islands", "reed_tufts"], "river": ["stream_cracks"], "sea_ice": ["ice_shorefast", "ice_plates", "ice_floes", "ice_floes_bob"],
+              "mere": ["ground_ice", "mere_cracks", "reed_islands", "reed_tufts"], "river": ["river_water"], "sea_ice": ["ice_shorefast", "ice_plates", "ice_floes", "ice_floes_bob"],
               "stacks_talus": ["sea_stacks", "talus"], "ring": ["ring_stones", "ring_fallen"]}
 ij = json.load(open(os.path.join(RAW, "stills_ids.json")))
 code = {v["id"]: v["rgb"][0] * 65536 + v["rgb"][1] * 256 + v["rgb"][2] for v in ij["id_table"].values()}

@@ -116,10 +116,7 @@ def build(P):
     f = np.empty((nt, ns, nz), np.float32)
     hw = P["high_water"]
     face_band = (wmod > 0.0) & (sd_2 > -1.6)
-    tl0 = ld["t_w"] + 0.35 * np.sin(S2 * 1.7 + 0.4) + 0.2 * np.sin(S2 * 3.9)
-    kt, ks = zip(*ld["edge_knots"])
-    s_edge = np.interp(T2, kt, ks) + 0.22 * np.sin(T2 * 1.3 + 0.9) + 0.12 * np.sin(T2 * 3.3 + 0.2)
-    land2 = (T2 >= tl0) & (T2 <= ld["t_e"]) & (S2 <= s_edge) & (S2 >= min(p_[2] for p_ in cove["parts"]) - 7.0)
+    land2 = P["landing_fn"](T2, S2)                           # R-C9-228: the small iced ledge (gully floor + the cave mouth's floor)
     sd_land = sdf2(land2, st)
     for k, z in enumerate(zs):
         notch = 0.45 * math.exp(-((z - hw) / 0.5) ** 2)
@@ -138,14 +135,13 @@ def build(P):
     hh3 = cv["h"] * kk3
     zz = np.clip(Z3 - LZ, 0, None)
     ell = (c_ / hw3) ** 2 + (zz / hh3) ** 2 - 1.0
-    d_cave = np.maximum(np.maximum(ell * hw3 * 0.5, LZ - Z3), np.maximum(-a_ - 1.2, a_ - cv["depth"]))
+    d_cave = np.maximum(np.maximum(ell * hw3 * 0.5, LZ - Z3), np.maximum(-a_ - cv.get("front", 1.2), a_ - cv["depth"]))
     d_cave = np.maximum(d_cave, Z3 - (top2[:, :, None] - 1.3))           # never through the roof: 1.3 m of rock over it
     wobble = ndimage.gaussian_filter(rng.standard_normal((nt, ns, nz)), 0.6 / st)
     wobble /= wobble.std() + 1e-9
     d_cave = d_cave + 0.12 * wobble * np.clip((Z3 - LZ - 0.5) / 0.5, 0, 1)
     # the sea reaches into the mouth's west side: a water channel below the landing's level, west of the landing's edge
-    chan = np.maximum.reduce([T3 - tl0[:, :, None], (cv["t"] - cv["w"] / 2) - 0.4 - T3, (cv["s_mouth"] - 1.1) - S3, S3 - (cv["s_mouth"] + 0.8),
-                              Z3 - (LZ + 0.06)])
+    chan = np.full(d_cave.shape, 9.0)                          # R-C9-228: no cut channel -- the sea meets the mouth at the face
     # ---------------- the STAIR CLEFT (minus): cut from the cove's back-right corner straight INLAND (up-screen, its risers facing
     # the camera, as sketch A draws it) between rock columns; a bed under the tread blocks (built by the caller), a flat pad at
     # the top flush with the clifftop ----------------
@@ -158,7 +154,7 @@ def build(P):
         return 0.35 * np.clip(1.0 - hc / 0.25, 0, 1) + 0.12 * np.sin(Z3 * 1.3 + S3 * 0.7)
     t_wl = sp["t0"] - wall_wob(sp["t0"])
     t_wr = sp["t1"] + wall_wob(sp["t1"])
-    d_groove = np.maximum.reduce([bed - Z3, t_wl - T3, T3 - t_wr, s_l - S3, S3 - (s_f + 0.6)])
+    d_groove = np.maximum.reduce([bed - Z3, t_wl - T3, T3 - t_wr, s_l - S3, S3 - sp.get("s_open", s_f + 0.6)])
     d_lip = np.full(d_groove.shape, 9.0)
     cut = np.minimum.reduce([d_cave, chan, d_groove, d_lip])
     f = np.maximum(f, -cut).astype(np.float64)

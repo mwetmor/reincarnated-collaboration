@@ -1585,14 +1585,14 @@
   "paths": "REMOVED (R-C9-204 (3))",
   "sea_ice": {
    "cells_area_m2": 889.4,
-   "ice_area_m2": 607.5,
-   "ice_fraction": 0.683,
+   "ice_area_m2": 630.8,
+   "ice_fraction": 0.709,
    "pieces": {
-    "fast": 7,
-    "plate": 51,
-    "floe": 32
+    "fast": 8,
+    "plate": 64,
+    "floe": 25
    },
-   "bobbing_floes": 14
+   "bobbing_floes": 7
   },
   "mere_plates": 0,
   "stream_ice_pieces": 0
@@ -1999,7 +1999,7 @@
     -1.6581,
     -3.2046
    ],
-   "z": 2.093,
+   "z": 1.917,
    "facing_uv": [
     0.456,
     0.89
@@ -2047,7 +2047,7 @@
     1.6581,
     3.2672
    ],
-   "z": -0.02,
+   "z": -0.034,
    "facing_uv": [
     -0.456,
     -0.89
@@ -2140,20 +2140,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    -16.9201,
-    -7.5883
+    -17.8129,
+    -7.9004
    ],
-   "z": -4.751,
+   "z": -4.62,
    "facing_uv": [
-    -0.2752,
-    0.9614
+    -0.9952,
+    -0.0981
    ],
-   "scale": 0.50164,
+   "scale": 0.38238,
    "lying": false,
    "size_m": {
-    "w": 1.505,
-    "d": 0.929,
-    "h": 1.837
+    "w": 1.147,
+    "d": 0.708,
+    "h": 1.401
    },
    "note": ""
   },
@@ -2164,20 +2164,44 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    -17.5359,
-    -6.8116
+    -18.0616,
+    -9.2202
    ],
-   "z": -4.673,
+   "z": -4.741,
    "facing_uv": [
-    -0.1518,
-    -0.9884
+    -0.9478,
+    0.3188
    ],
-   "scale": 0.43076,
+   "scale": 0.49199,
    "lying": false,
    "size_m": {
-    "w": 1.292,
-    "d": 0.798,
-    "h": 1.578
+    "w": 1.476,
+    "d": 0.911,
+    "h": 1.802
+   },
+   "note": ""
+  },
+  {
+   "id": "talus_2",
+   "piece": "seastack",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/seastack.glb",
+   "uv": [
+    -18.4407,
+    -9.8894
+   ],
+   "z": -4.765,
+   "facing_uv": [
+    0.9998,
+    0.0179
+   ],
+   "scale": 0.51433,
+   "lying": false,
+   "size_m": {
+    "w": 1.543,
+    "d": 0.953,
+    "h": 1.884
    },
    "note": ""
   },
@@ -2188,70 +2212,22 @@
    "kind": "model",
    "glb": "data/bv2f/models/cliffcape.glb",
    "uv": [
-    12.7264,
-    -16.1364
+    -9.9776,
+    -4.8484
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.0871,
-    -0.9962
+    -0.5231,
+    -0.8523
    ],
-   "scale": 1.31092,
+   "scale": 1.42431,
    "lying": false,
    "size_m": {
-    "w": 10.487,
-    "d": 7.017,
-    "h": 7.97
+    "w": 11.395,
+    "d": 7.625,
+    "h": 8.659
    },
-   "note": "kit2 cape: 7.6 m sea cliff (crest 3.1)"
-  },
-  {
-   "id": "talus_2",
-   "piece": "seastack",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/seastack.glb",
-   "uv": [
-    10.9345,
-    -20.607
-   ],
-   "z": -4.716,
-   "facing_uv": [
-    0.7076,
-    0.7066
-   ],
-   "scale": 0.46929,
-   "lying": false,
-   "size_m": {
-    "w": 1.408,
-    "d": 0.869,
-    "h": 1.719
-   },
-   "note": ""
-  },
-  {
-   "id": "cliff_2",
-   "piece": "cliffcol",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcol.glb",
-   "uv": [
-    18.6652,
-    -21.4794
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.534,
-    -0.8455
-   ],
-   "scale": 1.13981,
-   "lying": false,
-   "size_m": {
-    "w": 10.258,
-    "d": 3.712,
-    "h": 7.734
-   },
-   "note": "kit2 column: 7.3 m sea cliff (crest 2.8)"
+   "note": "kit2 cape: 8.3 m sea cliff (crest 3.8)"
   },
   {
    "id": "talus_3",
@@ -2260,46 +2236,22 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    18.3549,
-    -24.6645
+    -14.2392,
+    -8.6519
    ],
-   "z": -4.463,
+   "z": -4.634,
    "facing_uv": [
-    -0.4609,
-    -0.8874
+    -0.6955,
+    -0.7185
    ],
-   "scale": 0.23936,
+   "scale": 0.39458,
    "lying": false,
    "size_m": {
-    "w": 0.718,
-    "d": 0.443,
-    "h": 0.877
+    "w": 1.184,
+    "d": 0.731,
+    "h": 1.445
    },
    "note": ""
-  },
-  {
-   "id": "cliff_3",
-   "piece": "cliffcape",
-   "class": "rock",
-   "kind": "model",
-   "glb": "data/bv2f/models/cliffcape.glb",
-   "uv": [
-    25.5249,
-    -22.7138
-   ],
-   "z": -4.9,
-   "facing_uv": [
-    -0.5565,
-    -0.8308
-   ],
-   "scale": 1.46588,
-   "lying": false,
-   "size_m": {
-    "w": 11.727,
-    "d": 7.847,
-    "h": 8.912
-   },
-   "note": "kit2 cape: 8.5 m sea cliff (crest 4.0)"
   },
   {
    "id": "talus_4",
@@ -2308,20 +2260,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    24.0424,
-    -28.5406
+    -14.6634,
+    -8.2081
    ],
-   "z": -4.521,
+   "z": -4.586,
    "facing_uv": [
-    0.476,
-    0.8794
+    -0.9607,
+    0.2776
    ],
-   "scale": 0.29211,
+   "scale": 0.35135,
    "lying": false,
    "size_m": {
-    "w": 0.876,
-    "d": 0.541,
-    "h": 1.07
+    "w": 1.054,
+    "d": 0.651,
+    "h": 1.287
    },
    "note": ""
   },
@@ -2332,46 +2284,46 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    22.4724,
-    -28.1491
+    -15.8761,
+    -9.5761
    ],
-   "z": -4.656,
+   "z": -4.72,
    "facing_uv": [
-    0.3617,
-    0.9323
+    0.8459,
+    0.5333
    ],
-   "scale": 0.41541,
+   "scale": 0.47343,
    "lying": false,
    "size_m": {
-    "w": 1.246,
-    "d": 0.769,
-    "h": 1.522
+    "w": 1.42,
+    "d": 0.877,
+    "h": 1.734
    },
    "note": ""
   },
   {
-   "id": "cliff_4",
+   "id": "cliff_2",
    "piece": "cliffcol",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/cliffcol.glb",
    "uv": [
-    29.4383,
-    -30.9595
+    10.0936,
+    -18.0915
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.8818,
-    -0.4717
+    0.2296,
+    -0.9733
    ],
-   "scale": 1.40204,
+   "scale": 1.14825,
    "lying": false,
    "size_m": {
-    "w": 12.618,
-    "d": 4.566,
-    "h": 9.513
+    "w": 10.334,
+    "d": 3.739,
+    "h": 7.791
    },
-   "note": "kit2 column: 9.1 m sea cliff (crest 4.6)"
+   "note": "kit2 column: 7.4 m sea cliff (crest 2.9)"
   },
   {
    "id": "talus_6",
@@ -2380,46 +2332,46 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    27.8153,
-    -31.1114
+    7.4701,
+    -21.2252
    ],
-   "z": -4.739,
+   "z": -4.769,
    "facing_uv": [
-    0.6336,
-    -0.7736
+    0.1004,
+    0.9949
    ],
-   "scale": 0.49034,
+   "scale": 0.51826,
    "lying": false,
    "size_m": {
-    "w": 1.471,
-    "d": 0.908,
-    "h": 1.796
+    "w": 1.555,
+    "d": 0.96,
+    "h": 1.898
    },
    "note": ""
   },
   {
-   "id": "cliff_5",
+   "id": "cliff_3",
    "piece": "cliffcol",
    "class": "rock",
    "kind": "model",
    "glb": "data/bv2f/models/cliffcol.glb",
    "uv": [
-    34.9689,
-    -35.0261
+    17.1346,
+    -20.2945
    ],
    "z": -4.9,
    "facing_uv": [
-    -0.1636,
-    -0.9865
+    -0.6461,
+    -0.7633
    ],
-   "scale": 1.24682,
+   "scale": 1.1501,
    "lying": false,
    "size_m": {
-    "w": 11.221,
-    "d": 4.06,
-    "h": 8.46
+    "w": 10.351,
+    "d": 3.745,
+    "h": 7.804
    },
-   "note": "kit2 column: 8.1 m sea cliff (crest 3.6)"
+   "note": "kit2 column: 7.4 m sea cliff (crest 2.9)"
   },
   {
    "id": "talus_7",
@@ -2428,20 +2380,20 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    36.6849,
-    -39.5687
+    13.9979,
+    -24.9517
    ],
-   "z": -4.773,
+   "z": -4.729,
    "facing_uv": [
-    0.0883,
-    -0.9961
+    -0.9741,
+    -0.2259
    ],
-   "scale": 0.52171,
+   "scale": 0.4812,
    "lying": false,
    "size_m": {
-    "w": 1.565,
-    "d": 0.966,
-    "h": 1.911
+    "w": 1.444,
+    "d": 0.891,
+    "h": 1.763
    },
    "note": ""
   },
@@ -2452,20 +2404,188 @@
    "kind": "model",
    "glb": "data/bv2f/models/seastack.glb",
    "uv": [
-    32.3764,
-    -39.3541
+    17.1911,
+    -22.3423
    ],
-   "z": -4.508,
+   "z": -4.612,
    "facing_uv": [
-    -0.4774,
-    -0.8787
+    -0.2293,
+    0.9734
    ],
-   "scale": 0.28006,
+   "scale": 0.3746,
    "lying": false,
    "size_m": {
-    "w": 0.84,
-    "d": 0.519,
-    "h": 1.026
+    "w": 1.124,
+    "d": 0.694,
+    "h": 1.372
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_4",
+   "piece": "cliffcape",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffcape.glb",
+   "uv": [
+    23.3499,
+    -21.5119
+   ],
+   "z": -4.9,
+   "facing_uv": [
+    -0.4066,
+    -0.9136
+   ],
+   "scale": 1.4608,
+   "lying": false,
+   "size_m": {
+    "w": 11.686,
+    "d": 7.82,
+    "h": 8.881
+   },
+   "note": "kit2 cape: 8.5 m sea cliff (crest 4.0)"
+  },
+  {
+   "id": "talus_9",
+   "piece": "seastack",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/seastack.glb",
+   "uv": [
+    19.0628,
+    -27.4423
+   ],
+   "z": -4.643,
+   "facing_uv": [
+    -0.9138,
+    0.4062
+   ],
+   "scale": 0.40347,
+   "lying": false,
+   "size_m": {
+    "w": 1.21,
+    "d": 0.747,
+    "h": 1.478
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_5",
+   "piece": "cliffcol",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffcol.glb",
+   "uv": [
+    28.2714,
+    -28.9235
+   ],
+   "z": -4.9,
+   "facing_uv": [
+    -0.8881,
+    -0.4596
+   ],
+   "scale": 1.33053,
+   "lying": false,
+   "size_m": {
+    "w": 11.975,
+    "d": 4.333,
+    "h": 9.028
+   },
+   "note": "kit2 column: 8.6 m sea cliff (crest 4.1)"
+  },
+  {
+   "id": "talus_10",
+   "piece": "seastack",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/seastack.glb",
+   "uv": [
+    25.6319,
+    -28.7077
+   ],
+   "z": -4.477,
+   "facing_uv": [
+    0.3648,
+    0.9311
+   ],
+   "scale": 0.25252,
+   "lying": false,
+   "size_m": {
+    "w": 0.758,
+    "d": 0.468,
+    "h": 0.925
+   },
+   "note": ""
+  },
+  {
+   "id": "talus_11",
+   "piece": "seastack",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/seastack.glb",
+   "uv": [
+    23.5699,
+    -27.714
+   ],
+   "z": -4.755,
+   "facing_uv": [
+    0.8595,
+    -0.5112
+   ],
+   "scale": 0.50468,
+   "lying": false,
+   "size_m": {
+    "w": 1.514,
+    "d": 0.935,
+    "h": 1.849
+   },
+   "note": ""
+  },
+  {
+   "id": "cliff_6",
+   "piece": "cliffcol",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/cliffcol.glb",
+   "uv": [
+    32.748,
+    -34.3743
+   ],
+   "z": -4.9,
+   "facing_uv": [
+    -0.3469,
+    -0.9379
+   ],
+   "scale": 1.31074,
+   "lying": false,
+   "size_m": {
+    "w": 11.797,
+    "d": 4.268,
+    "h": 8.894
+   },
+   "note": "kit2 column: 8.5 m sea cliff (crest 4.0)"
+  },
+  {
+   "id": "talus_12",
+   "piece": "seastack",
+   "class": "rock",
+   "kind": "model",
+   "glb": "data/bv2f/models/seastack.glb",
+   "uv": [
+    29.0168,
+    -37.3716
+   ],
+   "z": -4.796,
+   "facing_uv": [
+    0.4076,
+    0.9132
+   ],
+   "scale": 0.54268,
+   "lying": false,
+   "size_m": {
+    "w": 1.628,
+    "d": 1.005,
+    "h": 1.988
    },
    "note": ""
   },
@@ -2547,27 +2667,29 @@
   "logs": 4,
   "stair_treads": 54,
   "slab_groups": {
-   "ice_shorefast": 7,
-   "ice_plates": 51,
+   "ice_shorefast": 8,
+   "ice_plates": 64,
    "ice_floes": 18,
-   "ice_floes_bob": 14,
+   "ice_floes_bob": 7,
    "mere_plates": 0,
    "stream_ice": 0,
-   "ice_rims": 78,
-   "ice_ridges": 103,
-   "ice_brash": 851,
-   "mere_cracks": 220,
-   "mere_seams": 41,
+   "ice_rims": 79,
+   "ice_ridges": 157,
+   "ice_brash": 666,
+   "mere_cracks": 123,
+   "mere_seams": 7,
    "trans_leads": 836,
    "reed_islands": 33,
-   "reed_tufts": 72,
+   "reed_tufts": 85,
+   "river_water": 26,
    "trans_rocks": 5,
-   "stream_cracks": 7,
+   "stream_cracks": 0,
    "stream_pressure": 0,
    "ring_fallen": 2,
    "ring_snow": 6,
    "cove_ice": 31,
    "icicles": 40,
+   "cradle_cracks": 44,
    "stair_treads": 54,
    "stair_snow": 54
   }
@@ -2684,25 +2806,25 @@
    "point": "S",
    "model": "carved_cave",
    "centre_sim": [
-    -1.7027,
-    7.3598
+    -1.2321,
+    11.7551
    ],
    "z0": -3.5,
    "w": 6.0,
    "h": 7.0,
-   "faces_deg": 225.99,
-   "curtain_inset_m": 2.0,
+   "faces_deg": 174.667,
+   "curtain_inset_m": 2.4,
    "curtain_w": 3.0,
    "curtain_h": 3.4,
    "dark": true,
-   "_": "R-C9-226: the cave worn into the shallow cove's back wall (its axis inland-west); a dark plane at the END of its tunnel (2.0 m in), so the mouth recedes into darkness",
+   "_": "R-C9-226: the cave worn into the shallow cove's back wall (its axis inland-west); a dark plane at the END of its tunnel (2.4 m in), so the mouth recedes into darkness",
    "probe": {
     "type": "v",
     "centre": [
-     -1.7027,
-     7.3598
+     -1.2321,
+     11.7551
     ],
-    "faces_deg": 225.99,
+    "faces_deg": 174.667,
     "w": 6.0,
     "h": 7.0,
     "z0": -3.5,
@@ -3759,112 +3881,116 @@
     -8.415
    ],
    [
-    -9.556,
-    -8.876
+    -8.69,
+    -8.938
    ],
    [
-    -6.573,
-    -10.707
+    -7.838,
+    -9.461
    ],
    [
-    -4.577,
-    -8.219
+    -6.986,
+    -9.984
    ],
    [
-    -4.22,
-    -8.594
+    -6.133,
+    -10.507
    ],
    [
-    -3.774,
-    -8.824
+    -5.74,
+    -11.453
    ],
    [
-    -3.391,
-    -9.155
+    -5.913,
+    -12.69
    ],
    [
-    -3.321,
-    -9.996
+    -5.59,
+    -13.12
    ],
    [
-    -3.448,
-    -11.16
+    -5.313,
+    -13.625
    ],
    [
-    -3.412,
-    -12.058
+    -4.867,
+    -13.854
    ],
    [
-    -3.416,
-    -13.019
+    -4.32,
+    -13.918
    ],
    [
-    -3.307,
-    -13.797
+    -3.865,
+    -14.134
    ],
    [
-    -2.816,
-    -13.954
+    -3.433,
+    -14.385
    ],
    [
-    -2.275,
-    -14.028
+    -2.893,
+    -14.461
    ],
    [
-    -1.89,
-    -14.357
+    -2.395,
+    -14.606
    ],
    [
-    -1.614,
-    -14.863
+    -2.085,
+    -15.056
    ],
    [
-    -1.229,
-    -15.192
+    -1.792,
+    -15.536
    ],
    [
-    -0.775,
-    -15.408
+    -1.368,
+    -15.799
    ],
    [
-    -0.348,
-    -15.667
+    -0.946,
+    -16.069
    ],
    [
-    0.343,
-    -15.497
+    -0.601,
+    -16.463
    ],
    [
-    1.202,
-    -15.054
+    -0.151,
+    -16.685
    ],
    [
-    2.079,
-    -14.581
+    0.446,
+    -16.668
    ],
    [
-    2.488,
-    -14.871
+    0.963,
+    -16.781
    ],
    [
-    2.865,
-    -15.212
+    1.337,
+    -17.127
    ],
    [
-    3.33,
-    -15.41
+    1.75,
+    -17.41
    ],
    [
-    3.732,
-    -15.71
+    2.209,
+    -17.62
    ],
    [
-    4.004,
-    -16.224
+    2.538,
+    -18.04
    ],
    [
-    4.422,
-    -17.454
+    2.802,
+    -18.564
+   ],
+   [
+    4.337,
+    -17.402
    ],
    [
     4.947,
@@ -4074,64 +4200,58 @@
      -8.031
     ],
     [
-     -9.282,
-     -8.047
+     -8.455,
+     -8.554
+    ],
+    [
+     -7.603,
+     -9.077
+    ],
+    [
+     -6.75,
+     -9.601
+    ],
+    [
+     -5.898,
+     -10.124
+    ],
+    [
+     -5.191,
+     -10.558
     ]
    ],
    [
     [
-     -9.282,
-     -8.047
+     -5.191,
+     -10.558
     ],
     [
-     -6.379,
-     -3.317
+     -1.185,
+     -13.016
     ],
     [
-     -4.077,
-     -4.729
+     1.3,
+     -8.968
     ]
    ],
    [
     [
-     -4.077,
-     -4.729
+     1.3,
+     -8.968
     ],
     [
-     1.718,
-     -8.286
+     4.25,
+     -4.161
     ]
    ],
    [
     [
-     1.718,
-     -8.286
+     10.131,
+     -7.77
     ],
     [
-     1.718,
-     -8.286
-    ],
-    [
-     5.61,
-     -1.945
-    ]
-   ],
-   [
-    [
-     11.491,
-     -5.554
-    ],
-    [
-     7.599,
-     -11.895
-    ],
-    [
-     7.94,
-     -12.104
-    ],
-    [
-     5.037,
-     -16.834
+     4.696,
+     -16.625
     ],
     [
      5.182,
@@ -4313,10 +4433,6 @@
     6.0
    ],
    [
-    -1.5,
-    10.0
-   ],
-   [
     4.300000000000001,
     10.0
    ],
@@ -4358,7 +4474,7 @@
    "risers": 17,
    "tread": 0.39,
    "rise_jitter": 0.12,
-   "cave_t": 9.6,
+   "cave_t": 12.3,
    "cave_front_s": 0.3,
    "mouth_w": 6.0,
    "mouth_h": 7.0,
@@ -4372,6 +4488,7 @@
    "landing_len": 2.0,
    "stair_t0": 13.8,
    "stair_top_z": 0.75,
+   "stair_s_foot": -4.6,
    "bounds_out_m": 0.2
   },
   "riser_m": 0.25,
@@ -4395,81 +4512,60 @@
     13.8,
     19.1
    ],
-   "s_foot": -7.2,
-   "s_top": -13.44,
-   "s_land": -15.44,
+   "s_foot": -4.6,
+   "s_top": -10.84,
+   "s_land": -12.84,
    "top_z": 0.75,
    "width_m": 5.3,
    "landing": {
-    "t": [
-     7.6,
-     19.5
+    "gully_t": [
+     13.8,
+     19.1
     ],
-    "edge_knots_ts": [
-     [
-      4.0,
-      -3.2
-     ],
-     [
-      9.4,
-      -3.0
-     ],
-     [
-      11.4,
-      0.8
-     ],
-     [
-      15.0,
-      0.8
-     ],
-     [
-      16.6,
-      -1.1
-     ],
-     [
-      21.0,
-      -1.1
-     ]
+    "s": [
+     -4.6,
+     1.45
     ],
-    "s_back": [
-     -5.0,
-     -7.2
-    ]
+    "mouth_floor_ts": [
+     13.14,
+     -0.38
+    ],
+    "mouth_r": 3.0
    },
    "_": "t along A -> B, s SEAWARD; R-C9-226: the stair climbs INLAND (toward -s) in the band t in stair_t, from s_foot to s_top, a pad to s_land"
   },
   "points_uv": {
    "cave_back": [
-    -0.264,
-    -5.97
+    -1.418,
+    -9.764
    ],
    "cave_mouth": [
-    -1.703,
-    -7.36
+    -1.232,
+    -11.755
    ],
    "shelf_mid": [
-    -1.273,
-    -10.674
+    -1.102,
+    -13.149
    ],
    "bottom_landing": [
+    2.88,
+    -12.988
+   ],
+   "stair_foot": [
     4.031,
     -11.113
    ],
-   "stair_foot": [
-    5.391,
-    -8.897
-   ],
    "stair_top": [
-    8.55,
-    -3.749
+    7.269,
+    -5.837
    ],
    "landing": [
-    9.073,
-    -2.897
+    7.713,
+    -5.113
    ],
    "clifftop": [
-    10.904,
-    0.086
+    9.544,
+    -2.13
    ]
   },
   "carve": {
@@ -4486,107 +4582,67 @@
    "s_face": 0.4,
    "lip_h": 0.5,
    "cove": {
-    "t_w": 4.0,
-    "t_e": 19.8,
-    "s_back": -5.0,
+    "t_w": 8.8,
+    "t_e": 19.9,
+    "s_back": -1.5,
     "round_r": 1.2,
-    "parts": [
-     [
-      4.0,
-      13.4,
-      -5.0
-     ],
-     [
-      13.25,
-      19.8,
-      -7.2
-     ]
-    ]
+    "parts": []
    },
    "landing": {
-    "t_w": 7.6,
-    "t_e": 19.5,
-    "edge_knots": [
-     [
-      4.0,
-      -3.2
-     ],
-     [
-      9.4,
-      -3.0
-     ],
-     [
-      11.4,
-      0.8
-     ],
-     [
-      15.0,
-      0.8
-     ],
-     [
-      16.6,
-      -1.1
-     ],
-     [
-      21.0,
-      -1.1
-     ]
-    ]
+    "t_w": 8.8,
+    "t_e": 19.4,
+    "s_front": 1.45,
+    "mouth_r": 3.0
    },
    "cave_axis_ts": [
-    0.25,
-    -0.97
+    -0.6,
+    -0.8
    ],
    "mouth_h_cut": 7.4,
    "mouth_w_cut": 6.5,
-   "cave_depth": 2.6,
+   "cave_depth": 3.0,
    "col_spacing": 1.7,
    "land_thr": -1.0,
    "bed_below": 0.55,
    "head_margin": 0.4
   },
   "carved_files": {
-   "shrub": {
-    "file": "carved_shrub.f32",
-    "tris": 327,
-    "sha256": "9f1122dbd11cfc2afd29d1e00f4a14e18e98412f4cc235a8f3dd296c8c79b2e4"
+   "rock": {
+    "file": "carved_rock.f32",
+    "tris": 55601,
+    "sha256": "39223e8f31866ea39d7578e155e249f71ddf3f93a5c22cbf014055c263935f19"
    },
    "snow": {
     "file": "carved_snow.f32",
-    "tris": 30147,
-    "sha256": "7543ea2f0731a3953c0b0494a6266a83c4b504a3f03120ac6b7881e8d6d6e162"
+    "tris": 25787,
+    "sha256": "a8efd77dc418941ff8a8cda4f98193ac4718d8566f134dd54112dbaa51afe636"
    },
    "wet_rock": {
     "file": "carved_wet_rock.f32",
-    "tris": 42605,
-    "sha256": "19acf62d2f4c78f52403a564da5d9e837e49596de8e5e25eafe224787d5cec52"
-   },
-   "rock": {
-    "file": "carved_rock.f32",
-    "tris": 91759,
-    "sha256": "69fa9dbcd855db399760520a9864086c4ce40880cb90269c51e13f8dd0ac0a16"
+    "tris": 16959,
+    "sha256": "857a2faacfb3b2fe1ebe25153d6b63c89a8f99b7e9b215f6f41c2c0b21c52610"
    },
    "rime": {
     "file": "carved_rime.f32",
-    "tris": 1616,
-    "sha256": "2c46f1e0e63c2b228cc724f13851b153409056f8c4f3280431f335dffcc51ef1"
-   },
-   "passage_dark": {
-    "file": "carved_passage_dark.f32",
-    "tris": 10040,
-    "sha256": "1f73ad40771353cfe187132e1c4938d82cefb5f45a5542b7d3d38c8fc67da0d5"
+    "tris": 637,
+    "sha256": "1379dc3989dea633abdc10c96e0ceb38cf0931833eca7213bed401cf78dcf6e7"
    },
    "tide_ice": {
     "file": "carved_tide_ice.f32",
-    "tris": 4795,
-    "sha256": "118ca0606b2bcaf32989a9c30a735bccc904bf75a7540f14c6ba01259b572a57"
+    "tris": 3104,
+    "sha256": "77b88c21534899652aa730238f6afdc1938cc3ec59559f483c912492c09b6322"
+   },
+   "passage_dark": {
+    "file": "carved_passage_dark.f32",
+    "tris": 9464,
+    "sha256": "4efcc4a6a03e469085872639de9c7969d71fa60b1a1519da7e4af927881365c5"
    }
   },
   "ramp": {
    "id": "stair_ramp",
    "c_sim": [
-    6.8162,
-    6.5746
+    5.4563,
+    8.7906
    ],
    "z_c": -1.375,
    "across": 5.3,
@@ -4604,8 +4660,8 @@
   "plate": {
    "id": "landing_plate",
    "c_sim": [
-    9.0732,
-    2.8969
+    7.7133,
+    5.1129
    ],
    "z_c": 0.75,
    "across": 5.3,
@@ -4622,62 +4678,27 @@
   },
   "cave": {
    "width_m": 6.0,
-   "depth_m": 2.6,
+   "depth_m": 3.0,
    "mouth_h_cut_m": 7.4,
    "floor_z": -3.5
   },
-  "sketch_A": "R-C9-226: cave W, stair E as sketch A draws them -- the cave in the back wall of a 5.0 m sea-cut cove at u -4.3, the iced landing at its mouth, the stair cut from the cove's back-right corner climbing INLAND (up-screen) between rock columns to the clifftop at u 8.6",
+  "sketch_A": "R-C9-228: cave W, stair E as sketch A draws them -- no cove: the cave an arch worn into the face at the waterline (u -2.0), facing the camera; the stair in a natural gully of the cliff beside it, climbing INLAND (up-screen) between rock columns to the clifftop at u 7.2; a small iced ledge where its foot meets the mouth",
   "cave_axis_ts": [
-   0.24957608068848228,
-   -0.9683551930713112
+   -0.6,
+   -0.8
   ],
   "landing": {
-   "t_w": 7.6,
-   "t_e": 19.5,
-   "edge_knots": [
-    [
-     4.0,
-     -3.2
-    ],
-    [
-     9.4,
-     -3.0
-    ],
-    [
-     11.4,
-     0.8
-    ],
-    [
-     15.0,
-     0.8
-    ],
-    [
-     16.6,
-     -1.1
-    ],
-    [
-     21.0,
-     -1.1
-    ]
-   ]
+   "t_w": 8.8,
+   "t_e": 19.4,
+   "s_front": 1.45,
+   "mouth_r": 3.0
   },
   "cove": {
-   "t_w": 4.0,
-   "t_e": 19.8,
-   "s_back": -5.0,
+   "t_w": 8.8,
+   "t_e": 19.9,
+   "s_back": -1.5,
    "round_r": 1.2,
-   "parts": [
-    [
-     4.0,
-     13.4,
-     -5.0
-    ],
-    [
-     13.25,
-     19.8,
-     -7.2
-    ]
-   ]
+   "parts": []
   },
   "mere_area_m2": 439.9
  },
@@ -4703,15 +4724,15 @@
   "ice_mid"
  ],
  "class_counts": {
-  "none": 577798,
-  "snow": 546586,
-  "ice": 136711,
-  "shrub": 15062,
+  "none": 555154,
+  "snow": 575191,
+  "ice": 130540,
+  "shrub": 15272,
   "rock": 809,
   "mound": 132861,
-  "shingle": 40038,
-  "shore_ice": 25280,
+  "shingle": 41030,
+  "shore_ice": 24032,
   "ash": 61031,
-  "ice_mid": 12112
+  "ice_mid": 12368
  }
 }

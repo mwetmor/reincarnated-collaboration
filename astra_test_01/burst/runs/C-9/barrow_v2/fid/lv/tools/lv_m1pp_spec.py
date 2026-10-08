@@ -19,20 +19,20 @@ mere_c = (sum(q[0] for q in mere) / len(mere), sum(q[1] for q in mere) / len(mer
 cove_c = mid(RP["cave_mouth"], RP["bottom_landing"])
 # name, aim (uv), him (uv), aim height, caption, sketch A px of the same feature
 S = [("01_coast_west", (-17.0, -7.0), (-12.0, -1.0), -2.0, "the W coast: the plateau, the shingle beach falling to the shore ice, the first sea cliffs", (330, 600)),
-     ("02_wreck_beach", (wreck[0] + 1.5, wreck[1]), (-13.5, 2.0), -3.0, "the wreck heeled in the shore ice at the foot of the shingle beach", (150, 440)),
+     ("02_wreck_beach", (wreck[0] + 1.5, wreck[1]), (-13.5, 2.0), -3.0, "the wreck heeled into ragged shore-fast ice at the beach foot (no rectangle, R-C9-228)", (150, 440)),
      ("03_cliffs_south", (12.0, -20.5), (10.0, -12.0), -1.5, "the S sea cliffs (6-8 m): rock-kit columns, talus, a stack in the shore-fast ice", (1050, 860)),
      ("04_cove_close", mid(RP["cave_mouth"], RP["stair_foot"]), RP["shelf_mid"], -2.0,
-      "CLOSE: the sea-cut cove -- the cave in its back wall, the small iced landing, the stair cut inland between rock columns", (600, 780)),
-     ("05_cave_mouth", RP["cave_mouth"], RP["shelf_mid"], -1.0, "the cave mouth: a dark wave-worn arch, 7 m clear; the sea and floes reach into it", (560, 790)),
-     ("06_mere", (mere_c[0] + 2.0, mere_c[1] - 1.0), (-5.0, 8.0), -0.2, "the mere (~440 m2): plated ice, thin cracks over the whole of it, reed islands", (430, 250)),
-     ("07_pack_ice", (-22.0, -17.0), (-12.0, -1.5), -4.2, "the sea: broken pack -- plates of every size, rims, ridges, brash, dark leads (~2/3 ice)", (250, 840)),
+      "CLOSE: the cave worn into the cliff face at the waterline, the stair in a natural gully beside it (R-C9-228)", (600, 780)),
+     ("05_cave_mouth", RP["cave_mouth"], RP["shelf_mid"], -1.0, "the cave mouth: a dark tide-worn arch in the face, 7 m clear, sea and floes at its mouth, a small iced ledge", (560, 790)),
+     ("06_mere", (mere_c[0] + 2.0, mere_c[1] - 1.0), (-5.0, 8.0), -0.2, "the mere (~440 m2): mostly continuous ice, a few long branching cracks, reed islands (R-C9-227)", (430, 250)),
+     ("07_pack_ice", (-22.0, -17.0), (-12.0, -1.5), -4.2, "the sea: irregular pack -- huge and tiny plates, rubble zones, leads of every width (~2/3 ice, R-C9-227)", (250, 840)),
      ("08_start", (0.0, -1.5), (0.0, 0.0), 0.0, "the start in the stone circle (4 standing, 2 fallen low blocks)", (780, 470)),
      ("09_stair_close", mid(RP["stair_foot"], RP["stair_top"]), RP["bottom_landing"], -1.5,
       "CLOSE: the stair -- every tread its own stone (snow on top, bare stone at the front), 5 m clear, climbing inland", (645, 740)),
      ("10_cove_wide", cove_c, (cove_c[0] - 1.0, cove_c[1] + 6.0), -1.5,
-      "WIDE: the cove in the cliff line -- vertical rock columns either side, the cave, the landing, the stair cleft", (610, 770)),
+      "WIDE: the continuous cliff line -- the cave in the face, the stair gully between rock columns", (610, 770)),
      ("11_mere_sea", (-29.0, 9.0), (-22.0, 6.0), -1.5, "the mere turning into the sea through one graded ice field and reed islands (R-C9-221)", (170, 330)),
-     ("12_river_mere", (-25.5, 17.5), (-18.0, 13.0), 0.0, "the river entering at the top-left, down beside the coast into the mere (R-C9-222/223)", (230, 110)),
+     ("12_river_mere", (-25.5, 17.5), (-18.0, 13.0), 0.0, "the river: a tiny UN-FROZEN ribbon of open water down the coast into the mere's ice (R-C9-227)", (230, 110)),
      ("13_hall_yard", (12.5, 2.5), (6.0, 0.0), 0.0, "the burnt hall's ash yard: an irregular trampled patch, no straight edges", (1290, 520))]
 spec = []
 for n, aim, him, h, what, sk in S:

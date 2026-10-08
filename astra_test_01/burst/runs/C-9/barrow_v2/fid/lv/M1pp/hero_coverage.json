@@ -25,8 +25,7 @@
     "07_pack_ice",
     "08_start",
     "09_stair_close",
-    "10_cove_wide",
-    "13_hall_yard"
+    "10_cove_wide"
    ],
    "with_neighbour_in": [
     "01_coast_west",
@@ -36,8 +35,7 @@
     "07_pack_ice",
     "08_start",
     "09_stair_close",
-    "10_cove_wide",
-    "13_hall_yard"
+    "10_cove_wide"
    ],
    "PASS": true
   },
@@ -48,8 +46,7 @@
     "05_cave_mouth",
     "08_start",
     "09_stair_close",
-    "10_cove_wide",
-    "13_hall_yard"
+    "10_cove_wide"
    ],
    "with_neighbour_in": [
     "03_cliffs_south",
@@ -57,8 +54,7 @@
     "05_cave_mouth",
     "08_start",
     "09_stair_close",
-    "10_cove_wide",
-    "13_hall_yard"
+    "10_cove_wide"
    ],
    "PASS": true
   },
@@ -92,13 +88,15 @@
     "01_coast_west",
     "02_wreck_beach",
     "03_cliffs_south",
-    "07_pack_ice"
+    "07_pack_ice",
+    "10_cove_wide"
    ],
    "with_neighbour_in": [
     "01_coast_west",
     "02_wreck_beach",
     "03_cliffs_south",
-    "07_pack_ice"
+    "07_pack_ice",
+    "10_cove_wide"
    ],
    "PASS": true
   },
@@ -118,73 +116,70 @@
   "ring": {
    "visible_in": [
     "08_start",
-    "09_stair_close",
     "13_hall_yard"
    ],
    "with_neighbour_in": [
-    "08_start",
-    "09_stair_close",
-    "13_hall_yard"
+    "08_start"
    ],
    "PASS": true
   }
  },
  "px_per_still": {
   "01_coast_west": {
-   "wreck": 25779,
-   "cliffs": 446218,
-   "cave_stair": 376,
+   "wreck": 24030,
+   "cliffs": 556890,
+   "cave_stair": 0,
    "mere": 0,
    "river": 0,
-   "sea_ice": 540884,
-   "stacks_talus": 35311,
+   "sea_ice": 491182,
+   "stacks_talus": 39885,
    "ring": 0
   },
   "02_wreck_beach": {
-   "wreck": 284489,
+   "wreck": 282730,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 196834,
+   "mere": 172991,
    "river": 0,
-   "sea_ice": 280878,
+   "sea_ice": 60274,
    "stacks_talus": 0,
    "ring": 0
   },
   "03_cliffs_south": {
    "wreck": 0,
-   "cliffs": 737661,
-   "cave_stair": 62217,
+   "cliffs": 916940,
+   "cave_stair": 64890,
    "mere": 0,
    "river": 0,
-   "sea_ice": 558263,
-   "stacks_talus": 9484,
+   "sea_ice": 587324,
+   "stacks_talus": 20941,
    "ring": 0
   },
   "04_cove_close": {
    "wreck": 0,
-   "cliffs": 438286,
-   "cave_stair": 835692,
+   "cliffs": 516319,
+   "cave_stair": 690691,
    "mere": 0,
    "river": 0,
-   "sea_ice": 0,
+   "sea_ice": 2381,
    "stacks_talus": 0,
    "ring": 0
   },
   "05_cave_mouth": {
    "wreck": 0,
-   "cliffs": 551854,
-   "cave_stair": 673658,
+   "cliffs": 566045,
+   "cave_stair": 681174,
    "mere": 0,
    "river": 0,
-   "sea_ice": 0,
+   "sea_ice": 67,
    "stacks_talus": 0,
-   "ring": 3392
+   "ring": 0
   },
   "06_mere": {
    "wreck": 0,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 1884103,
+   "mere": 1923316,
    "river": 0,
    "sea_ice": 0,
    "stacks_talus": 0,
@@ -192,41 +187,41 @@
   },
   "07_pack_ice": {
    "wreck": 0,
-   "cliffs": 21141,
+   "cliffs": 21891,
    "cave_stair": 0,
    "mere": 0,
    "river": 0,
-   "sea_ice": 991528,
-   "stacks_talus": 161038,
+   "sea_ice": 1025813,
+   "stacks_talus": 157220,
    "ring": 0
   },
   "08_start": {
    "wreck": 0,
-   "cliffs": 477984,
-   "cave_stair": 246544,
-   "mere": 30766,
+   "cliffs": 185424,
+   "cave_stair": 105247,
+   "mere": 31013,
    "river": 0,
-   "sea_ice": 0,
+   "sea_ice": 8,
    "stacks_talus": 0,
-   "ring": 45902
+   "ring": 54969
   },
   "09_stair_close": {
    "wreck": 0,
-   "cliffs": 351752,
-   "cave_stair": 656083,
+   "cliffs": 257424,
+   "cave_stair": 581637,
    "mere": 0,
    "river": 0,
-   "sea_ice": 0,
+   "sea_ice": 82,
    "stacks_talus": 0,
-   "ring": 6646
+   "ring": 0
   },
   "10_cove_wide": {
    "wreck": 0,
-   "cliffs": 420556,
-   "cave_stair": 866048,
+   "cliffs": 538713,
+   "cave_stair": 684786,
    "mere": 0,
    "river": 0,
-   "sea_ice": 883,
+   "sea_ice": 9966,
    "stacks_talus": 0,
    "ring": 0
   },
@@ -234,7 +229,7 @@
    "wreck": 181951,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 894518,
+   "mere": 848912,
    "river": 0,
    "sea_ice": 0,
    "stacks_talus": 0,
@@ -244,16 +239,16 @@
    "wreck": 0,
    "cliffs": 0,
    "cave_stair": 0,
-   "mere": 1681539,
-   "river": 6952,
+   "mere": 1564198,
+   "river": 31534,
    "sea_ice": 0,
    "stacks_talus": 0,
    "ring": 0
   },
   "13_hall_yard": {
    "wreck": 0,
-   "cliffs": 34717,
-   "cave_stair": 34435,
+   "cliffs": 716,
+   "cave_stair": 0,
    "mere": 0,
    "river": 0,
    "sea_ice": 0,

@@ -240,3 +240,8 @@ Checks: walkability PASS 8/8 (`walk/walkability.md`); check (a) PASS 6/6 (cave 1
 
 New tools: `lv_guard_lock.py` (heavy_lock drop-in with pt_godot's timeout / script-error / log-cap guards; used by walkability, placed_fit, and `HEAVY_LOCK=` for godot_run.sh); `lv_quickview.py` (no-Godot software view, check only).
 Open: (a) the landing is still ~60 m2 (5 m bars); (b) still 12's river is narrow at play zoom; (c) the circle's S stones now stand ~2 m from the knoll's edge; (d) stale `lv/guide_art/tiles/` + scratch dirs (Matt deletes).
+
+## R-C9-227 + R-C9-228 (conductor/Matt M1'' notes) — DONE, 0 images
+- 227(1) river = open dark water (`river_water` slabs, class sea), hw 0.5, no cracks/ice, a few bank reeds; meets the mere ice. (2) mere: Voronoi net dropped (its rngw draws kept) -> 7 random-walk branching veins incl. 2 seams (stream 2271). (3) pack: own stream 2272 -- plate weights x lognormal, gap x lognormal, edge roughness varied, 16 % rubble zones; old-shelf floes' gaps varied (2274); 71 % ice.
+- 228(1) NO cove: `CARVE.cove.parts = []`, cliff kit continuous again (kit skip only where carve mask > 0.45); cave = arch worn into the corner of the face and the stair gully, facing the camera (`cave_t` 12.3, s -1.5, axis (-0.6,-0.8), cut 4 m through the face front); stair in a natural gully climbing inland from s -4.6; small iced ledge = gully floor + mouth floor (`landing_fn`), 1.45 m proud -- its size is set by the 5 m route bar (cover ask 2). (2) wreck cradle outline noisy/rounded + 5 thin cracks (`cradle_cracks`).
+- Checks: walkability 8/8, check (a) 6/6 (cave 23.3 m2), hero coverage PASS, placed_fit 96 inst 1.0001. Sheets `lv/M1pp/`.

@@ -156,13 +156,12 @@ def cover():
     im.paste(mp, ((W - mp.width) // 2, y)); y += mp.height + 26
     si = L["regions"]["sea_ice"]
     R_ = L["route"]
-    asks = [("1. The cave section (R-C9-226): approve for the paint?", "RECOMMENDED: yes -- paint the pilot from this guide.",
-             "A shallow sea-cut cove (%.1f m into the cliff, deeper at the stair's foot) in vertical rock columns like the cliff east of it; the cave a dark arch in its back wall, 7 m clear, the sea and floes reaching into it; a small iced landing at the mouth; the stair cut INLAND between rock columns from the cove's right side, every tread its own stone (snow on top, stone at the front), %.0f deg, 5 m clear. Walk-checked PASS." % (
-                 -R_["carve"]["cove"]["s_back"], R_["stair_pitch_deg"])),
-            ("2. The cove sits ~9 m EAST of sketch A's cave (S of the start, stair to its right). Keep?", "RECOMMENDED: keep.",
-             "A stair that climbs up-screen like sketch A's needs ~6-7 m of run inland; west of here that run would end in the stone circle. The order (cave, then stair to its right) and the look are sketch A's."),
-            ("3. The mere at Matt's 400-500 m2 (now %.0f m2) with the river in frame: right?" % R_["mere_area_m2"], "RECOMMENDED: yes.",
-             "The plateau's W edge moved west north of the wreck and the mere's N lobe runs off the top edge like the barrow, so the river keeps a clear stretch down the coast into it; reed islands are snow hummocks with reed tufts; the ash yard is an irregular patch.")]
+    asks = [("1. Cave + stair (R-C9-228): approve?", "RECOMMENDED: yes.",
+             "No cove: the cliff line is continuous; the cave is an arch worn into the face at the waterline, facing the camera; the stair climbs inland in a natural gully between rock columns, every tread its own stone. Walk-checked PASS."),
+            ("2. The iced ledge at the mouth is ~11 x 5 m because the route bar is 5 m wide (big monsters). Keep the bar?", "RECOMMENDED: keep it.",
+             "A narrower bar would let the ledge shrink to the mouth itself."),
+            ("3. Mere, river, sea (R-C9-227): right?", "RECOMMENDED: yes.",
+             "Mere mostly continuous ice with a few branching cracks; the river a tiny open-water ribbon; the pack irregular (huge/tiny plates, rubble, leads of every width), ~2/3 ice; the wreck's ice ragged.")]
     for t, rec, why in asks:
         d.text((40, y), t, fill=(255, 225, 120), font=B(38)); y += 50
         for line in textwrap.wrap(rec, 46):
