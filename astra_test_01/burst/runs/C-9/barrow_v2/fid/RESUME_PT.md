@@ -139,3 +139,9 @@ Next step: when LV's render (with stair_treads.json) is committed: stair_snow_pr
 - PH inputs: fid/pt/pilot/{painting.png, stitch_record.json, lineage.json, bake_report.json, render_guide.png, heather_mask.png, heather_colour.png, ids_built(.png)}; 12 P11 stills + class masks fid/pt/pilot_stills/ (camera parked at the spec's frame centre: on this blockout the follow camera rose/fell with him). Phase 2' outputs moved (not deleted) to fid/pt/pilot_phase2p/ + pilot_stills_phase2p/.
 - M2'': fid/pt/m2pp/M2pp_pilot_sketchA_v1.jpg. Film: try 1 stuck at the start (route from the shingle); try 2 stopped while queued behind the Sim Session's hold window -- owed.
 - For Matt to clear: scratchpad/pilot_rp_walk_try1_stuck.avi (199 MB), root/work/meshes_superseded_nocarve/.
+
+## R-C9-240 PILOT REPAINT 2 -- PAINTED; stitch/take/build WAITS for the conductor to clear the heavy lock
+- Prep 7b9b561ec: pins from LV 5a07c024f (guide fad1a235d70e; level -> data/bv2f/pilot_rp2/level, PIN.json; the pilot scene now defaults to BV2F_PILOT=rp2); palette: ground_reed (reeds.py LAND_IDS, prep land + reed->heather snow, class masks value 11 'reed'), ground_lead -> sea; ground_ice_mid/tide_ice/slab ice -> 'ice' in the class masks; geo v5 (PT, = v4 + R-C9-240 paint direction; ed78a151e734).
+- Paint BV2F-PS2: 9/9 exit 0, **18/18 images** (one retry each); all DELIVERED_WITH_CONCERNS -- the painter reports visible vertical ice joins at x=256 in 2_0 and 2_1 (the stitch's ramps blend that strip), scrub/reed/rock silhouette drift, extra beach stones (0_1), dark linear marks round the lower island (1_0), denser ice texture/veins than asked (0_0, 0_2), regular masonry-like right-hand steps (2_2), strip preservation unverified.
+- Stair tread snow grids for rp2 written (data/bv2f/pilot_rp2/stair_snow, 52 treads).
+Next: on the conductor's lock go -> `zsh fid/pt/tools/pilot_build_rp.sh` (stitch .. stills), then M2'' sheet + the owed film.
