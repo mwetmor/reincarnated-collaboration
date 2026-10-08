@@ -47776,6 +47776,13 @@
       "ts": "2026-10-08T06:22:45-04:00",
       "verbatim": "Fix G + cleaner rim (Recommended)",
       "ruling": "SORCERESS: fix G ratified (hair tucked inside the hood while hooded; face skin lightened + forehead fringe painted out; light hood lining). This narrows R-C9-152's keep-the-front-hair and R-C9-233's hair-frames-face (Matt accepts losing the framing strands). ADD: clean the hood-opening rim, i.e. thin or remove the dark speckled outline / ink noise around the face opening (screen-space outline pass and/or texture speckle) without losing the hood silhouette line. Releases stay Fire Ball 0.2667 s / Meteor 1.80 s. Deliver live vs G+rim stills at the play camera (z1 and z3) to Matt for one more look BEFORE any Barrow web rebuild, loadout commit or JOIN-1 pack. Barrow BV2F work keeps priority on the heavy lock."
+    },
+    {
+      "id": "R-C9-237",
+      "by": "gandalf (conductor), on Matt's choice",
+      "ts": "2026-10-08T06:40:11-04:00",
+      "verbatim": "Fix white patch, then ship (Recommended)",
+      "ruling": "SORCERESS G+rim (SO 506cc7e9e; idle face visible 39->71%, luma 66->117) APPROVED TO SHIP after one fix: tone down the blown-out bright-white patch on the forehead/eyes (seen idle S, walk S, Fire Ball S) to a natural skin value with no clipping at any heading. The conductor checks the stills, then SO ships per so_mx/RESUME.md: Barrow web rebuild (incl. the outline-thinning change in barrow_full.gd web path), select_check + web_perf, ONE loadout commit and push (R-C9-84: push once, check once), and the JOIN-1 sorceress pack (next version; manifest lint + 3 negative controls; releases Fire Ball 0.2667 s / Meteor 1.80 s). BV2F lanes keep heavy-lock priority."
     }
   ],
   "grok_calls": [
