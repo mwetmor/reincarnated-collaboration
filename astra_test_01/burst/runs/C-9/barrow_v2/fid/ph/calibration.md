@@ -1286,3 +1286,58 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
 | scale | 112 instances, 0 over 1.10, 0 record mismatches | **PASS** |
 
 **P6′ = PASS on 368cdf791.** No hidden-by-design was needed. The repaint gate's P6′ condition is met.
+
+## 44. P5 v2 — RE-INSTRUMENTED and CALIBRATED (jack-ryan pre-ruling 309c4c41b; R-C9-251). Committed BEFORE any pilot-3 P5 value is read. `harness/p5v2.py`, `harness/p5v2_calibrate.py` → `results/p5v2_calibration.json`
+
+**Instrument.** Exactly the pre-ruling's parameters (frozen there; restated in `p5v2.py`'s docstring).
+- **a1:** σ 6 tone MAD on the raw shared strip, trim 12 px, 128-px segments.
+- **a2:** σ 3 HF-std log-ratio, ε 0.5.
+- **b:** unchanged.
+- **c:** the context-boundary step at x = 1280c + 256 / y = 768r + 256, 64-px segments, Lab σ 4.
+  - T and G over ±[4, 10) / 24 px; excess over the median at offsets ±32 … 96 step 8.
+  - Runs of ≥ 2 segments score the minimum; segments whose ±110 px window touches unpainted px are excluded.
+- **Bars:** v1's own maximum (T10BF raw canvases; `barrow_full_painted.png`). Stitching uses PT's Tier-B `guided_stitch.py` as committed, run unmodified with env flags.
+
+**v1 bars.**
+
+| a1 | a2 | b | c tone | c grain |
+|---|---|---|---|---|
+| **9.569** (1_2\|2_2) | 0.676 (1_2/1_3) | 0.799 | 17.417 (y = 2560, chunk 0_3, run at x 448: v1's own visible seam, pre-ruling INFO § 9) | 2.336 (y = 2560, chunk 2_3) |
+
+| Check | Result | Required | |
+|---|---|---|---|
+| **C1** v1 positive control | a1, a2, b, c PASS by construction. Restitch flags-off **byte-identical** (sha eecb4266… = v1). Restitch **DEV-23 + 25 ON**: b 0.666, c tone 14.21, c grain 1.69 → PASS (b, c). All build flags (23/25/26/27) ON, reported: b 0.492, c 13.22 / 1.55 → PASS | PASS | ✓ |
+| **C2** R-C9-158 (BVSW + section_sw_painted) | **FAIL**: a1 3 joins (max 11.85), a2 6 joins (max 1.018), b 1 seam (x = 3968, 1.274), c tone 2 boundaries (max 21.44), c grain 0 (max 1.449); raw MAD max 15.29 | FAIL | ✓ |
+| **C3 a1 (i)** 6% hue/tone second hand on 1_1 | a1 13.709 > 9.569 | RED | ✓ |
+| **C3 a1 (ii)** +6 sRGB on v1 3_2's strip of 2_2\|3_2 (dense) | a1 **11.05** (unmodified 6.454) > 9.569; raw MAD 15.91 | RED | ✓ |
+| — the rejected normalised MAD, for the record | 0.612 vs its v1 max 1.242 (unmodified 0.503) → **GREEN: blind**, as the pre-ruling found. (PH's reading: raw strip MAD / mean of the two strips' σ 3 HF std; not jack-ryan's exact code, whose v1 max was 1.406) | — | — |
+| **C3 a2** strip HF × 0.67 on 3_2's 2_2\|3_2 strip (mechanism 1) | a2 **0.631** (unmodified 0.241) ≤ 0.676 → **GREEN** | RED | **a2 DISCARDED** (not tuned) |
+| **C3 c (i)** +7.16 dE on 3_2's new-paint side, x = 4096, rows 1920–2176 | tone excess **10.27** ≤ 17.42 → GREEN. **No detection floor ≤ 2× (14.32 dE).** | RED | ✗ |
+| **C3 c (ii)** HF × 2.5 on the new-paint side, same place | grain excess **0.696** ≤ 2.336 → GREEN. **No floor ≤ × 5** (log2 5 = 2.32 < bar). | RED | ✗ |
+| → **P5(c)** | **neither reads RED at any magnitude ≤ 2× the stated value → (c) DISCARDED** per the pre-ruling. The cause is the v1-max bar: v1 itself carries a 17.4 dE / 2.34 grain seam (y = 2560), so v1 parity admits any step below that. | | **(c) DISCARDED** |
+| **C3 masking control** PS3b (`-r1` set) stitched DEV-23 + 25 ON | **FAIL** (a1: 0_1/0_2, 0_2\|1_2, 1_1\|2_1, 2_0/2_1). b 0, c 0, so (c) alone would not have failed it. | FAIL | ✓ (via a1) |
+| **C4 specificity** | PS2 0_1/0_2 (raw 13.86): a1 **3.921**, a2 0.155 → PASS. PS3a 1_1/1_2 (raw 14.38): a1 **5.303**, a2 0.353 → PASS | expected PASS | ✓ |
+
+**C5 — the pilot-3 canvas pin** (explicit; never `canvases()`, which would take PS3b's `-r1`):
+
+| chunk | canvas | sha256 |
+|---|---|---|
+| 0_0 | `BV2F-PS3A-0_0/BV2F-PS3A-0_0.png` | `20321c0b6c4ddb8cf324b770a9f3b76d80e0f4442d188de2063adc8ec79ad881` |
+| 0_1 | `BV2F-PS3A-0_1/BV2F-PS3A-0_1.png` | `f46e7fd067fbaf71830e54891254e728e161d710162f7d19754e26953c27465d` |
+| 0_2 | `BV2F-PS3A-0_2/BV2F-PS3A-0_2.png` | `9a33d08ff780fe0bd17d51a48b79e82d9882e0184304caf7996538a8d59c310b` |
+| 1_0 | `BV2F-PS3A-1_0/BV2F-PS3A-1_0.png` | `d3ff84018601ae6b0e219fd85310bde4ba18ad79b9d9dfd42406d75a913c2b6c` |
+| 1_1 | `BV2F-PS3A-1_1/BV2F-PS3A-1_1.png` | `325eeb230ab7109a24ff17385b22a52dcc04aff5765da394acae432f9766bb8c` |
+| 1_2 | `BV2F-PS3A-1_2/BV2F-PS3A-1_2.png` | `0a7db5bd51a0819f9781d22931be8998b4ab258e30dd46b688e02fe089101bc6` |
+| 2_0 | `BV2F-PS3A-2_0/BV2F-PS3A-2_0.png` | `80d7128ed583f3531e468255a63c9c4cfe4bd1801da610ab207be2e675306e29` |
+| 2_1 | `BV2F-PS3A-2_1/BV2F-PS3A-2_1.png` | `fbee10d14e1291bb9f2b931c7470a3f299132e7a72388a1344462da330fcb26a` |
+| 2_2 | `BV2F-PS3A-2_2-r1/BV2F-PS3A-2_2.png` | `8d977dbd90d4c0ed7d85051a0769de5cbb1a3bcdac7ed381996d0cc3e22251d9` |
+**P5 v2 as it binds on pilot 3 (pre-registered here).**
+- **PASS iff** every a1 segment on the pinned raw canvases is ≤ 9.569 **and** every P5(b) seam on the build's flags-ON stitched painting is ≤ 0.799.
+- **a2 and c are discarded.** They are computed and REPORTED only, with c flags-off and flags-on.
+- **Raw overlap MAD is reported only**, with a 1:1 crop of every join over 13.09.
+
+**What this leaves unguarded (disclosed for the conductor and jack-ryan).** Neither surviving sub-measure is shown to see:
+- **mechanism 1**, a strip redraw softer than the new paint (a2 × 0.67 reads GREEN);
+- **a straight tone or grain step at the context boundary** smaller than v1's own seam (c reads GREEN at +7.16 dE and × 2.5 grain).
+
+These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A stricter bar than v1's maximum would be a threshold move, so PH does not propose one.
