@@ -208,3 +208,6 @@ Next: on the conductor's lock go -> `zsh fid/pt/tools/pilot_build_rp.sh` (stitch
 - Start p50: rp3 16.36; heather off 15.05 (-1.31); stairsnow off 16.03 (-0.33); reeds/water/bakes1k 0. rp2 today 15.51 (heather off 15.10); phase2p today 13.45 (1 run, machine reproduces PH's 13.5). heathercell / stairnotrack / staircoarse: no gain. Census: 150-175 of 264 sprays in frustum at every loop point.
 - Worst p99 is set by 10-20-frame bursts >20 ms at random frames in ~half the runs, every toggle (phase2p too); mediaanalysisd ~33% CPU throughout.
 - OWED: sea-view cells (all toggles), phase2p runs 2-3, rp runs 1-3, combo heather+stairsnow -- disk 17 GiB < 21 GiB gate.
+
+## R-C9-255/256 prompt/direction diff (0 images, 0 Godot) -- record fid/pt/r256/prompt_diff.json
+- P10 paused (disk 17 GiB; manifest 18 with Matt). Drivers of cream/smooth snow: (1) the R-C9-240 pale/unbroken mere direction, which the rewriter merges into snow; (2) the guide is ice-dominated with few large shadow casters; (3) geo is 3.2x longer and the palette cooler; (4) no trodden path; (5) PCF dither copied on small shadows. The cast is already in the painting (lit snow b* 4.9 vs 6.7).

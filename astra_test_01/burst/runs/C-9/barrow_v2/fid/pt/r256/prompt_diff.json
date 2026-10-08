@@ -1,0 +1,104 @@
+{
+ "_what": "R-C9-255/256 lane PT: PROMPT/DIRECTION DIFF v1 T10BF vs BV2F PS2/PS3(A) -- 0 images, 0 Godot; text from cfgs + as-sent receipt prompts (artifacts/*/receipt.json), pixel stats from the guides and paintings (read-only)",
+ "sources": {
+  "v1_cfg": "fid/v1tools/tierA/conductor_scripts/cfg_t10bf.json",
+  "ps2_cfg": "fid/pt/pilot/cfg_bv2a_pilot_ps2.json (geo v5)",
+  "ps3a_cfg": "fid/pt/pilot/cfg_bv2a_pilot.json (geo v6)",
+  "v1_guide": "barrow_full/paint/barrow_full_guide.png e866051cebf2",
+  "our_guide": "fid/pt/pilot/guide_art_pinned_v2.png 1c22764cb874 (pilot crop 0..4096 x 0..2560)",
+  "v1_painting": "barrow_full/paint/barrow_full_painted.png",
+  "our_painting": "fid/pt/pilot/painting.png (rp3)"
+ },
+ "same_in_both": [
+  "refs: one style ref T10C-barrow_a.png, same role text",
+  "brief composer guided_paint.py (Tier-B adds only chunk_notes, OFF for the pilot)",
+  "fill_phrase / retry_extra / unpainted_phrase",
+  "no model/strength/guidance/seed fields in either cfg: image_gen EDIT, image_cap 2, effort high; seed not set; model not recorded (C2PA only)",
+  "canvas 1536x1024, stride 1280x768, 256-px pasted strips",
+  "guide renderer: frozen capture_blockout.gd, same sun (55 deg, az 305), shadow atlas 8192, MSAA 4x",
+  "guide snow tint (204,196,188) warm grey",
+  "rules sentence 'cold blue-white snow' and 'short soft blue-violet shadows'",
+  "as-sent prompts: 'deep smooth snow' and 'brightest calmest' in v1 13/16 and ours 8/9"
+ ],
+ "differences": [
+  {
+   "field": "geo length",
+   "v1": "1526 chars, snow = 1 of 15 clauses",
+   "ours": "v6 4897 chars (3.2x), 26 clauses",
+   "snow": "medium: the snow clause is diluted"
+  },
+  {
+   "field": "geo snow clause",
+   "v1": "LIGHT WARM GREY ground = deep, smooth snow; DARKER BROWN-GREY BAND = a trodden path",
+   "ours": "... smooth snow, unbroken by any path or track (no path class)",
+   "snow": "medium: removes v1's warm trodden band"
+  },
+  {
+   "field": "geo mere/ice clause (R-C9-240 direction)",
+   "v1": "flat lapis-blue ice with pale cracks",
+   "ours": "MOSTLY UNBROKEN smooth pale ice lightly dusted with snow, FEW soft, pale veins, never dark",
+   "snow": "HIGH: the rewriter merges it into snow ('snow and ice remain PALE, BRIGHT, CALM and mostly unbroken'): snow+ice smooth/pale sentences v1 0/16, PS2 28 in 12, PS3 21 in 10"
+  },
+  {
+   "field": "rules palette",
+   "v1": "cold blue-white snow, warm grey granite, rust heather, dark juniper, lapis ice",
+   "ours": "+ dark slate-blue sea with pale floes, grey shingle, grey-brown timber, soot-black char and ash",
+   "snow": "medium: palette cooler/greyer"
+  },
+  {
+   "field": "as-sent prompt words per prompt",
+   "v1": "pale 6.3, soft 2.7, smooth 1.6, blue 3.4",
+   "ours": "PS3 pale 10.9, soft 5.0, smooth 4.0, blue 5.3",
+   "snow": "HIGH"
+  },
+  {
+   "field": "no peach/warm-snow word",
+   "v1": "0/16 say peach/apricot/pink; 'pale cream highlights' in some",
+   "ours": "0/9 likewise",
+   "snow": "none: v1's peach came from guide warm-grey + context + ref, not words"
+  },
+  {
+   "field": "guide content (class shares)",
+   "v1": "lit warm-grey snow 25.5%, olive scrub 34.5%, pale-blue ice 3.6%; 33 birches + 18 outcrops + 3 cairns on open snow",
+   "ours": "snow 10.5%, pale-blue ice 26.2% + very pale shore ice 6.9%; no trees",
+   "snow": "HIGH: cool-dominated canvas; few casters on open snow"
+  },
+  {
+   "field": "guide shadows on snow",
+   "v1": "9.8% of lit snow, median blob 1587 px, factor 0.80",
+   "ours": "7.8%, median blob 462 px (3.4x smaller), factor 0.72",
+   "snow": "HIGH for the blue blobs: v1 had big birch/outcrop shadow shapes to paint as blobs"
+  },
+  {
+   "field": "guide shadow dithering (PCF)",
+   "v1": "present: edge-band checker energy 2.42, interior 0.18",
+   "ours": "present, a little more: 3.03, interior 0.36",
+   "snow": "low-medium: same renderer; ours has more small shadows that are mostly edge, so the dither is copied as a pattern"
+  },
+  {
+   "field": "pasted context",
+   "v1": "neighbours painted in v1's warm snow",
+   "ours": "neighbours painted under the pale/calm direction, mostly ice",
+   "snow": "medium: self-reinforces across waves"
+  },
+  {
+   "field": "painting result (lit snow under guide mask)",
+   "v1": "L* 92.3 a* +2.9 b* +6.7, 67% peach px",
+   "ours": "L* 91.2 a* +2.2 b* +4.9, 25% peach px",
+   "snow": "the cast is already in the paint, before Godot"
+  },
+  {
+   "field": "painting result (snow in guide shadow)",
+   "v1": "L* 85.5 a* +4.4 b* +8.1 (light lavender-peach)",
+   "ours": "L* 68.4 a* +4.5 b* +5.0 (darker, greyer)",
+   "snow": "matches PH's shadow a* finding"
+  }
+ ],
+ "drivers_ranked": [
+  "1. R-C9-240 mere direction (MOSTLY UNBROKEN / smooth / pale / soft / never dark), merged by the rewriter into snow sentences",
+  "2. guide composition: cool ice dominates the canvas; few large casters on open snow, so few blue blobs",
+  "3. geo dilution and the cooler palette in rules",
+  "4. removal of the trodden path (warm band)",
+  "5. PCF dither on small shadows, copied literally"
+ ]
+}
