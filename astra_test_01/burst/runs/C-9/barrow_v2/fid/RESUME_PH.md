@@ -139,6 +139,6 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] QUIET WINDOW 1: HALT never quiescent (mediaanalysisd 20-48%, mds_stores 13-33%, Warp ~19%); 0 runs; lock released 19:47:38 -> matt_to_do (host-level). Driver: heavy_lock -- env PH_LOCK_HELD=1 p10_disc.py window (detached).
 
 ## R-C9-278 (Phase 3 paint block lifted) -- PH duties
-- [ ] B-1: when PT reports which a1 half the BUILT DEV-25c paste mask pastes (E = [0,128) canvas-edge / C = [128,256) interior; § 48 (d)), RECORD it in calibration.md and COMMIT before either A/B arm exists; both arms scored on that half (bars E 8.789 / C 11.045, § 49). (PT registration text says "the strip far half" = E by reading; the binding half comes from the built mask only.)
+- [x] B-1 DONE (E, bar 8.789; § 48 (d) B-1). was: when PT reports which a1 half the BUILT DEV-25c paste mask pastes (E = [0,128) canvas-edge / C = [128,256) interior; § 48 (d)), RECORD it in calibration.md and COMMIT before either A/B arm exists; both arms scored on that half (bars E 8.789 / C 11.045, § 49). (PT registration text says "the strip far half" = E by reading; the binding half comes from the built mask only.)
 - [ ] B-3 at M3: every candidate still phase-matched per § 50 (a), the pilot region included (view k <- T[k mod 6], +-0.10 px).
 - No Godot until disk >= 21 GiB (16-20 now: macOS update download, Matt T34).

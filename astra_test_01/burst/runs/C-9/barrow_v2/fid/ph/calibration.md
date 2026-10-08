@@ -1676,3 +1676,9 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
   - pause or disable Photos media analysis (mediaanalysisd);
   - exclude the data volume from Spotlight indexing (mds_stores);
   - launch P10 from a non-agent shell (e.g. a launchd job) with Warp closed, since Warp stays above 10 % even with this session silent.
+
+### § 48 (d) B-1 — the binding a1 half for DEV-25c: **E**. Recorded and committed BEFORE either A/B arm exists (R-C9-278; jack-ryan Addendum B)
+- **PT's report.** `fid/pt/dev25c/paste_mask.json` (sha 3dcd5387e2ec…, PT commit ecc1adaf9): `"pasted_half": "E"`. In the NEWER chunk's canvas, columns [0, 128) under a painted left neighbour and rows [0, 128) under a painted top neighbour are pasted; [128, 256) returns to the guide and is painted fresh. The DEV-26 cut is confined to C (offsets ≥ 142).
+- **Verified against the built code itself**, not only the record: `fid/v1tools/tierB/conductor_scripts/guided_paint.py` (sha b607bd7e46a5…), the BV2F-BEGIN DEV-25c block, `_inner[:, :128] = True` under a left neighbour (likewise rows [:128] under a top neighbour). That is the 128 px next to the canvas edge on the neighbour-interior side = PH's band **E = offsets [0, 128)** (§ 48 (d) definition: 0 = the newer chunk's canvas edge).
+- **No arm exists yet.** No Phase 3′ paint artifact exists. The only `BV2F-PS4SI-*` dirs are STAND_IN guide crops for PT's full-site stitch proof (`STAND_IN.json`), not paintings.
+- **Ruling recorded:** **BOTH A/B arms of the first Phase 3′ wavefront chunk are scored on half E, bar 8.789** (§ 49), with `p5v2.a_pair(..., band=(0, 128))`. Arm A (full-256 paste) is scored on the same half E, so the comparison is like-for-like. Half C (11.045) is not used for DEV-25c.
