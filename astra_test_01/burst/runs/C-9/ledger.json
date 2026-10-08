@@ -51303,6 +51303,13 @@
       "ts": "2026-10-08T18:44:57-04:00",
       "verbatim": "Approve both (Recommended)",
       "ruling": "MATT RATIFIES DEV-21 (3D reed cards cut from the painted reed tufts) and DEV-22 (true-3D stair tread snow) for the whole site. Charter s16's open line is updated: DEV-17..28 are all Matt-ratified; DEV-25c is registered but not adopted (A/B rule)."
+    },
+    {
+      "id": "R-C9-274",
+      "by": "gandalf (conductor), on PT c39cc5af8 / 24def4e44 / 7ef0ee442",
+      "ts": "2026-10-08T18:54:40-04:00",
+      "verbatim": "",
+      "ruling": "(a) GROUNDTILES ADOPTED as P10 cut 1 (default on; BV2F_PROF_OFF=groundtiles restores the old behaviour): frozen static A/B is byte-identical on 8/12 views, and the other 4 differ within their own A-vs-A2 capture noise; the ID capture and take are unaffected. (b) Rock LOD coded (BV2F_PROF_TRY=rocklod), unmeasured: disk gate. (c) FULL-SITE STITCH fixes PROVEN on the stand-in: DEV-26 pinned prefix (cfg.dev26_pin) + DEV-24 per-patch read-region check. P-1/P-2: pilot region 0 px changed; P-3 control: 123 px move unpinned (the risk was real and the proof can fail); P-2b: pinned + DEV-24 = the pilot-4 painting. Gate-2 [Bb] item 10 is satisfied in principle; P-4 on the real Phase 3' canvases remains at the Phase 3' build. (d) ROCK 2_1 FAIL = paint on tiny support (2 windows, both on carved ring-stone faces; the dressed tops contribute 0; at 0.7 coverage the rock spectrum is 0.158, under the bar). PH extends the Phase 3' minimum-support rule to rock. DISK: 19-20 GiB, under the 21 gate; manifest 19 (C-9 scratch 1.31 GiB) and the Sim Session's x-selftest (4.1 GB, its own script) are with Matt."
     }
   ],
   "grok_calls": [
