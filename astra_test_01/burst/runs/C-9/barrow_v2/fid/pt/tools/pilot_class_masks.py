@@ -22,7 +22,7 @@ def cls_of(i):
     if i.startswith("cliff_faces"): return "cliff"
     if i in ("ground_snow", "ground_mound", "ground_path"): return "snow"
     if i in ("ground_ice", "ground_shore_ice", "ground_stream", "ground_ice_mid", "ground_tide_ice") or i.startswith(("blobs_shore_ice", "ice_", "mere_", "stream_ice")): return "ice"   # R-C9-240: + the graded margin, tide ice and the slab ice groups
-    if i == "ground_shrub": return "heather"
+    if i in ("ground_shrub", "carved_shrub"): return "heather"   # R-C9-245: + the carved cliff tops' heather
     return None
 tab = json.load(open(os.path.join(D, "ids_table.json")))["ids"]
 lut = np.zeros(256, np.uint8)

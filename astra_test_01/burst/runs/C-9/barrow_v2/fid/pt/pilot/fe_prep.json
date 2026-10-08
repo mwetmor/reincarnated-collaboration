@@ -2,7 +2,7 @@
  "_what": "bv2f_prep.py config: the PILOT (DEV-17/18 adaptations)",
  "painting": "pt/pilot/painting.png",
  "lit": "pt/pilot/root/work/light/lit_guide.png",
- "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted",
+ "out": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted",
  "report": "pt/pilot/painted_prep.json",
  "ids_dir": "pt/pilot/ids_built",
  "take_report": "pt/pilot/root/take/take_report.json",
@@ -16,16 +16,18 @@
  },
  "land": {
   "ids": [
+   "carved_shrub",
    "ground_mound",
    "ground_path",
    "ground_reed",
    "ground_shrub",
    "ground_snow"
-  ]
+  ],
+  "_rp3": "R-C9-245: + carved_shrub (LV's heather on the carved cliff tops is its own id)"
  },
  "flat": {
-  "level": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/level/level.json",
-  "_pin": "R-C9-240: PILOT REPAINT 2 level, pinned from LV 5a07c024f (pilot_rp2/level/PIN.json)"
+  "level": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/level/level.json",
+  "_pin": "R-C9-245: PILOT REPAINT 3 level, pinned from LV 03306a599 (pilot_rp3/level/PIN.json)"
  },
  "snow_open": {
   "ground_id": "ground_snow"
@@ -134,9 +136,9 @@
  "reed_split": true,
  "_reed_split": "R-C9-205 ruling 1: one plant per painted tuft -- reed tufts out of the heather's cover (DEV-21)",
  "stair_treads_cut": {
-  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/level/stair_treads.json",
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/level/stair_treads.json",
   "pad_m": 0.2,
   "_": "DEV-22: the terrain snow is cut where the stair's tread snow lies"
  },
- "_rp": "R-C9-240 repaint 2: out = data/bv2f/pilot_rp2/painted; land + ground_reed (LV's reed beds)"
+ "_rp": "R-C9-245 repaint 3: out = data/bv2f/pilot_rp3/painted"
 }

@@ -9,7 +9,7 @@ FID=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/b
 CFG=${1:-$FID/pt/pilot/cfg_bv2a_pilot.json}; DRV=$FID/v1tools/tierB/conductor_scripts/t10bf_drive.sh
 LED=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/ledger.json
 PFX=$(python3 -c "import json;print(json.load(open('$CFG'))['prefix'])")   # BV2F-PR for the Phase 2'' repaint (R-C9-210)
-L=$HOME/astra-burst/logs/C-9; DLOG=$L/${PFX}_drive.log; CAP=18
+L=$HOME/astra-burst/logs/C-9; DLOG=$L/${PFX}_drive.log; CAP=${2:-18}   # R-C9-245: cap as the 2nd arg (PS3: 24)
 source ~/.zshrc > /dev/null 2>&1
 used() { python3 -c "import json;print(sum(b.get('image_calls',0) for b in json.load(open('$LED'))['bursts'] if str(b.get('id','')).startswith('$PFX-')))"; }
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); [ $FREE -ge 21 ] || { echo "HALT: disk ${FREE} GiB < 21"; exit 9; }

@@ -10,7 +10,7 @@ FID=$C9/barrow_v2/fid; T=$FID/pt/tools; P=$FID/pt/pilot; V=$FID/v1tools; GP=$C9/
 G=/Applications/Godot.app/Contents/MacOS/Godot
 pg() { python3 $T/pt_godot.py "$@"; }
 CFG=$P/cfg_bv2a_pilot.json
-export BV2F_VARIANT=art BV2F_UNGROUP=1 BV2F_PILOT=rp2
+export BV2F_VARIANT=art BV2F_UNGROUP=1 BV2F_PILOT=rp3
 STEPS=(stitch ids export light take heather bake prep lineage guide stills)
 FIRST=${1:-stitch}; go=0
 step() { echo "=== $1 $(date -u +%T)"; }
