@@ -49922,6 +49922,13 @@
       "ts": "2026-10-08T11:55:11-04:00",
       "verbatim": "",
       "ruling": "P5 v2 calibrated BEFORE any pilot-3 value was read (calibration.md s44). a1 tone KEPT (bar 9.569; constructed fails 13.71/11.05 RED). a2 grain DISCARDED (its x0.67 constructed fail read GREEN). c boundary-step DISCARDED (v1's own y=2560 seam sets bars 17.42 dE / 2.34 so high that +7.16 dE and x2.5 grain read GREEN), per 're-instrumented or discarded; never threshold-tuned'. b unchanged (<= 0.799). C1-C5 hold (flags-off byte-identical; R-C9-158 FAIL; PS3b masking control FAIL via a1; specificity PASS; manifest pinned). Pilot-3 P5 BINDS on a1 + b only. Recorded gap: soft-redraw and boundary steps below v1's own seam are guarded only by the conductor's eye stop (R-C9-248(4)) and P11; Matt's review is told so. jack-ryan to note at Gate-2."
+    },
+    {
+      "id": "R-C9-254",
+      "by": "gandalf (conductor), on PH 72301c875",
+      "ts": "2026-10-08T12:19:14-04:00",
+      "verbatim": "",
+      "ruling": "PILOT 3 HARNESS (PT 72a9a0ec5; PH 72301c875, calibration s45): PASS P1, P2, P3, P6a, P6' (57/57), P8, P9 sway/flow/trail. FAIL: P4 (ice vs sketch A dE 12.0-17.3 in all 6 ice chunks, painted L* ~87 vs sketch A 72.9, i.e. the mere painted far paler than sketch A, partly the conductor's 'pale mere' paint direction; snow 0.33-0.49 in 6/9 chunks; rock 2_1 spectrum 0.303); P5 v2 a1 10.54 at 0_1/0_2 (the predicted y1792 bay seam; b 0.789 passes); P10 (start worst p99 25.61 ms, p50 13.5 -> 16.3; sea 17.23; bar 16.7). P9c cannot bind (no bobbing floe inside the pilot plate). The P11 v3 blind judge has been spawned (fresh galadriel, crops only). ROUTING: (1) P10 to PT: profile the start and sea views (heather 264 sprays, 65 reed cards, DEV-21/22, the bake count) and find what moved p50 13.5 -> 16.3 ms; no images; propose a fix. (2) P4 ice value is a Matt taste question (sketch A's mid-blue mere vs the pale mere), with the conductor's recommendation. (3) P4 snow/rock and P5 a1 go to jack-ryan Gate-2 with the P11 result; the bay seam is already a Phase 3' prerequisite (R-C9-252)."
     }
   ],
   "grok_calls": [
