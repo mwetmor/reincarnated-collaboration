@@ -30,7 +30,7 @@
  "rows": 5,
  "guide": {
   "file": "guide_art/guide_art.png",
-  "sha256": "76179d9eb4d6810550952f8f9561eb936f3a8a952112c07e11685db8dc90b37a",
+  "sha256": "1f08bfe4f1e9a06c984c8370dc93634823c2e2f44a20d2fb1faf006a7703c5ee",
   "px": [
    6656,
    4096
@@ -38,12 +38,12 @@
  },
  "ids": {
   "file": "guide_art/ids_art.png",
-  "sha256": "eec9fa67d293123d151e107df7bc90fe5b5b60557f4d5c1de0780fd353d1fa27",
+  "sha256": "68da6fdf525a6fb835d5a966e46ee1da70ba9eb672a1c67df42b5f25f0d91ad2",
   "code": "R<<16 | G<<8 | B = global id (table below); 0 = nothing (sky / none)"
  },
  "class": {
   "file": "guide_art/class_art.png",
-  "sha256": "793be61e4105c9aaa0cfb4d34d62b233f6bc5b0c5242019286b79c131bf6fe6f",
+  "sha256": "449e73c5a133612c6b9e90c20cfc2c0fd9f8e5707dbfe13c3a922c7f39281ba7",
   "classes": [
    "none",
    "snow",
@@ -63,27 +63,30 @@
    "tide_ice",
    "wet_rock",
    "rime",
-   "ice_mid"
+   "ice_mid",
+   "reed"
   ],
   "shares": {
-   "snow": 0.3022,
-   "ice": 0.13067,
-   "shrub": 0.01761,
-   "rock": 0.13837,
-   "mound": 0.01742,
-   "shingle": 0.02701,
-   "shore_ice": 0.18399,
+   "none": 0.00073,
+   "snow": 0.29314,
+   "ice": 0.12531,
+   "shrub": 0.01547,
+   "rock": 0.13926,
+   "mound": 0.0245,
+   "shingle": 0.00953,
+   "shore_ice": 0.18406,
    "char": 0.00978,
-   "sea": 0.04386,
-   "wood": 0.06496,
+   "sea": 0.04628,
+   "wood": 0.06575,
    "passage_dark": 0.00767,
    "ash": 0.03847,
    "tide_ice": 0.01357,
    "wet_rock": 0.00209,
    "rime": 7e-05,
-   "ice_mid": 0.00228
+   "ice_mid": 0.01112,
+   "reed": 0.01321
   },
-  "unassigned_share": 0.0
+  "unassigned_share": 0.00073
  },
  "tints_srgb": {
   "snow": [
@@ -200,302 +203,307 @@
    0.75,
    0.822,
    0.88
+  ],
+  "reed": [
+   0.8,
+   0.68,
+   0.46
   ]
  },
  "id_table": {
   "1": {
-   "id": "barrow_front",
+   "id": "barrow_cutting",
    "class": "rock",
-   "piece": "model"
+   "piece": "slabs"
   },
   "2": {
+   "id": "cliff_faces",
+   "class": "rock",
+   "piece": "group"
+  },
+  "3": {
+   "id": "cliff_skirt_wall",
+   "class": "rock",
+   "piece": "ribbon"
+  },
+  "4": {
    "id": "cove_ice",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "3": {
+  "5": {
    "id": "cradle_cracks",
    "class": "sea",
    "piece": "slabs"
   },
-  "4": {
+  "6": {
    "id": "crags",
    "class": "rock",
    "piece": "group"
   },
-  "5": {
+  "7": {
    "id": "curtain_barrow_door",
    "class": "passage_dark",
    "piece": "declared_opening"
   },
-  "6": {
+  "8": {
    "id": "curtain_hall_great_door",
    "class": "passage_dark",
    "piece": "declared_opening"
   },
-  "7": {
+  "9": {
    "id": "curtain_sea_cave_mouth",
    "class": "passage_dark",
    "piece": "declared_opening"
   },
-  "8": {
+  "10": {
    "id": "door_lintel",
    "class": "none",
    "piece": "v1-instrument-stub"
   },
-  "9": {
+  "11": {
    "id": "door_post_L",
    "class": "none",
    "piece": "v1-instrument-stub"
   },
-  "10": {
+  "12": {
+   "id": "barrow_front",
+   "class": "rock",
+   "piece": "model"
+  },
+  "13": {
    "id": "door_post_R",
    "class": "none",
    "piece": "v1-instrument-stub"
   },
-  "11": {
+  "14": {
    "id": "fallen_gable",
    "class": "char",
    "piece": "model"
   },
-  "12": {
-   "id": "carved_passage_dark",
-   "class": "passage_dark",
-   "piece": "carved"
-  },
-  "13": {
+  "15": {
    "id": "ground_ash",
    "class": "ash",
    "piece": "ground"
   },
-  "14": {
+  "16": {
    "id": "ground_ice",
    "class": "ice",
    "piece": "ground"
   },
-  "15": {
+  "17": {
    "id": "ground_ice_mid",
    "class": "ice_mid",
    "piece": "ground"
   },
-  "16": {
+  "18": {
    "id": "ground_mound",
    "class": "mound",
    "piece": "ground"
   },
-  "17": {
+  "19": {
+   "id": "ground_reed",
+   "class": "reed",
+   "piece": "ground"
+  },
+  "20": {
    "id": "ground_rock",
    "class": "rock",
    "piece": "ground"
   },
-  "18": {
+  "21": {
    "id": "ground_sea",
    "class": "sea",
    "piece": "ground"
   },
-  "19": {
+  "22": {
    "id": "ground_shingle",
    "class": "shingle",
    "piece": "ground"
   },
-  "20": {
+  "23": {
+   "id": "carved_ice_mid",
+   "class": "ice_mid",
+   "piece": "carved"
+  },
+  "24": {
    "id": "ground_shore_ice",
    "class": "shore_ice",
    "piece": "ground"
   },
-  "21": {
+  "25": {
    "id": "ground_shrub",
    "class": "shrub",
    "piece": "ground"
   },
-  "22": {
+  "26": {
    "id": "ground_snow",
    "class": "snow",
    "piece": "ground"
   },
-  "23": {
-   "id": "carved_rime",
-   "class": "rime",
-   "piece": "carved"
-  },
-  "24": {
+  "27": {
    "id": "gully_rock",
    "class": "rock",
    "piece": "group"
   },
-  "25": {
+  "28": {
    "id": "ice_brash",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "26": {
+  "29": {
    "id": "ice_floes",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "27": {
+  "30": {
    "id": "ice_floes_bob",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "28": {
+  "31": {
    "id": "ice_plates",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "29": {
+  "32": {
    "id": "ice_ridges",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "30": {
+  "33": {
    "id": "ice_rims",
    "class": "snow",
    "piece": "slabs"
   },
-  "31": {
+  "34": {
+   "id": "carved_passage_dark",
+   "class": "passage_dark",
+   "piece": "carved"
+  },
+  "35": {
    "id": "ice_shorefast",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "32": {
+  "36": {
    "id": "icicles",
    "class": "rime",
    "piece": "slabs"
   },
-  "33": {
+  "37": {
    "id": "ledge_rocks",
    "class": "rock",
    "piece": "slabs"
   },
-  "34": {
-   "id": "carved_rock",
-   "class": "rock",
-   "piece": "carved"
-  },
-  "35": {
+  "38": {
    "id": "logs",
    "class": "wood",
    "piece": "group"
   },
-  "36": {
+  "39": {
    "id": "longhall",
    "class": "wood",
    "piece": "model"
   },
-  "37": {
+  "40": {
    "id": "mere_cracks",
    "class": "sea",
    "piece": "slabs"
   },
-  "38": {
+  "41": {
    "id": "mere_plates",
    "class": "ice",
    "piece": "slabs"
   },
-  "39": {
+  "42": {
    "id": "mere_seams",
    "class": "snow",
    "piece": "slabs"
   },
-  "40": {
+  "43": {
    "id": "palisade",
    "class": "wood",
    "piece": "group"
   },
-  "41": {
-   "id": "reed_islands",
-   "class": "snow",
-   "piece": "slabs"
-  },
-  "42": {
+  "44": {
    "id": "reed_tufts",
-   "class": "shrub",
+   "class": "reed",
    "piece": "slabs"
   },
-  "43": {
+  "45": {
+   "id": "carved_rime",
+   "class": "rime",
+   "piece": "carved"
+  },
+  "46": {
    "id": "ring_fallen",
    "class": "rock",
    "piece": "slabs"
   },
-  "44": {
+  "47": {
    "id": "ring_snow",
    "class": "snow",
    "piece": "slabs"
   },
-  "45": {
-   "id": "carved_snow",
-   "class": "snow",
-   "piece": "carved"
-  },
-  "46": {
+  "48": {
    "id": "ring_stones",
    "class": "rock",
    "piece": "group"
   },
-  "47": {
-   "id": "river_water",
-   "class": "sea",
-   "piece": "slabs"
-  },
-  "48": {
+  "49": {
    "id": "sea_stacks",
    "class": "rock",
    "piece": "group"
   },
-  "49": {
+  "50": {
    "id": "slope_stones",
    "class": "rock",
    "piece": "group"
   },
-  "50": {
+  "51": {
    "id": "stair_snow",
    "class": "snow",
    "piece": "slabs"
   },
-  "51": {
+  "52": {
    "id": "stair_steps",
    "class": "rock",
    "piece": "procedural"
   },
-  "52": {
+  "53": {
    "id": "stair_treads",
    "class": "rock",
    "piece": "slabs"
   },
-  "53": {
+  "54": {
    "id": "stream_cracks",
    "class": "sea",
    "piece": "slabs"
   },
-  "54": {
+  "55": {
    "id": "stream_ice",
    "class": "ice",
    "piece": "slabs"
   },
-  "55": {
+  "56": {
+   "id": "carved_rock",
+   "class": "rock",
+   "piece": "carved"
+  },
+  "57": {
    "id": "stream_pressure",
    "class": "ice",
    "piece": "slabs"
   },
-  "56": {
-   "id": "carved_tide_ice",
-   "class": "tide_ice",
-   "piece": "carved"
-  },
-  "57": {
+  "58": {
    "id": "talus",
    "class": "rock",
    "piece": "group"
   },
-  "58": {
+  "59": {
    "id": "trans_leads",
    "class": "sea",
-   "piece": "slabs"
-  },
-  "59": {
-   "id": "trans_rocks",
-   "class": "snow",
    "piece": "slabs"
   },
   "60": {
@@ -509,19 +517,24 @@
    "piece": "model"
   },
   "62": {
+   "id": "wreck_mast",
+   "class": "wood",
+   "piece": "group"
+  },
+  "63": {
+   "id": "carved_snow",
+   "class": "snow",
+   "piece": "carved"
+  },
+  "64": {
+   "id": "carved_tide_ice",
+   "class": "tide_ice",
+   "piece": "carved"
+  },
+  "65": {
    "id": "carved_wet_rock",
    "class": "wet_rock",
    "piece": "carved"
-  },
-  "63": {
-   "id": "cliff_faces",
-   "class": "rock",
-   "piece": "group"
-  },
-  "64": {
-   "id": "cliff_skirt_wall",
-   "class": "rock",
-   "piece": "ribbon"
   }
  },
  "tiles": [
@@ -533,7 +546,7 @@
     0
    ],
    "file": "guide_art/tiles_5x5/guide_r00_c00.png",
-   "sha256": "70e68b7101474f5f134ac476ccce0eadefb346ccbfb8565eb11ca30bacaa53cf"
+   "sha256": "d678eb94cffdfab7439d5916c2022070ff12f91e4c88bf063a0253201535b0ba"
   },
   {
    "row": 0,
@@ -543,7 +556,7 @@
     0
    ],
    "file": "guide_art/tiles_5x5/guide_r00_c01.png",
-   "sha256": "f731bac102519c6605e8a0e6e4effb78c8019cc81108143625b7c761a8cf5d8a"
+   "sha256": "9fdfc3d6a52cb2b3604e5d4e11bf6e56e232b3ba40c3ac1074be4e5692c3a644"
   },
   {
    "row": 0,
@@ -553,7 +566,7 @@
     0
    ],
    "file": "guide_art/tiles_5x5/guide_r00_c02.png",
-   "sha256": "12d5ff00208106d6a4f8ba7ab924730bbe1d8bc7898f137945816c50a83d140f"
+   "sha256": "683efdd5d443378d0073b72471d703e46e1b92600ab7a257048a3eb27aa5cced"
   },
   {
    "row": 0,
@@ -563,7 +576,7 @@
     0
    ],
    "file": "guide_art/tiles_5x5/guide_r00_c03.png",
-   "sha256": "621047cfd5367dd2d98f3dddc7ea1f13e5312f0d5f9aeed828dc3b5469464bf9"
+   "sha256": "ebd04f9c56b8630235c936c22683ad986bf0f656ba1e5db86906192f6bc8d0ff"
   },
   {
    "row": 0,
@@ -573,7 +586,7 @@
     0
    ],
    "file": "guide_art/tiles_5x5/guide_r00_c04.png",
-   "sha256": "af20b0e66417c67fabbae3e4f3da7b8ed276ecf1f6ea1f92b3d97e763930abdb"
+   "sha256": "5a6a7c958d5ed18b18285ddbe7a2ce1c028d52787466ecc22318831e6cfea84b"
   },
   {
    "row": 1,
@@ -583,7 +596,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c00.png",
-   "sha256": "7ac362184909ba2612e369730459cf633ecb3dbdf6606ab64d87b3419ce0ee20"
+   "sha256": "8e41a06d190fba604d15458dc4d42cdbd2c80d8784c6838be5da3dceccb34a50"
   },
   {
    "row": 1,
@@ -593,7 +606,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c01.png",
-   "sha256": "cf31edba903339e656c05351fafc1bd6b6ce392948a40023251fb5a720d1d90c"
+   "sha256": "6ddc731ff741792bf118d1f621d7999384e4ff8e8aff4a187f37b8d195a2660a"
   },
   {
    "row": 1,
@@ -603,7 +616,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c02.png",
-   "sha256": "8e64ca3fbb31632e039e96aad2cc02345bf24c66781bdb98480b20b4fab5c9dc"
+   "sha256": "2bdc30bf2c9c83d1795d569ac07dc9fae2483a9439a80139e5d9264cc172206d"
   },
   {
    "row": 1,
@@ -613,7 +626,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c03.png",
-   "sha256": "b77eb991d1fbeac63d4f3b5dcaacff1a9ea5d66dc6902633640ea3dde007532b"
+   "sha256": "5e604bed3d70cf345bd1a861a4cb51920a4e69ea763f5fc8f16a0e16ec700f2a"
   },
   {
    "row": 1,
@@ -623,7 +636,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c04.png",
-   "sha256": "36e198a2cffa3e00a7063f3bd0df21a4c943a468a84b7a6d2f0bbe38a875de3e"
+   "sha256": "6dd6053bb81b9af5443850e6560bf5f70ebbcafc10341e9303b5793d1bc6f08c"
   },
   {
    "row": 2,
@@ -633,7 +646,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c00.png",
-   "sha256": "42cd6875709008206620fbe1e81b5b9ca03b7cc03566131e77c57e0fe5c67481"
+   "sha256": "79b7f96f5c5fd9d54be6182f5f8983914dbbd2fd6304f864df605da88366fd80"
   },
   {
    "row": 2,
@@ -643,7 +656,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c01.png",
-   "sha256": "ff883cff5575b8b930a20a2946d4a2953ed3cda8179118ce126033a7702d2391"
+   "sha256": "f14bc8ee25cfba14823eb985e6f5ee133d11a0f787294ea380c0b5b768a48633"
   },
   {
    "row": 2,
@@ -653,7 +666,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c02.png",
-   "sha256": "f4a2d3bbf94bff98715395e3b04d931829a9be4783811810184ed8a4741179a3"
+   "sha256": "ee8d1552cec0c91cec537b0e4c15de68f75384c4f492fcb6e89900e0b0ccdd99"
   },
   {
    "row": 2,
@@ -663,7 +676,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c03.png",
-   "sha256": "6ae4c784eacdde26ec382edb4d80fbfb4979abdb6cc60e065bf24e43fb74f4ef"
+   "sha256": "3680ee1ad9d80c3b95f9db99000fd94f2f0a598ef09343c7b75aa7fb5ff9e56c"
   },
   {
    "row": 2,
@@ -683,7 +696,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c00.png",
-   "sha256": "7845d6ff83f80db1f886242e956d4a7615a30d877fabca2ce3ec15bca4f0edcc"
+   "sha256": "7ccff0345193e888b7e0084f34f80f7a693ece7d05a14a30cb29fddb52ff1588"
   },
   {
    "row": 3,
@@ -693,7 +706,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c01.png",
-   "sha256": "8da83a0db1278a8b13af9516a9695c71e9e764d227437a9a8f79f0c2fc60c42b"
+   "sha256": "6a9626a9cb980f8062477f27900a68d840f2993866851bd9074eb3d9bbe7cdd3"
   },
   {
    "row": 3,
@@ -713,7 +726,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c03.png",
-   "sha256": "a78396e2e6be995ea26ccdef98543b6b91cdbaeb84d30d7ab2150aa465ed3ae4"
+   "sha256": "5abc992afe360ee0df8b3b1ade910d389f35207ccf490a3ef472ef2dba1241e8"
   },
   {
    "row": 3,
@@ -733,7 +746,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c00.png",
-   "sha256": "cfa15dab816d22be8ff06deea4c8e1c62d29971dab4e773454a51da7c08d2cdb"
+   "sha256": "d8003692e4fa1e041ed2ea90bc899fbbe84e3300a115edf2f7958ea30a7ac5b5"
   },
   {
    "row": 4,
@@ -743,7 +756,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c01.png",
-   "sha256": "4bcdcf38d1350f29849fa38b2bad58136f4bdb0f649b73312f55b12cb3a2699a"
+   "sha256": "7f6b296bb6926627b13804d63507d60c6dfad33557b6ee3ae53386e04896661e"
   },
   {
    "row": 4,
@@ -753,7 +766,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c02.png",
-   "sha256": "057b70a7a3316cca4551c3d49b3243045e5a3eeddf8e3d7afe0648f4aac65559"
+   "sha256": "f147cd035879b31b6215b82bde686dc3de06d968626187db8113cf11a9ab8a32"
   },
   {
    "row": 4,
@@ -763,7 +776,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c03.png",
-   "sha256": "153e3c3867c20f5b3b4cff297fb7ba1c58668a26c9f388466c82ed263fd66e1f"
+   "sha256": "4e672288c5c5719054201a80e554876a36c9f7d5e669388f08fbd4f18188d49a"
   },
   {
    "row": 4,
@@ -773,25 +786,25 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c04.png",
-   "sha256": "bfa4f661a044bd00a6bc61f6bd82cbe35a39abe0148a264f5e3747f25ce4f0e5"
+   "sha256": "ef41269084860f5f6c4cca638d31c0b44e8affeab838919d5c65770736af8d8a"
   }
  ],
  "sections": {
   "s00": {
-   "guide_sha256": "26437b5b1c75e652d0df5155eccf3d83b6f04aab7e014a63912df3c44095b664",
-   "ids_sha256": "2907d4b2f262df7aa423801f0ceea2f97db67a259f31f32f2537ce73c05fe03f"
+   "guide_sha256": "72fc89dd59c7285ad8fdb9aa6b0ed0b1c00833718a4cdabb204f09aeb8b3647f",
+   "ids_sha256": "50f984dce1d5ee0a40a3023076ed43ba5b82c2b551f9d98a8f634a1fd6388dc2"
   },
   "s01": {
-   "guide_sha256": "dbe2549a60b86ce988cdccb6213e3c94552c4e634079ef2fc16fda7eb80ff391",
-   "ids_sha256": "1d265eca3e00c97e04050e3077558855821b17535b8bc8951f85511f080e6eb8"
+   "guide_sha256": "028c71738f11395c961d8e7c80205fec9f59b8f1774f582663639bff11956fa4",
+   "ids_sha256": "1b65fd072a97ef75572a364254b63cc043329cdbfc8da002e065c7a9a73848a4"
   },
   "s10": {
-   "guide_sha256": "068904312a44d4174a46279db07de637dc026ceb545ccdf1fc7e283552a9ebeb",
-   "ids_sha256": "f2ecd721aa272a737b3dc610fffa056df2be5544116dcac170ba411a2904f4f0"
+   "guide_sha256": "c5e8cbf68e5f2717969f1f6c042047929b3533ed1fdef090c5619d41254a46ec",
+   "ids_sha256": "ac9a5771079ddcc6726827f0052cca88b6b6d3c4bc945e8a2eab9b63481343d4"
   },
   "s11": {
-   "guide_sha256": "347507a85b3a878fadceaed4f9ec786f5b2e6fcd71ebbd6cc7272237142ca5ce",
-   "ids_sha256": "604d5093a313e4cb8251758bdf69cbada7c429df03cad53edd6258135382d5f7"
+   "guide_sha256": "37958587de312e14dceee4fd891f1f425561d79a3fd22dec9b553338e549a891",
+   "ids_sha256": "f00e4440f263fb339b7a2119e99d99a817a9104dbf87e336cd4885e177c8137c"
   }
  }
 }

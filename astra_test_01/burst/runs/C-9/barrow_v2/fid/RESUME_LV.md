@@ -253,3 +253,18 @@ Open: carved column tops round the arch still angular; ledge rocks are stepped t
 ## R-C9-230 — DONE: clifftop left of the cave lobed/notched (lip wiggled for t < ~7 only, pack ice still laid out against the passed lip0), 4 slumped rim rocks, kit gap-filler re-fit; east kit unchanged. Walk 8/8, check (a) PASS, hero PASS. Pilot: r00_c00-c02 + r01_c00 identical; r01_c01, r01_c02, r02_c00-c02 changed.
 
 ## R-C9-231 (P6' 78a2f41bd) — DONE: slope_stone_0 (dropped inside the kerb) removed from the layout of record; gully_col_e_1 (74 % in the wall) dropped. Walk PASS, check (a) PASS, hero PASS; all 9 pilot shas unchanged vs 1f9eb1dc7.
+
+## R-C9-234 (conductor, on Matt's choice "Fix my 7, then gates") -- blockout fixes for the pilot area, 0 images
+Base: LV 368cdf791 / geo v4. All changes in `lv/tools/make_bv2art.py` (section "R-C9-234"); every new draw has its OWN stream
+(2341-2353) and every legacy stream keeps its draw count -- proof: all 52 non-kerb placements (cliffs, talus, stacks, gully
+rock, ring, wreck, hall, gable, crags...) are byte-identical vs 368cdf791; pack slab counts unchanged (fast/plates/floes).
+| Item | What changed |
+|---|---|
+| (2) reeds | octagon pads gone: islands are the GROUND raised in low lobed, elongated domes (`isl_rho`), snow on them; reed beds = clumps of thin tall blades (new class `reed`, pale straw, provisional tint) on a straw ground patch, on the islands, along the mere's W/N/S edges and the river's banks. `art/reed_beds.json` (islands + clumps) for PT's DEV-21. |
+| (3) shingle | beach foot ragged (width -0..1.8 m low noise, `BW`; the foot's bays are shore ice, `bay_ice`); snow drifts over the stones (`drift`); classes from smooth bilinear fields (no 25 cm stair-steps); wreck cradle edge smooth. The pack is still laid against the passed beach (`beach0`). |
+| (4) mere -> sea | ONE graded field `wG`/`b_f`: ground eases from the mere's ice to the beach foot along b (no land strip, no crease); classes ice -> ice_mid -> shore_ice by b with noisy soft limits; leads widen with b (capped, prism spans both end heights); margin islands = land showing through the ice. |
+| (5) sea ice | pressure-ridge square pillars -> low irregular 5-8-sided lumps (fewer, 5-28 cm proud); every floe/plate drawn with corners worn round (one corner-cut pass; legacy outline kept for rims/brash draws). |
+| (6) barrow | front LOBE (v1 profile, kerbed) round the door, unioned with the big dome; a cutting the portal's width to the build's front face, the lobe kept out of the build's own footprint (glb verts), dry-stone walls (`barrow_cutting` slabs); eases to 0 within 1.6 m of the mere. Kerb re-run round the union (kerb_stone ids renumbered). `barrow_front.burial_by_design` declared (its back/roof under the mound by design). |
+| (7) wreck | `wreck_mast` slot: procedural mast stub (6.2 m, 0.38, leaning 16 deg up-screen right) + fallen spar from the gunwale onto the ice. |
+| extra | river = ground `sea` class along its channel (the stepped prisms were the top-left zig-zag notch); fallen ring stones = weathered lumps (same footprint/height; PT's 2_1 "greybox remnant"). |
+New tools: `lv_pilot12_sheet.py` (before|after sheets of the 12 P11 views), `lv_p6prime_run.py` (PH's own P6' harness, output redirected to `lv/art/p6prime_lv/`, PH's record untouched). Stills: `M1pp/pilot12_{before,after}/`, `M1pp/pilot12_sheet_{A,B,C}.jpg`, spec `M1pp/pilot12_spec.json`.

@@ -160,6 +160,11 @@
    0.75,
    0.822,
    0.88
+  ],
+  "reed": [
+   0.8,
+   0.68,
+   0.46
   ]
  },
  "levels_m": {
@@ -1651,7 +1656,8 @@
     "d": 10.492,
     "h": 7.59
    },
-   "note": "the monumental carved door; door 3.38 x 3.88 m"
+   "note": "the monumental carved door; door 3.38 x 3.88 m",
+   "burial_by_design": "R-C9-234 (6): the barrow front is SET INTO its mound (v1 practice: the door in the mound's face, a cutting to it): the build's back and roof run under the mound's front lobe by design; its front face, portal and door stand clear in the cutting (check (a) on the door)"
   },
   {
    "id": "longhall",
@@ -1780,126 +1786,6 @@
    "kind": "model",
    "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
    "uv": [
-    -15.4754,
-    27.3089
-   ],
-   "z": 0.043,
-   "facing_uv": [
-    -0.9948,
-    -0.1023
-   ],
-   "scale": 1.89721,
-   "lying": false,
-   "size_m": {
-    "w": 0.728,
-    "d": 1.025,
-    "h": 1.9
-   },
-   "note": "R-C9-222: the barrow's kerb"
-  },
-  {
-   "id": "kerb_stone_2",
-   "piece": "kerb_stone_2",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
-   "uv": [
-    -11.9574,
-    21.5132
-   ],
-   "z": -0.14,
-   "facing_uv": [
-    -0.6283,
-    -0.778
-   ],
-   "scale": 1.69836,
-   "lying": false,
-   "size_m": {
-    "w": 0.722,
-    "d": 1.011,
-    "h": 1.7
-   },
-   "note": "R-C9-222: the barrow's kerb"
-  },
-  {
-   "id": "kerb_stone_3",
-   "piece": "kerb_stone_3",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
-    -9.0097,
-    19.6519
-   ],
-   "z": -0.14,
-   "facing_uv": [
-    -0.4434,
-    -0.8963
-   ],
-   "scale": 1.89721,
-   "lying": false,
-   "size_m": {
-    "w": 0.728,
-    "d": 1.025,
-    "h": 1.9
-   },
-   "note": "R-C9-222: the barrow's kerb"
-  },
-  {
-   "id": "kerb_stone_10",
-   "piece": "kerb_stone_10",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
-   "uv": [
-    13.3548,
-    19.8271
-   ],
-   "z": -0.099,
-   "facing_uv": [
-    0.4621,
-    -0.8868
-   ],
-   "scale": 1.49856,
-   "lying": false,
-   "size_m": {
-    "w": 0.637,
-    "d": 0.892,
-    "h": 1.5
-   },
-   "note": "R-C9-222: the barrow's kerb"
-  },
-  {
-   "id": "kerb_stone_11",
-   "piece": "kerb_stone_11",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
-   "uv": [
-    15.9824,
-    21.5334
-   ],
-   "z": -0.024,
-   "facing_uv": [
-    0.6302,
-    -0.7765
-   ],
-   "scale": 1.69836,
-   "lying": false,
-   "size_m": {
-    "w": 0.722,
-    "d": 1.011,
-    "h": 1.7
-   },
-   "note": "R-C9-222: the barrow's kerb"
-  },
-  {
-   "id": "kerb_stone_12",
-   "piece": "kerb_stone_12",
-   "class": "rock",
-   "kind": "model",
-   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
-   "uv": [
     18.1064,
     23.7792
    ],
@@ -1915,11 +1801,11 @@
     "d": 1.025,
     "h": 1.9
    },
-   "note": "R-C9-222: the barrow's kerb"
+   "note": "R-C9-222/234: the barrow's kerb"
   },
   {
-   "id": "kerb_stone_13",
-   "piece": "kerb_stone_13",
+   "id": "kerb_stone_1",
+   "piece": "kerb_stone_1",
    "class": "rock",
    "kind": "model",
    "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
@@ -1939,7 +1825,79 @@
     "d": 0.892,
     "h": 1.5
    },
-   "note": "R-C9-222: the barrow's kerb"
+   "note": "R-C9-222/234: the barrow's kerb"
+  },
+  {
+   "id": "kerb_stone_2",
+   "piece": "kerb_stone_2",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    9.7791,
+    15.1747
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.2754,
+    -0.9613
+   ],
+   "scale": 1.69836,
+   "lying": false,
+   "size_m": {
+    "w": 0.722,
+    "d": 1.011,
+    "h": 1.7
+   },
+   "note": "R-C9-222/234: the barrow's kerb (front lobe)"
+  },
+  {
+   "id": "kerb_stone_3",
+   "piece": "kerb_stone_3",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_tall.glb",
+   "uv": [
+    12.6621,
+    16.317
+   ],
+   "z": -0.1,
+   "facing_uv": [
+    0.4698,
+    -0.8828
+   ],
+   "scale": 1.89721,
+   "lying": false,
+   "size_m": {
+    "w": 0.728,
+    "d": 1.025,
+    "h": 1.9
+   },
+   "note": "R-C9-222/234: the barrow's kerb (front lobe)"
+  },
+  {
+   "id": "kerb_stone_4",
+   "piece": "kerb_stone_4",
+   "class": "rock",
+   "kind": "model",
+   "glb": "runs/C-9/barrow_full/web_painted/models/barrow/stone_mid.glb",
+   "uv": [
+    15.0518,
+    18.0951
+   ],
+   "z": -0.091,
+   "facing_uv": [
+    0.7343,
+    -0.6788
+   ],
+   "scale": 1.49856,
+   "lying": false,
+   "size_m": {
+    "w": 0.637,
+    "d": 0.892,
+    "h": 1.5
+   },
+   "note": "R-C9-222/234: the barrow's kerb (front lobe)"
   },
   {
    "id": "stone_0",
@@ -3034,19 +2992,17 @@
    "mere_plates": 0,
    "stream_ice": 0,
    "ice_rims": 79,
-   "ice_ridges": 157,
+   "ice_ridges": 89,
    "ice_brash": 666,
    "mere_cracks": 123,
    "mere_seams": 7,
-   "trans_leads": 315,
-   "trans_rubble": 3,
-   "reed_islands": 33,
-   "reed_tufts": 85,
-   "river_water": 26,
-   "trans_rocks": 5,
+   "trans_leads": 357,
+   "trans_rubble": 27,
+   "reed_tufts": 660,
    "stream_cracks": 0,
    "stream_pressure": 0,
-   "ring_fallen": 2,
+   "ring_fallen": 4,
+   "barrow_cutting": 4,
    "ring_snow": 6,
    "cove_ice": 31,
    "icicles": 40,
@@ -4976,8 +4932,8 @@
    },
    "snow": {
     "file": "carved_snow.f32",
-    "tris": 25824,
-    "sha256": "1f86e4297c6663e3aad7178b53f6533f2b6cfd5cdc684f98be35cd7560c83f3c"
+    "tris": 25763,
+    "sha256": "d819eb5a82032cf3801c12e44a10e615734deb446f28e5257d1e2425e5397d6b"
    },
    "wet_rock": {
     "file": "carved_wet_rock.f32",
@@ -4998,6 +4954,11 @@
     "file": "carved_passage_dark.f32",
     "tris": 9464,
     "sha256": "4efcc4a6a03e469085872639de9c7969d71fa60b1a1519da7e4af927881365c5"
+   },
+   "ice_mid": {
+    "file": "carved_ice_mid.f32",
+    "tris": 61,
+    "sha256": "1f6eada65d1acfabf758891000e78cb1e150ffd69ff40dbd33d9a6979772a00a"
    }
   },
   "ramp": {
@@ -5083,18 +5044,21 @@
   "tide_ice",
   "wet_rock",
   "rime",
-  "ice_mid"
+  "ice_mid",
+  "reed"
  ],
  "class_counts": {
-  "none": 556726,
-  "snow": 573658,
-  "ice": 130540,
-  "shrub": 15272,
-  "rock": 790,
-  "mound": 132861,
-  "shingle": 41010,
-  "shore_ice": 24032,
+  "none": 555574,
+  "snow": 568424,
+  "ice": 120777,
+  "shrub": 14691,
+  "rock": 1,
+  "mound": 140353,
+  "shingle": 8394,
+  "shore_ice": 42241,
+  "sea": 1624,
   "ash": 61031,
-  "ice_mid": 12368
+  "ice_mid": 18616,
+  "reed": 16562
  }
 }

@@ -15,7 +15,7 @@ upper layer: ON | walk 'walk_armed' (1.7333 s, contact 0.690) run 'run_armed' (0
 axe guard layer: 'axe_guard_R' at weight 0.85, 4 tracks
 strike release: pose 'axe_guard_R', 5 bone paths, 3 strikes, swing ends {"attack":0.75,"chop_overhead_92":0.578}, over 0.08 s, guard throughout ["shield_bash"]
 clip set -> ARMED: idle 'idle_guard' walk 'walk' (1.0333 s, 161.1 px/s) run 'run' (0.6333 s, 517.3 px/s) layer 'shield_guard_L'
-[barrow_full] built placements=64 splat_ok=false build_ms=9164
+[barrow_full] built placements=65 splat_ok=false build_ms=9026
 [barrow_full] view stretch=canvas_items aspect=keep base=1920x1080
 [walk] reached=true t=12.68 s frames=761 samples=4336
 ERROR: Pages in use exist at exit in PagedAllocator: N33RendererSceneRenderImplementation22RenderForwardClustered32GeometryInstanceSurfaceDataCacheE
