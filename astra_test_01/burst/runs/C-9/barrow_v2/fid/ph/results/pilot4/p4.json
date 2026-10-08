@@ -1,0 +1,380 @@
+{
+ "rule": "calibration.md s38: ice palette dE <= 9.40 (gated b*<=2) vs the ice reference; spectrum@24ppm <= 0.116 vs sketch A; snow + rock vs v1 frozen s3 bars",
+ "ice_reference": {
+  "mode": "self",
+  "median_lab": [
+   64.58,
+   -2.75,
+   -21.49
+  ],
+  "note": "R-C9-262 Matt-ruled exception: the PS4 mere colour (this build's pooled ice median), NOT a threshold tune; sketch A dE reported"
+ },
+ "sketchA_ice_median": [
+  72.9,
+  -1.0,
+  -9.4
+ ],
+ "chunks_snow_rock": {
+  "0_0": {
+   "classes": {
+    "snow": {
+     "px": 173875,
+     "hist_dist": 0.29,
+     "hist_bar": 0.281,
+     "spec_dist": 0.124,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "cellularity_p95": 0.407,
+   "cell_windows": 291,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": false
+  },
+  "1_0": {
+   "classes": {
+    "snow": {
+     "px": 74367,
+     "hist_dist": 0.433,
+     "hist_bar": 0.281,
+     "spec_dist": 0.14,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "cellularity_p95": 0.371,
+   "cell_windows": 291,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": false
+  },
+  "2_0": {
+   "classes": {
+    "snow": {
+     "px": 493173,
+     "hist_dist": 0.16,
+     "hist_bar": 0.281,
+     "spec_dist": 0.049,
+     "spec_bar": 0.097,
+     "pass": true
+    },
+    "rock": {
+     "px": 198301,
+     "hist_dist": 0.258,
+     "hist_bar": 0.481,
+     "spec_dist": 0.179,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   },
+   "cellularity_p95": 0.475,
+   "cell_windows": 289,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": true
+  },
+  "0_1": {
+   "classes": {
+    "snow": {
+     "px": 27684,
+     "hist_dist": 0.214,
+     "hist_bar": 0.281,
+     "spec_dist": 0.182,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "cellularity_p95": 0.401,
+   "cell_windows": 316,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": false
+  },
+  "1_1": {
+   "classes": {
+    "snow": {
+     "px": 125608,
+     "hist_dist": 0.14,
+     "hist_bar": 0.281,
+     "spec_dist": 0.073,
+     "spec_bar": 0.097,
+     "pass": true
+    },
+    "rock": {
+     "px": 80508,
+     "hist_dist": 0.268,
+     "hist_bar": 0.481,
+     "spec_dist": 0.06,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   },
+   "cellularity_p95": 0.426,
+   "cell_windows": 283,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": true
+  },
+  "2_1": {
+   "classes": {
+    "snow": {
+     "px": 801046,
+     "hist_dist": 0.11,
+     "hist_bar": 0.281,
+     "spec_dist": 0.028,
+     "spec_bar": 0.097,
+     "pass": true
+    },
+    "rock": {
+     "px": 54871,
+     "hist_dist": 0.323,
+     "hist_bar": 0.481,
+     "spec_dist": 0.323,
+     "spec_bar": 0.19,
+     "pass": false
+    }
+   },
+   "cellularity_p95": 0.469,
+   "cell_windows": 281,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": false
+  },
+  "0_2": {
+   "classes": {
+    "snow": {
+     "px": 28890,
+     "hist_dist": 0.206,
+     "hist_bar": 0.281,
+     "spec_dist": 0.133,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "cellularity_p95": 0.406,
+   "cell_windows": 313,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": false
+  },
+  "1_2": {
+   "classes": {
+    "snow": {
+     "px": 214058,
+     "hist_dist": 0.155,
+     "hist_bar": 0.281,
+     "spec_dist": 0.072,
+     "spec_bar": 0.097,
+     "pass": true
+    },
+    "rock": {
+     "px": 550385,
+     "hist_dist": 0.264,
+     "hist_bar": 0.481,
+     "spec_dist": 0.038,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   },
+   "cellularity_p95": 0.45,
+   "cell_windows": 255,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": true
+  },
+  "2_2": {
+   "classes": {
+    "snow": {
+     "px": 798431,
+     "hist_dist": 0.127,
+     "hist_bar": 0.281,
+     "spec_dist": 0.045,
+     "spec_bar": 0.097,
+     "pass": true
+    },
+    "rock": {
+     "px": 147872,
+     "hist_dist": 0.318,
+     "hist_bar": 0.481,
+     "spec_dist": 0.122,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   },
+   "cellularity_p95": 0.479,
+   "cell_windows": 240,
+   "cellularity_bar": 0.681,
+   "cellularity_pass_DISCARDED_non_binding": true,
+   "pass": true
+  }
+ },
+ "ice": {
+  "0_0": {
+   "px": 946012,
+   "median_lab": [
+    67.2,
+    -2.9,
+    -17.5
+   ],
+   "dE_vs_reference": 4.77,
+   "dE_vs_sketchA_reported": 10.05,
+   "dE_bar": 9.4,
+   "spectrum_rms_at_24ppm": 0.097,
+   "spectrum_bar": 0.116,
+   "windows_at_24ppm": 28,
+   "hellinger_reported": 0.644,
+   "pass": true
+  },
+  "1_0": {
+   "px": 1142924,
+   "median_lab": [
+    64.7,
+    -2.8,
+    -22.3
+   ],
+   "dE_vs_reference": 0.79,
+   "dE_vs_sketchA_reported": 15.36,
+   "dE_bar": 9.4,
+   "spectrum_rms_at_24ppm": 0.086,
+   "spectrum_bar": 0.116,
+   "windows_at_24ppm": 46,
+   "hellinger_reported": 0.801,
+   "pass": true
+  },
+  "2_0": {
+   "px": 394208,
+   "median_lab": [
+    62.4,
+    -2.3,
+    -25.7
+   ],
+   "dE_vs_reference": 4.74,
+   "dE_vs_sketchA_reported": 19.37,
+   "dE_bar": 9.4,
+   "spectrum_rms_at_24ppm": 0.068,
+   "spectrum_bar": 0.116,
+   "windows_at_24ppm": 15,
+   "hellinger_reported": 0.828,
+   "pass": true
+  },
+  "0_1": {
+   "px": 661900,
+   "median_lab": [
+    66.8,
+    -3.1,
+    -19.1
+   ],
+   "dE_vs_reference": 3.29,
+   "dE_vs_sketchA_reported": 11.6,
+   "dE_bar": 9.4,
+   "spectrum_rms_at_24ppm": 0.099,
+   "spectrum_bar": 0.116,
+   "windows_at_24ppm": 21,
+   "hellinger_reported": 0.702,
+   "pass": true
+  },
+  "1_1": {
+   "px": 891792,
+   "median_lab": [
+    61.9,
+    -2.5,
+    -24.6
+   ],
+   "dE_vs_reference": 4.07,
+   "dE_vs_sketchA_reported": 18.74,
+   "dE_bar": 9.4,
+   "spectrum_rms_at_24ppm": 0.059,
+   "spectrum_bar": 0.116,
+   "windows_at_24ppm": 32,
+   "hellinger_reported": 0.795,
+   "pass": true
+  },
+  "2_1": {
+   "px": 433289,
+   "median_lab": [
+    59.1,
+    -1.7,
+    -28.3
+   ],
+   "dE_vs_reference": 8.81,
+   "dE_vs_sketchA_reported": 23.37,
+   "dE_bar": 9.4,
+   "spectrum_rms_at_24ppm": 0.059,
+   "spectrum_bar": 0.116,
+   "windows_at_24ppm": 13,
+   "hellinger_reported": 0.811,
+   "pass": true
+  }
+ },
+ "coastal_chunks": [
+  "0_0",
+  "0_1",
+  "1_1",
+  "0_2",
+  "1_2"
+ ],
+ "coastal_snow_vs_inland_hellinger_diagnostic": {
+  "0_0": 0.214,
+  "0_1": 0.15,
+  "1_1": 0.119,
+  "0_2": 0.176,
+  "1_2": 0.12
+ },
+ "reed_advisory": {
+  "nearest_v1_class": "heather (v1's painted tuft px)",
+  "rows": {
+   "0_0": {
+    "px": 144291,
+    "hellinger_vs_v1_heather_tufts": 0.741
+   },
+   "1_0": {
+    "px": 128864,
+    "hellinger_vs_v1_heather_tufts": 0.688
+   },
+   "2_0": {
+    "px": 22384,
+    "hellinger_vs_v1_heather_tufts": 0.688
+   },
+   "0_1": {
+    "px": 43074,
+    "hellinger_vs_v1_heather_tufts": 0.751
+   },
+   "1_1": {
+    "px": 87837,
+    "hellinger_vs_v1_heather_tufts": 0.651
+   },
+   "2_1": {
+    "px": 8498,
+    "hellinger_vs_v1_heather_tufts": 0.64
+   },
+   "1_2": {
+    "px": 13974,
+    "hellinger_vs_v1_heather_tufts": 0.692
+   }
+  }
+ },
+ "binding_fails": [
+  [
+   "0_0",
+   "snow"
+  ],
+  [
+   "1_0",
+   "snow"
+  ],
+  [
+   "0_1",
+   "snow"
+  ],
+  [
+   "2_1",
+   "rock"
+  ],
+  [
+   "0_2",
+   "snow"
+  ]
+ ],
+ "pass": false
+}

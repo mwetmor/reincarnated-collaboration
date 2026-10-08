@@ -1,0 +1,259 @@
+{
+ "build": "6861bfc32",
+ "rule": "calibration.md s34",
+ "start": {
+  "runs": [
+   {
+    "p50_ms": 16.17,
+    "p99_ms": 17.25,
+    "max_ms": 17.73,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": false,
+    "slow_frames": 66,
+    "bursts": [
+     {
+      "frames": 2,
+      "at_s": 3.15,
+      "max_ms": 17.3
+     },
+     {
+      "frames": 3,
+      "at_s": 4.13,
+      "max_ms": 17.3
+     },
+     {
+      "frames": 2,
+      "at_s": 7.92,
+      "max_ms": 16.9
+     },
+     {
+      "frames": 2,
+      "at_s": 8.16,
+      "max_ms": 17.1
+     },
+     {
+      "frames": 2,
+      "at_s": 9.16,
+      "max_ms": 17.3
+     },
+     {
+      "frames": 2,
+      "at_s": 10.16,
+      "max_ms": 17.7
+     }
+    ]
+   },
+   {
+    "p50_ms": 16.3,
+    "p99_ms": 25.41,
+    "max_ms": 35.44,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": false,
+    "slow_frames": 176,
+    "bursts": [
+     {
+      "frames": 2,
+      "at_s": 3.29,
+      "max_ms": 17.0
+     },
+     {
+      "frames": 2,
+      "at_s": 3.49,
+      "max_ms": 17.1
+     },
+     {
+      "frames": 3,
+      "at_s": 4.26,
+      "max_ms": 17.2
+     },
+     {
+      "frames": 2,
+      "at_s": 4.33,
+      "max_ms": 16.9
+     },
+     {
+      "frames": 2,
+      "at_s": 4.49,
+      "max_ms": 17.8
+     },
+     {
+      "frames": 2,
+      "at_s": 4.64,
+      "max_ms": 16.9
+     },
+     {
+      "frames": 2,
+      "at_s": 4.73,
+      "max_ms": 35.4
+     },
+     {
+      "frames": 2,
+      "at_s": 4.82,
+      "max_ms": 17.1
+     },
+     {
+      "frames": 2,
+      "at_s": 4.95,
+      "max_ms": 17.3
+     },
+     {
+      "frames": 2,
+      "at_s": 5.0,
+      "max_ms": 16.8
+     }
+    ]
+   },
+   {
+    "p50_ms": 16.26,
+    "p99_ms": 17.91,
+    "max_ms": 32.82,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": false,
+    "slow_frames": 118,
+    "bursts": [
+     {
+      "frames": 2,
+      "at_s": 3.3,
+      "max_ms": 17.3
+     },
+     {
+      "frames": 3,
+      "at_s": 3.47,
+      "max_ms": 17.3
+     },
+     {
+      "frames": 2,
+      "at_s": 3.62,
+      "max_ms": 18.0
+     },
+     {
+      "frames": 3,
+      "at_s": 4.62,
+      "max_ms": 17.0
+     },
+     {
+      "frames": 2,
+      "at_s": 4.72,
+      "max_ms": 32.8
+     },
+     {
+      "frames": 5,
+      "at_s": 4.9,
+      "max_ms": 17.8
+     },
+     {
+      "frames": 2,
+      "at_s": 5.6,
+      "max_ms": 17.9
+     },
+     {
+      "frames": 2,
+      "at_s": 7.63,
+      "max_ms": 17.2
+     },
+     {
+      "frames": 3,
+      "at_s": 8.93,
+      "max_ms": 17.0
+     },
+     {
+      "frames": 2,
+      "at_s": 10.62,
+      "max_ms": 17.7
+     }
+    ]
+   }
+  ],
+  "worst_p99": 25.41,
+  "pass": false
+ },
+ "sea": {
+  "runs": [
+   {
+    "p50_ms": 12.41,
+    "p99_ms": 20.64,
+    "max_ms": 50.22,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": false,
+    "slow_frames": 14,
+    "bursts": [
+     {
+      "frames": 3,
+      "at_s": 13.03,
+      "max_ms": 20.7
+     },
+     {
+      "frames": 3,
+      "at_s": 13.11,
+      "max_ms": 18.3
+     },
+     {
+      "frames": 3,
+      "at_s": 13.29,
+      "max_ms": 29.7
+     },
+     {
+      "frames": 3,
+      "at_s": 13.37,
+      "max_ms": 29.1
+     }
+    ]
+   },
+   {
+    "p50_ms": 12.38,
+    "p99_ms": 13.92,
+    "max_ms": 22.93,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": true,
+    "slow_frames": 1,
+    "bursts": []
+   },
+   {
+    "p50_ms": 12.39,
+    "p99_ms": 19.38,
+    "max_ms": 29.61,
+    "burn_ms": 0.0,
+    "renderer": "forward_plus",
+    "pass": false,
+    "slow_frames": 19,
+    "bursts": [
+     {
+      "frames": 4,
+      "at_s": 5.29,
+      "max_ms": 18.9
+     },
+     {
+      "frames": 7,
+      "at_s": 12.16,
+      "max_ms": 20.6
+     },
+     {
+      "frames": 3,
+      "at_s": 12.33,
+      "max_ms": 29.6
+     },
+     {
+      "frames": 3,
+      "at_s": 12.44,
+      "max_ms": 29.6
+     }
+    ]
+   }
+  ],
+  "worst_p99": 20.64,
+  "pass": false
+ },
+ "burn_RED": {
+  "p50_ms": 23.3,
+  "p99_ms": 24.81,
+  "max_ms": 38.45,
+  "burn_ms": 20.0,
+  "renderer": "forward_plus",
+  "pass": false
+ }
+}

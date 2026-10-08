@@ -1,0 +1,2992 @@
+{
+ "_what": "P11 v3 ABX key (catch trials) -- NEVER given to the judge",
+ "set": "pilot4_v1_vs_pilot",
+ "seed": 253,
+ "n_trials": 40,
+ "n_repeats": 10,
+ "n_catch": 12,
+ "catch_pair": [
+  "v1",
+  "R-C9-159"
+ ],
+ "catch_valid_if_correct_ge": 10,
+ "crop_px": 256,
+ "trials": {
+  "trial_01": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1280,
+     384,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     256,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1280,
+     768,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_02": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1344,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1280,
+     256,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1408,
+     192,
+     256,
+     256
+    ],
+    "class": "snow"
+   }
+  },
+  "trial_03": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     896,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     256,
+     320,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_06.png",
+    "rect": [
+     1408,
+     384,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_04": {
+   "kind": "repeat",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1280,
+     640,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1408,
+     576,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     0,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "repeat_of": "trial_49"
+  },
+  "trial_05": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_01.png",
+    "rect": [
+     1472,
+     320,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1344,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     768,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_06": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     64,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1472,
+     192,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     1472,
+     384,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_07": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_03.png",
+    "rect": [
+     1600,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     256,
+     640,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_03.png",
+    "rect": [
+     1600,
+     256,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_08": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1408,
+     256,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1280,
+     320,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1280,
+     192,
+     256,
+     256
+    ],
+    "class": "snow"
+   }
+  },
+  "trial_09": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     64,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S1_wreck.png",
+    "rect": [
+     1152,
+     576,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     960,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_10": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1472,
+     512,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/outcrop_field.png",
+    "rect": [
+     64,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1152,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_11": {
+   "kind": "repeat",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     320,
+     448,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     256,
+     192,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1280,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_38"
+  },
+  "trial_12": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     1472,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     0,
+     320,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1536,
+     448,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_13": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     0,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1536,
+     384,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_03.png",
+    "rect": [
+     1344,
+     576,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_14": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1280,
+     384,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     832,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1280,
+     0,
+     256,
+     256
+    ],
+    "class": "snow"
+   }
+  },
+  "trial_15": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1408,
+     640,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     1408,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     0,
+     768,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_16": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1408,
+     448,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     704,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1408,
+     0,
+     256,
+     256
+    ],
+    "class": "snow"
+   }
+  },
+  "trial_17": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_10.png",
+    "rect": [
+     512,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     1664,
+     576,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     320,
+     256,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_18": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_06.png",
+    "rect": [
+     256,
+     448,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     256,
+     384,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     192,
+     576,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_19": {
+   "kind": "repeat",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1472,
+     192,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     64,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     256,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_06"
+  },
+  "trial_20": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     1408,
+     256,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     320,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/outcrop_field.png",
+    "rect": [
+     0,
+     704,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_21": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     128,
+     512,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1088,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     192,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_22": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1600,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1280,
+     320,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1344,
+     576,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_23": {
+   "kind": "repeat",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     384,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1472,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     256,
+     384,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_62"
+  },
+  "trial_24": {
+   "kind": "repeat",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1664,
+     384,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     384,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_09.png",
+    "rect": [
+     1216,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_37"
+  },
+  "trial_25": {
+   "kind": "repeat",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1600,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     1536,
+     704,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1472,
+     448,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_47"
+  },
+  "trial_26": {
+   "kind": "repeat",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1280,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     1280,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     896,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_59"
+  },
+  "trial_27": {
+   "kind": "repeat",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     256,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1280,
+     384,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1600,
+     320,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_01"
+  },
+  "trial_28": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     768,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     256,
+     704,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     0,
+     192,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_29": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1408,
+     0,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     1536,
+     128,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S1_wreck.png",
+    "rect": [
+     1280,
+     640,
+     256,
+     256
+    ],
+    "class": "snow"
+   }
+  },
+  "trial_30": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     192,
+     704,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1344,
+     448,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     128,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_31": {
+   "kind": "repeat",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/outcrop_field.png",
+    "rect": [
+     64,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1472,
+     512,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_05.png",
+    "rect": [
+     1472,
+     768,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_10"
+  },
+  "trial_32": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1280,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_06.png",
+    "rect": [
+     448,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_01.png",
+    "rect": [
+     1600,
+     320,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_33": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     320,
+     320,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     1664,
+     192,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_03.png",
+    "rect": [
+     1536,
+     640,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_34": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_03.png",
+    "rect": [
+     1472,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     128,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1600,
+     576,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_35": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_06.png",
+    "rect": [
+     1344,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     0,
+     128,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     192,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_36": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     64,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_01.png",
+    "rect": [
+     1664,
+     384,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1536,
+     320,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_37": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     384,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1664,
+     384,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1344,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_38": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     256,
+     192,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     320,
+     448,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     128,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_39": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     64,
+     640,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1472,
+     576,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     1280,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_40": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     1472,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_10.png",
+    "rect": [
+     768,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1344,
+     640,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_41": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     192,
+     640,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1280,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     64,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_42": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1344,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     64,
+     128,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     192,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_43": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1344,
+     512,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     192,
+     640,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     256,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_44": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     448,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1408,
+     640,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     1280,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_45": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_03.png",
+    "rect": [
+     1280,
+     640,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1088,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_05.png",
+    "rect": [
+     192,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_46": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_04.png",
+    "rect": [
+     1280,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     256,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     1280,
+     640,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_47": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     1536,
+     704,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1600,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1536,
+     704,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_48": {
+   "kind": "repeat",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     64,
+     128,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1344,
+     512,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     192,
+     640,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "repeat_of": "trial_42"
+  },
+  "trial_49": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1408,
+     576,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1280,
+     640,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     64,
+     384,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_50": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1600,
+     768,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     256,
+     320,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     1664,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_51": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     0,
+     128,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1408,
+     320,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     1664,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_52": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/mere.png",
+    "rect": [
+     192,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_02.png",
+    "rect": [
+     1344,
+     640,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     1472,
+     128,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_53": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     320,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_01.png",
+    "rect": [
+     256,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_07.png",
+    "rect": [
+     1280,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_54": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     192,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1088,
+     0,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     256,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_55": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1216,
+     0,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1472,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     768,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_56": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/start.png",
+    "rect": [
+     960,
+     64,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S2_coast.png",
+    "rect": [
+     1344,
+     192,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S1_wreck.png",
+    "rect": [
+     1152,
+     512,
+     256,
+     256
+    ],
+    "class": "snow"
+   }
+  },
+  "trial_57": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "B",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S3_cave_stair.png",
+    "rect": [
+     1280,
+     128,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     1280,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_ring.png",
+    "rect": [
+     64,
+     448,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  },
+  "trial_58": {
+   "kind": "catch",
+   "class": "snow",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/barrow_door.png",
+    "rect": [
+     1280,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/stills/S1_wreck.png",
+    "rect": [
+     1344,
+     704,
+     256,
+     256
+    ],
+    "class": "snow"
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1408,
+     768,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_59": {
+   "kind": "scored",
+   "class": "snow",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     1280,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/stone_ring.png",
+    "rect": [
+     1280,
+     704,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_09.png",
+    "rect": [
+     1472,
+     0,
+     256,
+     256
+    ],
+    "class": "snow",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_60": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "B",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1600,
+     448,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_door.png",
+    "rect": [
+     128,
+     256,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1726,
+     971
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_11.png",
+    "rect": [
+     1408,
+     320,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_61": {
+   "kind": "scored",
+   "class": "heather",
+   "x_from": "cand",
+   "v1_is": "A",
+   "correct": "B",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/outcrop_field.png",
+    "rect": [
+     1088,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_12.png",
+    "rect": [
+     1408,
+     0,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     1664,
+     64,
+     256,
+     256
+    ],
+    "class": "heather",
+    "_wh": [
+     1920,
+     1080
+    ]
+   }
+  },
+  "trial_62": {
+   "kind": "scored",
+   "class": "ice",
+   "x_from": "v1",
+   "v1_is": "A",
+   "correct": "A",
+   "A": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pc/v1_stills/shore.png",
+    "rect": [
+     1472,
+     512,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "B": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot_stills/pilot_08.png",
+    "rect": [
+     384,
+     64,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1920,
+     1080
+    ]
+   },
+   "X": {
+    "src": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/section_v1cam/v1ref/V1_tarn.png",
+    "rect": [
+     320,
+     0,
+     256,
+     256
+    ],
+    "class": "ice",
+    "_wh": [
+     1726,
+     971
+    ]
+   }
+  }
+ }
+}

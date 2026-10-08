@@ -1,0 +1,68 @@
+{
+ "p9_sway": {
+  "heather_px": 73725,
+  "sway": 5.33,
+  "noise": 0.001,
+  "water_px": 1397,
+  "flow": 14.702,
+  "flow_static_sea_RED": 2.519,
+  "noise_static_sea": 0.0,
+  "pass_": true
+ },
+ "p9_sway_RED_nowind": {
+  "heather_px": 74897,
+  "sway": 0.014,
+  "noise": 0.0,
+  "water_px": 980,
+  "flow": 19.227,
+  "flow_static_sea_RED": 4.515,
+  "noise_static_sea": 0.0,
+  "pass_": false
+ },
+ "p9_flow_geo": {
+  "water_px_geo": 671371,
+  "flow": 7.52,
+  "noise": 0.0,
+  "RED_hidden_water_flow": 0.0,
+  "pass": true,
+  "RED_pass": false
+ },
+ "p9_trail": {
+  "coverage": 1.0,
+  "bar": 0.99,
+  "pass": true,
+  "by_terrain": {
+   "flat": {
+    "walkable_m2": 148.5,
+    "inside_field": 1.0,
+    "snow_carrying": 0.7504
+   },
+   "not_flat (slopes, mound, swells)": {
+    "walkable_m2": 964.4,
+    "inside_field": 1.0,
+    "snow_carrying": 0.2472
+   }
+  },
+  "walkable_m2_in_window": 1112.9,
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "informational_snow_carrying_share_of_walkable": 0.3144
+ },
+ "p9c": {
+  "status": "n-INSUFFICIENT (s38 F-4 (b))",
+  "bobbing_floes_inside_the_pilot_plate": 0,
+  "evidence": "ids_built ice_floes_bob 0 px in the pilot window",
+  "floe_view_choose": {
+   "floes_with_ids": 0,
+   "floes_wholly_in_plate": [],
+   "view_uv": null,
+   "floes_in_view": [],
+   "n": 0,
+   "sufficient": false
+  }
+ }
+}

@@ -21,7 +21,7 @@ import p4_texture as T
 import pilot_harness as PHn
 
 M2 = PPM_V1 * 80.3076            # px per m2 of ground
-OUT = PH / "results/pilot3"
+OUT = PH / __import__("os").environ.get("PH_PILOT_OUT", "results/pilot3")
 
 
 def chunk_stats(img, lab, mask, gray):

@@ -308,7 +308,7 @@ def p6a():   # NB: writes results/p6a_triage_pilot.jsonl -- move per build (pilo
     T = jload(PH / "results/p6.json")["invention"]["T_v1_ceiling"]
     found = G.openings(im, PPM_V1 * SC, T)
     dec = declared()
-    od = PH / "triage" / "pilot"
+    od = OUT / "p6a_triage"
     od.mkdir(parents=True, exist_ok=True)
     rows = []
     for i, f in enumerate(found):
@@ -353,9 +353,9 @@ def p6a():   # NB: writes results/p6a_triage_pilot.jsonl -- move per build (pilo
                      "nearest_declared": best["id"], "distance_m": round(dist, 2), "match_radius_m": best["radius_m"],
                      "verdict": verdict, "inside_water_class": in_water, "evidence": "", "ph_observation": what, "reader": "auto (pilot_harness.py, § 11 triage rule)",
                      "conductor_read": "PENDING (fallback (a), by eye)" if not matched else "n/a",
-                     "image": "fid/ph/triage/pilot/%s.png" % cid,
+                     "image": str((od / (cid + ".png")).relative_to(FID)),
                      "ts": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
-    with open(PH / "results" / "p6a_triage_pilot.jsonl", "w") as fh:
+    with open(OUT / "p6a_triage.jsonl", "w") as fh:
         for r in rows:
             fh.write(json.dumps(r) + "\n")
     inv = [r for r in rows if r["verdict"].startswith("invented")]
@@ -887,12 +887,15 @@ def p4_v38():
     lsk = rgb_to_lab(SKI)
     sk = skm & (lsk[..., 2] <= 2.0)
     sk_med = np.median(lsk[sk], 0)
+    ice_ref_mode = os.environ.get("PH_ICE_REF", "sketchA")       # R-C9-262: "self" = the PS4 mere colour (Matt-ruled exception)
     W_ = lambda mk: T.windows(mk, frac=0.7, step=32)
     sk_spec = np.array(T.spectrum_shape(luma(SKI), W_(sk)))
     f = PPM_V1 / 24.0
     Ps = np.asarray(Image.fromarray(np.clip(P, 0, 255).astype(np.uint8)).resize((int(W / f), int(H / f)), Image.BOX)).astype(np.float32)
     ls = rgb_to_lab(Ps)
     ice_full = g & (cls == ni["ice"])
+    allice = ndimage.binary_erosion(ice_full, iterations=3) & (lab[..., 2] <= 2.0)
+    ref_med = np.median(lab[allice], 0) if ice_ref_mode == "self" else sk_med
     ice_rows = {}
     for key, (x0, y0, x1, y1) in CHUNKS:
         m = np.zeros((H, W), bool)
@@ -901,13 +904,15 @@ def p4_v38():
         if m.sum() < 20000:
             continue
         med = np.median(lab[m], 0)
-        dE = float(np.linalg.norm(med - sk_med))
+        dE_sk = float(np.linalg.norm(med - sk_med))
+        dE = float(np.linalg.norm(med - ref_med))
         ms = np.asarray(Image.fromarray(m.astype(np.uint8) * 255).resize((Ps.shape[1], Ps.shape[0]), Image.BOX)) > 200
         ms &= ls[..., 2] <= 2.0
         sp = T.spectrum_shape(luma(Ps), W_(ms))
         dS = float(np.sqrt(np.mean((np.array(sp) - sk_spec) ** 2))) if sp is not None else None
         hel = T.hellinger(T.lab_hist(lab[m]), T.lab_hist(lsk[sk]))
-        ice_rows[key] = {"px": int(m.sum()), "median_lab": med.round(1).tolist(), "dE_vs_sketchA": round(dE, 2), "dE_bar": 9.40,
+        ice_rows[key] = {"px": int(m.sum()), "median_lab": med.round(1).tolist(), "dE_vs_reference": round(dE, 2),
+                         "dE_vs_sketchA_reported": round(dE_sk, 2), "dE_bar": 9.40,
                          "spectrum_rms_at_24ppm": None if dS is None else round(dS, 3), "spectrum_bar": 0.116,
                          "windows_at_24ppm": len(W_(ms)), "hellinger_reported": round(hel, 3),
                          "pass": dE <= 9.40 and (dS is None or dS <= 0.116)}
@@ -945,7 +950,9 @@ def p4_v38():
             reed_rows[key] = {"px": int(m.sum()), "hellinger_vs_v1_heather_tufts": round(T.hellinger(T.lab_hist(lab[m]), vref), 3)}
     binding_fail = [(k, c) for k, r in rows.items() for c, v in r["classes"].items() if v.get("pass") is False]
     binding_fail += [(k, "ice (sketch A)") for k, r in ice_rows.items() if not r["pass"]]
-    return save("p4", {"rule": "calibration.md s38: ice vs sketch A (palette dE <= 9.40 gated b*<=2; spectrum@24ppm <= 0.116); snow + rock vs v1 frozen s3 bars",
+    return save("p4", {"rule": "calibration.md s38: ice palette dE <= 9.40 (gated b*<=2) vs the ice reference; spectrum@24ppm <= 0.116 vs sketch A; snow + rock vs v1 frozen s3 bars",
+                       "ice_reference": {"mode": ice_ref_mode, "median_lab": ref_med.round(2).tolist(),
+                                         "note": "R-C9-262 Matt-ruled exception: the PS4 mere colour (this build's pooled ice median), NOT a threshold tune; sketch A dE reported" if ice_ref_mode == "self" else "sketch A (s38)"},
                        "sketchA_ice_median": sk_med.round(1).tolist(), "chunks_snow_rock": rows, "ice": ice_rows,
                        "coastal_chunks": [k for k, v in coastal.items() if v], "coastal_snow_vs_inland_hellinger_diagnostic": diag,
                        "reed_advisory": {"nearest_v1_class": "heather (v1's painted tuft px)", "rows": reed_rows},
@@ -969,7 +976,8 @@ def p5v2_pilot():
     import p5_seams as S5
     cal = jload(PH / "results/p5v2_calibration.json")
     bars = cal["bars_v1"]
-    man = jload(PT / "build_manifest_ps3a.json")["chunks"]
+    mj = jload(PT / os.environ.get("PH_P5_MANIFEST", "build_manifest_ps3a.json"))
+    man = mj["chunks"]
     paths = {k: str(ART / v["file"]) for k, v in man.items()}
     bad = [k for k, p in paths.items() if V.sha(p) != man[k]["sha256"]]
     assert not bad, "pinned canvas sha mismatch: %s" % bad
@@ -977,8 +985,8 @@ def p5v2_pilot():
     P = painting()
     b = S5.seam_vis(P, 3, 3)
     c_on = V.c_measure(P, list(paths))
-    off = V.SCR / "PS3A_flagsoff.png"
-    V.stitch("BV2F-PS3A", 3, 3, off, V.OFF)
+    off = V.SCR / ("%s_flagsoff.png" % jload(PT / os.environ.get("PH_P5_MANIFEST", "build_manifest_ps3a.json")).get("prefix", "PS3A"))
+    V.stitch(mj.get("prefix", "BV2F-PS3A"), 3, 3, off, dict(V.OFF, BV2F_DEV24="0"))
     c_off = V.c_measure(load_rgb(off), list(paths))
     fa1 = [r["join"] for r in a if r["a1_max"] > bars["a1"]]
     fb = [x["seam"] for x in b if x["score"] > 0.799]

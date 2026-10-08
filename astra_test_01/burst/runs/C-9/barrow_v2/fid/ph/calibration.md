@@ -1418,3 +1418,62 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
    - Direction: snow as v1's clustered rounded shadow cells, not an even mottle.
 
 **Not different (so not the cue).** Brightness (median L\*), shadow depth (ΔL\*), blob contrast, blob edge width and shadow coverage are all inside v1's spread.
+
+## 47. PILOT 4 harness (PT 6861bfc32; painting 7105731298ef; R-C9-262/264). Frozen bars, with one Matt-ruled exception (the ice colour reference). `results/pilot4/*.json`; renders `renders/pilot_ps4/`
+
+**Inputs.**
+- **Build:** PS4 canvases pinned by `build_manifest_ps4.json` (9/9 sha256 checked in P5); level `data/bv2f/pilot_rp4/level` (PIN: LV b5894d440; level.json byte-equal to LV's art level).
+- **Stitch:** DEV-23/25/26/27 ON, and DEV-24 (8 masked local-repaint patches) applied post-stitch.
+- **Tier-B records** pinned in `results/pilot4/tierB_dev_records.json`: DEV-23/25/26/27 records, the DEV-24 blocks and proofs, the DEV-28 records, `guided_stitch.py` (sha 5fdcb9e5…, which matches its SHA256SUMS Tier-B row; it changed from pilot 3's aa83745b… with DEV-24's post-stitch hook), and `dev24.py` / `dev28.py` (SHA256SUMS rows).
+- **Godot:** every step under the heavy lock; the 21 GiB gate held (26 GiB). P10's first run waited 390 s for a JOIN-1 probe's lock. No PH CPU job overlapped any P10 run (PH's analysis finished 6 min before P10 acquired the lock).
+
+**P4 ICE — MATT-RULED EXCEPTION (R-C9-262), not a re-tune.**
+- **Matt kept PS4's blue mere.** The ice palette reference is re-based to the PS4 mere colour: this build's pooled ice median, Lab **(64.58, −2.75, −21.49)**, gated b\* ≤ 2.
+- **Unchanged:** the ΔE bar (9.40) and the spectrum reference (sketch A at 24 px/m, bar 0.116).
+- **Sketch-A ΔE is reported so the departure stays visible:** 10.05–23.37 per chunk (§ 38's sketch-A median is (72.9, −1.0, −9.4)).
+
+| Row | Pilot 4 | Bar | Verdict | Control / RED |
+|---|---|---|---|---|
+| P1 | all 1.000 | ≤ 1.05 | **PASS** | (§ 1) |
+| P2 | 25/25 at 6861bfc32 | 100% | **PASS** | (§ 1) |
+| P3 | worst 11.16 (wood, baked); sea **5.81** on the painted base (as delivered 37.32; at rest 30.32) | ≤ 15.5 | **PASS** | reshade RED FAIL; lit-plane sea 25.84 FAIL |
+| P4 ice (Matt-ruled reference) | ΔE vs PS4 mere **0.79–8.81** in all 6 chunks; spectrum 0.059–0.099 | ΔE ≤ 9.40; spectrum ≤ 0.116 | PASS | sketch-A ΔE 10.05–23.37 (reported) |
+| P4 snow (v1) | **FAIL in 4 of 9 chunks**: 0_0 (hist 0.290, spec 0.124), 1_0 (0.433, 0.140), 0_1 (spec 0.182), 0_2 (spec 0.133); the other 5 within | hist ≤ 0.281; spec ≤ 0.097 | **FAIL** | (§ 3) |
+| P4 rock (v1) | 2_1 spectrum **0.323**; the others within | spec ≤ 0.19 | **FAIL** | (§ 3) |
+| → **P4 row** | | | **FAIL** (snow 4 chunks, rock 2_1) | |
+| P5 v2 (§ 44) | **a1 19.14 at 2_0/2_1, 13.22 at 1_1\|2_1, 11.27 at 1_0/1_1**; b max 0.724 | a1 ≤ 9.569; b ≤ 0.799 | **FAIL (a1, 3 joins)** | (§ 44 C2/C3) |
+| P6a | barrow_door (0.85 m), sea_cave_mouth (3.45 m) | 0 invented | **PASS** | (§§ 2, 9–11) |
+| P6′ (LV b5894d440) | crosscheck 57/57; 0 missing / extra / hidden; containment min 0.9722; scale 0/112 | § 16 | **PASS** | I-4 shift 7/14 below → FAIL ✓ |
+| P8 | min **0.5777** | ≥ 0.4476 | **PASS** | 1 m shift FAIL |
+| P9 sway | 5.330 over 73 725 px; noise 0.001 | ≥ 2.064, ≥ 3× noise | **PASS** | no-wind 0.014 FAIL |
+| P9 flow (geometry mask) | **7.520** over 671 371 px | ≥ 2.064 | **PASS** | hidden water 0.000 FAIL |
+| P9 trail | 1.000 | ≥ 0.99 | **PASS** | |
+| P9c | **n-insufficient**: 0 bobbing floes inside the painted plate | ≥ 3 floes | **NO READING** | |
+| P10 (§ 34) | **start: p50 16.17 / 16.30 / 16.26, p99 17.25 / 25.41 / 17.91** (max 35.4; 66 / 176 / 118 frames > 16.7). **sea: p50 12.4, p99 20.64 / 13.92 / 19.38** (bursts of 3–7 frames at 12–13 s, max 50.2) | worst p99 ≤ 16.7 | **FAIL (start 25.41, sea 20.64)** | burn RED 24.81 FAIL |
+| P11 v3 | set built: 40 + 10 + 12 catch (6 A / 6 B); scored classes heather 18, ice 13, snow 9; reed excluded | valid ≥ 10/12; ≤ 26/40 | **judge pending** | (§ 39) |
+
+**P4 snow, § 46 measures against v1's chunk spread** (the R-C9-257 fix worked on palette; the grain is still off in the coastal chunks):
+
+| Measure | v1 range | Pilot 4 median [range] | outside v1 | z |
+|---|---|---|---|---|
+| lit snow a* | 1.83–3.07 | 2.32 [1.41–2.41] | 1/9 | -0.48 |
+| lit snow b* | 5.68–10.24 | 7.93 [5.96–8.66] | 0/9 | -0.20 |
+| shadow a* | 2.93–4.50 | 2.95 [0.53–3.56] | 4/9 | -1.46 |
+| shadow − lit b* | -23.85–-14.42 | -17.27 [-20.35–-15.97] | 0/9 | +0.54 |
+| shadow blobs / m² | 0.58–4.03 | 4.89 [1.43–6.04] | 5/9 | +2.87 |
+| cellular mosaic p95 | 0.39–0.75 | 0.44 [0.39–0.52] | 1/9 | -1.32 |
+| grain spectrum RMS | 0.01–0.09 | 0.07 [0.03–0.18] | 4/9 | +1.47 |
+| peach share of lit snow | 0.39–0.99 | 0.81 [0.33–0.93] | 1/9 | — |
+**Reads.**
+- **P4 snow.**
+  - **Palette is now inside v1:** lit a\*/b\* 2.32 / 7.93, peach 0.81. Shadow a\* 2.95 is at v1's minimum, with 4 of 9 chunks below it.
+  - **Still off:** the snow failures are the spectrum (grain) in the coastal and upper-left chunks, plus 1_0's histogram. Blobs per m² are still high (4.9 against v1's 0.6–4.0).
+- **P5.**
+  - **What fails:** the three a1 failures are the **mere ice** at the 1_0/1_1/2_0/2_1 corner. The service's redraw of the shared strip is a different blue: 2_1's rendition of the 2_0/2_1 strip is ΔRGB (−27, −20, −11) darker than 2_0's own (`p5_crops/`).
+  - **Why the stitched painting looks fine:** DEV-23 and DEV-27 correct it. c flags-ON max is 9.95 against v1's 17.42 (flags-OFF 12.97), b is 0.724, and the 1:1 crop shows no straight line.
+  - **Why it still binds:** a1 binds on the raw canvases by design (pre-ruling M-1), so this is a FAIL, stitch-corrected in the painting.
+  - **Raw MAD:** none over 13.09 (max 11.66).
+- **P10.** The start view's p50 is 16.2–16.3 ms: the frame budget is spent before any burst. The sea view has 3–7-frame bursts at 12–13 s after ready_done, reaching 50 ms. The cost is the heavier dress (294 sprays, 107 reed cards). Every start run has 66–176 frames over 16.7 ms.
+- **P9c.** As on pilot 3: the bobbing floes sit outside the painted window.
+
+**P11 v3 crops for the blind judge:** `fid/ph/p11/abx3_pilot4_v1_vs_pilot/` (62 PNG + JUDGE.md, no metadata). Key: `fid/ph/p11/keys/abx3_pilot4_v1_vs_pilot.json` (outside the judge dir). Score: `python3 harness/p11_abx3.py score pilot4_v1_vs_pilot <answers.json>`.
