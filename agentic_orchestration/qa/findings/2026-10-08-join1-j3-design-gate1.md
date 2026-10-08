@@ -140,3 +140,67 @@ A rolling form there would **draw from `crit:soulfire` on every instrument call*
 - sealed: `kc2/player_offense.py` :487-489 (`crit_mult` property), :512-533 · `kc2/secondary_streams.py` :262-283 (pure `soulfire_applied` vs counting `soulfire_damage_against`) · `kc2/run.py` :1224, :3070-3090, :3127-3147, :3307, :3330-3348 (the D-I11-1 contact instrument) · `kc2/threat.py` :1834, :1874-1879 · `kc2/summon_offense.py` :869-891
 - emitter: `src/reincarnated/simulation/scripts/gamora_join1_gm_emit_2026_09_29.py` :423-456 (`th.probability_to_hit` / `th.resolve_hit` wrappers), :491 (summon attribution)
 - prior: `…/qa/findings/2026-10-08-join1-j2-d2-delta-and-j2-gate2.md` § 2, § 7 · `…/2026-10-07-join1-j2-e4-d1-gate2.md` § 1.4 · `…/2026-10-07-join1-j2-design-gate1.md` (B-3, A-3) · decisions-log engine `506ebf0b`
+
+---
+
+## § 7 · DELTA CHECK, 2026-10-08: ADDENDUM-E1 (engine `b5d3cfbf`, ALONE, doc-only) · **BLOCK LIFTED**
+
+KP-356 · doc-only, no heavy lock. I read the addendum against the sealed source and the emitter.
+
+**Verdict:**
+- **The BLOCK is LIFTED.**
+- B-1 and B-2 are discharged.
+- A-3…A-9 are adopted as written.
+- The addendum's own new hazard (A-2.3) is a real find, and its fix is sound.
+- **J3a and J3b may proceed.**
+- Four INFO items below; none blocks.
+
+### 7.1 B-1: discharged
+
+**Row 32** (`damage_against`, counting) rolls `crit:player` and stashes. **Row 33** substitutes the **property**, with `fget` reading `self.__dict__.get("_rb_crit", self.crit_limb.multiplier)`.
+
+Checked at this Gate:
+- **The stash has somewhere to live.** `PlayerOffense` is a plain, non-slots `@dataclass` (`player_offense.py:412`), so instances carry a `__dict__`. So does `SecondaryStreams` (:193).
+- **Default is bit-equal.** With no stash, the fallback is the same attribute read as the sealed property.
+- **The sealed body sees the roll.** Row 32 stashes **before** it delegates, so the sealed body's `self.crit_mult` (:529/:533) reads the roll. The leech basis (`run.py:3090/:3147`) reads the same stash afterwards, so R-4 holds.
+- **Soulfire rolls at its counting site.** Row 34 rolls at `soulfire_damage_against` (the counting wrapper, called once per projectile row, `run.py:3307`). Its stash is deleted in `finally`.
+- **The pure forms never draw.** Rows 5 and 11 don't, and a draw inside a pure form raises.
+- **The contact instrument is honestly dispositioned.** `note_contact` uses its arguments only through `<= 0`, and every crit multiplier is > 0 (domain asserted), so the counter is value-invariant. No J-S8 grain reads it. It is a declared telemetry-only split.
+- **The draw-count limb** (`crit:soulfire` == `n_sf_rows`, ≠ `n_sf_rows + n_contacts`) is exactly the discriminator I asked for.
+- **The property gets census coverage and a control.** Row 33 has a `fget` census row and R-5 check, plus **nc8k**, predicted first. The new instrument class (a property, not a function) therefore has its own control (#75 cl. 6).
+
+### 7.2 B-2: discharged (option (i))
+
+- **The stack walk is pinned.** It skips frames by realpath (the J-S8 emitter's pinned path, then the rulebook package), and the first remaining frame must be (`threat.py`, `ThreatEngine.resolve_attack`) or (`summon_offense.py`, `SummonOffenseFold.swing`).
+  - I confirmed these are the only two sealed callers (`threat.py:1875`, `summon_offense.py:880`).
+  - The emitter's own `_ra` / `_swing` wrappers sit **outside** those sealed frames, so walking outward from the form meets the sealed frame first.
+- **Fail-closed.** `lane = None`, combined with any lane-scoped off-default setting, raises `UnknownLaneCaller`. Direct callers (the grid, tests) pass `lane=` explicitly.
+- **LANE-0 is a zero-cost, discriminating census at GD:** lane counts must equal G1's `population` counts (35,165 / 21,346), with `None` = 0.
+- **LANE-1/2 verify isolation *by law*** (each row recomputed offline from its own `pth_used` and `roll`), not by position. That is the correct form, because bit-equality cannot survive the first divergence in a shared fight.
+
+**A-2.3, the floor record (new, found by gamora): a real hazard, sound fix.**
+- **The hazard.** The emitter recomputes G1 `pth_effective` from `th.PTH_MINIMUM` (emitter :178 declares it, :449 computes it). An operand-only floor would have emitted a contradicting record, the NC-J2-2 shape. NC-J3-L04-2 would have read a false miss.
+- **The fix.** Row 35 binds `threat.PTH_MINIMUM`, with a per-call `SplitRecordRefused` assertion.
+- **Checked at this Gate:** every other reader of `PTH_MINIMUM` is report-only. The readers are `threat.py:396` (inside the substituted `resolve_hit`, so dead under JOIN), `:2325` (the telemetry wire) and `player_kit_residual.py:621` (the residual report's `holds` flag). No behavioural path moves.
+
+### 7.3 Consistency with Matt's KP-356 rulings
+
+| Ruling | Addendum | Verdict |
+|---|---|---|
+| L-01 → the following world clock, with my two conditions | § 4.2 adopts both, verbatim in substance | **consistent** |
+| Intake order → fixed `ARMOUR_THEN_RESIST`, "declared by lineage; GD's order undecoded" | § 4.1 wording exact | **consistent.** But see INFO-Δ2: the operand's retirement is now owed, and "revisit at J4a" can only mean *a new Matt item* |
+| P-J2-5 → calibration-first DA, then the guard, before J4a | A-8: bit-equality on the 74 measured pairs, or a pre-registered tolerance, then the 112, then the guard; owners named | **consistent** |
+| `crit_model` | pending Matt's clarification | the addendum changes no question on it |
+
+### 7.4 INFO
+
+- **INFO-Δ1 (row 35, two scoped floors).** Specify what row 35 binds when **two** lanes run **different** off-default floors. The per-call assertion would refuse whichever lane disagrees with the bound value. **Refuse at bind** instead, with a named error, so that the failure is a configuration refusal rather than a mid-run one.
+- **INFO-Δ2 (the intake operand).** Matt ruled C, so `intake_order_override` is **retired**, not kept CONTROL-ONLY.
+  - **Owed:** one rulebook commit, ALONE, removing it from `_FIELDS`, the A-2 JSON and the control-spec path. P-J2-9 re-run then counts 30/30 (or the declared new count).
+  - The NC-J2-2 lineage is recorded, not re-run.
+  - The addendum's "Option A stays the on-demand route" means a **new Matt item**, not a seam decision.
+  - **Recorded** in today's decisions-log entry (engine).
+- **INFO-Δ3 (interpreter pin).** The stack walk matches on `co_qualname`, which exists only in CPython ≥ 3.11 (the host runs 3.12.0). The binder should assert `sys.version_info >= (3, 11)` and refuse otherwise.
+- **INFO-Δ4.** `crit_tier` under `independent-proc` is relabelled 0/1 (no proc / proc). That changes the field's meaning, so **#12** applies: name the semantic shift in the J3a prereg and on the fidelity table, not only in A-7's inventory.
+
+**Decisions-log:** Matt's three KP-356 rulings are recorded in engine `design/decisions/decisions-log.md` ("2026-10-08 — JOIN-1 J3: three owner-eye rulings recorded…"), with the two L-01 conditions binding and the operand retirement owed. The `crit_model` item is left for Matt's clarification.
