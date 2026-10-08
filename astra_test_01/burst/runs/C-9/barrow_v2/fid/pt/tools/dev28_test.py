@@ -135,6 +135,43 @@ def crops(a, b, cls, n=4, size=256, win=(4096, 2560)):
     return out
 
 
+TARGETS = {"stone_circle": ["ring_stones", "ring_fallen"], "cliff_top_boulders": ["cliff_faces", "carved_rock", "ground_rock", "ledge_rocks"],
+           "barrow_door_rocks": ["barrow_cutting", "door_post_L", "door_post_R", "door_lintel", "barrow_front"]}
+
+
+def target_crops(a, b, ids, table, tag, win=(4096, 2560)):
+    """per target: the centre of the guide's dither (DEV-28 zone, changed pixels) on the snow around those objects, inside the
+    pilot window; two sheets each, before | after: DETAIL 320 x 320 at 1:1 and PLAY 960 x 540 at 1:1 (the guide is rendered at
+    the play camera's own px/m, so 1 guide px = 1 play px at 1920 x 1080: PLAY is half a play frame at play zoom)"""
+    gid = (ids[..., 0].astype(np.int64) << 16) | (ids[..., 1].astype(np.int64) << 8) | ids[..., 2]
+    name2id = {v["id"]: int(k) for k, v in table.items()}
+    snow = gid == name2id["ground_snow"]
+    changed = (a != b).any(-1)
+    out = {}
+    for t, names in TARGETS.items():
+        m = np.isin(gid, [name2id[n] for n in names if n in name2id])
+        m[win[1]:, :] = False; m[:, win[0]:] = False
+        near = ndimage.binary_dilation(m, iterations=60) & snow & changed
+        near[win[1]:, :] = False; near[:, win[0]:] = False
+        if not near.any():
+            out[t] = {"none": "no DEV-28 change on snow near %s inside the pilot window" % names}
+            continue
+        dens = ndimage.uniform_filter(near.astype(np.float32), 121)
+        y, x = np.unravel_index(np.argmax(dens), dens.shape)
+        out[t] = {"objects": names, "centre_px": [int(x), int(y)], "changed_px_near": int(near.sum())}
+        for nm, (w, h) in (("detail_1to1", (320, 320)), ("play_zoom", (960, 540))):
+            x0 = int(np.clip(x - w // 2, 0, a.shape[1] - w)); y0 = int(np.clip(y - h // 2, 0, a.shape[0] - h))
+            sheet = Image.new("RGB", (w * 2 + 8, h), (255, 255, 255))
+            sheet.paste(Image.fromarray(a[y0:y0 + h, x0:x0 + w]), (0, 0))
+            sheet.paste(Image.fromarray(b[y0:y0 + h, x0:x0 + w]), (w + 8, 0))
+            p = "%s/crops_%s/%s_%s_x%d_y%d.png" % (OUT, tag, t, nm, x0, y0)
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            sheet.save(p)
+            out[t][nm] = {"file": p.replace(FID + "/", ""), "px": [x0, y0, w, h], "layout": "left = guide as pinned, right = DEV-28; 1:1"}
+    print("crops", json.dumps(out))
+    return out
+
+
 def flag_check():
     """the Tier-B block itself, executed in isolation on a small guide: unset -> the same GUIDE object (v1's guide,
     untouched); =1 -> smoothed; a wrong ID sha -> HALT (SystemExit)"""
@@ -172,10 +209,13 @@ if __name__ == "__main__":
     rec["v1_guide"], _, _ = run_guide("v1", C9 + "/barrow_full/paint/barrow_full_guide.png", C9 + "/barrow_full/take/ids/ids.png")
     # OUR guide: a guide + ID + class render of ONE pinned set (argv: guide ids class); without them it is skipped
     # (the pilot pin 1c22764cb874 kept no copy of its ID render, and LV's ids_art.png has since been re-rendered)
-    if len(sys.argv) == 4:
+    if len(sys.argv) >= 4:
         g, i, c = sys.argv[1:4]
         rec["our_guide"], a, b = run_guide("ours", g, i)
-        rec["crops"] = crops(a, b, np.asarray(Image.open(c)))
+        if len(sys.argv) >= 6:   # targeted crops: <manifest json> <tag>  (R-C9-260: stone circle, cliff-top boulders, door rocks)
+            rec["crops"] = target_crops(a, b, np.asarray(Image.open(i).convert("RGB")), json.load(open(sys.argv[4]))["id_table"], sys.argv[5])
+        else:
+            rec["crops"] = crops(a, b, np.asarray(Image.open(c)))
     else:
         rec["our_guide"] = "SKIPPED: no pinned guide+ID+class set given (pilot pin kept no ID copy; LV re-rendering)"
     json.dump(rec, open(OUT + "/dev28_test.json", "w"), indent=1)

@@ -15,6 +15,9 @@ used() { python3 -c "import json;print(sum(b.get('image_calls',0) for b in json.
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); [ $FREE -ge 21 ] || { echo "HALT: disk ${FREE} GiB < 21"; exit 9; }
 python3 $FID/pt/tools/pilot_pins_check.py || { echo "HALT: pins"; exit 10; }
 python3 $FID/v1tools/cfg_check.py $CFG || { echo "HALT: cfg_check"; exit 9; }
+# R-C9-258 DEV-28: guide shadow smoothing ON exactly when the cfg pins the guide's ID render (dev28_ids); otherwise v1's guide
+if python3 -c "import json,sys;sys.exit(0 if json.load(open('$CFG')).get('dev28_ids') else 1)"; then export BV2F_DEV28=1; else unset BV2F_DEV28; fi
+echo "DEV-28: ${BV2F_DEV28:-off}"
 bash $FID/v1tools/verify.sh || { echo "HALT: verify"; exit 8; }
 echo "images used by $PFX before: $(used) (cap $CAP)"
 mkdir -p $L; START=$(wc -l < $DLOG 2>/dev/null || echo 0)

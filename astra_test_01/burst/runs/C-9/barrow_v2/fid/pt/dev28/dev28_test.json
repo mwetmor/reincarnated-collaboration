@@ -87,5 +87,165 @@
    ]
   ]
  },
- "our_guide": "SKIPPED: no pinned guide+ID+class set given (pilot pin kept no ID copy; LV re-rendering)"
+ "our_guide": {
+  "guide": "barrow_v2/fid/pt/pilot/guide_art_pinned_ps4.png",
+  "guide_sha12": "b1435c696c76",
+  "ids": "barrow_v2/fid/pt/pilot/ids_art_pinned_ps4.png",
+  "ids_sha12": "9e6b303f53dc",
+  "dev28": {
+   "params": {
+    "T_CHECK": 3.0,
+    "MIN_DENS": 8,
+    "DIL": 2,
+    "SIGMA": 1.6,
+    "RAD": 4,
+    "TOL_CHROMA": 0.015,
+    "INK_GREY": 70
+   },
+   "shadow_tint_k": [
+    0.8264,
+    0.8435,
+    0.8833
+   ],
+   "px": [
+    6656,
+    4096
+   ],
+   "dither_px": 2485797,
+   "zone_px": 3086741,
+   "changed_px": 2565015,
+   "zone_share": 0.1132209851191594
+  },
+  "changed_outside_zone_px": 0,
+  "changed_share_of_frame": 0.09408418948833759,
+  "object_mean_colour_drift_max_levels": 0.332,
+  "boundary_px_changed_share": 0.0,
+  "zone_checker_energy": [
+   2.769,
+   1.587
+  ],
+  "ink_px_changed": 0,
+  "lit_snow_px_changed": 21093,
+  "lit_snow_px": 5937398,
+  "shadow_edge_checker_energy": [
+   3.122,
+   2.447
+  ],
+  "shadow_on_snow_checker_energy": [
+   0.945,
+   0.637
+  ],
+  "shadow_on_snow_mean_rgb": [
+   [
+    126.44,
+    121.78,
+    116.86
+   ],
+   [
+    126.42,
+    121.77,
+    116.88
+   ]
+  ]
+ },
+ "crops": {
+  "stone_circle": {
+   "objects": [
+    "ring_stones",
+    "ring_fallen"
+   ],
+   "centre_px": [
+    3800,
+    1722
+   ],
+   "changed_px_near": 16797,
+   "detail_1to1": {
+    "file": "pt/dev28/crops_ps4/stone_circle_detail_1to1_x3640_y1562.png",
+    "px": [
+     3640,
+     1562,
+     320,
+     320
+    ],
+    "layout": "left = guide as pinned, right = DEV-28; 1:1"
+   },
+   "play_zoom": {
+    "file": "pt/dev28/crops_ps4/stone_circle_play_zoom_x3320_y1452.png",
+    "px": [
+     3320,
+     1452,
+     960,
+     540
+    ],
+    "layout": "left = guide as pinned, right = DEV-28; 1:1"
+   }
+  },
+  "cliff_top_boulders": {
+   "objects": [
+    "cliff_faces",
+    "carved_rock",
+    "ground_rock",
+    "ledge_rocks"
+   ],
+   "centre_px": [
+    2115,
+    2007
+   ],
+   "changed_px_near": 11300,
+   "detail_1to1": {
+    "file": "pt/dev28/crops_ps4/cliff_top_boulders_detail_1to1_x1955_y1847.png",
+    "px": [
+     1955,
+     1847,
+     320,
+     320
+    ],
+    "layout": "left = guide as pinned, right = DEV-28; 1:1"
+   },
+   "play_zoom": {
+    "file": "pt/dev28/crops_ps4/cliff_top_boulders_play_zoom_x1635_y1737.png",
+    "px": [
+     1635,
+     1737,
+     960,
+     540
+    ],
+    "layout": "left = guide as pinned, right = DEV-28; 1:1"
+   }
+  },
+  "barrow_door_rocks": {
+   "objects": [
+    "barrow_cutting",
+    "door_post_L",
+    "door_post_R",
+    "door_lintel",
+    "barrow_front"
+   ],
+   "centre_px": [
+    3704,
+    372
+   ],
+   "changed_px_near": 19507,
+   "detail_1to1": {
+    "file": "pt/dev28/crops_ps4/barrow_door_rocks_detail_1to1_x3544_y212.png",
+    "px": [
+     3544,
+     212,
+     320,
+     320
+    ],
+    "layout": "left = guide as pinned, right = DEV-28; 1:1"
+   },
+   "play_zoom": {
+    "file": "pt/dev28/crops_ps4/barrow_door_rocks_play_zoom_x3224_y102.png",
+    "px": [
+     3224,
+     102,
+     960,
+     540
+    ],
+    "layout": "left = guide as pinned, right = DEV-28; 1:1"
+   }
+  }
+ }
 }

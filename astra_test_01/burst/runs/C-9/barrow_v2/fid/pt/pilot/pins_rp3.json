@@ -1,26 +1,24 @@
 {
- "_what": "BV2F PILOT REPAINT pins (R-C9-260): the guide the pilot cfg paints from (a pinned COPY of LV's guide at b5894d440) and the 9 pilot tiles (cols 0-2, rows 0-2) as LV published them. A changed pilot tile in LV's guide after this = paint from the newer tiles. Check: python3 fid/pt/tools/pilot_pins_check.py",
- "pinned_utc": "2026-10-08T19:29:41.291343+00:00",
- "lv_commit": "b5894d440",
+ "_what": "BV2F PILOT REPAINT pins (R-C9-245): the guide the pilot cfg paints from (a pinned COPY of LV's guide at 03306a599) and the 9 pilot tiles (cols 0-2, rows 0-2) as LV published them. A changed pilot tile in LV's guide after this = paint from the newer tiles. Check: python3 fid/pt/tools/pilot_pins_check.py",
+ "pinned_utc": "2026-10-08T14:26:24.060671+00:00",
+ "lv_commit": "03306a599",
  "guide": {
-  "pinned_copy": "fid/pt/pilot/guide_art_pinned_ps4.png",
+  "pinned_copy": "fid/pt/pilot/guide_art_pinned_v2.png",
   "source": "fid/lv/guide_art/guide_art.png",
-  "sha256": "b1435c696c7618c10068b80e1fa122107c7d810e507eeac43a923a71395fe02e",
-  "manifest_sha256": "b1435c696c7618c10068b80e1fa122107c7d810e507eeac43a923a71395fe02e",
+  "sha256": "1c22764cb874150c7dce00ffe948ee14ef7e510d2fcb134eef90ae5ef3bb988a",
+  "manifest_sha256": "1c22764cb874150c7dce00ffe948ee14ef7e510d2fcb134eef90ae5ef3bb988a",
   "px": [
    6656,
    4096
   ]
  },
  "ids": {
-  "pinned_copy": "fid/pt/pilot/ids_art_pinned_ps4.png",
   "source": "fid/lv/guide_art/ids_art.png",
-  "sha256": "9e6b303f53dc04b17e12ef19a09213053c32c709829f4e98791e94c895cadbd7"
+  "sha256": "95b658fd0f7f77f6ed79e3e6c6553174398c8b33529844b92e4a41fbc4ed59e6"
  },
  "class": {
-  "pinned_copy": "fid/pt/pilot/class_art_pinned_ps4.png",
   "source": "fid/lv/guide_art/class_art.png",
-  "sha256": "65c91d16043c8d87892e49dd3cfad54f5534b8c80b4748ab4d22c2cb95646494"
+  "sha256": "1c7ff8490aceb4bca7b62ee742319717032d826d7b4fa240866a35abf94cfabe"
  },
  "tiles": {
   "0_0": {
@@ -43,13 +41,13 @@
   },
   "0_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c00.png",
-   "sha256": "73aff3cdc12302510adb06ec095b70281711795b5152ba6504513b8688299080",
+   "sha256": "d092efd883d02b7e0dfa7b7d6f45b94881fa996a84cf22ea748563e17d4e6686",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_1": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r01_c01.png",
-   "sha256": "943bc2a04ceb2af9d8e275486e2500547e7235403833c36082b6f78d14407b06",
+   "sha256": "c7316ea0ff979125985d914e92020b07a8c63ca388d2e25b82b8151c4db8ed63",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
@@ -61,13 +59,13 @@
   },
   "0_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c00.png",
-   "sha256": "82814ade6f6593fcad2bd6a005ff1c50bcca31a84d626198d20a1c4f64d78120",
+   "sha256": "e245af0b155789dea0817eadad268e4fab53d8d5c55c6484398e9ad9d11c15ee",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
   "1_2": {
    "file": "fid/lv/guide_art/tiles_5x5/guide_r02_c01.png",
-   "sha256": "ad82c937963f12544d257d8f9091e2db36ab0334299c3b02b6f62deb4e552397",
+   "sha256": "8652b96da72a2bb45bc3986d04c7ccb8ebc021b20eac9b3d7658e6624247e5ef",
    "manifest_sha256_agrees": true,
    "equals_crop_of_pinned_guide": true
   },
