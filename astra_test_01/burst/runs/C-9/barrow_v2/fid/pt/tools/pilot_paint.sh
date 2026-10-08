@@ -18,6 +18,9 @@ python3 $FID/v1tools/cfg_check.py $CFG || { echo "HALT: cfg_check"; exit 9; }
 # R-C9-258 DEV-28: guide shadow smoothing ON exactly when the cfg pins the guide's ID render (dev28_ids); otherwise v1's guide
 if python3 -c "import json,sys;sys.exit(0 if json.load(open('$CFG')).get('dev28_ids') else 1)"; then export BV2F_DEV28=1; else unset BV2F_DEV28; fi
 echo "DEV-28: ${BV2F_DEV28:-off}"
+# R-C9-278 DEV-25c: inner-128 paste ON exactly when the cfg lists dev25c_chunks (the A/B winner decides the list)
+if python3 -c "import json,sys;sys.exit(0 if json.load(open('$CFG')).get('dev25c_chunks') else 1)"; then export BV2F_DEV25C=1; else unset BV2F_DEV25C; fi
+echo "DEV-25c: ${BV2F_DEV25C:-off}"
 bash $FID/v1tools/verify.sh || { echo "HALT: verify"; exit 8; }
 echo "images used by $PFX before: $(used) (cap $CAP)"
 mkdir -p $L; START=$(wc -l < $DLOG 2>/dev/null || echo 0)
