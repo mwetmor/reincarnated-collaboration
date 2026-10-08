@@ -47789,6 +47789,13 @@
       "ts": "2026-10-08T06:40:11-04:00",
       "verbatim": "Fix white patch, then ship (Recommended)",
       "ruling": "SORCERESS G+rim (SO 506cc7e9e; idle face visible 39->71%, luma 66->117) APPROVED TO SHIP after one fix: tone down the blown-out bright-white patch on the forehead/eyes (seen idle S, walk S, Fire Ball S) to a natural skin value with no clipping at any heading. The conductor checks the stills, then SO ships per so_mx/RESUME.md: Barrow web rebuild (incl. the outline-thinning change in barrow_full.gd web path), select_check + web_perf, ONE loadout commit and push (R-C9-84: push once, check once), and the JOIN-1 sorceress pack (next version; manifest lint + 3 negative controls; releases Fire Ball 0.2667 s / Meteor 1.80 s). BV2F lanes keep heavy-lock priority."
+    },
+    {
+      "id": "R-C9-238",
+      "by": "gandalf (conductor, DRIFT-CRITIC on LV aab3357eb)",
+      "ts": "2026-10-08T07:54:07-04:00",
+      "verbatim": "",
+      "ruling": "LV R-C9-234 blockout (aab3357eb) reviewed on pilot12 sheets A-C. PASS: (2) organic reed islands + reed beds; (5) square pillars gone; (7) mast + spar; fallen ring stones now lumps; river ribbon; passed features byte-identical. ONE MORE LV PASS before paint (the greybox's shapes are the painting's shapes, so the painter will copy these): (a) SHINGLE (item 3): the beach is now a patchwork of large alternating brown/white crescent bands (pilot_05/06/09/10). It must be ONE continuous shingle beach with a ragged foot, with SMALL organic snow drifts lying over it (wind-shaped, lee of rocks and wreck), not stripes or bands. (b) LEADS (item 4): the new open-water leads by the wreck are thick, dark, tree-shaped branching lines (pilot_05/06), the same failure as Matt's crack note. Make leads irregular, narrow-to-wide gaps BETWEEN floes, increasing toward the sea, never a branching tree. (c) Visible 25 cm terrain stair-steps on the mound flank (pilot_04) and the banded ripples in the mere-to-sea margin (pilot_05/06): smooth them (finer terrain sampling or smoothed class edges) so the painter does not reproduce steps. (d) the cube-like end of the dry-stone wall left of the barrow door (pilot_04): make it a rough stone wall end. Gates as before; stills; STOP for conductor review. ALSO RULED: add the new 'reed' class and 'ground_reed' id to PT's palette and reeds.py LAND_IDS and to PH's class palette at the paint release (PT/PH do it then)."
     }
   ],
   "grok_calls": [
