@@ -211,7 +211,7 @@ func _dress_painted() -> void:
 	snowfall.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(snowfall)
 	n["frame_rebound_materials"] = _rebind_frame(self)
-	if prof_try.has("groundtiles"):   # R-C9-268 item 2 candidate cut (instrument until ruled): ground meshes split into tiles
+	if not prof_off.has("groundtiles"):   # P10 CUT 1 (R-C9-272, adopted): ground meshes split into 8 m tiles; BV2F_PROF_OFF=groundtiles = before
 		n["ground_tiles"] = _tile_ground_meshes(8.0)
 	n["warmup"] = _warm_pipelines()   # BV2F-PT R-C9-200
 	var ok := 0
