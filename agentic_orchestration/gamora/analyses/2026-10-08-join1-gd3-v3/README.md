@@ -42,3 +42,19 @@
 - **The earlier 21-cell reading is superseded.** It was biased: its 4 excluded cells were exactly the ones that reached the pet, and all 4 survive here. This 25-cell row is the baseline of record.
 
 **G-D4 (prereg § 5 reading, flagged at Gate):** with no joined kit, X = 196, and this emission **is** the G-D4 baseline row.
+
+---
+
+## CLARIFICATIONS (KP-386 INFO-1 / INFO-4; append-only, 2026-10-08)
+
+**INFO-1: "196 distinct decoded pairs" means equal in SIZE, not identical to J-S8's 196.**
+- The decoded pairs are the same set on both streams (`crit:player` and `crit:soulfire`, 196 each).
+- That set is **J-S8's 196, minus `bossskills/pets/witchgodguardian_sentinel_crystal|159`, plus `ghost_a01_summon|153`**.
+- **Distinct pairs across all three lookup sites:**
+  - `damage_against` and `soulfire_applied`: the 196 above.
+  - `bleed_dps_against`: the closure counter records lookup **counts** per site and the **outside** pairs (0). It does **not** record which inside pairs bleed looked up, so bleed's distinct-pair set is not available from this run. What the counter does establish: every bleed lookup was inside the 248 (`n_outside` = 0, 282,078 lookups).
+
+**INFO-4: two different windows.**
+- **Hit counts** (158,047 EoR / 65,462 Soulfire, and the per-hit multipliers measured over them) **include the line-up-free pre-pass**, `c11a._period()`, waves 151–156. One process means one counter set.
+- **Survival, ticks and intake** are the emitter's graded **w151–160 window only** (G5 / G7 / G3).
+- The per-hit multiplier follows the same law in both passes, so the mixing does not bias it.
