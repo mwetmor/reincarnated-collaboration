@@ -52311,6 +52311,12 @@
       "ts": "2026-10-08T15:16:26-04:00",
       "by": "gandalf (conductor), Matt's command",
       "text": "Manifest 18 (cleanup/manifest_bv2f_scratch_18.txt, 273 untracked entries, 4.42 GiB logical) executed with Matt's exact command (it arrived as a message, so the conductor ran it verbatim). Exit 0. Disk 25 -> 28 GiB free (APFS clones share blocks, so the gain is below the logical size)."
+    },
+    {
+      "id": "N-C9-CLEANUP-M19",
+      "ts": "2026-10-08T19:17:22-04:00",
+      "by": "gandalf (conductor), Matt: 'Please process the scratch list deletion'",
+      "text": "Manifest 19 (session scratchpad) executed on Matt's instruction, minus 10 entries touched within the last hour (possibly in use by the running lanes: big, dec.json/py, f.pkl, f2.py, feat.py, ph.md, z38/z57/z61.png), which were kept. Exit 0. Disk 24 -> 25 GiB free."
     }
   ]
 }
