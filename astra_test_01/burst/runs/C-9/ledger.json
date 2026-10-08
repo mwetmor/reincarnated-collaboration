@@ -49964,6 +49964,13 @@
       "ts": "2026-10-08T15:20:47-04:00",
       "verbatim": "",
       "ruling": "LV bay fix (7c3940b51): CAUSE well found (the wreck's ice cradle cut a flat shelf whose edge lay on y=1792); bay now in row 2 with a ragged frozen-stone edge, PASS on that. NEW DEFECT: where the shingle now runs down beside the cliff (pilot_09/10, right of the wreck's stern), the terrain drop to the sea renders as a tall VERTICAL STRIPED CURTAIN, a geometric wall that the painter will copy. It was smaller before and is larger now. Narrow pass: make that drop a natural low rocky bank or a steep slope of shingle and boulders into the shore ice, or let the shingle end before the cliff edge; no vertical face. Nothing else may change. Then the conductor reviews; then PT re-pins and sends DEV-28 crops. LV's deletion of its own ~4 MB scratch file is recorded as a minor breach of the never-delete rule; no repo impact; no further action."
+    },
+    {
+      "id": "R-C9-260",
+      "by": "gandalf (conductor, DRIFT-CRITIC on LV b5894d440)",
+      "ts": "2026-10-08T15:29:11-04:00",
+      "verbatim": "",
+      "ruling": "LV R-C9-259 (b5894d440) PASS: the vertical curtain is gone; the shingle flank is now a steep shingle-and-boulder slope into the shore ice; scope held; gates green. Residual left to the painter: the narrow pre-existing dark water sliver at the cliff foot (slightly stepped). BLOCKOUT FOR PILOT REPAINT 4 = LV b5894d440. PT re-pins guide+ids+class from it (copies), sets the PS4 cfg (geo v7 with the openings sentence; DEV-12 amended; DEV-28 on with the ID sha pin), runs dev28_test.py on the new guide and sends the conductor before/after crops at the rock shadows. Then the PS4 paint release."
     }
   ],
   "grok_calls": [
