@@ -45,6 +45,25 @@
   "s47v4_evidence_FILE_sha256": "fd9c4970a56dc160782f22bee93cbd0492dd7888629ad465b34799e4110b07bc",
   "verdict": "ORACLE BYTE-IDENTICAL"
  },
+ "amendments": [
+  {
+   "append_only": true,
+   "id": "INFO-V3-1 (jack-ryan v3 delta Gate-2, collab c9dad92c7; KP-384)",
+   "meaning_text_as_cut": "true iff exactly one of the two rules calls the body a summon (record_dir_class ends '+summon' XOR s2_body_class == 'summon'); on this path: the 2 bossskills/pets/ records",
+   "n_true_in_v3": 3,
+   "rows_true_in_v3": [
+    "RB-DA-records/skills/nonplayerskills/bossskills/pets/loghorrean_void.dbr|154",
+    "RB-DA-records/skills/nonplayerskills/bossskills/pets/witchgodguardian_sentinel_crystal.dbr|159",
+    "RB-DA-records/skills/nonplayerskillsgdx1/bossskills/pets/gabbalthunn_obsidianshard.dbr|154"
+   ],
+   "what": "the class_rules_disagree value_fields meaning in rulebook/offense_da.json (carried from the v1 re-cut) says \"on this path: the 2 bossskills/pets/ records\". In v3 (P = 248) the flag is true on 3 rows; the third is a step-2b pair. The values are right; the description is stale. Corrected in the text at the next cut (not in place: v3 is cut)."
+  },
+  {
+   "append_only": true,
+   "id": "INFO-V3-2 (KP-384)",
+   "what": "from the next cut on, the prereg file count is DERIVED from the member list (manifest + members + tool + receipt), not written by hand; cf. the G-10 miscount recorded above."
+  }
+ ],
  "artifact": "JOIN-1 KP-381/382 pack v3 gate evidence (G-8, G-10) + controls NC-V3-a..d (raw outputs in controls/)",
  "author": "star-lord",
  "controls": {
