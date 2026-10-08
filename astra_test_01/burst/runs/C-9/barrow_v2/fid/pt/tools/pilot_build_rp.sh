@@ -20,7 +20,8 @@ for s in $STEPS; do
   step $s
   case $s in
     stitch)
-      python3 $V/tierA/conductor_scripts/guided_stitch.py $CFG $P/painting.png $P/painting_preview.jpg > $P/stitch.log 2>&1 || fail $s $?
+      # R-C9-242: the Tier-B stitch (DEV-23 low-frequency tone match at the pasted-context boundary)
+      python3 $V/tierB/conductor_scripts/guided_stitch.py $CFG $P/painting.png $P/painting_preview.jpg > $P/stitch.log 2>&1 || fail $s $?
       python3 $T/pilot_stitch_record.py || fail $s $? ;;
     ids)
       mkdir -p $P/ids_built

@@ -1,0 +1,37 @@
+{
+ "_what": "DEV-22 (R-C9-216): the stair's tread snow -- grids for a SnowFieldTerrain (fid/pt/tools/stair_snow_prep.py)",
+ "source": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/level/stair_treads.json",
+  "sha256": "5eff01c1ba6494b7be0f425c58c1d2c32356279b2cb7387ffb810e5bfc143cfa",
+  "_": "LV's stair_treads.json (outline_uv in v1 (u, v) m, z_m = top)"
+ },
+ "treads": 52,
+ "area_xz": [
+  5.1523,
+  -2.8117,
+  9.8,
+  9.8
+ ],
+ "cell_m": 0.02,
+ "nx": 490,
+ "nz": 490,
+ "field_px": 1024,
+ "grid_quad_m": 0.04,
+ "grid": {
+  "file": "grid.bin",
+  "sha256": "dbb6ba06e61ab35704bb21c245f917e3a64a0b7c9b04ebcc803390c2465a2b5f",
+  "_layout": "float32 LE: nx*nz depth multipliers (row = z), then nx*nz trodden"
+ },
+ "ground_h": {
+  "file": "ground_h.bin",
+  "sha256": "40303294c65730c27f5f9bd8460e2470b5bef457869dc0b3a00d12f54df75e26",
+  "_": "float32 nx*nz world-y tread tops (m)"
+ },
+ "inset_m": 0.015,
+ "feather_m": 0.03,
+ "tread_top_y": [
+  -3.363,
+  0.462
+ ],
+ "snow_px_share": 0.0372
+}
