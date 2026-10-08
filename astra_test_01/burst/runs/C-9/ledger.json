@@ -46314,9 +46314,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PS3A-2_2-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "13c3d84f2f789354ca4f3910178f6caf0e935a2fd40c21018087161c290c954c",
+      "started": "2026-10-08T15:32:38.500997+00:00",
+      "ended": "2026-10-08T15:37:09.293505+00:00",
+      "minutes": 4.513201977784047,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11c25-27c5-7ac1-ada4-51d2fc181961/exec-d7930dbf-e84f-461c-a47a-f9c93b57aa0d.png",
+            "sha256": "793b4da75bd177c7ec4475cfa038f8abd79d7863cd71f2067b8cb32fc7c07aff"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11c25-27c5-7ac1-ada4-51d2fc181961/exec-e4e74ef4-47d9-4015-89f6-53b25e12e8c2.png",
+            "sha256": "8d977dbd90d4c0ed7d85051a0769de5cbb1a3bcdac7ed381996d0cc3e22251d9"
+          }
+        ]
+      },
+      "receipt_sha256": "a10d21e223a76c9c34f84cd18eb3ebe3ce1508cee2a85f65f55861bdc699fcbe",
+      "artifacts": [
+        {
+          "name": "BV2F-PS3A-2_2.png",
+          "sha256": "8d977dbd90d4c0ed7d85051a0769de5cbb1a3bcdac7ed381996d0cc3e22251d9"
+        },
+        {
+          "name": "exec-d7930dbf-e84f-461c-a47a-f9c93b57aa0d.provenance.json",
+          "sha256": "0284fd92aec3c68d2b0a4ba137cdc61c68bf28da12d892a13101c493827f2db6"
+        },
+        {
+          "name": "exec-e4e74ef4-47d9-4015-89f6-53b25e12e8c2.provenance.json",
+          "sha256": "864df783d485771e94cad3ead5cfcadb3464084560c8cb2e034fce5a7a250fe1"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11c25-27c5-7ac1-ada4-51d2fc181961/exec-d7930dbf-e84f-461c-a47a-f9c93b57aa0d.png",
+          "sha256": "793b4da75bd177c7ec4475cfa038f8abd79d7863cd71f2067b8cb32fc7c07aff"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11c25-27c5-7ac1-ada4-51d2fc181961/exec-e4e74ef4-47d9-4015-89f6-53b25e12e8c2.png",
+          "sha256": "8d977dbd90d4c0ed7d85051a0769de5cbb1a3bcdac7ed381996d0cc3e22251d9"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1353,
+  "images_used": 1355,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -49814,6 +49887,13 @@
       "ts": "2026-10-08T11:32:03-04:00",
       "verbatim": "",
       "ruling": "PT root cause (6430c7bd8, 0 images): no resize anywhere (conductor's resize hypothesis was WRONG; v1's chunks were also 1536x1024). The image service always redraws the pasted strip (v1 too: high-pass corr 0.51-0.79 v1 vs 0.54-0.82 ours). The grain line has two mechanisms: (1) the redrawn strip is softer than the neighbour (PS2 0.67 ratio); (2) the painter's own continuation can be grainier (PS3b mound 2.5x). P5's 13.09 is v1's own MAXIMUM join (T10BF 2_2|3_2), and join MAD tracks strip texture density (r 0.87 v1 / 0.95 PS2 / 0.71 PS3); PS3's over-limit joins sit in dense shingle/rock/heather with no visible seam. RULING: (1) BUILD BASE = PS3a canvases (BV2F-PS3-*, not the -r1 PS3b set; PS3b's pool rectangle was the conductor's error). (2) Repaint ONLY 2_2 (the lighter rectangle round the stone circle; no pilot dependents), up to 2 images (29/34), with the join note. (3) DEV-25 = grain-amplitude match in stitch (PT option b; Tier-B, flag-off = v1 byte-identical; 0 images; PS3b proto 1.68 -> 1.37 vs control 1.12) on top of DEV-23. (4) The build's join stop changes from 'MAD > 13.09' to 'visible seam at 1:1 OR tone/texture control failure'; MAD > 13.09 in dense texture is flagged for Gate-2, not a stop. (5) P5 dense-texture behaviour goes to jack-ryan NOW for a pre-ruling (re-instrument, e.g. texture-normalised MAD, or keep; never re-tune), so Gate-2 does not BLOCK a build already made. (6) The flat shore-ice bay at the shingle foot is noted for a blockout fix on BOTH sides of the row-1/row-2 strip in a later pass, not a prompt note."
+    },
+    {
+      "id": "R-C9-249",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T11:39:57-04:00",
+      "verbatim": "",
+      "ruling": "PS3A dry stitch (05c739ecd; DEV-23 + DEV-25 soften-only; 2_2 repainted, 29/34 images). Texture steps are now near control. The conductor still sees faint STRAIGHT lines at play zoom in open snow (a lighter rectangle round the stone circle: 2_2 x2816 and y1792; 2_0 x2816 in the ice). A straight line is what the eye detects; the same small difference along an irregular path is not. DEV-26 = minimum-error boundary cut in stitch (image-quilting style): inside each overlap, cut along the path of least difference between the neighbour's pixels and the new tile's own redraw (a dynamic-programming or graph cut, constrained to the overlap, never across class boundaries in a way that splits an object), then a narrow feather (8-16 px) along that irregular path; DEV-23/25 still apply. 0 images; Tier-B (diff, allowlist, SHA256SUMS, verify green, flag-off = v1 byte-identical); recorded for jack-ryan with DEV-23/25. Acceptance: no straight line visible at play zoom on the 12 views and the conductor's crops; the tone control at 2_2 x2816 rows 2304-2432 is judged on the crop (cliff-top content vs seam). If it passes: build. If DEV-26 cannot hide it: report; NO repaint without a ruling."
     }
   ],
   "grok_calls": [
