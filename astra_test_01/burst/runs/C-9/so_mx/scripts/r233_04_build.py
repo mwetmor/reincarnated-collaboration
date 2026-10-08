@@ -11,7 +11,7 @@
 #   --tuck-all  hood_braid takes ALL her hair inside while the hood is worn except the cheek strands that frame the face
 #   --lift-head the lift also covers every non-hair head/neck triangle above 1.42 m
 #   --clean-brow Y  repaint the non-hair head texels above Y m (the forehead's painted fringe) as her lifted skin
-#   python3 r233_04_build.py <base.glb> <out.glb> [--tuck-all] [--lift-head] [--clean-brow 1.60] [--lift 0.75,1.12] [--xin 0.060] [--xout 0.080] [--report out.json]
+#   python3 r233_04_build.py <base.glb> <out.glb> [--tuck-all] [--lift-head] [--clean-brow 1.60] [--knee 1.15] [--keep-face-surface 0.006] [--lift 0.75,1.12] [--xin 0.060] [--xout 0.080] [--report out.json]
 import sys, os, io, json, numpy as np
 from PIL import Image, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
@@ -46,6 +46,19 @@ if '--tuck-all' in sys.argv:
     frame = hair & ~braid & (Vr[:, 2] > 0.035) & (Vr[:, 1] > 1.44)
     w[hair & ~frame] = 1.0
     tuck = tuck | (hair & ~frame & ~braid)
+# R-C9-237: hair-CLASSED vertices that ARE her face's surface (r140's island test calls every dark head island hair: her
+# brows and eye region are among them) stay where they are. Tucking them opened holes in her face -- the "blown-out
+# white" at her eyes was the snow seen through. Test: front (z > 0.035), in the face's height band, and not standing
+# more than FACE_TOL in front of the face skin at the same (x, y) (a strand hanging in front stands 1-4 cm off it)
+if '--keep-face-surface' in sys.argv:
+    from scipy.spatial import cKDTree as _KD2
+    FACE_TOL = float(arg('--keep-face-surface', 0.006))
+    fsk = (~hair) & (Vr[:, 1] > 1.45) & (Vr[:, 1] < 1.70) & (Vr[:, 2] > 0.03)
+    dd2, jj2 = _KD2(Vr[fsk][:, :2]).query(Vr[:, :2])
+    zsk = Vr[fsk][jj2, 2]
+    onsurf = hair & ~braid & (Vr[:, 2] > 0.035) & (Vr[:, 1] > 1.44) & (Vr[:, 1] < 1.70) & (dd2 < 0.01) & (Vr[:, 2] <= zsk + FACE_TOL)
+    w[onsurf] = 0.0
+    rep_keep = int(onsurf.sum())
 idx = np.nonzero(w > 0)[0]
 nid = {n.get('name'): i for i, n in enumerate(js['nodes'])}
 D = np.zeros((len(idx), 3))
@@ -119,10 +132,22 @@ if '--lift' in sys.argv:
             dd.polygon([(float(u * T.size[0]), float(v * T.size[1])) for u, v in uv], fill=255)
         Bm = np.asarray(hm.filter(ImageFilter.MaxFilter(5))) > 127
         lumA = 0.2126 * A2[..., 0] + 0.7152 * A2[..., 1] + 0.0722 * A2[..., 2]
-        fm = M & ~Bm; skin = np.median(A2[fm & (lumA > np.percentile(lumA[fm], 50))], axis=0)
+        fm = M & ~Bm
+        BROW_PCT = float(arg('--brow-pct', 50))     # R-C9-237: 50 = the lifted face's MEDIAN skin (G used the light half's median, which blew out)
+        skin = np.median(A2[fm & (lumA >= np.percentile(lumA[fm], BROW_PCT))], axis=0) if BROW_PCT > 0 else np.median(A2[fm], axis=0)
         rel = lumA[Bm] / max(float(np.median(lumA[Bm])), 1e-3)
         A2[Bm] = np.clip(skin[None, :] * (0.75 + 0.25 * rel[:, None]), 0, 1)
-        rep_brow = {"brow_y": BROW_Y, "texels": int(Bm.sum()), "skin_rgb": (skin * 255).round(1).tolist()}
+        rep_brow = {"brow_y": BROW_Y, "brow_pct": BROW_PCT, "texels": int(Bm.sum()), "skin_rgb": (skin * 255).round(1).tolist()}
+    if '--knee' in sys.argv:
+        # R-C9-237 (Matt: "a blown-out bright-white patch on her forehead and eyes"): the face island's LIGHT texels -- the
+        # painted eye whites and highlights -- are compressed toward its skin: any lifted texel brighter than KNEE x the
+        # island's median skin luma is scaled down to it (hue kept), so nothing on the face reads whiter than lit skin
+        KNEE = float(arg('--knee', 1.15))
+        lumK = 0.2126 * A2[..., 0] + 0.7152 * A2[..., 1] + 0.0722 * A2[..., 2]
+        cap_l = KNEE * float(np.median(lumK[M]))
+        over = M & (lumK > cap_l)
+        A2[over] = A2[over] * (cap_l / lumK[over])[:, None]
+        rep_knee = {"knee": KNEE, "cap_luma": round(cap_l * 255, 1), "texels_compressed": int(over.sum())}
     lum1 = float((0.2126 * A2[..., 0] + 0.7152 * A2[..., 1] + 0.0722 * A2[..., 2])[M].mean() * 255)
     buf = io.BytesIO(); Image.fromarray((A2 * 255 + 0.5).astype(np.uint8)).save(buf, 'PNG'); nb = buf.getvalue()
     o = W.append(b, nb); js['bufferViews'].append({"buffer": 0, "byteOffset": o, "byteLength": len(nb)})
@@ -130,6 +155,10 @@ if '--lift' in sys.argv:
     rep["lift"] = {"gamma": g, "gain": kk, "face_texels": int(M.sum()), "face_albedo_luma": [round(lum0, 1), round(lum1, 1)]}
     if '--clean-brow' in sys.argv:
         rep["clean_brow"] = rep_brow
+    if '--knee' in sys.argv:
+        rep["knee"] = rep_knee
+if '--keep-face-surface' in sys.argv:
+    rep["face_surface_hair_kept"] = rep_keep
 js['buffers'][0]['byteLength'] = len(b)
 R_.write_glb(OUT, js, b)
 print(json.dumps(rep))

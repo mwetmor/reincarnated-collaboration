@@ -1,5 +1,26 @@
 # Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2; resumed R-C9-224, PAUSED AGAIN 2026-10-08
 
+## R-C9-237 (2026-10-08): Matt approved G+rim to ship after ONE fix -- the bright white at her forehead/eyes. FIXED; stills with the conductor; WAITING for the conductor's go before STEP 2 (ship)
+
+- CAUSE (measured, not guessed): the white was NOT skin -- the probe's ID pass has NO surface of hers at those pixels: SEE-THROUGH
+  to the snow. On the one-shell body the hair IS the surface: (1) her brow/eye-region islands are hair-CLASSED (r140's dark-island
+  test) and tucking them opened holes in her face; (2) tucking the crown hair opened the forehead/crown under the hood's open
+  crown. Also toned: the forehead repaint used the LIGHT half's median (252,203,163) -> now the face's median (177,133,101).
+- FINAL = body `export/ss233q/so-body_ss233.glb` (r233_04 --tuck-all --lift 0.78,1.06 --lift-head --clean-brow 1.60 --brow-pct 0
+  --knee 1.15 --keep-face-surface 0.006: 482 face-surface hair vertices stay; face texels no brighter than 1.15x the face's median
+  skin) + hood `export/ss233o/hood.glb` (ss233m + a SCALP primitive, `scripts/r233_08_scalp.py`: her skull's hair surface 3 mm in,
+  one skin texel; only on the skull within 0.12 m, plus strands lying on the face) + the pen change (body + lining surfaces at
+  the THIN class, lining = surfaces >= 2 of the hood: shell 0, cap 1, linings 2-3, scalp 4).
+- Check (`scripts/r237_01_head_clip.py`, look/r237_ship/head_clip_check.json): no clipped or >=235 pixel on her head at any of
+  8 headings x 3 clips (her own pixels max 245 = live's 245, worst p99 211); remaining white in the window = snow between
+  arm and head, same as live. Idle: face visible 39% -> 70%, visible-face luma 66 -> 86. Orb-tip trace identical: 0.2667 / 1.80 s.
+- Stills: `look/r237_ship/R-C9-237_live_vs_final_z1.jpg` and `_z3.jpg`.
+- STEP 2 on the conductor's go: hood scalp+lining surfaces need their own glTF materials for the live code? NO -- the live code
+  can key on surface INDEX >= 2 of the hood piece, as the probe does; simpler: give primitives 2..4 a material named
+  "hood_lining" (same texture) and key on the name. Then barrow_full.gd + make_slots + rebuild + checks + ONE loadout commit +
+  JOIN-1 v6 (from ss233q; lint + 3 negative controls; releases 0.2667 / 1.80).
+
+
 ## R-C9-236 (2026-10-08): fix G RATIFIED + "cleaner rim" -- G+RIM stills with the conductor for Matt's look. NO web rebuild, loadout commit or JOIN-1 pack until he has looked
 
 - G + RIM (proposed) = body `export/ss233g/so-body_ss233.glb` (G, unchanged) + hood `export/ss233m/hood.glb` + a pen change:
