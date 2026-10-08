@@ -120,3 +120,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [ ] STAND BY: P6prime on LV's NEXT commit after 29ac8f4b8 (shelf + cliff walls pass), not on 29ac8f4b8 (conductor). Re-run `python3 harness/p6prime_art.py`; wreck burial now declared (34.4%).
 - [x] P6prime on 09ba67b23 (§ 41): RED presence -- fallen ring_stones #5 (0.897) and #7 (0.642) seated below their slope; wreck 0.304 OK; placement/scale PASS; I-4 RED fails. HALT for LV.
 - [x] P6prime on 1f9eb1dc7 (§ 42): RED -- layout slope_stone_0 not built (crosscheck 61 vs 60), gully_rock #1 0.738 hidden undeclared; placement/scale PASS; I-4 RED fails. Repaint gated; HALT for LV.
+- [x] P6prime on 368cdf791 (§ 43): PASS (crosscheck 59/59; hidden max 0.477; placement 0.9722; scale 0/112); I-4 RED fails. Repaint gate met for P6prime.

@@ -1273,3 +1273,16 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
    - gully_rock #0 (0.477) sits just under the bar.
 
 **Not counted against the build, noted.** ring_stones has 4 instances; the three fallen slabs of §§ 40–41 are no longer in the layout.
+
+## 43. P6′ on 368cdf791 (LV's presence fold for § 42; R-C9-231). Frozen bars. `results/p6prime_bv2pp_368cdf791.json`
+
+**Inputs.** `ids_art.png` sha eec9fa67…, matching the manifest. Slot crosscheck **PASS**: 59 layout placements against 59 level slots, 0 mismatches. LV dropped `slope_stone_0` (inside the barrow kerb, never built) and `gully_col_e_1`.
+
+| Component | Result | Verdict |
+|---|---|---|
+| I-4 RED (1.5 m shift) | 6 of 13 objects below 0.7872 | **FAILS, as required** |
+| presence | 0 missing, 0 extra, 0 terrain-hidden over 0.50. Worst: gully_rock 0.477, cliff_faces 0.409, barrow_front 0.387, wreck 0.327 | **PASS** |
+| placement | min containment 0.9722 (logs) | **PASS** |
+| scale | 112 instances, 0 over 1.10, 0 record mismatches | **PASS** |
+
+**P6′ = PASS on 368cdf791.** No hidden-by-design was needed. The repaint gate's P6′ condition is met.
