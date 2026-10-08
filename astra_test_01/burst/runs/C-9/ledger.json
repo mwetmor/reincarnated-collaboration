@@ -47032,6 +47032,16 @@
         "And I should mention that adding the block-ice to the river was a bit odd as the ice seemed too large and blocky for the river.. simply make the river smaller as it is in sketch A and don't add any block ice to it."
       ],
       "ts": "2026-10-08T01:30:05Z"
+    },
+    {
+      "id": "R-C9-224",
+      "by": "Matt",
+      "ruling": "RESUME the sorceress hood fix (lane SO, paused at R-C9-153/157): OPTION B confirmed -- hood cap closes the crown/back openings, braid tucked inside while the hood is worn (hood_braid morph), face and front hair untouched (so_mx/export/ss152b). Lane SO resumes per so_mx/RESUME.md 'Next, in order' steps 2-6: Barrow web rebuild pinned to EOR2 b4de84e65 (latest; sparks streak + reddish translucent smoke), select_check + web_perf_eor, ONE loadout commit (conductor pushes; Vercel deploys -- loadout playtest routes are covered by R-C9-84/164, push once and check once), the JOIN-1 sorceress v5 pack render + manifest lint with its negative controls, ledger milestones. The empty join1_pack_v5/d2-fire-sorc-bm/ that blocked step 5 is already gone. Runs in parallel with BV2F; shares the heavy lock (pt_godot-style timeout guard required); disk halt at 21 GiB.",
+      "verbatim": [
+        "Also we should continue to fix the hair of the sorceress in the battle mage helmet/armor",
+        "(AskUserQuestion) Hood fix: \"Option B (Recommended)\""
+      ],
+      "ts": "2026-10-08T02:42:09Z"
     }
   ],
   "grok_calls": [
