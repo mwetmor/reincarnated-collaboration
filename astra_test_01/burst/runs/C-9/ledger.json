@@ -44366,9 +44366,666 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-0_0",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "29cc86fdd4eab8416d3a54341984487d3cce137083461dbba8284b3e81028af4",
+      "started": "2026-10-08T12:32:16.482194+00:00",
+      "ended": "2026-10-08T12:36:32.709957+00:00",
+      "minutes": 4.2704716694327844,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b80-0a38-7050-98a8-32cefd1e9971/exec-16095dd7-7b94-4d91-85f0-d48b0da50446.png",
+            "sha256": "53b4036eb5002aeadb38b86f7729ce0f4aad5b096f3260cf94963af3e8dde164"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b80-0a38-7050-98a8-32cefd1e9971/exec-8cfb0a38-b6ad-4324-ada6-7f7671808c2b.png",
+            "sha256": "0538cffd84e9dde3ef7f4cf9178c65b43c8e31abfd552050e63e5ceb8afc18d8"
+          }
+        ]
+      },
+      "receipt_sha256": "3cc9c69b73b3ac7dae5778d54858674c69fc2303417e438ccb3ff6728a313f47",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-0_0.png",
+          "sha256": "0538cffd84e9dde3ef7f4cf9178c65b43c8e31abfd552050e63e5ceb8afc18d8"
+        },
+        {
+          "name": "exec-16095dd7-7b94-4d91-85f0-d48b0da50446.provenance.json",
+          "sha256": "e6672a9734c13d17dceef2ef0a8b37a9681cdfd78c475bee9a91c4298e1e5039"
+        },
+        {
+          "name": "exec-8cfb0a38-b6ad-4324-ada6-7f7671808c2b.provenance.json",
+          "sha256": "4e87dda48bda1cb5f6f49bdefbd1cd5ae3bd2d0d854206d2bb784a817975ebd2"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b80-0a38-7050-98a8-32cefd1e9971/exec-16095dd7-7b94-4d91-85f0-d48b0da50446.png",
+          "sha256": "53b4036eb5002aeadb38b86f7729ce0f4aad5b096f3260cf94963af3e8dde164"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b80-0a38-7050-98a8-32cefd1e9971/exec-8cfb0a38-b6ad-4324-ada6-7f7671808c2b.png",
+          "sha256": "0538cffd84e9dde3ef7f4cf9178c65b43c8e31abfd552050e63e5ceb8afc18d8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-1_0",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "b49a455335a4c2ae5d73a21dc40637fe34b885ec19c9ab9ea01a978a7b19ea4a",
+      "started": "2026-10-08T12:36:35.429394+00:00",
+      "ended": "2026-10-08T12:40:50.758854+00:00",
+      "minutes": 4.255502662501143,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b83-f603-7671-b04a-eeb4f1c731a6/exec-7ddce12e-62fb-458c-a4d3-9f97709a53be.png",
+            "sha256": "6c24dabe451ae19bcb24b5c392e44781bfc08e454a41aa4a5c3feb381e7dc6b9"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b83-f603-7671-b04a-eeb4f1c731a6/exec-9ef55926-e3ee-42cd-a67e-d08cb4d8a1e4.png",
+            "sha256": "28d0a3809c004edb61b083d8fd78df905cc6c9bdb4a12b28a466fd5744ed702c"
+          }
+        ]
+      },
+      "receipt_sha256": "2438c90fa9061f2f558cc9984cfa17b99dcc27e2f6bdf471de8702aac4097dd9",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-1_0.png",
+          "sha256": "6c24dabe451ae19bcb24b5c392e44781bfc08e454a41aa4a5c3feb381e7dc6b9"
+        },
+        {
+          "name": "exec-7ddce12e-62fb-458c-a4d3-9f97709a53be.provenance.json",
+          "sha256": "47e35890080408fbcd8bc32a7b9c7e9e42ab794451d60a69c2d575c7d1e7c2ff"
+        },
+        {
+          "name": "exec-9ef55926-e3ee-42cd-a67e-d08cb4d8a1e4.provenance.json",
+          "sha256": "8423d7514a02324fdcab16998783c8dfde265b8836a14fefdb4d1b4fc5d2bd58"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b83-f603-7671-b04a-eeb4f1c731a6/exec-7ddce12e-62fb-458c-a4d3-9f97709a53be.png",
+          "sha256": "6c24dabe451ae19bcb24b5c392e44781bfc08e454a41aa4a5c3feb381e7dc6b9"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b83-f603-7671-b04a-eeb4f1c731a6/exec-9ef55926-e3ee-42cd-a67e-d08cb4d8a1e4.png",
+          "sha256": "28d0a3809c004edb61b083d8fd78df905cc6c9bdb4a12b28a466fd5744ed702c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-2_0",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "b925b3140f2df9a0af3f216e5bd3c255216e9f9edc759209ed6f5e429c827473",
+      "started": "2026-10-08T12:40:55.880961+00:00",
+      "ended": "2026-10-08T12:45:15.468644+00:00",
+      "minutes": 4.326473008332929,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7520-bf6b-b0eb96f9da33/exec-3ae0cd6a-8aee-4b34-a3e8-df19de814083.png",
+            "sha256": "994545a4e9b3469ea2ce171f066852a7247cc1273380a67ea6eac76c305a8695"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7520-bf6b-b0eb96f9da33/exec-dc276b4c-a067-483d-b0b2-668ca72e6606.png",
+            "sha256": "bdb097c5e330236d05c8cfa7732fd5be84fcd5ff7cb40c4d833a6d16aaeee175"
+          }
+        ]
+      },
+      "receipt_sha256": "970e7828cdd77f6100ffeae5acc154af2945c9fe79aacd3cfb7ac9817559dff0",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-2_0.png",
+          "sha256": "bdb097c5e330236d05c8cfa7732fd5be84fcd5ff7cb40c4d833a6d16aaeee175"
+        },
+        {
+          "name": "exec-3ae0cd6a-8aee-4b34-a3e8-df19de814083.provenance.json",
+          "sha256": "adbd3c0eb48308bd4199a9d71a3e72436de15d08c4ab4f57b6c23e61afbb39ba"
+        },
+        {
+          "name": "exec-dc276b4c-a067-483d-b0b2-668ca72e6606.provenance.json",
+          "sha256": "15caf21e24fba591cf733779dd82f1f6c8876a46b72bd0ee863233f9e2253d6f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7520-bf6b-b0eb96f9da33/exec-3ae0cd6a-8aee-4b34-a3e8-df19de814083.png",
+          "sha256": "994545a4e9b3469ea2ce171f066852a7247cc1273380a67ea6eac76c305a8695"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7520-bf6b-b0eb96f9da33/exec-dc276b4c-a067-483d-b0b2-668ca72e6606.png",
+          "sha256": "bdb097c5e330236d05c8cfa7732fd5be84fcd5ff7cb40c4d833a6d16aaeee175"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-0_1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "1650be72781d3eeab11de46b02b30823aa631f2306f5a7911264a2bcdd20358d",
+      "started": "2026-10-08T12:40:55.880960+00:00",
+      "ended": "2026-10-08T12:45:29.234375+00:00",
+      "minutes": 4.555901440966409,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7190-80b6-20654ab72324/exec-a522ad05-b222-40bc-b3f7-399c3321c663.png",
+            "sha256": "1000e600c0bb4d88def326bce3f0b2aa3d25f89d9d262aad75d29d8d4e287f10"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7190-80b6-20654ab72324/exec-f633aec7-0bb7-4c95-a24a-54292be9295a.png",
+            "sha256": "3f3efd8ce5d70da40302cf4296e5a29d6e048bbb65a9bfe40e3da9702a72291a"
+          }
+        ]
+      },
+      "receipt_sha256": "394cd1c16fcb6582202651705738c4ece2146a8ccdaf25e27de8ba06f7d67666",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-0_1.png",
+          "sha256": "1000e600c0bb4d88def326bce3f0b2aa3d25f89d9d262aad75d29d8d4e287f10"
+        },
+        {
+          "name": "exec-a522ad05-b222-40bc-b3f7-399c3321c663.provenance.json",
+          "sha256": "f11b8126420f86159c7f319567e5036b1aa9f72001d761f722611cb321574ec1"
+        },
+        {
+          "name": "exec-f633aec7-0bb7-4c95-a24a-54292be9295a.provenance.json",
+          "sha256": "7f35cdcd9b602031dcbd415ba55addfb55219e8c0b73fe77a6e963ad3fc45d32"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7190-80b6-20654ab72324/exec-a522ad05-b222-40bc-b3f7-399c3321c663.png",
+          "sha256": "1000e600c0bb4d88def326bce3f0b2aa3d25f89d9d262aad75d29d8d4e287f10"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b87-ef74-7190-80b6-20654ab72324/exec-f633aec7-0bb7-4c95-a24a-54292be9295a.png",
+          "sha256": "3f3efd8ce5d70da40302cf4296e5a29d6e048bbb65a9bfe40e3da9702a72291a"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-1_1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "8afef49a29169c95309f0897238383c8628036248c7d4a5192a07f6c17d48dae",
+      "started": "2026-10-08T12:45:32.509649+00:00",
+      "ended": "2026-10-08T12:49:34.186016+00:00",
+      "minutes": 4.027949522216416,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b8c-2807-71e0-881d-1380cf96a0c3/exec-2d71d4cf-6211-4929-be2a-c2039853d0c7.png",
+            "sha256": "f3b964ed7d84ca413292b45ca55dd375f36803a2044f5ab258d4a41a4b03db24"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b8c-2807-71e0-881d-1380cf96a0c3/exec-63d35349-ca99-497f-b105-97fb4d3ffaae.png",
+            "sha256": "0a997eaf10edd6e68eb3f5d01481f720207f47160b408306bf99fa8b51543ea2"
+          }
+        ]
+      },
+      "receipt_sha256": "c91363ff88c34f4cc4fc14455c652e709bf09da7f2d8745574600ffa3ed9791e",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-1_1.png",
+          "sha256": "0a997eaf10edd6e68eb3f5d01481f720207f47160b408306bf99fa8b51543ea2"
+        },
+        {
+          "name": "exec-2d71d4cf-6211-4929-be2a-c2039853d0c7.provenance.json",
+          "sha256": "5a2559ad0f7618302ebe9c1afa50b6e3e69039989c2c61e0086a8cc8cede73f3"
+        },
+        {
+          "name": "exec-63d35349-ca99-497f-b105-97fb4d3ffaae.provenance.json",
+          "sha256": "04e7477018d92be5d524d6b2d07114aad7bebdcb80c09b1b508f17c94d750750"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b8c-2807-71e0-881d-1380cf96a0c3/exec-2d71d4cf-6211-4929-be2a-c2039853d0c7.png",
+          "sha256": "f3b964ed7d84ca413292b45ca55dd375f36803a2044f5ab258d4a41a4b03db24"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b8c-2807-71e0-881d-1380cf96a0c3/exec-63d35349-ca99-497f-b105-97fb4d3ffaae.png",
+          "sha256": "0a997eaf10edd6e68eb3f5d01481f720207f47160b408306bf99fa8b51543ea2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-2_1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "85615718d7000497aaf65820236c590de8d59164775de31a38afaa104fe7b27e",
+      "started": "2026-10-08T12:49:38.988071+00:00",
+      "ended": "2026-10-08T12:54:05.794266+00:00",
+      "minutes": 4.446781899316314,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-7350-b25f-da6e87f5afc2/exec-49fb501a-94ed-4533-827c-af3e366e0c03.png",
+            "sha256": "e9269196f041d1e073660ce781aa6585cafb46261227e217dd45674163fa170f"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-7350-b25f-da6e87f5afc2/exec-f10a9575-daaa-4857-bd9f-d117b5dbf086.png",
+            "sha256": "b76079cc4c48ec88eaddd8838a949a850d197be33477232aebdd651f46d6aa16"
+          }
+        ]
+      },
+      "receipt_sha256": "56411d1d0072b651c5a694e68671cb06628fae7304127b3ea0d29dd34a8506c4",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-2_1.png",
+          "sha256": "e9269196f041d1e073660ce781aa6585cafb46261227e217dd45674163fa170f"
+        },
+        {
+          "name": "exec-49fb501a-94ed-4533-827c-af3e366e0c03.provenance.json",
+          "sha256": "3dce18c230a0acb8166bf474c0035847b0a4011d226ece3c15a52faf745e5634"
+        },
+        {
+          "name": "exec-f10a9575-daaa-4857-bd9f-d117b5dbf086.provenance.json",
+          "sha256": "1233443c09ea6a84316d927f953b9bf35848060130563c5f685315ea27513da6"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-7350-b25f-da6e87f5afc2/exec-49fb501a-94ed-4533-827c-af3e366e0c03.png",
+          "sha256": "e9269196f041d1e073660ce781aa6585cafb46261227e217dd45674163fa170f"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-7350-b25f-da6e87f5afc2/exec-f10a9575-daaa-4857-bd9f-d117b5dbf086.png",
+          "sha256": "b76079cc4c48ec88eaddd8838a949a850d197be33477232aebdd651f46d6aa16"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-0_2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "95de4ed5abbc083044bb01a1d815b45789a99173a41864460a3b5c5cb8a6572f",
+      "started": "2026-10-08T12:49:38.988072+00:00",
+      "ended": "2026-10-08T12:54:16.939092+00:00",
+      "minutes": 4.632529194449307,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-73c3-abd8-081c690d95d2/exec-44244e04-49ff-44e0-8048-57461d6573f2.png",
+            "sha256": "4356d239a9aa4363df1607e4d23beada0ba88ee553793c1b89efab6cd15d53de"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-73c3-abd8-081c690d95d2/exec-f05c385c-cefd-4482-9ae6-6cc0a3c50149.png",
+            "sha256": "bb182602765aad1396ffc4fad4cc6e528a002be08d51328e3996b5181e8a71c2"
+          }
+        ]
+      },
+      "receipt_sha256": "4e8522e0f8a5e379e1ba1078c69339aefd1f9cf71f57b950cc35bed1dc791d93",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-0_2.png",
+          "sha256": "bb182602765aad1396ffc4fad4cc6e528a002be08d51328e3996b5181e8a71c2"
+        },
+        {
+          "name": "exec-44244e04-49ff-44e0-8048-57461d6573f2.provenance.json",
+          "sha256": "10d49c4071125fb82664e729156d136f432e442a72b5d8dabc79aae31a9689a1"
+        },
+        {
+          "name": "exec-f05c385c-cefd-4482-9ae6-6cc0a3c50149.provenance.json",
+          "sha256": "b036675aa4e3d936d5c8fe4d6657a9b3d39225d2e0e5d022cf02944d0962570f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-73c3-abd8-081c690d95d2/exec-44244e04-49ff-44e0-8048-57461d6573f2.png",
+          "sha256": "4356d239a9aa4363df1607e4d23beada0ba88ee553793c1b89efab6cd15d53de"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b8f-ead9-73c3-abd8-081c690d95d2/exec-f05c385c-cefd-4482-9ae6-6cc0a3c50149.png",
+          "sha256": "bb182602765aad1396ffc4fad4cc6e528a002be08d51328e3996b5181e8a71c2"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-1_2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f56c05eac70b90dfd7240b38b30ec9e53a57d259355cfa67c9d33b05e32cb7c4",
+      "started": "2026-10-08T12:54:20.273793+00:00",
+      "ended": "2026-10-08T12:58:36.385859+00:00",
+      "minutes": 4.268547593049394,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b94-3593-7af1-9be1-5ed91a43fa6b/exec-b9ed1700-b069-49cd-801b-76cd3a744993.png",
+            "sha256": "afa3012b852e170a4089eb7cf69ac237e0b5d2774ef2fd695b5f0861ee618dd6"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b94-3593-7af1-9be1-5ed91a43fa6b/exec-c7ed3e80-4530-4337-8a7c-6632dd18c46c.png",
+            "sha256": "61a9d92ad78c65b28eb57f38dd8ac0a2efdf0bbcead81075e6ee469956ca9b8f"
+          }
+        ]
+      },
+      "receipt_sha256": "79627008e5bdc65e37e9faa9fdb11e78ee66ff82b89602a0dc98c31387c9778b",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-1_2.png",
+          "sha256": "afa3012b852e170a4089eb7cf69ac237e0b5d2774ef2fd695b5f0861ee618dd6"
+        },
+        {
+          "name": "exec-b9ed1700-b069-49cd-801b-76cd3a744993.provenance.json",
+          "sha256": "f0b973df49410d4aec80bb18ba85f718a4efc58d68f7fef06014e4e668291506"
+        },
+        {
+          "name": "exec-c7ed3e80-4530-4337-8a7c-6632dd18c46c.provenance.json",
+          "sha256": "2d21d8ad4c4a763c59f923248b59d4be7ea1e29151d9cc6be2661444c5246273"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b94-3593-7af1-9be1-5ed91a43fa6b/exec-b9ed1700-b069-49cd-801b-76cd3a744993.png",
+          "sha256": "afa3012b852e170a4089eb7cf69ac237e0b5d2774ef2fd695b5f0861ee618dd6"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b94-3593-7af1-9be1-5ed91a43fa6b/exec-c7ed3e80-4530-4337-8a7c-6632dd18c46c.png",
+          "sha256": "61a9d92ad78c65b28eb57f38dd8ac0a2efdf0bbcead81075e6ee469956ca9b8f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PS2-2_2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "4f9d74a71868de0730e9b2e5fdb2a984d626381cf8e95752463a9e14a591d187",
+      "started": "2026-10-08T12:58:39.654711+00:00",
+      "ended": "2026-10-08T13:02:30.459344+00:00",
+      "minutes": 3.8467535583341186,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b98-2acd-7dc2-8920-4afe80776103/exec-d2e5229d-24d1-4c72-b518-5324b7ef9059.png",
+            "sha256": "15b8048db3a99e006b1feaeffba2750801efaa8d52f21a9ac92c7d718f5e4c90"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11b98-2acd-7dc2-8920-4afe80776103/exec-f51b4376-086b-4be7-8c60-039da2b70e74.png",
+            "sha256": "afef806fc92e1a3593929afc8febaafd2101e6c7ff95d344beac9cd57d866ad4"
+          }
+        ]
+      },
+      "receipt_sha256": "ff9be61bf960969a069d64d3a7f716d63eb54c4d8bfb8d05f86e9b1201abd2bc",
+      "artifacts": [
+        {
+          "name": "BV2F-PS2-2_2.png",
+          "sha256": "afef806fc92e1a3593929afc8febaafd2101e6c7ff95d344beac9cd57d866ad4"
+        },
+        {
+          "name": "exec-d2e5229d-24d1-4c72-b518-5324b7ef9059.provenance.json",
+          "sha256": "46283817f7cebb8bf2e7de2ddd4c97cbb8d011c494dc5f22519d97039394f9d3"
+        },
+        {
+          "name": "exec-f51b4376-086b-4be7-8c60-039da2b70e74.provenance.json",
+          "sha256": "9da97becbb83a7aa2b7cbb56c93ea9188e4782b9a79b978c29390073b52d538c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b98-2acd-7dc2-8920-4afe80776103/exec-d2e5229d-24d1-4c72-b518-5324b7ef9059.png",
+          "sha256": "15b8048db3a99e006b1feaeffba2750801efaa8d52f21a9ac92c7d718f5e4c90"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11b98-2acd-7dc2-8920-4afe80776103/exec-f51b4376-086b-4be7-8c60-039da2b70e74.png",
+          "sha256": "afef806fc92e1a3593929afc8febaafd2101e6c7ff95d344beac9cd57d866ad4"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1301,
+  "images_used": 1319,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -47810,6 +48467,13 @@
       "ts": "2026-10-08T08:30:04-04:00",
       "verbatim": "",
       "ruling": "LV R-C9-239 (5a07c024f) PASS: mound cutting smooth both sides; wreck-foot sawtooth lead gone; drifts rounded and wind-scalloped; scope held (placements + other slab groups identical); gates green. PILOT REPAINT 2 RELEASED to PT from LV 5a07c024f: repaint ALL 9 pilot tiles (cumulative change vs the painted BV2F-PS base touches every tile, incl. both fallen stones at 2_1/2_2; one hand for the whole pilot as in v1), wavefront order, diagonals in parallel, prefix BV2F-PS2, cap 18 images. Before painting: add classes reed/ground_reed and lead/ground_lead to PT's palette, reeds.py LAND_IDS (ground_reed) and pilot_class_masks (lead -> sea); PH adds both to its class palette before the harness. Paint direction (R-C9-234): mere = mostly unbroken ice with FEW soft pale veins, never black ink; mere -> sea seamless, ice breaking up gradually; reeds = sketch A's tall pale reed clumps; shingle = one beach with rounded snow drifts; keep everything Matt passed. Then stitch/take/bake/build -> PH inputs + 12 P11 stills + M2'' sheet + the owed film. Then PH harness (P11 v3) -> jack-ryan Gate-2 -> M2'' to Matt. Residual left to the painter: 6 cm class-raster steps at the shingle/ice edge (pilot_06)."
+    },
+    {
+      "id": "R-C9-241",
+      "by": "gandalf (conductor, DRIFT-CRITIC on BV2F-PS2 canvases)",
+      "ts": "2026-10-08T09:04:10-04:00",
+      "verbatim": "",
+      "ruling": "BV2F-PS2 (paint 815c384da, 18/18 images) reviewed as a 3x3 contact sheet before stitch. The content follows direction well: pale few-veined mere, reed clumps on snowy islands, one shingle beach, broken floes, mast, mound door. DEFECT: hard straight TONE SEAMS at the pasted-context boundary. Vertical at x=256 in 2_0 and 2_1: the context ice is light, the new paint's ice a darker blue. Horizontal at y~256 on the left of 0_1. These are the same class of failure as Matt's 'rectangle' note; they must not reach him. ROUTE (cheapest first, v1-faithful): (1) PT dry-run stitch (Python, no lock) and measure every internal boundary as a low-frequency colour step across the join, on ice/snow pixels, 8-16 px each side; report it plus crops. (2) If any join steps visibly, open DEV-23 = stitch low-frequency tone match: correct only the new tile's low-frequency colour field (blur sigma ~48-64 px) to the context strip, fading out over ~300 px into the tile; never alter high-frequency paint detail; Tier-B patch to stitch, recorded in the DEV register for jack-ryan at Gate-2. Re-measure and give before/after crops. (3) Only if DEV-23 cannot hide it: repaint 2_0 then 2_1 (2_2 only if its left context changes), up to +6 images. Then PT messages the conductor for the heavy lock before take/bake/build. Painter concerns to check at build: extra beach stones (0_1), dark marks round the lower island (1_0), denser veins (0_0/0_2), masonry-like steps (2_2)."
     }
   ],
   "grok_calls": [
