@@ -42,6 +42,20 @@
   "s47v4_evidence_FILE_sha256": "b7bdffde53acea95343961e1b713b33ac27eb569349d8957d17f59739906b32f",
   "verdict": "ORACLE BYTE-IDENTICAL"
  },
+ "amendments": [
+  {
+   "append_only": true,
+   "committed_line_verified_at_02bff63f": [
+    "        r = [x for x in kit_crit[\"rows\"] if x[\"operand\"] == \"crit_damage_pct_eor\"][0]   # rows are id-sorted"
+   ],
+   "committed_tool_FILE_sha256_at_02bff63f": "bf3db9209d96488f82697a1e05b6e89670a8aed472e84eda4a17e24d8537b27b",
+   "file": "src/reincarnated/export/kc2_rulebook_pack_v2.py (in _apply-control branch of main_build, KC2_RB2_CONTROL=value-ulp)",
+   "hunk": "-        r = kit_crit[\"rows\"][0]\n-        assert r[\"operand\"] == \"crit_damage_pct_eor\"\n+        r = [x for x in kit_crit[\"rows\"] if x[\"operand\"] == \"crit_damage_pct_eor\"][0]   # rows are id-sorted",
+   "id": "INFO-V2-1 (jack-ryan v2 delta Gate-2, collab 4f627dc15; KP-378)",
+   "what": "the NC-V2-a fix hunk, recorded verbatim (control harness only; applied to the uncommitted tool after NC-V2-a r1, before the cut; no pack byte depends on it)",
+   "why": "kit_crit rows are sorted by id, so rows[0] is RB-BRACKET-crit_bracket_player_stream; r1 hit the assert (AssertionError) instead of the predicted HALT"
+  }
+ ],
  "artifact": "JOIN-1 KP-373/375/376 pack v2 gate evidence (G-8, G-10) + controls NC-V2-a..d (raw outputs in controls/)",
  "author": "star-lord",
  "controls": {
