@@ -166,6 +166,51 @@ def score(base, label):
             "pass": worst is not None and worst <= 16.7 and not rec and not any(r["void"] for r in rows)}
 
 
+def window(base, scene, view, first_window, paused, envelope_from=None):
+    """§ 48 (c) amendment A: inside a scheduled QUIET WINDOW, fresh-process runs in the order W P W P W P (W = the v1
+    witness, P = the candidate); each run under the quiescence precondition and the 1 Hz VOID log. Binding: the candidate's
+    worst-of-3 p99 <= 16.7 and the deterministic hitch. Report-only: the paired P p50 - adjacent W p50. First window: the
+    3 W runs RECORD the envelope (p50 range +- 0.5 ms). Later windows: a W p50 outside the recorded envelope VOIDs the session.
+    Launch DETACHED with output to a file, e.g.  nohup python3 p10_disc.py window ... > <base>/driver.log 2>&1 &"""
+    os.makedirs(base, exist_ok=True)
+    wlog = {"start": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "paused_by_conductor": paused, "first_window": first_window,
+            "order": "W P W P W P", "runs": []}
+    def save():
+        json.dump(wlog, open(os.path.join(base, "window_log.json"), "w"), indent=1)
+    save()
+    for i in range(1, 4):
+        for lab, sc, vw in (("W", "res://scenes/barrow_painted.tscn", "uv:0,1"), ("P", scene, view)):
+            d = os.path.join(base, "%s_%d" % (lab, i))
+            r = one_run(d, sc, vw)
+            wlog["runs"].append({"run": "%s_%d" % (lab, i), "result": r, "t": time.strftime("%H:%M:%S")})
+            save()
+            if r.get("halt") or r.get("void"):
+                wlog["halt_or_void"] = {"run": "%s_%d" % (lab, i), "result": r}
+                wlog["stop"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+                save()
+                return wlog
+    W = score(base, "W")
+    Pp = score(base, "P")
+    pairs = []
+    for i in range(1, 4):
+        wp = [x for x in W["runs"] if x["run"] == "W_%d" % i][0]["p50"]
+        pp = [x for x in Pp["runs"] if x["run"] == "P_%d" % i][0]["p50"]
+        pairs.append({"pair": i, "P_p50": pp, "W_p50": wp, "diff_report_only": round(pp - wp, 3)})
+    wp50 = [x["p50"] for x in W["runs"]]
+    if first_window:
+        env = [round(min(wp50) - 0.5, 3), round(max(wp50) + 0.5, 3)]
+        session_void = False
+    else:
+        env = json.load(open(envelope_from))["envelope_p50"]
+        session_void = any(not (env[0] <= x <= env[1]) for x in wp50)
+    wlog.update(stop=time.strftime("%Y-%m-%dT%H:%M:%S%z"), witness=W, candidate=Pp, paired_report_only=pairs,
+                envelope_p50=env, envelope_recorded_here=first_window, session_void=session_void,
+                binding={"worst_p99": Pp["worst_p99"], "p99_pass": Pp["p99_pass"], "hitch_pass": Pp["hitch_pass"],
+                         "pass": (not session_void) and Pp["pass"]})
+    save()
+    return wlog
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a[0] == "set":
@@ -175,6 +220,13 @@ if __name__ == "__main__":
         print(json.dumps(run_set(a[1], a[2], a[3], runs, burn, label)))
     elif a[0] == "score":
         print(json.dumps(score(a[1], a[2] if len(a) > 2 else "run"), indent=1))
+    elif a[0] == "window":
+        # window <base> <scene> <view> --first | --envelope <window_log.json of the founding window>  [--paused "..."]
+        first = "--first" in a
+        env = a[a.index("--envelope") + 1] if "--envelope" in a else None
+        paused = a[a.index("--paused") + 1] if "--paused" in a else ""
+        r = window(a[1], a[2], a[3], first, paused, env)
+        print("window done", json.dumps(r.get("binding", r.get("halt_or_void"))))
     elif a[0] == "witness":
         base = a[1]
         r = run_set(base, "res://scenes/barrow_painted.tscn", "uv:0,1", 3, None, "v1")

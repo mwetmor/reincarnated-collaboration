@@ -1559,3 +1559,19 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **Pilot 4's four failing chunks have 1–18 windows**: 0_0 18, 1_0 1, 0_1 1, 0_2 2.
 - **The passing chunks have 12–130.**
 - **No minimum-support rule is proposed:** v1 has no chunk below 40 windows, so it offers nothing to calibrate a lower cut-off on (Gate-2 § 4: calibrated on v1's own low-support chunks, or not at all).
+
+### § 48 (c) AMENDMENT A — P10 quiescence (jack-ryan pilot-4 Gate-2 Addendum A; R-C9-269). Committed BEFORE any quiet-window run. No bar moves.
+- **No exemptions.** The session terminal (Warp) is **not** exempt. OS services (mediaanalysisd etc.) are not exempt: the precondition waits for them. The 10 % / 25 % / 20-try numbers stand.
+- **When P10 binds.** **P10 binds ONLY inside a scheduled QUIET WINDOW.** The conductor pauses the Sim Session and every other lane: no other Godot or Blender process, no agent git or Python jobs, other sessions idle. PH holds the heavy lock for the whole window.
+- **How PH launches it.** Detached, output to file, never streamed to the terminal:
+  `nohup python3 harness/p10_disc.py window <base> <scene> <view> --first|--envelope <founding window_log.json> --paused "<what the conductor paused>" > <base>/driver.log 2>&1 &`
+  PH's session then waits on `<base>/window_log.json` without polling output.
+- **Run order:** **W P W P W P** (W = v1 witness `barrow_painted.tscn` uv (0, 1), P = candidate), as fresh processes, each under the quiescence precondition and the 1 Hz VOID log.
+  - **Binding:** the candidate's worst-of-3 p99 ≤ 16.7 ms + the deterministic hitch.
+  - **Report-only:** the paired difference P p50 − adjacent W p50.
+- **The envelope.**
+  - In the **first** window, the three W runs **record** the envelope (W p50 range ± 0.5 ms), and that session's P runs are validated by the per-run rules only.
+  - **From the second window on**, a W p50 outside the envelope VOIDs the session.
+- **The window record** (`window_log.json`) holds the start/stop times, what was paused, every run's quiescence and VOID result, and the binding readout.
+- **If the window cannot reach quiescence in 20 tries → HALT → matt_to_do** (a host-level change). It is not a bar move.
+- **Until the conductor calls the first window: no P10 runs.**
