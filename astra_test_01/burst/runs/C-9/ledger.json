@@ -47044,9 +47044,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-ps4_crack1-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "c351821719ae2047d02a5b20e1b8ee9467b40796e9fe3a7d2e105c58de2ad405",
+      "started": "2026-10-08T20:10:24.309250+00:00",
+      "ended": "2026-10-08T20:12:41.334502+00:00",
+      "minutes": 2.2837764701495566,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11d23-74b1-7f93-a3cd-bd210b3e186e/exec-1b379813-0e65-4098-a85d-e02089df25d1.png",
+            "sha256": "4b66deba8fb135c509da8643025eb207c6e615fd07ee4740e95b02589e29ad38"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11d23-74b1-7f93-a3cd-bd210b3e186e/exec-695b56a7-f733-4d7b-8ba6-fcb28910db6e.png",
+            "sha256": "e90f75d72dd9690d43dd30bd083f1df4182531fbf88d431ad748dc06057cc470"
+          }
+        ]
+      },
+      "receipt_sha256": "d8216c52a1e13c081d523092fb73526d52847333afea865ae0e44eb8794dde51",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-ps4_crack1-1.png",
+          "sha256": "e90f75d72dd9690d43dd30bd083f1df4182531fbf88d431ad748dc06057cc470"
+        },
+        {
+          "name": "exec-1b379813-0e65-4098-a85d-e02089df25d1.provenance.json",
+          "sha256": "1f86ece549fcf3ed711e044a07ca0f334e3a55ecaee3d72f71c4be034a71b13e"
+        },
+        {
+          "name": "exec-695b56a7-f733-4d7b-8ba6-fcb28910db6e.provenance.json",
+          "sha256": "60df995a6658127166e319bfcf52bb92573379fffbcb29a595a8263c3827b00c"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11d23-74b1-7f93-a3cd-bd210b3e186e/exec-1b379813-0e65-4098-a85d-e02089df25d1.png",
+          "sha256": "4b66deba8fb135c509da8643025eb207c6e615fd07ee4740e95b02589e29ad38"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11d23-74b1-7f93-a3cd-bd210b3e186e/exec-695b56a7-f733-4d7b-8ba6-fcb28910db6e.png",
+          "sha256": "e90f75d72dd9690d43dd30bd083f1df4182531fbf88d431ad748dc06057cc470"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1373,
+  "images_used": 1375,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -50642,6 +50715,13 @@
       "ts": "2026-10-08T16:08:33-04:00",
       "verbatim": "Keep repaint 4's blue mere",
       "ruling": "PS4 canvases (PT 8b4d2ea4d) are the BASE. The snow now sits inside v1's range (lit a* 2.32, b* 7.95, peach 71%; shadow a* 2.82 just under v1's minimum; blob density slightly high). MATT KEEPS PS4's blue mere: P4's ice reference is re-based by Matt's ruling to the PS4 mere colour, recorded as a Matt-ruled exception against sketch A's grey-blue (s38), not a threshold tune. Conductor error owned: geo v7 dropped v6's 'never dark cracks' line, so dark ink cracks returned. TO PRESERVE THE EXACT LOOK, NO full repaint: DEV-24 (masked local repaint, shelved in R-C9-244) is REVIVED. Each region is repainted with its painted surroundings as context, pasted back class-masked with DEV-23 tone match, with no wavefront cascade. Targets: (a) the dark branching ink cracks in the mere (0_0, 1_0, 0_1, 1_1), to the surrounding blue ice with at most a few soft pale veins, never dark lines; (b) the reeds painted as stiff cattail stalks, to soft feathery straw-gold reed clumps; (c) the two visible seams, 2_0|x2816 y0-300 (mound tufts ending on a line) and 2_2|x2816 y~1920-2176 (snow grain/tone), each patched with a region straddling the line. PROTOTYPE FIRST on one crack region (up to 4 images); the conductor reviews before the rest. Total cap 24 images. Tier-B discipline for DEV-24 (flag-off = v1). Then build -> harness -> P11 -> Gate-2 -> Matt."
+    },
+    {
+      "id": "R-C9-263",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T16:13:55-04:00",
+      "verbatim": "",
+      "ruling": "DEV-24 PROTOTYPE (PT c50ff6b4b, BV2F-LR4-ps4_crack1-1, 2 images) PASS on the conductor's crop review: the dark ink cracks are gone, the blue matches, no patch edge or tone step, 0 px changed outside the paste mask; the pale vein net matches the surrounding ice. ROOT CAUSE noted: the dark cracks came from LV's mere_cracks geometry, classed as 'sea' (dark open-water slivers) in the guide. Phase 3' PREREQUISITE: LV reclasses/narrows mere_cracks (pale veins, never dark) at source. BUDGET: DEV-24 gets its own cap of 24 images (separate from PS4's 24; the run total stays far under the 1750 cap). GO: build DEV-24's Tier-B form (v1tools module, post-stitch hook under BV2F_DEV24=1 applying sha-pinned patches listed in the cfg; flag-off = v1 stitch; diff/ALLOWLIST/SHA256SUMS/verify), then do the remaining targets: (a) the other crack regions, incl. the short crack at the right-hand island (plate x~1940, y 770-950); (b) the stiff reed stalks to soft feathery straw-gold clumps; (c) the seams 2_0|x2816 y0-300 and 2_2|x2816 y~1920-2176. ONE crop pack (before/after, 1:1 + play zoom per patch) to the conductor before the build."
     }
   ],
   "grok_calls": [
