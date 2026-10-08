@@ -49957,6 +49957,13 @@
       "ts": "2026-10-08T15:09:53-04:00",
       "verbatim": "",
       "ruling": "GEO v7 (PT b7ae660fb; fid/pt/geo_bv2art_v7.txt; 1533 chars, 12 clauses vs v1 1526/13) APPROVED with ONE restoration: put back v6's 'only dark openings' rule as one short clause (the only dark openings are the barrow door and the sea cave), since P6a depends on the painter not inventing holes. The ground-height sentence and the one-shingle detail stay dropped. The renamed guide-colour labels (LIGHT BLUE-GREY / STRAW / LARGE DOME) are accepted. Word counts: pale 1, soft 2, smooth 1 (v1 3/1/1; PS3 10/4/4); 'blue' 7 is colour labels and stays. PALETTE: DEV-12 AMENDED. Substitution 2 is dropped, so the rules palette = v1's five colours; substitution 1 (mere, door approach) stays. NO per-tile palette additions: chunk notes stay OFF per R-C9-190, and the geo's own clause colours carry the sea, timber and shingle (closer to v1); revisit only if a tile paints a class wrongly. DEV-28 (guide shadow smoothing; Tier-B, BV2F_DEV28=1, ID-render sha pin) APPROVED on its constructed and v1-guide tests (0 px outside the dither zone, 0 edge/ink px, drift <= 0.30 levels, dither 2.87 -> 0.60), conditional on before/after crops of OUR post-bay-fix guide at the rock shadows reaching the conductor before painting. PT pins copies of the ID and class renders with every guide from now on. Painting waits for LV's bay fix plus those crops; the build waits for >= 25 GiB free."
+    },
+    {
+      "id": "R-C9-259",
+      "by": "gandalf (conductor, DRIFT-CRITIC on LV 7c3940b51)",
+      "ts": "2026-10-08T15:20:47-04:00",
+      "verbatim": "",
+      "ruling": "LV bay fix (7c3940b51): CAUSE well found (the wreck's ice cradle cut a flat shelf whose edge lay on y=1792); bay now in row 2 with a ragged frozen-stone edge, PASS on that. NEW DEFECT: where the shingle now runs down beside the cliff (pilot_09/10, right of the wreck's stern), the terrain drop to the sea renders as a tall VERTICAL STRIPED CURTAIN, a geometric wall that the painter will copy. It was smaller before and is larger now. Narrow pass: make that drop a natural low rocky bank or a steep slope of shingle and boulders into the shore ice, or let the shingle end before the cliff edge; no vertical face. Nothing else may change. Then the conductor reviews; then PT re-pins and sends DEV-28 crops. LV's deletion of its own ~4 MB scratch file is recorded as a minor breach of the never-delete rule; no repo impact; no further action."
     }
   ],
   "grok_calls": [
