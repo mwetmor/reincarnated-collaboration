@@ -1,0 +1,76 @@
+{
+ "G-10": {
+  "cut_commit_name_status": [
+   "A\tsrc/reincarnated/export/kc2_rulebook_pack_v1.py",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/manifest.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/families.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/hooks.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/kit_warlord.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/laws.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/meta.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/offense_da.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_084024/rulebook/world_gd.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-cut-receipt-20261008_084024.json"
+  ],
+  "ok": true
+ },
+ "G-8": {
+  "ok": true,
+  "oracle_children_opened_file_scan": {
+   "head": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 631,
+    "pack_path_hits": []
+   },
+   "sealed": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 720,
+    "pack_path_hits": []
+   }
+  },
+  "run_1": {
+   "dir": "s47v4",
+   "note": "HEAD moved: gamora committed J3a build 1/2 + 2/2 (80350db0, 47c5c94e) during the run; NO VERDICT is not a pass and is not quoted",
+   "reason": "HEAD moved during the run: d5793a1287a345505c1ef58dc063c26dda8cb3fb -> 47c5c94e43276bf69d2795f732b2eafa8bc998fa",
+   "verdict": "NO VERDICT"
+  },
+  "run_2": {
+   "cut_commit_is_ancestor": true,
+   "dir": "s47v4-r2",
+   "head_end": "47c5c94e43276bf69d2795f732b2eafa8bc998fa",
+   "head_start": "47c5c94e43276bf69d2795f732b2eafa8bc998fa",
+   "instrument_FILE_sha256": "192e6a3a564e0e65da0c494a1c14ab239cd22f448c4c9d3b4ba0daff0ebd7ad8",
+   "reason": "HEAD fixed; A and B and B' pass",
+   "s47v4_evidence_FILE_sha256": "2be0fbdc66484226b1363838ebd17f347f88fe701ac28702ec643f6a2eaf7f35",
+   "verdict": "ORACLE BYTE-IDENTICAL"
+  }
+ },
+ "artifact": "JOIN-1 KP-368 pack v1 gate evidence after the cut commit (G-8, G-10) + controls NC-V1-a..d (NON-GRADED)",
+ "author": "star-lord",
+ "controls": {
+  "NC-V1-a": {
+   "as_predicted": true,
+   "observed": "HALT; 1 failure: RB-DA-records/creatures/enemies/aetherialcorruption_b01.dbr|156 IC7-F-41 identity (control re-aim); nothing written",
+   "predicted": "HALT; exactly 1 failure (that row identity)"
+  },
+  "NC-V1-b": {
+   "as_predicted": true,
+   "observed": "HALT; 3 failures, all row aetherialimp_a01|155: da, p and p(da+E_L) bits vs s2_apply (p moved with the ulp: reported); nothing written",
+   "predicted": "HALT; every failure names one row; its da check fails; p movement reported"
+  },
+  "NC-V1-c": {
+   "as_predicted": true,
+   "observed": "verify rc 1, ['rulebook/offense_da.json']; load_offense_da refused",
+   "predicted": "verify exit 1, member_failures ['rulebook/offense_da.json']; load_offense_da(JOIN) refuses"
+  },
+  "NC-V1-d": {
+   "as_predicted": true,
+   "observed": "refused; clean JOIN load 196 rows",
+   "predicted": "load_offense_da(PLAY) refused"
+  }
+ },
+ "engine_cut_commit": "d5793a1287a345505c1ef58dc063c26dda8cb3fb",
+ "engine_prereg_commit": "334fa5e8"
+}
