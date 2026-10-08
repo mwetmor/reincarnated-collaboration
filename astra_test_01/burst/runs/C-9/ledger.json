@@ -51338,6 +51338,13 @@
       "ts": "2026-10-08T19:50:50-04:00",
       "verbatim": "",
       "ruling": "PHASE 3' PAINT BLOCK LIFTED: jack-ryan verified all nine [B] items against the primary records. CONDITIONS: B-1 DEV-25c A/B (PT builds the patch and commits its flag-off proof BEFORE either arm; PH records which a1 half (E or C) the built paste mask actually pastes BEFORE either arm exists; both arms scored on that half). B-2 PT re-pins the Phase 3' guide tiles from LV b5894d440 as copies, and pilot_pins_check.py confirms the pilot tiles are unchanged. B-3 every candidate still at M3' (pilot region included) is captured phase-matched per s50(a); pilot 4's phase-0 stills are not reused; its P11 30/40 stays the record. OPEN for the build: [Bb] 10 (P-4 on the real canvases) and [Bb] 11 (P10, parked as matt_to_do T34, which now includes the macOS auto-update download that dropped the disk 25 -> 16 GiB). PHASE 3' PLAN: the remaining 16 canvases of the 5x5 grid, in wavefront order from the pilot, under geo v7 + DEV-28 + rules v1+DEV-12 sub 1; the first chunk is the DEV-25c A/B (+2 images); then up to ~35 images for the rest, with per-chunk QA (P6a, raw a1 per join, P4 snow/rock with min-support) and DEV-24 only for clear defects. The DISK GATE STANDS: no paint burst, re-pin render, stitch or Godot below 21 GiB; code-only work may proceed."
+    },
+    {
+      "id": "R-C9-279",
+      "by": "gandalf (conductor), on PT ecc1adaf9 / aaa6a2d63",
+      "ts": "2026-10-08T19:56:18-04:00",
+      "verbatim": "",
+      "ruling": "B-1 DEV-25c BUILT (Tier-B paint + stitch; flag-off proof PASS on textual identity and bit-equal DEV-23/25 runs 9/9; the byte-level flag-off stitch cmp is owed once disk >= 21 GiB). The built mask pastes HALF E [0,128); both arms are scored on E (bar 8.789), PH to record before either arm exists. B-2 DONE: the Phase 3' guide/ID/class at LV b5894d440 are sha-identical to the PS4 copies; all 25 tiles agree; pilot tiles unchanged (R-C9-189 PASS). Phase 3' cfg drafted (cfg_bv2a_ph3.json, BV2F-PH3, cfg_check OK, NOT RELEASED); the first chunk 3_0 is the A/B. RULED: per-chunk QA is a MANUAL STOP after each wave (PT runs one wave, stops, QA, the conductor releases the next); the frozen driver is not changed for it. Release of the A/B waits for disk >= 21 GiB and PH's half-E record."
     }
   ],
   "grok_calls": [
