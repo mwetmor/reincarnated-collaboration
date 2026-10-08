@@ -73,3 +73,9 @@
 - **The exclusion was NOT random.** The 4 refused cells (M0|1, M0|4, W1-NULL|1, W1-NULL|4) are **exactly the runs that reached the pet** `ghost_a01_summon@153`. The 21-cell comparison is therefore conditioned on not reaching it, and is **not** an unbiased estimate of the 25-cell baseline.
 - **D-1 is re-tested as a FRESH prediction on the G-D3 re-emission** (after PACK_PIN v3), with the id-reuse-safe Soulfire anchor (`ea28195a`) and the step-2b closure test (lookups outside the sourced set, predicted 0).
 - **The ghost summon's source**, established by the step-2b census (`../2026-10-08-join1-pj25-step2b/`): it is a pet of the **pre-pass** ghosts. The pre-pass is the line-up-free waves 151–156 run inside `c11a._period()`. It is not a line-up body's pet.
+
+---
+
+## CORRIGENDUM (KP-386 INFO-3; append-only, 2026-10-08)
+
+**The survival flip count above is mis-stated, in both the original reading and the KP-380 amendment.** Over the 21 unrefused cells it is **4 survive→die vs 1 die→survive, exact sign p = 0.375**, not "5 vs 1, p ≈ 0.22 / 0.219". The totals (13/21 vs 16/21) were right, and so was the conclusion (no detectable effect, direction adverse). This whole first-emission reading is superseded by the re-emission of record (`../2026-10-08-join1-gd3-v3/`).
