@@ -45689,6 +45689,12 @@
       "id": "M-C9-SO-R152-DEPLOYED",
       "note": "Sorceress hood fix R-C9-152 option B deployed: loadout 68ab873 pushed (Vercel deploys on push) -- Barrow build pinned EOR2 b4de84e65; select_check 19/19; web_perf_eor +0.000 ms/frame, worst 19.1 ms, 0 frames > 33 ms; JOIN-1 sorceress v5 pack 64/64 cells (Fire Ball release frame 3 = 0.2667 s, Meteor frame 9 = 1.80 s, sockets match v4), lint 0 mismatches with 3 negative controls failing; hood stills barrow_full/take/build/r224_hood/ (crown/back closed red fabric at 4 headings). v5 pack supersedes v4. Lane files collab 513909f2f.",
       "ts": "2026-10-08T05:14:09Z"
+    },
+    {
+      "id": "M-C9-SO-R237-DEPLOYED",
+      "ts": "2026-10-08T07:52:57-04:00",
+      "by": "gandalf (conductor)",
+      "text": "Sorceress face under the hood (R-C9-233/236/237) LIVE: loadout e8d0d0f pushed, Vercel verified (variant_so_bmd.pck 30318184 B served). Hair tucked under hood, brow/eyes kept, face toned, scalp layer, rim cleaned, thin web pen on face/lining (hood shell full). Idle face visible 39->70%, luma 66->86. Build pinned EOR2 b4de84e65 EXIT 0; provenance 66/66; bind 72/72; select_check 19/19; web_perf worst 18.8 ms. JOIN-1 pack join1_pack_v6/d2-fire-sorc-bm 64/64, releases f3 0.2667 s / f9 1.80 s, lint 0 + 3/3 negative controls; v6 supersedes v5. Collab 70c774b86, 506cc7e9e, 4f2bada61, 60403cd62. Cleanup candidates for Matt: barrow_full/godot/models/variants/so_r233/ (~250 MB, slows each build import), barrow_full/work/superseded_r237/."
     }
   ],
   "halts": [
