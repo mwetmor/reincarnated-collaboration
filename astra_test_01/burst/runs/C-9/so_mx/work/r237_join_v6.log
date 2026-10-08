@@ -1,0 +1,34 @@
+[j1] hit            NW  8 frames  anchor [384.0, 448.0]  facing root 225.0000 hips 292.22
+[j1] hit            N   8 frames  anchor [384.0, 448.0]  facing root 270.0000 hips 337.22
+[j1] hit            NE  8 frames  anchor [384.0, 448.0]  facing root 315.0000 hips 22.22
+[j1] hit            E   8 frames  anchor [384.0, 448.0]  facing root 360.0000 hips 67.22
+[j1] hit            SE  8 frames  anchor [384.0, 448.0]  facing root 45.0000 hips 112.22
+[j1] death          S  16 frames  anchor [384.0, 448.0]  facing root 90.0000 hips 144.58
+[j1] death          SW 16 frames  anchor [384.0, 448.0]  facing root 135.0000 hips 189.58
+[j1] death          W  16 frames  anchor [384.0, 448.0]  facing root 180.0000 hips 234.58
+[j1] death          NW 16 frames  anchor [384.0, 448.0]  facing root 225.0000 hips 279.58
+[j1] death          N  16 frames  anchor [384.0, 448.0]  facing root 270.0000 hips 324.58
+[j1] death          NE 16 frames  anchor [384.0, 448.0]  facing root 315.0000 hips 9.58
+[j1] death          E  16 frames  anchor [384.0, 448.0]  facing root 360.0000 hips 54.58
+[j1] death          SE 16 frames  anchor [384.0, 448.0]  facing root 45.0000 hips 99.58
+[j1] 744 frames rendered
+matrix_index.json: 64 of 64 cells COMPLETE
+  idle           N=12 T=2.3333 s  closure MAD 0.000
+  walk           N=12 T=1.1000 s  closure MAD 0.133
+  run            N=12 T=0.7000 s  closure MAD 0.004
+  cast_fireball  N=12 T=1.0333 s  release r=3 at 0.2667 s
+  cast_meteor    N=16 T=2.9667 s  release r=9 at 1.8000 s
+  block          N= 5 T=0.6000 s  
+  hit            N= 8 T=0.7000 s  
+  death          N=16 T=2.3000 s  
+contact sheet: /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack_v6/d2-fire-sorc-bm_contact_sheet_1x.png (5286x2828, 1x ppm_render)
+  walk            worst 0.00561 m over 480 socket samples
+  run             worst 0.00198 m over 480 socket samples
+  cast_fireball   worst 0.05750 m over 480 socket samples
+  cast_meteor     worst 0.00251 m over 640 socket samples
+  block           worst 0.00001 m over 200 socket samples
+  hit             worst 0.00001 m over 320 socket samples
+  death           worst 0.00002 m over 640 socket samples
+wrote work/validate_d2-fire-sorc-bm_v6.json: worst 0.05750 m over 3720 samples
+J1_V6_DONE
+EXIT 0

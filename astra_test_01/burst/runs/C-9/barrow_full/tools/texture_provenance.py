@@ -88,7 +88,10 @@ def rows():
             add(G / f"variants/{v}/{p}.glb", "own", GS / "sorceress_battlemage" / exp / f"{p}.glb", "battlemage paint/scenes.json: not dressed")
     # R-C9-138: the ARENA KIT (so_bm134 = so_mx/export/ss138a, from ss134f): her painted body bake; the battle-mage armour on
     # the GRADED atlas (D's steel pass: measured nearest, 2.27 vs 4.01 for C's); orb staff and shield keep their own textures
-    add(G / "variants/so_bm134/so-body_ss152.glb", "painted", C9 / "so_d7/work/tex_final.png", "so_mx ss134f/ss152a body: body119's bake")
+    # R-C9-237: her body's atlas is body119's bake with the HEAD lifted (so_mx r233_04: the face/neck skin lifted, the forehead
+    # repainted) -- the intended source is that lifted atlas, the plain bake its alternative
+    add(G / "variants/so_bm134/so-body_ss237.glb", "painted", C9 / "so_mx/work/r233/tex_final_r237.png", "so_mx ss237 body: body119's bake, head lifted (R-C9-237)",
+        [C9 / "so_d7/work/tex_final.png"])
     for p in ("breastplate", "gauntlets", "gown", "hood", "legs"):
         add(G / f"variants/so_bm134/{p}.glb", "painted", GS / "sorceress_battlemage/paint/tex_armour_graded.png", "so_mx ss134 pieces (bmd120's graded set)",
             [GS / "sorceress_battlemage/paint/tex_armour_final.png"])

@@ -1,5 +1,22 @@
 # Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2; resumed R-C9-224, PAUSED AGAIN 2026-10-08
 
+## R-C9-237 STEP 2 SHIPPED to loadout (2026-10-08, conductor's GO): loadout `e8d0d0f` committed, NOT pushed (the conductor pushes)
+
+- so_mx/export/ss237 = body ss233q (as so-body_ss237.glb) + hood ss233o split by `scripts/r237_02_split_lining.py` (lining +
+  scalp moved to their own node/mesh "hood_lining", material "hood_lining") + ss152b's other pieces, byte copies.
+- barrow_full: tools/make_slots.py -> ss237 (so_bm134 + _ss4 slots, gear_so_bm134.json); tools/texture_provenance.py row
+  -> so_mx/work/r233/tex_final_r237.png (the lifted atlas; an ignored PNG on disk -- regenerate from the body GLB if lost);
+  scripts/barrow_full.gd `_thin_pen_her_face()` (web only; launch line `thin_pen=body:true,lining:1`). The old
+  so-body_ss152* files moved out of models/variants/so_bm134 to barrow_full/work/superseded_r237/ (Matt deletes).
+- Build pinned to EOR2 b4de84e65: EXIT 0, 0 FAIL (provenance 66/66, bind order 72/72, variant so_bm134 36 MB launches
+  clean), log barrow_full/work/r237_build.log. select_check 19/19; web_perf_eor -0.001 ms/frame, worst 18.8 ms, 0 over 33 ms.
+- JOIN-1 v6: join1_pack_v6/d2-fire-sorc-bm (kit join1_render/kits/d2-fire-sorc-bm_v6.json, manifest ..._v6_clips.json):
+  64/64 cells, 744 frames, releases r=3 at 0.2667 s and r=9 at 1.8000 s, sockets worst 0.0575 m (= v5); lint 0 mismatches,
+  negative controls neg_release / neg_prose / neg_spin exit 1 each. v6 supersedes v5.
+- Probe-only leftovers for Matt's cleanup manifest: barrow_full/godot/models/variants/so_r233/ (~250 MB, in no slot or pack;
+  it IS mirrored into web_painted and imported there, which slows the build's import -- not exported).
+
+
 ## R-C9-237 (2026-10-08): Matt approved G+rim to ship after ONE fix -- the bright white at her forehead/eyes. FIXED; stills with the conductor; WAITING for the conductor's go before STEP 2 (ship)
 
 - CAUSE (measured, not guessed): the white was NOT skin -- the probe's ID pass has NO surface of hers at those pixels: SEE-THROUGH

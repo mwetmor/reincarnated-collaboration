@@ -2248,6 +2248,7 @@ func _dress_painted() -> void:
 			var hm = e.get("mi")
 			if hm is Node3D and is_instance_valid(hm):
 				(hm as Node3D).visible = false
+		paint["thin_pen_her_face"] = _thin_pen_her_face()
 		var cl := PaintStack.move_ambient_into_light(self, env_node.environment)
 		# the painted surfaces are "lit without the ramp" BY DESIGN: ambient_light_disabled, the
 		# painting is their light -- counted apart, so a real omission would still show
@@ -2432,10 +2433,58 @@ func _her_line() -> String:
 				fb += "+c75"                    # ?fb=c75 (R-C9-110): the burst tightened to 0.75
 		else:
 			fb = "FAILED(%s)" % String(fbr.get("error", "?"))
-	return " | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % ["valid" if (bt != null and bad == 0) else "INVALID",
+	return " | thin_pen=body:%s,lining:%d | sorceress_tree=%s clipless=%s spells=%s fire_ball=%s meteor=%s" % [str(thin_pen.get("body", false)), int(thin_pen.get("lining", 0)),"valid" if (bt != null and bad == 0) else "INVALID",
 		",".join(PackedStringArray(knight.clipless_filled)), ",".join(PackedStringArray(sp)), fb,
 		(("mix4(fall=lane_b_core,impact=lane_a,burn=crater_v4,warp=post,ring=off,shadow=%s,fall_s=%.2f)" % ["on" if meteor_fx.shadow_on else "off", meteor_fx.T_IMPACT]) if meteor_fx.mix4 and meteor_fx.burst_a != null and meteor_fx.crater4 != null else ("mix3(fall=lane_b_core,impact=lane_a,burn=crater,warp=post,ring=off,shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix3 and meteor_fx.burst_a != null and meteor_fx.crater != null else ("mix2(fall=lane_b_dark,impact=lane_a,burn=cinders,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix2 and meteor_fx.burst_a != null else (("mix(fall=lane_a,impact=lane_b,ring=off,rock_shadow=%s)" % ("on" if meteor_fx.shadow_on else "off")) if meteor_fx.mix and meteor_fx.proj_a != null else "3d(lane_b)")) if meteor_fx != null else (_meteor_a_word() if spell_fx != null and spell_fx.meteor_a != null else "placeholder")]      # LANE B / LANE A
 
+
+
+var thin_pen := {}
+
+
+func _thin_pen_her_face() -> Dictionary:
+	"""R-C9-236/237 (Matt: fix G + "a cleaner rim"): the web pen at its THIN strength on her FACE. On the web build her hull
+	lines are hidden and the depth-only screen pen draws her; inside her hood's face opening it drew every jog of the
+	opening and every crease of her face as a scribble. Her BODY (the face, the neck) and her hood's LINING node (the
+	lining and the scalp under the hood, so_mx r237_02: a mesh named "hood_lining") write the pen's THIN stencil class --
+	the class the heather and twigs write -- so a line whose NEAR side is them draws at thin_pen_scale; the hood's shell
+	and every other piece keep the full line, so her silhouette and the hood's outline stay. Only a character wearing a
+	lined hood (her so_bm134 kit) is touched; the ramp stays the saved one (set_character_param / reapply see it)."""
+	var out := {"lining": 0, "body": false}
+	if knight == null or _char_saved.is_empty():
+		return out
+	var lined := false
+	for e in _char_saved.get("meshes", []):
+		var mi = e.get("mi")
+		if mi is MeshInstance3D and is_instance_valid(mi) and String((mi as MeshInstance3D).name).contains("hood_lining"):
+			lined = true
+	if not lined:
+		return out
+	for e in _char_saved.get("meshes", []):
+		var mi = e.get("mi")
+		if not (mi is MeshInstance3D and is_instance_valid(mi)):
+			continue
+		var is_lining := String((mi as MeshInstance3D).name).contains("hood_lining")
+		if not (is_lining or mi == knight._mesh):
+			continue
+		var ramp := e.get("ramp") as ShaderMaterial
+		if ramp == null or ramp.shader == null:
+			continue
+		var sh := Shader.new()
+		sh.code = PaintStack.stencil_write(ramp.shader.code, PaintStack.STENCIL_THIN)
+		var thin := ShaderMaterial.new()
+		thin.shader = sh
+		for u in ramp.shader.get_shader_uniform_list():
+			thin.set_shader_parameter(String(u["name"]), ramp.get_shader_parameter(String(u["name"])))
+		if (mi as MeshInstance3D).material_override == ramp:
+			(mi as MeshInstance3D).material_override = thin
+		e["ramp"] = thin
+		if is_lining:
+			out["lining"] = int(out["lining"]) + 1
+		else:
+			out["body"] = true
+	thin_pen = out
+	return out
 
 func _paint_launch_line() -> String:
 	"""What the running scene READ, each file off its raw bytes in the pck with its sha256 checked

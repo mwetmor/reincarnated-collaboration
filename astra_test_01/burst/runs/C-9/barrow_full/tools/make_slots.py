@@ -158,31 +158,31 @@ jsave("sockets_so_bm.json", sk)
 # orb staff (right) + shield (left) on the Mixamo Pro Sword and Shield clips; the calmer idle (spine pitch), the staff aimed
 # along her facing (hand + forearm twist, the grip untouched), the Fire Ball's orb leading; hood_hair: hood on = hair off.
 # ?armor=bm134 (the slot so_bm134); ?armor=bm134&soidle=ss4 the alternate idle (Mixamo sword-and-shield idle 4)
-SS = C9 / "so_mx/export/ss152b"   # R-C9-152 option B: ss138a with the hood_hair morph withdrawn, the HOOD CAP over the back/top hair (r152_02 --no-braid) and the hood_braid morph (the braid tucked in while the hood is worn); was ss138a (R-C9-138/140)
+SS = C9 / "so_mx/export/ss237"   # R-C9-237 (fix G + rim, toned: Matt R-C9-236/237): every hair in under the hood, the face lifted, the hood rim cleaned, the hood_lining node (lining + scalp); was ss152b -- R-C9-152 option B: ss138a with the hood_hair morph withdrawn, the HOOD CAP over the back/top hair (r152_02 --no-braid) and the hood_braid morph (the braid tucked in while the hood is worn); was ss138a (R-C9-138/140)
 d = MV / "so_bm134"
-body = put(SS / "so-body_ss152.glb", d / "so-body_ss152.glb")
+body = put(SS / "so-body_ss237.glb", d / "so-body_ss237.glb")
 BM134 = ["gown", "legs", "under_legs", "breastplate", "hood", "gauntlets", "orbstaff", "shield"]
 for p_ in BM134:
     put(SS / f"{p_}.glb", d / f"{p_}.glb")
 man = copy.deepcopy(herm)
 man["_note"] = "R-C9-138: the arena battle mage (so_mx/export/ss138a: orb staff + shield on the Mixamo sword-and-shield clips), in her manifest's shape (tools/make_slots.py)"
-man["body"] = "so-body_ss152.glb"
+man["body"] = "so-body_ss237.glb"
 man["body_sha256"] = ""
 man["body_shape_keys"] = ["grip_R", "grip_L", "under_battlemage", "hood_braid"]
 man["pieces"] = [{"piece": p_, "mode": "skin", "glb": f"{p_}.glb"} for p_ in BM134]
 man["layer_order"] = ["body", "gown", "legs", "under_legs", "breastplate", "hood", "gauntlets", "orbstaff", "shield"]
 man["shape_key_rules"] = {"grip_R": "1 while the orb staff is worn", "grip_L": "1 while the shield is worn",
-                          "under_battlemage": "1 while the gown is worn", "hood_braid": "R-C9-152: 1 while the hood is worn -- the braid below the hood tucked inside her back; the hood piece carries a CAP over the back/top hair (the face and front hair unchanged)"}
+                          "under_battlemage": "1 while the gown is worn", "hood_braid": "R-C9-237: 1 while the hood is worn -- ALL her hair inside (the braid, the crown, the strands that crossed her face; her brow/eye surfaces stay); the hood piece carries the CAP over the back/top, the cleaned rim, and the hood_lining node (lining + scalp)"}
 JM = jload(C9 / "join1_render/manifests/d2-fire-sorc-bm_clips.json")
 man["locomotion_in_place"] = {"rule": "locomotion ships IN PLACE; drive at the foot-lock speed (s18_footlock_contact, the JOIN-1 manifest)",
                               "walk": {"seconds": JM["clips"]["walk"]["seconds"], "speed_m_s": JM["locomotion_in_place"]["walk"]["speed_m_s"]},
                               "run": {"seconds": JM["clips"]["run"]["seconds"], "speed_m_s": JM["locomotion_in_place"]["run"]["speed_m_s"]},
                               "_source": "join1_render/manifests/d2-fire-sorc-bm_clips.json (the walk and run clips are ss134f's, unchanged in their legs)"}
 jsave("gear_so_bm134.json", man)
-ss = jload(C9 / "so_mx/work/character_sorceress_ss152b.json")
+ss = jload(C9 / "so_mx/work/character_sorceress_ss237.json")
 for alt, idle in (("", "idle"), ("_ss4", "idle_ss4")):
     ch = copy.deepcopy(ss)
-    ch["model"] = "res://models/variants/so_bm134/so-body_ss152.glb"
+    ch["model"] = "res://models/variants/so_bm134/so-body_ss237.glb"
     ch["gear_dir"] = "res://models/variants/so_bm134"
     ch["gear_manifest"] = "res://data/slots/gear_so_bm134.json"
     full = ["gown", "legs", "under_legs", "breastplate", "hood", "gauntlets", "orbstaff", "shield"]
