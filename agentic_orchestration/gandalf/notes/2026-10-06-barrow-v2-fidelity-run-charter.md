@@ -254,3 +254,27 @@ Matt is on Remote Control (phone). The conductor sends: one short line per phase
 
 ---
 **Signed:** gandalf, RUN-CONDUCTOR. **Anchors:** plan (this date), handoff session-2 §§ 2, 6, ledger R-C9-144..160, `barrow_full/take/build_plan.md` § 1.
+
+---
+
+## § 16 — Consolidated DEV register, DEV-17..28 + DEV-25c (R-C9-268/272; owed since R-C9-202 F-1). GOVERNS.
+
+Source of record: `astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/r268/dev_register.json` (PT `5090fa5fe`). Tier A = frozen v1, byte-identical; Tier B = v1 plus an allowlisted patch (verify.sh); OWN = BV2F's own tool or runtime outside the frozen set. **Flag-off rule:** every Tier-B DEV, switched off, reproduces v1's output byte for byte.
+
+| DEV | What | Tier | Flag | Rulings | Matt |
+|---|---|---|---|---|---|
+| DEV-17 | adapted cut/prep front-ends: v1's take_from_paint / paint_world_prep main() run on the pilot frame (bv2f_take.py, bv2f_prep.py; fe_take/fe_prep cfgs) | OWN front-ends over Tier-B v1 tools | cfg (fe_take.json / fe_prep.json) | R-C9-192 | R-C9-203 (P-4) |
+| DEV-18 | heather + snow ON TERRAIN (sprays at their ground height; SnowFieldTerrain projects with the vertex ground height v_gh), v1 counts | OWN runtime (scripts/bv2f/snow_field_terrain.gd, bv2f_pilot.gd) + prep flags | fe_prep heather_on_terrain / snow_on_terrain | R-C9-193, R-C9-205 (v_gh fix) | R-C9-203 (P-4) |
+| DEV-19 | per-instance bake size via the frozen hero_surface (barrow_front 4096, cliffs/wreck 2048) | OWN (pt_bake.py) over Tier-A t5_06b_bake / hero_surface | pt_bake sizes table | R-C9-19x | R-C9-203 (P-4) |
+| DEV-20 | load-time pipeline warm-up + settle under a load veil (~4 s knight-less start disclosed) | OWN runtime (bv2f_pilot.gd _warm_pipelines, _ready settle) | always on (desktop) | R-C9-200, R-C9-201 | R-C9-203 (P-4) |
+| DEV-21 | reeds as CARDS cut from the painting's own straw tufts (reeds.classify: one plant per painted tuft; reed tufts out of the heather cover) | OWN (reeds.py, bv2f_prep reed_split, bv2f_pilot _build_painted_reeds) | fe_prep reed_split; manifest 'reeds' | R-C9-205 | NOT in R-C9-268's list -- needs Matt ratification |
+| DEV-22 | stair TREAD snow: a second SnowFieldTerrain over the stair (depth on tread tops, bare fronts; LV's static strips hidden); terrain snow cut there | OWN (stair_snow_prep.py, scripts/bv2f/stair_snow.gd) | data set has stair_snow/stair_snow.json; fe_prep stair_treads_cut | R-C9-216, R-C9-232 | NOT in R-C9-268's list -- needs Matt ratification |
+| DEV-23 | stitch LOW-FREQUENCY TONE MATCH at each chunk's pasted-context boundary (ice/snow mask, per-edge-column, faded 300 px) | B (guided_stitch.py) | BV2F_DEV23 (default 1) | R-C9-241, R-C9-242 | R-C9-268 (DEV-14-adjacent per jack-ryan) |
+| DEV-24 | MASKED LOCAL REPAINT: a region repainted with its painted surroundings as context, pasted back class-masked with a ring tone match after the stitch; layers verified against their own base; 8 patches / 16 images on pilot  | B hook (guided_stitch.py) + OWN (v1tools/dev24.py, pt/tools/local_repaint.py) | BV2F_DEV24=1 + cfg dev24 block | R-C9-243/244 (shelved), R-C9-262, R-C9-263, R-C9-264 | R-C9-268: limited to clear defects, each logged with crops; seam patches = DEV-13 in substance -> count against the Phase 3' repair cap |
+| DEV-25 | stitch GRAIN-AMPLITUDE MATCH, soften-only (detail amplitude scaled by the strip/new ratio, clipped 0.5..1.0, faded 300 px) | B (guided_stitch.py) | BV2F_DEV25 (default 1) | R-C9-248 | R-C9-268 |
+| DEV-25c | INNER-128 PASTE + QUILTING (registered, not built) | B (guided_paint + guided_stitch), planned | BV2F_DEV25C | R-C9-252 (prerequisite b), R-C9-268 | pending: the A/B result on the first Phase 3' chunk |
+| DEV-26 | MINIMUM-ERROR BOUNDARY CUT: one DP path per GLOBAL overlap band (objects cost 4000), feather 12 px; partition of unity kept | B (guided_stitch.py) | BV2F_DEV26 (default 1) | R-C9-249, R-C9-250 | R-C9-268 (rides with DEV-23/25) |
+| DEV-27 | GRADIENT-DOMAIN (Poisson) placement of each chunk's new paint against the already-placed composite (harmonic field, tapered 320 px) | B (guided_stitch.py) | BV2F_DEV27 (default 1) | R-C9-250/251, R-C9-252 | R-C9-268 (rides with DEV-23/25; DEV-14-adjacent) |
+| DEV-28 | GUIDE SHADOW SMOOTHING: the renderer's PCF dither filled/softened inside the guide's shadow zones, ID- and shadow-invariant-chroma-guarded, guide-only | B hook (guided_paint.py stage) + OWN (v1tools/dev28.py) | BV2F_DEV28=1 (pilot_paint.sh sets it when the cfg pins dev28_ids) | R-C9-257, R-C9-258, R-C9-260, R-C9-261 | R-C9-268 |
+
+**Open:** DEV-21 (reed cards) and DEV-22 (stair tread snow) await Matt's ratification line. DEV-25c is registered but not adopted: its adoption rule is the pre-registered A/B on the first Phase 3′ chunk (R-C9-272). DEV-24 use is limited to clear defects, each logged with crops (R-C9-268).
