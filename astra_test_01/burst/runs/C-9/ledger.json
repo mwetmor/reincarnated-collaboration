@@ -49971,6 +49971,13 @@
       "ts": "2026-10-08T15:29:11-04:00",
       "verbatim": "",
       "ruling": "LV R-C9-259 (b5894d440) PASS: the vertical curtain is gone; the shingle flank is now a steep shingle-and-boulder slope into the shore ice; scope held; gates green. Residual left to the painter: the narrow pre-existing dark water sliver at the cliff foot (slightly stepped). BLOCKOUT FOR PILOT REPAINT 4 = LV b5894d440. PT re-pins guide+ids+class from it (copies), sets the PS4 cfg (geo v7 with the openings sentence; DEV-12 amended; DEV-28 on with the ID sha pin), runs dev28_test.py on the new guide and sends the conductor before/after crops at the rock shadows. Then the PS4 paint release."
+    },
+    {
+      "id": "R-C9-261",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T15:34:15-04:00",
+      "verbatim": "",
+      "ruling": "DEV-28 on the PS4 guide (PT 6e7afa87d) PASS on the conductor's crop review: the screen-door dither in the shadows on snow becomes a smooth wash; silhouettes, carvings and ink are unchanged (0 px outside the zone, drift <= 0.33 levels, shadow mean unchanged). The pen stipple on rock faces and the stepped class-raster edges stay as they are (not dither; heather is painted as tufts over its patches). PT's added lead note in geo v7's water clause is accepted. PILOT REPAINT 4 RELEASED: cfg_bv2a_pilot_ps4.json (LV b5894d440 pins; geo v7; rules v1 + DEV-12 sub 1; chunk notes off; DEV-28 on), all 9 tiles, wavefront order, prefix BV2F-PS4, cap 24. Stop rule per R-C9-248(4): a seam visible at 1:1, or a tone/texture failure measured with the all-class P5(c)-style segment measure (not the masked medians, M-4). Then the conductor's canvas review (contact sheet + snow-parity spot check vs PH s46: peach lit snow, lavender shadow shapes, cobble cells; mid-blue mere) BEFORE take/bake/build."
     }
   ],
   "grok_calls": [
