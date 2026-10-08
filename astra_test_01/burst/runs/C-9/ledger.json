@@ -46748,6 +46748,15 @@
         "Great. For the stairs, let's make sure that we maintain that final look, uh, but with true 3D snow that we can show steps on. And for the cairn stones, uh, as I look at the sketch A, it actually seems like there are too many stones. If we stood all of those stones up, there would be more than five, and not a symmetrical circle as we would expect in Druidic style stones. So we should actually implement it so that a stone circle, maybe five or six stones, existed, and maybe one or two fell over. And if we do show those that fell over, only create the portion of the model that is jutting up from the ground, uh, not the full model."
       ],
       "ts": "2026-10-07T22:47:34Z"
+    },
+    {
+      "id": "R-C9-217",
+      "by": "gandalf (conductor)",
+      "ruling": "Matt asked why Astra is not painting in parallel the chunks already known good. Answer and ruling: v1's paste rule paints each chunk with its painted left/top/top-right neighbours as context, so chunks go in wavefront order from the origin (same anti-diagonal may run in parallel); the pilot's TOP ROW (r00_c00..c02) has been byte-identical through every recent re-render (the cove is on the S coast; ring stones and wreck lie in rows 1-2), so it is RELEASED NOW, in wavefront order, from PT's pinned tiles. Rows 1-2 of the pilot wait for LV's cove/ring render + PH's P6'; chunks beyond the pilot wait for M2'' (a method change after M2'' would waste them). GEO v3 of record = fid/pt/geo_bv2art_v3.txt (sha 6c8e884df3cf): v2 + the sea-cut cove with the cave at its back, the iced tidal landing, the stair cut into the cove wall (snow on treads, bare stone fronts, low uncut lip), the high-tide wet band/rime/icicles, and the six-stone circle (4 standing, 2 fallen as jutting blocks) -- fixed BEFORE the first pilot burst so every chunk shares one description. PT re-verifies the r00 pins against LV's next render; a change there = HALT.",
+      "verbatim": [
+        "Is there any reason that we don't have images painted by Astra in parallel (those which we already know are fgod to go; those which aren't impacted by any changing greybox floor/outline)?"
+      ],
+      "ts": "2026-10-08T00:51:43Z"
     }
   ],
   "grok_calls": [
