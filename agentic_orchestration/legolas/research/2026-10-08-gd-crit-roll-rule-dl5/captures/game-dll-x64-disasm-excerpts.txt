@@ -1,0 +1,369 @@
+Grim Dawn x64/Game.dll, Steam buildid 24825149 (vendor/grim-dawn-edition-IV-20260929)
+sha256 07775a297050e84a846af1182731700614fb8b7bb41cca46b37fd24c90529387 ; image base 0x180000000 ; addresses are RVAs
+Disassembled read-only with capstone 5.0.7 via re/gdis.py. Annotations (;;) are legolas's, not the binary's.
+
+====================================================================================================
+A. CombatManager constructor tail (func 0x1087c0): defaults
+====================================================================================================
+;; +0x278 = 66.0f (pthMinimum default; overwritten from DBR = 55)
+;; +0x27c = 100.0f  <-- hard-coded ROLL-SPAN FLOOR, not a DBR field; qword store also zeroes +0x280
+0x108932 mov dword ptr [rbx + 0x278], 0x42840000
+0x10893c mov qword ptr [rbx + 0x27c], 0x42c80000
+0x108947 mov qword ptr [rbx + 0x284], rdi
+0x10894e mov qword ptr [rbx + 0x28c], rdi
+0x108955 mov qword ptr [rbx + 0x294], rdi
+0x10895c mov qword ptr [rbx + 0x29c], rdi
+0x108963 mov qword ptr [rbx + 0x2a4], rdi
+0x10896a mov dword ptr [rbx + 0x2ac], edi
+
+====================================================================================================
+B. combatformulas.dbr loader (func 0x109080): field -> offset
+====================================================================================================
+;; lea rdx -> field-name string; result stored at [rsi+off]:
+;; pthMinimum->0x278 ; pthThreshold1..6 -> 0x280,0x288,0x290,0x298,0x2a0,0x2a8 ; pthDamageModifier1..6 -> 0x284,0x28c,...,0x2ac
+0x109e0e mov rax, qword ptr [rdi]
+0x109e11 lea rdx, [rip + 0x532308]
+0x109e18 xorps xmm2, xmm2
+0x109e1b mov rcx, rdi
+0x109e1e call qword ptr [rax + 0x48]
+0x109e21 movss dword ptr [rsi + 0x278], xmm0
+0x109e29 xorps xmm2, xmm2
+0x109e2c mov rax, qword ptr [rdi]
+0x109e2f lea rdx, [rip + 0x5322da]
+0x109e36 mov rcx, rdi
+0x109e39 call qword ptr [rax + 0x48]
+0x109e3c movss dword ptr [rsi + 0x280], xmm0
+0x109e44 xorps xmm2, xmm2
+0x109e47 mov rax, qword ptr [rdi]
+0x109e4a lea rdx, [rip + 0x5322ef]
+0x109e51 mov rcx, rdi
+0x109e54 call qword ptr [rax + 0x48]
+0x109e57 movss dword ptr [rsi + 0x284], xmm0
+0x109e5f xorps xmm2, xmm2
+0x109e62 mov rax, qword ptr [rdi]
+0x109e65 lea rdx, [rip + 0x5322c4]
+0x109e6c mov rcx, rdi
+0x109e6f call qword ptr [rax + 0x48]
+0x109e72 movss dword ptr [rsi + 0x288], xmm0
+0x109e7a xorps xmm2, xmm2
+0x109e7d mov rax, qword ptr [rdi]
+0x109e80 lea rdx, [rip + 0x5322e1]
+0x109e87 mov rcx, rdi
+0x109e8a call qword ptr [rax + 0x48]
+0x109e8d movss dword ptr [rsi + 0x28c], xmm0
+0x109e95 xorps xmm2, xmm2
+0x109e98 mov rax, qword ptr [rdi]
+0x109e9b lea rdx, [rip + 0x5322b6]
+0x109ea2 mov rcx, rdi
+0x109ea5 call qword ptr [rax + 0x48]
+0x109ea8 movss dword ptr [rsi + 0x290], xmm0
+0x109eb0 xorps xmm2, xmm2
+0x109eb3 mov rax, qword ptr [rdi]
+0x109eb6 lea rdx, [rip + 0x5322d3]
+0x109ebd mov rcx, rdi
+0x109ec0 call qword ptr [rax + 0x48]
+0x109ec3 movss dword ptr [rsi + 0x294], xmm0
+0x109ecb xorps xmm2, xmm2
+0x109ece mov rax, qword ptr [rdi]
+0x109ed1 lea rdx, [rip + 0x5322a8]
+0x109ed8 mov rcx, rdi
+0x109edb call qword ptr [rax + 0x48]
+0x109ede movss dword ptr [rsi + 0x298], xmm0
+0x109ee6 xorps xmm2, xmm2
+0x109ee9 mov rax, qword ptr [rdi]
+0x109eec lea rdx, [rip + 0x5322c5]
+0x109ef3 mov rcx, rdi
+0x109ef6 call qword ptr [rax + 0x48]
+0x109ef9 movss dword ptr [rsi + 0x29c], xmm0
+0x109f01 xorps xmm2, xmm2
+0x109f04 mov rax, qword ptr [rdi]
+0x109f07 lea rdx, [rip + 0x53229a]
+0x109f0e mov rcx, rdi
+0x109f11 call qword ptr [rax + 0x48]
+0x109f14 movss dword ptr [rsi + 0x2a0], xmm0
+0x109f1c xorps xmm2, xmm2
+0x109f1f mov rax, qword ptr [rdi]
+0x109f22 lea rdx, [rip + 0x5322b7]
+0x109f29 mov rcx, rdi
+0x109f2c call qword ptr [rax + 0x48]
+0x109f2f movss dword ptr [rsi + 0x2a4], xmm0
+0x109f37 xorps xmm2, xmm2
+0x109f3a mov rax, qword ptr [rdi]
+0x109f3d lea rdx, [rip + 0x53228c]
+0x109f44 mov rcx, rdi
+0x109f47 call qword ptr [rax + 0x48]
+0x109f4a movss dword ptr [rsi + 0x2a8], xmm0
+0x109f52 xorps xmm2, xmm2
+0x109f55 mov rax, qword ptr [rdi]
+0x109f58 lea rdx, [rip + 0x532299]
+0x109f5f mov rcx, rdi
+0x109f62 call qword ptr [rax + 0x48]
+0x109f65 movss dword ptr [rsi + 0x2ac], xmm0
+
+====================================================================================================
+C. PTH computation (func 0x10e490): equation(OA,DA), clamp to pthMinimum, no upper clamp
+====================================================================================================
+;; debug strings: 'PTH Offensive Ability %f' / 'PTH Defensive Ability %f' / 'PTH %f'
+0x10e490 push rbx
+0x10e492 sub rsp, 0x60
+0x10e496 movaps xmmword ptr [rsp + 0x50], xmm6
+0x10e49b mov rbx, rcx
+0x10e49e movaps xmmword ptr [rsp + 0x40], xmm7
+0x10e4a3 xorps xmm6, xmm6
+0x10e4a6 movaps xmmword ptr [rsp + 0x30], xmm8
+0x10e4ac movaps xmm7, xmm2
+0x10e4af movaps xmm8, xmm1
+0x10e4b3 movss dword ptr [rcx + 0x1b4], xmm7
+0x10e4bb movss dword ptr [rcx + 0x1ac], xmm8
+0x10e4c4 mov rcx, qword ptr [rcx + 0x248]
+0x10e4cb test rcx, rcx
+0x10e4ce je 0x10e4e4
+0x10e4d0 mov rcx, qword ptr [rcx]
+0x10e4d3 test rcx, rcx
+0x10e4d6 je 0x10e4e4
+0x10e4d8 mov rax, qword ptr [rcx]
+0x10e4db mov rdx, rbx
+0x10e4de call qword ptr [rax + 8]
+0x10e4e1 movaps xmm6, xmm0
+0x10e4e4 movss xmm0, dword ptr [rbx + 0x278]
+0x10e4ec comiss xmm6, xmm0
+0x10e4ef ja 0x10e4f4
+0x10e4f1 movaps xmm6, xmm0
+0x10e4f4 mov rax, qword ptr [rip + 0x4e4b55]
+0x10e4fb lea r9, [rip + 0x52e73e]
+0x10e502 mov r8d, dword ptr [rip + 0x926d73]
+0x10e509 xorps xmm0, xmm0
+0x10e50c cvtss2sd xmm0, xmm8
+0x10e511 xor edx, edx
+0x10e513 mov rcx, qword ptr [rax]
+0x10e516 mov rax, qword ptr [rcx]
+0x10e519 movsd qword ptr [rsp + 0x20], xmm0
+0x10e51f call qword ptr [rax + 0x10]
+0x10e522 mov rax, qword ptr [rip + 0x4e4b27]
+0x10e529 lea r9, [rip + 0x52e760]
+0x10e530 mov r8d, dword ptr [rip + 0x926d45]
+0x10e537 xorps xmm0, xmm0
+0x10e53a cvtss2sd xmm0, xmm7
+0x10e53e xor edx, edx
+0x10e540 mov rcx, qword ptr [rax]
+0x10e543 mov rax, qword ptr [rcx]
+0x10e546 movsd qword ptr [rsp + 0x20], xmm0
+0x10e54c call qword ptr [rax + 0x10]
+0x10e54f mov rax, qword ptr [rip + 0x4e4afa]
+0x10e556 lea r9, [rip + 0x52e723]
+0x10e55d mov r8d, dword ptr [rip + 0x926d18]
+0x10e564 xorps xmm1, xmm1
+0x10e567 cvtss2sd xmm1, xmm6
+0x10e56b xor edx, edx
+0x10e56d mov rcx, qword ptr [rax]
+0x10e570 mov rax, qword ptr [rcx]
+0x10e573 movsd qword ptr [rsp + 0x20], xmm1
+0x10e579 call qword ptr [rax + 0x10]
+0x10e57c movaps xmm7, xmmword ptr [rsp + 0x40]
+0x10e581 movaps xmm0, xmm6
+0x10e584 movaps xmm6, xmmword ptr [rsp + 0x50]
+0x10e589 movaps xmm8, xmmword ptr [rsp + 0x30]
+0x10e58f add rsp, 0x60
+0x10e593 pop rbx
+0x10e594 ret 
+
+====================================================================================================
+D. Melee call site in attack resolver (func 0x10a650): Park-Miller u, then roll function
+====================================================================================================
+;; seed' = 16807*seed mod (2^31-1) (Schrage via magic 0x69c16bd); u = seed' * 4.656613e-10 (=1/(2^31-1)) -> xmm2
+;; xmm1 = PTH from 0x10e490 ; r9 -> out tier ; result multiplier stored [r12+0x9c] ; mult==0.0 -> miss branch
+0x10af37 call 0x10ed00
+0x10af3c movaps xmm1, xmm8
+0x10af40 mov rcx, r14
+0x10af43 call 0x10e3e0
+0x10af48 movaps xmm2, xmm0
+0x10af4b movss xmm1, dword ptr [r12 + 0x14]
+0x10af52 mov rcx, r14
+0x10af55 call 0x10e490
+0x10af5a movaps xmm11, xmm0
+0x10af5e mov ecx, dword ptr [rsp + 0x38]
+0x10af62 mov eax, 0x69c16bd
+0x10af67 mul ecx
+0x10af69 mov eax, ecx
+0x10af6b sub eax, edx
+0x10af6d shr eax, 1
+0x10af6f add eax, edx
+0x10af71 shr eax, 0x10
+0x10af74 imul edx, eax, 0x7fffffff
+0x10af7a imul eax, ecx, 0x41a7
+0x10af80 sub eax, edx
+0x10af82 jns 0x10af89
+0x10af84 add eax, 0x7fffffff
+0x10af89 mov dword ptr [rsp + 0x38], eax
+0x10af8d mov ecx, eax
+0x10af8f xorps xmm2, xmm2
+0x10af92 cvtsi2ss xmm2, rcx
+0x10af97 mulss xmm2, dword ptr [rip + 0x66c099]
+0x10af9f lea r9, [rsp + 0x4c]
+0x10afa4 movaps xmm1, xmm0
+0x10afa7 mov rcx, r14
+0x10afaa call 0x10d810
+0x10afaf movaps xmm10, xmm0
+0x10afb3 movss dword ptr [r12 + 0x9c], xmm0
+0x10afbd ucomiss xmm0, xmm8
+0x10afc1 jne 0x10b75d
+
+====================================================================================================
+E. THE ROLL + TIER FUNCTION (func 0x10d810)
+====================================================================================================
+;; xmm8 = PTH, xmm6 = u in (0,1) ; debug 'PTH %f, Rand Value %f'
+;; xmm7 = ROLL = max(100.0, PTH) * u
+;; if PTH < 100: debug 'PTH Random Number'; if ROLL > PTH -> 'PTH Missed Hit', return 0.0
+;; if PTH <= pthThreshold1(70): return normalPTHEquation(PTH) (=PTH/70), tier 0 [const 0.75 fallback if no equation]
+;; else 'PTH Uber Hit': ROLL>thr6 -> mod6,tier5 ; >thr5 -> mod5,4 ; >thr4 -> mod4,3 ; >thr3 -> mod3,2 ; >thr2 -> mod2,1 ; else mod1(1.0), tier 0
+;; NO actor-type branch anywhere in this function
+0x10d810 mov qword ptr [rsp + 8], rbx
+0x10d815 push rdi
+0x10d816 sub rsp, 0x60
+0x10d81a mov rax, qword ptr [rip + 0x4e582f]
+0x10d821 mov rbx, rcx
+0x10d824 mov r8d, dword ptr [rip + 0x927a51]
+0x10d82b xorps xmm0, xmm0
+0x10d82e movaps xmmword ptr [rsp + 0x50], xmm6
+0x10d833 xorps xmm3, xmm3
+0x10d836 movaps xmm6, xmm2
+0x10d839 movaps xmmword ptr [rsp + 0x40], xmm7
+0x10d83e mov rcx, qword ptr [rax]
+0x10d841 mov rdi, r9
+0x10d844 cvtss2sd xmm0, xmm6
+0x10d848 lea r9, [rip + 0x52f121]
+0x10d84f xor edx, edx
+0x10d851 mov rax, qword ptr [rcx]
+0x10d854 movaps xmmword ptr [rsp + 0x30], xmm8
+0x10d85a movaps xmm8, xmm1
+0x10d85e cvtss2sd xmm3, xmm8
+0x10d863 movsd qword ptr [rsp + 0x28], xmm0
+0x10d869 movsd qword ptr [rsp + 0x20], xmm3
+0x10d86f call qword ptr [rax + 0x10]
+0x10d872 mov dword ptr [rdi], 0
+0x10d878 comiss xmm8, dword ptr [rbx + 0x27c]
+0x10d880 movss xmm7, dword ptr [rbx + 0x27c]
+0x10d888 maxss xmm7, xmm8
+0x10d88d mulss xmm7, xmm6
+0x10d891 jae 0x10d8ea
+0x10d893 mov rax, qword ptr [rip + 0x4e57b6]
+0x10d89a lea r9, [rip + 0x52f0af]
+0x10d8a1 mov r8d, dword ptr [rip + 0x9279d4]
+0x10d8a8 xor edx, edx
+0x10d8aa cvtps2pd xmm0, xmm7
+0x10d8ad mov rcx, qword ptr [rax]
+0x10d8b0 mov rax, qword ptr [rcx]
+0x10d8b3 movsd qword ptr [rsp + 0x20], xmm0
+0x10d8b9 call qword ptr [rax + 0x10]
+0x10d8bc comiss xmm7, xmm8
+0x10d8c0 jbe 0x10d8ea
+0x10d8c2 mov rax, qword ptr [rip + 0x4e5787]
+0x10d8c9 lea r9, [rip + 0x52f0e8]
+0x10d8d0 mov r8d, dword ptr [rip + 0x9279a5]
+0x10d8d7 xor edx, edx
+0x10d8d9 mov rcx, qword ptr [rax]
+0x10d8dc mov rax, qword ptr [rcx]
+0x10d8df call qword ptr [rax + 0x10]
+0x10d8e2 xorps xmm0, xmm0
+0x10d8e5 jmp 0x10da3f
+0x10d8ea comiss xmm8, dword ptr [rbx + 0x280]
+0x10d8f2 ja 0x10d945
+0x10d8f4 mov rcx, qword ptr [rbx + 0x270]
+0x10d8fb test rcx, rcx
+0x10d8fe je 0x10d924
+0x10d900 movss dword ptr [rbx + 0x1bc], xmm8
+0x10d909 mov rcx, qword ptr [rcx]
+0x10d90c test rcx, rcx
+0x10d90f je 0x10d91f
+0x10d911 mov rax, qword ptr [rcx]
+0x10d914 mov rdx, rbx
+0x10d917 call qword ptr [rax + 8]
+0x10d91a movaps xmm6, xmm0
+0x10d91d jmp 0x10d92c
+0x10d91f xorps xmm6, xmm6
+0x10d922 jmp 0x10d92c
+0x10d924 movss xmm6, dword ptr [rip + 0x6697e4]
+0x10d92c xorps xmm0, xmm0
+0x10d92f lea r9, [rip + 0x52f05a]
+0x10d936 cvtss2sd xmm0, xmm6
+0x10d93a movsd qword ptr [rsp + 0x20], xmm0
+0x10d940 jmp 0x10da23
+0x10d945 mov rax, qword ptr [rip + 0x4e5704]
+0x10d94c lea r9, [rip + 0x52f095]
+0x10d953 mov r8d, dword ptr [rip + 0x927922]
+0x10d95a xor edx, edx
+0x10d95c cvtps2pd xmm0, xmm7
+0x10d95f mov rcx, qword ptr [rax]
+0x10d962 mov rax, qword ptr [rcx]
+0x10d965 movsd qword ptr [rsp + 0x20], xmm0
+0x10d96b call qword ptr [rax + 0x10]
+0x10d96e mov rax, qword ptr [rip + 0x4e56db]
+0x10d975 lea r9, [rip + 0x52f054]
+0x10d97c mov r8d, dword ptr [rip + 0x9278f9]
+0x10d983 xor edx, edx
+0x10d985 mov rcx, qword ptr [rax]
+0x10d988 mov rax, qword ptr [rcx]
+0x10d98b call qword ptr [rax + 0x10]
+0x10d98e comiss xmm7, dword ptr [rbx + 0x2a8]
+0x10d995 jbe 0x10d9a7
+0x10d997 movss xmm6, dword ptr [rbx + 0x2ac]
+0x10d99f mov dword ptr [rdi], 5
+0x10d9a5 jmp 0x10da13
+0x10d9a7 comiss xmm7, dword ptr [rbx + 0x2a0]
+0x10d9ae jbe 0x10d9c0
+0x10d9b0 movss xmm6, dword ptr [rbx + 0x2a4]
+0x10d9b8 mov dword ptr [rdi], 4
+0x10d9be jmp 0x10da13
+0x10d9c0 comiss xmm7, dword ptr [rbx + 0x298]
+0x10d9c7 jbe 0x10d9d9
+0x10d9c9 movss xmm6, dword ptr [rbx + 0x29c]
+0x10d9d1 mov dword ptr [rdi], 3
+0x10d9d7 jmp 0x10da13
+0x10d9d9 comiss xmm7, dword ptr [rbx + 0x290]
+0x10d9e0 jbe 0x10d9f2
+0x10d9e2 movss xmm6, dword ptr [rbx + 0x294]
+0x10d9ea mov dword ptr [rdi], 2
+0x10d9f0 jmp 0x10da13
+0x10d9f2 comiss xmm7, dword ptr [rbx + 0x288]
+0x10d9f9 jbe 0x10da0b
+0x10d9fb movss xmm6, dword ptr [rbx + 0x28c]
+0x10da03 mov dword ptr [rdi], 1
+0x10da09 jmp 0x10da13
+0x10da0b movss xmm6, dword ptr [rbx + 0x284]
+0x10da13 cvtps2pd xmm1, xmm6
+0x10da16 lea r9, [rip + 0x52f003]
+0x10da1d movsd qword ptr [rsp + 0x20], xmm1
+0x10da23 mov rax, qword ptr [rip + 0x4e5626]
+0x10da2a xor edx, edx
+0x10da2c mov r8d, dword ptr [rip + 0x927849]
+0x10da33 mov rcx, qword ptr [rax]
+0x10da36 mov rax, qword ptr [rcx]
+0x10da39 call qword ptr [rax + 0x10]
+0x10da3c movaps xmm0, xmm6
+0x10da3f mov rbx, qword ptr [rsp + 0x70]
+0x10da44 movaps xmm6, xmmword ptr [rsp + 0x50]
+0x10da49 movaps xmm7, xmmword ptr [rsp + 0x40]
+0x10da4e movaps xmm8, xmmword ptr [rsp + 0x30]
+0x10da54 add rsp, 0x60
+0x10da58 pop rdi
+0x10da59 ret 
+
+====================================================================================================
+F. After damage totals: 'criticalStrike = %f' logs the PTH multiplier; crit counters increment iff mult > xmm12
+====================================================================================================
+0x10bfdd comiss xmm10, xmm12
+0x10bfe1 jbe 0x10bff4
+0x10bfe3 inc dword ptr [r13 + 0x1818]
+0x10bfea mov rax, qword ptr [r14 + 8]
+0x10bfee inc dword ptr [rax + 0x181c]
+0x10bff4 mov rax, qword ptr [rip + 0x4e7055]
+0x10bffb mov rcx, qword ptr [rax]
+0x10bffe xorps xmm7, xmm7
+0x10c001 cvtss2sd xmm7, xmm10
+0x10c006 mov rax, qword ptr [rcx]
+0x10c009 movsd qword ptr [rsp + 0x20], xmm7
+0x10c00f lea r9, [rip + 0x53079a]
+0x10c016 mov r8d, dword ptr [rip + 0x92925f]
+0x10c01d xor edx, edx
+0x10c01f call qword ptr [rax + 0x10]
+

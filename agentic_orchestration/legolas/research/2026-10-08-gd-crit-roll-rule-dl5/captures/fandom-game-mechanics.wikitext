@@ -1,0 +1,327 @@
+== Character Information ==
+* [[Attributes]]
+*[[Experience]]
+* Character Stats
+* Combat Stats
+* [[Defense Stats]]
+* Resistances
+* [[Damage Types|Damage]]
+* Retaliation
+* Pet Bonuses
+
+==Combat==
+
+=== Landing Hits and Critical Hits ===
+:The ability to hit and critically hit is directly tied to your '''Offensive Ability (OA)''' and your target’s '''Defensive Ability (DA)'''. When your OA is higher than your opponent’s DA, your chance to hit and even critically hit will increase.
+
+:As you continue to gain more bonuses to your OA, you will reach higher critical multipliers. The highest possible critical multiplier is x3.5, but to achieve this threshold you must either significantly out-level your target or have invested heavily in your OA.
+
+:Both weapon attacks and abilities rely on OA to hit and critically hit, so OA is an important attribute for any character. Offensive Ability and Defensive Ability can be increased through Cunning and Physique, respectively, and directly through equipment and skills.
+
+=== % Weapon Damage ===
+:Skills that deal % Weapon Damage take the damage and effects you would deal on a regular attack with your weapon and multiplies it by the displayed %. This includes things such as life steal, bonus magical damage and chance on attack item skills.
+
+:For example: 125% Weapon Damage on a skill will take your basic attack and multiply it by x1.25.
+
+=== Flat vs. Percent Damage ===
+:Damage on equipment comes in two forms: Flat Damage and Percent Damage. Flat Damage applies only to your weapon attacks and does not increase the damage from your skills unless they include a % Weapon Damage component. If found on a weapon, the Flat Damage bonus applies only to that weapon.
+
+:Percent Damage bonuses affect all damage dealt of that type, which includes skills and weapon attacks. So if you have a 20% bonus to Fire Damage, all of your fire-based skills will do increased damage, as well as any fire damage you deal on weapon attacks.
+
+=== Elemental Damage ===
+:Elemental Damage is a combination of the three basic magical elements: Fire, Ice and Lightning. When it appears as flat damage, Elemental Damage will be dealt as 1/3 Fire + 1/3 Ice + 1/3 Lightning, divided equally.
+
+:Percent Elemental Damage on the other hand is a bonus to all three elements equal to the full value. It is not split evenly. This makes percent Elemental Damage a powerful way to increase several damage types at once.
+
+:Note that Elemental damage bonuses are not applied to burn, frostburn or electrocute.
+
+=== % Current Life Damage ===
+:Percent Current Life Damage is dealt as a fraction of the monster's current health. This causes Percent Current Life damage to be less effective the closer to death the target is. The damage is not a temporary reduction to the target's maximum health.
+
+:Note that Hero and Boss Monsters have a high resistance to this damage type.
+
+=== Life Steal ===
+:Percent of Attack Damage Converted to Health is a form of life steal available in Grim Dawn. It functions differently depending on whether you find it on equipment or on a skill. When on equipment, life steal applies only to your weapon attacks. If you use a skill with % Weapon Damage, that component of the skill benefit from the life steal.
+
+:When found on a skill, Percent of Attack Damage Converted to Health applies to all of that skill's damage.
+
+=== Passively Activated Weapon Skills ===
+:Some abilities in Grim Dawn are passively activated on your basic attacks. The [[Soldier]] and [[Nightblade]] masteries provide several examples of this. Each of these abilities has a chance to activate, which is displayed as a percentage. What that means is that on every basic attack you do, you will have a chance of using the ability instead.
+
+:As you invest in these skills, their chance of activation will increase. It is possible to get the total chance of activating passive weapon abilities to go beyond 100%. When this occurs, all of your basic attacks will be replaced by abilities and their chances of activation will be used to determine their relative frequency.
+
+=== Shields ===
+:[[Shields]] are the definitive defensive option for the off-hand. When you are struck by an attack with a shield equipped, you will have a chance to block some of the damage (shields can block any damage type). When this occurs, you will be unable to block again until the shield’s Block Recovery time has expired. This cooldown can be reduced through various skills and equipment.
+
+:Some abilities can use the shield when striking, rather than your weapon. In this case, the % Weapon Damage component of the ability will use the shield’s damage rather than your main-hand.
+
+=== Crowd Control ===
+:There are many ways in Grim Dawn with which you can lock down your target’s ability to react to you. These effects are known as crowd control. The following are the various effects players (and monsters) can use to get advantage in battle:
+
+:*[[File:Stun.png|link=]]Stun - This effect prevents all actions for its duration.
+:*Freeze - This effect prevents all actions for its duration.
+:*Petrify - This effect prevents all actions for its duration.
+:*Knockdown - This effect sends the target flying and crumbling to the ground. The target will stand back up at the end of its duration. Players are immune to knockdowns.
+:*Trap - This effect immobilizes the target for its duration. It is particularly strong against melee monsters.
+:*Confusion - This effect causes the target to wander aimlessly for its duration. Players are immune to confusion.
+:*Fear - This effect causes the target to flee from the caster for its duration. Players are immune to fear.
+:*Sleep - This effect prevents all actions for its duration, but will end early if the target takes damage.
+:*Convert - This effect causes the target to fight on your side for its duration. Players are immune to convert.
+:*Slow - This effect reduces the attack speed, cast speed, move speed or a combination of all three of the target for its duration.
+
+=== Buffs, Debuffs and Damage over Time ===
+:There are many effects in Grim Dawn which can be applied through several different sources. Whenever this occurs, the strongest effect always takes precedence. For example, if two players in a multiplayer session have the same aura active, the player who invested more skill points into the aura will have theirs take effect while the other player’s will not apply its bonuses.
+
+:This works similarly for debuffs and damage over time effects. If you apply a % reduction to a monster’s damage by using a skill and then do the same thing with a weapon attack, only the strongest debuff will be take effect. The effects do not stack. 
+:Damage over time (DoT) effects are different. Unlike debuff effects, 
+:DoTs stack from different sources and always do full damage. For example, if you apply Poison with your weapon, and then another Poison effect with a spell, both will deal full damage.
+:In the case that a strong effect has a shorter duration than a weaker effect, the weaker effect will become active once the stronger effect expires.
+
+=== Constitution ===
+:Constitution is a secondary health regeneration system which activates outside of combat. Commonly referred to as Out-Of-Combat Regeneration, its purpose is to reduce a player's overall reliance on health potions and eliminate the need to drink potions after battles to refill health before engaging the next group of enemies.
+
+{| style="width: 100%;" cellpadding="0"
+| [[File:Constitution-Full.png|left|thumb|240px|A health bar with full constitution.]][[File:Constitution-Activating.png|left|thumb|240px|Constitution activating to restore health.]]
+[[File:Constitution-Used.png|left|thumb|240px|A portion of Constitution used up to restore a player's health.]]
+|Constitution is represented by a yellow overlay on the health bar. Whenever Out-Of-Combat Regen activates, the Constitution pool will be drained as the health bar rapidly refills. After running out of Constitution, health will no longer regenerate outside of combat. To exit combat, the player must avoid dealing or taking damage for 2.5 seconds.
+
+A character starts with 300 points of constitution, and each point heals 1% of maximum health. This means a character can fully regenerate three times before constitution runs out.
+|}
+:Constitution can be restored in various ways:
+:*Gaining a level
+:*Picking up Vital Essence (33%) or Food Rations (75%) from a fallen enemy or a Journeyman’s Pack
+:*Looting an Untouched Meal
+:*Dying
+:*Speaking to the Cook in [[Devil's Crossing (Location)|Devil’s Crossing]], [[Homestead (Location)|Homestead]], or [[Coven's Refuge]] (available once per game session)
+
+=== Potions ===
+:Potions serve as a means to restore health or energy in an emergency.
+
+:*[[Tonic of Mending|Tonics of Mending]] restore 25% + 800 of your health instantly and another 25% over a few seconds. They are on an 12 second cooldown.
+:*[[Elixir of Spirit|Elixirs of Spirit]] restore 35% + 250 of your energy instantly. They are on a 25 second cooldown.
+
+=== Pets ===
+:''See main article:'' [[Pets]]
+
+== Advanced Mechanics ==
+
+=== Order of Defense ===
+:Grim Dawn provides many methods of defense for a character, and it is important to know how the various levels of defense stack up. In order for an attack to land, it must make it through the following defenses:
+:*Fumble, Dodge and Projectile Deflection
+:*Chance to hit via Offensive Ability vs. Defensive Ability
+:*Shield
+:*% Reduced Damage from Monster Types
+:*Resistances
+:*Armor
+:*Flat Reduced Damage from Monster Types
+:*% Damage Absorption
+:*Flat Damage Absorption
+:Because flat damage absorption occurs only after damage has gone through all your other defenses, it can be a very powerful tool in your survival and should not be underestimated.
+
+=== Armor Formula ===
+
+:Armor in Grim Dawn has both a defense value and an absorption value. By default, the armor absorption is 70% across all equipment. When physical damage is inflicted upon a character, armor will mitigate 70% of the portion of the damage that is within the armor's protection value. 30% of damage within the protection value, along with 100% of damage above the protection value, will always get through.
+
+:For example: A piece of chest armor has a protection value of 100, and an enemy hits the character in the chest for 120 damage. 100 of the damage is within the armour's protection value, and so is reduced by 70%, giving 30 damage inflicted. 20 of the damage is unaffected. The total damage taken by the character is 50.
+
+:With the same armor, an enemy hits for 80 damage. This time, 80 of the damage is within the armour's protection value, giving 24 damage inflicted. There is no unaffected damage. The total damage taken by the character is 24.
+
+:Items that increase the armor absorption rate will result in reductions of greater than 70% for damage within the armour's protection value, but have no effect on damage above the protection value.
+
+:Hence, if an attack for 100 damage strikes an armor piece which has 100 armor, as well as a 20% bonus to armor absorption, the armor absorption is 70% * 1.2, or 84%. 84 damage from the blow is absorbed, and the character takes 16 damage.
+
+=== Offensive vs Defensive Ability Formula ===
+:'''Offensive Ability (OA)''' and '''Defensive Ability (DA)''' are critical to both your ability to deal out damage and in your own survival. If you let your Offensive Ability fall behind as you level, you will find that more and more of your attacks will miss. Similarly, an insufficient Defensive Ability will result in your enemies not only landing blows more frequently but also sometimes landing devastating critical hits. The '''Percentage to Hit(PTH) '''is determined by the attacker's Offensive Ability and the defender's Defensive Ability.
+
+:The Base Value of PTH is at 90%. So, the same amount of Offensive Ability against the same amount Defensive Ability will result in an attack hitting a target 90% of the time.
+
+:The exact PTH formula is:
+
+:PTH = 3.15 * (OA / (3.5 OA + DA)) + 0.0002275 * (OA - DA) + 0.2
+:where OA = Offensive Ability, DA = Defensive Ability
+
+:Furthermore exist the following dependencies:
+:* The higher the PTH already is, the more Offensive Ability will be needed to get additional PTH
+:* The higher the Defensive Ability of the target, the more Offensive Ability will be needed per % PTH
+:Some values:
+:* Striking the Training Dummy at Lv 51:
+:** 1195 OA, 88.2%   PTH
+:** 1498 OA, 98.5%   PTH  -> +303 OA resulted in 10.3% PTH gain -> 1% per 2.94 OA 
+:** 1817 OA, 106.9% PTH  -> +329 OA resulted in   8.4% PTH gain -> 1% per 3.92 OA
+
+:* Striking the Training Dummy at Lv 85:
+:** 1696 OA, 88.1%   PTH
+:** 2019 OA, 98.1%   PTH  -> +323 OA resulted in    10% PTH gain -> 1% per 3.23 OA
+
+
+:The value resulting from this calculation is your chance to strike the target. You may notice that it is feasible for this chance to go over 100. This is where critical multiplier thresholds come in.
+
+:'''PTH Threshold 1: 75 (1.0 damage)'''
+
+::If your PTH is lower than 75, any attacks that land will do reduced damage. The damage reduction multiplier is equal to your PTH / 75 (ex. if your PTH is 70, you will do 93.33% of normal damage on a hit, or 70/75). It is highly uncommon to go below a PTH of 75, though it can happen against targets that are significantly higher level than you
+
+::Note that PTH cannot go below 60 for you or your enemies, meaning that no matter how much Defensive Ability you or your foe may have, you will never have a lower than 60% chance to hit them, and vice-versa.
+:::''Example: PTH = 70, 70% for 93.33% damage, 30% misses''
+
+=== Critical Strikes ===
+:'''PTH Threshold 2: 90 (1.1x damage)'''
+::After this Threshold you will start to see critical strikes. The chance to critically strike is PTH - 90.
+::If you have 95% PTH, you will have a 5% Critical Chance .
+::If you have 110% PTH, you will have a 20% Critical Chance.
+::Critical Strikes appear in different multipliers, depending on the PTH Threshold.
+::Equipment and Skills granting +% Critical damage will be added to PTH Threshold multipliers.
+::(Critical behavior beyond 20% yet unconfirmed, remove this if confirmed)
+
+
+:Example for 95% PTH:
+::5% of all attacks miss
+::(*)95% * (**)95% = 90.25% of all attacks hit normally
+::(*)95% * 5% = 4.75% of all attacks critically strike with 1.1x damage
+
+::[(*) this value of 95% consists of 100% - chance to miss]
+::[(**)this value of 95% consists of 100% - chance to crit]
+
+
+'''PTH Threshold 3: 105 (1.2x damage)'''
+::Example for 110% PTH and +15% Critical Damage:
+::0% of all attacks miss
+::80% of all attacks hit normally
+::15% of all attacks critically strike for 1.25x damage ( 1.1 + 0.15)
+::5% of all attacks critically strike for 1.35x damage (1.2 + 0.15)
+
+::this behaviour continues with the following Thesholds.
+::'''PTH Threshold 4: 120 (1.3x damage)'''
+::'''PTH Threshold 5: 130 (1.4x damage)'''
+::'''PTH Threshold 6: 135 (1.5x damage) '''
+::'''''<u>[PTH THRESHOLD 4, 5 and 6 UNCONFIRMED, PLEASE REMOVE THIS IF CONFIRMED]</u>'''''
+
+::Critical base multipliers themselves are very low, so without any support from items or skills, stacking up a lot of Offensive Ability will not result in high damage gain. Getting to about 100% hit chance should be tried to achieve though in most cases, as missing attacks on the other hand will result in high dps loss.
+
+=== Conversion ===
+Conversion is a special stat found on equipment and skills that changes one damage type to another. Conversion will always, without exception, use damage modifiers of the damage type that will be dealt in the end. 
+
+''The order of events for Conversion is as follows: Base Skill > Skill Modifiers > Conversion on the Skill or Transmuter > Conversion on Equipment and Buffs > Equipment, Auras and Passives''
+
+==== Example: ====
+:Your Character has:
+::+ 100% Physical Damage resulting from points in Cunning
+::+ 200% Magical Damage resulting from points in Spirit
+::+ 50% Fire Damage
+::10% Conversion from Physical Damage to fire Damage
+
+You are using any form of attack. The attack deals the following damages:
+
+Without Conversion, before any multiplier would be applied:
+:100 Physical Damage
+:50 Fire Damage
+:50 Cold Damage
+
+Actual damage dealt without the Conversion:
+:200 Physical Damage
+:175 Fire Damage
+:150 Cold Damage
+
+After the Conversion, before any multiplier would be applied:
+:90 Physical Damage
+:60 Fire Damage
+:50 Cold Damage
+
+Actual damage Dealt with the Conversion:
+:180 Physical Damage
+:210 Fire Damage
+:150 Cold Damage
+
+
+====The two cases where Conversion can be found====
+
+=====On Equipment=====
+
+On Equipment, the Conversion affects all damage your character will deal, completely regardless of source.
+Exception to this would be pets, which have their own modifier for this.
+
+=====On Skills=====
+
+On Skills, the Conversion will only affect that skill itself.
+
+======Example: Discord in the Soldier Skill Tree======
+
+Putting 3 points into this Skill would affect only Cadence and Convert 50% of the physical damage dealt by only that skill to Elemental damage.
+
+Exceptions to this are buffs/auras, which will work the same as Conversion on Equipment.
+(for example Stormcaller's Pact in the [[Shaman]] Skill Tree)
+
+Buffs which grant Conversion (like Iskandra's Elemental Exchange in the [[Arcanist]] Skill Tree) will never grant any Conversion to another player in multiplayer games.
+
+======Example: Discord + 10% fire Conversion on an amulet + Stormcaller's Pact, using Cadence as attack======
+Let's simplify this calculation by assuming cadence deals 120 Physical Damage with every strike. Discord converts 50% Physical Damage to Elemental Damage and Stormcaller's Pact converts 15% Physical damage to [[Lightning Damage]]. Not taking into account any % Damage Modifiers.
+
+'''Steps:'''
+:Cadence:                    120 Physical Damage
+:-> Discord:                 60   Physical Damage 20 Fire Damage 20 Lightning Damage 20 Cold Damage
+:-> Amulet:                  54   Physical Damage 26 Fire Damage 20 Lightning Damage 20 Cold Damage
+:-> Stormcaller's Pact:  46   Physical Damage 26 Fire Damage 28 Lightning Damage 20 Cold Damage
+
+====Important Note:====
+:All Modifiers from Equipment will not result in the "diminishing returns" from above. Their percentages get fully applied to the remaining damage.
+:(Only Equipment was tested, but this probably applies to all other groups belonging together as well)
+
+======Complex Example:======
+10% Fire Conversion on Weapon(as Stat of that Weapon), 10% Fire Conversion from a Searing Ember embedded to the weapon, 10% Lightning Conversion from an amulet
+:Weapon Basic Attack (without Conversion): 100 Physical Damage
+
+:Weapon Basic Attack (with Conversion):       70 Physical Damage
+:20 Fire Damage
+:10 Lightning Damage
+
+[[Category:Game Mechanics]]
+In the Example Above with Discord this Conversion would take place instead of the Amulet of that example, resulting in the remaining 60 Physical Damage at that point getting converted to 42 Physical, 12 Fire and 6 Lightning Damage.
+
+-
+
+== Resistance, Offensive & Defensive Ability Reductions ==
+When you aim to optimize your characters damage, removing your enemy’s Resistances are vital. Furthermore, your Defensive and Offensive Abilities, as well as decreasing your enemy’s, determines your and your enemy’s  chance to hit and crit each other. 
+
+This is how Resistance Reduction (RR) and Offensive & Defensive Ability (OA resp. DA) debuffs in Grim Dawn (GD) work and interact with other debuffs of the same type and damage source.
+
+=== Resistance Reduction (RR) (3 different debuff types) ===
+There are two types of "Percentage" (%) RR debuffs in GD. One is applied "Multiplicable" and one is applied "Flat" (see example below):
+
+# Written "-X % (damage source) Resistance for Y seconds"
+#* Several sources can be active (do stack) and all sources are applied and active. Stack additively with each other.
+#* This debuff type is applied Flat and can reduce resistances below zero.
+#* GD has several sources of this debuff type, from Skills, Devotions, Procs and Components.
+#* This source is the core and most common RR debuff type in GD. Furthermore, the more RR you have from this debuff type, it affects "1" and "2" in an opposite fashion. A high total amount of RR from "type 1" (in relation to your enemies Resistances), lowers the damage gained from “type 2" and increases the damage gained from type "3". Vice versa applies with a low total amount of RR from "type 1".
+#Written "X % Reduced target's (damage source) Resistance for Y seconds".
+#* Only one source can be active (don't stack) and the source of the highest numerical value is applied/active.
+#* This debuff type is applied Multiplicable and can not reduce resistances below zero.
+#* GD has only two sources of this debuff type (Constellations "Viper" and "Ultos, Shepherd of Storms").
+#* Edit: Now there are [https://www.grimtools.com/db/search?query=%25%20reduced%20target%27s%20resis&in_description=1&exact_match=0 more] 
+#* This debuff type is highly valuable when your character has few/low RR debuffs in relation to the enemy’s Resistance.
+
+There is one debuff type of "none-percentage" (-x) RR in GD and it is applied "Flat":
+
+# Written "X Reduced target's (damage source) Resistances for Y seconds"
+#* Only once source can be active (don't stack) and the source of the highest numerical value is applied/active.
+#* This debuff type is applied Flat and can reduce resistances below zero.
+#* GD has several sources of this debuff type, from Skills, Devotions, Procs and Components.
+#* This debuff type is highly valuable when your character has many/high RR debuffs in total.
+
+What determines whether the debuff type can or cannot stack is the word "'''Reduced'''", meaning if it says reduced, it can not stack with other sources of the same debuff type and damage source. Furthermore, the three different debuff types are applied in a specific order (first 1 then 2 and finally 3). Lastly, if your character uses two, none-stackable (2 & 3), debuffs of the same type and the same damage source, both are applied to the enemy, but only the highest is active (shown). If the lower has a longer duration, it will become active once the higher runs out.
+
+==== Below follows an example using the three debuff types and from four sources (two stackable type 1) ====
+Your enemy has 100 % Cold Resistance, and is affected by your characters three debuff types of RR
+
+
+# You apply the debuff "Rumor" from the Constellation "Murmur" (type 1) for "-23 % Cold Resistance for 4 seconds".
+#* 100 - 23 = 77 % Cold Resistance remains for your enemy.
+# You apply the debuff "Night's Chill" from the Skill "Veil of Shadow" (type 1) for "-30 % Cold Resistance for 2 seconds".
+#* 77 - 30 = 47 % Cold Resistance remains for your enemy.
+# You apply the debuff "Viper" from the Constellation "Viper" (type 2) for "20 % Reduced target's Cold Resistance for 3 seconds".
+#* 0.8 * 47 = 37.6 % Cold Resistance remains for your enemy.
+# You apply the debuff "Elemental Storm" from the Constellation "Rhowan's Crown" (type 3) for "32 Reduced target's Cold Resistances for 2 seconds".
+#* 37.6 - 32 = 5.6 % Cold Resistance remains for your enemy.
+
+[https://forums.crateentertainment.com/t/actual-resist-reduction-formula/47174 Source for math]
+
+=== Offensive and Defensive Ability reduction (2 different debuff types) ===
+To be done after "Resistance Reductions" had its shattering critique!
