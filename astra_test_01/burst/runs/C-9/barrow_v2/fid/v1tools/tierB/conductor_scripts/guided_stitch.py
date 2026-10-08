@@ -125,6 +125,83 @@ def _bv2f_grain(im, c, r):
     DEV25_REP[f'{c}_{r}'] = rep
     return im
 # BV2F-END
+# BV2F-BEGIN DEV-27 (R-C9-250): GRADIENT-DOMAIN (POISSON) PLACEMENT of each chunk's NEW paint against its context strip.
+# The chunk's own gradients are kept (detail untouched); only a smooth correction field u is added to the new paint: u is
+# the harmonic extension into the new region of the low-frequency colour step d measured ACROSS the context boundary
+# (the ALREADY-PLACED composite's last DEV27_BAND px -- the earlier neighbour and this chunk's strip blended by the
+# stitch's own weights -- vs the new paint's first DEV27_BAND px), so u = d on the boundary and
+# decays like Laplace's equation inside (half-plane Poisson kernel a/(pi(a^2+s^2)) at depth a, FFT-free 1-D convolution
+# per depth), tapered to 0 by DEV27_FADE px. d is measured on GROUND pixels only (snow, ice, blue or grey: not dark, not
+# warm-saturated -- rock, stone, wood, heather and reeds are left out) with a normalised smoothing along the boundary
+# (sigma DEV27_SIGMA), so a real painted edge that CROSSES the boundary (a shore, a rock) does not register as a step.
+# The field is smooth, so objects ride it and are never re-shaded beyond it. BV2F_DEV27=0 turns it off.
+DEV27 = os.environ.get('BV2F_DEV27', '1') != '0'
+DEV27_BAND, DEV27_SIGMA, DEV27_FADE, DEV27_DEPTHS = 12, 24.0, 320, 320
+DEV27_REP = {}
+def _dev27_ground(a):
+    L = a.mean(-1)
+    warm = (a[..., 0] - a[..., 2]) > 28          # rust heather, straw reeds, brown wood and rock
+    return ((L > 110) & ~warm).astype(np.float64)
+def _dev27_step(ctx, new):
+    # ctx, new: (Lb, BAND, 3) bands either side of the boundary -> per line along it the step ctx - new (smoothed)
+    mc, mn = _dev27_ground(ctx), _dev27_ground(new)
+    nc, nn = mc.sum(1), mn.sum(1)
+    mean_c = (ctx * mc[..., None]).sum(1) / np.maximum(nc, 1)[:, None]
+    mean_n = (new * mn[..., None]).sum(1) / np.maximum(nn, 1)[:, None]
+    w = np.where((nc >= DEV27_BAND * 0.5) & (nn >= DEV27_BAND * 0.5), 1.0, 0.0)
+    gw = ndimage.gaussian_filter1d(w, DEV27_SIGMA, mode='nearest')
+    d = np.stack([ndimage.gaussian_filter1d((mean_c - mean_n)[:, i] * w, DEV27_SIGMA, mode='nearest') for i in range(3)], -1)
+    d = d / np.maximum(gw, 1e-6)[:, None]
+    return d * np.clip(gw / 0.25, 0.0, 1.0)[:, None]
+def _dev27_field(d, depth_n):
+    # harmonic extension of d (Lb, 3) into a half-plane, depth 0..depth_n-1: Poisson kernel per depth, tapered
+    Lb = d.shape[0]
+    s = np.arange(-Lb + 1, Lb, dtype=np.float64)
+    u = np.zeros((Lb, depth_n, 3))
+    t = np.clip(np.arange(depth_n) / float(DEV27_FADE), 0.0, 1.0)
+    taper = 1.0 - t * t * (3.0 - 2.0 * t)
+    from scipy.signal import fftconvolve
+    a = np.arange(depth_n, dtype=np.float64) + 0.5
+    K = a[None, :] / (np.pi * (a[None, :] ** 2 + s[:, None] ** 2))
+    K = K / K.sum(0, keepdims=True)
+    for ch in range(3):
+        u[:, :, ch] = fftconvolve(d[:, ch][:, None], K, mode='full', axes=0)[Lb - 1:2 * Lb - 1]
+    return u * taper[None, :, None]
+_dev27_done = {}
+def _dev27_final(c, r):
+    # a chunk as the composite will hold it (tone, grain, Poisson), cached; only ever asked for EARLIER chunks
+    if (c, r) not in _dev27_done:
+        a = np.asarray(Image.open(src(f'{c}_{r}')).convert('RGB'), dtype=np.float64)
+        _dev27_done[(c, r)] = _bv2f_poisson(_bv2f_grain(_bv2f_tone(a, c, r), c, r), c, r)
+    return _dev27_done[(c, r)]
+def _dev27_ctx(im, c, r, axis):
+    # the COMPOSITE's context band just before the boundary: this chunk's strip blended with the earlier neighbour's
+    # pixels by the weights the stitch will use (DEV-26's cut ramp, or v1's linear ramp)
+    if axis == 'x':
+        A_ = _dev27_final(c - 1, r)[:, SX + OV - DEV27_BAND:SX + OV]; B_ = im[:, OV - DEV27_BAND:OV]
+        wB = _dev26_ramp(_dev26_band('x', c))[r * SY:r * SY + H, OV - DEV27_BAND:OV] if DEV26 else np.broadcast_to(up[OV - DEV27_BAND:], (H, DEV27_BAND))
+    else:
+        A_ = np.swapaxes(_dev27_final(c, r - 1)[SY + OV - DEV27_BAND:SY + OV, :], 0, 1); B_ = np.swapaxes(im[OV - DEV27_BAND:OV, :], 0, 1)
+        wB = _dev26_ramp(_dev26_band('y', r))[c * SX:c * SX + W, OV - DEV27_BAND:OV] if DEV26 else np.broadcast_to(up[OV - DEV27_BAND:], (W, DEV27_BAND))
+    return wB[..., None] * B_ + (1.0 - wB[..., None]) * A_
+def _bv2f_poisson(im, c, r):
+    if not DEV27:
+        return im
+    rep = {}
+    if c > 0:
+        d = _dev27_step(_dev27_ctx(im, c, r, 'x'), im[:, OV:OV + DEV27_BAND])
+        u = _dev27_field(d, min(DEV27_DEPTHS, W - OV))
+        im = im.copy(); im[:, OV:OV + u.shape[1]] += u
+        rep['left_step_mean_abs'] = round(float(np.abs(d).mean()), 2)
+    if r > 0:
+        T = lambda a: np.swapaxes(a, 0, 1)
+        d = _dev27_step(_dev27_ctx(im, c, r, 'y'), T(im[OV:OV + DEV27_BAND]))
+        u = _dev27_field(d, min(DEV27_DEPTHS, H - OV))
+        im = im.copy(); im[OV:OV + u.shape[1], :] += np.swapaxes(u, 0, 1)
+        rep['top_step_mean_abs'] = round(float(np.abs(d).mean()), 2)
+    DEV27_REP[f'{c}_{r}'] = rep
+    return im
+# BV2F-END
 # BV2F-BEGIN DEV-26 (R-C9-249): MINIMUM-ERROR BOUNDARY CUT (image-quilting style) in place of v1's straight linear ramps.
 # In every overlap band the two chunks' pixels (each after DEV-23/25) are compared and the hand-over runs along the path
 # of LEAST difference (dynamic programming, one path per GLOBAL band so the four-chunk corners stay a partition of unity),
@@ -215,6 +292,7 @@ for r in range(ROWS):
         assert im.shape == (H, W, 3), (c, r, im.shape)
         im = _bv2f_tone(im, c, r)   # BV2F DEV-23
         im = _bv2f_grain(im, c, r)   # BV2F DEV-25
+        im = _bv2f_poisson(im, c, r)   # BV2F DEV-27
         wx, wy = np.ones(W), np.ones(H)
         if c > 0: wx[:OV] *= up
         if c < COLS-1: wx[W-OV:] *= up[::-1]
@@ -230,5 +308,6 @@ print(pathlib.Path(sys.argv[2]).name, out.size, 'sha256', hashlib.sha256(pathlib
 print('DEV-23', 'on' if DEV23 else 'off', DEV23_REP)   # BV2F DEV-23
 print('DEV-25', 'on' if DEV25 else 'off', DEV25_REP)   # BV2F DEV-25
 print('DEV-26', 'on' if DEV26 else 'off', DEV26_REP)   # BV2F DEV-26
+print('DEV-27', 'on' if DEV27 else 'off', {k: v for k, v in DEV27_REP.items()})   # BV2F DEV-27
 if len(sys.argv) > 3:
     out.resize((out.width // 2, out.height // 2), Image.LANCZOS).save(sys.argv[3], quality=86)

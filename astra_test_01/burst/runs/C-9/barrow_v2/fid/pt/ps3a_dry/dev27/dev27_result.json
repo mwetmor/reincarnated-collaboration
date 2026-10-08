@@ -1,0 +1,140 @@
+{
+ "_what": "R-C9-250/251 DEV-27 (Poisson placement) result on the PS3a build base (build_manifest_ps3a.json)",
+ "constructed_test": {
+  "synthetic_step_L": 8.0,
+  "step_dE_median_p90": {
+   "original": [
+    9.22,
+    14.29
+   ],
+   "with_synthetic_+8": [
+    7.03,
+    11.31
+   ],
+   "after_DEV27": [
+    2.19,
+    6.9
+   ]
+  },
+  "real_edge_at": [
+   391,
+   181
+  ],
+  "real_edge_contrast": {
+   "original": 47.12,
+   "with_synthetic_+8": 45.73,
+   "after_DEV27": 46.07
+  },
+  "field_high_frequency_on_objects_max_abs": 3.03,
+  "report": {
+   "1_0": {
+    "left_step_mean_abs": 11.72
+   }
+  }
+ },
+ "p5c_boundary_max_excess_off_vs_on": {
+  "1_0|x1536": [
+   2.86,
+   -0.39,
+   [
+    512,
+    640
+   ]
+  ],
+  "2_0|x2816": [
+   12.0,
+   1.73,
+   [
+    0,
+    128
+   ]
+  ],
+  "0_1|y1024": [
+   8.09,
+   4.72,
+   [
+    896,
+    1024
+   ]
+  ],
+  "1_1|x1536": [
+   6.16,
+   4.67,
+   [
+    1408,
+    1536
+   ]
+  ],
+  "1_1|y1024": [
+   4.38,
+   0.35,
+   [
+    1920,
+    2048
+   ]
+  ],
+  "2_1|x2816": [
+   17.47,
+   6.95,
+   [
+    1664,
+    1792
+   ]
+  ],
+  "2_1|y1024": [
+   3.59,
+   2.5,
+   [
+    3584,
+    3712
+   ]
+  ],
+  "0_2|y1792": [
+   19.05,
+   10.84,
+   [
+    1280,
+    1408
+   ]
+  ],
+  "1_2|x1536": [
+   0.22,
+   2.09,
+   [
+    1664,
+    1792
+   ]
+  ],
+  "1_2|y1792": [
+   19.05,
+   10.84,
+   [
+    1280,
+    1408
+   ]
+  ],
+  "2_2|x2816": [
+   28.12,
+   23.44,
+   [
+    2176,
+    2304
+   ]
+  ],
+  "2_2|y1792": [
+   13.96,
+   9.16,
+   [
+    2816,
+    2944
+   ]
+  ]
+ },
+ "visual_play_zoom": {
+  "2_0_x2816": "blue rectangle right of x2816 gone; a FAINT vertical line remains in the ice",
+  "stone_circle": "the lighter block much reduced; faint vertical edge at x2816 near the top",
+  "2_2_y1792": "faint horizontal edge at the right end remains",
+  "0_1/0_2_y1792": "the shore-ice bay (x 1250-1400) keeps a straight horizontal edge (P5c excess 19.05 -> 10.84): a content seam (flat pale bay in the strip vs the new paint), not only tone"
+ },
+ "verdict": "PARTIAL: tone steps largely removed (2_0 12.0 -> 1.7, 2_1|x 17.5 -> 7.0, 1_1|y 4.4 -> 0.4, 0_1|y 8.1 -> 4.7); acceptance NOT met -- faint straight lines remain at 2_0 x2816 and the 0_1/0_2 bay; 2_2|x2816 rows 2176-2432 = cliff-top content (23.4 excess both on and off)"
+}

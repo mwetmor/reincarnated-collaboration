@@ -20,6 +20,14 @@ for s in $STEPS; do
   step $s
   case $s in
     stitch)
+      # R-C9-251 C5: the chunks the stitch will resolve must be exactly the pinned manifest (sha256)
+      python3 -c "
+import json,hashlib,os,sys
+A='$C9/artifacts'; m=json.load(open('$P/build_manifest_ps3a.json')); P_=m['prefix']; bad=[]
+for k,v in m['chunks'].items():
+    p=next((f'{A}/{d}/{P_}-{k}.png' for d in (f'{P_}-{k}-r1',f'{P_}-{k}') if os.path.exists(f'{A}/{d}/{P_}-{k}.png')),None)
+    if p is None or os.path.relpath(p,A)!=v['file'] or hashlib.sha256(open(p,'rb').read()).hexdigest()!=v['sha256']: bad.append(k)
+print('build manifest:', 'OK' if not bad else 'MISMATCH '+str(bad)); sys.exit(1 if bad else 0)" || fail $s 7
       # R-C9-242: the Tier-B stitch (DEV-23 low-frequency tone match at the pasted-context boundary)
       python3 $V/tierB/conductor_scripts/guided_stitch.py $CFG $P/painting.png $P/painting_preview.jpg > $P/stitch.log 2>&1 || fail $s $?
       python3 $T/pilot_stitch_record.py || fail $s $?
