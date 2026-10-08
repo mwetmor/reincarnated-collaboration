@@ -47738,6 +47738,11 @@
       "id": "N-C9-CLEANUP-M16",
       "note": "Manifest 16 (BV2F conductor scratchpad, 12 entries, 44.6 GiB logical) deleted on Matt's own typed command (his '!' line arrived over Remote Control as a message and did not execute; the conductor ran exactly that command at his instruction). 0 of 12 remain. Disk 28 -> 34 GiB free: ~6 GiB real, as predicted (APFS clones shared blocks with barrow_full).",
       "ts": "2026-10-07T18:21:59Z"
+    },
+    {
+      "id": "N-C9-CLEANUP-M17",
+      "note": "Manifest 17 (6 entries, 22.4 GiB logical: pc5_*/pc6_* control clones, iso, the st1 error log) deleted on Matt's own pasted command; 0 of 6 remain; iso2 kept (PT in use). Disk 25 -> 35 GiB free (~10 GiB real).",
+      "ts": "2026-10-08T00:42:25Z"
     }
   ]
 }
