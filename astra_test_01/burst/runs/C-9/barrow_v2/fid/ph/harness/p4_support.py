@@ -19,21 +19,25 @@ KS = (1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 40, 60, 80, 100, 120)
 DRAWS = 60
 
 
-def main():
+def main(cls="snow", min_chunk_windows=40):
     masks, static = T.v1_classes()
     P = load_rgb(BF / "paint/barrow_full_painted.png")
     lab, gray = rgb_to_lab(P), luma(P)
     per = T.v1_pool(P, masks, static)
     bars = T.v1_bars(per)
-    hb, sb = bars["snow"]["hist"], bars["snow"]["spec"]
+    hb, sb = bars[cls]["hist"], bars[cls]["spec"]
     rng = np.random.default_rng(272)
     res = {k: [] for k in KS}
+    nwin = {}
     for key, (x0, y0, x1, y1) in T.v1_chunks():
-        m = ndimage.binary_erosion(masks["snow"][y0:y1, x0:x1], iterations=3)
+        m = ndimage.binary_erosion(masks[cls][y0:y1, x0:x1], iterations=3)
         wins = T.windows(m)
-        if len(wins) < 40:
+        if len(wins) < min_chunk_windows:
             continue
-        ph, ps = T.pooled(per, "snow", exclude=key)
+        ph, ps = T.pooled(per, cls, exclude=key)
+        if ph is None or ps is None:
+            continue
+        nwin[key] = len(wins)
         L, G = lab[y0:y1, x0:x1], gray[y0:y1, x0:x1]
         for k in KS:
             if k > len(wins):            # k beyond this chunk's own support: only chunks that have >= k windows enter
@@ -50,12 +54,14 @@ def main():
     table = {k: round(float(np.mean(v)), 4) for k, v in res.items() if v}
     ndraw = {k: len(v) for k, v in res.items()}
     wmin = next((k for k in table if table[k] >= 0.95 and all(table[j] >= 0.95 for j in table if j >= k)), None)
-    out = {"_what": __doc__.split("\n")[0], "bars": {"hist": hb, "spec": sb}, "draws_per_chunk_per_k": DRAWS,
+    out = {"_what": __doc__.split("\n")[0], "class": cls, "v1_chunk_windows": nwin, "min_chunk_windows": min_chunk_windows,
+           "bars": {"hist": hb, "spec": sb}, "draws_per_chunk_per_k": DRAWS,
            "v1_pass_rate_by_k": table, "draws_by_k": ndraw, "W_min": wmin,
-           "rule": "Phase 3' only: a chunk with < W_min P4 snow windows -> 'snow: insufficient support' (not judged); never applied to pilot 4"}
-    dump(out, str(PH / "results/p4_support_rule.json"))
+           "rule": "Phase 3' only: a chunk with < W_min P4 %s windows -> '%s: insufficient support' (not judged); never applied to pilot 4" % (cls, cls)}
+    dump(out, str(PH / ("results/p4_support_rule.json" if cls == "snow" else "results/p4_support_rule_%s.json" % cls)))
     print(json.dumps(out, indent=1))
 
 
 if __name__ == "__main__":
-    main()
+    c = sys.argv[1] if len(sys.argv) > 1 else "snow"
+    main(c, int(sys.argv[2]) if len(sys.argv) > 2 else 40)

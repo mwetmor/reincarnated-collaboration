@@ -1,0 +1,57 @@
+{
+ "_what": "P4 SNOW MINIMUM-SUPPORT RULE, calibrated on v1 subsamples (R-C9-272; jack-ryan pilot-4 Gate-2 \u00a7 4: \"calibrated on v1's",
+ "class": "rock",
+ "v1_chunk_windows": {
+  "0_0": 64,
+  "1_0": 27,
+  "3_0": 64,
+  "0_1": 41,
+  "1_1": 11,
+  "3_1": 75,
+  "0_2": 59,
+  "3_2": 51,
+  "0_3": 51,
+  "1_3": 24,
+  "2_3": 37,
+  "3_3": 53
+ },
+ "min_chunk_windows": 2,
+ "bars": {
+  "hist": 0.48073101372457905,
+  "spec": 0.18998509222751606
+ },
+ "draws_per_chunk_per_k": 60,
+ "v1_pass_rate_by_k": {
+  "1": 0.5708,
+  "2": 0.9375,
+  "3": 0.9903,
+  "4": 0.9958,
+  "6": 1.0,
+  "8": 1.0,
+  "12": 1.0,
+  "16": 1.0,
+  "24": 1.0,
+  "32": 1.0,
+  "40": 1.0,
+  "60": 1.0
+ },
+ "draws_by_k": {
+  "1": 720,
+  "2": 720,
+  "3": 720,
+  "4": 720,
+  "6": 720,
+  "8": 720,
+  "12": 660,
+  "16": 660,
+  "24": 660,
+  "32": 540,
+  "40": 480,
+  "60": 180,
+  "80": 0,
+  "100": 0,
+  "120": 0
+ },
+ "W_min": 3,
+ "rule": "Phase 3' only: a chunk with < W_min P4 rock windows -> 'rock: insufficient support' (not judged); never applied to pilot 4"
+}

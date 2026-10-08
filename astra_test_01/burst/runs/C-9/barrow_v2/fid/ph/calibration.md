@@ -1627,3 +1627,12 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
   - **start:** (−3.25, 1.26) → (−1.75, 6.83) → (−6.0, 6.0) → (−6.5, 1.5). The first leg is on PT's rp4 film route (reached).
   - **sea:** (−27.5, 1.2) → (−22.5, 1.6) → (−21.5, 0.0) → (−26.5, 0.6), on the shore-fast ice (z −4.2) inside the level bounds, with open sea at u ≤ −30 in frame.
 - **The proof runs are HALTED** by the disk gate (20 GiB < 21). Nothing has been probed yet; PH runs `walk_probe.sh` when disk allows.
+
+### § 50 (b) EXTENDED to ROCK (R-C9-274; PT's rock 2_1 forensic). Pre-registered BEFORE any Phase 3′ value. Phase 3′ only; **never applied to pilot 4**. `harness/p4_support.py rock 2` → `results/p4_support_rule_rock.json`
+- **Calibration.** The same method as snow:
+  - **Support** = a chunk's P4 rock spectrum windows (64 px, ≥ 90 % rock, step 64).
+  - **Subsampling:** v1's rock chunks (13 with ≥ 1 window; 0–75 windows each) drawn at k windows, 60 draws per chunk per k, each against the pool of the other chunks with the frozen § 3 rock bars (hist 0.481, spec 0.190). A chunk enters a given k only if it holds ≥ k windows.
+  - **Pass rate by k:** 1: 0.571 · 2: 0.938 · **3: 0.990** · 4: 0.996 · 6+: 1.000.
+- **W_min(rock) = 3** windows: the smallest k from which ≥ 95 % of v1's own draws pass.
+- **Rule.** A Phase 3′ chunk with **< 3** P4 rock windows → **"rock: insufficient support" (not judged; never PASS)**, reported with its count.
+- **Pilot 4 stays as judged at § 47** (rock 2_1 FAIL on 2 windows). PT's 0.7-coverage reading (0.158) is a forensic, not a re-score.
