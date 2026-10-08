@@ -1,68 +1,68 @@
 {
  "_what": "BV2F PT pilot: the painted pilot's data, measured (fid/pt/tools/bv2f_prep.py = v1 paint_world_prep main on the pilot)",
- "painting_sha256": "7fbe33149bef412aea48f0d78930ef88219c6a7e7d04397d87ea8feb170e2421",
+ "painting_sha256": "2f58f6379e82c9c034d4b0011ea12975041cf4713bb131a2422e64f05b561c52",
  "tufts_self_test": {
   "heather_px": [
-   168222,
-   168222
+   405923,
+   405923
   ],
   "shrub_px": [
-   38930,
-   38930
+   20827,
+   20827
   ],
   "PASS": true,
   "_": "[this run, step 3's take_report] -- the same classifier on the same painting"
  },
  "reed_split": {
-  "straw_components": 3371,
-  "reed_components": 2069,
-  "heather_components": 1302,
-  "of_which_tips_by_proximity": 164,
-  "reed_px": 75927,
-  "heather_tip_px": 58136,
-  "reed_cards": 128,
+  "straw_components": 7477,
+  "reed_components": 1572,
+  "heather_components": 5905,
+  "of_which_tips_by_proximity": 533,
+  "reed_px": 34955,
+  "heather_tip_px": 92120,
+  "reed_cards": 65,
   "heather_tuft_px": [
-   166608,
-   109153
+   383700,
+   354492
   ],
   "_": "tuft px [before, after] the reed tufts (dilated 2 px) are taken out of the heather's cover"
  },
  "shadow": {
   "painted_shadow_over_painted_light_linear": [
-   0.5457,
-   0.6518,
-   0.8593
+   0.6338,
+   0.7209,
+   0.9045
   ],
   "as_srgb_on_lit_snow": {
    "lit": [
     246,
     237,
-    231
+    230
    ],
    "shadow": [
-    188,
-    196,
-    216
+    201,
+    205,
+    220
    ]
   },
   "pixels": {
-   "shadow": 7067,
-   "lit": 671069
+   "shadow": 7033,
+   "lit": 629715
   },
   "per_chunk_linear": {
    "2_0": [
-    0.551,
-    0.652,
-    0.859
+    0.64,
+    0.721,
+    0.904
    ]
   },
   "painted_vs_rendered_shadow_on_open_snow": {
-   "recall_rendered_shadow_painted_as_shadow": 0.9818,
-   "precision": 0.1844,
-   "iou": 0.1838,
-   "painted_shadow_within_10px_of_a_rendered_one": 0.2526,
-   "painted_px": 104705,
-   "rendered_px": 19665,
+   "recall_rendered_shadow_painted_as_shadow": 0.8318,
+   "precision": 0.1593,
+   "iou": 0.1544,
+   "painted_shadow_within_10px_of_a_rendered_one": 0.1898,
+   "painted_px": 102856,
+   "rendered_px": 19704,
    "_read": "recall: the share of the render's cast shadow the painter painted as shadow -- where the SUN's real shadow will darken him; the rest of the painted blue is the snow's own washes (hollows, dabs), which no object casts",
    "_instrument": "painted: a pixel's position on the lit->shadow colour axis > 0.5 after a 21 px median; rendered: the blockout's own cast shadow (lit_guide G < 0.5); open snow only"
   },
@@ -70,56 +70,56 @@
  },
  "bakes": 23,
  "heather": {
-  "instances": 93,
+  "instances": 264,
   "placement": {
    "shrub": {
-    "placed": 6,
-    "wanted": 6,
+    "placed": 0,
+    "wanted": 0,
     "footprint_px": [
      54.9,
      64.8
     ],
-    "tuft_cells_covered_share": 0.1951
+    "tuft_cells_covered_share": 0.0
    },
    "heather": {
-    "placed": 87,
-    "wanted": 87,
+    "placed": 264,
+    "wanted": 264,
     "footprint_px": [
      47.1,
      55.5
     ],
-    "tuft_cells_covered_share": 0.3012
+    "tuft_cells_covered_share": 0.3776
    }
   },
   "painted_mean_linear": [
-   0.3262,
-   0.1773,
-   0.08854
+   0.29533,
+   0.12125,
+   0.05468
   ],
   "painted_mean_srgb": [
-   155,
-   117,
-   84
+   148,
+   98,
+   66
   ],
   "rel_mul_p10_p50_p90": [
    [
-    0.531,
-    1.23,
-    1.23
+    0.809,
+    0.882,
+    1.431
    ],
    [
-    0.529,
-    1.227,
-    1.227
+    0.701,
+    0.758,
+    1.859
    ],
    [
-    0.495,
-    1.244,
-    1.244
+    0.622,
+    0.784,
+    1.904
    ]
   ],
-  "tuft_px_per_spray_median": 1162,
-  "tufts_on_flat_land_share": 0.4279
+  "tuft_px_per_spray_median": 1418,
+  "tufts_on_flat_land_share": 0.2615
  },
  "stair_treads_cut": {
   "cells": 2155,
@@ -134,12 +134,12 @@
    54.513
   ],
   "grid_cells": 299209,
-  "mean_mul": 0.233,
-  "bare_share_mul_under_0.125": 0.7587
+  "mean_mul": 0.2199,
+  "bare_share_mul_under_0.125": 0.7679
  },
  "water": {
   "floes": 0,
-  "ice_slab_items": 931,
+  "ice_slab_items": 879,
   "sdf_px": [
    191,
    175

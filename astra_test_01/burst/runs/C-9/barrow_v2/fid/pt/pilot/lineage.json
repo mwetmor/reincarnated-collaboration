@@ -2,17 +2,17 @@
  "name": "bv2f pilot",
  "painting": {
   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
-  "sha": "7fbe33149bef412aea48f0d78930ef88219c6a7e7d04397d87ea8feb170e2421"
+  "sha": "2f58f6379e82c9c034d4b0011ea12975041cf4713bb131a2422e64f05b561c52"
  },
  "textures": [
   {
    "id": "painting.bin",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/painting.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/painting.bin",
    "role": "ground + every primitive + the heather/snow albedo + the water's base (projection)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "painting.sha256"
     },
     {
@@ -23,31 +23,31 @@
   },
   {
    "id": "lit",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/lit.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/lit.bin",
    "role": "painted direct-sun share (his shadow's mask)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "lit.sha256"
     },
     {
      "kind": "producer",
      "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/tools/bv2f_prep.py",
      "tool_sha": "18c95636094197e29baf8da46e92fb73422e27028bddf183035573204545f988",
-     "evidence": "fid/pt/pilot/painted_prep.json painting_sha256 = 7fbe33149bef",
+     "evidence": "fid/pt/pilot/painted_prep.json painting_sha256 = 2f58f6379e82",
      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png"
     }
    ]
   },
   {
    "id": "bake barrow_front",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/barrow_front.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/barrow_front.bin",
    "role": "baked real model (4096 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.barrow_front.sha256"
     },
     {
@@ -83,7 +83,7 @@
      "rect": [
       3043,
       0,
-      995,
+      988,
       420
      ],
      "alpha_min": 255
@@ -92,12 +92,12 @@
   },
   {
    "id": "bake cliff_faces__cliff_faces_0",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/cliff_faces__cliff_faces_0.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/cliff_faces__cliff_faces_0.bin",
    "role": "baked real model (2048 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.cliff_faces__cliff_faces_0.sha256"
     },
     {
@@ -142,12 +142,12 @@
   },
   {
    "id": "bake cliff_faces__cliff_faces_1",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/cliff_faces__cliff_faces_1.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/cliff_faces__cliff_faces_1.bin",
    "role": "baked real model (2048 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.cliff_faces__cliff_faces_1.sha256"
     },
     {
@@ -192,12 +192,12 @@
   },
   {
    "id": "bake cliff_faces__cliff_faces_2",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/cliff_faces__cliff_faces_2.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/cliff_faces__cliff_faces_2.bin",
    "role": "baked real model (2048 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.cliff_faces__cliff_faces_2.sha256"
     },
     {
@@ -242,12 +242,12 @@
   },
   {
    "id": "bake wreck",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/wreck.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/wreck.bin",
    "role": "baked real model (2048 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.wreck.sha256"
     },
     {
@@ -284,7 +284,7 @@
       105,
       1138,
       1100,
-      1029
+      1030
      ],
      "alpha_min": 255
     }
@@ -292,12 +292,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_1",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_1.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_1.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_1.sha256"
     },
     {
@@ -342,12 +342,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_10",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_10.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_10.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_10.sha256"
     },
     {
@@ -392,12 +392,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_11",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_11.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_11.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_11.sha256"
     },
     {
@@ -442,12 +442,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_3",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_3.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_3.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_3.sha256"
     },
     {
@@ -492,12 +492,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_5",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_5.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_5.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_5.sha256"
     },
     {
@@ -532,9 +532,9 @@
      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
      "rect": [
       2933,
-      2185,
+      2182,
       195,
-      195
+      198
      ],
      "alpha_min": 255
     }
@@ -542,12 +542,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_6",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_6.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_6.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_6.sha256"
     },
     {
@@ -592,12 +592,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_7",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_7.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_7.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_7.sha256"
     },
     {
@@ -642,12 +642,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_8",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_8.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_8.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_8.sha256"
     },
     {
@@ -692,12 +692,12 @@
   },
   {
    "id": "bake gully_rock__gully_rock_9",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/gully_rock__gully_rock_9.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_9.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.gully_rock__gully_rock_9.sha256"
     },
     {
@@ -742,12 +742,12 @@
   },
   {
    "id": "bake ring_stones__ring_stones_0",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/ring_stones__ring_stones_0.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_0.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.ring_stones__ring_stones_0.sha256"
     },
     {
@@ -782,9 +782,9 @@
      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
      "rect": [
       2949,
-      1560,
+      1549,
       127,
-      144
+      155
      ],
      "alpha_min": 255
     }
@@ -792,12 +792,12 @@
   },
   {
    "id": "bake ring_stones__ring_stones_1",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/ring_stones__ring_stones_1.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_1.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.ring_stones__ring_stones_1.sha256"
     },
     {
@@ -832,9 +832,9 @@
      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
      "rect": [
       3158,
-      1832,
+      1814,
       109,
-      130
+      148
      ],
      "alpha_min": 255
     }
@@ -842,12 +842,12 @@
   },
   {
    "id": "bake ring_stones__ring_stones_2",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/ring_stones__ring_stones_2.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_2.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.ring_stones__ring_stones_2.sha256"
     },
     {
@@ -882,9 +882,9 @@
      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
      "rect": [
       3684,
-      1613,
+      1596,
       123,
-      160
+      177
      ],
      "alpha_min": 255
     }
@@ -892,12 +892,12 @@
   },
   {
    "id": "bake ring_stones__ring_stones_3",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/ring_stones__ring_stones_3.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_3.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.ring_stones__ring_stones_3.sha256"
     },
     {
@@ -932,9 +932,9 @@
      "input": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
      "rect": [
       3487,
-      1408,
+      1386,
       117,
-      148
+      170
      ],
      "alpha_min": 255
     }
@@ -942,12 +942,12 @@
   },
   {
    "id": "bake slope_stones__slope_stones_0",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/slope_stones__slope_stones_0.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/slope_stones__slope_stones_0.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.slope_stones__slope_stones_0.sha256"
     },
     {
@@ -992,12 +992,12 @@
   },
   {
    "id": "bake talus__talus_1",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/talus__talus_1.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/talus__talus_1.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.talus__talus_1.sha256"
     },
     {
@@ -1042,12 +1042,12 @@
   },
   {
    "id": "bake talus__talus_2",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/talus__talus_2.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/talus__talus_2.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.talus__talus_2.sha256"
     },
     {
@@ -1092,12 +1092,12 @@
   },
   {
    "id": "bake wreck_mast__wreck_mast_0",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/wreck_mast__wreck_mast_0.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/wreck_mast__wreck_mast_0.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.wreck_mast__wreck_mast_0.sha256"
     },
     {
@@ -1142,12 +1142,12 @@
   },
   {
    "id": "bake wreck_mast__wreck_mast_1",
-   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/bakes/wreck_mast__wreck_mast_1.bin",
+   "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/wreck_mast__wreck_mast_1.bin",
    "role": "baked real model (1024 px, DEV-19)",
    "links": [
     {
      "kind": "sha_record",
-     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp2/painted/manifest.json",
+     "record": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/manifest.json",
      "field": "bakes.wreck_mast__wreck_mast_1.sha256"
     },
     {
