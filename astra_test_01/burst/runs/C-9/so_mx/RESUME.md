@@ -1,4 +1,16 @@
-# Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2
+# Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2; resumed R-C9-224, PAUSED AGAIN 2026-10-08
+
+## Second pause (conductor relay of Matt, "forget the sorceress for now"), after R-C9-224 resumed with OPTION B
+
+**Option B is confirmed (R-C9-224); step 1 is done.** Done in the resume before the stop:
+- **Step 2 built, EXIT 0, 0 FAIL fences.** Barrow web pinned to EOR2 `b4de84e65` (pinned eor_kc2_fx.gd 6fa210e1..., whirlwind_channel.gd 173e78e3...); every Godot run went through the new guard `scripts/r152_06_godot_guard.py` (per-run wall-clock timeout + kill on SCRIPT ERROR / Parse Error). Log `barrow_full/work/r224_build.log`. The build sits in `barrow_full/web_painted/build/web` (sorceress.pck 45,492,508 B; variant_so_bm134.pck 34,575,896 B). It staged into loadout and **I reverted loadout to HEAD** (`git checkout -- public/playtest/barrow-painted`), so loadout is clean apart from the two old untracked n25/n40 packs. Nothing committed in loadout, nothing pushed.
+- **Step 5b (the lint) done:** `scripts/r152_07_lint_v5.sh` -> `join1_render/work/manifest_lint_d2-fire-sorc-bm_v5.txt`: the v5 manifest against `so-body_ss152.glb`, 19 clips, 0 mismatches, exit 0; negative controls neg_release / neg_prose / neg_spin each exit 1 (2 / 1 / 1 planted mismatches caught).
+- `scripts/r152_05_join_v5.sh` now runs Godot through the guard (GG_TIMEOUT_S=2700) instead of a bare perl alarm.
+
+**Not done (stopped before starting):** step 3 (select_check.js + web_perf_eor.sh), step 4 (the loadout commit), step 5's render (`zsh scripts/r152_05_join_v5.sh`; `join1_pack_v5/d2-fire-sorc-bm/` does not exist, so it is free to run) and its release-frame check (frame 3 = 0.2667 s, frame 9 = 1.80 s), the Barrow play-camera stills of the hood (planned: `barrow_full/godot/tools/probe_charlight.gd -- --as-web --c sorceress --armor bm134 --tag r224 --out barrow_full/take/build/r224_hood`, 4 headings, through the guard + heavy lock), step 6.
+
+**On the next resume:** if EOR2 has not committed past `b4de84e65` and nothing under barrow_full/godot that the painted Barrow exports has changed, re-stage the existing build (`rsync -a --delete --exclude .gdignore barrow_full/web_painted/build/web/ <loadout>/public/playtest/barrow-painted/`) rather than rebuilding; otherwise rebuild with the step-2 command below plus `GODOT=<abs>/so_mx/scripts/r152_06_godot_guard.py`. Then steps 3-6.
+
 
 Paused on the conductor's word ("100% focus on barrow_v2"). Resume only on Matt's word.
 
