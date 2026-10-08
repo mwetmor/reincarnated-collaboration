@@ -1,10 +1,10 @@
 {
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
-  "layout_bv2art_sha256": "1b91db223cd6089b34557c57ab28703429a8498501ac22cabf6a2d4eeddd52eb",
-  "ids_art_sha256": "7bd071c2cd23e59e26fca49a09059f4a2dd62dad75131551a053aca440d5db56",
-  "ids_manifest_sha256": "7bd071c2cd23e59e26fca49a09059f4a2dd62dad75131551a053aca440d5db56",
-  "level_art_sha256": "8a434fa355184dbf39e022c1e7e23dacbf8b77b202447322b097fc7634007b6e",
+  "layout_bv2art_sha256": "c8b80b5451825ebf86e3297b56746d2711912a18fddfb2fd40a455ac0269cc17",
+  "ids_art_sha256": "9e6b303f53dc04b17e12ef19a09213053c32c709829f4e98791e94c895cadbd7",
+  "ids_manifest_sha256": "9e6b303f53dc04b17e12ef19a09213053c32c709829f4e98791e94c895cadbd7",
+  "level_art_sha256": "78c7fc10c684a32c2aece93acbd64ae29e7e9b512f573f599bc57001d9375d67",
   "placed_fit_sha256": "8e7227ebbf8a6aa496e566af5bd71e2dabd848dfb8dfce536dea016cbce5430e",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
@@ -25,7 +25,7 @@
   "objects": 14,
   "below_bar": 7,
   "values": {
-   "wreck": 0.9672,
+   "wreck": 0.9671,
    "wreck_mast": 0.0,
    "barrow_front": 1.0,
    "longhall": 0.9754,
@@ -35,7 +35,7 @@
    "crags": 0.4563,
    "gully_rock": 0.8511,
    "cliff_faces": 0.921,
-   "talus": 0.1369,
+   "talus": 0.1374,
    "sea_stacks": 0.8965,
    "palisade": 0.1504,
    "logs": 0.0
@@ -113,7 +113,7 @@
   "crags": 0.181,
   "gully_rock": 0.25,
   "cliff_faces": 0.42,
-  "talus": 0.269,
+  "talus": 0.268,
   "sea_stacks": 0.347,
   "palisade": 0.753,
   "logs": 0.521
@@ -122,7 +122,7 @@
   "wreck": {
    "kind": "wreck",
    "instances": 1,
-   "id_px": 282115,
+   "id_px": 281859,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -223,7 +223,7 @@
   "cliff_faces": {
    "kind": "cliff",
    "instances": 8,
-   "id_px": 1731315,
+   "id_px": 1731312,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -234,13 +234,13 @@
   "talus": {
    "kind": "talus",
    "instances": 16,
-   "id_px": 55857,
+   "id_px": 55683,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.269
+   "iou_vs_prism_reported": 0.268
   },
   "sea_stacks": {
    "kind": "stack",
@@ -283,8 +283,8 @@
     "type": "box",
     "z_top": 2.263,
     "own_px_in_frame": 448020,
-    "terrain_hidden_share": 0.3255,
-    "visible_share": 0.6296
+    "terrain_hidden_share": 0.3262,
+    "visible_share": 0.6291
    }
   ],
   "wreck_mast": [
@@ -625,8 +625,8 @@
     "type": "box",
     "z_top": -2.939,
     "own_px_in_frame": 11603,
-    "terrain_hidden_share": 0.0153,
-    "visible_share": 0.1509
+    "terrain_hidden_share": 0.0303,
+    "visible_share": 0.1359
    },
    {
     "i": 2,

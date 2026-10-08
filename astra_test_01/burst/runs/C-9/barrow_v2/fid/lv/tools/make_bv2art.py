@@ -580,6 +580,20 @@ def main():
     cradle = (cw_r > 0.0) & ~land & (Z > ICE_TOP - 0.03)
     Z = np.where(cradle, Z + (ICE_TOP - 0.03 - Z) * cw_r, Z)
     cradle_ice = (cw_r >= 0.999) & ~land
+    # R-C9-259: where the shingle meets the cliff-side sea (the beach's SOUTH flank, by the junction with the cliffs), the
+    # beach ended in a vertical face down to the sea floor (a striped curtain). The flank is now a steep shingle-and-boulder
+    # slope easing the beach down to the shore-ice level over ~3 m (no vertical face); away from the shore line only, so the
+    # beach top and the cliff behind it do not move
+    _south = ~land & ~west
+    _ddiv = ndimage.gaussian_filter(ndimage.distance_transform_edt(~_south) / HF_PPM, 0.4 * HF_PPM)
+    _f = np.clip((_ddiv - 0.3) / 2.9, 0, 1)
+    _f = _f * _f * (3 - 2 * _f)
+    _g = np.clip((d_shore - 1.5) / 2.0, 0, 1)
+    flank_w = np.where(beach & (Z > ICE_TOP - 0.03), (1.0 - _f) * _g, 0.0)
+    Z = np.where(flank_w > 0, Z - (Z - (ICE_TOP - 0.03)) * flank_w, Z)
+    # the cliff-side region right next to the flank: shore-ice level, not the sea floor (the slope runs INTO the shore ice)
+    _apron = _south & (ndimage.distance_transform_edt(~beach) / HF_PPM < 1.5) & (d_lip > 1.6) & (Z < ICE_TOP - 0.03)
+    Z = np.where(_apron, ICE_TOP - 0.03, Z)
     # ---------------- the SEA ICE (R-C9-204 (4)): shore-fast ice, large plates, floes of every size ----------------
     solid = land0 | beach0 | shelf_ice_m                      # R-C9-234: the pack against the PASSED beach (no legacy draw moves)
     D = ndimage.distance_transform_edt(~solid) / HF_PPM
@@ -1155,6 +1169,9 @@ def main():
         sub = C[j0_:j1_, i0_:i1_]
         sub[m_ & shin[j0_:j1_, i0_:i1_]] = names.index("snow")
     C[bay_c | (shin & (btc > 0.84 + 0.07 * cnoise(2348, 0.8)))] = names.index("shore_ice")
+    # R-C9-259: boulders strewn on the steep flank (rock blobs, 25-60 cm) among the shingle
+    fwc = samp(flank_w)
+    C[shin & (fwc > 0.35) & (cnoise(2591, 0.22) > 1.0)] = names.index("rock")
     # R-C9-238 (b): THE MARGIN'S FLOES -- the mere -> sea field is broken into floes (big and whole by the mere, smaller and
     # looser toward the sea); the LEADS are the gaps BETWEEN them: closed near the mere, opening narrow -> wide toward the
     # sea, each gap irregular along its length (some boundaries stay shut); never a branching line. Each floe takes ONE ice
