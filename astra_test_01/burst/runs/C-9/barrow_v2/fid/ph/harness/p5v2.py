@@ -62,7 +62,9 @@ def _luma(x):
     return 0.2126 * x[..., 0] + 0.7152 * x[..., 1] + 0.0722 * x[..., 2]
 
 
-def a_pair(A, B, horiz):
+def a_pair(A, B, horiz, band=None):
+    """band (lo, hi): restrict the overlap's WIDTH (0 = the newer chunk's canvas edge, i.e. the neighbour's interior side;
+    256 = the newer chunk's interior side) to [lo, hi), trimmed 12 px on each band edge (§ 48 (d), DEV-25c)"""
     sa, sb = _strips(A, B, horiz)
     ga = np.stack([ndimage.gaussian_filter(sa[..., k], 6) for k in range(3)], -1)
     gb = np.stack([ndimage.gaussian_filter(sb[..., k], 6) for k in range(3)], -1)
@@ -72,7 +74,9 @@ def a_pair(A, B, horiz):
     if not horiz:                              # put the overlap's LENGTH on axis 0 for both orientations
         d, ha, hb = d.T, ha.T, hb.T
     L = d.shape[0]
-    d, ha, hb = d[TRIM:L - TRIM, TRIM:OV - TRIM], ha[TRIM:L - TRIM, TRIM:OV - TRIM], hb[TRIM:L - TRIM, TRIM:OV - TRIM]
+    lo, hi = (0, OV) if band is None else band
+    w0, w1 = lo + TRIM, hi - TRIM
+    d, ha, hb = d[TRIM:L - TRIM, w0:w1], ha[TRIM:L - TRIM, w0:w1], hb[TRIM:L - TRIM, w0:w1]
     a1, a2 = [], []
     for s0 in range(0, L, SEG_A):
         lo, hi = max(s0 - TRIM, 0), min(s0 + SEG_A - TRIM, L - 2 * TRIM)
@@ -84,7 +88,7 @@ def a_pair(A, B, horiz):
     return {"a1": a1, "a2": a2, "raw_mad": round(raw, 2)}
 
 
-def a_set(paths, mod=None):
+def a_set(paths, mod=None, band=None):
     """paths: key 'c_r' -> canvas png. mod(key, img) -> img lets a constructed fail alter one canvas."""
     cache = {}
 
@@ -100,7 +104,7 @@ def a_set(paths, mod=None):
             n = "%d_%d" % (c + dc, r + dr)
             if n not in paths:
                 continue
-            res = a_pair(get(k), get(n), horiz)
+            res = a_pair(get(k), get(n), horiz, band)
             rows.append({"join": k + sep + n, "a1_max": round(max(res["a1"]), 3), "a2_max": round(max(res["a2"]), 3),
                          "a1_segments": [round(x, 3) for x in res["a1"]], "a2_segments": [round(x, 3) for x in res["a2"]],
                          "raw_mad": res["raw_mad"]})

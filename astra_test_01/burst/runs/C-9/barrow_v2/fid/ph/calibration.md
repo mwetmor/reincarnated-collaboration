@@ -1477,3 +1477,52 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **P9c.** As on pilot 3: the bobbing floes sit outside the painted window.
 
 **P11 v3 crops for the blind judge:** `fid/ph/p11/abx3_pilot4_v1_vs_pilot/` (62 PNG + JUDGE.md, no metadata). Key: `fid/ph/p11/keys/abx3_pilot4_v1_vs_pilot.json` (outside the judge dir). Score: `python3 harness/p11_abx3.py score pilot4_v1_vs_pilot <answers.json>`.
+
+## 48. PRE-REGISTRATION for Phase 3′ (jack-ryan pilot-4 Gate-2 `2026-10-08-bv2f-pilot4-gate2.md`; R-C9-267/268). Committed BEFORE any Phase 3′ value is read.
+
+### (a) P4 ICE reference FROZEN (C-1)
+- **Reference.** The ice palette reference is **Lab (64.58, −2.75, −21.49)**: the PS4 mere colour measured at § 47 under Matt's R-C9-262.
+- **Mode.** `pilot_harness.p4_v38` defaults to `PH_ICE_REF=ps4_frozen`. **`self` mode is RETIRED** (it raises).
+- **Unchanged.** Bar ΔE ≤ 9.40 (gated b\* ≤ 2, per chunk ≥ 20 000 px); the spectrum stays against sketch A at 24 px/m (≤ 0.116); sketch-A ΔE is still reported.
+- **Status.** A Matt-ruled exception, not a re-tune.
+
+### (b) P11 class exclusion by pre-registration (Gate-2 § 2; `p11_abx3.build3(..., rule_exclusion=True)`)
+1. **Rule.** A class leaves the **scored and repeat** trials iff (a) v1 has no such class, or (b) a Matt ruling of record moves its look away from v1. The list is fixed by ruling ID; the conductor cannot add to it; it never changes after a judge has read a set built under it.
+
+   | Class | Ground | Substitute guard |
+   |---|---|---|
+   | **reed** | (a): v1 has no reeds | P4 reed advisory (vs v1 heather tufts) + Matt's eye |
+   | **ice** | (b): **R-C9-203 / R-C9-255 / R-C9-262** | P4 ice vs the frozen PS4 Lab (a), ice spectrum vs sketch A, Matt's eye at M3′ |
+2. **Mechanics.** An excluded class is never a trial class, and a crop showing ANY of it is never drawn for a scored or repeat trial.
+   - With a class mask: as EXCLUDED content.
+   - Without one (v1ref stills): the classifier's own ice pixel rule (b\* < −10 ∧ L\* ≥ 45) must cover < 1 % of the crop.
+   - **Catch trials are unchanged** (v1 vs R-C9-159, v3 rules).
+3. **40 scored trials from the remaining classes;** fewer than 40 → **the set is VOID, never shrunk.**
+4. **G2-B2 rebuilt under the new composition and judged once each before P11 binds at M3′:** `p11/abx3_g2v4_v1rec_vs_v1head/` (must read valid ∧ PASS) and `p11/abx3_g2v4_v1_vs_halfdensity/` (must read valid ∧ FAIL); keys in `p11/keys/`.
+
+### (c) P10 discipline (Gate-2 § 3; `harness/p10_disc.py`). The binding bar is unchanged, and no frame is ever excluded from it.
+1. **Quiescence precondition, checked BEFORE launch and logged** (`quiescence.json`).
+   - Requirement: over 30 s of 1 Hz `ps` samples, no non-Godot process averages > 10 % CPU. The usual offenders: mediaanalysisd, photoanalysisd, mds_stores, backupd.
+   - If it is not met: wait and re-check, up to 20 tries, then HALT. A run is never discarded after the fact on this ground.
+2. **In-run 1 Hz process log** (`proclog.jsonl`).
+   - A run is **VOID** iff a non-Godot process exceeds 25 % CPU for ≥ 1 s while Godot runs.
+   - A VOID run → the set of 3 is re-run (§ 34's crash rule). **Two VOID sets → HALT** to the conductor; host-level mitigation is a matt_to_do.
+   - **Pre-registered here:** WindowServer and kernel_task are **render-path** processes. They are logged, never VOID triggers, because they serve the Godot window being measured.
+3. **Session witness.**
+   - v1 `barrow_painted.tscn` at uv (0, 1), 3 runs under (1)–(2), recorded now as the machine reference (`renders/p10_witness/witness.json`; envelope = its p50 range ± 0.5 ms).
+   - Every P10 session runs the witness first; a witness p50 outside the envelope → the session is VOID.
+4. **Binding statistics.**
+   - **worst-of-3 p99 ≤ 16.7 ms**, unchanged;
+   - **NEW, binding: DETERMINISTIC HITCH** — a frame > 25 ms recurring within ± 0.5 s of window (walk) time in ≥ 2 of 3 runs = FAIL, whatever the p99.
+5. **Reported, non-binding:** burst-excluded p99 (frames in runs of ≥ 2 consecutive frames > 16.7 ms removed), burst count, and > 25 ms timestamps per run.
+6. **Engineering target before the Phase 3′ build (not a bar):** start p50 ≤ 15.0 ms.
+
+### (d) P5 a1 for DEV-25c's inner-128 paste (Gate-2 § 6 item 5; `harness/p5v2c_calibrate.py` → `results/p5v2c_calibration.json`)
+- **Band.** a1 is computed over ONE 128-px half of the overlap's width. **E** = [0, 128): the newer chunk's canvas edge, the neighbour-interior side. **C** = [128, 256): its interior side. Trim 12 px on the band edges; other a1 parameters as § 44.
+- **Which half binds** is DEV-25c's pasted band, **read from DEV-25c's Tier-B paste mask** (not from any reading). **Both bars are derived now** on v1, with the § 44 analogues: C2 R-C9-158 must FAIL; C3 the 6 % second hand on 1_1 and +6 sRGB on 3_2's rendition of the band of 2_2|3_2 must read RED; the masking control PS3b must FAIL. A band failing any of these is not usable.
+- **v1's 9.569 (full 256) continues to bind joins painted under the full-256 paste** (the pilot).
+
+### (e) Phase 3′ per-chunk auto-QA, restated (charter Phase 3 "invention check first, then P5–P7"; P7 retired)
+1. **P6a** on the chunk (v0.1 detector, declared openings; water-class candidates go to the conductor's triage, R-C9-194);
+2. **raw a1 per join** (§ 44, or § 48 (d) for an inner-128 chunk), with the "stitch-corrected" crop rule: a join over the bar whose stitched painting shows no line at 1:1 is reported with its crop and stays a FAIL under M-1;
+3. **P4 snow per chunk** (v1 bars; with the § 46 palette measures reported).

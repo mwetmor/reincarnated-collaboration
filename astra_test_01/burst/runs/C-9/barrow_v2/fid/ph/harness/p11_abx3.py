@@ -50,11 +50,11 @@ naming the visual evidence for the answer.
 """
 
 
-def _trials(v1, cd, rng, n, used_ab, used_x, xs_plan, max_tries=8000):
+def _trials(v1, cd, rng, n, used_ab, used_x, xs_plan, max_tries=8000, allowed=None):
     """v2's trial construction (p11_abx.build): A/B guarded at OVERLAP against used_ab, X at X_OVERLAP against used_x
     (every X of the set, scored and catch), within-trial same-place guard"""
     by = lambda pool, k: [c for c in pool if c["class"] == k]
-    classes = [k for k in X.ALLOWED if len(by(v1, k)) >= 2 and len(by(cd, k)) >= 2]
+    classes = [k for k in (allowed or X.ALLOWED) if len(by(v1, k)) >= 2 and len(by(cd, k)) >= 2]
     w = np.array([min(len(by(v1, k)), len(by(cd, k))) for k in classes], float)
     w /= w.sum()
     out, tries = [], 0
@@ -75,15 +75,46 @@ def _trials(v1, cd, rng, n, used_ab, used_x, xs_plan, max_tries=8000):
     return out
 
 
-def build3(set_name, cand_paths, seed, v1_paths=None, out_root=None):
+# ---- § 48 (b) (jack-ryan pilot-4 Gate-2 § 2): CLASS EXCLUSION BY PRE-REGISTRATION. A class leaves the SCORED and REPEAT
+# trials iff (a) v1 has no such class, or (b) a Matt ruling of record moves its look away from v1. Listed by ruling ID;
+# the conductor cannot add to it; never changed after a judge has read a set built under it.
+#   reed <- (a) v1 has no reeds              substitute guard: P4 reed advisory + Matt's eye
+#   ice  <- (b) R-C9-203 / R-C9-255 / R-C9-262   substitute guard: P4 ice vs the FROZEN PS4 Lab (64.58, -2.75, -21.49),
+#                                              ice spectrum vs sketch A, Matt's eye at M3'
+# An excluded class is (1) never a trial class and (2) a crop whose class mask shows ANY of it is never drawn for a scored
+# or repeat trial (as EXCLUDED content). CATCH trials are unchanged (drawn under the v3 rules). Fewer than 40 -> VOID.
+EXCLUDED_BY_RULE = {"reed": "(a) absent in v1", "ice": "(b) Matt R-C9-203/255/262"}
+
+
+def build3(set_name, cand_paths, seed, v1_paths=None, out_root=None, rule_exclusion=False):
     rng = np.random.default_rng(seed)
-    v1 = [c for p in (v1_paths or P.V1_STILLS) if p.exists() for c in X.crops_controlled(p)]
-    cd = [c for p in cand_paths for c in X.crops_controlled(p)]
+    catch_v1 = [c for p in (v1_paths or P.V1_STILLS) if p.exists() for c in X.crops_controlled(p)]
+    saved_ex = X.EXCLUDED
+    if rule_exclusion:
+        X.EXCLUDED = tuple(saved_ex) + tuple(k for k in EXCLUDED_BY_RULE if k not in saved_ex)
+    allowed = tuple(k for k in X.ALLOWED if not (rule_exclusion and k in EXCLUDED_BY_RULE))
+    try:
+        v1 = [c for p in (v1_paths or P.V1_STILLS) if p.exists() for c in X.crops_controlled(p)]
+        cd = [c for p in cand_paths for c in X.crops_controlled(p)]
+    finally:
+        X.EXCLUDED = saved_ex
+    v1 = [c for c in v1 if c["class"] in allowed]
+    cd = [c for c in cd if c["class"] in allowed]
+    if rule_exclusion and "ice" in EXCLUDED_BY_RULE:
+        # stills WITHOUT a class mask (v1ref): the pixel rule for ice (classify_controlled's own: b* < -10 and L* >= 45)
+        # must cover < 1 % of the crop, so no ice reaches a scored trial from either side
+        def no_ice(c):
+            if pathlib.Path(str(c["src"]).replace(".png", ".classes.png")).exists():
+                return True
+            lab = rgb_to_lab(P._crop(c).astype(np.float32))
+            return float(((lab[..., 2] < -10) & (lab[..., 0] >= 45)).mean()) < 0.01
+        v1 = [c for c in v1 if no_ice(c)]
+        cd = [c for c in cd if no_ice(c)]
     # ---- the 40 scored trials + 10 repeats: v2's construction (same guards)
     xs = ["v1"] * (X.N_TRIALS // 2) + ["cand"] * (X.N_TRIALS // 2)
     rng.shuffle(xs)
     used_ab, used_x = [], []
-    main = _trials(v1, cd, rng, X.N_TRIALS, used_ab, used_x, xs)
+    main = _trials(v1, cd, rng, X.N_TRIALS, used_ab, used_x, xs, allowed=allowed)
     for t in main:
         t["v1_is_A"] = bool(rng.integers(2))
         t["repeat_of"] = None
@@ -102,7 +133,7 @@ def build3(set_name, cand_paths, seed, v1_paths=None, out_root=None):
         t.update(x=x2, v1_is_A=not t["v1_is_A"], repeat_of=int(i))
         reps.append(t)
     # ---- the 12 catch trials: v1 vs R-C9-159, balanced (X source 6/6, correct letter 6/6), clear of every used crop
-    cv1 = [c for c in v1]
+    cv1 = catch_v1                                  # catch trials unchanged by the rule exclusion
     c159 = [c for p in CATCH_PAIR[2] for c in X.crops_controlled(p)]
     cx = ["v1"] * (N_CATCH // 2) + ["cand"] * (N_CATCH // 2)
     rng.shuffle(cx)
@@ -148,6 +179,7 @@ def build3(set_name, cand_paths, seed, v1_paths=None, out_root=None):
     return {"set": set_name, "scored": len(main), "repeats": len(reps), "catches": len(catches), "images": len(allt),
             "catch_correct_A": cc.count("A"), "catch_correct_B": cc.count("B"),
             "UNDERPOWERED": len(main) < X.N_TRIALS or len(catches) < N_CATCH,
+            "VOID_if_underpowered": True, "rule_exclusion": rule_exclusion, "scored_allowed": list(allowed),
             "by_class": {k: sum(t["class"] == k for t in main) for k in sorted({t["class"] for t in main})},
             "catch_by_class": {k: sum(t["class"] == k for t in catches) for k in sorted({t["class"] for t in catches})},
             "judge_dir": str(jd)}
@@ -193,6 +225,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd")
     sub.add_parser("g2")
+    sub.add_parser("g2v4")
     sub.add_parser("table")
     s = sub.add_parser("score")
     s.add_argument("set")
@@ -202,6 +235,15 @@ if __name__ == "__main__":
         print(json.dumps(operating_table(), indent=1))
     elif a.cmd == "score":
         print(json.dumps(score3(a.set, a.answers), indent=1))
+    elif a.cmd == "g2v4":
+        cdir = X.OUT / "_constructed_src"
+        rec = sorted((B2 / "section_v1cam/v1ref").glob("V1_*.png"))
+        head = sorted((FID / "pc/v1_stills").glob("*.png"))
+        out = {"rule": "s48 (b) class exclusion by pre-registration (reed, ice)", "sets": {}}
+        out["sets"]["g2v4_v1rec_vs_v1head"] = build3("g2v4_v1rec_vs_v1head", head, seed=2681, v1_paths=rec, rule_exclusion=True)
+        out["sets"]["g2v4_v1_vs_halfdensity"] = build3("g2v4_v1_vs_halfdensity", sorted(cdir.glob("half_*.png")), seed=2682, rule_exclusion=True)
+        dump(out, str(PH / "results/p11_abx3_g2v4_build.json"))
+        print(json.dumps(out["sets"], indent=1, default=str))
     elif a.cmd == "g2":
         cdir = X.OUT / "_constructed_src"
         rec = sorted((B2 / "section_v1cam/v1ref").glob("V1_*.png"))

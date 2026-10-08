@@ -887,7 +887,11 @@ def p4_v38():
     lsk = rgb_to_lab(SKI)
     sk = skm & (lsk[..., 2] <= 2.0)
     sk_med = np.median(lsk[sk], 0)
-    ice_ref_mode = os.environ.get("PH_ICE_REF", "sketchA")       # R-C9-262: "self" = the PS4 mere colour (Matt-ruled exception)
+    # § 48 (a): the ice reference is FROZEN at the PS4 mere colour (Matt R-C9-262, measured on pilot 4 at § 47); 'self'
+    # (re-deriving it from the build under test) is RETIRED (jack-ryan pilot-4 Gate-2 C-1). 'sketchA' = the § 38 reading.
+    ice_ref_mode = os.environ.get("PH_ICE_REF", "ps4_frozen")
+    if ice_ref_mode == "self":
+        raise SystemExit("PH_ICE_REF=self is RETIRED (s48 (a)); use ps4_frozen")
     W_ = lambda mk: T.windows(mk, frac=0.7, step=32)
     sk_spec = np.array(T.spectrum_shape(luma(SKI), W_(sk)))
     f = PPM_V1 / 24.0
@@ -895,7 +899,7 @@ def p4_v38():
     ls = rgb_to_lab(Ps)
     ice_full = g & (cls == ni["ice"])
     allice = ndimage.binary_erosion(ice_full, iterations=3) & (lab[..., 2] <= 2.0)
-    ref_med = np.median(lab[allice], 0) if ice_ref_mode == "self" else sk_med
+    ref_med = np.array([64.58, -2.75, -21.49]) if ice_ref_mode == "ps4_frozen" else sk_med
     ice_rows = {}
     for key, (x0, y0, x1, y1) in CHUNKS:
         m = np.zeros((H, W), bool)
@@ -952,7 +956,7 @@ def p4_v38():
     binding_fail += [(k, "ice (sketch A)") for k, r in ice_rows.items() if not r["pass"]]
     return save("p4", {"rule": "calibration.md s38: ice palette dE <= 9.40 (gated b*<=2) vs the ice reference; spectrum@24ppm <= 0.116 vs sketch A; snow + rock vs v1 frozen s3 bars",
                        "ice_reference": {"mode": ice_ref_mode, "median_lab": ref_med.round(2).tolist(),
-                                         "note": "R-C9-262 Matt-ruled exception: the PS4 mere colour (this build's pooled ice median), NOT a threshold tune; sketch A dE reported" if ice_ref_mode == "self" else "sketch A (s38)"},
+                                         "note": "R-C9-262 Matt-ruled exception, FROZEN at s48 (a): the PS4 mere colour Lab (64.58, -2.75, -21.49); NOT a threshold tune; sketch A dE reported" if ice_ref_mode == "ps4_frozen" else "sketch A (s38)"},
                        "sketchA_ice_median": sk_med.round(1).tolist(), "chunks_snow_rock": rows, "ice": ice_rows,
                        "coastal_chunks": [k for k, v in coastal.items() if v], "coastal_snow_vs_inland_hellinger_diagnostic": diag,
                        "reed_advisory": {"nearest_v1_class": "heather (v1's painted tuft px)", "rows": reed_rows},
