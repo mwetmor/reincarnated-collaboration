@@ -1,0 +1,438 @@
+{{Damage nav}}
+{{Intro}}
+[[File:Critical damage.gif|right|frame|Critical hit overlay.]]
+{{Mb|=Deadly Strike}} gives a percentage chance of a critical hit, doubling physical attack damage when successful (even when barehanded). Overlay normally displayed when successful may be obscured by others (which gave rise to the myth that poison damage prevents it from being applied).
+*Since conversion of physical damage to another damage type occurs after it is applied, it can also double the converted damage of the following:
+**[[Magic Arrow]]
+**[[Fire Arrow]]
+**[[Cold Arrow]]
+**[[Lightning Bolt]]
+**[[Fists of Fire]]
+**[[Berserk]] (both the skill itself and its synergy to [[Concentrate]] and [[Frenzy]])
+*It does '''not''' apply to the following:
+**[[Impale]]
+**[[Dragon Talon]]
+**[[Dragon Tail]]
+**[[Dragon Flight]]
+**[[Sacrifice]]
+**[[Smite]]
+*Percentages from multiple sources are summed, although when [[two weapons]] are equipped only that of the attacking weapon is added (that of the other weapon is ignored). > 100% is redundant.
+*Mutually exclusive with [[Critical Strike]] and weapon [[Combat Masteries|Mastery]] or [[Claw Mastery]] critical strike: if one is successful then the others do not apply. Combined percentage chance of double physical attack damage is as follows:
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+!width=22% align=left rowspan=2|Two sources
+|width=78%|100 - (100-DS * 100-CS /100)
+|-
+|100 - (100-DS * 100-MCS /100)
+|-
+!align=left|Three sources
+|100 - (100-DS * 100-CS * 100-MCS /10000) [https://www.theamazonbasin.com/forums/index.php?/forums/topic/114336-question-about-critical-strike-on-insight/&do=findComment&comment=1425043]
+|}
+
+
+*[[Barbarian (mercenary)|Barbarian]] mercenary, [[Valkyrie]] and [[Iron Golem]] have 5% chance of applying critical hit, doubling '''all''' attack damage types. This is calculated independently of other sources, so there is a chance of applying ''quadruple'' physical damage. Combined % chance of double physical attack damage only is as follows:
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+!width=22% align=left|Two sources
+|width=78%|5+(0.9*DS)
+|-
+!align=left|Three sources
+|(100 - (0.95 * 100-DS * 100-CS /100) ) - (0.05 * (100 - (100-DS * 100-CS /100) ) )
+|}
+
+
+*% Chance of quadruple physical attack damage is as follows:
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+!width=22% align=left|Two sources
+|width=78%|0.05*DS
+|-
+!align=left|Three sources
+|0.05 * (100 - (100-DS * 100-CS /100) )
+|}
+
+
+*Percentage increase to average physical attack damage of a higher chance of critical damage is 100 * (higher chance - lower chance) / (100 + lower chance). For example, increasing Deadly Strike from 80% to 100% increases average physical attack damage from 180% to 200%, or by ~11% (100 * (100-80) / (100+80) ).
+|}
+
+
+==Item==
+
+===Helm===
+{{Skill bonus}}
+|-
+|(5-10)%
+!align=left|[[Blood|{{C|=Blood helm}}]]
+|14
+|No
+|-
+|15%
+!align=left|[[Guillaume's Face|{{S|=Guillaume's Face Winged Helm}}]]
+|34
+|No
+|}
+<br/>
+
+===Amulet===
+{{Skill bonus}}
+|-
+|0.375*lvl%
+!align=left|[[Highlord's Wrath|{{U|=Highlord's Wrath Amulet}}]]
+|65
+|No
+|}
+<br/>
+
+===Weapon===
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Lo Rune|{{Cb|=Lo Rune}}]] in socket
+|59
+|No
+|-
+|20%
+|align=left|[[Fortitude|{{Ub|=Fortitude}}]] weapon
+|59
+!{{Warn|=Yes}} (LoD only)
+|-
+|20%
+|align=left|[[Phoenix|{{Ub|=Phoenix}}]] weapon
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|20%
+|align=left|[[Hand of Justice|{{Ub|=Hand of Justice}}]] weapon
+|67
+|No
+|}
+<br/>
+
+====Melee weapon====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Honor|{{Ub|=Honor}}]] melee weapon
+|27
+|No
+|-
+|33%
+|align=left|[[Fury (Rune Word)|{{Ub|=Fury}}]] melee weapon
+|65
+|No
+|}
+<br/>
+
+=====Axe=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Grief|{{Ub|=Grief}}]] axe
+|59
+!{{Warn|=Yes}} (LoD only)
+|-
+|20%
+|align=left|[[Doom|{{Ub|=Doom}}]] axe
+|67
+|No
+|-
+|35%
+!align=left|[[Butcher's Pupil|{{U|=Butcher's Pupil Cleaver}}]]
+|39
+|No
+|-
+|0.5*lvl%
+|align=left|[[Death (Rune Word)|{{Ub|=Death}}]] axe
+|55
+!{{Warn|=Yes}} (LoD only)
+|-
+|50%
+!align=left|[[Razor's Edge|{{U|=Razor's Edge Tomahawk}}]]
+|67
+|No
+|-
+|66%
+!align=left|[[Death Cleaver|{{U|=Death Cleaver Berserker Axe}}]]
+|70
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Claw=====
+{{Skill bonus}}
+|-
+|0.3*lvl%
+|align=left|[[Plague|{{Ub|=Plague}}]] claw {{D2R-inline}}
+|67
+|No (D2R only)
+|}
+<br/>
+
+=====Club=====
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Fleshrender (Diablo II)|{{U|=Fleshrender Barbed Club}}]]
+|38
+|No
+|}
+<br/>
+
+=====Dagger=====
+{{Skill bonus}}
+|-
+|0.3*lvl%
+|align=left|[[Plague|{{Ub|=Plague}}]] dagger {{D2R-inline}}
+|67
+|No (D2R only)
+|-
+|30%
+|align=left|[[Bane's Oathmaker|{{Sb|=Bane's Oathmaker Kris}}]] (Full) {{RotW-inline}}
+|8
+|No
+|-
+|33%
+!align=left|[[Fleshripper|{{U|=Fleshripper Fanged Knife}}]]
+|68
+|No
+|-
+|35%
+!align=left|[[Heart Carver|{{U|=Heart Carver Rondel}}]]
+|36
+|No
+|-
+|40%
+!align=left|[[Deathbit|{{U|=Deathbit Battle Dart}}]]
+|44
+|No
+|-
+|50%
+!align=left|[[Warshrike|{{U|=Warshrike Winged Knife}}]]
+|75
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Hammer=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Doom|{{Ub|=Doom}}]] hammer
+|67
+|No
+|}
+<br/>
+
+=====Polearm=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Destruction|{{Ub|=Destruction}}]] polearm
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|20%
+|align=left|[[Doom|{{Ub|=Doom}}]] polearm
+|67
+|No
+|-
+|20%
+|align=left|[[Pride|{{Ub|=Pride}}]] polearm
+|67
+!{{Warn|=Yes}} (LoD only)
+|-
+|30%
+!align=left|[[Steelgoad|{{U|=Steelgoad Voulge}}]]
+|14
+|No
+|-
+|33%
+!align=left|[[The Reaper's Toll|{{U|=The Reaper's Toll Thresher}}]]
+|75
+!{{Warn|=Yes}} (LoD only)
+|-
+|55%
+!align=left|[[Pierre Tombale Couant|{{U|=Pierre Tombale Couant Partizan}}]]
+|43
+|No
+|-
+|100%
+!align=left|[[The Grim Reaper|{{U|=The Grim Reaper War Scythe}}]]
+|29
+|No
+|}
+<br/>
+
+=====Spear=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Pride|{{Ub|=Pride}}]] spear {{D2R-inline}}
+|67
+|No (D2R only)
+|-
+|50%
+!align=left|[[Arioc's Needle|{{U|=Arioc's Needle Hyperion Spear}}]]
+|81
+|No
+|}
+<br/>
+
+=====Staff=====
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Arcanna's Deathwand|{{S|=Arcanna's Deathwand War Staff}}]]
+|15
+|No
+|}
+<br/>
+
+=====Sword=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Grief|{{Ub|=Grief}}]] sword
+|59
+!{{Warn|=Yes}} (LoD only)
+|-
+|20%
+|align=left|[[Destruction|{{Ub|=Destruction}}]] sword
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|0.3*lvl%
+|align=left|[[Plague|{{Ub|=Plague}}]] sword {{D2R-inline}}
+|67
+|No (D2R only)
+|-
+|33%
+|align=left|[[Dreadfang|{{Ub|=Dreadfang Legend Sword}}]] {{RotW-inline}}
+|61
+|No
+|-
+|0.5*lvl%
+|align=left|[[Death (Rune Word)|{{Ub|=Death}}]] sword
+|55
+!{{Warn|=Yes}} (LoD only)
+|-
+|50%
+!align=left|[[Cleglaw's Tooth|{{S|=Cleglaw's Tooth Long Sword}}]]
+|4
+|No
+|-
+|50%
+!align=left|[[Coldsteel Eye|{{U|=Coldsteel Eye Cutlass}}]]
+|31
+|No
+|-
+|1.5*lvl%
+!align=left|[[Headstriker|{{U|=Headstriker Battle Sword}}]]
+|39
+|No
+|}
+<br/>
+
+====Missile weapon====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Brand|{{Ub|=Brand}}]] missile weapon
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|20%
+|align=left|[[Ice|{{Ub|=Ice}}]] missile weapon
+|65
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Bow=====
+{{Skill bonus}}
+|-
+|30%
+!align=left|[[Rogue's Bow|{{U|=Rogue's Bow Composite Bow}}]]
+|20
+|No
+|-
+|33%
+!align=left|[[Widowmaker|{{U|=Widowmaker Ward Bow}}]]
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|lvl%
+!align=left|[[Witchwild String|{{U|=Witchwild String Short Siege Bow}}]]
+|39
+|No
+|}
+<br/>
+
+=====Crossbow=====
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Leadcrow|{{U|=Leadcrow Light Crossbow}}]]
+|9
+|No
+|}
+<br/>
+
+====Throwing weapon====
+{{Skill bonus}}
+|-
+|40%
+!align=left|[[Deathbit|{{U|=Deathbit Battle Dart}}]]
+|44
+|No
+|-
+|50%
+!align=left|[[Warshrike|{{U|=Warshrike Winged Knife}}]]
+|75
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+===Shield===
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Lance Guard|{{U|=Lance Guard Barbed Shield}}]]
+|35
+|No
+|}
+<br/>
+
+===Boots===
+{{Skill bonus}}
+|-
+|15%
+!align=left|[[Gore Rider|{{U|=Gore Rider War Boots}}]]
+|47
+|No
+|}
+<br/>
+
+===Set bonus===
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Bul-Kathos' Children|{{Ub|=Bul-Kathos' Children}}]] (Full)
+|63
+|No (D2R only)
+|}
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/items/magic.shtml#sma Special Magic Effects] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/114336-question-about-critical-strike-on-insight/ Question about "Critical Strike" on Insight] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Damage modifiers]]

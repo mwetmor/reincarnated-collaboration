@@ -1,0 +1,462 @@
+{{Damage nav}}
+{{Intro}}
+[[File:Crushing Blow.gif|right|frame|Crushing Blow overlay]]
+{{Mb|=Chance of Crushing Blow}} applies a percentage chance to reduce a target's life by a fraction before the damage of that attack is applied. When successful, the overlay to the right is displayed (although be aware that hits with [[Bash]], [[Leap Attack]] and [[Charge]] display this same overlay).
+*Crushing Blow damage to monsters is divided by 0.5 + (0.5 * # players), so effectively monster's current base life (prior to the 50% increase with each additional player) is reduced by a fraction. 
+*The fraction applied depends on the target and the attack:
+
+
+{{Number table}} width=50%
+|-valign=top
+!width=50% rowspan=2 align=left|Target
+!colspan=2 align=center|Current Life
+|-align=center
+!width=25%|[[Melee]]
+!width=25%|[[Item type#Ranged|Ranged]]
+|-
+!align=left|Default
+|1/4
+|1/8
+|-
+!align=left|[[Super Unique]] and [[boss]]
+|1/8
+|1/16
+|-
+!align=left|Player and [[mercenary]]
+|1/10
+|1/20
+|}
+
+
+*Default values apply to [[pet]]s and normal, minion, [[Champion]] and [[Unique (monster)|Unique]] monsters. No other target or attack penalties of any kind are applied. Critical hit does not double Crushing Blow damage.
+*Percentage chance from multiple sources is summed, although when [[two weapons]] are equipped only that of the attacking weapon is added (that of the other weapon is ignored). > 100% Chance is redundant.
+*Applied by any melee or ranged attack with the exception of [[Blade Sentinel]], [[Blade Shield]] and the additional arrows of [[Multiple Shot]] (only applied by the original two arrows).
+*Damage can be modified by target [[Damage Resist|Damage Resist or Damage Reduced by %]]: DR > 0% decreases it (and DR > 99% results in immunity to it), but DR < 0% does not ''increase'' it. {{Warn|=While a ceiling of DR 50% normally applies to player and mercenary, this does '''not''' apply to Crushing Blow damage.}}
+*[[Sanctuary (skill)|Sanctuary]] normally ignores DR > 0% when applying the supplier's physical damage to [[undead]], but once again this does '''not''' apply to Crushing Blow damage: [[Immune to Physical]] undead remain immune to it. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/110076-sanctuary-crushing-blow/&do=findComment&comment=1382731] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/&do=findComment&comment=1418132]
+*Damage cannot be reduced by [[Bone Armor]], [[Energy Shield]] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120188-energy-shield-damage-taken-goes-to-mana-mana-burn/&do=findComment&comment=1488880] or [[Damage Reduced]].
+|}
+
+
+==Item==
+
+===Helm===
+{{Skill bonus}}
+|-
+|10%
+!align=left|[[Giant Skull|{{U|=Giant Skull Bone Visage}}]]
+|65
+|No
+|-
+| 25%
+|align=left|[[Metamorphosis|{{Ub|=Metamorphosis}}]] helm {{D2R-inline}}
+|67
+!{{Warn|=Yes}} (D2R only)
+|-
+|35%
+!align=left|[[Guillaume's Face|{{S|=Guillaume's Face Winged Helm}}]]
+|34
+|No
+|}
+<br/>
+
+===Body armor===
+{{Skill bonus}}
+|-
+|15%
+|align=left|[[Duress|{{Ub|=Duress}}]] body armor
+|47
+|No
+|-
+|25%
+!align=left|[[Rattlecage|{{U|=Rattlecage Gothic Plate}}]]
+|29
+|No
+|}
+<br/>
+
+===Weapon===
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Ber Rune|{{Cb|=Ber Rune}}]] in socket
+|63
+|No
+|}
+<br/>
+
+====Melee weapon====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Eternity|{{Ub|=Eternity}}]] melee weapon
+|63
+|No
+|-
+|25%
+|align=left|[[Strength (Rune Word)|{{Ub|=Strength}}]] melee weapon
+|25
+|No
+|}
+<br/>
+
+=====Axe=====
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[The Gnasher|{{U|=The Gnasher Hand Axe}}]]
+|5
+|No
+|-
+|20%
+|align=left|[[Beast|{{Ub|=Beast}}]] axe
+|63
+|No
+|-
+|25%
+!align=left|[[Islestrike|{{U|=Islestrike Twin Axe}}]]
+|43
+|No
+|-
+|25%
+!align=left|[[Executioner's Justice|{{U|=Executioner's Justice Glorious Axe}}]]
+|75
+!{{Warn|=Yes}} (LoD only)
+|-
+|30%
+!align=left|[[The Minotaur|{{U|=The Minotaur Ancient Axe}}]]
+|45
+|No
+|-
+|33%
+!align=left|[[Humongous|{{U|=Humongous Giant Axe}}]]
+|29
+|No
+|-
+|33%
+|align=left|[[Kingslayer|{{Ub|=Kingslayer}}]] axe
+|53
+|No
+|-
+|50%
+|align=left|[[Death (Rune Word)|{{Ub|=Death}}]] axe
+|55
+!{{Warn|=Yes}} (LoD only)
+|-
+|(60-70)%
+|align=left|[[Last Wish|{{Ub|=Last Wish}}]] axe
+|65
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Club=====
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Fleshrender (Diablo II)|{{U|=Fleshrender Barbed Club}}]]
+|38
+|No
+|-
+|40%
+|align=left|[[Black|{{Ub|=Black}}]] club
+|35
+|No
+|}
+<br/>
+
+=====Dagger=====
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Fleshripper|{{U|=Fleshripper Fanged Knife}}]]
+|68
+|No
+|}
+<br/>
+
+=====Hammer=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Beast|{{Ub|=Beast}}]] hammer
+|63
+|No
+|-
+|33%
+!align=left|[[Earth Shifter|{{U|=Earth Shifter Thunder Maul}}]]
+|69
+|No
+|-
+|(35-40)%
+!align=left|[[Immortal King's Stone Crusher|{{S|=Immortal King's Stone Crusher Ogre Maul}}]]
+|76
+|No
+|-
+|40%
+!align=left|[[Bonesnap|{{U|=Bonesnap Maul}}]]
+|24
+|No
+|-
+|40%
+|align=left|[[Black|{{Ub|=Black}}]] hammer
+|35
+|No
+|-
+|40%
+!align=left|[[Stone Crusher|{{U|=Stone Crusher Legendary Mallet}}]]
+|68
+|No
+|-
+|50%
+!align=left|[[Bloodtree Stump|{{U|=Bloodtree Stump War Club}}]]
+|48
+|No
+|-
+|50%
+!align=left|[[Windhammer|{{U|=Windhammer Ogre Maul}}]]
+|68
+|No
+|-
+|(60-70)%
+|align=left|[[Last Wish|{{Ub|=Last Wish}}]] hammer
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|75%
+!align=left|[[The Cranium Basher|{{U|=The Cranium Basher Thunder Maul}}]]
+|87
+|No
+|}
+<br/>
+
+=====Mace=====
+{{Skill bonus}}
+|-
+|33%
+!align=left|[[Crushflange|{{U|=Crushflange Mace}}]]
+|9
+|No
+|-
+|33%
+!align=left|[[Stormlash|{{U|=Stormlash Scourge}}]]
+|82
+|No
+|-
+|40%
+|align=left|[[Black|{{Ub|=Black}}]] mace
+|35
+|No
+|}
+<br/>
+
+=====Polearm=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Destruction|{{Ub|=Destruction}}]] polearm
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|40%
+|align=left|[[Obedience|{{Ub|=Obedience}}]] polearm
+|41
+!{{Warn|=Yes}} (LoD only)
+|-
+|40%
+|align=left|[[Infinity|{{Ub|=Infinity}}]] polearm
+|63
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Scepter=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Beast|{{Ub|=Beast}}]] scepter
+|63
+|No
+|-
+|25%
+!align=left|[[Knell Striker|{{U|=Knell Striker Scepter}}]]
+|5
+|No
+|-
+|33%
+!align=left|[[Heaven's Light|{{U|=Heaven's Light Mighty Scepter}}]]
+|61
+!{{Warn|=Yes}} (LoD only)
+|-
+|33%
+!align=left|[[Astreon's Iron Ward|{{U|=Astreon's Iron Ward Caduceus}}]]
+|66
+|No
+|}
+<br/>
+
+=====Spear=====
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Steel Pillar|{{U|=Steel Pillar War Pike}}]]
+|69
+|No
+|-
+|40%
+|align=left|[[Obedience|{{Ub|=Obedience}}]] spear {{D2R-inline}}
+|41
+|No (D2R only)
+|-
+|40%
+|align=left|[[Infinity|{{Ub|=Infinity}}]] spear {{D2R-inline}}
+|63
+|No (D2R only)
+|-
+|45%
+!align=left|[[Hone Sundan|{{U|=Hone Sundan Yari}}]]
+|37
+|No
+|}
+<br/>
+
+=====Staff=====
+{{Skill bonus}}
+|-
+|50%
+!align=left|[[Ribcracker|{{U|=Ribcracker Quarterstaff}}]]
+|31
+|No
+|}
+<br/>
+
+=====Sword=====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Destruction|{{Ub|=Destruction}}]] sword
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+|25%
+!align=left|[[Rixot's Keen|{{U|=Rixot's Keen Short Sword}}]]
+|2
+|No
+|-
+|33%
+|align=left|[[Kingslayer|{{Ub|=Kingslayer}}]] sword
+|53
+|No
+|-
+|35%
+!align=left|[[Bul-Kathos' Sacred Charge|{{S|=Bul-Kathos' Sacred Charge Colossus Blade}}]]
+|63
+|No
+|-
+|50%
+|align=left|[[Death (Rune Word)|{{Ub|=Death}}]] sword
+|55
+!{{Warn|=Yes}} (LoD only)
+|-
+|(60-70)%
+|align=left|[[Last Wish|{{Ub|=Last Wish}}]] sword
+|65
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+====Missile weapon====
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Wrath|{{Ub|=Wrath}}]] missile weapon
+|63
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+===Gloves===
+{{Skill bonus}}
+|-
+|5%
+!align=left|[[Venom Grip|{{U|=Venom Grip Demonhide Gloves}}]]
+|29
+|No
+|-
+|(5-10)%
+!align=left|[[Blood|{{C|=Blood gloves}}]]
+|14
+|No
+|-
+|10%
+|align=left|[[Horazon's Hold|{{Sb|=Horazon's Hold Demonhide Gloves}}]] {{RotW-inline}}
+|48
+|No
+|-
+|10%
+!align=left|[[Steelrend|{{U|=Steelrend Ogre Gauntlets}}]]
+|70
+|No
+|}
+<br/>
+
+===Boots===
+{{Skill bonus}}
+|-
+|15%
+!align=left|[[Gore Rider|{{U|=Gore Rider War Boots}}]]
+|47
+|No
+|-
+|25%
+!align=left|[[Goblin Toe|{{U|=Goblin Toe Light Plated Boots}}]]
+|22
+|No
+|}
+<br/>
+
+===Set bonus===
+{{Skill bonus}}
+|-
+|35%
+|align=left|[[Cleglaw's Brace|{{Ub|=Cleglaw's Brace}}]] (Full)
+|4
+|No 
+|}
+<br/>
+
+==Skill==
+===Warlock===
+====Consume====
+{{Consume}}
+|-
+|[[Death Mark]].blvl + 5
+|[[Summon Goatman]]
+|}
+<br/>
+
+==Monster==
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Monster]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Blunderbore]]
+|{{E}}
+|15%
+|25%
+|}
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/items/magic.shtml#sma Special Magic Effects] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/120188-energy-shield-damage-taken-goes-to-mana-mana-burn/ Energy Shield, Damage Taken Goes To Mana, Mana Burn] (D2 Technical)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/110076-sanctuary-crushing-blow/ Sanctuary + Crushing Blow] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/ Monster Resistances and Immunities Guide] (D2 Technical)
+
+
+[[Category:Attack]]
+[[Category:Modifiers]]
+[[Category:Damage modifiers]]
+[[Category:Attack modifiers]]

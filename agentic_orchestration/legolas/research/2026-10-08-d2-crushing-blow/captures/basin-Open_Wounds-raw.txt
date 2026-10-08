@@ -1,0 +1,414 @@
+{{Attribute nav}}
+{{Intro}}
+{{Mb|=Chance of Open Wounds}} can cause target to bleed uncontrollably when applied with a successful weapon attack, draining life and stopping [[damage regeneration]] for its 8 second (200 frame) duration. {{Warn|=Bleeding occurs even when life drain cannot be applied to target.}}
+*Percentage chance from multiple sources is summed, although when [[two weapons]] are equipped only that of the attacking weapon is added (that of the other weapon is ignored). >100% is redundant.
+*Applied by any [[melee]] or ranged attack with the exception of [[Blade Sentinel]], [[Blade Shield]] and the additional arrows of [[Multiple Shot]] (only applied by the original two arrows).
+*Always applied to another player character, but only applied to other units (monster, [[mercenary]] or [[pet]]) if their life value changes, either due to damage taken or regenerated. If no damage is taken then Open Wounds will not be applied if regeneration has already been stopped by [[Prevent Monster Heal]].
+*Life drain is dependent on the level of the player, mercenary or [[Iron Golem]] applying it. Life drain per frame in 1/256ths of a point is currently calculated as follows:
+
+
+{{Number table}} width=100%
+|-valign=top
+!width=20% rowspan=2 align=left|Stat
+!colspan=5 align=center|Level
+|-align=center
+!width=16%|1-15
+!width=16%|16-30
+!width=16%|31-45
+!width=16%|46-60
+!width=16%|>60
+|-
+!align=left|Life Drain/Frame
+|(9*lvl) + 31
+|(18*lvl) - 104
+|(27*lvl) - 374
+|(36*lvl) - 779
+|(45*lvl) - 1319
+|}
+[https://d2mods.info/forum/viewtopic.php?f=10&t=44308] [http://classic.battle.net/diablo2exp/items/magic.shtml#sma]
+|}
+
+
+*Life drain per frame may then be modified depending on the attack used and the target, and rounded down to the nearest 1/256 point:
+
+
+{{Text table}} width=40%
+|-valign=top
+!width=26% rowspan=2|Target
+!colspan=2 align=center|Life Drain Multiplier
+|-align=center
+!width=37%|Melee
+!width=37%|Ranged
+|-
+!Special unit
+|align=center|1/2
+|align=center|1/2
+|-
+!align=left|Player
+|align=center|1/4
+|align=center|1/8
+|}
+[https://d2mods.info/forum/viewtopic.php?f=10&t=44308]
+
+
+*Special units are monsters other than normal and minion monsters ([[Champion]], [[Unique (monster)|Unique]], [[Super Unique]], [[boss]] (excluding normal and minion [[Putrid Defiler]]s) and [[Evil]]). Life drain is unmodified against all other targets.
+*Although duration is 8 seconds (200 frames), life drain is not applied in the first frame and so points of life drain are calculated as follows:
+
+
+{{Text table}} width=40%
+!width=50%|Life Drain
+!width=50% align=center|Multiplier
+|-
+!Points/Second
+|align=right|25/256
+|-
+!Total Points
+|align=right|199/256
+|}
+
+
+*Life drain cannot be countered by any form of damage reduction.
+*Duration cannot be reduced by [[Cleansing]] or [[Fade]]. [https://d2mods.info/forum/viewtopic.php?f=10&t=44308] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120090-open-wounds/&do=findComment&comment=1487517]
+*When Open Wounds is applied again before the previous duration expires, duration simply gets reset regardless of the level of the second application: if it is applied at level 80 while it is still being applied at level 60, level 60 damage is still applied for the reset duration (and vice versa).
+*[[Poison Damage]] and length can be applied separately and simultaneously. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120090-open-wounds/&do=findComment&comment=1487545]
+*Replenish Life and + Life After Each (Demon) Kill from items, and healing from [[potion]]s, [[Prayer]] (including its passive bonuses to Cleansing and [[Meditation]]) and [[Holy Bolt]] still apply while active.
+*Replenish Life from items is a direct counter: Open Wounds applied by a level 30 player's melee attack on another player would result in <sub>109/256</sub> life drain per frame, which Replenish Life +109 would counter entirely; a ranged attack would result in <sub>54/256</sub> life drain per frame, which Replenish Life +54 would counter entirely.
+
+
+==Pelt==
+{{Skill bonus}}
+|-
+|33%
+!align=left|[[Cerebus' Bite|{{U|=Cerebus' Bite Blood Spirit}}]]
+|63
+!{{Warn|=Yes}} (LoD only)
+|}
+<br>
+
+==Body armor==
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Boneflesh|{{U|=Boneflesh Plate Mail}}]]
+|26||No
+|-
+|33%
+|align=left|[[Duress|{{Ub|=Duress}}]] body armor
+|47||No
+|-
+|35%
+!align=left|[[Crow Caw|{{U|=Crow Caw Tigulated Mail}}]]
+|37||No
+|-
+|40%
+!align=left|[[Toothrow|{{U|=Toothrow Sharktooth Armor}}]]
+|48||No
+|}
+<br>
+
+==Weapon==
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Um Rune|{{Cb|=Um Rune}}]] in socket
+|47||No
+|}
+<br>
+
+===Melee weapon===
+{{Skill bonus}}
+|-
+|66%
+|align=left|[[Fury (Rune Word)|{{Ub|=Fury}}]] melee weapon
+|65||No
+|-
+|100%
+|align=left|[[Malice|{{Ub|=Malice}}]] melee weapon
+|15||No
+|}
+<br>
+
+====Axe====
+{{Skill bonus}}
+|-
+|15%
+!align=left|[[Skull Splitter|{{U|=Skull Splitter Military Pick}}]]
+|21||No
+|-
+|25%
+!align=left|[[Butcher's Pupil|{{U|=Butcher's Pupil Cleaver}}]]
+|39||No
+|-
+|25%
+|align=left|[[Crescent Moon (Rune Word)|{{Ub|=Crescent Moon}}]] axe
+|47||No
+|-
+|25%
+|align=left|[[Beast|{{Ub|=Beast}}]] axe
+|63||No
+|-
+|25%
+|align=left|[[Doom|{{Ub|=Doom}}]] axe
+|67||No
+|-
+|33%
+!align=left|[[The Scalper|{{U|=The Scalper Francisca}}]]
+|57||No
+|-
+|33%
+!align=left|[[Lacerator|{{U|=Lacerator Winged Axe}}]]
+|68||No
+|-
+|50%
+!align=left|[[The Gnasher|{{U|=The Gnasher Hand Axe}}]]
+|5||No
+|-
+|50%
+|align=left|[[Steel|{{Ub|=Steel}}]] axe
+|13||No
+|-
+|50%
+|align=left|[[Kingslayer|{{Ub|=Kingslayer}}]] axe
+|53||No
+|-
+|50%
+!align=left|[[Razor's Edge|{{U|=Razor's Edge Tomahawk}}]]
+|67||No
+|-
+|60%
+!align=left|[[Goreshovel|{{U|=Goreshovel Broad Axe}}]]
+|14||No
+|}
+<br>
+
+====Claw====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Chaos|{{Ub|=Chaos}}]] claw
+|57||No
+|-
+|25%
+|align=left|[[Plague|{{Ub|=Plague}}]] claw {{D2R-inline}}
+|67||No (D2R only)
+|}
+<br>
+
+====Club====
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Fleshrender (Diablo II)|{{U|=Fleshrender Barbed Club}}]]
+|38||No
+|}
+<br>
+
+====Dagger====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Plague|{{Ub|=Plague}}]] dagger {{D2R-inline}}
+|67||No (D2R only)
+|-
+|50%
+!align=left|[[Fleshripper|{{U|=Fleshripper Fanged Knife}}]]
+|68||No
+|}
+<br>
+
+====Hammer====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Beast|{{Ub|=Beast}}]] hammer
+|63||No
+|-
+|25%
+|align=left|[[Doom|{{Ub|=Doom}}]] hammer
+|67||No
+|}
+<br>
+
+====Mace====
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Bloodrise|{{U|=Bloodrise Morning Star}}]]
+|15||No
+|-
+|50%
+|align=left|[[Steel|{{Ub|=Steel}}]] mace
+|13||No
+|}
+<br>
+
+====Polearm====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Crescent Moon (Rune Word)|{{Ub|=Crescent Moon}}]] polearm
+|47||No
+|-
+|25%
+|align=left|[[Doom|{{Ub|=Doom}}]] polearm
+|67||No
+|-
+|30%
+!align=left|[[Soul Harvest|{{U|=Soul Harvest Scythe}}]]
+|19||No
+|-
+|50%
+!align=left|[[Woestave|{{U|=Woestave Halberd}}]]
+|28||No
+|-
+|50%
+!align=left|[[The Meat Scraper|{{U|=The Meat Scraper Lochaber Axe}}]]
+|41||No
+|}
+<br>
+
+====Scepter====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Beast|{{Ub|=Beast}}]] scepter
+|63||No
+|}
+<br>
+
+====Spear====
+{{Skill bonus}}
+|-
+|35%
+!align=left|[[Bloodthief|{{U|=Bloodthief Brandistock}}]]
+|17||No
+|-
+|40%
+!align=left|[[The Impaler|{{U|=The Impaler War Spear}}]]
+|31||No
+|}
+<br>
+
+====Sword====
+{{Skill bonus}}
+|-
+|25%
+|align=left|[[Crescent Moon (Rune Word)|{{Ub|=Crescent Moon}}]] sword
+|47||No
+|-
+|25%
+|align=left|[[Plague|{{Ub|=Plague}}]] sword {{D2R-inline}}
+|67||No (D2R only)
+|-
+|33%
+!align=left|[[Blood Crescent|{{U|=Blood Crescent Scimitar}}]]
+|7||No
+|-
+|50%
+|align=left|[[Steel|{{Ub|=Steel}}]] sword
+|13||No
+|-
+|50%
+|align=left|[[Kingslayer|{{Ub|=Kingslayer}}]] sword
+|53||No
+|-
+|50%
+!align=left|[[Bloodmoon|{{U|=Bloodmoon Elegant Blade}}]]
+|61||No
+|-
+|80%
+!align=left|[[Ripsaw|{{U|=Ripsaw Flamberge}}]]
+|26||No
+|}
+<br>
+
+===Bow===
+{{Skill bonus}}
+|-
+|30%
+!align=left|[[Riphook|{{U|=Riphook Razor Bow}}]]
+|31||No
+|}
+<br>
+
+===Crossbow===
+{{Skill bonus}}
+|-
+|33%
+!align=left|[[Langer Briser|{{U|=Langer Briser Arbalest}}]]
+|32||No
+|-
+|33%
+!align=left|[[Gut Siphon|{{U|=Gut Siphon Demon Crossbow}}]]
+|71||No
+|}
+<br>
+
+===Throwing weapon===
+{{Skill bonus}}
+|-
+|33%
+!align=left|[[The Scalper|{{U|=The Scalper Francisca}}]]
+|57||No
+|-
+|33%
+!align=left|[[Lacerator|{{U|=Lacerator Winged Axe}}]]
+|68||No
+|}
+<br>
+
+==Shield==
+{{Skill bonus}}
+|-
+|50%
+!align=left|[[Swordback Hold|{{U|=Swordback Hold Spiked Shield}}]]
+|15||No
+|}
+<br>
+
+==Gloves==
+{{Skill bonus}}
+|-
+|25%
+!align=left|[[Dracul's Grasp|{{U|=Dracul's Grasp Vampirebone Gloves}}]]
+|76||No
+|}
+<br>
+
+==Belt==
+{{Skill bonus}}
+|-
+|(5-10)%
+!align=left|[[Blood|{{C|=Blood belt}}]]
+|14||No
+|}
+<br>
+
+==Boots==
+{{Skill bonus}}
+|-
+|10%
+!align=left|[[Gore Rider|{{U|=Gore Rider War Boots}}]]
+|47||No
+|}
+<br>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Infernal Tools|{{Ub|=Infernal Tools}}]] (Full)
+|5||No
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/items/magic.shtml#sma Special Magic Effects] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/120090-open-wounds/ Open Wounds] (D2 Technical)
+*Nefarius, [https://d2mods.info/forum/viewtopic.php?f=10&t=44308 Open Wounds Explained (v1.11b)] (Phrozen Keep)
+
+
+[[Category:Attack]]
+[[Category:Modifiers]]
+[[Category:Attribute modifiers]]
+[[Category:Attack modifiers]]
