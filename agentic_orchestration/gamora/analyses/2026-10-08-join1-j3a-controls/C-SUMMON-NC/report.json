@@ -1,0 +1,370 @@
+{
+ "cells_reported": 25,
+ "class": "NON-GRADED-CONTROL",
+ "compare": {
+  "G1": false,
+  "G2": true,
+  "G3": false,
+  "G4": true,
+  "G5": false,
+  "G6": true,
+  "G7": true
+ },
+ "ctl_spec": {
+  "crit": {
+   "summon": {
+    "model": "no-roll-no-crit"
+   }
+  }
+ },
+ "emitter_returncode": 0,
+ "end": {
+  "free_gib": 25.5,
+  "head": "06b9bdb3438fc56f82716222a2c350132d3f14f1",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "8b50d2c74cb6815f3339f94c4038839e51925b8c",
+     "blob_live": "8b50d2c74cb6815f3339f94c4038839e51925b8c",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "blob_live": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "blob_live": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "69eadd95eb946ec1d6067c3b0a4f95fa47d168d3",
+     "blob_live": "69eadd95eb946ec1d6067c3b0a4f95fa47d168d3",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ },
+ "env_stripped_before_setting_join_keys": [],
+ "executes_set_A10": {
+  "TA-X-07 (conservation; G2 offered/applied chain)": true,
+  "TA-X-20 (hit-test predicate + multiplicity; G4 occupancy, bound radius)": true,
+  "TA-X-29 (global-magnitude fold; G2 pre_mitigation)": true,
+  "TA-X-30 (pursuit halt; G4 halt counters)": true
+ },
+ "foreign_reads_nonzero": [],
+ "free_gib_start": 25.58139419555664,
+ "head_fixed": true,
+ "instrument_pinned": true,
+ "join_records": {
+  "bind_log": [
+   {
+    "kind": "operand-source",
+    "loader_sha256": "2e0307ff94145206b1100e5d5967028e185be04e966ed08c783f12039d18e11b",
+    "overridden": [],
+    "pack_digest": "2713e4cd77353b1fc082ddb163ce179d3d250199997e73e05adc79edb8dc1dec",
+    "row": null,
+    "source": "PACK"
+   },
+   {
+    "kind": "crit-profile",
+    "profile": {
+     "lanes": {
+      "intake": {
+       "model": "pth-tiered"
+      },
+      "player-stream": {
+       "model": "LO"
+      },
+      "summon": {
+       "model": "no-roll-no-crit"
+      }
+     },
+     "name": "ctl"
+    },
+    "row": null
+   },
+   {
+    "kind": "guard",
+    "minimums_by_source": {
+     "MEASURED": {
+      "at": "records/creatures/enemies/hero/springscrab_h01.dbr|152",
+      "level_margin_informational": true,
+      "min_level_margin_levels": 17.552981214343053,
+      "min_pth": 105.9822630137391,
+      "n": 79
+     },
+     "SOURCED": {
+      "at": "records/creatures/enemies/boss&quest/humanascendant_mindthief_01.dbr|155",
+      "level_margin_informational": false,
+      "min_level_margin_levels": 17.626229370123742,
+      "min_pth": 106.18449182962428,
+      "n": 169
+     }
+    },
+    "n_rows": 248,
+    "pack": "kc2-rulebook-pack-v3",
+    "row": null
+   },
+   {
+    "bound_bits": "f64:3fc99999a0000000",
+    "kind": "cited-pre-import",
+    "row": 24,
+    "sealed_bits": "f64:3fc999999999999a",
+    "target": "fixture.SOULFIRE_PERIOD_S"
+   },
+   {
+    "bound_bits": "f64:3fc99999a0000000",
+    "kind": "attr",
+    "row": 25,
+    "sealed_bits": "f64:3fc99999a0000000",
+    "target": "secondary_streams.SOULFIRE_PERIOD_S"
+   },
+   {
+    "bits": "f64:3fc99999a0000000",
+    "kind": "read-back",
+    "row": 24,
+    "target": "energy.SoulfireCostTerm.interval_s (default)"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.resolve_hit",
+    "kind": "transcribed",
+    "row": 2,
+    "sealed": "reincarnated.simulation.kc2.threat:resolve_hit",
+    "target": "threat.resolve_hit"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.mitigate",
+    "kind": "transcribed",
+    "row": 3,
+    "sealed": "reincarnated.simulation.kc2.threat:mitigate",
+    "target": "threat.mitigate"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.physical_applied",
+    "kind": "transcribed",
+    "row": 4,
+    "sealed": "reincarnated.simulation.kc2.intake:physical_applied",
+    "target": "intake.physical_applied"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.applied_damage",
+    "kind": "dispatch-then-delegate",
+    "row": 5,
+    "sealed": "reincarnated.simulation.kc2.player_offense:applied_damage",
+    "target": "player_offense.applied_damage"
+   },
+   {
+    "kind": "alias-rebind",
+    "row": 6,
+    "target": "player_sustain._applied_damage",
+    "to": "player_offense.applied_damage"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.mitigation_at",
+    "kind": "transcribed",
+    "row": 7,
+    "sealed": "reincarnated.simulation.kc2.player_offense:mitigation_at",
+    "target": "player_offense.mitigation_at"
+   },
+   {
+    "kind": "alias-rebind",
+    "row": 6,
+    "target": "player_sustain._mitigation_at",
+    "to": "player_offense.mitigation_at"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.defence_of",
+    "kind": "transcribed",
+    "row": 8,
+    "sealed": "reincarnated.simulation.kc2.summon_offense:defence_of",
+    "target": "summon_offense.defence_of"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.resist_column_for",
+    "kind": "transcribed",
+    "row": 9,
+    "sealed": "reincarnated.simulation.kc2.summon_offense:resist_column_for",
+    "target": "summon_offense.resist_column_for"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.applied_for",
+    "kind": "transcribed",
+    "row": 10,
+    "sealed": "reincarnated.simulation.kc2.summon_offense:applied_for",
+    "target": "summon_offense.applied_for"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.soulfire_applied",
+    "kind": "transcribed",
+    "row": 11,
+    "sealed": "reincarnated.simulation.kc2.secondary_streams:SecondaryStreams.soulfire_applied",
+    "target": "secondary_streams.SecondaryStreams.soulfire_applied"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.bleed_dps_against",
+    "kind": "transcribed",
+    "row": 12,
+    "sealed": "reincarnated.simulation.kc2.secondary_streams:SecondaryStreams.bleed_dps_against",
+    "target": "secondary_streams.SecondaryStreams.bleed_dps_against"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.pth_for",
+    "kind": "dispatch-then-delegate",
+    "row": 14,
+    "sealed": "reincarnated.simulation.kc2.measured_board:MeasuredBoardFold.pth_for",
+    "target": "measured_board.MeasuredBoardFold.pth_for"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.stop_where_close_enough (staticmethod)",
+    "kind": "transcribed",
+    "row": 16,
+    "sealed": "reincarnated.simulation.kc2.gd_reposition:GdRepositionFold._stop_where_close_enough",
+    "target": "gd_reposition.GdRepositionFold._stop_where_close_enough"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.__post_init__",
+    "kind": "dispatch-then-delegate",
+    "row": 31,
+    "sealed": "reincarnated.simulation.kc2.player_offense:PlayerOffense.__post_init__",
+    "target": "player_offense.PlayerOffense.__post_init__"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.damage_against",
+    "kind": "dispatch-then-delegate",
+    "row": 32,
+    "sealed": "reincarnated.simulation.kc2.player_offense:PlayerOffense.damage_against",
+    "target": "player_offense.PlayerOffense.damage_against"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.crit_mult (property fget)",
+    "kind": "substituted property",
+    "row": 33,
+    "sealed": "reincarnated.simulation.kc2.player_offense:PlayerOffense.crit_mult",
+    "target": "player_offense.PlayerOffense.crit_mult"
+   },
+   {
+    "installed": "join2_rulebook.forms:join2_rulebook.soulfire_damage_against",
+    "kind": "dispatch-then-delegate",
+    "row": 34,
+    "sealed": "reincarnated.simulation.kc2.secondary_streams:SecondaryStreams.soulfire_damage_against",
+    "target": "secondary_streams.SecondaryStreams.soulfire_damage_against"
+   },
+   {
+    "installed": [
+     "gd_reposition.GdRepositionFold._stop_where_close_enough",
+     "intake.physical_applied",
+     "measured_board.MeasuredBoardFold.pth_for",
+     "player_offense.PlayerOffense.__post_init__",
+     "player_offense.PlayerOffense.crit_mult",
+     "player_offense.PlayerOffense.damage_against",
+     "player_offense.applied_damage",
+     "player_offense.mitigation_at",
+     "secondary_streams.SecondaryStreams.bleed_dps_against",
+     "secondary_streams.SecondaryStreams.soulfire_applied",
+     "secondary_streams.SecondaryStreams.soulfire_damage_against",
+     "summon_offense.applied_for",
+     "summon_offense.defence_of",
+     "summon_offense.resist_column_for",
+     "threat.mitigate",
+     "threat.resolve_hit"
+    ],
+    "kind": "summary",
+    "n_installed": 16,
+    "row": null
+   }
+  ],
+  "bind_log_identical_across_pids": true,
+  "hits": [],
+  "n_records": 26,
+  "operand_pack": {
+   "engine_root": "/Users/admin/Games/reincarnated-engine",
+   "git_status_porcelain": "",
+   "loader_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v0.py",
+   "n_files_on_disk": 13,
+   "n_tracked_at_head": 13,
+   "pack_digest_pin": "2713e4cd77353b1fc082ddb163ce179d3d250199997e73e05adc79edb8dc1dec",
+   "pack_dir_realpath": "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954",
+   "pinned_paths": [
+    "src/reincarnated/output/kc2-rulebook-pack-v3-20261008_102954",
+    "src/reincarnated/export/kc2_rulebook_pack_v0.py",
+    "src/reincarnated/export/kc2_rulebook_pack_v1_recut.py"
+   ]
+  },
+  "pass": true,
+  "tree": {
+   "duplicates": [],
+   "emitter_pids": [
+    54390
+   ],
+   "expected_n_cells": 25,
+   "extra": [],
+   "grid_equal": true,
+   "launcher_pid": 54366,
+   "missing": [],
+   "mode": "emitter",
+   "n_cells": 25,
+   "n_pids": 26,
+   "pass": false,
+   "tree_ok": true,
+   "unexpected": []
+  },
+  "tree_ok": true
+ },
+ "launcher_pid": 54366,
+ "mode": "join",
+ "pass": false,
+ "prediction": "J3a CONTROL C-SUMMON-NC: LANE-2: the mirror, 0 violations. L06-2: first divergence per cell is a summon row J-S8 x1.1 -> x1.0; G7 n_ticks(JOIN) >= J-S8 at its wave; 0 JOIN draws.",
+ "profile": "gd",
+ "rehome": null,
+ "reproduces_7_of_7": false,
+ "start": {
+  "free_gib": 25.6,
+  "head": "06b9bdb3438fc56f82716222a2c350132d3f14f1",
+  "kc2": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "pin": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_e3_run_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "8b50d2c74cb6815f3339f94c4038839e51925b8c",
+     "blob_live": "8b50d2c74cb6815f3339f94c4038839e51925b8c",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "blob_live": "40a012d26f7198eb44e317a3ee01f4451f19e1ff",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "blob_live": "8ddcd0fa77f38928c08dc7f34fe50b5a3873ca1b",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_rulebook_hook/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "69eadd95eb946ec1d6067c3b0a4f95fa47d168d3",
+     "blob_live": "69eadd95eb946ec1d6067c3b0a4f95fa47d168d3",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  }
+ }
+}
