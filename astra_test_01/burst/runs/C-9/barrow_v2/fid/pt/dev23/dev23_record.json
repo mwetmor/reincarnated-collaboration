@@ -1,0 +1,97 @@
+{
+ "_what": "R-C9-241 DEV-23: low-frequency tone match at the pasted-context boundary (fid/v1tools/tierB/conductor_scripts/guided_stitch.py; BV2F_DEV23=0 = v1 byte-identical, proven)",
+ "measure": "fid/pt/tools/join_steps.py: dE76 between the low-pass (sigma 6) bands 8-16 px either side of each join, per 64-px segment, ice/snow pixels (LV class map); control = same 128 px further in",
+ "joins": {
+  "1_0|x1536": {
+   "before_median": 0.45499999999999996,
+   "before_max": 4.28,
+   "after_median": 0.51,
+   "after_max": 2.78,
+   "control_median": 0.91
+  },
+  "2_0|x2816": {
+   "before_median": 10.74,
+   "before_max": 14.84,
+   "after_median": 1.18,
+   "after_max": 5.45,
+   "control_median": 1.46
+  },
+  "0_1|y1024": {
+   "before_median": 2.99,
+   "before_max": 18.16,
+   "after_median": 1.58,
+   "after_max": 3.31,
+   "control_median": 1.52
+  },
+  "1_1|x1536": {
+   "before_median": 1.185,
+   "before_max": 2.14,
+   "after_median": 0.69,
+   "after_max": 2.78,
+   "control_median": 3.035
+  },
+  "1_1|y1024": {
+   "before_median": 1.36,
+   "before_max": 4.06,
+   "after_median": 0.78,
+   "after_max": 3.25,
+   "control_median": 0.99
+  },
+  "2_1|x2816": {
+   "before_median": 8.615,
+   "before_max": 12.22,
+   "after_median": 1.4649999999999999,
+   "after_max": 8.66,
+   "control_median": 0.7250000000000001
+  },
+  "2_1|y1024": {
+   "before_median": 1.645,
+   "before_max": 33.38,
+   "after_median": 1.915,
+   "after_max": 32.22,
+   "control_median": 2.01
+  },
+  "0_2|y1792": {
+   "before_median": 8.09,
+   "before_max": 22.64,
+   "after_median": 5.51,
+   "after_max": 18.5,
+   "control_median": 5.79
+  },
+  "1_2|x1536": {
+   "before_median": null,
+   "before_max": null,
+   "after_median": null,
+   "after_max": null,
+   "control_median": 9.02
+  },
+  "1_2|y1792": {
+   "before_median": null,
+   "before_max": null,
+   "after_median": null,
+   "after_max": null,
+   "control_median": 3.54
+  },
+  "2_2|x2816": {
+   "before_median": 1.345,
+   "before_max": 27.49,
+   "after_median": 2.16,
+   "after_max": 25.09,
+   "control_median": 0.76
+  },
+  "2_2|y1792": {
+   "before_median": 1.54,
+   "before_max": 11.8,
+   "after_median": 1.4,
+   "after_max": 11.1,
+   "control_median": 1.275
+  }
+ },
+ "residual": "the TONE step is gone at 2_0|x2816 (10.74 -> 1.18), 2_1|x2816 (8.62 -> 1.46), 0_1|y1024 (2.99/max 18.2 -> 1.58/max 3.3), all at control level. A TEXTURE seam remains at x=2816 in 2_0/2_1: the context strip (1_0's paint) is soft, the new paint is crisper (stronger hex/grain) -- high-frequency, which DEV-23 must not touch. Repainting 2_0 cascades: 2_1's top context and 2_2's top context come from it -> 2_0, 2_1, 2_2 (3 tiles, <= 6 images).",
+ "crops": [
+  "fid/pt/dev23/beforeafter_2_0.jpg",
+  "fid/pt/dev23/beforeafter_2_1.jpg",
+  "fid/pt/dev23/beforeafter_0_1.jpg",
+  "fid/pt/dev23/beforeafter_2_2.jpg"
+ ]
+}

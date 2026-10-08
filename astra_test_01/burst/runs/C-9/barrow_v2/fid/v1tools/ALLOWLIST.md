@@ -75,3 +75,12 @@ DEV-10 (charter § 7, R-C9-189 Phase 2'): ONE added line appends `cfg['chunk_not
 
 ```allow guided_paint.py
 ```
+
+## guided_stitch.py
+
+DEV-23 (R-C9-241, Pilot Repaint 2): a LOW-FREQUENCY TONE MATCH at each chunk's pasted-context boundary, BEFORE v1's partition-of-unity ramps -- the colour step between the ICE/SNOW pixels (bright, low chroma) of the context side (the strip's last 48 px) and of the NEW paint's first 48 px, smoothed along the boundary (normalised Gaussian, sigma 56 px; none where the boundary crosses no ice/snow), is added to the NEW paint's ice/snow pixels (soft mask: rock, wood, scrub, dark water untouched) and faded to 0 over 300 px into the chunk (smoothstep); the context strip is untouched. Only a smooth field is added; high-frequency paint detail is untouched. Added lines only (a BV2F-BEGIN/END block + two marked lines); no v1 line is removed. BV2F_DEV23=0 gives v1's stitch byte for byte. The Tier-A v1 copy is kept; PT's build calls this Tier-B copy.
+
+
+
+```allow guided_stitch.py
+```
