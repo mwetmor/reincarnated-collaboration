@@ -1,0 +1,33 @@
+clean dry pack: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/rc_dry2/kc2-rulebook-pack-v1-20261008_085535
+NC-V1R-d 'ORACLE' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V1R-d 'PLAY' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V1R-d 'join' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V1R-d '' REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+NC-V1R-d None REFUSED: kc2-rulebook-pack-v1 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: ORACLE and PLAY never open it).
+clean JOIN rows 196
+tampered copy: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/rc_nc_c_pack
+byte offset 119785 was 5
+NC-V1R-c verify rc 1
+{
+ "ROWSET_equal_manifest": false,
+ "ROWSET_rederived": {
+  "rulebook/families.json": "26d88b36cc6d3e965f17ff76eaac6dec547dd7249e4c8a124f04135bf44907a4",
+  "rulebook/hooks.json": "6a856ca35e5b42082b7a804b35cb529ada185afa64322166641e75ebe3ced5f3",
+  "rulebook/kit_warlord.json": "3b47b5e4bd80c3a8229ebe4125063d751fc4a5d0d0cb9c6b605acf2ebf4ba1f6",
+  "rulebook/laws.json": "efaf306cc885ebdcb4677abe4f56aaaef593e256fb36a8ca7d1eda0b9cad49eb",
+  "rulebook/meta.json": "36c2bd874b0309f85705e1037f46e21d439de211ff7e67d96c5a753bb32fe40f",
+  "rulebook/offense_da.json": "f4d62d09bbedbd645176e67ab7296e8b889c420fcb73349baa015ad1896c1a1b",
+  "rulebook/world_gd.json": "f0f30cf9a4babe9bfab75d996e4cc98aedcfb7ba2e3062257656bf50d3337d0c"
+ },
+ "dir": "rc_nc_c_pack",
+ "manifest_FILE_sha256": "65992b1f11b071d8f5d08bd59b5bc2fa6fa58b9435d53be8b19cbdbed5de9a3d",
+ "manifest_pack_digest": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+ "member_failures": [
+  "rulebook/offense_da.json"
+ ],
+ "n_members": 7,
+ "recomputed_pack_digest": "254f286051bf743869e7b293e943936831a6de1cde60d0dca4afa1915eb59606",
+ "self_consistent": false
+}
+
+NC-V1R-c load REFUSED: pack digest / member digest check failed: ['rulebook/offense_da.json']

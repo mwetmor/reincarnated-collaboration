@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v1_recut.py", line 696, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v1_recut.py", line 678, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False, scratch=out / f"scratch-{stamp}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v1_recut.py", line 588, in main_build
+    raise RulebookPackHalt(f"gate failed: {json.dumps({'n_checks': gates['n_checks'], 'failures': gates['failures']})[:4000]}")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: {"n_checks": 1214, "failures": [{"row": "RB-DA-records/creatures/enemies/aetherialcorruption_b01.dbr|156", "check": "IC7-F-41 identity (control re-aim)"}]}

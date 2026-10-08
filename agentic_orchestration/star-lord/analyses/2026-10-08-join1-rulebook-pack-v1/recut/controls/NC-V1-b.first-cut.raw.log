@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v1.py", line 590, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v1.py", line 572, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False, scratch=out / f"scratch-{stamp}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v1.py", line 482, in main_build
+    raise RulebookPackHalt(f"gate failed: {json.dumps({'n_checks': gates['n_checks'], 'failures': gates['failures']})[:4000]}")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: {"n_checks": 843, "failures": [{"row": "RB-DA-records/creatures/enemies/aetherialimp_a01.dbr|155", "check": "da bits == s2_apply DA"}, {"row": "RB-DA-records/creatures/enemies/aetherialimp_a01.dbr|155", "check": "p bits == s2_apply p (sealed equation, recomputed)"}, {"row": "RB-DA-records/creatures/enemies/aetherialimp_a01.dbr|155", "check": "p(da+E_L) bits == s2_apply"}]}

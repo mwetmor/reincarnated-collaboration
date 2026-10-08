@@ -31,9 +31,13 @@
    }
   },
   "run_1": {
+   "amendment_INFO-1": "jack-ryan v1 delta Gate-2 INFO-1 (collab 11157a905), KP-372: the first record named only 'HEAD moved'. It ALSO had instrument_pinned=false and limb B' FAIL: at its start the s47 v4 instrument and the B' witness hook were gamora's uncommitted working-tree edits (live blob 5fae93ac vs HEAD blob 3267badf; witness live 111cad06 vs HEAD c87cdb98). Both run 1 and run 2 therefore used instrument blob 5fae93ac, not the cut-time blob 3267badf. Run 2 (47c5c94e) was pinned (start and end) with B' pass. Verdict unchanged: run 1 withheld, run 2 the evidence.",
    "dir": "s47v4",
+   "instrument_pinned": false,
+   "limb_Bprime_pass": false,
    "note": "HEAD moved: gamora committed J3a build 1/2 + 2/2 (80350db0, 47c5c94e) during the run; NO VERDICT is not a pass and is not quoted",
    "reason": "HEAD moved during the run: d5793a1287a345505c1ef58dc063c26dda8cb3fb -> 47c5c94e43276bf69d2795f732b2eafa8bc998fa",
+   "reason_as_first_recorded": "HEAD moved during the run: d5793a1287a345505c1ef58dc063c26dda8cb3fb -> 47c5c94e43276bf69d2795f732b2eafa8bc998fa",
    "verdict": "NO VERDICT"
   },
   "run_2": {

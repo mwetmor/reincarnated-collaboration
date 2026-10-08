@@ -1,0 +1,87 @@
+{
+ "G-10": {
+  "ok": true,
+  "recut_commit_name_status": [
+   "A\tsrc/reincarnated/export/kc2_rulebook_pack_v1_recut.py",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/manifest.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/families.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/hooks.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/kit_warlord.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/laws.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/meta.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/offense_da.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-20261008_085655/rulebook/world_gd.json",
+   "A\tsrc/reincarnated/output/kc2-rulebook-pack-v1-cut-receipt-20261008_085655.json"
+  ]
+ },
+ "G-8": {
+  "ok": true,
+  "oracle_children_opened_file_scan": {
+   "head": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 631,
+    "pack_path_hits": []
+   },
+   "sealed": {
+    "instrument_sees_data_reads": true,
+    "module_hits": [],
+    "n_opened": 720,
+    "pack_path_hits": []
+   }
+  },
+  "run_1": {
+   "dir": "recut/s47v4",
+   "instrument_pinned": true,
+   "limb_Bprime_pass": true,
+   "note": "HEAD moved: gamora committed f1d8fe38 + 5655123c (J3a) during the run; instrument was pinned and B' passed. Withheld, not quoted",
+   "reason": "HEAD moved during the run: 375f963238c6d9ac6ae7fe80015c21139e43045d -> 5655123ce4432a6fab2d3ca635f65dfd902b1dbc",
+   "verdict": "NO VERDICT"
+  },
+  "run_2": {
+   "dir": "recut/s47v4-r2",
+   "head_end": "5655123ce4432a6fab2d3ca635f65dfd902b1dbc",
+   "head_start": "5655123ce4432a6fab2d3ca635f65dfd902b1dbc",
+   "instrument_blob": "5fae93ac",
+   "instrument_pinned": true,
+   "limb_Bprime_pass": true,
+   "reason": "HEAD fixed; A and B and B' pass",
+   "recut_commit_is_ancestor": true,
+   "s47v4_evidence_FILE_sha256": "1d3123c53d38b090410f92eac86bfe9ddf9a8eb697711b3407608df8cec3d249",
+   "verdict": "ORACLE BYTE-IDENTICAL",
+   "witness_blob": "111cad06"
+  }
+ },
+ "artifact": "JOIN-1 KP-371/372 pack v1 RE-CUT gate evidence (G-8, G-10) + controls NC-V1R-a..d with RAW outputs (INFO-3)",
+ "author": "star-lord",
+ "controls": {
+  "NC-V1R-a": {
+   "as_predicted": true,
+   "observed": "HALT; 1 failure: aetherialcorruption_b01|156 IC7-F-41 identity (control re-aim)"
+  },
+  "NC-V1R-b": {
+   "as_predicted": true,
+   "observed": "HALT; 4 failures all on aetherialimp_a01|155: da, p, p(da+E_L), level_margin_levels"
+  },
+  "NC-V1R-c": {
+   "as_predicted": true,
+   "observed": "verify rc 1, member_failures ['rulebook/offense_da.json']; load_offense_da(JOIN) refused"
+  },
+  "NC-V1R-d": {
+   "as_predicted": true,
+   "observed": "ORACLE, PLAY, 'join', '', None all refused; clean JOIN 196 rows"
+  }
+ },
+ "controls_raw": {
+  "NC-V1R-a": "controls/NC-V1R-a.raw.log",
+  "NC-V1R-b": "controls/NC-V1R-b.raw.log",
+  "NC-V1R-c,d": "controls/NC-V1R-c-d.raw.log",
+  "first cut NC-V1-a": "controls/NC-V1-a.first-cut.raw.log",
+  "first cut NC-V1-b": "controls/NC-V1-b.first-cut.raw.log",
+  "first cut NC-V1-c,d": "NOT CAPTURED to a file at the time (stdout only); stated, not reconstructed"
+ },
+ "engine_prereg_delta_commit": "115cc1b1",
+ "engine_recut_commit": "375f963238c6d9ac6ae7fe80015c21139e43045d",
+ "pack_digest": "0c11ef6396d926a6c91c357d4e28b62fab5c0bd1fcfb3e5f9725c7a7ee309a7b",
+ "supersedes": "0b1feb3134b3561897203d68b78654578c992dc72cfe63833f5c71a9c9852b18 (kept on disk)"
+}
