@@ -211,3 +211,42 @@ Random OS work (mediaanalysisd) does not align to 10 ms across fresh processes. 
 - `fid/lv/guide_art/{guide_manifest.json,ids_art.png,class_art.png}` (crack/reed id extents)
 - `fid/RESUME_PT.md` (R-C9-247..264 sections); `fid/pt/m2pp/M2pp_pilot_sketchA_v1.jpg`
 - Prior: `agentic_orchestration/qa/findings/2026-10-08-bv2f-p5-dense-texture-preruling.md` (`309c4c41b`)
+
+---
+
+## ADDENDUM A — P10 quiescence pre-ruling (2026-10-08; on PH § 48 `e3afc0cc8` / § 49 `6d4876303`; witness HALT)
+
+**Severity:** WARN (ruling). **No bar moves.** The § 48 (c) numbers stand: 10 % quiescence, the 25 % / 1 s VOID trigger, 20 tries, and worst-of-3 p99 ≤ 16.7 ms plus the deterministic-hitch check. What follows changes **the conditions under which P10 is taken**, which is a capture definition, and it is fixed before any valid witness or Phase 3′ value exists.
+
+**Evidence read.**
+- `renders/p10_witness/v1_1/quiescence.json`: the set **became quiet at try 7**, with nothing over 10 %.
+- `v1_1_set2/quiescence.json`: never quiet in 20 tries. The one offender is pid 609 `stable` (Warp) at **16.8 %**.
+- During the VOID run 1, Warp peaked at **33 %**, alongside other sessions' `git` (63 %) and mediaanalysisd (57 %).
+
+**(a) Exempting the session terminal: NO.**
+- Warp is not render path. WindowServer and kernel_task serve the Godot window being measured; Warp serves *other agents' output*.
+- Its load is **not a constant overhead present alike in every measurement**. It was under 10 % at try 7, then 16.8 % averaged and 33 % peaked within the same hour. That load tracks how much the concurrent sessions are printing.
+- Exempting it would admit exactly the variable interference the precondition exists to keep out. It would also be adopted *after* seeing it fail the bar, which is the post-hoc move W-1 forbids.
+
+**(b) Scheduled quiet window: YES, and P10 binds only inside one.** Before opening it, the conductor:
+1. **pauses the Sim Session's heavy work and every other lane**: no other Godot or Blender process, no agent git or Python jobs, other agent sessions idle (not printing). The heavy lock is held by PH for the whole window.
+2. Has PH launch the P10 driver **detached**, with output to file (`nohup … > log`), and **not stream it into the terminal**. PH's own session waits on the result file without polling output. *This makes the measuring session itself quiet; the Warp load is the sessions' output, not a fixed tax.*
+3. Leaves the § 48 (c) precondition and the VOID rule **unchanged**. mediaanalysisd and other OS services are not exempt: the precondition simply waits for them.
+- **If the window still cannot reach quiescence in 20 tries** (an OS service never idles, or Warp alone stays above 10 % with every session idle), that is **HALT → `matt_to_do`**: a host-level change only Matt can make. Examples: pause or disable Photos media analysis, or launch P10 from a non-agent shell (e.g. a launchd job) with Warp closed. **It is not a bar move.**
+- Record the window in the run record: start/stop, what was paused, and the quiescence log.
+
+**(c) Paired / interleaved design: ADOPTED as the run ORDER inside the quiet window, NOT as the binding statistic.**
+- **Order:** W P W P W P, alternating v1 witness (W) and candidate (P) runs as fresh processes. The witness is then contemporaneous with every candidate run, not just first in the session.
+- **Binding stays absolute:**
+  - the candidate's worst-of-3 p99 ≤ 16.7 ms;
+  - the deterministic hitch.
+  The bar is a player-facing frame budget. *"No worse than v1 by Δ"* would be a new bar and does not answer the budget question.
+- **Reported, non-binding:** the paired difference (P p50 − adjacent W p50) per pair. This is the cross-session cost ledger.
+- **Founding session:** no witness envelope exists yet. Run 1 of `v1_1` is VOID and defines nothing; PH was right to withhold it. Therefore:
+  - in the **first** quiet window, the three W runs **record** the envelope (p50 range ± 0.5 ms, as § 48 (c) 3);
+  - that session's P runs are validated by the per-run quiescence and VOID rules only;
+  - **from the second window on**, a W run outside the envelope VOIDs the session, as registered.
+
+**PH:** append this as § 48 (c) amendment A, committed before the first quiet-window run. **Conductor:** schedule the window; this will be the Sim Session pause it coordinates.
+
+*INFO, not ruled here:* § 49 (b) `abx3_g2v4_v1rec_vs_v1head` is VOID at 37 scored. PH's reading is correct: the remedy is a **capture** (new record-time v1 stills of non-ice ground), never a seed change. The VOID dir must not go to a judge. Route to the conductor.
