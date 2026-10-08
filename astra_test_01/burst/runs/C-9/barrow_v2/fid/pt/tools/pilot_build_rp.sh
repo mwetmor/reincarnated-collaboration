@@ -22,7 +22,9 @@ for s in $STEPS; do
     stitch)
       # R-C9-242: the Tier-B stitch (DEV-23 low-frequency tone match at the pasted-context boundary)
       python3 $V/tierB/conductor_scripts/guided_stitch.py $CFG $P/painting.png $P/painting_preview.jpg > $P/stitch.log 2>&1 || fail $s $?
-      python3 $T/pilot_stitch_record.py || fail $s $? ;;
+      python3 $T/pilot_stitch_record.py || fail $s $?
+      # PH P5 (seams): every internal join's overlap MAD must be <= 13.09 (PH threshold; pilot 2 failed 0_1|0_2 at 13.86)
+      python3 -c "import json,sys;m=json.load(open('$P/stitch_record.json'))['overlap_mad'];bad={k:v for k,v in m.items() if v>13.09};print('P5 joins over 13.09:',bad or 'none');sys.exit(1 if bad else 0)" || fail $s 5 ;;
     ids)
       mkdir -p $P/ids_built
       pg --log $P/ids_built/capture.log --timeout-s 900 -- env HEAVY_LOCK=$T/lock_held.py bash $V/godot_run.sh $GP tierB/barrow_full/godot/tools/capture_ids.gd -- --out $P/ids_built --frame-grid $P/frame_grid.pilot.json || fail $s $?
