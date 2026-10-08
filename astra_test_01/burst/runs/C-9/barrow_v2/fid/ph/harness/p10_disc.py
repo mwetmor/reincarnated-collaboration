@@ -76,7 +76,8 @@ def one_run(out, scene, view, burn=None, loop=None, idle=False):
         return {"halt": "never quiescent", "over": over}
     if not gate():
         return {"halt": "disk < 21 GiB"}
-    cmd = ["python3", LOCK, "C-9", "--", G, "--path", ".", "--resolution", "1920x1080", "--script", H + "/ph_life.gd", "--",
+    pre = [] if os.environ.get("PH_LOCK_HELD") == "1" else ["python3", LOCK, "C-9", "--"]   # window: the lock is held for the whole window
+    cmd = pre + [G, "--path", ".", "--resolution", "1920x1080", "--script", H + "/ph_life.gd", "--",
            "perf", scene, out, view] + (["--burn-ms", str(burn)] if burn else []) + (["--loop", loop] if loop else []) + (["--idle"] if idle else [])
     log = open(os.path.join(out, "log.txt"), "w")
     proc = subprocess.Popen(cmd, cwd=C9 + "/barrow_full/godot", stdout=log, stderr=subprocess.STDOUT)

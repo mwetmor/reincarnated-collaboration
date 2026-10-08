@@ -1664,3 +1664,15 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **Binding:** start and sea, each worst-of-3 p99 ≤ 16.7 ms + the deterministic hitch.
 - **Report-only:** sea_idle, and every paired P p50 − preceding W p50. A VOID on any run (sea_idle included) voids the set, as § 34.
 - **Prepared, not started:** `nohup python3 harness/p10_disc.py window <base> res://scenes/bv2f_pilot_painted.tscn --first --paused "<conductor's pause list>" > <base>/driver.log 2>&1 &`. It **waits for the conductor's "QUIET WINDOW GO".**
+
+### P10 QUIET WINDOW 1 (R-C9-276 "QUIET WINDOW GO") — HALT: never quiescent. `renders/p10_window1/` (window_log.json, driver.log)
+- **Launch.** 19:37:23 −0400. Detached (`nohup`, output to file). The heavy lock was held by the driver for the whole window: `heavy_lock.py C-9 -- env PH_LOCK_HELD=1 … p10_disc.py window`.
+- **Result.** The quiescence precondition for the first run (W_1) **failed all 20 tries** (≈ 10 min). Over 10 % CPU averaged over 30 s:
+  - **mediaanalysisd 20–48 %**;
+  - **mds_stores (Spotlight) 13–33 %**;
+  - **stable (Warp) 17.8–19.3 %**.
+- **Stop.** 19:47:38: HALT, no run launched, **0 measurements, 0 VOIDs**. The envelope is **not** recorded. **The lock was released at 19:47:38**, when the driver exited.
+- **Disposition (Addendum A (b)): HALT → matt_to_do. Host-level only Matt can change; no bar move.** Options named there:
+  - pause or disable Photos media analysis (mediaanalysisd);
+  - exclude the data volume from Spotlight indexing (mds_stores);
+  - launch P10 from a non-agent shell (e.g. a launchd job) with Warp closed, since Warp stays above 10 % even with this session silent.
