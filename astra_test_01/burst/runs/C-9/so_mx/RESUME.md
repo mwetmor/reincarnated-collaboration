@@ -1,5 +1,15 @@
 # Lane SO: resume note (R-C9-152 sorceress hood fix), paused 2026-10-03 for barrow_v2; resumed R-C9-224, PAUSED AGAIN 2026-10-08
 
+## RESUMED (R-C9-231/232) AND STEPS 2-5 DONE, 2026-10-08 -- only Matt's look + the conductor's push remain
+
+- Step 2: the paused build (`barrow_full/work/r224_build.log`, EOR2 pin b4de84e65, EXIT 0) re-staged unchanged into loadout (only barrow_v2_sw files had changed in the source since; staged pcks hash-equal to the build).
+- Step 3: `select_check.js` 19/19, 0 page errors (`barrow_full/take/build/r224_select`); `web_perf_eor.sh` +0.000 ms/frame, worst 19.1 / 18.9 ms, 0 over 33 ms, 0 errors (`barrow_full/take/build/r224_eor_perf`).
+- Step 4: **loadout commit `68ab873`** (15 barrow-painted files + AGENT_STATE.md), NOT pushed -- the conductor pushes.
+- Step 5: `join1_pack_v5/d2-fire-sorc-bm` rendered (guarded, EXIT 0, 0 SCRIPT ERROR): 64/64 cells, 744 frames, releases r=3 at 0.2667 s and r=9 at 1.8000 s; sockets worst 0.0575 m over 3720 samples (= v4); contact sheet `join1_pack_v5/d2-fire-sorc-bm_contact_sheet_1x.png`; lint 0 mismatches + 3 negative controls each exit 1. v5 supersedes v4.
+- Hood stills at the play camera (shipped light, 4 headings, guarded): `barrow_full/take/build/r224_hood/r224_hood_barrow_play_camera.jpg` (+ per-heading beauty/mask/full PNGs). Crown and back read as closed red fabric at every heading.
+- Step 6: milestone text handed back to the conductor (lanes do not write ledger.json).
+
+
 ## Second pause (conductor relay of Matt, "forget the sorceress for now"), after R-C9-224 resumed with OPTION B
 
 **Option B is confirmed (R-C9-224); step 1 is done.** Done in the resume before the stop:
