@@ -61,7 +61,7 @@ def class_map():
 
 def ground_mask():
     idx, tab = ids_built()
-    gids = [k for k, v in tab.items() if v["id"].startswith("ground_")]
+    gids = [k for k, v in tab.items() if v["id"].startswith(("ground_", "carved_"))]   # carved_*: terrain carve layers (R-C9-232)
     return (idx == 0) | np.isin(idx, gids)
 
 
@@ -286,13 +286,14 @@ def declared():
     out = []
     for o in jload(GA / "declared_openings.json")["openings"]:
         x, y = o["centre_px"]
-        if 0 <= x < W and 0 <= y < H:
+        rr = float(o["p6a_match_radius_m"]) * PPM_V1         # an opening whose match disc reaches into the window counts
+        if -rr <= x < W + rr and -rr <= y < H + rr:
             out.append({"id": o["id"], "xy": (x, y), "radius_m": float(o["p6a_match_radius_m"]),
                         "corners": [tuple(o["corners_px"][k]) for k in ("bottom_a", "bottom_b", "top_b", "top_a")] if o.get("corners_px") else None})
     return out
 
 
-def p6a():
+def p6a():   # NB: writes results/p6a_triage_pilot.jsonl -- move per build (pilot-1 record lives there)
     """the v0.1 detector (T = 32, no prior; § 8 (1)) at quarter scale on the pilot painting; each candidate matched by
     screen distance to a declared opening's CENTRE (LV's centre_px) within LV's p6a_match_radius_m (= half-width + 1 m,
     § 11 G2-B1). Window holds no declared dark structure (char/ash share 0, pilot_run_plan), so by § 11's triage rule a
@@ -334,10 +335,14 @@ def p6a():
         comp[:, O.CROP + O.GAP:] = ova
         cid = "%s_c%03d" % (chunk[0] if chunk else "w", i)
         Image.fromarray(comp).save(od / (cid + ".png"))
-        verdict = "declared" if matched else "invented (outside dark structures: auto-fail)"
         cls, names = class_map()
         idx, tab = ids_built()
         xi, yi = int(round(x)), int(round(y))
+        cw0 = cls[max(yi - 30, 0):yi + 30, max(xi - 30, 0):xi + 30]
+        water = {names.index(n) for n in ("sea", "ice", "lead", "ice_mid", "tide_ice", "shore_ice", "stream") if n in names}
+        in_water = float(np.isin(cw0, list(water)).mean()) >= 0.5
+        verdict = "declared" if matched else ("PENDING conductor triage (water class: R-C9-194)" if in_water
+                                              else "invented (outside dark structures: auto-fail)")
         cw = cls[max(yi - 30, 0):yi + 30, max(xi - 30, 0):xi + 30]
         u_, n_ = np.unique(cw, return_counts=True)
         what = {"guide_class_share_0.6m": {names[a]: round(float(b) / cw.size, 3) for a, b in zip(u_, n_)},
@@ -346,19 +351,23 @@ def p6a():
                      "h_m": f["h_m"], "w_m": f["w_m"], "inside_dark_structure": False,
                      "crop_sha": O._sha_png(cr), "overlay_sha": O._sha_png(ova),
                      "nearest_declared": best["id"], "distance_m": round(dist, 2), "match_radius_m": best["radius_m"],
-                     "verdict": verdict, "evidence": "", "ph_observation": what, "reader": "auto (pilot_harness.py, § 11 triage rule)",
+                     "verdict": verdict, "inside_water_class": in_water, "evidence": "", "ph_observation": what, "reader": "auto (pilot_harness.py, § 11 triage rule)",
                      "conductor_read": "PENDING (fallback (a), by eye)" if not matched else "n/a",
                      "image": "fid/ph/triage/pilot/%s.png" % cid,
                      "ts": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
     with open(PH / "results" / "p6a_triage_pilot.jsonl", "w") as fh:
         for r in rows:
             fh.write(json.dumps(r) + "\n")
-    inv = [r for r in rows if not r["verdict"].startswith("declared")]
+    inv = [r for r in rows if r["verdict"].startswith("invented")]
+    pend = [r["candidate"] for r in rows if r["verdict"].startswith("PENDING")]
     hit = sorted({r["nearest_declared"] for r in rows if r["verdict"] == "declared"})
     return save("p6a", {"T": T, "detector": "v0.1 (no prior), quarter scale", "declared_in_window": [d["id"] for d in dec],
                         "declared_found": hit, "candidates": len(rows), "unmatched": [r["candidate"] for r in inv],
                         "chunks_failing_by_rule": sorted({c for r in inv for c in r["chunk"]}), "rows": rows,
-                        "pass": not inv, "verdict": "PASS" if not inv else "FAIL by the § 11 rule pending the conductor's by-eye read (%d)" % len(inv)})
+                        "pending_conductor_triage": pend,
+                        "pass": (not inv) and not pend if not inv else False,
+                        "verdict": ("PASS" if not pend else "PENDING conductor triage (%d water-class candidates)" % len(pend)) if not inv
+                        else "FAIL by the § 11 rule pending the conductor's by-eye read (%d)" % len(inv)})
 
 
 # ---------------------------------------------------------------------------------------------------------- P6'
@@ -808,9 +817,11 @@ def floe_view_choose(floe_ids, margin=12, step_m=0.5, size=(1920, 1080)):
     boxes = []
     for k, v in tab.items():
         if v["id"] in floe_ids:
-            ys, xs = np.where(idx == k)
-            if len(xs):
-                boxes.append((v["id"], xs.min() - margin, ys.min() - margin, xs.max() + margin, ys.max() + margin))
+            lab_, nlab = ndimage.label(idx == k)            # ice_floes_bob is ONE slab group: each component is a floe
+            for j, sl in enumerate(ndimage.find_objects(lab_)):
+                if sl is None or (lab_[sl] == j + 1).sum() < 400:
+                    continue
+                boxes.append(("%s#%d" % (v["id"], j), sl[1].start - margin, sl[0].start - margin, sl[1].stop - 1 + margin, sl[0].stop - 1 + margin))
     env = jload(GA / "guide_manifest.json")["envelope"]
     u0, v1 = env["u"][0], env["v"][1]
     inplate = [b for b in boxes if b[1] >= 0 and b[2] >= 0 and b[3] < W and b[4] < H]
@@ -948,7 +959,86 @@ def _pw_mod():
     spec.loader.exec_module(m)
     return m
 
+
+# ---------------------------------------------------------------------------------------------------------- P5 v2 (§ 44)
+def p5v2_pilot():
+    """P5 v2 as pre-registered (§ 44): BINDS on a1 (pinned raw canvases, bar 9.569) + b (the build's flags-ON stitched
+    painting, <= 0.799). REPORTED: a2, c (flags-on = the build painting; flags-off = PT's Tier-B stitch with all flags 0 on
+    the same pinned set), raw overlap MAD + a 1:1 crop of every join over 13.09."""
+    import p5v2 as V
+    import p5_seams as S5
+    cal = jload(PH / "results/p5v2_calibration.json")
+    bars = cal["bars_v1"]
+    man = jload(PT / "build_manifest_ps3a.json")["chunks"]
+    paths = {k: str(ART / v["file"]) for k, v in man.items()}
+    bad = [k for k, p in paths.items() if V.sha(p) != man[k]["sha256"]]
+    assert not bad, "pinned canvas sha mismatch: %s" % bad
+    a = V.a_set(paths)
+    P = painting()
+    b = S5.seam_vis(P, 3, 3)
+    c_on = V.c_measure(P, list(paths))
+    off = V.SCR / "PS3A_flagsoff.png"
+    V.stitch("BV2F-PS3A", 3, 3, off, V.OFF)
+    c_off = V.c_measure(load_rgb(off), list(paths))
+    fa1 = [r["join"] for r in a if r["a1_max"] > bars["a1"]]
+    fb = [x["seam"] for x in b if x["score"] > 0.799]
+    crops = []
+    od = OUT / "p5_crops"
+    od.mkdir(parents=True, exist_ok=True)
+    for r in a:
+        if r["raw_mad"] > 13.09:
+            k1, k2 = r["join"].replace("|", "/").split("/")
+            c1, r1 = map(int, k1.split("_"))
+            if "|" in r["join"]:
+                x0, y0 = 1280 * (c1 + 1) - 128, 768 * r1 + 256
+                box = (x0, y0, x0 + 512, y0 + 512)
+            else:
+                x0, y0 = 1280 * c1 + 256, 768 * (r1 + 1) - 128
+                box = (x0, y0, x0 + 1024, y0 + 512)
+            # the worst a1 segment's place along the join, if it lies elsewhere
+            seg = int(np.argmax(r["a1_segments"]))
+            if "|" in r["join"]:
+                y0 = min(max(768 * r1 + seg * 128 - 192, 0), H - 512)
+                box = (x0, y0, x0 + 512, y0 + 512)
+            else:
+                x0 = min(max(1280 * c1 + seg * 128 - 448, 0), W - 1024)
+                box = (x0, y0, x0 + 1024, y0 + 512)
+            fn = od / ("join_%s_rawMAD%.2f_1to1.jpg" % (r["join"].replace("|", "-").replace("/", "-"), r["raw_mad"]))
+            Image.fromarray(np.clip(P[box[1]:box[3], box[0]:box[2]], 0, 255).astype(np.uint8)).save(fn, quality=92)
+            crops.append({"join": r["join"], "raw_mad": r["raw_mad"], "a1_max": r["a1_max"], "crop": str(fn.relative_to(FID)), "box_xyxy": box})
+    tone_over_on = [(x["boundary"], x["chunk"], x["tone_max"]) for x in c_on if x["tone_max"] is not None and x["tone_max"] > bars["c_tone"]]
+    tone_over_off = [(x["boundary"], x["chunk"], x["tone_max"]) for x in c_off if x["tone_max"] is not None and x["tone_max"] > bars["c_tone"]]
+    return save("p5v2", {"rule": "calibration.md s44: PASS iff every a1 segment <= %.3f (pinned raw canvases) and every b seam <= 0.799 (flags-ON build painting); a2, c, raw MAD reported" % bars["a1"],
+                         "bars_v1": bars, "manifest_ok": True, "painting_sha": sha256(PT / "painting.png"),
+                         "a": a, "a1_max": max(r["a1_max"] for r in a), "a1_over": fa1,
+                         "b": b, "b_max": max(x["score"] for x in b), "b_over": fb,
+                         "reported_a2_max": max(r["a2_max"] for r in a), "reported_raw_mad": {r["join"]: r["raw_mad"] for r in a},
+                         "reported_c_flags_on": {"tone_max": V.c_max(c_on, "tone"), "grain_max": V.c_max(c_on, "grain"), "tone_over_v1_bar": tone_over_on},
+                         "reported_c_flags_off": {"tone_max": V.c_max(c_off, "tone"), "grain_max": V.c_max(c_off, "grain"), "tone_over_v1_bar": tone_over_off},
+                         "c_rows_on": c_on, "c_rows_off": c_off, "crops_raw_mad_over_13.09": crops,
+                         "pass": not fa1 and not fb})
+
+
+# ---------------------------------------------------------------------------------------------------------- P11 v3 on the pilot
+def p11v3():
+    """P11 v3 (§ 38/39; binding): 40 scored + 10 repeats + 12 catch (v1 vs R-C9-159), judge-ready dir; key kept apart.
+    Content control: REED is build-specific (v1 has no reeds) -> EXCLUDED, like sea/wreck/hall/cliff (R-C9-171 rule)."""
+    import p11_abx as X
+    import p11_abx3 as X3
+    if "reed" not in X.EXCLUDED:
+        X.EXCLUDED = tuple(X.EXCLUDED) + ("reed",)
+    st = sorted((FID / "pt/pilot_stills").glob("pilot_[0-9][0-9].png"))
+    X._centres()
+    for v in jload(FID / "pt/pilot_stills/views.json")["views"].values():
+        X._CENTRES[v["png"]] = tuple(v["camera"]["centre_ground_uv"])
+    name = os.environ.get("PH_P11_SET", "pilot3_v1_vs_pilot")
+    r = X3.build3(name, st, seed=253)
+    return save("p11v3_build", dict(r, stills=[p.name for p in st], excluded=list(X.EXCLUDED),
+                                    key="fid/ph/p11/keys/abx3_%s.json" % name))
+
 ROWS["p4v38"] = p4_v38
+ROWS["p5v2"] = p5v2_pilot
+ROWS["p11v3"] = p11v3
 
 if __name__ == "__main__":
     want = sys.argv[1:] or [k for k in ROWS if k != "p9p10"]

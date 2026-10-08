@@ -72,8 +72,12 @@ def panel(guide, paint, yx, title, stats_g, stats_p, size=512):
 
 def sketch_mere():
     spec = importlib.util.spec_from_file_location("mk", FID / "lv/tools/make_bv2art.py")
-    src = open(FID / "lv/tools/make_bv2art.py").read()
-    i = src.index("MERE = [")
+    # § 38 pinned the reference polygon: make_bv2art.py's sketch-A MERE list AS COMMITTED at the pre-registration (4531cb823);
+    # later blockouts replaced it (MERE_SHAPE / MERE_POLY in uv), so it is read from git at that commit
+    import subprocess
+    src = subprocess.run(["git", "-C", str(FID), "show", "4531cb823:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/tools/make_bv2art.py"],
+                         capture_output=True, text=True, check=True).stdout
+    i = src.index("\nMERE = [") + 1
     MERE = eval(src[i + 7:src.index("\n", i)])
     img = load_rgb(SK)
     im = Image.new("L", (img.shape[1], img.shape[0]), 0)

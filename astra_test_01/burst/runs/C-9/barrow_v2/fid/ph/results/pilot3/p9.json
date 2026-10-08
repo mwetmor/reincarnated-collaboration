@@ -1,0 +1,70 @@
+{
+ "p9_sway": {
+  "heather_px": 59763,
+  "sway": 5.781,
+  "noise": 0.001,
+  "water_px": 1038,
+  "flow": 5.149,
+  "flow_static_sea_RED": 1.258,
+  "noise_static_sea": 0.0,
+  "pass_": true
+ },
+ "p9_sway_RED_nowind": {
+  "heather_px": 60832,
+  "sway": 0.019,
+  "noise": 0.0,
+  "water_px": 630,
+  "flow": 6.488,
+  "flow_static_sea_RED": 3.507,
+  "noise_static_sea": 0.0,
+  "pass_": false
+ },
+ "p9_flow_geo": {
+  "water_px_geo": 675159,
+  "flow": 7.959,
+  "noise": 0.0,
+  "RED_hidden_water_flow": 0.0,
+  "pass": true,
+  "RED_pass": false
+ },
+ "p9_trail": {
+  "coverage": 1.0,
+  "bar": 0.99,
+  "pass": true,
+  "by_terrain": {
+   "flat": {
+    "walkable_m2": 148.5,
+    "inside_field": 1.0,
+    "snow_carrying": 0.7504
+   },
+   "not_flat (slopes, mound, swells)": {
+    "walkable_m2": 964.4,
+    "inside_field": 1.0,
+    "snow_carrying": 0.2408
+   }
+  },
+  "walkable_m2_in_window": 1112.9,
+  "area_xz": [
+   -40.977,
+   -21.973,
+   54.513,
+   54.513
+  ],
+  "informational_snow_carrying_share_of_walkable": 0.3088
+ },
+ "p9c": {
+  "status": "n-INSUFFICIENT (\u00a7 38 F-4 (b))",
+  "bobbing_floes_in_build": 7,
+  "bobbing_floes_inside_the_pilot_plate": 0,
+  "evidence": "ids_built: ice_floes_bob 0 px in the pilot window; manifest water floes in window 0; the 7 bob outside the painted plate (their paint would be clamped streaks)",
+  "floe_view_choose": {
+   "floes_with_ids": 0,
+   "floes_wholly_in_plate": [],
+   "view_uv": null,
+   "floes_in_view": [],
+   "n": 0,
+   "sufficient": false
+  },
+  "binding": "no reading possible; P9c cannot bind on this pilot"
+ }
+}

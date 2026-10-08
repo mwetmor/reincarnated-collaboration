@@ -1341,3 +1341,39 @@ Scoring: `python3 p11_abx3.py score <set> <answers.json>`.
 - **a straight tone or grain step at the context boundary** smaller than v1's own seam (c reads GREEN at +7.16 dE and × 2.5 grain).
 
 These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A stricter bar than v1's maximum would be a threshold move, so PH does not propose one.
+
+## 45. PILOT 3 harness (PT 72a9a0ec5; painting 2f58f6379e82; R-C9-243/251/253). Frozen bars. `results/pilot3/*.json`; renders `renders/pilot_ps3a/`
+
+**Inputs.**
+- **PT:** `fid/pt/pilot/` (PS3A, pinned manifest `build_manifest_ps3a.json` = PH's § 44 C5 pin, all 9 sha256 equal); level `data/bv2f/pilot_rp3/level` (PIN: LV 03306a599; level.json byte-equal to LV's).
+- **Palette:** reed (19, still masks 11) and lead (20 → sea) added; `carved_*` ids count as ground.
+- **Tier-B stitch in force:** DEV-23/25/26/27 all ON. Records pinned in `results/pilot3/tierB_dev_records.json`: `guided_stitch.py` sha aa83745b… = its SHA256SUMS Tier-B row; dev23/dev25 records, dev26_result, dev27 test/result.
+- **Not run:** Godot steps ran under the heavy lock with the 21 GiB gate (22 GiB free). The P11 crop build finished before the P10 runs started.
+
+| Row | Pilot 3 | Bar | Verdict | Negative control / RED (same instrument) |
+|---|---|---|---|---|
+| P1 texel density | all 1.000 | ≤ 1.05 | **PASS** | (§ 1) |
+| P2 lineage | 25/25 at 72a9a0ec5 | 100% | **PASS** | (§ 1) |
+| P3 render vs painting | worst 12.36 (wood, baked); sea **5.30** on the painted base (R-C9-201 exemption: as delivered 31.23, motion layers at rest 26.78) | ≤ 15.5 | **PASS** | reshade RED FAIL; lit-plane sea RED 22.55 FAIL |
+| P4 texture (§ 38 refs) | **ice vs sketch A: ΔE 11.97–17.27 in all 6 ice chunks** (painted median L\* 84.8–89.1 vs sketch 72.9; spectrum 0.080–0.122). **Snow vs v1: hist 0.331–0.494 in 6 of 9 chunks** (0_0, 1_0, 2_0, 0_1, 1_1, 0_2; bar 0.281). **Rock 2_1: spectrum 0.303** (bar 0.19) | ice ΔE ≤ 9.40, spectrum ≤ 0.116; snow 0.281 / 0.097; rock 0.481 / 0.19 | **FAIL** | (§ 3; § 38) |
+| P5 v2 (§ 44) | **a1 max 10.543 at 0_1/0_2** (> 9.569; the y = 1792 bay seam the pre-ruling predicted); all other joins ≤ 8.25. b max 0.789 | a1 ≤ 9.569; b ≤ 0.799 | **FAIL (a1, 0_1/0_2)** | (§ 44 C2/C3) |
+| P6a invention | 2 candidates: barrow_door (0.74 m), sea_cave_mouth (3.44 m, radius 4.0) | 0 invented | **PASS** | (§§ 2, 9–11) |
+| P6′ (LV 03306a599) | crosscheck 57/57; 0 missing / extra / hidden; containment min 0.9722; scale 0/112 over | § 16 | **PASS** | I-4 1.5 m shift: 7/14 below → FAIL ✓ |
+| P8 heather precision | min **0.5704** (2_0); 8 chunks judged | ≥ 0.4476 | **PASS** | 1 m shift RED FAIL |
+| P9 sway | 5.781 over 59 763 px; noise 0.001 | ≥ 2.064 and ≥ 3× noise | **PASS** | no-wind 0.019 FAIL |
+| P9 flow (F-4 geometry mask) | **7.959** over 675 159 water px (uv −29, −5.5) | ≥ 2.064 and ≥ 3× noise | **PASS** | hidden water 0.000 FAIL |
+| P9 trail | 1.000 (flat 149 m², not-flat 964 m²) | ≥ 0.99 | **PASS** | (§ 6) |
+| P9c floe drift | **n-insufficient**: 0 of the 7 bobbing floes lie inside the painted pilot plate (ids_built: ice_floes_bob 0 px in window) | § 38 F-4 (b): ≥ 3 floes | **NO READING** (cannot bind on this pilot) | — |
+| P10 (§ 34) | start: p99 **22.82 / 18.50 / 25.61** (p50 ≈ 16.3; max 61.5); sea: 13.99 / **17.23** / 13.94 | worst of 3 ≤ 16.7 | **FAIL (start 25.61, sea 17.23)** | burn RED 29.14 FAIL |
+| P11 v3 | set built: 40 scored + 10 repeats + 12 catch (6 A / 6 B), 62 images; reed EXCLUDED as build-specific (v1 has no reeds) | valid ≥ 10/12; PASS ≤ 26/40 | **judge pending** (conductor spawns) | (§ 39) |
+
+**Reads.**
+- **P4.** The pilot-3 mere is painted much **paler than the sketch-A reference** (L\* ~ 87 vs 72.9): the "pale few-vein mere" paint direction moved it past sketch A, not toward it. Snow is slightly cooler than v1 (b\* 4.9 vs 7.7; median L\* 93.9 vs 93.4) in most chunks.
+- **P5.** The FAIL is the one pre-registered and predicted: the real bay seam at 0_1/0_2, y = 1792 (cause diagnosed in R-C9-247/251; remedy = the both-sides blockout fix).
+  - **Raw MAD (reported only):** 0_1/0_2 13.81, 1_1/1_2 14.38. 1:1 crops are in `results/pilot3/p5_crops/`; 1_1/1_2 a1 is 5.30.
+  - **c (reported only; discarded at calibration):** flags-ON tone max 11.40, none over v1's 17.42. Flags-OFF tone max 17.84 at x = 2816, chunk 2_2, over v1's bar. So the stitch-corrected reading is "PASS (stitch-corrected)" at 2_2 x2816; crop in PT's `ps3a_dry/dev27/`.
+- **P10.** The frame cost rose about 2.8 ms at p50 (13.5 → 16.3 at the start) against the Phase-2′ pilot: 264 heather, reeds and the new terrain. Every start run carries ~12 frames over 16.7 ms.
+- **P9c.** This pilot cannot exercise P9c: its bobbing floes all sit outside the painted window. P9c needs a build with ≥ 3 in-plate bobbing floes, i.e. Phase 3′'s coast.
+- **Evidence-file note.** The pilot-3 life captures first wrote into `renders/pilot3/` (the § 32 directory). Its tracked files were restored from git. The untracked § 32 `life_sea` PNGs were overwritten by the pilot-3 frames, which also sit in `renders/pilot_ps3a/life_sea/`. The § 32 numbers are unaffected (recorded in `results/pilot3/p9c_flow_p10.json`). **That file name now collides with this section's `results/pilot3/`; this section's files are the new ones listed above.**
+
+**P11 v3 crops for the blind judge:** `fid/ph/p11/abx3_pilot3_v1_vs_pilot/` (62 PNG + JUDGE.md, no metadata). Key: `fid/ph/p11/keys/abx3_pilot3_v1_vs_pilot.json` (outside the judge dir). Score: `python3 harness/p11_abx3.py score pilot3_v1_vs_pilot <answers.json>`.

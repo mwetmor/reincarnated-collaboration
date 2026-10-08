@@ -1,0 +1,88 @@
+{
+ "T": 32,
+ "detector": "v0.1 (no prior), quarter scale",
+ "declared_in_window": [
+  "wreck_hull",
+  "barrow_door",
+  "sea_cave_mouth"
+ ],
+ "declared_found": [
+  "barrow_door",
+  "sea_cave_mouth"
+ ],
+ "candidates": 2,
+ "unmatched": [],
+ "chunks_failing_by_rule": [],
+ "rows": [
+  {
+   "chunk": [
+    "2_0"
+   ],
+   "candidate": "2_0_c000",
+   "candidate_px": [
+    3573,
+    192
+   ],
+   "area_m2": 7.62,
+   "h_m": 3.89,
+   "w_m": 3.38,
+   "inside_dark_structure": false,
+   "crop_sha": "38a2faf4b78a47aacfbd4e502856f6c307bb38eb9e28665633e797923ba3ea8b",
+   "overlay_sha": "b8419d89ae44102d90ee75d5ad6ae08b7ae431506c1e51258f59db09507f2426",
+   "nearest_declared": "barrow_door",
+   "distance_m": 0.74,
+   "match_radius_m": 2.689,
+   "verdict": "declared",
+   "inside_water_class": false,
+   "evidence": "",
+   "ph_observation": {
+    "guide_class_share_0.6m": {
+     "passage_dark": 1.0
+    },
+    "id_at_centroid": "curtain_barrow_door"
+   },
+   "reader": "auto (pilot_harness.py, \u00a7 11 triage rule)",
+   "conductor_read": "n/a",
+   "image": "fid/ph/triage/pilot/2_0_c000.png",
+   "ts": "2026-10-08T16:04:29Z"
+  },
+  {
+   "chunk": [
+    "2_2"
+   ],
+   "candidate": "2_2_c001",
+   "candidate_px": [
+    3505,
+    2502
+   ],
+   "area_m2": 0.93,
+   "h_m": 1.85,
+   "w_m": 0.91,
+   "inside_dark_structure": false,
+   "crop_sha": "b4cc4ba06329fd95ac32c084b08ffafa9551c992e31009b48167b0f833e2646d",
+   "overlay_sha": "46a5dae18e2a95591cdd3d4b6bc97e7d5cf48dabc7dcbfbd138e2216c1ce26e6",
+   "nearest_declared": "sea_cave_mouth",
+   "distance_m": 3.44,
+   "match_radius_m": 4.0,
+   "verdict": "declared",
+   "inside_water_class": false,
+   "evidence": "",
+   "ph_observation": {
+    "guide_class_share_0.6m": {
+     "rock": 0.019,
+     "passage_dark": 0.981
+    },
+    "id_at_centroid": "carved_passage_dark"
+   },
+   "reader": "auto (pilot_harness.py, \u00a7 11 triage rule)",
+   "conductor_read": "n/a",
+   "image": "fid/ph/triage/pilot/2_2_c001.png",
+   "ts": "2026-10-08T16:04:29Z"
+  }
+ ],
+ "pending_conductor_triage": [],
+ "pass": true,
+ "verdict": "PASS",
+ "triage_file": "ph/results/pilot3/p6a_triage_pilot3.jsonl",
+ "triage_images": "ph/triage/pilot/ (overwritten: pilot-3 candidates 2_0_c000, 2_2_c001; pilot-1 images were untracked)"
+}

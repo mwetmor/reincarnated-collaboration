@@ -1,0 +1,35 @@
+{
+ "_what": "Tier-B DEV records in force for the pilot-3 build (R-C9-253): DEV-23 tone match, DEV-25 grain match, DEV-26 min-error cut, DEV-27 Poisson placement -- all ON in the build stitch",
+ "build_commit": "72a9a0ec5",
+ "painting_sha256": "2f58f6379e82c9c034d4b0011ea12975041cf4713bb131a2422e64f05b561c52",
+ "records": {
+  "pt/dev23/dev23_record.json": {
+   "sha256": "54a5ba93ce421e7480413d70400b90a98ed52a2739487f9d066781efa2d91ea1"
+  },
+  "pt/dev23/dev25_record.json": {
+   "sha256": "419d9e94e19304cde9fd0332dfcfece2b31aa21a675204a2f4360de2c0062ce0"
+  },
+  "pt/ps3a_dry/dev26/dev26_result.json": {
+   "sha256": "e015cec93862b275b78cadfba687f23782cde224c8effde209b45f9a8de3967c"
+  },
+  "pt/dev27/test.json": {
+   "sha256": "d1ba3fabdcfc3291aed5f38cfd25b9e83a4ac48ce789ed351bee14aa8bb9c6a2"
+  },
+  "v1tools/tierB/conductor_scripts/guided_stitch.py": {
+   "sha256": "aa83745b2e3c084820463e2fe16bdfbaba88b8d9bfe0e7484e602a4285d02992"
+  },
+  "pt/pilot/build_manifest_ps3a.json": {
+   "sha256": "1e56c1b84f4a0d537947eefbacf6d792c893162e2f8979a2412da050ffab5e2c"
+  },
+  "pt/pilot/stitch_record.json": {
+   "sha256": "667e6104a1237bde5b5e3ff9aa7a1007e8752a6612dd4e06ecbdad92ee5fedad"
+  },
+  "SHA256SUMS guided_stitch row": [
+   "ec26846c8c992f1378a69a30f472a8e4e2e9fe895b3d1ed4a20936b5a6b9505b ec26846c8c992f1378a69a30f472a8e4e2e9fe895b3d1ed4a20936b5a6b9505b 0f8f73697 ./tierA/conductor_scripts/guided_stitch.py\n",
+   "aa83745b2e3c084820463e2fe16bdfbaba88b8d9bfe0e7484e602a4285d02992 ec26846c8c992f1378a69a30f472a8e4e2e9fe895b3d1ed4a20936b5a6b9505b 0f8f73697 ./tierB/conductor_scripts/guided_stitch.py\n"
+  ],
+  "pt/ps3a_dry/dev27/dev27_result.json": {
+   "sha256": "6c29131f99f70dbd6a0bc8e00f5b8f978686d20b0f3346a24da9f97f3347ff99"
+  }
+ }
+}

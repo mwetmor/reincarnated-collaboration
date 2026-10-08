@@ -24,6 +24,58 @@
    }
   },
   {
+   "id": "wreck_mast",
+   "kind": "debris",
+   "pos": [
+    0,
+    0
+   ],
+   "z": 0,
+   "godot_rot_y_deg": 0,
+   "size_m": {
+    "w_local_x": 1,
+    "d_local_z": 1,
+    "h": 1
+   },
+   "instances": [
+    {
+     "type": "beam",
+     "a": [
+      -27.859,
+      -3.383,
+      -4.8
+     ],
+     "b": [
+      -26.576,
+      -4.512,
+      1.16
+     ],
+     "thickness_m": 0.38,
+     "procedural": "log",
+     "glb": null,
+     "what": "the mast stub, snapped ~5.4 m above the ice"
+    },
+    {
+     "type": "beam",
+     "a": [
+      -27.453,
+      -1.228,
+      -2.7
+     ],
+     "b": [
+      -25.581,
+      3.282,
+      -4.11
+     ],
+     "thickness_m": 0.24,
+     "procedural": "log",
+     "glb": null,
+     "what": "the fallen spar (yard), from the gunwale down onto the ice"
+    }
+   ],
+   "glb": null
+  },
+  {
    "id": "barrow_front",
    "kind": "barrow",
    "pos": [
@@ -37,7 +89,8 @@
     "d_local_z": 10.492,
     "h": 7.5896
    },
-   "glb": "data/bv2f/ext/data__bv2f__models__barrow.glb.bin"
+   "glb": "data/bv2f/ext/data__bv2f__models__barrow.glb.bin",
+   "burial_by_design": "R-C9-234 (6): the barrow front is SET INTO its mound (v1 practice: the door in the mound's face, a cutting to it): the build's back and roof run under the mound's front lobe by design; its front face, portal and door stand clear in the cutting (check (a) on the door)"
   },
   {
    "id": "longhall",
@@ -137,86 +190,6 @@
     {
      "type": "box",
      "pos": [
-      -15.4754,
-      -27.3089
-     ],
-     "z": 0.043,
-     "godot_rot_y_deg": -84.128,
-     "size_m": [
-      0.7281,
-      1.0251,
-      1.9
-     ],
-     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
-     "uniform_scale": 1.89721
-    },
-    {
-     "type": "box",
-     "pos": [
-      -11.9574,
-      -21.5132
-     ],
-     "z": -0.14,
-     "godot_rot_y_deg": -38.923,
-     "size_m": [
-      0.7224,
-      1.0107,
-      1.7
-     ],
-     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
-     "uniform_scale": 1.69836
-    },
-    {
-     "type": "box",
-     "pos": [
-      -9.0097,
-      -19.6519
-     ],
-     "z": -0.14,
-     "godot_rot_y_deg": -26.321,
-     "size_m": [
-      0.7281,
-      1.0251,
-      1.9
-     ],
-     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
-     "uniform_scale": 1.89721
-    },
-    {
-     "type": "box",
-     "pos": [
-      13.3548,
-      -19.8271
-     ],
-     "z": -0.099,
-     "godot_rot_y_deg": 27.526,
-     "size_m": [
-      0.6374,
-      0.8918,
-      1.5
-     ],
-     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
-     "uniform_scale": 1.49856
-    },
-    {
-     "type": "box",
-     "pos": [
-      15.9824,
-      -21.5334
-     ],
-     "z": -0.024,
-     "godot_rot_y_deg": 39.062,
-     "size_m": [
-      0.7224,
-      1.0107,
-      1.7
-     ],
-     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
-     "uniform_scale": 1.69836
-    },
-    {
-     "type": "box",
-     "pos": [
       18.1064,
       -23.7792
      ],
@@ -238,6 +211,54 @@
      ],
      "z": 0.061,
      "godot_rot_y_deg": 78.054,
+     "size_m": [
+      0.6374,
+      0.8918,
+      1.5
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 1.49856
+    },
+    {
+     "type": "box",
+     "pos": [
+      9.7791,
+      -15.1747
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 15.988,
+     "size_m": [
+      0.7224,
+      1.0107,
+      1.7
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_mid.glb.bin",
+     "uniform_scale": 1.69836
+    },
+    {
+     "type": "box",
+     "pos": [
+      12.6621,
+      -16.317
+     ],
+     "z": -0.1,
+     "godot_rot_y_deg": 28.02,
+     "size_m": [
+      0.7281,
+      1.0251,
+      1.9
+     ],
+     "glb": "data/bv2f/ext/runs__C-9__barrow_full__web_painted__models__barrow__stone_tall.glb.bin",
+     "uniform_scale": 1.89721
+    },
+    {
+     "type": "box",
+     "pos": [
+      15.0518,
+      -18.0951
+     ],
+     "z": -0.091,
+     "godot_rot_y_deg": 47.248,
      "size_m": [
       0.6374,
       0.8918,

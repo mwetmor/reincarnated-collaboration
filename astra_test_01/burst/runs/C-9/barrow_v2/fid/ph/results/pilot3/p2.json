@@ -1,0 +1,388 @@
+{
+ "value": 1.0,
+ "resolved": 25,
+ "n": 25,
+ "unresolved": [],
+ "pass": true,
+ "binding": "at the handed-over commit 72a9a0ec5",
+ "untracked_paths_used_from_disk": [
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/barrow_front.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/cliff_faces__cliff_faces_0.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/cliff_faces__cliff_faces_1.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/cliff_faces__cliff_faces_2.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_1.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_10.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_11.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_3.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_5.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_6.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_7.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_8.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/gully_rock__gully_rock_9.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_0.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_1.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_2.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/ring_stones__ring_stones_3.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/slope_stones__slope_stones_0.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/talus__talus_1.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/talus__talus_2.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/wreck.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/wreck_mast__wreck_mast_0.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/bakes/wreck_mast__wreck_mast_1.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/lit.bin",
+  "astra_test_01/burst/runs/C-9/barrow_full/godot/data/bv2f/pilot_rp3/painted/painting.bin",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/painting.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/barrow_front.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/cliff_faces__cliff_faces_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/cliff_faces__cliff_faces_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/cliff_faces__cliff_faces_2.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_10.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_11.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_3.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_5.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_6.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_7.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_8.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/gully_rock__gully_rock_9.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_2.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/ring_stones__ring_stones_3.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/slope_stones__slope_stones_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/talus__talus_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/talus__talus_2.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/wreck.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/wreck_mast__wreck_mast_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/take/plates/wreck_mast__wreck_mast_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/barrow_front.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/cliff_faces__cliff_faces_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/cliff_faces__cliff_faces_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/cliff_faces__cliff_faces_2.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_10.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_11.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_3.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_5.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_6.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_7.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_8.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/gully_rock__gully_rock_9.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_2.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/ring_stones__ring_stones_3.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/slope_stones__slope_stones_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/talus__talus_1.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/talus__talus_2.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/wreck.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/wreck_mast__wreck_mast_0.png",
+  "astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/pilot/root/work/bakes/wreck_mast__wreck_mast_1.png"
+ ],
+ "rows": [
+  {
+   "id": "painting.bin",
+   "role": "ground + every primitive + the heather/snow albedo + the water's base (projection)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:painting.sha256 == file sha",
+    "bytes equal",
+    "  painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "lit",
+   "role": "painted direct-sun share (his shadow's mask)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:lit.sha256 == file sha",
+    "producer bv2f_prep.py (fid/pt/pilot/painted_prep.json painting_sha256 = 2f58f6379e82)",
+    "  painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake barrow_front",
+   "role": "baked real model (4096 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.barrow_front.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.barrow_front.texture)",
+    "    plate == painting crop [3043, 0, 988, 420] (max |d| 0 over 203416 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake cliff_faces__cliff_faces_0",
+   "role": "baked real model (2048 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.cliff_faces__cliff_faces_0.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.cliff_faces__cliff_faces_0.texture)",
+    "    plate == painting crop [1432, 2251, 887, 309] (max |d| 0 over 212343 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake cliff_faces__cliff_faces_1",
+   "role": "baked real model (2048 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.cliff_faces__cliff_faces_1.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.cliff_faces__cliff_faces_1.texture)",
+    "    plate == painting crop [1831, 1551, 1027, 978] (max |d| 0 over 216752 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake cliff_faces__cliff_faces_2",
+   "role": "baked real model (2048 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.cliff_faces__cliff_faces_2.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.cliff_faces__cliff_faces_2.texture)",
+    "    plate == painting crop [1771, 1945, 895, 615] (max |d| 0 over 139688 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake wreck",
+   "role": "baked real model (2048 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.wreck.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.wreck.texture)",
+    "    plate == painting crop [105, 1138, 1100, 1030] (max |d| 0 over 282079 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_1",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_1.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_1.texture)",
+    "    plate == painting crop [3642, 2053, 85, 118] (max |d| 0 over 6762 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_10",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_10.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_10.texture)",
+    "    plate == painting crop [2385, 2094, 50, 73] (max |d| 0 over 1805 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_11",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_11.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_11.texture)",
+    "    plate == painting crop [2638, 2332, 58, 117] (max |d| 0 over 3323 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_3",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_3.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_3.texture)",
+    "    plate == painting crop [3759, 1868, 109, 164] (max |d| 0 over 10879 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_5",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_5.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_5.texture)",
+    "    plate == painting crop [2933, 2182, 195, 198] (max |d| 0 over 23445 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_6",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_6.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_6.texture)",
+    "    plate == painting crop [3365, 2211, 169, 190] (max |d| 0 over 12495 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_7",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_7.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_7.texture)",
+    "    plate == painting crop [2639, 2477, 276, 83] (max |d| 0 over 12023 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_8",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_8.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_8.texture)",
+    "    plate == painting crop [2670, 2372, 84, 75] (max |d| 0 over 2601 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake gully_rock__gully_rock_9",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.gully_rock__gully_rock_9.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.gully_rock__gully_rock_9.texture)",
+    "    plate == painting crop [2680, 2308, 45, 68] (max |d| 0 over 1495 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_0",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.ring_stones__ring_stones_0.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_0.texture)",
+    "    plate == painting crop [2949, 1549, 127, 155] (max |d| 0 over 12443 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_1",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.ring_stones__ring_stones_1.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_1.texture)",
+    "    plate == painting crop [3158, 1814, 109, 148] (max |d| 0 over 9928 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_2",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.ring_stones__ring_stones_2.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_2.texture)",
+    "    plate == painting crop [3684, 1596, 123, 177] (max |d| 0 over 13969 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake ring_stones__ring_stones_3",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.ring_stones__ring_stones_3.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.ring_stones__ring_stones_3.texture)",
+    "    plate == painting crop [3487, 1386, 117, 170] (max |d| 0 over 11119 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake slope_stones__slope_stones_0",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.slope_stones__slope_stones_0.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.slope_stones__slope_stones_0.texture)",
+    "    plate == painting crop [3937, 522, 95, 182] (max |d| 0 over 10931 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake talus__talus_1",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.talus__talus_1.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.talus__talus_1.texture)",
+    "    plate == painting crop [1480, 2316, 65, 132] (max |d| 0 over 1743 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake talus__talus_2",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.talus__talus_2.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.talus__talus_2.texture)",
+    "    plate == painting crop [1540, 2313, 35, 26] (max |d| 0 over 254 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake wreck_mast__wreck_mast_0",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.wreck_mast__wreck_mast_0.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.wreck_mast__wreck_mast_0.texture)",
+    "    plate == painting crop [566, 1349, 159, 441] (max |d| 0 over 16253 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  },
+  {
+   "id": "bake wreck_mast__wreck_mast_1",
+   "role": "baked real model (1024 px, DEV-19)",
+   "resolves": true,
+   "trail": [
+    "record manifest.json:bakes.wreck_mast__wreck_mast_1.sha256 == file sha",
+    "bytes equal",
+    "  producer t5_06b_bake.py (fid/pt/tools/pt_bake.py (sha e99c1b25f97b) runs the frozen t5_06b_bake.py --sheet <id>:fid/pt/pilot/painting.png; record fid/pt/pilot/bake_report.json pieces.wreck_mast__wreck_mast_1.texture)",
+    "    plate == painting crop [603, 1854, 214, 460] (max |d| 0 over 11736 px)",
+    "      painting sha 2f58f6379e82 == declared 2f58f6379e82"
+   ]
+  }
+ ],
+ "working_tree": {
+  "value": 1.0,
+  "resolved": 25,
+  "n": 25,
+  "unresolved": [],
+  "pass": true,
+  "rows": []
+ }
+}
