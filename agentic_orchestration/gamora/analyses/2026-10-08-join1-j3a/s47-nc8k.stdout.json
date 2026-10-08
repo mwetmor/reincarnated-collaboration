@@ -1,0 +1,98 @@
+{
+ "bprime_pass": false,
+ "class": "NON-GRADED-CONTROL",
+ "control": "nc8k",
+ "head": {
+  "end": "2318cd4b05cfc688e0b4bb53316f7250d182922b",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "5fae93ac0f45fc66d72a086a5b7aa2794f74872f",
+     "blob_live": "5fae93ac0f45fc66d72a086a5b7aa2794f74872f",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "111cad063cc42533fc98a5b0a2618c45c906cd50",
+     "blob_live": "111cad063cc42533fc98a5b0a2618c45c906cd50",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "5fae93ac0f45fc66d72a086a5b7aa2794f74872f",
+     "blob_live": "5fae93ac0f45fc66d72a086a5b7aa2794f74872f",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "111cad063cc42533fc98a5b0a2618c45c906cd50",
+     "blob_live": "111cad063cc42533fc98a5b0a2618c45c906cd50",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "2318cd4b05cfc688e0b4bb53316f7250d182922b"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "192e6a3a564e0e65da0c494a1c14ab239cd22f448c4c9d3b4ba0daff0ebd7ad8",
+ "limb_A_sealed_vs_head": {
+  "skipped": "import-only control"
+ },
+ "limb_B_import_closure": {
+  "HEAD": "2318cd4b05cfc688e0b4bb53316f7250d182922b",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 282,
+  "n_reincarnated_modules": 139,
+  "n_tracked": 142,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [
+   "player_offense.PlayerOffense.crit_mult"
+  ],
+  "env_stripped": [],
+  "pass": false,
+  "path_hits": {
+   "head": [],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    90439,
+    90452
+   ],
+   "n_pids": 2,
+   "pass": false,
+   "tree_ok": true
+  },
+  "witness_hits": [
+   [
+    90452,
+    "fingerprint differs from the sealed census",
+    "player_offense.PlayerOffense.crit_mult"
+   ]
+  ]
+ },
+ "prediction": "B' RED: census differs exactly ['player_offense.PlayerOffense.crit_mult'] (its fget re-defined: an identical-returning property); path check GREEN; witness fingerprint hit on the HEAD pid for that key only",
+ "verdict": "CONTROL (no \u00a7 4.7 verdict)",
+ "verdict_reason": null
+}
