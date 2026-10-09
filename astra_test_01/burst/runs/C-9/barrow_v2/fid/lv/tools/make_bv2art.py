@@ -235,6 +235,29 @@ def shard(rng, cx, cy, r):
     return out
 
 
+def self_crossings(poly):
+    """R-C9-319: how many non-adjacent edge pairs of the closed outline cross (a self-intersecting outline triangulates into
+    stray wedges in Godot)"""
+    P_ = np.asarray(poly, float)
+    n = len(P_)
+    if n < 4:
+        return 0
+    A, B = P_, np.roll(P_, -1, 0)
+    d = B - A
+    c = 0
+    for i in range(n - 2):
+        j = np.arange(i + 2, n if i > 0 else n - 1)
+        if not len(j):
+            continue
+        a, b = A[i], B[i]
+        cc, dd = A[j], B[j]
+        cr = lambda o, p, q: (p[..., 0] - o[..., 0]) * (q[..., 1] - o[..., 1]) - (p[..., 1] - o[..., 1]) * (q[..., 0] - o[..., 0])
+        s1 = cr(a, b, cc) * cr(a, b, dd)
+        s2 = cr(cc, dd, a) * cr(cc, dd, b)
+        c += int(((s1 < 0) & (s2 < 0)).sum())
+    return c
+
+
 def wear(poly, rng, amp=0.06, jit=0.015):
     """R-C9-319: a worn ice edge -- every vertex pushed along its normal by a smooth wobble (3 random sines over the arc
     length, +-amp) and a small jitter (+-jit); never a straight stretch, never a cut line"""
@@ -2521,7 +2544,13 @@ def main():
             rej94["degenerate"] += 1
             continue
         poly = K.ccw(K.resample(list(poly) + [poly[0]], 0.12)[:-1])
-        poly = K.ccw(wear(poly, rng94, amp=min(0.06, 0.45 * g_), jit=0.012))    # worn edge, inside the lead (also: no straight stretch)
+        base_w = poly
+        poly = K.ccw(wear(base_w, rng94, amp=min(0.06, 0.45 * g_), jit=0.012))    # worn edge, inside the lead (also: no straight stretch)
+        if self_crossings(base_w) == 0:
+            _a = min(0.06, 0.45 * g_)
+            while self_crossings(poly) and _a > 0.005:                   # a neck the wear folded over: worn more gently
+                _a *= 0.5
+                poly = K.ccw(wear(base_w, rng94, amp=_a, jit=min(0.012, _a / 4)))
         A_ = K.area(poly)
         Pm = sum(math.dist(a_, b_) for a_, b_ in zip(poly, poly[1:] + poly[:1]))
         if A_ < TH["floe_min_area_m2"]:
@@ -2538,6 +2567,9 @@ def main():
         if straight_run(poly) >= TH["straight_run_max_m"]:
             rej94["straight"] += 1
             continue
+        if self_crossings(poly):
+            rej94["self_crossing"] = rej94.get("self_crossing", 0) + 1
+            continue
         top = SEA_Z + (0.30 if zn == "fast" else 0.20)          # R-C9-319: ONE thickness rule (shore-fast +0.30, other floes +0.20)
         z0 = SEA_Z - 0.4
         psim = [[round(q[0], 3), round(-q[1], 3)] for q in poly]
@@ -2545,6 +2577,11 @@ def main():
             rej94["pilot"] += 1
             continue
         m_ = ras(poly)
+        # R-C9-319: no RING floe -- an outline that wraps (almost) all the way round a pool of water reads as a floe with a hole
+        _cl = ndimage.binary_fill_holes(ndimage.binary_closing(m_, iterations=5))
+        if (_cl & ~m_).sum() > 0.08 * max(m_.sum(), 1):
+            rej94["ring"] = rej94.get("ring", 0) + 1
+            continue
         m20 = ras20(poly)
         _hit = [nm for nm, M_ in (("locked", locked_dil94), ("land", land_dil94), ("carve", carve_r)) if (m_ & M_).any()]
         if (ndimage.binary_dilation(m20, iterations=1) & occ20).any():
@@ -2588,7 +2625,7 @@ def main():
             continue
         rest = [(round(q[0], 3), round(q[1], 3)) for q in rest]
         drift = [(round(q[0], 3), round(q[1], 3)) for q in drift]
-        if straight_run(rest) >= TH["straight_run_max_m"] or straight_run(drift) >= TH["straight_run_max_m"]:
+        if straight_run(rest) >= TH["straight_run_max_m"] or straight_run(drift) >= TH["straight_run_max_m"] or self_crossings(rest) or self_crossings(drift):
             continue
         f_["poly"] = rest
         drifts94.append({"poly": drift, "top": f_["top"]})
@@ -2604,6 +2641,8 @@ def main():
         c_ = (ru[ii94[k__]] + rngb94.uniform(-0.05, 0.05), rv[jj94[k__]] + rngb94.uniform(-0.05, 0.05))
         r_ = rngb94.uniform(0.14, 0.32)
         pg = K.ccw(shard(rngb94, c_[0], c_[1], r_))
+        if self_crossings([(round(q[0], 3), round(q[1], 3)) for q in pg]):
+            continue
         A_ = K.area(pg)
         Pm = sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1]))
         if A_ < TH["brash_min_area_m2"] or 2 * A_ / max(Pm, 1e-6) < TH["brash_min_width_m"] / 2:

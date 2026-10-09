@@ -2990,15 +2990,15 @@
   "logs": 4,
   "stair_treads": 50,
   "slab_groups": {
-   "ice_shorefast": 11,
-   "ice_plates": 39,
-   "ice_floes": 42,
-   "ice_floes_bob": 56,
+   "ice_shorefast": 10,
+   "ice_plates": 48,
+   "ice_floes": 53,
+   "ice_floes_bob": 38,
    "mere_plates": 0,
    "stream_ice": 0,
    "ice_rims": 0,
    "ice_ridges": 0,
-   "ice_brash": 189,
+   "ice_brash": 222,
    "mere_cracks": 123,
    "mere_seams": 0,
    "trans_rubble": 1,
@@ -5352,24 +5352,26 @@
    "cradle_cracks": 2
   },
   "new": {
-   "floes": 148,
+   "floes": 149,
    "drifts": 22,
-   "brash": 189,
+   "brash": 222,
    "by_zone": {
-    "fast": 11,
+    "fast": 10,
     "plate": 53,
-    "floe": 84
+    "floe": 86
    },
-   "bob": 56,
+   "bob": 38,
    "rejected": {
-    "small": 75,
-    "thin": 39,
+    "small": 70,
+    "thin": 30,
     "straight": 2,
     "pilot": 1,
-    "overlap": 10,
-    "open_water": 40,
-    "degenerate": 15,
-    "overlap_occ": 5,
+    "overlap": 9,
+    "open_water": 39,
+    "degenerate": 19,
+    "self_crossing": 7,
+    "ring": 4,
+    "overlap_occ": 4,
     "overlap_carve": 5
    }
   },
@@ -5402,10 +5404,10 @@
     ]
    ],
    "thickness_rule": "shore-fast +0.30, other floes +0.20; brash awash +0.03..+0.08 (not a floe)",
-   "bob": 56,
-   "still": 92
+   "bob": 38,
+   "still": 111
   },
-  "ice_fraction_of_rebuild_domain": 0.466
+  "ice_fraction_of_rebuild_domain": 0.434
  },
  "r283": {
   "shelf": {

@@ -13,7 +13,8 @@ Proved for the NEW ice:
   (3) THRESHOLDS: floe area >= 0.6 m2, mean width 2A/P >= 0.45 m, no straight run >= 1.2 m; leads >= 0.10 m (a floe dilated
       by 0.05 m touches no other floe); brash area >= 0.04 m2, mean width >= 0.075 m, >= 0.08 m clear of every floe;
   (4) heights (R-C9-319, ONE rule): shore-fast (ice_shorefast) z1 = sea+0.30, every other floe = sea+0.20 (brash awash);
-  (5) R-C9-319: ZERO stacking anywhere -- all items, new and locked, on each other or on ground ice."""
+  (5) no NEW outline crosses itself (a self-crossing outline triangulates into stray wedges);
+  (6) R-C9-319: ZERO stacking anywhere -- all items, new and locked, on each other or on ground ice."""
 import json
 import math
 import os
@@ -62,6 +63,29 @@ def straight_run(pts, tol=0.03):
         a_, b_ = P_[i], P_[j - 1]
         best = max(best, float(np.hypot(*(b_ - a_))), float(np.hypot(*(P_[i + 1] - P_[i]))))
     return best
+
+
+def self_crossings(poly):
+    """how many non-adjacent edge pairs of the closed outline cross (a self-intersecting outline triangulates into
+    stray wedges in Godot)"""
+    P_ = np.asarray(poly, float)
+    n = len(P_)
+    if n < 4:
+        return 0
+    A, B = P_, np.roll(P_, -1, 0)
+    d = B - A
+    c = 0
+    for i in range(n - 2):
+        j = np.arange(i + 2, n if i > 0 else n - 1)
+        if not len(j):
+            continue
+        a, b = A[i], B[i]
+        cc, dd = A[j], B[j]
+        cr = lambda o, p, q: (p[..., 0] - o[..., 0]) * (q[..., 1] - o[..., 1]) - (p[..., 1] - o[..., 1]) * (q[..., 0] - o[..., 0])
+        s1 = cr(a, b, cc) * cr(a, b, dd)
+        s2 = cr(cc, dd, a) * cr(cc, dd, b)
+        c += int(((s1 < 0) & (s2 < 0)).sum())
+    return c
 
 
 def main():
@@ -124,7 +148,7 @@ def main():
         if not ok:
             drift_bad.append(it["k"])
     # (3) thresholds
-    bad = {"floe_area": [], "floe_width": [], "straight": [], "lead": [], "brash_area": [], "brash_width": [], "brash_clear": [], "height": []}
+    bad = {"self_crossing": [], "floe_area": [], "floe_width": [], "straight": [], "lead": [], "brash_area": [], "brash_width": [], "brash_clear": [], "height": []}
     floe_union = np.zeros((H, W), bool)
     for f, fm in floes_new:
         floe_union |= fm
@@ -132,6 +156,8 @@ def main():
         if not it["new"]:
             continue
         A, P = area_perim(it["pts"])
+        if self_crossings(it["pts"]):
+            bad["self_crossing"].append((it["g"], it["k"], self_crossings(it["pts"])))
         if it["g"] in FLOES or it["g"] == "trans_rubble":      # (R-C9-319: the W1 shore-fast edge lives in trans_rubble)
             # a floe that hosts a drift is measured with its drift (one sheet at one height)
             mm = m.copy()

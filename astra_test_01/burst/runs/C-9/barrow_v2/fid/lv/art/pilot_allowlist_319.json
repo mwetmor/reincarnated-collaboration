@@ -44,101 +44,65 @@
     141,
     167
    ]
+  ],
+  "beach_reveal": [
+   [
+    1031,
+    2152,
+    1082,
+    2174
+   ],
+   [
+    1284,
+    2271,
+    1297,
+    2295
+   ],
+   [
+    1336,
+    2324,
+    1417,
+    2400
+   ],
+   [
+    1410,
+    2408,
+    1433,
+    2440
+   ],
+   [
+    1435,
+    2429,
+    1452,
+    2460
+   ],
+   [
+    1461,
+    2467,
+    1479,
+    2481
+   ]
   ]
  },
- "allow_share_of_pilot_pct": 9.77,
+ "allow_share_of_pilot_pct": 9.8,
  "guide": {
-  "changed_px": 350207,
-  "changed_outside_px": 261,
-  "outside_clusters": [
-   {
-    "bbox_px": [
-     1031,
-     2152,
-     1082,
-     2174
-    ],
-    "px": 52,
-    "pinned_class": {
-     "wood": 52
-    }
-   },
-   {
-    "bbox_px": [
-     1284,
-     2271,
-     1297,
-     2295
-    ],
-    "px": 12,
-    "pinned_class": {
-     "shingle": 12
-    }
-   },
-   {
-    "bbox_px": [
-     1336,
-     2324,
-     1417,
-     2400
-    ],
-    "px": 137,
-    "pinned_class": {
-     "shingle": 81,
-     "snow": 56
-    }
-   },
-   {
-    "bbox_px": [
-     1410,
-     2408,
-     1433,
-     2440
-    ],
-    "px": 31,
-    "pinned_class": {
-     "shingle": 31
-    }
-   },
-   {
-    "bbox_px": [
-     1435,
-     2429,
-     1452,
-     2460
-    ],
-    "px": 22,
-    "pinned_class": {
-     "shingle": 22
-    }
-   },
-   {
-    "bbox_px": [
-     1461,
-     2467,
-     1479,
-     2481
-    ],
-    "px": 7,
-    "pinned_class": {
-     "shingle": 7
-    }
-   }
-  ]
+  "changed_px": 500567,
+  "changed_outside_px": 0,
+  "outside_clusters": []
  },
  "class": {
-  "changed_px": 296450,
+  "changed_px": 451344,
   "changed_outside_px": 0,
   "outside_clusters": []
  },
  "ids": {
-  "changed_px": 465880,
+  "changed_px": 463860,
   "changed_outside_px": 0,
   "outside_clusters": []
  },
- "PASS": false,
+ "PASS": true,
  "final_allowlist": {
-  "mask": "fid/lv/art/pilot_sea_allow_319.png (FM = pilot_sea_allow_314 INTERSECTED with the pinned class render's sea/shore_ice/lead: no land pixel)",
+  "mask": "fid/lv/art/pilot_sea_allow_319.png",
   "rects": {
    "spar": [
     [
@@ -181,11 +145,8 @@
      141,
      167
     ]
-   ]
-  },
-  "needs_ruling": {
-   "sheet_overlap_px": 261,
-   "clusters": [
+   ],
+   "beach_reveal": [
     [
      1031,
      2152,
@@ -222,8 +183,8 @@
      1479,
      2481
     ]
-   ],
-   "what": "pixels the pinned CLASS map labels shingle/snow/wood but where the pinned GUIDE shows the old locked shore-fast sheet / plate drawn OVER them (the old ice overlapped the beach foot); removing those items reveals the beach's own stepped edge and the sea. Class and ids are unchanged there; the land itself is not touched."
-  }
+   ]
+  },
+  "_": "R-C9-319: the 261-px beach_reveal clusters ACCEPTED by the conductor"
  }
 }
