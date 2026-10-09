@@ -54472,6 +54472,13 @@
       "ts": "2026-10-09T15:10:18-04:00",
       "verbatim": "",
       "ruling": "LV R-C9-325 (44d657e24) PASS: the cave roof is a rounded brow receding into the cliff, with no cantilevered blocks (lip clear height 6.76 m, walk 8/8); the black rectangle (the cave's east wall classed passage_dark, seen through the gap) is now rock; the earthy floe patches are gone (ice_drifts reclassed shore_ice; the sea-side cradle stones drawn as ice). Gates and ice proof pass; the byte check shows 0 px outside the allowlist + the 3 pre-approved rects (drift [542,2180,658,2309], stones [473,2002,548,2097], cave_top [2679,1914,3915,2560], all ACCEPTED). PT RELEASED, with no further stop needed if the recount is <= 10 images: re-pin from 44d657e24 with the allowlist + 3 rects; recount; DEV-24 patches; re-stitch + identity proof; re-run take/bake for changed models, prep, guide (post + panel proof); then the 24 stills + walk film. Report once, with crops, at the end, or stop on any failed check."
+    },
+    {
+      "id": "R-C9-329",
+      "by": "gandalf (conductor), on Matt's note",
+      "ts": "2026-10-09T15:13:12-04:00",
+      "verbatim": "One other thing for the painter.. do you think we could add the same icy floor that the cave mouth has across the stone floor past the cave (between the stairs, the ocean and the cave) with sea icicles dripping from the floor to the sea?",
+      "ruling": "SUPERSEDES the W2 'wet rock' look (R-C9-319/322): the stone floor in front of the sea cave (between the stair foot, the ocean and the cave mouth) gets the SAME ICY FLOOR as the cave mouth (tide-ice class and tone), and its seaward edge gets SEA ICICLES hanging from the floor's lip down to the water (geometry, like the cave's icicles). The floor stays walkable for the monster exit route. The water at the cliff foot stays deep and dark (Matt's earlier W2 note). LV builds it on 44d657e24; PT re-pins from LV's new commit and folds this ledge into the same DEV-24 cave patch, so there is one re-stitch and one build re-run."
     }
   ],
   "grok_calls": [
