@@ -1,0 +1,64 @@
+{
+ "_what": "R-C9-314/315/316 SEA PASS PLAN (lane PT, prep only -- waits for LV's geometry pass + the conductor's release)",
+ "rules": [
+  "LAND pixels stay: every sea-pass paste is class-masked to the water/ice classes (sea, lead, shore_ice, tide_ice, ice, ice_mid) of the pinned class map; the ONLY land-touching change is the wreck's fallen pole (its footprint + shadow rects from LV, R-C9-316)",
+  "open water is NOT repainted wholesale (R-C9-315): fixes are DEV-24 regional patches, class-masked to water, layered after layer 5, read-pinned (read_zone where they touch the pilot identity zone)",
+  "new paint direction for open water: calm deep dark water, NO crack lines, nets or veins on open water; floes keep their shapes",
+  "each patch logged with 1:1 + play-zoom crops; the full-site re-stitch and the pilot-zone identity proof re-run after the pass"
+ ],
+ "areas_cheapest_first": [
+  {
+   "id": "P1",
+   "what": "wreck: the FALLEN pole removed (paint-out from the fixed guide: snow, ice and water under it) + W1 the turbulent water by it -> calm deep water",
+   "how": "ONE DEV-24 patch: region = LV's pole footprint+shadow rects (all classes, guide fill) UNION the W1 water region (water classes, class-tint fill); pilot zone -> read_zone",
+   "images": "1 (retry 1)"
+  },
+  {
+   "id": "P2",
+   "what": "W2: the lighter water below-left of the sea cave -> the same deep dark tone",
+   "how": "DEV-24 patch, water classes only",
+   "images": "1 (retry 1)"
+  },
+  {
+   "id": "P3",
+   "what": "the open-water crack net (0_4 / 1_4 / 2_4), only where it reads as cracks",
+   "how": "1-2 DEV-24 patches, water classes only, boxes from a crack detector (thin bright lines on open-water class px) checked by eye",
+   "images": "1-2 (retry 1 each)"
+  },
+  {
+   "id": "P4",
+   "what": "Matt's ice notes (per LV's geometry pass)",
+   "how": "per area: DEV-24 regional patch if LV's changed rects are local; a whole-tile REPAINT only where they cover most of a tile's ice, its result pasted CLASS-MASKED to ice/water so the tile's land stays byte-identical",
+   "images": "TBD from LV's rects"
+  }
+ ],
+ "budget": "<= 16 images (R-C9-314): P1-P3 ~3-4 expected (worst 8); the rest for P4. NB DEV-24's own counter stands at 23/24 -- the sea pass needs the conductor's line on which allowance it draws from",
+ "bobbing": {
+  "current_DEV5": "per floe: one MeshInstance3D + one ShaderMaterial (phase = material uniform); bob in the vertex shader, NO per-frame CPU work",
+  "bench": "tools/bv2f/pt_floe_bench.gd, real floe shader, 1920x1080, isolated scene; fid/pt/ph3/floe_bench/*.json",
+  "results_p50_ms": {
+   "instance_1600": 1.808,
+   "instance_400": 1.367,
+   "instance_50": 1.289,
+   "merged_1600": 1.724,
+   "merged_400": 1.412,
+   "merged_50": 1.356,
+   "per_mat_1600": 2.646,
+   "per_mat_400": 1.479,
+   "per_mat_50": 1.373
+  },
+  "draw_calls": {
+   "instance_1600": 1458.0,
+   "instance_400": 358.0,
+   "instance_50": 48.0,
+   "merged_1600": 1.0,
+   "merged_400": 1.0,
+   "merged_50": 1.0,
+   "per_mat_1600": 1458.0,
+   "per_mat_400": 358.0,
+   "per_mat_50": 48.0
+  },
+  "reading": "no cliff up to 1,600 floes in isolation: per-material +1.27 ms p50 from 50 to 1,600 (draw-call bound), instance-uniform +0.52 ms, one merged mesh +0.37 ms (1 draw call). In the full scene the per-material draw calls add to its ~126 draws.",
+  "proposal": "switch DEV-5 to ONE shared material with an `instance uniform float bob_phase` (shape kept, look byte-identical by construction, frozen A/B to prove it); above ~400 tagged floes merge into one mesh with the phase per vertex (CUSTOM0). P10-measure after LV tags the floes."
+ }
+}
