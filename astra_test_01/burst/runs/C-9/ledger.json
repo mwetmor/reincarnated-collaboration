@@ -53765,6 +53765,13 @@
       "ts": "2026-10-09T08:03:42-04:00",
       "verbatim": "I guess the sea could work if it has animations on top of it as it would make some of the differences sensible due to currents and water movement/flow restrictions due to the ice. There is only two small issue locations in the water in this case. Next to the Viking ship's fallen mast, there is some turbulent water which doesn't make sense. Also just below and to the left of the sea cave, the water is a lighter color than the rest which doesn't make sense as it would all be deep due to the cliffside.",
       "ruling": "OPEN WATER: Matt accepts the painted sea under DEV-5's animation, so water-tone variation reads as currents; open water is NOT repainted wholesale. TWO WATER FIXES added to the R-C9-314 sea pass: (W1) the turbulent/foamy water next to the wreck's fallen mast (pilot 0_2, by the stern) becomes calm deep water like its surroundings; (W2) the LIGHTER water just below-left of the sea cave becomes the same deep dark tone as the rest (deep water at the cliff foot). Both are paint-side (DEV-24 regional patches, class-masked to water), unless LV finds a guide or class cause (e.g. a light class or shallow terrain under the water there), which LV fixes first. The R-C9-314 ICE notes (one thickness, the rectangle, the odd floe, the layered floe, the straight line, the pilot stacking) STAND. The open-water crack-line net stays a paint fix only where it reads as cracks on open water."
+    },
+    {
+      "id": "R-C9-316",
+      "by": "gandalf (conductor), on Matt's note",
+      "ts": "2026-10-09T08:04:39-04:00",
+      "verbatim": "Lastly, I have one more note: Viking ships had only one mast, so please delete/remove the fallen one.",
+      "ruling": "WRECK: REMOVE the FALLEN spar/pole (the long pole lying from the gunwale across the snow and onto the ice; part of LV's wreck_mast slot per R-C9-234(7)); the standing snapped mast stub stays (the ship's one mast). LV removes the fallen-spar geometry (the mast stub keeps its place) and adds its footprint rects to the pilot allowlist (it lies in the pilot, 0_2); PT paints it out with a DEV-24 regional patch filled from the fixed guide (snow, ice and water under it), in the same sea pass as W1 (the turbulent water by it, R-C9-315). This is the one exception to 'land done': the patch covers only the pole's footprint plus its shadow."
     }
   ],
   "grok_calls": [
