@@ -1981,3 +1981,40 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - § 53's renders (P3 capture, P9 life / sea, P9c 0.267 and the L5 view) ran 16:51–16:55. PT rewrote `site_ph3/painted/painting.bin` at 16:54:35 (commit e6d561114).
 - The § 53 P3 capture already differed from the r328 painting in the patch area (tide_ice 1.59 against 0.00 now).
 - The rebuild touched only the ledge (tide_ice), not the floes, and the verdicts are unchanged. **But the § 53 Godot rows are not pure r328 evidence.** The § 55 null and everything in this section ran on the settled r332 build.
+
+## 59. PRE-REGISTRATION — the R-C9-339 LEDGE DELTA (jack-ryan site Gate-2 § 9, C-8). Committed BEFORE PT's r339 painting exists. Every § 52 / § 57 rule unchanged; no bar moves.
+- **Inputs.** The r339 final painting and the rebuilt `pt/site/`, sha-pinned at read time. The changed-px mask **Δ = r339 ≠ r332** (any channel), computed by PH from the two paintings.
+- **Whole-site re-runs** (the § 57 pattern): P1, P2 (at PT's r339 commit), P3 (a fresh `ph_p3_sea.gd` capture on the rebuilt site), P4, P5(b), P6a (painting + kept canvases), P8, P9 (sway, flow, trail).
+- **a1 identity.** `site_p5.py` re-run. Every a1 segment value must be **identical** to `results/site_r332/p5.json`, because the raw canvases are untouched. Any difference is a STOP.
+- **P4.** tide_ice stays **report-only** (§ 52 (c)). Matt's "like the mere ice" does not move it into the binding `ice` domain (W-1). Its report-only dE against the frozen Lab is reported per chunk. The binding rows are as § 52.
+- **P6a — expected false-positive mode, pre-registered.** Dark **kelp clumps** on the high-tide ice are dark blobs at T 32. tide_ice is a water class, so every candidate whose 0.6 m window is ≥ 50 % water class goes to **per-candidate triage with a crop**, never auto-passed. In addition, every candidate whose centre lies in Δ (dilated 32 px) gets its own row, labelled `kelp-mode candidate`, whatever its class. Each row is written out per candidate (C-3 form), with the conductor's read recorded on the row.
+- **P11 footprint check** (R-C9-338's no-rebuild stands **only if** both hold):
+  - (i) **0** crops of the judged set `abx3_site_v1_vs_site` (every A/B/X crop drawn from a site still, mapped to plate px by its still's camera centre: plate = still px + (X_c − W/2, Y_c − H/2)) intersect Δ;
+  - (ii) Δ's class histogram on the pinned `d26d14c55` class map is **tide_ice only**.
+  - Any intersection, or any other class, is reported to the conductor **before any re-judge**.
+- **P9c.** Re-run (v3, § 56 rules) **iff** Δ intersects any bobbing-floe id in `pt/site/ids_built` **or** PT states that prep rewrote floe data. Otherwise not re-run, and the check is reported.
+- **Δ geometry reported:** px, bbox, class histogram, chunks and seams touched, pilot px (expected 0).
+- **C-2 re-crops** (after r339): the 12 stale packet crops (J08–J12; eye/P6a 12, 13, 14, 15, 17, 18, 19) are re-cut from the **final r339 painting** at their recorded boxes, as jpg with shas.
+
+## 60. PRE-REGISTRATION — C-7: P9c v3 CONFIRM READ on the PRODUCTION capture schedule (jack-ryan § 2 option (a); R-C9-340). Committed BEFORE the read.
+- **Why.** § 58 read at the § 54 controlled times: median counted motion 0.75 / 0.85 px. § 53's production capture moved 1.43 / 1.51 px.
+- **Schedule** (`ph_life.gd --floe-wallclock`, new). The § 53 schedule:
+  - first pair after the same settle;
+  - m0, then 0.5 s wall wait, then m1;
+  - 0.7 s wall between pairs;
+  - 5 pairs.
+- **Time source.** Each shot's bob time `ph_t` = engine seconds since start at the moment of the shot (`Time.get_ticks_msec() / 1000`), i.e. the production TIME. The same-pose ID shot uses the same `ph_t`. Instrument, `--floe-ids --floe-solo` and the main view are as § 56.
+- **Validation unchanged** (rigid null ≤ 0.05 with ≥ 10 samples; static ≤ 0.02; RED > 0.25), on the same schedule. Then the bobt read: **binding statistic and bar unchanged (≤ 0.25).**
+- **Operating point, reported beside the reading.** The counted-sample median motion.
+  - If it is **≥ 1.2 px**, the read is "at the production operating point".
+  - If below, it is reported as **not reached**, and the cover-note route (b) applies. **No re-draw, no extra pairs.**
+
+## 61. PRE-REGISTRATION — P10 loop RE-PROOF on site_ph3 (Gate-2 § 8 P-2). Committed BEFORE any probe. Not a P10 reading.
+- **Candidate start loop:** § 50 (c)'s proven rp4 loop, (−10.77, 5.75) → (−3.25, 1.26) → (−1.75, 6.83) → (−6.5, 7.5).
+- **Candidate sea loop (new):**
+  - four waypoints inside the site level's bounds polygon (`site_ph3/level/level.json`);
+  - chosen to maximise the bobbing floes wholly in a 1920 × 1080 play-camera frame centred on each waypoint (`floe_view_choose` geometry);
+  - **required: ≥ 3 floes in frame at every waypoint**, and the loop's legs ≥ 2 m;
+  - decided from geometry before any probe.
+- **Proof.** `ph_life.gd perf --loop` + the § 50 (c) walk-validity rule (no 60-frame span with displacement < 0.3 m over the 900-frame window), read from `trace.json`. A failing loop is never used. A replacement is chosen by the same rule and recorded.
+- **Recorded before any T34 window:** the proven loops and their traces. P10 itself (bars, interleave, VOID rules) is unchanged and runs only in a T34 window.
