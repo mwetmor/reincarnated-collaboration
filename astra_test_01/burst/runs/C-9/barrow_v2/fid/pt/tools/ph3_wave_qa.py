@@ -90,6 +90,23 @@ for k in keys:
         else:
             p4[cn] = {"windows": nwin, "verdict": "PASS" if e and e.get("pass") else "FAIL", "w_min": wmin, "reading": e}
     row["P4"] = p4
+    # R-C9-288 GUARD: the s46 snow palette on chunks with enough snow support (>= 100 windows) vs v1's range; lit a*/b* or the
+    # peach share outside v1's range = STOP
+    if p4["snow"]["windows"] >= 100:
+        import snow_parity as SP
+        sp = SP.chunk_stats(P8.astype(np.float64), rgb_to_lab(P8.astype(np.float64)), m["snow"], luma(P8.astype(np.float64)))
+        L = rgb_to_lab(P8.astype(np.float64)); mm = ndimage.binary_erosion(m["snow"], iterations=3)
+        lit = mm & (L[..., 0] >= np.median(L[..., 0][mm]))
+        peach = float(((L[..., 1] > 2) & (L[..., 2] > 4))[lit].mean())
+        V1R = json.load(open(FIDS + "/ph/results/pilot3/snow_parity.json"))["summary"]
+        rng = {k: (V1R[k]["v1_min"], V1R[k]["v1_max"]) for k in ("lit_a", "lit_b", "shadow_a")}
+        rng["peach_share_of_lit"] = (0.381, 0.973)   # v1's own per-chunk range (fid/pt/ps4_dry/snow_ice.json, R-C9-261)
+        vals = {"lit_a": sp["lit_a"], "lit_b": sp["lit_b"], "shadow_a": sp["shadow_a"], "peach_share_of_lit": round(peach, 3)}
+        inside = {k: (v is not None and rng[k][0] <= v <= rng[k][1]) for k, v in vals.items()}
+        row["snow_palette"] = {"values": vals, "v1_range": rng, "inside": inside,
+                               "STOP": not (inside["lit_a"] and inside["lit_b"] and inside["peach_share_of_lit"])}
+    else:
+        row["snow_palette"] = {"not_measured": "snow support %d < 100 windows" % p4["snow"]["windows"]}
     res["chunks"][k] = row
     # joins touching this chunk (left / top neighbours; right / bottom if painted)
     for (dc, dr, horiz) in ((-1, 0, True), (0, -1, False), (1, 0, True), (0, 1, False)):
@@ -133,5 +150,5 @@ rp = subprocess.run(["python3", FIDS + "/v1tools/tierB/conductor_scripts/guided_
 res["preview"] = {"grid": [NC, NR], "rc": rp.returncode, "log": rp.stdout.strip().splitlines()[-6:] + rp.stderr.strip().splitlines()[-3:],
                   "file": "stitched_preview.jpg (half size); cells not painted are the GUIDE"}
 json.dump(res, open(OUT + "/qa.json", "w"), indent=1)
-print(json.dumps({"chunks": {k: {"P6a_invented": v["P6a"]["invented"], "P4": {c_: (x["windows"], x["verdict"]) for c_, x in v["P4"].items()}} for k, v in res["chunks"].items()},
+print(json.dumps({"chunks": {k: {"P6a_invented": v["P6a"]["invented"], "P4": {c_: (x["windows"], x["verdict"]) for c_, x in v["P4"].items()}, "snow_palette": v["snow_palette"]} for k, v in res["chunks"].items()},
                   "joins": {k: (v["a1_max"], v["verdict"], v["raw_mad"]) for k, v in res["joins"].items()}, "preview_rc": rp.returncode}, indent=1))
