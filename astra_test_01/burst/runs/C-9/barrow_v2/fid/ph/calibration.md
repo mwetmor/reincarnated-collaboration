@@ -1887,3 +1887,16 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - **MATERIAL** iff rigid's median drift ≤ 0.10 px **and** bobt's median drift > 0.25 px **and** median Δr > 0.10 px. The instrument is clean on the identical motion, and the shipped path departs from it.
 - **Otherwise MIXED / UNRESOLVED.** Reported with the per-floe table, and no verdict claimed.
 - **static:** median |r| is reported. If it is > 0.05 px, render non-determinism is disclosed as a floor.
+
+## 55. P9c DISCRIMINATOR — result (§ 54 rule, fixed at f7af6f5bc). `harness/site_p9c_null.py` → `results/site/p9c_null.json`; renders `renders/site/p9c_null_{bobt,rigid,static}/`
+| Mode | Median drift (samples, motion ≥ 0.25) | Samples |
+|---|---|---|
+| bobt (the shipped bob, controlled time) | 0.095 px | 26 |
+| **rigid null (truth = 0 by construction)** | **0.096 px** | 26 |
+| static (no motion) | median \|r\| 0.000 | 0 counted |
+
+- **The images are identical.** bobt vs rigid differ in ≤ 0.08 % of floe px (mean \|Δ\| ≤ 0.001). So the shipped bob path renders **exactly as the attached-by-construction null**: the rest-pose UV math holds under site_ph3.
+- **Matched floes:** 30. Median Δr (bobt vs rigid) **0.000 px**. Per-floe r is equal to 3 decimals, including the large readings (0.62, 0.54, 0.37 on the 62–65 k px pieces).
+- **Rule → INSTRUMENT** (rigid ≥ 0.5 × bobt and median Δr ≤ 0.05). The drift `floe_drift_v2` reports on these floes is the instrument's own error: it is read at the same size where no drift exists. Its largest values sit on the 62–65 k px labels, which are consistent with touching floes merged into one label (mixed motions). Texture runs ~10–15 % ahead of silhouette on several single floes.
+- **Static is deterministic** (r = 0.000): no render-noise floor.
+- **What this does NOT do.** It does not re-score § 53. P9c main view stays **FAIL 0.267 as read**; the bar is frozen. The § 54 times give smaller motions (bobt 0.095) than the production run (0.267), so this attributes the reading, it does not replace it. The path forward is a **re-instrument, never a threshold tune**: per-floe separation of merged labels, and silhouette estimation validated on exactly this rigid null. That is a ruling for the conductor and jack-ryan.

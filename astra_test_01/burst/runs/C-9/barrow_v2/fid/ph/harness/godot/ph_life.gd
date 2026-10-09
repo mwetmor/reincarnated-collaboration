@@ -261,13 +261,13 @@ func _life() -> void:
 			for k in floe_pairs:
 				var sfx := "" if k == 0 else "_%d" % k
 				if floe_null != "":
-					var t0 := 1.0 + 1.2 * float(k)
-					var t1 := t0 if floe_null == "static" else t0 + 0.5
-					nul_t.append([t0, t1])
-					_null_set(fl, saved, rest, t0)
+					var nt0 := 1.0 + 1.2 * float(k)
+					var nt1 := nt0 if floe_null == "static" else nt0 + 0.5
+					nul_t.append([nt0, nt1])
+					_null_set(fl, saved, rest, nt0)
 					await _settle()
 					await _shot("floe_m0" + sfx)
-					_null_set(fl, saved, rest, t1)
+					_null_set(fl, saved, rest, nt1)
 					await _settle()
 					await _shot("floe_m1" + sfx)
 					continue

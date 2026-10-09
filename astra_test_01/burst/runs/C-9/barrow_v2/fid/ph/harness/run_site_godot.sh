@@ -22,5 +22,8 @@ for v in "$@"; do
          run $R/p9c_red --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_red uv:-23.976,-21.834 --floe-pairs 5 --floe-red ;;
     p9c_l5) run $R/p9c_l5_rest --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_l5_rest uv:-18.409,-23.42 --floe-pairs 5
             run $R/p9c_l5_red --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_l5_red uv:-18.409,-23.42 --floe-pairs 5 --floe-red ;;
+    null) for m in bobt rigid static; do
+            run $R/p9c_null_$m --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_null_$m uv:-23.976,-21.834 --floe-pairs 5 --floe-null $m
+          done ;;
   esac
 done

@@ -146,4 +146,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] R-C9-331 FULL-SITE harness: § 52 pre-registration 7d47a498d; non-Godot rows a147d61bf; Godot rows + § 53 results (P3 P8 P9 P9c). P6a conductor reads recorded (R-C9-333). P11 judge spawned by the conductor (set abx3_site_v1_vs_site; key p11/keys/).
 - [ ] R-C9-332: PT fixing the blurry snow patch on the ledge right of the sea cave -> when PT reports, RE-RUN the rows touching that area (P5 a1/b on the joins and corners there, P4 chunks 2_3 / 2_4 / 3_3, P6a, P3).
 - [ ] P10 on the site: quiet window only (T34). LV removed the bounds spike (9263d053d); routes may cross the wreck beach once PT confirms the re-pin.
-- [ ] P9c main view rest 0.267 (FAIL): floe-by-floe forensic + frozen-bob null if the conductor asks.
+- [x] P9c discriminator (R-C9-335; s54 pre-reg f7af6f5bc, s55 result): INSTRUMENT -- bobt == rigid null image-identical, median dr 0.000; rigid null reads 0.096 where truth = 0. P9c 0.267 stays FAIL as read. [ ] re-instrument ruling (merged floe labels; silhouette validated on the rigid null) -- conductor / jack-ryan.
