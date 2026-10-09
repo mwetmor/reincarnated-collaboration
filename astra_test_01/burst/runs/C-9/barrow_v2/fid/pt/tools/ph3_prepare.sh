@@ -66,7 +66,7 @@ json.dump(c,open('$CFG','w'),indent=1,ensure_ascii=False); print('winner $W; dev
       for s in $specs; do bid=${s%%:*}
         ex=$(python3 -c "import json;print(json.load(open('$L/${bid}_run.json'))['exit'])" 2>/dev/null)
         echo "$bid exit=$ex"
-        grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err 2>/dev/null && { echo "HALT USAGE LIMIT $bid"; exit 7; }
+        grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err $HOME/astra-burst/runs/C-9/${bid}/events.jsonl 2>/dev/null && { echo "HALT USAGE LIMIT $bid"; exit 7; }   # R-C9-307: the limit message is in the burst's events.jsonl
         [ "$ex" != "0" ] && [ "$suf" = "$S1" ] && { echo "HALT: $bid failed twice"; exit 2; }
       done
     done
