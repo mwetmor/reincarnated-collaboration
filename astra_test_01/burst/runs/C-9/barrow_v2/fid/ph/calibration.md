@@ -2105,3 +2105,30 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
   - The knight was placed at (−0.93, −17.62) and **never moved**: path 0.0 m, 0 waypoint advances, 840 of 840 one-second spans < 0.3 m.
   - Per § 64, the loop is **reported, not replaced by PH**. A replacement sea loop is the conductor's ruling, recorded before any P10 frame.
   - **The start loop (§ 62) stands proven.**
+
+## 66. PRE-REGISTRATION — the BINDING P10 SEA LOOP = the walkable SHORE loop nearest the floes (conductor R-C9-349; replaces the failed § 64 loop). Committed BEFORE any T34 window and before any frame. Bars unchanged.
+
+**Where the shore is: a correction to my § 62 wording, which the ruling quotes.**
+- § 62 said "the walkable coast stops at v ≈ −8 west of u = −21". On the site heightfield that is inexact.
+  - **At u −16 … −10**, v ≈ −6 … −7.5 is the **clifftop edge**: LV's inner wall at v −5.8 … −6.6, ground z ≈ +2. South of it the ground is z −6.5 (water / outer-wall margin). There is **no walkable ground on the floe side** there.
+  - **The walkable SHORE** is the shore-fast ice and beach, **z −4.23**, west of u ≈ −24: south edge at v −3.0 (u −24) … +0.75 (u −30).
+  - It is the walkable ground **nearest the floes**: 12–15 m to the nearest bobbing-floe centre, against 17 m from the clifftop and 19–21 m from the old rp4 shore loop.
+- The loop is placed there. The clifftop alternative (−16.0, −5.25) → (−13.0, −4.75) → (−10.0, −4.75) → (−13.0, −2.75) is **recorded only**. It is a clifftop walk, not a shore, and **is not used without a ruling**.
+
+**The loop, fixed now:** (−25.0, −0.5) → (−28.0, 1.5) → (−27.5, 4.0) → (−25.5, 3.0).
+- Legs 3.61 / 2.55 / 2.24 / 3.54 m.
+- Every waypoint is inside the site bounds, on z −4.23, and has a **1 m clear neighbourhood**: all inside the bounds, z > −5, |Δz| < 0.3 m.
+- **Per-waypoint bobbing floes partly in a 1920 × 1080 frame: 0 / 0 / 0 / 0.** Same geometry as § 62. Nearest floe centre 13.1 / 13.2 / 15.6 / 14.6 m.
+- **The sea loop carries the shore, the sea and the waterline, NOT the floe load.** That is stated for the cover.
+
+**Proof — at the T34 session start, in the first lock hold, before any P10 frame is read.**
+- `walk_probe.sh` (`PH_WP_PILOT=site_ph3`): min 1-s displacement and the § 50 (c) walk-validity rule (0 spans < 0.3 m).
+- **If it fails: report and STOP.** There is no third substitute without a ruling.
+
+**Report-only SEA HOLD** (binds nothing; added to the § 50 (c) addendum's report-only views).
+- `ph_life.gd perf <scene> <out> uv:-25.0,-0.5 --idle --park-uv -23.976,-21.834`: the knight idle on the shore at waypoint A, the camera **parked over the floe field**.
+  - The park is at the § 52 (e) P9c main view, 10 floes wholly in frame.
+  - It uses the scene's `park_camera`, which stops the follow.
+- **Same quiescence, proclog and VOID rules as the binding runs. Its numbers never enter the binding statistic.**
+
+**Start loop:** as proven in § 62. **P10 binding:** start + this shore loop, § 34 / § 48 (c) / § 50 (c) rules unchanged.

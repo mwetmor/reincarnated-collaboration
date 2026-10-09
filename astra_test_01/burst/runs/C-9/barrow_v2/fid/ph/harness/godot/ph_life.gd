@@ -23,6 +23,7 @@ var floe_solo := false    # --floe-solo (s56): every non-floe GeometryInstance3D
 var floe_wallclock := false   # --floe-wallclock (s60, C-7): ph_t = engine seconds at each shot, on the s53 schedule (0.5 s / 0.7 s wall)
 var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
 var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
+var park_uv := ""        # --park-uv "u,v" (s66, R-C9-349): with --idle, the camera PARKED over (u, v) (report-only sea hold)
 var idle := false         # --idle: perf with him STANDING at <view> (R-C9-276 report-only water-cost view)
 var loop_arg := ""        # --loop "u,v;u,v;...": absolute walk waypoints (R-C9-272: the default loop is not reachable on rp4)
 var burn_ms := 0.0
@@ -39,6 +40,8 @@ func _initialize() -> void:
 	no_wind = a.has("--no-wind")
 	floe_red = a.has("--floe-red")
 	idle = a.has("--idle")
+	if a.has("--park-uv"):
+		park_uv = a[a.find("--park-uv") + 1]
 	if a.has("--loop"):
 		loop_arg = a[a.find("--loop") + 1]
 	if a.has("--floe-null"):
@@ -369,6 +372,9 @@ func _perf() -> void:
 			loop.append(Vector2(float(xy[0]), float(xy[1])))
 	if idle:
 		scene.place_knight(c.x, c.y, "S")
+		if park_uv != "":
+			var pv := park_uv.split(",")
+			scene.park_camera(scene.uv_to_world(float(pv[0]), float(pv[1])), 1.0)
 	else:
 		scene.place_knight(loop[3].x, loop[3].y, "N")
 	var wi := 0
@@ -407,7 +413,7 @@ func _perf() -> void:
 	var total := 0.0
 	for x in s:
 		total += float(x)
-	rep = {"scene": scene.scene_file_path, "view": view, "burn_ms": burn_ms, "frames": n, "idle": idle, "mean_ms": total / n,
+	rep = {"scene": scene.scene_file_path, "view": view, "burn_ms": burn_ms, "frames": n, "idle": idle, "park_uv": park_uv, "mean_ms": total / n,
 		"p50_ms": s[int(n * 0.5)], "p99_ms": s[int(n * 0.99)], "max_ms": s[n - 1],
 		"render": [root.get_texture().get_width(), root.get_texture().get_height()],
 		"renderer": RenderingServer.get_current_rendering_method(), "adapter": RenderingServer.get_video_adapter_name()}
