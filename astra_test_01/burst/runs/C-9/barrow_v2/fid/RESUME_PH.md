@@ -149,3 +149,6 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P9c discriminator (R-C9-335; s54 pre-reg f7af6f5bc, s55 result): INSTRUMENT -- bobt == rigid null image-identical, median dr 0.000; rigid null reads 0.096 where truth = 0. P9c 0.267 stays FAIL as read. [x] R-C9-336 re-instrument: s56 pre-reg 65a126d0d; s58 P9c v3 main 0.030 PASS (validation passed both views); Gate-2 ratification by jack-ryan pending.
 - [ ] P6a painting_2_4_c015: conductor re-confirm (crop changed by the r332 patch).
 - [ ] P11 on r332: not rebuilt (27/40 valid FAIL on r328 stills); conductor's call.
+- [x] R-C9-340/343: C-3 rows (5adb82540), C-4 (5adb82540), s59 pre-reg (376eaf216, before r339), C-7 PASS 0.033 @1.477 px (58c06f376), s63 r339 delta + C-2 re-crops (718367062).
+- [ ] P6a painting_2_4_c015 r339 crop: conductor re-confirm.
+- [ ] P10 sea loop: s61 rule unmeetable (no walkable point frames a whole bobbing floe) -> conductor option (a) partial / (b) old shore loop / (c) LV bounds. Start loop PROVEN on site_ph3. P10 only in T34.
