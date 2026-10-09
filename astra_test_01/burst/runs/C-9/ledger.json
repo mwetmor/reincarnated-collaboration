@@ -53800,6 +53800,13 @@
       "ts": "2026-10-09T10:21:53-04:00",
       "verbatim": "",
       "ruling": "LV R-C9-319 (a6252d482 + c76c3af66) PASS: the two dark wedges were a self-crossing floe outline (ice_floes_bob #53) triangulated as a fan; the build and proof now reject self-crossings (fail-first: 6 flagged) and ring floes (4); the proof PASSES with zero stacking; the allowlist byte check passes (incl. the 261-px beach reveal). ONE CHANGE: the sea right below the wreck has become mostly open water; sketch A and Matt's earlier note ('there is more ice than water') want MOSTLY ICE there, so LV RE-SEEDS that area only (inside the pilot sea mask) to a dense natural field of floes/shore-fast ice under the same rules, before the paint release."
+    },
+    {
+      "id": "R-C9-321",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T12:36:26-04:00",
+      "verbatim": "",
+      "ruling": "LV bac035332: the beach-foot waterline is re-cut along a smoothed, worn contour (two stairs found: the 25 cm heightfield edge and a nearest-sample steep-face cut); the ice proof and gates pass. RULED (a) ACCEPT: the waterline rect [1234,2186,1825,2473] joins the pilot allowlist (2,638 guide px and 1,972 class/ids px of the beach foot's own border plus a strip of sea at the cliff junction). This is a necessary part of the Matt-noted sea fix (a stepped waterline would be painted literally), so it is a bounded exception to 'land done', disclosed to Matt. The residual short step right at the stern (inside the 0.6 m hull keep-off) is left to the painter's patch. SEA PAINT RELEASED to PT (R-C9-317 plan): re-pin from LV bac035332 with the 319 mask + all accepted rects (spar, W1, rubble, beach_reveal, waterline); patches P1 (pole + W1), P2 (W2 ledge), P3 (crack lines where they read as cracks), P4 (the sea ice areas changed by LV), class-masked to water/ice plus the accepted land rects; then the full re-stitch, the pilot-identity proof outside the allowlist, and crops."
     }
   ],
   "grok_calls": [
