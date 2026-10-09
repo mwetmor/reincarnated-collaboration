@@ -40,11 +40,13 @@ def src(k):
             return p
 
 
-man = json.loads(subprocess.check_output(["git", "-C", FIDS, "show", "b5894d440:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/guide_art/guide_manifest.json"]))
+PINS = json.load(open(FIDS + "/pt/ph3/pins_ph3.json"))   # R-C9-284: the CURRENT Phase 3' pins (guide / ids / class copies, LV commit)
+B2 = os.path.dirname(FIDS)
+man = json.loads(subprocess.check_output(["git", "-C", FIDS, "show", "%s:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/guide_art/guide_manifest.json" % PINS["lv_commit"]]))
 tab = {int(k): v for k, v in man["id_table"].items()}
-ids = np.asarray(Image.open(FIDS + "/pt/pilot/ids_art_pinned_ps4.png").convert("RGB")).astype(np.int64)
+ids = np.asarray(Image.open(os.path.join(B2, PINS["ids"]["pinned_copy"])).convert("RGB")).astype(np.int64)
 gid = (ids[..., 0] << 16) | (ids[..., 1] << 8) | ids[..., 2]
-cls = np.asarray(Image.open(FIDS + "/pt/pilot/class_art_pinned_ps4.png"))
+cls = np.asarray(Image.open(os.path.join(B2, PINS["class"]["pinned_copy"])))
 ni = {n: i for i, n in enumerate(man["class"]["classes"])}
 ground = np.isin(gid, [k for k, v in tab.items() if v["id"].startswith(("ground_", "carved_"))])
 rockid = np.isin(gid, [k for k, v in tab.items() if v["class"] == "rock" and (v.get("piece") in ("model", "instance", "group") or str(v.get("piece", "")).startswith("instance"))])
@@ -56,7 +58,7 @@ per = T.v1_pool(None, masks_v1, static_v1)
 bars = T.v1_bars(per)
 Tp6 = jload(PH / "results/p6.json")["invention"]["T_v1_ceiling"]
 dec = [{"id": o["id"], "xy": tuple(o["centre_px"]), "radius_m": float(o["p6a_match_radius_m"])}
-       for o in jload(FIDS + "/lv/guide_art/declared_openings.json")["openings"]]
+       for o in json.loads(subprocess.check_output(["git", "-C", FIDS, "show", "%s:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/guide_art/declared_openings.json" % PINS["lv_commit"]]))["openings"]]
 res = {"_what": __doc__.split("\n")[0], "wave": tag, "chunks": {}, "joins": {}}
 for k in keys:
     c, r = map(int, k.split("_"))
@@ -112,7 +114,7 @@ sh.save(OUT + "/contact_sheet.jpg", quality=90)
 painted = [k for k in ("%d_%d" % (c, r) for r in range(5) for c in range(5)) if src(k)]
 NC = max(int(k.split("_")[0]) for k in painted) + 1; NR = max(int(k.split("_")[1]) for k in painted) + 1
 PV = "BV2F-PH3PV"
-Gd = Image.open(FIDS + "/pt/pilot/guide_art_pinned_ps4.png").convert("RGB")
+Gd = Image.open(os.path.join(B2, PINS["guide"]["pinned_copy"])).convert("RGB")
 for r in range(NR):
     for c in range(NC):
         k = "%d_%d" % (c, r)
