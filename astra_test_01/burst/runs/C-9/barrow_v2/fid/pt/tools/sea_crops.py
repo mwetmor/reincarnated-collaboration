@@ -10,12 +10,13 @@ from scipy import ndimage
 Image.MAX_IMAGE_PIXELS = None
 FID = "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid"
 name, att = sys.argv[1], sys.argv[2]
-out = sys.argv[3] if len(sys.argv) > 3 else FID + "/pt/ph3/sea/crops"
+out = sys.argv[3] if len(sys.argv) > 3 else FID + "/pt/ph3/%s/crops" % ("sea" if os.environ.get("SEA_ROUND", "r321") == "r321" else "sea_" + os.environ["SEA_ROUND"])
 os.makedirs(out, exist_ok=True)
 S = json.load(open(FID + "/pt/dev24/spec_%s.json" % name))
 x0, y0 = S["rect_xy"]
 crop = lambda p: np.asarray(Image.open(p).convert("RGB"))[y0:y0 + 1024, x0:x0 + 1536]
-_acc = [a for a in json.load(open(FID + "/pt/ph3/sea/state.json"))["accepted"] if a["pin"]["name"] == "%s-%s" % (name, att)]
+_stp = FID + "/pt/ph3/%s/state.json" % ("sea" if os.environ.get("SEA_ROUND", "r321") == "r321" else "sea_" + os.environ["SEA_ROUND"])
+_acc = [a for a in json.load(open(_stp))["accepted"] if a["pin"]["name"] == "%s-%s" % (name, att)] if os.path.exists(_stp) else []
 bef = crop(_acc[0]["base"] if _acc else S["painting"])   # the accepted patch's own staged base (after a rebuild)
 _ps = FID + "/pt/dev24/%s/painting_sea_%s.png" % (name, att)   # the accepted (pinned soft-corr) paste when present
 aft = crop(_ps if os.path.exists(_ps) else FID + "/pt/dev24/%s/painting_patched_%s.png" % (name, att)); gd = crop(S["guide_png"])

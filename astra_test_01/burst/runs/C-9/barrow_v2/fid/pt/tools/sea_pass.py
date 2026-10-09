@@ -21,10 +21,16 @@ Image.MAX_IMAGE_PIXELS = None
 FID = "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid"
 A9 = "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts"
 P = FID + "/pt/ph3/"
-OUT = P + "sea/"
+ROUND = os.environ.get("SEA_ROUND", "r321")   # R-C9-328: a second round (r328) on the r321 result
+OUT = P + ("sea/" if ROUND == "r321" else "sea_%s/" % ROUND)
 CFG = FID + "/pt/pilot/cfg_bv2a_ph3.json"
-FINAL = P + "final/painting_ph3_full.png"
-NEW, OLD = "bac035332", "023686e3c"
+FINAL = P + ("final/painting_ph3_full.png" if ROUND == "r321" else "final/painting_ph3_sea_full.png")
+NEW, OLD = ("bac035332", "023686e3c") if ROUND == "r321" else ("d26d14c55", "bac035332")   # R-C9-330: LV d26d14c55 (icy ledge) on 44d657e24 (R-C9-325)
+ALLOW = "allow_321" if ROUND == "r321" else "allow_330"
+L0 = 6 if ROUND == "r321" else 16          # the first dev24 layer of the round
+# R-C9-328: LAND changes LV made on purpose (cave brow + knoll, the cave east wall) -- pasted on ALL classes inside these
+# plate boxes where D (grown 8 px); everywhere else the r321 rule (water/ice only)
+LAND_ZONES = [] if ROUND == "r321" else [[2600, 1880, 3900, 2900], [3500, 2340, 4200, 3260]]
 CW, CH, IN, HOLE = 1536, 1024, 64, 60000
 WI = ("sea", "lead", "shore_ice", "tide_ice", "ice", "ice_mid")
 P3_BOXES = [[1700, 2800, 4400, 4096], [0, 3072, 1700, 4096]]
@@ -59,6 +65,33 @@ LAYOUT = [  # name, canvas rect_xy, what (P1-P4 of the plan), the patch's own no
     ("sea_C3", [2600, 3072], "P3 + P4 (Phase 3' ice)", ""),
     ("sea_R1", [4000, 3072], "P4 (Phase 3' ice)", ""),
 ]
+NOTE_DRIFT = ("FLOE ICE where a few floes carried snowy-earthy drift patches: those patches are GONE -- the floe tops are the "
+              "same clean white snow over pale ice as every floe round them, no tan, brown or earthy colour anywhere on a floe. ")
+LAYOUT_R328 = [
+    ("cave_brow", [2560, 1840], "R-C9-325 (1) the cave overhang -> a brow; the knoll one rounded mass",
+     "the SEA CAVE's BROW and the knoll above it: the rock in front of the cave's roof line is cut back into a worn rock "
+     "brow leaning inland over the dark mouth (no overhanging slab, no flat-topped blocks); the knoll above is ONE rounded "
+     "mass of snow, rust heather and grey rock, continuing exactly the painted snow, heather and granite round it. "),
+    ("cave_east", [2700, 2260], "R-C9-325 (2) the black rectangle -> the cave's east wall as rock",
+     "the sea cave's EAST WALL beside the mouth: solid weathered cliff rock over its full height, wet and dark at its foot "
+     "with a thin rime edge -- NO black opening, NO dark rectangle -- continuing the painted cliff round it. The whole "
+     "flat pale blue-grey area in front of the mouth -- from the cave mouth to the rock lip with its three stone cairns, "
+     "and up to the stair foot -- is a SOLID, FLAT, WALKABLE ICE FLOOR (the same pale blue-white worn ice with a little snow "
+     "as the cave mouth's floor; it lies in the cliff's shadow, which is why the render shows it bluish): there is NO open "
+     "water anywhere on it, no dark water, no floes, no gaps. Open dark water lies only OUTSIDE the rock lip. SEA ICICLES hang "
+     "from the lip down into that water where the render shows them. "),
+    ("d_wreck", [0, 1600], "R-C9-325 (3) drift patches + the cradle sea-side stones -> ice", NOTE_DRIFT),
+    ("d_left_mid", [0, 2700], "R-C9-325 (3) drift patches -> floe ice", NOTE_DRIFT),
+    ("d_left_low", [0, 3072], "R-C9-325 (3) drift patches -> floe ice", NOTE_DRIFT),
+    ("d_mid", [1300, 3000], "R-C9-325 (3) drift patches -> floe ice", NOTE_DRIFT),
+    ("d_right", [3000, 3072], "R-C9-325 (3) drift patches -> floe ice", NOTE_DRIFT),
+    ("ledge", [2560, 2620], "R-C9-329 the ledge before the cave = the mouth's icy floor + 22 sea icicles on its seaward lip",
+     "the flat LEDGE in front of the SEA CAVE, between the stair foot, the sea and the cave mouth: the SAME ICY FLOOR as "
+     "the cave mouth (pale blue-white ice with a little snow, glassy and worn), and along its seaward lip a row of SEA "
+     "ICICLES hanging from the lip down into the dark water, exactly where the render shows them; the cliffs and the "
+     "cave mouth round it continue exactly as painted. "),
+]
+
 
 
 def load_state():
@@ -80,14 +113,18 @@ def plan():
         d = a != b; D |= d.any(2) if d.ndim == 3 else d
     wi = [cls.index(n) for n in WI]
     wn, wo = np.isin(Cn, wi), np.isin(Co, wi)
-    al = json.load(open(P + "allow_321.json")); assert al["PASS"] and sha(P + "allow_321.png") == al["allow_png_sha256"]
-    allow = np.zeros(Cn.shape, bool); allow[:2560, :4096] = np.asarray(Image.open(P + "allow_321.png")) > 0
+    al = json.load(open(P + ALLOW + ".json")); assert al["PASS"] and sha(P + ALLOW + ".png") == al["allow_png_sha256"]
+    allow = np.zeros(Cn.shape, bool); allow[:2560, :4096] = np.asarray(Image.open(P + ALLOW + ".png")) > 0
     pilot = np.zeros(Cn.shape, bool); pilot[:2560, :4096] = True
     rect = np.zeros(Cn.shape, bool)
     for rl in al["rects"].values():
         for x0, y0, x1, y1 in rl:
             rect[max(0, y0):max(0, y1), max(0, x0):max(0, x1)] = True
     PC = wn | (wo & D) | (rect & ndimage.binary_dilation(D, iterations=8))
+    lz = np.zeros_like(PC)
+    for x0, y0, x1, y1 in LAND_ZONES:
+        lz[y0:y1, x0:x1] = True
+    PC |= lz & ndimage.binary_dilation(D, iterations=8)
     PC &= ~pilot | allow
     R = ndimage.binary_dilation(D, iterations=16) & PC
     holes = ndimage.binary_fill_holes(R) & ~R
@@ -96,26 +133,47 @@ def plan():
     small = np.isin(lab, 1 + np.nonzero(sz < HOLE)[0]) & PC
     R |= small
     w1 = np.zeros_like(R); x0, y0, x1, y1 = al["rects"]["W1"][0]; w1[y0:y1, x0:x1] = True
-    R |= w1 & PC
+    if ROUND == "r321":
+        R |= w1 & PC
     p3 = np.zeros_like(R)
     for x0, y0, x1, y1 in P3_BOXES:
         p3[y0:y1, x0:x1] = True
-    R |= p3 & (Cn == cls.index("sea")) & PC
+    if ROUND == "r321":
+        R |= p3 & (Cn == cls.index("sea")) & PC
     R &= PC
     H, W = R.shape
     claimed = np.zeros_like(R)
+    fixed = np.zeros_like(R)   # R-C9-330: the accepted patches' pinned regions, claimed first whatever the plan order
+    lay = LAYOUT if ROUND == "r321" else LAYOUT_R328
+    for name_, (x_, y_), _w, _n in lay:
+        for a_ in load_state()["accepted"]:
+            if a_["pin"]["name"].rsplit("-", 1)[0] == name_:
+                fixed[y_:y_ + CH, x_:x_ + CW] |= np.asarray(Image.open(a_["pin"]["region_png"])) > 127
     rows = []
-    for name, (x, y), what, note in LAYOUT:
+    for name, (x, y), what, note in (LAYOUT if ROUND == "r321" else LAYOUT_R328):
         z = np.zeros_like(R)
         z[y + (IN if y > 0 else 0):y + CH - (IN if y + CH < H else 0), x + (IN if x > 0 else 0):x + CW - (IN if x + CW < W else 0)] = True
-        c = R & z & ~claimed; claimed |= c
+        acc0 = [a_ for a_ in load_state()["accepted"] if a_["pin"]["name"].rsplit("-", 1)[0] == name]
+        if acc0:   # R-C9-330: an accepted patch keeps EXACTLY its pinned region as its claim
+            c = np.zeros_like(R); c[y:y + CH, x:x + CW] = np.asarray(Image.open(acc0[0]["pin"]["region_png"])) > 127
+        else:
+            c = R & z & ~claimed & ~fixed
+        claimed |= c
         d = OUT + name + "/"; os.makedirs(d, exist_ok=True)
-        Image.fromarray((c[y:y + CH, x:x + CW] * 255).astype(np.uint8)).save(d + "region.png")
-        Image.fromarray((PC[y:y + CH, x:x + CW] * 255).astype(np.uint8)).save(d + "paste.png")
+        acc = [a_ for a_ in load_state()["accepted"] if a_["pin"]["name"].rsplit("-", 1)[0] == name]
+        if acc:   # R-C9-330: an ACCEPTED patch's pinned masks are never rewritten -- the re-plan must reproduce them exactly
+            import io
+            for arr, key in ((c, "region"),):   # (its paste mask is pinned with it; a later plan's PC may differ there)
+                bio = io.BytesIO(); Image.fromarray((arr[y:y + CH, x:x + CW] * 255).astype(np.uint8)).save(bio, "PNG")
+                if hashlib.sha256(bio.getvalue()).hexdigest() != acc[0]["pin"][key + "_sha256"]:
+                    raise SystemExit("HALT: the re-plan changes accepted patch %s's %s mask" % (name, key))
+        else:
+            Image.fromarray((c[y:y + CH, x:x + CW] * 255).astype(np.uint8)).save(d + "region.png")
+            Image.fromarray((PC[y:y + CH, x:x + CW] * 255).astype(np.uint8)).save(d + "paste.png")
         rows.append({"name": name, "rect_xy": [x, y], "what": what, "region_px": int(c.sum()),
                      "region_sha256": sha(d + "region.png"), "paste_sha256": sha(d + "paste.png"), "note": note + NOTE_SEA})
     left = R & ~claimed
-    rec = {"_what": "BV2F PT sea pass plan (R-C9-321): DEV-24 patches on the final painting, one per layer, in order",
+    rec = {"_what": "BV2F PT sea pass plan (%s): DEV-24 patches on the final painting, one per layer, in order" % ("R-C9-321" if ROUND == "r321" else "R-C9-328, round r328 on the r321 painting; W1/P3 extras NOT used, LAND_ZONES %s" % LAND_ZONES),
            "new": NEW, "old": OLD, "D_px": int(D.sum()), "PC_px": int(PC.sum()), "R_px": int(R.sum()),
            "R_small_holes_filled_px": int(small.sum()), "R_W1_px": int((w1 & PC).sum()), "R_P3_open_sea_px": int((p3 & (Cn == cls.index("sea")) & PC).sum()),
            "pilot_PC_outside_allow_px": int((PC & pilot & ~allow).sum()), "unclaimed_px": int(left.sum()),
@@ -136,13 +194,13 @@ def spec(name, att="1", cap=1):
     st = load_state()
     assert sha(st["base"]) == st["base_sha256"]
     d = OUT + name + "/"
-    S = {"prefix": "BV2F-LR4", "name": name, "painting": st["base"], "rect_xy": row["rect_xy"], "layer": 6 + len(st["accepted"]),
+    S = {"prefix": "BV2F-LR4", "name": name, "painting": st["base"], "rect_xy": row["rect_xy"], "layer": L0 + len(st["accepted"]),
          "class_png": P + "class_art_pinned_%s.png" % NEW, "class_sha256": sha(P + "class_art_pinned_%s.png" % NEW), "class_commit": NEW,
          "guide_png": P + "guide_art_pinned_%s.png" % NEW, "guide_sha256": sha(P + "guide_art_pinned_%s.png" % NEW),
          "region": {"mode": "png", "png": d + "region.png", "sha256": row["region_sha256"]},
          "paste_mask_png": d + "paste.png", "paste_mask_sha256": row["paste_sha256"],
          "fill": "guide", "brief_v": 2, "image_cap": cap, "cfg": CFG, "note": row["note"],
-         "ruling": "R-C9-321 sea pass %s: %s" % (name, row["what"])}
+         "ruling": "%s sea pass %s: %s" % ("R-C9-321" if ROUND == "r321" else "R-C9-328", name, row["what"])}
     json.dump(S, open(FID + "/pt/dev24/spec_%s.json" % name, "w"), indent=1)
     print("spec", name, "base", os.path.basename(st["base"]), "layer", S["layer"])
 
@@ -155,7 +213,8 @@ def stale_mask(name):
     pl = json.load(open(OUT + "plan.json"))
     names = [r["name"] for r in pl["patches"]]
     st = np.zeros((4096, 6656), bool)
-    for r in pl["patches"][names.index(name) + 1:]:
+    done = [a_["pin"]["name"].rsplit("-", 1)[0] for a_ in load_state()["accepted"]]   # R-C9-328: stale = every planned patch NOT yet
+    for r in [r_ for r_ in pl["patches"] if r_["name"] != name and r_["name"] not in done]:   # accepted (firing order may differ from plan order)
         x, y = r["rect_xy"]
         st[y:y + CH, x:x + CW] |= np.asarray(Image.open(OUT + r["name"] + "/region.png")) > 127
     return st
@@ -192,7 +251,7 @@ def accept(name, att):
     res = FID + "/pt/dev24/%s/painting_sea_%s.png" % (name, att)
     Image.fromarray(out).save(res)
     assert (np.asarray(Image.open(res).convert("RGB")) == out).all()
-    st["accepted"].append({"layer": 6 + len(st["accepted"]), "pin": pin, "base": st["base"], "base_pixels_sha256": dev24.pixels_sha(base),
+    st["accepted"].append({"layer": L0 + len(st["accepted"]), "pin": pin, "base": st["base"], "base_pixels_sha256": dev24.pixels_sha(base),
                            "result": res, "result_sha256": sha(res), "report": rep})
     st["base"], st["base_sha256"] = res, sha(res)
     json.dump(st, open(OUT + "state.json", "w"), indent=1)
@@ -212,12 +271,12 @@ def cfg():
     st = load_state()
     c = json.load(open(CFG))
     n0 = len(c["dev24"]["layers"])
-    assert n0 == 5, "the PH3 cfg already carries sea layers (%d layers)" % n0
+    assert n0 == L0 - 1, "the PH3 cfg layers (%d) are not the round's base" % n0
     for a in st["accepted"]:
         c["dev24"]["layers"].append({"base_pixels_sha256": a["base_pixels_sha256"], "patches": [a["pin"]],
-                                     "_r_c9_321": "sea pass layer %d (%s)" % (a["layer"], a["pin"]["name"])})
-    c["_dev24_sea"] = ("R-C9-321 SEA PASS: layers 6-%d = one DEV-24 patch each, staged in order on the final painting "
-                       "(fid/pt/ph3/sea/plan.json, state.json); each pinned by its read region" % (5 + len(st["accepted"])))
+                                     "_r_c9_321" if ROUND == "r321" else "_r_c9_328": "sea pass layer %d (%s)" % (a["layer"], a["pin"]["name"])})
+    c["_dev24_sea" if ROUND == "r321" else "_dev24_sea_" + ROUND] = ("R-C9-321 SEA PASS: layers 6-%d = one DEV-24 patch each, staged in order on the final painting "
+                       "(fid/pt/ph3/sea/plan.json, state.json); each pinned by its read region" % (L0 - 1 + len(st["accepted"])))
     json.dump(c, open(CFG, "w"), indent=1, ensure_ascii=False)
     print("cfg layers", len(c["dev24"]["layers"]))
 
