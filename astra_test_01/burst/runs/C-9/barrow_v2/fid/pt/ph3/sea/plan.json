@@ -1,0 +1,167 @@
+{
+ "_what": "BV2F PT sea pass plan (R-C9-321): DEV-24 patches on the final painting, one per layer, in order",
+ "new": "bac035332",
+ "old": "023686e3c",
+ "D_px": 3236207,
+ "PC_px": 6551739,
+ "R_px": 5487099,
+ "R_small_holes_filled_px": 436605,
+ "R_W1_px": 107925,
+ "R_P3_open_sea_px": 1842037,
+ "pilot_PC_outside_allow_px": 0,
+ "unclaimed_px": 0,
+ "params": {
+  "canvas": [
+   1536,
+   1024
+  ],
+  "inset": 64,
+  "hole_fill_lt": 60000,
+  "grow_D": 16,
+  "rect_grow": 8,
+  "water_ice": [
+   "sea",
+   "lead",
+   "shore_ice",
+   "tide_ice",
+   "ice",
+   "ice_mid"
+  ],
+  "p3_boxes": [
+   [
+    1700,
+    2800,
+    4400,
+    4096
+   ],
+   [
+    0,
+    3072,
+    1700,
+    4096
+   ]
+  ]
+ },
+ "patches": [
+  {
+   "name": "sea_TL",
+   "rect_xy": [
+    0,
+    0
+   ],
+   "what": "P4 (rubble rect: the mere's raised block)",
+   "region_px": 5864,
+   "region_sha256": "d69ab12f6185df3909bd24002ff09d61b15f85896f7368210bb85ef7239b94df",
+   "paste_sha256": "7548e3e60a7e6cedc3ed826aed7bd65340f5862e00efb427aedb553949c65187",
+   "note": "the top-left corner of the frozen MERE: large flat ice plates over dark water; the one small raised block that stood there is GONE -- dark open water in its place, exactly as the render shows. SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_A1",
+   "rect_xy": [
+    0,
+    1370
+   ],
+   "what": "P1 (pole + W1) + P4 (the pilot sea)",
+   "region_px": 346671,
+   "region_sha256": "a2d4332e4f9895534ad3c343a1b6ce7ba4174954216e306799f5dcb9adf0a6ec",
+   "paste_sha256": "51ec7ad4e48cfdb41f28a30b93d08c8cecebfbbbe3d3594aa6626a338af5aef5",
+   "note": "the shore and sea below the wrecked ship. The long FALLEN POLE that lay across the snow and the ice is GONE: snow, shore ice and water continue under where it lay, with no trace of it or its shadow (the ship's ribs and timbers and its one standing mast stub stay exactly as painted). The water by the stern is calm, deep, dark water -- no foam, no turbulence; the flat shore ice there ends in a clean ice edge with a face down to the water. SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_A2",
+   "rect_xy": [
+    1200,
+    1350
+   ],
+   "what": "P4 (the accepted waterline)",
+   "region_px": 5718,
+   "region_sha256": "5312778d989f6148a59790d81c6a27bdf3b4224a8c16477374a299ef4a4147b9",
+   "paste_sha256": "1f31dcf879dd49a706327b04bf7280f244f4728fd4a179d81caf201e0d426737",
+   "note": "the WATERLINE at the foot of the shingle beach: shingle and snow meet the sea along a smooth, worn, natural curve -- no steps or stair-like edge. SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_B1",
+   "rect_xy": [
+    0,
+    2240
+   ],
+   "what": "P4 (the pilot sea + Phase 3' ice)",
+   "region_px": 1060116,
+   "region_sha256": "ade5d750f2ffb466ced7937c9e64b18e25f1ef19dc26af109b79056abe662000",
+   "paste_sha256": "0863d532db8166b62e5d4ec56fb8b87befe23cc8c817c64f562275c0718770bd",
+   "note": "SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_B2",
+   "rect_xy": [
+    1300,
+    2240
+   ],
+   "what": "P4 (the pilot sea + Phase 3' ice)",
+   "region_px": 405196,
+   "region_sha256": "d79c55cc2b161298e396cb72be059a67c9c88f12454805f8503d061d9c9cf7df",
+   "paste_sha256": "1645f21b377decc30123c478c2a2e1509b5456900a7e2a2ea4d64bb34de20e14",
+   "note": "SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_W2",
+   "rect_xy": [
+    2560,
+    2560
+   ],
+   "what": "P2 (the W2 ledge) + P3 + P4",
+   "region_px": 549745,
+   "region_sha256": "ec3bf4baa53726692ec46d4ec966151be81e8b7a32fcd8abf1998ecd77342965",
+   "paste_sha256": "52515455b931e7f45d135d0470e79f4ef9877d8b938c7da9cf07c30be4b757bd",
+   "note": "the SEA CAVE mouth at the cliff foot: the flat ledge at the mouth is WET DARK ROCK with a thin white rime edge (no ice sheet, no snow cover on it; it stays a flat walkable ledge, its outline exactly as rendered); the sea at the cliff foot is DEEP and DARK, the same tone as the rest of the open water -- no lighter shallow water. SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_C1",
+   "rect_xy": [
+    0,
+    3072
+   ],
+   "what": "P3 + P4 (Phase 3' ice)",
+   "region_px": 1176796,
+   "region_sha256": "7a5f07dae8921cb834e69c41df2943d1576ac8ab3f5b588bc9df79475a987321",
+   "paste_sha256": "26be69933ed575c2129535e3318f50eb106fe30249d93f23963b366ea5ce397a",
+   "note": "SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_C2",
+   "rect_xy": [
+    1300,
+    3072
+   ],
+   "what": "P3 + P4 (Phase 3' ice)",
+   "region_px": 967042,
+   "region_sha256": "ee0591abee718ca2eb26e40ab4d26a37f11088f8b0be0a26806ccea3958224fa",
+   "paste_sha256": "02b836a3c099fb4d9c5a6dd4d8dc495a76691401cc11e16ff49bb8c95e72fa34",
+   "note": "SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_C3",
+   "rect_xy": [
+    2600,
+    3072
+   ],
+   "what": "P3 + P4 (Phase 3' ice)",
+   "region_px": 608456,
+   "region_sha256": "c4f6b336319488c178f2878b852888e17d9360deaeb8ad1f2c5c18fab511429b",
+   "paste_sha256": "249fab9b3c70ca2aa28e0afbea1934be17d7a33d9a5d071c4da3bc6ab4f26417",
+   "note": "SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  },
+  {
+   "name": "sea_R1",
+   "rect_xy": [
+    4000,
+    3072
+   ],
+   "what": "P4 (Phase 3' ice)",
+   "region_px": 361495,
+   "region_sha256": "f9e7411429c9ed3bca739be0ee1b5be5b37713b94cdda7f9064dd11437746409",
+   "paste_sha256": "fc1b6d9959366b235225a3cecb83f7eac993988a25182b6b36c786f67d949abe",
+   "note": "SEA ICE AND OPEN WATER of a frozen northern shore, painted as the painting round them paints them (same snow, same ice, same blue water, same watercolour hand and warm light): every floe and every shore-fast ice sheet keeps EXACTLY its rendered outline, size and THICKNESS (its pale side face exactly as tall as the render shows); floes flat and natural with worn, slightly rounded edges and snow on top -- NO raised rims, NO zig-zag snow edges; the OPEN WATER between them is calm, deep, dark blue water like the painted water round the patch, with NO crack lines, white veins, nets or honeycomb pattern on it; tiny floes stay tiny; rocks and cliffs at the edges continue exactly as painted."
+  }
+ ]
+}

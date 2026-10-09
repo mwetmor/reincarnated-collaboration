@@ -1,0 +1,126 @@
+{
+ "_what": "BV2F PT R-C9-321 SEA PASS record",
+ "pins": "LV bac035332 (guide c1bafb3c93bb, ids 110e633d8812, class 81c08103bf45); allowlist check fid/pt/ph3/allow_321.json PASS (guide 372,762 / class 290,995 / ids 375,945 changed pilot px, 0 outside; constructed RED -> exit 1)",
+ "images": "BV2F-LR4 23 -> 33: 10 of the 16-image sea tranche (cap 1 per burst, no retries, no repaints)",
+ "patches": [
+  {
+   "layer": 6,
+   "name": "sea_TL-1",
+   "rect_xy": [
+    0,
+    0
+   ],
+   "paste_px": 8996,
+   "support_px": 20211,
+   "tone_corr_mean_abs": 2.57
+  },
+  {
+   "layer": 7,
+   "name": "sea_A1-1",
+   "rect_xy": [
+    0,
+    1370
+   ],
+   "paste_px": 393160,
+   "support_px": 487378,
+   "tone_corr_mean_abs": 1.27
+  },
+  {
+   "layer": 8,
+   "name": "sea_A2-1",
+   "rect_xy": [
+    1200,
+    1350
+   ],
+   "paste_px": 6433,
+   "support_px": 6801,
+   "tone_corr_mean_abs": 0.0
+  },
+  {
+   "layer": 9,
+   "name": "sea_B1-1",
+   "rect_xy": [
+    0,
+    2240
+   ],
+   "paste_px": 1114616,
+   "support_px": 1230872,
+   "tone_corr_mean_abs": 0.51
+  },
+  {
+   "layer": 10,
+   "name": "sea_B2-1",
+   "rect_xy": [
+    1300,
+    2240
+   ],
+   "paste_px": 444998,
+   "support_px": 534305,
+   "tone_corr_mean_abs": 0.58
+  },
+  {
+   "layer": 11,
+   "name": "sea_W2-1",
+   "rect_xy": [
+    2560,
+    2560
+   ],
+   "paste_px": 585103,
+   "support_px": 646255,
+   "tone_corr_mean_abs": 0.2
+  },
+  {
+   "layer": 12,
+   "name": "sea_C1-1",
+   "rect_xy": [
+    0,
+    3072
+   ],
+   "paste_px": 1211798,
+   "support_px": 1284418,
+   "tone_corr_mean_abs": 0.34
+  },
+  {
+   "layer": 13,
+   "name": "sea_C2-1",
+   "rect_xy": [
+    1300,
+    3072
+   ],
+   "paste_px": 1026394,
+   "support_px": 1154512,
+   "tone_corr_mean_abs": 0.51
+  },
+  {
+   "layer": 14,
+   "name": "sea_C3-1",
+   "rect_xy": [
+    2600,
+    3072
+   ],
+   "paste_px": 638851,
+   "support_px": 695732,
+   "tone_corr_mean_abs": 0.57
+  },
+  {
+   "layer": 15,
+   "name": "sea_R1-1",
+   "rect_xy": [
+    4000,
+    3072
+   ],
+   "paste_px": 385424,
+   "support_px": 445622,
+   "tone_corr_mean_abs": 7.67
+  }
+ ],
+ "paste_rule_change": "tone correction PINNED per patch (corr_npz, the R-C9-301 mechanism, no Tier-B code change): ring skips px a later patch repaints + smoothstep fade (density 0.02..0.15) instead of DEV-24's hard cut at 0.02, which drew a straight tone line inside large regions (measured up to 24 levels in A1/B1/W2, found by eye in W2); all 10 re-pasted from the final painting without image calls",
+ "restitch": "guided_stitch.py (BV2F_DEV24=1, cfg dev24 layers 1-15) -> fid/pt/ph3/final/painting_ph3_sea_full.png file sha 3201ad8a9c64, pixels sha 6342b88e2a54 == the patch chain (0 px differ)",
+ "identity": "fid/pt/ph3/sea/identity_proof.json PASS: 5,740,515 px changed vs 8e169e6331bb; pilot 705,828, 0 outside the allowlist; 0 outside the paste mask (land byte-identical); constructed control (1 pilot land px + 1 Phase 3' land px) -> FAIL as built",
+ "build_inputs": "fid/pt/ph3/final/build_inputs_manifest.json 179 files OK (r310 copy kept)",
+ "crops": "fid/pt/ph3/sea/crops/<patch>-1_play.jpg (canvas at 1/2: before|after|new guide) + _1to1_0..3.jpg; fid/pt/ph3/final/sea_before_after.jpg",
+ "not_repainted": [
+  "the pale honeycomb ice channel at the cliff foot east of x 5450 (guide unchanged there; not open water)",
+  "~5k px of rock->rock id/guide changes outside the pilot along the floe edges (land, left as painted)"
+ ]
+}

@@ -42,6 +42,9 @@ def region():
     the region classes; "classes" (R-C9-263): the seed classes inside seed_box, dilated, inside the region classes;
     "box": the seed_box itself, inside the region classes"""
     mode = S["region"].get("mode", "dark_lines")
+    if mode == "png":     # R-C9-321 sea pass: the canvas-local region planned by sea_pass.py, sha-pinned
+        assert hashlib.sha256(open(S["region"]["png"], "rb").read()).hexdigest() == S["region"]["sha256"], "region is not the planned one"
+        return np.asarray(Image.open(S["region"]["png"])) > 127
     if mode == "boxes":   # R-C9-299 layer 4: the union of several canvas-local boxes, inside the region classes
         keep = np.zeros((CH, CW), bool)
         for bx in S["region"]["boxes"]:
@@ -74,6 +77,14 @@ def region():
     return R
 
 
+def paste_mask():
+    """canvas-local paste mask: the paste classes of the pinned class map, or (R-C9-321) a planned mask PNG (sha-pinned)"""
+    if "paste_mask_png" in S:
+        assert hashlib.sha256(open(S["paste_mask_png"], "rb").read()).hexdigest() == S["paste_mask_sha256"], "paste mask is not the planned one"
+        return np.asarray(Image.open(S["paste_mask_png"])) > 127
+    return crop(cls_in(S["paste_classes"]))
+
+
 if CMD == "stage":
     R = region()
     can = crop(P8).copy()
@@ -102,7 +113,7 @@ if CMD == "stage":
         can[R] = crop(np.asarray(Image.open(S["guide_png"]).convert("RGB")))[R]
     else:
         can[R] = np.array(S["fill_rgb"], np.uint8)          # a flat greybox patch: the painter paints it, as it paints a guide
-    Image.fromarray((crop(cls_in(S["paste_classes"])) * 255).astype(np.uint8)).save(os.path.join(OUT, "paste_classes.png"))
+    Image.fromarray((paste_mask() * 255).astype(np.uint8)).save(os.path.join(OUT, "paste_classes.png"))
     Image.fromarray(can).save(os.path.join(OUT, "canvas.png"))
     # registered as the frozen guided_paint stages its canvases (CS9-guides/manifest.json: refs_guard's (b)-class rule)
     cp = A9 + "/CS9-guides/%s_canvas.png" % bid
@@ -117,7 +128,22 @@ if CMD == "stage":
     print("staged", int(R.sum()), "px")
 elif CMD == "brief":
     cfg = json.load(open(S["cfg"]))
-    text = ("GENERATE BURST %s — %s, a LOCAL REPAINT of one small region of the finished BV2F pilot painting (%s). task_id \"%s\".\n\n"
+    if S.get("brief_v") == 2:   # R-C9-321 sea pass: the patch is the guide's GREYBOX RENDER (fill "guide"), not a flat tint
+        text = (("GENERATE BURST %s — %s, a LOCAL REPAINT of one region of the finished BV2F painting (%s). task_id \"%s\".\n\n"
+                "IMAGE 1 is the canvas to EDIT (1536x1024): it is ALREADY PAINTED everywhere EXCEPT the areas that still show a "
+                "flat, untextured GREYBOX RENDER (flat pale blue-grey ice and snow with plain grey side faces, flat dark slate-blue "
+                "water, flat grey or brown forms). Paint ONLY those greybox areas, turning every grey form into what it stands for, "
+                "in place: every form keeps EXACTLY its outline, position and size (3D models are placed from the same layout). "
+                "The new paint must CONTINUE the painting round it seamlessly -- same brushwork, grain, tone and light; no visible "
+                "edge where it ends. Everything already painted must stay exactly as it is. What the greybox areas are: %s\n%s\n\n"
+                + ("One image_gen EDIT call, NO retry (image cap 1). " if int(S.get("image_cap", 2)) == 1 else
+                "One image_gen EDIT call. ONE retry only if anything already painted changed, an edge or join remains visible, "
+                "greybox areas remain unpainted, or a form moved off its greybox outline -- name the reason. ") +
+                "Copy the output to out/%s.png with sha256. No code. No other files. No web.\nRETURN: receipt task_id \"%s\"; images = the file with "
+                "prompt, references and elapsed_s; calls_used = the TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.")
+                ) % (bid, cfg.get("run_tag", ""), S.get("ruling", "R-C9-321"), bid, S["note"], cfg["rules"], bid, bid)
+    else:
+      text = ("GENERATE BURST %s — %s, a LOCAL REPAINT of one small region of the finished BV2F pilot painting (%s). task_id \"%s\".\n\n"
             "IMAGE 1 is the canvas to EDIT (1536x1024): it is ALREADY PAINTED everywhere EXCEPT one flat pale blue-grey "
             "patch (a greybox area). Paint ONLY that patch, so that it CONTINUES the painting round it seamlessly -- same "
             "brushwork, grain, tone and light; no visible edge where the patch ends. Everything outside the patch must stay "
@@ -129,7 +155,7 @@ elif CMD == "brief":
             ) % (bid, cfg.get("run_tag", ""), S.get("ruling", "R-C9-243"), bid, S["note"], cfg["rules"], bid, bid)
     refs = [{"path": A9 + "/CS9-guides/%s_canvas.png" % bid, "role": "IMAGE 1 — the canvas to EDIT (the finished painting + ONE greybox patch to paint)"}] + \
            [{"path": p, "role": "IMAGE %d — %s" % (i + 2, role)} for i, (p, role) in enumerate(cfg["refs"])]
-    json.dump({"text": text, "references": refs, "image_cap": 2, "minutes_cap": 15, "tool_call_cap": 20,
+    json.dump({"text": text, "references": refs, "image_cap": int(S.get("image_cap", 2)), "minutes_cap": 15, "tool_call_cap": 20,
                "outputs": ["out/%s.png" % bid], "effort": "high", "add_dirs": [], "experiment": cfg["experiment"]},
               open(B + "/briefs/C-9/%s.task.json" % bid, "w"), indent=1, ensure_ascii=False)
     print(bid, "brief ok")
@@ -147,7 +173,7 @@ elif CMD == "paste":
     R = np.asarray(Image.open(os.path.join(OUT, "region.png"))) > 127
     new = np.asarray(Image.open("%s/%s/%s.png" % (A9, bid, bid)).convert("RGB")).astype(np.float64)
     old = crop(P8).astype(np.float64)
-    pc = crop(cls_in(S["paste_classes"]))
+    pc = paste_mask()
     sys.path.insert(0, os.path.join(FID, "v1tools")); import dev24   # R-C9-263: the ONE paste the Tier-B stitch also runs
     out, w, corr, M = dev24.paste_local(old, new, R, pc)
     full = P8.copy()
