@@ -34,7 +34,7 @@ PX = cfg["prefix"]
 
 
 def src(k):
-    for d in ("%s-%s-r1" % (PX, k), "%s-%s" % (PX, k)):
+    for d in ["%s-%s%s" % (PX, k, s_) for s_ in cfg.get("src_suffixes", [])] + ["%s-%s-r1" % (PX, k), "%s-%s" % (PX, k)]:   # the stitch's own src() order
         p = "%s/%s/%s-%s.png" % (A9, d, PX, k)
         if os.path.exists(p):
             return p
@@ -60,6 +60,28 @@ Tp6 = jload(PH / "results/p6.json")["invention"]["T_v1_ceiling"]
 dec = [{"id": o["id"], "xy": tuple(o["centre_px"]), "radius_m": float(o["p6a_match_radius_m"])}
        for o in json.loads(subprocess.check_output(["git", "-C", FIDS, "show", "%s:astra_test_01/burst/runs/C-9/barrow_v2/fid/lv/guide_art/declared_openings.json" % PINS["lv_commit"]]))["openings"]]
 res = {"_what": __doc__.split("\n")[0], "wave": tag, "chunks": {}, "joins": {}}
+# s51 (R-C9-299/300): pilot-side joins are read with the pilot side SUBSTITUTED by DEV-29's context_patch -- the real
+# pinned inputs, sha-checked, and the substitution checked on them first (changed px subset of mask, == patched there)
+PILOT = {"%d_%d" % (c_, r_) for c_ in range(3) for r_ in range(3)}
+CP = cfg.get("context_patch")
+SUBST = None
+if CP:
+    for f_, s_ in ((CP["painting"], CP["painting_sha256"]), (CP["mask"], CP["mask_sha256"])):
+        assert hashlib.sha256(open(f_, "rb").read()).hexdigest() == s_, "s51 STOP: %s is not the pinned file" % f_
+    _PP = np.asarray(Image.open(CP["painting"]).convert("RGB")).astype(np.float32)
+    _MM = np.asarray(Image.open(CP["mask"])) > 127
+    chk = {}
+    for kk in ("0_2", "1_2", "2_2"):
+        A_ = V.load(src(kk)); A2_ = V.context_patch(A_, kk, _PP, _MM)
+        c_, r_ = map(int, kk.split("_")); mc = np.zeros((1024, 1536), bool)
+        hh, ww = min(1024, _MM.shape[0] - 768 * r_), min(1536, _MM.shape[1] - 1280 * c_)
+        mc[:hh, :ww] = _MM[768 * r_:768 * r_ + hh, 1280 * c_:1280 * c_ + ww]
+        ch_ = np.any(A2_ != A_, -1)
+        chk[kk] = {"mask_px": int(mc.sum()), "changed_px": int(ch_.sum()), "changed_outside_mask": int((ch_ & ~mc).sum()),
+                   "inside_equals_patched": bool(np.array_equal(A2_[mc], np.pad(_PP[768 * r_:768 * r_ + 1024, 1280 * c_:1280 * c_ + 1536], ((0, 1024 - hh), (0, 1536 - ww), (0, 0)))[mc]))}
+    res["s51_substitution_check"] = chk
+    assert all(v["changed_outside_mask"] == 0 and v["inside_equals_patched"] for v in chk.values()), "s51 STOP: substitution check failed"
+    SUBST = lambda kk, im: V.context_patch(im, kk, _PP, _MM) if kk in PILOT else im
 for k in keys:
     c, r = map(int, k.split("_"))
     x0, y0 = 1280 * c, 768 * r
@@ -118,8 +140,24 @@ for k in keys:
         if jn in res["joins"]:
             continue
         rr = V.a_pair(V.load(src(a)), V.load(src(b)), horiz, None)
-        res["joins"][jn] = {"a1_max": round(max(rr["a1"]), 3), "a1_segments": [round(x, 3) for x in rr["a1"]], "raw_mad": rr["raw_mad"],
-                            "bar": 9.569, "verdict": "PASS" if max(rr["a1"]) <= 9.569 else "FAIL"}
+        row_ = {"a1_max": round(max(rr["a1"]), 3), "a1_segments": [round(x, 3) for x in rr["a1"]], "raw_mad": rr["raw_mad"], "bar": 9.569}
+        if SUBST is not None and (a in PILOT) != (b in PILOT):   # s51: a pilot-side join -- the substituted a1 binds
+            rs = V.a_pair(SUBST(a, V.load(src(a))), SUBST(b, V.load(src(b))), horiz, None)
+            row_ = {"a1_max": round(max(rs["a1"]), 3), "a1_segments": [round(x, 3) for x in rs["a1"]], "raw_mad": rs["raw_mad"], "bar": 9.569,
+                    "binding": "s51 substituted (pilot side = raw + context_patch)", "plain_raw_a1_REPORT_ONLY": round(max(rr["a1"]), 3)}
+        row_["verdict"] = "PASS" if row_["a1_max"] <= 9.569 else "FAIL"
+        res["joins"][jn] = row_
+    # s51 diagonal corner joins (the upper-left neighbour's corner pasted as context): bar full 4.809 (pilot-side, binding)
+    if r > 0 and c > 0 and src("%d_%d" % (c - 1, r - 1)):
+        ul = "%d_%d" % (c - 1, r - 1)
+        if SUBST is not None and ul in PILOT:
+            rd = V.a_pair_diag(SUBST(ul, V.load(src(ul))), V.load(src(k)))
+            rr_ = V.a_pair_diag(V.load(src(ul)), V.load(src(k)))
+            res["joins"][ul + "\\" + k] = {"a1_max": round(max(rd["a1"]), 3), "a1_segments": [round(x, 3) for x in rd["a1"]], "raw_mad": rd["raw_mad"],
+                                         "bar": 4.809, "binding": "s51 diagonal corner, substituted", "plain_raw_a1_REPORT_ONLY": round(max(rr_["a1"]), 3),
+                                         "verdict": "PASS" if max(rd["a1"]) <= 4.809 else "FAIL"}
+            if ul + "\\" + k != "2_2\\3_3":   # s51 names only 2_2\3_3 as a binding diagonal: any other is REPORT-ONLY
+                res["joins"][ul + "\\" + k]["binding"] = "REPORT-ONLY (not in s51's list)"; res["joins"][ul + "\\" + k]["verdict"] = "report"
 # contact sheet
 sh = Image.new("RGB", (len(keys) * 776, 540), (255, 255, 255))
 d = ImageDraw.Draw(sh)

@@ -1,0 +1,177 @@
+{
+ "_what": "BV2F PT (R-C9-281): Phase 3' MANUAL per-wave QA (calibration s48 (e)), read-only on the canvases, PH's instruments",
+ "wave": "w9",
+ "chunks": {
+  "0_3": {
+   "canvas": "BV2F-PH3-0_3-r2/BV2F-PH3-0_3.png",
+   "sha256": "44e4ad24b19c161fc4369ca7b5ae48320225930a1aa9e8dbd97008e993ad73fa",
+   "P6a": {
+    "candidates": [],
+    "invented": 0
+   },
+   "P4": {
+    "snow": {
+     "windows": 0,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 100,
+     "reading": null
+    },
+    "rock": {
+     "windows": 20,
+     "verdict": "PASS",
+     "w_min": 3,
+     "reading": {
+      "px": 156607,
+      "hist_dist": 0.403,
+      "hist_bar": 0.481,
+      "spec_dist": 0.054,
+      "spec_bar": 0.19,
+      "pass": true
+     }
+    }
+   },
+   "snow_palette": {
+    "not_measured": "snow support 0 < 100 windows"
+   }
+  },
+  "1_3": {
+   "canvas": "BV2F-PH3-1_3-r2/BV2F-PH3-1_3.png",
+   "sha256": "2905c3639f797e638cc65d5c1ddfe314375e7ee6a9c42e70da587d2b51663f53",
+   "P6a": {
+    "candidates": [],
+    "invented": 0
+   },
+   "P4": {
+    "snow": {
+     "windows": 0,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 100,
+     "reading": null
+    },
+    "rock": {
+     "windows": 104,
+     "verdict": "PASS",
+     "w_min": 3,
+     "reading": {
+      "px": 617677,
+      "hist_dist": 0.323,
+      "hist_bar": 0.481,
+      "spec_dist": 0.041,
+      "spec_bar": 0.19,
+      "pass": true
+     }
+    }
+   },
+   "snow_palette": {
+    "not_measured": "snow support 0 < 100 windows"
+   }
+  }
+ },
+ "joins": {
+  "0_2/0_3": {
+   "a1_max": 7.53,
+   "a1_segments": [
+    2.333,
+    2.399,
+    1.628,
+    2.165,
+    2.241,
+    1.769,
+    1.847,
+    2.081,
+    2.483,
+    2.338,
+    3.063,
+    7.53
+   ],
+   "raw_mad": 5.81,
+   "bar": 9.569,
+   "binding": "s51 substituted (pilot side = raw + context_patch)",
+   "plain_raw_a1_REPORT_ONLY": 21.457,
+   "verdict": "PASS"
+  },
+  "0_3|1_3": {
+   "a1_max": 10.517,
+   "a1_segments": [
+    6.482,
+    8.955,
+    4.747,
+    3.367,
+    3.978,
+    5.083,
+    8.594,
+    10.517
+   ],
+   "raw_mad": 10.15,
+   "bar": 9.569,
+   "verdict": "FAIL"
+  },
+  "1_2/1_3": {
+   "a1_max": 14.564,
+   "a1_segments": [
+    2.811,
+    7.443,
+    7.448,
+    10.228,
+    9.16,
+    11.689,
+    10.252,
+    11.268,
+    14.564,
+    10.078,
+    8.573,
+    7.153
+   ],
+   "raw_mad": 15.46,
+   "bar": 9.569,
+   "binding": "s51 substituted (pilot side = raw + context_patch)",
+   "plain_raw_a1_REPORT_ONLY": 26.015,
+   "verdict": "FAIL"
+  },
+  "0_2\\1_3": {
+   "a1_max": 7.42,
+   "a1_segments": [
+    2.036,
+    6.994,
+    2.674,
+    7.42
+   ],
+   "raw_mad": 9.57,
+   "bar": 4.809,
+   "binding": "REPORT-ONLY (not in s51's list)",
+   "plain_raw_a1_REPORT_ONLY": 7.42,
+   "verdict": "report"
+  }
+ },
+ "s51_substitution_check": {
+  "0_2": {
+   "mask_px": 835833,
+   "changed_px": 798440,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  },
+  "1_2": {
+   "mask_px": 104827,
+   "changed_px": 94695,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  },
+  "2_2": {
+   "mask_px": 645307,
+   "changed_px": 628187,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  }
+ },
+ "preview": {
+  "grid": [
+   5,
+   4
+  ],
+  "rc": 1,
+  "log": [
+   "DEV-24 HALT: patch ps4_l4_g1-1 reads pixels that differ from its staged base"
+  ],
+  "file": "stitched_preview.jpg (half size); cells not painted are the GUIDE"
+ }
+}
