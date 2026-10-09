@@ -1,0 +1,148 @@
+{
+ "_what": "C-9 BV2F ARENA (R-C9-345/347/348): the KC2 wave fight brought to barrow_v2. Frame: barrow_v2 SIM (x, y) = (u, -v) (level.json sim._frame); the KC2 frame = barrow sim - fight_centre_sim (no rotation: +x screen-right, +y toward the camera in both). Read by scripts/arena/arena_session.gd (anchors) and arena_mode.gd (start, blockers).",
+ "level": "data/bv2f/site_ph3/level/level.json (site_ph3)",
+ "fight_centre_sim": [
+  11.0447,
+  -0.3162
+ ],
+ "fight_centre_rule": "the player's start = KC2 (0,0). Placed ON the sea-cave stair's own line (foot + 14 m uphill along route.ramp dir_sim reversed) so the p03 line climbs the stair, on open snow/ash ground (11 of 795 half-metre cells in its 8 m disc steep or out of bounds)",
+ "anchors": {
+  "p01": {
+   "feature": "wreck (feature)",
+   "sim": [
+    -23.0,
+    -6.0
+   ],
+   "rule": "beside the hull, 4.8 m off its north (inland) side, on the top of the bank (5.1 m from the hull centre): the gentlest straight line from the wreck to the fight centre (max slope 17 deg on the walk heightfield, no inner wall crossed); the hull's own ends sit in the basin under a 60-70 deg bank"
+  },
+  "p02": {
+   "feature": "barrow door (doorway)",
+   "sim": [
+    2.0,
+    -17.5928
+   ],
+   "rule": "IN the door (openings.barrow_door centre_sim)"
+  },
+  "p03": {
+   "feature": "sea cave mouth (doorway)",
+   "sim": [
+    3.722,
+    11.616
+   ],
+   "rule": "the iced ledge at the stair's foot, 4.96 m east of the mouth centre (-1.2321, 11.7551): the only point by the mouth with a straight line to the fight area, and that line IS the stair (no pathing)"
+  },
+  "p04": {
+   "feature": "longhall great door (doorway)",
+   "sim": [
+    21.25,
+    -0.1044
+   ],
+   "rule": "IN the door (openings.hall_great_door centre_sim)"
+  },
+  "p05": {
+   "feature": "mere ambush (feature)",
+   "sim": [
+    -3.0,
+    -11.0
+   ],
+   "rule": "on the mere ice, its east lobe, nearest the fight; bodies rise out of the ice (the runtime's own p05 emergence window, the pack's emerge clip); no hazard"
+  },
+  "p06": {
+   "feature": "collapsed gable (feature)",
+   "sim": [
+    25.5335,
+    6.5458
+   ],
+   "rule": "on the rubble (openings.gable_breach probe centre)"
+  }
+ },
+ "blockers": [
+  {
+   "id": "block_p02_barrow_door",
+   "centre_sim": [
+    2.0,
+    -17.3928
+   ],
+   "size_m": [
+    2.0,
+    3.98
+   ],
+   "axis_deg": 90.0,
+   "z_m": [
+    -1.0,
+    4.5
+   ],
+   "rule": "the doorway, 0.8 m in (curtain) to 1.2 m out, door width 3.378 + 0.6"
+  },
+  {
+   "id": "block_p04_hall_door",
+   "centre_sim": [
+    21.1197,
+    0.0473
+   ],
+   "size_m": [
+    2.0,
+    3.2
+   ],
+   "axis_deg": 130.667,
+   "z_m": [
+    -1.0,
+    4.0
+   ],
+   "rule": "the doorway, 0.8 m in to 1.2 m out, door width 2.598 + 0.6"
+  },
+  {
+   "id": "block_p03_sea_cave",
+   "centre_sim": [
+    -1.2972,
+    11.0581
+   ],
+   "size_m": [
+    3.4,
+    6.6
+   ],
+   "axis_deg": 84.667,
+   "z_m": [
+    -5.0,
+    4.0
+   ],
+   "rule": "the mouth, 2.4 m in (curtain) to 1.0 m out, mouth width 6.0 + 0.6"
+  },
+  {
+   "id": "block_p01_wreck_hull",
+   "centre_sim": [
+    -27.1,
+    -2.9
+   ],
+   "size_m": [
+    9.7,
+    2.7
+   ],
+   "axis_deg": 32.471,
+   "z_m": [
+    -6.0,
+    3.0
+   ],
+   "rule": "the hull probe (h_rect L 9.1 x W 2.082, rot 32.471) + 0.3 m a side"
+  },
+  {
+   "id": "block_p06_gable_rubble",
+   "centre_sim": [
+    25.5335,
+    6.5458
+   ],
+   "size_m": [
+    4.4,
+    4.4
+   ],
+   "axis_deg": 104.379,
+   "z_m": [
+    -1.0,
+    4.0
+   ],
+   "rule": "the breach probe (h_rect 4 x 4, rot 104.379) + 0.2 m a side"
+  }
+ ],
+ "spawn_disc_m": 8.0,
+ "hazards": "none: the six crucible floor pools are dropped (R-C9-348); doorways + wreck + gable are blockers instead; p05 needs none"
+}
