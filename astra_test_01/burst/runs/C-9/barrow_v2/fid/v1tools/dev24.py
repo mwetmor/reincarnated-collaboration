@@ -41,13 +41,15 @@ def weights(R: np.ndarray, pc: np.ndarray):
     return M, w
 
 
-def paste_local(old: np.ndarray, new: np.ndarray, R: np.ndarray, pc: np.ndarray):
-    """old, new: canvas-local float64 RGB; R region, pc paste classes (bool). -> (out float64, w, corr, M)"""
+def paste_local(old: np.ndarray, new: np.ndarray, R: np.ndarray, pc: np.ndarray, corr=None):
+    """old, new: canvas-local float64 RGB; R region, pc paste classes (bool). -> (out float64, w, corr, M).
+    corr given (R-C9-301: a PINNED correction field, computed once on the patch's staged base) = used as is."""
     M, w = weights(R, pc)
-    ring = ndimage.binary_dilation(M, iterations=RING_OUT) & ~ndimage.binary_dilation(M, iterations=RING_IN) & pc
-    num = np.stack([ndimage.gaussian_filter((old - new)[..., i] * ring, CORR_SIGMA) for i in range(3)], -1)
-    den = ndimage.gaussian_filter(ring.astype(np.float64), CORR_SIGMA)[..., None]
-    corr = num / np.maximum(den, 1e-6) * (den > 0.02)
+    if corr is None:
+        ring = ndimage.binary_dilation(M, iterations=RING_OUT) & ~ndimage.binary_dilation(M, iterations=RING_IN) & pc
+        num = np.stack([ndimage.gaussian_filter((old - new)[..., i] * ring, CORR_SIGMA) for i in range(3)], -1)
+        den = ndimage.gaussian_filter(ring.astype(np.float64), CORR_SIGMA)[..., None]
+        corr = num / np.maximum(den, 1e-6) * (den > 0.02)
     out = old * (1 - w[..., None]) + (new + corr) * w[..., None]
     return out, w, corr, M
 
@@ -67,10 +69,19 @@ def read_region(R: np.ndarray, pc: np.ndarray) -> np.ndarray:
 
 
 def read_sha(img: np.ndarray, p: dict) -> str:
+    """the sha of the pixels the patch reads from `img`. R-C9-301: a patch may carry `read_zone` [x0, y0, x1, y1] (plate
+    px, exclusive ends; the pilot identity zone): only its read pixels inside the zone are pinned -- outside it the patch
+    reads whatever the (full-site) stitch blended there, and the build's own sha pins the result. No read_zone = all.
+    Such a patch also pins its tone-correction field (`corr_npz` + `corr_sha256`, computed once on its staged base), so the
+    ring pixels outside the zone cannot move the correction: inside the zone the paste is byte-identical to its staging."""
     x0, y0 = p["rect_xy"]
     R = _load_mask(p["region_png"], p["region_sha256"])
     pc = _load_mask(p["paste_png"], p["paste_sha256"])
     rr = read_region(R, pc)
+    if "read_zone" in p:
+        zx0, zy0, zx1, zy1 = p["read_zone"]
+        yy, xx = np.mgrid[0:CH, 0:CW]
+        rr &= (xx + x0 >= zx0) & (xx + x0 < zx1) & (yy + y0 >= zy0) & (yy + y0 < zy1)
     return pixels_sha(img[y0:y0 + CH, x0:x0 + CW][rr])
 
 
@@ -95,7 +106,12 @@ def apply_layer(img: np.ndarray, layer: dict):
             raise SystemExit("DEV-24 HALT: %s is not the pinned repaint" % p["new_png"])
         new = np.asarray(Image.open(p["new_png"]).convert("RGB")).astype(np.float64)
         old = img[y0:y0 + CH, x0:x0 + CW].astype(np.float64)
-        out, w, corr, M = paste_local(old, new, R, pc)
+        fixed = None
+        if "corr_npz" in p:   # R-C9-301: a read_zone patch carries its correction field, pinned (computed on its staged base)
+            if _sha(p["corr_npz"]) != p["corr_sha256"]:
+                raise SystemExit("DEV-24 HALT: %s is not the pinned correction field" % p["corr_npz"])
+            fixed = np.load(p["corr_npz"])["corr"].astype(np.float64)
+        out, w, corr, M = paste_local(old, new, R, pc, fixed)
         sup = np.zeros_like(support); sup[y0:y0 + CH, x0:x0 + CW] = w > 0
         if (sup & support).any():
             raise SystemExit("DEV-24 HALT: patch %s overlaps an earlier patch's support in its layer" % p["name"])
