@@ -41,7 +41,33 @@ func _lods(on: bool) -> int:
 			n += 1
 	return n
 
+var _dev5_shared := {}
+var _dev5_permat := {}
+
+func _dev5(shared_on: bool) -> int:
+	# R-C9-317: A = the shared instance-uniform floe material (as built); B = one per-floe material, phase as a uniform
+	var n := 0
+	var stack := [scene]
+	while not stack.is_empty():
+		var nd: Node = stack.pop_back()
+		for c in nd.get_children():
+			stack.append(c)
+		if nd is MeshInstance3D and nd.has_meta("bob_phase"):
+			var mi := nd as MeshInstance3D
+			if not _dev5_shared.has(mi):
+				_dev5_shared[mi] = mi.material_override
+				var m: ShaderMaterial = (mi.material_override as ShaderMaterial).duplicate()
+				var sh := Shader.new(); sh.code = preload("res://scripts/bv2f/pt_water.gd").floe_shader_code()
+				m.shader = sh
+				m.set_shader_parameter("bob_phase", float(mi.get_meta("bob_phase")))
+				_dev5_permat[mi] = m
+			mi.material_override = _dev5_shared[mi] if shared_on else _dev5_permat[mi]
+			n += 1
+	return n
+
 func _tiles(show: bool) -> int:
+	if cut == "dev5":
+		return _dev5(show)
 	if cut == "rocklod":
 		return _lods(show)
 	var n := 0

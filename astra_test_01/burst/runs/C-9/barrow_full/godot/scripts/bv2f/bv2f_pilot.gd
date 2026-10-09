@@ -436,40 +436,57 @@ func _dress_water(man: Dictionary, painting: Texture2D, lit: Texture2D, shadow_m
 			n_land += 1
 		ns += 1
 	var fsh := PaintedWorld._shader("bv2f_floes", PT_WATER.floe_shader_code())
+	# R-C9-317 DEV-5: ONE shared floe material, each floe's phase an `instance uniform` (one material instead of one per
+	# floe; the bob and the projection are the same code). BV2F_DEV5_PERMAT=1 = the R-C9-194 per-floe materials (A/B only).
+	var permat := OS.get_environment("BV2F_DEV5_PERMAT") == "1"
+	var fsh_i := PaintedWorld._shader("bv2f_floes_inst", PT_WATER.floe_shader_code().replace(
+		"uniform float bob_phase = 0.0;", "instance uniform float bob_phase = 0.0;"))
+	var shared_fm: ShaderMaterial = null
+	var floe_mat := func(phase: float) -> ShaderMaterial:
+		if not permat and shared_fm != null:
+			return shared_fm
+		var m := ShaderMaterial.new()
+		m.shader = fsh if permat else fsh_i
+		m.set_shader_parameter("paint_tex", painting)
+		m.set_shader_parameter("project_uv", true)
+		m.set_shader_parameter("painted_mark", PaintedWorld.PAINTED_MARK)
+		PaintedWorld.bind_projection(m, lit, shadow_mul, u_hat, v_hat)
+		if permat:
+			m.set_shader_parameter("bob_phase", phase)
+		else:
+			shared_fm = m
+		return m
+	var set_phase := func(mi: MeshInstance3D, phase: float) -> void:
+		mi.set_meta("bob_phase", phase)
+		if not permat:
+			mi.set_instance_shader_parameter("bob_phase", phase)
 	var nf := 0
 	for id in nodes:
 		if not String(id).begins_with("blobs_shore_ice__"):
 			continue
-		var fm := ShaderMaterial.new()
-		fm.shader = fsh
-		fm.set_shader_parameter("paint_tex", painting)
-		fm.set_shader_parameter("project_uv", true)
-		fm.set_shader_parameter("painted_mark", PaintedWorld.PAINTED_MARK)
-		PaintedWorld.bind_projection(fm, lit, shadow_mul, u_hat, v_hat)
-		fm.set_shader_parameter("bob_phase", fposmod(float(nf) * 0.6180339, 1.0))
+		var ph := fposmod(float(nf) * 0.6180339, 1.0)
+		var fm: ShaderMaterial = floe_mat.call(ph)
 		for mi in _meshes(nodes[id]):
 			_paint_mesh(mi, fm, false)
+			set_phase.call(mi, ph)
 		nf += 1
 	# R-C9-232: LV's Phase-1'' sea has no floe blobs -- its loose floes are ONE slab group (ice_floes_bob, tagged to bob).
 	# Each floe is split out of the group mesh as its own piece (connected triangles) and bobs on its own phase.
 	if nodes.has("ice_floes_bob"):
 		for mi in _meshes(nodes["ice_floes_bob"]):
 			for am in _split_components(mi.mesh):
-				var fm := ShaderMaterial.new()
-				fm.shader = fsh
-				fm.set_shader_parameter("paint_tex", painting)
-				fm.set_shader_parameter("project_uv", true)
-				fm.set_shader_parameter("painted_mark", PaintedWorld.PAINTED_MARK)
-				PaintedWorld.bind_projection(fm, lit, shadow_mul, u_hat, v_hat)
-				fm.set_shader_parameter("bob_phase", fposmod(float(nf) * 0.6180339, 1.0))
+				var ph := fposmod(float(nf) * 0.6180339, 1.0)
+				var fm: ShaderMaterial = floe_mat.call(ph)
 				var piece := MeshInstance3D.new()
 				piece.name = "floe_%d" % nf
 				piece.mesh = am
 				mi.get_parent().add_child(piece)
 				piece.global_transform = mi.global_transform
 				_paint_mesh(piece, fm, false)
+				set_phase.call(piece, ph)
 				nf += 1
 			mi.visible = false
+	n["floe_materials"] = "per-floe (BV2F_DEV5_PERMAT)" if permat else "shared + instance uniform (R-C9-317)"
 	water_mat_pt = wm
 	n["water"] = {"sea_meshes": ns, "floes_bobbing": nf, "sea_above_water_split": n_land, "sea_y": sea_y}
 
