@@ -1,0 +1,163 @@
+{
+ "_what": "BV2F PT (R-C9-281): Phase 3' MANUAL per-wave QA (calibration s48 (e)), read-only on the canvases, PH's instruments",
+ "wave": "w11",
+ "chunks": {
+  "3_3": {
+   "canvas": "BV2F-PH3-3_3/BV2F-PH3-3_3.png",
+   "sha256": "af1cbd8cf583addbc1b76b9ce62672ce3b11bcc6664aa0898a2c2cf328addfce",
+   "P6a": {
+    "candidates": [],
+    "invented": 0
+   },
+   "P4": {
+    "snow": {
+     "windows": 133,
+     "verdict": "PASS",
+     "w_min": 100,
+     "reading": {
+      "px": 822032,
+      "hist_dist": 0.281,
+      "hist_bar": 0.281,
+      "spec_dist": 0.069,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "rock": {
+     "windows": 24,
+     "verdict": "PASS",
+     "w_min": 3,
+     "reading": {
+      "px": 251188,
+      "hist_dist": 0.231,
+      "hist_bar": 0.481,
+      "spec_dist": 0.044,
+      "spec_bar": 0.19,
+      "pass": true
+     }
+    }
+   },
+   "snow_palette": {
+    "values": {
+     "lit_a": 4.03,
+     "lit_b": 9.18,
+     "shadow_a": 4.93,
+     "peach_share_of_lit": 0.979
+    },
+    "v1_range": {
+     "lit_a": [
+      1.83,
+      3.07
+     ],
+     "lit_b": [
+      5.68,
+      10.24
+     ],
+     "shadow_a": [
+      2.93,
+      4.5
+     ],
+     "peach_share_of_lit": [
+      0.381,
+      0.973
+     ]
+    },
+    "inside": {
+     "lit_a": false,
+     "lit_b": true,
+     "shadow_a": false,
+     "peach_share_of_lit": false
+    },
+    "STOP": true
+   }
+  }
+ },
+ "joins": {
+  "2_3|3_3": {
+   "a1_max": 4.373,
+   "a1_segments": [
+    2.571,
+    3.824,
+    3.073,
+    3.127,
+    2.861,
+    3.004,
+    4.373,
+    3.041
+   ],
+   "raw_mad": 14.7,
+   "bar": 9.569,
+   "verdict": "PASS"
+  },
+  "3_2/3_3": {
+   "a1_max": 15.299,
+   "a1_segments": [
+    15.299,
+    14.891,
+    4.124,
+    6.184,
+    4.561,
+    4.995,
+    5.234,
+    4.533,
+    4.637,
+    3.969,
+    4.724,
+    4.525
+   ],
+   "raw_mad": 14.33,
+   "bar": 9.569,
+   "verdict": "FAIL"
+  },
+  "2_2\\3_3": {
+   "a1_max": 2.841,
+   "a1_segments": [
+    2.841,
+    2.265,
+    2.295,
+    2.117
+   ],
+   "raw_mad": 14.07,
+   "bar": 4.809,
+   "binding": "s51 diagonal corner, substituted",
+   "plain_raw_a1_REPORT_ONLY": 15.811,
+   "verdict": "PASS"
+  }
+ },
+ "s51_substitution_check": {
+  "0_2": {
+   "mask_px": 835833,
+   "changed_px": 798440,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  },
+  "1_2": {
+   "mask_px": 104827,
+   "changed_px": 94695,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  },
+  "2_2": {
+   "mask_px": 645307,
+   "changed_px": 628187,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  }
+ },
+ "preview": {
+  "grid": [
+   5,
+   4
+  ],
+  "rc": 0,
+  "log": [
+   "DEV-23 on {'0_0': {}, '1_0': {'left_step_mean_abs': 4.45}, '0_1': {'top_step_mean_abs': 6.66}, '1_1': {'left_step_mean_abs': 3.85, 'top_step_mean_abs': 2.58}, '0_2': {'top_step_mean_abs': 10.12}, '1_2': {'left_step_mean_abs': 5.87, 'top_step_mean_abs': 6.44}, '0_3': {'top_step_mean_abs': 7.5}, '1_3': {'left_step_mean_abs': 6.04, 'top_step_mean_abs': 6.65}, '2_0': {'left_step_mean_abs': 2.48}, '2_1': {'left_step_mean_abs': 6.31, 'top_step_mean_abs': 2.74}, '3_0': {'left_step_mean_abs': 5.74}, '3_1': {'left_step_mean_abs': 4.4, 'top_step_mean_abs': 3.76}, '4_0': {'left_step_mean_abs': 5.67}, '4_1': {'left_step_mean_abs': 3.96, 'top_step_mean_abs': 8.45}, '2_2': {'left_step_mean_abs': 9.42, 'top_step_mean_abs': 6.17}, '2_3': {'left_step_mean_abs': 4.14, 'top_step_mean_abs': 6.88}, '3_2': {'left_step_mean_abs': 3.93, 'top_step_mean_abs': 5.74}, '3_3': {'left_step_mean_abs': 5.88, 'top_step_mean_abs': 4.8}, '4_2': {'left_step_mean_abs': 8.25, 'top_step_mean_abs': 5.99}, '4_3': {'left_step_mean_abs': 1.43, 'top_step_mean_abs': 0.51}}",
+   "DEV-25 on {'0_0': {}, '1_0': {'left_k_median': 0.951}, '0_1': {'top_k_median': 1.0}, '1_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '0_2': {'top_k_median': 1.0}, '1_2': {'left_k_median': 0.976, 'top_k_median': 1.0}, '0_3': {'top_k_median': 1.0}, '1_3': {'left_k_median': 0.901, 'top_k_median': 1.0}, '2_0': {'left_k_median': 1.0}, '2_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_0': {'left_k_median': 0.992}, '3_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '4_0': {'left_k_median': 1.0}, '4_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '2_2': {'left_k_median': 1.0, 'top_k_median': 0.948}, '2_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_2': {'left_k_median': 1.0, 'top_k_median': 0.953}, '3_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '4_2': {'left_k_median': 0.987, 'top_k_median': 0.958}, '4_3': {'left_k_median': 1.0, 'top_k_median': 1.0}}",
+   "DEV-26 on {'x1_pinned_rows': 2304, 'x1': {'path_min_max': [14, 230], 'object_px_on_path': 36}, 'y1_pinned_rows': 3840, 'y1': {'path_min_max': [14, 216], 'object_px_on_path': 133}, 'x2_pinned_rows': 2304, 'x2': {'path_min_max': [14, 225], 'object_px_on_path': 605}, 'x3': {'path_min_max': [14, 241], 'object_px_on_path': 155}, 'x4': {'path_min_max': [14, 241], 'object_px_on_path': 86}, 'y2_pinned_rows': 3840, 'y2': {'path_min_max': [14, 241], 'object_px_on_path': 208}, 'y3': {'path_min_max': [14, 241], 'object_px_on_path': 1758}}",
+   "DEV-27 on {'0_0': {}, '1_0': {'left_step_mean_abs': 3.6}, '2_0': {'left_step_mean_abs': 4.26}, '3_0': {'left_step_mean_abs': 3.24}, '4_0': {'left_step_mean_abs': 4.01}, '0_1': {'top_step_mean_abs': 4.89}, '1_1': {'left_step_mean_abs': 3.55, 'top_step_mean_abs': 5.08}, '2_1': {'left_step_mean_abs': 4.25, 'top_step_mean_abs': 4.93}, '3_1': {'left_step_mean_abs': 3.74, 'top_step_mean_abs': 3.69}, '4_1': {'left_step_mean_abs': 4.41, 'top_step_mean_abs': 5.12}, '0_2': {'top_step_mean_abs': 6.71}, '1_2': {'left_step_mean_abs': 3.98, 'top_step_mean_abs': 5.99}, '2_2': {'left_step_mean_abs': 6.96, 'top_step_mean_abs': 6.51}, '3_2': {'left_step_mean_abs': 2.77, 'top_step_mean_abs': 4.58}, '4_2': {'left_step_mean_abs': 4.1, 'top_step_mean_abs': 6.01}, '0_3': {'top_step_mean_abs': 7.84}, '1_3': {'left_step_mean_abs': 5.08, 'top_step_mean_abs': 6.26}, '2_3': {'left_step_mean_abs': 8.21, 'top_step_mean_abs': 4.23}, '3_3': {'left_step_mean_abs': 7.29, 'top_step_mean_abs': 4.31}, '4_3': {'left_step_mean_abs': 0.6, 'top_step_mean_abs': 1.31}}",
+   "DEV-24 on {'layers': [{'patches': [{'name': 'ps4_crack1-1', 'paste_px': 227215, 'support_px': 370398, 'tone_corr_mean_abs': 4.92}, {'name': 'ps4_crack2-1', 'paste_px': 31760, 'support_px': 41868, 'tone_corr_mean_abs': 0.97}, {'name': 'ps4_crack3-1', 'paste_px': 50247, 'support_px': 91263, 'tone_corr_mean_abs': 1.98}], 'changed_px': 360021, 'layer': 1}, {'patches': [{'name': 'ps4_reeds1-1', 'paste_px': 387468, 'support_px': 534616, 'tone_corr_mean_abs': 1.58}, {'name': 'ps4_reeds2-1', 'paste_px': 224270, 'support_px': 313713, 'tone_corr_mean_abs': 2.21}, {'name': 'ps4_reeds3-1', 'paste_px': 176668, 'support_px': 258851, 'tone_corr_mean_abs': 1.06}, {'name': 'ps4_seam2-1', 'paste_px': 92472, 'support_px': 118338, 'tone_corr_mean_abs': 4.38}], 'changed_px': 973193, 'layer': 2}, {'patches': [{'name': 'ps4_seam1-1', 'paste_px': 112817, 'support_px': 132838, 'tone_corr_mean_abs': 0.5}], 'changed_px': 118322, 'layer': 3}, {'patches': [{'name': 'ps4_l4_g1-1', 'paste_px': 725222, 'support_px': 819899, 'tone_corr_mean_abs': 0.75}, {'name': 'ps4_l4_g2-1', 'paste_px': 109968, 'support_px': 158244, 'tone_corr_mean_abs': 1.89}, {'name': 'ps4_l4_g3-1', 'paste_px': 600379, 'support_px': 645307, 'tone_corr_mean_abs': 0.35}], 'changed_px': 1490564, 'layer': 4}], 'changed_px': 2795948, 'result_pixels_sha256': '830169e74ed9f5690fdd6d9dcc486bfa1d0210edae7de143fd34d211170b6184'}",
+   "DEV-25c off"
+  ],
+  "file": "stitched_preview.jpg (half size); cells not painted are the GUIDE"
+ }
+}
