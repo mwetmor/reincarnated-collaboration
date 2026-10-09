@@ -49430,6 +49430,92 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-2_4",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "fd0570bf8d46a807ce3d4dd7fe2b1073f344b1a161550eb6e1cca49778f4779c",
+      "started": "2026-10-09T05:33:57.041264+00:00",
+      "ended": "2026-10-09T05:34:00.635592+00:00",
+      "minutes": 0.05989916388643905,
+      "image_calls": 0,
+      "tool_calls": 0,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/BV2F-PH3-2_4/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 0,
+        "tools_seen": {},
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "codex exit 1"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
+    },
+    {
+      "id": "BV2F-PH3-2_4-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "ddc6469308953a5cb1a5348f5eb513105d351fb9f6dacf01354dfcae23fa319c",
+      "started": "2026-10-09T05:34:30.806250+00:00",
+      "ended": "2026-10-09T05:34:34.307823+00:00",
+      "minutes": 0.05835164653447767,
+      "image_calls": 0,
+      "tool_calls": 0,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/BV2F-PH3-2_4-r1/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 0,
+        "tools_seen": {},
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "codex exit 1"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
   "images_used": 1433,
@@ -50852,6 +50938,12 @@
       "ts": "2026-10-08T00:32:50Z",
       "status": "closed",
       "what": "PT's stair-snow test (Godot PID 78315, tools/bv2f/pt_stair_snow_test.gd) looped every frame for ~85 min on a script error ('ready_done' on a Node3D, line 80) while holding the SHARED heavy lock, blocking the Sim Session's JOIN-1/KC2 heavy runs; log reached 88 MB (scratchpad/st1/log.txt). Reported by the Sim Session conductor; the C-9 conductor verified and terminated it; lock released (next holder: LV's walkability check, then the Sim Session's queued jobs). Remedy ordered: fix the script error, a quit-on-script-error + wall-clock timeout guard in every PT Godot harness, a log cap; the log is listed for Matt's cleanup."
+    },
+    {
+      "id": "H-C9-BV2F-ASTRA-LIMIT-2",
+      "ts": "2026-10-09T01:35:53-04:00",
+      "by": "gandalf (conductor)",
+      "text": "The image service (Astra/Codex) usage limit was hit during Phase 3' (PT a6777c0e0): BV2F-PH3-2_4 and -r1 exited 3 with 0 images ('You've hit your usage limit ... try again at 5:13 AM'). All bursts stopped. Remaining: 2_4 (as -r2), 3_4, 4_4, then the one DEV-24 corner seam patch, then the final deliverables. Budget left: Phase 3' 6/44, DEV-24 2/24. PT's usage-limit check now also reads the burst's events.jsonl."
     }
   ],
   "rulings": [
@@ -53343,6 +53435,13 @@
       "ts": "2026-10-09T01:33:12-04:00",
       "verbatim": "",
       "ruling": "1_4-r1 (PT 1b9b29c39; 38/44 images): the corner line RECURS in the same place; PT shows it is STRUCTURAL (the overlap ends of the four-chunk corner 0_3/1_3/0_4/1_4 meet there; the horizontal edge lies on 0_4's side), so R-C9-306's repaint of 1_4 could not remove it: 2 images spent on that, recorded. 1_4-r1 is KEPT. RULED (b): ONE DEV-24 seam patch straddling the corner (~384x384 px centred at plate (1536,3328)), 1 of DEV-24's last 2 images, counted against the DEV-13 seam cap, logged with crops; it is staged on the full-site stitch AFTER the last three tiles are painted, so painting completes first. CONTINUE: 2_4, 3_4, 4_4 (6 images left; stop and ask before exceeding 44)."
+    },
+    {
+      "id": "R-C9-308",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T01:35:53-04:00",
+      "verbatim": "",
+      "ruling": "HALT on the image-service usage limit (H-C9-BV2F-ASTRA-LIMIT-2). Painting is 22 of 25 canvases complete (pilot 9 + 13 Phase 3'). Resume after the service reset with the conductor's release: PH3_SUF0=-r2 PH3_SUF1=-r3 ph3_prepare.sh wave 2_4, then 3_4, 4_4, then the corner DEV-24 patch, then the final 5x5 painting, contact sheet, QA summary and M3' packet. A Mac restart before resuming is safe: all state is in the repo (RESUME_PT.md, ledger, cfg_bv2a_ph3.json); a fresh session resumes from the handoff note."
     }
   ],
   "grok_calls": [
