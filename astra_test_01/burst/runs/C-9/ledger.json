@@ -52802,6 +52802,13 @@
       "ts": "2026-10-09T00:44:13-04:00",
       "verbatim": "",
       "ruling": "PT 1abbcd647 (25/40 images): 0_3-r2 and 1_3-r2 painted with DEV-29 (the s51 substitution check PASSED on the real mask); 0_2/0_3 binding a1 7.53 PASS; 1_2/1_3 binding 14.564 FAIL (dense cliff-column redraw tone) and 0_3|1_3 10.517 FAIL (segment 8 only). The full-site preview HALTED on DEV-24 layer-4 read pins: layer 4 (staged on the 3x3 pilot) reads the pilot's outgoing overlap, which the full-site stitch blends by design. RULED: re-base option (a). Tier-B dev24.py 'read_zone' per patch: the read pin covers only the patch's read region INSIDE the identity zone (x < 3840, y < 2304), checked against the pinned base and HALTing on any change; outside it, the patch reads the full-site stitch's blended pixels, deterministic from pinned canvases, and the result is pinned by the build sha. Diff/SHA256SUMS/verify; RE-RUN the P-2b proof with layer 4 (pilot identity zone byte-identical). Option (b) rejected (needs images, DEV-24 has 2 left). Then the stitched preview and 1:1 stitched crops of 1_2/1_3 and 0_3|1_3 go to the conductor, who rules carry vs repaint. 2_3 WAITS on that ruling (its context includes 1_3)."
+    },
+    {
+      "id": "R-C9-302",
+      "by": "gandalf (conductor, by-eye)",
+      "ts": "2026-10-09T00:54:03-04:00",
+      "verbatim": "",
+      "ruling": "PT f6af5140a: re-base (a) built with the tone-correction field also pinned (needed: the ring correction reached outside the zone); P-2b with layer 4 PASS (identity zone 0 px; the control without layer 4 differs by 780,978 px). The full-site preview stitched without a HALT. JOINS: 1_2/1_3 (binding a1 14.564) and 0_3|1_3 (10.517): by eye on the 1:1 stitched crops, the cliff columns and floe edges run continuously with no line (slight softening in the overlap). CARRIED as 'raw FAIL, stitch-corrected', with crops in the M3' packet. RELEASED: 2_3, 3_3, then the rest (4_3, 0_4, 1_4, 2_4, 3_4, 4_4) by the ready rule, QA stop per wave, DEV-29 context_patch on, binding a1 per s51 at the pilot-side joins. Budget: 25/40; 8 tiles at ~1.5 = ~37."
     }
   ],
   "grok_calls": [
