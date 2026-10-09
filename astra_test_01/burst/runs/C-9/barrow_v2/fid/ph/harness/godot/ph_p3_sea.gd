@@ -5,7 +5,7 @@ extends SceneTree
 ##   rg_rest.png   the water shader with TIME held at 0 (every motion layer drawn, at rest)
 ##   rg_red.png    RED: the sea's material replaced by a LIT plane (StandardMaterial3D, the shader's deep_col)
 ##   Godot --path . --resolution 640x360 --script <abs>/ph_p3_sea.gd -- --out DIR
-const GUIDE := Vector2i(4096, 2560)
+var GUIDE := Vector2i(4096, 2560)    # --guide W H (s52: the full site plate 6656 x 4096)
 var out_dir := ""
 var vp: SubViewport
 var scene
@@ -16,6 +16,8 @@ func _initialize() -> void:
 	for i in args.size():
 		if args[i] == "--out" and i + 1 < args.size():
 			out_dir = args[i + 1]
+		if args[i] == "--guide" and i + 2 < args.size():
+			GUIDE = Vector2i(int(args[i + 1]), int(args[i + 2]))
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	vp = SubViewport.new()
 	vp.size = Vector2i(1920, 1080)

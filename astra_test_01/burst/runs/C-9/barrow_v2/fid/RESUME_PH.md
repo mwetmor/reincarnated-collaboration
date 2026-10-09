@@ -143,3 +143,7 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [ ] B-3 at M3: every candidate still phase-matched per § 50 (a), the pilot region included (view k <- T[k mod 6], +-0.10 px).
 - No Godot until disk >= 21 GiB (16-20 now: macOS update download, Matt T34).
 - [x] § 51 DEV-29 pre-registration: binding a1 at 0_2/0_3, 1_2/1_3, 2_2/2_3, 2_2\3_3 on the context-patched pilot canvas (p5v2.context_patch; selftest PASS); diag corner bars full 4.809 / E 4.691.
+- [x] R-C9-331 FULL-SITE harness: § 52 pre-registration 7d47a498d; non-Godot rows a147d61bf; Godot rows + § 53 results (P3 P8 P9 P9c). P6a conductor reads recorded (R-C9-333). P11 judge spawned by the conductor (set abx3_site_v1_vs_site; key p11/keys/).
+- [ ] R-C9-332: PT fixing the blurry snow patch on the ledge right of the sea cave -> when PT reports, RE-RUN the rows touching that area (P5 a1/b on the joins and corners there, P4 chunks 2_3 / 2_4 / 3_3, P6a, P3).
+- [ ] P10 on the site: quiet window only (T34). LV removed the bounds spike (9263d053d); routes may cross the wreck beach once PT confirms the re-pin.
+- [ ] P9c main view rest 0.267 (FAIL): floe-by-floe forensic + frozen-bob null if the conductor asks.

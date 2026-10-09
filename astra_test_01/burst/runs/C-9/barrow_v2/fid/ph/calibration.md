@@ -1831,3 +1831,42 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
   - The view comes from `floe_view_choose` over the site's floes and needs ≥ 3 in-plate floes.
   - **Plus one view centred on the floe-id pixel centroid inside DEV-24 layer 5's patch rect** (`ph3_corner_l5-1`), i.e. inside L5's repainted floes.
 - **P10 is NOT run:** quiet window only (T34). Routes avoid u ≈ −20.5 until LV removes the bounds spike.
+
+## 53. FULL-SITE harness results (R-C9-331; r328 painting `3fc04a7d…`; pre-registered § 52 at 7d47a498d). `results/site/`; renders `renders/site/`
+| Row | Reading | Bar | Verdict |
+|---|---|---|---|
+| P1 | worst ratio 1.00 | ≤ 1.05 | **PASS** |
+| P2 | 102 / 102 lineage links resolve at 1164f8684 | all | **PASS** |
+| P3 | Rendered vs painting on the `ph_p3_sea.gd` base-only capture at 6656 × 4096: sea 4.65; worst class char (baked) 13.05. RED (lit plane) 23.02 fails | ≤ 15.5 | **PASS** |
+| P4 snow (Phase 3′) | 3_3 spec 0.120, 4_3 0.143, 4_4 0.179 FAIL. 4_0, 3_1, 3_2 PASS. 3_0 (78), 4_1 (41), 4_2 (3), 2_3 (1), 3_4 (8) windows: **insufficient support** | v1 bars; W_min 100 | **FAIL 3/6 judged** |
+| P4 rock (Phase 3′) | all PASS; 4_0 insufficient (1 < 3) | W_min 3 | **PASS** |
+| P4 ice (domain: LV `ice`) | 3_1: dE 7.37 vs the frozen PS4 Lab (the only Phase 3′ chunk ≥ 20 000 gated px) | ≤ 9.40 | **PASS** |
+| P5 a1 | **13 / 40** FAIL (§ 52 (a) derived domain + W-1 guard); 2_2\3_3 corner 2.223 | 9.569 / 4.809 | **FAIL** |
+| P5(b) | y = 3200 **0.902**, from x ≥ 5632 (the 4_3/4_4 overlap: a grain band, no line by eye, R-C9-333); others ≤ 0.596 | ≤ 0.799 | **FAIL (disclosed)** |
+| P6a | 64 candidates; 8 declared (barrow door, hall door, sea cave, wreck hull). 56 unmatched = 48 sea false positives + 8 structure (longhall plank wall, gable char), conductor read R-C9-333; 0 invented | 0 invented | **PASS** |
+| P8 | min 0.553 over 14 chunks; the 1 m shift RED fails (min 0.107) | ≥ 0.4476 | **PASS** |
+| P9 sway | 5.49 (noise 0.001); no-wind RED 0.011 fails | ≥ 2.064 | **PASS** |
+| P9 flow (geo mask) | 8.754 over 791 635 px; hidden-water RED 0.022 fails | ≥ 2.064 | **PASS** |
+| P9 trail | coverage 1.000 | ≥ 0.99 | **PASS** |
+| P9c, main view uv (−23.976, −21.834) | rest-pose **0.267 px** (28 samples, 6 floes); swimming RED 1.141 | ≤ 0.25 | **FAIL** (RED fails, as required) |
+| P9c, L5 view uv (−18.409, −23.42) | rest-pose 0.144 px (24 samples, 5 floes); RED 1.296 | ≤ 0.25 | PASS (reported) |
+| P10 | not run: quiet window only (T34) | — | — |
+| P11 | set `p11/abx3_site_v1_vs_site/` (40 + 10 + 12, snow 34 / heather 6), all 24 stills phase-accepted | valid ≥ 10/12; PASS ≤ 26/40 | judge spawned (R-C9-333) |
+
+**Reported only.**
+- Corners over 4.809: 1_0\2_1 22.53, 1_2\2_3 35.80 raw (2.44 substituted), 3_0\4_1 9.12, 2_3\3_4 9.10, 0_2\1_3 7.42, 2_0\3_1 7.34, 0_1\1_2 4.84.
+- Anti-diagonals above v1's own maximum (6.50): 4_1 x/ 3_2 27.82, 2_2 x/ 1_3 34.32 raw (7.36 substituted), 4_0 x/ 3_1 8.57, 3_0 x/ 2_1 7.86.
+- c (flags-on) tone max 30.74 (y = 3328, 0_4).
+- Ice family against the frozen Lab, report-only: ice_mid dE 1.2–24.6; shore_ice 10.9–28.0; tide_ice 22.3–28.6; lead 32.8.
+
+**P9c main view — a disclosure, not a re-instrument.**
+- The bob is pure translation (`pt_water.gd` FLOE_BOB_REST; rest-pose UVs).
+- The samples split by floe. About half the floes read 0.01–0.10 px. The other half read 0.25–0.53 px, and there the texture shift exceeds the silhouette shift by 12–14 % along x (e.g. 3.18 vs 2.83 px).
+- That pattern suits a silhouette instrument limit (occlusion, or the marker path) as well as a material defect. The bar is frozen. A floe-by-floe forensic, with a frozen-bob null on the same floes, is the discriminator; it waits on the conductor's call.
+
+**Snow forensic** (report-only; `results/site/snow_forensic.json`).
+- Interior rms against wave: ρ 0.89 (p 0.007, n 7). Parent interior → child interior: ρ 0.85 (p 0.002, n 10).
+- Old 3_3 (same contexts as 3_3-r1): interior 0.080 vs 0.156.
+- All 28 PH3 briefs carry identical snow wording.
+- Consistent with H-drift seeded by stochastic draws (3_3-r1; 4_0); H-prompt is not supported.
+- Sign convention: chunk − v1 on the spectrum shape.
