@@ -153,3 +153,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] P6a painting_2_4_c015 r339: open water (R-C9-346); 0 PENDING.
 - [x] (R-C9-346 option (a), s64 loop (0,-17.5)->(2.5,-17.5)->(0,-15)->(-2.5,-15); prove at T34 session start) P10 sea loop: s61 rule unmeetable (no walkable point frames a whole bobbing floe) -> conductor option (a) partial / (b) old shore loop / (c) LV bounds. Start loop PROVEN on site_ph3. P10 only in T34.
 - [ ] WAIT for T34: prove the s64 sea loop (walk_probe.sh, PH_WP_PILOT=site_ph3, PH_WP_DIR=walk_probe_site) then P10 per s34/s48(c)/s50(c).
+- [x] R-C9-348 D-1/D-2/D-4/D-5 (s65). [ ] s64 sea loop FAILED walk-validity (knight stuck at (-0.93,-17.62)) -> conductor rules a replacement before any P10 frame.

@@ -2093,3 +2093,15 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - **Proof** (before the window, in the T34 session's first lock hold): `walk_probe.sh` with `PH_WP_PILOT=site_ph3`. The § 50 (c) walk-validity rule is unchanged. **A failing loop is reported and not replaced by PH**; the conductor rules.
 - **Start loop:** as proven in § 62.
 - **P10 itself:** § 34 / § 48 (c) / § 50 (c) bars, interleave and VOID rules, unchanged.
+
+## 65. r339 delta Gate-2 conditions (jack-ryan `2026-10-09-bv2f-r339-delta-gate2.md`, R-C9-348). Appended; nothing above is rewritten.
+- **D-2: record correction to § 63's header and § 59's title.** "Committed BEFORE PT's r339 painting exists" / "before the r339 painting existed" should read: **"before any PH r339 reading** (the first PH r339 output is `delta.json` at 17:47:25); **the r339 pixels already existed in PT's chain at 17:36:51 / 17:39:02.**" The final file is dated 17:40:32. The pre-registration's integrity is unaffected (PH read no r339 value before 17:47:25), but the sentence as written was not true of PT's chain.
+- **D-1: packet re-cuts** (`site_c2_recrops.py`; `results/site_r339/c2_recrops.json`, with shas).
+  - **Item 90** (heart floe): the whole 0_3 chunk window (0, 2304)–(1536, 3328) at half scale, NCC 0.998 vs 8e169e6331bb.
+  - **Item 91** (cave mouth, 1:1): (2900, 2500)–(3700, 3100), NCC-located 0.868.
+  - **Item 17: re-centred** on the current open-water candidate `painting_0_3_c016` (203, 3305), 512 × 314 clamped at x = 0. The C-2 cut centred on (505, 3270) is marked superseded in the manifest (file kept).
+- **D-5: code committed.** `harness/site_p6a_carry.py` is the code behind `kelp_mode_candidates_in_delta_dil32` and the r339 P6a row carry-forward (match rule, crop-sha re-confirm flag, conductor re-confirm map). `site_p6a_carry.py check` recomputes both from the r332 rows and the committed r339 rows: **0 field differences, kelp [] = [] → REPRODUCED.**
+- **D-4: the § 64 sea loop FAILS walk-validity** (before any T34 window; `renders/walk_probe_site/sea64/trace.json`, `results/site_r339/walk_proof_site_sea64.json`).
+  - The knight was placed at (−0.93, −17.62) and **never moved**: path 0.0 m, 0 waypoint advances, 840 of 840 one-second spans < 0.3 m.
+  - Per § 64, the loop is **reported, not replaced by PH**. A replacement sea loop is the conductor's ruling, recorded before any P10 frame.
+  - **The start loop (§ 62) stands proven.**

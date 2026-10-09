@@ -1,5 +1,5 @@
 {
- "_what": "C-2 re-crops from the FINAL r339 painting",
+ "_what": "C-2 + D-1 re-crops from the FINAL r339 painting",
  "painting_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
  "crops": [
   {
@@ -120,17 +120,17 @@
    "sha256": "96a887cf66fcf502abd9bf92685e11cbad3d35b958896ea2281f68d5c0ca51c9"
   },
   {
-   "item": "17_p6a_fp_p6a_0_3_candidate",
+   "item": "17_p6a_fp_p6a_0_3_c016",
    "box_xyxy": [
-    249,
-    3113,
-    761,
-    3427
+    0,
+    3148,
+    512,
+    3462
    ],
    "scale": 1.0,
-   "how": "NOT located in any painting (cut from the superseded 0_3 raw canvas); re-cut 512x314 CENTRED on the named candidate (505,3270)",
-   "file": "ph/results/site_r339/c2_recrops/17_p6a_fp_p6a_0_3_candidate_r339_x249_y3113_1to1.jpg",
-   "sha256": "a0ccdb74f40f013028e4d8b4345a62d82597007a817c3d2ea9058e58a1b78088"
+   "how": "D-1 (R-C9-348): RE-CENTRED on the current P6a candidate painting_0_3_c016 (203, 3305), open water; 512x314 clamped at x = 0. The original item 17 came from the superseded 0_3 raw canvas; the C-2 cut centred on (505, 3270) held no current candidate (superseded, file kept)",
+   "file": "ph/results/site_r339/c2_recrops/17_p6a_fp_p6a_0_3_c016_r339_x0_y3148_1to1.jpg",
+   "sha256": "567ba6ba14d46c68fbdb0b10591336ae53754ad66f9cfcf196daedaeee2624e6"
   },
   {
    "item": "18_p6a_fp_p6a_2_3",
@@ -157,6 +157,39 @@
    "how": "name x,y top-left, scale 0.75; NCC-located at the same box",
    "file": "ph/results/site_r339/c2_recrops/19_p6a_fp_p6a_1_4_candidates_r339_x1500_y3300_s075.jpg",
    "sha256": "da789f4110a422ba6fa4e8e3485171438a31f94e1ca1d01e4a86109593649507"
+  },
+  {
+   "item": "90_matt_eye_heart_floe_0_3",
+   "box_xyxy": [
+    0,
+    2304,
+    1536,
+    3328
+   ],
+   "scale": 0.5,
+   "how": "D-1: the whole 0_3 chunk window at half scale; NCC 0.998 vs 8e169e6331bb at this box",
+   "file": "ph/results/site_r339/c2_recrops/90_matt_eye_heart_floe_0_3_r339_x0_y2304_s050.jpg",
+   "sha256": "6f2f87abcc37868695211b84763c0a06a0d6d9d195186f1ff6f4a4809987c9ff"
+  },
+  {
+   "item": "91_matt_eye_cave_mouth_stepped_rocks",
+   "box_xyxy": [
+    2900,
+    2500,
+    3700,
+    3100
+   ],
+   "scale": 1.0,
+   "how": "D-1: NCC-located 0.868 vs r332 at this box, 1:1",
+   "file": "ph/results/site_r339/c2_recrops/91_matt_eye_cave_mouth_stepped_rocks_r339_x2900_y2500_1to1.jpg",
+   "sha256": "14222cf9011a89417e4f21700bab59fefe51049f791c90c2612b94cf3a874714"
+  }
+ ],
+ "superseded": [
+  {
+   "item": "17_p6a_fp_p6a_0_3_candidate (C-2 cut)",
+   "file": "ph/results/site_r339/c2_recrops/17_p6a_fp_p6a_0_3_candidate_r339_x249_y3113_1to1.jpg",
+   "why": "centred on (505, 3270): no current P6a candidate in its box (jack-ryan r339 delta Gate-2 D-1)"
   }
  ]
 }
