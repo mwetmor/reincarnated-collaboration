@@ -52461,6 +52461,12 @@
       "ts": "2026-10-09T18:49:58-04:00",
       "by": "drax (1f4fc16be)",
       "note": "KC2 fight in barrow_v2 (scenes/bv2f_arena.tscn): KC2 runtime unmodified via gitignored symlink (tree a0e75469); arena_session.gd overrides _bind_summons only (spawn_points written, 6 floor pools dropped, mouths cleared). Spawns p01 wreck (-23,-6), p02 barrow door (2,-17.59), p03 sea cave stair foot (3.72,11.62), p04 hall door (21.25,-0.10), p05 mere ambush (-3,-11) w/ emerge, p06 gable (25.53,6.55; waves 151-160 never roll p06). Player-only blockers at the 3 doors, cave mouth, wreck hull, gable rubble. Presentation-level deviations disclosed and accepted by the conductor as necessary to host the fight in 3D: physics-capsule bound on barrow colliders; JOIN-1 art on billboards read in place; drax HUD; start card; KC2 JOIN-1 warlord pack (gd-eor-warlord-eor3) with KC2 controls. 8 m discs reported not clamped (p02 into the mound, p03 over cliff/sea, p01 over the basin)."
+    },
+    {
+      "id": "M-C9-ARENA-10W-BUILT",
+      "ts": "2026-10-09T19:14:03-04:00",
+      "by": "drax (5a16d10bb)",
+      "note": "barrow_v2 arena: all 10 waves (151-160) spawn at the barrow anchors (169 bodies, max 7.96 m from anchor, 0 pool ticks, 33 art kits, 68.8 fps avg at 1920x1080; autopilot died in w160). Open: R-C9-351 whirlwind -- records (KP-295/300 builds contain godot 2e9028b, eor_overlay strips from C-9 95639a770, EOR2 lineage) contradict Matt's recollection; four-panel side-by-side (A app 2D overlay / B arena 3D-hosted overlay / C Synty-arena 3D EoR / D old ribbon) commissioned for Matt to pick."
     }
   ],
   "halts": [
