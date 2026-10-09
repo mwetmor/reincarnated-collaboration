@@ -3002,6 +3002,23 @@ def main():
     lip_route_e = [q for q in lip if to_fr(q)[0] > te_ + 0.5]
     bpoly = [q for q in off_shore if q[1] < wv[1] + 2] + off_lip_w + route_out + lip_route_e
     bpoly = [q for q in bpoly if q[0] <= wu[1] + 2]
+    # R-C9-331 (PT walk film): the shore offset chain doubled back on itself into a thin SPIKE (out ~22 m and back 1 m
+    # apart at u ~ -20.5) -- two walls fencing the wreck beach off from the site. Any out-and-back excursion (a run whose
+    # ends lie < 1.5 m apart but whose path is > 8 m) is cut out of the wall; navigation only (bounds are not drawn)
+    spikes_r331 = []
+    k_ = 0
+    while k_ < len(bpoly) - 2 and not os.environ.get("LV_KEEP_SPIKE"):     # (LV_KEEP_SPIKE=1: the old wall, for the fail-first)
+        cut_ = None
+        acc_ = 0.0
+        for m_ in range(k_ + 1, min(len(bpoly), k_ + 6)):
+            acc_ += math.dist(bpoly[m_ - 1], bpoly[m_])
+            if m_ >= k_ + 2 and math.dist(bpoly[k_], bpoly[m_]) < 1.5 and acc_ > 8.0:
+                cut_ = m_
+        if cut_ is not None:
+            spikes_r331.append([[round(c, 3) for c in q] for q in bpoly[k_ + 1:cut_]])
+            bpoly = bpoly[:k_ + 1] + bpoly[cut_:]
+        k_ += 1
+    print("[bounds] R-C9-331 spikes removed:", spikes_r331)
     bpoly += [(wu[1], bpoly[-1][1]), (wu[1], wv[1] + 2), (off_shore[0][0], wv[1] + 2)]
     iw = 0.45
     # inner walls on the clifftop's edge, each with its own height band: over the cave they start above its arch (the cave is
