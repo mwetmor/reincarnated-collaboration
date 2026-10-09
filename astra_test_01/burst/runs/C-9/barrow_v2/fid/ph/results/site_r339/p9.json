@@ -1,0 +1,56 @@
+{
+ "sway_bar": 2.064,
+ "p9_sway": {
+  "heather_px": 71721,
+  "sway": 5.492,
+  "noise": 0.001,
+  "water_px": 1562,
+  "flow": 13.478,
+  "flow_static_sea_RED": 2.64,
+  "noise_static_sea": 0.0,
+  "pass_": true
+ },
+ "p9_red_nowind": {
+  "heather_px": 72876,
+  "sway": 0.011,
+  "noise": 0.0,
+  "water_px": 764,
+  "flow": 17.476,
+  "flow_static_sea_RED": 5.989,
+  "noise_static_sea": 0.0,
+  "pass_": false
+ },
+ "p9_trail": {
+  "coverage": 1.0,
+  "bar": 0.99,
+  "pass": true,
+  "by_terrain": {
+   "flat": {
+    "walkable_m2": 588.2,
+    "inside_field": 1.0,
+    "snow_carrying": 0.6743
+   },
+   "not_flat (slopes, mound, swells)": {
+    "walkable_m2": 1809.5,
+    "inside_field": 1.0,
+    "snow_carrying": 0.4063
+   }
+  },
+  "walkable_m2_in_window": 2397.7,
+  "area_xz": [
+   -41.133,
+   -40.581,
+   86.165,
+   86.165
+  ],
+  "informational_snow_carrying_share_of_walkable": 0.472
+ },
+ "p9_flow_geo": {
+  "water_px_geo": 791635,
+  "flow": 8.769,
+  "noise": 0.0,
+  "RED_hidden_water_flow": 0.047,
+  "pass": true,
+  "RED_pass": false
+ }
+}

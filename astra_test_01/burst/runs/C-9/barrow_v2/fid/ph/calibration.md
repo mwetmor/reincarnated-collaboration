@@ -2049,3 +2049,37 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
   - (b) keep the old shore loop (no floes in frame);
   - (c) an LV bounds change.
 - **Neither loop is a P10 reading.** P10 waits for T34.
+
+## 63. RESULTS — the R-C9-339 LEDGE DELTA (§ 59 rules, pre-registered at 376eaf216 at 17:39:21, before the r339 painting existed at 17:40:32). `results/site_r339/`; renders `renders/site_r339/`
+**Δ = r339 ≠ r332** (`site_delta.py` → `delta.json`, `delta_mask.png`). Paintings: r332 `901305202936…`, r339 `4dc60d9c5836…`.
+
+| Measure | Value |
+|---|---|
+| Changed px | **369 555**, bbox (2955, 2699)–(3870, 3457) |
+| Class histogram (pinned d26d14c55) | **tide_ice 369 555 (only)**; id carved_tide_ice only |
+| Chunks touched | 2_3, 2_4, 3_3 |
+| Pilot px (x < 3840, y < 2304) | **0** |
+| Bobbing-floe px in Δ | **0** → P9c not re-run (§ 59) |
+
+**P11 footprint: PASS (0 crops intersect).** 78 site crops in the judged set were checked, at plate px from their still centres. Of the stills named in R-C9-343, only site_16 (3 crops) and site_17 (6 crops) are in the set; site_15/21/22/23 contribute none. **Δ is tide_ice only**, so R-C9-338's no-rebuild stands.
+
+**Whole-site rows on r339.** Every input sha was recorded before and after. `painting.bin` was `4dc60d9c…` before and after the Godot session.
+
+| Row | r339 | vs r332 |
+|---|---|---|
+| P1 | PASS 1.00 | = |
+| P2 | PASS 102/102 at cda7ca36f | = |
+| P3 | PASS. Sea base-only 4.66; ground tide_ice 0.00; worst char 13.05; RED 23.02 fails | = |
+| P4 | snow FAIL 3_3 / 4_3 / 4_4 (unchanged); rock PASS; ice (binding `ice`) PASS. **tide_ice report-only dE: 2_3 17.27, 2_4 18.81** (r332: 22.01 / 28.44); Lab 2_3 (61.3, −4.0, −4.6) | = (binding) |
+| **P5 a1** | **IDENTICAL to r332:** every segment, corners and anti-diagonals. 13/40 FAIL | = (proven) |
+| P5(b) | y = 3200 **0.929** (r332 0.902) FAIL, disclosed; x = 2688 0.361 (0.357); all others unchanged | = verdict |
+| P6a | same 64 candidates (the sea-cave-mouth candidate moved 1 px; declared). **0 kelp-mode candidates:** the detector fires on no kelp clump at T 32. 56 MATERIAL reads carried row by row. `painting_2_4_c015` (open sea) has a changed crop, now with kelp ice at its top edge → **conductor re-confirm** | = |
+| P8 | PASS 0.553 | = |
+| P9 | sway 5.49 (RED 0.011), flow 8.769 (RED 0.047), trail 1.000 — PASS | = |
+| P9c | not re-run (0 floe px in Δ). v3 stands: 0.030 (§ 58) and 0.033 at the production operating point (§ 62) | = |
+
+**C-2 re-crops from the final r339 painting** (`site_c2_recrops.py` → `results/site_r339/c2_recrops/` + `c2_recrops.json` with shas). 12 items:
+- **J08–J12** at their `index.json` boxes. J08 = J11 and J10 = J12 share boxes in the index, so they produce identical crops.
+- **Eye and P6a items 12, 13, 14, 15, 17, 18, 19** at boxes from their names, confirmed by NCC against `painting_pre_l5.png` where it locates (12: 0.984, 14: 0.86, 18: 0.81; 13, 15 and 19 located at the named box and scale).
+- Before/after pairs are re-cut as **one panel** (the final state).
+- **Item 17 could not be located in any painting.** It was cut from the superseded 0_3 raw canvas. It is re-cut 512 × 314, **centred on the named candidate (505, 3270)**, disclosed.
