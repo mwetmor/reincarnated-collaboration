@@ -48809,9 +48809,131 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-0_3-r2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "38e6d262c620d9576b9d497c44146050228515180d4d3a42c16a166f56590bec",
+      "started": "2026-10-09T04:36:43.342529+00:00",
+      "ended": "2026-10-09T04:38:23.990458+00:00",
+      "minutes": 1.6783148173630857,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11ef2-fda0-7b70-9e03-af2138916140/exec-0a9b6802-7e09-4f3e-9039-4f62688bc7c0.png",
+            "sha256": "44e4ad24b19c161fc4369ca7b5ae48320225930a1aa9e8dbd97008e993ad73fa"
+          }
+        ]
+      },
+      "receipt_sha256": "0b589b184e9bb64051a54fe028813b0cd74ee7ca6c42762d4ea6c2ce1d3e4d6c",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-0_3.png",
+          "sha256": "44e4ad24b19c161fc4369ca7b5ae48320225930a1aa9e8dbd97008e993ad73fa"
+        },
+        {
+          "name": "exec-0a9b6802-7e09-4f3e-9039-4f62688bc7c0.provenance.json",
+          "sha256": "1cd41c1c49469f5cc7f5f1bdaa65ec82e81f5797aaa5f94968e41060fb623fe9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11ef2-fda0-7b70-9e03-af2138916140/exec-0a9b6802-7e09-4f3e-9039-4f62688bc7c0.png",
+          "sha256": "44e4ad24b19c161fc4369ca7b5ae48320225930a1aa9e8dbd97008e993ad73fa"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-1_3-r2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "2edbc03eafd69ae245a9e3176a98d45eb6e2efca0627c0cee3027a8f172e7afe",
+      "started": "2026-10-09T04:39:02.398492+00:00",
+      "ended": "2026-10-09T04:41:09.332475+00:00",
+      "minutes": 2.115579178467548,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11ef5-1cdc-76c1-b4a8-94e945095d3e/exec-ab3610c8-9607-4f48-baae-608879407654.png",
+            "sha256": "2905c3639f797e638cc65d5c1ddfe314375e7ee6a9c42e70da587d2b51663f53"
+          }
+        ]
+      },
+      "receipt_sha256": "1298aeb8261e6432ca4ab5e4dd81c2f416f744eb7f9f2bf332ad1b05d4d6244f",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-1_3.png",
+          "sha256": "2905c3639f797e638cc65d5c1ddfe314375e7ee6a9c42e70da587d2b51663f53"
+        },
+        {
+          "name": "exec-ab3610c8-9607-4f48-baae-608879407654.provenance.json",
+          "sha256": "fbdf2dcb6d99be338b1f86173f3dc8c3a10ab1385121d7a1798c7707bc8319ce"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11ef5-1cdc-76c1-b4a8-94e945095d3e/exec-ab3610c8-9607-4f48-baae-608879407654.png",
+          "sha256": "2905c3639f797e638cc65d5c1ddfe314375e7ee6a9c42e70da587d2b51663f53"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1418,
+  "images_used": 1420,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52673,6 +52795,13 @@
       "ts": "2026-10-09T00:35:02-04:00",
       "verbatim": "",
       "ruling": "PT 3679dea94: (1) 4_2-r1 ACCEPTED (23/40 images): the corner a1 23.795 (segments 1-2 only) is carried as stitch-corrected, as for the first 4_2; the P6a charred-gable gaps remain false positives. (2) DEV-29 built, constructed test PASS. (3) PILOT DEV-24 LAYER 4 PASS on the conductor's crop review (DEV-24 22/24): the ropes and thin stick are gone, the mast and big spar stay; the zig-zag rim is gone and the floes are flat with leads; the cave-top columns are rounded and eroded with snow caps and no stepped edge, and the cave mouth stays the one dark opening; the reed-island stick is gone. Accepted residuals for Matt's eye: a patch of pale exposed blue ice near the stern; two short posts by the stern ribs (read as hull ribs, kept); one small dark block on the left floe edge (a pilot-locked item outside the rects). RELEASED: pin painting_dev24_l4.png + l4_support_mask.png as the context_patch source; add layer 4 to the PH3 cfg; 0_3/1_3 -r2 -> 2_3, 3_3 -> the rest by the ready rule, QA stop per wave, binding a1 per PH s51."
+    },
+    {
+      "id": "R-C9-301",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T00:44:13-04:00",
+      "verbatim": "",
+      "ruling": "PT 1abbcd647 (25/40 images): 0_3-r2 and 1_3-r2 painted with DEV-29 (the s51 substitution check PASSED on the real mask); 0_2/0_3 binding a1 7.53 PASS; 1_2/1_3 binding 14.564 FAIL (dense cliff-column redraw tone) and 0_3|1_3 10.517 FAIL (segment 8 only). The full-site preview HALTED on DEV-24 layer-4 read pins: layer 4 (staged on the 3x3 pilot) reads the pilot's outgoing overlap, which the full-site stitch blends by design. RULED: re-base option (a). Tier-B dev24.py 'read_zone' per patch: the read pin covers only the patch's read region INSIDE the identity zone (x < 3840, y < 2304), checked against the pinned base and HALTing on any change; outside it, the patch reads the full-site stitch's blended pixels, deterministic from pinned canvases, and the result is pinned by the build sha. Diff/SHA256SUMS/verify; RE-RUN the P-2b proof with layer 4 (pilot identity zone byte-identical). Option (b) rejected (needs images, DEV-24 has 2 left). Then the stitched preview and 1:1 stitched crops of 1_2/1_3 and 0_3|1_3 go to the conductor, who rules carry vs repaint. 2_3 WAITS on that ruling (its context includes 1_3)."
     }
   ],
   "grok_calls": [
