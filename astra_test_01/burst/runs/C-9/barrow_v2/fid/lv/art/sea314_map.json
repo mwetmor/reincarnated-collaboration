@@ -31,5 +31,27 @@
  ],
  "pilot_sea_allowlist_mask": "fid/lv/art/pilot_sea_allow_314.png: plate px 4096x2560, 255 = allowed = the pinned 023686e3c CLASS render's sea + shore_ice + lead pixels in the OPEN SEA (the connected parts reaching the pilot's bottom rows; the mere, the river and the mere->sea margin are excluded), opened 2 px, dilated 24 px (floe edges, shadows, the cliff-foot waterline). Authoritative; the rects are only its bounding boxes.",
  "pilot_sea_allowlist_share_of_pilot_pct": 10.1,
- "pilot_sea_allowlist_land_band_px": 167053
+ "pilot_sea_allowlist_land_band_px": 167053,
+ "water_r315": {
+  "W1_turbulent_by_the_mast": {
+   "plate_bbox_main_patch": [
+    685,
+    1962,
+    905,
+    2295
+   ],
+   "cause": "GUIDE/CLASS: the painted foam lies over GROUND ICE drawn flat at the waterline -- the wreck cradle's shore_ice and the margin's ice_mid (pale blue, no freeboard edge against the sea): 54% shore_ice + 28% ice_mid + 12% shingle under the light painted water, only 5% sea; the painter read the pale flat ice as churned shallow water",
+   "fix_proposed": "geometry: give that ground ice a visible floe edge -- the cradle's seaward rim drawn as a shore-fast sheet at +0.30 m (one thickness rule) with a vertical ice face to the water, and the ice_mid/shore_ice tones there unified (one ice tone, no blue-on-blue band); no class 'water' look left at the waterline"
+  },
+  "W2_lighter_water_below_left_of_the_cave": {
+   "plate_bbox_main_patch": [
+    2959,
+    2913,
+    3293,
+    3121
+   ],
+   "cause": "GUIDE/CLASS: the lighter painted water lies over the cave's TIDE-ICED LEDGE (class tide_ice, tint 0.74/0.82/0.87, pale blue at shelf_z = sea+1.0) and shore_ice: 56% tide_ice + 31% shore_ice + 10% rock under it; the ledge's pale-blue flat class reads as shallow water at the cliff foot",
+   "fix_proposed": "geometry/class: the ledge stays (the monsters' route) but reads as a rock ledge -- its top classed wet_rock/snow with a thin rime edge instead of the pale-blue tide_ice field, and the sea right at the cliff foot kept deep (sea floor -6.5 to the face, no shelf under the water)"
+  }
+ }
 }
