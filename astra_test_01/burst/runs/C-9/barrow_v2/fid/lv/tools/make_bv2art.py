@@ -1372,10 +1372,30 @@ def main():
         ang = np.arctan2(sq - m_c[1], tq - m_c[0])
         mouth = (np.hypot(tq - m_c[0], sq - m_c[1]) < LD_["mouth_r"] + 0.55 * np.sin(ang * 3 + 0.5) + 0.3 * np.sin(ang * 5 + 2.0)) & (sq <= sfr)
         return gully | mouth
+    # R-C9-294: where the cave-top erosion may change pixels -- outside the pilot window, or inside the declared C rects
+    # (judged at the column's OLD top; a 1 m soft margin inside, so the change never reaches the rect's edge)
+    C_RECTS94 = [[2701, 2307, 4096, 2560], [2777, 2147, 4096, 2560]]
+    wu0_c = uv((768, 512))[0] - (1280 * 4 + 1536) / 2 / PPM
+
+    def erode_ok94(tq, sq, hq):
+        uq = LIP_A[0] + dR[0] * tq + nR[0] * sq
+        vq = LIP_A[1] + dR[1] * tq + nR[1] * sq
+        xq = (uq - wu0_c) * PPM
+        yq = plate_y((uq, vq), hq)
+        free = (xq >= 4096 + 90) | (yq >= 2560 + 90)
+        for r in C_RECTS94:
+            free |= (xq >= r[0] + 90) & (xq <= r[2] + 400) & (yq >= r[1] + 90) & (yq <= r[3] + 400)
+        stp = CR["step"]
+        dfree = ndimage.distance_transform_edt(free) * stp
+        return np.clip((dfree - 0.2) / 1.0, 0.0, 1.0)
     carve_P = {"step": CR["step"], "t0": CR["t"][0], "t1": CR["t"][1], "s0": CR["s"][0], "s1": CR["s"][1], "z0": SEA_FLOOR - 0.6, "z1": head_z_max + 1.6,
                "H": H_ts, "z_floor": SEA_FLOOR, "landing_z": R["shelf_z"], "high_water": CR["high_water"], "land_thr": CR["land_thr"],
                "col_spacing": CR["col_spacing"], "core_rects": core_rects, "core_fn": lambda tq, sq: head_w(tq, sq)[0] > 0.02,   # + the knoll
                "head_mask": lambda tq, sq: head_w(tq, sq)[0] > 0.05,
+               # R-C9-290 (Matt): the columns over the cave and round the stair cleft ERODED like the kit cliffs -- lower steps,
+               # softened domed tops, rounded shoulders (r 0.45 m); snow only on gentle slopes (thin conformal caps)
+               "drop_scale": 0.5, "top_blur_m": 0.45, "round_r": 0.45, "snow_up": 0.8,
+               "erode_ok": lambda tq, sq, hq: erode_ok94(tq, sq, hq),
                "walk_zone": (t0s - 1.2, t1s + 1.2, s_land - 2.5, s_top + 0.3),
                "cove": dict(CR["cove"], s_b=sb_), "landing": CR["landing"], "landing_fn": landing_fn,
                "cave": {"t": R["cave_t"], "s_mouth": sb_, "w": CR["mouth_w_cut"], "h": CR["mouth_h_cut"], "depth": CR["cave_depth"], "axis": CR["cave_axis_ts"], "front": 4.0},
@@ -2206,7 +2226,9 @@ def main():
             cr_items.append({"poly": sim_poly(K.ccw([(p_[0] - nn[0], p_[1] - nn[1]), (q_[0] - nn[0], q_[1] - nn[1]), (q_[0] + nn[0], q_[1] + nn[1]), (p_[0] + nn[0], p_[1] + nn[1])])),
                              "z0": round(ICE_TOP - 0.06, 3), "z1": round(ICE_TOP - 0.02, 3)})
             p_ = q_
-    slabs["cradle_cracks"] = {"class": "sea", "items": cr_items}
+    # R-C9-285 (Matt): these thin dark crack prisms on the wreck's shore ice were painted as ROPES and a thin STICK running
+    # from the stern across the snow and ice -- removed from the scene (the group stays, empty, so the ID order holds)
+    slabs["cradle_cracks"] = {"class": "sea", "items": cr_items}               # (R-C9-294 removes them, below)
     # R-C9-229 (3): a few rocks on the iced ledge, along its ragged sea edge and against the cliff (kept off the route's middle)
     rngl = __import__("random").Random(2293)
     lrocks = []
@@ -2222,6 +2244,308 @@ def main():
     slabs["ledge_rocks"] = {"class": "rock", "items": lrocks}
     slabs["stair_treads"] = {"class": "rock", "items": tread_blocks}      # R-C9-226 (1): every tread its own stone
     slabs["stair_snow"] = {"class": "snow", "items": tread_snow}
+
+    # ================= R-C9-294 (Matt R-C9-285/289): ONE NON-OVERLAPPING ICE PARTITION (Phase 3') + SURGICAL PILOT =========
+    # PILOT (plate x < 4096, y < 2560): every ice item that renders in the pilot is LOCKED byte-identical unless it lies wholly
+    # inside an allowed rectangle (R-C9-294 A rects; the cradle cracks' own rects), where the stacked pieces (rims, ridges,
+    # brash, rubble, mere seams, cradle cracks) are removed (the seams become paint-class snow lines on the mere's ground).
+    # PHASE 3' (everything else): the old sea-ice items are dropped and the sea is rebuilt as ONE partition (fine cells merged
+    # by a weighted coarse field; every floe inset inside its own cells, so no two touch; fast ice thick near land, floes
+    # thinner seaward; brash only in open water; drifts flush, cut OUT of their floe at the floe's own height).
+    A_RECTS = [[472, 656, 688, 904], [40, 1408, 192, 1560], [912, 2056, 1296, 2472], [0, 2120, 728, 2560], [712, 2472, 864, 2560]]
+    C_RECTS = [[2701, 2307, 4096, 2560], [2777, 2147, 4096, 2560]]
+    PAD = 24.0
+    TH = {"floe_min_width_m": 0.45, "floe_min_area_m2": 0.6, "lead_min_m": 0.10, "straight_run_max_m": 1.2,
+          "brash_min_width_m": 0.15, "brash_min_area_m2": 0.04, "brash_clear_of_floes_m": 0.08}
+
+    def pproj(poly_sim, zs_):
+        return [((q[0] - wu0_) * PPM, plate_y((q[0], -q[1]), z_)) for q in poly_sim for z_ in zs_]
+    wu0_ = uv((768, 512))[0] - (1280 * 4 + 1536) / 2 / PPM
+
+    def in_pilot(pts):
+        return any(-PAD < x < 4096 + PAD and -PAD < y < 2560 + PAD for x, y in pts)
+
+    def pts_pad(pts, pad=14.0):                         # its outline + the low shadow it casts down-right
+        xs_, ys_ = [x for x, _ in pts], [y for _, y in pts]
+        return [(min(xs_) - pad, min(ys_) - pad), (max(xs_) + pad, max(ys_) + pad)]
+
+    def inside(pts, rects):
+        return all(any(r[0] <= x <= r[2] and r[1] <= y <= r[3] for r in rects) for x, y in pts)
+    REMOVABLE = {"ice_rims", "ice_ridges", "ice_brash", "trans_rubble", "mere_seams", "cradle_cracks"}
+    SEA_GROUPS = ["ice_shorefast", "ice_plates", "ice_floes", "ice_floes_bob", "ice_ridges", "ice_brash", "cove_ice", "ice_rims"]
+    OTHER_ICE = ["trans_rubble", "mere_seams", "cradle_cracks"]
+    crack_rects = []
+    for it in slabs["cradle_cracks"]["items"]:
+        pts = pproj(it["poly"], (it["z0"], it["z1"]))
+        if in_pilot(pts):
+            crack_rects.append([math.floor(min(x for x, _ in pts)) - 48, math.floor(min(y for _, y in pts)) - 48, math.ceil(max(x for x, _ in pts)) + 48, math.ceil(max(y for _, y in pts)) + 48])   # (+ their shading reach, measured)
+    allow = A_RECTS + crack_rects
+    locked, removed_pilot, dropped = {}, {}, {}
+    seam_paint = []
+    for g in SEA_GROUPS + OTHER_ICE:
+        keep_ = []
+        for it in slabs[g]["items"]:
+            pts = pproj(it["poly"], (it["z0"], it["z1"]))
+            if in_pilot(pts):
+                if g in REMOVABLE and (g == "cradle_cracks" or any(inside(pts_pad(pts), [r]) for r in A_RECTS)):
+                    removed_pilot[g] = removed_pilot.get(g, 0) + 1
+                    if g == "mere_seams":
+                        seam_paint.append(it["poly"])
+                    continue
+                keep_.append(it)
+                locked[g] = locked.get(g, 0) + 1
+            else:
+                if g == "mere_seams":
+                    seam_paint.append(it["poly"])          # (a seam outside the pilot -- none expected -- also becomes paint)
+                dropped[g] = dropped.get(g, 0) + 1
+        slabs[g]["items"] = keep_
+    # the mere seams as PAINT: snow-class lines on the mere's ground (class raster), no raised faces
+    for poly in seam_paint:
+        pu = [((q[0] - u0) * CLS_PPM, (v1 + q[1]) * CLS_PPM) for q in poly]
+        mimg = Image.new("L", (Wc, Hc_), 0)
+        ImageDraw.Draw(mimg).polygon(pu, fill=1)
+        mm_ = ndimage.binary_dilation(np.asarray(mimg).astype(bool), iterations=1) & (C == names.index("ice"))
+        C[mm_] = names.index("snow")
+    Image.fromarray(C, "L").save(os.path.join(OUT, "classes.png"))
+    shutil.copyfile(os.path.join(OUT, "classes.png"), os.path.join(OUT, "classes_png.bin"))
+    # ---- the rebuild domain (uv raster, 10 px/m) ----
+    RP = 10.0
+    bxr = (-42.0, -36.0, 42.0, 30.0)
+    RW, RH = int((bxr[2] - bxr[0]) * RP), int((bxr[3] - bxr[1]) * RP)
+    ru = bxr[0] + (np.arange(RW) + 0.5) / RP
+    rv = bxr[3] - (np.arange(RH) + 0.5) / RP
+    RU, RV = np.meshgrid(ru, rv)
+
+    def ras(poly_uv, fill=1):
+        im_ = Image.new("L", (RW, RH), 0)
+        ImageDraw.Draw(im_).polygon([((q[0] - bxr[0]) * RP, (bxr[3] - q[1]) * RP) for q in poly_uv], fill=fill)
+        return np.asarray(im_).astype(bool)
+    zr = ndimage.map_coordinates(Z.astype(np.float64), [(v1 - RV) * HF_PPM, (RU - u0) * HF_PPM], order=1, mode="nearest")
+    cr_ = C[np.clip(((v1 - RV) * CLS_PPM).astype(int), 0, Hc_ - 1), np.clip(((RU - u0) * CLS_PPM).astype(int), 0, Wc - 1)]
+    ground_ice = np.isin(cr_, [names.index(c) for c in ("ice", "ice_mid", "shore_ice", "tide_ice", "lead", "reed")])
+    landish = (zr > ICE_TOP - 0.02) | ground_ice
+    d_land = ndimage.distance_transform_edt(~landish) / RP
+    trs, srs = to_fr_arr(RU, RV)
+    carve_r = _mi(np.stack([trs, srs], axis=-1)) > 0.2
+    cove_r = (CARVE["cove"]["t_w"] - 0.6 < trs) & (trs < CARVE["cove"]["t_e"] + 0.6) & (srs < 1.3) & (srs > -4.0)
+    locked_r = np.zeros(RU.shape, bool)
+    for g in SEA_GROUPS + OTHER_ICE:
+        for it in slabs[g]["items"]:
+            locked_r |= ras([(q[0], -q[1]) for q in it["poly"]])
+    pxr = (RU - wu0_) * PPM
+    pyr = plate_y((RU, RV), SEA_Z + 0.45)
+    pilot_r = (pxr < 4096 + 40) & (pyr < 2560 + 40)
+    dom = (d_land > 0.75) & ~carve_r & ~cove_r & ~ndimage.binary_dilation(locked_r, iterations=6) & ~pilot_r & (RU > -41) & (RV > -35)
+    rng94 = __import__("random").Random(2941)
+    nz94 = ndimage.gaussian_filter(np.random.default_rng(2942).standard_normal(RU.shape), 3.0 * RP)
+    nz94 /= nz94.std() + 1e-9
+
+    def at(A_, q):
+        i_, j_ = int((q[0] - bxr[0]) * RP), int((bxr[3] - q[1]) * RP)
+        return A_[min(max(j_, 0), RH - 1), min(max(i_, 0), RW - 1)]
+
+    def zone_of(q):
+        d_ = at(d_land, q)
+        n_ = at(nz94, q)
+        return "fast" if d_ < 3.2 + 1.5 * (n_ + 1) else ("plate" if d_ < 11.0 + 2.5 * (n_ + 1) else "floe")
+    fine94 = K.jitter_seeds(bxr, 0.6, rng94, lambda p: True)
+    coarse94, cw94, cz94 = [], [], []
+    # floe SIZE varies over the sea (a low-frequency field): fields of big plates next to fields of small broken floes --
+    # never one repeated size (candidates at 1.3 m, each kept with p = (1.3 / spacing(p))^2, spacing = zone base x
+    # exp(0.65 noise)); weights add a little more spread
+    nzs94 = ndimage.gaussian_filter(np.random.default_rng(2945).standard_normal(RU.shape), 5.0 * RP)
+    nzs94 /= nzs94.std() + 1e-9
+    base94 = {"fast": 4.2, "plate": 2.9, "floe": 2.1}
+    for p_ in K.jitter_seeds(bxr, 1.3, rng94, lambda p: bool(at(dom, p))):
+        zn = zone_of(p_)
+        spc = base94[zn] * math.exp(0.65 * float(at(nzs94, p_)))
+        if rng94.random() < (1.3 / spc) ** 2:
+            coarse94.append(p_)
+            cw94.append(math.exp(rng94.gauss(0.0, 0.3)))
+            cz94.append(zn)
+    ct94 = cKDTree(np.array(coarse94))
+    cw94a = np.array(cw94)
+    pof94 = []
+    for p_ in fine94:
+        if not at(dom, p_):
+            pof94.append(-1)
+            continue
+        dd, ii = ct94.query(p_, k=8)
+        pof94.append(int(ii[int(np.argmin(dd / cw94a[ii]))]))
+    plates94 = K.merged_plates(fine94, pof94, bxr)
+    # ---- each plate -> one floe (inset inside its own cells: no two floes touch), or water ----
+    occ = np.zeros(RU.shape, bool)                                      # accepted floes, for the safety check
+    locked_dil94 = ndimage.binary_dilation(locked_r, iterations=1)
+    R20 = 20.0
+    W20, H20 = int((bxr[2] - bxr[0]) * R20), int((bxr[3] - bxr[1]) * R20)
+    occ20 = np.zeros((H20, W20), bool)
+
+    def ras20(poly_uv):
+        im_ = Image.new("L", (W20, H20), 0)
+        ImageDraw.Draw(im_).polygon([((q[0] - bxr[0]) * R20, (bxr[3] - q[1]) * R20) for q in poly_uv], fill=1)
+        return np.asarray(im_).astype(bool)
+    land_dil94 = ndimage.binary_dilation(landish, iterations=1)
+    new_floes, rej94 = [], {"small": 0, "thin": 0, "straight": 0, "pilot": 0, "overlap": 0, "open_water": 0, "degenerate": 0}
+
+    def straight_run(pts, tol=0.03):
+        """the longest stretch of the closed outline that is STRAIGHT: every vertex of the stretch within tol (m) of the chord
+        between its ends (judged on the outline as written, whatever its vertex density)"""
+        n = len(pts)
+        if n < 3:
+            return 0.0
+        P_ = np.array(list(pts) + list(pts), float)
+        best = 0.0
+        for i in range(n):
+            j = i + 2
+            while j < i + n:
+                a_, b_ = P_[i], P_[j]
+                L_ = float(np.hypot(*(b_ - a_)))
+                if L_ < 1e-9:
+                    j += 1
+                    continue
+                d_ = b_ - a_
+                mid = P_[i + 1:j]
+                off = np.abs((mid[:, 0] - a_[0]) * d_[1] - (mid[:, 1] - a_[1]) * d_[0]) / L_
+                if (off > tol).any():
+                    break
+                j += 1
+            a_, b_ = P_[i], P_[j - 1]
+            best = max(best, float(np.hypot(*(b_ - a_))), float(np.hypot(*(P_[i + 1] - P_[i]))))
+        return best
+    for k_, raw in sorted(plates94.items()):
+        zn = cz94[k_]
+        raw = K.ccw(raw)
+        if len(raw) < 3:
+            rej94["degenerate"] += 1
+            continue
+        c_ = K.centroid(raw)
+        dl = float(at(d_land, c_))
+        if zn == "floe" and rng94.random() < min(0.35, 0.04 + 0.02 * max(0.0, dl - 11.0)):
+            rej94["open_water"] += 1
+            continue
+        if zn == "fast":
+            g_ = rng94.uniform(0.06, 0.12)
+        elif zn == "plate":
+            g_ = min(0.6, max(0.06, 0.09 * math.exp(rng94.gauss(0.0, 0.7))))
+        else:
+            g_ = min(0.9, max(0.06, 0.12 * math.exp(rng94.gauss(0.0, 0.8))))
+        # the merged fine-cell outline is crenellated (a jigsaw look): simplified to a natural broken edge first, then inset,
+        # worn and rounded (the inset keeps the lead; the wear and the rounding stay inside it)
+        raw = K.ccw(chaikin(K.ccw(chaikin(K.ccw(chaikin(raw, 0.25)), 0.25)), 0.25))      # the fine cells' teeth rounded away
+        if len(raw) < 3:
+            rej94["degenerate"] += 1
+            continue
+        poly = K.inset(raw, g_)
+        if len(poly) < 3:
+            rej94["degenerate"] += 1
+            continue
+        poly = K.ccw(K.roughen(poly, rng94, min(0.3 * g_, 0.04), 0.35))
+        A_ = K.area(poly)
+        Pm = sum(math.dist(a_, b_) for a_, b_ in zip(poly, poly[1:] + poly[:1]))
+        if A_ < TH["floe_min_area_m2"]:
+            rej94["small"] += 1
+            continue
+        if 2 * A_ / max(Pm, 1e-6) < TH["floe_min_width_m"]:
+            rej94["thin"] += 1
+            continue
+        poly = [(round(q[0], 3), round(q[1], 3)) for q in poly]      # (judged as written)
+        if straight_run(poly) >= TH["straight_run_max_m"]:
+            rej94["straight"] += 1
+            continue
+        top = SEA_Z + (rng94.uniform(0.30, 0.40) if zn == "fast" else (rng94.uniform(0.18, 0.28) if zn == "plate" else rng94.uniform(0.10, 0.20)))
+        z0 = SEA_Z - 0.4
+        psim = [[round(q[0], 3), round(-q[1], 3)] for q in poly]
+        if in_pilot(pproj(psim, (z0, top))):
+            rej94["pilot"] += 1
+            continue
+        m_ = ras(poly)
+        m20 = ras20(poly)
+        _hit = [nm for nm, M_ in (("locked", locked_dil94), ("land", land_dil94), ("carve", carve_r)) if (m_ & M_).any()]
+        if (ndimage.binary_dilation(m20, iterations=1) & occ20).any():
+            _hit.append("occ")
+        if _hit:
+            rej94["overlap"] += 1
+            for nm in _hit:
+                rej94["overlap_" + nm] = rej94.get("overlap_" + nm, 0) + 1
+            continue
+        occ |= m_
+        occ20 |= m20                                                     # (a candidate dilated 0.05 m may not touch it: lead >= 0.10)
+        bob = zn == "floe" and dl > 15.0 and rng94.random() < 0.4
+        new_floes.append({"zone": zn, "poly": poly, "top": round(top, 3), "bob": bob, "area": A_})
+    # ---- flush SNOW DRIFTS: on ~35 % of the fast/plate floes, a lens along one stretch of the edge cut OUT of the floe
+    # (the floe's outline and the drift share the inner curve; both at the floe's height: no raised face) ----
+    rngd94 = __import__("random").Random(2943)
+    drifts94 = []
+    for f_ in new_floes:
+        if f_["area"] < 3.0 or rngd94.random() > 0.6:
+            continue
+        pts = f_["poly"]
+        n_ = len(pts)
+        if n_ < 12:
+            continue
+        i0 = rngd94.randrange(n_)
+        run = max(5, int(n_ * rngd94.uniform(0.18, 0.35)))
+        idx = [(i0 + j) % n_ for j in range(run + 1)]
+        cq = K.centroid(pts)
+        wmax = min(rngd94.uniform(0.35, 0.8), 0.25 * math.sqrt(f_["area"]))
+        inner = []
+        for j, ii_ in enumerate(idx):
+            q = pts[ii_]
+            s_ = j / run
+            w_ = wmax * math.sin(math.pi * s_) ** 0.8
+            dx, dy = cq[0] - q[0], cq[1] - q[1]
+            dn = math.hypot(dx, dy) or 1.0
+            inner.append((q[0] + dx / dn * w_, q[1] + dy / dn * w_))
+        drift = [pts[i] for i in idx] + inner[::-1][1:-1]
+        rest = [pts[(idx[-1] + j) % n_] for j in range(n_ - run + 1)] + inner[1:-1]
+        if K.area(K.ccw(drift)) < 0.15 or not all(K.point_in_poly(q, pts) for q in inner[1:-1]) or K.area(K.ccw(rest)) < TH["floe_min_area_m2"]:
+            continue
+        rest = [(round(q[0], 3), round(q[1], 3)) for q in rest]
+        drift = [(round(q[0], 3), round(q[1], 3)) for q in drift]
+        if straight_run(rest) >= TH["straight_run_max_m"] or straight_run(drift) >= TH["straight_run_max_m"]:
+            continue
+        f_["poly"] = rest
+        drifts94.append({"poly": drift, "top": f_["top"]})
+    # ---- BRASH only in open water, clear of every floe ----
+    water94 = dom & ~ndimage.binary_dilation(occ | locked_r, iterations=1)      # (>= 0.1 m off every floe)
+    brash94 = []
+    bocc = np.zeros(RU.shape, bool)
+    near_floe = ndimage.binary_dilation(occ, iterations=10) & water94
+    jj94, ii94 = np.nonzero(near_floe)
+    rngb94 = __import__("random").Random(2944)
+    for _k in range(min(900, len(jj94) // 6)):
+        k__ = rngb94.randrange(len(jj94))
+        c_ = (ru[ii94[k__]] + rngb94.uniform(-0.05, 0.05), rv[jj94[k__]] + rngb94.uniform(-0.05, 0.05))
+        r_ = rngb94.uniform(0.14, 0.32)
+        pg = K.ccw(shard(rngb94, c_[0], c_[1], r_))
+        A_ = K.area(pg)
+        Pm = sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1]))
+        if A_ < TH["brash_min_area_m2"] or 2 * A_ / max(Pm, 1e-6) < TH["brash_min_width_m"] / 2:
+            continue
+        m_ = ras(pg)
+        if not (m_ <= water94).all() or (m_ & bocc).any():
+            continue
+        z1b = SEA_Z + rngb94.uniform(0.03, 0.08)
+        psim = [[round(q[0], 3), round(-q[1], 3)] for q in pg]
+        if in_pilot(pproj(psim, (SEA_Z - 0.15, z1b))):
+            continue
+        bocc |= ndimage.binary_dilation(m_, iterations=1)
+        brash94.append({"poly": pg, "z1": z1b})
+    gk94 = {"fast": "ice_shorefast", "plate": "ice_plates", "floe": "ice_floes"}
+    for f_ in new_floes:
+        slabs["ice_floes_bob" if f_["bob"] else gk94[f_["zone"]]]["items"].append({"poly": sim_poly(f_["poly"]), "z0": round(SEA_Z - 0.4, 3), "z1": f_["top"], "r294": True})
+    slabs["ice_drifts"] = {"class": "snow", "items": [{"poly": sim_poly(d_["poly"]), "z0": round(SEA_Z - 0.4, 3), "z1": d_["top"], "r294": True} for d_ in drifts94]}
+    slabs["ice_brash"]["items"] += [{"poly": sim_poly(b_["poly"]), "z0": round(SEA_Z - 0.15, 3), "z1": round(b_["z1"], 3), "r294": True} for b_ in brash94]
+    for g in slabs:
+        for it in slabs[g]["items"]:
+            if it.get("r294"):
+                it["poly"] = [[round(q[0], 3), round(q[1], 3)] for q in it["poly"]]
+    r294 = {"thresholds": TH, "allow_rects_plate_px": {"A": A_RECTS, "C": C_RECTS, "cradle_cracks": crack_rects},
+            "pilot_locked_items": locked, "pilot_removed_items": removed_pilot, "phase3_dropped_items": dropped,
+            "new": {"floes": len(new_floes), "drifts": len(drifts94), "brash": len(brash94), "by_zone": {z: sum(1 for f_ in new_floes if f_["zone"] == z) for z in ("fast", "plate", "floe")},
+                    "bob": sum(1 for f_ in new_floes if f_["bob"]), "rejected": rej94},
+            "seams_painted": len(seam_paint),
+            "ice_fraction_of_rebuild_domain": round(float(occ.sum()) / max(float(dom.sum()), 1.0), 3)}
     # the CLIFF SKIRT: the face behind the kit, a 0.35 m rock band along the lip from the sea to the crest (the heightfield's
     # own face cells are not drawn) -- outside the route stretch, which has its own rock
     # R-C9-208 (5): the skirt is a continuous RIBBON wall along the lip (top = the clifftop behind it), broken only at the cave's
@@ -2384,6 +2708,7 @@ def main():
                   "ramp": ramp, "plate": plate, "cave": {"width_m": cave_w, "depth_m": dep_c, "mouth_h_cut_m": CARVE["mouth_h_cut"], "floor_z": R["shelf_z"]},
                   "sketch_A": "R-C9-228: cave W, stair E as sketch A draws them -- no cove: the cave an arch worn into the face at the waterline (u %.1f), facing the camera; the stair in a natural gully of the cliff beside it, climbing INLAND (up-screen) between rock columns to the clifftop at u %.1f; a small iced ledge where its foot meets the mouth" % (fr(R["cave_t"], 0)[0], fr((t0s + t1s) / 2, s_top)[0]),
                   "cave_axis_ts": list(cax), "landing": dict(LDc), "cove": dict(CARVE["cove"]), "mere_area_m2": round(mere_area_land, 1)},
+        "r294": r294,
         "r283": {"shelf": shelf83_stats, "rim_runs_softened": sum(1 for e in rims_out if len(e["poly"]) > 4), "pilot_safe_plate_y": PILOT_SAFE_Y},
         "classes": names, "class_counts": {names[k]: int((C == k).sum()) for k in range(len(names)) if (C == k).any()},
     }

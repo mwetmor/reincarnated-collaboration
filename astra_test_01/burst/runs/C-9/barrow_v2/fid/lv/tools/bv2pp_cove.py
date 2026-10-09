@@ -99,6 +99,14 @@ def build(P):
     seed_top = Hext[it_, is_]
     near_edge = sdv[it_, is_] > -2.6
     drop = np.where(near_edge, rng.uniform(0.0, 1.35, len(sd)), 0.0)
+    if "erode_ok" in P:
+        # R-C9-294: the erosion only where its pixels may change (outside the pilot, or inside the declared rects): a 0..1
+        # weight per grid cell from the caller, judged at the cell's OLD top (a lowered top only moves down on screen)
+        E = P["erode_ok"](T2, S2, Hext)
+    else:
+        E = np.ones(T2.shape)
+    E_seed = E[it_, is_]
+    drop = drop * (1.0 - (1.0 - P.get("drop_scale", 1.0)) * E_seed)     # R-C9-290: lower steps between the columns (same draws)
     drop = np.where(rng.random(len(sd)) < 0.3, drop * 0.25, drop)
     in_head = P["head_mask"](sd[:, 0], sd[:, 1])
     # over the knoll a column is never lower than the ground it stands for (the arch's roof is measured off it): its top is the
@@ -110,6 +118,12 @@ def build(P):
     top_c = np.where(stepped[near], top_col[near], Hext)
     wz = P["walk_zone"]
     in_walk = (T2 >= wz[0]) & (T2 <= wz[1]) & (S2 >= wz[2]) & (S2 <= wz[3])
+    if P.get("top_blur_m", 0.0) > 0:
+        # R-C9-290: the column tops ERODED -- the stepped per-column tops softened (no squared steps), each top domed a little
+        # toward its crack; never above the stepped top (the arch's roof is measured off it)
+        top_s = ndimage.gaussian_filter(top_c, P["top_blur_m"] / st)
+        dome = 0.18 * np.clip(1.0 - half / 0.6, 0.0, 1.0) ** 1.5
+        top_c = top_c + E * (np.minimum(top_c, top_s) - dome * wmod - top_c)
     top2 = np.where(in_walk, Hext, wmod * top_c + (1.0 - wmod) * Hext)
     # ---------------- the 3D field ----------------
     out = {}
@@ -120,7 +134,17 @@ def build(P):
     sd_land = sdf2(land2, st)
     for k, z in enumerate(zs):
         notch = 0.45 * math.exp(-((z - hw) / 0.5) ** 2)
-        body = np.maximum(z - top2, sd_2 + np.where(face_band, notch * wmod, 0.0))
+        fa_ = z - top2
+        fb_ = sd_2 + np.where(face_band, notch * wmod, 0.0)
+        rr_ = P.get("round_r", 0.0) * wmod * E
+        if P.get("round_r", 0.0) > 0:
+            # R-C9-290: the column tops' edges ROUNDED (a round intersection of the top and the face, radius round_r): eroded
+            # shoulders, so the snow (classed by slope) ends in a soft curve, never a step or a vertical snow face
+            ua_ = np.maximum(fa_ + rr_, 0.0)
+            ub_ = np.maximum(fb_ + rr_, 0.0)
+            body = np.where(rr_ > 1e-3, np.minimum(-rr_, np.maximum(fa_, fb_)) + np.hypot(ua_, ub_), np.maximum(fa_, fb_))
+        else:
+            body = np.maximum(fa_, fb_)
         lnd = np.maximum(z - LZ, sd_land)
         f[:, :, k] = np.minimum(np.minimum(body, lnd), z - P["z_floor"])
     T3, S3, Z3 = np.meshgrid(ts, ss, zs, indexing="ij")
@@ -192,7 +216,12 @@ def build(P):
     landing = (np.abs(zv - LZ) < 0.08) & (up > 0.8)
     cls[landing] = 3
     in_groove = (tt >= sp["t0"] - 0.5) & (tt <= sp["t1"] + 0.5) & (sv >= s_t - 0.05) & (sv <= s_f + 0.6)
-    topsnow = (up > 0.55) & (zv > LZ + 0.5) & ~in_groove
+    if "erode_ok" in P:
+        Et = ndimage.map_coordinates(E, [(tt - P["t0"]) / st, (sv - P["s0"]) / st], order=1, mode="nearest")
+        snow_up_t = np.where(Et > 0.01, P.get("snow_up", 0.55), 0.55)
+    else:
+        snow_up_t = P.get("snow_up", 0.55)
+    topsnow = (up > snow_up_t) & (zv > LZ + 0.5) & ~in_groove     # R-C9-290: thin conformal caps on the gentle tops only
     cls[topsnow] = 4
     pad = (up > 0.8) & (sv < s_t) & (sv >= s_l - 0.3) & (tt >= sp["t0"] - 0.5) & (tt <= sp["t1"] + 0.5)
     cls[pad] = 4

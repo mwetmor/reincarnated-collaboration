@@ -30,7 +30,7 @@
  "rows": 5,
  "guide": {
   "file": "guide_art/guide_art.png",
-  "sha256": "8cfd9d8e43b90306bfe49485e19ea85605bb1e157994ff20c22e7816c875cb05",
+  "sha256": "cbb4496aee5b9169880c8a0a4ce7a3a77c451be354297feeb95478f892751558",
   "px": [
    6656,
    4096
@@ -38,12 +38,12 @@
  },
  "ids": {
   "file": "guide_art/ids_art.png",
-  "sha256": "0fc1bb24be1c71d87697c548b6841eca5243aadf58edd416eafedd129b3d2b0d",
+  "sha256": "d49d7e5108bc0fbfc90178c429bc3aeaf1ca8dcfbed7bab81de41a7ee8d24454",
   "code": "R<<16 | G<<8 | B = global id (table below); 0 = nothing (sky / none)"
  },
  "class": {
   "file": "guide_art/class_art.png",
-  "sha256": "d86fb5f1512b0b79e4ba1b5f60e054fcb8c5c325c40806d591b30b857764435d",
+  "sha256": "bbe0eab6715f053bfd04d868d255bf228be6df18996d1da0b8aaebaca6c5f060",
   "classes": [
    "none",
    "snow",
@@ -68,22 +68,22 @@
    "lead"
   ],
   "shares": {
-   "snow": 0.26803,
-   "ice": 0.12319,
-   "shrub": 0.03631,
-   "rock": 0.14601,
+   "snow": 0.26456,
+   "ice": 0.12311,
+   "shrub": 0.03683,
+   "rock": 0.14807,
    "mound": 0.01631,
-   "shingle": 0.02087,
-   "shore_ice": 0.17099,
+   "shingle": 0.02088,
+   "shore_ice": 0.11631,
    "char": 0.00978,
-   "sea": 0.04906,
-   "wood": 0.06575,
+   "sea": 0.10433,
+   "wood": 0.06576,
    "passage_dark": 0.00767,
    "ash": 0.03847,
    "tide_ice": 0.01357,
-   "wet_rock": 0.00213,
+   "wet_rock": 0.00241,
    "rime": 7e-05,
-   "ice_mid": 0.01696,
+   "ice_mid": 0.01703,
    "reed": 0.0131,
    "lead": 0.00175
   },
@@ -368,17 +368,17 @@
    "piece": "slabs"
   },
   "31": {
+   "id": "ice_drifts",
+   "class": "snow",
+   "piece": "slabs"
+  },
+  "32": {
    "id": "ice_floes",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "32": {
-   "id": "ice_floes_bob",
-   "class": "shore_ice",
-   "piece": "slabs"
-  },
   "33": {
-   "id": "ice_plates",
+   "id": "ice_floes_bob",
    "class": "shore_ice",
    "piece": "slabs"
   },
@@ -388,53 +388,53 @@
    "piece": "carved"
   },
   "35": {
-   "id": "ice_ridges",
+   "id": "ice_plates",
    "class": "shore_ice",
    "piece": "slabs"
   },
   "36": {
+   "id": "ice_ridges",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "37": {
    "id": "ice_rims",
    "class": "snow",
    "piece": "slabs"
   },
-  "37": {
+  "38": {
    "id": "ice_shorefast",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "38": {
+  "39": {
    "id": "icicles",
    "class": "rime",
    "piece": "slabs"
   },
-  "39": {
+  "40": {
    "id": "ledge_rocks",
    "class": "rock",
    "piece": "slabs"
   },
-  "40": {
+  "41": {
    "id": "logs",
    "class": "wood",
    "piece": "group"
   },
-  "41": {
+  "42": {
    "id": "longhall",
    "class": "wood",
    "piece": "model"
   },
-  "42": {
+  "43": {
    "id": "mere_cracks",
    "class": "sea",
    "piece": "slabs"
   },
-  "43": {
+  "44": {
    "id": "mere_plates",
    "class": "ice",
-   "piece": "slabs"
-  },
-  "44": {
-   "id": "mere_seams",
-   "class": "snow",
    "piece": "slabs"
   },
   "45": {
@@ -443,54 +443,54 @@
    "piece": "carved"
   },
   "46": {
+   "id": "mere_seams",
+   "class": "snow",
+   "piece": "slabs"
+  },
+  "47": {
    "id": "palisade",
    "class": "wood",
    "piece": "group"
   },
-  "47": {
+  "48": {
    "id": "reed_tufts",
    "class": "reed",
    "piece": "slabs"
   },
-  "48": {
+  "49": {
    "id": "ring_fallen",
    "class": "rock",
    "piece": "slabs"
   },
-  "49": {
+  "50": {
    "id": "ring_snow",
    "class": "snow",
    "piece": "slabs"
   },
-  "50": {
+  "51": {
    "id": "ring_stones",
    "class": "rock",
    "piece": "group"
   },
-  "51": {
+  "52": {
    "id": "sea_stacks",
    "class": "rock",
    "piece": "group"
   },
-  "52": {
+  "53": {
    "id": "slope_stones",
    "class": "rock",
    "piece": "group"
   },
-  "53": {
+  "54": {
    "id": "stair_snow",
    "class": "snow",
    "piece": "slabs"
   },
-  "54": {
+  "55": {
    "id": "stair_steps",
    "class": "rock",
    "piece": "procedural"
-  },
-  "55": {
-   "id": "stair_treads",
-   "class": "rock",
-   "piece": "slabs"
   },
   "56": {
    "id": "carved_rock",
@@ -498,51 +498,56 @@
    "piece": "carved"
   },
   "57": {
+   "id": "stair_treads",
+   "class": "rock",
+   "piece": "slabs"
+  },
+  "58": {
    "id": "stream_cracks",
    "class": "sea",
    "piece": "slabs"
   },
-  "58": {
+  "59": {
    "id": "stream_ice",
    "class": "ice",
    "piece": "slabs"
   },
-  "59": {
+  "60": {
    "id": "stream_pressure",
    "class": "ice",
    "piece": "slabs"
   },
-  "60": {
+  "61": {
    "id": "talus",
    "class": "rock",
    "piece": "group"
   },
-  "61": {
+  "62": {
    "id": "trans_rubble",
    "class": "shore_ice",
    "piece": "slabs"
   },
-  "62": {
+  "63": {
    "id": "wreck",
    "class": "wood",
    "piece": "model"
   },
-  "63": {
+  "64": {
    "id": "wreck_mast",
    "class": "wood",
    "piece": "group"
   },
-  "64": {
+  "65": {
    "id": "carved_shrub",
    "class": "shrub",
    "piece": "carved"
   },
-  "65": {
+  "66": {
    "id": "carved_snow",
    "class": "snow",
    "piece": "carved"
   },
-  "66": {
+  "67": {
    "id": "carved_tide_ice",
    "class": "tide_ice",
    "piece": "carved"
@@ -557,7 +562,7 @@
     0
    ],
    "file": "guide_art/tiles_5x5/guide_r00_c00.png",
-   "sha256": "d53b1f93a29ba8ce83c0ed4595434317dd666d02e195faf8edfc2821681b2fdc"
+   "sha256": "731822299431b675bbedbe07ec9710c1b874142f57a5d10718afcc0585afa08a"
   },
   {
    "row": 0,
@@ -607,7 +612,7 @@
     768
    ],
    "file": "guide_art/tiles_5x5/guide_r01_c00.png",
-   "sha256": "73aff3cdc12302510adb06ec095b70281711795b5152ba6504513b8688299080"
+   "sha256": "57a8e033e07ff3f84ee8e3c88aced0b8907fd201e63cd38d691287291a86f6ba"
   },
   {
    "row": 1,
@@ -657,7 +662,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c00.png",
-   "sha256": "82814ade6f6593fcad2bd6a005ff1c50bcca31a84d626198d20a1c4f64d78120"
+   "sha256": "04fa31833061387cb22111c783926df81614230c448e8af18960f9a9c28e5e61"
   },
   {
    "row": 2,
@@ -667,7 +672,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c01.png",
-   "sha256": "ad82c937963f12544d257d8f9091e2db36ab0334299c3b02b6f62deb4e552397"
+   "sha256": "2d27a343021b599472d7da4f744f7f00d474d7947ab0619d8d9b132648991b69"
   },
   {
    "row": 2,
@@ -677,7 +682,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c02.png",
-   "sha256": "151be7501cc216bd6d4a77fcfe44a473239a22a9efaa247aa01039856343cac6"
+   "sha256": "0b563f486bece6b84615df3ae9867f31ae01a19b438a40fb7640d8e765ec3640"
   },
   {
    "row": 2,
@@ -687,7 +692,7 @@
     1536
    ],
    "file": "guide_art/tiles_5x5/guide_r02_c03.png",
-   "sha256": "4b17ba52d227a0e417b4098e47e9abac12669c0e1d64f50000df4fcd5b099065"
+   "sha256": "48b1d90c3d1e83d97097ac17412573c0a770b50702bca9a4f14adbddadfadd72"
   },
   {
    "row": 2,
@@ -707,7 +712,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c00.png",
-   "sha256": "8b6a1975858478de5d6a03bfb1bf50856f0ddbbb934dad5997362135e14b1bab"
+   "sha256": "8e5c5bcf9596f9448477e2fa5b74697a4057412edef95fa312e90f2813982d67"
   },
   {
    "row": 3,
@@ -717,7 +722,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c01.png",
-   "sha256": "4184fd95a1fa33445e78af87047c2c946bf011a94235880e6eee2ac8e894be1b"
+   "sha256": "293649b19c293f7bc0cdda10bf52290e4356254cf68a77b3c5e3a53862b521e2"
   },
   {
    "row": 3,
@@ -727,7 +732,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c02.png",
-   "sha256": "cc66e8611c5e665731f7ee1c83d8c260277af9ed4dfbdf8996247dad4f323884"
+   "sha256": "2242d8cbc0da87622ecc1d4dc608b57f51b9d76f5b83824db03e37bb9795734c"
   },
   {
    "row": 3,
@@ -737,7 +742,7 @@
     2304
    ],
    "file": "guide_art/tiles_5x5/guide_r03_c03.png",
-   "sha256": "79ad1d60b32e2063d65a7515d352ab68fd16d4a104a2c9730c8e9f6c87e1b110"
+   "sha256": "ccb5c81eff0e17bb6b3b271b26cd380c82a095d28bb3a365620818c85d5fb177"
   },
   {
    "row": 3,
@@ -757,7 +762,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c00.png",
-   "sha256": "6804837fdb3621242e667cc68e82be90e447202030ea2c314c485ec1ed1be863"
+   "sha256": "5405310922f320f470b89f717d2f468a41fdaa98755c9fdead33d1289b78785a"
   },
   {
    "row": 4,
@@ -767,7 +772,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c01.png",
-   "sha256": "dc9a092fcf1fa5abc89bded1f0c6ee2c4eb003d139c23aaa7a58c3135210b3d8"
+   "sha256": "2c81b6660a406a89d28c290078beefa993135325a0e89913b18d43c58c272978"
   },
   {
    "row": 4,
@@ -777,7 +782,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c02.png",
-   "sha256": "a2d07decaee30cd32b723f9aeb1c924191c702f2bbbd07e89c44b1a32b4c478c"
+   "sha256": "507930824090e79b84c849d76bbe74f8258d4adccfad6da3370e5de84081ec54"
   },
   {
    "row": 4,
@@ -787,7 +792,7 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c03.png",
-   "sha256": "d4c63975fc72a3435f35499f84525a97ce436960d1bd72f98db3817938de5174"
+   "sha256": "4c71422109d5965d32de2de544749730631d9f1d3e7447b03d5fc71a4149f3ed"
   },
   {
    "row": 4,
@@ -797,25 +802,25 @@
     3072
    ],
    "file": "guide_art/tiles_5x5/guide_r04_c04.png",
-   "sha256": "5982232caf324ee75968300bff3130c52b7b78fa8b07dc1b0fffe177bfc08eec"
+   "sha256": "36b99635bfbf6454a6f4815f24cbce7118bba0283b330114f25058743dab479e"
   }
  ],
  "sections": {
   "s00": {
-   "guide_sha256": "bc604a409178933f02eba96ec0e1f62c977895fbcaedb56ef09e498c85f15d98",
-   "ids_sha256": "487d6d40dc2630bdb14af4411631e553dc98b276418a390fae6edd63218da0ad"
+   "guide_sha256": "f531c7698765fc546400f4c787579cc8d020893188a1cda91fb9b26acee8c544",
+   "ids_sha256": "1933533e449500d4d4a9eee6a0cb61e6c2842c86482d744b9043d2a580144467"
   },
   "s01": {
    "guide_sha256": "a5f5b4d7e6e1a668e21080fb2e26261c32cccb04eaefadfaa186046f6dcaa57e",
-   "ids_sha256": "e41e68ccb2bdd5b3558c4c66d70a3938a55bf1570be61097591ff93a7d841c68"
+   "ids_sha256": "a4a1066636bc378709da12329a90a8e98ee05ee38ebba3e28546498c02533fc8"
   },
   "s10": {
-   "guide_sha256": "8c3443a1d361216b9f0932838eb2099ed70c4c6ce3402b75bb26a9f60d6a6b6c",
-   "ids_sha256": "6f4c0b8b792e1b41b11272e744e42299d0ca240aa05866691ef93642491ab148"
+   "guide_sha256": "875dcf7c3aa3480ec69776f3d84161c69ba8f920717dc7d6bfc7c5f9e06e1efb",
+   "ids_sha256": "09d0782e401944efa8b52698caba2c5d7def0177bf9d127e7102b64b0e84fc3f"
   },
   "s11": {
-   "guide_sha256": "190a93f062c36035016487e3b707397593613087a00c5d911d73e3454b084300",
-   "ids_sha256": "7611101ea243563caaca115ef21c664ddaac690501ec750ff5c845dea6b39d20"
+   "guide_sha256": "aec1fb6b21a088990e7a6e63df7ad488ae08158b3ef64040f12f15ddff66cb0e",
+   "ids_sha256": "e6ca8a002b0b003e1fdb98f1d68f60adf7058bb2cbcecdbbe442db63a47faefb"
   }
  }
 }
