@@ -17,6 +17,7 @@ var out_dir := ""
 var view := ""
 var no_wind := false
 var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
+var floe_null := ""       # --floe-null bobt|rigid|static (s54, R-C9-335): P9c discriminator; bob driven by a uniform ph_t
 var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
 var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
 var idle := false         # --idle: perf with him STANDING at <view> (R-C9-276 report-only water-cost view)
@@ -37,6 +38,8 @@ func _initialize() -> void:
 	idle = a.has("--idle")
 	if a.has("--loop"):
 		loop_arg = a[a.find("--loop") + 1]
+	if a.has("--floe-null"):
+		floe_null = a[a.find("--floe-null") + 1]
 	if a.has("--floe-pairs"):
 		floe_pairs = int(a[a.find("--floe-pairs") + 1])
 	if a.has("--burn-ms"):
@@ -226,18 +229,57 @@ func _life() -> void:
 					var sh := Shader.new()
 					sh.code = code.replace(vw, "	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz + %s;   // PH RED: projection follows the bob\n" % bob)
 					m.shader = sh
-			rep["floes_pilot"] = {"meshes": fl.size(), "materials": saved.size(), "floe_red": floe_red}
+				if floe_null != "":
+					# s54 (R-C9-335). bobt: the shipped bob with TIME -> uniform ph_t (same geometry path, controlled time).
+					# rigid/static: NO shader bob; each floe NODE is translated by the bob's own world displacement wd(ph_t)
+					# and the projection is compensated (v_world -= ph_off = wd), so the texture is attached BY CONSTRUCTION
+					# (truth: drift 0). static: rigid with t1 = t0 (no motion).
+					var c2: String = m.shader.code
+					var blk0 := c2.find("	float ph = bob_phase * 6.2831;")
+					var blk1 := c2.find("	VERTEX += inverse(mat3(MODEL_MATRIX)) * wd;\n")
+					assert(blk0 > 0 and blk1 > blk0)
+					var bob_blk := c2.substr(blk0, blk1 + "	VERTEX += inverse(mat3(MODEL_MATRIX)) * wd;\n".length() - blk0)
+					var nb: String
+					if floe_null == "bobt":
+						nb = bob_blk.replace("TIME", "ph_t")
+					else:
+						nb = "	v_world -= ph_off;   // PH s54 null: node moved by wd, projection held at rest\n"
+					c2 = c2.replace(bob_blk, nb)
+					c2 = c2.replace("uniform float his_shadow_on = 1.0;\n", "uniform float his_shadow_on = 1.0;\nuniform float ph_t = 0.0;\ninstance uniform vec3 ph_off = vec3(0.0);\n")
+					var sh2 := Shader.new()
+					sh2.code = c2
+					m.shader = sh2
+			rep["floes_pilot"] = {"meshes": fl.size(), "materials": saved.size(), "floe_red": floe_red, "floe_null": floe_null}
 			var sea_h: Array = _pilot_sea() if floe_pairs > 1 else []
 			for w in sea_h:
 				(w as Node3D).visible = false
 			await _settle()
+			var rest := {}
+			for mi in fl:
+				rest[mi] = (mi as Node3D).global_position
+			var nul_t := []
 			for k in floe_pairs:
 				var sfx := "" if k == 0 else "_%d" % k
+				if floe_null != "":
+					var t0 := 1.0 + 1.2 * float(k)
+					var t1 := t0 if floe_null == "static" else t0 + 0.5
+					nul_t.append([t0, t1])
+					_null_set(fl, saved, rest, t0)
+					await _settle()
+					await _shot("floe_m0" + sfx)
+					_null_set(fl, saved, rest, t1)
+					await _settle()
+					await _shot("floe_m1" + sfx)
+					continue
 				if k > 0:
 					await _wait_s(0.7)
 				await _shot("floe_m0" + sfx)
 				await _wait_s(0.5)
 				await _shot("floe_m1" + sfx)
+			if floe_null != "":
+				for mi in fl:
+					(mi as Node3D).global_position = rest[mi]
+				rep["floe_null_times"] = nul_t
 			for m in saved:
 				m.set_shader_parameter("paint_tex", saved[m][0])
 				m.shader = saved[m][1]
@@ -347,3 +389,22 @@ func _perf() -> void:
 	f2.close()
 	print("[ph] perf ", JSON.stringify(rep))
 	quit(0)
+
+
+func _bob_wd(t: float, phase: float) -> Vector3:
+	var ph := phase * 6.2831
+	return Vector3(0.03 * sin(t * 0.5 + ph), 0.035 * sin(t * 0.9 + ph) + 0.015 * sin(t * 2.1 + ph * 1.7), 0.03 * cos(t * 0.43 + ph))
+
+
+func _null_set(fl: Array, saved: Dictionary, rest: Dictionary, t: float) -> void:
+	"""s54: bobt -> ph_t = t on the (shared) floe materials; rigid/static -> each floe node at rest + wd(t, its phase),
+	ph_off = wd (the projection held at rest)"""
+	for m in saved:
+		(m as ShaderMaterial).set_shader_parameter("ph_t", t)
+	if floe_null == "bobt":
+		return
+	for mi in fl:
+		var phase := float((mi as Node).get_meta("bob_phase", 0.0))
+		var wd := _bob_wd(t, phase)
+		(mi as Node3D).global_position = rest[mi] + wd
+		(mi as GeometryInstance3D).set_instance_shader_parameter("ph_off", wd)

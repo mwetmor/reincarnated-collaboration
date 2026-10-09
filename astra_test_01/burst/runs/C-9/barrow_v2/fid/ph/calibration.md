@@ -1870,3 +1870,20 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - All 28 PH3 briefs carry identical snow wording.
 - Consistent with H-drift seeded by stochastic draws (3_3-r1; 4_0); H-prompt is not supported.
 - Sign convention: chunk − v1 on the spectrum shape.
+
+## 54. PRE-REGISTRATION — the P9c DISCRIMINATOR, instrument vs material (R-C9-335). Committed BEFORE any null frame exists. The bar stays frozen; the § 53 P9c reading (main view 0.267, FAIL) is not re-scored by anything here.
+**Same view, same floes, same marker, same instrument** (`floe_drift_v2` via `p9c_measure_v2`, uv (−23.976, −21.834), 5 pairs, sea hidden). `ph_life.gd --floe-null <mode>` (new; harness-only):
+- **bobt** — the shipped bob code with `TIME` replaced by a uniform `ph_t`. This is the shipped geometry path under controlled time. Pair k: t0 = 1.0 + 1.2k, t1 = t0 + 0.5.
+- **rigid (the null)** — the shader bob is removed. Each floe NODE is translated by the bob's own world displacement wd(t, its bob_phase), at the same t0/t1. The projection is compensated (`v_world -= ph_off`, `ph_off = wd`). So the marker texture is attached to the floe **by construction: true drift = 0**, with the same per-floe motions, directions and relative neighbour motion as bobt.
+- **static** — rigid with t1 = t0 (no motion): render determinism.
+
+**Readings, per floe and pair.** r = silhouette shift − texture shift; drift = |r|; the § 38 sample rule applies (motion ≥ 0.25 px).
+- Median drift for each mode.
+- Δr = |r_bobt − r_rigid| on matched floes (nearest silhouette centroid, ≤ 6 px).
+- Image identity bobt vs rigid: mean |Δ| over floe px.
+
+**Decision rule (fixed now):**
+- **INSTRUMENT** iff rigid's median drift > 0.25 px, **or** (median Δr ≤ 0.05 px **and** rigid's median drift ≥ 0.5 × bobt's). The null reproduces the reading with no drift present.
+- **MATERIAL** iff rigid's median drift ≤ 0.10 px **and** bobt's median drift > 0.25 px **and** median Δr > 0.10 px. The instrument is clean on the identical motion, and the shipped path departs from it.
+- **Otherwise MIXED / UNRESOLVED.** Reported with the per-floe table, and no verdict claimed.
+- **static:** median |r| is reported. If it is > 0.05 px, render non-determinism is disclosed as a floor.
