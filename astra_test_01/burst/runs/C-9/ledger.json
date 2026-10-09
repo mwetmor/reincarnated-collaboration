@@ -48310,9 +48310,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "c930f6f3601f8e46248c84494f5baf49b05704694eacf60f20eddb4f2a0a1cfd",
+      "started": "2026-10-09T02:21:19.280167+00:00",
+      "ended": "2026-10-09T02:25:26.187567+00:00",
+      "minutes": 4.115138915266531,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e77-08fe-7063-aa45-1d03760f75b3/exec-6c6c3172-e6c2-46c5-bad2-dd1ecd842211.png",
+            "sha256": "39861a1063114218fa19f5e2a86617166b8d31a87b9823a3aedd8d9967dba954"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e77-08fe-7063-aa45-1d03760f75b3/exec-85e2c953-9aaa-4083-8b63-f427cb1fe8f3.png",
+            "sha256": "d4525febe2c15d5f99a55327469cd1cc400450a37fdf41ea6c089631a761fe35"
+          }
+        ]
+      },
+      "receipt_sha256": "74fbcced5ac90ac0215fb86c44dcff36e257467e5c25a86f7ac3a11fd3acfecd",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_2.png",
+          "sha256": "39861a1063114218fa19f5e2a86617166b8d31a87b9823a3aedd8d9967dba954"
+        },
+        {
+          "name": "exec-6c6c3172-e6c2-46c5-bad2-dd1ecd842211.provenance.json",
+          "sha256": "17d5a2c2b1f0cbf78ce063b83e0a3addde7ebc16877122357c4885f605dc1fdf"
+        },
+        {
+          "name": "exec-85e2c953-9aaa-4083-8b63-f427cb1fe8f3.provenance.json",
+          "sha256": "cb74c47bdb5c46ea5b92893553c26dfb94c7a71e23906e7b5334ffb7e879f363"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e77-08fe-7063-aa45-1d03760f75b3/exec-6c6c3172-e6c2-46c5-bad2-dd1ecd842211.png",
+          "sha256": "39861a1063114218fa19f5e2a86617166b8d31a87b9823a3aedd8d9967dba954"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e77-08fe-7063-aa45-1d03760f75b3/exec-85e2c953-9aaa-4083-8b63-f427cb1fe8f3.png",
+          "sha256": "d4525febe2c15d5f99a55327469cd1cc400450a37fdf41ea6c089631a761fe35"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1405,
+  "images_used": 1407,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52118,6 +52191,13 @@
       "ts": "2026-10-08T22:20:33-04:00",
       "verbatim": "",
       "ruling": "4_1 (PT fdcafbfc6; 16/~37 images): a1 3_1|4_1 = 9.745 raw FAIL (bar 9.569) across the longhall's dense roof timbers; the conductor's 1:1 crops of the stitched join show the roof continuous with no line. DISPOSITION: CARRIED as 'raw FAIL, stitch-corrected', with crops in the M3' packet (M-1 keeps it a raw fail); no repaint. P6a's unmatched candidate at plate (6433,1474) is, by eye, the shaded timber gable END WALL under the snowy roof, not a doorway: dispositioned as a false positive. 4_0/4_1 PASS. NEXT RELEASED: 3_2, then 4_2, by the ready rule, with the manual QA stop."
+    },
+    {
+      "id": "R-C9-293",
+      "by": "gandalf (conductor, by-eye)",
+      "ts": "2026-10-08T22:27:51-04:00",
+      "verbatim": "",
+      "ruling": "3_2 (PT e0eb5b9fe; 18/~37 images): a1 3_1/3_2 = 24.562 raw FAIL in the ash yard (3_2's redraw is darker and heavier ash than 3_1's snow-patched yard); 2_2|3_2 PASS; snow PASS and the snow guard is in range. Conductor by-eye on the stitched join: no line; the yard grades naturally from snow-patched to denser trampled ash toward the hall, which reads as plausible use-wear. DISPOSITION (a): CARRIED as 'raw FAIL, stitch-corrected', with crops in the M3' packet; no repaint. 4_2 RELEASED (left context = this 3_2), with the manual QA stop."
     }
   ],
   "grok_calls": [
