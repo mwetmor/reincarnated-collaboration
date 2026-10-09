@@ -76,6 +76,7 @@ var quit_after_s := 0.0
 var topdown := false
 var _wall_s := 0.0
 var _next_shot_s := 0.0
+var _f0 := -1
 
 
 static func _arg(args: PackedStringArray, key: String, dflt: String) -> String:
@@ -462,6 +463,10 @@ func _frame(delta: float) -> void:
 		elif asked > 1e-4 and made < asked * 0.25:
 			# blocked by barrow_v2 (a wall, a model, a blocker): he STOPS, as KC2's view stops on a refusal
 			n_blocked_stops += 1
+			if debug_on and n_blocked_stops % 50 == 1:
+				var col := proxy.get_last_slide_collision()
+				print("[arena] blocked at %s (barrow sim %s) asked %.3f made %.3f by %s" % [str(player_pos_m), str(player_pos_m + T),
+					asked, made, str(col.get_collider().get_parent().name) + "/" + str(col.get_collider().name) if col != null else "-"])
 			move_target_m = null
 			if charging:
 				session.driver.charge_arrived()
@@ -595,6 +600,11 @@ func _render(delta: float) -> void:
 ## `-- --arena-auto`: NO HUMAN. Holds the channel and walks toward the nearest released body, so a headless-free
 ## windowed smoke can carry the fight through the waves. Only ever posts intents (move target + channel level).
 var _auto_channel := false
+var _auto_rest := false
+var _auto_blocked_seen := 0
+var _auto_home_until := 0.0
+var _auto_side := true
+var _auto_detour := Vector2.ZERO
 
 
 func _auto() -> void:
@@ -609,8 +619,26 @@ func _auto() -> void:
 		if d < bd:
 			bd = d
 			best = p
-	_auto_channel = bd < 6.0
-	move_target_m = null if best == Vector2.INF or bd < 1.5 else best
+	# energy hysteresis: the channel drains it and a dry-out ends the run (the runtime's rule)
+	var ef: float = float(session.fight.energy) / maxf(1.0, float(session.fight.energy_usable_ceiling))
+	if ef < 0.15:
+		_auto_rest = true
+	elif ef > 0.45:
+		_auto_rest = false
+	_auto_channel = bd < 4.0 and not _auto_rest
+	if n_blocked_stops != _auto_blocked_seen:
+		_auto_blocked_seen = n_blocked_stops
+		if _wall_s >= _auto_home_until:
+			# walled off: sidestep (alternating sides) for a second, then carry on (no pathing here, as in the fight)
+			var want := (best if best != Vector2.INF else Vector2.ZERO) - player_pos_m
+			var side := Vector2(-want.y, want.x).normalized() * (1.0 if _auto_side else -1.0)
+			_auto_side = not _auto_side
+			_auto_detour = player_pos_m + side * 4.0 - want.normalized() * 1.0
+			_auto_home_until = _wall_s + 1.0
+	if _wall_s < _auto_home_until:
+		move_target_m = _auto_detour
+	else:
+		move_target_m = null if best == Vector2.INF or bd < 1.5 else best
 	var hp: float = float(session.fight.player_hp)
 	var hpm: float = maxf(1.0, float(session.fight.player_hp_max))
 	if not pending_presses.is_empty():
@@ -622,7 +650,11 @@ func _auto() -> void:
 
 
 func _instruments(delta: float) -> void:
+	if _f0 < 0:
+		_f0 = Engine.get_process_frames()
 	_wall_s += delta
+	if autopilot != "" and session != null and not running and String(session.terminal) != "" and quit_after_s > 0.0:
+		quit_after_s = minf(quit_after_s, _wall_s + 2.0)     # the smoke ends 2 s after RUN OVER / cleared
 	if shot_dir != "" and shot_every_s > 0.0 and _wall_s >= _next_shot_s and _wall_s > 1.0:
 		_next_shot_s = _wall_s + shot_every_s
 		var img := get_viewport().get_texture().get_image()
@@ -632,6 +664,7 @@ func _instruments(delta: float) -> void:
 			img.save_png(shot_dir.path_join("arena_%05.1fs_w%d.png" % [_wall_s, w]))
 	if quit_after_s > 0.0 and _wall_s >= quit_after_s:
 		quit_after_s = 0.0
+		print("[arena] frames %d in %.1f s = %.1f fps average" % [Engine.get_process_frames() - _f0, _wall_s, float(Engine.get_process_frames() - _f0) / maxf(_wall_s, 1e-3)])
 		print("[arena] quit timer: wave %d, running %s, terminal '%s', actors %d, kits %s, no-pack %s, blocked stops %d" % [
 			int(snap.get("wave", 0)) if not snap.is_empty() else 0, str(running),
 			String(session.terminal) if session != null else "-", actors.size(), str(kits_seen.keys()),
