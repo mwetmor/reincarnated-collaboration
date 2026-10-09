@@ -48176,9 +48176,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_1-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "d91bac52724ebe599c35fe33136f933ec05b3fb01f8d42ab13c0a2357e204e9f",
+      "started": "2026-10-09T02:08:55.088825+00:00",
+      "ended": "2026-10-09T02:12:32.810012+00:00",
+      "minutes": 3.6287000256823374,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e6b-adc7-7e21-8b9c-413ca6660037/exec-22503c32-6275-463a-9efb-20f5d8ce6f2d.png",
+            "sha256": "af1553e0e1fbf0f427a8b78f267785d4146dad83022c4fad5db0f47d5c6cfb96"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e6b-adc7-7e21-8b9c-413ca6660037/exec-4d231a7e-e444-4d3f-9c8d-3479e44da418.png",
+            "sha256": "00525794584f91b1dd7b89aa77fccd9e66689e682fe3dada5db4dab346e038fb"
+          }
+        ]
+      },
+      "receipt_sha256": "0ea064c85fe754ed5c645846e9714bdea8406e8c5f947d4a19ea3b0b331fa17c",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_1.png",
+          "sha256": "00525794584f91b1dd7b89aa77fccd9e66689e682fe3dada5db4dab346e038fb"
+        },
+        {
+          "name": "exec-22503c32-6275-463a-9efb-20f5d8ce6f2d.provenance.json",
+          "sha256": "11563e4f3fba361fa503e97a464a3198fcbe26214e369698b212b18d0cca4016"
+        },
+        {
+          "name": "exec-4d231a7e-e444-4d3f-9c8d-3479e44da418.provenance.json",
+          "sha256": "10e0adbe78ba1e6cfd1704334a2fa9215cac4ab96efd05514da07a28431e1438"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e6b-adc7-7e21-8b9c-413ca6660037/exec-22503c32-6275-463a-9efb-20f5d8ce6f2d.png",
+          "sha256": "af1553e0e1fbf0f427a8b78f267785d4146dad83022c4fad5db0f47d5c6cfb96"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e6b-adc7-7e21-8b9c-413ca6660037/exec-4d231a7e-e444-4d3f-9c8d-3479e44da418.png",
+          "sha256": "00525794584f91b1dd7b89aa77fccd9e66689e682fe3dada5db4dab346e038fb"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1402,
+  "images_used": 1404,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -51963,6 +52036,13 @@
       "ts": "2026-10-08T22:11:29-04:00",
       "verbatim": "Regarding the honeycomb ice fix, they don't look great.. I think the issue is mainly caused by overlapping ice sheets sitting awkwardly upon other ice sheets. I think that is also the root cause of the zig zags.. ice that was nearly completely cut away from on top of other ice sheets. To the left of the boat is a rectangular remnant of an ice sheet cut away.. we need to solve for these and make them more natural.",
       "ruling": "MATT'S DIAGNOSIS ADOPTED as the working root cause: the ice reads unnatural because LV's ice slab groups OVERLAP; sheets sit on other sheets, and the zig-zags are upper sheets cut nearly away (thin raised slivers), with a rectangular cut-away remnant left of the wreck. SUPERSEDES the rim part of R-C9-285 (the rope/stick removal stands). ROUTE: (1) LV ICE TOPOLOGY AUDIT + REBUILD across the WHOLE site (pilot included): every point of ice belongs to exactly ONE floe or sheet at one height; no slab on top of another; no sliver (min width / min area thresholds stated); no straight-edged or rectangular remnant; shore-fast ice thicker near land and floes thinner seaward, but never stacked; snow drifts are flat paint-class areas with no raised faces. Report first: where the overlaps are (a map and counts per tile, pilot vs Phase 3'), then the rebuild with stills of every ice area at the play camera. (2) PAINTING HOLD on ice-bearing Phase 3' tiles (0_4, 1_4, 2_3, 2_4, 3_4 and any other with ice); land tiles may continue by the driver's ready rule (3_1-r1 now, then 4_1, 3_2, 4_2 as they become ready). (3) The already-painted ice tiles (0_3-r1, 1_3-r1) and the pilot's ice regions are dispositioned after LV's audit shows the extent: DEV-24 regional patches vs repainting; if the pilot needs more than spot patches, the choice goes to Matt (the pilot is his ruled keeper, R-C9-268)."
+    },
+    {
+      "id": "R-C9-290",
+      "by": "gandalf (conductor), on Matt's note",
+      "ts": "2026-10-08T22:12:43-04:00",
+      "verbatim": "Also the snow and rocks on top of the sea cave are very rectangular and unnatural without the erosion of the other rocks.. have they not yet been painted/fixed?",
+      "ruling": "STATUS: the cliff columns over the sea cave, the cave mouth and the lower stair lie in Phase 3' tile 2_3, which is NOT YET PAINTED (on the ice hold); the previews show the raw blockout stand-in there. BUT the blockout itself is the problem: the columns carry flat rectangular snow SLABS with vertical faces and squared rock tops, unlike the eroded cliff kit elsewhere, and the painter copies shapes literally. The already-painted pilot cliff-top edge just above (2_2) also shows a stepped, blocky snow edge. ROUTE: LV adds to its R-C9-289 work (3) CAVE-TOP EROSION: the rock columns over the cave and around the stair cleft get the same eroded, rounded, irregular treatment as the other sea cliffs (the cliff rock kit), and the snow becomes thin conformal caps that follow the rock (no slabs, no vertical snow faces, no stepped edges), keeping the cave arch, the stair cut and the monster exit route walkable. Pilot 2_2's blocky edge goes into the same limited pilot re-base and DEV-24 patch list. Crop: barrow_v2/fid/pt/ph3/matt_r290_cave_top.jpg."
     }
   ],
   "grok_calls": [
