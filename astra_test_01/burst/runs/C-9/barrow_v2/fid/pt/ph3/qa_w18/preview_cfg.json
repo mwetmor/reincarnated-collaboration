@@ -1,5 +1,5 @@
 {
- "prefix": "BV2F-PH3",
+ "prefix": "BV2F-PH3PV",
  "name": "barrow_v2 (art-first, sketch A), FULL SITE 5 x 5: the pilot (cols 0-2 x rows 0-2, PS4 + DEV-24, KEPT) + 16 Phase 3' canvases over LV b5894d440 (BV2F Phase 3')",
  "guide": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/ph3/guide_art_pinned_023686e3c.png",
  "cols": 5,
@@ -731,29 +731,10 @@
       "corr_sha256": "166eac6fe3899c1ed8fa14459fe728a8e323c2b3dde4e5b86e2e7378aaf58972"
      }
     ]
-   },
-   {
-    "base_pixels_sha256": "7cc1fce9a254f0673a0946fa3e23b7d343d66bd037b10689d2a6f2c07073c29c",
-    "patches": [
-     {
-      "name": "ph3_corner_l5-1",
-      "rect_xy": [
-       768,
-       2816
-      ],
-      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ph3_corner_l5/region.png",
-      "region_sha256": "4791645efd263c0f4567c695d3f0b3e4be002aab5e04efc53f2e9393944042e8",
-      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ph3_corner_l5/paste_classes.png",
-      "paste_sha256": "6ee0937622900d5349ab2bdcbce5b1c322a8a234e37d75bb9faf0803f4f26f0d",
-      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ph3_corner_l5-1/BV2F-LR4-ph3_corner_l5-1.png",
-      "new_sha256": "328e57c9d197348cbf4793184056f18dde4d0892f75cb36761bd3ae5d5d470c8",
-      "read_sha256": "2a80862d9f22e16683582f642efd509df7cb90b142f0818bf23e159b819ddbef"
-     }
-    ]
    }
   ]
  },
- "_dev24": "the pilot-4 DEV-24 layers, each patch pinned by its READ REGION (read_sha256): the full-site stitch may change pixels no patch reads (R-C9-274 P-2b). New Phase 3' DEV-24 use: clear defects only, each logged with crops, counted against the DEV-13 repair cap (R-C9-268). R-C9-300: + LAYER 4 (wreck floe/ropes, reed-island stick, cave top; read-pinned). R-C9-307/309: + LAYER 5, the one corner seam patch (plate ~1344-1728 x 3136-3520), staged on the full-site stitch (DEV-13 cap: 1 seam patch).",
+ "_dev24": "the pilot-4 DEV-24 layers, each patch pinned by its READ REGION (read_sha256): the full-site stitch may change pixels no patch reads (R-C9-274 P-2b). New Phase 3' DEV-24 use: clear defects only, each logged with crops, counted against the DEV-13 repair cap (R-C9-268). R-C9-300: + LAYER 4 (wreck floe/ropes, reed-island stick, cave top; read-pinned).",
  "dev25c_chunks": [],
  "_dev25c": "R-C9-281: the DEV-25c A/B on 3_0 was decided by the pre-registered rule for ARM A (a1_E B 4.65 > A 3.286); dev25c_chunks EMPTY, DEV-25c stays registered with its flag off; arm B is never context.",
  "dev26_pin": {

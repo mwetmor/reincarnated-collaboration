@@ -1,0 +1,147 @@
+{
+ "_what": "BV2F PT (R-C9-281): Phase 3' MANUAL per-wave QA (calibration s48 (e)), read-only on the canvases, PH's instruments",
+ "wave": "w17",
+ "chunks": {
+  "3_4": {
+   "canvas": "BV2F-PH3-3_4/BV2F-PH3-3_4.png",
+   "sha256": "31500f8638f46d5378be2c79ca826ed820a69782f3db4a19322f3b425b5a99b2",
+   "P6a": {
+    "candidates": [
+     {
+      "plate_xy": [
+       4044,
+       3748
+      ],
+      "nearest_declared": "sea_cave_mouth",
+      "dist_m": 12.72,
+      "matched": false
+     },
+     {
+      "plate_xy": [
+       3924,
+       3937
+      ],
+      "nearest_declared": "sea_cave_mouth",
+      "dist_m": 13.63,
+      "matched": false
+     },
+     {
+      "plate_xy": [
+       4128,
+       3872
+      ],
+      "nearest_declared": "sea_cave_mouth",
+      "dist_m": 14.21,
+      "matched": false
+     }
+    ],
+    "invented": 3
+   },
+   "P4": {
+    "snow": {
+     "windows": 8,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 100,
+     "reading": {
+      "px": 109344,
+      "hist_dist": 0.204,
+      "hist_bar": 0.281,
+      "spec_dist": 0.061,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "rock": {
+     "windows": 104,
+     "verdict": "PASS",
+     "w_min": 3,
+     "reading": {
+      "px": 692754,
+      "hist_dist": 0.26,
+      "hist_bar": 0.481,
+      "spec_dist": 0.023,
+      "spec_bar": 0.19,
+      "pass": true
+     }
+    }
+   },
+   "snow_palette": {
+    "not_measured": "snow support 8 < 100 windows"
+   }
+  }
+ },
+ "joins": {
+  "2_4|3_4": {
+   "a1_max": 5.241,
+   "a1_segments": [
+    3.507,
+    4.293,
+    3.745,
+    3.528,
+    5.241,
+    4.206,
+    3.848,
+    1.862
+   ],
+   "raw_mad": 10.13,
+   "bar": 9.569,
+   "verdict": "PASS"
+  },
+  "3_3/3_4": {
+   "a1_max": 9.574,
+   "a1_segments": [
+    4.652,
+    6.045,
+    5.737,
+    8.238,
+    9.574,
+    9.247,
+    5.575,
+    4.345,
+    5.666,
+    3.775,
+    2.629,
+    2.32
+   ],
+   "raw_mad": 11.56,
+   "bar": 9.569,
+   "verdict": "FAIL"
+  }
+ },
+ "s51_substitution_check": {
+  "0_2": {
+   "mask_px": 835833,
+   "changed_px": 798440,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  },
+  "1_2": {
+   "mask_px": 104827,
+   "changed_px": 94695,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  },
+  "2_2": {
+   "mask_px": 645307,
+   "changed_px": 628187,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true
+  }
+ },
+ "preview": {
+  "grid": [
+   5,
+   5
+  ],
+  "rc": 0,
+  "log": [
+   "DEV-23 on {'0_0': {}, '1_0': {'left_step_mean_abs': 4.45}, '0_1': {'top_step_mean_abs': 6.66}, '1_1': {'left_step_mean_abs': 3.85, 'top_step_mean_abs': 2.58}, '0_2': {'top_step_mean_abs': 10.12}, '1_2': {'left_step_mean_abs': 5.87, 'top_step_mean_abs': 6.44}, '0_3': {'top_step_mean_abs': 7.5}, '1_3': {'left_step_mean_abs': 6.04, 'top_step_mean_abs': 6.65}, '0_4': {'top_step_mean_abs': 6.89}, '1_4': {'left_step_mean_abs': 3.8, 'top_step_mean_abs': 3.45}, '2_0': {'left_step_mean_abs': 2.48}, '2_1': {'left_step_mean_abs': 6.31, 'top_step_mean_abs': 2.74}, '3_0': {'left_step_mean_abs': 5.74}, '3_1': {'left_step_mean_abs': 4.4, 'top_step_mean_abs': 3.76}, '4_0': {'left_step_mean_abs': 5.67}, '4_1': {'left_step_mean_abs': 3.96, 'top_step_mean_abs': 8.45}, '2_2': {'left_step_mean_abs': 9.42, 'top_step_mean_abs': 6.17}, '2_3': {'left_step_mean_abs': 4.14, 'top_step_mean_abs': 6.88}, '2_4': {'left_step_mean_abs': 2.74, 'top_step_mean_abs': 4.38}, '3_2': {'left_step_mean_abs': 3.93, 'top_step_mean_abs': 5.74}, '3_3': {'left_step_mean_abs': 5.8, 'top_step_mean_abs': 3.99}, '3_4': {'left_step_mean_abs': 3.19, 'top_step_mean_abs': 4.63}, '4_2': {'left_step_mean_abs': 8.25, 'top_step_mean_abs': 5.99}, '4_3': {'left_step_mean_abs': 7.67, 'top_step_mean_abs': 10.11}, '4_4': {'left_step_mean_abs': 0.45, 'top_step_mean_abs': 0.77}}",
+   "DEV-25 on {'0_0': {}, '1_0': {'left_k_median': 0.951}, '0_1': {'top_k_median': 1.0}, '1_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '0_2': {'top_k_median': 1.0}, '1_2': {'left_k_median': 0.976, 'top_k_median': 1.0}, '0_3': {'top_k_median': 1.0}, '1_3': {'left_k_median': 0.901, 'top_k_median': 1.0}, '0_4': {'top_k_median': 1.0}, '1_4': {'left_k_median': 0.901, 'top_k_median': 1.0}, '2_0': {'left_k_median': 1.0}, '2_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_0': {'left_k_median': 0.992}, '3_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '4_0': {'left_k_median': 1.0}, '4_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '2_2': {'left_k_median': 1.0, 'top_k_median': 0.948}, '2_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '2_4': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_2': {'left_k_median': 1.0, 'top_k_median': 0.953}, '3_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_4': {'left_k_median': 1.0, 'top_k_median': 1.0}, '4_2': {'left_k_median': 0.987, 'top_k_median': 0.958}, '4_3': {'left_k_median': 0.929, 'top_k_median': 0.981}, '4_4': {'left_k_median': 1.0, 'top_k_median': 1.0}}",
+   "DEV-26 on {'x1_pinned_rows': 2304, 'x1': {'path_min_max': [14, 241], 'object_px_on_path': 93}, 'y1_pinned_rows': 3840, 'y1': {'path_min_max': [14, 216], 'object_px_on_path': 133}, 'x2_pinned_rows': 2304, 'x2': {'path_min_max': [14, 241], 'object_px_on_path': 746}, 'x3': {'path_min_max': [14, 241], 'object_px_on_path': 294}, 'x4': {'path_min_max': [14, 233], 'object_px_on_path': 668}, 'y2_pinned_rows': 3840, 'y2': {'path_min_max': [14, 241], 'object_px_on_path': 208}, 'y3': {'path_min_max': [14, 241], 'object_px_on_path': 545}, 'y4': {'path_min_max': [16, 241], 'object_px_on_path': 456}}",
+   "DEV-27 on {'0_0': {}, '1_0': {'left_step_mean_abs': 3.6}, '2_0': {'left_step_mean_abs': 4.26}, '3_0': {'left_step_mean_abs': 3.24}, '4_0': {'left_step_mean_abs': 4.01}, '0_1': {'top_step_mean_abs': 4.89}, '1_1': {'left_step_mean_abs': 3.55, 'top_step_mean_abs': 5.08}, '2_1': {'left_step_mean_abs': 4.25, 'top_step_mean_abs': 4.93}, '3_1': {'left_step_mean_abs': 3.74, 'top_step_mean_abs': 3.69}, '4_1': {'left_step_mean_abs': 4.41, 'top_step_mean_abs': 5.12}, '0_2': {'top_step_mean_abs': 6.71}, '1_2': {'left_step_mean_abs': 3.98, 'top_step_mean_abs': 5.99}, '2_2': {'left_step_mean_abs': 6.96, 'top_step_mean_abs': 6.51}, '3_2': {'left_step_mean_abs': 2.77, 'top_step_mean_abs': 4.58}, '4_2': {'left_step_mean_abs': 4.1, 'top_step_mean_abs': 6.01}, '0_3': {'top_step_mean_abs': 7.84}, '1_3': {'left_step_mean_abs': 5.08, 'top_step_mean_abs': 6.26}, '2_3': {'left_step_mean_abs': 8.21, 'top_step_mean_abs': 4.23}, '3_3': {'left_step_mean_abs': 7.1, 'top_step_mean_abs': 4.18}, '4_3': {'left_step_mean_abs': 2.34, 'top_step_mean_abs': 8.12}, '0_4': {'top_step_mean_abs': 6.39}, '1_4': {'left_step_mean_abs': 4.75, 'top_step_mean_abs': 5.28}, '2_4': {'left_step_mean_abs': 5.77, 'top_step_mean_abs': 2.35}, '3_4': {'left_step_mean_abs': 5.06, 'top_step_mean_abs': 3.39}, '4_4': {'left_step_mean_abs': 3.14, 'top_step_mean_abs': 1.71}}",
+   "DEV-24 on {'layers': [{'patches': [{'name': 'ps4_crack1-1', 'paste_px': 227215, 'support_px': 370398, 'tone_corr_mean_abs': 4.92}, {'name': 'ps4_crack2-1', 'paste_px': 31760, 'support_px': 41868, 'tone_corr_mean_abs': 0.97}, {'name': 'ps4_crack3-1', 'paste_px': 50247, 'support_px': 91263, 'tone_corr_mean_abs': 1.98}], 'changed_px': 360021, 'layer': 1}, {'patches': [{'name': 'ps4_reeds1-1', 'paste_px': 387468, 'support_px': 534616, 'tone_corr_mean_abs': 1.58}, {'name': 'ps4_reeds2-1', 'paste_px': 224270, 'support_px': 313713, 'tone_corr_mean_abs': 2.21}, {'name': 'ps4_reeds3-1', 'paste_px': 176668, 'support_px': 258851, 'tone_corr_mean_abs': 1.06}, {'name': 'ps4_seam2-1', 'paste_px': 92472, 'support_px': 118338, 'tone_corr_mean_abs': 4.38}], 'changed_px': 973193, 'layer': 2}, {'patches': [{'name': 'ps4_seam1-1', 'paste_px': 112817, 'support_px': 132838, 'tone_corr_mean_abs': 0.5}], 'changed_px': 118322, 'layer': 3}, {'patches': [{'name': 'ps4_l4_g1-1', 'paste_px': 725222, 'support_px': 819899, 'tone_corr_mean_abs': 0.75}, {'name': 'ps4_l4_g2-1', 'paste_px': 109968, 'support_px': 158244, 'tone_corr_mean_abs': 1.89}, {'name': 'ps4_l4_g3-1', 'paste_px': 600379, 'support_px': 645307, 'tone_corr_mean_abs': 0.35}], 'changed_px': 1490559, 'layer': 4}], 'changed_px': 2795943, 'result_pixels_sha256': 'fc7c19f6bd9135e13a3cb9baee6b374252a4886e18c22bac65b021baba5f3868'}",
+   "DEV-25c off"
+  ],
+  "file": "stitched_preview.jpg (half size); cells not painted are the GUIDE"
+ }
+}
