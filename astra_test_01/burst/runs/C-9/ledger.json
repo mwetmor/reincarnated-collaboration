@@ -54437,6 +54437,13 @@
       "ts": "2026-10-09T13:43:35-04:00",
       "verbatim": "",
       "ruling": "Manifest 21 (cleanup/manifest_bv2f_scratch_21.txt; 869 files, 3.33 GiB: the superseded pilot build root, the sea-pass intermediate full paintings, the E-4 copy, superseded PH pilot renders, the pilot-3 film; build_inputs-safe) goes to Matt. Plan to finish without a restart: manifest 21 -> ~21 GiB -> PT runs prep (+reeds), lineage, guide -> manifest 22 (the site bake's surf_*.npz, ~4.4 GiB, only after prep has consumed them) -> stills + film. The longhall surface 0 with no UV array (skipped by the export) is investigated NOW without disk: identify the part, and whether it shows unbaked in game; propose a fix."
+    },
+    {
+      "id": "R-C9-324",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T13:44:46-04:00",
+      "verbatim": "",
+      "ruling": "The UV-less longhall surface is LV's procedural plank panel (hall_panel_0, the SE gable-end infill, R-C9-188/189), not the hall model; under the bake material it would sample one texel (flat colour) at a camera-facing wall. RULED fix (a): in _dress_painted, any mesh under a baked model that has NO ARRAY_TEX_UV wears the PROJECTED painting (mat_paint, casting shadows), which is v1's own rule for primitives and carries exactly the painter's pixels; marked BV2F-PT; no rp4 change (no UV-less real-model surface there); no re-bake. Proof: a guide-camera capture of the panel area vs the painting (within capture noise), run with the guide step after disk returns."
     }
   ],
   "grok_calls": [
