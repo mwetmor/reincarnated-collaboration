@@ -53442,6 +53442,13 @@
       "ts": "2026-10-09T01:35:53-04:00",
       "verbatim": "",
       "ruling": "HALT on the image-service usage limit (H-C9-BV2F-ASTRA-LIMIT-2). Painting is 22 of 25 canvases complete (pilot 9 + 13 Phase 3'). Resume after the service reset with the conductor's release: PH3_SUF0=-r2 PH3_SUF1=-r3 ph3_prepare.sh wave 2_4, then 3_4, 4_4, then the corner DEV-24 patch, then the final 5x5 painting, contact sheet, QA summary and M3' packet. A Mac restart before resuming is safe: all state is in the repo (RESUME_PT.md, ledger, cfg_bv2a_ph3.json); a fresh session resumes from the handoff note."
+    },
+    {
+      "id": "R-C9-309",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T06:32:32-04:00",
+      "verbatim": "",
+      "ruling": "RESUME after the image-service reset (stated 5:13 AM; now past). Matt's restart is scheduled by the Sim Session for later, with notice, so painting continues now. RELEASED: PH3_SUF0=-r2 PH3_SUF1=-r3 ph3_prepare.sh wave 2_4, then 3_4, 4_4, then the corner DEV-24 seam patch, then the final deliverables. If the usage limit recurs: HALT, no retries."
     }
   ],
   "grok_calls": [
