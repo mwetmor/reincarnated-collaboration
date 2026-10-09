@@ -50864,9 +50864,131 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 3
+    },
+    {
+      "id": "BV2F-LR4-cave_east-3",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "01a137fe5a575eb763a98c6ffece1e42d133f7efef6d8ba6c1c19a995726a452",
+      "started": "2026-10-09T19:50:42.295538+00:00",
+      "ended": "2026-10-09T19:52:51.886122+00:00",
+      "minutes": 2.160151490984329,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12237-c85d-7f73-b2b8-d12d84413a69/exec-d7853734-4260-4de2-9f36-2da24ca7b331.png",
+            "sha256": "b5da57cc7b8d7e1e5689237975a8d54127538be84b8a8b236e9b9c9e5455ef6c"
+          }
+        ]
+      },
+      "receipt_sha256": "fb2281cdbbeedea7c21320401b273985ebaa60971ab19df6afc110208b689948",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-cave_east-3.png",
+          "sha256": "b5da57cc7b8d7e1e5689237975a8d54127538be84b8a8b236e9b9c9e5455ef6c"
+        },
+        {
+          "name": "exec-d7853734-4260-4de2-9f36-2da24ca7b331.provenance.json",
+          "sha256": "d269ada6b4fd8f00b3ad87873033786001d8422a37cc8ec38450fd8d6ab242b9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12237-c85d-7f73-b2b8-d12d84413a69/exec-d7853734-4260-4de2-9f36-2da24ca7b331.png",
+          "sha256": "b5da57cc7b8d7e1e5689237975a8d54127538be84b8a8b236e9b9c9e5455ef6c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-ledge-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "214b861b763d4554768d76d176429ee7d04bfcd7b8670383c22a474ac62c6041",
+      "started": "2026-10-09T19:53:36.398260+00:00",
+      "ended": "2026-10-09T19:55:10.933385+00:00",
+      "minutes": 1.5756079673650674,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a1223a-6c5e-7972-829c-bc569c2baa82/exec-65e678df-d4f6-4f34-81ec-9cbecaeb62df.png",
+            "sha256": "c7f6b4e8b17259b2ce7c49980cd985ad56f5d00593d737845b9182bbd5ae7c5f"
+          }
+        ]
+      },
+      "receipt_sha256": "2178e33079801e164ad5791817851fe058e428e7179178a50524f142c20c23e5",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-ledge-1.png",
+          "sha256": "c7f6b4e8b17259b2ce7c49980cd985ad56f5d00593d737845b9182bbd5ae7c5f"
+        },
+        {
+          "name": "exec-65e678df-d4f6-4f34-81ec-9cbecaeb62df.provenance.json",
+          "sha256": "d5c80d52fd68fd4d8e436d713363cccb130145f6a424a03cfc1a53ec17ceac19"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a1223a-6c5e-7972-829c-bc569c2baa82/exec-65e678df-d4f6-4f34-81ec-9cbecaeb62df.png",
+          "sha256": "c7f6b4e8b17259b2ce7c49980cd985ad56f5d00593d737845b9182bbd5ae7c5f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1456,
+  "images_used": 1458,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52199,6 +52321,12 @@
       "ts": "2026-10-09T06:55:58-04:00",
       "by": "gandalf (conductor)",
       "text": "barrow_v2 PAINTING COMPLETE (PT c0fe9ee52): all 25 canvases (pilot 4 kept + 16 Phase 3'); final 5x5 painting fid/pt/ph3/final/painting_ph3_full.png sha 8e169e6331bb (6656x4096), Tier-B stitch with DEV-23/25/26/27, DEV-26 pin, DEV-24 L1-5, DEV-29; pilot identity zone byte-identical to the reviewed L4 pilot; verify green. Images: Phase 3' 43/44, DEV-24 23/24. Carried stitch-corrected joins: 8; disclosed P4 snow-spectrum FAILs: 3_3-r1, 4_3, 4_4; the 0_4|1_4 corner line repaired by DEV-24 L5; P6a 0 invented after triage. M3' packet: fid/pt/ph3/final/m3p_packet/ (24 crops, index.json). OWED after Matt's restart: jack-ryan Gate-2 on the painting; P-4 at the build; full-site take/bake/build (disk >= 25 GiB); PH stills at the s50(a) phase; P11/P4/P5 harness; P10 in a quiet window (T34); M3' to Matt."
+    },
+    {
+      "id": "M-C9-BV2F-SITE-BUILT",
+      "ts": "2026-10-09T16:27:07-04:00",
+      "by": "gandalf (conductor)",
+      "text": "barrow_v2 FULL SITE BUILT in 3D (PT f64fd204c, ee64a9b27, f637928b2): final painting painting_ph3_r328_full.png (pixels 1e2efeec5657; identity proof PASS, 0 px outside the paste mask, pilot changes all inside the allowlist); DEV-24 layers 16-23 (drift spots, cave brow + east wall, icy ledge + icicles); LR4 42/43; build on LV d26d14c55: 100 plates, 608 tufts, 12 changed models re-baked (100/100), 49 posts + 1 UV-less mesh projected, 39 floes bobbing; 24 stills all within 0.10 px of the s50(a) phase targets; walk film 93.6 s, 42/42 waypoints (sha 670b2b2ffe19). Open for LV: a thin bounds-wall spike at u~-20.5 (v -3.7..18.1) fences the wreck beach off from the site (navigation only, not visual). Manifest 23 (1.54 GiB: raw AVIs + r321 outputs) executed by the conductor; disk 24 -> 25 GiB; build_inputs 218/0 OK."
     }
   ],
   "halts": [
@@ -54962,6 +55090,13 @@
       "ts": "2026-10-09T15:22:59-04:00",
       "verbatim": "",
       "ruling": "LV d26d14c55 PASS: the ledge in front of the cave is the mouth's icy floor (tide_ice), with 22 sea icicles (0.30-0.87 m) along its seaward lip clear of the walk route; walk 8/8, gates and ice proof pass; pilot unchanged. PT RELEASED end to end (per R-C9-328) from LV d26d14c55: re-pin, recount (<= 10), DEV-24 patches including the icy ledge + icicles in the cave patch, re-stitch + identity proof, the build re-run, 24 stills + walk film; hand back once at the end, or stop on a failed check."
+    },
+    {
+      "id": "R-C9-331",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T16:27:07-04:00",
+      "verbatim": "",
+      "ruling": "NEXT, in parallel: (1) LV removes the bounds-wall spike at u~-20.5 (navigation only; no guide/paint change; walkability re-check incl. a wreck-beach to stone-circle route); PT then re-pins the level's bounds only (no re-bake) and confirms the film route walks straight. (2) PH runs the FULL-SITE HARNESS on the site_ph3 build, per jack-ryan's painting Gate-2 H-1..H-6: pre-register and commit the full a1 table with the s51 substitution domain DERIVED from the mask (not named joins) and P5(b) before reading; P6a on the final painting with triage; P4 with the frozen ice reference and min-support rules (snow 100, rock 3) plus the report-only snow-grain forensic; the P11 class mapping derived (unmapped classes listed; VOID if < 40 drawable) with phase-matched stills already captured; P9c incl. a view inside the repainted floes; P8; P10 only in a quiet window (T34). The conductor spawns the blind P11 judge. (3) Then jack-ryan Gate-2 on the build -> M3' to Matt."
     }
   ],
   "grok_calls": [
@@ -55987,6 +56122,12 @@
       "ts": "2026-10-09T14:16:00-04:00",
       "by": "gandalf (conductor), on Matt's direction",
       "text": "Manifest 22 (100 site-bake surf_*.npz, 4.41 GiB) executed by the conductor on Matt's standing direction (Matt is away from the Mac); rm exit 0; build_inputs_check OK 179/0; disk 21 -> 26 GiB. PROCESS CHANGE (Matt): the conductor executes build-input-safe cleanup manifests it has prepared without waiting for Matt to paste the command; each still excludes every build_inputs path and is logged here."
+    },
+    {
+      "id": "N-C9-CLEANUP-M23",
+      "ts": "2026-10-09T16:27:07-04:00",
+      "by": "gandalf (conductor)",
+      "text": "Manifest 23 executed by the conductor (617 files, 1.54 GiB); build_inputs 218/0 OK; disk 24 -> 25 GiB."
     }
   ]
 }
