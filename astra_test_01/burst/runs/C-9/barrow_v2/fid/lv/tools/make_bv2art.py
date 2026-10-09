@@ -1447,7 +1447,7 @@ def main():
                # softened domed tops, rounded shoulders (r 0.45 m); snow only on gentle slopes (thin conformal caps)
                "drop_scale": 0.5, "top_blur_m": 0.45, "round_r": 0.45, "snow_up": 0.8,
                "erode_ok": lambda tq, sq, hq: erode_ok94(tq, sq, hq),
-               "ledge_rock": True,
+               "ledge_rock": False,                                  # R-C9-329 (Matt): the ledge is the cave mouth's ICY floor again (tide_ice class + tone)
                "head_smooth": True,                                  # R-C9-325 (1): the knoll over the arch one rounded mass
                "walk_zone": (t0s - 1.2, t1s + 1.2, s_land - 2.5, s_top + 0.3),
                "cove": dict(CR["cove"], s_b=sb_), "landing": CR["landing"], "landing_fn": landing_fn,
@@ -2032,6 +2032,45 @@ def main():
         cu_, cv_ = c3[0] + ox, -(c3[2] + oz)
         icicles.append({"poly": [[round(cu_ - w_, 3), round(cv_, 3)], [round(cu_ + w_, 3), round(cv_, 3)], [round(cu_, 3), round(cv_ + w_, 3)]],
                         "z0": round(hwz - L_, 3), "z1": round(hwz + 0.04, 3)})
+    # R-C9-329 (Matt): SEA ICICLES along the iced ledge's SEAWARD lip -- hanging from just under the floor's edge down toward
+    # the water (varied lengths, 0.25 .. 0.9 m; the sea is 1.0 m below the ledge), each a sliver just proud of the lip face. The
+    # lip = landing cells whose outward neighbour drops to the sea (not the cave/gully rock walls). Own stream (3291): nothing
+    # else moves; below the walk surface and outside the landing, so never in the walk route
+    ts_g, ss_g = carved["grid_ts"]
+    T2g, S2g = np.meshgrid(ts_g, ss_g, indexing="ij")
+    st_g = float(ts_g[1] - ts_g[0])
+    L2g = landing_fn(T2g, S2g)
+    drop_g = (~L2g) & (carved["walk_h"] < R["shelf_z"] - 0.6)
+    lip_g = L2g & ndimage.binary_dilation(drop_g, iterations=1)
+    li_, lj_ = np.nonzero(lip_g)
+    rngi = __import__("random").Random(3291)
+    sea_ic = []
+    if len(li_):
+        # outward normal from the drop's distance gradient (points from the ledge to the water)
+        dd_ = ndimage.distance_transform_edt(~drop_g) * st_g
+        gt_, gs_ = np.gradient(dd_, st_g)
+        order_ = sorted(range(len(li_)), key=lambda k: (T2g[li_[k], lj_[k]], S2g[li_[k], lj_[k]]))
+        last_ = None
+        for k in order_:
+            tq, sq = float(T2g[li_[k], lj_[k]]), float(S2g[li_[k], lj_[k]])
+            if last_ is not None and math.hypot(tq - last_[0], sq - last_[1]) < rngi.uniform(0.35, 0.7):
+                continue
+            g_ = np.array([-gt_[li_[k], lj_[k]], -gs_[li_[k], lj_[k]]])
+            gn_ = float(np.hypot(*g_))
+            if gn_ < 1e-6:
+                continue
+            g_ /= gn_
+            last_ = (tq, sq)
+            off_ = rngi.uniform(0.12, 0.2)                # just proud of the lip face (outside the landing)
+            ct_, cs_ = tq + g_[0] * off_, sq + g_[1] * off_
+            if landing_fn(np.array([ct_]), np.array([cs_]))[0]:
+                continue
+            L_ = rngi.uniform(0.25, 0.9)
+            w_ = rngi.uniform(0.035, 0.075)
+            cu_, cv_ = fr(ct_, cs_)
+            sea_ic.append({"poly": [[round(cu_ - w_, 3), round(cv_, 3)], [round(cu_ + w_, 3), round(cv_, 3)], [round(cu_, 3), round(cv_ + w_, 3)]],
+                           "z0": round(R["shelf_z"] - 0.05 - L_, 3), "z1": round(R["shelf_z"] - 0.03, 3)})
+    icicles += sea_ic
     # the OLD SHELF's place: shore-fast ice now (its own cells and draws; the rest of the pack is as Matt passed it), kept off
     # the new landing and the cove's water (seaward of s 1.4)
     old_shelf_ice = []
