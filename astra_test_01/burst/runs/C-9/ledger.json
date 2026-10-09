@@ -48103,9 +48103,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "93c8cfb4b6e6f2d9ea1864179dc17639fde19837b0bb95a5c1806edc3f700b69",
+      "started": "2026-10-09T01:59:51.225079+00:00",
+      "ended": "2026-10-09T02:03:04.745282+00:00",
+      "minutes": 3.225328520134402,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e63-617d-7923-b198-ee9131c9ee9e/exec-12b73a65-9ddd-48b7-a367-24f622acbc95.png",
+            "sha256": "97e1e0c1c19f5aa34ffc6ab16e54f123bd147868c4b9a668f48dd4857278beb7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e63-617d-7923-b198-ee9131c9ee9e/exec-eb1e5ec8-1ea2-4d17-80f3-6d2d90d0d814.png",
+            "sha256": "46983e9554efc354d6085bb4f283cfcbd6035e432593a2f04d533342c964b1b3"
+          }
+        ]
+      },
+      "receipt_sha256": "b7b8ef7993249e639eb779a7fd5c117ce74ccea669bd53e7431fe8f75e50d169",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_1.png",
+          "sha256": "97e1e0c1c19f5aa34ffc6ab16e54f123bd147868c4b9a668f48dd4857278beb7"
+        },
+        {
+          "name": "exec-12b73a65-9ddd-48b7-a367-24f622acbc95.provenance.json",
+          "sha256": "4a885b678d3aa17dcf6d8f2276d15f4daf966df82cdc2fe0c646cf3627e0c57f"
+        },
+        {
+          "name": "exec-eb1e5ec8-1ea2-4d17-80f3-6d2d90d0d814.provenance.json",
+          "sha256": "15f37bb2fe7acc0c01fac1d362f445a76ee9287dbb8703d3e842d1ad571a2aed"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e63-617d-7923-b198-ee9131c9ee9e/exec-12b73a65-9ddd-48b7-a367-24f622acbc95.png",
+          "sha256": "97e1e0c1c19f5aa34ffc6ab16e54f123bd147868c4b9a668f48dd4857278beb7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e63-617d-7923-b198-ee9131c9ee9e/exec-eb1e5ec8-1ea2-4d17-80f3-6d2d90d0d814.png",
+          "sha256": "46983e9554efc354d6085bb4f283cfcbd6035e432593a2f04d533342c964b1b3"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1400,
+  "images_used": 1402,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -51869,6 +51942,13 @@
       "ts": "2026-10-08T21:58:58-04:00",
       "verbatim": "",
       "ruling": "0_3/1_3 REPAINT PASS (PT 16ab3cc5b; 11/~37 images): the honeycomb is gone and natural floes and leads continue from the pilot's sea; a1 7.057 / 7.822 / 9.377 PASS; rock PASS; P6a 0. The raised heart-shaped floe in 0_3 follows the guide and is acceptable, noted for Matt's eye at M3'. Burst-id note: a repainted chunk runs as -r1 with only the service-side retry left; accepted, no Tier-B src() change now. WAVE 3 RELEASED (3_1, 2_3) on the current pins (LV 67fc4b80b): neither tile is expected to change under LV's R-C9-285 work (the rims and ropes lie in the pilot rows, and the DEV-24 pilot patches are post-stitch and leave the raw canvases untouched). If LV's allowlist does touch 3_1 or 2_3, the conductor rules a repaint then."
+    },
+    {
+      "id": "R-C9-287",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T22:05:59-04:00",
+      "verbatim": "",
+      "ruling": "WAVE 3 (PT 2c0981d31; 13/~37 images): 3_1's metrics PASS but the longhall's ASH YARD (class ash, 19% of the chunk) is painted as clean snow, and the painter reports a small see-through gap under the eaves. ROOT CAUSE, CONDUCTOR-OWNED: geo v7 (R-C9-258) dropped v6's clause 'the FLAT DARKER GREY ground around them = a yard of trampled ash and soot'. RULED: GEO v7.1 = v7 plus every v6 class clause whose class is present in the guide of ANY remaining Phase 3' tile (PT diffs v6 vs v7 against the class list of the unpainted tiles: ash yard, fallen logs, palisade, inland crags, longhall walls/door, the river if present, and any other), restored in v6's own words, with pale/soft still only in the mere clause; the conductor reviews the restored clause list before any image. Then REPAINT 3_1 as 3_1-r1 under v7.1 (1-2 images; the current 3_1 is moved aside). ORDER: v7.1 review -> 3_1-r1 -> QA -> then the driver's ready set (0_4 now; 2_3 when 3_2 makes it ready), always by the driver's ready rule. Pilot and already-passed Phase 3' tiles (3_0, 4_0, 0_3-r1, 1_3-r1) are unaffected (no ash/log classes, or already correct)."
     }
   ],
   "grok_calls": [
