@@ -150,5 +150,6 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [ ] P6a painting_2_4_c015: conductor re-confirm (crop changed by the r332 patch).
 - [ ] P11 on r332: not rebuilt (27/40 valid FAIL on r328 stills); conductor's call.
 - [x] R-C9-340/343: C-3 rows (5adb82540), C-4 (5adb82540), s59 pre-reg (376eaf216, before r339), C-7 PASS 0.033 @1.477 px (58c06f376), s63 r339 delta + C-2 re-crops (718367062).
-- [ ] P6a painting_2_4_c015 r339 crop: conductor re-confirm.
-- [ ] P10 sea loop: s61 rule unmeetable (no walkable point frames a whole bobbing floe) -> conductor option (a) partial / (b) old shore loop / (c) LV bounds. Start loop PROVEN on site_ph3. P10 only in T34.
+- [x] P6a painting_2_4_c015 r339: open water (R-C9-346); 0 PENDING.
+- [x] (R-C9-346 option (a), s64 loop (0,-17.5)->(2.5,-17.5)->(0,-15)->(-2.5,-15); prove at T34 session start) P10 sea loop: s61 rule unmeetable (no walkable point frames a whole bobbing floe) -> conductor option (a) partial / (b) old shore loop / (c) LV bounds. Start loop PROVEN on site_ph3. P10 only in T34.
+- [ ] WAIT for T34: prove the s64 sea loop (walk_probe.sh, PH_WP_PILOT=site_ph3, PH_WP_DIR=walk_probe_site) then P10 per s34/s48(c)/s50(c).

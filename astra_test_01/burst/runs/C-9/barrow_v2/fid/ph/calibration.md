@@ -2083,3 +2083,13 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - **Eye and P6a items 12, 13, 14, 15, 17, 18, 19** at boxes from their names, confirmed by NCC against `painting_pre_l5.png` where it locates (12: 0.984, 14: 0.86, 18: 0.81; 13, 15 and 19 located at the named box and scale).
 - Before/after pairs are re-cut as **one panel** (the final state).
 - **Item 17 could not be located in any painting.** It was cut from the superseded 0_3 raw canvas. It is re-cut 512 × 314, **centred on the named candidate (505, 3270)**, disclosed.
+
+## 64. AMENDMENT to § 61 — the P10 SEA LOOP, option (a) (conductor R-C9-346). Committed BEFORE any T34 window and before any sea-loop frame exists. No bar moves; no LV bounds change.
+- **Rule amended (sea loop only).** § 61's "≥ 3 floes **wholly** in frame at every waypoint" becomes: **floes PARTLY in frame**, anchored on (0.0, −17.5), the only walkable point framing 3 (§ 62).
+- **The loop, fixed now:** (0.0, −17.5) → (2.5, −17.5) → (0.0, −15.0) → (−2.5, −15.0).
+  - Legs 2.5 / 3.54 / 2.5 / 3.54 m (≥ 2 m).
+  - Every waypoint lies inside the site bounds polygon.
+  - Bobbing floes partly in a frame centred on each waypoint: 3 / 2 / 1 / 1. Same geometry as § 62: `ids_built` components, 1920 × 1080.
+- **Proof** (before the window, in the T34 session's first lock hold): `walk_probe.sh` with `PH_WP_PILOT=site_ph3`. The § 50 (c) walk-validity rule is unchanged. **A failing loop is reported and not replaced by PH**; the conductor rules.
+- **Start loop:** as proven in § 62.
+- **P10 itself:** § 34 / § 48 (c) / § 50 (c) bars, interleave and VOID rules, unchanged.

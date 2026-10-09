@@ -625,7 +625,7 @@
    },
    "id_at_centroid": "ground_sea",
    "reader": "auto (site_p6a.py, s52 (d))",
-   "conductor_read": "PENDING re-confirm (crop changed by layer 25)",
+   "conductor_read": "MATERIAL: open water (re-confirmed on the r339 crop; the kelp ice at the crop's top edge is the declared R-C9-339 change) -- R-C9-346",
    "ts": "2026-10-09T21:48:01Z",
    "crop_sha": "a1c46423df0315d9e0e6b6b053c5b8b1372779788d6e79301a0a8d437da26e40",
    "overlay_sha": "bf8efeab6d8548a6114407bad823dadd1b1f76e5958acb1e4ff2944e13a40622",
@@ -633,7 +633,7 @@
    "image_sha256": "3494279134a8eb0238ee7b208276ffa9e8844ce684f500c52c1f85aa125ada2c",
    "verdict_pending_before": "PENDING conductor triage (water class: R-C9-194/282)",
    "final_verdict": "MATERIAL: open water (the registered sea false-positive mode, s50 P6a note) -- not an opening",
-   "verdict_ruling": "R-C9-333 + R-C9-338 (re-confirmed on the r332 crop)",
+   "verdict_ruling": "R-C9-333 + R-C9-338 + R-C9-346",
    "conductor_reader": "gandalf (conductor, by eye)",
    "carried_from": "r332 row painting_2_4_c015 (candidate px within 2 px; crop sha CHANGED)",
    "ph_observation_r339": "candidate px unchanged, class sea 1.00 (open water); the crop now includes the r339 high-tide ledge (kelp) at its top edge, outside the candidate -- conductor re-confirm requested",
@@ -2517,9 +2517,7 @@
    "row_written_ts": "2026-10-09T21:54:11Z"
   }
  ],
- "verdict": "PASS pending one re-confirm: same 64 candidates as r332 (8 declared; 56 carried MATERIAL reads; 0 invented); 0 kelp-mode candidates (the detector fires on no kelp clump at T 32)",
- "pending_conductor_triage": [
-  "painting_2_4_c015"
- ],
+ "verdict": "PASS: 64 candidates; 8 declared; 56 MATERIAL by the conductor (R-C9-333/338/346); 0 invented; 0 kelp-mode candidates; 0 PENDING",
+ "pending_conductor_triage": [],
  "kelp_mode_candidates_in_delta_dil32": []
 }
