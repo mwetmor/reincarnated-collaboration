@@ -53772,6 +53772,13 @@
       "ts": "2026-10-09T08:04:39-04:00",
       "verbatim": "Lastly, I have one more note: Viking ships had only one mast, so please delete/remove the fallen one.",
       "ruling": "WRECK: REMOVE the FALLEN spar/pole (the long pole lying from the gunwale across the snow and onto the ice; part of LV's wreck_mast slot per R-C9-234(7)); the standing snapped mast stub stays (the ship's one mast). LV removes the fallen-spar geometry (the mast stub keeps its place) and adds its footprint rects to the pilot allowlist (it lies in the pilot, 0_2); PT paints it out with a DEV-24 regional patch filled from the fixed guide (snow, ice and water under it), in the same sea pass as W1 (the turbulent water by it, R-C9-315). This is the one exception to 'land done': the patch covers only the pole's footprint plus its shadow."
+    },
+    {
+      "id": "R-C9-317",
+      "by": "gandalf (conductor), on PT 5179ae4d9",
+      "ts": "2026-10-09T08:07:45-04:00",
+      "verbatim": "",
+      "ruling": "site_ph3 data-set switch ACCEPTED (rp4 stills unchanged within capture noise; PILOT_PX identical by construction). Sea-pass plan ACCEPTED (P1 pole + W1; P2 W2; P3 the crack net where it reads as cracks; P4 the ice notes from LV's rects; class-masked to water/ice; land byte-identical except the pole footprint + shadow). BUDGET: the sea pass draws from ONE allowance: DEV-24 is EXTENDED by a 'sea pass' tranche of 16 images (counter continues from 23; cap 40); these are Matt-noted defects (R-C9-314/315/316), so they do not count against the DEV-13 seam cap except any patch that exists only to hide a seam. DEV-5: switch to ONE shared material with an instance uniform bob_phase (Tier-B/OWN as applicable; a frozen A/B proves the look unchanged); if LV tags > ~400 bobbing floes, merge into one mesh with per-vertex phase. P10 is measured once the floes are tagged (quiet window, T34). P1-P3 RELEASED after LV's map passes the conductor's check (they depend on LV's pole rects and any W2 cause); P4 after LV's geometry pass."
     }
   ],
   "grok_calls": [
