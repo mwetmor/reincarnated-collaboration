@@ -26,7 +26,7 @@ for k in ("guide", "ids", "class"):
     else:
         src = os.path.join(FID, "lv", m[k]["file"])
         assert sha(src) == want, "LV's working %s differs from the manifest at %s" % (k, commit)
-        dst = OUT + "/%s_art_pinned_ph3.png" % k
+        dst = OUT + "/%s_art_pinned_%s.png" % (k, commit)   # R-C9-297: named by LV commit (an earlier pin is never overwritten)
         shutil.copyfile(src, dst)
         assert sha(dst) == want
         copies[k] = {"pinned_copy": os.path.relpath(dst, os.path.dirname(FID)), "sha256": want}
