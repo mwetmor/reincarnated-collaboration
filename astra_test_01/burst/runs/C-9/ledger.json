@@ -55200,6 +55200,13 @@
       "ts": "2026-10-09T17:06:23-04:00",
       "verbatim": "",
       "ruling": "R-C9-332 DONE (PT e6d561114): the blurry ledge snow was the image service's own soft paint (not the paste, field or build); ONE DEV-24 repaint ledge_grain-1 (layer 24; LR4 43/45) restores cell grain right of the cairns; the sunlit snow tongue at the lip stays slightly smoother (for Matt's eye; 2 images remain if he wants it crisper). New final painting painting_ph3_r332_full.png (pixels b6ab4dfe8b03); identity proof PASS (0 outside the paste mask; 0 pilot px outside the allowlist); build_inputs 223 OK; no model re-bake needed; new walk film on the direct route (76.3 s, 33/33 waypoints, sha 4b6a1b65241a), sent to Matt. PT's P9c A/B (shared 0.161 vs per-floe 0.207 px) agrees the shared material introduces nothing. Manifest 24 (0.97 GiB: the raw AVI, the old mere-route film, stuck-film dirs, prev_d26) executed by the conductor; build_inputs 223/0; disk 24 GiB. NEXT: PH re-runs the ledge-area rows on r332 + the re-instrumented P9c; then jack-ryan Gate-2 on the build; then M3' to Matt."
+    },
+    {
+      "id": "R-C9-338",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T17:23:08-04:00",
+      "verbatim": "",
+      "ruling": "FINAL FULL-SITE TABLE r332 (PH 65a126d0d s56/57, 75613df7e s58) RECEIVED. P9c v3 (separated floe labels from a same-pose ID shot; non-floe geometry hidden for marker/ID shots; bar and statistic unchanged; validated: rigid null 0.030/0.025, static 0, RED 0.743/0.843 fails) reads 0.030 px main view PASS, pending jack-ryan's ratification; v2 0.267 stays FAIL-as-read. P6a candidate painting_2_4_c015 re-confirmed by the conductor's eye: OPEN SEA (sea false-positive mode), 0 invented. P11 is NOT rebuilt for r332: the only change is a 57k px tide_ice ground patch, and ice is excluded from P11 by pre-registration (s50 exclusion rule), so the r328 set's result (27/40, valid) stands for r332. PH's disclosure that the s53 Godot renders straddled the r332 rebuild is recorded; s58 ran on the settled build. GATE-2 ON THE BUILD is requested from jack-ryan now."
     }
   ],
   "grok_calls": [
