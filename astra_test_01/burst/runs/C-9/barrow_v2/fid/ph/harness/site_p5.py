@@ -20,9 +20,9 @@ import p5v2 as V
 import p5_seams as S5
 import site_domain as SD
 
-OUT = PH / "results/site"
-PAINT = FID / "pt/ph3/final/painting_ph3_r328_full.png"
-PAINT_SHA = "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638"
+OUT = PH / os.environ.get("PH_PILOT_OUT", "results/site")          # s57: results/site_r332
+PAINT = FID / os.environ.get("PH_SITE_PAINT", "pt/ph3/final/painting_ph3_r328_full.png")
+PAINT_SHA = os.environ.get("PH_SITE_PAINT_SHA", "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638")
 BAR, BAR_CORNER = 9.569, 4.809
 S51_NAMED = {"0_2/0_3", "1_2/1_3", "2_2/2_3", "2_2\\3_3"}
 SX, SY, CW, CH, OV, TRIM = 1280, 768, 1536, 1024, 256, 12
@@ -82,7 +82,7 @@ def crop(P, j, segs, name):
 
 
 def main():
-    dom = jload(OUT / "s52_domain.json")
+    dom = jload(PH / "results/site/s52_domain.json")
     cfg = SD.CFG["context_patch"]
     assert V.sha(cfg["painting"]) == cfg["painting_sha256"] and V.sha(cfg["mask"]) == cfg["mask_sha256"], "DEV-29 inputs sha -> STOP"
     assert V.sha(PAINT) == PAINT_SHA, "painting sha -> STOP"

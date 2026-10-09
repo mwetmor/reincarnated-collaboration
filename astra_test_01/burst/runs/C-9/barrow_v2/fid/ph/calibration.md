@@ -1942,3 +1942,42 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - **P6a:** new candidates inside the patch go to by-eye triage as in § 52 (d).
 - **P11 is not rebuilt.** It was judged on r328 stills (27/40, valid FAIL; R-C9-335). Whether r332 needs a new set is the conductor's call.
 - **P9c v3 (§ 56) runs on the r332 build.**
+
+## 58. RESULTS — P9c v3 (§ 56) and the r332 re-run (§ 57). `results/site_r332/`; renders `renders/site_r332/` (all on the settled r332 build)
+**P9c v3 validation — passed on both views, read FIRST** (`results/site_r332/p9c_v3_validation.json`):
+
+| View | Rigid null (truth 0): median / p90 / max | Static max \|r\| | RED (texture slides): median |
+|---|---|---|---|
+| main | **0.030** / 0.11 / 0.43 (44 samples, 10 floes) | 0.000 | **0.743** (FAILs, as required) |
+| L5 | **0.025** / 0.049 / 0.105 (38 samples, 8 floes) | 0.000 | **0.843** (FAILs, as required) |
+
+**P9c v3 reading** (bobt, the shipped bob; `results/site_r332/p9c_v3.json`):
+
+| View | Median drift | Samples | Bar | Verdict |
+|---|---|---|---|---|
+| **main (binding)** | **0.030 px** | 44 | ≤ 0.25 | **PASS** |
+| L5 (reported) | 0.025 px | 38 | ≤ 0.25 | PASS |
+
+- **Residual instrument error, disclosed.** The largest single values on the main view (0.29–0.43) all come from floe 36, a small floe wedged between two others: 1 812–1 853 of its edge px are excluded. The rigid null reads the same values there, so they are instrument residual, not floe drift. The bobt and rigid readings are equal.
+- **The § 53 reading (0.267, v2) stays on record as FAIL-as-read.** v3 binds only on jack-ryan's Gate-2 ratification.
+
+**r332 re-run** (painting `901305202936…`).
+- **What changed:** 57 220 px, bbox (3535, 3117)–(3826, 3450), **all class `tide_ice` (id carved_tide_ice), all ground**.
+
+| Row | r332 | vs r328 |
+|---|---|---|
+| P1 | PASS (1.00) | = |
+| P2 | PASS 102/102 at c4d4a48b2 | = |
+| P3 | PASS. Sea base-only 4.65; ground tide_ice **0.00** (r328 capture: 1.59, see below); worst char 13.05; RED 22.97 fails | = verdict |
+| P4 | unchanged in every chunk. The patch is tide_ice, outside the binding P4 masks. Report-only tide_ice dE: 2_3 22.01, 2_4 28.44 (r328 22.26, 28.63) | = (snow FAIL 3_3, 4_3, 4_4) |
+| P5 a1 | 13/40 FAIL (raw canvases untouched; identical values) | = |
+| P5(b) | y = 3200 0.902 FAIL; x = 3968 0.399 (r328 0.364) | = verdict |
+| P6a | same 64 candidates. R-C9-333 reads carried by candidate px; one crop changed (`painting_2_4_c015`, open sea; the crop now includes the patched ledge) → **conductor re-confirm** | = |
+| P8 | PASS min 0.553 | = |
+| P9 | sway 5.47 (no-wind RED 0.008); flow 8.548 (hidden RED 0.031); trail 1.000 — all PASS | = |
+| P9c | v3 main 0.030 PASS (above) | v2 0.267 FAIL-as-read |
+
+**Disclosure — § 53's Godot rows straddled PT's r332 rebuild.**
+- § 53's renders (P3 capture, P9 life / sea, P9c 0.267 and the L5 view) ran 16:51–16:55. PT rewrote `site_ph3/painted/painting.bin` at 16:54:35 (commit e6d561114).
+- The § 53 P3 capture already differed from the r328 painting in the patch area (tide_ice 1.59 against 0.00 now).
+- The rebuild touched only the ledge (tide_ice), not the floes, and the verdicts are unchanged. **But the § 53 Godot rows are not pure r328 evidence.** The § 55 null and everything in this section ran on the settled r332 build.

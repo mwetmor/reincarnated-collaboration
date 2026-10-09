@@ -1,0 +1,1528 @@
+{
+ "_what": "s52 (c) full-site P4 (R-C9-331) on the r328 painting, as pre-registered at 7d47a498d",
+ "painting_sha256": "901305202936814123d6cea0f9e2137ac4f71e3f1e05c9df0aa08018219e63c1",
+ "bars": null,
+ "ice_reference": {
+  "mode": "ps4_frozen",
+  "median_lab": [
+   64.58,
+   -2.75,
+   -21.49
+  ],
+  "note": "R-C9-262 Matt-ruled exception, FROZEN at s48 (a): the PS4 mere colour Lab (64.58, -2.75, -21.49); NOT a threshold tune; sketch A dE reported"
+ },
+ "sketchA_ice_median": [
+  72.9,
+  -1.0,
+  -9.4
+ ],
+ "w_min": {
+  "snow": 100,
+  "rock": 3
+ },
+ "chunks": {
+  "0_0": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 174614,
+    "hist_dist": 0.292,
+    "hist_bar": 0.281,
+    "spec_dist": 0.124,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 18,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (18 < 100)"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "px": 935994,
+    "median_lab": [
+     67.1,
+     -2.9,
+     -17.5
+    ],
+    "dE_vs_reference": 4.7,
+    "dE_vs_sketchA_reported": 10.12,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": 0.098,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 27,
+    "hellinger_reported": 0.644,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "1_0": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 74367,
+    "hist_dist": 0.433,
+    "hist_bar": 0.281,
+    "spec_dist": 0.14,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 1,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (1 < 100)"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "px": 1142924,
+    "median_lab": [
+     64.7,
+     -2.8,
+     -22.3
+    ],
+    "dE_vs_reference": 0.79,
+    "dE_vs_sketchA_reported": 15.36,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": 0.087,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 46,
+    "hellinger_reported": 0.801,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "2_0": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 492048,
+    "hist_dist": 0.149,
+    "hist_bar": 0.281,
+    "spec_dist": 0.045,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 86,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (86 < 100)"
+   },
+   "rock": {
+    "px": 198284,
+    "hist_dist": 0.256,
+    "hist_bar": 0.481,
+    "spec_dist": 0.179,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 29,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "px": 394207,
+    "median_lab": [
+     62.4,
+     -2.3,
+     -25.7
+    ],
+    "dE_vs_reference": 4.74,
+    "dE_vs_sketchA_reported": 19.37,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": 0.067,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 15,
+    "hellinger_reported": 0.828,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "3_0": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 552976,
+    "hist_dist": 0.138,
+    "hist_bar": 0.281,
+    "spec_dist": 0.035,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 78,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (78 < 100)"
+   },
+   "rock": {
+    "px": 113066,
+    "hist_dist": 0.237,
+    "hist_bar": 0.481,
+    "spec_dist": 0.142,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 8,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "4_0": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 1243418,
+    "hist_dist": 0.177,
+    "hist_bar": 0.281,
+    "spec_dist": 0.092,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 251,
+    "w_min": 100,
+    "verdict": "PASS"
+   },
+   "rock": {
+    "px": 29049,
+    "hist_dist": 0.262,
+    "hist_bar": 0.481,
+    "spec_dist": 0.125,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 1,
+    "w_min": 3,
+    "verdict": "rock: insufficient support (1 < 3)"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "0_1": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 27724,
+    "hist_dist": 0.214,
+    "hist_bar": 0.281,
+    "spec_dist": 0.182,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 1,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (1 < 100)"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "px": 656359,
+    "median_lab": [
+     66.7,
+     -3.1,
+     -19.1
+    ],
+    "dE_vs_reference": 3.22,
+    "dE_vs_sketchA_reported": 11.67,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": 0.099,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 21,
+    "hellinger_reported": 0.698,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "1_1": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 125608,
+    "hist_dist": 0.14,
+    "hist_bar": 0.281,
+    "spec_dist": 0.073,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 12,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (12 < 100)"
+   },
+   "rock": {
+    "px": 80508,
+    "hist_dist": 0.268,
+    "hist_bar": 0.481,
+    "spec_dist": 0.06,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 6,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "px": 891792,
+    "median_lab": [
+     61.9,
+     -2.5,
+     -24.6
+    ],
+    "dE_vs_reference": 4.06,
+    "dE_vs_sketchA_reported": 18.74,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": 0.061,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 32,
+    "hellinger_reported": 0.795,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "2_1": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 800264,
+    "hist_dist": 0.109,
+    "hist_bar": 0.281,
+    "spec_dist": 0.027,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 130,
+    "w_min": 100,
+    "verdict": "PASS"
+   },
+   "rock": {
+    "px": 54871,
+    "hist_dist": 0.323,
+    "hist_bar": 0.481,
+    "spec_dist": 0.323,
+    "spec_bar": 0.19,
+    "pass": false,
+    "support_windows": 2,
+    "w_min": 3,
+    "verdict": "rock: insufficient support (2 < 3)"
+   },
+   "ice": {
+    "px": 433277,
+    "median_lab": [
+     59.1,
+     -1.7,
+     -28.6
+    ],
+    "dE_vs_reference": 9.04,
+    "dE_vs_sketchA_reported": 23.61,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": 0.059,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 13,
+    "hellinger_reported": 0.823,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "3_1": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 724068,
+    "hist_dist": 0.144,
+    "hist_bar": 0.281,
+    "spec_dist": 0.033,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 127,
+    "w_min": 100,
+    "verdict": "PASS"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "px": 21380,
+    "median_lab": [
+     61.0,
+     -1.5,
+     -27.8
+    ],
+    "dE_vs_reference": 7.37,
+    "dE_vs_sketchA_reported": 21.88,
+    "dE_bar": 9.4,
+    "spectrum_rms_at_24ppm": null,
+    "spectrum_bar": 0.116,
+    "windows_at_24ppm": 0,
+    "hellinger_reported": 0.864,
+    "pass": true,
+    "verdict": "PASS"
+   }
+  },
+  "4_1": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 301363,
+    "hist_dist": 0.222,
+    "hist_bar": 0.281,
+    "spec_dist": 0.058,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 41,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (41 < 100)"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "0_2": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 29201,
+    "hist_dist": 0.253,
+    "hist_bar": 0.281,
+    "spec_dist": 0.134,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 2,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (2 < 100)"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "1_2": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 207717,
+    "hist_dist": 0.152,
+    "hist_bar": 0.281,
+    "spec_dist": 0.074,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 16,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (16 < 100)"
+   },
+   "rock": {
+    "px": 549972,
+    "hist_dist": 0.248,
+    "hist_bar": 0.481,
+    "spec_dist": 0.032,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 75,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "2_2": {
+   "pilot": true,
+   "binding": false,
+   "snow": {
+    "px": 687737,
+    "hist_dist": 0.119,
+    "hist_bar": 0.281,
+    "spec_dist": 0.036,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 105,
+    "w_min": 100,
+    "verdict": "PASS"
+   },
+   "rock": {
+    "px": 159812,
+    "hist_dist": 0.295,
+    "hist_bar": 0.481,
+    "spec_dist": 0.132,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 10,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "3_2": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 925516,
+    "hist_dist": 0.132,
+    "hist_bar": 0.281,
+    "spec_dist": 0.06,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 189,
+    "w_min": 100,
+    "verdict": "PASS"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "4_2": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 76283,
+    "hist_dist": 0.331,
+    "hist_bar": 0.281,
+    "spec_dist": 0.258,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 3,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (3 < 100)"
+   },
+   "rock": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "0_3": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "rock": {
+    "px": 157674,
+    "hist_dist": 0.379,
+    "hist_bar": 0.481,
+    "spec_dist": 0.054,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 20,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "1_3": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "rock": {
+    "px": 619099,
+    "hist_dist": 0.326,
+    "hist_bar": 0.481,
+    "spec_dist": 0.044,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 106,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "2_3": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 68149,
+    "hist_dist": 0.274,
+    "hist_bar": 0.281,
+    "spec_dist": 0.321,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 1,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (1 < 100)"
+   },
+   "rock": {
+    "px": 323344,
+    "hist_dist": 0.263,
+    "hist_bar": 0.481,
+    "spec_dist": 0.049,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 58,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "3_3": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 834915,
+    "hist_dist": 0.12,
+    "hist_bar": 0.281,
+    "spec_dist": 0.12,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 137,
+    "w_min": 100,
+    "verdict": "FAIL"
+   },
+   "rock": {
+    "px": 251165,
+    "hist_dist": 0.208,
+    "hist_bar": 0.481,
+    "spec_dist": 0.062,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 24,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "4_3": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 959533,
+    "hist_dist": 0.147,
+    "hist_bar": 0.281,
+    "spec_dist": 0.143,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 160,
+    "w_min": 100,
+    "verdict": "FAIL"
+   },
+   "rock": {
+    "px": 57481,
+    "hist_dist": 0.288,
+    "hist_bar": 0.481,
+    "spec_dist": 0.08,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 7,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "0_4": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "rock": {
+    "px": 121977,
+    "hist_dist": 0.417,
+    "hist_bar": 0.481,
+    "spec_dist": 0.058,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 24,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "1_4": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "rock": {
+    "px": 41784,
+    "hist_dist": 0.435,
+    "hist_bar": 0.481,
+    "spec_dist": 0.062,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 6,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "2_4": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "support_windows": 0,
+    "verdict": "absent (< 20 000 px after erosion)"
+   },
+   "rock": {
+    "px": 233987,
+    "hist_dist": 0.253,
+    "hist_bar": 0.481,
+    "spec_dist": 0.034,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 35,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "3_4": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 109414,
+    "hist_dist": 0.201,
+    "hist_bar": 0.281,
+    "spec_dist": 0.091,
+    "spec_bar": 0.097,
+    "pass": true,
+    "support_windows": 8,
+    "w_min": 100,
+    "verdict": "snow: insufficient support (8 < 100)"
+   },
+   "rock": {
+    "px": 687849,
+    "hist_dist": 0.266,
+    "hist_bar": 0.481,
+    "spec_dist": 0.02,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 103,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  },
+  "4_4": {
+   "pilot": false,
+   "binding": true,
+   "snow": {
+    "px": 794927,
+    "hist_dist": 0.131,
+    "hist_bar": 0.281,
+    "spec_dist": 0.179,
+    "spec_bar": 0.097,
+    "pass": false,
+    "support_windows": 136,
+    "w_min": 100,
+    "verdict": "FAIL"
+   },
+   "rock": {
+    "px": 349976,
+    "hist_dist": 0.264,
+    "hist_bar": 0.481,
+    "spec_dist": 0.018,
+    "spec_bar": 0.19,
+    "pass": true,
+    "support_windows": 45,
+    "w_min": 3,
+    "verdict": "PASS"
+   },
+   "ice": {
+    "verdict": "absent (< 20 000 px gated)"
+   }
+  }
+ },
+ "binding_fails_phase3": [
+  [
+   "3_3",
+   "snow"
+  ],
+  [
+   "4_3",
+   "snow"
+  ],
+  [
+   "4_4",
+   "snow"
+  ]
+ ],
+ "insufficient_support_phase3": [
+  [
+   "3_0",
+   "snow"
+  ],
+  [
+   "4_0",
+   "rock"
+  ],
+  [
+   "4_1",
+   "snow"
+  ],
+  [
+   "4_2",
+   "snow"
+  ],
+  [
+   "2_3",
+   "snow"
+  ],
+  [
+   "3_4",
+   "snow"
+  ]
+ ],
+ "pilot_reread_report_only": {
+  "0_0": {
+   "snow": "snow: insufficient support (18 < 100)",
+   "rock": "absent (< 20 000 px after erosion)",
+   "ice": "PASS"
+  },
+  "0_1": {
+   "snow": "snow: insufficient support (1 < 100)",
+   "rock": "absent (< 20 000 px after erosion)",
+   "ice": "PASS"
+  },
+  "0_2": {
+   "snow": "snow: insufficient support (2 < 100)",
+   "rock": "absent (< 20 000 px after erosion)",
+   "ice": "absent (< 20 000 px gated)"
+  },
+  "1_0": {
+   "snow": "snow: insufficient support (1 < 100)",
+   "rock": "absent (< 20 000 px after erosion)",
+   "ice": "PASS"
+  },
+  "1_1": {
+   "snow": "snow: insufficient support (12 < 100)",
+   "rock": "PASS",
+   "ice": "PASS"
+  },
+  "1_2": {
+   "snow": "snow: insufficient support (16 < 100)",
+   "rock": "PASS",
+   "ice": "absent (< 20 000 px gated)"
+  },
+  "2_0": {
+   "snow": "snow: insufficient support (86 < 100)",
+   "rock": "PASS",
+   "ice": "PASS"
+  },
+  "2_1": {
+   "snow": "PASS",
+   "rock": "rock: insufficient support (2 < 3)",
+   "ice": "PASS"
+  },
+  "2_2": {
+   "snow": "PASS",
+   "rock": "PASS",
+   "ice": "absent (< 20 000 px gated)"
+  }
+ },
+ "ice_family_report_only": {
+  "ice_mid": {
+   "0_0": {
+    "px_gated": 73105,
+    "px_ungated": 77017,
+    "median_lab": [
+     82.5,
+     -2.1,
+     -7.6
+    ],
+    "dE_vs_frozen_ps4": 22.72
+   },
+   "4_0": {
+    "px_gated": 21313,
+    "px_ungated": 21407,
+    "median_lab": [
+     64.8,
+     -3.3,
+     -18.8
+    ],
+    "dE_vs_frozen_ps4": 2.73
+   },
+   "0_1": {
+    "px_gated": 245871,
+    "px_ungated": 273087,
+    "median_lab": [
+     64.8,
+     -3.2,
+     -20.4
+    ],
+    "dE_vs_frozen_ps4": 1.17
+   },
+   "4_1": {
+    "px_gated": 9500,
+    "px_ungated": 11956,
+    "median_lab": [
+     71.4,
+     2.6,
+     -16.8
+    ],
+    "dE_vs_frozen_ps4": 9.87
+   },
+   "0_2": {
+    "px_gated": 25618,
+    "px_ungated": 64410,
+    "median_lab": [
+     83.7,
+     2.3,
+     -6.8
+    ],
+    "dE_vs_frozen_ps4": 24.61
+   }
+  },
+  "shore_ice": {
+   "0_0": {
+    "px_gated": 29627,
+    "px_ungated": 31971,
+    "median_lab": [
+     85.9,
+     -1.6,
+     -4.9
+    ],
+    "dE_vs_frozen_ps4": 27.05
+   },
+   "0_1": {
+    "px_gated": 17425,
+    "px_ungated": 47619,
+    "median_lab": [
+     82.1,
+     2.5,
+     -6.5
+    ],
+    "dE_vs_frozen_ps4": 23.63
+   },
+   "0_2": {
+    "px_gated": 120872,
+    "px_ungated": 266569,
+    "median_lab": [
+     84.6,
+     2.3,
+     -5.3
+    ],
+    "dE_vs_frozen_ps4": 26.24
+   },
+   "1_2": {
+    "px_gated": 6113,
+    "px_ungated": 16610,
+    "median_lab": [
+     86.9,
+     2.5,
+     -5.5
+    ],
+    "dE_vs_frozen_ps4": 27.98
+   },
+   "4_4": {
+    "px_gated": 6570,
+    "px_ungated": 7125,
+    "median_lab": [
+     73.2,
+     -2.9,
+     -14.9
+    ],
+    "dE_vs_frozen_ps4": 10.85
+   }
+  },
+  "tide_ice": {
+   "2_3": {
+    "px_gated": 278453,
+    "px_ungated": 332126,
+    "median_lab": [
+     82.5,
+     2.5,
+     -9.8
+    ],
+    "dE_vs_frozen_ps4": 22.01
+   },
+   "2_4": {
+    "px_gated": 116364,
+    "px_ungated": 158976,
+    "median_lab": [
+     87.1,
+     2.3,
+     -4.9
+    ],
+    "dE_vs_frozen_ps4": 28.44
+   }
+  },
+  "stream": {},
+  "lead": {
+   "0_0": {
+    "px_gated": 39691,
+    "px_ungated": 39775,
+    "median_lab": [
+     31.8,
+     -1.4,
+     -22.6
+    ],
+    "dE_vs_frozen_ps4": 32.84
+   }
+  }
+ },
+ "coastal_snow_vs_inland_hellinger_diagnostic": {
+  "0_0": 0.253,
+  "0_1": 0.203,
+  "1_1": 0.18,
+  "0_2": 0.223,
+  "1_2": 0.159,
+  "2_3": 0.256,
+  "3_4": 0.176,
+  "4_4": 0.087
+ },
+ "reed_advisory": {
+  "nearest_v1_class": "heather (v1's painted tuft px)",
+  "rows": {
+   "0_0": {
+    "px": 144309,
+    "hellinger_vs_v1_heather_tufts": 0.743
+   },
+   "1_0": {
+    "px": 128864,
+    "hellinger_vs_v1_heather_tufts": 0.688
+   },
+   "2_0": {
+    "px": 22384,
+    "hellinger_vs_v1_heather_tufts": 0.688
+   },
+   "0_1": {
+    "px": 43092,
+    "hellinger_vs_v1_heather_tufts": 0.759
+   },
+   "1_1": {
+    "px": 87837,
+    "hellinger_vs_v1_heather_tufts": 0.651
+   },
+   "2_1": {
+    "px": 8498,
+    "hellinger_vs_v1_heather_tufts": 0.64
+   },
+   "1_2": {
+    "px": 13974,
+    "hellinger_vs_v1_heather_tufts": 0.692
+   }
+  }
+ },
+ "pt_qa_p4_beside": {
+  "qa_w1": {
+   "snow": {
+    "windows": 78,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": {
+     "px": 552890,
+     "hist_dist": 0.142,
+     "hist_bar": 0.281,
+     "spec_dist": 0.044,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 8,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 113067,
+     "hist_dist": 0.233,
+     "hist_bar": 0.481,
+     "spec_dist": 0.146,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w10": {
+   "snow": {
+    "windows": 4,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": {
+     "px": 107990,
+     "hist_dist": 0.295,
+     "hist_bar": 0.281,
+     "spec_dist": 0.231,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "rock": {
+    "windows": 58,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 317935,
+     "hist_dist": 0.246,
+     "hist_bar": 0.481,
+     "spec_dist": 0.044,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w11": {
+   "snow": {
+    "windows": 133,
+    "verdict": "PASS",
+    "w_min": 100,
+    "reading": {
+     "px": 822032,
+     "hist_dist": 0.281,
+     "hist_bar": 0.281,
+     "spec_dist": 0.069,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 24,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 251188,
+     "hist_dist": 0.231,
+     "hist_bar": 0.481,
+     "spec_dist": 0.044,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w12": {
+   "snow": {
+    "windows": 138,
+    "verdict": "FAIL",
+    "w_min": 100,
+    "reading": {
+     "px": 840366,
+     "hist_dist": 0.131,
+     "hist_bar": 0.281,
+     "spec_dist": 0.115,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "rock": {
+    "windows": 24,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 251188,
+     "hist_dist": 0.217,
+     "hist_bar": 0.481,
+     "spec_dist": 0.054,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w13": {
+   "snow": {
+    "windows": 157,
+    "verdict": "FAIL",
+    "w_min": 100,
+    "reading": {
+     "px": 954800,
+     "hist_dist": 0.132,
+     "hist_bar": 0.281,
+     "spec_dist": 0.151,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "rock": {
+    "windows": 7,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 57483,
+     "hist_dist": 0.252,
+     "hist_bar": 0.481,
+     "spec_dist": 0.045,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w14": {
+   "snow": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": null
+   },
+   "rock": {
+    "windows": 6,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 41783,
+     "hist_dist": 0.438,
+     "hist_bar": 0.481,
+     "spec_dist": 0.072,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w15": {
+   "snow": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": null
+   },
+   "rock": {
+    "windows": 6,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 41783,
+     "hist_dist": 0.435,
+     "hist_bar": 0.481,
+     "spec_dist": 0.069,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w16": {
+   "snow": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": null
+   },
+   "rock": {
+    "windows": 35,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 234380,
+     "hist_dist": 0.273,
+     "hist_bar": 0.481,
+     "spec_dist": 0.033,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w17": {
+   "snow": {
+    "windows": 8,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": {
+     "px": 109344,
+     "hist_dist": 0.204,
+     "hist_bar": 0.281,
+     "spec_dist": 0.061,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 104,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 692754,
+     "hist_dist": 0.26,
+     "hist_bar": 0.481,
+     "spec_dist": 0.023,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w18": {
+   "snow": {
+    "windows": 136,
+    "verdict": "FAIL",
+    "w_min": 100,
+    "reading": {
+     "px": 794389,
+     "hist_dist": 0.136,
+     "hist_bar": 0.281,
+     "spec_dist": 0.177,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "rock": {
+    "windows": 45,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 350323,
+     "hist_dist": 0.262,
+     "hist_bar": 0.481,
+     "spec_dist": 0.025,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w2": {
+   "snow": {
+    "windows": 251,
+    "verdict": "PASS",
+    "w_min": 100,
+    "reading": {
+     "px": 1243071,
+     "hist_dist": 0.183,
+     "hist_bar": 0.281,
+     "spec_dist": 0.095,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 1,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": {
+     "px": 29049,
+     "hist_dist": 0.263,
+     "hist_bar": 0.481,
+     "spec_dist": 0.125,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w2r": {
+   "snow": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": null
+   },
+   "rock": {
+    "windows": 20,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 155784,
+     "hist_dist": 0.404,
+     "hist_bar": 0.481,
+     "spec_dist": 0.077,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w3": {
+   "snow": {
+    "windows": 132,
+    "verdict": "PASS",
+    "w_min": 100,
+    "reading": {
+     "px": 732999,
+     "hist_dist": 0.136,
+     "hist_bar": 0.281,
+     "spec_dist": 0.049,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w3r": {
+   "snow": {
+    "windows": 127,
+    "verdict": "PASS",
+    "w_min": 100,
+    "reading": {
+     "px": 722742,
+     "hist_dist": 0.149,
+     "hist_bar": 0.281,
+     "spec_dist": 0.035,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w4": {
+   "snow": {
+    "windows": 41,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": {
+     "px": 301360,
+     "hist_dist": 0.19,
+     "hist_bar": 0.281,
+     "spec_dist": 0.055,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w5": {
+   "snow": {
+    "windows": 191,
+    "verdict": "PASS",
+    "w_min": 100,
+    "reading": {
+     "px": 927263,
+     "hist_dist": 0.192,
+     "hist_bar": 0.281,
+     "spec_dist": 0.053,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w6": {
+   "snow": {
+    "windows": 2,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": {
+     "px": 75091,
+     "hist_dist": 0.304,
+     "hist_bar": 0.281,
+     "spec_dist": 0.325,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w7": {
+   "snow": {
+    "windows": 188,
+    "verdict": "PASS",
+    "w_min": 100,
+    "reading": {
+     "px": 925079,
+     "hist_dist": 0.153,
+     "hist_bar": 0.281,
+     "spec_dist": 0.061,
+     "spec_bar": 0.097,
+     "pass": true
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w8": {
+   "snow": {
+    "windows": 3,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": {
+     "px": 76312,
+     "hist_dist": 0.333,
+     "hist_bar": 0.281,
+     "spec_dist": 0.264,
+     "spec_bar": 0.097,
+     "pass": false
+    }
+   },
+   "rock": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 3,
+    "reading": null
+   }
+  },
+  "qa_w9": {
+   "snow": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": null
+   },
+   "rock": {
+    "windows": 20,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 156607,
+     "hist_dist": 0.403,
+     "hist_bar": 0.481,
+     "spec_dist": 0.054,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  },
+  "qa_w9b": {
+   "snow": {
+    "windows": 0,
+    "verdict": "insufficient support (not judged)",
+    "w_min": 100,
+    "reading": null
+   },
+   "rock": {
+    "windows": 20,
+    "verdict": "PASS",
+    "w_min": 3,
+    "reading": {
+     "px": 156607,
+     "hist_dist": 0.403,
+     "hist_bar": 0.481,
+     "spec_dist": 0.054,
+     "spec_bar": 0.19,
+     "pass": true
+    }
+   }
+  }
+ },
+ "pass_phase3": false
+}

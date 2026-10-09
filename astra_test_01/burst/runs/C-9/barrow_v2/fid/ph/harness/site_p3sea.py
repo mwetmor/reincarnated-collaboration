@@ -11,7 +11,7 @@ import pilot_harness as H  # noqa
 from common import *  # noqa
 import p3_residual as R3
 
-D = PH / "renders/site/p3_sea"
+D = PH / os.environ.get("PH_PILOT_RENDERS", "renders/site") / "p3_sea"
 P = H.painting()
 M = H.p3_masks()
 out = {}
