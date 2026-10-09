@@ -55354,6 +55354,26 @@
         "R-C9-345",
         "05fb2fc9b"
       ]
+    },
+    {
+      "id": "R-C9-348",
+      "by": "gandalf (conductor), on Matt + jack-ryan",
+      "ts": "2026-10-09T18:20:00-04:00",
+      "verbatim": [
+        "drop the ones with doorways and make the dorways impassable. We only need the floor hazards where we cannot make impassability (to avoid spawn-camping by the player; that's the reason for them). Other than doorways, which spawns do we have? We don't need a hazard for the ambush as we just need those eneies to use the rising/digging out of the ground animation and they canot be camped as they are literally ambushing.",
+        "Pick spawns with clear lines (Recommended)",
+        "don't make anything new and don't bring the barrow_v2 into anything. BRING THE FIGHT TO THE BARROW_V2",
+        "let's just accept a mis-match between monster and doorway for now.. we may adjust afterwards"
+      ],
+      "ruling": "ARENA (refines R-C9-347): (1) HOST = the barrow_v2 site itself (C-9 barrow_full project, site_ph3). The fight comes to barrow_v2; barrow_v2 is not exported into the KC2 project and no new backdrop/still is made. The KC2 runtime is used UNMODIFIED (referenced, not forked; kc2_runtime/** and the engine oracle untouched). (2) ANTI-CAMPING by impassability, not hazards: the three doorway spawns (p02 barrow door, p04 longhall great door, p03 sea cave) become impassable to the player; their floor hazards are dropped. Of the three feature spawns, p01 wreck and p06 collapsed gable are made impassable too (hull and rubble), so -- by Matt's rule 'hazards only where impassability can't be made' -- NO floor hazard remains; p05 mere ambush needs none (enemies rise/dig out of the ground). Conductor's call under Matt's rule; Matt may revise. (3) Spawns placed with clear straight lines to the fight ground (no pathing added). (4) Monster-to-spawn mapping stays as the data has it; mismatches accepted for now. (5) jack-ryan r339 delta Gate-2 1efccb377: PASS-with-conditions, 0 BLOCK; r339 is the M3' candidate. D-2 owned: R-C9-343/§63 'before the r339 painting existed' is corrected to 'before any PH r339 reading' (the pixels existed from 17:36:51; validity unaffected). D-3 owned: the §64 sea loop frames 3/2/1/1 floes at its four waypoints -- §61's '>=3 floes at every waypoint' is retired with the 'wholly framed' rule; the P10 sea loop is a LIGHT floe load and the cover says so. D-5 evidence shas: still 95a7968c4272, ids 31b9def73265, mp4 13b6917579bf. Charter lines 109/157 annotated with the R-C9-341 amendment. D-1, D-4, D-5 code -> PH.",
+      "cites": [
+        "R-C9-318",
+        "R-C9-341",
+        "R-C9-343",
+        "R-C9-346",
+        "R-C9-347",
+        "1efccb377"
+      ]
     }
   ],
   "grok_calls": [

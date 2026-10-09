@@ -106,7 +106,7 @@ As plan § 4 Phase 4, steps 4.1–4.7. **Desktop only.** DONE: PLAY in barrow_v2
 | Astra usage-limit message | — | driver exit 7, lane HALT, RESUME written |
 | fal | ≤ $10 run total (Phase 1 ≤ $8); per-lane ledgers | HALT |
 | Meshy | not planned; 10-credit guard stands | — |
-| Disk (`df -h /System/Volumes/Data`) | gate 20 GiB; lanes halt at 21 | HALT heavy work; **Matt runs deletions** |
+| Disk (`df -h /System/Volumes/Data`) | gate 20 GiB; lanes halt at 21 | HALT heavy work; **Matt runs deletions** *(amended R-C9-341: the conductor runs its own build-safe cleanup manifests; raw `rm` outside the repo stays Matt's)* |
 | Heavy work | `runs/C-7/conductor_scripts/heavy_lock.py C-9 -- <cmd>` for every Godot/Blender render | — |
 | Harness | first failing gate stops the phase | forensic → one variable → pilot only |
 | New pipeline stage, or any departure not in § 7 | — | **HALT to Matt** (commitment boundary) |
@@ -154,7 +154,7 @@ A departure found in flight that is not here is a HALT, not an entry.
 - `git commit --only <paths>`; `git status --porcelain -- <paths>` before; `git show --stat HEAD` after; `git -C` for every cross-repo op; never `git add -A`.
 - Push (W-6): **collab: push-as-work-lands under R-C9-71/84; engine: none (no BV2F paths); reincarnated-godot: none by this conductor — the Sim Session conductor releases (R-C9-84); loadout and demo: fresh-ask.** The missing CLAUDE.md record of R-C9-71/84 is routed to knight-rider.
 - Keys via `source ~/.zshrc`, never printed. refs_guard: no franchise, studio or artist names in prompts or filenames.
-- Matt runs deletions. Never work around a permission denial.
+- Matt runs deletions. Never work around a permission denial. *(amended R-C9-341: the conductor runs its own build-safe cleanup manifests; raw `rm` outside the repo stays Matt's)*
 - No sleep, time-of-day or session-length language in any report to Matt.
 
 ## § 11 — Matt interface
