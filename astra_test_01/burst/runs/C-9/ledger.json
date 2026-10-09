@@ -54451,6 +54451,13 @@
       "ts": "2026-10-09T14:11:49-04:00",
       "verbatim": "Regarding the sea cave, can you please repaint/remove the overhanging cliff above the mouth of the cave? It needs to blend into the rest of the cliff and those blocks look both too rectangular and also like they defy gravity there. Also, there is a black rectangle to the right of the sea cave which should not be there. Lastly, you may have already noticed, but some of the ice flows have a small portion that is painted with an earthy color.",
       "ruling": "THREE MATT NOTES, routed blockout-first: (1) CAVE OVERHANG: the blocks overhanging the sea-cave mouth (rectangular, gravity-defying) are REMOVED or reshaped so the cliff above the mouth blends into the eroded cliff around it (a natural arch or brow, no cantilevered blocks); the cave mouth, its ledge and the monster exit route stay walkable. (2) BLACK RECTANGLE right of the sea cave: LV identifies the geometry or class (a passage_dark face, a cave interior box, or a shadowed void) and removes it; P6a missed it, so PH adds a note. (3) EARTHY PATCHES ON FLOES: LV identifies the cause (likely the 12 cut-out snow drifts in a warm-grey class tint, or shingle/lead tints) and gives them the ice/snow guide tone; PT then repaints those spots. SEQUENCE: LV fix + stills -> conductor check -> PT DEV-24 patches (sea tranche: 6 left of 16; raised by 8 if needed) -> re-stitch + identity proof -> re-run only the affected build steps (take/bake for the changed models, prep, guide). The stills and walk film WAIT for these fixes. Manifest 22 (4.41 GiB) is still needed for the re-bake headroom."
+    },
+    {
+      "id": "R-C9-326",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T14:12:23-04:00",
+      "verbatim": "",
+      "ruling": "PALISADE pale posts: the cause is OVERLAPPING UVs in LV's procedural posts (CylinderMesh shaft + cone tip each with full 0..1 UVs; summed UV area 1.55), so the bake rasteriser painted the whole post texture from the pale snow-capped tip; the cut, take and fill are correct; 49 posts, site-only. RULED fix (a): baked models of kind procedural_post wear the PROJECTED painting (mat_paint, casting), the same rule as R-C9-324; log count must read 49; no re-export or re-bake; rp4 unchanged by construction; proof by a guide-camera re-render of the post area vs the painting, folded in before the stills. The general trigger (summed UV area > 1.0) is recorded as a check in the export report for future models."
     }
   ],
   "grok_calls": [
