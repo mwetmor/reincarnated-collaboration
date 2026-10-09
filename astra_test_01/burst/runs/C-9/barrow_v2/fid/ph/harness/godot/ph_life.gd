@@ -20,6 +20,7 @@ var floe_red := false     # --floe-red: the floes' projection taken AFTER the bo
 var floe_null := ""       # --floe-null bobt|rigid|static (s54, R-C9-335): P9c discriminator; bob driven by a uniform ph_t
 var floe_ids := false     # --floe-ids (s56, R-C9-336): after every controlled-time marker shot, a per-floe ID shot (floe_idN)
 var floe_solo := false    # --floe-solo (s56): every non-floe GeometryInstance3D hidden for the marker / ID / hide_floe shots (extends s31 A1)
+var floe_wallclock := false   # --floe-wallclock (s60, C-7): ph_t = engine seconds at each shot, on the s53 schedule (0.5 s / 0.7 s wall)
 var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
 var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
 var idle := false         # --idle: perf with him STANDING at <view> (R-C9-276 report-only water-cost view)
@@ -44,6 +45,7 @@ func _initialize() -> void:
 		floe_null = a[a.find("--floe-null") + 1]
 	floe_ids = a.has("--floe-ids")
 	floe_solo = a.has("--floe-solo")
+	floe_wallclock = a.has("--floe-wallclock")
 	if a.has("--floe-pairs"):
 		floe_pairs = int(a[a.find("--floe-pairs") + 1])
 	if a.has("--burn-ms"):
@@ -279,12 +281,22 @@ func _life() -> void:
 				if floe_null != "":
 					var nt0 := 1.0 + 1.2 * float(k)
 					var nt1 := nt0 if floe_null == "static" else nt0 + 0.5
-					nul_t.append([nt0, nt1])
+					var tm0 := 0
+					if floe_wallclock:
+						if k > 0:
+							await _wait_s(0.7)
+						tm0 = Time.get_ticks_msec()
+						nt0 = float(tm0) / 1000.0
 					_null_set(fl, saved, rest, nt0)
 					await _settle()
 					await _shot("floe_m0" + sfx)
 					if floe_ids:
 						await _id_shot(fl, "floe_id0" + sfx, rest, nt0)
+					if floe_wallclock:
+						while Time.get_ticks_msec() - tm0 < 500:
+							await process_frame
+						nt1 = nt0 if floe_null == "static" else float(Time.get_ticks_msec()) / 1000.0
+					nul_t.append([nt0, nt1])        # s60: logged AFTER the wall-clock t1 is taken (the C-7 run logged a stale t1)
 					_null_set(fl, saved, rest, nt1)
 					await _settle()
 					await _shot("floe_m1" + sfx)

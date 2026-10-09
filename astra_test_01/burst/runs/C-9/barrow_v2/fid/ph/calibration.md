@@ -2018,3 +2018,34 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
   - decided from geometry before any probe.
 - **Proof.** `ph_life.gd perf --loop` + the § 50 (c) walk-validity rule (no 60-frame span with displacement < 0.3 m over the 900-frame window), read from `trace.json`. A failing loop is never used. A replacement is chosen by the same rule and recorded.
 - **Recorded before any T34 window:** the proven loops and their traces. P10 itself (bars, interleave, VOID rules) is unchanged and runs only in a T34 window.
+
+## 62. RESULTS — C-3, C-4, C-7 (§ 60) and P10 loop re-proof (§ 61). R-C9-340.
+- **C-3.** Both `results/site*/p6a_triage.jsonl` now carry one **final verdict per candidate** (8 declared, 48 open water, 8 structure; R-C9-333/338; 0 PENDING) (5adb82540).
+- **C-4.** `p11/answers/abx3_site_v1_vs_site_judge.json` and `run_site_godot.sh` (the v3 case) are committed (5adb82540).
+
+**C-7: P9c v3 on the production schedule** (main view, r332 build; `painting.bin` sha `901305202936…` before and after the session). `results/site_r332/p9c_v3_c7.json`.
+
+| Run | Median drift | Samples | Median motion (counted) |
+|---|---|---|---|
+| rigid null (truth 0) | **0.040** | 45 | 1.274 |
+| static | max \|r\| 0.000 | 0 | — |
+| RED (texture slides) | **1.404** (fails, as required) | 43 | 1.406 |
+| **bobt (shipped bob)** | **0.033 → PASS** | 43 | **1.477** |
+
+- **The operating point is reached:** 1.477 ≥ 1.2 px, against § 53's production capture at 1.43. **v3 PASSES like for like.**
+- **Residual instrument error, disclosed.** The largest single values (rigid 1.23 / 0.77; bobt 0.79) are floe 36, the wedged floe of § 58. 1 680–1 950 of its edge px are excluded. The rigid null reads them too, so they are not drift.
+- **Schedule disclosure.**
+  - The same-pose ID shots add ≈ 1.2 s per pair, so pair starts are 2.5 s apart (21.45, 23.95, 26.42, …) against § 53's ≈ 1.3 s. The 0.5 s m0 → m1 wall interval is kept.
+  - `life.json` logged a stale t1 (the § 54 constant) in this run. The bob used the wall-clock t1, as the motions show. The log order has been fixed for later runs; that is a tool fix, not an instrument change.
+
+**P10 loops (§ 61).**
+- **Start loop: PROVEN on site_ph3.** (−10.77, 5.75) → (−3.25, 1.26) → (−1.75, 6.83) → (−6.5, 7.5): 900 frames, min 1-s displacement **0.732 m**, 0 spans < 0.3 m, 4 waypoint advances, path 24.7 m (`renders/walk_probe_site/start/trace.json`; `results/site_r332/walk_proof_site_start.json`).
+- **Sea loop: the § 61 rule CANNOT be met.**
+  - No point inside the site's bounds polygon frames even **one** bobbing floe wholly (21 floe components from `ids_built`; 0.5 m grid; 1920 × 1080 frame centred on the point).
+  - The best partial framing is **3 floes partly in frame**, at (0.0, −17.5).
+  - The walkable coast stops at v ≈ −8 west of u = −21, while the floes lie at v −18 … −28.
+- **No sea loop is proven, and none is substituted by PH.** The options, for the conductor:
+  - (a) relax "wholly" to "partly in frame";
+  - (b) keep the old shore loop (no floes in frame);
+  - (c) an LV bounds change.
+- **Neither loop is a P10 reading.** P10 waits for T34.

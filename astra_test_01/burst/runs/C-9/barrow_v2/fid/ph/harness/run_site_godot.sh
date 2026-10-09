@@ -33,5 +33,9 @@ for v in "$@"; do
           done
           run $R/v3_${n}_red --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/v3_${n}_red uv:$uv --floe-pairs 5 --floe-null bobt --floe-red --floe-ids --floe-solo
         done ;;
+    c7) for m in rigid static bobt; do
+          run $R/c7_main_$m --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/c7_main_$m uv:-23.976,-21.834 --floe-pairs 5 --floe-null $m --floe-ids --floe-solo --floe-wallclock
+        done
+        run $R/c7_main_red --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/c7_main_red uv:-23.976,-21.834 --floe-pairs 5 --floe-null bobt --floe-red --floe-ids --floe-solo --floe-wallclock ;;
   esac
 done
