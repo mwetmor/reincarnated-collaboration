@@ -2431,8 +2431,12 @@ def main():
     pyr = plate_y((RU, RV), SEA_Z + 0.45)
     pilot_r = (pxr < 4096 + 40) & (pyr < 2560 + 40)
     _ix, _iy = np.clip(pxr.astype(int), 0, 4095), np.clip(pyr.astype(int), 0, 2559)
-    fm_ok_r = pilot_r & (pxr >= 0) & (pyr >= 0) & FMe[_iy, _ix]
+    FMe6 = ndimage.binary_erosion(FM, iterations=6)
+    fm_ok_r = pilot_r & (pxr >= 0) & (pyr >= 0) & FMe6[_iy, _ix]
     dom = (d_land > 0.75) & ~carve_r & ~cove_r & ~ndimage.binary_dilation(locked_r, iterations=6) & (~pilot_r | fm_ok_r) & (RU > -41) & (RV > -35)
+    if os.environ.get("LV_DBG"):
+        print("[dbg ps] pilot_r m2", round(float(pilot_r.sum()) / RP ** 2, 1), "fm_ok_r m2", round(float(fm_ok_r.sum()) / RP ** 2, 1),
+              "dom&fm_ok m2", round(float((dom & fm_ok_r).sum()) / RP ** 2, 1), "landish&fm_ok", round(float((landish & fm_ok_r).sum()) / RP ** 2, 1))
     rng94 = __import__("random").Random(2941)
     nz94 = ndimage.gaussian_filter(np.random.default_rng(2942).standard_normal(RU.shape), 3.0 * RP)
     nz94 /= nz94.std() + 1e-9
@@ -2517,10 +2521,13 @@ def main():
             continue
         c_ = K.centroid(raw)
         dl = float(at(d_land, c_))
-        if zn == "floe" and rng94.random() < min(0.35, 0.04 + 0.02 * max(0.0, dl - 11.0)):
+        in_ps = bool(at(fm_ok_r, c_))                      # R-C9-320: the pilot sea below the wreck -- MOSTLY ICE (sketch A)
+        if not in_ps and zn == "floe" and rng94.random() < min(0.35, 0.04 + 0.02 * max(0.0, dl - 11.0)):
             rej94["open_water"] += 1
             continue
-        if zn == "fast":
+        if in_ps:
+            g_ = rng94.uniform(0.05, 0.09)                   # narrow leads
+        elif zn == "fast":
             g_ = rng94.uniform(0.06, 0.12)
         elif zn == "plate":
             g_ = min(0.6, max(0.06, 0.09 * math.exp(rng94.gauss(0.0, 0.7))))
@@ -2555,9 +2562,11 @@ def main():
         Pm = sum(math.dist(a_, b_) for a_, b_ in zip(poly, poly[1:] + poly[:1]))
         if A_ < TH["floe_min_area_m2"]:
             rej94["small"] += 1
+            if in_ps: rej94["ps_small"] = rej94.get("ps_small", 0) + 1
             continue
         if 2 * A_ / max(Pm, 1e-6) < TH["floe_min_width_m"]:
             rej94["thin"] += 1
+            if in_ps: rej94["ps_thin"] = rej94.get("ps_thin", 0) + 1
             continue
         poly = [(round(q[0], 3), round(q[1], 3)) for q in poly]      # (judged as written)
         for _try in range(4):                                         # a straight stretch is worn again, not dropped
@@ -2573,14 +2582,16 @@ def main():
         top = SEA_Z + (0.30 if zn == "fast" else 0.20)          # R-C9-319: ONE thickness rule (shore-fast +0.30, other floes +0.20)
         z0 = SEA_Z - 0.4
         psim = [[round(q[0], 3), round(-q[1], 3)] for q in poly]
-        if in_pilot(pproj(psim, (z0, top))) and not fm_contains(psim, z0, top, pad=12):
+        if in_pilot(pproj(psim, (z0, top))) and not fm_contains(psim, z0, top, pad=6):
             rej94["pilot"] += 1
+            if in_ps: rej94["ps_pilot"] = rej94.get("ps_pilot", 0) + 1
             continue
         m_ = ras(poly)
         # R-C9-319: no RING floe -- an outline that wraps (almost) all the way round a pool of water reads as a floe with a hole
         _cl = ndimage.binary_fill_holes(ndimage.binary_closing(m_, iterations=5))
         if (_cl & ~m_).sum() > 0.08 * max(m_.sum(), 1):
             rej94["ring"] = rej94.get("ring", 0) + 1
+            if in_ps: rej94["ps_ring"] = rej94.get("ps_ring", 0) + 1
             continue
         m20 = ras20(poly)
         _hit = [nm for nm, M_ in (("locked", locked_dil94), ("land", land_dil94), ("carve", carve_r)) if (m_ & M_).any()]
@@ -2595,6 +2606,75 @@ def main():
         occ20 |= m20                                                     # (a candidate dilated 0.05 m may not touch it: lead >= 0.10)
         bob = zn == "floe" and dl > 15.0 and rng94.random() < 0.4
         new_floes.append({"zone": zn, "poly": poly, "top": round(top, 3), "bob": bob, "area": A_})
+        if in_ps: rej94["ps_kept"] = rej94.get("ps_kept", 0) + 1
+    # ---- R-C9-320: the pilot sea below the wreck MOSTLY ICE -- a second, finer partition of the water still left inside the
+    # pilot sea mask (dense natural floes + shore-fast ice by the beach, narrow leads), under every same rule ----
+    rngF = __import__("random").Random(3201)
+    water_ps = dom & fm_ok_r & ~ndimage.binary_dilation(occ, iterations=1)
+    n_fill = {"kept": 0, "tried": 0}
+    if water_ps.any():
+        ys_, xs_ = np.nonzero(water_ps)
+        bxF = (ru[xs_.min()] - 2, rv[ys_.max()] - 2, ru[xs_.max()] + 2, rv[ys_.min()] + 2)
+        fineF = K.jitter_seeds(bxF, 0.45, rngF, lambda p: True)
+        coarseF = K.jitter_seeds(bxF, 1.7, rngF, lambda p: bool(at(water_ps, p)))
+        if len(coarseF) >= 2:
+            ctF = cKDTree(np.array(coarseF))
+            wF = np.array([math.exp(rngF.gauss(0.0, 0.35)) for _ in coarseF])
+            pofF = []
+            for p_ in fineF:
+                if not at(water_ps, p_):
+                    pofF.append(-1)
+                    continue
+                dd, ii = ctF.query(p_, k=min(6, len(coarseF)))
+                dd, ii = np.atleast_1d(dd), np.atleast_1d(ii)
+                pofF.append(int(ii[int(np.argmin(dd / wF[ii]))]))
+            for k_, raw in sorted(K.merged_plates(fineF, pofF, bxF).items()):
+                n_fill["tried"] += 1
+                raw = K.ccw(raw)
+                if len(raw) < 3:
+                    continue
+                rr_ = K.resample(list(raw) + [raw[0]], 0.12)[:-1]
+                if len(rr_) < 6:
+                    continue
+                A_r = np.array(rr_)
+                for _it in range(4):
+                    A_r = 0.5 * A_r + 0.25 * (np.roll(A_r, 1, 0) + np.roll(A_r, -1, 0))
+                g_ = rngF.uniform(0.05, 0.08)
+                poly = K.inset(K.ccw([tuple(q) for q in A_r]), g_)
+                if len(poly) < 3:
+                    continue
+                base_w = K.ccw(K.resample(list(poly) + [poly[0]], 0.12)[:-1])
+                poly, _a = None, min(0.05, 0.45 * g_)
+                while _a > 0.005:
+                    cand = [(round(q[0], 3), round(q[1], 3)) for q in K.ccw(wear(base_w, rngF, amp=_a, jit=min(0.012, _a / 4)))]
+                    if not self_crossings(cand) and straight_run(cand) < TH["straight_run_max_m"]:
+                        poly = cand
+                        break
+                    _a *= 0.5
+                if poly is None:
+                    continue
+                A_ = K.area(poly)
+                Pm = sum(math.dist(a_, b_) for a_, b_ in zip(poly, poly[1:] + poly[:1]))
+                if A_ < TH["floe_min_area_m2"] or 2 * A_ / max(Pm, 1e-6) < TH["floe_min_width_m"]:
+                    continue
+                c_ = K.centroid(poly)
+                zn = "fast" if at(d_land, c_) < 2.5 else "plate"
+                top = SEA_Z + (0.30 if zn == "fast" else 0.20)
+                psim = [[q[0], -q[1]] for q in poly]
+                if in_pilot(pproj(psim, (SEA_Z - 0.4, top))) and not fm_contains(psim, SEA_Z - 0.4, top, pad=6):
+                    continue
+                m_ = ras(poly)
+                _cl = ndimage.binary_fill_holes(ndimage.binary_closing(m_, iterations=5))
+                if (_cl & ~m_).sum() > 0.08 * max(m_.sum(), 1):
+                    continue
+                m20 = ras20(poly)
+                if (m_ & (locked_dil94 | land_dil94 | carve_r)).any() or (ndimage.binary_dilation(m20, iterations=1) & occ20).any():
+                    continue
+                occ |= m_
+                occ20 |= m20
+                new_floes.append({"zone": zn, "poly": poly, "top": round(top, 3), "bob": False, "area": A_})
+                n_fill["kept"] += 1
+    rej94["pilot_sea_fill"] = n_fill
     # ---- flush SNOW DRIFTS: on ~35 % of the fast/plate floes, a lens along one stretch of the edge cut OUT of the floe
     # (the floe's outline and the drift share the inner curve; both at the floe's height: no raised face) ----
     rngd94 = __import__("random").Random(2943)
@@ -2720,7 +2800,8 @@ def main():
             "seams_painted": len(seam_paint),
             "r319": {"rubble_rects": rubble_rects, "thickness_rule": "shore-fast +0.30, other floes +0.20; brash awash +0.03..+0.08 (not a floe)",
                      "bob": sum(1 for f_ in new_floes if f_["bob"]), "still": sum(1 for f_ in new_floes if not f_["bob"])},
-            "ice_fraction_of_rebuild_domain": round(float(occ.sum()) / max(float(dom.sum()), 1.0), 3)}
+            "ice_fraction_of_rebuild_domain": round(float(occ.sum()) / max(float(dom.sum()), 1.0), 3),
+            "ice_fraction_pilot_sea": round(float((occ & fm_ok_r).sum()) / max(float((dom & fm_ok_r).sum()), 1.0), 3)}
     # the CLIFF SKIRT: the face behind the kit, a 0.35 m rock band along the lip from the sea to the crest (the heightfield's
     # own face cells are not drawn) -- outside the route stretch, which has its own rock
     # R-C9-208 (5): the skirt is a continuous RIBBON wall along the lip (top = the clifftop behind it), broken only at the cave's

@@ -2990,18 +2990,18 @@
   "logs": 4,
   "stair_treads": 50,
   "slab_groups": {
-   "ice_shorefast": 10,
-   "ice_plates": 48,
-   "ice_floes": 53,
-   "ice_floes_bob": 38,
+   "ice_shorefast": 11,
+   "ice_plates": 44,
+   "ice_floes": 30,
+   "ice_floes_bob": 59,
    "mere_plates": 0,
    "stream_ice": 0,
    "ice_rims": 0,
    "ice_ridges": 0,
-   "ice_brash": 222,
+   "ice_brash": 207,
    "mere_cracks": 123,
    "mere_seams": 0,
-   "trans_rubble": 1,
+   "trans_rubble": 0,
    "reed_tufts": 660,
    "stream_cracks": 0,
    "stream_pressure": 0,
@@ -3014,7 +3014,7 @@
    "ledge_rocks": 18,
    "stair_treads": 50,
    "stair_snow": 52,
-   "ice_drifts": 22
+   "ice_drifts": 21
   }
  },
  "openings": [
@@ -5352,27 +5352,32 @@
    "cradle_cracks": 2
   },
   "new": {
-   "floes": 149,
-   "drifts": 22,
-   "brash": 222,
+   "floes": 144,
+   "drifts": 21,
+   "brash": 207,
    "by_zone": {
-    "fast": 10,
-    "plate": 53,
-    "floe": 86
+    "fast": 11,
+    "plate": 60,
+    "floe": 73
    },
-   "bob": 38,
+   "bob": 59,
    "rejected": {
-    "small": 70,
-    "thin": 30,
+    "small": 74,
+    "thin": 49,
     "straight": 2,
     "pilot": 1,
     "overlap": 9,
-    "open_water": 39,
-    "degenerate": 19,
-    "self_crossing": 7,
-    "ring": 4,
+    "open_water": 36,
+    "degenerate": 16,
+    "ring": 6,
+    "self_crossing": 6,
     "overlap_occ": 4,
-    "overlap_carve": 5
+    "overlap_carve": 6,
+    "ps_pilot": 1,
+    "pilot_sea_fill": {
+     "kept": 12,
+     "tried": 21
+    }
    }
   },
   "seams_painted": 7,
@@ -5404,10 +5409,11 @@
     ]
    ],
    "thickness_rule": "shore-fast +0.30, other floes +0.20; brash awash +0.03..+0.08 (not a floe)",
-   "bob": 38,
-   "still": 111
+   "bob": 59,
+   "still": 85
   },
-  "ice_fraction_of_rebuild_domain": 0.434
+  "ice_fraction_of_rebuild_domain": 0.542,
+  "ice_fraction_pilot_sea": 0.677
  },
  "r283": {
   "shelf": {
