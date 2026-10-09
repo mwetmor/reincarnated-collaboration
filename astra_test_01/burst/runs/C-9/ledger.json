@@ -48444,9 +48444,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_2-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f16cad38fadc4c77e929a8134040b6aa94f0703b18ce5774196e8f26bfae5d9c",
+      "started": "2026-10-09T04:13:49.547934+00:00",
+      "ended": "2026-10-09T04:17:10.284403+00:00",
+      "minutes": 3.3455754618005207,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11ede-0ab5-7162-b618-3916be2a0401/exec-34f435f6-7b3d-47b5-80c6-9899de572a9b.png",
+            "sha256": "0a14931f21ae6222664245f0b99754bbfad47bfcbfce0eb11114e6ad9e9e2e01"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11ede-0ab5-7162-b618-3916be2a0401/exec-da1755f7-e841-4564-ba3e-e5f3735b4560.png",
+            "sha256": "621ebf7b95a6c716479c159153e15fce6b0ab4bc01087a729ebdd4b7ec6cb181"
+          }
+        ]
+      },
+      "receipt_sha256": "a1ef449363e32ee6966161353be141ac007b538366fdb509aecefecab12ac050",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_2.png",
+          "sha256": "0a14931f21ae6222664245f0b99754bbfad47bfcbfce0eb11114e6ad9e9e2e01"
+        },
+        {
+          "name": "exec-34f435f6-7b3d-47b5-80c6-9899de572a9b.provenance.json",
+          "sha256": "bc74e71f953732688e8fcb9cb9e22e5175ad6f23ef6213d5f9a41ac661e5a8c6"
+        },
+        {
+          "name": "exec-da1755f7-e841-4564-ba3e-e5f3735b4560.provenance.json",
+          "sha256": "a2640df0fc92c5ace4dd76167b47c6945f9a5dcb92592a30cd49630df43eda54"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11ede-0ab5-7162-b618-3916be2a0401/exec-34f435f6-7b3d-47b5-80c6-9899de572a9b.png",
+          "sha256": "0a14931f21ae6222664245f0b99754bbfad47bfcbfce0eb11114e6ad9e9e2e01"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11ede-0ab5-7162-b618-3916be2a0401/exec-da1755f7-e841-4564-ba3e-e5f3735b4560.png",
+          "sha256": "621ebf7b95a6c716479c159153e15fce6b0ab4bc01087a729ebdd4b7ec6cb181"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1408,
+  "images_used": 1410,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52287,6 +52360,13 @@
       "ts": "2026-10-09T00:11:46-04:00",
       "verbatim": "",
       "ruling": "LV R-C9-294 rebuild (023686e3c) PASS: ice proof 0/0/0 px overlap, all drifts flush, thresholds hold; pilot byte check 0 px outside the allowlist; the zig-zag rims, the remnant left of the wreck, the mere seams and the cradle cracks ('ropes and stick') are gone; Phase 3' sea is one partition of 116 floes with varied sizes and open leads; the cave-top columns are rounded with conformal snow caps; walkability 8/8, mouth clearance 7.10 m. Noted for Matt's eye, not looped: some S-pack floes have similar notched outlines; the pilot keeps 10.1 m2 of LOCKED stacking outside the rects (rule). 3_2 RULING: REPAINT 3_2 as 3_2-r1 (1-2 images), NOT DEV-24, because 3_2's raw bottom strip is the paste context for 3_3 and 2_3, and a post-stitch patch would leave that strip on the old columns. RELEASE ORDER: (1) pins from 023686e3c with the allowlist (A + C + the 38 crack rects); (2) 3_2-r1; (3) 0_3/1_3 as -r2; (4) pilot DEV-24 layer 4 for A + C + crack rects, <= 4 grouped bursts; (5) the remaining ice/cave tiles by the ready rule, QA stop per wave. Budget: 19 used; expected ~36 of the 40 cap."
+    },
+    {
+      "id": "R-C9-298",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T00:20:14-04:00",
+      "verbatim": "",
+      "ruling": "PT cf0950593 (21/40 images): pins from 023686e3c with the 45-rect allowlist PASS (215,261 px, all inside); 3_2-r1 painted (snow guard in range). CONDUCTOR PREMISE CORRECTED: R-C9-297's reason for repainting 3_2 was wrong. PT measured 3_2's bottom-strip guide as essentially unchanged; the eroded cave-top columns lie in the PILOT C rects, so 3_2-r1 did not carry them; 2 images spent on a premise error, recorded. CONSEQUENCE RULED: 4_2 was painted against the old 3_2 and shows a faint vertical tone line at 3_2|4_2, so REPAINT 4_2 as 4_2-r1 against 3_2-r1 (1-2 images). OPEN QUESTION before 2_3/3_3 paint: DEV-24 is post-stitch and does not change the pilot's RAW PS4 canvases, so 2_3 and 3_3 would take paste context from the OLD cave-top columns. PT must confirm how the staging context is formed: if from raw canvases, propose the fix (e.g. stage 2_3/3_3 context from the DEV-24-patched painting under a recorded Tier-B rule, or a pilot-region DEV-24 applied to the context copy); the conductor rules before 2_3/3_3. Budget: ~38 of 40 expected."
     }
   ],
   "grok_calls": [
