@@ -55474,6 +55474,17 @@
       "cites": [
         "R-C9-354"
       ]
+    },
+    {
+      "id": "R-C9-356",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T19:45:28-04:00",
+      "verbatim": "also there is a small portion of the enemies that have no bodies.. Why is that? If we have never made images/animations for them, then in that worst case scenario, let's use placeholder replacements from our existing roster of enemies as needed for the time being.",
+      "ruling": "drax lists every token-drawn monster record in waves 151-160 with the reason (no pack ever made / unmapped pack / lookup miss); mapping misses are fixed as mappings; records with truly no art get a placeholder body from the existing en-* kits (same role, closest size/class), scaled to the sim body radius, in a variant-side table data/arena/placeholder_bodies.json. Ordered after R-C9-353 fixes, before the R-C9-355 Mixamo work.",
+      "cites": [
+        "R-C9-353",
+        "R-C9-355"
+      ]
     }
   ],
   "grok_calls": [
