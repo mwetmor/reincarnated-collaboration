@@ -214,7 +214,14 @@ def build(P):
     cls[(zv < hw - 0.06) & (up < 0.75)] = 1
     cls[(np.abs(zv - hw) <= 0.09) & (up < 0.75)] = 2
     landing = (np.abs(zv - LZ) < 0.08) & (up > 0.8)
-    cls[landing] = 3
+    if P.get("ledge_rock"):
+        # R-C9-315/319 W2: the exit ledge reads as a ROCK ledge (not a pale-blue tide-ice field that paints as shallow water):
+        # its top is wet rock, with a thin RIME edge (0.35 m, pale ice tint) along its rim; the geometry and the walk are unchanged
+        sdl = ndimage.map_coordinates(sd_land, [(tt - P["t0"]) / st, (sv - P["s0"]) / st], order=1, mode="nearest")
+        cls[landing] = 1
+        cls[landing & (sdl > -0.35)] = 3       # the thin rime edge in the pale tide-ice tint (keeps the carved_tide_ice id: the pins' id order)
+    else:
+        cls[landing] = 3
     in_groove = (tt >= sp["t0"] - 0.5) & (tt <= sp["t1"] + 0.5) & (sv >= s_t - 0.05) & (sv <= s_f + 0.6)
     if "erode_ok" in P:
         Et = ndimage.map_coordinates(E, [(tt - P["t0"]) / st, (sv - P["s0"]) / st], order=1, mode="nearest")

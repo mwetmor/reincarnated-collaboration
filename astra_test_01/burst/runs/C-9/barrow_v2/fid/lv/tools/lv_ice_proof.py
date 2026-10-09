@@ -12,7 +12,8 @@ Proved for the NEW ice:
   (2) a DRIFT is flush with its floe: same z1, its cut vertices on the floe's outline;
   (3) THRESHOLDS: floe area >= 0.6 m2, mean width 2A/P >= 0.45 m, no straight run >= 1.2 m; leads >= 0.10 m (a floe dilated
       by 0.05 m touches no other floe); brash area >= 0.04 m2, mean width >= 0.075 m, >= 0.08 m clear of every floe;
-  (4) heights: fast ice (ice_shorefast) z1 in [sea+0.30, sea+0.40], plates [+0.18, +0.28], floes [+0.10, +0.20]."""
+  (4) heights (R-C9-319, ONE rule): shore-fast (ice_shorefast) z1 = sea+0.30, every other floe = sea+0.20 (brash awash);
+  (5) R-C9-319: ZERO stacking anywhere -- all items, new and locked, on each other or on ground ice."""
 import json
 import math
 import os
@@ -113,7 +114,7 @@ def main():
             cov_lock += me
     locked_stack_m2 = float(((cov_lock >= 2) | ((cov_lock >= 1) & ground)).sum()) / RP ** 2
     # (2) drifts flush
-    floes_new = [(it, m) for it, (m, me) in zip(items, masks) if it["new"] and it["g"] in FLOES]
+    floes_new = [(it, m) for it, (m, me) in zip(items, masks) if it["new"] and (it["g"] in FLOES or it["g"] == "trans_rubble")]
     drift_bad = []
     for it, (m, me) in zip(items, masks):
         if it["g"] != "ice_drifts":
@@ -131,7 +132,7 @@ def main():
         if not it["new"]:
             continue
         A, P = area_perim(it["pts"])
-        if it["g"] in FLOES:
+        if it["g"] in FLOES or it["g"] == "trans_rubble":      # (R-C9-319: the W1 shore-fast edge lives in trans_rubble)
             # a floe that hosts a drift is measured with its drift (one sheet at one height)
             mm = m.copy()
             for it2, (m2, _) in zip(items, masks):
@@ -150,7 +151,7 @@ def main():
             others = floe_union[sl] & ~ndimage.binary_dilation(mm, iterations=2)[sl]
             if (ndimage.binary_dilation(mm[sl], iterations=1) & others).any():
                 bad["lead"].append((it["g"], it["k"]))
-            lo, hi = {"ice_shorefast": (0.30, 0.40), "ice_plates": (0.18, 0.28), "ice_floes": (0.10, 0.20), "ice_floes_bob": (0.10, 0.20)}[it["g"]]
+            lo, hi = {"ice_shorefast": (0.30, 0.30), "trans_rubble": (0.30, 0.30), "ice_plates": (0.20, 0.20), "ice_floes": (0.20, 0.20), "ice_floes_bob": (0.20, 0.20)}[it["g"]]   # R-C9-319: ONE rule
             if not (lo - 1e-3 <= it["z1"] - sea <= hi + 1e-3):
                 bad["height"].append((it["g"], it["k"], round(it["z1"] - sea, 3)))
         elif it["g"] == "ice_brash":
@@ -169,9 +170,11 @@ def main():
            "thresholds": {k: v for k, v in bad.items()}, "thresholds_pass": all(not v for v in bad.values()),
            "locked_pilot_items_residual_stack_m2": round(locked_stack_m2, 2),
            "_locked_note": "pilot items locked byte-identical by R-C9-294 (outside the A/C rects); their own pre-existing stacking is reported, not changed"}
-    res["PASS"] = res["stack"]["pass"] and res["drifts_flush"]["pass"] and res["thresholds_pass"]
+    res["all_items_stack_m2"] = round(float(((cov_new + cov_lock) >= 2).sum() + (((cov_new + cov_lock) >= 1) & ground).sum()) / RP ** 2, 3)
+    res["locked_items_left"] = {g: sum(1 for it in items if not it["new"] and it["g"] == g) for g in ICE if any(not it["new"] and it["g"] == g for it in items)}
+    res["PASS"] = res["stack"]["pass"] and res["drifts_flush"]["pass"] and res["thresholds_pass"] and res["all_items_stack_m2"] == 0.0
     json.dump(res, open(os.path.join(LV, "art", "ice294_proof.json"), "w"), indent=1)
-    print(json.dumps({k: res[k] for k in ("new_items", "stack", "drifts_flush", "thresholds_pass", "locked_pilot_items_residual_stack_m2", "PASS")}, indent=1))
+    print(json.dumps({k: res[k] for k in ("new_items", "stack", "drifts_flush", "thresholds_pass", "locked_pilot_items_residual_stack_m2", "all_items_stack_m2", "locked_items_left", "PASS")}, indent=1))
     if not res["thresholds_pass"]:
         print({k: v[:8] for k, v in bad.items() if v})
     sys.exit(0 if res["PASS"] else 1)

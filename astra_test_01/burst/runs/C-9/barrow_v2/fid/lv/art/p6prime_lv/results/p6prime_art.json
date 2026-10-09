@@ -1,10 +1,10 @@
 {
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
-  "layout_bv2art_sha256": "9719192a32c340fcff68998e2be0bcb285303738ae99b0e13a8a87fd557d1caa",
-  "ids_art_sha256": "b01f9098493f51abf0bafcce6ccea4fee155254953ef875ea16802c969d4f008",
-  "ids_manifest_sha256": "b01f9098493f51abf0bafcce6ccea4fee155254953ef875ea16802c969d4f008",
-  "level_art_sha256": "644c00a895daab97968e13f734bfca116e016525270007d0c82596742f60227a",
+  "layout_bv2art_sha256": "86ee46656777b5653b5da17170144b148d6277341422b7a036752ce17c5625a7",
+  "ids_art_sha256": "754a47f7c09c0c1af3fb9ffe9ad42fc316929d497730312eebb0a6cd04047b22",
+  "ids_manifest_sha256": "754a47f7c09c0c1af3fb9ffe9ad42fc316929d497730312eebb0a6cd04047b22",
+  "level_art_sha256": "a3ed46a19f860d5e972a56ec88234e69557bfcd414fb6f34aa6d00e17f0ba74a",
   "placed_fit_sha256": "4ef595cade48d1991800faa5cc3be0ae2b77708ce8f014249829971bdea79701",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
@@ -25,7 +25,7 @@
   "objects": 14,
   "below_bar": 7,
   "values": {
-   "wreck": 0.9671,
+   "wreck": 0.9673,
    "wreck_mast": 0.0,
    "barrow_front": 1.0,
    "longhall": 0.9754,
@@ -33,10 +33,10 @@
    "slope_stones": 0.2727,
    "ring_stones": 0.0,
    "crags": 0.4563,
-   "gully_rock": 0.8413,
-   "cliff_faces": 0.9204,
-   "talus": 0.1198,
-   "sea_stacks": 0.8763,
+   "gully_rock": 0.8404,
+   "cliff_faces": 0.9197,
+   "talus": 0.155,
+   "sea_stacks": 0.8805,
    "palisade": 0.1504,
    "logs": 0.0
   },
@@ -103,7 +103,7 @@
   "pass": true
  },
  "iou_vs_prism_reported": {
-  "wreck": 0.259,
+  "wreck": 0.26,
   "wreck_mast": 0.888,
   "barrow_front": 0.44,
   "longhall": 0.653,
@@ -113,8 +113,8 @@
   "crags": 0.181,
   "gully_rock": 0.263,
   "cliff_faces": 0.422,
-  "talus": 0.308,
-  "sea_stacks": 0.362,
+  "talus": 0.292,
+  "sea_stacks": 0.363,
   "palisade": 0.753,
   "logs": 0.521
  },
@@ -122,13 +122,13 @@
   "wreck": {
    "kind": "wreck",
    "instances": 1,
-   "id_px": 282065,
+   "id_px": 283132,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.259
+   "iou_vs_prism_reported": 0.26
   },
   "wreck_mast": {
    "kind": "debris",
@@ -212,7 +212,7 @@
   "gully_rock": {
    "kind": "cliff",
    "instances": 12,
-   "id_px": 367117,
+   "id_px": 367448,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -223,7 +223,7 @@
   "cliff_faces": {
    "kind": "cliff",
    "instances": 8,
-   "id_px": 1736638,
+   "id_px": 1739102,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -234,24 +234,24 @@
   "talus": {
    "kind": "talus",
    "instances": 16,
-   "id_px": 63857,
+   "id_px": 60661,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.308
+   "iou_vs_prism_reported": 0.292
   },
   "sea_stacks": {
    "kind": "stack",
    "instances": 3,
-   "id_px": 255523,
+   "id_px": 256262,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.362
+   "iou_vs_prism_reported": 0.363
   },
   "palisade": {
    "kind": "palisade",
@@ -283,8 +283,8 @@
     "type": "box",
     "z_top": 2.263,
     "own_px_in_frame": 448020,
-    "terrain_hidden_share": 0.3444,
-    "visible_share": 0.6295
+    "terrain_hidden_share": 0.3473,
+    "visible_share": 0.6319
    }
   ],
   "wreck_mast": [
@@ -503,8 +503,8 @@
     "type": "box",
     "z_top": 3.7,
     "own_px_in_frame": 321429,
-    "terrain_hidden_share": 0.0656,
-    "visible_share": 0.8506
+    "terrain_hidden_share": 0.0659,
+    "visible_share": 0.8516
    },
    {
     "i": 8,
@@ -545,24 +545,24 @@
     "type": "box",
     "z_top": 1.861,
     "own_px_in_frame": 407120,
-    "terrain_hidden_share": 0.0071,
-    "visible_share": 0.9248
+    "terrain_hidden_share": 0.0112,
+    "visible_share": 0.93
    },
    {
     "i": 1,
     "type": "box",
     "z_top": 3.759,
     "own_px_in_frame": 953624,
-    "terrain_hidden_share": 0.2529,
-    "visible_share": 0.5367
+    "terrain_hidden_share": 0.253,
+    "visible_share": 0.5368
    },
    {
     "i": 2,
     "type": "box",
     "z_top": 3.239,
     "own_px_in_frame": 603014,
-    "terrain_hidden_share": 0.192,
-    "visible_share": 0.5137
+    "terrain_hidden_share": 0.1949,
+    "visible_share": 0.5145
    },
    {
     "i": 3,
@@ -633,56 +633,56 @@
     "type": "box",
     "z_top": -3.189,
     "own_px_in_frame": 8855,
-    "terrain_hidden_share": 0.0,
-    "visible_share": 0.516
+    "terrain_hidden_share": 0.161,
+    "visible_share": 0.6908
    },
    {
     "i": 4,
     "type": "box",
     "z_top": -3.299,
     "own_px_in_frame": 5902,
-    "terrain_hidden_share": 0.013,
-    "visible_share": 0.6713
+    "terrain_hidden_share": 0.0283,
+    "visible_share": 0.7054
    },
    {
     "i": 5,
     "type": "box",
     "z_top": -2.986,
     "own_px_in_frame": 12677,
-    "terrain_hidden_share": 0.0409,
-    "visible_share": 0.7722
+    "terrain_hidden_share": 0.0015,
+    "visible_share": 0.7194
    },
    {
     "i": 6,
     "type": "box",
     "z_top": -2.871,
     "own_px_in_frame": 17643,
-    "terrain_hidden_share": 0.0526,
-    "visible_share": 0.7163
+    "terrain_hidden_share": 0.0007,
+    "visible_share": 0.6739
    },
    {
     "i": 7,
     "type": "box",
     "z_top": -2.966,
     "own_px_in_frame": 11274,
-    "terrain_hidden_share": 0.2013,
-    "visible_share": 0.7987
+    "terrain_hidden_share": 0.0041,
+    "visible_share": 0.6333
    },
    {
     "i": 8,
     "type": "box",
     "z_top": -3.24,
     "own_px_in_frame": 9249,
-    "terrain_hidden_share": 0.183,
-    "visible_share": 0.8154
+    "terrain_hidden_share": 0.0512,
+    "visible_share": 0.6659
    },
    {
     "i": 9,
     "type": "box",
     "z_top": -3.165,
     "own_px_in_frame": 8155,
-    "terrain_hidden_share": 0.1952,
-    "visible_share": 0.8045
+    "terrain_hidden_share": 0.0,
+    "visible_share": 0.6292
    },
    {
     "i": 10,
@@ -697,8 +697,8 @@
     "type": "box",
     "z_top": -2.906,
     "own_px_in_frame": 11861,
-    "terrain_hidden_share": 0.0497,
-    "visible_share": 0.7943
+    "terrain_hidden_share": 0.1088,
+    "visible_share": 0.8912
    },
    {
     "i": 12,
@@ -731,16 +731,16 @@
     "type": "box",
     "z_top": 1.7,
     "own_px_in_frame": 198339,
-    "terrain_hidden_share": 0.0257,
-    "visible_share": 0.8259
+    "terrain_hidden_share": 0.1033,
+    "visible_share": 0.8321
    },
    {
     "i": 1,
     "type": "box",
     "z_top": 0.1,
     "own_px_in_frame": 113356,
-    "terrain_hidden_share": 0.0738,
-    "visible_share": 0.8091
+    "terrain_hidden_share": 0.0319,
+    "visible_share": 0.8048
    },
    {
     "i": 2,

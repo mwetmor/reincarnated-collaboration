@@ -2990,31 +2990,31 @@
   "logs": 4,
   "stair_treads": 50,
   "slab_groups": {
-   "ice_shorefast": 8,
-   "ice_plates": 46,
-   "ice_floes": 44,
-   "ice_floes_bob": 24,
+   "ice_shorefast": 11,
+   "ice_plates": 39,
+   "ice_floes": 42,
+   "ice_floes_bob": 56,
    "mere_plates": 0,
    "stream_ice": 0,
    "ice_rims": 0,
-   "ice_ridges": 1,
-   "ice_brash": 224,
+   "ice_ridges": 0,
+   "ice_brash": 189,
    "mere_cracks": 123,
    "mere_seams": 0,
-   "trans_rubble": 4,
+   "trans_rubble": 1,
    "reed_tufts": 660,
    "stream_cracks": 0,
    "stream_pressure": 0,
    "ring_fallen": 4,
    "barrow_cutting": 11,
    "ring_snow": 2,
-   "cove_ice": 5,
+   "cove_ice": 0,
    "icicles": 40,
    "cradle_cracks": 0,
    "ledge_rocks": 18,
    "stair_treads": 50,
    "stair_snow": 52,
-   "ice_drifts": 12
+   "ice_drifts": 22
   }
  },
  "openings": [
@@ -4942,8 +4942,8 @@
    },
    "wet_rock": {
     "file": "carved_wet_rock.f32",
-    "tris": 19075,
-    "sha256": "0d7ecdeed2d894d93ca6af07219e0dee64030793d1179dfd63b5899cbde1b5f5"
+    "tris": 21246,
+    "sha256": "96bbf116419f50bf1606f1f389a6d8d1d4bdbca38ca4d039c19fdb615a5935cf"
    },
    "rime": {
     "file": "carved_rime.f32",
@@ -4957,8 +4957,8 @@
    },
    "tide_ice": {
     "file": "carved_tide_ice.f32",
-    "tris": 3316,
-    "sha256": "d13302f45c412a69c89b5754df913edec4dc7416e0031f45b216948d6f02a150"
+    "tris": 1145,
+    "sha256": "a20326485b8c5e0fab0612f91c1474de417d5e6fce36d40348a08edbf62b248e"
    },
    "passage_dark": {
     "file": "carved_passage_dark.f32",
@@ -5323,19 +5323,18 @@
     ]
    ]
   },
-  "pilot_locked_items": {
-   "ice_shorefast": 1,
-   "ice_plates": 5,
-   "ice_ridges": 1,
-   "ice_brash": 14,
-   "cove_ice": 5,
-   "trans_rubble": 4
-  },
+  "pilot_locked_items": {},
   "pilot_removed_items": {
+   "sea_mask_ice_shorefast": 1,
+   "sea_mask_ice_plates": 5,
    "ice_ridges": 21,
+   "sea_mask_ice_ridges": 1,
+   "sea_mask_ice_brash": 14,
    "ice_brash": 23,
+   "sea_mask_cove_ice": 5,
    "ice_rims": 4,
    "trans_rubble": 1,
+   "rubble_trans_rubble": 4,
    "mere_seams": 4,
    "cradle_cracks": 38
   },
@@ -5353,29 +5352,60 @@
    "cradle_cracks": 2
   },
   "new": {
-   "floes": 116,
-   "drifts": 12,
-   "brash": 210,
+   "floes": 148,
+   "drifts": 22,
+   "brash": 189,
    "by_zone": {
-    "fast": 7,
-    "plate": 41,
-    "floe": 68
+    "fast": 11,
+    "plate": 53,
+    "floe": 84
    },
-   "bob": 24,
+   "bob": 56,
    "rejected": {
-    "small": 60,
-    "thin": 79,
-    "straight": 1,
-    "pilot": 0,
+    "small": 75,
+    "thin": 39,
+    "straight": 2,
+    "pilot": 1,
     "overlap": 10,
-    "open_water": 42,
-    "degenerate": 17,
-    "overlap_occ": 6,
-    "overlap_carve": 4
+    "open_water": 40,
+    "degenerate": 15,
+    "overlap_occ": 5,
+    "overlap_carve": 5
    }
   },
   "seams_painted": 7,
-  "ice_fraction_of_rebuild_domain": 0.526
+  "r319": {
+   "rubble_rects": [
+    [
+     -123,
+     200,
+     81,
+     410
+    ],
+    [
+     -150,
+     1382,
+     66,
+     1635
+    ],
+    [
+     -96,
+     343,
+     44,
+     493
+    ],
+    [
+     -18,
+     1,
+     141,
+     167
+    ]
+   ],
+   "thickness_rule": "shore-fast +0.30, other floes +0.20; brash awash +0.03..+0.08 (not a floe)",
+   "bob": 56,
+   "still": 92
+  },
+  "ice_fraction_of_rebuild_domain": 0.466
  },
  "r283": {
   "shelf": {
@@ -5432,9 +5462,9 @@
   "rock": 9850,
   "mound": 90943,
   "shingle": 21015,
-  "shore_ice": 32195,
+  "shore_ice": 33418,
   "ash": 61031,
-  "ice_mid": 20968,
+  "ice_mid": 19745,
   "reed": 16562,
   "lead": 7452
  }

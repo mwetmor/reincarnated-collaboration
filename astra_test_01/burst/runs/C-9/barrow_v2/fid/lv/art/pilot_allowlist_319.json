@@ -1,0 +1,229 @@
+{
+ "_what": "BV2F LV (R-C9-319): the pilot re-base check against a MASK -- every guide / class / ids pixel of the pilot window",
+ "tag": "023686e3c",
+ "mask": "art/pilot_sea_allow_319.png",
+ "rects": {
+  "spar": [
+   [
+    581,
+    1832,
+    849,
+    2334
+   ]
+  ],
+  "W1": [
+   [
+    655,
+    1932,
+    935,
+    2325
+   ]
+  ],
+  "rubble": [
+   [
+    -123,
+    200,
+    81,
+    410
+   ],
+   [
+    -150,
+    1382,
+    66,
+    1635
+   ],
+   [
+    -96,
+    343,
+    44,
+    493
+   ],
+   [
+    -18,
+    1,
+    141,
+    167
+   ]
+  ]
+ },
+ "allow_share_of_pilot_pct": 9.77,
+ "guide": {
+  "changed_px": 350207,
+  "changed_outside_px": 261,
+  "outside_clusters": [
+   {
+    "bbox_px": [
+     1031,
+     2152,
+     1082,
+     2174
+    ],
+    "px": 52,
+    "pinned_class": {
+     "wood": 52
+    }
+   },
+   {
+    "bbox_px": [
+     1284,
+     2271,
+     1297,
+     2295
+    ],
+    "px": 12,
+    "pinned_class": {
+     "shingle": 12
+    }
+   },
+   {
+    "bbox_px": [
+     1336,
+     2324,
+     1417,
+     2400
+    ],
+    "px": 137,
+    "pinned_class": {
+     "shingle": 81,
+     "snow": 56
+    }
+   },
+   {
+    "bbox_px": [
+     1410,
+     2408,
+     1433,
+     2440
+    ],
+    "px": 31,
+    "pinned_class": {
+     "shingle": 31
+    }
+   },
+   {
+    "bbox_px": [
+     1435,
+     2429,
+     1452,
+     2460
+    ],
+    "px": 22,
+    "pinned_class": {
+     "shingle": 22
+    }
+   },
+   {
+    "bbox_px": [
+     1461,
+     2467,
+     1479,
+     2481
+    ],
+    "px": 7,
+    "pinned_class": {
+     "shingle": 7
+    }
+   }
+  ]
+ },
+ "class": {
+  "changed_px": 296450,
+  "changed_outside_px": 0,
+  "outside_clusters": []
+ },
+ "ids": {
+  "changed_px": 465880,
+  "changed_outside_px": 0,
+  "outside_clusters": []
+ },
+ "PASS": false,
+ "final_allowlist": {
+  "mask": "fid/lv/art/pilot_sea_allow_319.png (FM = pilot_sea_allow_314 INTERSECTED with the pinned class render's sea/shore_ice/lead: no land pixel)",
+  "rects": {
+   "spar": [
+    [
+     581,
+     1832,
+     849,
+     2334
+    ]
+   ],
+   "W1": [
+    [
+     655,
+     1932,
+     935,
+     2325
+    ]
+   ],
+   "rubble": [
+    [
+     -123,
+     200,
+     81,
+     410
+    ],
+    [
+     -150,
+     1382,
+     66,
+     1635
+    ],
+    [
+     -96,
+     343,
+     44,
+     493
+    ],
+    [
+     -18,
+     1,
+     141,
+     167
+    ]
+   ]
+  },
+  "needs_ruling": {
+   "sheet_overlap_px": 261,
+   "clusters": [
+    [
+     1031,
+     2152,
+     1082,
+     2174
+    ],
+    [
+     1284,
+     2271,
+     1297,
+     2295
+    ],
+    [
+     1336,
+     2324,
+     1417,
+     2400
+    ],
+    [
+     1410,
+     2408,
+     1433,
+     2440
+    ],
+    [
+     1435,
+     2429,
+     1452,
+     2460
+    ],
+    [
+     1461,
+     2467,
+     1479,
+     2481
+    ]
+   ],
+   "what": "pixels the pinned CLASS map labels shingle/snow/wood but where the pinned GUIDE shows the old locked shore-fast sheet / plate drawn OVER them (the old ice overlapped the beach foot); removing those items reveals the beach's own stepped edge and the sea. Class and ids are unchanged there; the land itself is not touched."
+  }
+ }
+}
