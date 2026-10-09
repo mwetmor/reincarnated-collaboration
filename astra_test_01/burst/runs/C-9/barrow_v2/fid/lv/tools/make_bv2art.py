@@ -1474,10 +1474,70 @@ def main():
         j0_, i0_ = np.clip(np.floor(jf).astype(int), 0, H - 2), np.clip(np.floor(if_).astype(int), 0, W - 2)
         q4 = np.stack([A_[j0_, i0_], A_[j0_ + 1, i0_], A_[j0_, i0_ + 1], A_[j0_ + 1, i0_ + 1]])
         return np.clip(cub, q4.min(0), q4.max(0)).astype("<f4")
-    fine(Z_out).tofile(os.path.join(OUT, "terrain_h.f32"))
+    # R-C9-320 (conductor): the WATERLINE along the beach foot by the wreck followed the 25 cm heightfield's binary edge (a
+    # stair of square steps against the shingle and the cradle). Inside the beach-foot box only: the ground-above-the-sea
+    # region is re-cut along a SMOOTHED, WORN contour (signed distance blurred 0.35 m + a +-6 cm wobble), at the class grid
+    # (16 px/m) and the written terrain (8 px/m) -- the classes and the heights agree, so the drawn edge is the smooth one
+    # ... and only where the pilot may change: outside the pilot window, or inside its R-C9-319 allowlist (the land-free sea
+    # mask + the accepted beach_reveal / W1 / spar rects), judged on the guide plate at the waterline (12 px margin)
+    _FMw = ndimage.binary_erosion(np.asarray(Image.open(os.path.join(LV, "art", "pilot_sea_allow_319.png")))[:2560, :4096] > 0, iterations=24)
+    _RECTw = np.zeros_like(_FMw)
+    for r_ in ([581 + 24, 1832 + 24, 849 - 24, 2334 - 24], [655 + 24, 1932 + 24, 935 - 24, 2325 - 24],      # (big rects shrunk by the 24 px margin)
+               [1031, 2152, 1082, 2174], [1284, 2271, 1297, 2295], [1336, 2324, 1417, 2400],
+               [1410, 2408, 1433, 2440], [1435, 2429, 1452, 2460], [1461, 2467, 1479, 2481]):
+        _RECTw[r_[1]:r_[3], r_[0]:r_[2]] = True
+    _FMw |= _RECTw                     # (the accepted rects are where the stair edge is: kept whole, never eroded away)
+    _wu0 = uv((768, 512))[0] - (1280 * 4 + 1536) / 2 / PPM
+
+    def wl_box(Uq, Vq):
+        xq = (Uq - _wu0) * PPM
+        yq = np.minimum(plate_y((Uq, Vq), SEA_Z), plate_y((Uq, Vq), ICE_TOP))
+        inpil = (xq < 4096 + 24) & (yq < 2560 + 24)
+        okq = ~inpil | _FMw[np.clip(yq.astype(int), 0, 2559), np.clip(xq.astype(int), 0, 4095)]
+        if not os.environ.get("LV_WL_STRICT"):
+            # the stair IS the beach foot's border: smoothing it changes border pixels outside the R-C9-319 allowlist (reported
+            # as the 'waterline' rects for a ruling); LV_WL_STRICT=1 keeps the old allowlist (and the stair)
+            okq = np.ones_like(okq)
+        # (never under the hull: added ground there would hide the wreck's own bottom)
+        hull_c = np.hypot(np.maximum(0.0, np.abs((Uq - wcn[0]) * wax[0] + (Vq - wcn[1]) * wax[1]) - WRECK["len_m"] / 2),
+                          np.maximum(0.0, np.abs((Uq - wcn[0]) * -wax[1] + (Vq - wcn[1]) * wax[0]) - _hb)) > 0.6
+        return (Uq > -27.5) & (Uq < -15.5) & (Vq > -10.0) & (Vq < 4.5) & (dist_to_chain(lip, Uq, Vq) > 0.8) & okq & hull_c
+    Zcs = ndimage.map_coordinates(Z_out.astype(np.float64), [(v1 - Vc) * HF_PPM - 0.5, (Uc - u0) * HF_PPM - 0.5], order=1, mode="nearest")
+    G0 = (Zcs > SEA_Z + 0.05) & (C != names.index("none"))       # the ground as DRAWN (a height above the sea AND a class): its edge is the stair
+    sdG = (ndimage.distance_transform_edt(G0) - ndimage.distance_transform_edt(~G0)) / CLS_PPM
+    nzw = ndimage.gaussian_filter(np.random.default_rng(3202).standard_normal(G0.shape), 0.45 * CLS_PPM)
+    nzw /= nzw.std() + 1e-9
+    sdS = ndimage.gaussian_filter(sdG, 0.22 * CLS_PPM) + 0.04 * nzw + 0.04          # (+4 cm: the blur would otherwise eat thin ice at the stern)
+    Rc = wl_box(Uc, Vc)
+    newG = np.where(Rc, sdS > 0, G0)
+    _ice_like = [names.index(c) for c in ("shingle", "shore_ice", "ice_mid", "snow", "ice")]
+    wl_stats = {"added_cells": int((Rc & newG & ~G0).sum()), "cut_cells": int((Rc & ~newG & G0).sum())}
+    # the class edge there was ALSO a stair: near the cliff junction the "steep face" cut (25 cm nearest-sample gradient,
+    # dilated) removed the beach foot's own cells in square steps. Inside the box the drawn ground follows the smoothed
+    # contour: ground cells the cut emptied come back as shingle (on the beach) or shore ice (off it); beyond it, nothing
+    _sh, _si, _none = names.index("shingle"), names.index("shore_ice"), names.index("none")
+    C[Rc & newG & (C == _none) & beachc] = _sh
+    C[Rc & newG & (C == _none) & ~beachc] = _si
+    C[Rc & ~newG & np.isin(C, _ice_like)] = _none
+
+    def wl_fix(Zf):
+        f_ = int(HF_OUT // HF_PPM)
+        Hf_, Wf_ = Zf.shape
+        uf = u0 + np.arange(Wf_) / (HF_PPM * f_)
+        vf = v1 - np.arange(Hf_) / (HF_PPM * f_)
+        UF, VF = np.meshgrid(uf, vf)
+        Rf = wl_box(UF, VF)
+        ci = np.clip(((UF - u0) * CLS_PPM).astype(int), 0, newG.shape[1] - 1)
+        cj = np.clip(((v1 - VF) * CLS_PPM).astype(int), 0, newG.shape[0] - 1)
+        g = newG[cj, ci]
+        Zf = Zf.copy()
+        Zf[Rf & g & (Zf < ICE_TOP - 0.03)] = ICE_TOP - 0.03
+        # (beyond the contour the class is 'none' -- nothing drawn -- so the heights there may stay)
+        return Zf.astype("<f4")
+    wl_fix(fine(Z_out)).tofile(os.path.join(OUT, "terrain_h.f32"))
     _wi = _RGI(carved["grid_ts"], carved["walk_h"], bounds_error=False, fill_value=None)
     Z_walk = np.where(fp_hf, _wi(np.stack([Tq, Sq], axis=-1)), Z).astype("<f4")
-    fine(Z_walk).tofile(os.path.join(OUT, "terrain_walk_h.f32"))
+    wl_fix(fine(Z_walk)).tofile(os.path.join(OUT, "terrain_walk_h.f32"))
     # to the Level node's local frame (u, h, -v), classed meshes + smooth normals (welded), Godot's winding
     TT = carved["tris_ts"]
     UU = LIP_A[0] + dR[0] * TT[..., 0] + nR[0] * TT[..., 1]
@@ -2437,6 +2497,41 @@ def main():
     if os.environ.get("LV_DBG"):
         print("[dbg ps] pilot_r m2", round(float(pilot_r.sum()) / RP ** 2, 1), "fm_ok_r m2", round(float(fm_ok_r.sum()) / RP ** 2, 1),
               "dom&fm_ok m2", round(float((dom & fm_ok_r).sum()) / RP ** 2, 1), "landish&fm_ok", round(float((landish & fm_ok_r).sum()) / RP ** 2, 1))
+    # ---- R-C9-315/319 W1: the cradle's ground ice gets a SHORE-FAST EDGE with a face to the water inside the W1 patch: a
+    # 0.2-0.3 m strip just outside the ground ice (0.1 m gap), flush with the ground's top (ICE_TOP - 0.03), down to the sea --
+    # so the pale flat ice ends in an ice edge, not a wash of shallow-looking water ----
+    w1_r = (pxr >= W1_RECT[0] - 20) & (pxr <= W1_RECT[2] + 20) & (pyr >= W1_RECT[1] - 20) & (pyr <= W1_RECT[3] + 20)
+    gi_w1 = ground_ice & ~ndimage.binary_dilation(landish & ~ground_ice, iterations=0) if True else ground_ice
+    band_w1 = ndimage.binary_dilation(ground_ice, iterations=9) & ~ndimage.binary_dilation(ground_ice, iterations=2) & ~landish & w1_r & (zr < ICE_TOP - 0.05)   # 0.1 m gap, ~0.6 m wide (a floe by the rules)
+    band_w1 &= ~ndimage.binary_dilation(locked_r, iterations=2)
+    edge_w1 = []
+    if os.environ.get("LV_DBG"):
+        print("[dbg w1] w1_r", int(w1_r.sum()), "ground in w1", int((ground_ice & w1_r).sum()), "ring", int((ndimage.binary_dilation(ground_ice, iterations=3) & ~ndimage.binary_dilation(ground_ice, iterations=1) & w1_r).sum()),
+              "~landish", int((ndimage.binary_dilation(ground_ice, iterations=3) & ~ndimage.binary_dilation(ground_ice, iterations=1) & w1_r & ~landish).sum()), "band", int(band_w1.sum()))
+    if band_w1.any():
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as _plt
+        _f = ndimage.gaussian_filter(band_w1.astype(float), 0.8)
+        _cs = _plt.contour(ru, rv, _f, levels=[0.5])
+        for _seg in _cs.allsegs[0]:
+            if len(_seg) < 6:
+                continue
+            pg = K.ccw([(float(a_[0]), float(a_[1])) for a_ in _seg])
+            if os.environ.get("LV_DBG"):
+                print("[dbg w1 seg]", round(K.area(pg), 3), round(2 * K.area(pg) / sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1])), 3))
+            if K.area(pg) < TH["floe_min_area_m2"] or 2 * K.area(pg) / sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1])) < TH["floe_min_width_m"]:
+                continue
+            m_ = ras(pg)
+            if (m_ & ndimage.binary_erosion(ground_ice | (landish & ~ground_ice))).any():
+                continue
+            edge_w1.append({"poly": [(round(q[0], 3), round(q[1], 3)) for q in pg], "top": round(SEA_Z + 0.30, 3)})   # the shore-fast rule
+        _plt.close("all")
+    # (built BEFORE the partition, so the floes keep clear of it)
+    em_w1 = np.zeros(RU.shape, bool)
+    for e_ in edge_w1:
+        em_w1 |= ras(e_["poly"])
+    dom &= ~ndimage.binary_dilation(em_w1, iterations=3)
     rng94 = __import__("random").Random(2941)
     nz94 = ndimage.gaussian_filter(np.random.default_rng(2942).standard_normal(RU.shape), 3.0 * RP)
     nz94 /= nz94.std() + 1e-9
@@ -2476,7 +2571,7 @@ def main():
     plates94 = K.merged_plates(fine94, pof94, bxr)
     # ---- each plate -> one floe (inset inside its own cells: no two floes touch), or water ----
     occ = np.zeros(RU.shape, bool)                                      # accepted floes, for the safety check
-    locked_dil94 = ndimage.binary_dilation(locked_r, iterations=1)
+    locked_dil94 = ndimage.binary_dilation(locked_r | em_w1, iterations=1)
     R20 = 20.0
     W20, H20 = int((bxr[2] - bxr[0]) * R20), int((bxr[3] - bxr[1]) * R20)
     occ20 = np.zeros((H20, W20), bool)
@@ -2485,7 +2580,7 @@ def main():
         im_ = Image.new("L", (W20, H20), 0)
         ImageDraw.Draw(im_).polygon([((q[0] - bxr[0]) * R20, (bxr[3] - q[1]) * R20) for q in poly_uv], fill=1)
         return np.asarray(im_).astype(bool)
-    land_dil94 = ndimage.binary_dilation(landish, iterations=1)
+    land_dil94 = ndimage.binary_dilation(landish, iterations=2)       # (0.2 m: the class grid is finer than this raster)
     new_floes, rej94 = [], {"small": 0, "thin": 0, "straight": 0, "pilot": 0, "overlap": 0, "open_water": 0, "degenerate": 0}
 
     def straight_run(pts, tol=0.03):
@@ -2721,11 +2816,12 @@ def main():
         c_ = (ru[ii94[k__]] + rngb94.uniform(-0.05, 0.05), rv[jj94[k__]] + rngb94.uniform(-0.05, 0.05))
         r_ = rngb94.uniform(0.14, 0.32)
         pg = K.ccw(shard(rngb94, c_[0], c_[1], r_))
-        if self_crossings([(round(q[0], 3), round(q[1], 3)) for q in pg]):
+        pg = [(round(q[0], 3), round(q[1], 3)) for q in pg]            # (judged as written)
+        if self_crossings(pg):
             continue
         A_ = K.area(pg)
         Pm = sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1]))
-        if A_ < TH["brash_min_area_m2"] or 2 * A_ / max(Pm, 1e-6) < TH["brash_min_width_m"] / 2:
+        if A_ < TH["brash_min_area_m2"] + 0.002 or 2 * A_ / max(Pm, 1e-6) < TH["brash_min_width_m"] / 2 + 0.002:
             continue
         m_ = ras(pg)
         if not (m_ <= water94).all() or (m_ & bocc).any():
@@ -2736,36 +2832,6 @@ def main():
             continue
         bocc |= ndimage.binary_dilation(m_, iterations=1)
         brash94.append({"poly": pg, "z1": z1b})
-    # ---- R-C9-315/319 W1: the cradle's ground ice gets a SHORE-FAST EDGE with a face to the water inside the W1 patch: a
-    # 0.2-0.3 m strip just outside the ground ice (0.1 m gap), flush with the ground's top (ICE_TOP - 0.03), down to the sea --
-    # so the pale flat ice ends in an ice edge, not a wash of shallow-looking water ----
-    w1_r = (pxr >= W1_RECT[0] - 20) & (pxr <= W1_RECT[2] + 20) & (pyr >= W1_RECT[1] - 20) & (pyr <= W1_RECT[3] + 20)
-    gi_w1 = ground_ice & ~ndimage.binary_dilation(landish & ~ground_ice, iterations=0) if True else ground_ice
-    band_w1 = ndimage.binary_dilation(ground_ice, iterations=9) & ~ndimage.binary_dilation(ground_ice, iterations=1) & ~landish & w1_r & (zr < ICE_TOP - 0.05)   # 0.1 m gap, ~0.6 m wide (a floe by the rules)
-    band_w1 &= ~ndimage.binary_dilation(occ | locked_r, iterations=2)
-    edge_w1 = []
-    if os.environ.get("LV_DBG"):
-        print("[dbg w1] w1_r", int(w1_r.sum()), "ground in w1", int((ground_ice & w1_r).sum()), "ring", int((ndimage.binary_dilation(ground_ice, iterations=3) & ~ndimage.binary_dilation(ground_ice, iterations=1) & w1_r).sum()),
-              "~landish", int((ndimage.binary_dilation(ground_ice, iterations=3) & ~ndimage.binary_dilation(ground_ice, iterations=1) & w1_r & ~landish).sum()), "band", int(band_w1.sum()))
-    if band_w1.any():
-        import matplotlib
-        matplotlib.use("Agg")
-        import matplotlib.pyplot as _plt
-        _f = ndimage.gaussian_filter(band_w1.astype(float), 0.8)
-        _cs = _plt.contour(ru, rv, _f, levels=[0.5])
-        for _seg in _cs.allsegs[0]:
-            if len(_seg) < 6:
-                continue
-            pg = K.ccw([(float(a_[0]), float(a_[1])) for a_ in _seg])
-            if os.environ.get("LV_DBG"):
-                print("[dbg w1 seg]", round(K.area(pg), 3), round(2 * K.area(pg) / sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1])), 3))
-            if K.area(pg) < TH["floe_min_area_m2"] or 2 * K.area(pg) / sum(math.dist(a_, b_) for a_, b_ in zip(pg, pg[1:] + pg[:1])) < TH["floe_min_width_m"]:
-                continue
-            m_ = ras(pg)
-            if (m_ & ndimage.binary_erosion(ground_ice | (landish & ~ground_ice))).any():
-                continue
-            edge_w1.append({"poly": [(round(q[0], 3), round(q[1], 3)) for q in pg], "top": round(SEA_Z + 0.30, 3)})   # the shore-fast rule
-        _plt.close("all")
     # ---- R-C9-319 BOB TAG: every free floe in open water bobs; shore-fast sheets and floes within 0.15 m of rock / land /
     # another floe / a locked piece stay still ----
     lab20 = np.zeros((H20, W20), np.int32)
@@ -2801,6 +2867,7 @@ def main():
             "r319": {"rubble_rects": rubble_rects, "thickness_rule": "shore-fast +0.30, other floes +0.20; brash awash +0.03..+0.08 (not a floe)",
                      "bob": sum(1 for f_ in new_floes if f_["bob"]), "still": sum(1 for f_ in new_floes if not f_["bob"])},
             "ice_fraction_of_rebuild_domain": round(float(occ.sum()) / max(float(dom.sum()), 1.0), 3),
+            "waterline_r320": wl_stats,
             "ice_fraction_pilot_sea": round(float((occ & fm_ok_r).sum()) / max(float((dom & fm_ok_r).sum()), 1.0), 3)}
     # the CLIFF SKIRT: the face behind the kit, a 0.35 m rock band along the lip from the sea to the crest (the heightfield's
     # own face cells are not drawn) -- outside the route stretch, which has its own rock

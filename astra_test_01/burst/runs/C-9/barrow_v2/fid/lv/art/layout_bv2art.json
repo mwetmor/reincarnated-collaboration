@@ -2990,18 +2990,18 @@
   "logs": 4,
   "stair_treads": 50,
   "slab_groups": {
-   "ice_shorefast": 11,
-   "ice_plates": 44,
-   "ice_floes": 30,
-   "ice_floes_bob": 59,
+   "ice_shorefast": 14,
+   "ice_plates": 50,
+   "ice_floes": 50,
+   "ice_floes_bob": 39,
    "mere_plates": 0,
    "stream_ice": 0,
    "ice_rims": 0,
    "ice_ridges": 0,
-   "ice_brash": 207,
+   "ice_brash": 208,
    "mere_cracks": 123,
    "mere_seams": 0,
-   "trans_rubble": 0,
+   "trans_rubble": 1,
    "reed_tufts": 660,
    "stream_cracks": 0,
    "stream_pressure": 0,
@@ -3014,7 +3014,7 @@
    "ledge_rocks": 18,
    "stair_treads": 50,
    "stair_snow": 52,
-   "ice_drifts": 21
+   "ice_drifts": 23
   }
  },
  "openings": [
@@ -5352,30 +5352,30 @@
    "cradle_cracks": 2
   },
   "new": {
-   "floes": 144,
-   "drifts": 21,
-   "brash": 207,
+   "floes": 153,
+   "drifts": 23,
+   "brash": 208,
    "by_zone": {
-    "fast": 11,
-    "plate": 60,
-    "floe": 73
+    "fast": 14,
+    "plate": 63,
+    "floe": 76
    },
-   "bob": 59,
+   "bob": 39,
    "rejected": {
-    "small": 74,
-    "thin": 49,
-    "straight": 2,
-    "pilot": 1,
+    "small": 68,
+    "thin": 39,
+    "straight": 3,
+    "pilot": 0,
     "overlap": 9,
-    "open_water": 36,
-    "degenerate": 16,
+    "open_water": 44,
+    "degenerate": 18,
+    "self_crossing": 4,
     "ring": 6,
-    "self_crossing": 6,
-    "overlap_occ": 4,
-    "overlap_carve": 6,
-    "ps_pilot": 1,
+    "overlap_occ": 6,
+    "overlap_carve": 3,
+    "overlap_locked": 1,
     "pilot_sea_fill": {
-     "kept": 12,
+     "kept": 13,
      "tried": 21
     }
    }
@@ -5409,11 +5409,15 @@
     ]
    ],
    "thickness_rule": "shore-fast +0.30, other floes +0.20; brash awash +0.03..+0.08 (not a floe)",
-   "bob": 59,
-   "still": 85
+   "bob": 39,
+   "still": 114
   },
-  "ice_fraction_of_rebuild_domain": 0.542,
-  "ice_fraction_pilot_sea": 0.677
+  "ice_fraction_of_rebuild_domain": 0.522,
+  "waterline_r320": {
+   "added_cells": 169,
+   "cut_cells": 47
+  },
+  "ice_fraction_pilot_sea": 0.698
  },
  "r283": {
   "shelf": {
@@ -5463,16 +5467,16 @@
   "lead"
  ],
  "class_counts": {
-  "none": 555989,
+  "none": 555900,
   "snow": 531067,
   "ice": 118098,
   "shrub": 83118,
   "rock": 9850,
   "mound": 90943,
-  "shingle": 21015,
-  "shore_ice": 33418,
+  "shingle": 21064,
+  "shore_ice": 33476,
   "ash": 61031,
-  "ice_mid": 19745,
+  "ice_mid": 19727,
   "reed": 16562,
   "lead": 7452
  }
