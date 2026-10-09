@@ -1,0 +1,113 @@
+{
+ "_what": "BV2F PT (R-C9-280 step 4): score the DEV-25c A/B arms of chunk 3_0 -- READ-ONLY, PH's own instruments imported:",
+ "bars": {
+  "E": 8.789,
+  "C": 11.045,
+  "full_256": 9.569
+ },
+ "arms": {
+  "A": {
+   "sha256": "167771528de64c8a0d1669de49fc1c727edab93dd70699847cce9e5c1c1682f0",
+   "a1_E": {
+    "max": 3.286,
+    "segments": [
+     2.164,
+     2.832,
+     2.274,
+     2.921,
+     3.036,
+     3.286,
+     3.167,
+     3.084
+    ],
+    "raw_mad": 10.5
+   },
+   "a1_C": {
+    "max": 3.666,
+    "segments": [
+     2.683,
+     2.835,
+     1.982,
+     2.957,
+     2.537,
+     3.4,
+     3.666,
+     2.508
+    ],
+    "raw_mad": 10.5
+   },
+   "a1_full_256": {
+    "max": 3.417,
+    "segments": [
+     2.436,
+     2.853,
+     2.087,
+     2.991,
+     2.747,
+     3.323,
+     3.417,
+     2.759
+    ],
+    "raw_mad": 10.5
+   },
+   "a1_E_pass": true,
+   "p6a": {
+    "candidates": [],
+    "invented": 0
+   },
+   "p6a_pass": true
+  },
+  "B": {
+   "sha256": "6124ce792c0a2dd5d488d6771ee8c7eac172cbb27d7eb0fbb058fd38e2518fb0",
+   "a1_E": {
+    "max": 4.65,
+    "segments": [
+     4.65,
+     2.204,
+     1.973,
+     0.826,
+     0.826,
+     0.749,
+     0.597,
+     2.218
+    ],
+    "raw_mad": 22.1
+   },
+   "a1_C": {
+    "max": 53.269,
+    "segments": [
+     50.764,
+     18.42,
+     13.407,
+     18.613,
+     14.023,
+     20.293,
+     2.364,
+     53.269
+    ],
+    "raw_mad": 22.1
+   },
+   "a1_full_256": {
+    "max": 27.456,
+    "segments": [
+     27.456,
+     10.127,
+     7.741,
+     9.172,
+     7.302,
+     9.658,
+     1.486,
+     26.558
+    ],
+    "raw_mad": 22.1
+   },
+   "a1_E_pass": true,
+   "p6a": {
+    "candidates": [],
+    "invented": 0
+   },
+   "p6a_pass": true
+  }
+ },
+ "sheet": "crops/sheet_A256_B128_A128_B256.png: columns = A at its paste end x=256 | B at its paste end x=128 | A at x=128 | B at x=256; rows y ~ 52 / 384 / 712; all 1:1"
+}

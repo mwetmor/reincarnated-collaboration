@@ -34,7 +34,7 @@ PY
     zsh $WAVE BV2F-PH3ab_w$(date +%s) BV2F-PH3-3_0-ab25cA:GENERATE BV2F-PH3-3_0-ab25cB:GENERATE ;;
   ab_promote) # after the pre-registered rule is read (PH a1 band E, 1:1 crops, P6a): the winner becomes BV2F-PH3-3_0
     W=${2:?A or B}; disk
-    mkdir -p $A9/BV2F-PH3-3_0; cp $A9/BV2F-PH3-3_0-ab25c$W/BV2F-PH3-3_0-ab25c$W.png $A9/BV2F-PH3-3_0/BV2F-PH3-3_0.png
+    mkdir -p $A9/BV2F-PH3-3_0; cp $A9/BV2F-PH3-3_0-ab25c$W/BV2F-PH3-3_0.png $A9/BV2F-PH3-3_0/BV2F-PH3-3_0.png
     python3 -c "
 import json,hashlib;p='$A9/BV2F-PH3-3_0/BV2F-PH3-3_0.png';json.dump({'_what':'R-C9-278: DEV-25c A/B WINNER arm $W, byte copy','copy_of':'BV2F-PH3-3_0-ab25c$W','sha256':hashlib.sha256(open(p,'rb').read()).hexdigest()},open('$A9/BV2F-PH3-3_0/COPY.json','w'),indent=1)
 c=json.load(open('$CFG'))
