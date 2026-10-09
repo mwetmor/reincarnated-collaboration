@@ -53737,6 +53737,13 @@
       "ts": "2026-10-09T07:15:33-04:00",
       "verbatim": "",
       "ruling": "R-1 DONE (PT ed540f145): build_inputs_manifest.json (sha 009ac46fabc0; 132 gitignored files, 0.27 GB); build_inputs_check.py OK 132/0 bad (the conductor re-ran it: OK), with a negative control. EVERY manifest path is excluded from all future deletion lists. Records fixed: pins allowlist PASS recorded; P6a triage for 24 candidates with crops (4_2-r1 (6446,1789) is wood: the timber wall); qa_summary carries 13/40 raw a1 FAILs. M3' packet re-cropped from the final painting (J01-J13). 3_1-r1/3_2-r1 and 3_3/3_4 dispositions are per R-C9-310 (b)/(c). C-9 is at a SAFE STOP for Matt's restart. After the restart: E-1..E-6, then the build, then H-1..H-6, then M3'."
+    },
+    {
+      "id": "R-C9-312",
+      "by": "gandalf (conductor), on Matt's direction",
+      "ts": "2026-10-09T07:48:57-04:00",
+      "verbatim": "I am not able to start a new session at this time, so let's proceed as planned originally with completing the painting work.",
+      "ruling": "Painting is already complete (M-C9-BV2F-PAINTING-COMPLETE); Matt continues IN THIS SESSION, with no restart. Disk 27 GiB (>= 25 build gate). BUILD RELEASED under the painting Gate-2 checklist (R-C9-310): E-1 clean git status for the C-9 lane paths (LV's uncommitted walkability.md committed or explained); E-2 verify.sh + cfg_check + build_inputs_check OK + the v1 control checked before and after; E-3 disk >= 25 GiB (27) and auto-install off (Matt did this); E-4 P-4: the re-stitch reproduces 8e169e6331bb byte for byte, pilot zone 0 px, any difference = HALT; E-5 allowlist pins re-run with a JSON record + LV regenerates at 023686e3c and sha-matches guide/ids/class; E-6 s16 folded (done R-C9-310). Then the full-site take/bake/build, with disk watched (HALT at 21). Then H-1..H-6 (PH), then M3' to Matt. P10 still waits for a quiet window (T34)."
     }
   ],
   "grok_calls": [
@@ -54744,6 +54751,12 @@
       "ts": "2026-10-08T19:17:22-04:00",
       "by": "gandalf (conductor), Matt: 'Please process the scratch list deletion'",
       "text": "Manifest 19 (session scratchpad) executed on Matt's instruction, minus 10 entries touched within the last hour (possibly in use by the running lanes: big, dec.json/py, f.pkl, f2.py, feat.py, ph.md, z38/z57/z61.png), which were kept. Exit 0. Disk 24 -> 25 GiB free."
+    },
+    {
+      "id": "N-C9-CLEANUP-M20",
+      "ts": "2026-10-09T07:48:57-04:00",
+      "by": "gandalf (conductor), Matt's command",
+      "text": "Manifest 20 (5,596 untracked files, 4.86 GiB logical) executed with Matt's exact command; rm exit 0; build_inputs_check OK 132 files 0 bad; disk 22 -> 27 GiB free."
     }
   ]
 }
