@@ -1,0 +1,1815 @@
+{
+ "_what": "C-9 T10-2 step 3: the guide view (6656 x 4096, capture_blockout's camera) as an ID render",
+ "code": "R = (i % 16) * 16 + 8, G = (i / 16) * 16 + 8, B = 200; ground and everything else 0",
+ "instrument_check": {
+  "formula": "x = (u - u0) * 100.617553710938, y = (v1 - v) * 80.3076 at h = 0",
+  "placements_checked": 2,
+  "worst_px_camera_vs_formula": 0.0
+ },
+ "placements": {
+  "1": {
+   "class": "rock",
+   "id": "barrow_cutting",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    24,
+    8,
+    200
+   ]
+  },
+  "10": {
+   "class": "wet_rock",
+   "id": "carved_wet_rock",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    168,
+    8,
+    200
+   ]
+  },
+  "100": {
+   "class": "wood",
+   "id": "palisade__palisade_33",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    72,
+    104,
+    200
+   ]
+  },
+  "101": {
+   "class": "wood",
+   "id": "palisade__palisade_34",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    88,
+    104,
+    200
+   ]
+  },
+  "102": {
+   "class": "wood",
+   "id": "palisade__palisade_35",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    104,
+    104,
+    200
+   ]
+  },
+  "103": {
+   "class": "wood",
+   "id": "palisade__palisade_36",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    120,
+    104,
+    200
+   ]
+  },
+  "104": {
+   "class": "wood",
+   "id": "palisade__palisade_37",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    136,
+    104,
+    200
+   ]
+  },
+  "105": {
+   "class": "wood",
+   "id": "palisade__palisade_38",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    152,
+    104,
+    200
+   ]
+  },
+  "106": {
+   "class": "wood",
+   "id": "palisade__palisade_39",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    168,
+    104,
+    200
+   ]
+  },
+  "107": {
+   "class": "wood",
+   "id": "palisade__palisade_4",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    184,
+    104,
+    200
+   ]
+  },
+  "108": {
+   "class": "wood",
+   "id": "palisade__palisade_40",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    200,
+    104,
+    200
+   ]
+  },
+  "109": {
+   "class": "wood",
+   "id": "palisade__palisade_41",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    216,
+    104,
+    200
+   ]
+  },
+  "11": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_0",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    184,
+    8,
+    200
+   ]
+  },
+  "110": {
+   "class": "wood",
+   "id": "palisade__palisade_42",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    232,
+    104,
+    200
+   ]
+  },
+  "111": {
+   "class": "wood",
+   "id": "palisade__palisade_43",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    248,
+    104,
+    200
+   ]
+  },
+  "112": {
+   "class": "wood",
+   "id": "palisade__palisade_44",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    8,
+    120,
+    200
+   ]
+  },
+  "113": {
+   "class": "wood",
+   "id": "palisade__palisade_45",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    24,
+    120,
+    200
+   ]
+  },
+  "114": {
+   "class": "wood",
+   "id": "palisade__palisade_46",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    40,
+    120,
+    200
+   ]
+  },
+  "115": {
+   "class": "wood",
+   "id": "palisade__palisade_47",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    56,
+    120,
+    200
+   ]
+  },
+  "116": {
+   "class": "wood",
+   "id": "palisade__palisade_48",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    72,
+    120,
+    200
+   ]
+  },
+  "117": {
+   "class": "wood",
+   "id": "palisade__palisade_5",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    88,
+    120,
+    200
+   ]
+  },
+  "118": {
+   "class": "wood",
+   "id": "palisade__palisade_6",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    104,
+    120,
+    200
+   ]
+  },
+  "119": {
+   "class": "wood",
+   "id": "palisade__palisade_7",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    120,
+    120,
+    200
+   ]
+  },
+  "12": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_1",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    200,
+    8,
+    200
+   ]
+  },
+  "120": {
+   "class": "wood",
+   "id": "palisade__palisade_8",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    136,
+    120,
+    200
+   ]
+  },
+  "121": {
+   "class": "wood",
+   "id": "palisade__palisade_9",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    152,
+    120,
+    200
+   ]
+  },
+  "122": {
+   "class": "reed",
+   "id": "reed_tufts",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    168,
+    120,
+    200
+   ]
+  },
+  "123": {
+   "class": "rock",
+   "id": "ring_fallen",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    184,
+    120,
+    200
+   ]
+  },
+  "124": {
+   "class": "snow",
+   "id": "ring_snow",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    200,
+    120,
+    200
+   ]
+  },
+  "125": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_0",
+   "meshes": 1,
+   "piece": "instance:ring_stones",
+   "rgb": [
+    216,
+    120,
+    200
+   ]
+  },
+  "126": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_1",
+   "meshes": 1,
+   "piece": "instance:ring_stones",
+   "rgb": [
+    232,
+    120,
+    200
+   ]
+  },
+  "127": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_2",
+   "meshes": 1,
+   "piece": "instance:ring_stones",
+   "rgb": [
+    248,
+    120,
+    200
+   ]
+  },
+  "128": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_3",
+   "meshes": 1,
+   "piece": "instance:ring_stones",
+   "rgb": [
+    8,
+    136,
+    200
+   ]
+  },
+  "129": {
+   "class": "rock",
+   "id": "sea_stacks__sea_stacks_0",
+   "meshes": 1,
+   "piece": "instance:sea_stacks",
+   "rgb": [
+    24,
+    136,
+    200
+   ]
+  },
+  "13": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_2",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    216,
+    8,
+    200
+   ]
+  },
+  "130": {
+   "class": "rock",
+   "id": "sea_stacks__sea_stacks_1",
+   "meshes": 1,
+   "piece": "instance:sea_stacks",
+   "rgb": [
+    40,
+    136,
+    200
+   ]
+  },
+  "131": {
+   "class": "rock",
+   "id": "sea_stacks__sea_stacks_2",
+   "meshes": 1,
+   "piece": "instance:sea_stacks",
+   "rgb": [
+    56,
+    136,
+    200
+   ]
+  },
+  "132": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_0",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    72,
+    136,
+    200
+   ]
+  },
+  "133": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_1",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    88,
+    136,
+    200
+   ]
+  },
+  "134": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_2",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    104,
+    136,
+    200
+   ]
+  },
+  "135": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_3",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    120,
+    136,
+    200
+   ]
+  },
+  "136": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_4",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    136,
+    136,
+    200
+   ]
+  },
+  "137": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_5",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    152,
+    136,
+    200
+   ]
+  },
+  "138": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_6",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    168,
+    136,
+    200
+   ]
+  },
+  "139": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_7",
+   "meshes": 1,
+   "piece": "instance:slope_stones",
+   "rgb": [
+    184,
+    136,
+    200
+   ]
+  },
+  "14": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_3",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    232,
+    8,
+    200
+   ]
+  },
+  "140": {
+   "class": "snow",
+   "id": "stair_snow",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    200,
+    136,
+    200
+   ]
+  },
+  "141": {
+   "class": "rock",
+   "id": "stair_steps",
+   "meshes": 0,
+   "piece": "procedural",
+   "rgb": [
+    216,
+    136,
+    200
+   ]
+  },
+  "142": {
+   "class": "rock",
+   "id": "stair_treads",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    232,
+    136,
+    200
+   ]
+  },
+  "143": {
+   "class": "sea",
+   "id": "stream_cracks",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    248,
+    136,
+    200
+   ]
+  },
+  "144": {
+   "class": "ice",
+   "id": "stream_ice",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    8,
+    152,
+    200
+   ]
+  },
+  "145": {
+   "class": "ice",
+   "id": "stream_pressure",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    24,
+    152,
+    200
+   ]
+  },
+  "146": {
+   "class": "rock",
+   "id": "talus__talus_0",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    40,
+    152,
+    200
+   ]
+  },
+  "147": {
+   "class": "rock",
+   "id": "talus__talus_1",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    56,
+    152,
+    200
+   ]
+  },
+  "148": {
+   "class": "rock",
+   "id": "talus__talus_10",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    72,
+    152,
+    200
+   ]
+  },
+  "149": {
+   "class": "rock",
+   "id": "talus__talus_11",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    88,
+    152,
+    200
+   ]
+  },
+  "15": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_4",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    248,
+    8,
+    200
+   ]
+  },
+  "150": {
+   "class": "rock",
+   "id": "talus__talus_12",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    104,
+    152,
+    200
+   ]
+  },
+  "151": {
+   "class": "rock",
+   "id": "talus__talus_13",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    120,
+    152,
+    200
+   ]
+  },
+  "152": {
+   "class": "rock",
+   "id": "talus__talus_14",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    136,
+    152,
+    200
+   ]
+  },
+  "153": {
+   "class": "rock",
+   "id": "talus__talus_15",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    152,
+    152,
+    200
+   ]
+  },
+  "154": {
+   "class": "rock",
+   "id": "talus__talus_2",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    168,
+    152,
+    200
+   ]
+  },
+  "155": {
+   "class": "rock",
+   "id": "talus__talus_3",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    184,
+    152,
+    200
+   ]
+  },
+  "156": {
+   "class": "rock",
+   "id": "talus__talus_4",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    200,
+    152,
+    200
+   ]
+  },
+  "157": {
+   "class": "rock",
+   "id": "talus__talus_5",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    216,
+    152,
+    200
+   ]
+  },
+  "158": {
+   "class": "rock",
+   "id": "talus__talus_6",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    232,
+    152,
+    200
+   ]
+  },
+  "159": {
+   "class": "rock",
+   "id": "talus__talus_7",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    248,
+    152,
+    200
+   ]
+  },
+  "16": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_5",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    8,
+    24,
+    200
+   ]
+  },
+  "160": {
+   "class": "rock",
+   "id": "talus__talus_8",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    8,
+    168,
+    200
+   ]
+  },
+  "161": {
+   "class": "rock",
+   "id": "talus__talus_9",
+   "meshes": 1,
+   "piece": "instance:talus",
+   "rgb": [
+    24,
+    168,
+    200
+   ]
+  },
+  "162": {
+   "class": "shore_ice",
+   "id": "trans_rubble",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    40,
+    168,
+    200
+   ]
+  },
+  "163": {
+   "class": "wood",
+   "id": "wreck",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    56,
+    168,
+    200
+   ]
+  },
+  "164": {
+   "class": "wood",
+   "id": "wreck_mast__wreck_mast_0",
+   "meshes": 1,
+   "piece": "instance:wreck_mast",
+   "rgb": [
+    72,
+    168,
+    200
+   ]
+  },
+  "17": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_6",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    24,
+    24,
+    200
+   ]
+  },
+  "18": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_7",
+   "meshes": 1,
+   "piece": "instance:cliff_faces",
+   "rgb": [
+    40,
+    24,
+    200
+   ]
+  },
+  "19": {
+   "class": "rock",
+   "id": "cliff_skirt_wall",
+   "meshes": 1,
+   "piece": "ribbon",
+   "rgb": [
+    56,
+    24,
+    200
+   ]
+  },
+  "2": {
+   "class": "rock",
+   "id": "barrow_front",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    40,
+    8,
+    200
+   ]
+  },
+  "20": {
+   "class": "shore_ice",
+   "id": "cove_ice",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    72,
+    24,
+    200
+   ]
+  },
+  "21": {
+   "class": "sea",
+   "id": "cradle_cracks",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    88,
+    24,
+    200
+   ]
+  },
+  "22": {
+   "class": "rock",
+   "id": "crags__crags_0",
+   "meshes": 1,
+   "piece": "instance:crags",
+   "rgb": [
+    104,
+    24,
+    200
+   ]
+  },
+  "23": {
+   "class": "rock",
+   "id": "crags__crags_1",
+   "meshes": 1,
+   "piece": "instance:crags",
+   "rgb": [
+    120,
+    24,
+    200
+   ]
+  },
+  "24": {
+   "class": "passage_dark",
+   "id": "curtain_barrow_door",
+   "meshes": 1,
+   "piece": "declared_opening",
+   "rgb": [
+    136,
+    24,
+    200
+   ]
+  },
+  "25": {
+   "class": "passage_dark",
+   "id": "curtain_hall_great_door",
+   "meshes": 1,
+   "piece": "declared_opening",
+   "rgb": [
+    152,
+    24,
+    200
+   ]
+  },
+  "26": {
+   "class": "passage_dark",
+   "id": "curtain_sea_cave_mouth",
+   "meshes": 1,
+   "piece": "declared_opening",
+   "rgb": [
+    168,
+    24,
+    200
+   ]
+  },
+  "27": {
+   "class": "none",
+   "id": "door_lintel",
+   "meshes": 0,
+   "piece": "v1-instrument-stub",
+   "rgb": [
+    184,
+    24,
+    200
+   ]
+  },
+  "28": {
+   "class": "none",
+   "id": "door_post_L",
+   "meshes": 0,
+   "piece": "v1-instrument-stub",
+   "rgb": [
+    200,
+    24,
+    200
+   ]
+  },
+  "29": {
+   "class": "none",
+   "id": "door_post_R",
+   "meshes": 0,
+   "piece": "v1-instrument-stub",
+   "rgb": [
+    216,
+    24,
+    200
+   ]
+  },
+  "3": {
+   "class": "ice",
+   "id": "carved_ice",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    56,
+    8,
+    200
+   ]
+  },
+  "30": {
+   "class": "char",
+   "id": "fallen_gable",
+   "meshes": 1,
+   "piece": "model",
+   "rgb": [
+    232,
+    24,
+    200
+   ]
+  },
+  "31": {
+   "class": "ash",
+   "id": "ground_ash",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    248,
+    24,
+    200
+   ]
+  },
+  "32": {
+   "class": "ice",
+   "id": "ground_ice",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    8,
+    40,
+    200
+   ]
+  },
+  "33": {
+   "class": "ice_mid",
+   "id": "ground_ice_mid",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    24,
+    40,
+    200
+   ]
+  },
+  "34": {
+   "class": "lead",
+   "id": "ground_lead",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    40,
+    40,
+    200
+   ]
+  },
+  "35": {
+   "class": "mound",
+   "id": "ground_mound",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    56,
+    40,
+    200
+   ]
+  },
+  "36": {
+   "class": "reed",
+   "id": "ground_reed",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    72,
+    40,
+    200
+   ]
+  },
+  "37": {
+   "class": "rock",
+   "id": "ground_rock",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    88,
+    40,
+    200
+   ]
+  },
+  "38": {
+   "class": "sea",
+   "id": "ground_sea",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    104,
+    40,
+    200
+   ]
+  },
+  "39": {
+   "class": "shingle",
+   "id": "ground_shingle",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    120,
+    40,
+    200
+   ]
+  },
+  "4": {
+   "class": "passage_dark",
+   "id": "carved_passage_dark",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    72,
+    8,
+    200
+   ]
+  },
+  "40": {
+   "class": "shore_ice",
+   "id": "ground_shore_ice",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    136,
+    40,
+    200
+   ]
+  },
+  "41": {
+   "class": "shrub",
+   "id": "ground_shrub",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    152,
+    40,
+    200
+   ]
+  },
+  "42": {
+   "class": "snow",
+   "id": "ground_snow",
+   "meshes": 1,
+   "piece": "ground",
+   "rgb": [
+    168,
+    40,
+    200
+   ]
+  },
+  "43": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_0",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    184,
+    40,
+    200
+   ]
+  },
+  "44": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_1",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    200,
+    40,
+    200
+   ]
+  },
+  "45": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_10",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    216,
+    40,
+    200
+   ]
+  },
+  "46": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_11",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    232,
+    40,
+    200
+   ]
+  },
+  "47": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_2",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    248,
+    40,
+    200
+   ]
+  },
+  "48": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_3",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    8,
+    56,
+    200
+   ]
+  },
+  "49": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_4",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    24,
+    56,
+    200
+   ]
+  },
+  "5": {
+   "class": "rime",
+   "id": "carved_rime",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    88,
+    8,
+    200
+   ]
+  },
+  "50": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_5",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    40,
+    56,
+    200
+   ]
+  },
+  "51": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_6",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    56,
+    56,
+    200
+   ]
+  },
+  "52": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_7",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    72,
+    56,
+    200
+   ]
+  },
+  "53": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_8",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    88,
+    56,
+    200
+   ]
+  },
+  "54": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_9",
+   "meshes": 1,
+   "piece": "instance:gully_rock",
+   "rgb": [
+    104,
+    56,
+    200
+   ]
+  },
+  "55": {
+   "class": "shore_ice",
+   "id": "ice_brash",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    120,
+    56,
+    200
+   ]
+  },
+  "56": {
+   "class": "snow",
+   "id": "ice_drifts",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    136,
+    56,
+    200
+   ]
+  },
+  "57": {
+   "class": "shore_ice",
+   "id": "ice_floes",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    152,
+    56,
+    200
+   ]
+  },
+  "58": {
+   "class": "shore_ice",
+   "id": "ice_floes_bob",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    168,
+    56,
+    200
+   ]
+  },
+  "59": {
+   "class": "shore_ice",
+   "id": "ice_plates",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    184,
+    56,
+    200
+   ]
+  },
+  "6": {
+   "class": "rock",
+   "id": "carved_rock",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    104,
+    8,
+    200
+   ]
+  },
+  "60": {
+   "class": "shore_ice",
+   "id": "ice_ridges",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    200,
+    56,
+    200
+   ]
+  },
+  "61": {
+   "class": "snow",
+   "id": "ice_rims",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    216,
+    56,
+    200
+   ]
+  },
+  "62": {
+   "class": "shore_ice",
+   "id": "ice_shorefast",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    232,
+    56,
+    200
+   ]
+  },
+  "63": {
+   "class": "rime",
+   "id": "icicles",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    248,
+    56,
+    200
+   ]
+  },
+  "64": {
+   "class": "rock",
+   "id": "ledge_rocks",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    8,
+    72,
+    200
+   ]
+  },
+  "65": {
+   "class": "wood",
+   "id": "logs__logs_0",
+   "meshes": 1,
+   "piece": "instance:logs",
+   "rgb": [
+    24,
+    72,
+    200
+   ]
+  },
+  "66": {
+   "class": "wood",
+   "id": "logs__logs_1",
+   "meshes": 1,
+   "piece": "instance:logs",
+   "rgb": [
+    40,
+    72,
+    200
+   ]
+  },
+  "67": {
+   "class": "wood",
+   "id": "logs__logs_2",
+   "meshes": 1,
+   "piece": "instance:logs",
+   "rgb": [
+    56,
+    72,
+    200
+   ]
+  },
+  "68": {
+   "class": "wood",
+   "id": "logs__logs_3",
+   "meshes": 1,
+   "piece": "instance:logs",
+   "rgb": [
+    72,
+    72,
+    200
+   ]
+  },
+  "69": {
+   "class": "wood",
+   "id": "longhall",
+   "meshes": 2,
+   "piece": "model",
+   "rgb": [
+    88,
+    72,
+    200
+   ]
+  },
+  "7": {
+   "class": "shrub",
+   "id": "carved_shrub",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    120,
+    8,
+    200
+   ]
+  },
+  "70": {
+   "class": "sea",
+   "id": "mere_cracks",
+   "meshes": 1,
+   "piece": "slabs",
+   "rgb": [
+    104,
+    72,
+    200
+   ]
+  },
+  "71": {
+   "class": "ice",
+   "id": "mere_plates",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    120,
+    72,
+    200
+   ]
+  },
+  "72": {
+   "class": "snow",
+   "id": "mere_seams",
+   "meshes": 0,
+   "piece": "slabs",
+   "rgb": [
+    136,
+    72,
+    200
+   ]
+  },
+  "73": {
+   "class": "wood",
+   "id": "palisade__palisade_0",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    152,
+    72,
+    200
+   ]
+  },
+  "74": {
+   "class": "wood",
+   "id": "palisade__palisade_1",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    168,
+    72,
+    200
+   ]
+  },
+  "75": {
+   "class": "wood",
+   "id": "palisade__palisade_10",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    184,
+    72,
+    200
+   ]
+  },
+  "76": {
+   "class": "wood",
+   "id": "palisade__palisade_11",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    200,
+    72,
+    200
+   ]
+  },
+  "77": {
+   "class": "wood",
+   "id": "palisade__palisade_12",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    216,
+    72,
+    200
+   ]
+  },
+  "78": {
+   "class": "wood",
+   "id": "palisade__palisade_13",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    232,
+    72,
+    200
+   ]
+  },
+  "79": {
+   "class": "wood",
+   "id": "palisade__palisade_14",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    248,
+    72,
+    200
+   ]
+  },
+  "8": {
+   "class": "snow",
+   "id": "carved_snow",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    136,
+    8,
+    200
+   ]
+  },
+  "80": {
+   "class": "wood",
+   "id": "palisade__palisade_15",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    8,
+    88,
+    200
+   ]
+  },
+  "81": {
+   "class": "wood",
+   "id": "palisade__palisade_16",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    24,
+    88,
+    200
+   ]
+  },
+  "82": {
+   "class": "wood",
+   "id": "palisade__palisade_17",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    40,
+    88,
+    200
+   ]
+  },
+  "83": {
+   "class": "wood",
+   "id": "palisade__palisade_18",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    56,
+    88,
+    200
+   ]
+  },
+  "84": {
+   "class": "wood",
+   "id": "palisade__palisade_19",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    72,
+    88,
+    200
+   ]
+  },
+  "85": {
+   "class": "wood",
+   "id": "palisade__palisade_2",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    88,
+    88,
+    200
+   ]
+  },
+  "86": {
+   "class": "wood",
+   "id": "palisade__palisade_20",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    104,
+    88,
+    200
+   ]
+  },
+  "87": {
+   "class": "wood",
+   "id": "palisade__palisade_21",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    120,
+    88,
+    200
+   ]
+  },
+  "88": {
+   "class": "wood",
+   "id": "palisade__palisade_22",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    136,
+    88,
+    200
+   ]
+  },
+  "89": {
+   "class": "wood",
+   "id": "palisade__palisade_23",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    152,
+    88,
+    200
+   ]
+  },
+  "9": {
+   "class": "tide_ice",
+   "id": "carved_tide_ice",
+   "meshes": 1,
+   "piece": "carved",
+   "rgb": [
+    152,
+    8,
+    200
+   ]
+  },
+  "90": {
+   "class": "wood",
+   "id": "palisade__palisade_24",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    168,
+    88,
+    200
+   ]
+  },
+  "91": {
+   "class": "wood",
+   "id": "palisade__palisade_25",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    184,
+    88,
+    200
+   ]
+  },
+  "92": {
+   "class": "wood",
+   "id": "palisade__palisade_26",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    200,
+    88,
+    200
+   ]
+  },
+  "93": {
+   "class": "wood",
+   "id": "palisade__palisade_27",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    216,
+    88,
+    200
+   ]
+  },
+  "94": {
+   "class": "wood",
+   "id": "palisade__palisade_28",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    232,
+    88,
+    200
+   ]
+  },
+  "95": {
+   "class": "wood",
+   "id": "palisade__palisade_29",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    248,
+    88,
+    200
+   ]
+  },
+  "96": {
+   "class": "wood",
+   "id": "palisade__palisade_3",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    8,
+    104,
+    200
+   ]
+  },
+  "97": {
+   "class": "wood",
+   "id": "palisade__palisade_30",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    24,
+    104,
+    200
+   ]
+  },
+  "98": {
+   "class": "wood",
+   "id": "palisade__palisade_31",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    40,
+    104,
+    200
+   ]
+  },
+  "99": {
+   "class": "wood",
+   "id": "palisade__palisade_32",
+   "meshes": 2,
+   "piece": "instance:palisade",
+   "rgb": [
+    56,
+    104,
+    200
+   ]
+  }
+ }
+}

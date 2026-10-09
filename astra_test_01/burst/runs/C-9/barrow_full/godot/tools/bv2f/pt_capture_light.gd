@@ -22,7 +22,7 @@ extends SceneTree
 ## shadow falling into a painted shadow adds nothing (PaintedWorld.his_shadow). No knight (the
 ## guide's barbarian was painted out); no ink.
 
-const GUIDE := Vector2i(4096, 2560)   # BV2F-PT: the pilot plate
+var GUIDE := Vector2i(6656, 4096) if OS.get_environment("BV2F_PILOT") == "site_ph3" else Vector2i(4096, 2560)   # BV2F-PT: the pilot plate; R-C9-322: the full site plate for site_ph3
 const ATLAS := 8192
 
 var out_dir := ""

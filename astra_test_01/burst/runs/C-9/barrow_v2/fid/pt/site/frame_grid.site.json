@@ -1,0 +1,64 @@
+{
+ "_what": "BV2F PT SITE frame/grid (R-C9-322): the bv2art frame at the FULL 5 x 5 site plate (6656 x 4096); scene = bv2f_pilot.tscn with BV2F_PILOT=site_ph3, whose guide_window IS the site plate",
+ "name": "barrow_v2 art SITE (site_ph3)",
+ "scene": "res://scenes/bv2f_pilot.tscn",
+ "guide_px": [
+  6656,
+  4096
+ ],
+ "px_per_m_across": 100.617553710938,
+ "pitch_deg": 52.95354112560294,
+ "yaw_deg": 47.0,
+ "walk_grid": {
+  "u": [
+   -1.0,
+   1.0
+  ],
+  "v": [
+   -1.0,
+   1.0
+  ],
+  "step": 0.1
+ },
+ "topdown": {
+  "px": [
+   2400,
+   2240
+  ],
+  "px_per_m": 30.0
+ },
+ "painting": null,
+ "painting_sha_prefix": null,
+ "grid_informational": {
+  "cols": 5,
+  "rows": 5,
+  "canvas_px": [
+   1536,
+   1024
+  ],
+  "stride_px": [
+   1280,
+   768
+  ],
+  "source": "layout_bv2art.json window"
+ },
+ "env": {
+  "BV2F_VARIANT": "art",
+  "BV2F_UNGROUP": "1",
+  "BV2F_PILOT": "site_ph3"
+ },
+ "guide_window_uv": {
+  "centre": [
+   -0.5,
+   -3.132
+  ],
+  "u": [
+   -33.57573954303182,
+   32.57573954303182
+  ],
+  "v": [
+   -28.633937157286354,
+   22.36993715728635
+  ]
+ }
+}

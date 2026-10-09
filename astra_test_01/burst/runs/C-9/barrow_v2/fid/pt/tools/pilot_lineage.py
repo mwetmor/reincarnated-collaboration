@@ -3,15 +3,16 @@
 static texture the painted pilot wears -> its producing record -> the pilot painting's sha. Re-run whenever the prep,
 the bakes or their tools change (R-C9-194: the tool-sha links go stale otherwise).
     python3 fid/pt/tools/pilot_lineage.py"""
+import os as _os_; B_ = _os_.environ.get("PT_BUILD_DIR", "pt/pilot")   # R-C9-322: the build dir
 import os, hashlib, json
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 C9 = os.path.dirname(os.path.dirname(FID))
-D = C9 + "/barrow_full/godot/data/bv2f/%s/painted" % {"rp4": "pilot_rp4", "rp3": "pilot_rp3"}[os.environ.get("BV2F_PILOT", "rp3")]   # R-C9-264: the set being built   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
-R = FID + "/pt/pilot/root"
-paint = FID + "/pt/pilot/painting.png"
+D = C9 + "/barrow_full/godot/data/bv2f/%s/painted" % {"rp4": "pilot_rp4", "rp3": "pilot_rp3", "site_ph3": "site_ph3"}[os.environ.get("BV2F_PILOT", "rp3")]   # R-C9-264: the set being built   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
+R = FID + "/" + B_ + "/root"
+paint = FID + "/" + B_ + "/painting.png"
 sha = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
 man = json.load(open(D + "/manifest.json"))
-br = json.load(open(FID + "/pt/pilot/bake_report.json"))
+br = json.load(open(FID + "/" + B_ + "/bake_report.json"))
 pl = json.load(open(R + "/take/plates/plates.json"))["plates"]
 prep = FID + "/pt/tools/bv2f_prep.py"
 T = [{"id": "painting.bin", "path": D + "/painting.bin", "role": "ground + every primitive + the heather/snow albedo + the water's base (projection)",
@@ -19,7 +20,7 @@ T = [{"id": "painting.bin", "path": D + "/painting.bin", "role": "ground + every
      {"id": "lit", "path": D + "/" + man["lit"]["file"], "role": "painted direct-sun share (his shadow's mask)",
       "links": [{"kind": "sha_record", "record": D + "/manifest.json", "field": "lit.sha256"},
                 {"kind": "producer", "tool": prep, "tool_sha": sha(prep),
-                 "evidence": "fid/pt/pilot/painted_prep.json painting_sha256 = %s" % json.load(open(FID + "/pt/pilot/painted_prep.json"))["painting_sha256"][:12],
+                 "evidence": "fid/" + B_ + "/painted_prep.json painting_sha256 = %s" % json.load(open(FID + "/" + B_ + "/painted_prep.json"))["painting_sha256"][:12],
                  "input": paint}]}]
 bake = FID + "/v1tools/tierA/barrow_full/tools/t5_06b_bake.py"
 for k, v in br["pieces"].items():
@@ -35,5 +36,5 @@ for k, v in br["pieces"].items():
               "links": [{"kind": "crop_of", "input": paint, "rect": p["rect_px"], "alpha_min": 255}]})
 spec = {"name": "bv2f pilot", "painting": {"path": paint, "sha": json.load(open(R + "/take/take_report.json"))["painting"]["sha256"]}, "textures": T,
         "_note": "no texels of their own (data, not painted texture): heather.json, snow_grid.bin, snow_ground_h.bin (heights), water_sdf.bin (the floes' distance field for the foam). The sprays, the snow, the floes and the water WEAR painting.bin (projected); the water's swell/foam are procedural motion over it (DEV-5)."}
-json.dump(spec, open(FID + "/pt/pilot/lineage.json", "w"), indent=1)
+json.dump(spec, open(FID + "/" + B_ + "/lineage.json", "w"), indent=1)
 print("lineage: %d nodes" % len(T))

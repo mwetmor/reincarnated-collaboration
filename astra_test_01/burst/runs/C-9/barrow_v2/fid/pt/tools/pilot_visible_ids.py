@@ -5,7 +5,7 @@ import json, os
 import numpy as np
 from PIL import Image
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-D = os.path.join(FID, "pt", "pilot", "ids_built")
+D = os.path.join(FID, os.environ.get("PT_BUILD_DIR", "pt/pilot"), "ids_built")   # R-C9-322: the build dir
 pl = json.load(open(os.path.join(D, "ids.json")))["placements"]
 A = np.asarray(Image.open(os.path.join(D, "ids.png")).convert("RGB")).astype(np.int32)
 idx = np.where(A[..., 2] > 100, np.clip(np.round((A[..., 1] - 8) / 16.0), 0, 15).astype(np.int32) * 16

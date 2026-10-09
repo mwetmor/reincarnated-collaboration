@@ -19,7 +19,7 @@ from PIL import Image
 
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 V = os.path.join(FID, "v1tools")
-PILOT = os.path.join(FID, "pt", "pilot")
+PILOT = os.path.join(FID, os.environ.get("PT_BUILD_DIR", "pt/pilot"))   # R-C9-322: the build dir (pt/site for the full site)
 ROOT = os.path.join(PILOT, "root")
 PAINT = os.path.join(PILOT, "painting.png")
 RUN = [sys.executable, os.path.join(V, "v1run.py"), "--root", ROOT]

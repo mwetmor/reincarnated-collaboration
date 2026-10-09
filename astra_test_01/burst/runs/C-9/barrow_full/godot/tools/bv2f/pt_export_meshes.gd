@@ -19,7 +19,7 @@ extends SceneTree
 ##   <id>_V.f32     world vertices (n x 3)       <id>_N.f32  world normals (n x 3)
 ##   <id>_UV.f32    UVs, GODOT convention (v down) (n x 2)     <id>_I.i32  triangle indices
 
-const GUIDE := Vector2i(4096, 2560)   # BV2F-PT: the pilot plate
+var GUIDE := Vector2i(6656, 4096) if OS.get_environment("BV2F_PILOT") == "site_ph3" else Vector2i(4096, 2560)   # BV2F-PT: the pilot plate; R-C9-322: the full site plate for site_ph3
 var REAL_IDS := []                      # BV2F-PT: from --ids
 
 var out_dir := ""
@@ -89,9 +89,10 @@ func _initialize() -> void:
 			for s in m.mesh.get_surface_count():
 				var arr: Array = m.mesh.surface_get_arrays(s)
 				var v: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
-				var nrm: PackedVector3Array = arr[Mesh.ARRAY_NORMAL]
-				var uv: PackedVector2Array = arr[Mesh.ARRAY_TEX_UV]
-				var ix: PackedInt32Array = arr[Mesh.ARRAY_INDEX]
+				# BV2F-PT R-C9-322: a surface may carry NO normal / UV / index array (Nil): read as empty (-> skipped below)
+				var nrm: PackedVector3Array = arr[Mesh.ARRAY_NORMAL] if arr[Mesh.ARRAY_NORMAL] != null else PackedVector3Array()
+				var uv: PackedVector2Array = arr[Mesh.ARRAY_TEX_UV] if arr[Mesh.ARRAY_TEX_UV] != null else PackedVector2Array()
+				var ix: PackedInt32Array = arr[Mesh.ARRAY_INDEX] if arr[Mesh.ARRAY_INDEX] != null else PackedInt32Array()
 				if uv.size() != v.size():
 					print("[meshes] %s surface %d has no UVs -- skipped" % [id, s])
 					continue
