@@ -199,5 +199,11 @@
   "1_2",
   "2_2"
  ],
- "r_c9_189": "HALT: pilot tiles changed -> repaint (R-C9-189)"
+ "r_c9_189": "PASS under the R-C9-295/297 allowlist: the 5 changed pilot tiles (0_0, 0_1, 0_2, 1_2, 2_2) differ ONLY inside fid/pt/ph3/allow_294.json (215,261 px inside, 0 outside); record fid/pt/ph3/pins_check_allow_294.txt (R-C9-310 correction; the field above is the tool's raw no-allowlist output)",
+ "r_c9_189_ph3_pin_raw": "HALT: pilot tiles changed -> repaint (R-C9-189)",
+ "allowlist": {
+  "file": "fid/pt/ph3/allow_294.json",
+  "rects": 45,
+  "pins_check": "PASS"
+ }
 }

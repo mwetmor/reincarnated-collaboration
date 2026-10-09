@@ -1,144 +1,505 @@
-[
- {
-  "n": 0,
-  "kind": "carried",
-  "what": "3_1|4_1 a1 9.745 (roof timber)",
-  "file": "00_carried_join_3_1_4_1_x4948_y828_1to1.png"
- },
- {
-  "n": 1,
-  "kind": "carried",
-  "what": "3_1|4_1 a1 (2)",
-  "file": "01_carried_join_3_1_4_1_x4948_y1328_1to1.png"
- },
- {
-  "n": 2,
-  "kind": "carried",
-  "what": "3_1/3_2 a1 29.19 (ash yard)",
-  "file": "02_carried_stitched_3_1_3_2_join.png"
- },
- {
-  "n": 3,
-  "kind": "carried",
-  "what": "3_1/3_2 raw strips",
-  "file": "03_carried_raw_strips_3_1_3_2.png"
- },
- {
-  "n": 4,
-  "kind": "carried",
-  "what": "3_2|4_2 a1 23.80 top corner",
-  "file": "04_carried_stitched_join_3_2_4_2_top_1to1.png"
- },
- {
-  "n": 5,
-  "kind": "carried",
-  "what": "1_2/1_3 a1 14.56 s51 (cliff columns)",
-  "file": "05_carried_join_1_2_1_3_seg4-7_x1664_y2200_1to1.png"
- },
- {
-  "n": 6,
-  "kind": "carried",
-  "what": "1_2/1_3 (2)",
-  "file": "06_carried_join_1_2_1_3_seg8-11_x2176_y2200_1to1.png"
- },
- {
-  "n": 7,
-  "kind": "carried",
-  "what": "0_3|1_3 a1 10.52",
-  "file": "07_carried_join_0_3_1_3_seg8_x1180_y3000_1to1.png"
- },
- {
-  "n": 8,
-  "kind": "carried",
-  "what": "3_2/3_3 a1 14.93 (DEV-29 corner)",
-  "file": "08_carried_strips_3_2_vs_3_3_seg1-2.png"
- },
- {
-  "n": 9,
-  "kind": "carried",
-  "what": "0_3/0_4 a1 11.59",
-  "file": "09_carried_join_0_3_0_4_seg11-12_x1150_y2950_1to1.png"
- },
- {
-  "n": 10,
-  "kind": "carried",
-  "what": "3_3/3_4 a1 9.574",
-  "file": "10_carried_join_3_3_3_4_seg4-6_x4224_y3000_1to1.png"
- },
- {
-  "n": 11,
-  "kind": "repaired",
-  "what": "0_4|1_4 + 1_3/1_4 corner line -> DEV-24 layer 5 before/after",
-  "file": "11_repaired_corner_l5_before_after_1to1.png"
- },
- {
-  "n": 12,
-  "kind": "matt_eye",
-  "what": "0_4 crack-line net over open water",
-  "file": "12_matt_eye_p6a_0_4_candidates_x480_y3700_1to1.png"
- },
- {
-  "n": 13,
-  "kind": "matt_eye",
-  "what": "stern pale ice + block on the left floe edge (layer 4)",
-  "file": "13_matt_eye_group1_playzoom_x0_y1536.png"
- },
- {
-  "n": 14,
-  "kind": "matt_eye",
-  "what": "stern 1:1",
-  "file": "14_matt_eye_stern_1to1_x880_y2040.png"
- },
- {
-  "n": 15,
-  "kind": "matt_eye",
-  "what": "cave top (layer 4)",
-  "file": "15_matt_eye_cave_top_1to1_x2700_y2140.png"
- },
- {
-  "n": 16,
-  "kind": "matt_eye",
-  "what": "ash-yard cobble look (4_2-r1)",
-  "file": "16_matt_eye_stitched_join_3_2_4_2_top_1to1.png"
- },
- {
-  "n": 17,
-  "kind": "p6a_fp",
-  "what": "0_3 sea FP (wave 1)",
-  "file": "17_p6a_fp_p6a_0_3_candidate_x505_y3270.png"
- },
- {
-  "n": 18,
-  "kind": "p6a_fp",
-  "what": "2_3 sea FP",
-  "file": "18_p6a_fp_p6a_2_3_x2718_y2993_1to1.png"
- },
- {
-  "n": 19,
-  "kind": "p6a_fp",
-  "what": "1_4 sea FPs",
-  "file": "19_p6a_fp_p6a_1_4_candidates_x1500_y3300_075.png"
- },
- {
-  "n": 20,
-  "kind": "p6a_fp",
-  "what": "4_1 gable end wall",
-  "file": "20_p6a_fp_p6a_4_1_x6133_y1224_1to1.png"
- },
- {
-  "n": 21,
-  "kind": "p6a_fp",
-  "what": "4_2 charred gable gaps",
-  "file": "21_p6a_fp_p6a_4_2_candidates_x6100_y1550.png"
- },
- {
-  "kind": "matt_eye",
-  "what": "heart-shaped floe (0_3-r2), half scale",
-  "file": "90_matt_eye_heart_floe_0_3_half.jpg"
- },
- {
-  "kind": "matt_eye",
-  "what": "stepped rocks at the cave mouth, 1:1",
-  "file": "91_matt_eye_cave_mouth_stepped_rocks_1to1.png"
- }
-]
+{
+ "_what": "M3' packet (R-C9-310): J01-J13 = the 13 raw-a1 FAIL joins re-cropped at 1:1 from the FINAL painting 8e169e6331bb (worst segment centred); older crops moved to _stale_superseded/",
+ "fail_joins": [
+  {
+   "join": "2_0/2_1",
+   "a1_max": 19.138,
+   "worst_segment": 1,
+   "segments": [
+    19.138,
+    15.432,
+    11.199,
+    9.772,
+    9.999,
+    7.095,
+    3.254,
+    3.843,
+    3.703,
+    4.104,
+    5.434,
+    5.455
+   ],
+   "source": "pilot-internal raw (PH s47)",
+   "crop_box": [
+    2432,
+    640,
+    2816,
+    1152
+   ],
+   "file": "J01_2_0S2_1_seg1_a1_19.138_x2432_y640_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "1_1|2_1",
+   "a1_max": 13.218,
+   "worst_segment": 2,
+   "segments": [
+    11.726,
+    13.218,
+    5.038,
+    4.541,
+    3.591,
+    3.101,
+    3.583,
+    2.385
+   ],
+   "source": "pilot-internal raw (PH s47)",
+   "crop_box": [
+    2432,
+    768,
+    2944,
+    1152
+   ],
+   "file": "J02_1_1I2_1_seg2_a1_13.218_x2432_y768_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "1_0/1_1",
+   "a1_max": 11.268,
+   "worst_segment": 12,
+   "segments": [
+    1.909,
+    1.993,
+    2.024,
+    2.469,
+    3.396,
+    2.839,
+    3.333,
+    3.828,
+    4.628,
+    4.954,
+    7.602,
+    11.268
+   ],
+   "source": "pilot-internal raw (PH s47)",
+   "crop_box": [
+    2560,
+    640,
+    2944,
+    1152
+   ],
+   "file": "J03_1_0S1_1_seg12_a1_11.268_x2560_y640_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "3_1|4_1",
+   "a1_max": 9.745,
+   "worst_segment": 2,
+   "segments": [
+    6.2,
+    9.745,
+    4.807,
+    4.75,
+    6.975,
+    9.486,
+    9.688,
+    5.122
+   ],
+   "source": "qa_w4 raw",
+   "crop_box": [
+    4992,
+    768,
+    5504,
+    1152
+   ],
+   "file": "J04_3_1I4_1_seg2_a1_9.745_x4992_y768_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "3_1/3_2",
+   "a1_max": 29.185,
+   "worst_segment": 9,
+   "segments": [
+    1.467,
+    1.223,
+    1.21,
+    1.503,
+    1.359,
+    1.434,
+    1.829,
+    9.948,
+    29.185,
+    23.283,
+    24.229,
+    16.595
+   ],
+   "source": "qa_w7 raw",
+   "crop_box": [
+    4736,
+    1408,
+    5120,
+    1920
+   ],
+   "file": "J05_3_1S3_2_seg9_a1_29.185_x4736_y1408_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "3_2|4_2",
+   "a1_max": 23.795,
+   "worst_segment": 2,
+   "segments": [
+    13.924,
+    23.795,
+    2.852,
+    2.221,
+    1.863,
+    2.056,
+    2.116,
+    2.06
+   ],
+   "source": "qa_w8 raw",
+   "crop_box": [
+    4992,
+    1536,
+    5504,
+    1920
+   ],
+   "file": "J06_3_2I4_2_seg2_a1_23.795_x4992_y1536_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "1_2/1_3",
+   "a1_max": 14.564,
+   "worst_segment": 9,
+   "segments": [
+    2.811,
+    7.443,
+    7.448,
+    10.228,
+    9.16,
+    11.689,
+    10.252,
+    11.268,
+    14.564,
+    10.078,
+    8.573,
+    7.153
+   ],
+   "source": "qa_w9 s51 substituted (pilot side = raw + context_patch)",
+   "crop_box": [
+    2176,
+    2176,
+    2560,
+    2688
+   ],
+   "file": "J07_1_2S1_3_seg9_a1_14.564_x2176_y2176_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "0_3|1_3",
+   "a1_max": 10.517,
+   "worst_segment": 8,
+   "segments": [
+    6.482,
+    8.955,
+    4.747,
+    3.367,
+    3.978,
+    5.083,
+    8.594,
+    10.517
+   ],
+   "source": "qa_w9 raw",
+   "crop_box": [
+    1152,
+    3072,
+    1664,
+    3456
+   ],
+   "file": "J08_0_3I1_3_seg8_a1_10.517_x1152_y3072_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "3_2/3_3",
+   "a1_max": 14.934,
+   "worst_segment": 1,
+   "segments": [
+    14.934,
+    14.0,
+    1.906,
+    1.695,
+    1.864,
+    1.956,
+    1.187,
+    1.183,
+    1.245,
+    1.596,
+    3.505,
+    4.271
+   ],
+   "source": "qa_w12 raw",
+   "crop_box": [
+    3712,
+    2176,
+    4096,
+    2688
+   ],
+   "file": "J09_3_2S3_3_seg1_a1_14.934_x3712_y2176_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "0_3/0_4",
+   "a1_max": 11.586,
+   "worst_segment": 11,
+   "segments": [
+    3.897,
+    4.2,
+    2.773,
+    4.211,
+    4.245,
+    4.298,
+    3.24,
+    3.766,
+    3.34,
+    4.296,
+    11.586,
+    8.803
+   ],
+   "source": "qa_w13 raw",
+   "crop_box": [
+    1152,
+    2944,
+    1536,
+    3456
+   ],
+   "file": "J10_0_3S0_4_seg11_a1_11.586_x1152_y2944_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "0_4|1_4",
+   "a1_max": 11.193,
+   "worst_segment": 2,
+   "segments": [
+    8.86,
+    11.193,
+    2.024,
+    1.331,
+    1.35,
+    1.928,
+    2.088,
+    1.802
+   ],
+   "source": "qa_w15 raw",
+   "crop_box": [
+    1152,
+    3072,
+    1664,
+    3456
+   ],
+   "file": "J11_0_4I1_4_seg2_a1_11.193_x1152_y3072_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "1_3/1_4",
+   "a1_max": 10.946,
+   "worst_segment": 1,
+   "segments": [
+    10.946,
+    8.001,
+    2.12,
+    1.415,
+    1.52,
+    1.387,
+    1.472,
+    1.455,
+    2.069,
+    3.201,
+    2.995,
+    2.968
+   ],
+   "source": "qa_w15 raw",
+   "crop_box": [
+    1152,
+    2944,
+    1536,
+    3456
+   ],
+   "file": "J12_1_3S1_4_seg1_a1_10.946_x1152_y2944_1to1.png",
+   "from_painting": "8e169e6331bb"
+  },
+  {
+   "join": "3_3/3_4",
+   "a1_max": 9.574,
+   "worst_segment": 5,
+   "segments": [
+    4.652,
+    6.045,
+    5.737,
+    8.238,
+    9.574,
+    9.247,
+    5.575,
+    4.345,
+    5.666,
+    3.775,
+    2.629,
+    2.32
+   ],
+   "source": "qa_w17 raw",
+   "crop_box": [
+    4224,
+    2944,
+    4608,
+    3456
+   ],
+   "file": "J13_3_3S3_4_seg5_a1_9.574_x4224_y2944_1to1.png",
+   "from_painting": "8e169e6331bb"
+  }
+ ],
+ "other_items": [
+  {
+   "n": 0,
+   "kind": "carried",
+   "what": "3_1|4_1 a1 9.745 (roof timber)",
+   "file": "00_carried_join_3_1_4_1_x4948_y828_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 1,
+   "kind": "carried",
+   "what": "3_1|4_1 a1 (2)",
+   "file": "01_carried_join_3_1_4_1_x4948_y1328_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 2,
+   "kind": "carried",
+   "what": "3_1/3_2 a1 29.19 (ash yard)",
+   "file": "02_carried_stitched_3_1_3_2_join.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 3,
+   "kind": "carried",
+   "what": "3_1/3_2 raw strips",
+   "file": "03_carried_raw_strips_3_1_3_2.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 4,
+   "kind": "carried",
+   "what": "3_2|4_2 a1 23.80 top corner",
+   "file": "04_carried_stitched_join_3_2_4_2_top_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 5,
+   "kind": "carried",
+   "what": "1_2/1_3 a1 14.56 s51 (cliff columns)",
+   "file": "05_carried_join_1_2_1_3_seg4-7_x1664_y2200_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 6,
+   "kind": "carried",
+   "what": "1_2/1_3 (2)",
+   "file": "06_carried_join_1_2_1_3_seg8-11_x2176_y2200_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 7,
+   "kind": "carried",
+   "what": "0_3|1_3 a1 10.52",
+   "file": "07_carried_join_0_3_1_3_seg8_x1180_y3000_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 8,
+   "kind": "carried",
+   "what": "3_2/3_3 a1 14.93 (DEV-29 corner)",
+   "file": "08_carried_strips_3_2_vs_3_3_seg1-2.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 9,
+   "kind": "carried",
+   "what": "0_3/0_4 a1 11.59",
+   "file": "09_carried_join_0_3_0_4_seg11-12_x1150_y2950_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 10,
+   "kind": "carried",
+   "what": "3_3/3_4 a1 9.574",
+   "file": "10_carried_join_3_3_3_4_seg4-6_x4224_y3000_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 11,
+   "kind": "repaired",
+   "what": "0_4|1_4 + 1_3/1_4 corner line -> DEV-24 layer 5 before/after",
+   "file": "11_repaired_corner_l5_before_after_1to1.png",
+   "status": "STALE (superseded by J01-J13 from 8e169e6331bb)"
+  },
+  {
+   "n": 12,
+   "kind": "matt_eye",
+   "what": "0_4 crack-line net over open water",
+   "file": "12_matt_eye_p6a_0_4_candidates_x480_y3700_1to1.png"
+  },
+  {
+   "n": 13,
+   "kind": "matt_eye",
+   "what": "stern pale ice + block on the left floe edge (layer 4)",
+   "file": "13_matt_eye_group1_playzoom_x0_y1536.png"
+  },
+  {
+   "n": 14,
+   "kind": "matt_eye",
+   "what": "stern 1:1",
+   "file": "14_matt_eye_stern_1to1_x880_y2040.png"
+  },
+  {
+   "n": 15,
+   "kind": "matt_eye",
+   "what": "cave top (layer 4)",
+   "file": "15_matt_eye_cave_top_1to1_x2700_y2140.png"
+  },
+  {
+   "n": 16,
+   "kind": "matt_eye",
+   "what": "ash-yard cobble look (4_2-r1)",
+   "file": "16_matt_eye_stitched_join_3_2_4_2_top_1to1.png"
+  },
+  {
+   "n": 17,
+   "kind": "p6a_fp",
+   "what": "0_3 sea FP (wave 1)",
+   "file": "17_p6a_fp_p6a_0_3_candidate_x505_y3270.png"
+  },
+  {
+   "n": 18,
+   "kind": "p6a_fp",
+   "what": "2_3 sea FP",
+   "file": "18_p6a_fp_p6a_2_3_x2718_y2993_1to1.png"
+  },
+  {
+   "n": 19,
+   "kind": "p6a_fp",
+   "what": "1_4 sea FPs",
+   "file": "19_p6a_fp_p6a_1_4_candidates_x1500_y3300_075.png"
+  },
+  {
+   "n": 20,
+   "kind": "p6a_fp",
+   "what": "4_1 gable end wall",
+   "file": "20_p6a_fp_p6a_4_1_x6133_y1224_1to1.png"
+  },
+  {
+   "n": 21,
+   "kind": "p6a_fp",
+   "what": "4_2 charred gable gaps",
+   "file": "21_p6a_fp_p6a_4_2_candidates_x6100_y1550.png"
+  },
+  {
+   "kind": "matt_eye",
+   "what": "heart-shaped floe (0_3-r2), half scale",
+   "file": "90_matt_eye_heart_floe_0_3_half.jpg"
+  },
+  {
+   "kind": "matt_eye",
+   "what": "stepped rocks at the cave mouth, 1:1",
+   "file": "91_matt_eye_cave_mouth_stepped_rocks_1to1.png"
+  }
+ ]
+}
