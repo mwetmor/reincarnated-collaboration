@@ -1,10 +1,10 @@
 {
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
-  "layout_bv2art_sha256": "c8b80b5451825ebf86e3297b56746d2711912a18fddfb2fd40a455ac0269cc17",
-  "ids_art_sha256": "9e6b303f53dc04b17e12ef19a09213053c32c709829f4e98791e94c895cadbd7",
-  "ids_manifest_sha256": "9e6b303f53dc04b17e12ef19a09213053c32c709829f4e98791e94c895cadbd7",
-  "level_art_sha256": "78c7fc10c684a32c2aece93acbd64ae29e7e9b512f573f599bc57001d9375d67",
+  "layout_bv2art_sha256": "f1a6d34b448b42710551e8fcb44088ca965fe44beaf6d0b0c5353d5e68be17bb",
+  "ids_art_sha256": "0fc1bb24be1c71d87697c548b6841eca5243aadf58edd416eafedd129b3d2b0d",
+  "ids_manifest_sha256": "0fc1bb24be1c71d87697c548b6841eca5243aadf58edd416eafedd129b3d2b0d",
+  "level_art_sha256": "a7429b278cb811340685f3a381f041dcbe5bdd8b177cf74bc53f2640438a9ee1",
   "placed_fit_sha256": "8e7227ebbf8a6aa496e566af5bd71e2dabd848dfb8dfce536dea016cbce5430e",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
@@ -33,9 +33,9 @@
    "slope_stones": 0.2727,
    "ring_stones": 0.0,
    "crags": 0.4563,
-   "gully_rock": 0.8511,
+   "gully_rock": 0.8526,
    "cliff_faces": 0.921,
-   "talus": 0.1374,
+   "talus": 0.1358,
    "sea_stacks": 0.8965,
    "palisade": 0.1504,
    "logs": 0.0
@@ -111,9 +111,9 @@
   "slope_stones": 0.485,
   "ring_stones": 0.508,
   "crags": 0.181,
-  "gully_rock": 0.25,
+  "gully_rock": 0.252,
   "cliff_faces": 0.42,
-  "talus": 0.268,
+  "talus": 0.271,
   "sea_stacks": 0.347,
   "palisade": 0.753,
   "logs": 0.521
@@ -212,18 +212,18 @@
   "gully_rock": {
    "kind": "cliff",
    "instances": 12,
-   "id_px": 349277,
+   "id_px": 352539,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.25
+   "iou_vs_prism_reported": 0.252
   },
   "cliff_faces": {
    "kind": "cliff",
    "instances": 8,
-   "id_px": 1731312,
+   "id_px": 1731194,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -234,18 +234,18 @@
   "talus": {
    "kind": "talus",
    "instances": 16,
-   "id_px": 55683,
+   "id_px": 56331,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.268
+   "iou_vs_prism_reported": 0.271
   },
   "sea_stacks": {
    "kind": "stack",
    "instances": 3,
-   "id_px": 244455,
+   "id_px": 244494,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
@@ -511,8 +511,8 @@
     "type": "box",
     "z_top": 3.7,
     "own_px_in_frame": 321429,
-    "terrain_hidden_share": 0.0063,
-    "visible_share": 0.8182
+    "terrain_hidden_share": 0.0204,
+    "visible_share": 0.8283
    },
    {
     "i": 8,
@@ -553,8 +553,8 @@
     "type": "box",
     "z_top": 1.861,
     "own_px_in_frame": 407120,
-    "terrain_hidden_share": 0.0078,
-    "visible_share": 0.9247
+    "terrain_hidden_share": 0.0079,
+    "visible_share": 0.9244
    },
    {
     "i": 1,
@@ -657,16 +657,16 @@
     "type": "box",
     "z_top": -2.986,
     "own_px_in_frame": 12677,
-    "terrain_hidden_share": 0.0198,
-    "visible_share": 0.7167
+    "terrain_hidden_share": 0.0451,
+    "visible_share": 0.7338
    },
    {
     "i": 6,
     "type": "box",
     "z_top": -2.871,
     "own_px_in_frame": 17643,
-    "terrain_hidden_share": 0.032,
-    "visible_share": 0.6179
+    "terrain_hidden_share": 0.051,
+    "visible_share": 0.6429
    },
    {
     "i": 7,
@@ -739,8 +739,8 @@
     "type": "box",
     "z_top": 1.7,
     "own_px_in_frame": 198339,
-    "terrain_hidden_share": 0.0257,
-    "visible_share": 0.7951
+    "terrain_hidden_share": 0.0282,
+    "visible_share": 0.7953
    },
    {
     "i": 1,

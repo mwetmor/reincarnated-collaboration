@@ -2996,7 +2996,7 @@
    "ice_floes_bob": 7,
    "mere_plates": 0,
    "stream_ice": 0,
-   "ice_rims": 79,
+   "ice_rims": 25,
    "ice_ridges": 91,
    "ice_brash": 612,
    "mere_cracks": 123,
@@ -3008,7 +3008,7 @@
    "ring_fallen": 4,
    "barrow_cutting": 11,
    "ring_snow": 2,
-   "cove_ice": 31,
+   "cove_ice": 33,
    "icicles": 40,
    "cradle_cracks": 40,
    "ledge_rocks": 18,
@@ -5033,6 +5033,30 @@
    "parts": []
   },
   "mere_area_m2": 439.9
+ },
+ "r283": {
+  "shelf": {
+   "replaced_area_m2": 122.5,
+   "new_area_m2": 95.9,
+   "kept_old_cells": 5,
+   "replaced_old_cells": 12,
+   "new_floes": 14,
+   "rejected": {
+    "pilot": 0,
+    "kept": 2,
+    "plates": 22,
+    "small": 3,
+    "cove": 1,
+    "fine": 0,
+    "coarse": 36
+   },
+   "new_floe_area_m2": [
+    0.28,
+    29.64
+   ]
+  },
+  "rim_runs_softened": 8,
+  "pilot_safe_plate_y": 2640.0
  },
  "classes": [
   "none",

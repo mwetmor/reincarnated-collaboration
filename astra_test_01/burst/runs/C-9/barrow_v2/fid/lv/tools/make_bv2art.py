@@ -74,6 +74,15 @@ def uv(px, z=0.0):
     return ((x - START_PX[0]) / S, (START_PX[1] - (y + z * S * CP)) / (S * SP))
 
 
+def plate_y(q, z):
+    """R-C9-283: the guide plate's y (px) of the ground point (u, v) at height z (the art window's own frame)"""
+    wv1_ = uv((768, 512))[1] + (1024 * 4 + 0) / 2 / PX_V
+    return (wv1_ - q[1]) * PX_V - z * PPM * CP
+
+
+PILOT_SAFE_Y = 2640.0                      # R-C9-283: below this plate y the pilot's guide (rows 0-2, y < 2560) cannot change
+
+
 def sha(p):
     return hashlib.sha256(open(p, "rb").read()).hexdigest()
 
@@ -692,6 +701,7 @@ def main():
             run = max(2, int(n_ * prng.uniform(0.15, 0.4)))
             wdt = prng.uniform(0.15, 0.32)
             hh = top + prng.uniform(0.05, 0.14)
+            rim_run_id = len({e_.get("run") for e_ in rims})
             for j in range(i0, i0 + run):
                 e0, e1 = poly[j % n_], poly[(j + 1) % n_]
                 L_ = math.dist(e0, e1)
@@ -701,7 +711,7 @@ def main():
                 w0 = wdt * prng.uniform(0.6, 1.0)
                 rims.append({"poly": [[round(e0[0], 3), round(e0[1], 3)], [round(e1[0], 3), round(e1[1], 3)],
                                       [round(e1[0] + inn[0] * w0, 3), round(e1[1] + inn[1] * w0, 3)], [round(e0[0] + inn[0] * w0, 3), round(e0[1] + inn[1] * w0, 3)]],
-                             "z0": round(top - 0.05, 3), "z1": round(hh + prng.uniform(-0.05, 0.05), 3)})
+                             "z0": round(top - 0.05, 3), "z1": round(hh + prng.uniform(-0.05, 0.05), 3), "run": rim_run_id, "top": top, "inn": inn})
         if zn == "plate" and A > 2.0 and prng.random() < 0.35:
             # a PRESSURE RIDGE: rubble blocks heaped along one stretch of the plate's edge
             n_ = len(poly)
@@ -1909,6 +1919,88 @@ def main():
         if any(CARVE["cove"]["t_w"] - 0.6 < to_fr(q)[0] < CARVE["cove"]["t_e"] + 0.6 and to_fr(q)[1] < 1.3 for q in rough) or K.area(rough) < 0.3:
             continue
         old_shelf_ice.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(rough)], "z0": round(SEA_Z - 0.4, 3), "z1": round(ICE_TOP + z1q, 3)})
+    # ================= R-C9-283 (1): the cave-front TIDE-ICE PLATE FIELD -- natural floes, not a honeycomb =================
+    # The old shelf's Voronoi cells (one seed spacing, one shrink) painted as a regular honeycomb with straight grooves. Every
+    # cell lying wholly below the pilot (plate y > PILOT_SAFE_Y) is replaced by NATURAL FLOES built like the pilot's pack:
+    # fine cells merged by a lognormal-WEIGHTED coarse partition (floes from ~0.5 to ~25 m2), leads of very different width
+    # (narrowing/widening), worn rough edges, corners rounded, freeboard varied. The cells that reach into the pilot stay
+    # byte-identical; the new floes never overlap them; the cave mouth's ledge rule is unchanged (own stream 2831)
+    def below_pilot(poly, z):
+        return all(plate_y(q, z) > PILOT_SAFE_Y for q in poly)
+    kept_shelf = [e for e in old_shelf_ice if not below_pilot([tuple(q) for q in e["poly"]], e["z1"])]
+    rng83 = __import__("random").Random(2831)
+    bx83 = (bxs[0] - 2, bxs[1] - 2, bxs[2] + 2, bxs[3] + 2)
+    fine83 = K.jitter_seeds(bx83, 0.75, rng83, lambda p: True)               # over the whole box: cells outside the field are water (-1)
+    in83 = lambda p: K.point_in_poly(p, shelf_legacy) and to_fr(p)[1] > 0.6
+    coarse83, w83 = [], []
+    for p_ in K.jitter_seeds(bxs, 1.9, rng83, lambda p: K.point_in_poly(p, shelf_legacy) and to_fr(p)[1] > 0.6):
+        coarse83.append(p_)
+        w83.append(math.exp(rng83.gauss(0.0, 0.85)))
+    new83 = []
+    rej83 = {"pilot": 0, "kept": 0, "plates": 0, "small": 0, "cove": 0, "fine": 0, "coarse": len(coarse83)}
+    if len(coarse83) >= 4 and len(fine83) >= 8:
+        ct83 = cKDTree(np.array(coarse83))
+        w83a = np.array(w83)
+        km_ppm = 8.0
+        kx0, ky1 = bxs[0], bxs[3]
+        kW, kH = int((bxs[2] - bxs[0]) * km_ppm) + 2, int((bxs[3] - bxs[1]) * km_ppm) + 2
+        kimg = Image.new("L", (kW, kH), 0)
+        for e in kept_shelf:
+            ImageDraw.Draw(kimg).polygon([((q[0] - kx0) * km_ppm, (ky1 - q[1]) * km_ppm) for q in e["poly"]], fill=1)
+        kmask = ndimage.binary_dilation(np.asarray(kimg).astype(bool), iterations=1)
+        def in_kept(q):
+            i_, j_ = int((q[0] - kx0) * km_ppm), int((ky1 - q[1]) * km_ppm)
+            return 0 <= i_ < kW and 0 <= j_ < kH and bool(kmask[j_, i_])
+        # the replaced cells' own ground (their outlines + the old gaps between them): the new floes fill exactly that
+        rimg = Image.new("L", (kW, kH), 0)
+        for e in old_shelf_ice:
+            if e not in kept_shelf:
+                ImageDraw.Draw(rimg).polygon([((q[0] - kx0) * km_ppm, (ky1 - q[1]) * km_ppm) for q in e["poly"]], fill=1)
+        rmask = ndimage.binary_closing(ndimage.binary_dilation(np.asarray(rimg).astype(bool), iterations=3), iterations=3)
+
+        def in_rep(q):
+            i_, j_ = int((q[0] - kx0) * km_ppm), int((ky1 - q[1]) * km_ppm)
+            return 0 <= i_ < kW and 0 <= j_ < kH and bool(rmask[j_, i_])
+        def cove83(q):
+            return CARVE["cove"]["t_w"] - 0.6 < to_fr(q)[0] < CARVE["cove"]["t_e"] + 0.6 and to_fr(q)[1] < 1.3
+        pof = []
+        for p_ in fine83:
+            # water where the field is not, round the kept cells, at the cave's opening and above the pilot line
+            if not in_rep(p_) or in_kept(p_) or cove83(p_):
+                pof.append(-1)
+                continue
+            dd, ii = ct83.query(p_, k=min(6, len(coarse83)))
+            pof.append(int(ii[int(np.argmin(dd / w83a[ii]))]))
+        for k_, raw in K.merged_plates(fine83, pof, bx83).items():
+            rej83["plates"] += 1
+            raw = K.ccw(K.simplify(raw, 0.2))
+            if len(raw) < 3:
+                continue
+            g83 = min(0.55, max(0.03, 0.09 * math.exp(rng83.gauss(0.0, 0.8))))     # leads of every width
+            poly = K.inset(raw, g83)
+            if len(poly) < 3:
+                continue
+            poly = K.ccw(chaikin(K.ccw(K.roughen(poly, rng83, rng83.uniform(0.06, 0.18), 0.6))))
+            z1q = rng83.uniform(-0.08, 0.12)
+            if K.area(poly) < 0.25:
+                rej83["small"] += 1
+                continue
+            if any(CARVE["cove"]["t_w"] - 0.6 < to_fr(q)[0] < CARVE["cove"]["t_e"] + 0.6 and to_fr(q)[1] < 1.3 for q in poly):
+                rej83["cove"] += 1
+                continue
+            if not below_pilot(poly, ICE_TOP + z1q):
+                rej83["pilot"] += 1
+                continue
+            if any(in_kept(q) for q in poly + [K.centroid(poly)]):
+                poly = K.ccw(K.inset(poly, 0.3)) if len(poly) >= 3 else poly          # pulled back once from the kept cells
+                if len(poly) < 3 or K.area(poly) < 0.25 or any(in_kept(q) for q in poly + [K.centroid(poly)]):
+                    rej83["kept"] += 1
+                    continue
+            new83.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in K.ccw(poly)], "z0": round(SEA_Z - 0.4, 3), "z1": round(ICE_TOP + z1q, 3)})
+    shelf83_stats = {"replaced_area_m2": round(sum(K.area([tuple(q) for q in e["poly"]]) for e in old_shelf_ice if e not in kept_shelf), 1),
+                     "new_area_m2": round(sum(K.area([tuple(q) for q in e["poly"]]) for e in new83), 1), "kept_old_cells": len(kept_shelf), "replaced_old_cells": len(old_shelf_ice) - len(kept_shelf), "new_floes": len(new83), "rejected": rej83,
+                     "new_floe_area_m2": [round(min(K.area([tuple(q) for q in e["poly"]]) for e in new83), 2), round(max(K.area([tuple(q) for q in e["poly"]]) for e in new83), 2)] if new83 else None}
+    old_shelf_ice = kept_shelf + new83
     # R-C9-226 (1): THE TREADS -- every tread its own stone: each row of the flight split into 3-4 blocks of varied width, with
     # cracks between them and between the rows (the groove's bed shows dark below); each block sits a little lower toward the
     # sea (its inland neighbour's sea-side face shows, grey); fronts set back unevenly, corners worn; SNOW lies on the back of
@@ -2019,7 +2111,39 @@ def main():
     slabs["ice_rims"] = {"class": "snow", "items": rims}
     slabs["ice_ridges"] = {"class": "shore_ice", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in ridges]}
     slabs["ice_brash"] = {"class": "shore_ice", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in brash]}
-    slabs["ice_rims"]["items"] = [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in rims]
+    # R-C9-283 (2): the "zig-zag plank" on the ice at 0_3 was a snow-heaped RIM -- a chain of thin raised quads along a floe's
+    # edge -- painted as timber. Every rim run lying wholly below the pilot becomes ONE low soft snow drift hugging that edge:
+    # a broad tapered lens (thin at both ends, 0.45-0.8 m at its widest, its width wandering), 2.5-4.5 cm proud, corners
+    # rounded (own stream 2832). Rims that
+    # reach into the pilot stay byte-identical
+    rng832 = __import__("random").Random(2832)
+    runs83 = {}
+    for e in rims:
+        runs83.setdefault(e["run"], []).append(e)
+    rims_out = []
+    for rid, segs in runs83.items():
+        if not all(below_pilot([tuple(q) for q in e["poly"]], e["z1"]) for e in segs):
+            rims_out += [{"poly": e["poly"], "z0": e["z0"], "z1": e["z1"]} for e in segs]
+            continue
+        edge = [tuple(segs[0]["poly"][0])] + [tuple(e["poly"][1]) for e in segs]
+        nrm = [segs[0]["inn"]] + [((segs[i]["inn"][0] + segs[min(i + 1, len(segs) - 1)]["inn"][0]) / 2, (segs[i]["inn"][1] + segs[min(i + 1, len(segs) - 1)]["inn"][1]) / 2) for i in range(len(segs))]
+        cum = [0.0]
+        for a_, b_ in zip(edge[:-1], edge[1:]):
+            cum.append(cum[-1] + math.dist(a_, b_))
+        Ltot = max(cum[-1], 1e-3)
+        wmax = rng832.uniform(0.45, 0.8)                     # a broad soft drift, not a ribbon
+        ph = rng832.uniform(0, 6.3)
+        inner = []
+        for q, n_, s_ in zip(edge, nrm, cum):
+            nn_ = math.hypot(*n_) or 1.0
+            w_ = wmax * max(0.0, math.sin(math.pi * s_ / Ltot)) ** 0.7 * (0.8 + 0.2 * math.sin(s_ * 2.3 + ph))
+            inner.append((q[0] + n_[0] / nn_ * w_, q[1] + n_[1] / nn_ * w_))
+        lens = K.ccw(chaikin(K.ccw(edge + inner[::-1])))
+        if K.area(lens) < 0.03:
+            continue
+        top_ = segs[0]["top"]
+        rims_out.append({"poly": [[round(q[0], 3), round(q[1], 3)] for q in lens], "z0": round(top_ - 0.05, 3), "z1": round(top_ + rng832.uniform(0.025, 0.045), 3)})   # barely proud: no side face to paint as a plank
+    slabs["ice_rims"]["items"] = [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in rims_out]
     for e in mere_ice:
         slabs["mere_plates"]["items"].append({"poly": sim_poly(e["poly"]), "z0": MERE_SHAPE["bed_z"] - 0.05, "z1": e["top"]})
     slabs["mere_cracks"] = {"class": "sea", "items": [{"poly": sim_poly(e["poly"]), "z0": e["z0"], "z1": e["z1"]} for e in mere_cracks]}
@@ -2260,6 +2384,7 @@ def main():
                   "ramp": ramp, "plate": plate, "cave": {"width_m": cave_w, "depth_m": dep_c, "mouth_h_cut_m": CARVE["mouth_h_cut"], "floor_z": R["shelf_z"]},
                   "sketch_A": "R-C9-228: cave W, stair E as sketch A draws them -- no cove: the cave an arch worn into the face at the waterline (u %.1f), facing the camera; the stair in a natural gully of the cliff beside it, climbing INLAND (up-screen) between rock columns to the clifftop at u %.1f; a small iced ledge where its foot meets the mouth" % (fr(R["cave_t"], 0)[0], fr((t0s + t1s) / 2, s_top)[0]),
                   "cave_axis_ts": list(cax), "landing": dict(LDc), "cove": dict(CARVE["cove"]), "mere_area_m2": round(mere_area_land, 1)},
+        "r283": {"shelf": shelf83_stats, "rim_runs_softened": sum(1 for e in rims_out if len(e["poly"]) > 4), "pilot_safe_plate_y": PILOT_SAFE_Y},
         "classes": names, "class_counts": {names[k]: int((C == k).sum()) for k in range(len(names)) if (C == k).any()},
     }
     json.dump(layout, open(os.path.join(ART, "layout_bv2art.json"), "w"), indent=1)
