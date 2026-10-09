@@ -3,13 +3,14 @@ Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
 Metal 3.2 - Forward+ - Using Device #0: Apple - Apple M2 (Apple8)
 
 [bv2f_pilot] reeds: 110 cards (DEV-21), aabb [P: (-35.29544, -4.241897, -27.28131), S: (35.58844, 5.886605, 44.27585)]
-[bv2f_pilot] painted: files_ok=107 bad=[] projected=64 baked=100 (meshes 149) bakes_missing=[] rebound=144 water={ "sea_meshes": 1, "floes_bobbing": 39, "sea_above_water_split": 0, "sea_y": -4.15 } snow_ground_h=true
-[bv2f_pilot] warmup: {"draws":96,"ms":1672,"views":48}
+[bv2f_pilot] painted: files_ok=107 bad=[] projected=64 baked=51 (meshes 51) bakes_missing=[] rebound=95 water={ "sea_meshes": 1, "floes_bobbing": 39, "sea_above_water_split": 0, "sea_y": -4.15 } snow_ground_h=true
+[bv2f_pilot] warmup: {"draws":96,"ms":1657,"views":48}
 [bv2f_pilot] uvless meshes projected (R-C9-324): 1
-[barrow_full] built placements=164 splat_ok=false build_ms=13626
+[bv2f_pilot] procedural posts projected (R-C9-326): 49
+[barrow_full] built placements=164 splat_ok=false build_ms=13989
 [barrow_full] view stretch=canvas_items aspect=keep base=1920x1080
-[barrow_painted] who=barbarian slot=own loaded_from_pck files_sha_ok=107/107 painting_ok=false ground=?(as_painted)_ok=false lit_ok=false snow_grid_ok=false | plates: bakes=0/25 on the real models, painting on primitives=0/29 (the mound + 28) | birches=0 inks_hidden=186 heather=480 snow=true ms=7843
-[bv2f_pilot] settle: {"frames":30,"ms":537}
+[barrow_painted] who=barbarian slot=own loaded_from_pck files_sha_ok=107/107 painting_ok=false ground=?(as_painted)_ok=false lit_ok=false snow_grid_ok=false | plates: bakes=0/25 on the real models, painting on primitives=0/29 (the mound + 28) | birches=0 inks_hidden=186 heather=480 snow=true ms=8146
+[bv2f_pilot] settle: {"frames":30,"ms":578}
 ERROR: timeout waiting for fence
    at: wait (drivers/metal/rendering_device_driver_metal.h:209)
 [pt_guide] render_guide.png 6656x4096
