@@ -1682,3 +1682,9 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **Verified against the built code itself**, not only the record: `fid/v1tools/tierB/conductor_scripts/guided_paint.py` (sha b607bd7e46a5…), the BV2F-BEGIN DEV-25c block, `_inner[:, :128] = True` under a left neighbour (likewise rows [:128] under a top neighbour). That is the 128 px next to the canvas edge on the neighbour-interior side = PH's band **E = offsets [0, 128)** (§ 48 (d) definition: 0 = the newer chunk's canvas edge).
 - **No arm exists yet.** No Phase 3′ paint artifact exists. The only `BV2F-PS4SI-*` dirs are STAND_IN guide crops for PT's full-site stitch proof (`STAND_IN.json`), not paintings.
 - **Ruling recorded:** **BOTH A/B arms of the first Phase 3′ wavefront chunk are scored on half E, bar 8.789** (§ 49), with `p5v2.a_pair(..., band=(0, 128))`. Arm A (full-256 paste) is scored on the same half E, so the comparison is like-for-like. Half C (11.045) is not used for DEV-25c.
+
+### P6a — known SEA-CLASS false-positive mode (R-C9-282; FYI, no instrument change)
+- **Behaviour.** The v0.1 detector (T = 32 on L\*, § 8) fires on **dark open sea between ice floes**: water's wave troughs and leads read as dark blobs.
+- **Seen.** Pilot 1, 5 candidates in 0_2, conductor MATERIAL (R-C9-194). Phase 3′ wave 1, 1 candidate in **0_3 at plate (505, 3270)**, judged by the conductor by eye: not an invented opening (R-C9-282).
+- **Disposition at M3′ and in per-chunk QA (§ 48 (e)).** A P6a candidate whose 0.6 m window is ≥ 50 % water class (sea, lead, ice, ice_mid, tide_ice, shore_ice, stream) is routed to the conductor's **by-eye triage with its crop | overlay image** (`p6a_triage*.jsonl` row + image). It is **never** auto-failed on that ground and never auto-passed.
+- **The instrument, threshold and declared-opening list are unchanged.**
