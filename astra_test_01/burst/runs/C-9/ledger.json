@@ -55186,6 +55186,13 @@
       "ts": "2026-10-09T16:57:25-04:00",
       "verbatim": "",
       "ruling": "FULL-SITE HARNESS COMPLETE except P10 (PH c580871cb, s53): PASS P1, P2, P3 (sea 4.65; worst char 13.05), P4 rock, P4 ice, P6a (0 invented), P8 (0.553), P9 sway/flow/trail; P9c L5 view PASS. FAIL: P4 snow 3/6 judged; P5 a1 13/40; P5(b) y=3200 (carried); P11 27/40 (R-C9-334); NEW P9c main view rest-pose 0.267 px vs the frozen 0.25 bar, where about half the floes read 0.25-0.53 px with the TEXTURE moving 12-14% ahead of the silhouette along x (the pilot read 0.010). RULED: find the cause before Gate-2, no bar move. PH runs the floe-by-floe forensic with a frozen-bob null on the same floes (instrument vs material). PT in parallel checks the floe shader's rest-pose UV math under site_ph3 (window size or PILOT_PX constants from the pilot, the instance-uniform phase, the shared material's paint binding) against the pilot's per-floe path. If it is a material defect, fix it, re-measure P9c, and include it in the R-C9-332 ledge re-build."
+    },
+    {
+      "id": "R-C9-336",
+      "by": "gandalf (conductor), on PH f7af6f5bc / fa84a7fbe",
+      "ts": "2026-10-09T17:03:12-04:00",
+      "verbatim": "",
+      "ruling": "P9c DISCRIMINATOR = INSTRUMENT (rule pre-registered in s54 before any frame): the shipped bob renders identically to a rigid case where the texture is attached by construction (<= 0.08% of floe pixels differ), and the tool reads the same ~0.095 px drift on both, chiefly from touching floes merged into one label and a silhouette estimate that runs 10-15% ahead. The floes are correct; no shader change. The P9c main-view reading 0.267 stays recorded as FAIL-as-read. RULED: RE-INSTRUMENT P9c, no bar change (the 're-instrumented or discarded; never threshold-tuned' rule): split merged labels into individual floes; validate the silhouette estimate against the rigid null (must read ~0 on rigid) and keep a RED that moves the texture relative to the floe; pre-register in calibration BEFORE re-reading; then re-read the main view and the L5 view. jack-ryan ratifies at Gate-2. PH's accidental 'rm -f /dev/null' (no effect; /dev/null intact) is recorded as a minor breach of the no-rm rule; no action. PT's shader check stands down (not a material defect)."
     }
   ],
   "grok_calls": [
