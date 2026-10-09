@@ -53793,6 +53793,13 @@
       "ts": "2026-10-09T08:22:11-04:00",
       "verbatim": "",
       "ruling": "SEA MAP PASS (fid/lv/M1pp/sea314_map.jpg, registered to Matt's crop): (1) thickness = locked pilot ice 0.24-0.53 m vs the rebuild 0.10-0.35 m; (2) red = locked ice_plates #1 raised block; (3) orange = thin lobed rebuild floes; (4) blue = locked ice_shorefast #0 with cove_ice #0/#3 ON it (the 8.5 m2 stack); (5) magenta = straight-edged old-shelf cells incl. the two parallel slabs at the cliff foot; (S) spar removed, stub kept; E-1 and E-5 PASS (regen byte-identical; guide/ids/class sha-match the pins). 10.11 vs 3.1 m2 reconciled (different scopes). GO for the sea rebuild as LV proposed: ONE thickness rule for all sea ice (shore-fast +0.30, other floes +0.20, no exceptions); re-partition the pilot sea inside the mask (items 2, 4, 5 + all remaining locked stacking become natural floes; item 3 rounder and thicker by the rule); the bob tag (free floes in open water bob; shore-fast and floes touching rock or another floe within 0.15 m stay still). W1 and W2 GUIDE FIXES as proposed (W1: the cradle's flat ground ice gets a shore-fast edge with a face to the water and one tone; W2: the tide-iced exit ledge stays but reads as a rock ledge with a thin rime edge; the sea at the cliff foot is deep, no shelf); the ledge must stay walkable. LAND BAND: the 24 px mask band is INTERSECTED with the land mask (land pixels strictly untouched except the spar rect, Matt: land done). Then the ice proof (zero stacking anywhere), the allowlist byte check, the gates and stills; STOP for review."
+    },
+    {
+      "id": "R-C9-320",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T10:21:53-04:00",
+      "verbatim": "",
+      "ruling": "LV R-C9-319 (a6252d482 + c76c3af66) PASS: the two dark wedges were a self-crossing floe outline (ice_floes_bob #53) triangulated as a fan; the build and proof now reject self-crossings (fail-first: 6 flagged) and ring floes (4); the proof PASSES with zero stacking; the allowlist byte check passes (incl. the 261-px beach reveal). ONE CHANGE: the sea right below the wreck has become mostly open water; sketch A and Matt's earlier note ('there is more ice than water') want MOSTLY ICE there, so LV RE-SEEDS that area only (inside the pilot sea mask) to a dense natural field of floes/shore-fast ice under the same rules, before the paint release."
     }
   ],
   "grok_calls": [
