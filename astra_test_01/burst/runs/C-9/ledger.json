@@ -54465,6 +54465,13 @@
       "ts": "2026-10-09T14:15:09-04:00",
       "verbatim": "",
       "ruling": "SEA-PASS TRANCHE raised by 4 (16 -> 20; 10 remain): PT's pre-fix estimate is 7 patches for R-C9-325 (the land slivers fall in 6 sea-pass canvases A1, B1, C1, C2, B2, C3; the cave overhang + black rectangle fit 1 canvas), leaving 3 for repaints. PT recounts from LV's actual changes after the re-pin and reports the number before firing. Run total stays far under the ~250 guard."
+    },
+    {
+      "id": "R-C9-328",
+      "by": "gandalf (conductor, by-eye on sea325_sheet)",
+      "ts": "2026-10-09T15:10:18-04:00",
+      "verbatim": "",
+      "ruling": "LV R-C9-325 (44d657e24) PASS: the cave roof is a rounded brow receding into the cliff, with no cantilevered blocks (lip clear height 6.76 m, walk 8/8); the black rectangle (the cave's east wall classed passage_dark, seen through the gap) is now rock; the earthy floe patches are gone (ice_drifts reclassed shore_ice; the sea-side cradle stones drawn as ice). Gates and ice proof pass; the byte check shows 0 px outside the allowlist + the 3 pre-approved rects (drift [542,2180,658,2309], stones [473,2002,548,2097], cave_top [2679,1914,3915,2560], all ACCEPTED). PT RELEASED, with no further stop needed if the recount is <= 10 images: re-pin from 44d657e24 with the allowlist + 3 rects; recount; DEV-24 patches; re-stitch + identity proof; re-run take/bake for changed models, prep, guide (post + panel proof); then the 24 stills + walk film. Report once, with crops, at the end, or stop on any failed check."
     }
   ],
   "grok_calls": [
