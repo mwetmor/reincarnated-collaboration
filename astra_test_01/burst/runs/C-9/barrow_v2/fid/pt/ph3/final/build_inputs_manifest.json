@@ -1,7 +1,7 @@
 {
  "_what": "R-C9-310 R-1: the gitignored Phase 3' build inputs + M3' evidence (path relative to runs/C-9, sha256, bytes). Check: python3 fid/pt/tools/build_inputs_check.py. EXCLUDE every path here from any deletion list; copying the set to a second volume is a matt_to_do.",
- "final_painting_sha256": "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638",
- "cfg": "fid/pt/pilot/cfg_bv2a_ph3.json sha b737227c17299c728a29a1a5e4f52b5cddf8ff4fbd1f5d343917816985b77cd1",
+ "final_painting_sha256": "901305202936814123d6cea0f9e2137ac4f71e3f1e05c9df0aa08018219e63c1",
+ "cfg": "fid/pt/pilot/cfg_bv2a_ph3.json sha 7635bf39e6250cd3fde8b2271d2a73d43407d539b03375d90c3f68a50fac37d0",
  "counts": {
   "canvases_25": 25,
   "dev24_patch_files": 36,
@@ -18,9 +18,11 @@
   "final_painting_sea_r321": 1,
   "sea_pass_patch_files_r328": 32,
   "pins_d26d14c55_r330": 6,
-  "final_painting_r328": 1
+  "final_painting_r328": 1,
+  "ledge_grain_r332": 4,
+  "final_painting_r332": 1
  },
- "total_bytes": 521056130,
+ "total_bytes": 576099182,
  "files": {
   "canvases_25": [
    {
@@ -1143,7 +1145,36 @@
     "sha256": "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638",
     "bytes": 50591292
    }
+  ],
+  "ledge_grain_r332": [
+   {
+    "path": "barrow_v2/fid/pt/dev24/ledge_grain/region.png",
+    "sha256": "0d4e68264bbd9117e36dd0c83e89f4d80bf8375007fcdb2edd5d30b239fa3171",
+    "bytes": 2935
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/ledge_grain/paste_classes.png",
+    "sha256": "88b426b174a55361e6590e153d073d4b82bbc6530c7cd3b2c9ea25719462bc83",
+    "bytes": 15432
+   },
+   {
+    "path": "artifacts/BV2F-LR4-ledge_grain-1/BV2F-LR4-ledge_grain-1.png",
+    "sha256": "0e78206d8326eee951ee2c9927cd22666ac68436523be4dc0c5470e0f358d026",
+    "bytes": 3089382
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/ledge_grain-1_corr.npz",
+    "sha256": "f5f64f006a198fd64eb8d221bebca680ab209acd524ebf23f17d68e1ba80d22f",
+    "bytes": 1348506
+   }
+  ],
+  "final_painting_r332": [
+   {
+    "path": "barrow_v2/fid/pt/ph3/final/painting_ph3_r332_full.png",
+    "sha256": "901305202936814123d6cea0f9e2137ac4f71e3f1e05c9df0aa08018219e63c1",
+    "bytes": 50586797
+   }
   ]
  },
- "_final_painting": "R-C9-330: fid/pt/ph3/final/painting_ph3_r328_full.png (re-stitch, dev24 layers 1-23; pixels 1e2efeec5657) supersedes painting_ph3_sea_full.png (3201ad8a9c64, kept: r328 identity reference). Previous manifests: _r310, _r321"
+ "_final_painting": "R-C9-332: fid/pt/ph3/final/painting_ph3_r332_full.png (dev24 layers 1-24; pixels b6ab4dfe8b03) supersedes painting_ph3_r328_full.png (3fc04a7d0f63, kept: r332 identity reference)"
 }

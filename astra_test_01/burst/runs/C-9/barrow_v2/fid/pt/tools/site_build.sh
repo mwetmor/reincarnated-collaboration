@@ -9,7 +9,7 @@ FID=$C9/barrow_v2/fid; T=$FID/pt/tools; P=$FID/pt/site; V=$FID/v1tools; GP=$C9/b
 G=/Applications/Godot.app/Contents/MacOS/Godot
 pg() { python3 $T/pt_godot.py "$@"; }
 export BV2F_VARIANT=art BV2F_UNGROUP=1 BV2F_PILOT=site_ph3 PT_BUILD_DIR=pt/site
-PAINT_SHA=3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638   # R-C9-330: the r328 painting (r321: 3201ad8a9c64)
+PAINT_SHA=901305202936814123d6cea0f9e2137ac4f71e3f1e05c9df0aa08018219e63c1   # R-C9-332: the r332 painting (r328: 3fc04a7d0f63; r321: 3201ad8a9c64)
 echo "site build | pilot $BV2F_PILOT | dir $P"
 STEPS=(paint ids export light take heather bake prep lineage guide)
 FIRST=${1:-paint}; LAST=${2:-guide}; go=0
