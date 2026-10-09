@@ -1,7 +1,7 @@
 {
  "_what": "R-C9-310 R-1: the gitignored Phase 3' build inputs + M3' evidence (path relative to runs/C-9, sha256, bytes). Check: python3 fid/pt/tools/build_inputs_check.py. EXCLUDE every path here from any deletion list; copying the set to a second volume is a matt_to_do.",
- "final_painting_sha256": "3201ad8a9c643d8ac13a91d9e943e0fbbef1f5cb486cb7ce4386b27552a0add5",
- "cfg": "fid/pt/pilot/cfg_bv2a_ph3.json sha 030afa8dd96a61fc47f0c325c29735fd288b3dfc39c01138fcafd019174547dd",
+ "final_painting_sha256": "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638",
+ "cfg": "fid/pt/pilot/cfg_bv2a_ph3.json sha b737227c17299c728a29a1a5e4f52b5cddf8ff4fbd1f5d343917816985b77cd1",
  "counts": {
   "canvases_25": 25,
   "dev24_patch_files": 36,
@@ -15,9 +15,12 @@
   "p6a_triage_crops": 24,
   "sea_pass_patch_files_r321": 40,
   "pins_bac035332_r321": 6,
-  "final_painting_sea_r321": 1
+  "final_painting_sea_r321": 1,
+  "sea_pass_patch_files_r328": 32,
+  "pins_d26d14c55_r330": 6,
+  "final_painting_r328": 1
  },
- "total_bytes": 406842850,
+ "total_bytes": 521056130,
  "files": {
   "canvases_25": [
    {
@@ -939,7 +942,208 @@
     "sha256": "3201ad8a9c643d8ac13a91d9e943e0fbbef1f5cb486cb7ce4386b27552a0add5",
     "bytes": 50750207
    }
+  ],
+  "sea_pass_patch_files_r328": [
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_wreck/region.png",
+    "sha256": "ad12c2630b63b8e7fae7eddf946b53f14c7295fa9d41aee0548f2416c39f0f63",
+    "bytes": 3938
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_wreck/paste_classes.png",
+    "sha256": "ead0cf4ed3a52b031f8016066dd9e60f3b57c310035d0949fe6e7b7506ed42f5",
+    "bytes": 9547
+   },
+   {
+    "path": "artifacts/BV2F-LR4-d_wreck-1/BV2F-LR4-d_wreck-1.png",
+    "sha256": "dce0e994ded6bcef0e27bdbaca35a79ea24835a2bde4a30bed09a813045b4bad",
+    "bytes": 2749304
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_wreck-1_corr.npz",
+    "sha256": "8c0d69ca886340c568f530f15281901493a9ffe46dbcfc10160df080c37a7680",
+    "bytes": 2834922
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_left_mid/region.png",
+    "sha256": "5bebc909fff4b7ba8e7bf4513dbc7065279354c13e7431411b872b672ff718ce",
+    "bytes": 6793
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_left_mid/paste_classes.png",
+    "sha256": "2f68588688a24c2d0addd01e65fd1781bfaa78566ee866780ec8a798ffffc53e",
+    "bytes": 6307
+   },
+   {
+    "path": "artifacts/BV2F-LR4-d_left_mid-1/BV2F-LR4-d_left_mid-1.png",
+    "sha256": "3d5e7eed815ea26de12a1a5c0891ad892d208625e75cdc46e061dcbd424a87fd",
+    "bytes": 2762868
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_left_mid-1_corr.npz",
+    "sha256": "f65933ccff11593d6e49a9dcf73a30b9ffa40bb9162d7a4a3ba8fc4b04a77aee",
+    "bytes": 6862523
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_left_low/region.png",
+    "sha256": "fa511c7a8ef5c524039c1fdf1418dbff4a1593e95f10f56534e110fbd842deb9",
+    "bytes": 3617
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_left_low/paste_classes.png",
+    "sha256": "22a0837871d227ebcf5f6be3e69bc6c215792000ea087bd4cd531311e4c43e5c",
+    "bytes": 5450
+   },
+   {
+    "path": "artifacts/BV2F-LR4-d_left_low-1/BV2F-LR4-d_left_low-1.png",
+    "sha256": "803af10703e0dec583dc9720de55749f7b0bd7ee192c5d9c86580f8c47fc414f",
+    "bytes": 2799206
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_left_low-1_corr.npz",
+    "sha256": "a1d734b47e636119cd4c475ddf2f1a70ce962808259dafd2dfb4ff5fcdb9a7e4",
+    "bytes": 2663655
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_mid/region.png",
+    "sha256": "cdc2e727deb687d73e9873b075c2fe1f5837b8a2190ca9db70beefc9e4e9425c",
+    "bytes": 4106
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_mid/paste_classes.png",
+    "sha256": "3b31fc03e9ee3a4f366f35f9ca85ebfd34f656cd8b9f78334a3506d6754374b8",
+    "bytes": 5260
+   },
+   {
+    "path": "artifacts/BV2F-LR4-d_mid-1/BV2F-LR4-d_mid-1.png",
+    "sha256": "dc6abdd331367e7eb39e7b93e970793824fcf61b5d8e22513950c98a441ac009",
+    "bytes": 2657905
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_mid-1_corr.npz",
+    "sha256": "f2099141447a079a30485be94c8473b1f098e92fa2f3803f9b709454e1869670",
+    "bytes": 4353746
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_right/region.png",
+    "sha256": "8cdc99a33407ca65d505d8a23be637335fc3be84a028c3d1f154912d8e20effc",
+    "bytes": 3111
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_right/paste_classes.png",
+    "sha256": "b248bf136f30903b0ddf055b087d321beff8cb5f295dd6ef6e66ea78561fa30a",
+    "bytes": 11286
+   },
+   {
+    "path": "artifacts/BV2F-LR4-d_right-1/BV2F-LR4-d_right-1.png",
+    "sha256": "1b2ff1cfa1c3f60c18fe20c3e7bff968808c3adf7088eac6eed269b43d2b7828",
+    "bytes": 3076985
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/d_right-1_corr.npz",
+    "sha256": "304802a86a61bd6eb5f494a9351c495b01f0f13fc0a11eb62d35574b5ecf4c32",
+    "bytes": 2211048
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/cave_brow/region.png",
+    "sha256": "ca3ec5d9610481c7614e9b48b2b19a5931da4b647d9f759165dfa5c32288573d",
+    "bytes": 17266
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/cave_brow/paste_classes.png",
+    "sha256": "6bc5d5d69d4f5068ffe67bd57bf2e88b1ed0b04d4c8ecb8475d12268ceefd3f7",
+    "bytes": 20082
+   },
+   {
+    "path": "artifacts/BV2F-LR4-cave_brow-1/BV2F-LR4-cave_brow-1.png",
+    "sha256": "a0498ad12bb277328d07929f827a7dceabe4245765eacc9ece5c690a78331096",
+    "bytes": 3460012
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/cave_brow-1_corr.npz",
+    "sha256": "a7298c1373bd99ee53e39786314082e7e1bd790e77bad5fb6ca29e31989585a0",
+    "bytes": 371892
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/cave_east/region.png",
+    "sha256": "8ae35e1f3ff7a482d76503d19daa0dc2c0248c6828694cd720c3db7fd4f8f980",
+    "bytes": 11491
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/cave_east/paste_classes.png",
+    "sha256": "46edae08d67d81f86f076f64f8e1ff57bd229f373df0f94ee6dabf86e7a2098b",
+    "bytes": 20352
+   },
+   {
+    "path": "artifacts/BV2F-LR4-cave_east-3/BV2F-LR4-cave_east-3.png",
+    "sha256": "b5da57cc7b8d7e1e5689237975a8d54127538be84b8a8b236e9b9c9e5455ef6c",
+    "bytes": 3466736
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/cave_east-3_corr.npz",
+    "sha256": "bee635e2189cbec2a6ff33d9456c71328629f9fb43c798c8085498e2c9417a94",
+    "bytes": 3208140
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/ledge/region.png",
+    "sha256": "ce861e6e84a65b334e6b46300990e97a6b8cff02c39b1344f8dac1831bdba4e4",
+    "bytes": 7094
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/ledge/paste_classes.png",
+    "sha256": "7a545db05c63e5e325b99c6c318104bd2d3c1551e3c03b362915e1720be986e2",
+    "bytes": 17524
+   },
+   {
+    "path": "artifacts/BV2F-LR4-ledge-1/BV2F-LR4-ledge-1.png",
+    "sha256": "c7f6b4e8b17259b2ce7c49980cd985ad56f5d00593d737845b9182bbd5ae7c5f",
+    "bytes": 3166653
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/ledge-1_corr.npz",
+    "sha256": "3f010e26525b2144eff2074578ca367c757606e58b34355eb08679a2e91bfb5b",
+    "bytes": 4731731
+   }
+  ],
+  "pins_d26d14c55_r330": [
+   {
+    "path": "barrow_v2/fid/pt/ph3/guide_art_pinned_d26d14c55.png",
+    "sha256": "b0caff60e7d82fcc988b9daf769c56804f811f240441807485038f451b07a73c",
+    "bytes": 11228538
+   },
+   {
+    "path": "barrow_v2/fid/pt/ph3/ids_art_pinned_d26d14c55.png",
+    "sha256": "e254d4cab2e809a79c455fb418a6f65222969ebe0ad9dd4a247ef83c323943ad",
+    "bytes": 424542
+   },
+   {
+    "path": "barrow_v2/fid/pt/ph3/class_art_pinned_d26d14c55.png",
+    "sha256": "baffff669c2d762155d60d8d51f32b9ee14a10e3e30cef1a74cb9401cfc9f947",
+    "bytes": 265241
+   },
+   {
+    "path": "barrow_v2/fid/pt/ph3/allow_330.png",
+    "sha256": "9ede08a5b6ea469f03ffc2f3e204e3eed9d23c09be2fb7439cf53a41d775e293",
+    "bytes": 19913
+   },
+   {
+    "path": "barrow_v2/fid/pt/ph3/sea_r328/PC_full.png",
+    "sha256": "cf51cbd03edf6601ecedafc73c1082de3ab079ed4a22c9b16e20e85a21ea8e42",
+    "bytes": 83286
+   },
+   {
+    "path": "barrow_v2/fid/pt/ph3/sea_r328/R_full.png",
+    "sha256": "2de2dc59a30d12f1c3d131c026a3afcc81508d55a1a49115d485d72a0671d790",
+    "bytes": 69918
+   }
+  ],
+  "final_painting_r328": [
+   {
+    "path": "barrow_v2/fid/pt/ph3/final/painting_ph3_r328_full.png",
+    "sha256": "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638",
+    "bytes": 50591292
+   }
   ]
  },
- "_final_painting": "R-C9-321: the sea-pass painting fid/pt/ph3/final/painting_ph3_sea_full.png (re-stitch from pins, dev24 layers 1-15; pixels sha 6342b88e2a54) supersedes painting_ph3_full.png (8e169e6331bb, kept: the identity-proof reference). Previous manifest: build_inputs_manifest_r310.json"
+ "_final_painting": "R-C9-330: fid/pt/ph3/final/painting_ph3_r328_full.png (re-stitch, dev24 layers 1-23; pixels 1e2efeec5657) supersedes painting_ph3_sea_full.png (3201ad8a9c64, kept: r328 identity reference). Previous manifests: _r310, _r321"
 }

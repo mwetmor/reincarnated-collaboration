@@ -40,8 +40,11 @@ def surface_pass(size, only=None):
 def main():
     subprocess.run(["bash", os.path.join(V, "verify.sh")], check=True)
     os.makedirs(os.path.join(ROOT, "work", "bakes"), exist_ok=True)
-    surf = surface_pass(1024)
-    ids = sorted(surf)
+    # R-C9-330: PT_BAKE_ONLY=<ids file> re-bakes ONLY those models and merges them into PT_BAKE_PREV's report (the other
+    # models' bakes are unchanged on disk: their mesh, plate and the painting under them are byte-identical)
+    only = [l.strip() for l in open(os.environ["PT_BAKE_ONLY"]) if l.strip()] if os.environ.get("PT_BAKE_ONLY") else None
+    surf = surface_pass(1024, only)
+    ids = sorted(only) if only else sorted(surf)
     sizes = {i: 1024 for i in ids}
     rep0 = bake_all(ids, surf, sizes)
     # DEV-19: the second pass, per instance
@@ -75,6 +78,18 @@ def main():
                       "unseen_after_fill_pct_median": round(float(np.median([v["unseen_after_fill_pct"] for v in ok])), 2) if ok else None,
                       "unseen_after_fill_pct_max": round(float(max(v["unseen_after_fill_pct"] for v in ok)), 2) if ok else None,
                       "min_baked_ppm_seen": min(v["baked_ppm_seen"] for v in ok)}
+    if only:   # R-C9-330: merge into the previous full report
+        prev = json.load(open(os.environ["PT_BAKE_PREV"]))
+        for i in ids:
+            prev["pieces"][i] = rep["pieces"][i]
+        prev["dev19_sizes"] = {**{k: v for k, v in prev.get("dev19_sizes", {}).items() if k not in ids}, **rep["dev19_sizes"]}
+        ok2 = [v for v in prev["pieces"].values() if v.get("bake") != "FAILED"]
+        prev["summary"] = {"baked": len(ok2), "failed": [k for k, v in prev["pieces"].items() if v.get("bake") == "FAILED"],
+                           "unseen_after_fill_pct_median": round(float(np.median([v["unseen_after_fill_pct"] for v in ok2])), 2),
+                           "unseen_after_fill_pct_max": round(float(max(v["unseen_after_fill_pct"] for v in ok2)), 2),
+                           "min_baked_ppm_seen": min(v["baked_ppm_seen"] for v in ok2)}
+        prev["rebaked_r330"] = ids
+        rep = prev
     json.dump(rep, open(os.path.join(PILOT, "bake_report.json"), "w"), indent=1)
     print("baked %d of %d; DEV-19 sizes %s; min baked ppm (seen) %.1f" % (len(ok), len(ids), rep["dev19_sizes"], rep["summary"]["min_baked_ppm_seen"]))
 

@@ -1,6 +1,6 @@
 {
- "base": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_brow/painting_sea_1.png",
- "base_sha256": "dd2827d2356032c38d7419cc16a4199f0725008916f735408ccb99b1a9aae830",
+ "base": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ledge/painting_sea_1.png",
+ "base_sha256": "b0f904173ea9a4f6f0a7edd656607012714ab9bdc2f7a918756acebce777426d",
  "accepted": [
   {
    "layer": 16,
@@ -204,6 +204,74 @@
      }
     ],
     "changed_px": 485059
+   }
+  },
+  {
+   "layer": 22,
+   "pin": {
+    "name": "cave_east-3",
+    "rect_xy": [
+     2700,
+     2260
+    ],
+    "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_east/region.png",
+    "region_sha256": "8ae35e1f3ff7a482d76503d19daa0dc2c0248c6828694cd720c3db7fd4f8f980",
+    "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_east/paste_classes.png",
+    "paste_sha256": "46edae08d67d81f86f076f64f8e1ff57bd229f373df0f94ee6dabf86e7a2098b",
+    "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-cave_east-3/BV2F-LR4-cave_east-3.png",
+    "new_sha256": "b5da57cc7b8d7e1e5689237975a8d54127538be84b8a8b236e9b9c9e5455ef6c",
+    "corr_npz": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_east-3_corr.npz",
+    "corr_sha256": "bee635e2189cbec2a6ff33d9456c71328629f9fb43c798c8085498e2c9417a94",
+    "read_sha256": "3c44214da401d4aa962adec56a7ab1be61a8010ea21f3af50621916f76b40c51"
+   },
+   "base": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_brow/painting_sea_1.png",
+   "base_pixels_sha256": "aa2c9994696d0170acb9615f5e452a63124ba74e2ee8cadff7191aad026256fb",
+   "result": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_east/painting_sea_3.png",
+   "result_sha256": "e582a4597fe1347794f159e9701993e1bbd0cb39c5781c95001a2f7a6152966a",
+   "report": {
+    "patches": [
+     {
+      "name": "cave_east-3",
+      "paste_px": 339037,
+      "support_px": 383296,
+      "tone_corr_mean_abs": 0.74
+     }
+    ],
+    "changed_px": 356918
+   }
+  },
+  {
+   "layer": 23,
+   "pin": {
+    "name": "ledge-1",
+    "rect_xy": [
+     2560,
+     2620
+    ],
+    "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ledge/region.png",
+    "region_sha256": "ce861e6e84a65b334e6b46300990e97a6b8cff02c39b1344f8dac1831bdba4e4",
+    "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ledge/paste_classes.png",
+    "paste_sha256": "7a545db05c63e5e325b99c6c318104bd2d3c1551e3c03b362915e1720be986e2",
+    "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ledge-1/BV2F-LR4-ledge-1.png",
+    "new_sha256": "c7f6b4e8b17259b2ce7c49980cd985ad56f5d00593d737845b9182bbd5ae7c5f",
+    "corr_npz": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ledge-1_corr.npz",
+    "corr_sha256": "3f010e26525b2144eff2074578ca367c757606e58b34355eb08679a2e91bfb5b",
+    "read_sha256": "c0268eaa25e9c653bd4879582e096ad277fa90c8c78425123a6363fa70662cf5"
+   },
+   "base": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/cave_east/painting_sea_3.png",
+   "base_pixels_sha256": "1b1c300a85b54caf2b1d5b7abb022789740de632d1e8ab8866160468cb0a6770",
+   "result": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ledge/painting_sea_1.png",
+   "result_sha256": "b0f904173ea9a4f6f0a7edd656607012714ab9bdc2f7a918756acebce777426d",
+   "report": {
+    "patches": [
+     {
+      "name": "ledge-1",
+      "paste_px": 116405,
+      "support_px": 173978,
+      "tone_corr_mean_abs": 2.46
+     }
+    ],
+    "changed_px": 131932
    }
   }
  ]

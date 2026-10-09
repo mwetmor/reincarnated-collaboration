@@ -1,0 +1,661 @@
+{
+ "code": "R = (i % 16) * 16 + 8, G = (i / 16) * 16 + 8, B = 200; 0 = other (him, heather sprays, snow field)",
+ "ids": {
+  "1": {
+   "class": "rock",
+   "id": "barrow_cutting"
+  },
+  "10": {
+   "class": "wet_rock",
+   "id": "carved_wet_rock"
+  },
+  "100": {
+   "class": "wood",
+   "id": "palisade__palisade_33"
+  },
+  "101": {
+   "class": "wood",
+   "id": "palisade__palisade_34"
+  },
+  "102": {
+   "class": "wood",
+   "id": "palisade__palisade_35"
+  },
+  "103": {
+   "class": "wood",
+   "id": "palisade__palisade_36"
+  },
+  "104": {
+   "class": "wood",
+   "id": "palisade__palisade_37"
+  },
+  "105": {
+   "class": "wood",
+   "id": "palisade__palisade_38"
+  },
+  "106": {
+   "class": "wood",
+   "id": "palisade__palisade_39"
+  },
+  "107": {
+   "class": "wood",
+   "id": "palisade__palisade_4"
+  },
+  "108": {
+   "class": "wood",
+   "id": "palisade__palisade_40"
+  },
+  "109": {
+   "class": "wood",
+   "id": "palisade__palisade_41"
+  },
+  "11": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_0"
+  },
+  "110": {
+   "class": "wood",
+   "id": "palisade__palisade_42"
+  },
+  "111": {
+   "class": "wood",
+   "id": "palisade__palisade_43"
+  },
+  "112": {
+   "class": "wood",
+   "id": "palisade__palisade_44"
+  },
+  "113": {
+   "class": "wood",
+   "id": "palisade__palisade_45"
+  },
+  "114": {
+   "class": "wood",
+   "id": "palisade__palisade_46"
+  },
+  "115": {
+   "class": "wood",
+   "id": "palisade__palisade_47"
+  },
+  "116": {
+   "class": "wood",
+   "id": "palisade__palisade_48"
+  },
+  "117": {
+   "class": "wood",
+   "id": "palisade__palisade_5"
+  },
+  "118": {
+   "class": "wood",
+   "id": "palisade__palisade_6"
+  },
+  "119": {
+   "class": "wood",
+   "id": "palisade__palisade_7"
+  },
+  "12": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_1"
+  },
+  "120": {
+   "class": "wood",
+   "id": "palisade__palisade_8"
+  },
+  "121": {
+   "class": "wood",
+   "id": "palisade__palisade_9"
+  },
+  "122": {
+   "class": "reed",
+   "id": "reed_tufts"
+  },
+  "123": {
+   "class": "rock",
+   "id": "ring_fallen"
+  },
+  "124": {
+   "class": "snow",
+   "id": "ring_snow"
+  },
+  "125": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_0"
+  },
+  "126": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_1"
+  },
+  "127": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_2"
+  },
+  "128": {
+   "class": "rock",
+   "id": "ring_stones__ring_stones_3"
+  },
+  "129": {
+   "class": "rock",
+   "id": "sea_stacks__sea_stacks_0"
+  },
+  "13": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_2"
+  },
+  "130": {
+   "class": "rock",
+   "id": "sea_stacks__sea_stacks_1"
+  },
+  "131": {
+   "class": "rock",
+   "id": "sea_stacks__sea_stacks_2"
+  },
+  "132": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_0"
+  },
+  "133": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_1"
+  },
+  "134": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_2"
+  },
+  "135": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_3"
+  },
+  "136": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_4"
+  },
+  "137": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_5"
+  },
+  "138": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_6"
+  },
+  "139": {
+   "class": "rock",
+   "id": "slope_stones__slope_stones_7"
+  },
+  "14": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_3"
+  },
+  "140": {
+   "class": "snow",
+   "id": "stair_snow"
+  },
+  "141": {
+   "class": "rock",
+   "id": "stair_steps"
+  },
+  "142": {
+   "class": "rock",
+   "id": "stair_treads"
+  },
+  "143": {
+   "class": "sea",
+   "id": "stream_cracks"
+  },
+  "144": {
+   "class": "ice",
+   "id": "stream_ice"
+  },
+  "145": {
+   "class": "ice",
+   "id": "stream_pressure"
+  },
+  "146": {
+   "class": "rock",
+   "id": "talus__talus_0"
+  },
+  "147": {
+   "class": "rock",
+   "id": "talus__talus_1"
+  },
+  "148": {
+   "class": "rock",
+   "id": "talus__talus_10"
+  },
+  "149": {
+   "class": "rock",
+   "id": "talus__talus_11"
+  },
+  "15": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_4"
+  },
+  "150": {
+   "class": "rock",
+   "id": "talus__talus_12"
+  },
+  "151": {
+   "class": "rock",
+   "id": "talus__talus_13"
+  },
+  "152": {
+   "class": "rock",
+   "id": "talus__talus_14"
+  },
+  "153": {
+   "class": "rock",
+   "id": "talus__talus_15"
+  },
+  "154": {
+   "class": "rock",
+   "id": "talus__talus_2"
+  },
+  "155": {
+   "class": "rock",
+   "id": "talus__talus_3"
+  },
+  "156": {
+   "class": "rock",
+   "id": "talus__talus_4"
+  },
+  "157": {
+   "class": "rock",
+   "id": "talus__talus_5"
+  },
+  "158": {
+   "class": "rock",
+   "id": "talus__talus_6"
+  },
+  "159": {
+   "class": "rock",
+   "id": "talus__talus_7"
+  },
+  "16": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_5"
+  },
+  "160": {
+   "class": "rock",
+   "id": "talus__talus_8"
+  },
+  "161": {
+   "class": "rock",
+   "id": "talus__talus_9"
+  },
+  "162": {
+   "class": "shore_ice",
+   "id": "trans_rubble"
+  },
+  "163": {
+   "class": "wood",
+   "id": "wreck"
+  },
+  "164": {
+   "class": "wood",
+   "id": "wreck_mast__wreck_mast_0"
+  },
+  "17": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_6"
+  },
+  "18": {
+   "class": "rock",
+   "id": "cliff_faces__cliff_faces_7"
+  },
+  "19": {
+   "class": "rock",
+   "id": "cliff_skirt_wall"
+  },
+  "2": {
+   "class": "rock",
+   "id": "barrow_front"
+  },
+  "20": {
+   "class": "shore_ice",
+   "id": "cove_ice"
+  },
+  "21": {
+   "class": "sea",
+   "id": "cradle_cracks"
+  },
+  "22": {
+   "class": "rock",
+   "id": "crags__crags_0"
+  },
+  "23": {
+   "class": "rock",
+   "id": "crags__crags_1"
+  },
+  "24": {
+   "class": "passage_dark",
+   "id": "curtain_barrow_door"
+  },
+  "25": {
+   "class": "passage_dark",
+   "id": "curtain_hall_great_door"
+  },
+  "26": {
+   "class": "passage_dark",
+   "id": "curtain_sea_cave_mouth"
+  },
+  "27": {
+   "class": "none",
+   "id": "door_lintel"
+  },
+  "28": {
+   "class": "none",
+   "id": "door_post_L"
+  },
+  "29": {
+   "class": "none",
+   "id": "door_post_R"
+  },
+  "3": {
+   "class": "ice",
+   "id": "carved_ice"
+  },
+  "30": {
+   "class": "char",
+   "id": "fallen_gable"
+  },
+  "31": {
+   "class": "ash",
+   "id": "ground_ash"
+  },
+  "32": {
+   "class": "ice",
+   "id": "ground_ice"
+  },
+  "33": {
+   "class": "ice_mid",
+   "id": "ground_ice_mid"
+  },
+  "34": {
+   "class": "lead",
+   "id": "ground_lead"
+  },
+  "35": {
+   "class": "mound",
+   "id": "ground_mound"
+  },
+  "36": {
+   "class": "reed",
+   "id": "ground_reed"
+  },
+  "37": {
+   "class": "rock",
+   "id": "ground_rock"
+  },
+  "38": {
+   "class": "sea",
+   "id": "ground_sea"
+  },
+  "39": {
+   "class": "shingle",
+   "id": "ground_shingle"
+  },
+  "4": {
+   "class": "passage_dark",
+   "id": "carved_passage_dark"
+  },
+  "40": {
+   "class": "shore_ice",
+   "id": "ground_shore_ice"
+  },
+  "41": {
+   "class": "shrub",
+   "id": "ground_shrub"
+  },
+  "42": {
+   "class": "snow",
+   "id": "ground_snow"
+  },
+  "43": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_0"
+  },
+  "44": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_1"
+  },
+  "45": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_10"
+  },
+  "46": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_11"
+  },
+  "47": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_2"
+  },
+  "48": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_3"
+  },
+  "49": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_4"
+  },
+  "5": {
+   "class": "rime",
+   "id": "carved_rime"
+  },
+  "50": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_5"
+  },
+  "51": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_6"
+  },
+  "52": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_7"
+  },
+  "53": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_8"
+  },
+  "54": {
+   "class": "rock",
+   "id": "gully_rock__gully_rock_9"
+  },
+  "55": {
+   "class": "shore_ice",
+   "id": "ice_brash"
+  },
+  "56": {
+   "class": "shore_ice",
+   "id": "ice_drifts"
+  },
+  "57": {
+   "class": "shore_ice",
+   "id": "ice_floes"
+  },
+  "58": {
+   "class": "shore_ice",
+   "id": "ice_floes_bob"
+  },
+  "59": {
+   "class": "shore_ice",
+   "id": "ice_plates"
+  },
+  "6": {
+   "class": "rock",
+   "id": "carved_rock"
+  },
+  "60": {
+   "class": "shore_ice",
+   "id": "ice_ridges"
+  },
+  "61": {
+   "class": "snow",
+   "id": "ice_rims"
+  },
+  "62": {
+   "class": "shore_ice",
+   "id": "ice_shorefast"
+  },
+  "63": {
+   "class": "rime",
+   "id": "icicles"
+  },
+  "64": {
+   "class": "rock",
+   "id": "ledge_rocks"
+  },
+  "65": {
+   "class": "wood",
+   "id": "logs__logs_0"
+  },
+  "66": {
+   "class": "wood",
+   "id": "logs__logs_1"
+  },
+  "67": {
+   "class": "wood",
+   "id": "logs__logs_2"
+  },
+  "68": {
+   "class": "wood",
+   "id": "logs__logs_3"
+  },
+  "69": {
+   "class": "wood",
+   "id": "longhall"
+  },
+  "7": {
+   "class": "shrub",
+   "id": "carved_shrub"
+  },
+  "70": {
+   "class": "sea",
+   "id": "mere_cracks"
+  },
+  "71": {
+   "class": "ice",
+   "id": "mere_plates"
+  },
+  "72": {
+   "class": "snow",
+   "id": "mere_seams"
+  },
+  "73": {
+   "class": "wood",
+   "id": "palisade__palisade_0"
+  },
+  "74": {
+   "class": "wood",
+   "id": "palisade__palisade_1"
+  },
+  "75": {
+   "class": "wood",
+   "id": "palisade__palisade_10"
+  },
+  "76": {
+   "class": "wood",
+   "id": "palisade__palisade_11"
+  },
+  "77": {
+   "class": "wood",
+   "id": "palisade__palisade_12"
+  },
+  "78": {
+   "class": "wood",
+   "id": "palisade__palisade_13"
+  },
+  "79": {
+   "class": "wood",
+   "id": "palisade__palisade_14"
+  },
+  "8": {
+   "class": "snow",
+   "id": "carved_snow"
+  },
+  "80": {
+   "class": "wood",
+   "id": "palisade__palisade_15"
+  },
+  "81": {
+   "class": "wood",
+   "id": "palisade__palisade_16"
+  },
+  "82": {
+   "class": "wood",
+   "id": "palisade__palisade_17"
+  },
+  "83": {
+   "class": "wood",
+   "id": "palisade__palisade_18"
+  },
+  "84": {
+   "class": "wood",
+   "id": "palisade__palisade_19"
+  },
+  "85": {
+   "class": "wood",
+   "id": "palisade__palisade_2"
+  },
+  "86": {
+   "class": "wood",
+   "id": "palisade__palisade_20"
+  },
+  "87": {
+   "class": "wood",
+   "id": "palisade__palisade_21"
+  },
+  "88": {
+   "class": "wood",
+   "id": "palisade__palisade_22"
+  },
+  "89": {
+   "class": "wood",
+   "id": "palisade__palisade_23"
+  },
+  "9": {
+   "class": "tide_ice",
+   "id": "carved_tide_ice"
+  },
+  "90": {
+   "class": "wood",
+   "id": "palisade__palisade_24"
+  },
+  "91": {
+   "class": "wood",
+   "id": "palisade__palisade_25"
+  },
+  "92": {
+   "class": "wood",
+   "id": "palisade__palisade_26"
+  },
+  "93": {
+   "class": "wood",
+   "id": "palisade__palisade_27"
+  },
+  "94": {
+   "class": "wood",
+   "id": "palisade__palisade_28"
+  },
+  "95": {
+   "class": "wood",
+   "id": "palisade__palisade_29"
+  },
+  "96": {
+   "class": "wood",
+   "id": "palisade__palisade_3"
+  },
+  "97": {
+   "class": "wood",
+   "id": "palisade__palisade_30"
+  },
+  "98": {
+   "class": "wood",
+   "id": "palisade__palisade_31"
+  },
+  "99": {
+   "class": "wood",
+   "id": "palisade__palisade_32"
+  }
+ }
+}
