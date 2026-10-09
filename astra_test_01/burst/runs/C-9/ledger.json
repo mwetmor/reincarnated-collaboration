@@ -48249,9 +48249,70 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-4_1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "81a5275712a6e1b0bdd68bfc5be279649fd018922d5efc4bd1fc91977b3b555d",
+      "started": "2026-10-09T02:15:46.413282+00:00",
+      "ended": "2026-10-09T02:18:04.770255+00:00",
+      "minutes": 2.3059547638831037,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e71-f2c3-7d33-96ba-9caf8e8cd541/exec-f3b9b731-1587-43d5-9af6-34dbfa20ff3d.png",
+            "sha256": "ece78ad9b67c564f65575ef66024eec1b87f8db89c37207b0760ae2747aa607e"
+          }
+        ]
+      },
+      "receipt_sha256": "6b2262674f159677858c9a7817e913b213cc3ef1d99b85003d6faf28600e51ba",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-4_1.png",
+          "sha256": "ece78ad9b67c564f65575ef66024eec1b87f8db89c37207b0760ae2747aa607e"
+        },
+        {
+          "name": "exec-f3b9b731-1587-43d5-9af6-34dbfa20ff3d.provenance.json",
+          "sha256": "1c3cbd96effbe411d2f6750a4cd6cd1581e2a5daac23036284d265158c7c44cd"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e71-f2c3-7d33-96ba-9caf8e8cd541/exec-f3b9b731-1587-43d5-9af6-34dbfa20ff3d.png",
+          "sha256": "ece78ad9b67c564f65575ef66024eec1b87f8db89c37207b0760ae2747aa607e"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1404,
+  "images_used": 1405,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52050,6 +52111,13 @@
       "ts": "2026-10-08T22:15:04-04:00",
       "verbatim": "",
       "ruling": "3_1-r1 PASS under geo v7.1 (PT 8de78e872; 15/~37 images): the ash yard reads as trampled grey-brown ground, the longhall walls are closed, a1 7.263/9.198, snow PASS; the new snow-palette guard is inside v1's range (lit a* 2.18, b* 7.67, peach 0.635, shadow a* 3.95-4.16), so v7.1's length has not creamed the snow. 4_1 RELEASED: its small frozen pond on land is not the overlapping sea-ice slab problem (R-C9-289), so 4_1 is not held. Then 3_2 and 4_2 as the driver's ready rule allows, with the manual QA stop per wave (snow-palette guard included)."
+    },
+    {
+      "id": "R-C9-292",
+      "by": "gandalf (conductor, by-eye)",
+      "ts": "2026-10-08T22:20:33-04:00",
+      "verbatim": "",
+      "ruling": "4_1 (PT fdcafbfc6; 16/~37 images): a1 3_1|4_1 = 9.745 raw FAIL (bar 9.569) across the longhall's dense roof timbers; the conductor's 1:1 crops of the stitched join show the roof continuous with no line. DISPOSITION: CARRIED as 'raw FAIL, stitch-corrected', with crops in the M3' packet (M-1 keeps it a raw fail); no repaint. P6a's unmatched candidate at plate (6433,1474) is, by eye, the shaded timber gable END WALL under the snowy roof, not a doorway: dispositioned as a false positive. 4_0/4_1 PASS. NEXT RELEASED: 3_2, then 4_2, by the ready rule, with the manual QA stop."
     }
   ],
   "grok_calls": [
