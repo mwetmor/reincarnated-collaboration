@@ -1,6 +1,6 @@
 # C-9 BV2F Phase 3′: handoff at the image-service limit
 
-**STATUS:** CURRENT. **Authored:** 2026-10-09 by gandalf (C-9 RUN-CONDUCTOR). The ledger of record is `astra_test_01/burst/runs/C-9/ledger.json` (rulings through **R-C9-308**). The ledger wins over this note.
+**STATUS:** CURRENT. ⚑ **UPDATE (M-C9-BV2F-PAINTING-COMPLETE): painting is COMPLETE (all 25 canvases); final painting `barrow_v2/fid/pt/ph3/final/painting_ph3_full.png` (sha 8e169e6331bb); M3′ packet in `final/m3p_packet/`. The 'Remaining' and 'Resume' steps 1–3 below are DONE; resume at step 4 (Gate-2, then the build).** **Authored:** 2026-10-09 by gandalf (C-9 RUN-CONDUCTOR). The ledger of record is `astra_test_01/burst/runs/C-9/ledger.json` (rulings through **R-C9-308**). The ledger wins over this note.
 
 ## Where it stands
 - **barrow_v2 painting: 22 of 25 canvases done.**
