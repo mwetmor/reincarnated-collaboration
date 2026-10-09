@@ -52367,6 +52367,13 @@
       "ts": "2026-10-09T00:20:14-04:00",
       "verbatim": "",
       "ruling": "PT cf0950593 (21/40 images): pins from 023686e3c with the 45-rect allowlist PASS (215,261 px, all inside); 3_2-r1 painted (snow guard in range). CONDUCTOR PREMISE CORRECTED: R-C9-297's reason for repainting 3_2 was wrong. PT measured 3_2's bottom-strip guide as essentially unchanged; the eroded cave-top columns lie in the PILOT C rects, so 3_2-r1 did not carry them; 2 images spent on a premise error, recorded. CONSEQUENCE RULED: 4_2 was painted against the old 3_2 and shows a faint vertical tone line at 3_2|4_2, so REPAINT 4_2 as 4_2-r1 against 3_2-r1 (1-2 images). OPEN QUESTION before 2_3/3_3 paint: DEV-24 is post-stitch and does not change the pilot's RAW PS4 canvases, so 2_3 and 3_3 would take paste context from the OLD cave-top columns. PT must confirm how the staging context is formed: if from raw canvases, propose the fix (e.g. stage 2_3/3_3 context from the DEV-24-patched painting under a recorded Tier-B rule, or a pilot-region DEV-24 applied to the context copy); the conductor rules before 2_3/3_3. Budget: ~38 of 40 expected."
+    },
+    {
+      "id": "R-C9-299",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T00:21:34-04:00",
+      "verbatim": "",
+      "ruling": "CONFIRMED (PT 3a766b237): the stager pastes context from the RAW pilot canvases, so 0_3, 1_3, 2_3 and 3_3 would inherit pre-rebuild geometry (A/C/crack rects). ADOPTED: DEV-29 = Tier-B CONTEXT PATCH in guided_paint stage. cfg 'context_patch' = {the DEV-24-layer-4-patched pilot painting, sha-pinned; the layer-4 support mask, sha-pinned}; after v1's paste, only pasted pixels inside the mask are replaced; key absent = v1 byte-identical; diff/ALLOWLIST/SHA256SUMS/constructed test/verify; registered in charter s16. Covered by Matt's DEV-24 ratification (R-C9-268) as its necessary companion, and recorded for his eye. The rejected alternative (patched copies under the PH3 prefix) would double-apply DEV-24 in the stitch. ORDER: 4_2-r1 -> pilot DEV-24 layer 4 (<= 4 bursts, crops) -> pin it as the context_patch source -> 0_3/1_3 -r2 -> 2_3, 3_3 -> the rest by the ready rule. a1 at the pilot-side joins (0_2/0_3, 1_2/1_3, 2_2/2_3, 2_2|3_3) is computed with the pilot side = the raw canvas with the same context_patch substitution (binding); plain raw a1 reported non-binding. PH pre-registers this BEFORE any of those readings."
     }
   ],
   "grok_calls": [

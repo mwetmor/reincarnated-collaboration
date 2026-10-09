@@ -278,3 +278,5 @@ Source of record: `astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/r268/dev_regist
 | DEV-28 | GUIDE SHADOW SMOOTHING: the renderer's PCF dither filled/softened inside the guide's shadow zones, ID- and shadow-invariant-chroma-guarded, guide-only | B hook (guided_paint.py stage) + OWN (v1tools/dev28.py) | BV2F_DEV28=1 (pilot_paint.sh sets it when the cfg pins dev28_ids) | R-C9-257, R-C9-258, R-C9-260, R-C9-261 | R-C9-268 |
 
 **Ratified:** DEV-21 (reed cards) and DEV-22 (stair tread snow) by Matt, R-C9-273, so DEV-17..28 are all Matt-ratified. DEV-25c is registered but not adopted: its adoption rule is the pre-registered A/B on the first Phase 3′ chunk (R-C9-272). DEV-24 use is limited to clear defects, each logged with crops (R-C9-268).
+
+**DEV-29 (R-C9-299):** a Tier-B CONTEXT PATCH in guided_paint stage. Pasted context pixels inside the DEV-24 layer-4 support mask are taken from the patched pilot painting (sha-pinned), so new chunks inherit the fixed geometry, not the raw pilot canvases. Key absent = v1. It is the necessary companion of Matt-ratified DEV-24 (R-C9-268), recorded for Matt's eye.
