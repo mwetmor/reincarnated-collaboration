@@ -155,6 +155,13 @@ func _dress_painted() -> void:
 				img.generate_mipmaps()
 				tex = ImageTexture.create_from_image(img)
 			var mat := PaintedWorld.painted_material(tex, false, lit, shadow_mul, u_hat, v_hat)
+			# BV2F-PT R-C9-326: a PROCEDURAL POST (LV's shaft + cone tip CylinderMeshes, each with its own full 0..1 UVs: the
+			# two overlap, so its bake holds only the tip) wears the PROJECTED painting, like a primitive
+			if root.has_meta("bv2f_fit") and String((root.get_meta("bv2f_fit") as Dictionary).get("kind", "")) == "procedural_post":
+				for mi in _meshes(root):
+					_paint_mesh(mi, mat_paint, true)
+				n["projected_posts"] = int(n.get("projected_posts", 0)) + 1
+				continue
 			for mi in _meshes(root):
 				# BV2F-PT R-C9-324: a mesh with NO UV array under a baked model (LV's procedural hall panel) cannot read
 				# its bake (UV (0,0) = one texel); it wears the PROJECTED painting instead, v1's rule for primitives
@@ -243,6 +250,7 @@ func _dress_painted() -> void:
 		str(n.get("water")), str(snow != null and snow.get("ground_h_tex") != null)])
 	print("[bv2f_pilot] warmup: " + JSON.stringify(n.get("warmup", {})))
 	print("[bv2f_pilot] uvless meshes projected (R-C9-324): %d" % int(n.get("projected_uvless", 0)))   # BV2F-PT R-C9-324
+	print("[bv2f_pilot] procedural posts projected (R-C9-326): %d" % int(n.get("projected_posts", 0)))   # BV2F-PT R-C9-326
 
 
 # --- DEV-18 (R-C9-193, applied): v1's _build_painted_heather (barrow_full.gd:2292-2346) COPIED, ONE line changed (marked) ------

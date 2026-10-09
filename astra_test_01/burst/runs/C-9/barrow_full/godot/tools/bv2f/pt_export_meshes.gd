@@ -63,6 +63,7 @@ func _initialize() -> void:
 	await process_frame
 	var cam: Camera3D = scene.cam
 	var n_done := 0
+	var n_overlap := 0   # BV2F-PT R-C9-326
 	for e in scene.layout["placements"]:
 		var id := String(e["id"])
 		if not REAL_IDS.has(id) or not scene.nodes.has(id) or not (scene.nodes[id] as Node).has_meta("bv2f_fit"):   # BV2F-PT
@@ -115,6 +116,17 @@ func _initialize() -> void:
 					for k in ix.size():
 						Is.append(base + ix[k])
 				surfaces += 1
+		# BV2F-PT R-C9-326: the summed UV area of every exported triangle; > 1.0 = UVs OVERLAP (two surfaces sharing 0..1,
+		# e.g. LV's procedural post: shaft + tip) -- a bake then holds only one of them; reported, never fixed here
+		var uv_area := 0.0
+		for t in range(0, Is.size(), 3):
+			var p0 := Vector2(UVs[Is[t] * 2], UVs[Is[t] * 2 + 1])
+			var p1 := Vector2(UVs[Is[t + 1] * 2], UVs[Is[t + 1] * 2 + 1])
+			var p2 := Vector2(UVs[Is[t + 2] * 2], UVs[Is[t + 2] * 2 + 1])
+			uv_area += absf((p1 - p0).cross(p2 - p0)) * 0.5
+		if uv_area > 1.0:
+			print("[meshes] UV OVERLAP %s: summed UV area %.3f > 1.0 (a bake holds only part of it)" % [id, uv_area])
+			n_overlap += 1
 		_raw("%s/%s_V.f32" % [out_dir, id], Vs.to_byte_array())
 		_raw("%s/%s_N.f32" % [out_dir, id], Ns.to_byte_array())
 		_raw("%s/%s_UV.f32" % [out_dir, id], UVs.to_byte_array())
@@ -122,11 +134,12 @@ func _initialize() -> void:
 		var f := FileAccess.open("%s/%s.json" % [out_dir, id], FileAccess.WRITE)
 		f.store_string(JSON.stringify({"id": id, "class": e["class"], "glb": e.get("glb", ""),
 			"surfaces": surfaces, "verts": Vs.size() / 3, "tris": Is.size() / 3,
+			"uv_area_sum": snappedf(uv_area, 0.001), "uv_overlap": uv_area > 1.0,   # BV2F-PT R-C9-326
 			"albedo_texture": tex, "uv_convention": "godot (v down)",
 			"aabb_world": [[lo.x, lo.y, lo.z], [hi.x, hi.y, hi.z]],
 			"screen_rect_px": [rmin.x, rmin.y, rmax.x - rmin.x, rmax.y - rmin.y]}, " "))
 		n_done += 1
-	print("[meshes] %d real-model heroes exported to %s" % [n_done, out_dir])
+	print("[meshes] %d real-model heroes exported to %s; %d with UV OVERLAP (R-C9-326)" % [n_done, out_dir, n_overlap])   # BV2F-PT R-C9-326
 	quit(0)
 
 
