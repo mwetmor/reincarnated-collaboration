@@ -50638,9 +50638,235 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-d_right-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a0f93171b80fcecc70494bd5579924980915404d89ac5f1c5eedc4d11a6ba264",
+      "started": "2026-10-09T19:23:24.690899+00:00",
+      "ended": "2026-10-09T19:24:55.989350+00:00",
+      "minutes": 1.5216543618007563,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a1221e-c752-72a2-8090-e355e13f6fe3/exec-19005d77-b168-44f5-951f-9a4f6edee905.png",
+            "sha256": "1b2ff1cfa1c3f60c18fe20c3e7bff968808c3adf7088eac6eed269b43d2b7828"
+          }
+        ]
+      },
+      "receipt_sha256": "e79c264bf8b2aff3b5b98a56975387eb8a828c564a0728cbc3815e65a0bd5bba",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-d_right-1.png",
+          "sha256": "1b2ff1cfa1c3f60c18fe20c3e7bff968808c3adf7088eac6eed269b43d2b7828"
+        },
+        {
+          "name": "exec-19005d77-b168-44f5-951f-9a4f6edee905.provenance.json",
+          "sha256": "692ea588bc49ca52173cd66b5722527962910c8a206840b18ee01ced3d578e48"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a1221e-c752-72a2-8090-e355e13f6fe3/exec-19005d77-b168-44f5-951f-9a4f6edee905.png",
+          "sha256": "1b2ff1cfa1c3f60c18fe20c3e7bff968808c3adf7088eac6eed269b43d2b7828"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-cave_brow-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "22e6bfdbf43faaf52fa591a590704ed1ac7b6a7e749df34a0e53d6d1bc7e4e37",
+      "started": "2026-10-09T19:27:44.207326+00:00",
+      "ended": "2026-10-09T19:29:54.469730+00:00",
+      "minutes": 2.1710612611146645,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12222-bcfc-7741-9a83-512c31eb61f0/exec-b1789822-0725-4924-9acf-4c25f70da5cb.png",
+            "sha256": "a0498ad12bb277328d07929f827a7dceabe4245765eacc9ece5c690a78331096"
+          }
+        ]
+      },
+      "receipt_sha256": "ee67005f6f97aa9a3ab6b357fc7984572bb5d9466068f1ab01ebf194fd1198eb",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-cave_brow-1.png",
+          "sha256": "a0498ad12bb277328d07929f827a7dceabe4245765eacc9ece5c690a78331096"
+        },
+        {
+          "name": "exec-b1789822-0725-4924-9acf-4c25f70da5cb.provenance.json",
+          "sha256": "e08e1d2838c664ccd63c02ec415c74e2ace11c9ec7b1f79c38c96f6a186ebf66"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12222-bcfc-7741-9a83-512c31eb61f0/exec-b1789822-0725-4924-9acf-4c25f70da5cb.png",
+          "sha256": "a0498ad12bb277328d07929f827a7dceabe4245765eacc9ece5c690a78331096"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-cave_east-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "70b1a0e6779b632407e07f064dcffb88d1ad3358f80281407c06fdc2b6dcc5ad",
+      "started": "2026-10-09T19:30:38.124626+00:00",
+      "ended": "2026-10-09T19:32:18.929520+00:00",
+      "minutes": 1.6800976972173278,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12225-6468-76f2-b830-3b5228719464/exec-8d0b2468-a88b-45ec-853a-bfedaead343a.png",
+            "sha256": "c816059809960178364238e85880e0119fe7a80c2398bad86e10e47d986cfcfc"
+          }
+        ]
+      },
+      "receipt_sha256": "a1d6dc67268de5aaf12cc5e92e85becf7fe6e8afc172ce177a0c35a5bbde7fcb",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-cave_east-1.png",
+          "sha256": "c816059809960178364238e85880e0119fe7a80c2398bad86e10e47d986cfcfc"
+        },
+        {
+          "name": "exec-8d0b2468-a88b-45ec-853a-bfedaead343a.provenance.json",
+          "sha256": "77b2de31933dc75fde6371d2155d53ab01189233e95b50bc84eef4f1d03a8382"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12225-6468-76f2-b830-3b5228719464/exec-8d0b2468-a88b-45ec-853a-bfedaead343a.png",
+          "sha256": "c816059809960178364238e85880e0119fe7a80c2398bad86e10e47d986cfcfc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-cave_east-2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "25875fef18deb9997f56b285a5b5fb6c6092658c15b8c24c32e0a46087268a10",
+      "started": "2026-10-09T19:33:03.656923+00:00",
+      "ended": "2026-10-09T19:33:06.914451+00:00",
+      "minutes": 0.05429050416763251,
+      "image_calls": 0,
+      "tool_calls": 0,
+      "audit": {
+        "violations": [
+          "receipt unreadable: [Errno 2] No such file or directory: '/Users/admin/astra-burst/runs/C-9/BV2F-LR4-cave_east-2/out/receipt.json'"
+        ],
+        "image_calls": 0,
+        "tool_calls": 0,
+        "tools_seen": {},
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [],
+        "execution_error": "codex exit 1"
+      },
+      "receipt_sha256": null,
+      "artifacts": [],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 3
     }
   ],
-  "images_used": 1453,
+  "images_used": 1456,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52078,6 +52304,12 @@
       "ts": "2026-10-09T13:43:35-04:00",
       "by": "gandalf (conductor)",
       "text": "The full-site build (PT 8f87fd9a8) HALTED at the disk gate after the bake: 18 GiB free (gate 21). The bake work dir is 6.1 GiB (surf_*.npz 4.4 GiB). Done: E-2/E-4 re-confirmed (pixels 6342b88e2a54); ids 164 placements; export 100 models; light; take 100 plates / 598 tufts; heather; bake 100/100 (min ppm 107.8). Remaining: prep (+reeds), lineage, guide, 24 stills, walk film."
+    },
+    {
+      "id": "H-C9-BV2F-ASTRA-LIMIT-3",
+      "ts": "2026-10-09T15:34:15-04:00",
+      "by": "gandalf (conductor)",
+      "text": "The image service's usage limit was hit at BV2F-LR4-cave_east-2 (0 images; 'try again at 5:49 PM'). Done before it (PT f64fd204c, ee64a9b27): re-pin to LV d26d14c55 with the allowlist PASS (0 px outside); 8-patch recount; DEV-24 layers 16-21 accepted (the wreck drifts/stones, four drift-patch areas, the cave brow + east wall); cave_east-1 REJECTED by eye (the painter read the icy ledge as open water with floes; the brief is sharpened). LR4 40/43. Owed: cave_east-3 + ledge (2 + 1 spare), layers 22-23, re-stitch + identity proof, the build re-run, 24 stills, walk film. The conductor scheduled a one-shot resume at 17:53."
     }
   ],
   "rulings": [
