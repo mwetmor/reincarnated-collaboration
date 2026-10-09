@@ -37,6 +37,7 @@ const GRAVITY := 18.0
 ## toward the camera from its ground point, so the part of the strip below the feet (shadow, cloak, a big body's
 ## lower half) is not cut off where the screen-facing card dips into the ground behind it.
 const CARD_TOWARD_CAM_M := 2.0
+const EOR_TOWARD_CAM_M := 1.5
 
 var scene = null                    # the barrow scene (bv2f_arena.gd)
 var session = null
@@ -68,6 +69,7 @@ var n_blocked_stops := 0
 var waves_seen: Dictionary = {}
 var kits_seen: Dictionary = {}
 var no_pack: Dictionary = {}
+var eor_t0_tick := 0
 var autopilot := ""                 # "--arena-auto" smoke mode (no human): see _auto()
 ## smoke/evidence instruments (command-line only; unset in play): timed captures, a quit timer, a top-down view
 var shot_dir := ""
@@ -521,6 +523,8 @@ func _consume_events(evs: Array) -> void:
 		var e: Dictionary = e_any
 		var ev := String(e.get("event", ""))
 		if ev in ["channel_on", "channel_off", "player_death"] or (ev == "cast_start" and int(e.get("actor_id", -1)) == 0):
+			if ev == "channel_on":
+				eor_t0_tick = int(session.fight.run_tick)      # R-C9-352: the source clock starts at the cast's tick
 			warlord.on_event(e)
 			continue
 		if ev == "cast_start":
@@ -588,6 +592,18 @@ func _render(delta: float) -> void:
 		warlord.sync(player_pos_m, session.driver)
 		warlord.advance(delta)
 		warlord.position = proxy.global_position - scene.fwd * CARD_TOWARD_CAM_M
+		# R-C9-352: the source clock -- revolutions = (sim ticks since the cast + the frame's fraction of a tick) x
+		#   tick period / the source's 0.36 s per revolution; it runs on after the release so the cuts finish
+		var tp := 1.0 / maxf(float(session.fight.ticks_per_s), 1e-6)
+		var revs := (float(int(session.fight.run_tick) - eor_t0_tick) * tp + (accum if running and fight_started else 0.0)) / 0.36
+		# the smoke's floor is the SNOW surface he visibly stands on (eor_kc2_fx PORT 2's rule; synthetic binding skips it)
+		var st: Vector3 = proxy.global_position
+		var sn = scene.get("snow")
+		if sn != null and sn.has_method("depth_at"):
+			st.y = maxf(st.y, float(sn.get("floor_y")) + float(sn.depth_at(Vector2(st.x, st.z))))
+		# ...and, like the cards, slid along the ortho view ray toward the camera (the same pixels on screen), so the
+		# flat bed disc is not cut where the snow rises behind him
+		warlord.drive_eor(st - scene.fwd * EOR_TOWARD_CAM_M, revs, scene.u_hat, scene.v_hat)
 	if topdown:
 		var c := T + Vector2(0.0, -2.0)
 		scene.set_topdown(Vector2(c.x, -c.y), 62.0)

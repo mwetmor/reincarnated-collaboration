@@ -174,8 +174,16 @@ const SMOKE_RED_DEFAULT := 1                         # index: 0.30
 # C-9 (Matt via the conductor, 2026-10-09): the HAZE more transparent. One multiplier on the haze's alpha only (the
 # StandardMaterial's albedo alpha and the ember shader's "fade"); the dark bed, the cuts, the sparks and the embers are
 # untouched. ?eorsmokea=0.4|0.6|0.8|1.0 (desktop: -- --eorsmokea 0.8); 1.0 = the look before this change, exactly.
-const SMOKE_OPACITY_CHOICES := {"0.4": 0.4, "0.6": 0.6, "0.8": 0.8, "1.0": 1.0, "1": 1.0}
-const SMOKE_OPACITY_DEFAULT := 0.6
+const SMOKE_OPACITY_CHOICES := {"0.4": 0.4, "0.6": 0.6, "0.7": 0.7, "0.8": 0.8, "1.0": 1.0, "1": 1.0}
+const SMOKE_OPACITY_DEFAULT := 0.7          # R-C9-351/352 (Matt: "about 70% opacity")
+# C-9 R-C9-352 (Matt: "the synty arena 3D EoR whirlwind just with the smoke made less opaque"): SOURCE LOOK. Set true
+# BEFORE binding (the barrow_v2 arena's warlord sets it; nothing else does, so the walk scene is unchanged): every
+# Barrow recolour is undone and the source's own look is built -- the haze's colour stops and the dark bed (colour +
+# 0.86 alpha) as kc2_player_channel.gd draws them (no PORT 17 snow retint, no PORT 21 red), THE ARC CUTS BUILT
+# (R-C9-152's removal not applied), the sparks and embers ADD-blended on spark_04_a and the source ramp (no PORT 21
+# mix / streak), no fourth (head) spark emitter. Kept: the soft-particle fade (PORT 18, draw only) and the
+# SMOKE_OPACITY multiplier on the haze alone (eorsmokea 1.0 = the source haze).
+var source_look := false
 var _smoke_opacity_k := -1.0
 # the fourth spark emitter, on the mace head: the source's _sparks() with these
 const HEAD_SPARK_AMOUNT := 32
@@ -711,7 +719,7 @@ func _build_aura(band: Dictionary) -> void:
 		_emitters.append(e)
 
 	# --- LAYER ONE: THE ETCH (R-CPB-7) ---------------------------------------
-	var etch: Dictionary = _build_etch(band) if ARC_CUTS else {"built": false, "removed": "R-C9-152 (PORT 21)"}
+	var etch: Dictionary = _build_etch(band) if (ARC_CUTS or source_look) else {"built": false, "removed": "R-C9-152 (PORT 21)"}
 
 	# --- LAYER ONE-b: the EMBER GARNISH off the hammer head (PORT 11) ---------
 	var head_pt := Vector3.ZERO if synthetic else _ember_point()
@@ -737,6 +745,9 @@ func _build_aura(band: Dictionary) -> void:
 	_head_sparks.lifetime = HEAD_SPARK_LIFETIME_S
 	(_head_sparks.draw_pass_1 as QuadMesh).size = HEAD_SPARK_QUAD
 	_head_spark_root.add_child(_head_sparks)
+	if source_look:
+		_head_sparks.amount = 1                    # R-C9-352: not the source's; kept built (the code reads it) but never shown
+		_head_spark_root.visible = false
 
 	report["channel_fx"] = {
 		"source": PAL_SRC, "etch": etch, "spark_radius_m": r, "spark_radius_basis": "PORT 4 (weapon truth, mean reach)",
@@ -1131,7 +1142,7 @@ func _trail() -> GPUParticles3D:
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX            # PORT 21 (source: ADD)
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD if source_look else BaseMaterial3D.BLEND_MODE_MIX   # PORT 21 (source: ADD)
 	mat.vertex_color_use_as_albedo = true
 	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
 	mat.albedo_texture = SPARK_TEX_RES
@@ -1160,7 +1171,7 @@ func _sparks(radius: float, idx: int) -> GPUParticles3D:
 	m.direction = Vector3(0.0, 0.25, 1.0)
 	m.spread = 26.0
 	# C-9 EOR2 PORT 10: his steel's period, not the source's 0.36
-	var v: float = TAU * maxf(radius, 0.4) / _rev_period
+	var v: float = TAU * maxf(radius, 0.4) / (player_rev_period_s if source_look else _rev_period)
 	m.initial_velocity_min = v * 0.35
 	m.initial_velocity_max = v * 0.85
 	m.gravity = Vector3(0.0, -7.5, 0.0)
@@ -1185,12 +1196,12 @@ func _sparks(radius: float, idx: int) -> GPUParticles3D:
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	mat.blend_mode = BaseMaterial3D.BLEND_MODE_MIX            # PORT 21 (source: ADD)
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD if source_look else BaseMaterial3D.BLEND_MODE_MIX   # PORT 21 (source: ADD)
 	mat.vertex_color_use_as_albedo = true
 	mat.disable_receive_shadows = true
 	# PORT 21b: a generated STREAK, not spark_04_a -- that texture is a faint lightning tendril (mean alpha 0.07), and
 	#   squeezed into a 0.045 x 0.30 m streak quad it is mostly empty: the source's sparks never read as sparks
-	mat.albedo_texture = _streak_texture()
+	mat.albedo_texture = SPARK_TEX_RES if source_look else _streak_texture()
 	q.material = mat
 	p.draw_pass_1 = q
 	return p
@@ -1255,6 +1266,11 @@ func _smoke(outer_r: float) -> GPUParticles3D:
 	var c16 := SNOW_HAZE_C16.lerp(SMOKE_RED, k)
 	var c70 := SNOW_HAZE_C70.lerp(SMOKE_RED, k)
 	var c1 := SNOW_HAZE_C1.lerp(SMOKE_RED, k)
+	if source_look:                               # R-C9-352: the source's own colour stops (kc2_player_channel.gd)
+		c0 = Color(0.215, 0.205, 0.235)
+		c16 = Color(0.205, 0.195, 0.225)
+		c70 = Color(0.105, 0.100, 0.128)
+		c1 = Color(0.070, 0.066, 0.085)
 	var g := Gradient.new()
 	g.set_color(0, Color(c0.r, c0.g, c0.b, 0.0))
 	g.set_color(1, Color(c1.r, c1.g, c1.b, 0.0))
@@ -1317,12 +1333,13 @@ func _smoke_bed(outer_r: float) -> MeshInstance3D:
 	var cols := PackedColorArray()
 	var idx := PackedInt32Array()
 	# C-9 EOR2 PORT 17: the Barrow's snow-shadow colour at SNOW_BED_ALPHA; the profile (lo, rim, smoothstep) is the source's
-	var bc := SNOW_BED_COLOR
+	var bc := SMOKE_BED_COLOR if source_look else SNOW_BED_COLOR          # R-C9-352: the source bed
+	var ba := SMOKE_BED_ALPHA if source_look else SNOW_BED_ALPHA
 	verts.append(Vector3.ZERO)
-	cols.append(Color(bc.r, bc.g, bc.b, SNOW_BED_ALPHA))
+	cols.append(Color(bc.r, bc.g, bc.b, ba))
 	for i in SMOKE_BED_RINGS:
 		var r: float = rim * float(i + 1) / float(SMOKE_BED_RINGS)
-		var a: float = SNOW_BED_ALPHA * (1.0 - smoothstep(lo, rim, r))
+		var a: float = ba * (1.0 - smoothstep(lo, rim, r))
 		for j in SMOKE_BED_SEGMENTS:
 			var th: float = TAU * float(j) / float(SMOKE_BED_SEGMENTS)
 			verts.append(Vector3(sin(th) * r, 0.0, cos(th) * r))
@@ -1452,7 +1469,7 @@ func _red_shift() -> float:
 
 
 func _smoke_red() -> float:
-	if tint != "red":
+	if tint != "red" or source_look:
 		return 0.0
 	var q := Slots.arg("eorsmoke")
 	var i := (int(q) - 1) if q in ["1", "2", "3"] else SMOKE_RED_DEFAULT
