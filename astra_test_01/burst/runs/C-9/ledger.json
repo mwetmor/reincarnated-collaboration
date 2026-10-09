@@ -55193,6 +55193,13 @@
       "ts": "2026-10-09T17:03:12-04:00",
       "verbatim": "",
       "ruling": "P9c DISCRIMINATOR = INSTRUMENT (rule pre-registered in s54 before any frame): the shipped bob renders identically to a rigid case where the texture is attached by construction (<= 0.08% of floe pixels differ), and the tool reads the same ~0.095 px drift on both, chiefly from touching floes merged into one label and a silhouette estimate that runs 10-15% ahead. The floes are correct; no shader change. The P9c main-view reading 0.267 stays recorded as FAIL-as-read. RULED: RE-INSTRUMENT P9c, no bar change (the 're-instrumented or discarded; never threshold-tuned' rule): split merged labels into individual floes; validate the silhouette estimate against the rigid null (must read ~0 on rigid) and keep a RED that moves the texture relative to the floe; pre-register in calibration BEFORE re-reading; then re-read the main view and the L5 view. jack-ryan ratifies at Gate-2. PH's accidental 'rm -f /dev/null' (no effect; /dev/null intact) is recorded as a minor breach of the no-rm rule; no action. PT's shader check stands down (not a material defect)."
+    },
+    {
+      "id": "R-C9-337",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T17:06:23-04:00",
+      "verbatim": "",
+      "ruling": "R-C9-332 DONE (PT e6d561114): the blurry ledge snow was the image service's own soft paint (not the paste, field or build); ONE DEV-24 repaint ledge_grain-1 (layer 24; LR4 43/45) restores cell grain right of the cairns; the sunlit snow tongue at the lip stays slightly smoother (for Matt's eye; 2 images remain if he wants it crisper). New final painting painting_ph3_r332_full.png (pixels b6ab4dfe8b03); identity proof PASS (0 outside the paste mask; 0 pilot px outside the allowlist); build_inputs 223 OK; no model re-bake needed; new walk film on the direct route (76.3 s, 33/33 waypoints, sha 4b6a1b65241a), sent to Matt. PT's P9c A/B (shared 0.161 vs per-floe 0.207 px) agrees the shared material introduces nothing. Manifest 24 (0.97 GiB: the raw AVI, the old mere-route film, stuck-film dirs, prev_d26) executed by the conductor; build_inputs 223/0; disk 24 GiB. NEXT: PH re-runs the ledge-area rows on r332 + the re-instrumented P9c; then jack-ryan Gate-2 on the build; then M3' to Matt."
     }
   ],
   "grok_calls": [
@@ -56224,6 +56231,12 @@
       "ts": "2026-10-09T16:27:07-04:00",
       "by": "gandalf (conductor)",
       "text": "Manifest 23 executed by the conductor (617 files, 1.54 GiB); build_inputs 218/0 OK; disk 24 -> 25 GiB."
+    },
+    {
+      "id": "N-C9-CLEANUP-M24",
+      "ts": "2026-10-09T17:06:23-04:00",
+      "by": "gandalf (conductor)",
+      "text": "Manifest 24 executed (9 files, 0.97 GiB); build_inputs 223/0 OK; disk 24 GiB."
     }
   ]
 }
