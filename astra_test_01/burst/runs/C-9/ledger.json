@@ -51949,6 +51949,13 @@
       "ts": "2026-10-08T22:05:59-04:00",
       "verbatim": "",
       "ruling": "WAVE 3 (PT 2c0981d31; 13/~37 images): 3_1's metrics PASS but the longhall's ASH YARD (class ash, 19% of the chunk) is painted as clean snow, and the painter reports a small see-through gap under the eaves. ROOT CAUSE, CONDUCTOR-OWNED: geo v7 (R-C9-258) dropped v6's clause 'the FLAT DARKER GREY ground around them = a yard of trampled ash and soot'. RULED: GEO v7.1 = v7 plus every v6 class clause whose class is present in the guide of ANY remaining Phase 3' tile (PT diffs v6 vs v7 against the class list of the unpainted tiles: ash yard, fallen logs, palisade, inland crags, longhall walls/door, the river if present, and any other), restored in v6's own words, with pale/soft still only in the mere clause; the conductor reviews the restored clause list before any image. Then REPAINT 3_1 as 3_1-r1 under v7.1 (1-2 images; the current 3_1 is moved aside). ORDER: v7.1 review -> 3_1-r1 -> QA -> then the driver's ready set (0_4 now; 2_3 when 3_2 makes it ready), always by the driver's ready rule. Pilot and already-passed Phase 3' tiles (3_0, 4_0, 0_3-r1, 1_3-r1) are unaffected (no ash/log classes, or already correct)."
+    },
+    {
+      "id": "R-C9-288",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T22:07:35-04:00",
+      "verbatim": "",
+      "ruling": "GEO v7.1 APPROVED (PT eea435dd7; fid/pt/geo_bv2art_v7_1.txt, sha df4f33382e5b, 3481 chars): 12 v6 clauses restored, verbatim except two pale/soft removals outside the mere (shore ice, open water, heather tufts, sea cliffs, sea cave, steps, inland crags, longhall walls/door, charred gable, ASH YARD, palisade, fallen logs); snow/mere/reeds/shingle/stones/mound/wreck/openings kept as v7; the river and the ground-height sentence not restored. RISK NOTED: v7.1 is about 2x v1's length, and length dilution was one driver of the pilot-3 cream snow (R-C9-257). GUARD ADDED to per-wave QA for every v7.1 chunk: the s46 snow palette measures (lit a*/b*, peach share, shadow a*) on chunks with enough snow support; if lit a*/b* or peach share fall outside v1's range, STOP before the next wave. RELEASE: point the PH3 cfg at v7.1; move 3_1 aside; repaint 3_1-r1; QA (+ snow palette) and STOP; then the driver's ready rule (0_4; 2_3 when 3_2 is ready)."
     }
   ],
   "grok_calls": [
