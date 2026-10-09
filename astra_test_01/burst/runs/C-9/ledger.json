@@ -55179,6 +55179,13 @@
       "ts": "2026-10-09T16:51:47-04:00",
       "verbatim": "",
       "ruling": "P11 v3 on the FULL SITE (fresh blind galadriel, crops only; scored by the conductor against keys/abx3_site_v1_vs_site.json): catch 12/12 VALID; repeats 4/10 consistent; scored 27/40 = FAIL BY ONE (PASS iff <= 26/40), with no bar move. By class: snow 24/34, heather 3/6. The judge's cue was the snow's cell crispness and warmth (crisp warm peach with outlined lavender cells vs softer, cooler cells), which matches PH's snow forensic (soft draws propagated through paste context in 3_3-r1 / 4_3 / 4_4 and 4_0). Big improvement on the pilot (38 -> 30 -> 27). Disclosed at Gate-2 and to Matt with the cause."
+    },
+    {
+      "id": "R-C9-335",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T16:57:25-04:00",
+      "verbatim": "",
+      "ruling": "FULL-SITE HARNESS COMPLETE except P10 (PH c580871cb, s53): PASS P1, P2, P3 (sea 4.65; worst char 13.05), P4 rock, P4 ice, P6a (0 invented), P8 (0.553), P9 sway/flow/trail; P9c L5 view PASS. FAIL: P4 snow 3/6 judged; P5 a1 13/40; P5(b) y=3200 (carried); P11 27/40 (R-C9-334); NEW P9c main view rest-pose 0.267 px vs the frozen 0.25 bar, where about half the floes read 0.25-0.53 px with the TEXTURE moving 12-14% ahead of the silhouette along x (the pilot read 0.010). RULED: find the cause before Gate-2, no bar move. PH runs the floe-by-floe forensic with a frozen-bob null on the same floes (instrument vs material). PT in parallel checks the floe shader's rest-pose UV math under site_ph3 (window size or PILOT_PX constants from the pilot, the instance-uniform phase, the shared material's paint binding) against the pilot's per-floe path. If it is a material defect, fix it, re-measure P9c, and include it in the R-C9-332 ledge re-build."
     }
   ],
   "grok_calls": [
