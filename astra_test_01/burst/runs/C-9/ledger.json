@@ -51345,6 +51345,13 @@
       "ts": "2026-10-08T19:56:18-04:00",
       "verbatim": "",
       "ruling": "B-1 DEV-25c BUILT (Tier-B paint + stitch; flag-off proof PASS on textual identity and bit-equal DEV-23/25 runs 9/9; the byte-level flag-off stitch cmp is owed once disk >= 21 GiB). The built mask pastes HALF E [0,128); both arms are scored on E (bar 8.789), PH to record before either arm exists. B-2 DONE: the Phase 3' guide/ID/class at LV b5894d440 are sha-identical to the PS4 copies; all 25 tiles agree; pilot tiles unchanged (R-C9-189 PASS). Phase 3' cfg drafted (cfg_bv2a_ph3.json, BV2F-PH3, cfg_check OK, NOT RELEASED); the first chunk 3_0 is the A/B. RULED: per-chunk QA is a MANUAL STOP after each wave (PT runs one wave, stops, QA, the conductor releases the next); the frozen driver is not changed for it. Release of the A/B waits for disk >= 21 GiB and PH's half-E record."
+    },
+    {
+      "id": "R-C9-280",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-08T20:47:37-04:00",
+      "verbatim": "Oh should I stop the Mac OS update download?",
+      "ruling": "Disk back to 26 GiB (>= 21 gate). Host finding: SoftwareUpdate has AutomaticDownload=1 AND AutomaticallyInstallMacOSUpdates=1 (an auto-install restart would kill every session mid-run); 12 GB staged (macOS 27.0.1 major, Sequoia 15.8.1, Safari 27). Advised Matt to turn off automatic download and automatic macOS install, and to defer the major upgrade to a quiet point (T34 updated). PHASE 3' FIRST BURST RELEASED: (1) the byte-level DEV-25c flag-off stitch cmp first (flag unset = PS4 a25fb3; all flags off = Tier-A v1); (2) ph3_prepare.sh pins/copies; (3) the DEV-25c A/B on chunk 3_0 (+2 images; arms ab25cA / ab25cB, outside the driver); (4) score both arms on half E per s48(d) B-1 plus line-at-1:1 crops plus P6a; (5) STOP for the conductor's adoption ruling before ab_promote and wave 1."
     }
   ],
   "grok_calls": [
