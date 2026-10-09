@@ -55412,6 +55412,19 @@
         "a3aad9c1c",
         "a7adeed2f"
       ]
+    },
+    {
+      "id": "R-C9-351",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T19:10:52-04:00",
+      "verbatim": "In the arena debug sessions, the wrong whirlwind animation is being selected. I think that's an old incorrect whirlwind which was used at some point before we pivoted back to the one from the Synty arena work.. we need to use the same whirlwind we used in the referent play test I played of the arena. And then we need to make it about 70% opacity.",
+      "ruling": "The barrow_v2 arena warlord's whirlwind (drax used the JOIN-1 eor_overlay strips, 1f4fc16be/fddbabbf7) is the WRONG one. drax identifies with evidence the whirlwind drawn in the referent arena playtest Matt played (stopping and reporting if the records are ambiguous), switches the arena to it (variant-side only; kc2_runtime and reincarnated-godot untouched), and sets smoke opacity default 0.7 (eorsmokea; 1.0 = original), haze only where separable. Visual A/B still required this time. Ahead of waves 152-160.",
+      "cites": [
+        "R-C9-348",
+        "1f4fc16be",
+        "fddbabbf7",
+        "de2bc5c (reincarnated-godot KP-68)"
+      ]
     }
   ],
   "grok_calls": [
