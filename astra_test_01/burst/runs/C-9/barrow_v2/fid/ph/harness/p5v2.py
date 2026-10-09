@@ -217,3 +217,69 @@ def verdict_row(a, b, c, bars, a2_alive=True):
     fcg = [(x["boundary"], x["chunk"]) for x in c if x["grain_max"] is not None and x["grain_max"] > bars["c_grain"]]
     return {"a1_over": fa1, "a2_over": fa2, "b_over": fb, "c_tone_over": fct, "c_grain_over": fcg,
             "pass": not (fa1 or fa2 or fb or fct or fcg)}
+
+
+# --------------------------------------------------------------------------------------------------- DEV-29 (§ 51)
+def context_patch(canvas, key, patched, mask):
+    """DEV-29 (R-C9-299) as the STAGER applies it, on a PILOT canvas: every pixel of chunk `key`'s canvas whose PLATE
+    position lies inside the context_patch support `mask` takes the context_patch painting's pixel there; every other
+    pixel is the raw canvas, byte for byte. canvas: 1024 x 1536 x 3; patched / mask: plate-sized (H x W [x 3])."""
+    c, r = map(int, key.split("_"))
+    x0, y0 = SX * c, SY * r
+    out = canvas.copy()
+    H, W = mask.shape
+    h, w = min(CH, H - y0), min(CW, W - x0)
+    if h <= 0 or w <= 0:
+        return out
+    m = mask[y0:y0 + h, x0:x0 + w]
+    out[:h, :w][m] = patched[y0:y0 + h, x0:x0 + w][m]
+    return out
+
+
+def context_patch_selftest(canvas_path, key, seed=299):
+    """constructed check: a synthetic support mask (rects + a blob, inside and across the chunk's shared strips) and a
+    synthetic patched painting (= the canvas's plate pixels + 40 inside the mask, + a disjoint +80 'decoy' region OUTSIDE
+    the mask that must NEVER reach the canvas). PASS iff the changed pixels are exactly the mask pixels in the canvas
+    and equal the patched painting there, and every pixel outside the mask is byte-identical."""
+    A = load(canvas_path)
+    c, r = map(int, key.split("_"))
+    x0, y0 = SX * c, SY * r
+    Hp, Wp = y0 + CH + 300, x0 + CW + 300
+    rng = np.random.default_rng(seed)
+    mask = np.zeros((Hp, Wp), bool)
+    mask[y0 + 900:y0 + 1000, x0 + 100:x0 + 700] = True                    # across the bottom strip
+    mask[y0 + 200:y0 + 600, x0 + 1300:x0 + 1500] = True                   # in the right strip
+    yy, xx = np.mgrid[0:Hp, 0:Wp]
+    mask |= np.hypot(yy - (y0 + 980), xx - (x0 + 1450)) < 60              # the corner, partly outside the canvas
+    patched = np.zeros((Hp, Wp, 3), np.float32)
+    patched[y0:y0 + CH, x0:x0 + CW] = np.clip(A + 40, 0, 255)
+    decoy = np.zeros((Hp, Wp), bool)
+    decoy[y0 + 50:y0 + 150, x0 + 50:x0 + 400] = True
+    patched[decoy] = np.clip(patched[decoy] + 80, 0, 255)
+    A2 = context_patch(A, key, patched, mask)
+    m_c = mask[y0:y0 + CH, x0:x0 + CW]
+    changed = np.any(A2 != A, axis=-1)
+    return {"mask_px_in_canvas": int(m_c.sum()), "changed_px": int(changed.sum()),
+            "changed_outside_mask": int((changed & ~m_c).sum()),
+            "inside_mask_equals_patched": bool(np.array_equal(A2[m_c], patched[y0:y0 + CH, x0:x0 + CW][m_c])),
+            "decoy_leak_px": int((np.any(A2 != A, -1) & decoy[y0:y0 + CH, x0:x0 + CW]).sum()),
+            "pass": bool((changed & ~m_c).sum() == 0 and np.array_equal(A2[m_c], patched[y0:y0 + CH, x0:x0 + CW][m_c])
+                         and (np.any(A2 != A, -1) & decoy[y0:y0 + CH, x0:x0 + CW]).sum() == 0)}
+
+
+def a_pair_diag(A, B, band_e=False):
+    """a1 for a DIAGONAL pair (A = the upper-left chunk, B = its lower-right neighbour, which pasted A's corner as
+    context): the shared 256 x 256 corner (A[768:1024, 1280:1536] vs B[0:256, 0:256]); sigma 6 tone MAD; trim 12 px on
+    every edge; 128 x 128 segments (2 x 2). band_e (DEV-25c staged chunk): only B's [0:128, 0:128] corner-edge square."""
+    sa, sb = A[SY:CH, SX:CW], B[:OV, :OV]
+    ga = np.stack([ndimage.gaussian_filter(sa[..., k], 6) for k in range(3)], -1)
+    gb = np.stack([ndimage.gaussian_filter(sb[..., k], 6) for k in range(3)], -1)
+    d = np.abs(ga - gb).mean(-1)
+    lim = 128 if band_e else OV
+    segs = []
+    for y in range(0, lim, 128):
+        for x in range(0, lim, 128):
+            blk = d[max(y, TRIM):min(y + 128, lim - TRIM), max(x, TRIM):min(x + 128, lim - TRIM)]
+            if blk.size:
+                segs.append(float(blk.mean()))
+    return {"a1": segs, "raw_mad": round(float(np.abs(sa - sb).mean()), 2)}

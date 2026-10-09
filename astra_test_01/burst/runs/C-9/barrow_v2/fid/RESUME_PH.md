@@ -142,3 +142,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [x] B-1 DONE (E, bar 8.789; § 48 (d) B-1). was: when PT reports which a1 half the BUILT DEV-25c paste mask pastes (E = [0,128) canvas-edge / C = [128,256) interior; § 48 (d)), RECORD it in calibration.md and COMMIT before either A/B arm exists; both arms scored on that half (bars E 8.789 / C 11.045, § 49). (PT registration text says "the strip far half" = E by reading; the binding half comes from the built mask only.)
 - [ ] B-3 at M3: every candidate still phase-matched per § 50 (a), the pilot region included (view k <- T[k mod 6], +-0.10 px).
 - No Godot until disk >= 21 GiB (16-20 now: macOS update download, Matt T34).
+- [x] § 51 DEV-29 pre-registration: binding a1 at 0_2/0_3, 1_2/1_3, 2_2/2_3, 2_2\3_3 on the context-patched pilot canvas (p5v2.context_patch; selftest PASS); diag corner bars full 4.809 / E 4.691.

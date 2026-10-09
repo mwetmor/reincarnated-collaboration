@@ -1688,3 +1688,25 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
 - **Seen.** Pilot 1, 5 candidates in 0_2, conductor MATERIAL (R-C9-194). Phase 3′ wave 1, 1 candidate in **0_3 at plate (505, 3270)**, judged by the conductor by eye: not an invented opening (R-C9-282).
 - **Disposition at M3′ and in per-chunk QA (§ 48 (e)).** A P6a candidate whose 0.6 m window is ≥ 50 % water class (sea, lead, ice, ice_mid, tide_ice, shore_ice, stream) is routed to the conductor's **by-eye triage with its crop | overlay image** (`p6a_triage*.jsonl` row + image). It is **never** auto-failed on that ground and never auto-passed.
 - **The instrument, threshold and declared-opening list are unchanged.**
+
+## 51. PRE-REGISTRATION — DEV-29 (context patch) and a1 at the pilot-side joins (R-C9-299). Committed BEFORE any of those readings.
+
+**What DEV-29 does (R-C9-299; PT 3a766b237).** The stager pastes context from the RAW pilot canvases. DEV-29 then replaces the pasted pixels inside the **DEV-24 layer-4 support mask** with the **DEV-24-layer-4-patched pilot painting** (both sha-pinned in cfg `context_patch`). So the newer chunk is handed the patched geometry, not the pre-rebuild one.
+
+**Binding a1 at the pilot-side joins** **0_2/0_3, 1_2/1_3, 2_2/2_3 (vertical) and 2_2\3_3 (diagonal corner).**
+- **The pilot side** = the raw pilot PS4 canvas (`build_manifest_ps4.json`) **with the same context_patch substitution** the stager used: `p5v2.context_patch(canvas, key, patched_painting, mask)`. Every canvas pixel whose plate position lies inside the support mask takes the patched painting's pixel; every other pixel is the raw canvas, byte for byte.
+- **The patch inputs** are read from the pinned cfg `context_patch` entries (sha-checked against their recorded sha256 before use; a mismatch = STOP).
+- **The newer side** = its raw canvas.
+- **Band and bar** for vertical joins: half **E**, bar **8.789**, if the newer chunk was staged with DEV-25c (§ 48 (d) B-1); otherwise full 256, bar **9.569** (§ 44).
+- **Plain raw a1** (no substitution) is **reported, non-binding**, beside it.
+- **The diagonal join 2_2\3_3** is the shared 256 × 256 corner, A[768:1024, 1280:1536] against B[0:256, 0:256]; σ 6 tone MAD, trim 12, 128 × 128 segments (`p5v2.a_pair_diag`). It is restricted to the [0:128, 0:128] edge square if B was DEV-25c-staged.
+  - v1's corner bars, derived now on v1's 9 diagonal pairs (`results/p5v2_diag_calibration.json`): **full 4.809, E 4.691**.
+  - C2: R-C9-158's corners read **11.565 / 9.981** → FAIL ✓.
+  - C3: +6 sRGB on v1 3_3's corner of 2_2\3_3: full 3.08 → **8.01**, E 1.62 → **6.38**, both RED ✓.
+
+**Constructed check of the substitution** (`p5v2.context_patch_selftest`; `results/dev29_context_patch_selftest.json`).
+- **Inputs, on the pilot canvases 0_2, 1_2, 2_2:**
+  - a synthetic support mask: rects across the bottom strip and in the right strip, plus a corner blob partly outside the canvas;
+  - a synthetic patched painting: the canvas + 40 inside the mask, plus a **+80 decoy region OUTSIDE the mask**.
+- **Result, all three:** 150 347 mask px in the canvas, **150 347 changed px**, **0 changed outside the mask**, the inside equals the patched painting exactly, **decoy leak 0 px**. **PASS.**
+- **Per run.** The same check, on the real pinned mask and painting, runs before the first binding reading. Changed px ⊆ mask, and equal to the patched painting there.
