@@ -49077,9 +49077,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_3-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "ccd3fe1747349e77f17de2e8006c3fc65e2ee3f7de7bc2ccf504e1084decae25",
+      "started": "2026-10-09T05:06:42.213733+00:00",
+      "ended": "2026-10-09T05:09:35.627639+00:00",
+      "minutes": 2.8893511798465625,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f0e-708f-7fe3-a442-8cc2f522e89e/exec-09485307-c282-479e-8465-23898d1f0e9b.png",
+            "sha256": "a4f20e5ee5462325af7a7ba46f5566b91ba2f7940d6170dbd03b5c918398c549"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f0e-708f-7fe3-a442-8cc2f522e89e/exec-835a8fa3-4d7f-4ab1-a0c5-c117b1f101c8.png",
+            "sha256": "2ab1f27c422c429ab5d3138367fe3d43fd2b5622bbcfa22e24984ab06eda8f4c"
+          }
+        ]
+      },
+      "receipt_sha256": "ec929fdf0c82772efa6b605d5ac58db8f533758eef1f029ef81231d6acc251b6",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_3.png",
+          "sha256": "a4f20e5ee5462325af7a7ba46f5566b91ba2f7940d6170dbd03b5c918398c549"
+        },
+        {
+          "name": "exec-09485307-c282-479e-8465-23898d1f0e9b.provenance.json",
+          "sha256": "cf7d7e2e39735aca300992bd791ba14bc2e57d76c7da049a6a47d13a74a259cb"
+        },
+        {
+          "name": "exec-835a8fa3-4d7f-4ab1-a0c5-c117b1f101c8.provenance.json",
+          "sha256": "ab8423f4ea4d7dfa777f0cc8b54743cbcb6330dab121e7ceae2a0887adf25eef"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f0e-708f-7fe3-a442-8cc2f522e89e/exec-09485307-c282-479e-8465-23898d1f0e9b.png",
+          "sha256": "a4f20e5ee5462325af7a7ba46f5566b91ba2f7940d6170dbd03b5c918398c549"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f0e-708f-7fe3-a442-8cc2f522e89e/exec-835a8fa3-4d7f-4ab1-a0c5-c117b1f101c8.png",
+          "sha256": "2ab1f27c422c429ab5d3138367fe3d43fd2b5622bbcfa22e24984ab06eda8f4c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1424,
+  "images_used": 1426,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52962,6 +53035,13 @@
       "ts": "2026-10-09T01:05:26-04:00",
       "verbatim": "",
       "ruling": "2_3 PASS (a1 7.618; s51 7.80; rock PASS; P6a sea false positive). 3_3 SNOW-GUARD STOP upheld: lit a* 4.03, peach 0.979, shadow a* 4.93 above v1's range (a rosy cast, the opposite of pilot 3's cream); its a1 3_2/3_3 = 15.299 fails only at segments 1-2 (the stair blocks). RULED (a): REPAINT 3_3 as 3_3-r1 (1-2 images); the old 3_3 is moved aside and never used as context. CAP RAISED 40 -> 44 (29 used; 3_3-r1 plus 6 tiles at ~1.5 each = ~40, worst ~44; the run total stays far under 1750). Then 4_3, 0_4, 1_4, 2_4, 3_4, 4_4 by the ready rule, stopping only on a failed check."
+    },
+    {
+      "id": "R-C9-304",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T01:12:08-04:00",
+      "verbatim": "",
+      "ruling": "3_3-r1 (PT 58bd8a0ee; 31/44 images): the snow guard is in range (lit a* 2.68, b* 7.98, peach 0.851; shadow a* 4.63 just above v1's max, not a STOP criterion). (1) P4 snow spectrum 0.115 vs bar 0.097 FAILS (histogram passes; it looks the same as its neighbours on the sheet); the two paints landed on opposite sides of the two instruments, so NO further loop: CARRIED as a disclosed FAIL in the M3' packet. (2) a1 3_2/3_3 = 14.934 at segments 1-2 only; the shared corner lies 100% inside the DEV-29 mask (3_2-r1 was staged before layer 4 existed). Extending the s51 substitution to a non-pilot side AFTER reading would be a post-hoc instrument change, so it is NOT adopted for this join: CARRIED as 'raw FAIL, stitch-corrected', with PT's diagnostic (1.19-4.27 under substitution) recorded as non-binding context. Layer 4 overwrites that corner in the build. CONTINUE: 4_3, 0_4, 1_4, 2_4, 3_4, 4_4 by the ready rule, stopping only on a failed check."
     }
   ],
   "grok_calls": [
