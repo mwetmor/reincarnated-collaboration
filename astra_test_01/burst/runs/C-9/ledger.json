@@ -55484,6 +55484,12 @@
       "ts": "2026-10-09T14:06:27-04:00",
       "by": "gandalf (conductor), Matt's command",
       "text": "Manifest 21 (869 files, 3.33 GiB logical) executed with Matt's exact command; rm exit 0; build_inputs_check OK 179/0; disk 18 -> 21 GiB."
+    },
+    {
+      "id": "N-C9-CLEANUP-M22",
+      "ts": "2026-10-09T14:16:00-04:00",
+      "by": "gandalf (conductor), on Matt's direction",
+      "text": "Manifest 22 (100 site-bake surf_*.npz, 4.41 GiB) executed by the conductor on Matt's standing direction (Matt is away from the Mac); rm exit 0; build_inputs_check OK 179/0; disk 21 -> 26 GiB. PROCESS CHANGE (Matt): the conductor executes build-input-safe cleanup manifests it has prepared without waiting for Matt to paste the command; each still excludes every build_inputs path and is logged here."
     }
   ]
 }
