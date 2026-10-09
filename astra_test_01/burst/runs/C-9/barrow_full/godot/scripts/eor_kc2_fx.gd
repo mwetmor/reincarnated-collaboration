@@ -171,6 +171,12 @@ const ARC_CUTS := false                              # Matt: "remove all of the 
 const SMOKE_RED := Color(0.84, 0.46, 0.32)           # a dusty brick red, not fire, not blood (0.78/0.36/0.30 read mauve over the blue bed)
 const SMOKE_RED_STRENGTHS := [0.18, 0.30, 0.45]
 const SMOKE_RED_DEFAULT := 1                         # index: 0.30
+# C-9 (Matt via the conductor, 2026-10-09): the HAZE more transparent. One multiplier on the haze's alpha only (the
+# StandardMaterial's albedo alpha and the ember shader's "fade"); the dark bed, the cuts, the sparks and the embers are
+# untouched. ?eorsmokea=0.4|0.6|0.8|1.0 (desktop: -- --eorsmokea 0.8); 1.0 = the look before this change, exactly.
+const SMOKE_OPACITY_CHOICES := {"0.4": 0.4, "0.6": 0.6, "0.8": 0.8, "1.0": 1.0, "1": 1.0}
+const SMOKE_OPACITY_DEFAULT := 0.6
+var _smoke_opacity_k := -1.0
 # the fourth spark emitter, on the mace head: the source's _sparks() with these
 const HEAD_SPARK_AMOUNT := 32
 const HEAD_SPARK_LIFETIME_S := 0.35
@@ -1453,10 +1459,18 @@ func _smoke_red() -> float:
 	return float(SMOKE_RED_STRENGTHS[i])
 
 
+func _smoke_opacity() -> float:
+	if _smoke_opacity_k < 0.0:
+		var q := Slots.arg("eorsmokea")
+		_smoke_opacity_k = float(SMOKE_OPACITY_CHOICES[q]) if SMOKE_OPACITY_CHOICES.has(q) else SMOKE_OPACITY_DEFAULT
+	return _smoke_opacity_k
+
+
 func _apply_fade(f: float) -> void:
-	_haze_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
+	var k := _smoke_opacity()                      # the HAZE only; the bed below keeps f
+	_haze_mat.albedo_color = Color(1.0, 1.0, 1.0, f * k)
 	if _haze_ember != null:
-		_haze_ember.set_shader_parameter("fade", f)
+		_haze_ember.set_shader_parameter("fade", f * k)
 	_bed_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
 
 

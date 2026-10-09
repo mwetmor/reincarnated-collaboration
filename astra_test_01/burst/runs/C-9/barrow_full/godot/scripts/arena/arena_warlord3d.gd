@@ -15,6 +15,13 @@ const J = preload("res://scripts/arena/arena_art.gd")
 const Body3D = preload("res://scripts/arena/arena_body3d.gd")
 const OV_FPS := 30.0
 const OV_UNDER_FADE_S := 0.8
+## C-9 (Matt via the conductor, 2026-10-09): the EoR smoke more transparent -- the same knob as the walk's
+## eor_kc2_fx.gd (?eorsmokea / -- --eorsmokea 0.4|0.6|0.8|1.0, default 0.6; 1.0 = KC2's look exactly). Here the smoke is
+## KC2's pre-rendered overlay: the multiplier goes on the UNDER layer (the smoke bed + haze, baked together in one strip,
+## so the bed cannot be left out); the OVER layer (sparks, cuts) is untouched.
+const SMOKE_OPACITY_CHOICES := {"0.4": 0.4, "0.6": 0.6, "0.8": 0.8, "1.0": 1.0, "1": 1.0}
+const SMOKE_OPACITY_DEFAULT := 0.6
+var smoke_k := SMOKE_OPACITY_DEFAULT
 const OVER_VP := Vector2i(768, 768)
 const OVER_ANCHOR := Vector2(384.0, 416.0)     # the over layer's canvas anchor (768, 832) at stage scale 0.5
 
@@ -70,6 +77,8 @@ class OverDraw extends Node2D:
 
 func setup() -> void:
 	hero_kit = J.hero_kit()
+	var q := Slots.arg("eorsmokea")
+	smoke_k = float(SMOKE_OPACITY_CHOICES[q]) if SMOKE_OPACITY_CHOICES.has(q) else SMOKE_OPACITY_DEFAULT
 	if hero_kit == "" or J.kit_meta(hero_kit).is_empty():
 		push_error("[arena] the JOIN-1 hero pack is not staged (kc2_play/art/join1/%s)" % hero_kit)
 		return
@@ -243,7 +252,7 @@ func _under_show(seg: String, f: int, a: float) -> void:
 	under.texture = tex
 	under.region_rect = Rect2(float(fi % cols) * fw, float(fi / cols) * fh, fw, fh)
 	under.offset = Vector2(-float(anc[0]), float(anc[1]) - fh)
-	under.modulate = Color(1, 1, 1, a)
+	under.modulate = Color(1, 1, 1, a * smoke_k)
 	under.visible = true
 
 
