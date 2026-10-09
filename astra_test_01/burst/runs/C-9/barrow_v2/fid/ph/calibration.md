@@ -1900,3 +1900,45 @@ ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen
 - **Rule → INSTRUMENT** (rigid ≥ 0.5 × bobt and median Δr ≤ 0.05). The drift `floe_drift_v2` reports on these floes is the instrument's own error: it is read at the same size where no drift exists. Its largest values sit on the 62–65 k px labels, which are consistent with touching floes merged into one label (mixed motions). Texture runs ~10–15 % ahead of silhouette on several single floes.
 - **Static is deterministic** (r = 0.000): no render-noise floor.
 - **What this does NOT do.** It does not re-score § 53. P9c main view stays **FAIL 0.267 as read**; the bar is frozen. The § 54 times give smaller motions (bobt 0.095) than the production run (0.267), so this attributes the reading, it does not replace it. The path forward is a **re-instrument, never a threshold tune**: per-floe separation of merged labels, and silhouette estimation validated on exactly this rigid null. That is a ruling for the conductor and jack-ryan.
+
+## 56. PRE-REGISTRATION — P9c v3, RE-INSTRUMENTED (R-C9-336). Committed BEFORE any v3 reading. **No bar change** (≤ 0.25 px). The § 53 reading (main view 0.267) stays on record as **FAIL-as-read**; jack-ryan ratifies v3 at Gate-2.
+**Defects the v3 instrument removes** (from § 55 and an ID-render probe of the main view, which read no drift value):
+- (i) **Touching bobbing floes** share one marker label (the 62–65 k px pieces), so one reading mixes their motions.
+- (ii) **Static, non-bobbing ice and rock** stand beside and over the bobbing floes. Where they cover a bobbing floe's edge, the silhouette does not move with the floe while the texture does. That is the "texture ahead of silhouette" signature.
+
+**Capture** (`ph_life.gd life … --floe-null <mode> --floe-ids --floe-solo --floe-pairs 5`; pair k: t0 = 1.0 + 1.2k, t1 = t0 + 0.5):
+- **`--floe-solo`:** every non-floe GeometryInstance3D is hidden for the marker, ID and hide_floe shots. This extends § 31 A1, which hid only the sea.
+- **`--floe-ids`:** after every marker shot, an ID shot at the same pose. Each bobbing floe is drawn in a flat unshaded palette colour.
+- **Bob path:** `bobt` is the shipped bob with TIME → `ph_t`. § 55 showed it renders image-identical to the attached-by-construction rigid path.
+
+**Instrument** (`harness/site_p9c_v3.py`, committed with this section):
+- Each floe is measured alone, by its ID label.
+- Pixels within 6 px of any other bobbing floe (in either frame) are excluded from both the silhouette edge weights and the texture core.
+- A floe whose box (+16 px) leaves the screen is skipped.
+- Silhouette and texture are each read by LK, as v2.
+- Statistic **unchanged**: median drift over samples with motion ≥ 0.25 px.
+
+**Validation — binding precondition, read FIRST, on BOTH views:**
+- **Rigid null** (true drift 0): median ≤ **0.05 px** with ≥ 10 samples.
+- **Static:** max |r| ≤ **0.02 px**.
+- **RED** (`bobt --floe-red`: the projection follows the bob, so the texture slides against the floe): median **> 0.25** (FAIL).
+- If any of these misses, **v3 is not usable**. It is reported, never tuned, and P9c stays FAIL-as-read.
+
+**Reading** (only after the validation passes): `bobt` at the main view uv (−23.976, −21.834) and the L5 view uv (−18.409, −23.42).
+- **Binding: the main view** (F-4's chosen view).
+- **The L5 view is reported beside it.** A FAIL there is disclosed as a FAIL.
+
+## 57. PRE-REGISTRATION — the r332 re-run (R-C9-337; ledge fix = DEV-24 layer 24, rect [2700, 2700, 4236, 3724]). Committed BEFORE any r332 value.
+- **Painting:** `pt/ph3/final/painting_ph3_r332_full.png` = `pt/site/painting.png`, file sha `901305202936…`.
+- **Rows.** Every § 52 rule is unchanged. PH re-runs every painting-dependent row on the **whole site**, not only the touched chunks; it is cheap, and a partial re-run cannot miss a neighbour:
+  - P1 and P2 (P2 at c4d4a48b2);
+  - P3 (fresh `ph_p3_sea.gd` capture on the rebuilt site);
+  - P4;
+  - **P5(b)** — a1 is on the raw canvases, which r332 does not touch; it is re-run to prove that;
+  - P6a on the painting (canvas candidates unchanged);
+  - P8;
+  - P9 (sway, flow, trail).
+- **Affected by geometry:** chunks 1_3, 2_3, 3_3, 1_4, 2_4, 3_4; seams x = 2688 and x = 3968 (band overlap) and y = 3200.
+- **P6a:** new candidates inside the patch go to by-eye triage as in § 52 (d).
+- **P11 is not rebuilt.** It was judged on r328 stills (27/40, valid FAIL; R-C9-335). Whether r332 needs a new set is the conductor's call.
+- **P9c v3 (§ 56) runs on the r332 build.**

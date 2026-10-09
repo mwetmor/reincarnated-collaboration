@@ -18,6 +18,8 @@ var view := ""
 var no_wind := false
 var floe_red := false     # --floe-red: the floes' projection taken AFTER the bob (world-anchored paint: P9c's RED input)
 var floe_null := ""       # --floe-null bobt|rigid|static (s54, R-C9-335): P9c discriminator; bob driven by a uniform ph_t
+var floe_ids := false     # --floe-ids (s56, R-C9-336): after every controlled-time marker shot, a per-floe ID shot (floe_idN)
+var floe_solo := false    # --floe-solo (s56): every non-floe GeometryInstance3D hidden for the marker / ID / hide_floe shots (extends s31 A1)
 var floe_pairs := 1       # --floe-pairs N: N marker pairs (m0, m1 0.5 s apart), pairs 0.7 s apart (R-C9-197 pre-registration)
 var t_ready_us := 0       # R-C9-201: ready_done as this tool sees it (the perf trace's zero)
 var idle := false         # --idle: perf with him STANDING at <view> (R-C9-276 report-only water-cost view)
@@ -40,6 +42,8 @@ func _initialize() -> void:
 		loop_arg = a[a.find("--loop") + 1]
 	if a.has("--floe-null"):
 		floe_null = a[a.find("--floe-null") + 1]
+	floe_ids = a.has("--floe-ids")
+	floe_solo = a.has("--floe-solo")
 	if a.has("--floe-pairs"):
 		floe_pairs = int(a[a.find("--floe-pairs") + 1])
 	if a.has("--burn-ms"):
@@ -241,10 +245,12 @@ func _life() -> void:
 					var bob_blk := c2.substr(blk0, blk1 + "	VERTEX += inverse(mat3(MODEL_MATRIX)) * wd;\n".length() - blk0)
 					var nb: String
 					if floe_null == "bobt":
-						nb = bob_blk.replace("TIME", "ph_t")
+						nb = bob_blk
 					else:
 						nb = "	v_world -= ph_off;   // PH s54 null: node moved by wd, projection held at rest\n"
 					c2 = c2.replace(bob_blk, nb)
+					if floe_null == "bobt":
+						c2 = c2.replace("TIME", "ph_t")     # the bob, and the RED's projection bob when --floe-red
 					c2 = c2.replace("uniform float his_shadow_on = 1.0;\n", "uniform float his_shadow_on = 1.0;\nuniform float ph_t = 0.0;\ninstance uniform vec3 ph_off = vec3(0.0);\n")
 					var sh2 := Shader.new()
 					sh2.code = c2
@@ -253,6 +259,16 @@ func _life() -> void:
 			var sea_h: Array = _pilot_sea() if floe_pairs > 1 else []
 			for w in sea_h:
 				(w as Node3D).visible = false
+			var solo_h := []
+			if floe_solo:
+				var fset := {}
+				for mi in fl:
+					fset[mi] = true
+				for gi in scene.find_children("*", "GeometryInstance3D", true, false):
+					if not fset.has(gi) and (gi as Node3D).visible:
+						(gi as Node3D).visible = false
+						solo_h.append(gi)
+				rep["floe_solo_hidden"] = solo_h.size()
 			await _settle()
 			var rest := {}
 			for mi in fl:
@@ -267,9 +283,13 @@ func _life() -> void:
 					_null_set(fl, saved, rest, nt0)
 					await _settle()
 					await _shot("floe_m0" + sfx)
+					if floe_ids:
+						await _id_shot(fl, "floe_id0" + sfx, rest, nt0)
 					_null_set(fl, saved, rest, nt1)
 					await _settle()
 					await _shot("floe_m1" + sfx)
+					if floe_ids:
+						await _id_shot(fl, "floe_id1" + sfx, rest, nt1)
 					continue
 				if k > 0:
 					await _wait_s(0.7)
@@ -287,6 +307,8 @@ func _life() -> void:
 				(mi as Node3D).visible = false
 			await _settle()
 			await _shot("hide_floe")
+			for gi in solo_h:
+				(gi as Node3D).visible = true
 			for w in sea_h:
 				(w as Node3D).visible = true
 			for mi in fl:
@@ -408,3 +430,36 @@ func _null_set(fl: Array, saved: Dictionary, rest: Dictionary, t: float) -> void
 		var wd := _bob_wd(t, phase)
 		(mi as Node3D).global_position = rest[mi] + wd
 		(mi as GeometryInstance3D).set_instance_shader_parameter("ph_off", wd)
+
+
+func _id_color(j: int) -> Color:
+	"""s56: floe j -> a flat unshaded colour from 6 x 6 x 2 levels (R, G in {0, 51, ..., 255}; B in {0, 255}); decoded by
+	nearest palette entry, MSAA-blended edge px rejected by distance"""
+	var r := j % 6
+	var g := (j / 6) % 6
+	var b := (j / 36) % 2
+	return Color8(r * 51, g * 51, b * 255)
+
+
+func _id_shot(fl: Array, nm: String, rest: Dictionary, t: float) -> void:
+	"""the ID shot at the SAME pose: in bobt (vertex bob, which a StandardMaterial lacks) each node is placed at rest + wd(t)
+	for the shot (the rigid pose s55 showed image-identical) and put back after; rigid/static nodes are already there"""
+	if floe_null == "bobt":
+		for mi in fl:
+			(mi as Node3D).global_position = rest[mi] + _bob_wd(t, float((mi as Node).get_meta("bob_phase", 0.0)))
+	var keep := {}
+	for j in fl.size():
+		var mi := fl[j] as GeometryInstance3D
+		keep[mi] = mi.material_override
+		var sm := StandardMaterial3D.new()
+		sm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		sm.albedo_color = _id_color(j + 1)
+		mi.material_override = sm
+	await _settle(2)
+	await _shot(nm)
+	for mi in keep:
+		(mi as GeometryInstance3D).material_override = keep[mi]
+	if floe_null == "bobt":
+		for mi in fl:
+			(mi as Node3D).global_position = rest[mi]
+	await _settle(2)

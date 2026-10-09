@@ -25,5 +25,6 @@ for v in "$@"; do
     null) for m in bobt rigid static; do
             run $R/p9c_null_$m --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_null_$m uv:-23.976,-21.834 --floe-pairs 5 --floe-null $m
           done ;;
+    idprobe) run $R/p9c_idprobe --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_idprobe uv:-23.976,-21.834 --floe-pairs 2 --floe-null static --floe-ids --floe-solo ;;
   esac
 done
