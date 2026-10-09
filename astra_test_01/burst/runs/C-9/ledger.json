@@ -55303,6 +55303,13 @@
       "ts": "2026-10-09T17:48:38-04:00",
       "verbatim": "",
       "ruling": "R-C9-339 LEDGE IN THE BUILD (PT cda7ca36f): DEV-24 layer 25 (hightide-1, soft pinned correction); the paste mask = every tide_ice pixel on the site (369,857 px), cave-mouth floor inside (14,076/14,076); the mask declaration was written after firing (disclosed; it matches the pinned mask). Identity proof r339 vs r332 PASS: chain identity, 369,555 px changed all inside the mask, tide_ice only, 0 pilot px, guide/ids/class sha-identical to d26d14c55. Final painting painting_ph3_r339_full.png (pixels 1e5f9dd90c0f). Edge probe: boundary gradient unchanged (13.98 -> 13.96), colour step reduced (23.8 -> 15.34), so no new seam. No re-bake; prep/guide pass; render vs painting 1.87 on the ledge. Evidence of record: r339_evidence/ still + 11.2 s clip (sent to Matt). LR4 44/48; build_inputs 231 OK. PH re-runs per its s59 pre-registration (376eaf216, committed before r339 existed): a1/P4/P5 on 2_3, 3_3, 2_4, 3_4; P2; P6a with the kelp mode; P11 footprint check on stills site_15/16/17/21/22/23 (P11 stands only if 0 crop intersections); the C-2 re-crops. Then the delta Gate-2 by jack-ryan, then the M3' packet."
+    },
+    {
+      "id": "R-C9-344",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T17:57:39-04:00",
+      "verbatim": "That's perfect! Let me know when ready for the full site review. Then let's move to play a version of the arena here.",
+      "ruling": "Matt APPROVES the high-tide ledge ('perfect'). SEQUENCE: (1) finish PH's r339 delta re-runs + jack-ryan's delta Gate-2 + the Gate-2 conditions (C-2..C-7) -> the M3' FULL-SITE REVIEW packet to Matt; (2) after M3' is ratified, the ARENA: play a version of the KC2 wave fight inside barrow_v2 using Matt's R-C9-318 plan (six spawns: three doorways = barrow door, longhall great door, sea cave; three features = wreck, mere ambush, collapsed gable; size-matched entrances). SCOPING STARTS NOW in parallel (no build, no images): the conductor asks the Sim Session (owner of kc2_play / the runtime and the sealed spawn pack) what it takes to run the wave sim in the barrow_v2 3D level: the anchor mapping p01-p06 to the barrow_v2 positions, the runtime entry point, enemy GLBs and clips, the entrance VFX hooks (DV over the new paint), the camera and controls, and performance."
     }
   ],
   "grok_calls": [
