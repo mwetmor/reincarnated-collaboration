@@ -52280,6 +52280,13 @@
       "ts": "2026-10-08T22:36:18-04:00",
       "verbatim": "",
       "ruling": "PT prep (9b7523c82) ACCEPTED: Tier-B src_suffixes for second repaints (absent = v1's rule; flag-off cmp = a25fb3), the allowlist pins check with its 4 controls, and DEV-24 layer 4 for pilot A+C grouped into <= 4 bursts. BUDGET: the Phase 3' cap is raised from ~37 to 40 (expected ~34, worst 39); DEV-24 stays within its own 24 (8 left). Order after LV's rebuild review: pins with the allowlist -> 0_3/1_3 as -r2 -> pilot DEV-24 A+C with crops -> ice/cave tiles by the ready rule, QA stop per wave."
+    },
+    {
+      "id": "R-C9-297",
+      "by": "gandalf (conductor, DRIFT-CRITIC on LV 023686e3c)",
+      "ts": "2026-10-09T00:11:46-04:00",
+      "verbatim": "",
+      "ruling": "LV R-C9-294 rebuild (023686e3c) PASS: ice proof 0/0/0 px overlap, all drifts flush, thresholds hold; pilot byte check 0 px outside the allowlist; the zig-zag rims, the remnant left of the wreck, the mere seams and the cradle cracks ('ropes and stick') are gone; Phase 3' sea is one partition of 116 floes with varied sizes and open leads; the cave-top columns are rounded with conformal snow caps; walkability 8/8, mouth clearance 7.10 m. Noted for Matt's eye, not looped: some S-pack floes have similar notched outlines; the pilot keeps 10.1 m2 of LOCKED stacking outside the rects (rule). 3_2 RULING: REPAINT 3_2 as 3_2-r1 (1-2 images), NOT DEV-24, because 3_2's raw bottom strip is the paste context for 3_3 and 2_3, and a post-stitch patch would leave that strip on the old columns. RELEASE ORDER: (1) pins from 023686e3c with the allowlist (A + C + the 38 crack rects); (2) 3_2-r1; (3) 0_3/1_3 as -r2; (4) pilot DEV-24 layer 4 for A + C + crack rects, <= 4 grouped bursts; (5) the remaining ice/cave tiles by the ready rule, QA stop per wave. Budget: 19 used; expected ~36 of the 40 cap."
     }
   ],
   "grok_calls": [
