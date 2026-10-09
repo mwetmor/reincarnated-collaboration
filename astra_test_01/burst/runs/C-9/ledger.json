@@ -49150,9 +49150,143 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-4_3",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "03eb4574543ddf350e0a054a43da05affff2867981789a6f17d8c5f02065e0b3",
+      "started": "2026-10-09T05:13:27.098492+00:00",
+      "ended": "2026-10-09T05:15:27.825521+00:00",
+      "minutes": 2.012093669451618,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f14-a052-7262-8b76-c52d0c7a5061/exec-89ebb794-75c4-4d6d-b92f-591722bbd11f.png",
+            "sha256": "cf46266e83748aadd1f8a54efca3c5662d7fc5557da61c388113b12eaf6d0852"
+          }
+        ]
+      },
+      "receipt_sha256": "a7bff74a1e9a582917f20a5853c014e2becfeb99cd178d06607797f8f2d12f7c",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-4_3.png",
+          "sha256": "cf46266e83748aadd1f8a54efca3c5662d7fc5557da61c388113b12eaf6d0852"
+        },
+        {
+          "name": "exec-89ebb794-75c4-4d6d-b92f-591722bbd11f.provenance.json",
+          "sha256": "2d55cb1a86fe22297b8911bc698e4d31140f6e485622c8db467b3bcd8b8e8ed9"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f14-a052-7262-8b76-c52d0c7a5061/exec-89ebb794-75c4-4d6d-b92f-591722bbd11f.png",
+          "sha256": "cf46266e83748aadd1f8a54efca3c5662d7fc5557da61c388113b12eaf6d0852"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-0_4",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "c6b05fda4c34cec239eba7bba8901eb865579ab9a00bc76582adc2b0fe0e29b1",
+      "started": "2026-10-09T05:13:27.098493+00:00",
+      "ended": "2026-10-09T05:17:21.689618+00:00",
+      "minutes": 3.909808390265486,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f14-a0e1-7eb1-9d18-ec5023466c2f/exec-c51e0d06-3f48-4d8a-9108-5cded0eb3da2.png",
+            "sha256": "99e0457b1cfed614ee953ef056f7ab3e3fe8ee06f9eccbdd06432b6a151e57d0"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f14-a0e1-7eb1-9d18-ec5023466c2f/exec-f7212031-39e1-4411-9e00-d3b644fbdd64.png",
+            "sha256": "15f7450ada46234043bcf4bb49b20912dfe3094cd4df44d973735d09ba9eb6a1"
+          }
+        ]
+      },
+      "receipt_sha256": "2e1e8990314bd6eb508643898d0c7002890674d635f428166d7f6889743d037e",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-0_4.png",
+          "sha256": "15f7450ada46234043bcf4bb49b20912dfe3094cd4df44d973735d09ba9eb6a1"
+        },
+        {
+          "name": "exec-c51e0d06-3f48-4d8a-9108-5cded0eb3da2.provenance.json",
+          "sha256": "3beeda7534a080a4b867001e83cd303a65a6d2a76715f7a44f63ccd32af4350e"
+        },
+        {
+          "name": "exec-f7212031-39e1-4411-9e00-d3b644fbdd64.provenance.json",
+          "sha256": "a8b34c5249243692d2296852c88021346fa2c9b1c5160497255f7672e419147f"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f14-a0e1-7eb1-9d18-ec5023466c2f/exec-c51e0d06-3f48-4d8a-9108-5cded0eb3da2.png",
+          "sha256": "99e0457b1cfed614ee953ef056f7ab3e3fe8ee06f9eccbdd06432b6a151e57d0"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f14-a0e1-7eb1-9d18-ec5023466c2f/exec-f7212031-39e1-4411-9e00-d3b644fbdd64.png",
+          "sha256": "15f7450ada46234043bcf4bb49b20912dfe3094cd4df44d973735d09ba9eb6a1"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1426,
+  "images_used": 1429,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -53042,6 +53176,13 @@
       "ts": "2026-10-09T01:12:08-04:00",
       "verbatim": "",
       "ruling": "3_3-r1 (PT 58bd8a0ee; 31/44 images): the snow guard is in range (lit a* 2.68, b* 7.98, peach 0.851; shadow a* 4.63 just above v1's max, not a STOP criterion). (1) P4 snow spectrum 0.115 vs bar 0.097 FAILS (histogram passes; it looks the same as its neighbours on the sheet); the two paints landed on opposite sides of the two instruments, so NO further loop: CARRIED as a disclosed FAIL in the M3' packet. (2) a1 3_2/3_3 = 14.934 at segments 1-2 only; the shared corner lies 100% inside the DEV-29 mask (3_2-r1 was staged before layer 4 existed). Extending the s51 substitution to a non-pilot side AFTER reading would be a post-hoc instrument change, so it is NOT adopted for this join: CARRIED as 'raw FAIL, stitch-corrected', with PT's diagnostic (1.19-4.27 under substitution) recorded as non-binding context. Layer 4 overwrites that corner in the build. CONTINUE: 4_3, 0_4, 1_4, 2_4, 3_4, 4_4 by the ready rule, stopping only on a failed check."
+    },
+    {
+      "id": "R-C9-305",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T01:20:03-04:00",
+      "verbatim": "",
+      "ruling": "WAVE 4_3 + 0_4 (PT 55f5e769c; 34/44 images): 4_3 snow guard in range; P4 snow spectrum 0.151 vs 0.097 FAILS (histogram passes): CARRIED as a disclosed FAIL. STANDING RULE for the rest of Phase 3': a P4 snow SPECTRUM FAIL with the snow guard in range AND the histogram passing is carried and disclosed without stopping. FLAGGED as a SYSTEMIC pattern (3_3-r1, 4_3) for PH/jack-ryan at the M3' gate; the conductor's hypothesis is that geo v7.1's 'rounded cobble cells' wording pushes the cell spectrum, not a bar change. 0_3/0_4 a1 11.586 (segments 11-12 only, no line) carried. 0_4's 4 P6a candidates are open sea (registered false-positive mode). NOTED FOR MATT'S EYE: the painter drew a net of pale crack lines over 0_4's OPEN WATER (reads as thin cracked new ice); the conductor does not stop painting for it; it is in the M3' packet with its crop. CONTINUE: 1_4, 2_4, 3_4, 4_4."
     }
   ],
   "grok_calls": [
