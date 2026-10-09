@@ -50,4 +50,6 @@ rec = {"_what": "BV2F PHASE 3' pins (%s): guide + ID + class COPIES and the 25 t
        "r_c9_189": "PASS: the 9 pilot tiles equal the pilot pins" if not pil_changed else "HALT: pilot tiles changed -> repaint (R-C9-189)"}
 json.dump(rec, open(OUT + "/pins_ph3.json", "w"), indent=1)
 print(json.dumps({"guide": copies["guide"]["sha256"][:12], "tiles": len(tiles), "bad": bad, "pilot_changed": pil_changed}))
-sys.exit(1 if (bad or pil_changed) else 0)
+# R-C9-295: with --allow <rects.json>, changed PILOT tiles are not a HALT here -- pilot_pins_check.py --allow judges them
+# pixel-wise against the declared rectangles (run it next); without --allow, R-C9-189 as before
+sys.exit(1 if (bad or (pil_changed and "--allow" not in sys.argv)) else 0)

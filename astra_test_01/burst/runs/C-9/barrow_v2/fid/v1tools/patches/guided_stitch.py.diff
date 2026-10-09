@@ -1,6 +1,14 @@
 --- tierA/conductor_scripts/guided_stitch.py	2026-10-06 20:36:42
-+++ tierB/conductor_scripts/guided_stitch.py	2026-10-08 19:52:40
-@@ -18,20 +18,343 @@
++++ tierB/conductor_scripts/guided_stitch.py	2026-10-08 22:33:58
+@@ -12,26 +12,351 @@
+ W, H, SX, SY = 1536, 1024, 1280, 768; OV = W - SX
+ assert OV == H - SY
+ def src(k):
++    for s_ in cfg.get('src_suffixes', []):   # BV2F R-C9-295: later repaints (cfg src_suffixes, e.g. ['-r3', '-r2']) tried first; absent = v1
++        if (A9/f'{P}-{k}{s_}'/f'{P}-{k}.png').exists(): return A9/f'{P}-{k}{s_}'/f'{P}-{k}.png'   # BV2F
+     for d in (f'{P}-{k}-r1', f'{P}-{k}'):
+         p = A9/d/f'{P}-{k}.png'
+         if p.exists(): return p
      sys.exit(f'chunk {k} is not painted')
  acc = np.zeros(((ROWS-1)*SY + H, (COLS-1)*SX + W, 3)); wsum = np.zeros(acc.shape[:2])
  up = np.linspace(0, 1, OV, endpoint=False) + 0.5/OV

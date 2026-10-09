@@ -13,6 +13,12 @@ from PIL import Image
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sha = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
 pins = json.load(open(os.path.join(FID, "pt", "pilot", "pins.json")))
+# R-C9-295: --allow <rects.json> = LV's DECLARED pilot rectangles ({"rects": [[x0, y0, x1, y1], ...] plate px, x1/y1
+# exclusive}): a pilot tile may differ ONLY inside them -- judged pixel-wise on LV's current guide vs the pinned copy;
+# any differing pixel outside them (and outside the known-inert box) still HALTs. No --allow = the R-C9-189 rule as before.
+ALLOW = None
+if "--allow" in sys.argv:
+    ALLOW = json.load(open(sys.argv[sys.argv.index("--allow") + 1]))["rects"]
 bad = []
 g = os.path.join(FID, pins["guide"]["pinned_copy"].replace("fid/", "", 1))
 if sha(g) != pins["guide"]["sha256"]:
@@ -23,9 +29,13 @@ for k, t in pins["tiles"].items():
     if not os.path.exists(p) or sha(p) != t["sha256"]:
         if k in ki.get("tiles", []):
             print("[pins] note: LV tile %s differs (known, inert: %s) -- checked pixel-wise below" % (k, ki.get("ruling")))
+        elif ALLOW is not None:
+            print("[pins] note: LV tile %s differs -- judged pixel-wise against the declared rectangles below" % k)
         else:
             bad.append("pilot tile %s changed in LV's guide (%s) -> repaint per R-C9-189" % (k, t["file"]))
 cur = os.path.join(FID, "lv", "guide_art", "guide_art.png")
+if "--cur" in sys.argv:   # R-C9-295 test hook: judge THIS image as LV's current guide (constructed controls; LV's files untouched)
+    cur = sys.argv[sys.argv.index("--cur") + 1]
 if os.path.exists(cur) and sha(cur) != pins["guide"]["sha256"]:
     a = np.asarray(Image.open(cur).convert("RGB"))[:2560, :4096]
     b = np.asarray(Image.open(g).convert("RGB"))[:2560, :4096]
@@ -36,6 +46,13 @@ if os.path.exists(cur) and sha(cur) != pins["guide"]["sha256"]:
         ys, xs = np.nonzero(d)
         x0, y0, x1, y1 = ki.get("box_px", [0, 0, -1, -1])
         inside = bool(xs.min() >= x0 and xs.max() <= x1 and ys.min() >= y0 and ys.max() <= y1)
+        if ALLOW is not None:   # R-C9-295: every differing pixel must lie in a declared rectangle (or the known-inert box)
+            ok = np.zeros_like(d)
+            for rx0, ry0, rx1, ry1 in ALLOW + ([[x0, y0, x1 + 1, y1 + 1]] if x1 >= x0 else []):
+                ok[max(0, ry0):ry1, max(0, rx0):rx1] = True
+            out = d & ~ok
+            inside = not out.any()
+            print("[pins] allowlist: %d differing px, %d inside the %d declared rectangles, %d OUTSIDE" % (d.sum(), (d & ok).sum(), len(ALLOW), out.sum()))
         print("[pins] LV's guide differs inside the pilot window: %d px in x %d-%d, y %d-%d -> %s" % (d.sum(), xs.min(), xs.max(), ys.min(), ys.max(), "inside the known-inert box (%s)" % ki.get("ruling") if inside else "OUTSIDE the known-inert box"))
         if not inside:
             bad.append("LV's current guide differs inside the pilot window outside the known-inert box")

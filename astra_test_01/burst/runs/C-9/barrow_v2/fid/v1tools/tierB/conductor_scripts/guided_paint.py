@@ -6,6 +6,8 @@ B = pathlib.Path('/Users/admin/Games/reincarnated-collaboration/astra_test_01/bu
 cfg = json.load(open(sys.argv[1])); P = cfg['prefix']; GUIDE = Image.open(cfg['guide']).convert('RGB'); COLS, ROWS = cfg['cols'], cfg['rows']
 ORDER = [(c, r) for r in range(ROWS) for c in range(COLS)]
 def src(k):
+    for s_ in cfg.get('src_suffixes', []):   # BV2F R-C9-295: later repaints (cfg src_suffixes, e.g. ['-r3', '-r2']) tried first; absent = v1
+        if (A9/f'{P}-{k}{s_}'/f'{P}-{k}.png').exists(): return A9/f'{P}-{k}{s_}'/f'{P}-{k}.png'   # BV2F
     for d in (f'{P}-{k}-r1', f'{P}-{k}'):
         p = A9/d/f'{P}-{k}.png'
         if p.exists(): return p

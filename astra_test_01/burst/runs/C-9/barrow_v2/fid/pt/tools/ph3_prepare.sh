@@ -9,8 +9,11 @@ CFG=$FID/pt/pilot/cfg_bv2a_ph3.json; GP=$FID/v1tools/tierB/conductor_scripts/gui
 WAVE=$FID/v1tools/tierA/conductor_scripts/wave.sh
 disk() { F=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); [ $F -ge 21 ] || { echo "HALT: disk ${F} GiB < 21"; exit 9; }; }
 case ${1:?step} in
-  pins)   # B-2: guide + ID + class copies and the 25 tiles from LV b5894d440; the 9 pilot tiles must be unchanged
-    python3 $FID/pt/tools/ph3_pin.py b5894d440 R-C9-278 && python3 $FID/pt/tools/pilot_pins_check.py ;;
+  pins)   # re-pin: zsh ph3_prepare.sh pins <lv_commit> <ruling> [<allow rects.json>] -- guide + ID + class copies and the 25
+          # tiles; the 9 pilot tiles unchanged, or (R-C9-295) changed ONLY inside LV's declared rectangles (pixel-wise)
+    C_=${2:-b5894d440}; R_=${3:-R-C9-278}; AL=${4:-}
+    if [ -n "$AL" ]; then python3 $FID/pt/tools/ph3_pin.py $C_ $R_ --allow $AL && python3 $FID/pt/tools/pilot_pins_check.py --allow $AL
+    else python3 $FID/pt/tools/ph3_pin.py $C_ $R_ && python3 $FID/pt/tools/pilot_pins_check.py; fi ;;
   copies) # the 9 pilot canvases as BV2F-PH3-<k> byte copies (the frozen driver's done() and the stitch's src())
     disk
     python3 - <<PY
@@ -49,10 +52,11 @@ json.dump(c,open('$CFG','w'),indent=1,ensure_ascii=False); print('winner $W; dev
     export BV2F_DEV28=1
     if python3 -c "import json,sys;sys.exit(0 if json.load(open('$CFG')).get('dev25c_chunks') else 1)"; then export BV2F_DEV25C=1; else unset BV2F_DEV25C; fi
     L=$HOME/astra-burst/logs/C-9
-    for suf in "" "-r1"; do
+    S0=${PH3_SUF0:-}; S1=${PH3_SUF1:--r1}   # R-C9-295: a re-repaint runs as PH3_SUF0=-r2 PH3_SUF1=-r3 (cfg src_suffixes lists them)
+    for suf in "$S0" "$S1"; do
       specs=()
       for k in $@; do
-        if [ -n "$suf" ]; then ex=$(python3 -c "import json;print(json.load(open('$L/BV2F-PH3-$k''_run.json'))['exit'])" 2>/dev/null); [ "$ex" = "0" ] && continue; fi
+        if [ "$suf" = "$S1" ]; then ex=$(python3 -c "import json;print(json.load(open('$L/BV2F-PH3-$k$S0''_run.json'))['exit'])" 2>/dev/null); [ "$ex" = "0" ] && continue; fi
         SUF=$suf python3 $GP $CFG stage $k && SUF=$suf python3 $GP $CFG brief $k || { echo "HALT: stage/brief $k$suf"; exit 3; }
         python3 $RG briefs/C-9/BV2F-PH3-$k$suf.task.json || { echo "HALT: refs_guard $k$suf"; exit 3; }
         specs+=("BV2F-PH3-$k$suf:GENERATE")
@@ -63,7 +67,7 @@ json.dump(c,open('$CFG','w'),indent=1,ensure_ascii=False); print('winner $W; dev
         ex=$(python3 -c "import json;print(json.load(open('$L/${bid}_run.json'))['exit'])" 2>/dev/null)
         echo "$bid exit=$ex"
         grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err 2>/dev/null && { echo "HALT USAGE LIMIT $bid"; exit 7; }
-        [ "$ex" != "0" ] && [ "$suf" = "-r1" ] && { echo "HALT: $bid failed twice"; exit 2; }
+        [ "$ex" != "0" ] && [ "$suf" = "$S1" ] && { echo "HALT: $bid failed twice"; exit 2; }
       done
     done
     python3 -c "import json;L=json.load(open('$B/runs/C-9/ledger.json'));print('images BV2F-PH3:',sum(b.get('image_calls',0) for b in L['bursts'] if str(b.get('id','')).startswith('BV2F-PH3-')))" ;;

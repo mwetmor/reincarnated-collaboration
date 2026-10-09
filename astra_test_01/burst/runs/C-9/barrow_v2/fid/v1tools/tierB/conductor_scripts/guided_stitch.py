@@ -12,6 +12,8 @@ cfg = json.load(open(sys.argv[1])); P, COLS, ROWS = cfg['prefix'], cfg['cols'], 
 W, H, SX, SY = 1536, 1024, 1280, 768; OV = W - SX
 assert OV == H - SY
 def src(k):
+    for s_ in cfg.get('src_suffixes', []):   # BV2F R-C9-295: later repaints (cfg src_suffixes, e.g. ['-r3', '-r2']) tried first; absent = v1
+        if (A9/f'{P}-{k}{s_}'/f'{P}-{k}.png').exists(): return A9/f'{P}-{k}{s_}'/f'{P}-{k}.png'   # BV2F
     for d in (f'{P}-{k}-r1', f'{P}-{k}'):
         p = A9/d/f'{P}-{k}.png'
         if p.exists(): return p
