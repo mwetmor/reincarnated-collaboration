@@ -1,0 +1,683 @@
+{
+ "prefix": "BV2F-PH3PV",
+ "name": "barrow_v2 (art-first, sketch A), FULL SITE 5 x 5: the pilot (cols 0-2 x rows 0-2, PS4 + DEV-24, KEPT) + 16 Phase 3' canvases over LV b5894d440 (BV2F Phase 3')",
+ "guide": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/ph3/guide_art_pinned_023686e3c.png",
+ "cols": 5,
+ "rows": 4,
+ "experiment": "BV2F-pilot-paintover",
+ "_status": "RELEASED wave by wave (R-C9-280 first burst; R-C9-281 wave 1 = 0_3). Each wave is run by fid/pt/tools/ph3_prepare.sh wave <keys> (the frozen driver's per-chunk steps, one wave only) and stops for the conductor's QA.",
+ "_guide_sha256": "cbb4496aee5b9169880c8a0a4ce7a3a77c451be354297feeb95478f892751558",
+ "_guide_frame": "6656 x 4096 px = the whole 5 x 5 grid at the play camera (orthographic, pitch 52.95354112560294, yaw 47): 100.6176 px/m across, 80.3076 per ground metre up-screen",
+ "_pins": "fid/pt/ph3/pins_ph3.json (LV 023686e3c, R-C9-297: Phase 3' ice partition + pilot A/C/crack rects; pilot changes ONLY inside fid/pt/ph3/allow_294.json, pilot_pins_check --allow PASS: 215,261 px, 0 outside). Previous: pins_ph3_67fc4b80b.json",
+ "_rules_source": "v1 rules + fid/v1tools/DEV12_substitutions.json (R-C9-258: substitution 1 only; palette = v1's five); cfg_check.py enforces",
+ "_refs_source": "v1 refs verbatim (IMAGE 2 = the approved Frost King's Barrow concept); no DEV-3/11 plates",
+ "geo": "IMAGE 1 is not a flat-colour layout: it is a GREYBOX RENDER of a real 3D game level, seen from the game's fixed high three-quarter ORTHOGRAPHIC camera (53 degrees down), at true scale -- the small painted barbarian among the standing stones is 1.85 m tall. Every grey or coloured form is a real object that will be modelled at exactly this position and size. LIGHT WARM GREY ground = deep, smooth snow, warm peach-cream where lit, with distinct lavender / blue-violet shadow shapes and rounded cobble cells; LIGHT BLUE-GREY = the frozen mere, mid-blue lapis ice, mostly unbroken, with a few soft pale veins, low snowy islands in it; the mere's ice runs SEAMLESSLY into the sea ice with no line or edge between them: the WHITE-BLUE ground = thick shore-fast ice, joined to the land, breaking up GRADUALLY toward the sea into large irregular ice plates and then into loose floes of every size, each with worn edges -- MOST of the sea is ice; DARK SLATE-BLUE = the open winter water, only in the leads and gaps between the plates and floes, narrow by the mere and widening toward the sea, and the narrow dark sliver at the cliff foot beside the shingle flank is a natural irregular lead; MUTED OLIVE-BROWN PATCHES = reddish-brown winter HEATHER, painted as many separate rounded tufts and sprigs clustered together with snow showing between them, as in the concept -- never a flat carpet or a solid mat, the large patches on the cliff tops included: clumps of tufts with snow between; STRAW patches = tall straw-gold reed beds; the LIGHT TAN SLOPE = a grey shingle beach under rounded snow drifts; SMALL GREY UPRIGHT SLABS = six carved standing stones (spiral and knotwork carvings on the faces turned toward the viewer), two fallen; the LARGE DOME = the barrow mound, earth and dead grass under thin snow, its carved stone door in front; the BROWN HULL = an old longship wreck heeled over in the shore ice; the GREY ROCK MASSES along the coast = SEA CLIFFS of weathered dark granite, eroded by the sea: rough rock columns split by vertical cracks, buttresses and recesses, snow lying on every ledge and step, a wave-cut notch at the foot, fallen blocks and boulders heaped below, and lone rock stacks standing out in the ice -- rugged and natural, never a smooth wall; in the foot of the cliff a DARK SEA CAVE worn into the rock by the tides, its arch rounded and dark inside, the sea and floes at its mouth, a dark wet band and a line of rime and hanging icicles marking the high-tide line; beside it, a natural CLEFT between the rock columns where rough STEPS have been cut ever so slightly into the raw cliff, climbing from a small tide-iced ledge at the cave mouth to the clifftop -- uneven stones of different lengths, snow lying in patches on them, the rock columns rising on both sides; the GREY CRAGGY MASSES inland = weathered granite crags and boulders with snow on their ledges; at the right, the large BROWN TIMBER building = a half-burned longhall of weathered grey-brown timber, its walls closed and whole, its one great DARK door the only way in; the BLACK-BROWN tangle beside it = the charred, collapsed gable of a burned building; the FLAT DARKER GREY ground around them = a yard of trampled ash and soot; the rows of thin BROWN POSTS = a broken wooden palisade; the long brown cylinders = fallen logs. The ONLY dark openings in the whole scene are the barrow's great door, the longhall's great door and the sea cave: paint no other doorway, gap or opening anywhere.",
+ "rules": "Paint OVER the render: every object keeps EXACTLY its silhouette, position and size (the 3D models are placed from this same layout, so anything moved will not match); shadows stay where the render puts them (one winter sun from the upper LEFT, 55 degrees up, short soft blue-violet shadows touching their objects). Paint the barbarian OUT -- he is there only for scale; leave open snow where he stands. Keep the stone ring's centre, the barrow door's approach and the mere OPEN: no new rocks, trees or drifts on them. Small scatter is welcome only inside the scrub patches and at the foot of rocks and stones. One thin warm dark-brown ink line on every contour, the SAME weight everywhere. Palette and hand of IMAGE 2 (the approved Frost King's Barrow concept): cold blue-white snow, warm grey granite, rust heather, dark juniper, lapis ice; watercolour washes with pen detail. No sky, no horizon, no text, UI, border or characters.",
+ "refs": [
+  [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/T10C-barrow/T10C-barrow_a.png",
+   "the APPROVED Frost King's Barrow concept (Matt's pick): palette, light, snow, stone carving and painted hand ONLY -- NOT its layout"
+  ]
+ ],
+ "chunks": [
+  {
+   "key": "0_0",
+   "px": [
+    0,
+    0,
+    1536,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "1_0",
+   "px": [
+    1280,
+    0,
+    2816,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "2_0",
+   "px": [
+    2560,
+    0,
+    4096,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "3_0",
+   "px": [
+    3840,
+    0,
+    5376,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     4.5886,
+     19.8543
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "4_0",
+   "px": [
+    5120,
+    0,
+    6656,
+    1024
+   ],
+   "ground_uv": {
+    "u": [
+     17.31,
+     32.5757
+    ],
+    "v": [
+     9.619,
+     22.3699
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "0_1",
+   "px": [
+    0,
+    768,
+    1536,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "1_1",
+   "px": [
+    1280,
+    768,
+    2816,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "2_1",
+   "px": [
+    2560,
+    768,
+    4096,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "3_1",
+   "px": [
+    3840,
+    768,
+    5376,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     4.5886,
+     19.8543
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "4_1",
+   "px": [
+    5120,
+    768,
+    6656,
+    1792
+   ],
+   "ground_uv": {
+    "u": [
+     17.31,
+     32.5757
+    ],
+    "v": [
+     0.0557,
+     12.8067
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "0_2",
+   "px": [
+    0,
+    1536,
+    1536,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "1_2",
+   "px": [
+    1280,
+    1536,
+    2816,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "2_2",
+   "px": [
+    2560,
+    1536,
+    4096,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   },
+   "pilot": true
+  },
+  {
+   "key": "3_2",
+   "px": [
+    3840,
+    1536,
+    5376,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     4.5886,
+     19.8543
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "4_2",
+   "px": [
+    5120,
+    1536,
+    6656,
+    2560
+   ],
+   "ground_uv": {
+    "u": [
+     17.31,
+     32.5757
+    ],
+    "v": [
+     -9.5075,
+     3.2435
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "0_3",
+   "px": [
+    0,
+    2304,
+    1536,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     -19.0707,
+     -6.3198
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "1_3",
+   "px": [
+    1280,
+    2304,
+    2816,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     -19.0707,
+     -6.3198
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "2_3",
+   "px": [
+    2560,
+    2304,
+    4096,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     -19.0707,
+     -6.3198
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "3_3",
+   "px": [
+    3840,
+    2304,
+    5376,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     4.5886,
+     19.8543
+    ],
+    "v": [
+     -19.0707,
+     -6.3198
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "4_3",
+   "px": [
+    5120,
+    2304,
+    6656,
+    3328
+   ],
+   "ground_uv": {
+    "u": [
+     17.31,
+     32.5757
+    ],
+    "v": [
+     -19.0707,
+     -6.3198
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "0_4",
+   "px": [
+    0,
+    3072,
+    1536,
+    4096
+   ],
+   "ground_uv": {
+    "u": [
+     -33.5757,
+     -18.31
+    ],
+    "v": [
+     -28.634,
+     -15.883
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "1_4",
+   "px": [
+    1280,
+    3072,
+    2816,
+    4096
+   ],
+   "ground_uv": {
+    "u": [
+     -20.8543,
+     -5.5886
+    ],
+    "v": [
+     -28.634,
+     -15.883
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "2_4",
+   "px": [
+    2560,
+    3072,
+    4096,
+    4096
+   ],
+   "ground_uv": {
+    "u": [
+     -8.1329,
+     7.1329
+    ],
+    "v": [
+     -28.634,
+     -15.883
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "3_4",
+   "px": [
+    3840,
+    3072,
+    5376,
+    4096
+   ],
+   "ground_uv": {
+    "u": [
+     4.5886,
+     19.8543
+    ],
+    "v": [
+     -28.634,
+     -15.883
+    ]
+   },
+   "pilot": false
+  },
+  {
+   "key": "4_4",
+   "px": [
+    5120,
+    3072,
+    6656,
+    4096
+   ],
+   "ground_uv": {
+    "u": [
+     17.31,
+     32.5757
+    ],
+    "v": [
+     -28.634,
+     -15.883
+    ]
+   },
+   "pilot": false
+  }
+ ],
+ "run_tag": "Run C-9 Phase 3', BV2F full site (barrow_v2 art site, Phase 1'' blockout)",
+ "ruling": "Matt R-C9-268 (pilot 4 kept; DEV-23/24/25/28 ratified), R-C9-273 (DEV-21/22), R-C9-278 (Phase 3' paint block lifted)",
+ "fill_phrase": "paint over the greybox render, turning every grey form into what it stands for, in place",
+ "retry_extra": "the small barbarian is still there, an object has moved off its greybox silhouette, ",
+ "unpainted_phrase": "greybox areas remain unpainted",
+ "_geo_file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/geo_bv2art_v7_1.txt",
+ "_geo_sha256": "df4f33382e5b80ba9e0779bf60c30e4faa62a22a1c6cbcca5e8b851f9db08b90",
+ "_chunk_notes": "OFF for the pilot (R-C9-190): no chunk_notes key, so the Tier-B guided_paint builds v1's brief. Notes stay generated at fid/pt/pilot/chunk_notes.json.",
+ "dev28_ids": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/ph3/ids_art_pinned_023686e3c.png",
+ "dev28_ids_sha256": "d49d7e5108bc0fbfc90178c429bc3aeaf1ca8dcfbed7bab81de41a7ee8d24454",
+ "_dev28": "ON (R-C9-258): pilot_paint.sh exports BV2F_DEV28=1 when the cfg carries dev28_ids; the stage step smooths the guide's PCF dither (fid/v1tools/dev28.py)",
+ "dev24": {
+  "layers": [
+   {
+    "base_pixels_sha256": "cd04dc7cbb7dea4912a8a00e86623c80047b616741f166654154eab51d2a00a0",
+    "patches": [
+     {
+      "name": "ps4_crack1-1",
+      "rect_xy": [
+       500,
+       250
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_crack1/region.png",
+      "region_sha256": "f20b3ccbab3a6f35a046571220707c71ee0122cb9a8e39ea6437d655e1431dd1",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_crack1/paste_classes.png",
+      "paste_sha256": "2ad64ff777e120d05090977034743d16612fa96cdc4a52fefed6f08799fb0754",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_crack1-1/BV2F-LR4-ps4_crack1-1.png",
+      "new_sha256": "e90f75d72dd9690d43dd30bd083f1df4182531fbf88d431ad748dc06057cc470",
+      "read_sha256": "f63f495ad71345238ccaee6cd2c192be7210d239eea85826a34b873e72b7f153"
+     },
+     {
+      "name": "ps4_crack2-1",
+      "rect_xy": [
+       0,
+       0
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_crack2/region.png",
+      "region_sha256": "5ba28ef290cbe4fceb9baa059afac22522641c9836cdb014eb75e5a610aa6095",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_crack2/paste_classes.png",
+      "paste_sha256": "acd0b96fed5bca404ee9173a909af01ca7600e9bb6d9466d89570790dda80d89",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_crack2-1/BV2F-LR4-ps4_crack2-1.png",
+      "new_sha256": "a8ff170d95358b6585a4ac8e2158baf716f50b8c4e1a991dd48f7167bdb0282c",
+      "read_sha256": "5269c7dece66a7e5a58d5ef47d38c0ddc71b29a887d2e7a4dd2fd6c56bd7afea"
+     },
+     {
+      "name": "ps4_crack3-1",
+      "rect_xy": [
+       1200,
+       300
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_crack3/region.png",
+      "region_sha256": "6c862593fbf2defa6393fa9f47245dc5f8eb9f1a3e768aeac913b9d7b1039d9b",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_crack3/paste_classes.png",
+      "paste_sha256": "b42bf30a6397172c8fe705a0a6d93172b5a8435d88505972734125e3bf4f8eb9",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_crack3-1/BV2F-LR4-ps4_crack3-1.png",
+      "new_sha256": "6e9fffc621a3fe4dc210d2393c09315a1b5c7b9ab685b2c77f6a87e4a07d7e9a",
+      "read_sha256": "58781fb5f285498379ba69cb0d6f40a8d7b7acea941cefa75a6f67724c84ba6c"
+     }
+    ]
+   },
+   {
+    "base_pixels_sha256": "babf1e6941890c9a2db89589e7561de6fb081691a0f29cf9218e8436d35a9440",
+    "patches": [
+     {
+      "name": "ps4_reeds1-1",
+      "rect_xy": [
+       0,
+       100
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_reeds1/region.png",
+      "region_sha256": "a816d5a3e32a668905589f8bf63cf6623c339f085f89baa4c87d665888ca085f",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_reeds1/paste_classes.png",
+      "paste_sha256": "b312e8ec1dffcd08b028999be6e56638df7a710363b2261660417a6330b3f61c",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_reeds1-1/BV2F-LR4-ps4_reeds1-1.png",
+      "new_sha256": "e48f7e488453bbc2ad399af014fbe3f8f668a9047cd7c40a60473cb36425becd",
+      "read_sha256": "444b6a10c5466a363cb64611f8c51c0960e7f47f5215b8232aa57eaf050026c9"
+     },
+     {
+      "name": "ps4_reeds2-1",
+      "rect_xy": [
+       1300,
+       100
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_reeds2/region.png",
+      "region_sha256": "886de95f1ef6fd30d0f48deeffea593ccde32eb47648f8b6e07f211dec0ad6a7",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_reeds2/paste_classes.png",
+      "paste_sha256": "d621e42ff6e59387cb459343893cb72f9817f8c4604b5fd2aae17f9eeacc58c8",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_reeds2-1/BV2F-LR4-ps4_reeds2-1.png",
+      "new_sha256": "a1cff37c20f08165b78ca0965ad15a740f4b9205bfcc005c4ed3203ae195e8de",
+      "read_sha256": "65dec4f8279ce4d74c8dd73827f488d1f0b3833ea3e2c6af1e2bd5f8d7a29fd8"
+     },
+     {
+      "name": "ps4_reeds3-1",
+      "rect_xy": [
+       1300,
+       1000
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_reeds3/region.png",
+      "region_sha256": "91a632b3c5fc19a76a6f98cac0b503ac12fb76fe673bdc4338bd5947987f4d02",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_reeds3/paste_classes.png",
+      "paste_sha256": "4cb8ecdac27c171502d8768ee73df7e1fb929bf55d53f5cf3b3dfbb7e00f1428",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_reeds3-1/BV2F-LR4-ps4_reeds3-1.png",
+      "new_sha256": "610374fd84d91b5936c99e53d63b194c9e753859b4310eabe0b550e3e35e80f1",
+      "read_sha256": "ce3efba5312ab55981a250ed2fe54d9edc05934668435519bac12dfec4799903"
+     },
+     {
+      "name": "ps4_seam2-1",
+      "rect_xy": [
+       2200,
+       1536
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_seam2/region.png",
+      "region_sha256": "0c753eb3583f397ec6607febea91e80f5ae65330124eb79d2576f3e271eb4fd6",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_seam2/paste_classes.png",
+      "paste_sha256": "4b310f6e12dbf476d6b18286cb53d715e9099e2dfa278e343cd3ef621e639d3b",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_seam2-1/BV2F-LR4-ps4_seam2-1.png",
+      "new_sha256": "fe0721295e06654ffa5dcdc39858e80d1c0e6915c20cca83a33f7efc8d0de234",
+      "read_sha256": "1673e5144a5c93435ac3d6c5b8069452958c06160f011ac8f81dbb56d2a08be9"
+     }
+    ]
+   },
+   {
+    "base_pixels_sha256": "b71b059ab74b48c5ac26f1da69602b09679cfde1deb385b64ac8c84272405ce4",
+    "patches": [
+     {
+      "name": "ps4_seam1-1",
+      "rect_xy": [
+       2200,
+       0
+      ],
+      "region_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_seam1/region.png",
+      "region_sha256": "dee21651ccf5c43a1c9cb7fd624b8374a398d99672eb8285dcc936a67abc6f0d",
+      "paste_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/ps4_seam1/paste_classes.png",
+      "paste_sha256": "09ca4c2dba5c527ab9e0b5b540eb884990c49cf1476394675a6d53edc4160e91",
+      "new_png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-LR4-ps4_seam1-1/BV2F-LR4-ps4_seam1-1.png",
+      "new_sha256": "a8a5608737e3503787528b599075be2da882886b0cba45b3b50e62e7f92b6f9c",
+      "read_sha256": "e7cd1262b68fe2b023728a572185016198156181c3d9e3d26895fe430af9de18"
+     }
+    ]
+   }
+  ]
+ },
+ "_dev24": "the pilot-4 DEV-24 layers, each patch pinned by its READ REGION (read_sha256): the full-site stitch may change pixels no patch reads (R-C9-274 P-2b). New Phase 3' DEV-24 use: clear defects only, each logged with crops, counted against the DEV-13 repair cap (R-C9-268).",
+ "dev25c_chunks": [],
+ "_dev25c": "R-C9-281: the DEV-25c A/B on 3_0 was decided by the pre-registered rule for ARM A (a1_E B 4.65 > A 3.286); dev25c_chunks EMPTY, DEV-25c stays registered with its flag off; arm B is never context.",
+ "dev26_pin": {
+  "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/r272/fullsite/dev26_paths_pilot.json",
+  "sha256": "921e358adbaf8c0ec23e48f9df1c52a952b11f33ff23717c327d4c32c11fc36f",
+  "x_len": 2304,
+  "y_len": 3840
+ },
+ "_qa": "per chunk, after its wave (R-C9-278; calibration s48 (e) + s50 (b)): P6a (0 invented) -> raw a1 per join (s44; s48 (d) band E for an inner-128 chunk) with the stitch-corrected crop rule -> P4 snow (W_min 100) and rock (W_min 3) with the min-support rule. A FAIL stops before the next wave.",
+ "_budget": "first chunk 3_0: the DEV-25c A/B, +2 images (arms BV2F-PH3-3_0-ab25cA / -ab25cB, outside the driver; the winner byte-copied to BV2F-PH3-3_0); then the 15 remaining chunks + v1's one retry each, cap ~35 (pilot_paint.sh arg 2 = 37 incl. the A/B)",
+ "_wavefront": "the frozen driver's own ready rule from the pilot: wave 1 = 3_0, 0_3; then 4_0, 3_1, 1_3; 4_1, 3_2, 2_3, 0_4; ... (a chunk is ready when its left, top and top-right neighbours are painted). The 9 pilot chunks are present as byte copies BV2F-PH3-<k> (COPY.json) before the first wave.",
+ "_geo": "geo v7.1 (R-C9-287/288): v7 + v6's own clauses for every class in the unpainted Phase 3' tiles; 3481 chars; chunks painted before it (3_0, 4_0, 0_3-r1, 1_3-r1) were under v7",
+ "src_suffixes": [
+  "-r3",
+  "-r2"
+ ]
+}

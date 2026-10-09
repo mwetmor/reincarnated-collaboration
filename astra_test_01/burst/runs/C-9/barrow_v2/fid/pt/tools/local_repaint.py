@@ -42,6 +42,11 @@ def region():
     the region classes; "classes" (R-C9-263): the seed classes inside seed_box, dilated, inside the region classes;
     "box": the seed_box itself, inside the region classes"""
     mode = S["region"].get("mode", "dark_lines")
+    if mode == "boxes":   # R-C9-299 layer 4: the union of several canvas-local boxes, inside the region classes
+        keep = np.zeros((CH, CW), bool)
+        for bx in S["region"]["boxes"]:
+            keep[max(0, bx[1]):max(0, bx[3]), max(0, bx[0]):max(0, bx[2])] = True
+        return keep & crop(cls_in(S["region"]["classes"]))
     if mode in ("classes", "box"):
         bx = S["region"]["seed_box"]
         keep = np.zeros((CH, CW), bool); keep[bx[1]:bx[3], bx[0]:bx[2]] = True

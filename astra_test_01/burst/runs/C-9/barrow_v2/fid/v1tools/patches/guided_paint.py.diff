@@ -26,10 +26,35 @@
  canvas = GUIDE.crop((ox, oy, ox + 1536, oy + 1024)); kept = []
  for (nc, nr) in [(c-1, r), (c, r-1), (c+1, r-1), (c-1, r-1)]:
      if nc < 0 or nr < 0 or nc >= COLS: continue
-@@ -33,6 +45,28 @@
+@@ -33,6 +45,53 @@
      if x1 > x0 and y1 > y0:
          canvas.paste(im.crop((x0 - dx, y0 - dy, x1 - dx, y1 - dy)), (x0, y0))
          kept.append({(-1, 0): 'its LEFT 256 columns', (0, -1): 'its TOP 256 rows', (1, -1): 'its top-right 256x256 corner', (-1, -1): 'its top-left 256x256 corner'}[(nc - c, nr - r)])
++# BV2F-BEGIN DEV-29 (R-C9-299): CONTEXT PATCH. DEV-24 repairs the PAINTING after the stitch, so a pilot canvas pasted as
++# context still carries the pre-repair geometry. With cfg['context_patch'] = {"painting": the DEV-24-patched painting
++# (plate px), "painting_sha256", "mask": a plate-px PNG of the patches' support, "mask_sha256"}, every PASTED canvas
++# pixel inside the mask is replaced by the patched painting's pixel; pasted pixels outside it, and all unpasted pixels,
++# are untouched. Absent = v1's canvas byte for byte.
++if cfg.get('context_patch') and kept:
++    _cp = cfg['context_patch']
++    for _f, _s in ((_cp['painting'], _cp['painting_sha256']), (_cp['mask'], _cp['mask_sha256'])):
++        if hashlib.sha256(pathlib.Path(_f).read_bytes()).hexdigest() != _s:
++            sys.exit('DEV-29 HALT: %s is not the pinned file' % _f)
++    import numpy as _np
++    _PP = _np.asarray(Image.open(_cp['painting']).convert('RGB')); _MM = _np.asarray(Image.open(_cp['mask'])) > 127
++    _pz = _np.zeros((1024, 1536), bool)
++    for (nc, nr) in [(c-1, r), (c, r-1), (c+1, r-1), (c-1, r-1)]:
++        if nc < 0 or nr < 0 or nc >= COLS or not done(f'{nc}_{nr}'): continue
++        dx, dy = (nc - c) * 1280, (nr - r) * 768
++        _pz[max(0, dy):min(1024, dy + 1024), max(0, dx):min(1536, dx + 1536)] = True
++    _sub = _np.zeros((1024, 1536), bool); _src = _np.zeros((1024, 1536, 3), _np.uint8)
++    _x1, _y1 = min(ox + 1536, _MM.shape[1], _PP.shape[1]), min(oy + 1024, _MM.shape[0], _PP.shape[0])
++    if _x1 > ox and _y1 > oy:
++        _sub[:_y1 - oy, :_x1 - ox] = _MM[oy:_y1, ox:_x1]; _src[:_y1 - oy, :_x1 - ox] = _PP[oy:_y1, ox:_x1]
++    _sub &= _pz
++    _a = _np.asarray(canvas).copy(); _a[_sub] = _src[_sub]; canvas = Image.fromarray(_a)
++    print(k, 'DEV-29 context patch px', int(_sub.sum()))
++# BV2F-END
 +# BV2F-BEGIN DEV-25c (R-C9-278): INNER-128 PASTE. For a chunk listed in cfg['dev25c_chunks'] with BV2F_DEV25C=1, only the
 +# 128 px of each painted overlap next to the canvas EDGE are kept as pasted context (columns 0..127 under a painted left
 +# neighbour, rows 0..127 under a painted top / top-left / top-right neighbour): PH's half E. The rest of v1's 256-px
@@ -55,7 +80,7 @@
  cp = S/f'{P}-{k}{SUF}_canvas.png'
  if cmd == 'stage': canvas.save(cp); manifest_add(cp); print(k, 'staged', kept); sys.exit()
  bid = f'{P}-{k}{SUF}'; geo = cfg['geo']; rules = cfg['rules']
-@@ -44,6 +78,7 @@
+@@ -44,6 +103,7 @@
      text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + '; '.join(kept) + " are ALREADY PAINTED (real pixels from neighbouring panels); in the rest, " + geo + "\nUse image_gen in EDIT mode on IMAGE 1: keep the painted strips as they are and " + FILL + " that CONTINUES them seamlessly (no visible join). " + rules
  else:
      text = head + "IMAGE 1 is the canvas to EDIT (1536x1024): " + geo + "\nUse image_gen in EDIT mode on IMAGE 1 and " + FILL + ". " + rules
