@@ -1,0 +1,165 @@
+{
+ "_what": "BV2F PT pilot: the painted pilot's data, measured (fid/pt/tools/bv2f_prep.py = v1 paint_world_prep main on the pilot)",
+ "painting_sha256": "3201ad8a9c643d8ac13a91d9e943e0fbbef1f5cb486cb7ce4386b27552a0add5",
+ "tufts_self_test": {
+  "heather_px": [
+   727317,
+   727317
+  ],
+  "shrub_px": [
+   48509,
+   48509
+  ],
+  "PASS": true,
+  "_": "[this run, step 3's take_report] -- the same classifier on the same painting"
+ },
+ "reed_split": {
+  "straw_components": 9998,
+  "reed_components": 1752,
+  "heather_components": 8246,
+  "of_which_tips_by_proximity": 332,
+  "reed_px": 134173,
+  "heather_tip_px": 93522,
+  "reed_cards": 110,
+  "heather_tuft_px": [
+   696776,
+   580147
+  ],
+  "_": "tuft px [before, after] the reed tufts (dilated 2 px) are taken out of the heather's cover"
+ },
+ "shadow": {
+  "painted_shadow_over_painted_light_linear": [
+   0.4583,
+   0.5494,
+   0.8462
+  ],
+  "as_srgb_on_lit_snow": {
+   "lit": [
+    249,
+    235,
+    224
+   ],
+   "shadow": [
+    176,
+    180,
+    208
+   ]
+  },
+  "pixels": {
+   "shadow": 45393,
+   "lit": 1550007
+  },
+  "per_chunk_linear": {
+   "2_0": [
+    0.77,
+    0.834,
+    0.97
+   ],
+   "3_0": [
+    0.604,
+    0.703,
+    0.931
+   ],
+   "4_1": [
+    0.39,
+    0.497,
+    0.795
+   ],
+   "4_2": [
+    0.424,
+    0.538,
+    0.88
+   ]
+  },
+  "painted_vs_rendered_shadow_on_open_snow": {
+   "recall_rendered_shadow_painted_as_shadow": 0.8677,
+   "precision": 0.378,
+   "iou": 0.3574,
+   "painted_shadow_within_10px_of_a_rendered_one": 0.4343,
+   "painted_px": 241853,
+   "rendered_px": 105364,
+   "_read": "recall: the share of the render's cast shadow the painter painted as shadow -- where the SUN's real shadow will darken him; the rest of the painted blue is the snow's own washes (hollows, dabs), which no object casts",
+   "_instrument": "painted: a pixel's position on the lit->shadow colour axis > 0.5 after a 21 px median; rendered: the blockout's own cast shadow (lit_guide G < 0.5); open snow only"
+  },
+  "_use": "his shadow on the painted world = this multiplier (PaintedWorld.shadow_mul), where the painting shows sun (lit.bin)"
+ },
+ "bakes": 100,
+ "heather": {
+  "instances": 480,
+  "placement": {
+   "shrub": {
+    "placed": 4,
+    "wanted": 4,
+    "footprint_px": [
+     54.9,
+     64.8
+    ],
+    "tuft_cells_covered_share": 0.1618
+   },
+   "heather": {
+    "placed": 476,
+    "wanted": 476,
+    "footprint_px": [
+     47.1,
+     55.5
+    ],
+    "tuft_cells_covered_share": 0.4415
+   }
+  },
+  "painted_mean_linear": [
+   0.26247,
+   0.11008,
+   0.04832
+  ],
+  "painted_mean_srgb": [
+   140,
+   93,
+   62
+  ],
+  "rel_mul_p10_p50_p90": [
+   [
+    0.773,
+    0.864,
+    1.394
+   ],
+   [
+    0.662,
+    0.811,
+    1.625
+   ],
+   [
+    0.659,
+    0.762,
+    1.707
+   ]
+  ],
+  "tuft_px_per_spray_median": 1294,
+  "tufts_on_flat_land_share": 0.3262
+ },
+ "stair_treads_cut": {
+  "cells": 2145,
+  "treads": 52,
+  "file_sha256": "5eff01c1ba6494b7be0f425c58c1d2c32356279b2cb7387ffb810e5bfc143cfa"
+ },
+ "snow": {
+  "area_xz": [
+   -41.133,
+   -40.581,
+   86.165,
+   86.165
+  ],
+  "grid_cells": 744769,
+  "mean_mul": 0.2966,
+  "bare_share_mul_under_0.125": 0.6944
+ },
+ "water": {
+  "floes": 0,
+  "ice_slab_items": 384,
+  "sdf_px": [
+   542,
+   400
+  ],
+  "land_share_of_field": 0.3414,
+  "shore_edge_m": "land = terrain > sea_z + 0.18 m"
+ }
+}

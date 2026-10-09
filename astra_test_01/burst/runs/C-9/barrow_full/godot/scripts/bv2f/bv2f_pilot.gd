@@ -156,6 +156,13 @@ func _dress_painted() -> void:
 				tex = ImageTexture.create_from_image(img)
 			var mat := PaintedWorld.painted_material(tex, false, lit, shadow_mul, u_hat, v_hat)
 			for mi in _meshes(root):
+				# BV2F-PT R-C9-324: a mesh with NO UV array under a baked model (LV's procedural hall panel) cannot read
+				# its bake (UV (0,0) = one texel); it wears the PROJECTED painting instead, v1's rule for primitives
+				var m3 := mi as MeshInstance3D
+				if m3.mesh != null and m3.mesh.get_surface_count() > 0 and m3.mesh.surface_get_arrays(0)[Mesh.ARRAY_TEX_UV] == null:
+					_paint_mesh(mi, mat_paint, true)
+					n["projected_uvless"] = int(n.get("projected_uvless", 0)) + 1
+					continue
 				_paint_mesh(mi, mat, true)
 				n["baked_meshes"] += 1
 			n["baked"] += 1
@@ -235,6 +242,7 @@ func _dress_painted() -> void:
 		ok, str(bad), n["projected"], n["baked"], n["baked_meshes"], str(n["bakes_missing"]), n["frame_rebound_materials"],
 		str(n.get("water")), str(snow != null and snow.get("ground_h_tex") != null)])
 	print("[bv2f_pilot] warmup: " + JSON.stringify(n.get("warmup", {})))
+	print("[bv2f_pilot] uvless meshes projected (R-C9-324): %d" % int(n.get("projected_uvless", 0)))   # BV2F-PT R-C9-324
 
 
 # --- DEV-18 (R-C9-193, applied): v1's _build_painted_heather (barrow_full.gd:2292-2346) COPIED, ONE line changed (marked) ------
