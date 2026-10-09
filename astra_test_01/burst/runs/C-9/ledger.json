@@ -49357,9 +49357,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-1_4-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a05ce13a8e9392bfe7b229c0f8761ef273a9f8f07817895d4c9b915954103435",
+      "started": "2026-10-09T05:27:55.674653+00:00",
+      "ended": "2026-10-09T05:30:47.202639+00:00",
+      "minutes": 2.858769559033681,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f21-df02-7861-a38d-1439bc09a7b7/exec-4a73d604-a295-477d-98ba-5800a64daf81.png",
+            "sha256": "28e7c5785a88e08cb122c7edefdcf54bd78e8b7d7d0ef5ff7d8e46ecbd95ed26"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f21-df02-7861-a38d-1439bc09a7b7/exec-fd8eeab3-8953-454a-be32-942b19b004a4.png",
+            "sha256": "024fb4634b2660e803992a2d30413002b662b8f27245f2c304a8802f03646a6d"
+          }
+        ]
+      },
+      "receipt_sha256": "3dab316098b939b6a09f07e1852d7ed49065a866d30c775b063b15c0fd27eb3e",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-1_4.png",
+          "sha256": "024fb4634b2660e803992a2d30413002b662b8f27245f2c304a8802f03646a6d"
+        },
+        {
+          "name": "exec-4a73d604-a295-477d-98ba-5800a64daf81.provenance.json",
+          "sha256": "06bfd724e71465d484d76fe421eec94f504af50034dfc0da3580fc761637370f"
+        },
+        {
+          "name": "exec-fd8eeab3-8953-454a-be32-942b19b004a4.provenance.json",
+          "sha256": "bf69d3e3804db1d764e723faa5e6138669f289d1b8b20025f0985faf6a252616"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f21-df02-7861-a38d-1439bc09a7b7/exec-4a73d604-a295-477d-98ba-5800a64daf81.png",
+          "sha256": "28e7c5785a88e08cb122c7edefdcf54bd78e8b7d7d0ef5ff7d8e46ecbd95ed26"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f21-df02-7861-a38d-1439bc09a7b7/exec-fd8eeab3-8953-454a-be32-942b19b004a4.png",
+          "sha256": "024fb4634b2660e803992a2d30413002b662b8f27245f2c304a8802f03646a6d"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1431,
+  "images_used": 1433,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -53263,6 +53336,13 @@
       "ts": "2026-10-09T01:26:38-04:00",
       "verbatim": "",
       "ruling": "1_4 (PT 9aa2487cf; 36/44 images): a1 0_4|1_4 11.956 and 1_3/1_4 11.986 fail only at the shared four-chunk corner (x 1280-1536, y 3072-3328), where a FAINT STRAIGHT LINE is visible (a horizontal edge at y~3328 and a vertical tone step at x~1536); this is a visible seam, so not carried-type. P6a's 12 hits are the registered open-sea false-positive mode. RULED (a): REPAINT 1_4 as 1_4-r1 (1-2 images); the old 1_4 is moved aside. If the line recurs, STOP and report; no loop. Then 2_4, 3_4, 4_4. Budget: ~43 of 44 expected; if the cap would be exceeded, STOP and ask rather than overrun. Disk at 22 GiB: PT halts at the 21 GiB gate."
+    },
+    {
+      "id": "R-C9-307",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T01:33:12-04:00",
+      "verbatim": "",
+      "ruling": "1_4-r1 (PT 1b9b29c39; 38/44 images): the corner line RECURS in the same place; PT shows it is STRUCTURAL (the overlap ends of the four-chunk corner 0_3/1_3/0_4/1_4 meet there; the horizontal edge lies on 0_4's side), so R-C9-306's repaint of 1_4 could not remove it: 2 images spent on that, recorded. 1_4-r1 is KEPT. RULED (b): ONE DEV-24 seam patch straddling the corner (~384x384 px centred at plate (1536,3328)), 1 of DEV-24's last 2 images, counted against the DEV-13 seam cap, logged with crops; it is staged on the full-site stitch AFTER the last three tiles are painted, so painting completes first. CONTINUE: 2_4, 3_4, 4_4 (6 images left; stop and ask before exceeding 44)."
     }
   ],
   "grok_calls": [
