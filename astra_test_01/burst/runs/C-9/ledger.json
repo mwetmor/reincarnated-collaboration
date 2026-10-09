@@ -54458,6 +54458,13 @@
       "ts": "2026-10-09T14:12:23-04:00",
       "verbatim": "",
       "ruling": "PALISADE pale posts: the cause is OVERLAPPING UVs in LV's procedural posts (CylinderMesh shaft + cone tip each with full 0..1 UVs; summed UV area 1.55), so the bake rasteriser painted the whole post texture from the pale snow-capped tip; the cut, take and fill are correct; 49 posts, site-only. RULED fix (a): baked models of kind procedural_post wear the PROJECTED painting (mat_paint, casting), the same rule as R-C9-324; log count must read 49; no re-export or re-bake; rp4 unchanged by construction; proof by a guide-camera re-render of the post area vs the painting, folded in before the stills. The general trigger (summed UV area > 1.0) is recorded as a check in the export report for future models."
+    },
+    {
+      "id": "R-C9-327",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T14:15:09-04:00",
+      "verbatim": "",
+      "ruling": "SEA-PASS TRANCHE raised by 4 (16 -> 20; 10 remain): PT's pre-fix estimate is 7 patches for R-C9-325 (the land slivers fall in 6 sea-pass canvases A1, B1, C1, C2, B2, C3; the cave overhang + black rectangle fit 1 canvas), leaving 3 for repaints. PT recounts from LV's actual changes after the re-pin and reports the number before firing. Run total stays far under the ~250 guard."
     }
   ],
   "grok_calls": [
