@@ -51047,9 +51047,70 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-hightide-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "7f9ba1e25345c7fa2b5f8f7eae640a3a4c1f0e34f56e69cd25784f40f3f7b0d1",
+      "started": "2026-10-09T21:34:57.327241+00:00",
+      "ended": "2026-10-09T21:36:38.686765+00:00",
+      "minutes": 1.6893300812497425,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12297-3a6d-7971-8020-4a06f8d1151e/exec-c94af263-30e3-44f7-b859-e14b4da803ac.png",
+            "sha256": "127a1ace989a543f040c304db799c5dcbcaab6a99676df85c613e265529a9436"
+          }
+        ]
+      },
+      "receipt_sha256": "d9def97859f9cddc33397a949a1e498be2c90f8a8ec5a42b2948733b12d8b3f1",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-hightide-1.png",
+          "sha256": "127a1ace989a543f040c304db799c5dcbcaab6a99676df85c613e265529a9436"
+        },
+        {
+          "name": "exec-c94af263-30e3-44f7-b859-e14b4da803ac.provenance.json",
+          "sha256": "c0a88b9ecc129a7afdeec2f89b88700ee293aadc81889dfbbde395c11ae129f8"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12297-3a6d-7971-8020-4a06f8d1151e/exec-c94af263-30e3-44f7-b859-e14b4da803ac.png",
+          "sha256": "127a1ace989a543f040c304db799c5dcbcaab6a99676df85c613e265529a9436"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1459,
+  "images_used": 1460,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -55214,6 +55275,20 @@
       "ts": "2026-10-09T17:34:11-04:00",
       "verbatim": "Only 25% of the snow issue below the sea cave got fixed, which leads me to a question.. based on the fact that it's difficult to fix and that we originally planned to have that ledge be covered in ice from high tide, would it maybe be easier to repaint it as ice from high tide? Similar to the mere ice but maybe just a bit different with some clumps of kelp?",
       "ruling": "YES: the WHOLE icy ledge in front of the sea cave (between the stair foot, the ocean and the cave mouth; class tide_ice) is REPAINTED as HIGH-TIDE ICE instead of snow: clear glassy sea ice like the mere's blue ice but a little different (greener-grey, wetter, with frozen-in bubbles and a few pale veins), with scattered CLUMPS OF DARK KELP frozen into and lying on it, and a thin rime of frost; the icicles on the lip stay; the cave-mouth floor reads the same so the two join. Paint-only (DEV-24): the guide already classes the ledge tide_ice, so no blockout change; the kelp is painted detail, not 3D. Walkable as before. LR4 cap raised 45 -> 48 (ONE canvas expected, up to 2 retries). Then re-stitch + identity proof, prep/guide, a still and a short clip of the ledge for Matt, and PH re-runs the touched rows. jack-ryan's Gate-2 continues on the rest; this ledge goes in as a delta."
+    },
+    {
+      "id": "R-C9-340",
+      "by": "gandalf (conductor), on jack-ryan site-build Gate-2",
+      "ts": "2026-10-09T17:37:42-04:00",
+      "verbatim": "",
+      "ruling": "SITE-BUILD GATE-2 (agentic_orchestration/qa/findings/2026-10-09-bv2f-site-build-gate2.md): PASS-WITH-CONDITIONS as the M3' candidate (WARN, no BLOCK); not a parity PASS. jack-ryan RATIFIES P9c v3, the W-1 guard and the derived s51 domain, and the P11 no-rebuild. CONDITIONS, closed or routed: C-1 CORRECTION of R-C9-334: its cause sentence is withdrawn as backwards (the judge called the SITE the crisp, warm, outlined build and v1 the softer one, while PH's forensic finds the site's painted snow softer); the cue is recorded as read, the cause OPEN; repeats 4/10 (vs 8/10 on the calibration sets) disclosed. C-6 CONDUCTOR ERROR OWNED: manifest 24 deleted the raw/full r330 walk film (sha 670b2b2ffe19), the film behind Matt's R-C9-332 verdict, without a ledger row; the 1280 px copy Matt actually watched is preserved at fid/pt/site/film/r330_walk_matt_review_1280.mp4 (sha 9e3988c0f17c) and added to the build-inputs manifest; NEW RULE: cleanup manifests also exclude every file a ledger row cites as evidence. The process change behind N-C9-CLEANUP-M22 is recorded with Matt's verbatim (R-C9-341). C-5 charter s16 folded (this commit). C-7 P9c operating point: PH runs a 0-image CONFIRM READ of v3 on the production capture schedule. C-2 re-crops (after r339), C-3 the 56 P6a triage rows, C-4 committing the untracked P11 answers and the v3 runner case: PH. C-8: the R-C9-339 ledge delta per the finding's s9 (paste mask declared before firing incl. the cave-mouth floor; identity proof r339 vs r332 with tide_ice-only histogram and 0 pilot px; 1:1 before/after with an edge probe; LR4 <= 48; PH s59 pre-registration and re-runs; then a delta Gate-2). jack-ryan also notes that R-C9-337's ledge patch did not do what the record said (Matt: only ~25% fixed)."
+    },
+    {
+      "id": "R-C9-341",
+      "by": "gandalf (conductor), recording Matt",
+      "ts": "2026-10-09T17:37:42-04:00",
+      "verbatim": "I am not at the Mac and I will not be for some time. You have done this 20+ times in the last, many during this exact session. You are upholding a rule that nobody wrote and that is halting progress in the name of confusion.",
+      "ruling": "PROCESS AMENDMENT (Matt, 2026-10-09; recorded per Gate-2 C-6): the conductor EXECUTES build-input-safe cleanup manifests it has prepared (untracked only; excluding every build_inputs_manifest path, every file a ledger row cites as evidence, and anything touched in the last 30 min), logging each in the ledger with before/after disk. The charter's 'Matt runs deletions' is amended accordingly for C-9. Raw deletions outside the repo that the session's permission system blocks remain Matt's (via /permissions or a Mac terminal)."
     }
   ],
   "grok_calls": [

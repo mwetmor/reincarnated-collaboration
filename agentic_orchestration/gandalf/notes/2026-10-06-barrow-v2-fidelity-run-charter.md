@@ -283,3 +283,11 @@ Source of record: `astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/r268/dev_regist
 
 **§16 FOLD (R-C9-310):** DEV-24 now has **layers 1–5**. L4 = the Matt-noted pilot fixes (rims, ropes/cracks, remnant, seams, cave top), with a per-patch `read_zone` (pin and HALT inside the pilot identity zone x<3840, y<2304) and a pinned tone-correction field. L5 = one Phase 3′ corner seam patch (1 image; DEV-13 cap). DEV-24 used 23/24 images and covers ~10.9% of the site (up to 28% of the pilot). **DEV-25c: NOT ADOPTED** (A/B arm A, R-C9-281). Tier-B `src_suffixes` was added for second repaints (absent = v1). **For Matt's ratification by name at M3′:** DEV-29 (context patch) and the DEV-24 `read_zone` re-base.
 
+**§16 FOLD 2 (R-C9-340, Gate-2 C-5):** DEV-24 now runs **layers 1–24**. Layers 6–15 are the sea pass (R-C9-321/322), 16–23 the drifts, cave brow, east wall and icy ledge (R-C9-328/330), and 24 ledge grain (R-C9-337). Each patch carries a pinned tone-correction field that fades rather than cuts. **LR4 images: 43/45** (cap 48 for the R-C9-339 high-tide ledge). DEV-24 paint covers about 23% of the site (up to ~33% with layers 1–4). Other changes:
+- **Projected-paint rule:** a UV-less mesh (R-C9-324) or a procedural post (R-C9-326) wears the projected painting instead of its bake. The export report flags summed UV area > 1.0.
+- **DEV-5:** one shared floe material with `instance uniform bob_phase`; 39 floes bob.
+- **Site data set:** `site_ph3`.
+- **Process (R-C9-341, Matt):** the conductor executes build-input-safe cleanup manifests and logs them; 'Matt runs deletions' is amended for C-9.
+
+**For Matt's ratification by name at M3′:** DEV-29; the DEV-24 read_zone and pinned-correction re-base (incl. the fade field); the DEV-24 extension (sea tranche, the LR4 cap, Matt-noted patches exempt from the DEV-13 seam cap); the projected-paint rule; the changes to the M2″ pilot (594,721 px in the identity zone, plus land exceptions, the waterline rect being the one not Matt-noted); the conductor-run deletions and this amendment; acceptance of the FAIL rows as stated.
+
