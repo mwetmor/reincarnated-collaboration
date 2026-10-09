@@ -155,3 +155,4 @@ Next, when the triage inputs exist: run `p6_overlay.py triage` with LV's v7 decl
 - [ ] WAIT for T34: prove the s64 sea loop (walk_probe.sh, PH_WP_PILOT=site_ph3, PH_WP_DIR=walk_probe_site) then P10 per s34/s48(c)/s50(c).
 - [x] R-C9-348 D-1/D-2/D-4/D-5 (s65). [ ] s64 sea loop FAILED walk-validity (knight stuck at (-0.93,-17.62)) -> conductor rules a replacement before any P10 frame.
 - [x] R-C9-349: s66 shore sea loop (-25,-0.5)->(-28,1.5)->(-27.5,4)->(-25.5,3) + report-only sea hold (--idle --park-uv -23.976,-21.834). [ ] T34 session: (1) walk_probe start? (proven) + shore loop proof FIRST; fail -> report + STOP; (2) P10 per s34/s48(c)/s50(c) + sea hold report-only.
+- [x] R-C9-350: s66 west-shore loop ACCEPTED as binding; floe cost carried by the report-only sea hold; Matt ratified M3'; P10 is REPORTED, not gating. Idle until T34.
