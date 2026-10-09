@@ -48383,9 +48383,70 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-4_2",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "a03e889914ae8c7c5e8c6453bbc0c80861ea62ee455a6cdb187e813b401deaae",
+      "started": "2026-10-09T02:28:30.682237+00:00",
+      "ended": "2026-10-09T02:30:42.855859+00:00",
+      "minutes": 2.2028998402839837,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e7d-9c2e-7561-8614-2197ca80954d/exec-25f670df-58a7-4dc2-a2d2-8da6e5d55498.png",
+            "sha256": "766caf5b25fa3f49938a5ad9d3d7cca6dc9873d429783dddcfed52ef479af666"
+          }
+        ]
+      },
+      "receipt_sha256": "62d694a843d3edfe97f4b2aa6739d78bd17bbbc49e4097fdb3d2de4bb84aec67",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-4_2.png",
+          "sha256": "766caf5b25fa3f49938a5ad9d3d7cca6dc9873d429783dddcfed52ef479af666"
+        },
+        {
+          "name": "exec-25f670df-58a7-4dc2-a2d2-8da6e5d55498.provenance.json",
+          "sha256": "ba4c556b5a470bf129ecb41bd30734c121670db4c77e55a7f46a51b23c042513"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e7d-9c2e-7561-8614-2197ca80954d/exec-25f670df-58a7-4dc2-a2d2-8da6e5d55498.png",
+          "sha256": "766caf5b25fa3f49938a5ad9d3d7cca6dc9873d429783dddcfed52ef479af666"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1407,
+  "images_used": 1408,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52205,6 +52266,13 @@
       "ts": "2026-10-08T22:29:17-04:00",
       "verbatim": "",
       "ruling": "ICE AUDIT CONFIRMS MATT'S DIAGNOSIS: 885 ice items, 99.2 m2 stacked inside the paint window (ice_brash 234, ice_ridges 89, ice_rims 25 = the zig-zags, cove_ice 20, ice_plates 19, trans_rubble 19 incl. item 5 = the rectangular remnant left of the wreck, mere_seams 7, ...). The wreck's 'ropes and thin stick' are cradle_cracks (40 thin dark sea-class crack prisms), not model geometry; the painted rope wraps on the stern ribs are the wreck model's own and stay. Stacking is concentrated in Phase 3' rows 3-4 (1_4 49.2 m2); the pilot holds 0.5/0.6/2.0 m2 (0_0/0_1/0_2). RULED: PHASE 3' = option B, a FULL ONE-PARTITION REBUILD per LV's plan (one merged-cell field; no slab over ground ice; fast ice +0.30-0.40 m near land, floes +0.10-0.20 m seaward; min floe width 0.45 m, min area 0.6 m2, leads >= 0.10 m; no straight run >= 1.2 m; brash only in open water; ridges/rims become flat paint-class drifts; mere seams become paint-class lines; cradle_cracks removed). PILOT = option A, SURGICAL (5 rects, ~5.4% of the pilot): [472,656,688,904] mere seams, [40,1408,192,1560] the remnant, [912,2056,1296,2472] the cradle cracks/'ropes' plus slivers, [0,2120,728,2560] and [712,2472,864,2560] the rim floe below-left of the wreck plus brash. NO pilot slab-ice ID moves outside those rects. CAVE TOP = option C (erode and round the column tops, thin conformal snow caps; arch, stair cut and exit route kept), including the pilot 2_2 rects [2701,2307,4096,2560] and [2777,2147,4096,2560]. The pilot changes are Matt-noted defects (R-C9-285/289/290) inside a declared allowlist, so they proceed as DEV-24 patches without a further Matt choice; Matt is told and may object. Phase 3' tiles already painted on the old ice (0_3-r1, 1_3-r1) are repainted after the rebuild; ice tiles then paint by the ready rule."
+    },
+    {
+      "id": "R-C9-295",
+      "by": "gandalf (conductor, by-eye)",
+      "ts": "2026-10-08T22:33:20-04:00",
+      "verbatim": "",
+      "ruling": "4_2 (PT 4b8ec50d9; 19/~37 images) ACCEPTED: a1 3_2|4_2 = 20.993 raw FAIL only at the 3-tile corner rows 0-256 (4_2's redraw is a lighter, flatter ash band); the stitched yard is continuous, with at most a faint tone change: CARRIED as 'raw FAIL, stitch-corrected' with crops in the M3' packet. P6a's two unmatched candidates are, by eye, dark gaps among the collapsed gable's charred timbers (class char), not doorways: false positives. NOTED for Matt's eye at M3': the ash yard is painted with the painting's cellular texture in brown, which can read as cobbled paving rather than trampled ash. LAND TILES COMPLETE (3_0, 4_0, 3_1-r1, 4_1, 3_2, 4_2); 0_3-r1/1_3-r1 painted on the old ice. Remaining 2_3, 3_3, 4_3, 0_4, 1_4, 2_4, 3_4, 4_4 wait for LV's ice/cave rebuild (R-C9-294)."
     }
   ],
   "grok_calls": [
