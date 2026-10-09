@@ -53,5 +53,16 @@
    "cause": "GUIDE/CLASS: the lighter painted water lies over the cave's TIDE-ICED LEDGE (class tide_ice, tint 0.74/0.82/0.87, pale blue at shelf_z = sea+1.0) and shore_ice: 56% tide_ice + 31% shore_ice + 10% rock under it; the ledge's pale-blue flat class reads as shallow water at the cliff foot",
    "fix_proposed": "geometry/class: the ledge stays (the monsters' route) but reads as a rock ledge -- its top classed wet_rock/snow with a thin rime edge instead of the pale-blue tide_ice field, and the sea right at the cliff foot kept deep (sea floor -6.5 to the face, no shelf under the water)"
   }
+ },
+ "spar_r316": {
+  "what": "the fallen spar/pole REMOVED from wreck_mast (Matt: one mast); the snapped mast stub stays",
+  "measured_by": "guide/class/ids re-rendered with the spar removed vs PT's pinned 023686e3c renders: guide 27,724 px changed, bbox [603,1854,827,2312]; class/ids [605,1856,815,2312]; nothing else changed",
+  "allow_rect_plate_px": [
+   581,
+   1832,
+   849,
+   2334
+  ],
+  "_": "the measured bbox (footprint + shadow) + 16 px; pilot chunk 0_2"
  }
 }

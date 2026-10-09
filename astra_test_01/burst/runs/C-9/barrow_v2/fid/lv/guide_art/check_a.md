@@ -1,6 +1,6 @@
 | Opening (anchor) | Probe | Faces camera | Visible m² | % of unoccluded | Frontal m² | % of frontal | |
 |---|---|---|---|---|---|---|---|
-| wreck_hull (W) | h_rect | yes | 9.82 | 64.9 | 18.9 | 51.8 | PASS |
+| wreck_hull (W) | h_rect | yes | 9.89 | 65.4 | 18.9 | 52.2 | PASS |
 | barrow_door (N) | v | yes | 7.87 | 100.0 | 13.1 | 60.1 | PASS |
 | hall_great_door (E) | v | yes | 3.22 | 100.0 | 7.0 | 45.6 | PASS |
 | gable_breach (SE) | h_rect | yes | 10.83 | 84.8 | 16.0 | 67.7 | PASS |

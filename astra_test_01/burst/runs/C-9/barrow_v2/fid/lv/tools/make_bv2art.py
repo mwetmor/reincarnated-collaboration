@@ -1575,8 +1575,7 @@ def main():
         {"type": "beam", "a": [round(foot_[0], 3), round(-foot_[1], 3), round(z_foot, 3)],
          "b": [round(top_[0], 3), round(-top_[1], 3), round(z_foot + m_len * math.cos(m_lean), 3)], "thickness_m": 0.38, "procedural": "log", "glb": None,
          "what": "the mast stub, snapped ~%.1f m above the ice" % (z_foot + m_len * math.cos(m_lean) - ICE_TOP)},
-        {"type": "beam", "a": wpt(0.6, 1.6, z=ICE_TOP + 1.5), "b": wpt(4.6, 4.4, lift=0.12), "thickness_m": 0.24, "procedural": "log", "glb": None,
-         "what": "the fallen spar (yard), from the gunwale down onto the ice"},
+        # R-C9-316 (Matt: "Viking ships had only one mast"): the fallen spar/pole is REMOVED; the snapped mast stub stays
         ]
     group("wreck_mast", "debris", mast_beams)
     # -- the barrow front (N): its door threshold at the sketch's door, facing the camera

@@ -2,10 +2,10 @@
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
   "layout_bv2art_sha256": "9719192a32c340fcff68998e2be0bcb285303738ae99b0e13a8a87fd557d1caa",
-  "ids_art_sha256": "d49d7e5108bc0fbfc90178c429bc3aeaf1ca8dcfbed7bab81de41a7ee8d24454",
-  "ids_manifest_sha256": "d49d7e5108bc0fbfc90178c429bc3aeaf1ca8dcfbed7bab81de41a7ee8d24454",
-  "level_art_sha256": "e4297b67dc4a94ac4f588249cf650e0d326371e28c54fae08be0649e348ee0d6",
-  "placed_fit_sha256": "8e7227ebbf8a6aa496e566af5bd71e2dabd848dfb8dfce536dea016cbce5430e",
+  "ids_art_sha256": "b01f9098493f51abf0bafcce6ccea4fee155254953ef875ea16802c969d4f008",
+  "ids_manifest_sha256": "b01f9098493f51abf0bafcce6ccea4fee155254953ef875ea16802c969d4f008",
+  "level_art_sha256": "644c00a895daab97968e13f734bfca116e016525270007d0c82596742f60227a",
+  "placed_fit_sha256": "4ef595cade48d1991800faa5cc3be0ae2b77708ce8f014249829971bdea79701",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
  "bars": {
@@ -78,7 +78,7 @@
   "below_bar": {},
   "containment": {
    "wreck": 1.0,
-   "wreck_mast": 0.9743,
+   "wreck_mast": 0.9789,
    "barrow_front": 1.0,
    "longhall": 1.0,
    "fallen_gable": 1.0,
@@ -96,7 +96,7 @@
  },
  "scale": {
   "bar": 1.1,
-  "n_instances": 112,
+  "n_instances": 111,
   "n_over": 0,
   "record_mismatches_vs_ph": 0,
   "over": [],
@@ -104,7 +104,7 @@
  },
  "iou_vs_prism_reported": {
   "wreck": 0.259,
-  "wreck_mast": 0.914,
+  "wreck_mast": 0.888,
   "barrow_front": 0.44,
   "longhall": 0.653,
   "fallen_gable": 0.397,
@@ -132,14 +132,14 @@
   },
   "wreck_mast": {
    "kind": "debris",
-   "instances": 2,
-   "id_px": 27989,
+   "instances": 1,
+   "id_px": 16253,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
-   "containment": 0.9743,
-   "iou_vs_prism_reported": 0.914
+   "containment": 0.9789,
+   "iou_vs_prism_reported": 0.888
   },
   "barrow_front": {
    "kind": "barrow",
@@ -283,7 +283,7 @@
     "type": "box",
     "z_top": 2.263,
     "own_px_in_frame": 448020,
-    "terrain_hidden_share": 0.3356,
+    "terrain_hidden_share": 0.3444,
     "visible_share": 0.6295
    }
   ],
@@ -295,14 +295,6 @@
     "own_px_in_frame": 19322,
     "terrain_hidden_share": 0.1202,
     "visible_share": 0.8409
-   },
-   {
-    "i": 1,
-    "type": "beam",
-    "z_top": -2.59,
-    "own_px_in_frame": 12075,
-    "terrain_hidden_share": 0.02,
-    "visible_share": 0.9708
    }
   ],
   "barrow_front": [
@@ -1208,19 +1200,6 @@
   {
    "slot": "wreck_mast",
    "instance": "wreck_mast_0",
-   "kind": "procedural_log",
-   "recorded_fit_scale": [
-    1.0,
-    1.0,
-    1.0
-   ],
-   "anisotropy": 1.0,
-   "pass": true,
-   "note": "N/A: procedural primitive at true dimensions, no model normalised (as \u00a7 15 (3) for v1's slabs)"
-  },
-  {
-   "slot": "wreck_mast",
-   "instance": "wreck_mast_1",
    "kind": "procedural_log",
    "recorded_fit_scale": [
     1.0,
