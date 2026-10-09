@@ -52449,6 +52449,12 @@
       "ts": "2026-10-09T16:27:07-04:00",
       "by": "gandalf (conductor)",
       "text": "barrow_v2 FULL SITE BUILT in 3D (PT f64fd204c, ee64a9b27, f637928b2): final painting painting_ph3_r328_full.png (pixels 1e2efeec5657; identity proof PASS, 0 px outside the paste mask, pilot changes all inside the allowlist); DEV-24 layers 16-23 (drift spots, cave brow + east wall, icy ledge + icicles); LR4 42/43; build on LV d26d14c55: 100 plates, 608 tufts, 12 changed models re-baked (100/100), 49 posts + 1 UV-less mesh projected, 39 floes bobbing; 24 stills all within 0.10 px of the s50(a) phase targets; walk film 93.6 s, 42/42 waypoints (sha 670b2b2ffe19). Open for LV: a thin bounds-wall spike at u~-20.5 (v -3.7..18.1) fences the wreck beach off from the site (navigation only, not visual). Manifest 23 (1.54 GiB: raw AVIs + r321 outputs) executed by the conductor; disk 24 -> 25 GiB; build_inputs 218/0 OK."
+    },
+    {
+      "id": "M-C9-BV2F-M3P-RATIFIED",
+      "ts": "2026-10-09T18:36:31-04:00",
+      "by": "Matt (R-C9-350)",
+      "note": "barrow_v2 at barrow_v1 fidelity in true 3D: full site r339/site_ph3 ratified; painting closed; P10 reported later (T34)."
     }
   ],
   "halts": [
@@ -55384,6 +55390,21 @@
         "R-C9-346",
         "R-C9-348",
         "a3aad9c1c"
+      ]
+    },
+    {
+      "id": "R-C9-350",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T18:36:31-04:00",
+      "verbatim": "Ratify all (Recommended)",
+      "ruling": "M3' FULL-SITE REVIEW RATIFIED by Matt on r339 (painting pixels 1e5f9dd90c0f; site_ph3; walk PASS R-C9-347; jack-ryan delta Gate-2 1efccb377 PASS-with-conditions, conditions discharged at a3aad9c1c). Ratified list: DEV-29 context patch; the read_zone/correction-field re-base; DEV-24 masked repaints layers 5-25 (23.35% of site, incl. layer 25 the high-tide ledge); the projected-paint rule (UV-less/overlapping meshes, procedural posts; UV-overlap check in the export report); the pilot changes; LR4 image cap raised to 48; conductor-run build-safe deletions (R-C9-341). Disclosed FAIL rows ACCEPTED: P5 a1 13/40 (15/40 raw); P5(b) y=3200 0.929; P4 snow 3/6 judged (7/15 site-wide); P11 27/40 valid (cause open). P10 is NOT gating: it runs in the T34 quiet window and is REPORTED. barrow_v2 painting is CLOSED. Also: PH's §66 (a7adeed2f) correctly placed the binding sea loop on the walkable WEST shore-fast ice (-25,-0.5)->(-28,1.5)->(-27.5,4)->(-25.5,3), floes 0/0/0/0 -- my R-C9-349 'v≈-8 coast' was PH's inexact §62 phrase (clifftop edge, not walkable shore); the west shore loop is accepted as binding (shore, sea, waterline load) and the floe cost lives in the report-only parked sea hold. Next: the barrow_v2 arena (R-C9-348, drax building).",
+      "cites": [
+        "R-C9-341",
+        "R-C9-347",
+        "R-C9-349",
+        "1efccb377",
+        "a3aad9c1c",
+        "a7adeed2f"
       ]
     }
   ],
