@@ -47628,9 +47628,143 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_0-ab25cA",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "0a0a19c555aa5435c1da8ea27029a2facee73cb170f5d30544820fa8c8e74a37",
+      "started": "2026-10-09T00:49:38.488522+00:00",
+      "ended": "2026-10-09T00:52:42.263327+00:00",
+      "minutes": 3.0628870152674303,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e23-19da-7083-b783-407d45431a6e/exec-fd8ac12e-3f3b-4fb5-81c2-9f88e8ac6cff.png",
+            "sha256": "167771528de64c8a0d1669de49fc1c727edab93dd70699847cce9e5c1c1682f0"
+          }
+        ]
+      },
+      "receipt_sha256": "64bacbd76d2ea390e07d5aa495d314c2822196b345985d3187b849f06f5027ed",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_0.png",
+          "sha256": "167771528de64c8a0d1669de49fc1c727edab93dd70699847cce9e5c1c1682f0"
+        },
+        {
+          "name": "exec-fd8ac12e-3f3b-4fb5-81c2-9f88e8ac6cff.provenance.json",
+          "sha256": "ce6fe55eab5e5370c5b30b3b93089d38e2940063ebca1ae2c2a830cb675e3233"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e23-19da-7083-b783-407d45431a6e/exec-fd8ac12e-3f3b-4fb5-81c2-9f88e8ac6cff.png",
+          "sha256": "167771528de64c8a0d1669de49fc1c727edab93dd70699847cce9e5c1c1682f0"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-3_0-ab25cB",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "685971b5b37449422f6e62cf8fbf02514636013bd8b82d898edc338b7bcb6e45",
+      "started": "2026-10-09T00:49:38.488520+00:00",
+      "ended": "2026-10-09T00:53:44.283396+00:00",
+      "minutes": 4.096547395150022,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e23-1a54-7492-a36c-809e08dccd94/exec-70a0ca23-00bd-440d-96c3-f7804e32815a.png",
+            "sha256": "6124ce792c0a2dd5d488d6771ee8c7eac172cbb27d7eb0fbb058fd38e2518fb0"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e23-1a54-7492-a36c-809e08dccd94/exec-aefb3451-3858-4c54-a87a-b8b5b75fbd36.png",
+            "sha256": "74aa11616e789e25a37c159b63c532394eb5c0fd7cadcbd0c326e38b764ab717"
+          }
+        ]
+      },
+      "receipt_sha256": "b4a45939ef59fd18a83bddaa14f9c26e54d3ec570799d1f10207f0aeab39b940",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-3_0.png",
+          "sha256": "6124ce792c0a2dd5d488d6771ee8c7eac172cbb27d7eb0fbb058fd38e2518fb0"
+        },
+        {
+          "name": "exec-70a0ca23-00bd-440d-96c3-f7804e32815a.provenance.json",
+          "sha256": "2f43339c2212de47da013d13557c5a2a9e391f53674cd304ad670d8f721ab9a0"
+        },
+        {
+          "name": "exec-aefb3451-3858-4c54-a87a-b8b5b75fbd36.provenance.json",
+          "sha256": "6424e8e8d14666dd9e3d645f1a4f3c5700dad79c305e59d541c7e019799e8672"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e23-1a54-7492-a36c-809e08dccd94/exec-70a0ca23-00bd-440d-96c3-f7804e32815a.png",
+          "sha256": "6124ce792c0a2dd5d488d6771ee8c7eac172cbb27d7eb0fbb058fd38e2518fb0"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e23-1a54-7492-a36c-809e08dccd94/exec-aefb3451-3858-4c54-a87a-b8b5b75fbd36.png",
+          "sha256": "74aa11616e789e25a37c159b63c532394eb5c0fd7cadcbd0c326e38b764ab717"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1389,
+  "images_used": 1392,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -51352,6 +51486,13 @@
       "ts": "2026-10-08T20:47:37-04:00",
       "verbatim": "Oh should I stop the Mac OS update download?",
       "ruling": "Disk back to 26 GiB (>= 21 gate). Host finding: SoftwareUpdate has AutomaticDownload=1 AND AutomaticallyInstallMacOSUpdates=1 (an auto-install restart would kill every session mid-run); 12 GB staged (macOS 27.0.1 major, Sequoia 15.8.1, Safari 27). Advised Matt to turn off automatic download and automatic macOS install, and to defer the major upgrade to a quiet point (T34 updated). PHASE 3' FIRST BURST RELEASED: (1) the byte-level DEV-25c flag-off stitch cmp first (flag unset = PS4 a25fb3; all flags off = Tier-A v1); (2) ph3_prepare.sh pins/copies; (3) the DEV-25c A/B on chunk 3_0 (+2 images; arms ab25cA / ab25cB, outside the driver); (4) score both arms on half E per s48(d) B-1 plus line-at-1:1 crops plus P6a; (5) STOP for the conductor's adoption ruling before ab_promote and wave 1."
+    },
+    {
+      "id": "R-C9-281",
+      "by": "gandalf (conductor), on PT 4a054c02e",
+      "ts": "2026-10-08T20:56:11-04:00",
+      "verbatim": "",
+      "ruling": "DEV-25c A/B on 3_0, ADOPTION by the PRE-REGISTERED RULE (no re-choice, no third arm): (i) a1_E(B) <= a1_E(A) FAILS (4.65 > 3.286); (ii) no line at 1:1 and (iii) P6a pass for both. OUTCOME: ARM A (v1 full-256 paste). DEV-25c is NOT adopted (it stays registered, flag off); dev25c_chunks is emptied. Cause recorded: under inner-128, band C holds two different renditions (B's fresh paint vs 2_0's paint, 13-53 per segment), so the DEV-26 cut must hand over between them. Flag-off byte proofs PASS (unset = a25fb3; all off = Tier-A v1). Images: A/B used 3 (+1 retry on B). ab_promote A -> BV2F-PH3-3_0 (the losing arm B is never used as context). WAVE 1 RELEASED: the remaining wave-1 chunk(s) by the frozen driver's ready rule (0_3), then the MANUAL per-wave QA stop (P6a -> raw a1 per join, s44 full band -> P4 snow W_min 100 / rock W_min 3) and contact sheet + stitched preview to the conductor before wave 2."
     }
   ],
   "grok_calls": [
