@@ -55464,6 +55464,16 @@
       "cites": [
         "R-C9-353"
       ]
+    },
+    {
+      "id": "R-C9-355",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T19:42:04-04:00",
+      "verbatim": "Any simpler idea for charge? Maybe we just use a charge like animation? Could we also do that for haste?? We do have a lot of Mixamo stuff.. also we need to use the warcry animation from Mixamo. And we need to use the basic greatsword attack animation from Mixamo when clicking on an enemy without pressing whirlwind..",
+      "ruling": "Amends R-C9-354: Charge = a Mixamo charge-like clip (shield ellipse dropped); Haste = a Mixamo sprint/fast-run clip while buffed (wind streaks dropped); Battle Cry = Mixamo war-cry clip + the expanding ring; basic attack on enemy click (no whirlwind) = Mixamo basic great-sword attack, release warped to the sim hit tick; Might unchanged (red outline). Rendered as new cells into a VARIANT copy of the eor3 pack (original untouched). drax inventories local Mixamo clips + retarget path first; stops with a missing-clip list if any are absent.",
+      "cites": [
+        "R-C9-354"
+      ]
     }
   ],
   "grok_calls": [
