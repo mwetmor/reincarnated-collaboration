@@ -7,7 +7,7 @@ C9=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9
 G=/Applications/Godot.app/Contents/MacOS/Godot
 LOCK=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7/conductor_scripts/heavy_lock.py
 H=$C9/barrow_v2/fid/ph/harness/godot
-R=$C9/barrow_v2/fid/ph/renders/site
+R=$C9/barrow_v2/fid/ph/renders/${PH_RDIR:-site}
 S=res://scenes/bv2f_pilot_painted.tscn
 export BV2F_VARIANT=art BV2F_PILOT=site_ph3
 gate() { FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); if [ "$FREE" -lt 21 ]; then echo "HALT: ${FREE} GiB free < 21"; exit 9; fi; }
@@ -26,5 +26,12 @@ for v in "$@"; do
             run $R/p9c_null_$m --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_null_$m uv:-23.976,-21.834 --floe-pairs 5 --floe-null $m
           done ;;
     idprobe) run $R/p9c_idprobe --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/p9c_idprobe uv:-23.976,-21.834 --floe-pairs 2 --floe-null static --floe-ids --floe-solo ;;
+    v3) for vw in main:-23.976,-21.834 l5:-18.409,-23.42; do
+          n=${vw%%:*}; uv=${vw#*:}
+          for m in rigid static bobt; do
+            run $R/v3_${n}_$m --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/v3_${n}_$m uv:$uv --floe-pairs 5 --floe-null $m --floe-ids --floe-solo
+          done
+          run $R/v3_${n}_red --path . --resolution 1920x1080 --script $H/ph_life.gd -- life $S $R/v3_${n}_red uv:$uv --floe-pairs 5 --floe-null bobt --floe-red --floe-ids --floe-solo
+        done ;;
   esac
 done
