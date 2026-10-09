@@ -51828,6 +51828,12 @@
       "ts": "2026-10-09T01:35:53-04:00",
       "by": "gandalf (conductor)",
       "text": "The image service (Astra/Codex) usage limit was hit during Phase 3' (PT a6777c0e0): BV2F-PH3-2_4 and -r1 exited 3 with 0 images ('You've hit your usage limit ... try again at 5:13 AM'). All bursts stopped. Remaining: 2_4 (as -r2), 3_4, 4_4, then the one DEV-24 corner seam patch, then the final deliverables. Budget left: Phase 3' 6/44, DEV-24 2/24. PT's usage-limit check now also reads the burst's events.jsonl."
+    },
+    {
+      "id": "H-C9-BV2F-DISK-SITE",
+      "ts": "2026-10-09T13:43:35-04:00",
+      "by": "gandalf (conductor)",
+      "text": "The full-site build (PT 8f87fd9a8) HALTED at the disk gate after the bake: 18 GiB free (gate 21). The bake work dir is 6.1 GiB (surf_*.npz 4.4 GiB). Done: E-2/E-4 re-confirmed (pixels 6342b88e2a54); ids 164 placements; export 100 models; light; take 100 plates / 598 tufts; heather; bake 100/100 (min ppm 107.8). Remaining: prep (+reeds), lineage, guide, 24 stills, walk film."
     }
   ],
   "rulings": [
@@ -54424,6 +54430,13 @@
       "ts": "2026-10-09T13:23:51-04:00",
       "verbatim": "",
       "ruling": "SEA PASS (PT; DEV-24 layers 6-15, 10 of the 16-image tranche, LR4 33): ACCEPTED. Pins from LV bac035332 with the allowlist PASS (0 px outside); re-stitch painting_ph3_sea_full.png (pixels 6342b88e2a54) = the patch chain, 0 px different; identity proof: 0 px outside the allowlist in the pilot, 0 px outside the paste mask site-wide (land byte-identical); build_inputs manifest refreshed (179 files, OK). Paste-rule refinement noted: each patch's tone correction now fades with a pinned field (R-C9-301 mechanism) instead of a hard cut at ring density 0.02, which had drawn straight tone lines inside large patches; no Tier-B code change. Conductor by eye: the pole is gone; floes read as one thickness; no crack net on open water; the stacked slabs and raised block are gone; the water at the cliff foot is deep. FOR MATT'S EYE: the cave's exit ledge now reads as a broad flat wet-rock shelf (dark brown-grey) in front of the cave; the pale ice channel at the cliff foot east of x~5450 (not repainted). BUILD RELEASED: the full-site take/bake/build as site_ph3 from LV bac035332 with painting 6342b88e2a54 (E-1..E-6 re-confirmed on the new inputs), then PH inputs, phase-matched stills, walk film; disk HALT at 21 GiB."
+    },
+    {
+      "id": "R-C9-323",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T13:43:35-04:00",
+      "verbatim": "",
+      "ruling": "Manifest 21 (cleanup/manifest_bv2f_scratch_21.txt; 869 files, 3.33 GiB: the superseded pilot build root, the sea-pass intermediate full paintings, the E-4 copy, superseded PH pilot renders, the pilot-3 film; build_inputs-safe) goes to Matt. Plan to finish without a restart: manifest 21 -> ~21 GiB -> PT runs prep (+reeds), lineage, guide -> manifest 22 (the site bake's surf_*.npz, ~4.4 GiB, only after prep has consumed them) -> stills + film. The longhall surface 0 with no UV array (skipped by the export) is investigated NOW without disk: identify the part, and whether it shows unbaked in game; propose a fix."
     }
   ],
   "grok_calls": [
