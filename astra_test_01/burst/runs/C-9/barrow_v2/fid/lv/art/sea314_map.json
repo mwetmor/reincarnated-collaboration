@@ -1,0 +1,35 @@
+{
+ "_what": "R-C9-314 map: items 2-5 numbered on Matt's crop (crop px = (plate - (20.4,1649)) / 2.041, registered by NCC 0.82 against painting_ph3_full.png)",
+ "items": {
+  "2_top_left_rectangle": {
+   "what": "a small thick locked pilot plate (ice_plates #1, 2.1 m2, top -3.97 = 0.53 m over the sea) sitting in the floe field: a raised rectangular block",
+   "fix": "rebuilt in the one partition"
+  },
+  "3_bottom_left_floe": {
+   "what": "Phase 3' rebuild floes at the bottom-left edge (ice_floes_bob #19/#20/#21/#23, ice_floes #23; 2.6-5.7 m2, 0.15-0.17 m freeboard): thin and lobed -- the candidates, outlined orange",
+   "fix": "one thickness rule + rounder outlines"
+  },
+  "4_cliff_floe_layered": {
+   "what": "locked pilot shore-fast sheet ice_shorefast #0 (38.8 m2) with locked old-shelf cells cove_ice #0 and #3 lying ON it (the 8.5 m2 stack)",
+   "fix": "one partition, nothing stacked"
+  },
+  "5_straight_cut": {
+   "what": "the straight Voronoi edges of the old-shelf cells: cove_ice #0's long edges on that sheet, and the two parallel straight slabs at the cliff foot left of the cave (cove_ice #1/#2/#4)",
+   "fix": "rebuilt as natural floes"
+  },
+  "6_locked_stacking": {
+   "what": "10.11 m2 = 8.50 (item 4) + 1.60 (locked margin rubble on ground ice, mostly outside the paint window)"
+  }
+ },
+ "pilot_sea_allowlist_rects_plate_px": [
+  [
+   0,
+   1393,
+   1518,
+   2560
+  ]
+ ],
+ "pilot_sea_allowlist_mask": "fid/lv/art/pilot_sea_allow_314.png: plate px 4096x2560, 255 = allowed = the pinned 023686e3c CLASS render's sea + shore_ice + lead pixels in the OPEN SEA (the connected parts reaching the pilot's bottom rows; the mere, the river and the mere->sea margin are excluded), opened 2 px, dilated 24 px (floe edges, shadows, the cliff-foot waterline). Authoritative; the rects are only its bounding boxes.",
+ "pilot_sea_allowlist_share_of_pilot_pct": 10.1,
+ "pilot_sea_allowlist_land_band_px": 167053
+}
