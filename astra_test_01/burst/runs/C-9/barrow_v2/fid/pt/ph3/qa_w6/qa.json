@@ -1,0 +1,120 @@
+{
+ "_what": "BV2F PT (R-C9-281): Phase 3' MANUAL per-wave QA (calibration s48 (e)), read-only on the canvases, PH's instruments",
+ "wave": "w6",
+ "chunks": {
+  "4_2": {
+   "canvas": "BV2F-PH3-4_2/BV2F-PH3-4_2.png",
+   "sha256": "766caf5b25fa3f49938a5ad9d3d7cca6dc9873d429783dddcfed52ef479af666",
+   "P6a": {
+    "candidates": [
+     {
+      "plate_xy": [
+       5581,
+       1651
+      ],
+      "nearest_declared": "hall_great_door",
+      "dist_m": 0.84,
+      "matched": true
+     },
+     {
+      "plate_xy": [
+       6446,
+       1813
+      ],
+      "nearest_declared": "gable_breach",
+      "dist_m": 6.54,
+      "matched": false
+     },
+     {
+      "plate_xy": [
+       6259,
+       2399
+      ],
+      "nearest_declared": "gable_breach",
+      "dist_m": 3.46,
+      "matched": false
+     }
+    ],
+    "invented": 2
+   },
+   "P4": {
+    "snow": {
+     "windows": 2,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 100,
+     "reading": {
+      "px": 75091,
+      "hist_dist": 0.304,
+      "hist_bar": 0.281,
+      "spec_dist": 0.325,
+      "spec_bar": 0.097,
+      "pass": false
+     }
+    },
+    "rock": {
+     "windows": 0,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 3,
+     "reading": null
+    }
+   },
+   "snow_palette": {
+    "not_measured": "snow support 2 < 100 windows"
+   }
+  }
+ },
+ "joins": {
+  "3_2|4_2": {
+   "a1_max": 20.993,
+   "a1_segments": [
+    14.274,
+    20.993,
+    2.37,
+    2.605,
+    2.688,
+    2.689,
+    2.041,
+    1.933
+   ],
+   "raw_mad": 16.97,
+   "bar": 9.569,
+   "verdict": "FAIL"
+  },
+  "4_1/4_2": {
+   "a1_max": 7.841,
+   "a1_segments": [
+    5.284,
+    7.841,
+    1.955,
+    1.549,
+    1.965,
+    2.6,
+    4.227,
+    3.574,
+    2.842,
+    2.813,
+    3.149,
+    3.554
+   ],
+   "raw_mad": 11.5,
+   "bar": 9.569,
+   "verdict": "PASS"
+  }
+ },
+ "preview": {
+  "grid": [
+   5,
+   4
+  ],
+  "rc": 0,
+  "log": [
+   "DEV-23 on {'0_0': {}, '1_0': {'left_step_mean_abs': 4.45}, '0_1': {'top_step_mean_abs': 6.66}, '1_1': {'left_step_mean_abs': 3.85, 'top_step_mean_abs': 2.58}, '0_2': {'top_step_mean_abs': 10.12}, '1_2': {'left_step_mean_abs': 5.87, 'top_step_mean_abs': 6.44}, '0_3': {'top_step_mean_abs': 5.56}, '1_3': {'left_step_mean_abs': 7.21, 'top_step_mean_abs': 5.49}, '2_0': {'left_step_mean_abs': 2.48}, '2_1': {'left_step_mean_abs': 6.31, 'top_step_mean_abs': 2.74}, '3_0': {'left_step_mean_abs': 5.74}, '3_1': {'left_step_mean_abs': 4.4, 'top_step_mean_abs': 3.76}, '4_0': {'left_step_mean_abs': 5.67}, '4_1': {'left_step_mean_abs': 3.96, 'top_step_mean_abs': 8.45}, '2_2': {'left_step_mean_abs': 9.42, 'top_step_mean_abs': 6.17}, '2_3': {'left_step_mean_abs': 0.99, 'top_step_mean_abs': 0.0}, '3_2': {'left_step_mean_abs': 2.48, 'top_step_mean_abs': 4.44}, '3_3': {'left_step_mean_abs': 1.92, 'top_step_mean_abs': 1.44}, '4_2': {'left_step_mean_abs': 4.9, 'top_step_mean_abs': 4.36}, '4_3': {'left_step_mean_abs': 1.43, 'top_step_mean_abs': 0.51}}",
+   "DEV-25 on {'0_0': {}, '1_0': {'left_k_median': 0.951}, '0_1': {'top_k_median': 1.0}, '1_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '0_2': {'top_k_median': 1.0}, '1_2': {'left_k_median': 0.976, 'top_k_median': 1.0}, '0_3': {'top_k_median': 1.0}, '1_3': {'left_k_median': 0.93, 'top_k_median': 1.0}, '2_0': {'left_k_median': 1.0}, '2_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_0': {'left_k_median': 0.992}, '3_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '4_0': {'left_k_median': 1.0}, '4_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '2_2': {'left_k_median': 1.0, 'top_k_median': 0.948}, '2_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_2': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '4_2': {'left_k_median': 1.0, 'top_k_median': 0.962}, '4_3': {'left_k_median': 1.0, 'top_k_median': 1.0}}",
+   "DEV-26 on {'x1_pinned_rows': 2304, 'x1': {'path_min_max': [19, 224], 'object_px_on_path': 32}, 'y1_pinned_rows': 3840, 'y1': {'path_min_max': [14, 216], 'object_px_on_path': 133}, 'x2_pinned_rows': 2304, 'x2': {'path_min_max': [14, 225], 'object_px_on_path': 936}, 'x3': {'path_min_max': [14, 241], 'object_px_on_path': 459}, 'x4': {'path_min_max': [14, 241], 'object_px_on_path': 70}, 'y2_pinned_rows': 3840, 'y2': {'path_min_max': [14, 241], 'object_px_on_path': 209}, 'y3': {'path_min_max': [14, 241], 'object_px_on_path': 2079}}",
+   "DEV-27 on {'0_0': {}, '1_0': {'left_step_mean_abs': 3.6}, '2_0': {'left_step_mean_abs': 4.26}, '3_0': {'left_step_mean_abs': 3.24}, '4_0': {'left_step_mean_abs': 4.01}, '0_1': {'top_step_mean_abs': 4.89}, '1_1': {'left_step_mean_abs': 3.55, 'top_step_mean_abs': 5.08}, '2_1': {'left_step_mean_abs': 4.25, 'top_step_mean_abs': 4.93}, '3_1': {'left_step_mean_abs': 3.74, 'top_step_mean_abs': 3.69}, '4_1': {'left_step_mean_abs': 4.41, 'top_step_mean_abs': 5.12}, '0_2': {'top_step_mean_abs': 6.71}, '1_2': {'left_step_mean_abs': 3.98, 'top_step_mean_abs': 5.99}, '2_2': {'left_step_mean_abs': 6.96, 'top_step_mean_abs': 6.51}, '3_2': {'left_step_mean_abs': 3.6, 'top_step_mean_abs': 5.2}, '4_2': {'left_step_mean_abs': 6.89, 'top_step_mean_abs': 6.2}, '0_3': {'top_step_mean_abs': 4.78}, '1_3': {'left_step_mean_abs': 5.11, 'top_step_mean_abs': 5.18}, '2_3': {'left_step_mean_abs': 1.51, 'top_step_mean_abs': 2.23}, '3_3': {'left_step_mean_abs': 2.28, 'top_step_mean_abs': 3.02}, '4_3': {'left_step_mean_abs': 0.6, 'top_step_mean_abs': 1.3}}",
+   "DEV-24 on {'layers': [{'patches': [{'name': 'ps4_crack1-1', 'paste_px': 227215, 'support_px': 370398, 'tone_corr_mean_abs': 4.92}, {'name': 'ps4_crack2-1', 'paste_px': 31760, 'support_px': 41868, 'tone_corr_mean_abs': 0.97}, {'name': 'ps4_crack3-1', 'paste_px': 50247, 'support_px': 91263, 'tone_corr_mean_abs': 1.98}], 'changed_px': 360021, 'layer': 1}, {'patches': [{'name': 'ps4_reeds1-1', 'paste_px': 387468, 'support_px': 534616, 'tone_corr_mean_abs': 1.58}, {'name': 'ps4_reeds2-1', 'paste_px': 224270, 'support_px': 313713, 'tone_corr_mean_abs': 2.21}, {'name': 'ps4_reeds3-1', 'paste_px': 176668, 'support_px': 258851, 'tone_corr_mean_abs': 1.06}, {'name': 'ps4_seam2-1', 'paste_px': 92472, 'support_px': 118338, 'tone_corr_mean_abs': 4.38}], 'changed_px': 973193, 'layer': 2}, {'patches': [{'name': 'ps4_seam1-1', 'paste_px': 112817, 'support_px': 132838, 'tone_corr_mean_abs': 0.5}], 'changed_px': 118322, 'layer': 3}], 'changed_px': 1360750, 'result_pixels_sha256': '91ccb179ecd57ab975a765aea42debc9335cc24aa09748e46d3283c9a7c62601'}",
+   "DEV-25c off"
+  ],
+  "file": "stitched_preview.jpg (half size); cells not painted are the GUIDE"
+ }
+}
