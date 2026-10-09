@@ -47762,9 +47762,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-0_3",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "fde1513db604bc619318527bd95b5e0142e0344600e4bec071b6163c8ff6b8db",
+      "started": "2026-10-09T00:57:09.735518+00:00",
+      "ended": "2026-10-09T01:00:51.384063+00:00",
+      "minutes": 3.694104697918131,
+      "image_calls": 2,
+      "tool_calls": 3,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 3,
+        "tools_seen": {
+          "command_execution": 3
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e29-fa22-7423-a5bd-d069554cd73e/exec-0a6d7ec1-d2d1-40a5-bc5d-c1760286e218.png",
+            "sha256": "f8324900c0d0e1e504c5c125b9df88c1bfcd7dd5c151c1fc2164242b1ec3e7d7"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e29-fa22-7423-a5bd-d069554cd73e/exec-b578eaf2-6b32-48d7-b216-85e074646deb.png",
+            "sha256": "bd1fe187f67583608ed88fa7c5a023d9985796099fbc3d37153ec67ff96847b8"
+          }
+        ]
+      },
+      "receipt_sha256": "1bfe7df33094e3bbee86785fb82e065de9f2e99c5c6b1d9023194ca8d1ba84ee",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-0_3.png",
+          "sha256": "bd1fe187f67583608ed88fa7c5a023d9985796099fbc3d37153ec67ff96847b8"
+        },
+        {
+          "name": "exec-0a6d7ec1-d2d1-40a5-bc5d-c1760286e218.provenance.json",
+          "sha256": "8a0c2598bae88ce05350d3173a5675d310b1f8f836624153328f71492d57d9f7"
+        },
+        {
+          "name": "exec-b578eaf2-6b32-48d7-b216-85e074646deb.provenance.json",
+          "sha256": "7c466edc0e24ea723116c6f622c489d5d107342aecbf84548ecbc4e4000ebb3a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e29-fa22-7423-a5bd-d069554cd73e/exec-0a6d7ec1-d2d1-40a5-bc5d-c1760286e218.png",
+          "sha256": "f8324900c0d0e1e504c5c125b9df88c1bfcd7dd5c151c1fc2164242b1ec3e7d7"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e29-fa22-7423-a5bd-d069554cd73e/exec-b578eaf2-6b32-48d7-b216-85e074646deb.png",
+          "sha256": "bd1fe187f67583608ed88fa7c5a023d9985796099fbc3d37153ec67ff96847b8"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1392,
+  "images_used": 1394,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -51493,6 +51566,13 @@
       "ts": "2026-10-08T20:56:11-04:00",
       "verbatim": "",
       "ruling": "DEV-25c A/B on 3_0, ADOPTION by the PRE-REGISTERED RULE (no re-choice, no third arm): (i) a1_E(B) <= a1_E(A) FAILS (4.65 > 3.286); (ii) no line at 1:1 and (iii) P6a pass for both. OUTCOME: ARM A (v1 full-256 paste). DEV-25c is NOT adopted (it stays registered, flag off); dev25c_chunks is emptied. Cause recorded: under inner-128, band C holds two different renditions (B's fresh paint vs 2_0's paint, 13-53 per segment), so the DEV-26 cut must hand over between them. Flag-off byte proofs PASS (unset = a25fb3; all off = Tier-A v1). Images: A/B used 3 (+1 retry on B). ab_promote A -> BV2F-PH3-3_0 (the losing arm B is never used as context). WAVE 1 RELEASED: the remaining wave-1 chunk(s) by the frozen driver's ready rule (0_3), then the MANUAL per-wave QA stop (P6a -> raw a1 per join, s44 full band -> P4 snow W_min 100 / rock W_min 3) and contact sheet + stitched preview to the conductor before wave 2."
+    },
+    {
+      "id": "R-C9-282",
+      "by": "gandalf (conductor, by-eye)",
+      "ts": "2026-10-08T21:04:09-04:00",
+      "verbatim": "",
+      "ruling": "WAVE 1 QA (PT e320c5172; 5/~37 images): raw a1 PASS at both joins (2_0|3_0 3.417; 0_2/0_3 8.789 at the last segment, bar 9.569); rock PASS (3_0 8 windows spec 0.146; 0_3 20 windows spec 0.064); snow 'insufficient support' (3_0 78 < 100; 0_3 0, a sea chunk), not judged. P6a: one unmatched candidate at plate (505,3270) in 0_3. CONDUCTOR BY-EYE: dark OPEN SEA between ice floes, which the class map and guide also mark as sea; NOT an invented opening, dispositioned as a detector false positive on water (recorded with crop qa_w1/p6a_0_3_candidate_x505_y3270.png; PH to note it in calibration as a known sea-class false-positive mode for M3'). Stitched preview: 3_0 continues the mound, stones and heather with no line; 0_3's floes and leads continue the pilot's sea. WAVE 2 RELEASED, same manual QA stop."
     }
   ],
   "grok_calls": [
