@@ -1,0 +1,135 @@
+{
+ "_what": "BV2F PT (R-C9-281): Phase 3' MANUAL per-wave QA (calibration s48 (e)), read-only on the canvases, PH's instruments",
+ "wave": "w1",
+ "chunks": {
+  "3_0": {
+   "canvas": "BV2F-PH3-3_0/BV2F-PH3-3_0.png",
+   "sha256": "167771528de64c8a0d1669de49fc1c727edab93dd70699847cce9e5c1c1682f0",
+   "P6a": {
+    "candidates": [],
+    "invented": 0
+   },
+   "P4": {
+    "snow": {
+     "windows": 78,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 100,
+     "reading": {
+      "px": 552890,
+      "hist_dist": 0.142,
+      "hist_bar": 0.281,
+      "spec_dist": 0.044,
+      "spec_bar": 0.097,
+      "pass": true
+     }
+    },
+    "rock": {
+     "windows": 8,
+     "verdict": "PASS",
+     "w_min": 3,
+     "reading": {
+      "px": 113067,
+      "hist_dist": 0.233,
+      "hist_bar": 0.481,
+      "spec_dist": 0.146,
+      "spec_bar": 0.19,
+      "pass": true
+     }
+    }
+   }
+  },
+  "0_3": {
+   "canvas": "BV2F-PH3-0_3/BV2F-PH3-0_3.png",
+   "sha256": "bd1fe187f67583608ed88fa7c5a023d9985796099fbc3d37153ec67ff96847b8",
+   "P6a": {
+    "candidates": [
+     {
+      "plate_xy": [
+       505,
+       3270
+      ],
+      "nearest_declared": "wreck_hull",
+      "dist_m": 14.68,
+      "matched": false
+     }
+    ],
+    "invented": 1
+   },
+   "P4": {
+    "snow": {
+     "windows": 0,
+     "verdict": "insufficient support (not judged)",
+     "w_min": 100,
+     "reading": null
+    },
+    "rock": {
+     "windows": 20,
+     "verdict": "PASS",
+     "w_min": 3,
+     "reading": {
+      "px": 155757,
+      "hist_dist": 0.318,
+      "hist_bar": 0.481,
+      "spec_dist": 0.064,
+      "spec_bar": 0.19,
+      "pass": true
+     }
+    }
+   }
+  }
+ },
+ "joins": {
+  "2_0|3_0": {
+   "a1_max": 3.417,
+   "a1_segments": [
+    2.436,
+    2.853,
+    2.087,
+    2.991,
+    2.747,
+    3.323,
+    3.417,
+    2.759
+   ],
+   "raw_mad": 10.5,
+   "bar": 9.569,
+   "verdict": "PASS"
+  },
+  "0_2/0_3": {
+   "a1_max": 8.789,
+   "a1_segments": [
+    6.764,
+    5.573,
+    1.828,
+    2.298,
+    2.924,
+    0.964,
+    0.825,
+    1.107,
+    2.013,
+    1.954,
+    2.272,
+    8.789
+   ],
+   "raw_mad": 6.75,
+   "bar": 9.569,
+   "verdict": "PASS"
+  }
+ },
+ "preview": {
+  "grid": [
+   4,
+   4
+  ],
+  "rc": 0,
+  "log": [
+   "DEV-23 on {'0_0': {}, '1_0': {'left_step_mean_abs': 4.45}, '0_1': {'top_step_mean_abs': 6.66}, '1_1': {'left_step_mean_abs': 3.85, 'top_step_mean_abs': 2.58}, '0_2': {'top_step_mean_abs': 10.12}, '1_2': {'left_step_mean_abs': 5.87, 'top_step_mean_abs': 6.44}, '0_3': {'top_step_mean_abs': 5.15}, '1_3': {'left_step_mean_abs': 1.38, 'top_step_mean_abs': 0.03}, '2_0': {'left_step_mean_abs': 2.48}, '2_1': {'left_step_mean_abs': 6.31, 'top_step_mean_abs': 2.74}, '3_0': {'left_step_mean_abs': 5.74}, '3_1': {'left_step_mean_abs': 4.39, 'top_step_mean_abs': 0.23}, '2_2': {'left_step_mean_abs': 9.42, 'top_step_mean_abs': 6.17}, '2_3': {'left_step_mean_abs': 1.95, 'top_step_mean_abs': 0.0}, '3_2': {'left_step_mean_abs': 0.44, 'top_step_mean_abs': 0.69}, '3_3': {'left_step_mean_abs': 1.92, 'top_step_mean_abs': 1.44}}",
+   "DEV-25 on {'0_0': {}, '1_0': {'left_k_median': 0.951}, '0_1': {'top_k_median': 1.0}, '1_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '0_2': {'top_k_median': 1.0}, '1_2': {'left_k_median': 0.976, 'top_k_median': 1.0}, '0_3': {'top_k_median': 1.0}, '1_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '2_0': {'left_k_median': 1.0}, '2_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_0': {'left_k_median': 0.992}, '3_1': {'left_k_median': 1.0, 'top_k_median': 1.0}, '2_2': {'left_k_median': 1.0, 'top_k_median': 0.948}, '2_3': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_2': {'left_k_median': 1.0, 'top_k_median': 1.0}, '3_3': {'left_k_median': 1.0, 'top_k_median': 1.0}}",
+   "DEV-26 on {'x1_pinned_rows': 2304, 'x1': {'path_min_max': [19, 231], 'object_px_on_path': 141}, 'y1_pinned_rows': 3840, 'y1': {'path_min_max': [14, 214], 'object_px_on_path': 651}, 'x2_pinned_rows': 2304, 'x2': {'path_min_max': [14, 241], 'object_px_on_path': 895}, 'x3': {'path_min_max': [14, 241], 'object_px_on_path': 746}, 'y2_pinned_rows': 3840, 'y2': {'path_min_max': [14, 241], 'object_px_on_path': 617}, 'y3': {'path_min_max': [14, 241], 'object_px_on_path': 1652}}",
+   "DEV-27 on {'0_0': {}, '1_0': {'left_step_mean_abs': 3.6}, '2_0': {'left_step_mean_abs': 4.26}, '3_0': {'left_step_mean_abs': 3.24}, '0_1': {'top_step_mean_abs': 4.89}, '1_1': {'left_step_mean_abs': 3.55, 'top_step_mean_abs': 5.08}, '2_1': {'left_step_mean_abs': 4.25, 'top_step_mean_abs': 4.93}, '3_1': {'left_step_mean_abs': 1.82, 'top_step_mean_abs': 0.57}, '0_2': {'top_step_mean_abs': 6.71}, '1_2': {'left_step_mean_abs': 3.98, 'top_step_mean_abs': 5.99}, '2_2': {'left_step_mean_abs': 6.96, 'top_step_mean_abs': 6.51}, '3_2': {'left_step_mean_abs': 1.42, 'top_step_mean_abs': 0.46}, '0_3': {'top_step_mean_abs': 5.01}, '1_3': {'left_step_mean_abs': 3.13, 'top_step_mean_abs': 1.24}, '2_3': {'left_step_mean_abs': 1.3, 'top_step_mean_abs': 2.23}, '3_3': {'left_step_mean_abs': 2.28, 'top_step_mean_abs': 3.03}}",
+   "DEV-24 on {'layers': [{'patches': [{'name': 'ps4_crack1-1', 'paste_px': 227215, 'support_px': 370398, 'tone_corr_mean_abs': 4.92}, {'name': 'ps4_crack2-1', 'paste_px': 31760, 'support_px': 41868, 'tone_corr_mean_abs': 0.97}, {'name': 'ps4_crack3-1', 'paste_px': 50247, 'support_px': 91263, 'tone_corr_mean_abs': 1.98}], 'changed_px': 360021, 'layer': 1}, {'patches': [{'name': 'ps4_reeds1-1', 'paste_px': 387468, 'support_px': 534616, 'tone_corr_mean_abs': 1.58}, {'name': 'ps4_reeds2-1', 'paste_px': 224270, 'support_px': 313713, 'tone_corr_mean_abs': 2.21}, {'name': 'ps4_reeds3-1', 'paste_px': 176668, 'support_px': 258851, 'tone_corr_mean_abs': 1.06}, {'name': 'ps4_seam2-1', 'paste_px': 92472, 'support_px': 118338, 'tone_corr_mean_abs': 4.38}], 'changed_px': 973193, 'layer': 2}, {'patches': [{'name': 'ps4_seam1-1', 'paste_px': 112817, 'support_px': 132838, 'tone_corr_mean_abs': 0.5}], 'changed_px': 118322, 'layer': 3}], 'changed_px': 1360750, 'result_pixels_sha256': '5a97f8123e7e83a280f65a3ff82f2e38e169facdac39a9555ba2ffffb5cc85c9'}",
+   "DEV-25c off"
+  ],
+  "file": "stitched_preview.jpg (half size); cells not painted are the GUIDE"
+ }
+}

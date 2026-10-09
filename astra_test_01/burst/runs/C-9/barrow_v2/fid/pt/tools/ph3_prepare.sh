@@ -40,4 +40,31 @@ import json,hashlib;p='$A9/BV2F-PH3-3_0/BV2F-PH3-3_0.png';json.dump({'_what':'R-
 c=json.load(open('$CFG'))
 if '$W'=='A': c['dev25c_chunks']=[]
 json.dump(c,open('$CFG','w'),indent=1,ensure_ascii=False); print('winner $W; dev25c_chunks', c['dev25c_chunks'])" ;;
+  wave)   # ONE wave (the conductor releases wave by wave): the frozen driver's per-chunk steps -- guided_paint stage ->
+          # brief -> refs_guard -> wave.sh (parallel) -> exit check; a non-zero exit gets ONE retry (-r1), a second HALTs;
+          # a usage-limit message HALTs (exit 7). DEV-28 on (cfg dev28_ids); DEV-25c from the cfg list (empty = off).
+    shift; disk; cd $B; source ~/.zshrc > /dev/null 2>&1
+    python3 $FID/v1tools/cfg_check.py $CFG || exit 9
+    bash $FID/v1tools/verify.sh > /dev/null || { echo "HALT: verify"; exit 8; }
+    export BV2F_DEV28=1
+    if python3 -c "import json,sys;sys.exit(0 if json.load(open('$CFG')).get('dev25c_chunks') else 1)"; then export BV2F_DEV25C=1; else unset BV2F_DEV25C; fi
+    L=$HOME/astra-burst/logs/C-9
+    for suf in "" "-r1"; do
+      specs=()
+      for k in $@; do
+        if [ -n "$suf" ]; then ex=$(python3 -c "import json;print(json.load(open('$L/BV2F-PH3-$k''_run.json'))['exit'])" 2>/dev/null); [ "$ex" = "0" ] && continue; fi
+        SUF=$suf python3 $GP $CFG stage $k && SUF=$suf python3 $GP $CFG brief $k || { echo "HALT: stage/brief $k$suf"; exit 3; }
+        python3 $RG briefs/C-9/BV2F-PH3-$k$suf.task.json || { echo "HALT: refs_guard $k$suf"; exit 3; }
+        specs+=("BV2F-PH3-$k$suf:GENERATE")
+      done
+      [ ${#specs} -eq 0 ] && break
+      zsh $WAVE BV2F-PH3_w$(date +%s) ${specs[@]}
+      for s in $specs; do bid=${s%%:*}
+        ex=$(python3 -c "import json;print(json.load(open('$L/${bid}_run.json'))['exit'])" 2>/dev/null)
+        echo "$bid exit=$ex"
+        grep -qiE "usage limit|rate limit|weekly limit|quota|too many requests|limit reached" $L/${bid}_run.json $L/${bid}_run.err 2>/dev/null && { echo "HALT USAGE LIMIT $bid"; exit 7; }
+        [ "$ex" != "0" ] && [ "$suf" = "-r1" ] && { echo "HALT: $bid failed twice"; exit 2; }
+      done
+    done
+    python3 -c "import json;L=json.load(open('$B/runs/C-9/ledger.json'));print('images BV2F-PH3:',sum(b.get('image_calls',0) for b in L['bursts'] if str(b.get('id','')).startswith('BV2F-PH3-')))" ;;
 esac
