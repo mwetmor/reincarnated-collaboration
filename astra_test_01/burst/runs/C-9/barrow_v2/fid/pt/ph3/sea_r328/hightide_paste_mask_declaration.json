@@ -1,0 +1,56 @@
+{
+ "_what": "R-C9-339 PASTE-MASK DECLARATION (jack-ryan Gate-2 s9). DISCLOSED: written AFTER the burst fired (the Gate-2 requirement arrived later); the mask is the one pinned with the patch (pin_1.json), unchanged.",
+ "patch": "BV2F-LR4-hightide-1",
+ "canvas_rect_xy": [
+  2650,
+  2560
+ ],
+ "class_map": "pt/ph3/class_art_pinned_d26d14c55.png (sha baffff669c2d762155d60d8d51f32b9ee14a10e3e30cef1a74cb9401cfc9f947)",
+ "paste_mask": {
+  "rule": "class == tide_ice inside the canvas (local_repaint paste_classes ['tide_ice'])",
+  "png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/hightide/paste_classes.png",
+  "sha256": "6f7aa91b73a95e5abc32cb0b5bb4591b04268e0a95c6903712f6786c18873c86",
+  "px": 369857,
+  "tide_ice_px_sitewide": 369857,
+  "tide_ice_px_outside_mask": 0,
+  "classes_in_mask": {
+   "tide_ice": 369857
+  }
+ },
+ "region": {
+  "png": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/dev24/hightide/region.png",
+  "sha256": "0f278aec1e6eca8c459bfb2b94cb383b4aaeaff62a8f6b8dc382f7407e837906",
+  "px": 369432,
+  "region_minus_mask_px": 0
+ },
+ "support_w_gt0_px": 369636,
+ "support_outside_mask_px": 0,
+ "cave_mouth_floor": {
+  "mouth_box_plate": [
+   3054,
+   2620,
+   3454,
+   2800
+  ],
+  "tide_ice_px_in_box": 14076,
+  "of_which_in_mask": 14076,
+  "inside_mask": true
+ },
+ "guide_ids_class_vs_LV_9263d053d": {
+  "guide": {
+   "pinned": "b0caff60e7d8",
+   "lv_9263d053d": "b0caff60e7d8",
+   "identical": true
+  },
+  "ids": {
+   "pinned": "e254d4cab2e8",
+   "lv_9263d053d": "e254d4cab2e8",
+   "identical": true
+  },
+  "class": {
+   "pinned": "baffff669c2d",
+   "lv_9263d053d": "baffff669c2d",
+   "identical": true
+  }
+ }
+}

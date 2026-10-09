@@ -1,7 +1,7 @@
 {
  "_what": "R-C9-310 R-1: the gitignored Phase 3' build inputs + M3' evidence (path relative to runs/C-9, sha256, bytes). Check: python3 fid/pt/tools/build_inputs_check.py. EXCLUDE every path here from any deletion list; copying the set to a second volume is a matt_to_do.",
- "final_painting_sha256": "901305202936814123d6cea0f9e2137ac4f71e3f1e05c9df0aa08018219e63c1",
- "cfg": "fid/pt/pilot/cfg_bv2a_ph3.json sha 7635bf39e6250cd3fde8b2271d2a73d43407d539b03375d90c3f68a50fac37d0",
+ "final_painting_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+ "cfg": "fid/pt/pilot/cfg_bv2a_ph3.json sha 801a431afc8a91d75ccd0fdb52888525adebd9d111a46f754ce1ad3400cdb36d",
  "counts": {
   "canvases_25": 25,
   "dev24_patch_files": 36,
@@ -20,9 +20,12 @@
   "pins_d26d14c55_r330": 6,
   "final_painting_r328": 1,
   "ledge_grain_r332": 4,
-  "final_painting_r332": 1
+  "final_painting_r332": 1,
+  "hightide_r339": 4,
+  "final_painting_r339": 1,
+  "evidence_r339_ledge": 3
  },
- "total_bytes": 576099182,
+ "total_bytes": 662583050,
  "files": {
   "canvases_25": [
    {
@@ -1174,7 +1177,54 @@
     "sha256": "901305202936814123d6cea0f9e2137ac4f71e3f1e05c9df0aa08018219e63c1",
     "bytes": 50586797
    }
+  ],
+  "hightide_r339": [
+   {
+    "path": "barrow_v2/fid/pt/dev24/hightide/region.png",
+    "sha256": "0f278aec1e6eca8c459bfb2b94cb383b4aaeaff62a8f6b8dc382f7407e837906",
+    "bytes": 8143
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/hightide/paste_classes.png",
+    "sha256": "6f7aa91b73a95e5abc32cb0b5bb4591b04268e0a95c6903712f6786c18873c86",
+    "bytes": 8277
+   },
+   {
+    "path": "artifacts/BV2F-LR4-hightide-1/BV2F-LR4-hightide-1.png",
+    "sha256": "127a1ace989a543f040c304db799c5dcbcaab6a99676df85c613e265529a9436",
+    "bytes": 3425959
+   },
+   {
+    "path": "barrow_v2/fid/pt/dev24/hightide-1_corr.npz",
+    "sha256": "57754f0f3e925e56977d684301465a5528d6d1757ea0db1de61313e9072e414a",
+    "bytes": 23527
+   }
+  ],
+  "final_painting_r339": [
+   {
+    "path": "barrow_v2/fid/pt/ph3/final/painting_ph3_r339_full.png",
+    "sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+    "bytes": 50758927
+   }
+  ],
+  "evidence_r339_ledge": [
+   {
+    "path": "barrow_v2/fid/pt/site/r339_evidence/ledge_hightide.png",
+    "sha256": "95a7968c4272dbe36489f11812c41f2d7b2272604a4a7f022dae5a287a559cbc",
+    "bytes": 3824759
+   },
+   {
+    "path": "barrow_v2/fid/pt/site/r339_evidence/ledge_hightide.ids.png",
+    "sha256": "31b9def7326588328e94330e7567560144b7739c08c842b411586e8b7fbab24d",
+    "bytes": 51327
+   },
+   {
+    "path": "barrow_v2/fid/pt/site/r339_evidence/BV2F site_ph3 - the high-tide ice ledge at the sea cave.mp4",
+    "sha256": "13b6917579bf0b903b907f32f89fd5beb28c49ac047d3ba5ab7c4c5d75da6270",
+    "bytes": 28382949
+   }
   ]
  },
- "_final_painting": "R-C9-332: fid/pt/ph3/final/painting_ph3_r332_full.png (dev24 layers 1-24; pixels b6ab4dfe8b03) supersedes painting_ph3_r328_full.png (3fc04a7d0f63, kept: r332 identity reference)"
+ "_final_painting": "R-C9-339: fid/pt/ph3/final/painting_ph3_r339_full.png (dev24 layers 1-25; pixels 1e5f9dd90c0f) supersedes painting_ph3_r332_full.png (kept: r339 identity reference)",
+ "_evidence_r339": "R-C9-339 (jack-ryan Gate-2 s9): the ledge still + clip are EVIDENCE -- excluded from any cleanup like every path here (the clip's raw clip.avi is NOT listed: clearable)"
 }
