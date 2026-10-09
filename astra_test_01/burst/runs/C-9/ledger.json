@@ -47969,9 +47969,143 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-0_3-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "79465a92874981511a356efbdcc380c271e34f9de12428da730b891c705350b6",
+      "started": "2026-10-09T01:50:04.614967+00:00",
+      "ended": "2026-10-09T01:52:58.087492+00:00",
+      "minutes": 2.891200258334478,
+      "image_calls": 2,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e5a-6e8d-7cd2-87ce-459dedc00c2b/exec-0caf2223-917d-4287-b7a6-6d96fd2aa721.png",
+            "sha256": "291a8ac21d711f0a7ba513b3e1f98c4a4ff38b9524d066de389da93c6edb0e9e"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e5a-6e8d-7cd2-87ce-459dedc00c2b/exec-727bfd65-3822-4c95-9e7c-a88f2cf448f1.png",
+            "sha256": "98edcdd3b670548076b0535a24522a5084be557556d3e4977c8e7413d9bcc1bc"
+          }
+        ]
+      },
+      "receipt_sha256": "614063ab043d2a8680ef31d3146d9efb3e48627c993a5b316e297893c5c9aba1",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-0_3.png",
+          "sha256": "98edcdd3b670548076b0535a24522a5084be557556d3e4977c8e7413d9bcc1bc"
+        },
+        {
+          "name": "exec-0caf2223-917d-4287-b7a6-6d96fd2aa721.provenance.json",
+          "sha256": "a07e2b3f86916b71bc0f0596869c19f00f1857d61a4646a62db16b95b9f53480"
+        },
+        {
+          "name": "exec-727bfd65-3822-4c95-9e7c-a88f2cf448f1.provenance.json",
+          "sha256": "877bac49bed11d1a4ffcb7cb4a3a6b559e30fdf8ce9dd8d7aad3f6b5a356b00a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e5a-6e8d-7cd2-87ce-459dedc00c2b/exec-0caf2223-917d-4287-b7a6-6d96fd2aa721.png",
+          "sha256": "291a8ac21d711f0a7ba513b3e1f98c4a4ff38b9524d066de389da93c6edb0e9e"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e5a-6e8d-7cd2-87ce-459dedc00c2b/exec-727bfd65-3822-4c95-9e7c-a88f2cf448f1.png",
+          "sha256": "98edcdd3b670548076b0535a24522a5084be557556d3e4977c8e7413d9bcc1bc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-1_3-r1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "7b00f9792f2bbfd9f1354471f377cc9b3dae27f7feb8c6ec30d4d797bf4725e9",
+      "started": "2026-10-09T01:54:18.730327+00:00",
+      "ended": "2026-10-09T01:56:34.387368+00:00",
+      "minutes": 2.260954816666587,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11e5e-4cb2-74b3-8e69-747a48ca67e0/exec-00cc631c-b276-412f-acbc-76f5b5c7bf79.png",
+            "sha256": "e12665daa3c556c250954cd95f0e976842b44ec5fff07504a587c5a37be54265"
+          }
+        ]
+      },
+      "receipt_sha256": "9d4a3c83444da21c088b5f52a06630f395dacf31dffe380c694983aed0f6162a",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-1_3.png",
+          "sha256": "e12665daa3c556c250954cd95f0e976842b44ec5fff07504a587c5a37be54265"
+        },
+        {
+          "name": "exec-00cc631c-b276-412f-acbc-76f5b5c7bf79.provenance.json",
+          "sha256": "a52c2aac1c21f0fd6815d422662191a43138603a22d27cded86c54d1f3139866"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11e5e-4cb2-74b3-8e69-747a48ca67e0/exec-00cc631c-b276-412f-acbc-76f5b5c7bf79.png",
+          "sha256": "e12665daa3c556c250954cd95f0e976842b44ec5fff07504a587c5a37be54265"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1397,
+  "images_used": 1400,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -51721,6 +51855,13 @@
       "ts": "2026-10-08T21:48:13-04:00",
       "verbatim": "",
       "ruling": "LV R-C9-283 (67fc4b80b) PASS: the honeycomb (cove_ice: single-spacing Voronoi) below the pilot is replaced by natural floes of 0.3-30 m2 with leads that narrow and widen; the cave-mouth ledge is untouched and walkability passes; the zig-zag 'plank' was a snow RIM (ice_rims), now a broad low drift. The pilot guide tiles are byte-identical; changed tiles 0_3, 1_3, 2_3, 0_4, 1_4, 2_4, 3_4. Residuals left: 5 straight Voronoi cells inside the pilot rows (unchanged by rule); some small floes read as round polygon pucks. LV's question answered: its P10 quiet-window hold ended when the window closed (R-C9-277). RELEASE: PT re-pins from 67fc4b80b (pilot pins check must pass), moves the superseded BV2F-PH3-0_3/1_3 aside, repaints 0_3 -> 1_3, then QA and STOP; the wave cadence then resumes (manual QA stop per wave). Matt's target: painting complete before his restart; the build is after the restart."
+    },
+    {
+      "id": "R-C9-285",
+      "by": "gandalf (conductor), on Matt's notes",
+      "ts": "2026-10-08T21:58:24-04:00",
+      "verbatim": "That looks much better and did resolve the odd uniform honeycomb ice issue thank you. I also see two more zig zag patterns if you haven't noticed them yet. One is near the wrecked ship just below and across a bit of water from it and the other is further downwards in the ice flow. Additionally, the ship has some odd brownish lines near the right-bottom of it. I think they may be ropes or sticks or thin and long wooden items. In any case they should just be removed from the scene.",
+      "ruling": "MATT'S NOTES on the kept pilot + Phase 3': (a) TWO MORE ZIG-ZAG snow rims: one on the floe just below-left of the wreck across a lead (in the PILOT painting, tile 0_2, plate ~x 600-1300, y ~2350-2600; crop barrow_v2/fid/pt/ph3/matt_r285_wreck_area.jpg), and one further down the ice flow (to be located: pilot or Phase 3'). (b) The thin brown lines at the wreck's lower right (ropes plus a thin stick from the stern across the snow and ice) are REMOVED FROM THE SCENE. The snapped mast and the large fallen spar pole (R-C9-234 (7)) are not in scope unless Matt says so. ROUTE: LV (1) locates every remaining ice_rims run (pilot rows included) and converts them all to the broad low drift form, and (2) identifies the source of the ropes and thin stick (wreck model geometry, a slot, or painter invention) and removes the geometry if it exists; nothing else changes. PT, after LV: DEV-24 local repaints in the PILOT painting at the rim(s) and the ropes/stick (clear defects, Matt-noted; logged with crops), plus any Phase 3' chunk carrying a rim. Because the pilot guide changes in exactly those regions, the conductor RULES a limited pilot re-base: pilot_pins_check accepts guide changes only inside the declared patch regions (an allowlist of rectangles); any other pilot pixel change still HALTs (R-C9-189)."
     }
   ],
   "grok_calls": [
