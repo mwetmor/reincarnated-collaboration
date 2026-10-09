@@ -55374,6 +55374,17 @@
         "R-C9-347",
         "1efccb377"
       ]
+    },
+    {
+      "id": "R-C9-349",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T18:22:35-04:00",
+      "ruling": "P10 SEA LOOP, second instrument failure (PH §65, a3aad9c1c: the §64 loop is not walkable -- knight at (-0.93,-17.62) never moved, path 0.0 m). Ruled BEFORE any P10 frame is read: (1) BINDING sea loop = the walkable SHORE loop nearest the floes (along the coast at v≈-8, the floe side of the site), knight walking, floes framed as many as the ortho view reaches from walkable ground; PH proves walk-validity (min 1-s displacement, 0 stalled spans) at the T34 session start before reading any frame, and pre-registers the waypoints + per-waypoint floe counts in §66 first. The cover states it as a LIGHT floe load. (2) REPORT-ONLY sea hold = the camera parked over the floe field (bv2f_pilot park_camera, as the settle uses it), knight idle, for the full-floe frame cost; it is not a walk and binds nothing. (3) If the shore loop also fails walk-validity, PH reports and stops -- no third substitute without a ruling. Instrument change, not threshold: bars unchanged.",
+      "cites": [
+        "R-C9-346",
+        "R-C9-348",
+        "a3aad9c1c"
+      ]
     }
   ],
   "grok_calls": [
