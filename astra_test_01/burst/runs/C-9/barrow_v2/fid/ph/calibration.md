@@ -1710,3 +1710,124 @@ These now rest on the conductor's 1:1 / play-zoom eye stop and on P11 (M-2). A s
   - a synthetic patched painting: the canvas + 40 inside the mask, plus a **+80 decoy region OUTSIDE the mask**.
 - **Result, all three:** 150 347 mask px in the canvas, **150 347 changed px**, **0 changed outside the mask**, the inside equals the patched painting exactly, **decoy leak 0 px**. **PASS.**
 - **Per run.** The same check, on the real pinned mask and painting, runs before the first binding reading. Changed px ⊆ mask, and equal to the patched painting there.
+
+## 52. PRE-REGISTRATION — the FULL-SITE harness (R-C9-331; jack-ryan painting Gate-2 H-1..H-5, `2026-10-09-bv2f-painting-gate2.md`). Committed BEFORE any full-site value is read. No bar moves.
+
+**Inputs of record.**
+- Painting: `fid/pt/ph3/final/painting_ph3_r328_full.png` = `fid/pt/site/painting.png`, file sha256 `3fc04a7d0f63…` (6656 × 4096; the r328 sea pass on top of `8e169e6331bb`).
+- Canvases: the 25 of `fid/pt/ph3/final/canvases.json`, each sha-checked before use (mismatch = STOP).
+- Stager cfg `fid/pt/pilot/cfg_bv2a_ph3.json` (`dev25c_chunks`, `context_patch`, `dev24`); class map `class_art_pinned_d26d14c55.png` (`baffff669c2d…`, = `lv/guide_art/class_art.png`); `fid/pt/site/` build records; the 24 stills `fid/pt/site/stills/site_NN.png`.
+
+### (a) P5 — the full a1 table (H-1)
+1. **Joins.** 40 neighbour joins (20 `|`, 20 `/`), 16 `\` corners (c,r)\(c+1,r+1), and 16 anti-diagonal corners (c+1,r) x/ (c,r+1). The ready rule (cfg `_wavefront`: left, top, top-right first) makes the right or lower chunk the **newer** side of every pair.
+2. **Band: full 256 everywhere, bar 9.569** (§ 44). Derived, not assumed: cfg `dev25c_chunks` = [] (R-C9-281), and no kept chunk's brief stages a 128-px context (only the discarded arm `3_0-ab25cB` did).
+3. **The § 51 substitution domain is DERIVED (#76)** by `harness/site_domain.py` → `results/site/s52_domain.json`. That script reads no a1 value.
+   - For each join it takes the plate rect of the context strip the newer chunk received, and counts its mask px.
+   - It then tests the newer chunk's **staged** canvas (`artifacts/CS9-guides/<task>_canvas.png`, the IMAGE 1 the painter was given) inside strip ∩ mask:
+     - **DEV-29 ON** if the staged canvas equals the context_patch painting (≤ 1 sRGB, ≥ 99 % of px);
+     - **OFF** if it equals the raw older canvas;
+     - otherwise **UNRESOLVED**, which is a STOP.
+   - The pinned DEV-29 inputs are sha-checked first (`1b48c75bc16c…`, `9f83577635dc…`).
+
+   **Result.** 18 strips meet the mask; 0 are unresolved.
+
+   | DEV-29 | Joins | Staged-canvas evidence |
+   |---|---|---|
+   | **ON: substituted** (13) | 0_2/0_3, 1_2/1_3, 2_2/2_3, **3_2/3_3**, **0_3\|1_3**, **1_3\|2_3**, **2_3\|3_3**; corners 0_2\1_3, 1_2\2_3, 2_2\3_3, 1_2 x/ 0_3, 2_2 x/ 1_3, 3_2 x/ 2_3 | staged = patched on 100 % of strip ∩ mask in every case |
+   | **OFF** (5) | 0_0/0_1, 0_1/0_2, 0_2\|1_2, 1_2\|2_2 (pilot-4 staging, before DEV-29 existed); **2_2\|3_2** (3_2-r1 staged before DEV-29) | 2_2\|3_2: staged = raw 2_2 on 100 % |
+   | No intersection (the identity) | every other join; 2_0\|3_0 and 2_1\|3_1 included | — |
+
+   **Bold** marks the joins that § 51's named list missed.
+4. **Binding value per join.**
+   - ON joins: a1 on (`p5v2.context_patch(older)`, raw newer). Every other join: raw a1.
+   - **Plain raw a1 is reported beside every join.**
+   - **W-1 guard for joins new to the domain** (bold above, plus the corners). Their raw a1 was read and ruled before this derivation (PT's per-wave QA; R-C9-304). **A post-hoc instrument change may add a failure, never remove one.** Such a join FAILS if its raw-of-record **or** its derived reading exceeds the bar. So 3_2/3_3 stays FAIL-of-record (R-C9-304; Gate-2 § 4). This rule is stated by PH, and is the conductor's and jack-ryan's to ratify.
+   - § 51's named joins (0_2/0_3, 1_2/1_3, 2_2/2_3, 2_2\3_3) bind as § 51 registered.
+5. **DEV-29 real-mask self-test** (§ 51 "per run"). It runs on every substituted older canvas (0_2, 1_2, 2_2, 3_2, 0_3, 1_3, 2_3) before the first binding reading. It passes iff changed px ⊆ mask and the changed px equal the patched painting there. A FAIL is a STOP.
+6. **Corners.**
+   - `\` corners: all 16 are read against v1's corner bar **4.809** (§ 51). **Only 2_2\3_3 binds** (§ 51); the other 15 are disclosed against the bar, report-only. The charter's binding P5 set is the 40 neighbour joins; promoting corners is a conductor ruling.
+   - Anti-diagonal corners: **no v1 bar exists** (v1 was calibrated on its 9 `\` pairs). They are reported with v1's own 9 anti-diagonal values beside them as context, never as a bar.
+7. **P5(b), binding:** `p5_seams.seam_vis(painting, 5, 5)` on the r328 painting (4 x + 4 y band centres), **≤ 0.799**.
+8. **Reported only:**
+   - raw overlap MAD;
+   - c on the final painting (report-only since § 44; the flags-off full-site stitch is not re-run);
+   - 1:1 crops from the r328 painting at the worst segment of every join whose binding a1 exceeds its bar or whose raw MAD exceeds 13.09, written as jpg with shas recorded (H-6).
+
+### (b) P11 — the full-site class mapping (H-4; derived, #76)
+**Id-level rule** (`harness/site_p11.py`; derived masks in `fid/ph/p11/site_masks/`; PT's files untouched):
+- **R1.** PT's stated id → class (`pt/tools/pilot_class_masks.cls_of`) where it is non-null. Unchanged.
+- **R2.** Otherwise the id's LV class (`stills/ids_table.json`), through the table below.
+- **R3.** An id whose name carries an R-C9-171 build-specific family overrides R2: `cliff` → cliff, `wreck` → wreck, a `sea_` prefix → sea.
+
+| LV class | P11 | Ground |
+|---|---|---|
+| snow, mound, path | **snow** — ALLOWED | v1 has snow, mound and path (v1 tints); path is absent from the site |
+| rock | **rock** — ALLOWED (R1: ring/slope stones → standing_stone; cliff_faces → cliff) | v1 has rock |
+| shrub | **heather** — ALLOWED | v1 shrub |
+| wood | **wood** — ALLOWED (R1: longhall → hall, wreck → wreck) | v1 logs |
+| ice, ice_mid, shore_ice, tide_ice, stream | **ice** — EXCLUDED | rule (b): R-C9-203/255/262 |
+| reed | EXCLUDED | rule (a) |
+| sea, lead | **sea** — EXCLUDED | R-C9-171; lead: R-C9-240 |
+| char | EXCLUDED (R1: fallen_gable → hall, also excluded) | R-C9-171 (§ 22 record) |
+| ash | EXCLUDED | R-C9-171 (§ 22 record) |
+| passage_dark | EXCLUDED | R-C9-171 (§ 22 record) |
+| shingle | EXCLUDED | rule (a): v1 has no shingle |
+| wet_rock | EXCLUDED | rule (a) |
+| rime | EXCLUDED | rule (a) |
+| none | other (mask 0: neither a class nor excluded) | door lintel and posts |
+
+**Ids unmapped under PT's current site masks** (`classes_mapping.json` null; they read as "other", so the pixel rules could draw them):
+- **ash:** ground_ash.
+- **shingle:** ground_shingle.
+- **tide_ice:** carved_tide_ice.
+- **shore_ice:** cove_ice, trans_rubble.
+- **ice:** carved_ice, stream_pressure.
+- **passage_dark:** carved_passage_dark and the 3 door curtains.
+- **rime:** carved_rime, icicles.
+- **wet_rock:** carved_wet_rock.
+- **sea:** cradle_cracks, stream_cracks.
+- **reed:** reed_tufts.
+- **snow:** carved_snow, ring_snow, stair_snow.
+- **rock:** 16 talus, 12 gully_rock, ledge_rocks, ring_fallen, stair_steps, stair_treads, barrow_cutting, carved_rock, cliff_skirt_wall (→ cliff by R3), 3 sea_stacks (→ sea by R3).
+- **wood:** wreck_mast (→ wreck by R3).
+- **none:** door_lintel, door_post_L, door_post_R.
+
+ice_mid and lead were already mapped by PT (ice, sea). char is mapped via fallen_gable → hall.
+
+**Build.**
+- `p11_abx3.build3` with EXCLUDED = the derived excluded set and ALLOWED = (snow, rock, standing_stone, heather, wood).
+- v1 pool `P.V1_STILLS`; the v1ref no-mask ice pixel rule (< 1 %) per § 48 (b) 2; catch trials unchanged.
+- **Seed 331**; set `p11/abx3_site_v1_vs_site/`; key in `p11/keys/`.
+- **Stills.** PH re-measures every still with `capture_phase.phase_of` on the r328 painting, after the constructed check. A still outside ± 0.10 px of T[k mod 6] is never used, and is listed.
+- **Fewer than 40 scored trials drawable = VOID, declared before any judge.** The set is never shrunk, and the seed is never changed.
+
+### (c) P4 — full site (H-3)
+- **Windows.** The 25 chunk windows of the r328 painting.
+- **Binding rows: the 16 Phase 3′ chunks.**
+  - The 9 pilot chunks stay as judged at § 47 (pilot 4/9). Their final-painting re-read is reported only: DEV-24 layers 4–23 changed pilot pixels.
+  - PT's per-chunk QA readings are reported beside PH's. A Gate-2 FAIL-of-record (3_3-r1, 4_3, 4_4) is never removed by a different reading (same rule as (a) 4).
+- **Snow and rock.** v1 bars frozen (snow hist 0.281 / spec 0.097; rock 0.481 / 0.190). Minimum support per § 50 (b): snow 100 windows, rock 3 windows. Below either → "insufficient support" (never PASS).
+- **ICE DOMAIN, declared (#70).**
+  - **Binding** = LV class **`ice`** ∩ ground mask: the mere ice, as at § 47. The frozen reference is the PS4 mere colour, Lab (64.58, −2.75, −21.49).
+  - Bars: ΔE ≤ 9.40 (b\* ≤ 2 gated; chunk ≥ 20 000 px); spectrum vs sketch A ≤ 0.116 at 24 px/m.
+  - **Report-only, per class, on the same measures vs the same frozen Lab:** ice_mid, shore_ice, tide_ice, stream, and lead. lead is open water; it is shown for disclosure, never judged.
+- **Snow-grain forensic** (§ 2(b); report-only; 0 images; `harness/site_snow_forensic.py`). It discriminates **H-drift** (inheritance along the paste chain) from **H-prompt** (the v7.1 wording).
+  - **Per chunk:** strip vs interior spectrum deviation, fine and coarse.
+  - **Across the chain:** each chunk's strip deviation against its context parents' interior deviation.
+  - **Depth:** interior deviation against paste depth (wavefront index), as a Spearman correlation.
+  - **Old 3_3 vs 3_3-r1, same split.** Old 3_3 is the ledger's `af1cbd8cf583…`, read-only from its generated-images path.
+  - **Prediction.** H-drift predicts parent → child correlation, interior ≥ strip, and deviation rising with depth. H-prompt predicts deviation independent of parent and depth among chunks painted under v7.1.
+
+### (d) P6a (H-2)
+- **Instrument.** The v0.1 detector (T 32, quarter scale) on the **r328 painting, whole site**, and on each of the 16 kept Phase 3′ raw canvases (1_4-r1, 2_4-r2 and 3_4 included).
+- **Declared openings.** LV's layout openings with `centre_px` + `p6a_match_radius_m`: barrow door, longhall door, sea cave, wreck hull.
+- **Water-class candidates** (≥ 50 % of the 0.6 m window in sea, lead, ice, ice_mid, tide_ice, shore_ice or stream) → a triage row plus a crop | overlay, never auto-passed or auto-failed.
+- **Other unmatched candidates** → a triage row plus a crop, with their class shares from the pinned class map. Char and ash dark structures are present now, so § 11's by-eye triage applies.
+- **The 4_2 class record** is re-derived from the pinned class map at (6446, 1789).
+
+### (e) P1, P2, P3, P8, P9 (flow, sway, trail), P9c (H-5)
+- **Common.** The site build (`BV2F_PILOT=site_ph3`), frozen bars, Godot under the heavy lock, disk ≥ 21 GiB.
+- **P9c.** Rest-pose ≤ 0.25 px, and the swimming RED must fail.
+  - The view comes from `floe_view_choose` over the site's floes and needs ≥ 3 in-plate floes.
+  - **Plus one view centred on the floe-id pixel centroid inside DEV-24 layer 5's patch rect** (`ph3_corner_l5-1`), i.e. inside L5's repainted floes.
+- **P10 is NOT run:** quiet window only (T34). Routes avoid u ≈ −20.5 until LV removes the bounds spike.

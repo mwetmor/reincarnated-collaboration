@@ -1,0 +1,1471 @@
+{
+ "_what": "\u00a7 52 derived \u00a7 51 domain (R-C9-331 / Gate-2 H-1): geometry x staging chronology; NO a1 value read",
+ "context_patch": {
+  "painting_sha256": "1b48c75bc16ca327db2ac8c43d2cd73ee2e825342125ffcbe6382b67e9bc6e79",
+  "mask_sha256": "9f83577635dce69b281a0c32b963cde23d19e1cf159db966b956858811c77bc9"
+ },
+ "canvases_sha_ok": true,
+ "dev25c_chunks": [],
+ "domain_substituted": [
+  "0_2/0_3",
+  "0_2\\1_3",
+  "1_2 x/ 0_3",
+  "1_2/1_3",
+  "1_2\\2_3",
+  "2_2 x/ 1_3",
+  "2_2/2_3",
+  "2_2\\3_3",
+  "3_2 x/ 2_3",
+  "3_2/3_3",
+  "0_3|1_3",
+  "1_3|2_3",
+  "2_3|3_3"
+ ],
+ "strip_meets_mask": [
+  "0_0/0_1",
+  "0_1/0_2",
+  "0_2|1_2",
+  "0_2/0_3",
+  "0_2\\1_3",
+  "1_2 x/ 0_3",
+  "1_2|2_2",
+  "1_2/1_3",
+  "1_2\\2_3",
+  "2_2 x/ 1_3",
+  "2_2|3_2",
+  "2_2/2_3",
+  "2_2\\3_3",
+  "3_2 x/ 2_3",
+  "3_2/3_3",
+  "0_3|1_3",
+  "1_3|2_3",
+  "2_3|3_3"
+ ],
+ "unresolved": [],
+ "joins": [
+  {
+   "join": "0_0|1_0",
+   "kind": "|",
+   "older": "0_0",
+   "newer": "1_0",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    0,
+    1536,
+    1024
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_0",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_0/0_1",
+   "kind": "/",
+   "older": "0_0",
+   "newer": "0_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    0,
+    768,
+    1536,
+    1024
+   ],
+   "strip_px": 393216,
+   "mask_px": 54564,
+   "mask_share": 0.1388,
+   "newer_task": "BV2F-PS4-0_1",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_0\\1_1",
+   "kind": "\\",
+   "older": "0_0",
+   "newer": "1_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    768,
+    1536,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_0 x/ 0_1",
+   "kind": "x/",
+   "older": "1_0",
+   "newer": "0_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    768,
+    1536,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-0_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_0|2_0",
+   "kind": "|",
+   "older": "1_0",
+   "newer": "2_0",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    0,
+    2816,
+    1024
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_0",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_0/1_1",
+   "kind": "/",
+   "older": "1_0",
+   "newer": "1_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    768,
+    2816,
+    1024
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_0\\2_1",
+   "kind": "\\",
+   "older": "1_0",
+   "newer": "2_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    768,
+    2816,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_0 x/ 1_1",
+   "kind": "x/",
+   "older": "2_0",
+   "newer": "1_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    768,
+    2816,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_0|3_0",
+   "kind": "|",
+   "older": "2_0",
+   "newer": "3_0",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    0,
+    4096,
+    1024
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_0-ab25cA",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_0/2_1",
+   "kind": "/",
+   "older": "2_0",
+   "newer": "2_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    768,
+    4096,
+    1024
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_0\\3_1",
+   "kind": "\\",
+   "older": "2_0",
+   "newer": "3_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    768,
+    4096,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_1-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_0 x/ 2_1",
+   "kind": "x/",
+   "older": "3_0",
+   "newer": "2_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    768,
+    4096,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_0|4_0",
+   "kind": "|",
+   "older": "3_0",
+   "newer": "4_0",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    0,
+    5376,
+    1024
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_0",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_0/3_1",
+   "kind": "/",
+   "older": "3_0",
+   "newer": "3_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    768,
+    5376,
+    1024
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_1-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_0\\4_1",
+   "kind": "\\",
+   "older": "3_0",
+   "newer": "4_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    768,
+    5376,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_0 x/ 3_1",
+   "kind": "x/",
+   "older": "4_0",
+   "newer": "3_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    768,
+    5376,
+    1024
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_1-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_0/4_1",
+   "kind": "/",
+   "older": "4_0",
+   "newer": "4_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    768,
+    6656,
+    1024
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_1|1_1",
+   "kind": "|",
+   "older": "0_1",
+   "newer": "1_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    768,
+    1536,
+    1792
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_1/0_2",
+   "kind": "/",
+   "older": "0_1",
+   "newer": "0_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    0,
+    1536,
+    1536,
+    1792
+   ],
+   "strip_px": 393216,
+   "mask_px": 45132,
+   "mask_share": 0.1148,
+   "newer_task": "BV2F-PS4-0_2",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_1\\1_2",
+   "kind": "\\",
+   "older": "0_1",
+   "newer": "1_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    1536,
+    1536,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_1 x/ 0_2",
+   "kind": "x/",
+   "older": "1_1",
+   "newer": "0_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    1536,
+    1536,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-0_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_1|2_1",
+   "kind": "|",
+   "older": "1_1",
+   "newer": "2_1",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    768,
+    2816,
+    1792
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_1/1_2",
+   "kind": "/",
+   "older": "1_1",
+   "newer": "1_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    1536,
+    2816,
+    1792
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_1\\2_2",
+   "kind": "\\",
+   "older": "1_1",
+   "newer": "2_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    1536,
+    2816,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_1 x/ 1_2",
+   "kind": "x/",
+   "older": "2_1",
+   "newer": "1_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    1536,
+    2816,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-1_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_1|3_1",
+   "kind": "|",
+   "older": "2_1",
+   "newer": "3_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    768,
+    4096,
+    1792
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_1-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_1/2_2",
+   "kind": "/",
+   "older": "2_1",
+   "newer": "2_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    1536,
+    4096,
+    1792
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_1\\3_2",
+   "kind": "\\",
+   "older": "2_1",
+   "newer": "3_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    1536,
+    4096,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_2-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_1 x/ 2_2",
+   "kind": "x/",
+   "older": "3_1",
+   "newer": "2_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    1536,
+    4096,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PS4-2_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_1|4_1",
+   "kind": "|",
+   "older": "3_1",
+   "newer": "4_1",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    768,
+    5376,
+    1792
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_1/3_2",
+   "kind": "/",
+   "older": "3_1",
+   "newer": "3_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    1536,
+    5376,
+    1792
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_2-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_1\\4_2",
+   "kind": "\\",
+   "older": "3_1",
+   "newer": "4_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    1536,
+    5376,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_2-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_1 x/ 3_2",
+   "kind": "x/",
+   "older": "4_1",
+   "newer": "3_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    1536,
+    5376,
+    1792
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_2-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_1/4_2",
+   "kind": "/",
+   "older": "4_1",
+   "newer": "4_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    1536,
+    6656,
+    1792
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_2-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_2|1_2",
+   "kind": "|",
+   "older": "0_2",
+   "newer": "1_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    1280,
+    1536,
+    1536,
+    2560
+   ],
+   "strip_px": 262144,
+   "mask_px": 44480,
+   "mask_share": 0.1697,
+   "newer_task": "BV2F-PS4-1_2",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_2/0_3",
+   "kind": "/",
+   "older": "0_2",
+   "newer": "0_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    0,
+    2304,
+    1536,
+    2560
+   ],
+   "strip_px": 393216,
+   "mask_px": 319604,
+   "mask_share": 0.8128,
+   "newer_task": "BV2F-PH3-0_3-r2",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.1021,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-0_3-r2_canvas.png",
+   "staged_sha256": "9302c2f97ec22f1650992f57eb7eb0ae5cf2efd90c606f747e7bd09b4c3d135e",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "0_2\\1_3",
+   "kind": "\\",
+   "older": "0_2",
+   "newer": "1_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    2304,
+    1536,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 14244,
+   "mask_share": 0.2173,
+   "newer_task": "BV2F-PH3-1_3-r2",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.439,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-1_3-r2_canvas.png",
+   "staged_sha256": "511e07c043b9bc25bb0e24a0bb55ee09c84185d5caec98b39290ed6c4c53ee38",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "1_2 x/ 0_3",
+   "kind": "x/",
+   "older": "1_2",
+   "newer": "0_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    2304,
+    1536,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 14244,
+   "mask_share": 0.2173,
+   "newer_task": "BV2F-PH3-0_3-r2",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.087,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-0_3-r2_canvas.png",
+   "staged_sha256": "9302c2f97ec22f1650992f57eb7eb0ae5cf2efd90c606f747e7bd09b4c3d135e",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "1_2|2_2",
+   "kind": "|",
+   "older": "1_2",
+   "newer": "2_2",
+   "pilot_pair": true,
+   "strip_rect_xyxy": [
+    2560,
+    1536,
+    2816,
+    2560
+   ],
+   "strip_px": 262144,
+   "mask_px": 60347,
+   "mask_share": 0.2302,
+   "newer_task": "BV2F-PS4-2_2",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_2/1_3",
+   "kind": "/",
+   "older": "1_2",
+   "newer": "1_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    2304,
+    2816,
+    2560
+   ],
+   "strip_px": 393216,
+   "mask_px": 54948,
+   "mask_share": 0.1397,
+   "newer_task": "BV2F-PH3-1_3-r2",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.1097,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-1_3-r2_canvas.png",
+   "staged_sha256": "511e07c043b9bc25bb0e24a0bb55ee09c84185d5caec98b39290ed6c4c53ee38",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "1_2\\2_3",
+   "kind": "\\",
+   "older": "1_2",
+   "newer": "2_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    2304,
+    2816,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 40704,
+   "mask_share": 0.6211,
+   "newer_task": "BV2F-PH3-2_3",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.1176,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-2_3_canvas.png",
+   "staged_sha256": "d838966c6f73aba77fb381ea0a92f50b533e70d025a9f163776897d4fba4f929",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "2_2 x/ 1_3",
+   "kind": "x/",
+   "older": "2_2",
+   "newer": "1_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    2304,
+    2816,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 40704,
+   "mask_share": 0.6211,
+   "newer_task": "BV2F-PH3-1_3-r2",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0083,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-1_3-r2_canvas.png",
+   "staged_sha256": "511e07c043b9bc25bb0e24a0bb55ee09c84185d5caec98b39290ed6c4c53ee38",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "2_2|3_2",
+   "kind": "|",
+   "older": "2_2",
+   "newer": "3_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    1536,
+    4096,
+    2560
+   ],
+   "strip_px": 262144,
+   "mask_px": 116992,
+   "mask_share": 0.4463,
+   "newer_task": "BV2F-PH3-3_2-r1",
+   "staged_eq_patched": 0.0563,
+   "staged_eq_raw_older": 1.0,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-3_2-r1_canvas.png",
+   "staged_sha256": "c411e461dfd7df4c1b2fa746d44e67df49f8dc2f20a3410d7ebb1f9272bc0564",
+   "dev29": "OFF (staged == raw older canvas in strip & mask)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_2/2_3",
+   "kind": "/",
+   "older": "2_2",
+   "newer": "2_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    2304,
+    4096,
+    2560
+   ],
+   "strip_px": 393216,
+   "mask_px": 368384,
+   "mask_share": 0.9368,
+   "newer_task": "BV2F-PH3-2_3",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0061,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-2_3_canvas.png",
+   "staged_sha256": "d838966c6f73aba77fb381ea0a92f50b533e70d025a9f163776897d4fba4f929",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "2_2\\3_3",
+   "kind": "\\",
+   "older": "2_2",
+   "newer": "3_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    2304,
+    4096,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 65536,
+   "mask_share": 1.0,
+   "newer_task": "BV2F-PH3-3_3-r1",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0042,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-3_3-r1_canvas.png",
+   "staged_sha256": "ffd562e3e8fa0d626e553201ad3b9aaccdfe96f6ba782e9f8be12aa6d87af3f7",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "3_2 x/ 2_3",
+   "kind": "x/",
+   "older": "3_2",
+   "newer": "2_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    2304,
+    4096,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 65536,
+   "mask_share": 1.0,
+   "newer_task": "BV2F-PH3-2_3",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0012,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-2_3_canvas.png",
+   "staged_sha256": "d838966c6f73aba77fb381ea0a92f50b533e70d025a9f163776897d4fba4f929",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "3_2|4_2",
+   "kind": "|",
+   "older": "3_2",
+   "newer": "4_2",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    1536,
+    5376,
+    2560
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_2-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_2/3_3",
+   "kind": "/",
+   "older": "3_2",
+   "newer": "3_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    2304,
+    5376,
+    2560
+   ],
+   "strip_px": 393216,
+   "mask_px": 65536,
+   "mask_share": 0.1667,
+   "newer_task": "BV2F-PH3-3_3-r1",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0012,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-3_3-r1_canvas.png",
+   "staged_sha256": "ffd562e3e8fa0d626e553201ad3b9aaccdfe96f6ba782e9f8be12aa6d87af3f7",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "3_2\\4_3",
+   "kind": "\\",
+   "older": "3_2",
+   "newer": "4_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    2304,
+    5376,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_3",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_2 x/ 3_3",
+   "kind": "x/",
+   "older": "4_2",
+   "newer": "3_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    2304,
+    5376,
+    2560
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_3-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_2/4_3",
+   "kind": "/",
+   "older": "4_2",
+   "newer": "4_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    2304,
+    6656,
+    2560
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_3",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_3|1_3",
+   "kind": "|",
+   "older": "0_3",
+   "newer": "1_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    2304,
+    1536,
+    3328
+   ],
+   "strip_px": 262144,
+   "mask_px": 14244,
+   "mask_share": 0.0543,
+   "newer_task": "BV2F-PH3-1_3-r2",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.1219,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-1_3-r2_canvas.png",
+   "staged_sha256": "511e07c043b9bc25bb0e24a0bb55ee09c84185d5caec98b39290ed6c4c53ee38",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "0_3/0_4",
+   "kind": "/",
+   "older": "0_3",
+   "newer": "0_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    0,
+    3072,
+    1536,
+    3328
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-0_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_3\\1_4",
+   "kind": "\\",
+   "older": "0_3",
+   "newer": "1_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    3072,
+    1536,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-1_4-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_3 x/ 0_4",
+   "kind": "x/",
+   "older": "1_3",
+   "newer": "0_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    3072,
+    1536,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-0_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_3|2_3",
+   "kind": "|",
+   "older": "1_3",
+   "newer": "2_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    2304,
+    2816,
+    3328
+   ],
+   "strip_px": 262144,
+   "mask_px": 40704,
+   "mask_share": 0.1553,
+   "newer_task": "BV2F-PH3-2_3",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0097,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-2_3_canvas.png",
+   "staged_sha256": "d838966c6f73aba77fb381ea0a92f50b533e70d025a9f163776897d4fba4f929",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "1_3/1_4",
+   "kind": "/",
+   "older": "1_3",
+   "newer": "1_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    3072,
+    2816,
+    3328
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-1_4-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_3\\2_4",
+   "kind": "\\",
+   "older": "1_3",
+   "newer": "2_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    3072,
+    2816,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-2_4-r2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_3 x/ 1_4",
+   "kind": "x/",
+   "older": "2_3",
+   "newer": "1_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    3072,
+    2816,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-1_4-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_3|3_3",
+   "kind": "|",
+   "older": "2_3",
+   "newer": "3_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    2304,
+    4096,
+    3328
+   ],
+   "strip_px": 262144,
+   "mask_px": 65536,
+   "mask_share": 0.25,
+   "newer_task": "BV2F-PH3-3_3-r1",
+   "staged_eq_patched": 1.0,
+   "staged_eq_raw_older": 0.0132,
+   "staged_canvas": "artifacts/CS9-guides/BV2F-PH3-3_3-r1_canvas.png",
+   "staged_sha256": "ffd562e3e8fa0d626e553201ad3b9aaccdfe96f6ba782e9f8be12aa6d87af3f7",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "substitute_older": true
+  },
+  {
+   "join": "2_3/2_4",
+   "kind": "/",
+   "older": "2_3",
+   "newer": "2_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    3072,
+    4096,
+    3328
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-2_4-r2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_3\\3_4",
+   "kind": "\\",
+   "older": "2_3",
+   "newer": "3_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    3072,
+    4096,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_3 x/ 2_4",
+   "kind": "x/",
+   "older": "3_3",
+   "newer": "2_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    3072,
+    4096,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-2_4-r2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_3|4_3",
+   "kind": "|",
+   "older": "3_3",
+   "newer": "4_3",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    2304,
+    5376,
+    3328
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_3",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_3/3_4",
+   "kind": "/",
+   "older": "3_3",
+   "newer": "3_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    3072,
+    5376,
+    3328
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_3\\4_4",
+   "kind": "\\",
+   "older": "3_3",
+   "newer": "4_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    3072,
+    5376,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_3 x/ 3_4",
+   "kind": "x/",
+   "older": "4_3",
+   "newer": "3_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    3072,
+    5376,
+    3328
+   ],
+   "strip_px": 65536,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "4_3/4_4",
+   "kind": "/",
+   "older": "4_3",
+   "newer": "4_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    3072,
+    6656,
+    3328
+   ],
+   "strip_px": 393216,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "0_4|1_4",
+   "kind": "|",
+   "older": "0_4",
+   "newer": "1_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    1280,
+    3072,
+    1536,
+    4096
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-1_4-r1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "1_4|2_4",
+   "kind": "|",
+   "older": "1_4",
+   "newer": "2_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    2560,
+    3072,
+    2816,
+    4096
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-2_4-r2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "2_4|3_4",
+   "kind": "|",
+   "older": "2_4",
+   "newer": "3_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    3840,
+    3072,
+    4096,
+    4096
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-3_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  },
+  {
+   "join": "3_4|4_4",
+   "kind": "|",
+   "older": "3_4",
+   "newer": "4_4",
+   "pilot_pair": false,
+   "strip_rect_xyxy": [
+    5120,
+    3072,
+    5376,
+    4096
+   ],
+   "strip_px": 262144,
+   "mask_px": 0,
+   "mask_share": 0.0,
+   "newer_task": "BV2F-PH3-4_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "substitute_older": false
+  }
+ ]
+}
