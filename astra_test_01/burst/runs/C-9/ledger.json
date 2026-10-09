@@ -55444,6 +55444,16 @@
         "1f4fc16be",
         "fddbabbf7"
       ]
+    },
+    {
+      "id": "R-C9-353",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T19:32:04-04:00",
+      "verbatim": "I see what Drax loaded into the arena now and it looks perfect! Also, I played the arena and there are a couple of big issues: 1) There is a bug where the player character gets sucked into the viking ship and cannot get out. 2) There is a long loading time before starting the arena which is not an issue, except that it begins and stays for the duration of the loading in the bottom-right corner of the arena where all you see is the lack of map in that corner since no scene is painted there.. I think the solution is to have the arena load from the center or where the warlord starts. And a lesser issue but good to clean up: Can we please change the references in the GUI/HOTBAR to more generic names (not the original EOR Warlord skill names from GD)?",
+      "ruling": "R-C9-352 whirlwind ACCEPTED by Matt ('looks perfect'). Fixes to drax: (1) wreck trap -- root-cause, variant-side fix, entry probe on all five blockers; (2) load view held at the warlord start (11.045,-0.316), never the unpainted corner; load time itself is fine; (3) on-screen names generic -- Blitz->Charge, Eye of Reckoning->Whirlwind, Vire's Might->Might, War Cry->Battle Cry, Rune of Rush->Haste, Potion stays (conductor's picks; Matt may revise); display strings only; other GD-derived on-screen names listed, monsters not renamed without asking.",
+      "cites": [
+        "R-C9-352"
+      ]
     }
   ],
   "grok_calls": [
