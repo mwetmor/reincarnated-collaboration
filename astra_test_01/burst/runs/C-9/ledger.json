@@ -49284,9 +49284,82 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-PH3-1_4",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "3517cb9c7465be47c16705a13018600819e5a81a78c13aa0b5302b0d54dba427",
+      "started": "2026-10-09T05:20:53.502427+00:00",
+      "ended": "2026-10-09T05:23:55.915943+00:00",
+      "minutes": 3.040194820150888,
+      "image_calls": 2,
+      "tool_calls": 4,
+      "audit": {
+        "violations": [],
+        "image_calls": 2,
+        "tool_calls": 4,
+        "tools_seen": {
+          "command_execution": 4
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f1b-6db7-70c2-b7a4-9e539408b572/exec-2f21536c-a5d4-4cd8-8a3e-6bec142eff01.png",
+            "sha256": "598d0e980b298a98a2d3fa0d005bae04982b413fa3cba2f8fbed6158fc5975f6"
+          },
+          {
+            "path": "/Users/admin/.codex/generated_images/01a11f1b-6db7-70c2-b7a4-9e539408b572/exec-613eb593-f60a-454e-a661-213572a6ed86.png",
+            "sha256": "2f6ad599e4838faea5892472506c469052c0d37b0c6ec6ce710c242985a6416c"
+          }
+        ]
+      },
+      "receipt_sha256": "2a6e59f13defa74ec77e2d1653649c693be28d98204527bad6e24f66b4429ba3",
+      "artifacts": [
+        {
+          "name": "BV2F-PH3-1_4.png",
+          "sha256": "598d0e980b298a98a2d3fa0d005bae04982b413fa3cba2f8fbed6158fc5975f6"
+        },
+        {
+          "name": "exec-2f21536c-a5d4-4cd8-8a3e-6bec142eff01.provenance.json",
+          "sha256": "40c7c0f2db0e6a60a470ec313b94c3e0343c138687946a2ce7d83ccb0d598d38"
+        },
+        {
+          "name": "exec-613eb593-f60a-454e-a661-213572a6ed86.provenance.json",
+          "sha256": "74bea5f5fe07d2dd3d1fd4a7f0617b5ecb4b2595528f5329b53980ee7c4f8624"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f1b-6db7-70c2-b7a4-9e539408b572/exec-2f21536c-a5d4-4cd8-8a3e-6bec142eff01.png",
+          "sha256": "598d0e980b298a98a2d3fa0d005bae04982b413fa3cba2f8fbed6158fc5975f6"
+        },
+        {
+          "path": "/Users/admin/.codex/generated_images/01a11f1b-6db7-70c2-b7a4-9e539408b572/exec-613eb593-f60a-454e-a661-213572a6ed86.png",
+          "sha256": "2f6ad599e4838faea5892472506c469052c0d37b0c6ec6ce710c242985a6416c"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1429,
+  "images_used": 1431,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -53183,6 +53256,13 @@
       "ts": "2026-10-09T01:20:03-04:00",
       "verbatim": "",
       "ruling": "WAVE 4_3 + 0_4 (PT 55f5e769c; 34/44 images): 4_3 snow guard in range; P4 snow spectrum 0.151 vs 0.097 FAILS (histogram passes): CARRIED as a disclosed FAIL. STANDING RULE for the rest of Phase 3': a P4 snow SPECTRUM FAIL with the snow guard in range AND the histogram passing is carried and disclosed without stopping. FLAGGED as a SYSTEMIC pattern (3_3-r1, 4_3) for PH/jack-ryan at the M3' gate; the conductor's hypothesis is that geo v7.1's 'rounded cobble cells' wording pushes the cell spectrum, not a bar change. 0_3/0_4 a1 11.586 (segments 11-12 only, no line) carried. 0_4's 4 P6a candidates are open sea (registered false-positive mode). NOTED FOR MATT'S EYE: the painter drew a net of pale crack lines over 0_4's OPEN WATER (reads as thin cracked new ice); the conductor does not stop painting for it; it is in the M3' packet with its crop. CONTINUE: 1_4, 2_4, 3_4, 4_4."
+    },
+    {
+      "id": "R-C9-306",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T01:26:38-04:00",
+      "verbatim": "",
+      "ruling": "1_4 (PT 9aa2487cf; 36/44 images): a1 0_4|1_4 11.956 and 1_3/1_4 11.986 fail only at the shared four-chunk corner (x 1280-1536, y 3072-3328), where a FAINT STRAIGHT LINE is visible (a horizontal edge at y~3328 and a vertical tone step at x~1536); this is a visible seam, so not carried-type. P6a's 12 hits are the registered open-sea false-positive mode. RULED (a): REPAINT 1_4 as 1_4-r1 (1-2 images); the old 1_4 is moved aside. If the line recurs, STOP and report; no loop. Then 2_4, 3_4, 4_4. Budget: ~43 of 44 expected; if the cap would be exceeded, STOP and ask rather than overrun. Disk at 22 GiB: PT halts at the 21 GiB gate."
     }
   ],
   "grok_calls": [
