@@ -53723,6 +53723,13 @@
       "ts": "2026-10-09T06:32:32-04:00",
       "verbatim": "",
       "ruling": "RESUME after the image-service reset (stated 5:13 AM; now past). Matt's restart is scheduled by the Sim Session for later, with notice, so painting continues now. RELEASED: PH3_SUF0=-r2 PH3_SUF1=-r3 ph3_prepare.sh wave 2_4, then 3_4, 4_4, then the corner DEV-24 seam patch, then the final deliverables. If the usage limit recurs: HALT, no retries."
+    },
+    {
+      "id": "R-C9-310",
+      "by": "gandalf (conductor), on jack-ryan painting Gate-2 039633b41",
+      "ts": "2026-10-09T07:12:58-04:00",
+      "verbatim": "",
+      "ruling": "PAINTING GATE-2 (agentic_orchestration/qa/findings/2026-10-09-bv2f-painting-gate2.md): PASS-WITH-CONDITIONS as the build input (WARN, no BLOCK); not a parity PASS. CONDUCTOR RECORD CORRECTIONS: (a) Phase 3' carried raw a1 FAILs are 10, not 8 (the kept 1_4-r1 still fails raw at 0_4|1_4 11.193 and 1_3/1_4 10.946; L5 fixed only the stitched pixels); with the 3 pilot joins that is 13/40. (b) 3_1-r1/3_2-r1 = 29.185 is CARRIED as stitch-corrected (R-C9-293 had judged the superseded 3_2). (c) 3_3/3_4 = 9.574 is CARRIED as stitch-corrected (no line at 1:1; PT continued without the R-C9-303 stop, recorded). (d) The diagonal 0_2\\1_3 7.42 vs 4.809 is disclosed (report-only under s51). (e) The conductor's snow-spectrum cause (geo wording) does not fit the data (3_1-r1/3_2-r1 pass under v7.1); jack-ryan finds a grain signature growing along the paste chain 3_3-r1 -> 4_3 -> 4_4; PH runs a report-only forensic before M3'; no wording change. ADOPTED: 'locate before repaint' (a reported line is checked against overlap ends and patch edges before any repaint is ruled; PH s48(e)); carry-rule corollary (a disclosed-FAIL canvas that is paste context for unpainted chunks stops the wave). Conductor image errors (8/43) are instances of disciplines #83/#72/#76. DEV-29 and the read_zone re-base go on Matt's ratification line by name at M3'. R-1 (URGENT, before any restart or deletion): PT commits a sha manifest + check script covering every gitignored build input; every deletion list excludes them; a second-volume copy goes to Matt as matt_to_do T35. The build entry checklist E-1..E-6 / H-1..H-6 is adopted."
     }
   ],
   "grok_calls": [
