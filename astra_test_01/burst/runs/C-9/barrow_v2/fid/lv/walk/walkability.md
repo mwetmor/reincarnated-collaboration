@@ -12,7 +12,7 @@ Against the art level's **colliders** (terrain HeightMapShape3D, the stair's nos
 | no riser above v1's step height (0.103 m) | max 0.032 m between samples 0.05 m apart (treads' visual riser 0.250 m is under the ramp) | PASS |
 | stair clear width >= 5 m | min 5.15 m over 12 sections | PASS |
 | iced landing clear width >= 5 m (cave mouth -> past the jamb -> stair foot) | min 5.60 m over 7 sections | PASS |
-| cave mouth clear height ~7 m | 7.10 m at the arch's lip (the first centreline sample under the roof); 4.74 m deeper in; the floor 8.35 m clear across 1 m inside | PASS |
+| cave mouth clear height ~7 m | 6.76 m at the arch's lip (the first centreline sample under the roof); 4.74 m deeper in; the floor 8.35 m clear across 1 m inside | PASS |
 | v1's knight driven from inside the cave to the clifftop | reached True in 12.7 s (761 frames, 0 off the floor); ends at uv (9.30, -2.54) z 0.74 | PASS |
 
 **Verdict: PASS**
@@ -20,7 +20,7 @@ Against the art level's **colliders** (terrain HeightMapShape3D, the stair's nos
 | segment | samples | walkable | max slope | max dz / 0.05 m | z range | min headroom |
 |---|---|---|---|---|---|---|
 | cave | 40 | 40 | 0.00 deg | 0.000 m | -3.50 .. -3.50 | 4.74 m |
-| shelf | 140 | 140 | 0.00 deg | 0.000 m | -3.50 .. -3.50 | 7.13 m |
+| shelf | 140 | 140 | 0.00 deg | 0.000 m | -3.50 .. -3.50 | 7.80 m |
 | stair | 136 | 136 | 32.66 deg | 0.032 m | -3.50 .. 0.75 | 15.00 m |
 | landing | 37 | 37 | 0.00 deg | 0.000 m | 0.75 .. 0.75 | 15.00 m |
 | clifftop | 51 | 51 | 3.87 deg | 0.003 m | 0.72 .. 0.75 | 15.00 m |

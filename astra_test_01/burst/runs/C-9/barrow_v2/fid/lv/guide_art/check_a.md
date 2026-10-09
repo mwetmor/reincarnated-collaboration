@@ -4,5 +4,5 @@
 | barrow_door (N) | v | yes | 7.87 | 100.0 | 13.1 | 60.1 | PASS |
 | hall_great_door (E) | v | yes | 3.22 | 100.0 | 7.0 | 45.6 | PASS |
 | gable_breach (SE) | h_rect | yes | 10.83 | 84.8 | 16.0 | 67.7 | PASS |
-| sea_cave_mouth (S) | v | yes | 21.87 | 86.8 | 42.0 | 52.1 | PASS |
+| sea_cave_mouth (S) | v | yes | 23.80 | 94.5 | 42.0 | 56.7 | PASS |
 | mere_ice (NW) | poly | yes | 282.26 | 89.6 | 441.1 | 64.0 | PASS |

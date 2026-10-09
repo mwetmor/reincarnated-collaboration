@@ -116,6 +116,13 @@ def build(P):
     top_col = np.where(in_head, cell_max, seed_top - drop)
     stepped = near_edge | in_head
     top_c = np.where(stepped[near], top_col[near], Hext)
+    if P.get("head_smooth"):
+        # R-C9-325 (1): over the knoll the rock is ONE rounded mass (no flat-topped column blocks standing over the arch): the
+        # clifftop's local maximum (1 m) softened (0.7 m) -- never below the ground it stands for, so the roof still measures off it
+        hm = P["head_mask"](T2, S2)
+        hsm = ndimage.gaussian_filter(ndimage.maximum_filter(Hext, size=int(round(1.0 / st)) | 1), 0.7 / st)
+        hw_ = ndimage.gaussian_filter(hm.astype(float), 0.6 / st)
+        top_c = top_c + hw_ * (np.maximum(hsm, Hext) - top_c)
     wz = P["walk_zone"]
     in_walk = (T2 >= wz[0]) & (T2 <= wz[1]) & (S2 >= wz[2]) & (S2 <= wz[3])
     if P.get("top_blur_m", 0.0) > 0:
@@ -166,6 +173,24 @@ def build(P):
     d_cave = d_cave + 0.12 * wobble * np.clip((Z3 - LZ - 0.5) / 0.5, 0, 1)
     # the sea reaches into the mouth's west side: a water channel below the landing's level, west of the landing's edge
     chan = np.full(d_cave.shape, 9.0)                          # R-C9-228: no cut channel -- the sea meets the mouth at the face
+    if cv.get("brow"):
+        # R-C9-325 (1) (Matt): NO SLABS CANTILEVERED OVER THE MOUTH. In front of the arch's roof line the rock above the roof
+        # level is cut back along a face that LEANS INLAND with height (a brow): nothing stands proud over the void. In plan the
+        # cut is a parabola (deepest on the axis, meeting the cave's front limit at +-hw_b), so it blends into the face with no
+        # notch; below the roof level the arch (d_cave) is unchanged, so the mouth, the landing and the exit route stay as built
+        bw = cv["brow"]
+        hwb = cv["w"] / 2 + bw.get("w_pad", 0.5)
+        # its floor is the ARCH's own curve (0.3 m under the ellipse's crown line, never under the roof level or 0.3 m over the
+        # landing) -- so no thin sheet survives between the arch's crown and the roof level in front of the lip
+        z_sp3 = top2[:, :, None] - 1.3
+        z_arch = LZ + hh3 * np.sqrt(np.clip(1.0 - (c_ / hw3) ** 2, 0.0, 1.0)) - 0.3
+        z_lo = np.maximum(np.minimum(z_sp3 - 0.2, z_arch), LZ + 0.3)
+        a_lim = bw["a_face"] + bw["lean"] * np.clip(Z3 - z_sp3, 0, None) - (bw["a_face"] + cv.get("front", 1.2)) * (c_ / hwb) ** 2
+        d_brow = np.maximum.reduce([a_ - a_lim, np.abs(c_) - hwb, z_lo - Z3, -a_ - cv.get("front", 1.2)])
+        chan = np.minimum(chan, d_brow)
+        if __import__("os").environ.get("LV_DBG"):
+            print("[dbg] brow cut cells", int((d_brow < 0).sum()), "a_lim@c0", float(np.median(a_lim[np.abs(c_) < 0.3])), "zsp med", float(np.median(z_sp3)))
+        del a_lim, d_brow, z_sp3, z_arch, z_lo
     # ---------------- the STAIR CLEFT (minus): cut from the cove's back-right corner straight INLAND (up-screen, its risers facing
     # the camera, as sketch A draws it) between rock columns; a bed under the tread blocks (built by the caller), a flat pad at
     # the top flush with the clifftop ----------------
@@ -232,6 +257,11 @@ def build(P):
     cls[topsnow] = 4
     pad = (up > 0.8) & (sv < s_t) & (sv >= s_l - 0.3) & (tt >= sp["t0"] - 0.5) & (tt <= sp["t1"] + 0.5)
     cls[pad] = 4
+    if cv.get("dark_east_wall") is False:
+        # R-C9-325 (2) (Matt, "the black rectangle right of the sea cave"): the cave's EAST side wall (c > 0, seen face-on through
+        # the gap right of the arch) was classed passage_dark over its full height -- a tall black slot. Only the cave's depth
+        # (its back, under the roof) stays dark; that wall reads as rock (in the arch's shadow)
+        in_cave_deep &= ~(c_t > cv["w"] / 2 * k_t - 0.9)
     cls[in_cave_deep & ~landing] = 5
     out.update({"tris_ts": T, "normals_ts": Nn, "cls": cls, "classes": names, "walk_h": walk_h, "grid_ts": (ts, ss), "mask": mask, "wmod": wmod,
                 "top2": top2, "sd_plan": sd_2})

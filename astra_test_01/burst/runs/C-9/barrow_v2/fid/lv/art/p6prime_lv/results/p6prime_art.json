@@ -1,10 +1,10 @@
 {
  "_what": "P6' on the bv2art blockout (frozen bars; extent retired, charter \u00a7 15)",
  "inputs": {
-  "layout_bv2art_sha256": "fe5bad4fac29d91d2449ad6a245755125010719b4d47b68463c91269bf15ae35",
-  "ids_art_sha256": "110e633d88126f7c8967a8461441fec599522bf01c49b62d3bbe6c2c39714907",
-  "ids_manifest_sha256": "110e633d88126f7c8967a8461441fec599522bf01c49b62d3bbe6c2c39714907",
-  "level_art_sha256": "dd1519b2dd16b01fe893b51a7cc401a30268aec81187dadb40609ead0bf27f53",
+  "layout_bv2art_sha256": "3cd81e545a603e0723e4408be970b753ecc997d240558033a0243187bec44139",
+  "ids_art_sha256": "35f80d2d0bdaa2de6bf5642df8993857452fcfac52256615bb66c5e8b56222f6",
+  "ids_manifest_sha256": "35f80d2d0bdaa2de6bf5642df8993857452fcfac52256615bb66c5e8b56222f6",
+  "level_art_sha256": "a5de1cb4f32ed770cbd0c4fbdc60ffe77f47ee374f75c4b91a10f63dd1f2fa36",
   "placed_fit_sha256": "4ef595cade48d1991800faa5cc3be0ae2b77708ce8f014249829971bdea79701",
   "frame": "fid/lv/art/frame_grid.bv2art.json"
  },
@@ -33,7 +33,7 @@
    "slope_stones": 0.2727,
    "ring_stones": 0.0,
    "crags": 0.4563,
-   "gully_rock": 0.8404,
+   "gully_rock": 0.837,
    "cliff_faces": 0.9197,
    "talus": 0.1384,
    "sea_stacks": 0.8793,
@@ -109,9 +109,9 @@
   "longhall": 0.653,
   "fallen_gable": 0.397,
   "slope_stones": 0.485,
-  "ring_stones": 0.508,
+  "ring_stones": 0.507,
   "crags": 0.181,
-  "gully_rock": 0.263,
+  "gully_rock": 0.267,
   "cliff_faces": 0.422,
   "talus": 0.277,
   "sea_stacks": 0.363,
@@ -190,13 +190,13 @@
   "ring_stones": {
    "kind": "stones",
    "instances": 4,
-   "id_px": 47459,
+   "id_px": 47442,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.508
+   "iou_vs_prism_reported": 0.507
   },
   "crags": {
    "kind": "outcrop",
@@ -212,13 +212,13 @@
   "gully_rock": {
    "kind": "cliff",
    "instances": 12,
-   "id_px": 367527,
+   "id_px": 372862,
    "in_frame": true,
    "missing": false,
    "terrain_hidden_instances": [],
    "burial_by_design_instances": [],
    "containment": 1.0,
-   "iou_vs_prism_reported": 0.263
+   "iou_vs_prism_reported": 0.267
   },
   "cliff_faces": {
    "kind": "cliff",
@@ -404,7 +404,7 @@
     "z_top": 3.871,
     "own_px_in_frame": 11736,
     "terrain_hidden_share": 0.0617,
-    "visible_share": 0.8393
+    "visible_share": 0.8378
    },
    {
     "i": 2,
@@ -456,7 +456,7 @@
     "z_top": 1.629,
     "own_px_in_frame": 38618,
     "terrain_hidden_share": 0.0,
-    "visible_share": 0.1751
+    "visible_share": 0.175
    },
    {
     "i": 2,
@@ -488,7 +488,7 @@
     "z_top": 7.0,
     "own_px_in_frame": 29723,
     "terrain_hidden_share": 0.0,
-    "visible_share": 0.8735
+    "visible_share": 0.9836
    },
    {
     "i": 6,
@@ -496,7 +496,7 @@
     "z_top": 6.6,
     "own_px_in_frame": 21339,
     "terrain_hidden_share": 0.0,
-    "visible_share": 0.7719
+    "visible_share": 0.8712
    },
    {
     "i": 7,
@@ -512,7 +512,7 @@
     "z_top": 3.094,
     "own_px_in_frame": 5419,
     "terrain_hidden_share": 0.0065,
-    "visible_share": 0.4805
+    "visible_share": 0.4708
    },
    {
     "i": 9,

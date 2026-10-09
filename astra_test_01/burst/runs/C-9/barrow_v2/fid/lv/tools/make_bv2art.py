@@ -1292,6 +1292,13 @@ def main():
     d_sh_c = ndimage.distance_transform_edt(cr_c) / CLS_PPM
     stones_c = cr_c & (d_sh_c < 1.0 + 0.4 * cnoise(2573, 0.6)) & (cnoise(2574, 0.2) > 0.8 - 0.9 * np.clip(1.0 - d_sh_c, 0, 1)) & samp(beach0).astype(bool)
     stones_c = ndimage.binary_opening(stones_c, iterations=1)             # no single-cell specks: stones of 15-40 cm
+    # R-C9-325 (3): the frozen-in stones on the cradle's SEA side (plate y >= 2000, x < 1000: among the floes, below the hull)
+    # read as EARTHY PATCHES (Matt) -- there the cradle is plain ice; the stones along the beach/hull side stay (R-C9-234/257).
+    # Applied only to the WRITTEN class raster, at the very end (everything built from this raster -- the W1 strip, the brash
+    # domain -- reads it exactly as before, so nothing else moves)
+    _st_x = (Uc - (uv((768, 512))[0] - (1280 * 4 + 1536) / 2 / PPM)) * PPM
+    stones_r325 = stones_c & (plate_y((Uc, Vc), Zc) >= 2000.0) & (_st_x < 1000.0)
+    stones_r325_was = C[stones_r325].copy()
     C[stones_c] = names.index("shingle")
     # R-C9-226 (5): the ash yard IRREGULAR -- the outline resampled, pushed in/out by low lobes, a ragged fringe of trampled
     # ash tongues; holes of snow where drifts lie inside it
@@ -1441,9 +1448,11 @@ def main():
                "drop_scale": 0.5, "top_blur_m": 0.45, "round_r": 0.45, "snow_up": 0.8,
                "erode_ok": lambda tq, sq, hq: erode_ok94(tq, sq, hq),
                "ledge_rock": True,
+               "head_smooth": True,                                  # R-C9-325 (1): the knoll over the arch one rounded mass
                "walk_zone": (t0s - 1.2, t1s + 1.2, s_land - 2.5, s_top + 0.3),
                "cove": dict(CR["cove"], s_b=sb_), "landing": CR["landing"], "landing_fn": landing_fn,
-               "cave": {"t": R["cave_t"], "s_mouth": sb_, "w": CR["mouth_w_cut"], "h": CR["mouth_h_cut"], "depth": CR["cave_depth"], "axis": CR["cave_axis_ts"], "front": 4.0},
+               "cave": {"t": R["cave_t"], "s_mouth": sb_, "w": CR["mouth_w_cut"], "h": CR["mouth_h_cut"], "depth": CR["cave_depth"], "axis": CR["cave_axis_ts"], "front": 4.0,
+                        "brow": {"a_face": 0.5, "lean": 1.0, "w_pad": 0.5}, "dark_east_wall": False},   # R-C9-325 (1)(2)
                "stair": {"t0": t0s, "t1": t1s, "tread": R["tread"], "n_tr": n_tr, "rise": rise, "s_foot": s_foot, "s_top": s_top, "s_land": s_land,
                          "top_z": top_z, "bed_below": CR["bed_below"], "s_open": CR["landing"]["s_front"] + 1.0}}
     carved = CV.build(carve_P)
@@ -2477,6 +2486,14 @@ def main():
         return np.asarray(im_).astype(bool)
     zr = ndimage.map_coordinates(Z.astype(np.float64), [(v1 - RV) * HF_PPM, (RU - u0) * HF_PPM], order=1, mode="nearest")
     cr_ = C[np.clip(((v1 - RV) * CLS_PPM).astype(int), 0, Hc_ - 1), np.clip(((RU - u0) * CLS_PPM).astype(int), 0, Wc - 1)]
+    # R-C9-325 (3): the sea-side stones drawn as the ice under them -- applied AFTER this last building read of the raster
+    # (the W1 strip, the partition and the brash domains see it unchanged, so nothing else moves); the raster re-written
+    _sr = C[stones_r325] == names.index("shingle")
+    _cv = C[stones_r325]
+    _cv[_sr] = np.where(stones_r325_was[_sr] == names.index("ice_mid"), names.index("ice_mid"), names.index("shore_ice"))
+    C[stones_r325] = _cv
+    Image.fromarray(C, "L").save(os.path.join(OUT, "classes.png"))
+    shutil.copyfile(os.path.join(OUT, "classes.png"), os.path.join(OUT, "classes_png.bin"))
     ground_ice = np.isin(cr_, [names.index(c) for c in ("ice", "ice_mid", "shore_ice", "tide_ice", "lead", "reed")])
     landish = (zr > ICE_TOP - 0.02) | ground_ice
     d_land = ndimage.distance_transform_edt(~landish) / RP
@@ -2853,7 +2870,8 @@ def main():
     # (the W1 edge lives in the trans_rubble group -- whose old items are all removed: an EMPTY group draws no mesh and a NEW
     # group would shift every id after it in v1's capture_ids order; either breaks the pilot's id pins)
     slabs["trans_rubble"]["items"] += [{"poly": sim_poly(e_["poly"]), "z0": round(SEA_Z - 0.4, 3), "z1": e_["top"], "r294": True, "w1_edge": True} for e_ in edge_w1]
-    slabs["ice_drifts"] = {"class": "snow", "items": [{"poly": sim_poly(d_["poly"]), "z0": round(SEA_Z - 0.4, 3), "z1": d_["top"], "r294": True} for d_ in drifts94]}
+    slabs["ice_drifts"] = {"class": "shore_ice",   # R-C9-325 (3): the drifts take the floes' ice/snow tone (the snow class drew them beige)
+                           "items": [{"poly": sim_poly(d_["poly"]), "z0": round(SEA_Z - 0.4, 3), "z1": d_["top"], "r294": True} for d_ in drifts94]}
     slabs["ice_brash"]["items"] += [{"poly": sim_poly(b_["poly"]), "z0": round(SEA_Z - 0.15, 3), "z1": round(b_["z1"], 3), "r294": True} for b_ in brash94]
     for g in slabs:
         for it in slabs[g]["items"]:
