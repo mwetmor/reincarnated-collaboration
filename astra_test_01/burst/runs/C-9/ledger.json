@@ -50394,9 +50394,253 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-d_wreck-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f9e6665ad46e4130d56f87f6fc5cac77170ffc98a61ef3db3c7dd232c840c6f9",
+      "started": "2026-10-09T19:13:51.232105+00:00",
+      "ended": "2026-10-09T19:15:36.627954+00:00",
+      "minutes": 1.7565848916652613,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12216-0cc0-71a3-aad0-3c7464807ed0/exec-dbedf338-8764-4b04-9637-161a9ff7dfb5.png",
+            "sha256": "dce0e994ded6bcef0e27bdbaca35a79ea24835a2bde4a30bed09a813045b4bad"
+          }
+        ]
+      },
+      "receipt_sha256": "21ecb8c0bd6e73240de7dd4b1c5cb34591617c0e41f85af037445fea69970e57",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-d_wreck-1.png",
+          "sha256": "dce0e994ded6bcef0e27bdbaca35a79ea24835a2bde4a30bed09a813045b4bad"
+        },
+        {
+          "name": "exec-dbedf338-8764-4b04-9637-161a9ff7dfb5.provenance.json",
+          "sha256": "af2891f3cac813eb4157c218f9c2cc6199cc2f9df5a5f764fdf15a8701b4680e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12216-0cc0-71a3-aad0-3c7464807ed0/exec-dbedf338-8764-4b04-9637-161a9ff7dfb5.png",
+          "sha256": "dce0e994ded6bcef0e27bdbaca35a79ea24835a2bde4a30bed09a813045b4bad"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-d_left_mid-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "580d7526a756295a113ce1ff0b3c01a0df1676e3fe61389288f70dfa90ba9bcc",
+      "started": "2026-10-09T19:16:36.708443+00:00",
+      "ended": "2026-10-09T19:18:09.210170+00:00",
+      "minutes": 1.5416847687486248,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12218-8da5-7fa1-bb52-589cc5f6d225/exec-6ede0439-1b2a-45f3-8c71-e23100258739.png",
+            "sha256": "3d5e7eed815ea26de12a1a5c0891ad892d208625e75cdc46e061dcbd424a87fd"
+          }
+        ]
+      },
+      "receipt_sha256": "21c35223468a38907e9b076189f1de3800fd66f9e1446e42de85e26ae236d841",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-d_left_mid-1.png",
+          "sha256": "3d5e7eed815ea26de12a1a5c0891ad892d208625e75cdc46e061dcbd424a87fd"
+        },
+        {
+          "name": "exec-6ede0439-1b2a-45f3-8c71-e23100258739.provenance.json",
+          "sha256": "55e22e9827fb377b678f80b9298f86d6006f759be2f3fc32fd58a0556e679b6a"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12218-8da5-7fa1-bb52-589cc5f6d225/exec-6ede0439-1b2a-45f3-8c71-e23100258739.png",
+          "sha256": "3d5e7eed815ea26de12a1a5c0891ad892d208625e75cdc46e061dcbd424a87fd"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-d_left_low-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "340d0476d35d8aad2fec4d4a4bb453924934d12a133161d4426811beb3b368fc",
+      "started": "2026-10-09T19:18:46.833156+00:00",
+      "ended": "2026-10-09T19:20:29.139016+00:00",
+      "minutes": 1.705085884713723,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a1221a-8a04-79d3-afdc-265334a67b34/exec-7cbfa8ee-1cce-4816-957a-d3a94525049b.png",
+            "sha256": "803af10703e0dec583dc9720de55749f7b0bd7ee192c5d9c86580f8c47fc414f"
+          }
+        ]
+      },
+      "receipt_sha256": "b13d64342546e3efca36fc4e1014d9484e547d50f498e48229180ceed628d364",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-d_left_low-1.png",
+          "sha256": "803af10703e0dec583dc9720de55749f7b0bd7ee192c5d9c86580f8c47fc414f"
+        },
+        {
+          "name": "exec-7cbfa8ee-1cce-4816-957a-d3a94525049b.provenance.json",
+          "sha256": "40c089b9f1e30c7f4d4018ccc30fd135ed38b31218bd05e9f6cfb02ac6adf46e"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a1221a-8a04-79d3-afdc-265334a67b34/exec-7cbfa8ee-1cce-4816-957a-d3a94525049b.png",
+          "sha256": "803af10703e0dec583dc9720de55749f7b0bd7ee192c5d9c86580f8c47fc414f"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
+    },
+    {
+      "id": "BV2F-LR4-d_mid-1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "76a0c87b21af3241a8fc125c44a34288b2ae450171e364f2c1e8ba7a706e612f",
+      "started": "2026-10-09T19:21:06.306029+00:00",
+      "ended": "2026-10-09T19:22:47.080682+00:00",
+      "minutes": 1.6795922284635405,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a1221c-aac3-72b1-9de3-95e4cfd2529a/exec-5424bbac-84e6-46d2-bbf5-d2ba986cfa46.png",
+            "sha256": "dc6abdd331367e7eb39e7b93e970793824fcf61b5d8e22513950c98a441ac009"
+          }
+        ]
+      },
+      "receipt_sha256": "4a81451455814c29bfc59375f70bfedf8735f040b2dbe407c2449194395a24c0",
+      "artifacts": [
+        {
+          "name": "BV2F-LR4-d_mid-1.png",
+          "sha256": "dc6abdd331367e7eb39e7b93e970793824fcf61b5d8e22513950c98a441ac009"
+        },
+        {
+          "name": "exec-5424bbac-84e6-46d2-bbf5-d2ba986cfa46.provenance.json",
+          "sha256": "9f87a6b7f5c7cac274276d27bcd1195e2841ccb15e1544a6b5d04e9d923495d7"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a1221c-aac3-72b1-9de3-95e4cfd2529a/exec-5424bbac-84e6-46d2-bbf5-d2ba986cfa46.png",
+          "sha256": "dc6abdd331367e7eb39e7b93e970793824fcf61b5d8e22513950c98a441ac009"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1449,
+  "images_used": 1453,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -54479,6 +54723,13 @@
       "ts": "2026-10-09T15:13:12-04:00",
       "verbatim": "One other thing for the painter.. do you think we could add the same icy floor that the cave mouth has across the stone floor past the cave (between the stairs, the ocean and the cave) with sea icicles dripping from the floor to the sea?",
       "ruling": "SUPERSEDES the W2 'wet rock' look (R-C9-319/322): the stone floor in front of the sea cave (between the stair foot, the ocean and the cave mouth) gets the SAME ICY FLOOR as the cave mouth (tide-ice class and tone), and its seaward edge gets SEA ICICLES hanging from the floor's lip down to the water (geometry, like the cave's icicles). The floor stays walkable for the monster exit route. The water at the cliff foot stays deep and dark (Matt's earlier W2 note). LV builds it on 44d657e24; PT re-pins from LV's new commit and folds this ledge into the same DEV-24 cave patch, so there is one re-stitch and one build re-run."
+    },
+    {
+      "id": "R-C9-330",
+      "by": "gandalf (conductor, by-eye on sea329_sheet)",
+      "ts": "2026-10-09T15:22:59-04:00",
+      "verbatim": "",
+      "ruling": "LV d26d14c55 PASS: the ledge in front of the cave is the mouth's icy floor (tide_ice), with 22 sea icicles (0.30-0.87 m) along its seaward lip clear of the walk route; walk 8/8, gates and ice proof pass; pilot unchanged. PT RELEASED end to end (per R-C9-328) from LV d26d14c55: re-pin, recount (<= 10), DEV-24 patches including the icy ledge + icicles in the cave patch, re-stitch + identity proof, the build re-run, 24 stills + walk film; hand back once at the end, or stop on a failed check."
     }
   ],
   "grok_calls": [
