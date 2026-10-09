@@ -1,0 +1,1932 @@
+{
+ "_what": "s52 (b) derived P11 class mapping (R-C9-331)",
+ "pt_cls_of_tool_sha256": "0e88afa605d15eac9daabe52c51d820960ea8649905da82d74bd0fc76cac023a",
+ "ids_table_sha256": "d2d01a4ad74d39c5e4c745450a16a11a247a3719b86a1da72458924d6c5cd80d",
+ "class_table": {
+  "snow": "snow",
+  "mound": "snow",
+  "path": "snow",
+  "rock": "rock",
+  "shrub": "heather",
+  "wood": "wood",
+  "ice": "ice",
+  "ice_mid": "ice",
+  "shore_ice": "ice",
+  "tide_ice": "ice",
+  "stream": "ice",
+  "reed": "reed",
+  "sea": "sea",
+  "lead": "sea",
+  "char": "char",
+  "ash": "ash",
+  "passage_dark": "passage_dark",
+  "shingle": "shingle",
+  "wet_rock": "wet_rock",
+  "rime": "rime",
+  "none": null
+ },
+ "allowed": [
+  "snow",
+  "rock",
+  "standing_stone",
+  "heather",
+  "wood"
+ ],
+ "excluded": {
+  "sea": "R-C9-171 / R-C9-240 (lead)",
+  "wreck": "R-C9-171",
+  "hall": "R-C9-171",
+  "cliff": "R-C9-171",
+  "char": "R-C9-171 (s22)",
+  "ash": "R-C9-171 (s22)",
+  "passage_dark": "R-C9-171 (s22)",
+  "shingle": "rule (a)",
+  "wet_rock": "rule (a)",
+  "rime": "rule (a)",
+  "ice": "rule (b) R-C9-203/255/262",
+  "reed": "rule (a)"
+ },
+ "schema": {
+  "rock": 1,
+  "standing_stone": 2,
+  "wood": 3,
+  "sea": 4,
+  "wreck": 5,
+  "hall": 6,
+  "cliff": 7,
+  "snow": 8,
+  "ice": 9,
+  "heather": 10,
+  "reed": 11,
+  "char": 12,
+  "ash": 13,
+  "passage_dark": 14,
+  "shingle": 15,
+  "wet_rock": 16,
+  "rime": 17
+ },
+ "ids": {
+  "barrow_cutting": {
+   "value": 1,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "carved_wet_rock": {
+   "value": 10,
+   "lv_class": "wet_rock",
+   "pt_class": null,
+   "p11_class": "wet_rock",
+   "rule": "R2 (LV class wet_rock)",
+   "status": "EXCLUDED: rule (a)"
+  },
+  "palisade__palisade_33": {
+   "value": 100,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_34": {
+   "value": 101,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_35": {
+   "value": 102,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_36": {
+   "value": 103,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_37": {
+   "value": 104,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_38": {
+   "value": 105,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_39": {
+   "value": 106,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_4": {
+   "value": 107,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_40": {
+   "value": 108,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_41": {
+   "value": 109,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "cliff_faces__cliff_faces_0": {
+   "value": 11,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "palisade__palisade_42": {
+   "value": 110,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_43": {
+   "value": 111,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_44": {
+   "value": 112,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_45": {
+   "value": 113,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_46": {
+   "value": 114,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_47": {
+   "value": 115,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_48": {
+   "value": 116,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_5": {
+   "value": 117,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_6": {
+   "value": 118,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_7": {
+   "value": 119,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "cliff_faces__cliff_faces_1": {
+   "value": 12,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "palisade__palisade_8": {
+   "value": 120,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_9": {
+   "value": 121,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "reed_tufts": {
+   "value": 122,
+   "lv_class": "reed",
+   "pt_class": null,
+   "p11_class": "reed",
+   "rule": "R2 (LV class reed)",
+   "status": "EXCLUDED: rule (a)"
+  },
+  "ring_fallen": {
+   "value": 123,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "ring_snow": {
+   "value": 124,
+   "lv_class": "snow",
+   "pt_class": null,
+   "p11_class": "snow",
+   "rule": "R2 (LV class snow)",
+   "status": "ALLOWED"
+  },
+  "ring_stones__ring_stones_0": {
+   "value": 125,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "ring_stones__ring_stones_1": {
+   "value": 126,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "ring_stones__ring_stones_2": {
+   "value": 127,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "ring_stones__ring_stones_3": {
+   "value": 128,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "sea_stacks__sea_stacks_0": {
+   "value": 129,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "sea",
+   "rule": "R3 (sea_ family)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "cliff_faces__cliff_faces_2": {
+   "value": 13,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "sea_stacks__sea_stacks_1": {
+   "value": 130,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "sea",
+   "rule": "R3 (sea_ family)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "sea_stacks__sea_stacks_2": {
+   "value": 131,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "sea",
+   "rule": "R3 (sea_ family)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "slope_stones__slope_stones_0": {
+   "value": 132,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_1": {
+   "value": 133,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_2": {
+   "value": 134,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_3": {
+   "value": 135,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_4": {
+   "value": 136,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_5": {
+   "value": 137,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_6": {
+   "value": 138,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "slope_stones__slope_stones_7": {
+   "value": 139,
+   "lv_class": "rock",
+   "pt_class": "standing_stone",
+   "p11_class": "standing_stone",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "cliff_faces__cliff_faces_3": {
+   "value": 14,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "stair_snow": {
+   "value": 140,
+   "lv_class": "snow",
+   "pt_class": null,
+   "p11_class": "snow",
+   "rule": "R2 (LV class snow)",
+   "status": "ALLOWED"
+  },
+  "stair_steps": {
+   "value": 141,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "stair_treads": {
+   "value": 142,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "stream_cracks": {
+   "value": 143,
+   "lv_class": "sea",
+   "pt_class": null,
+   "p11_class": "sea",
+   "rule": "R2 (LV class sea)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "stream_ice": {
+   "value": 144,
+   "lv_class": "ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "stream_pressure": {
+   "value": 145,
+   "lv_class": "ice",
+   "pt_class": null,
+   "p11_class": "ice",
+   "rule": "R2 (LV class ice)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "talus__talus_0": {
+   "value": 146,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_1": {
+   "value": 147,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_10": {
+   "value": 148,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_11": {
+   "value": 149,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "cliff_faces__cliff_faces_4": {
+   "value": 15,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "talus__talus_12": {
+   "value": 150,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_13": {
+   "value": 151,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_14": {
+   "value": 152,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_15": {
+   "value": 153,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_2": {
+   "value": 154,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_3": {
+   "value": 155,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_4": {
+   "value": 156,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_5": {
+   "value": 157,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_6": {
+   "value": 158,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_7": {
+   "value": 159,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "cliff_faces__cliff_faces_5": {
+   "value": 16,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "talus__talus_8": {
+   "value": 160,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "talus__talus_9": {
+   "value": 161,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "trans_rubble": {
+   "value": 162,
+   "lv_class": "shore_ice",
+   "pt_class": null,
+   "p11_class": "ice",
+   "rule": "R2 (LV class shore_ice)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "wreck": {
+   "value": 163,
+   "lv_class": "wood",
+   "pt_class": "wreck",
+   "p11_class": "wreck",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "wreck_mast__wreck_mast_0": {
+   "value": 164,
+   "lv_class": "wood",
+   "pt_class": null,
+   "p11_class": "wreck",
+   "rule": "R3 (wreck family)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "cliff_faces__cliff_faces_6": {
+   "value": 17,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "cliff_faces__cliff_faces_7": {
+   "value": 18,
+   "lv_class": "rock",
+   "pt_class": "cliff",
+   "p11_class": "cliff",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "cliff_skirt_wall": {
+   "value": 19,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "cliff",
+   "rule": "R3 (cliff family)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "barrow_front": {
+   "value": 2,
+   "lv_class": "rock",
+   "pt_class": "rock",
+   "p11_class": "rock",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "cove_ice": {
+   "value": 20,
+   "lv_class": "shore_ice",
+   "pt_class": null,
+   "p11_class": "ice",
+   "rule": "R2 (LV class shore_ice)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "cradle_cracks": {
+   "value": 21,
+   "lv_class": "sea",
+   "pt_class": null,
+   "p11_class": "sea",
+   "rule": "R2 (LV class sea)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "crags__crags_0": {
+   "value": 22,
+   "lv_class": "rock",
+   "pt_class": "rock",
+   "p11_class": "rock",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "crags__crags_1": {
+   "value": 23,
+   "lv_class": "rock",
+   "pt_class": "rock",
+   "p11_class": "rock",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "curtain_barrow_door": {
+   "value": 24,
+   "lv_class": "passage_dark",
+   "pt_class": null,
+   "p11_class": "passage_dark",
+   "rule": "R2 (LV class passage_dark)",
+   "status": "EXCLUDED: R-C9-171 (s22)"
+  },
+  "curtain_hall_great_door": {
+   "value": 25,
+   "lv_class": "passage_dark",
+   "pt_class": null,
+   "p11_class": "passage_dark",
+   "rule": "R2 (LV class passage_dark)",
+   "status": "EXCLUDED: R-C9-171 (s22)"
+  },
+  "curtain_sea_cave_mouth": {
+   "value": 26,
+   "lv_class": "passage_dark",
+   "pt_class": null,
+   "p11_class": "passage_dark",
+   "rule": "R2 (LV class passage_dark)",
+   "status": "EXCLUDED: R-C9-171 (s22)"
+  },
+  "door_lintel": {
+   "value": 27,
+   "lv_class": "none",
+   "pt_class": null,
+   "p11_class": null,
+   "rule": "R2 (LV class none)",
+   "status": "other"
+  },
+  "door_post_L": {
+   "value": 28,
+   "lv_class": "none",
+   "pt_class": null,
+   "p11_class": null,
+   "rule": "R2 (LV class none)",
+   "status": "other"
+  },
+  "door_post_R": {
+   "value": 29,
+   "lv_class": "none",
+   "pt_class": null,
+   "p11_class": null,
+   "rule": "R2 (LV class none)",
+   "status": "other"
+  },
+  "carved_ice": {
+   "value": 3,
+   "lv_class": "ice",
+   "pt_class": null,
+   "p11_class": "ice",
+   "rule": "R2 (LV class ice)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "fallen_gable": {
+   "value": 30,
+   "lv_class": "char",
+   "pt_class": "hall",
+   "p11_class": "hall",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "ground_ash": {
+   "value": 31,
+   "lv_class": "ash",
+   "pt_class": null,
+   "p11_class": "ash",
+   "rule": "R2 (LV class ash)",
+   "status": "EXCLUDED: R-C9-171 (s22)"
+  },
+  "ground_ice": {
+   "value": 32,
+   "lv_class": "ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ground_ice_mid": {
+   "value": 33,
+   "lv_class": "ice_mid",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ground_lead": {
+   "value": 34,
+   "lv_class": "lead",
+   "pt_class": "sea",
+   "p11_class": "sea",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "ground_mound": {
+   "value": 35,
+   "lv_class": "mound",
+   "pt_class": "snow",
+   "p11_class": "snow",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "ground_reed": {
+   "value": 36,
+   "lv_class": "reed",
+   "pt_class": "reed",
+   "p11_class": "reed",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (a)"
+  },
+  "ground_rock": {
+   "value": 37,
+   "lv_class": "rock",
+   "pt_class": "rock",
+   "p11_class": "rock",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "ground_sea": {
+   "value": 38,
+   "lv_class": "sea",
+   "pt_class": "sea",
+   "p11_class": "sea",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171 / R-C9-240 (lead)"
+  },
+  "ground_shingle": {
+   "value": 39,
+   "lv_class": "shingle",
+   "pt_class": null,
+   "p11_class": "shingle",
+   "rule": "R2 (LV class shingle)",
+   "status": "EXCLUDED: rule (a)"
+  },
+  "carved_passage_dark": {
+   "value": 4,
+   "lv_class": "passage_dark",
+   "pt_class": null,
+   "p11_class": "passage_dark",
+   "rule": "R2 (LV class passage_dark)",
+   "status": "EXCLUDED: R-C9-171 (s22)"
+  },
+  "ground_shore_ice": {
+   "value": 40,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ground_shrub": {
+   "value": 41,
+   "lv_class": "shrub",
+   "pt_class": "heather",
+   "p11_class": "heather",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "ground_snow": {
+   "value": 42,
+   "lv_class": "snow",
+   "pt_class": "snow",
+   "p11_class": "snow",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_0": {
+   "value": 43,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_1": {
+   "value": 44,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_10": {
+   "value": 45,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_11": {
+   "value": 46,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_2": {
+   "value": 47,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_3": {
+   "value": 48,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_4": {
+   "value": 49,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "carved_rime": {
+   "value": 5,
+   "lv_class": "rime",
+   "pt_class": null,
+   "p11_class": "rime",
+   "rule": "R2 (LV class rime)",
+   "status": "EXCLUDED: rule (a)"
+  },
+  "gully_rock__gully_rock_5": {
+   "value": 50,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_6": {
+   "value": 51,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_7": {
+   "value": 52,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_8": {
+   "value": 53,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "gully_rock__gully_rock_9": {
+   "value": 54,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "ice_brash": {
+   "value": 55,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ice_drifts": {
+   "value": 56,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ice_floes": {
+   "value": 57,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ice_floes_bob": {
+   "value": 58,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ice_plates": {
+   "value": 59,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "carved_rock": {
+   "value": 6,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "ice_ridges": {
+   "value": 60,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ice_rims": {
+   "value": 61,
+   "lv_class": "snow",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "ice_shorefast": {
+   "value": 62,
+   "lv_class": "shore_ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "icicles": {
+   "value": 63,
+   "lv_class": "rime",
+   "pt_class": null,
+   "p11_class": "rime",
+   "rule": "R2 (LV class rime)",
+   "status": "EXCLUDED: rule (a)"
+  },
+  "ledge_rocks": {
+   "value": 64,
+   "lv_class": "rock",
+   "pt_class": null,
+   "p11_class": "rock",
+   "rule": "R2 (LV class rock)",
+   "status": "ALLOWED"
+  },
+  "logs__logs_0": {
+   "value": 65,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "logs__logs_1": {
+   "value": 66,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "logs__logs_2": {
+   "value": 67,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "logs__logs_3": {
+   "value": 68,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "longhall": {
+   "value": 69,
+   "lv_class": "wood",
+   "pt_class": "hall",
+   "p11_class": "hall",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: R-C9-171"
+  },
+  "carved_shrub": {
+   "value": 7,
+   "lv_class": "shrub",
+   "pt_class": "heather",
+   "p11_class": "heather",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "mere_cracks": {
+   "value": 70,
+   "lv_class": "sea",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "mere_plates": {
+   "value": 71,
+   "lv_class": "ice",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "mere_seams": {
+   "value": 72,
+   "lv_class": "snow",
+   "pt_class": "ice",
+   "p11_class": "ice",
+   "rule": "R1 (PT cls_of)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "palisade__palisade_0": {
+   "value": 73,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_1": {
+   "value": 74,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_10": {
+   "value": 75,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_11": {
+   "value": 76,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_12": {
+   "value": 77,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_13": {
+   "value": 78,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_14": {
+   "value": 79,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "carved_snow": {
+   "value": 8,
+   "lv_class": "snow",
+   "pt_class": null,
+   "p11_class": "snow",
+   "rule": "R2 (LV class snow)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_15": {
+   "value": 80,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_16": {
+   "value": 81,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_17": {
+   "value": 82,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_18": {
+   "value": 83,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_19": {
+   "value": 84,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_2": {
+   "value": 85,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_20": {
+   "value": 86,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_21": {
+   "value": 87,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_22": {
+   "value": 88,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_23": {
+   "value": 89,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "carved_tide_ice": {
+   "value": 9,
+   "lv_class": "tide_ice",
+   "pt_class": null,
+   "p11_class": "ice",
+   "rule": "R2 (LV class tide_ice)",
+   "status": "EXCLUDED: rule (b) R-C9-203/255/262"
+  },
+  "palisade__palisade_24": {
+   "value": 90,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_25": {
+   "value": 91,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_26": {
+   "value": 92,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_27": {
+   "value": 93,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_28": {
+   "value": 94,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_29": {
+   "value": 95,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_3": {
+   "value": 96,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_30": {
+   "value": 97,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_31": {
+   "value": 98,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  },
+  "palisade__palisade_32": {
+   "value": 99,
+   "lv_class": "wood",
+   "pt_class": "wood",
+   "p11_class": "wood",
+   "rule": "R1 (PT cls_of)",
+   "status": "ALLOWED"
+  }
+ },
+ "unmapped_under_pt_masks_by_lv_class": {
+  "rock": [
+   "barrow_cutting",
+   "ring_fallen",
+   "sea_stacks__sea_stacks_0",
+   "sea_stacks__sea_stacks_1",
+   "sea_stacks__sea_stacks_2",
+   "stair_steps",
+   "stair_treads",
+   "talus__talus_0",
+   "talus__talus_1",
+   "talus__talus_10",
+   "talus__talus_11",
+   "talus__talus_12",
+   "talus__talus_13",
+   "talus__talus_14",
+   "talus__talus_15",
+   "talus__talus_2",
+   "talus__talus_3",
+   "talus__talus_4",
+   "talus__talus_5",
+   "talus__talus_6",
+   "talus__talus_7",
+   "talus__talus_8",
+   "talus__talus_9",
+   "cliff_skirt_wall",
+   "gully_rock__gully_rock_0",
+   "gully_rock__gully_rock_1",
+   "gully_rock__gully_rock_10",
+   "gully_rock__gully_rock_11",
+   "gully_rock__gully_rock_2",
+   "gully_rock__gully_rock_3",
+   "gully_rock__gully_rock_4",
+   "gully_rock__gully_rock_5",
+   "gully_rock__gully_rock_6",
+   "gully_rock__gully_rock_7",
+   "gully_rock__gully_rock_8",
+   "gully_rock__gully_rock_9",
+   "carved_rock",
+   "ledge_rocks"
+  ],
+  "wet_rock": [
+   "carved_wet_rock"
+  ],
+  "reed": [
+   "reed_tufts"
+  ],
+  "snow": [
+   "ring_snow",
+   "stair_snow",
+   "carved_snow"
+  ],
+  "sea": [
+   "stream_cracks",
+   "cradle_cracks"
+  ],
+  "ice": [
+   "stream_pressure",
+   "carved_ice"
+  ],
+  "shore_ice": [
+   "trans_rubble",
+   "cove_ice"
+  ],
+  "wood": [
+   "wreck_mast__wreck_mast_0"
+  ],
+  "passage_dark": [
+   "curtain_barrow_door",
+   "curtain_hall_great_door",
+   "curtain_sea_cave_mouth",
+   "carved_passage_dark"
+  ],
+  "none": [
+   "door_lintel",
+   "door_post_L",
+   "door_post_R"
+  ],
+  "ash": [
+   "ground_ash"
+  ],
+  "shingle": [
+   "ground_shingle"
+  ],
+  "rime": [
+   "carved_rime",
+   "icicles"
+  ],
+  "tide_ice": [
+   "carved_tide_ice"
+  ]
+ },
+ "derived_shares": {
+  "site_01": {
+   "rock": 0.0,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0234,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.1184,
+   "ice": 0.7608,
+   "heather": 0.0005,
+   "reed": 0.0941,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0028,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_02": {
+   "rock": 0.0,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.1257,
+   "ice": 0.7866,
+   "heather": 0.0115,
+   "reed": 0.0763,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_03": {
+   "rock": 0.0793,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.3423,
+   "ice": 0.4835,
+   "heather": 0.0146,
+   "reed": 0.0426,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0377,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_04": {
+   "rock": 0.1793,
+   "standing_stone": 0.0166,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.4885,
+   "ice": 0.1303,
+   "heather": 0.1475,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0376,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_05": {
+   "rock": 0.1491,
+   "standing_stone": 0.029,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0486,
+   "cliff": 0.0,
+   "snow": 0.574,
+   "ice": 0.0046,
+   "heather": 0.1947,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_06": {
+   "rock": 0.0479,
+   "standing_stone": 0.0142,
+   "wood": 0.0122,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0989,
+   "cliff": 0.0,
+   "snow": 0.7542,
+   "ice": 0.0183,
+   "heather": 0.0543,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_07": {
+   "rock": 0.0,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0306,
+   "wreck": 0.1399,
+   "hall": 0.0,
+   "cliff": 0.0163,
+   "snow": 0.022,
+   "ice": 0.5426,
+   "heather": 0.0,
+   "reed": 0.0254,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.2232,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_08": {
+   "rock": 0.0,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0147,
+   "hall": 0.0,
+   "cliff": 0.1279,
+   "snow": 0.1033,
+   "ice": 0.429,
+   "heather": 0.0716,
+   "reed": 0.0427,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.2108,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_09": {
+   "rock": 0.0096,
+   "standing_stone": 0.0229,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.1172,
+   "snow": 0.442,
+   "ice": 0.2726,
+   "heather": 0.1149,
+   "reed": 0.0197,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0011,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_10": {
+   "rock": 0.0122,
+   "standing_stone": 0.0229,
+   "wood": 0.0075,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0003,
+   "snow": 0.7488,
+   "ice": 0.0727,
+   "heather": 0.1076,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0279,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_11": {
+   "rock": 0.0043,
+   "standing_stone": 0.0002,
+   "wood": 0.0152,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.1638,
+   "cliff": 0.0,
+   "snow": 0.4406,
+   "ice": 0.0112,
+   "heather": 0.0646,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.2799,
+   "passage_dark": 0.0202,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_12": {
+   "rock": 0.0005,
+   "standing_stone": 0.0,
+   "wood": 0.0128,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.561,
+   "cliff": 0.0,
+   "snow": 0.1077,
+   "ice": 0.0146,
+   "heather": 0.0003,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.2829,
+   "passage_dark": 0.0202,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_13": {
+   "rock": 0.0094,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.2735,
+   "wreck": 0.0099,
+   "hall": 0.0,
+   "cliff": 0.1163,
+   "snow": 0.0126,
+   "ice": 0.5181,
+   "heather": 0.0006,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0596,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_14": {
+   "rock": 0.1198,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0927,
+   "wreck": 0.0091,
+   "hall": 0.0,
+   "cliff": 0.2971,
+   "snow": 0.075,
+   "ice": 0.3127,
+   "heather": 0.034,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0596,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_15": {
+   "rock": 0.3074,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0272,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.1892,
+   "snow": 0.1466,
+   "ice": 0.1864,
+   "heather": 0.0975,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.041,
+   "shingle": 0.0,
+   "wet_rock": 0.003,
+   "rime": 0.0017
+  },
+  "site_16": {
+   "rock": 0.3281,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0183,
+   "snow": 0.3965,
+   "ice": 0.1062,
+   "heather": 0.1051,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0411,
+   "shingle": 0.0,
+   "wet_rock": 0.003,
+   "rime": 0.0017
+  },
+  "site_17": {
+   "rock": 0.1341,
+   "standing_stone": 0.0,
+   "wood": 0.0384,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0341,
+   "snow": 0.6043,
+   "ice": 0.0029,
+   "heather": 0.0423,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.1438,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_18": {
+   "rock": 0.0,
+   "standing_stone": 0.0,
+   "wood": 0.0499,
+   "sea": 0.0,
+   "wreck": 0.0,
+   "hall": 0.1675,
+   "cliff": 0.0173,
+   "snow": 0.5205,
+   "ice": 0.0,
+   "heather": 0.005,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.2398,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_19": {
+   "rock": 0.0,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.4588,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.0,
+   "ice": 0.5412,
+   "heather": 0.0,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_20": {
+   "rock": 0.0143,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.4595,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.0,
+   "ice": 0.5263,
+   "heather": 0.0,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  },
+  "site_21": {
+   "rock": 0.0408,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.494,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.0,
+   "snow": 0.0,
+   "ice": 0.4362,
+   "heather": 0.0,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.026,
+   "rime": 0.0031
+  },
+  "site_22": {
+   "rock": 0.0454,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.3651,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.2391,
+   "snow": 0.0266,
+   "ice": 0.2909,
+   "heather": 0.0015,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0283,
+   "rime": 0.0032
+  },
+  "site_23": {
+   "rock": 0.0276,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.1288,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.5144,
+   "snow": 0.1439,
+   "ice": 0.1751,
+   "heather": 0.0044,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0035,
+   "rime": 0.0001
+  },
+  "site_24": {
+   "rock": 0.0085,
+   "standing_stone": 0.0,
+   "wood": 0.0,
+   "sea": 0.0443,
+   "wreck": 0.0,
+   "hall": 0.0,
+   "cliff": 0.4092,
+   "snow": 0.4562,
+   "ice": 0.0542,
+   "heather": 0.0235,
+   "reed": 0.0,
+   "char": 0.0,
+   "ash": 0.0,
+   "passage_dark": 0.0,
+   "shingle": 0.0,
+   "wet_rock": 0.0,
+   "rime": 0.0
+  }
+ }
+}

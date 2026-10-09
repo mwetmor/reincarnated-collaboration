@@ -14,10 +14,13 @@ from scipy import ndimage
 sys.path.insert(0, __import__("os").path.dirname(__file__))
 from common import *  # noqa
 
-PT = FID / "pt/pilot"
+SITE = os.environ.get("PH_SITE") == "1"          # § 52 (R-C9-331): the FULL SITE 5 x 5 (fid/pt/site, plate 6656 x 4096)
+PT = FID / ("pt/site" if SITE else "pt/pilot")
 OUT = PH / os.environ.get("PH_PILOT_OUT", "results/pilot")
-W, H = 4096, 2560
-CHUNKS = [("%d_%d" % (c, r), (1280 * c, 768 * r, 1280 * c + 1536, 768 * r + 1024)) for r in range(3) for c in range(3)]
+W, H = (6656, 4096) if SITE else (4096, 2560)
+NG = 5 if SITE else 3
+CHUNKS = [("%d_%d" % (c, r), (1280 * c, 768 * r, 1280 * c + 1536, 768 * r + 1024)) for r in range(NG) for c in range(NG)]
+FRAME = "frame_grid.site.json" if SITE else "frame_grid.pilot.json"
 GA = FID / "lv/guide_art"
 DATA = BF / "godot/data/bv2f" / os.environ.get("PH_PILOT_DATA", "pilot") / "painted"     # rp2: pilot_rp2 (R-C9-240)
 LEVELD = BF / "godot/data/bv2f" / os.environ.get("PH_PILOT_LEVEL", "art")                 # rp2: pilot_rp2/level (PIN.json)
@@ -94,7 +97,7 @@ def tufts():
 
 # ---------------------------------------------------------------------------------------------------------- P1
 def p1():
-    fr = jload(PT / "frame_grid.pilot.json")
+    fr = jload(PT / FRAME)
     ppm = float(fr["px_per_m_across"])
     rows = [{"surface": "ground + projected primitives", "source_ppm": ppm, "ratio": round(PPM_V1 / ppm, 4)}]
     br = jload(PT / "bake_report.json")["pieces"]

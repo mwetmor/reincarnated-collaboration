@@ -1,0 +1,70 @@
+{
+ "set": "site_v1_vs_site",
+ "scored": 40,
+ "repeats": 10,
+ "catches": 12,
+ "images": 62,
+ "catch_correct_A": 6,
+ "catch_correct_B": 6,
+ "UNDERPOWERED": false,
+ "VOID_if_underpowered": true,
+ "rule_exclusion": true,
+ "scored_allowed": [
+  "snow",
+  "rock",
+  "standing_stone",
+  "heather",
+  "wood"
+ ],
+ "by_class": {
+  "heather": 6,
+  "snow": 34
+ },
+ "catch_by_class": {
+  "snow": 12
+ },
+ "judge_dir": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/ph/p11/abx3_site_v1_vs_site",
+ "stills": [
+  "site_01.png",
+  "site_02.png",
+  "site_03.png",
+  "site_04.png",
+  "site_05.png",
+  "site_06.png",
+  "site_07.png",
+  "site_08.png",
+  "site_09.png",
+  "site_10.png",
+  "site_11.png",
+  "site_12.png",
+  "site_13.png",
+  "site_14.png",
+  "site_15.png",
+  "site_16.png",
+  "site_17.png",
+  "site_18.png",
+  "site_19.png",
+  "site_20.png",
+  "site_21.png",
+  "site_22.png",
+  "site_23.png",
+  "site_24.png"
+ ],
+ "stills_not_accepted": [],
+ "excluded": [
+  "sea",
+  "wreck",
+  "hall",
+  "cliff",
+  "char",
+  "ash",
+  "passage_dark",
+  "shingle",
+  "wet_rock",
+  "rime",
+  "ice",
+  "reed"
+ ],
+ "key": "fid/ph/p11/keys/abx3_site_v1_vs_site.json",
+ "verdict_before_judge": "judge-ready"
+}

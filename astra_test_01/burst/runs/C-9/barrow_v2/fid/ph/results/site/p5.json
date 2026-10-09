@@ -1,0 +1,1762 @@
+{
+ "_what": "s52 (a) full-site P5, as pre-registered at 7d47a498d (R-C9-331)",
+ "painting_sha256": "3fc04a7d0f63180b9a6117d90e29bfc4d9ca4833c9c2ff0acb49ceeb65e44638",
+ "bar_a1": 9.569,
+ "bar_corner": 4.809,
+ "dev29_selftest": {
+  "0_2": {
+   "mask_px_in_canvas": 835833,
+   "changed_px": 798440,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  },
+  "0_3": {
+   "mask_px_in_canvas": 319604,
+   "changed_px": 317160,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  },
+  "1_2": {
+   "mask_px_in_canvas": 104827,
+   "changed_px": 94695,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  },
+  "1_3": {
+   "mask_px_in_canvas": 54948,
+   "changed_px": 54889,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  },
+  "2_2": {
+   "mask_px_in_canvas": 645307,
+   "changed_px": 628187,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  },
+  "2_3": {
+   "mask_px_in_canvas": 368384,
+   "changed_px": 367946,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  },
+  "3_2": {
+   "mask_px_in_canvas": 116992,
+   "changed_px": 116967,
+   "changed_outside_mask": 0,
+   "inside_equals_patched": true,
+   "pass": true
+  }
+ },
+ "a1_rows": [
+  {
+   "join": "0_0|1_0",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.399,
+   "a1_raw": 3.399,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.269,
+    3.382,
+    2.259,
+    2.94,
+    2.059,
+    2.05,
+    1.741,
+    3.399
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 7.47,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "0_0/0_1",
+   "kind": "/",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.84,
+   "a1_raw": 3.84,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.569,
+    2.286,
+    3.053,
+    2.769,
+    2.768,
+    3.142,
+    2.575,
+    2.36,
+    2.842,
+    2.746,
+    3.84,
+    3.589
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 7.64,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "1_0|2_0",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 7.13,
+   "a1_raw": 7.13,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    0.963,
+    1.475,
+    2.809,
+    5.103,
+    6.713,
+    7.112,
+    7.13,
+    4.251
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 7.9,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "1_0/1_1",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 11.268,
+   "a1_raw": 11.268,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.909,
+    1.993,
+    2.024,
+    2.469,
+    3.396,
+    2.839,
+    3.333,
+    3.828,
+    4.628,
+    4.954,
+    7.602,
+    11.268
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 7.29,
+   "pass": false,
+   "pilot_pair": true,
+   "crop": "ph/results/site/p5_crops/1_0S1_1_seg12_a1_11.268_x2240_y640_1to1.jpg",
+   "box_xyxy": [
+    2240,
+    640,
+    3264,
+    1152
+   ],
+   "sha256": "b7390811fef812e25b5b60e073f9db3147f263671352991784cbe4d15c7ab514"
+  },
+  {
+   "join": "2_0|3_0",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.417,
+   "a1_raw": 3.417,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.436,
+    2.853,
+    2.087,
+    2.991,
+    2.747,
+    3.323,
+    3.417,
+    2.759
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 10.5,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "2_0/2_1",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 19.138,
+   "a1_raw": 19.138,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    19.138,
+    15.432,
+    11.199,
+    9.772,
+    9.999,
+    7.095,
+    3.254,
+    3.843,
+    3.703,
+    4.104,
+    5.434,
+    5.455
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 10.76,
+   "pass": false,
+   "pilot_pair": true,
+   "crop": "ph/results/site/p5_crops/2_0S2_1_seg1_a1_19.138_x2112_y640_1to1.jpg",
+   "box_xyxy": [
+    2112,
+    640,
+    3136,
+    1152
+   ],
+   "sha256": "a09364526bd7376437e3a91c8af0dd6e57bd5d78aca8ca65a6364b83aae46ee3"
+  },
+  {
+   "join": "3_0|4_0",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.879,
+   "a1_raw": 3.879,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.464,
+    2.328,
+    2.966,
+    2.22,
+    2.649,
+    2.367,
+    3.879,
+    2.911
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 9.73,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "3_0/3_1",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 9.198,
+   "a1_raw": 9.198,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.757,
+    3.088,
+    3.527,
+    4.48,
+    5.523,
+    5.604,
+    4.141,
+    3.526,
+    3.305,
+    3.092,
+    4.86,
+    9.198
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.23,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "4_0/4_1",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 6.718,
+   "a1_raw": 6.718,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.858,
+    6.196,
+    3.818,
+    2.678,
+    1.86,
+    6.718,
+    4.558,
+    3.643,
+    2.681,
+    1.186,
+    1.07,
+    1.097
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 8.33,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "0_1|1_1",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.381,
+   "a1_raw": 3.381,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.885,
+    3.123,
+    1.186,
+    1.652,
+    2.27,
+    3.163,
+    3.17,
+    3.381
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 8.92,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "0_1/0_2",
+   "kind": "/",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 6.018,
+   "a1_raw": 6.018,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.184,
+    2.119,
+    3.651,
+    2.109,
+    2.861,
+    3.619,
+    3.468,
+    2.349,
+    2.123,
+    2.763,
+    6.018,
+    2.793
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.36,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "1_1|2_1",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 13.218,
+   "a1_raw": 13.218,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    11.726,
+    13.218,
+    5.038,
+    4.541,
+    3.591,
+    3.101,
+    3.583,
+    2.385
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.66,
+   "pass": false,
+   "pilot_pair": true,
+   "crop": "ph/results/site/p5_crops/1_1I2_1_seg2_a1_13.218_x2432_y704_1to1.jpg",
+   "box_xyxy": [
+    2432,
+    704,
+    2944,
+    1216
+   ],
+   "sha256": "7e67aca8f0bbf505764fe402bb96ab86f14d540a3c9275d4b73cc2d30f9bb740"
+  },
+  {
+   "join": "1_1/1_2",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 5.752,
+   "a1_raw": 5.752,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.168,
+    1.998,
+    1.847,
+    2.216,
+    3.114,
+    4.343,
+    5.752,
+    3.572,
+    2.983,
+    2.741,
+    3.931,
+    5.318
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.27,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "2_1|3_1",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 7.263,
+   "a1_raw": 7.263,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.494,
+    7.263,
+    6.592,
+    6.342,
+    6.085,
+    3.716,
+    3.241,
+    3.216
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.27,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "2_1/2_2",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.356,
+   "a1_raw": 3.356,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.132,
+    3.356,
+    0.989,
+    1.207,
+    0.768,
+    0.748,
+    0.688,
+    0.682,
+    0.75,
+    1.234,
+    0.747,
+    0.676
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 5.17,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "3_1|4_1",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 9.745,
+   "a1_raw": 9.745,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    6.2,
+    9.745,
+    4.807,
+    4.75,
+    6.975,
+    9.486,
+    9.688,
+    5.122
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 16.58,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/3_1I4_1_seg2_a1_9.745_x4992_y704_1to1.jpg",
+   "box_xyxy": [
+    4992,
+    704,
+    5504,
+    1216
+   ],
+   "sha256": "455ebe94e2afe420b9a37acab799ea00aba5a37a1120f1136e7035fec2ce5acf"
+  },
+  {
+   "join": "3_1/3_2",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 29.185,
+   "a1_raw": 29.185,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.467,
+    1.223,
+    1.21,
+    1.503,
+    1.359,
+    1.434,
+    1.829,
+    9.948,
+    29.185,
+    23.283,
+    24.229,
+    16.595
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 12.61,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/3_1S3_2_seg9_a1_29.185_x4416_y1408_1to1.jpg",
+   "box_xyxy": [
+    4416,
+    1408,
+    5440,
+    1920
+   ],
+   "sha256": "57a6e1e66650a1b68abf7fa31d9ab7d621e1723c84838b97f1d3bb076e25571a"
+  },
+  {
+   "join": "4_1/4_2",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 8.285,
+   "a1_raw": 8.285,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    5.807,
+    8.285,
+    2.194,
+    1.335,
+    1.788,
+    1.95,
+    1.531,
+    1.848,
+    1.642,
+    1.604,
+    1.819,
+    1.667
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.39,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "0_2|1_2",
+   "kind": "|",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 4.736,
+   "a1_raw": 4.736,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.249,
+    3.467,
+    4.736,
+    3.746,
+    1.446,
+    2.248,
+    3.567,
+    3.078
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 8.16,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "0_2/0_3",
+   "kind": "/",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s51 named: substituted",
+   "a1_binding": 7.53,
+   "a1_raw": 21.457,
+   "a1_substituted": 7.53,
+   "a1_segments_raw": [
+    13.033,
+    21.457,
+    5.668,
+    8.432,
+    10.976,
+    3.897,
+    2.536,
+    3.361,
+    4.665,
+    8.651,
+    3.383,
+    7.53
+   ],
+   "a1_segments_substituted": [
+    2.333,
+    2.399,
+    1.628,
+    2.165,
+    2.241,
+    1.769,
+    1.847,
+    2.081,
+    2.483,
+    2.338,
+    3.063,
+    7.53
+   ],
+   "raw_mad": 13.78,
+   "pass": true,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/0_2S0_3_seg2_a1_7.530_x0_y2176_1to1.jpg",
+   "box_xyxy": [
+    0,
+    2176,
+    1024,
+    2688
+   ],
+   "sha256": "e2af9839c5a7421f386d0c77978dbd9f165aa6324b293ff88dbdc7f0a21904d8"
+  },
+  {
+   "join": "1_2|2_2",
+   "kind": "|",
+   "dev29": "OFF (pilot-4 staging, before DEV-29 existed)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 4.643,
+   "a1_raw": 4.643,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    4.643,
+    4.498,
+    2.204,
+    1.73,
+    0.844,
+    0.891,
+    2.044,
+    4.112
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.21,
+   "pass": true,
+   "pilot_pair": true
+  },
+  {
+   "join": "1_2/1_3",
+   "kind": "/",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s51 named: substituted",
+   "a1_binding": 14.564,
+   "a1_raw": 26.015,
+   "a1_substituted": 14.564,
+   "a1_segments_raw": [
+    3.156,
+    7.443,
+    7.448,
+    10.228,
+    9.16,
+    11.689,
+    10.252,
+    11.268,
+    14.564,
+    10.078,
+    8.758,
+    26.015
+   ],
+   "a1_segments_substituted": [
+    2.811,
+    7.443,
+    7.448,
+    10.228,
+    9.16,
+    11.689,
+    10.252,
+    11.268,
+    14.564,
+    10.078,
+    8.573,
+    7.153
+   ],
+   "raw_mad": 17.91,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/1_2S1_3_seg12_a1_14.564_x2240_y2176_1to1.jpg",
+   "box_xyxy": [
+    2240,
+    2176,
+    3264,
+    2688
+   ],
+   "sha256": "aff0230e16d1d087195536af591b0af8a45c3848198be51f23c2f89364f2da8e"
+  },
+  {
+   "join": "2_2|3_2",
+   "kind": "|",
+   "dev29": "OFF (staged == raw older canvas in strip & mask)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.525,
+   "a1_raw": 3.525,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.193,
+    2.717,
+    1.931,
+    3.075,
+    2.735,
+    3.193,
+    3.222,
+    3.525
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 8.57,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "2_2/2_3",
+   "kind": "/",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s51 named: substituted",
+   "a1_binding": 7.8,
+   "a1_raw": 29.288,
+   "a1_substituted": 7.8,
+   "a1_segments_raw": [
+    3.716,
+    27.152,
+    26.801,
+    23.671,
+    26.686,
+    28.653,
+    29.288,
+    17.07,
+    16.021,
+    13.206,
+    14.0,
+    12.647
+   ],
+   "a1_segments_substituted": [
+    3.624,
+    2.43,
+    2.511,
+    2.527,
+    2.791,
+    2.584,
+    2.546,
+    7.8,
+    4.762,
+    6.699,
+    3.632,
+    2.365
+   ],
+   "raw_mad": 35.42,
+   "pass": true,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/2_2S2_3_seg7_a1_7.800_x2880_y2176_1to1.jpg",
+   "box_xyxy": [
+    2880,
+    2176,
+    3904,
+    2688
+   ],
+   "sha256": "751b01a3d8d05b604a21cb6a1af89d2eb2d942637342699c824c470f62492e23"
+  },
+  {
+   "join": "3_2|4_2",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 23.795,
+   "a1_raw": 23.795,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    13.924,
+    23.795,
+    2.852,
+    2.221,
+    1.863,
+    2.056,
+    2.116,
+    2.06
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 17.27,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/3_2I4_2_seg2_a1_23.795_x4992_y1472_1to1.jpg",
+   "box_xyxy": [
+    4992,
+    1472,
+    5504,
+    1984
+   ],
+   "sha256": "dcdd7ccfd14f3d2c6de1d89a1db4cb74a3849ffdd353330b0054a71a97629d4b"
+  },
+  {
+   "join": "3_2/3_3",
+   "kind": "/",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s52 new to domain: W-1 add-only (max of raw, substituted)",
+   "a1_binding": 14.934,
+   "a1_raw": 14.934,
+   "a1_substituted": 4.271,
+   "a1_segments_raw": [
+    14.934,
+    14.0,
+    1.906,
+    1.695,
+    1.864,
+    1.956,
+    1.187,
+    1.183,
+    1.245,
+    1.596,
+    3.505,
+    4.271
+   ],
+   "a1_segments_substituted": [
+    1.939,
+    1.907,
+    1.679,
+    1.695,
+    1.864,
+    1.956,
+    1.187,
+    1.183,
+    1.245,
+    1.596,
+    3.505,
+    4.271
+   ],
+   "raw_mad": 12.26,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/3_2S3_3_seg1_a1_14.934_x3392_y2176_1to1.jpg",
+   "box_xyxy": [
+    3392,
+    2176,
+    4416,
+    2688
+   ],
+   "sha256": "d872351a9458924a6678350611dfd56a21ee8e44517075bbf48554ccc7d0e77a"
+  },
+  {
+   "join": "4_2/4_3",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 4.25,
+   "a1_raw": 4.25,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.173,
+    2.033,
+    2.789,
+    3.724,
+    4.25,
+    3.974,
+    4.005,
+    3.471,
+    4.142,
+    4.103,
+    3.994,
+    4.054
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.45,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "0_3|1_3",
+   "kind": "|",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s52 new to domain: W-1 add-only (max of raw, substituted)",
+   "a1_binding": 10.517,
+   "a1_raw": 10.517,
+   "a1_substituted": 10.517,
+   "a1_segments_raw": [
+    6.482,
+    8.955,
+    4.747,
+    3.367,
+    3.978,
+    5.083,
+    8.594,
+    10.517
+   ],
+   "a1_segments_substituted": [
+    6.117,
+    8.694,
+    4.747,
+    3.367,
+    3.978,
+    5.083,
+    8.594,
+    10.517
+   ],
+   "raw_mad": 10.15,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/0_3I1_3_seg8_a1_10.517_x1152_y3008_1to1.jpg",
+   "box_xyxy": [
+    1152,
+    3008,
+    1664,
+    3520
+   ],
+   "sha256": "0d51d0e9fec6d6b32cd90c359cd82002eaacc99ad5c06060f0b38c8051b11dae"
+  },
+  {
+   "join": "0_3/0_4",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 11.586,
+   "a1_raw": 11.586,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.897,
+    4.2,
+    2.773,
+    4.211,
+    4.245,
+    4.298,
+    3.24,
+    3.766,
+    3.34,
+    4.296,
+    11.586,
+    8.803
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.86,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/0_3S0_4_seg11_a1_11.586_x832_y2944_1to1.jpg",
+   "box_xyxy": [
+    832,
+    2944,
+    1856,
+    3456
+   ],
+   "sha256": "b5ed6ca6de31d70eee6a549b6753c34593d27fe6a437ab739121dbc755181282"
+  },
+  {
+   "join": "1_3|2_3",
+   "kind": "|",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s52 new to domain: W-1 add-only (max of raw, substituted)",
+   "a1_binding": 7.618,
+   "a1_raw": 7.618,
+   "a1_substituted": 5.095,
+   "a1_segments_raw": [
+    7.115,
+    7.618,
+    3.233,
+    2.629,
+    2.437,
+    2.376,
+    1.605,
+    1.363
+   ],
+   "a1_segments_substituted": [
+    4.293,
+    5.095,
+    3.172,
+    2.629,
+    2.437,
+    2.376,
+    1.605,
+    1.363
+   ],
+   "raw_mad": 13.29,
+   "pass": true,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/1_3I2_3_seg2_a1_7.618_x2432_y2240_1to1.jpg",
+   "box_xyxy": [
+    2432,
+    2240,
+    2944,
+    2752
+   ],
+   "sha256": "7dd463053a26d1cf80c10d746975c058d6ee98a50d1b47963ee1b3a5c6aa2caf"
+  },
+  {
+   "join": "1_3/1_4",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 10.946,
+   "a1_raw": 10.946,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    10.946,
+    8.001,
+    2.12,
+    1.415,
+    1.52,
+    1.387,
+    1.472,
+    1.455,
+    2.069,
+    3.201,
+    2.995,
+    2.968
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 6.9,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/1_3S1_4_seg1_a1_10.946_x832_y2944_1to1.jpg",
+   "box_xyxy": [
+    832,
+    2944,
+    1856,
+    3456
+   ],
+   "sha256": "b5ed6ca6de31d70eee6a549b6753c34593d27fe6a437ab739121dbc755181282"
+  },
+  {
+   "join": "2_3|3_3",
+   "kind": "|",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "rule": "s52 new to domain: W-1 add-only (max of raw, substituted)",
+   "a1_binding": 3.225,
+   "a1_raw": 3.225,
+   "a1_substituted": 3.225,
+   "a1_segments_raw": [
+    2.715,
+    3.093,
+    2.138,
+    2.441,
+    2.884,
+    3.012,
+    3.225,
+    2.218
+   ],
+   "a1_segments_substituted": [
+    2.151,
+    1.769,
+    2.091,
+    2.441,
+    2.884,
+    3.012,
+    3.225,
+    2.218
+   ],
+   "raw_mad": 11.87,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "2_3/2_4",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 6.822,
+   "a1_raw": 6.822,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.525,
+    1.664,
+    2.451,
+    4.2,
+    5.631,
+    6.822,
+    5.874,
+    5.744,
+    5.666,
+    4.649,
+    4.603,
+    6.478
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 9.7,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "3_3|4_3",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.426,
+   "a1_raw": 3.426,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.426,
+    2.309,
+    1.763,
+    1.214,
+    1.063,
+    1.293,
+    1.025,
+    1.437
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 6.39,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "3_3/3_4",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 9.574,
+   "a1_raw": 9.574,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    4.652,
+    6.045,
+    5.737,
+    8.238,
+    9.574,
+    9.247,
+    5.575,
+    4.345,
+    5.666,
+    3.775,
+    2.629,
+    2.32
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 11.56,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/3_3S3_4_seg5_a1_9.574_x3904_y2944_1to1.jpg",
+   "box_xyxy": [
+    3904,
+    2944,
+    4928,
+    3456
+   ],
+   "sha256": "a4170391225d38f9a72a6d25cf6acb59ed3867bb15821de6d9238350657275a8"
+  },
+  {
+   "join": "4_3/4_4",
+   "kind": "/",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 2.284,
+   "a1_raw": 2.284,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    1.403,
+    1.161,
+    2.284,
+    2.253,
+    1.69,
+    1.57,
+    1.713,
+    1.903,
+    1.745,
+    1.434,
+    1.359,
+    1.343
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 5.3,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "0_4|1_4",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 11.193,
+   "a1_raw": 11.193,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    8.86,
+    11.193,
+    2.024,
+    1.331,
+    1.35,
+    1.928,
+    2.088,
+    1.802
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 9.65,
+   "pass": false,
+   "pilot_pair": false,
+   "crop": "ph/results/site/p5_crops/0_4I1_4_seg2_a1_11.193_x1152_y3008_1to1.jpg",
+   "box_xyxy": [
+    1152,
+    3008,
+    1664,
+    3520
+   ],
+   "sha256": "0d51d0e9fec6d6b32cd90c359cd82002eaacc99ad5c06060f0b38c8051b11dae"
+  },
+  {
+   "join": "1_4|2_4",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.235,
+   "a1_raw": 3.235,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.38,
+    3.235,
+    1.375,
+    1.828,
+    1.657,
+    1.962,
+    2.372,
+    2.086
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 6.54,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "2_4|3_4",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 5.241,
+   "a1_raw": 5.241,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    3.507,
+    4.293,
+    3.745,
+    3.528,
+    5.241,
+    4.206,
+    3.848,
+    1.862
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 10.13,
+   "pass": true,
+   "pilot_pair": false
+  },
+  {
+   "join": "3_4|4_4",
+   "kind": "|",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "rule": "raw (substitution = identity or DEV-29 OFF)",
+   "a1_binding": 3.499,
+   "a1_raw": 3.499,
+   "a1_substituted": null,
+   "a1_segments_raw": [
+    2.347,
+    2.561,
+    1.794,
+    1.844,
+    1.981,
+    1.877,
+    3.499,
+    3.321
+   ],
+   "a1_segments_substituted": null,
+   "raw_mad": 9.91,
+   "pass": true,
+   "pilot_pair": false
+  }
+ ],
+ "a1_fail": [
+  "1_0/1_1",
+  "2_0/2_1",
+  "1_1|2_1",
+  "3_1|4_1",
+  "3_1/3_2",
+  "1_2/1_3",
+  "3_2|4_2",
+  "3_2/3_3",
+  "0_3|1_3",
+  "0_3/0_4",
+  "1_3/1_4",
+  "3_3/3_4",
+  "0_4|1_4"
+ ],
+ "a1_fail_n": 13,
+ "a1_n": 40,
+ "a1_fail_pilot_internal": [
+  "1_0/1_1",
+  "2_0/2_1",
+  "1_1|2_1"
+ ],
+ "corners": [
+  {
+   "join": "0_0\\1_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 1.801,
+   "a1_raw": 1.801,
+   "a1_substituted": null,
+   "raw_mad": 5.12,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "1_0\\2_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 22.525,
+   "a1_raw": 22.525,
+   "a1_substituted": null,
+   "raw_mad": 22.36,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/1_0D2_1_seg2_corner_22.525_x2432_y640_1to1.jpg",
+   "box_xyxy": [
+    2432,
+    640,
+    2944,
+    1152
+   ],
+   "sha256": "baa8e04319f70e0cfa37c5ac1a365fd8b84e786190acab5c217558082371f99d"
+  },
+  {
+   "join": "2_0\\3_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 7.335,
+   "a1_raw": 7.335,
+   "a1_substituted": null,
+   "raw_mad": 12.72,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/2_0D3_1_seg3_corner_7.335_x3712_y640_1to1.jpg",
+   "box_xyxy": [
+    3712,
+    640,
+    4224,
+    1152
+   ],
+   "sha256": "97e26572f9f68e8b9a8d293fd3a6140c7dc49bfaded29fa758854632e2bd8689"
+  },
+  {
+   "join": "3_0\\4_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 9.116,
+   "a1_raw": 9.116,
+   "a1_substituted": null,
+   "raw_mad": 9.9,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/3_0D4_1_seg4_corner_9.116_x4992_y640_1to1.jpg",
+   "box_xyxy": [
+    4992,
+    640,
+    5504,
+    1152
+   ],
+   "sha256": "475ca2185a51dd4ce3d0310f81e45fd8e0537de3b9f9f433bd82e9106c003d73"
+  },
+  {
+   "join": "0_1\\1_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 4.841,
+   "a1_raw": 4.841,
+   "a1_substituted": null,
+   "raw_mad": 7.73,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/0_1D1_2_seg3_corner_4.841_x1152_y1408_1to1.jpg",
+   "box_xyxy": [
+    1152,
+    1408,
+    1664,
+    1920
+   ],
+   "sha256": "57d82c76b6d98eac2deffac524117987cb303a44e2af4dc0473e293046dbc243"
+  },
+  {
+   "join": "1_1\\2_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 2.141,
+   "a1_raw": 2.141,
+   "a1_substituted": null,
+   "raw_mad": 13.54,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "2_1\\3_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 3.078,
+   "a1_raw": 3.078,
+   "a1_substituted": null,
+   "raw_mad": 3.79,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "3_1\\4_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 2.325,
+   "a1_raw": 2.325,
+   "a1_substituted": null,
+   "raw_mad": 10.99,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "0_2\\1_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "binding": false,
+   "a1_corner": 7.42,
+   "a1_raw": 7.42,
+   "a1_substituted": 7.42,
+   "raw_mad": 10.2,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/0_2D1_3_seg4_corner_7.420_x1152_y2176_1to1.jpg",
+   "box_xyxy": [
+    1152,
+    2176,
+    1664,
+    2688
+   ],
+   "sha256": "c3f62567b51611d156191a19592784e9610b7f448a3005d9c38cf79c1b952c98"
+  },
+  {
+   "join": "1_2\\2_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "binding": false,
+   "a1_corner": 35.795,
+   "a1_raw": 35.795,
+   "a1_substituted": 2.438,
+   "raw_mad": 28.28,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/1_2D2_3_seg2_corner_35.795_x2432_y2176_1to1.jpg",
+   "box_xyxy": [
+    2432,
+    2176,
+    2944,
+    2688
+   ],
+   "sha256": "1edb1fe698dd5012f393f720031a3c4539a622c26d453785ffd8302cd536ae01"
+  },
+  {
+   "join": "2_2\\3_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "binding": true,
+   "a1_corner": 2.223,
+   "a1_raw": 15.449,
+   "a1_substituted": 2.223,
+   "raw_mad": 33.43,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "3_2\\4_3",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 3.457,
+   "a1_raw": 3.457,
+   "a1_substituted": null,
+   "raw_mad": 12.09,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "0_3\\1_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 2.007,
+   "a1_raw": 2.007,
+   "a1_substituted": null,
+   "raw_mad": 8.16,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "1_3\\2_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 2.198,
+   "a1_raw": 2.198,
+   "a1_substituted": null,
+   "raw_mad": 6.43,
+   "over_corner_bar_4.809": false
+  },
+  {
+   "join": "2_3\\3_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 9.098,
+   "a1_raw": 9.098,
+   "a1_substituted": null,
+   "raw_mad": 12.74,
+   "over_corner_bar_4.809": true,
+   "crop": "ph/results/site/p5_crops/2_3D3_4_seg2_corner_9.098_x3712_y2944_1to1.jpg",
+   "box_xyxy": [
+    3712,
+    2944,
+    4224,
+    3456
+   ],
+   "sha256": "e5e86b694476fde4d736db8ff1669eadbb960fce18b8ee535642be9bf9c8bd36"
+  },
+  {
+   "join": "3_3\\4_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "binding": false,
+   "a1_corner": 2.678,
+   "a1_raw": 2.678,
+   "a1_substituted": null,
+   "raw_mad": 4.31,
+   "over_corner_bar_4.809": false
+  }
+ ],
+ "corner_binding_2_2_3_3": [
+  {
+   "join": "2_2\\3_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "binding": true,
+   "a1_corner": 2.223,
+   "a1_raw": 15.449,
+   "a1_substituted": 2.223,
+   "raw_mad": 33.43,
+   "over_corner_bar_4.809": false
+  }
+ ],
+ "corners_over_bar_report_only": [
+  [
+   "1_0\\2_1",
+   22.525
+  ],
+  [
+   "2_0\\3_1",
+   7.335
+  ],
+  [
+   "3_0\\4_1",
+   9.116
+  ],
+  [
+   "0_1\\1_2",
+   4.841
+  ],
+  [
+   "0_2\\1_3",
+   7.42
+  ],
+  [
+   "1_2\\2_3",
+   35.795
+  ],
+  [
+   "2_3\\3_4",
+   9.098
+  ]
+ ],
+ "anti_corners_report_only": [
+  {
+   "join": "1_0 x/ 0_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.352,
+   "a1_substituted": null,
+   "raw_mad": 6.11,
+   "report_only": true
+  },
+  {
+   "join": "2_0 x/ 1_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 5.861,
+   "a1_substituted": null,
+   "raw_mad": 6.45,
+   "report_only": true
+  },
+  {
+   "join": "3_0 x/ 2_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 7.858,
+   "a1_substituted": null,
+   "raw_mad": 9.99,
+   "report_only": true
+  },
+  {
+   "join": "4_0 x/ 3_1",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 8.565,
+   "a1_substituted": null,
+   "raw_mad": 11.28,
+   "report_only": true
+  },
+  {
+   "join": "1_1 x/ 0_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.622,
+   "a1_substituted": null,
+   "raw_mad": 7.42,
+   "report_only": true
+  },
+  {
+   "join": "2_1 x/ 1_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 4.405,
+   "a1_substituted": null,
+   "raw_mad": 11.73,
+   "report_only": true
+  },
+  {
+   "join": "3_1 x/ 2_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.871,
+   "a1_substituted": null,
+   "raw_mad": 4.67,
+   "report_only": true
+  },
+  {
+   "join": "4_1 x/ 3_2",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 27.822,
+   "a1_substituted": null,
+   "raw_mad": 23.86,
+   "report_only": true
+  },
+  {
+   "join": "1_2 x/ 0_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "a1_raw": 6.076,
+   "a1_substituted": 6.076,
+   "raw_mad": 9.89,
+   "report_only": true
+  },
+  {
+   "join": "2_2 x/ 1_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "a1_raw": 34.32,
+   "a1_substituted": 7.361,
+   "raw_mad": 26.97,
+   "report_only": true
+  },
+  {
+   "join": "3_2 x/ 2_3",
+   "dev29": "ON (staged == context_patch painting in strip & mask)",
+   "a1_raw": 15.829,
+   "a1_substituted": 4.285,
+   "raw_mad": 35.9,
+   "report_only": true
+  },
+  {
+   "join": "4_2 x/ 3_3",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.617,
+   "a1_substituted": null,
+   "raw_mad": 11.02,
+   "report_only": true
+  },
+  {
+   "join": "1_3 x/ 0_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.449,
+   "a1_substituted": null,
+   "raw_mad": 8.67,
+   "report_only": true
+  },
+  {
+   "join": "2_3 x/ 1_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.543,
+   "a1_substituted": null,
+   "raw_mad": 6.31,
+   "report_only": true
+  },
+  {
+   "join": "3_3 x/ 2_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 3.927,
+   "a1_substituted": null,
+   "raw_mad": 9.59,
+   "report_only": true
+  },
+  {
+   "join": "4_3 x/ 3_4",
+   "dev29": "n/a (strip clear of the mask: substitution is the identity)",
+   "a1_raw": 1.993,
+   "a1_substituted": null,
+   "raw_mad": 4.21,
+   "report_only": true
+  }
+ ],
+ "v1_anti_corners_context": {
+  "1_0 x/ 0_1": 2.711,
+  "2_0 x/ 1_1": 4.136,
+  "3_0 x/ 2_1": 2.354,
+  "1_1 x/ 0_2": 1.841,
+  "2_1 x/ 1_2": 4.454,
+  "3_1 x/ 2_2": 3.701,
+  "1_2 x/ 0_3": 1.912,
+  "2_2 x/ 1_3": 6.496,
+  "3_2 x/ 2_3": 2.765
+ },
+ "b": [
+  {
+   "seam": "x=1408",
+   "ratio": 1.03,
+   "score": 0.042
+  },
+  {
+   "seam": "x=2688",
+   "ratio": 0.781,
+   "score": 0.357
+  },
+  {
+   "seam": "x=3968",
+   "ratio": 1.287,
+   "score": 0.364
+  },
+  {
+   "seam": "x=5248",
+   "ratio": 1.512,
+   "score": 0.596
+  },
+  {
+   "seam": "y=896",
+   "ratio": 1.198,
+   "score": 0.26
+  },
+  {
+   "seam": "y=1664",
+   "ratio": 1.029,
+   "score": 0.041
+  },
+  {
+   "seam": "y=2432",
+   "ratio": 1.341,
+   "score": 0.423
+  },
+  {
+   "seam": "y=3200",
+   "ratio": 1.869,
+   "score": 0.902
+  }
+ ],
+ "b_max": 0.902,
+ "b_over": [
+  "y=3200"
+ ],
+ "reported_c_on": {
+  "tone_max": 30.736,
+  "grain_max": 1.745,
+  "tone_over_v1_bar": [
+   [
+    "y=2560",
+    "0_3",
+    22.939
+   ],
+   [
+    "y=3328",
+    "0_4",
+    30.736
+   ],
+   [
+    "y=2560",
+    "1_3",
+    22.939
+   ],
+   [
+    "x=5376",
+    "4_3",
+    19.353
+   ]
+  ]
+ },
+ "pass": false
+}
