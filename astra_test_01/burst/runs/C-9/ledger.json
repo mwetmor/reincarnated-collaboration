@@ -55289,6 +55289,13 @@
       "ts": "2026-10-09T17:37:42-04:00",
       "verbatim": "I am not at the Mac and I will not be for some time. You have done this 20+ times in the last, many during this exact session. You are upholding a rule that nobody wrote and that is halting progress in the name of confusion.",
       "ruling": "PROCESS AMENDMENT (Matt, 2026-10-09; recorded per Gate-2 C-6): the conductor EXECUTES build-input-safe cleanup manifests it has prepared (untracked only; excluding every build_inputs_manifest path, every file a ledger row cites as evidence, and anything touched in the last 30 min), logging each in the ledger with before/after disk. The charter's 'Matt runs deletions' is amended accordingly for C-9. Raw deletions outside the repo that the session's permission system blocks remain Matt's (via /permissions or a Mac terminal)."
+    },
+    {
+      "id": "R-C9-342",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T17:38:32-04:00",
+      "verbatim": "",
+      "ruling": "R-C9-339 HIGH-TIDE LEDGE painted (PT c2ebf6042): one DEV-24 canvas BV2F-LR4-hightide-1 over the whole tide_ice ledge (one component, 369k px, bbox [2955,2699,3844,3458]), pasted class-masked to tide_ice; 0 px outside the mask; the cave-mouth floor is INSIDE the mask (one continuous sheet); clear greener-grey wet ice with bubbles, pale veins, dark kelp clumps and a thin rime; the icicles are unchanged. PT's own disclosure: it fired the burst at 20 GiB, below the gate (1 image; LR4 44/48); recorded, no harm. Disk now 23 GiB after manifest 25. PT RELEASED: accept as layer 25 (soft pinned correction), re-stitch + identity proof (r339 vs r332 per the Gate-2 finding s9), prep + guide, the ledge still + ~10 s clip (evidence; excluded from cleanup); PH's s59 pre-registration must be committed before PH's readings."
     }
   ],
   "grok_calls": [
@@ -56326,6 +56333,12 @@
       "ts": "2026-10-09T17:06:23-04:00",
       "by": "gandalf (conductor)",
       "text": "Manifest 24 executed (9 files, 0.97 GiB); build_inputs 223/0 OK; disk 24 GiB."
+    },
+    {
+      "id": "N-C9-CLEANUP-M25",
+      "ts": "2026-10-09T17:38:32-04:00",
+      "by": "gandalf (conductor)",
+      "text": "Manifest 25 executed (215 files, 2.58 GiB: the site re-bake surf_*.npz, the raw direct-route AVI, P9c A/B renders, prev_r328, the E-4 copy, DEV-24 intermediate full paintings); excludes build_inputs, ledger-cited files, recent files; build_inputs 223/0 OK; disk 20 -> 23 GiB."
     }
   ]
 }
