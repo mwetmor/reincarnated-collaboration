@@ -39,6 +39,16 @@ var hold_ticks_left: int = 0
 var ticks_per_s: float = 12.25
 var true_height_m: float = 1.9
 var slot_state_cache: Dictionary = {}
+const INTERP_SNAP_M := 3.0          # a jump larger than this in one tick (a spawn, a teleport) is drawn as a jump
+var interp_from_m := Vector2.INF
+var interp_to_m := Vector2.INF
+var draw_m := Vector2.ZERO          # where the body is DRAWN this frame (arena_mode sets it)
+
+
+func drawn_at(frac: float, on: bool) -> Vector2:
+	if not on or interp_to_m == Vector2.INF:
+		return pos_m
+	return interp_from_m.lerp(interp_to_m, clampf(frac, 0.0, 1.0))
 var session = null
 var stationary_row: bool = false
 var pred_certain: bool = false
@@ -190,6 +200,11 @@ func sync_actor(a: Dictionary, body: Dictionary, player_m: Vector2, wave_s: floa
 			moving = moved.length() > MOVE_EPS_M
 		tick_pos_m = p
 		last_tick = tick
+		# R-C9-383: the drawn position runs between the last two TICK positions (one tick behind, presentation only)
+		interp_from_m = interp_to_m if interp_to_m != Vector2.INF else p
+		interp_to_m = p
+		if interp_from_m.distance_to(interp_to_m) > INTERP_SNAP_M:
+			interp_from_m = p
 	pos_m = p
 	if dying:
 		return

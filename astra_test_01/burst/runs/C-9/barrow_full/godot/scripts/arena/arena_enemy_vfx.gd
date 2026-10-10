@@ -305,7 +305,7 @@ func on_player_hit(src_id: int, warlord) -> void:
 
 # ------------------------------------------------------------------------------------------------ positions
 func _actor_chest(t) -> Vector3:
-	return mode.to_world(t.pos_m) + Vector3.UP * (float(t.true_height_m) * 0.55)
+	return mode.to_world(t.draw_m) + Vector3.UP * (float(t.true_height_m) * 0.55)    # where it is DRAWN (R-C9-383)
 
 
 func _player_chest() -> Vector3:
@@ -333,7 +333,7 @@ func _release(pr: Dictionary) -> void:
 		t.set_meta("vfx_last", c)
 		from = _actor_chest(t)
 		radius = float(t.radius_m)
-		pos_m = t.pos_m
+		pos_m = t.draw_m
 	var el: String = c["el"]
 	var to := _player_chest()
 	var dist := Vector2(to.x - from.x, to.z - from.z).length()
@@ -483,7 +483,7 @@ func _tick_fx(fx: Dictionary) -> bool:
 			var t = mode.actors.get(int(fx["actor"]), null)
 			var b: Dictionary = fx["body"]
 			if t != null and not b.is_empty():
-				b["pos"] = mode.to_world(t.pos_m)
+				b["pos"] = mode.to_world(t.draw_m)
 			return s < 1.0
 		"missile", "strike", "thrown":
 			var from: Vector3 = fx["from"]

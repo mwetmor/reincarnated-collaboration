@@ -16,6 +16,16 @@ var champion: bool = false
 var label: String = ""
 var released: bool = false
 var pos_m: Vector2 = Vector2.ZERO
+var _last_tick := -1
+var interp_from_m := Vector2.INF
+var interp_to_m := Vector2.INF
+var draw_m := Vector2.ZERO
+
+
+func drawn_at(frac: float, on: bool) -> Vector2:
+	if not on or interp_to_m == Vector2.INF:
+		return pos_m
+	return interp_from_m.lerp(interp_to_m, clampf(frac, 0.0, 1.0))
 var dying: bool = false
 var hold_ticks_left: int = 0
 var true_height_m: float = 1.7
@@ -55,7 +65,14 @@ func sync_actor(a: Dictionary, _body: Dictionary, _player_m: Vector2, _wave_s: f
 	hp = float(a.get("hp", 0.0))
 	hp_max = maxf(1.0, float(a.get("hp_max", 1.0)))
 	released = String(a.get("state", "")) == "ENGAGE"
-	pos_m = Vector2(float(a["x_m"]), float(a["y_m"]))
+	var p := Vector2(float(a["x_m"]), float(a["y_m"]))
+	if _tick != _last_tick:
+		_last_tick = _tick
+		interp_from_m = interp_to_m if interp_to_m != Vector2.INF else p
+		interp_to_m = p
+		if interp_from_m.distance_to(interp_to_m) > 3.0:
+			interp_from_m = p
+	pos_m = p
 
 
 func on_cast_start(_slot_key: String, aim: Vector2) -> void:

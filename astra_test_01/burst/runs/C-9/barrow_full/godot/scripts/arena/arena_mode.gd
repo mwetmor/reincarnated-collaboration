@@ -29,7 +29,16 @@ const ArenaNumbers = preload("res://scripts/arena/arena_numbers.gd")
 var numbers = null
 const Token3D = preload("res://scripts/arena/arena_token3d.gd")
 const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # on by default (R-C9-381); needs tools/arena_stage_vfx.py run once
-var enemy_vfx = null                # R-C9-358..361 (`-- --arena-vfx off`: none built -- the fps pair's OFF run)
+var enemy_vfx = null
+## R-C9-383: bodies DRAWN between their last two sim-tick positions (one tick behind; drawing only). Off: --arena-interp off
+var interp_on := true
+
+
+## The fraction of the current sim tick elapsed (0 at a tick, toward 1 before the next): the interpolation weight.
+func tick_frac() -> float:
+	if not (running and fight_started):
+		return 1.0
+	return clampf(accum * sim_hz, 0.0, 1.0)                # R-C9-358..361 (`-- --arena-vfx off`: none built -- the fps pair's OFF run)
 var vfx_on := true
 
 const GEOM := "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json"
@@ -175,6 +184,7 @@ func setup(sc) -> void:
 	topdown = "--arena-topdown" in args
 	# R-C9-381 (Matt: "the enemy vfx are good for now. leave them in"): ON by default; `-- --arena-vfx off` is the switch
 	vfx_on = _arg(args, "--arena-vfx", "on") != "off" or "--arena-vfx-gallery" in args
+	interp_on = _arg(args, "--arena-interp", "on") != "off"
 	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
 	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
 	var ln := _arg(args, "--arena-look-nodes", "")
@@ -756,7 +766,7 @@ func _drive_slash() -> void:
 	if t == null or not is_instance_valid(t) or t.dying or numbers == null:
 		return
 	var v := _eor_tick_value() * SLASH_NUMBER_K * randf_range(1.0 - SLASH_NUMBER_SPREAD, 1.0 + SLASH_NUMBER_SPREAD)
-	numbers.show_hit(to_world(t.pos_m) + Vector3.UP * (float(t.true_height_m) * 0.5), maxf(1.0, roundf(v)),
+	numbers.show_hit(to_world(t.draw_m) + Vector3.UP * (float(t.true_height_m) * 0.5), maxf(1.0, roundf(v)),
 		"Physical", false, -1000 - int(t.actor_id))
 	t.on_hit()
 
@@ -933,7 +943,7 @@ func _consume_events(evs: Array) -> void:
 					_eor_tick_sum += float(e.get("amount", 0.0))
 					_eor_tick_n += 1
 				if int(e.get("src_id", -1)) == 0 and numbers != null:
-					numbers.show_hit(to_world(t2.pos_m) + Vector3.UP * (float(t2.true_height_m) * 0.5),
+					numbers.show_hit(to_world(t2.draw_m) + Vector3.UP * (float(t2.true_height_m) * 0.5),
 						float(e.get("amount", 0.0)), String(e.get("damage_type", "physical")), bool(e.get("crit", false)),
 						int(e["dst_id"]))
 		elif ev == "death" and int(e.get("actor_id", 0)) != 0:
@@ -1003,7 +1013,8 @@ func _render(delta: float) -> void:
 				actors.erase(k_any)
 				continue
 		m.advance_monster(delta)
-		m.position = to_world(m.pos_m + (m.lunge_offset_m if m is Token3D else Vector2.ZERO)) \
+		m.draw_m = m.drawn_at(tick_frac(), interp_on)
+		m.position = to_world(m.draw_m + (m.lunge_offset_m if m is Token3D else Vector2.ZERO)) \
 			- (scene.fwd * CARD_TOWARD_CAM_M if not (m is Token3D) else Vector3.ZERO)
 	if warlord != null:
 		warlord.sync(player_pos_m, session.driver)
