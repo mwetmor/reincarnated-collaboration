@@ -172,25 +172,38 @@ static func tex_at(path: String) -> Texture2D:
 	return t
 
 
-## R-C9-391 BUNDLED: the strip is an IMPORTED texture (VRAM-compressed by the bundle's import: Basis Universal, so a
-## phone holds it at ~1/4 of RGBA), loaded on Godot's own loader thread; null until it lands.
+## R-C9-391 BUNDLED: the strip ships as its RAW WebP bytes (half size, made by tools/arena_bundle.py; the importer never
+## touches it), decoded on a worker thread exactly like the source PNGs; null until it is ready, or while its kit pack
+## is still downloading.
+static func _decode_res(path: String) -> void:
+	var img := Paths.load_image(path)
+	_mutex.lock()
+	_images[path] = img
+	_mutex.unlock()
+
+
 static func _tex_res(path: String) -> Texture2D:
 	if not _pending.has(path):
-		if not ResourceLoader.exists(path):
-			return null                            # its wave pack is not loaded yet
-		ResourceLoader.load_threaded_request(path, "Texture2D")
-		_pending[path] = 1
+		if not FileAccess.file_exists(path):
+			return null
+		_pending[path] = WorkerThreadPool.add_task(_decode_res.bind(path))
 		return null
-	var st := ResourceLoader.load_threaded_get_status(path)
-	if st == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+	_mutex.lock()
+	var done := _images.has(path)
+	var img: Image = _images.get(path, null)
+	_images.erase(path)
+	_mutex.unlock()
+	if not done:
 		return null
+	WorkerThreadPool.wait_for_task_completion(int(_pending[path]))
 	_pending.erase(path)
-	var t: Texture2D = ResourceLoader.load_threaded_get(path) if st == ResourceLoader.THREAD_LOAD_LOADED else null
-	if t == null:
-		push_warning("[arena] could not load %s" % path)
-	else:
+	var t: Texture2D = null
+	if img != null and not img.is_empty():
+		t = ImageTexture.create_from_image(img)
 		n_tex += 1
-		bytes_rgba += t.get_width() * t.get_height()
+		bytes_rgba += img.get_width() * img.get_height() * 4
+	else:
+		push_warning("[arena] could not decode %s" % path)
 	_tex[path] = t
 	return t
 

@@ -48,12 +48,51 @@ func _ready() -> void:
 	add_child(card)
 	await get_tree().process_frame
 	await get_tree().process_frame
+	await _load_kit_packs(lb)
 	arena = load("res://scripts/arena/arena_mode.gd").new()
 	arena.name = "Arena"
 	add_child(arena)
 	arena.setup(self)
 	card.queue_free()
 	print("[bv2f_arena] site %s, arena %s" % [pilot_set, "up" if arena.fatal == "" else "REFUSED: " + String(arena.fatal)])
+
+
+## R-C9-391: a bundled build's monster art ships in KIT PACKS beside the main pack (the 50 MB file fence): on the page
+## each is fetched and loaded before the fight opens; on the desktop launch probe they are read from --kit-pack-dir.
+var kit_pack_report: Array = []
+func _load_kit_packs(lb: Label) -> void:
+	if not ArenaPaths.bundled():
+		return
+	var st: Variant = JSON.parse_string(FileAccess.get_file_as_string(ArenaPaths.STAMP))
+	var packs: Array = (st as Dictionary).get("kit_packs", []) if typeof(st) == TYPE_DICTIONARY else []
+	var a := OS.get_cmdline_user_args()
+	var dir := String(a[a.find("--kit-pack-dir") + 1]) if a.find("--kit-pack-dir") >= 0 and a.find("--kit-pack-dir") + 1 < a.size() else ""
+	var i := 0
+	for nm_any in packs:
+		var nm := String(nm_any)
+		i += 1
+		lb.text = "Loading the monsters %d / %d..." % [i, packs.size()]
+		var r := {"pack": nm}
+		if OS.has_feature("web"):
+			var base := str(JavaScriptBridge.eval("document.baseURI", true))
+			var url := (base if base.ends_with("/") else base.get_base_dir() + "/") + nm
+			var http := HTTPRequest.new()
+			add_child(http)
+			http.download_file = "user://" + nm
+			var t0 := Time.get_ticks_msec()
+			http.request(url)
+			var res: Array = await http.request_completed
+			http.queue_free()
+			r["http"] = int(res[1])
+			r["ms"] = Time.get_ticks_msec() - t0
+			r["loaded"] = int(res[0]) == HTTPRequest.RESULT_SUCCESS and int(res[1]) == 200 \
+				and ProjectSettings.load_resource_pack("user://" + nm)
+		elif dir != "":
+			r["loaded"] = ProjectSettings.load_resource_pack(dir.path_join(nm))
+		else:
+			r["loaded"] = "in project"
+		kit_pack_report.append(r)
+	print("[bv2f_arena] kit packs: " + JSON.stringify(kit_pack_report))
 
 
 func _unhandled_input(e: InputEvent) -> void:
