@@ -86,6 +86,15 @@ const V1_PILES := 15
 const V1_FIELD_PX_PER_M := 512.0 / 34.0
 const V1_TRAIL_PX_PER_M := 1024.0 / 34.0
 const V1_SNOW_TINT := Color(1.026, 1.101, 1.174)    # barrow_world.gd SNOW_TINT
+const V1_SNOW_TILE := "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/godot/textures/barrow/snow.png"
+## THE FEATHER (R-C9-368 defect a: walls of snow): v2's depth grid comes off a discrete class map, so it steps 1 -> 0 in
+## one 0.1 m cell at every class edge, and v1's law then extrudes a vertical face there; it also lays full depth right
+## up to terrain steps and ledges. So, before the field bakes: no snow where the ground itself is steep (a ramp from
+## STEEP_LO to STEEP_HI rise-per-metre), then the depth multiplier box-blurred FEATHER_M (two passes, ~ a tent) so
+## every edge -- class edges, steps, ledges -- runs out to nothing.
+const STEEP_LO := 0.35
+const STEEP_HI := 0.75
+const FEATHER_M := 0.7
 const SNOW_OBSTACLE_IDS := ["ring_stones", "slope_stones", "ring_fallen", "logs", "wreck_mast", "door_post_L", "door_post_R",
 	"talus", "gully_rock", "crags", "sea_stacks", "palisade", "ledge_rocks"]
 const SNOW_BUILDING_IDS := ["longhall", "barrow_front", "fallen_gable", "wreck"]
@@ -124,8 +133,19 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	snow.windrow_count = int(round(V1_WINDROWS * k_area))
 	snow.pile_count = int(round(V1_PILES * k_area))
 	snow.cast_shadows = false
+	var mul := buf.slice(0, nx * nz)
+	var ghb2: PackedFloat32Array = snow.ground_h_buf
+	_feather_depth(mul, ghb2, nx, nz, float(g["cell_m"]))
 	snow.depth_grid = {"origin": Vector2(float(go[0]), float(go[1])), "cell_m": float(g["cell_m"]),
-					   "nx": nx, "nz": nz, "mul": buf.slice(0, nx * nz), "trod": buf.slice(nx * nz, 2 * nx * nz)}
+					   "nx": nx, "nz": nz, "mul": mul, "trod": buf.slice(nx * nz, 2 * nx * nz)}
+	# v1's SURFACE GRAIN: v1's snow tile (cliffside3d godot/textures/barrow/snow.png, read in place). barrow_full has
+	#   no res://textures/barrow/snow.png, so SnowField's own fallback drew the snow with NO tile -- the flat "cotton"
+	var st := Image.load_from_file(V1_SNOW_TILE)
+	if st != null and not st.is_empty():
+		st.generate_mipmaps()
+		snow.snow_tile = ImageTexture.create_from_image(st)
+	else:
+		push_warning("[bv2f_arena] v1 snow tile not found at %s" % V1_SNOW_TILE)
 	snow.thin_zones = paint.get("_thin_zones", [])
 	paint.erase("_thin_zones")
 	# v1's OWN snow surface (its lit shader and SNOW_TINT) by default: the painted override wears the flat painting
@@ -200,3 +220,51 @@ func _arena_snow_obstacles() -> Array:
 		for p in pts:
 			out.append({"pos": Vector3(p.x, ab.position.y, p.y), "radius_m": 0.75, "height_m": minf(ab.size.y, 3.0)})
 	return out
+
+
+
+func _feather_depth(mul: PackedFloat32Array, gh: PackedFloat32Array, nx: int, nz: int, cell: float) -> void:
+	if gh.size() == nx * nz:
+		for j in range(1, nz - 1):
+			for i in range(1, nx - 1):
+				var k := j * nx + i
+				var gx := (gh[k + 1] - gh[k - 1]) / (2.0 * cell)
+				var gz := (gh[k + nx] - gh[k - nx]) / (2.0 * cell)
+				var g := sqrt(gx * gx + gz * gz)
+				if g > STEEP_LO:
+					mul[k] *= 1.0 - smoothstep(STEEP_LO, STEEP_HI, g)
+	var r := maxi(1, int(round(FEATHER_M / cell)))
+	for _pass in 2:
+		_box_rows(mul, nx, nz, r)
+		_box_cols(mul, nx, nz, r)
+
+
+static func _box_rows(a: PackedFloat32Array, nx: int, nz: int, r: int) -> void:
+	var tmp := PackedFloat32Array()
+	tmp.resize(nx)
+	var w := 1.0 / float(2 * r + 1)
+	for j in nz:
+		var base := j * nx
+		var acc := 0.0
+		for i in range(-r, r + 1):
+			acc += a[base + clampi(i, 0, nx - 1)]
+		for i in nx:
+			tmp[i] = acc * w
+			acc += a[base + mini(i + r + 1, nx - 1)] - a[base + maxi(i - r, 0)]
+		for i in nx:
+			a[base + i] = tmp[i]
+
+
+static func _box_cols(a: PackedFloat32Array, nx: int, nz: int, r: int) -> void:
+	var tmp := PackedFloat32Array()
+	tmp.resize(nz)
+	var w := 1.0 / float(2 * r + 1)
+	for i in nx:
+		var acc := 0.0
+		for j in range(-r, r + 1):
+			acc += a[clampi(j, 0, nz - 1) * nx + i]
+		for j in nz:
+			tmp[j] = acc * w
+			acc += a[mini(j + r + 1, nz - 1) * nx + i] - a[maxi(j - r, 0) * nx + i]
+		for j in nz:
+			a[j * nx + i] = tmp[j]
