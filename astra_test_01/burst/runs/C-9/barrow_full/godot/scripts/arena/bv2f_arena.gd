@@ -13,6 +13,11 @@ func _init() -> void:
 	# every arena coordinate holds) -- whatever BV2F_PILOT says. `-- --arena-site ph3` falls back to the ph3 plate.
 	# use_set() sets the WINDOW and its top edge (PILOT_V1 depends on the data set), not only the paths.
 	use_set("site_ph3" if Slots.arg("arena-site") == "ph3" else "site_ph4")
+	# R-C9-391: the phone/web build reads the site's PHONE data (painted_web: the painting within 4096 px as WebP,
+	#   sampled by normalised plate UV; frame.px stays the plate's)
+	if PaintStack.is_web() and FileAccess.file_exists("res://data/bv2f/%s/painted_web/manifest.json" % pilot_set):
+		PILOT_REL = "../bv2f/%s/painted_web/" % pilot_set
+		PILOT_MANIFEST = "res://data/bv2f/%s/painted_web/manifest.json" % pilot_set
 
 
 var arena: Node3D = null

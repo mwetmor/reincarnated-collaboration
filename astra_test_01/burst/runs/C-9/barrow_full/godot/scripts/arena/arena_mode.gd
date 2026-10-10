@@ -440,6 +440,13 @@ func setup(sc) -> void:
 	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	cl.add_child(hud)
 	hud.bind(self)
+	# R-C9-391: the touch layer, dormant until a touch arrives (one build for PC and phone)
+	touch_layer = load("res://scripts/arena/arena_touch.gd").new()
+	touch_layer.name = "ArenaTouch"
+	add_child(touch_layer)
+	touch_layer.setup(self)
+	if "--arena-touch-test" in args:
+		touch_layer.call_deferred("_show")
 	actors_root = Node3D.new()
 	actors_root.name = "ArenaActors"
 	add_child(actors_root)
@@ -984,13 +991,7 @@ func handle_input(e: InputEvent) -> void:
 			pending_presses = []
 		return
 	if e is InputEventMouseButton and e.pressed and (e as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
-		# R-C9-370/373 (presentation only): a click ON a live enemy within his reach, while not channelling or
-		# charging, is the SLASH -- he stands and swings; NO press reaches the sim. Every other click is Charge.
-		var tgt = _slash_target()
-		if tgt != null:
-			_start_slash(tgt)
-			return
-		pending_presses.append({"skill_id": "blitz", "aim_m": _cursor_arr()})
+		primary_click()
 	if e is InputEventKey and e.pressed and not e.echo:
 		var kc := (e as InputEventKey).keycode
 		var sid := ""
@@ -1071,10 +1072,55 @@ func _drive_slash() -> void:
 	t.on_hit()
 
 
+## R-C9-370/373 (presentation only): a click ON a live enemy within his reach, while not channelling or charging, is
+## the SLASH -- he stands and swings; NO press reaches the sim. Every other click is Charge. (The mouse's left click and
+## the touch layer's tap both come here.)
+func primary_click() -> void:
+	var tgt = _slash_target()
+	if tgt != null:
+		_start_slash(tgt)
+		return
+	pending_presses.append({"skill_id": "blitz", "aim_m": _cursor_arr()})
+
+
+# ---- R-C9-391 THE TOUCH LAYER'S HOOKS (scripts/arena/arena_touch.gd): a touch is a pointer like the mouse ----------
+var touch_pointer: Variant = null      # screen px of the finger acting as the cursor (null = the mouse is the cursor)
+var touch_move: Variant = null         # screen px of a held move finger (null = none)
+var touch_channel := false             # the whirlwind button held
+var touch_on := false                  # a touch has arrived this session: the touch layer is up
+var touch_layer = null
+
+
+func touch_start() -> void:
+	if running and not fight_started:
+		fight_started = true
+		accum = 0.0
+		pending_presses = []
+
+
+func touch_tap(sp: Vector2) -> void:
+	if not (running and fight_started):
+		touch_start()
+		return
+	touch_pointer = sp
+	primary_click()
+
+
+func touch_skill(sid: String) -> void:
+	if not (running and fight_started):
+		return
+	if sid == "zoom":
+		_toggle_zoom()
+		return
+	# aimed where his last finger pointed; else 4 m ahead the way he faces
+	var aim: Array = _cursor_arr() if touch_pointer != null else [player_pos_m.x, player_pos_m.y + 4.0]
+	pending_presses.append({"skill_id": sid, "aim_m": aim})
+
+
 ## The cursor on the ground: the camera ray through the mouse, met with the horizontal plane through his feet.
 func _cursor_m() -> Vector2:
 	var cam: Camera3D = scene.cam
-	var mp := get_viewport().get_mouse_position()
+	var mp: Vector2 = touch_pointer if touch_pointer != null else get_viewport().get_mouse_position()
 	var o := cam.project_ray_origin(mp)
 	var n := cam.project_ray_normal(mp)
 	var y0 := proxy.global_position.y
@@ -1137,6 +1183,9 @@ func _process(delta: float) -> void:
 func _frame(delta: float) -> void:
 	if autopilot != "":
 		_auto()
+	elif touch_move != null and _wall_s >= _slash_until_s:
+		touch_pointer = touch_move
+		move_target_m = _cursor_m()
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not Input.is_key_pressed(KEY_SHIFT) and _wall_s >= _slash_until_s:
 		move_target_m = _cursor_m()
 	# ---- the F1 rider: the player integrates AT RENDER RATE (through barrow_v2's colliders) ----
@@ -1212,7 +1261,7 @@ func _one_tick() -> void:
 func _channel_held() -> bool:
 	if autopilot != "":
 		return _auto_channel
-	return Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
+	return Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) or touch_channel
 
 
 func _consume_events(evs: Array) -> void:
