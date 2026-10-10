@@ -146,6 +146,8 @@ var shot_dir := ""
 var shot_every_s := 0.0
 var quit_after_s := 0.0
 var topdown := false
+var look_nodes: Array = []
+var look_i := 0
 var _wall_s := 0.0
 var _next_shot_s := 0.0
 var _f0 := -1
@@ -168,6 +170,11 @@ func setup(sc) -> void:
 	shot_every_s = float(_arg(args, "--arena-shot-every", "0"))
 	quit_after_s = float(_arg(args, "--arena-quit-s", "0"))
 	topdown = "--arena-topdown" in args
+	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
+	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
+	var ln := _arg(args, "--arena-look-nodes", "")
+	if ln != "":
+		look_nodes = Array(ln.split(","))
 	sea_z = float((scene.sim as Dictionary).get("sea_z", -4.5))
 	var cl := CanvasLayer.new()
 	cl.layer = 5
@@ -975,6 +982,8 @@ func _render(delta: float) -> void:
 		scene.set_topdown(Vector2(c.x, -c.y), 62.0)
 	else:
 		var aim: Vector3 = scene.aim_for(proxy.global_position)
+		if not look_nodes.is_empty():
+			aim = scene.aim_for(_node_centre(String(look_nodes[look_i % look_nodes.size()])))
 		if EDGE_FIXES_R_C9_363:
 			aim = _clamp_to_plate(aim)
 		scene.look_at_world(aim)
@@ -982,6 +991,28 @@ func _render(delta: float) -> void:
 			scene.snowfall.global_position = aim + scene.up * 9.0 - scene.fwd * 6.0
 		_snow_feet(delta)
 	hud.queue_redraw()
+
+
+func _node_centre(id: String) -> Vector3:
+	if id.begins_with("sim:"):                       # a barrow-sim point, "sim:x:y"
+		var q := id.split(":")
+		return to_world(Vector2(float(q[1]), float(q[2])) - T)
+	var n: Node3D = scene.nodes.get(id, null)
+	if n == null:
+		return proxy.global_position
+	var ab := AABB()
+	var first := true
+	for mi in scene._meshes(n):
+		var m3 := mi as MeshInstance3D
+		if m3.mesh == null:
+			continue
+		var b: AABB = m3.global_transform * m3.mesh.get_aabb()
+		ab = b if first else ab.merge(b)
+		first = false
+	if first:
+		return n.global_position
+	var c := ab.get_center()
+	return Vector3(c.x, ab.position.y, c.z)          # its footprint's centre at its base: the view of the ground there
 
 
 # --------------------------------------------------------------------------------------------- smoke autopilot
@@ -1055,7 +1086,10 @@ func _instruments(delta: float) -> void:
 		if img != null:
 			DirAccess.make_dir_recursive_absolute(shot_dir)
 			var w := int(snap.get("wave", 0)) if not snap.is_empty() else 0
-			img.save_png(shot_dir.path_join("arena_%05.1fs_w%d.png" % [_wall_s, w]))
+			var tag := ("_" + String(look_nodes[look_i % look_nodes.size()])) if not look_nodes.is_empty() else ""
+			img.save_png(shot_dir.path_join("arena_%05.1fs_w%d%s.png" % [_wall_s, w, tag]))
+			if not look_nodes.is_empty():
+				look_i += 1
 	if quit_after_s > 0.0 and _wall_s >= quit_after_s:
 		quit_after_s = 0.0
 		print("[arena] frames %d in %.1f s = %.1f fps average" % [Engine.get_process_frames() - _f0, _wall_s, float(Engine.get_process_frames() - _f0) / maxf(_wall_s, 1e-3)])

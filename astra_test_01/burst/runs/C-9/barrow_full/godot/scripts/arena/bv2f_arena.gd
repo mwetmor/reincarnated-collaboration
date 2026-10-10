@@ -95,9 +95,24 @@ const V1_SNOW_TILE := "/Users/admin/Games/reincarnated-collaboration/astra_test_
 const STEEP_LO := 0.35
 const STEEP_HI := 0.75
 const FEATHER_M := 0.7
+## R-C9-371: inside the excluded features (the mound, the wreck basin) the snow leaves the slopes sooner -- the mound's
+## flank carried a smooth stretched sheet of snow over its heather (a "bank" by eye); the flat ground is unchanged
+const ZONE_STEEP_LO := 0.15
+const ZONE_STEEP_HI := 0.35
 const SNOW_OBSTACLE_IDS := ["ring_stones", "slope_stones", "ring_fallen", "logs", "wreck_mast", "door_post_L", "door_post_R",
 	"talus", "gully_rock", "crags", "sea_stacks", "palisade", "ledge_rocks"]
-const SNOW_BUILDING_IDS := ["longhall", "barrow_front", "fallen_gable", "wreck"]
+const SNOW_BUILDING_IDS := ["longhall", "fallen_gable"]
+## R-C9-371 (Matt: "odd snow banks ... to the left and right of the barrow and to the right of the shipwreck"): FOUND by
+## baking with each drift source dropped (`--arenasnow-drop`, stills in captures/snow_banks/): the bank left of the barrow
+## door and the one over the cobbles right of the wreck were the AABB-RIM SKIRT CHAINS of barrow_front and wreck (a
+## rotated wreck's AABB rim runs metres off its hull, out over the basin's edge); the door posts' and ring stones' skirts
+## and random windrows/piles added to the barrow's flanks. So the LARGE TERRAIN FEATURES are EXCLUDED, structurally:
+## barrow_front and wreck lay no rim chain, and inside these discs (barrow sim centre, radius m) no obstacle lays a skirt
+## and no windrow or pile is placed. The depth grid's own base snow is unchanged.
+const SNOW_EXCLUDE := [
+	{"id": "mound", "c": Vector2(2.0, -21.0), "r": 11.5},          # barrow_front (2, -22.36), 15 x 10.5, + its lobe
+	{"id": "wreck_basin", "c": Vector2(-27.1, -2.9), "r": 10.0},   # the wreck (13 x 4.6, rot 32.5) and its basin
+]
 var arena_snow_report := {}
 
 
@@ -132,10 +147,21 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	var k_area := (side * side) / (V1_SNOW_AREA_M * V1_SNOW_AREA_M)
 	snow.windrow_count = int(round(V1_WINDROWS * k_area))
 	snow.pile_count = int(round(V1_PILES * k_area))
+	# R-C9-371 diagnosis knob: `-- --arenasnow-drop windrows+piles+props+bld` bakes without those drift sources
+	var drop := Slots.arg("arenasnow-drop")
+	if "windrows" in drop:
+		snow.windrow_count = 0
+	if "piles" in drop:
+		snow.pile_count = 0
 	snow.cast_shadows = false
 	var mul := buf.slice(0, nx * nz)
 	var ghb2: PackedFloat32Array = snow.ground_h_buf
-	_feather_depth(mul, ghb2, nx, nz, float(g["cell_m"]))
+	var zones: Array = []
+	for z in SNOW_EXCLUDE:
+		var zc: Vector2 = z["c"]
+		var zw := uv_to_world(zc.x, -zc.y, 0.0)
+		zones.append({"c": Vector2(zw.x, zw.z), "r": float(z["r"])})
+	_feather_depth(mul, ghb2, nx, nz, float(g["cell_m"]), Vector2(float(go[0]), float(go[1])), zones)
 	snow.depth_grid = {"origin": Vector2(float(go[0]), float(go[1])), "cell_m": float(g["cell_m"]),
 					   "nx": nx, "nz": nz, "mul": mul, "trod": buf.slice(nx * nz, 2 * nx * nz)}
 	# v1's SURFACE GRAIN: v1's snow tile (cliffside3d godot/textures/barrow/snow.png, read in place). barrow_full has
@@ -154,8 +180,9 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	if painted_surface:
 		snow.shader_code_override = PaintedWorld.snow_shader_code()
 	else:
-		snow.snow_tint = V1_SNOW_TINT
-	var obstacles := _arena_snow_obstacles()
+		snow.snow_tint = _snow_white_tint()
+	snow.clear_zones = zones
+	var obstacles := _arena_snow_obstacles(drop, zones)
 	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, obstacles, WIND)
 	add_child(snow)
 	if painted_surface:
@@ -170,13 +197,30 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	var br := snow.bake_report()
 	arena_snow_report = {"area_m": side, "field_px": snow.field_px, "trail_px": snow.trail_px,
 		"windrows": snow.windrow_count, "piles": snow.pile_count, "obstacles": obstacles.size(),
-		"surface": "painted" if painted_surface else "v1 (lit, SNOW_TINT)",
+		"windrows_placed": br.get("windrows_placed"), "piles_placed": br.get("piles_placed"),
+		"surface": "painted" if painted_surface else "v1 lit, white tint %s" % str(snow.snow_tint),
 		"mean_depth_m": br.get("mean_depth_m"), "bake_ms": br.get("ms", br.get("bake_ms"))}
 	paint["snow"] = arena_snow_report
 	print("[bv2f_arena] snow (v1 law): " + JSON.stringify(arena_snow_report))
 
 
-func _arena_snow_obstacles() -> Array:
+## R-C9-371 (Matt: "make it snow white"): v1's lit snow kept (its relief, its blue-violet shade from the world ramp), its
+## tint re-balanced so the LIT flat snow reads neutral white instead of cream. Measured on stills (top half of a flat
+## patch's pixels): v1 tint (235, 228, 220) cream-grey; the walk scene's painted snow (250, 237, 225). Knob for the eye:
+## `-- --arenasnow-tint r,g,b`. Route: v1 lit + neutral white tint (the painted surface would carry the painting's warm cream).
+const ARENA_SNOW_WHITE := Color(1.17, 1.36, 1.58)     # lit flat snow measured (247, 247, 248); shade (209, 217, 233)
+
+
+func _snow_white_tint() -> Color:
+	var k := Slots.arg("arenasnow-tint")
+	if k != "":
+		var q := k.split(",")
+		if q.size() == 3:
+			return Color(float(q[0]), float(q[1]), float(q[2]))
+	return ARENA_SNOW_WHITE
+
+
+func _arena_snow_obstacles(drop: String = "", zones: Array = []) -> Array:
 	var out: Array = []
 	for id_any in nodes.keys():
 		var id := String(id_any)
@@ -184,6 +228,8 @@ func _arena_snow_obstacles() -> Array:
 		var is_prop := SNOW_OBSTACLE_IDS.has(base)
 		var is_bld := SNOW_BUILDING_IDS.has(base)
 		if not (is_prop or is_bld):
+			continue
+		if (is_prop and "props" in drop) or (is_bld and "bld" in drop):
 			continue
 		var root: Node3D = nodes[id]
 		var ab := AABB()
@@ -196,6 +242,13 @@ func _arena_snow_obstacles() -> Array:
 			ab = b if first else ab.merge(b)
 			first = false
 		if first or ab.size.y < 0.2:
+			continue
+		var ctr := Vector2(ab.get_center().x, ab.get_center().z)
+		var excluded := false
+		for z in zones:
+			if ctr.distance_to(z["c"]) < float(z["r"]):
+				excluded = true
+		if excluded:
 			continue
 		if is_prop and maxf(ab.size.x, ab.size.z) < 3.0:
 			out.append({"pos": Vector3(ab.get_center().x, ab.position.y, ab.get_center().z),
@@ -223,7 +276,8 @@ func _arena_snow_obstacles() -> Array:
 
 
 
-func _feather_depth(mul: PackedFloat32Array, gh: PackedFloat32Array, nx: int, nz: int, cell: float) -> void:
+func _feather_depth(mul: PackedFloat32Array, gh: PackedFloat32Array, nx: int, nz: int, cell: float,
+		origin: Vector2 = Vector2.ZERO, zones: Array = []) -> void:
 	if gh.size() == nx * nz:
 		for j in range(1, nz - 1):
 			for i in range(1, nx - 1):
@@ -231,8 +285,16 @@ func _feather_depth(mul: PackedFloat32Array, gh: PackedFloat32Array, nx: int, nz
 				var gx := (gh[k + 1] - gh[k - 1]) / (2.0 * cell)
 				var gz := (gh[k + nx] - gh[k - nx]) / (2.0 * cell)
 				var g := sqrt(gx * gx + gz * gz)
-				if g > STEEP_LO:
-					mul[k] *= 1.0 - smoothstep(STEEP_LO, STEEP_HI, g)
+				var lo := STEEP_LO
+				var hi := STEEP_HI
+				if not zones.is_empty() and g > ZONE_STEEP_LO:
+					var at := origin + Vector2(float(i), float(j)) * cell
+					for z in zones:
+						if at.distance_to(z["c"]) < float(z["r"]):
+							lo = ZONE_STEEP_LO
+							hi = ZONE_STEEP_HI
+				if g > lo:
+					mul[k] *= 1.0 - smoothstep(lo, hi, g)
 	var r := maxi(1, int(round(FEATHER_M / cell)))
 	for _pass in 2:
 		_box_rows(mul, nx, nz, r)
