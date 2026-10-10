@@ -217,6 +217,8 @@ func setup(sc) -> void:
 		_fatal("JOIN-1 art index missing: " + J._index_error)
 		return
 	seed_used = int(Time.get_unix_time_from_system()) & 0x7fffffff
+	if _arg(args, "--arena-seed", "") != "":          # instruments: a like-for-like pair (the fps on/off runs)
+		seed_used = int(_arg(args, "--arena-seed", "0"))
 	_boot()
 	if "--arena-zoomed-out" in args:        # stills: KC2's wider view (the Z key)
 		_toggle_zoom()
@@ -261,13 +263,15 @@ func _boot() -> void:
 		enemy_vfx.queue_free()
 		enemy_vfx = null
 	if vfx_on and ResourceLoader.exists(ENEMY_VFX_SCRIPT):
-		enemy_vfx = load(ENEMY_VFX_SCRIPT).new()
-		enemy_vfx.name = "EnemyVFX"
-		add_child(enemy_vfx)
-		enemy_vfx.setup(self)
-		if "--arena-vfx-gallery" in OS.get_cmdline_user_args():
-			enemy_vfx.start_gallery()
-			hud.visible = false               # the gallery is a still stage: no start card over it
+		var vscr: GDScript = load(ENEMY_VFX_SCRIPT)
+		if vscr != null and vscr.can_instantiate():
+			enemy_vfx = vscr.new()
+			enemy_vfx.name = "EnemyVFX"
+			add_child(enemy_vfx)
+			enemy_vfx.setup(self)
+			if "--arena-vfx-gallery" in OS.get_cmdline_user_args():
+				enemy_vfx.start_gallery()
+				hud.visible = false               # the gallery is a still stage: no start card over it
 	running = true
 	fight_started = autopilot != ""
 	accum = 0.0
