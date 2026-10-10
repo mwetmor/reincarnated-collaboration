@@ -55689,6 +55689,19 @@
         "R-C9-368",
         "R-C9-370"
       ]
+    },
+    {
+      "id": "R-C9-372",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T22:35:40-04:00",
+      "verbatim": "Ok, I'll do the permissions path and we'll go with each slash doing 125% of a whirlwind damage tick of real damage instead of just for show..",
+      "ruling": "Supersedes R-C9-370 and the slash part of R-C9-371. The basic great-sword slash deals REAL damage = 1.25x one whirlwind damage tick (single target, Physical, contact frame 47%, cooldown = clip length), counted by the sim's own hit/death/kill/wave bookkeeping via the arena-side call into the fight (drax's plan: _offer + _ss_hit, hit/death via _play_emit, _fire_dying on a kill, between ticks). This is Matt's explicit consent of record for the arena variant to change the fight's live state from outside it; kc2_runtime FILES stay byte-identical (tree digest a0e75469 checked before and after); the arena claims no parity (R-C9-345). Requires: a probe that kills/wave gate count slash kills; red number shows the real value. Matt adds the permission rule himself (/permissions); drax resumes only after Matt confirms it is in. Rest of R-C9-371 (white snow, odd banks) unchanged.",
+      "cites": [
+        "R-C9-345",
+        "R-C9-369",
+        "R-C9-370",
+        "R-C9-371"
+      ]
     }
   ],
   "grok_calls": [
