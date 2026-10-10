@@ -56409,6 +56409,17 @@
         "R-C9-390",
         "a5c6cad09"
       ]
+    },
+    {
+      "id": "R-C9-392",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-10T10:35:59-04:00",
+      "verbatim": "live 3d warlord is much better but needs 2 things: 1) The warlord should not be dimmed/obscured bhy his own dust cloud from the whirlwind.. instead it needs to emanate from the mace and grow around him in a circle. 2) The lighting needs to be stronger/brighter on him in general",
+      "ruling": "3D warlord: (1) whirlwind haze never draws over his body/mace (depth or silhouette mask; the PORT 18 no-depth-test is the suspected cause); haze births at the mace head and grows outward into a ring around him; source look at 0.7 kept; sprite path unchanged. (2) brighter lighting on him, tunable (--arena-hero-light), 1.0/1.5/2.0 still for Matt. Before the web-build code.",
+      "cites": [
+        "R-C9-352",
+        "R-C9-391"
+      ]
     }
   ],
   "grok_calls": [
