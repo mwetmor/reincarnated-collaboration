@@ -28,7 +28,7 @@ const ArenaHud = preload("res://scripts/arena/arena_hud.gd")
 const ArenaNumbers = preload("res://scripts/arena/arena_numbers.gd")
 var numbers = null
 const Token3D = preload("res://scripts/arena/arena_token3d.gd")
-const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # loaded only when asked for (WIP, R-C9-374)
+const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # on by default (R-C9-381); needs tools/arena_stage_vfx.py run once
 var enemy_vfx = null                # R-C9-358..361 (`-- --arena-vfx off`: none built -- the fps pair's OFF run)
 var vfx_on := true
 
@@ -173,8 +173,8 @@ func setup(sc) -> void:
 	shot_every_s = float(_arg(args, "--arena-shot-every", "0"))
 	quit_after_s = float(_arg(args, "--arena-quit-s", "0"))
 	topdown = "--arena-topdown" in args
-	# R-C9-374: the enemy VFX are WIP under review -- OFF unless asked for (`-- --arena-vfx on`, or the gallery)
-	vfx_on = _arg(args, "--arena-vfx", "off") == "on" or "--arena-vfx-gallery" in args
+	# R-C9-381 (Matt: "the enemy vfx are good for now. leave them in"): ON by default; `-- --arena-vfx off` is the switch
+	vfx_on = _arg(args, "--arena-vfx", "on") != "off" or "--arena-vfx-gallery" in args
 	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
 	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
 	var ln := _arg(args, "--arena-look-nodes", "")
