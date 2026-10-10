@@ -32,25 +32,27 @@ func open(pack_dir: String, pack_digest: String, geom_path: String,
 	if super.open(pack_dir, pack_digest, geom_path, seed, zoom, aprons):
 		return true
 	# The pinned parent configures the graded arm, then requests the Mac native
-	# solver before _bind_summons/play_open. Web cannot load that library. Resume
+	# solver before _bind_summons/play_open. Web and Windows x64 cannot load it. Resume
 	# ONLY that specific platform-unavailable stop, choosing the runtime's exact
 	# GDScript reference via its public switch. All earlier boot gates still bind;
 	# no sealed source, graded configuration, or oracle refusal rule is changed.
-	if not OS.has_feature("web") or fight == null:
+	var platform := "%s.%s" % [OS.get_name(), Engine.get_architecture_name()]
+	var portable := OS.has_feature("web") or platform == "Windows.x86_64"
+	if not portable or fight == null:
 		return false
 	if not load_error.begins_with("PLAY-CONTACT-SOLVER: ORACLE:") \
-			or not "no native contact library is built for Web.wasm32" in load_error:
+			or not ("no native contact library is built for " + platform + " (") in load_error:
 		return false
 	if not fight.select_contact_solver("gdscript"):
 		return false
-	fight.contact_solver_note = "Barrow Web: explicitly selected the exact GDScript reference solver; Mac native library unavailable"
+	fight.contact_solver_note = "Barrow %s: explicitly selected the exact GDScript reference solver; Mac native library unavailable" % platform
 	fight.last_error = ""
 	load_error = ""
 	fight.play_driver = driver
 	_bind_summons()
 	fight.play_open(WAVE_LO, WAVE_HI, MAX_TICKS)
 	open_ok = true
-	print("[arena] web solver: " + fight.contact_solver_note)
+	print("[arena] platform solver: " + fight.contact_solver_note)
 	return true
 
 

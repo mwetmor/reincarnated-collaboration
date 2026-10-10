@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Disable the generated native-extension startup list in the Web PCK.
+"""Disable the generated Mac-extension startup list in Web/Windows PCKs.
 
 Godot includes the Mac-only KC2 extension because it is a manifest member. All
 sealed members must remain byte-identical for arena_paths.verify_bundle(). Only
@@ -36,9 +36,9 @@ def suppress_native_startup(path):
             f.seek(entry + 8)
             f.write(struct.pack("<Q", 0))
             f.write(hashlib.md5(b"").digest())
-            print("Web PCK: native startup list empty; sealed runtime members preserved")
+            print("Portable PCK: native startup list empty; sealed runtime members preserved")
             return
-        print("Web PCK: no native startup list")
+        print("Portable PCK: no native startup list")
 
 
 if __name__ == "__main__":
