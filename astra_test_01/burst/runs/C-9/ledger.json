@@ -55643,6 +55643,23 @@
         "R-C9-367",
         "DEV-18"
       ]
+    },
+    {
+      "id": "R-C9-369",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T21:46:11-04:00",
+      "verbatim": [
+        "Give the slash real damage (Recommended)",
+        "Animate only, for now (Recommended)"
+      ],
+      "ruling": "drax c61119464 ACCEPTED (whirlwind bed at 0.2, knob eorbed; received numbers hidden; dealt numbers ported from wr2_playback.gd@978a423 -- colour = element, all warlord hits Physical; 0.25 s merge; pooled 40/28). FINDING: the KC2 warlord kit has no basic attack; Charge/Might/Haste are placeholder 3x dashes with no damage or buff; only Whirlwind deals damage. MATT: the basic great-sword slash gets REAL damage, variant-side (click on an enemy in reach; contact frame; ~3x one whirlwind tick, tunable; single target, Physical, cooldown = clip length; must count in the sim's kill/wave bookkeeping; HALT if only a runtime edit can do it). This is a disclosed variant-side RULE ADDITION to the 'same rules' arena (R-C9-347), Matt-authorized. Charge/Might/Haste/Battle Cry: animate only, no rule change.",
+      "cites": [
+        "R-C9-347",
+        "R-C9-355",
+        "R-C9-366",
+        "R-C9-367",
+        "c61119464"
+      ]
     }
   ],
   "grok_calls": [
