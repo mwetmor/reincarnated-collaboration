@@ -55537,6 +55537,16 @@
         "R-C9-358",
         "R-C9-359"
       ]
+    },
+    {
+      "id": "R-C9-361",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T20:44:49-04:00",
+      "verbatim": "careful wiht the explosions though, as they can tend to slow the game down",
+      "ruling": "Perf budget on all enemy VFX (R-C9-358..360): pooled emitters/meshes, hard cap ~6 simultaneous small explosions (overflow = residue only), low particle counts, short lifetimes, no per-impact lights. drax measures the heaviest wave VFX on vs off at 1920x1080 (avg fps + 1% low); budget avg >= ~60 fps and 1% low within ~10% of the no-VFX run; tune down if missed.",
+      "cites": [
+        "R-C9-360"
+      ]
     }
   ],
   "grok_calls": [
