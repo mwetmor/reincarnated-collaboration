@@ -19,7 +19,7 @@ extends SceneTree
 ##   <id>_V.f32     world vertices (n x 3)       <id>_N.f32  world normals (n x 3)
 ##   <id>_UV.f32    UVs, GODOT convention (v down) (n x 2)     <id>_I.i32  triangle indices
 
-var GUIDE := Vector2i(6656, 4096) if OS.get_environment("BV2F_PILOT") == "site_ph3" else Vector2i(4096, 2560)   # BV2F-PT: the pilot plate; R-C9-322: the full site plate for site_ph3
+var GUIDE := Vector2i(6656, 4096) if OS.get_environment("BV2F_PILOT") == "site_ph3" else (Vector2i(6656, 4864) if OS.get_environment("BV2F_PILOT") == "site_ph4" else Vector2i(4096, 2560))   # BV2F-PT: the pilot plate; R-C9-322: the full site plate for site_ph3; R-C9-384: + north band for site_ph4
 var REAL_IDS := []                      # BV2F-PT: from --ids
 
 var out_dir := ""

@@ -16,16 +16,20 @@ var reed_mat: ShaderMaterial = null   # BV2F-PT DEV-21
 const REED_WIND := {"sway_amp": 0.030, "sway_hz": 0.35, "gust_amp": 0.090, "tone_jitter": 0.0, "hue_jitter": 0.0}
 const SETTLE_FRAMES := 30   # BV2F-PT R-C9-201
 const PILOT_U0 := -33.57573954303182
-const PILOT_V1 := 22.36993715728635
+const PILOT_V1_PH3 := 22.36993715728635
 ## R-C9-313: the WINDOW comes from the data set -- the pilot sets keep the 3 x 3 pilot plate (4096 x 2560); `site_ph3` is
 ## the full 5 x 5 site plate (6656 x 4096). Same grid origin (U0, V1), so only the size differs.
-const PILOT_WINDOWS := {"site_ph3": Vector2(6656.0, 4096.0)}
+## R-C9-384: `site_ph4` = the site_ph3 plate + a 768 px NORTH BAND (6656 x 4864). World unchanged: its top edge is
+## v1' = v1 + 768 / (ppm sin pitch), so every ph3 plate pixel sits 768 rows lower in ph4 (fid/pt/north/final/identity.json).
+const PILOT_WINDOWS := {"site_ph3": Vector2(6656.0, 4096.0), "site_ph4": Vector2(6656.0, 4864.0)}
+const PILOT_V1S := {"site_ph4": 31.933163591268734}   # R-C9-384: the plate's top edge per data set (absent = v1's 22.3699)
 ## the pilot's painted data, RELATIVE to PaintedWorld.data_dir() (res://data/painted/) so v1's loaders read it unchanged
 ## R-C9-232: WHICH PILOT. Default = the REPAINT (data/bv2f/pilot_rp/: its painted data + its pinned level, LV 368cdf791);
 ## env BV2F_PILOT=phase2p = the Phase 2' pilot as pinned (data/bv2f/pilot/: M2' evidence, kept as-is).
-const PILOT_SETS := {"site_ph3": "site_ph3", "rp4": "pilot_rp4", "rp3": "pilot_rp3", "rp2": "pilot_rp2", "rp": "pilot_rp", "phase2p": "pilot"}   # R-C9-264: rp4 = PILOT REPAINT 4 (default); R-C9-245 rp3
+const PILOT_SETS := {"site_ph4": "site_ph4", "site_ph3": "site_ph3", "rp4": "pilot_rp4", "rp3": "pilot_rp3", "rp2": "pilot_rp2", "rp": "pilot_rp", "phase2p": "pilot"}   # R-C9-264: rp4 = PILOT REPAINT 4 (default); R-C9-245 rp3
 var pilot_set := PILOT_SETS.get(OS.get_environment("BV2F_PILOT") if OS.get_environment("BV2F_PILOT") != "" else "rp4", "pilot_rp4") as String
 var PILOT_PX: Vector2 = PILOT_WINDOWS.get(pilot_set, Vector2(4096.0, 2560.0))   # R-C9-313: the window of the data set
+var PILOT_V1: float = PILOT_V1S.get(pilot_set, PILOT_V1_PH3)   # R-C9-384: the window's top edge (v) of the data set
 var PILOT_REL := "../bv2f/%s/painted/" % pilot_set
 var PILOT_MANIFEST := "res://data/bv2f/%s/painted/manifest.json" % pilot_set
 const SNOW_TERRAIN := preload("res://scripts/bv2f/snow_field_terrain.gd")   # BV2F-PT DEV-18
@@ -46,7 +50,19 @@ var PILOT_LEVEL_DIR := "res://data/bv2f/%s/level/" % pilot_set
 
 func _init() -> void:
 	BV2F_DATA = PILOT_LEVEL_DIR
-	if not PILOT_SETS.values().has(pilot_set) or OS.get_environment("BV2F_PILOT") not in ["", "site_ph3", "rp4", "rp3", "rp2", "rp", "phase2p"]:
+
+
+## R-C9-384: switch the scene to data set `s` (a PILOT_SETS value, e.g. "site_ph4") from a subclass's _init -- sets
+## EVERY derived value together (window, top edge, painted data, level), so none is left on the previous set.
+func use_set(s: String) -> void:
+	pilot_set = s
+	PILOT_PX = PILOT_WINDOWS.get(s, Vector2(4096.0, 2560.0))
+	PILOT_V1 = PILOT_V1S.get(s, PILOT_V1_PH3)
+	PILOT_REL = "../bv2f/%s/painted/" % s
+	PILOT_MANIFEST = "res://data/bv2f/%s/painted/manifest.json" % s
+	PILOT_LEVEL_DIR = "res://data/bv2f/%s/level/" % s
+	BV2F_DATA = PILOT_LEVEL_DIR
+	if not PILOT_SETS.values().has(pilot_set) or OS.get_environment("BV2F_PILOT") not in ["", "site_ph4", "site_ph3", "rp4", "rp3", "rp2", "rp", "phase2p"]:
 		push_error("bv2f_pilot: BV2F_PILOT=%s is not rp or phase2p" % OS.get_environment("BV2F_PILOT"))
 
 

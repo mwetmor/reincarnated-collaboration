@@ -7,7 +7,7 @@ import os as _os_; B_ = _os_.environ.get("PT_BUILD_DIR", "pt/pilot")   # R-C9-32
 import os, hashlib, json
 FID = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 C9 = os.path.dirname(os.path.dirname(FID))
-D = C9 + "/barrow_full/godot/data/bv2f/%s/painted" % {"rp4": "pilot_rp4", "rp3": "pilot_rp3", "site_ph3": "site_ph3"}[os.environ.get("BV2F_PILOT", "rp3")]   # R-C9-264: the set being built   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
+D = C9 + "/barrow_full/godot/data/bv2f/%s/painted" % {"rp4": "pilot_rp4", "rp3": "pilot_rp3", "site_ph3": "site_ph3", "site_ph4": "site_ph4"}[os.environ.get("BV2F_PILOT", "rp3")]   # R-C9-264: the set being built   # R-C9-232: the repaint (the Phase 2' pilot data: bv2f/pilot/painted)
 R = FID + "/" + B_ + "/root"
 paint = FID + "/" + B_ + "/painting.png"
 sha = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()

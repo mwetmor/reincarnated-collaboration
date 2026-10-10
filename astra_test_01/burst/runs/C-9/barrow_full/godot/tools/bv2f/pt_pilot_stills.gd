@@ -78,7 +78,8 @@ func _initialize() -> void:
 		# the plate and shows unpainted ground. Parked at the spec's ground centre (h = 0) when the spec gives one.
 		if s.has("camera_centre_ground_uv"):
 			var cc: Array = s["camera_centre_ground_uv"]
-			scene.park_camera(scene.uv_to_world(float(cc[0]), float(cc[1])), 1.0)
+			# R-C9-384: optional per-view "zoom" (v1's park_camera zoom: 1.0 = 100.6 px/m; 0.752 = KC2's ZOOM-GD 75.67 px/m)
+			scene.park_camera(scene.uv_to_world(float(cc[0]), float(cc[1])), float(s.get("zoom", 1.0)))
 			await _settle(2)
 		await _shot(nm)
 		var at: Vector2 = scene.knight_uv()

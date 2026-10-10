@@ -4,7 +4,7 @@ extends SceneTree
 ## render_guide.png (him absent, falling snow hidden, the wind held), heather_colour.png, heather_mask.png. PH's P3/P8 input.
 ##   BV2F_VARIANT=art Godot --path godot --resolution 640x360 --script res://tools/bv2f/pt_capture_guide.gd -- --out DIR
 
-var GUIDE := Vector2i(6656, 4096) if OS.get_environment("BV2F_PILOT") == "site_ph3" else Vector2i(4096, 2560)   # BV2F-PT: the pilot plate; R-C9-322: the full site plate for site_ph3
+var GUIDE := Vector2i(6656, 4096) if OS.get_environment("BV2F_PILOT") == "site_ph3" else (Vector2i(6656, 4864) if OS.get_environment("BV2F_PILOT") == "site_ph4" else Vector2i(4096, 2560))   # BV2F-PT: the pilot plate; R-C9-322: the full site plate for site_ph3; R-C9-384: + north band for site_ph4
 const PLAY := Vector2i(1920, 1080)
 
 var out_dir := ""
