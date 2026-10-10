@@ -160,6 +160,7 @@ func setup(p_mode) -> void:
 		else:
 			push_warning("[arena] enemy vfx: fire_ball_fx refused: " + str(fb.report))
 	ok = true
+	print("[arena] enemy vfx: " + String(report["pack"]))
 
 
 var _pages: Texture2DArray = null
@@ -167,15 +168,18 @@ var _pal_array := PackedVector4Array()
 
 
 func _load_pack() -> bool:
-	var ip := ProjectSettings.globalize_path(PACK_DIR + "index.json")
+	var ip := PACK_DIR + "index.json"
 	if not FileAccess.file_exists(ip):
 		report["pack"] = "no " + ip
 		return false
 	var idx: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ip))
 	var imgs: Array[Image] = []
 	for pg in idx["pages"]:
-		var fp := ProjectSettings.globalize_path(PACK_DIR + String(pg["file"]))
-		var img := Image.load_from_file(fp)
+		var fp := PACK_DIR + String(pg["file"])
+		if FileAccess.get_sha256(fp) != String(pg["sha256"]):
+			report["pack"] = "page digest " + fp
+			return false
+		var img := load("res://scripts/arena/arena_paths.gd").load_image(fp) as Image
 		if img == null or img.is_empty():
 			report["pack"] = "page " + fp
 			return false

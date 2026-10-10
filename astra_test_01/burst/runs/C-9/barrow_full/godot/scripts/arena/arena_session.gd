@@ -6,7 +6,7 @@ extends "res://kc2/kc2_runtime/play/kc2play_session.gd"
 ## reincarnated-godot/kc2_runtime, and the pack is the pack of record (kc2rt_pack_of_record.gd), digest-gated by the
 ## runtime's own loader.
 ##
-## THE ONE HOOK. The stock `open()` runs ... fight.bind_wire -> configure_arm_from_pack -> select_contact_solver ->
+## The stock `open()` runs ... fight.bind_wire -> configure_arm_from_pack -> select_contact_solver ->
 ## `_bind_summons()` -> fight.play_open(151, 160). `_bind_summons` is a method of this object, called after bind_wire
 ## and before play_open, so overriding it (super first, unchanged) is the seat for the barrow fold:
 ##   (1) board.spawn_points p01..p06 := the barrow_v2 anchors (data/arena/barrow_arena.json), in the KC2 frame;
@@ -25,6 +25,33 @@ const OPEN_RING_M := 500.0
 var arena_cfg: Dictionary = {}
 var fold: Dictionary = {}
 var fold_ok: bool = false
+
+
+func open(pack_dir: String, pack_digest: String, geom_path: String,
+		seed: int, zoom: String, aprons: bool) -> bool:
+	if super.open(pack_dir, pack_digest, geom_path, seed, zoom, aprons):
+		return true
+	# The pinned parent configures the graded arm, then requests the Mac native
+	# solver before _bind_summons/play_open. Web cannot load that library. Resume
+	# ONLY that specific platform-unavailable stop, choosing the runtime's exact
+	# GDScript reference via its public switch. All earlier boot gates still bind;
+	# no sealed source, graded configuration, or oracle refusal rule is changed.
+	if not OS.has_feature("web") or fight == null:
+		return false
+	if not load_error.begins_with("PLAY-CONTACT-SOLVER: ORACLE:") \
+			or not "no native contact library is built for Web.wasm32" in load_error:
+		return false
+	if not fight.select_contact_solver("gdscript"):
+		return false
+	fight.contact_solver_note = "Barrow Web: explicitly selected the exact GDScript reference solver; Mac native library unavailable"
+	fight.last_error = ""
+	load_error = ""
+	fight.play_driver = driver
+	_bind_summons()
+	fight.play_open(WAVE_LO, WAVE_HI, MAX_TICKS)
+	open_ok = true
+	print("[arena] web solver: " + fight.contact_solver_note)
+	return true
 
 
 func _bind_summons() -> void:

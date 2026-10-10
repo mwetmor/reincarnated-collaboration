@@ -13,18 +13,36 @@ func _init() -> void:
 	# every arena coordinate holds) -- whatever BV2F_PILOT says. `-- --arena-site ph3` falls back to the ph3 plate.
 	# use_set() sets the WINDOW and its top edge (PILOT_V1 depends on the data set), not only the paths.
 	use_set("site_ph3" if Slots.arg("arena-site") == "ph3" else "site_ph4")
-	# R-C9-391: the phone/web build reads the site's PHONE data (painted_web: the painting within 4096 px as WebP,
-	#   sampled by normalised plate UV; frame.px stays the plate's)
-	if PaintStack.is_web() and FileAccess.file_exists("res://data/bv2f/%s/painted_web/manifest.json" % pilot_set):
-		PILOT_REL = "../bv2f/%s/painted_web/" % pilot_set
-		PILOT_MANIFEST = "res://data/bv2f/%s/painted_web/manifest.json" % pilot_set
 
 
 var arena: Node3D = null
 
 
 func _ready() -> void:
+	# R-C9-391: a bundled (web) build fetches its packs FIRST -- the site's data rides in one of them, and the walk
+	#   scene's own _ready (below) reads it
+	if ArenaPaths.bundled():
+		var c0 := CanvasLayer.new()
+		c0.layer = 120
+		var l0 := Label.new()
+		l0.add_theme_font_size_override("font_size", 28)
+		l0.add_theme_color_override("font_color", Color(1, 0.93, 0.8))
+		l0.set_anchors_preset(Control.PRESET_CENTER)
+		l0.position = Vector2(-160, -20)
+		c0.add_child(l0)
+		add_child(c0)
+		if not await _load_kit_packs(l0):
+			return
+		if not _select_web_paint():
+			l0.text = "The arena painting could not load. Please reload the page."
+			return
+		c0.queue_free()
 	await super._ready()
+	# The arena owns its touch inputs. Remove the inherited exploration joystick/strikes.
+	if touch != null:
+		touch.process_mode = Node.PROCESS_MODE_DISABLED
+		touch.queue_free()
+		touch = null
 	set_hud_visible(false)
 	# R-C9-353 (Matt: the load "stays ... in the bottom-right corner ... where all you see is the lack of map"): the
 	# pilot's shader warm-up ends parked on the LAST view of its grid (the window's far corner), and the fight's
@@ -48,7 +66,6 @@ func _ready() -> void:
 	add_child(card)
 	await get_tree().process_frame
 	await get_tree().process_frame
-	await _load_kit_packs(lb)
 	arena = load("res://scripts/arena/arena_mode.gd").new()
 	arena.name = "Arena"
 	add_child(arena)
@@ -60,9 +77,23 @@ func _ready() -> void:
 ## R-C9-391: a bundled build's monster art ships in KIT PACKS beside the main pack (the 50 MB file fence): on the page
 ## each is fetched and loaded before the fight opens; on the desktop launch probe they are read from --kit-pack-dir.
 var kit_pack_report: Array = []
-func _load_kit_packs(lb: Label) -> void:
+func _select_web_paint() -> bool:
+	# The painting is in site_1.pck. Select it only AFTER the packs are mounted,
+	# before the parent scene reads PILOT_MANIFEST; _init cannot see that pack.
+	if not PaintStack.is_web():
+		return true
+	var manifest := "res://data/bv2f/%s/painted_web/manifest.json" % pilot_set
+	if not FileAccess.file_exists(manifest):
+		push_error("bv2f_arena: missing web painting at %s" % manifest)
+		return false
+	PILOT_REL = "../bv2f/%s/painted_web/" % pilot_set
+	PILOT_MANIFEST = manifest
+	return true
+
+
+func _load_kit_packs(lb: Label) -> bool:
 	if not ArenaPaths.bundled():
-		return
+		return true
 	var st: Variant = JSON.parse_string(FileAccess.get_file_as_string(ArenaPaths.STAMP))
 	var packs: Array = (st as Dictionary).get("kit_packs", []) if typeof(st) == TYPE_DICTIONARY else []
 	var a := OS.get_cmdline_user_args()
@@ -71,16 +102,23 @@ func _load_kit_packs(lb: Label) -> void:
 	for nm_any in packs:
 		var nm := String(nm_any)
 		i += 1
-		lb.text = "Loading the monsters %d / %d..." % [i, packs.size()]
+		lb.text = "Loading the arena %d / %d..." % [i, packs.size()]
 		var r := {"pack": nm}
 		if OS.has_feature("web"):
 			var base := str(JavaScriptBridge.eval("document.baseURI", true))
 			var url := (base if base.ends_with("/") else base.get_base_dir() + "/") + nm
 			var http := HTTPRequest.new()
 			add_child(http)
+			# Large packs should not be drained 64 KiB per frame on a single thread.
+			http.download_chunk_size = 1024 * 1024
 			http.download_file = "user://" + nm
 			var t0 := Time.get_ticks_msec()
-			http.request(url)
+			var started := http.request(url)
+			if started != OK:
+				http.queue_free()
+				lb.text = "The arena download could not start. Please reload the page."
+				push_error("bv2f_arena: request %s failed: %s" % [nm, error_string(started)])
+				return false
 			var res: Array = await http.request_completed
 			http.queue_free()
 			r["http"] = int(res[1])
@@ -92,7 +130,13 @@ func _load_kit_packs(lb: Label) -> void:
 		else:
 			r["loaded"] = "in project"
 		kit_pack_report.append(r)
+		print("[bv2f_arena] pack: " + JSON.stringify(r))
+		if r["loaded"] is bool and not r["loaded"]:
+			lb.text = "An arena download failed. Please reload the page."
+			push_error("bv2f_arena: pack failed: " + JSON.stringify(r))
+			return false
 	print("[bv2f_arena] kit packs: " + JSON.stringify(kit_pack_report))
+	return true
 
 
 func _unhandled_input(e: InputEvent) -> void:

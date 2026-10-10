@@ -407,6 +407,9 @@ func setup(sc) -> void:
 	topdown = "--arena-topdown" in args
 	# R-C9-381 (Matt: "the enemy vfx are good for now. leave them in"): ON by default; `-- --arena-vfx off` is the switch
 	vfx_on = _arg(args, "--arena-vfx", "on") != "off" or "--arena-vfx-gallery" in args
+	perf_on = "--arena-perf" in args or PaintStack.web_query("perf") != ""
+	if perf_on:
+		autopilot = "on"
 	interp_on = _arg(args, "--arena-interp", "on") != "off"
 	hero_3d = _arg(args, "--arena-hero", "3d") != "sprite"      # R-C9-391: the live 3D rig by default; sprite = fallback
 	entry_on = _arg(args, "--arena-entry", "on") != "off"
@@ -1559,7 +1562,55 @@ func _auto() -> void:
 		pending_presses.append({"skill_id": "war_cry", "aim_m": [player_pos_m.x, player_pos_m.y]})
 
 
+## R-C9-391 THE PAGE'S PERF RUN: ?perf=1 on the URL (desktop: -- --arena-perf) -- the autopilot plays from the start;
+## after PERF_SETTLE_S the frame times of PERF_WINDOW_S are summarised on the console as "[arena] perf: ..." (avg,
+## 1%-low, spikes), with the launch line's G6C verdict, so a browser run can be read from its console log.
+const PERF_SETTLE_S := 5.0
+const PERF_WINDOW_S := 30.0
+var perf_on := false
+var _perf_dts: Array = []
+var _perf_done := false
+func _perf(delta: float) -> void:
+	if not perf_on or _perf_done or not (running and fight_started):
+		return
+	if _wall_s < PERF_SETTLE_S:
+		return
+	_perf_dts.append(delta * 1000.0)
+	var tot := 0.0
+	for v in _perf_dts:
+		tot += float(v)
+	if tot < PERF_WINDOW_S * 1000.0:
+		return
+	_perf_done = true
+	var s2 := _perf_dts.duplicate()
+	s2.sort()
+	var n := s2.size()
+	var k := maxi(1, n / 100)
+	var low := 0.0
+	for i in range(n - k, n):
+		low += float(s2[i])
+	low /= float(k)
+	var sp := 0
+	for v in _perf_dts:
+		if float(v) > 33.4:
+			sp += 1
+	print("[arena] perf: %d frames over %.1f s, avg %.2f ms (%.1f fps), 1%%-low %.2f ms (%.1f fps), frames >33 ms %d, max %.1f ms, wave %d, actors %d, web %s" % [
+		n, tot / 1000.0, tot / n, 1000.0 * n / tot, low, 1000.0 / low, sp, float(s2[n - 1]), int(snap.get("wave", 0)),
+		actors.size(), str(OS.has_feature("web"))])
+
+
+var _input_probe_s := 0.0
 func _instruments(delta: float) -> void:
+	_perf(delta)
+	# Opt-in browser test observation; dormant in ordinary play.
+	if OS.has_feature("web") and PaintStack.web_query("probe") == "1":
+		_input_probe_s += delta
+		if _input_probe_s >= 0.25:
+			_input_probe_s = 0.0
+			var state := {"fight_started": fight_started, "touch": touch_on, "exploration_touch": scene.get("touch") != null, "channel": _channel_held(),
+				"zoomed_out": zoomed_out, "position": [player_pos_m.x, player_pos_m.y],
+				"tick": int(snap.get("tick", 0))}
+			JavaScriptBridge.eval("window.__barrowProbe = " + JSON.stringify(state), true)
 	if _f0 < 0:
 		_f0 = Engine.get_process_frames()
 	_wall_s += delta

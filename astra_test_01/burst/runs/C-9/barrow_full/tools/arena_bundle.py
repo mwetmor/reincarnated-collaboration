@@ -81,21 +81,25 @@ def vendor_tree(src, dst, man_name, key, pin):
 
 
 def stage_kit(src_dir, dst_dir):
-    """half-size WebP strips + the rewritten index; returns bytes written"""
+    """half-size WebP strips + the rewritten index; returns bytes written. A cell's `file` is relative to the art ROOT
+    (it carries the kit dir: '<kit>/<state>_<dir>.png'), as arena_art reads root_of(kit) + file."""
     idx = json.load(open(os.path.join(src_dir, "index.json")))
+    src_root = os.path.dirname(src_dir)
+    dst_root = os.path.dirname(dst_dir)
     os.makedirs(dst_dir, exist_ok=True)
     total = 0
     done = {}
     for cid, c in idx.get("cells", {}).items():
         f = c["file"]
         if f not in done:
-            im = Image.open(os.path.join(src_dir, f)).convert("RGBA")
+            im = Image.open(os.path.join(src_root, f)).convert("RGBA")
             w, h = max(1, round(im.width * HALF)), max(1, round(im.height * HALF))
             im = im.resize((w, h), Image.LANCZOS)
             b = io.BytesIO()
             im.save(b, "WEBP", quality=Q, method=4)
             nm = os.path.splitext(f)[0] + ".webp.bin"
-            open(os.path.join(dst_dir, nm), "wb").write(b.getvalue())
+            os.makedirs(os.path.dirname(os.path.join(dst_root, nm)), exist_ok=True)
+            open(os.path.join(dst_root, nm), "wb").write(b.getvalue())
             total += b.tell()
             done[f] = nm
         c["file"] = done[f]
@@ -108,6 +112,27 @@ def stage_kit(src_dir, dst_dir):
     idx["_bundle"] = "R-C9-391: strips at %.2f size as lossy WebP q%d (*.webp.bin); cell px and anchors scaled" % (HALF, Q)
     json.dump(idx, open(os.path.join(dst_dir, "index.json"), "w"), indent=1, sort_keys=True)
     return total + os.path.getsize(os.path.join(dst_dir, "index.json"))
+
+
+def stage_enemy_vfx(dst):
+    """Ship existing atlas bytes as .bin so Godot never imports/recompresses them."""
+    source = os.path.join(SRC_GODOT, "kc2", "vfx_x")
+    target = os.path.join(dst, "kc2", "vfx_x")
+    os.makedirs(target, exist_ok=True)
+    idx = json.load(open(os.path.join(source, "index.json")))
+    members = ["kc2/vfx_x/index.json"]
+    for page in idx["pages"]:
+        src = os.path.join(source, page["file"])
+        if sha(src) != page["sha256"]:
+            die("enemy VFX atlas differs from staged index: " + src)
+        page["file"] += ".bin"
+        dest = os.path.join(target, page["file"])
+        shutil.copy2(src, dest)
+        if sha(dest) != page["sha256"]:
+            die("enemy VFX copy differs: " + dest)
+        members.append("kc2/vfx_x/" + page["file"])
+    json.dump(idx, open(os.path.join(target, "index.json"), "w"), indent=1)
+    return members
 
 
 def main():
@@ -171,7 +196,20 @@ def main():
         cur_b += sizes[k]
     if cur:
         packs.append(cur)
-    stamp["kit_packs"] = ["kits_%d.pck" % i for i in range(len(packs))]
+    # the model pack (90 MB of JSON) rides in its own packs, each under the 50 MB file fence (Vercel serves them brotli)
+    mman = json.load(open(os.path.join(kc2, "model_pack", "manifest.json")))
+    mg, cur2, cb2 = [], [], 0
+    for m in sorted(mman["members"], key=lambda m: -int(m["bytes"])):
+        if cur2 and cb2 + int(m["bytes"]) > PACK_MB * 1e6:
+            mg.append(cur2)
+            cur2, cb2 = [], 0
+        cur2.append("kc2/model_pack/" + m["path"])
+        cb2 += int(m["bytes"])
+    if cur2:
+        mg.append(cur2)
+    stamp["vfx_packs"] = {"vfx_0.pck": stage_enemy_vfx(DST)}
+    stamp["model_packs"] = {"model_%d.pck" % i: g for i, g in enumerate(mg)}
+    stamp["kit_packs"] = ["vfx_0.pck", "site_0.pck", "site_1.pck", "hero_0.pck"] + ["model_%d.pck" % i for i in range(len(mg))] + ["kits_%d.pck" % i for i in range(len(packs))]
     stamp["kit_pack_members"] = {"kits_%d.pck" % i: p for i, p in enumerate(packs)}
     stamp["kit_mb"] = {k: round(v / 1e6, 2) for k, v in sizes.items()}
     json.dump(stamp, open(os.path.join(bdir, "BUNDLE_STAMP.json"), "w"), indent=1)
@@ -180,4 +218,5 @@ def main():
         sum(sizes.values()) / 1e6, len(packs)))
 
 
-main()
+if __name__ == "__main__":
+    main()

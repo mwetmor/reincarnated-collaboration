@@ -5,8 +5,7 @@
 #   2. tools/arena_bundle.py: vendor + verify the KC2 runtime (a0e75469) and the model pack of record, the leech table
 #      (the R-C9-394 path shim's input), the outside files, and the waves' kits at half size as WebP, in KIT PACKS
 #   3. import; Web preset (nothreads, Compatibility, base href) + one preset per kit pack; export
-#   4. FENCE: no file >= 50 MB; then a LAUNCH of the exported pck on the desktop (Compatibility, the web branches on,
-#      the kit packs from the build dir) whose "[arena] launch:" line must read bundled true and G6C PASS
+#   4. FENCE: file sizes + isolated packaged-input probe + real Chrome startup/desktop/touch/failure tests
 #   5. stage build/web/ into reincarnated-loadout/public/playtest/barrow-arena/ (never commits, never pushes)
 #   usage: tools/build_web_arena.sh [--no-stage]
 set -euo pipefail
@@ -30,12 +29,12 @@ fi
 
 echo "== 1 mirror $SRC -> $DEST"
 mkdir -p "$DEST" "$LOG"
-rsync -a --delete --exclude '.godot/' --exclude 'build/' --exclude 'export_presets.cfg' --exclude 'tools/' \
+rsync -a --delete --delete-excluded --filter 'P .godot/' --filter 'P build/' --filter 'P export_presets.cfg' --filter 'P kc2/kc2_runtime/' --filter 'P kc2/model_pack/' --filter 'P kc2/art/' --filter 'P kc2/bundle/' --exclude '.godot/' --exclude 'build/' --exclude 'export_presets.cfg' --exclude 'tools/' \
   --exclude 'data/painted/' --exclude 'data/painted_web/' --exclude 'data/bv2f/site_ph3/' --exclude 'data/bv2f/pilot*/' \
   --exclude 'data/bv2f/site_ph4/painted/' --exclude 'models/barrow/' --exclude 'models/gear/' --exclude 'models/sorceress/' \
-  --exclude 'models/variants/' --exclude 'kc2/kc2_runtime' --exclude 'kc2/art_x/' --exclude 'kc2/.gdignore' \
+  --exclude 'models/variants/' --exclude 'data/vfx/meteor*/' --exclude 'data/meteor/' --exclude 'data/bv2f/stair_snow/' --exclude 'data/barrow_v2_sw/' --exclude 'kc2/kc2_runtime' --exclude 'kc2/art_x/' --exclude 'kc2/.gdignore' \
   --exclude 'captures/' "$SRC"/ "$DEST"/
-touch "$DEST/build/.gdignore"
+mkdir -p "$DEST/build" "$LOG"; touch "$DEST/build/.gdignore"
 python3 - "$DEST" <<'PY'
 import pathlib, re, sys
 pg = pathlib.Path(sys.argv[1]) / "project.godot"
@@ -78,7 +77,7 @@ root = pathlib.Path(sys.argv[1])
 st = json.load(open(root / "kc2/bundle/BUNDLE_STAMP.json"))
 scripts = sorted("res://" + str(p.relative_to(root)) for p in (root / "scripts").rglob("*.gd"))
 glbs = sorted("res://" + str(p.relative_to(root)) for p in (root / "models" / "warlord").glob("*.glb"))
-files = ["res://scenes/bv2f_arena.tscn"] + scripts + glbs
+files = ["res://scenes/bv2f_arena.tscn"] + scripts
 art_kits = [k for v in st["kit_pack_members"].values() for k in v]
 head = ('<base href="/playtest/barrow-arena/"><style>#rotate-hint{display:none;position:fixed;inset:0;z-index:10;'
         'background:#0b0f16;color:#e8eef7;font:600 20px/1.4 system-ui,sans-serif;align-items:center;justify-content:center;'
@@ -115,10 +114,20 @@ def preset(i, name, filt, files_, inc, exc):
 # script_export_mode=0: scripts ship as TEXT -- the vendored runtime's .gd bytes are its source bytes (the launch
 #   refusal re-hashes them from the pck)
 preset(0, "WebArena", "resources", files,
-       "data/*.json,data/*.bin,data/*.gdshader,data/*.webp,kc2/bundle/*,kc2/model_pack/*,kc2/kc2_runtime/*,kc2/art/join1_index.json,data/vfx/*",
-       "tools/*," + ",".join("kc2/art/%s/*" % k for k in art_kits))
+       "data/*.json,data/*.bin,data/*.gdshader,data/*.webp,kc2/bundle/*,kc2/model_pack/manifest.json,kc2/kc2_runtime/*,kc2/art/join1_index.json,data/vfx/*",
+       "tools/*,kc2/model_pack/model/*,kc2/bundle/eor4x*,models/*,data/bv2f/ext/*,data/bv2f/site_ph4/*," + ",".join("kc2/art/%s/*" % k for k in art_kits))
+# the hero's rig (his GLBs + the eor4x clips) rides in its own pack: it is read only when the arena opens
+preset(1, "hero_0", "resources", glbs, "kc2/bundle/eor4x*", "tools/*")
+n = 2
+for pk, mem in {**st["model_packs"], **st["vfx_packs"]}.items():
+    preset(n, pk.replace(".pck", ""), "resources", [], ",".join(mem), "tools/*")
+    n += 1
 for i, (pk, kits) in enumerate(st["kit_pack_members"].items()):
-    preset(i + 1, "Kits%d" % i, "resources", [], ",".join("kc2/art/%s/*" % k for k in kits), "tools/*")
+    preset(n, pk.replace(".pck", ""), "resources", [], ",".join("kc2/art/%s/*" % k for k in kits), "tools/*")
+    n += 1
+# the site's data (the extension models, the ph4 level and phone painting): its own packs, loaded before the scene builds
+preset(n, "site_0", "resources", [], "data/bv2f/ext/*,data/bv2f/site_ph4/level/*", "tools/*")
+preset(n + 1, "site_1", "resources", [], "data/bv2f/site_ph4/painted_web/*", "tools/*")
 (root / "export_presets.cfg").write_text("\n".join(out))
 print("presets: main + %d kit packs; %d scripts, %d glbs" % (len(st["kit_pack_members"]), len(scripts), len(glbs)))
 PY
@@ -127,9 +136,9 @@ echo "== 3c export"
 rm -rf "$DEST/build/web"; mkdir -p "$DEST/build/web"
 "$GODOT" --headless --path "$DEST" --export-release "WebArena" "$DEST/build/web/index.html" > "$LOG/export.log" 2>&1 \
   || { tail -30 "$LOG/export.log" >&2; exit 5; }
-NPK=$(python3 -c "import json;print(len(json.load(open('$DEST/kc2/bundle/BUNDLE_STAMP.json'))['kit_packs']))")
-for i in $(seq 0 $((NPK - 1))); do
-  "$GODOT" --headless --path "$DEST" --export-pack "Kits$i" "$DEST/build/web/kits_$i.pck" >> "$LOG/export.log" 2>&1 \
+python3 "$TOOLS/pck_web_extensions.py" "$DEST/build/web/index.pck"
+for PK in $(python3 -c "import json;print(' '.join(json.load(open('$DEST/kc2/bundle/BUNDLE_STAMP.json'))['kit_packs']))"); do
+  "$GODOT" --headless --path "$DEST" --export-pack "${PK%.pck}" "$DEST/build/web/$PK" >> "$LOG/export.log" 2>&1 \
     || { tail -30 "$LOG/export.log" >&2; exit 5; }
 done
 
@@ -138,12 +147,24 @@ ls -la "$DEST/build/web" | tee "$LOG/files.txt"
 BIG=$(find "$DEST/build/web" -type f -size +${MAX_FILE_MB}M | wc -l | tr -d ' ')
 [ "$BIG" = "0" ] || { echo "FENCE: a file at or over $MAX_FILE_MB MB" >&2; exit 6; }
 grep -q 'base href="/playtest/barrow-arena/"' "$DEST/build/web/index.html" || { echo "FENCE: base href" >&2; exit 6; }
-echo "== 4b launch probe (the exported pck; Compatibility; web branches on; kit packs from the build dir)"
-"$GODOT" --path "$DEST" --main-pack "$DEST/build/web/index.pck" --rendering-method gl_compatibility \
-  --resolution 960x540 --position 0,0 -- --as-web --kit-pack-dir "$DEST/build/web" --arena-auto --arena-quit-s 12 \
-  > "$LOG/launch.log" 2>&1 || true
-grep "\[bv2f_arena\] kit packs\|\[arena\] launch:\|REFUSED\|SCRIPT ERROR" "$LOG/launch.log" | cut -c1-400
-grep -q "\[arena\] launch: bundled true.*G6C-LEECH-JOIN:PASS" "$LOG/launch.log" || { echo "FENCE: launch probe" >&2; exit 7; }
+echo "== 4b isolated pack-order and byte-identity probe (no loose project files)"
+ISOLATED=$(mktemp -d "${TMPDIR:-/tmp}/barrow-arena-probe.XXXXXX")
+"$GODOT" --headless --path "$ISOLATED" --main-pack "$DEST/build/web/index.pck" \
+  --script "$TOOLS/arena_pack_order_probe.gd" -- --as-web --pack-dir "$DEST/build/web" \
+  > "$LOG/pack_probe.log" 2>&1 || { cat "$LOG/pack_probe.log" >&2; exit 7; }
+grep -q 'PACK_ORDER: PASS' "$LOG/pack_probe.log" || { cat "$LOG/pack_probe.log" >&2; exit 7; }
+echo "== 4c actual WebAssembly browser smoke tests"
+SMOKE_ROOT=$(mktemp -d "${TMPDIR:-/tmp}/barrow-arena-web.XXXXXX")
+mkdir -p "$SMOKE_ROOT/playtest"
+ln -s "$DEST/build/web" "$SMOKE_ROOT/playtest/barrow-arena"
+SMOKE_PORT=${ARENA_SMOKE_PORT:-8796}
+node "$TOOLS/web_br_server.js" "$SMOKE_ROOT" "$SMOKE_PORT" > "$LOG/smoke_server.log" 2>&1 &
+SMOKE_PID=$!
+trap 'kill "$SMOKE_PID" 2>/dev/null || true' EXIT
+for MODE in desktop --touch --fail-pack; do
+  node "$TOOLS/web_arena_test.cjs" "http://127.0.0.1:$SMOKE_PORT/playtest/barrow-arena/" "$LOG/browser-${MODE#--}" "$MODE" \
+    > "$LOG/browser-${MODE#--}.log" 2>&1 || { tail -30 "$LOG/browser-${MODE#--}.log" >&2; exit 7; }
+done
 if [ "$NO_STAGE" = "1" ]; then echo "built (not staged): $DEST/build/web"; exit 0; fi
 echo "== 5 stage -> $STAGE (no commit, no push)"
 mkdir -p "$STAGE"
