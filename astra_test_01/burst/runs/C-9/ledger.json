@@ -55558,6 +55558,18 @@
         "R-C9-352",
         "R-C9-359"
       ]
+    },
+    {
+      "id": "R-C9-363",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T20:52:17-04:00",
+      "verbatim": "Lastly, can we use the world generator API to quickly extend the edges of the scene so that you don't see the edge of our barrow_v2 in an obvious and ugly way? Would that be the best way to do it? We would just also need to set up a boundary so you cannot exit the fighting area/scene.",
+      "ruling": "Conductor recommends AGAINST an AI world generator for the edges (2026-09-29 verdict path D: splat worlds 33-132x too coarse at our camera, light baked in; would read worse than the edge and break the one-hand rule). Instead, to drax with R-C9-362: (1) camera clamp so the view frustum never leaves the painted plate at either zoom (cap the Z zoom if needed); (2) a player-only sliding fight boundary along the playable edge, land and sea; monsters unaffected, out-of-boundary spawns reported; (3) perimeter eye-check at both zooms. Fallback if any edge still shows: an outpaint band in our own paint-over method, a later Matt item.",
+      "cites": [
+        "R-C9-359",
+        "R-C9-362",
+        "agentic_orchestration/gandalf/notes/2026-09-29-a-world-that-fits-the-barbarian-verdict.md"
+      ]
     }
   ],
   "grok_calls": [
