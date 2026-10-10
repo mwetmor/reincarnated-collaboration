@@ -55761,6 +55761,19 @@
         "R-C9-376",
         "58369152e"
       ]
+    },
+    {
+      "id": "R-C9-378",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-10T00:22:46-04:00",
+      "verbatim": "Please have the drax snow tests stop. Just go back to the exact snow from the painted barrow _v1. I think it was probably option C, but it was lighter (less on the ground than we now have it in v2).",
+      "ruling": "R-C9-377 sheet STOPPED. Arena snow = the PAINTED barrow_v1 snow exactly (barrow_full.gd _build_painted_snow: painted surface/colour, v1 depth rule, v1 texel densities 6.6 cm field / 3.3 cm trail); the installed-barrow drift system (windrows, piles, skirts, lee tails) and the lit tint/grey shade REMOVED (knob --arenasnow drifts, off). Kept: steep-ground feather and shard cull (v2 geometry needs them). One verification pass vs painted v1. Supersedes the drift parts of R-C9-368 and R-C9-371/375/377.",
+      "cites": [
+        "R-C9-368",
+        "R-C9-371",
+        "R-C9-375",
+        "R-C9-377"
+      ]
     }
   ],
   "grok_calls": [
