@@ -56304,6 +56304,16 @@
         "9ea2fb564",
         "81bd66b89"
       ]
+    },
+    {
+      "id": "R-C9-387",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-10T03:00:38-04:00",
+      "ruling": "PT halted the ph4 stills at 20.7 GiB (lane halt 21). site_ph4 is fully built (b4651ab12; lineage 320 nodes; guide render 113/113 painted files ok; render-vs-painting mean abs diff 2.75 band / 6.6 plate incl. animated water). ONE-TIME RELEASE under the charter's conductor gate (20 GiB; lanes halt at 21): the stills run (one ~5 min Godot render, a few tens of MB written) may proceed at >= 20.0 GiB free; pt_godot.py's gate set to 20.0 for this run only, restored after. No further pruning. A Mac restart (~12 GB staged update) is recommended to Matt.",
+      "cites": [
+        "R-C9-386",
+        "b4651ab12"
+      ]
     }
   ],
   "grok_calls": [
