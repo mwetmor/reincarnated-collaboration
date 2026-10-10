@@ -118,7 +118,90 @@ var arena_snow_dropped_skirts := 0
 const EXCLUDE_MARGIN_M := 3.0
 
 
+# ============================================================================================================
+# R-C9-378 (Matt: "Just go back to the exact snow from the painted barrow_v1 ... lighter (less on the ground than we
+# now have it in v2)"): THE ARENA'S DEFAULT SNOW = THE PAINTED BARROW V1'S, as barrow_full.gd _build_painted_snow runs
+# it (bv2f_pilot.gd's DEV-18 copy of it, on v2's terrain): v1's SnowField, NO windrows/piles/skirts/tails, the depth
+# grid's ankle-deep layer only, the PAINTED snow surface (PaintedWorld.snow_shader_code: untouched it IS the painting;
+# his prints take the ramp) -- no lit-snow tint, no grey shade. Changed from the pilot's copy ONLY where v2 differs:
+#   * R-C9-378 (Matt: "I just played the painted barrow on vercel app on my phone and that's the snow we need"): THE
+#     TARGET IS THE DEPLOYED PHONE BUILD -- reincarnated-loadout public/playtest/barrow-painted (loadout e8d0d0f,
+#     exported 2026-10-08 from barrow_full/web_painted, whose scripts are byte-identical to godot/scripts: barrow_full.gd
+#     38667b2f1abc, snow_field.gd 066dddf840c2, painted_world.gd 40f20f4bf4bf). Its snow is this same law with the WEB
+#     data (data/painted_web/manifest.json): field 512 px and trail 512 px over its 47.211 m square = 9.22 cm a texel
+#     each, and half-float field/trail textures (SnowField.half_float_textures = PaintStack.is_web()). So here: the
+#     same 9.22 cm on v2's 86.165 m square (field 960 px; trail 896 px, the nearest whole 128 px tiles = 9.62 cm),
+#     half floats on. (Web-only paths NOT carried, they are the renderer, not the snow: gl_compatibility, the
+#     stencil pen, the 4096 px painting, msaa/scale3d.)
+#   * the steep-ground feather (no snow cliffs on v2's terrain steps) and the shard cull (no stretched sheets)
+# `-- --arenasnow drifts` brings back the installed-Barrow drift build (R-C9-368..377, below), off by default.
+# ============================================================================================================
+const PAINTED_V1_FIELD_M_PER_PX := 47.211 / 512.0   # data/painted_web/manifest.json snow.field_px over area_xz
+const PAINTED_V1_TRAIL_M_PER_PX := 47.211 / 512.0   # data/painted_web/manifest.json snow.trail_px
+
+
 func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
+	if Slots.arg("arenasnow") == "drifts":
+		_build_drift_snow(man, ground_tex, lit, shadow_mul)
+		return
+	var sn: Dictionary = man["snow"]
+	var g: Dictionary = sn["grid"]
+	var buf := PaintedWorld.load_f32_bin(String(g["file"]), String(g["sha256"]), paint["loads"])
+	var nx := int(g["nx"])
+	var nz := int(g["nz"])
+	if buf.size() != 2 * nx * nz:
+		push_error("bv2f_arena: the snow grid is %d floats, not %d" % [buf.size(), 2 * nx * nz])
+		return
+	var go: Array = g["origin_xz"]
+	snow = SNOW_TERRAIN.new()
+	var ghd: Dictionary = sn.get("ground_h", {})
+	if not ghd.is_empty():
+		var ghb := PaintedWorld.load_f32_bin(String(ghd["file"]), String(ghd["sha256"]), paint["loads"])
+		snow.set_ground_height(ghb, Vector2(float(go[0]), float(go[1])), float(g["cell_m"]), nx, nz)
+	snow.name = "SnowField"
+	snow.fbm_tex = fbm
+	var ar: Array = sn["area_xz"]
+	var side := float(ar[2])
+	snow.field_px = int(ceil(side / PAINTED_V1_FIELD_M_PER_PX / 64.0)) * 64
+	snow.trail_px = int(round(side / PAINTED_V1_TRAIL_M_PER_PX / 128.0)) * 128     # whole 128 px trail tiles
+	snow.windrow_count = 0
+	snow.pile_count = 0
+	snow.cast_shadows = false
+	snow.half_float_textures = true                       # as the phone build (PaintStack.is_web())
+	var mul := buf.slice(0, nx * nz)
+	var ghb2: PackedFloat32Array = snow.ground_h_buf
+	_feather_depth(mul, ghb2, nx, nz, float(g["cell_m"]))
+	snow.depth_grid = {"origin": Vector2(float(go[0]), float(go[1])), "cell_m": float(g["cell_m"]),
+					   "nx": nx, "nz": nz, "mul": mul, "trod": buf.slice(nx * nz, 2 * nx * nz)}
+	snow.thin_zones = paint.get("_thin_zones", [])
+	paint.erase("_thin_zones")
+	var code := PaintedWorld.snow_shader_code()
+	var shard := _shard_cull_code(code)
+	snow.shader_code_override = shard if shard != "" else code
+	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, [], WIND)
+	add_child(snow)
+	var smat := snow.material()
+	smat.set_shader_parameter("paint_tex", ground_tex)
+	PaintedWorld.bind_projection(smat, lit, shadow_mul, u_hat, v_hat)
+	snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
+	if shard != "":
+		smat.set_shader_parameter("shard_step_uv", Vector2(snow.grid_quad_m / float(ar[2]), snow.grid_quad_m / float(ar[3])))
+		var kr := Slots.arg("arenasnow-shard")
+		smat.set_shader_parameter("shard_rise_m", float(kr) if kr != "" else SHARD_RISE_M)
+	if heather_mat != null:
+		BarrowHeather.bind_snow(heather_mat, snow, WIND)
+	if reed_mat != null:
+		BarrowHeather.bind_snow(reed_mat, snow, WIND)
+	var br := snow.bake_report()
+	arena_snow_report = {"law": "painted v1 (R-C9-378)", "area_m": side, "field_px": snow.field_px,
+		"trail_px": snow.trail_px, "field_cm": snappedf(side / snow.field_px * 100.0, 0.01),
+		"trail_cm": snappedf(side / snow.trail_px * 100.0, 0.01), "shard_cull": shard != "",
+		"mean_depth_m": br.get("mean_depth_m"), "bake_ms": br.get("ms", br.get("bake_ms"))}
+	paint["snow"] = arena_snow_report
+	print("[bv2f_arena] snow: " + JSON.stringify(arena_snow_report))
+
+
+func _build_drift_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
 	var sn: Dictionary = man["snow"]
 	var g: Dictionary = sn["grid"]
 	var buf := PaintedWorld.load_f32_bin(String(g["file"]), String(g["sha256"]), paint["loads"])
