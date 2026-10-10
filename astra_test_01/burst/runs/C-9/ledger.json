@@ -55596,6 +55596,27 @@
         "R-C9-363",
         "R-C9-364"
       ]
+    },
+    {
+      "id": "R-C9-366",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T21:21:58-04:00",
+      "verbatim": [
+        "Use what we have (Recommended)",
+        "Simple new strike (Recommended)",
+        "Approve (Recommended)"
+      ],
+      "ruling": "drax batch 8132c757c/ce100b4fe/267d4e677 ACCEPTED (wreck slide; smoke resume() after Charge interrupt, local-coords change reverted; snow follows arena camera + warlord footprints; water/floes were never missing; 51 player-only prop colliders; 27 placeholder rows; generic champion names; R-C9-365 edge code flag-off). MIXAMO (R-C9-355): Charge = great sword slide attack; Haste = his current great sword run at ~1.3x playback; War Cry = standing taunt battlecry; basic attack on enemy click without whirlwind = great sword slash; rendered into a new eor4-style variant pack root (eor3 untouched). ENEMY VFX (R-C9-358..361) mapping APPROVED: fire ranged = fire_ball_fx (aimed/timed wrapper) + 0.55 burst + ember residue; other magic = recoloured fireball + small tinted explosion + motes; thrown = 3D remake of the gray bottle, ground fire only for fire-type else dust; lightning = a simple new jagged bolt + flash (no stock pack); auras = s2a_aura tinted; melee = swipe + spark; classification by the variant-side table from step 0. PERF BUDGET RESTATED: wave-160 baseline is already 54.6 avg / 43.0 1%-low without enemy VFX, so the R-C9-361 '>=60 avg' bar is replaced by: VFX on must stay within ~5% avg and ~10% 1%-low of the no-VFX run.",
+      "cites": [
+        "R-C9-355",
+        "R-C9-358",
+        "R-C9-359",
+        "R-C9-360",
+        "R-C9-361",
+        "8132c757c",
+        "ce100b4fe",
+        "267d4e677"
+      ]
     }
   ],
   "grok_calls": [
