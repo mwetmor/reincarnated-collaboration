@@ -51534,9 +51534,70 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-N1-P-pool1",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "73674b92fa5c238fde685574f3a6dc083fdcbfa41abd3d5960d3d5fa9ec87ca8",
+      "started": "2026-10-10T07:22:33.039764+00:00",
+      "ended": "2026-10-10T07:24:21.322080+00:00",
+      "minutes": 1.8046555583326456,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a124b1-3efe-7501-a17e-9feb37debeed/exec-02ad1e3e-d23b-487b-acd0-2b3bfafad81a.png",
+            "sha256": "29e32fb36e10771b87b9ddad72366c923520dbe3ec8b38b23f1750a433683f67"
+          }
+        ]
+      },
+      "receipt_sha256": "3ecbf4cdf752873757406465358a92d5023327d3f47222150f6275f9cd559894",
+      "artifacts": [
+        {
+          "name": "BV2F-N1-P-pool1.png",
+          "sha256": "29e32fb36e10771b87b9ddad72366c923520dbe3ec8b38b23f1750a433683f67"
+        },
+        {
+          "name": "exec-02ad1e3e-d23b-487b-acd0-2b3bfafad81a.provenance.json",
+          "sha256": "aba30ea061d440fabb09c195699d15264cab1365f38c6ca5c6cc594804dc1368"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a124b1-3efe-7501-a17e-9feb37debeed/exec-02ad1e3e-d23b-487b-acd0-2b3bfafad81a.png",
+          "sha256": "29e32fb36e10771b87b9ddad72366c923520dbe3ec8b38b23f1750a433683f67"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1471,
+  "images_used": 1472,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -56330,6 +56391,23 @@
         "R-C9-387",
         "R-C9-388",
         "4b3cd24e7"
+      ]
+    },
+    {
+      "id": "R-C9-391",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-10T10:34:38-04:00",
+      "verbatim": [
+        "I'll clear the temp frames (Recommended)",
+        "let's start with the vercel app but make it playable on either PC with the controls used today or mobile with touch.",
+        "skip pc for now",
+        "Live 3D warlord (Recommended)"
+      ],
+      "ruling": "(1) PT a5c6cad09 ACCEPTED: the north-band seam defect was wider than the pool (new shape check failed 9 windows; R-C9-384 plate kept as fail-first control); pool removed by one masked band repaint (N1 12/14); harmonic Poisson seam in compose; identity PASS (rows>=768 = 1e5f9dd90c0f); shape check PASS; phone data site_ph4/painted_web (WebP 4096x2993, 6.01 MB; 22.6 MB total). Conductor read n1_door_z100: no pool, no cut. (2) SHAREABLE BUILD = ONE Vercel web build playable on PC (today's mouse/keyboard controls) AND mobile (touch); PC download packages SKIPPED for now (no hosting/signing needed). (3) Default warlord in the shared build = LIVE 3D. (4) Disk: Matt clears the session scratchpad temp frames himself (drax's deletion was refused by the permission system).",
+      "cites": [
+        "R-C9-389",
+        "R-C9-390",
+        "a5c6cad09"
       ]
     }
   ],
