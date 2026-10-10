@@ -79,6 +79,11 @@ func _entry(id: int, m, delta: float) -> void:
 			e["n"] = Vector2(sin(b), -cos(b))          # compass bearing in the sim frame: 0 = -y, 90 = +x, 180 = +y
 			e["alpha"] = 0.0
 			n_entry_door += 1
+			if debug_on or OS.get_cmdline_user_args().has("--arena-entry-log"):
+				print("[arena] door walk: %s actor %d at %.2f s (wave %d)" % [a, id, _wall_s, int(snap.get("wave", 0))])
+		elif a == "p05":
+			e["alpha"] = 1.0                            # the mere ambush rises OUT OF the ice by design (its emerge clip)
+			e["phase"] = "ice"
 		elif not open:
 			e["phase"] = "solid"
 			e["alpha"] = 0.0
@@ -108,6 +113,8 @@ func _entry(id: int, m, delta: float) -> void:
 				target = 1.0 if (p - D).dot(n) > 0.0 else 0.0
 				if s >= 1.0:
 					e["phase"] = "done"
+		"ice":
+			target = 1.0
 		"solid", "done":
 			target = 1.0 if (open or stationary or give_up) else 0.0
 			if open:
@@ -452,6 +459,12 @@ func _boot() -> void:
 	accum = 0.0
 	pending_presses = []
 	snap = session.snapshot()
+	# the opening wave's spawn events fire inside open(), before the first tick is consumed: their anchors too
+	for e0 in session.stream.events:
+		if String((e0 as Dictionary).get("event", "")) == "spawn":
+			var pk0 := String(e0.get("spawn_point_id", "")).split("|")
+			if pk0.size() >= 2:
+				spawn_anchor[int(e0.get("actor_id", -1))] = "p%02d" % int(pk0[1])
 	_render(0.0)
 	print("[arena] open: seed %d, runtime %s, fight centre %s, spawn points %s, pools dropped %d, telemetry %s" % [
 		seed_used, _runtime_digest().substr(0, 12), str(T), _anchors_line(), int(session.fold.get("pools_dropped", -1)),

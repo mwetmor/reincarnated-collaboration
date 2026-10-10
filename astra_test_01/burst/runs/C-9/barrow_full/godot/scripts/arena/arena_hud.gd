@@ -72,7 +72,7 @@ func _draw() -> void:
 	if mode.show_bars:
 		for k in mode.actors.keys():
 			var m = mode.actors[k]
-			if m.dying or not m.released:
+			if m.dying or not m.released or float(m.entry_alpha) < 0.5:   # R-C9-383: not over a body hidden in a door / solid
 				continue
 			var top: Vector3 = m.global_position + Vector3.UP * (float(m.true_height_m) * 0.62 + 0.35)
 			if cam.is_position_behind(top):
