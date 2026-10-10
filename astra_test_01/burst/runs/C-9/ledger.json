@@ -56441,6 +56441,19 @@
         "R-C9-391",
         "KP-312"
       ]
+    },
+    {
+      "id": "R-C9-396",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-10T11:59:50-04:00",
+      "verbatim": "The build works well when I run it interminal. The smoke of the whirlwind is missing but we will leave it like this for now due to limits.",
+      "ruling": "Matt's local play of the arena (3D warlord, 1.5x light, ph4, white snow): works well. KNOWN DEFECT, DEFERRED by Matt: the whirlwind smoke is missing in his run (after 63da0b4c5's mace-emission change and/or the R-C9-391 web-build edits). Left as is for now due to usage limits; to be root-caused later. Web build continues to staging.",
+      "cites": [
+        "R-C9-392",
+        "R-C9-393",
+        "R-C9-395",
+        "63da0b4c5"
+      ]
     }
   ],
   "grok_calls": [
