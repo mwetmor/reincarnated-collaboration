@@ -55797,6 +55797,19 @@
         "a80bd0eb5",
         "10a1e460d"
       ]
+    },
+    {
+      "id": "R-C9-381",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-10T01:04:37-04:00",
+      "verbatim": "the enemy vfx are good for now. leave them in. For all of the play sessions though, something has been bothering me: It seems like the frames per second is far lower than it was in the character animation testing we did in barrow v1.. And now the slow fps across all of the character and monster animations and all VFX definitely doesn't look great. So I'm wondering what's causing it? Is it the snowfall or 3D physics of swaying reeds, bushes, water, ice flows? IF that is the cause, let's turn off all of the 3D physics and see if the animations look less choppy.. If it's another root cause, please let me know. After we fix this, let's update this arena so that the monsters actually enter through doorways (do not appear before they exit the black of the doors and do not appear through hills/housing parts that are not doors. Then let's commissiion the added pictures needed for the North area above the barrow so that we don't see the edge of the screen, and make an invisible barrier so you can't go up there. THen I would, like a shareable app set of it: 1) vercel for mobile, 2) whatever is best to share for PC",
+      "ruling": "(1) Enemy VFX DEFAULT ON (10a1e460d accepted). (2) CHOPPINESS: root-cause first -- render fps vs sprite clip frame rates vs sim-tick position stepping (no interpolation) vs per-layer cost (snowfall, heather/reed sway, water, floes, snow field, shadows, VFX); compare against the barrow_v1 character-animation tests; if the scene layers are the cause, turn the 3D motion layers off and A/B; if not, report the real cause to Matt. (3) Then DOORWAY ENTRY: monsters at door spawns are not seen until they step out of the door's darkness, and nothing appears through hills/houses (presentation-side; sim scatter untouched unless a variant path exists). (4) Then the NORTH EXTENSION painting is GO (Matt's go-ahead per R-C9-364/365) plus an invisible north barrier. (5) Then SHAREABLE BUILDS: Vercel web for mobile + the best PC share format. Order as listed.",
+      "cites": [
+        "R-C9-364",
+        "R-C9-365",
+        "R-C9-380",
+        "10a1e460d"
+      ]
     }
   ],
   "grok_calls": [
