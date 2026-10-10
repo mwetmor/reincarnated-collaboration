@@ -55502,6 +55502,18 @@
         "3315f192f",
         "638d1eebe"
       ]
+    },
+    {
+      "id": "R-C9-358",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T20:36:47-04:00",
+      "verbatim": "The whirlwind and those 3 updates are great. Aside from the other work, I seem to see that the enemies are using melee attack animations (probably Mixamo) but no melee VFX and definitely no ranged VFX (and I think no ranged animations potentially either). What is a rather minimal approach to get all attacks animated and with VFX? We don't need 30+ enemies worth of VFX types, but we need something decent for melee, ranged physical and ranged magical.",
+      "ruling": "Minimal enemy-attack presentation queued to drax (after R-C9-356/357 and R-C9-355 step 1): every attack plays a clip (melee attack_*; ranged hurl/cast else attack; release warped to the sim tick); THREE VFX families tinted by damage type -- melee swipe crescent + hit spark; ranged physical shard streak + dust puff, arriving on the sim's projectile arrival tick; ranged magical element-tinted orb + trail + burst; plus a red hit flash on the warlord. Step 0 confirms the sim exposes attack class + element (else a variant-side classification table). Variant-side only.",
+      "cites": [
+        "R-C9-355",
+        "R-C9-356",
+        "R-C9-357"
+      ]
     }
   ],
   "grok_calls": [
