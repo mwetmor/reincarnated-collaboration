@@ -1,0 +1,182 @@
+{
+ "_what": "R-C9-384 IDENTITY PROOF: every ph3 plate pixel is byte-identical in ph4 at (x, y + 768)",
+ "ph3_painting": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/ph3/final/painting_ph3_r339_full.png",
+ "ph3_file_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+ "ph3_pixels_sha256": "1e5f9dd90c0f0229bf2d59106dfd33c2db810ff5c08c01b34af46ee90bb93a9d",
+ "ph4_painting": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid/pt/north/final/painting_ph4_full.png",
+ "ph4_file_sha256": "5b2d3153a6211aa7316c1f1cfec7dd991186e38b985aa6bb15a7d91c2f194a55",
+ "ph4_pixels_sha256": "cc4efd1bb92c21885c0a4c0001d97eeae765583df360e1e32bf7bf831aabb434",
+ "ph4_rows_768_on_pixels_sha256": "1e5f9dd90c0f0229bf2d59106dfd33c2db810ff5c08c01b34af46ee90bb93a9d",
+ "identical": true,
+ "differing_px": 0,
+ "band_chunks": {
+  "0_N": {
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-0_N/BV2F-N1-0_N.png",
+   "sha256": "e9952926392cb73b145b4d01b6a37bfe624e36d606655a444b71d1588a8b43a4"
+  },
+  "1_N": {
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-1_N-r1/BV2F-N1-1_N.png",
+   "sha256": "383368db6a36ca528c38392c25f3089a9e1685401b2daec62a0cddba99b14243"
+  },
+  "2_N": {
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-2_N/BV2F-N1-2_N.png",
+   "sha256": "55085a1d596b2d1152c2f31ce9a2ea793d3687c0210806a6e39276998b107c0c"
+  },
+  "3_N": {
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-3_N/BV2F-N1-3_N.png",
+   "sha256": "56316ed76712cf39ebddd9e0b8508e91d6502d7364f464ebb2f368b9dbeb30d1"
+  },
+  "4_N": {
+   "file": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-4_N/BV2F-N1-4_N.png",
+   "sha256": "df779a4317f2de83aeec185f03bda11a841491a4c0c377d9db8fb035623ef4fc"
+  }
+ },
+ "seam_fix": {
+  "0_N": {
+   "v": 1,
+   "bid": "BV2F-N1-0_N",
+   "raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-0_N/BV2F-N1-0_N.png",
+   "raw_sha256": "e9952926392cb73b145b4d01b6a37bfe624e36d606655a444b71d1588a8b43a4",
+   "plate_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+   "class_sha256": "fd14a39096445181da07113eef7d7419b0a74d13e046fa91f1ee4bba2f34ef71",
+   "out_sha256": "27e2710d5005d3931af655da4d8ca45c4cd4ef3547e08dbe8aa89fdb06b9f77a",
+   "tone_step_cols_measured": 1493,
+   "tone_step_median_abs_rgb": [
+    8.94,
+    5.81,
+    5.0
+   ],
+   "tone_step_max_abs": 30.0,
+   "ice_mirror_px": 91232,
+   "params": {
+    "seam_rows": 8,
+    "sigma_x": 48.0,
+    "taper_px": 320,
+    "mirror_px": 96,
+    "ice_classes": [
+     "ice",
+     "ice_mid",
+     "shore_ice",
+     "tide_ice"
+    ]
+   }
+  },
+  "1_N": {
+   "v": 1,
+   "bid": "BV2F-N1-1_N-r1",
+   "raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-1_N-r1/BV2F-N1-1_N.png",
+   "raw_sha256": "383368db6a36ca528c38392c25f3089a9e1685401b2daec62a0cddba99b14243",
+   "plate_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+   "class_sha256": "fd14a39096445181da07113eef7d7419b0a74d13e046fa91f1ee4bba2f34ef71",
+   "out_sha256": "d2c68aeae40e2e8c1ffb5fc03899ec5fcc2e77624048028070aa5c043de34f2e",
+   "tone_step_cols_measured": 1480,
+   "tone_step_median_abs_rgb": [
+    13.46,
+    11.72,
+    3.32
+   ],
+   "tone_step_max_abs": 30.0,
+   "ice_mirror_px": 63220,
+   "params": {
+    "seam_rows": 8,
+    "sigma_x": 48.0,
+    "taper_px": 320,
+    "mirror_px": 96,
+    "ice_classes": [
+     "ice",
+     "ice_mid",
+     "shore_ice",
+     "tide_ice"
+    ]
+   }
+  },
+  "2_N": {
+   "v": 1,
+   "bid": "BV2F-N1-2_N",
+   "raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-2_N/BV2F-N1-2_N.png",
+   "raw_sha256": "55085a1d596b2d1152c2f31ce9a2ea793d3687c0210806a6e39276998b107c0c",
+   "plate_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+   "class_sha256": "fd14a39096445181da07113eef7d7419b0a74d13e046fa91f1ee4bba2f34ef71",
+   "out_sha256": "1e3eb02de72231c5a2ae3dc8ee4cdb3e6207f1b5263496fc668ef1235448a1c3",
+   "tone_step_cols_measured": 1530,
+   "tone_step_median_abs_rgb": [
+    16.26,
+    21.45,
+    27.76
+   ],
+   "tone_step_max_abs": 30.0,
+   "ice_mirror_px": 0,
+   "params": {
+    "seam_rows": 8,
+    "sigma_x": 48.0,
+    "taper_px": 320,
+    "mirror_px": 96,
+    "ice_classes": [
+     "ice",
+     "ice_mid",
+     "shore_ice",
+     "tide_ice"
+    ]
+   }
+  },
+  "3_N": {
+   "v": 1,
+   "bid": "BV2F-N1-3_N",
+   "raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-3_N/BV2F-N1-3_N.png",
+   "raw_sha256": "56316ed76712cf39ebddd9e0b8508e91d6502d7364f464ebb2f368b9dbeb30d1",
+   "plate_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+   "class_sha256": "fd14a39096445181da07113eef7d7419b0a74d13e046fa91f1ee4bba2f34ef71",
+   "out_sha256": "0e8f7f912f5888c41a34e069b3454e5a86c2c4270f7c3dad8760576c8f1e5664",
+   "tone_step_cols_measured": 1425,
+   "tone_step_median_abs_rgb": [
+    10.14,
+    11.73,
+    8.59
+   ],
+   "tone_step_max_abs": 30.0,
+   "ice_mirror_px": 4660,
+   "params": {
+    "seam_rows": 8,
+    "sigma_x": 48.0,
+    "taper_px": 320,
+    "mirror_px": 96,
+    "ice_classes": [
+     "ice",
+     "ice_mid",
+     "shore_ice",
+     "tide_ice"
+    ]
+   }
+  },
+  "4_N": {
+   "v": 1,
+   "bid": "BV2F-N1-4_N",
+   "raw": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/artifacts/BV2F-N1-4_N/BV2F-N1-4_N.png",
+   "raw_sha256": "df779a4317f2de83aeec185f03bda11a841491a4c0c377d9db8fb035623ef4fc",
+   "plate_sha256": "4dc60d9c583613022705eec02bfa6f6c3af655d17edbf50d7291940412b365a6",
+   "class_sha256": "fd14a39096445181da07113eef7d7419b0a74d13e046fa91f1ee4bba2f34ef71",
+   "out_sha256": "acb3556784fa7420a60e4bcb99dd83530d8e872022ea009cfa82af3a59cd5bf8",
+   "tone_step_cols_measured": 1536,
+   "tone_step_median_abs_rgb": [
+    3.24,
+    1.26,
+    1.77
+   ],
+   "tone_step_max_abs": 30.0,
+   "ice_mirror_px": 0,
+   "params": {
+    "seam_rows": 8,
+    "sigma_x": 48.0,
+    "taper_px": 320,
+    "mirror_px": 96,
+    "ice_classes": [
+     "ice",
+     "ice_mid",
+     "shore_ice",
+     "tide_ice"
+    ]
+   }
+  }
+ },
+ "control_one_px_change_caught": true
+}

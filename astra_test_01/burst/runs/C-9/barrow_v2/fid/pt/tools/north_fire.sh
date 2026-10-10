@@ -8,7 +8,7 @@ set -u
 FID=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_v2/fid
 B=/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst
 T=$FID/pt/tools; RG=$FID/v1tools/tierA/conductor_scripts/refs_guard.py; WAVE=$FID/v1tools/tierA/conductor_scripts/wave.sh
-C=${1:?chunk}; SUF=${2:-}; BID=BV2F-N1-${C}_N$SUF; L=$HOME/astra-burst/logs/C-9; CAP=10
+C=${1:?chunk}; SUF=${2:-}; BID=BV2F-N1-${C}_N$SUF; L=$HOME/astra-burst/logs/C-9; CAP=12   # R-C9-386: 10 -> 12 for 4_N
 F=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); [ $F -ge 21 ] || { echo "HALT: disk ${F} GiB < 21"; exit 9; }
 USED=$(python3 -c "import json;L=json.load(open('$B/runs/C-9/ledger.json'));print(sum(b.get('image_calls',0) for b in L['bursts'] if str(b.get('id','')).startswith('BV2F-N1-')))")
 echo "disk ${F} GiB; images BV2F-N1 used $USED / $CAP"
