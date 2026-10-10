@@ -28,6 +28,9 @@ const ArenaHud = preload("res://scripts/arena/arena_hud.gd")
 const ArenaNumbers = preload("res://scripts/arena/arena_numbers.gd")
 var numbers = null
 const Token3D = preload("res://scripts/arena/arena_token3d.gd")
+const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # loaded only when asked for (WIP, R-C9-374)
+var enemy_vfx = null                # R-C9-358..361 (`-- --arena-vfx off`: none built -- the fps pair's OFF run)
+var vfx_on := true
 
 const GEOM := "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json"
 const FEEL_ONLY := true
@@ -170,12 +173,30 @@ func setup(sc) -> void:
 	shot_every_s = float(_arg(args, "--arena-shot-every", "0"))
 	quit_after_s = float(_arg(args, "--arena-quit-s", "0"))
 	topdown = "--arena-topdown" in args
+	# R-C9-374: the enemy VFX are WIP under review -- OFF unless asked for (`-- --arena-vfx on`, or the gallery)
+	vfx_on = _arg(args, "--arena-vfx", "off") == "on" or "--arena-vfx-gallery" in args
 	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
 	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
 	var ln := _arg(args, "--arena-look-nodes", "")
 	if ln != "":
 		look_nodes = Array(ln.split(","))
 	sea_z = float((scene.sim as Dictionary).get("sea_z", -4.5))
+	# R-C9-375: the character shadows take the scene's own sun (the light that casts the props' shadows)
+	var BodyBase = load("res://scripts/arena/arena_body3d.gd")
+	if scene.sun != null:
+		BodyBase.sun_dir = -scene.sun.global_transform.basis.z
+	BodyBase.cam_pitch_deg = float(scene.PL_PITCH_DEG)
+	BodyBase.card_slide = -scene.fwd * CARD_TOWARD_CAM_M
+	BodyBase.shadows_on = _arg(args, "--arena-shadow", "on") != "off"
+	var stq := _arg(args, "--arena-shadow-tint", "")
+	if stq != "":
+		var q := stq.split(",")
+		BodyBase.shadow_tint = Color(float(q[0]), float(q[1]), float(q[2]))
+	var sd: Vector3 = BodyBase.sun_dir
+	var cb: Basis = scene.cam.global_transform.basis
+	print("[arena] sun: light travel %s, elevation %.1f deg; its ground bearing on screen (x right, y down) (%.2f, %.2f)" % [
+		str(sd), rad_to_deg(asin(-sd.normalized().y)), Vector3(sd.x, 0, sd.z).normalized().dot(cb.x),
+		-Vector3(sd.x, 0, sd.z).normalized().dot(cb.y)])
 	var cl := CanvasLayer.new()
 	cl.layer = 5
 	add_child(cl)
@@ -197,6 +218,8 @@ func setup(sc) -> void:
 		return
 	seed_used = int(Time.get_unix_time_from_system()) & 0x7fffffff
 	_boot()
+	if "--arena-zoomed-out" in args:        # stills: KC2's wider view (the Z key)
+		_toggle_zoom()
 
 
 # --------------------------------------------------------------------------------------------- the session
@@ -234,6 +257,17 @@ func _boot() -> void:
 	warlord.name = "Warlord"
 	actors_root.add_child(warlord)
 	warlord.setup()
+	if enemy_vfx != null:
+		enemy_vfx.queue_free()
+		enemy_vfx = null
+	if vfx_on and ResourceLoader.exists(ENEMY_VFX_SCRIPT):
+		enemy_vfx = load(ENEMY_VFX_SCRIPT).new()
+		enemy_vfx.name = "EnemyVFX"
+		add_child(enemy_vfx)
+		enemy_vfx.setup(self)
+		if "--arena-vfx-gallery" in OS.get_cmdline_user_args():
+			enemy_vfx.start_gallery()
+			hud.visible = false               # the gallery is a still stage: no start card over it
 	running = true
 	fight_started = autopilot != ""
 	accum = 0.0
@@ -878,7 +912,13 @@ func _consume_events(evs: Array) -> void:
 		if ev == "cast_start":
 			var t = actors.get(int(e.get("actor_id", 0)), null)
 			if t != null:
-				t.on_cast_start(String(e.get("skill_id", "")), Vector2(float(e.get("aim_x_m", 0.0)), float(e.get("aim_y_m", 0.0))))
+				var aim_v := Vector2(float(e.get("aim_x_m", 0.0)), float(e.get("aim_y_m", 0.0)))
+				t.on_cast_start(String(e.get("skill_id", "")), aim_v)
+				if enemy_vfx != null:
+					enemy_vfx.on_cast_start(int(e.get("actor_id", 0)), t, String(e.get("skill_id", "")), aim_v)
+		elif ev == "hit" and int(e.get("dst_id", 0)) == 0 and int(e.get("src_id", 0)) != 0:
+			if enemy_vfx != null:
+				enemy_vfx.on_player_hit(int(e.get("src_id", 0)), warlord)
 		elif ev == "hit" and int(e.get("dst_id", 0)) != 0:
 			var t2 = actors.get(int(e["dst_id"]), null)
 			if t2 != null:
@@ -1097,6 +1137,14 @@ func _instruments(delta: float) -> void:
 			var nr2: Dictionary = no_pack_records[rk]
 			print("[arena] no-art record %s family %s n %d waves %s r_body %.3f placeholder %s" % [rk, nr2["family"], int(nr2["n"]),
 				str((nr2["waves"] as Dictionary).keys()), float(nr2["r_body"]), String(nr2["placeholder"])])
+		if enemy_vfx != null:
+			print("[arena] enemy vfx: " + JSON.stringify(enemy_vfx.report))
+		var nf: Dictionary = {}
+		for t5 in actors.values():
+			if t5 != null and t5.get("no_ranged_clip") != null:
+				for kk in (t5.no_ranged_clip as Dictionary).keys():
+					nf[kk] = true
+		print("[arena] packs with no ranged (hurl/cast) clip, attack used: %s" % str(nf.keys()))
 		print("[arena] slashes %d; whirlwind tick mean %.2f over %d hits (fallback %.1f)" % [n_slashes, _eor_tick_value(),
 			_eor_tick_n, SLASH_TICK_FALLBACK])
 		print("[arena] quit timer: wave %d, running %s, terminal '%s', actors %d, kits %s, no-pack %s, blocked stops %d" % [

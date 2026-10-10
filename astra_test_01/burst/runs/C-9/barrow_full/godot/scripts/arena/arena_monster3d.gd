@@ -290,7 +290,7 @@ func advance_monster(dt: float) -> void:
 		var ph := 0.5 + 0.5 * sin(clock_s * 10.0)
 		(_ring.material_override as StandardMaterial3D).albedo_color.a = 0.35 + 0.45 * ph
 	if _shadow != null:
-		_shadow.visible = released and not dying
+		_shadow.visible = false          # R-C9-375: the sun-cast silhouette (arena_body3d) replaces the round blob
 
 
 var _ring: MeshInstance3D = null

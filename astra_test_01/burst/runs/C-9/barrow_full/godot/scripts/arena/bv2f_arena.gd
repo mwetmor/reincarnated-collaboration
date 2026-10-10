@@ -114,6 +114,8 @@ const SNOW_EXCLUDE := [
 	{"id": "wreck_basin", "c": Vector2(-27.1, -2.9), "r": 10.0},   # the wreck (13 x 4.6, rot 32.5) and its basin
 ]
 var arena_snow_report := {}
+var arena_snow_dropped_skirts := 0
+const EXCLUDE_MARGIN_M := 3.0
 
 
 func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
@@ -168,6 +170,7 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	#   no res://textures/barrow/snow.png, so SnowField's own fallback drew the snow with NO tile -- the flat "cotton"
 	var st := Image.load_from_file(V1_SNOW_TILE)
 	if st != null and not st.is_empty():
+		st.adjust_bcs(1.0, 1.0, 0.0)          # R-C9-375: no blue speckle -- v1's grain, grey
 		st.generate_mipmaps()
 		snow.snow_tile = ImageTexture.create_from_image(st)
 	else:
@@ -181,11 +184,33 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 		snow.shader_code_override = PaintedWorld.snow_shader_code()
 	else:
 		snow.snow_tint = _snow_white_tint()
+		snow.press_tint = SNOW_PRESS_NEUTRAL      # R-C9-375: prints read by value, not by blue
 		var shard := _shard_cull_code(SnowField.SHADER)
 		if shard != "":
 			snow.shader_code_override = shard
-	snow.clear_zones = zones
+	# R-C9-375 addendum (Matt: "bits and pieces of the snow banks still remaining"): BY RULE, nothing of a drift may
+	#   reach into an excluded feature -- windrows and piles are placed clear of each disc by EXCLUDE_MARGIN_M more
+	#   than their own placement radius (a windrow's falloff reaches past it), and an obstacle's skirt is dropped when
+	#   its full reach (radius + skirt width + the leeward tail) touches a disc
+	var zones_m: Array = []
+	for z in zones:
+		zones_m.append({"c": z["c"], "r": float(z["r"]) + EXCLUDE_MARGIN_M})
+	snow.clear_zones = zones_m
 	var obstacles := _arena_snow_obstacles(drop, zones)
+	var kept: Array = []
+	for ob in obstacles:
+		var r := float(ob.get("radius_m", 0.4))
+		var ws: float = snow.skirt_w_m + r * 0.6
+		var reach: float = r + ws * snow.tail_stretch + 0.2
+		var p3: Vector3 = ob["pos"]
+		var hit := false
+		for z in zones:
+			if Vector2(p3.x, p3.z).distance_to(z["c"]) < float(z["r"]) + reach:
+				hit = true
+		if not hit:
+			kept.append(ob)
+	arena_snow_dropped_skirts = obstacles.size() - kept.size()
+	obstacles = kept
 	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, obstacles, WIND)
 	add_child(snow)
 	if painted_surface:
@@ -193,6 +218,12 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 		smat.set_shader_parameter("paint_tex", ground_tex)
 		PaintedWorld.bind_projection(smat, lit, shadow_mul, u_hat, v_hat)
 		snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
+	if not painted_surface:
+		# R-C9-375 (Matt: "it has blue in it.. not snow white"): the ramp's shade is shadow_color x shadow_energy, the
+		#   world's BLUE-VIOLET (0.34, 0.37, 0.56); the lit side is the sun's warm colour, which the white tint already
+		#   cancels. So the snow's shade takes the SUN'S OWN HUE at SNOW_SHADE_K of its value: through the same tint it
+		#   lands neutral (a touch warm), and drifts and prints keep their value contrast.
+		snow.material().set_shader_parameter("shadow_color", _snow_shade_color())
 	if snow.shader_code_override.contains("shard_rise_m"):
 		var sm := snow.material()
 		sm.set_shader_parameter("shard_step_uv", Vector2(snow.grid_quad_m / float(ar[2]), snow.grid_quad_m / float(ar[3])))
@@ -205,7 +236,7 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	var br := snow.bake_report()
 	arena_snow_report = {"area_m": side, "field_px": snow.field_px, "trail_px": snow.trail_px,
 		"windrows": snow.windrow_count, "piles": snow.pile_count, "obstacles": obstacles.size(),
-		"windrows_placed": br.get("windrows_placed"), "piles_placed": br.get("piles_placed"),
+		"windrows_placed": br.get("windrows_placed"), "skirts_dropped_at_discs": arena_snow_dropped_skirts, "piles_placed": br.get("piles_placed"),
 		"surface": "painted" if painted_surface else "v1 lit, white tint %s" % str(snow.snow_tint),
 		"mean_depth_m": br.get("mean_depth_m"), "bake_ms": br.get("ms", br.get("bake_ms"))}
 	paint["snow"] = arena_snow_report
@@ -216,7 +247,23 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 ## tint re-balanced so the LIT flat snow reads neutral white instead of cream. Measured on stills (top half of a flat
 ## patch's pixels): v1 tint (235, 228, 220) cream-grey; the walk scene's painted snow (250, 237, 225). Knob for the eye:
 ## `-- --arenasnow-tint r,g,b`. Route: v1 lit + neutral white tint (the painted surface would carry the painting's warm cream).
-const ARENA_SNOW_WHITE := Color(1.17, 1.36, 1.58)     # lit flat snow measured (247, 247, 248); shade (209, 217, 233)
+const SNOW_PRESS_NEUTRAL := Color(0.80, 0.79, 0.775)
+## the shade's colour (the ramp's shadow_color, snow only): solved on stills so the shade lands a neutral, very slightly
+## warm grey through ARENA_SNOW_WHITE (the world's blue-violet (0.34, 0.37, 0.56) gave (209, 217, 233)). Knob:
+## `-- --arenasnow-shade r,g,b`.
+const SNOW_SHADE := Color(1.0, 0.80, 0.55)
+
+
+func _snow_shade_color() -> Color:
+	var k := Slots.arg("arenasnow-shade")
+	if k != "":
+		var q := k.split(",")
+		if q.size() == 3:
+			return Color(float(q[0]), float(q[1]), float(q[2]))
+	return SNOW_SHADE
+
+
+const ARENA_SNOW_WHITE := Color(1.20, 1.26, 1.30)     # R-C9-375: lit (247, 243, 241), shade (222, 218, 216), grain grey
 
 
 func _snow_white_tint() -> Color:
