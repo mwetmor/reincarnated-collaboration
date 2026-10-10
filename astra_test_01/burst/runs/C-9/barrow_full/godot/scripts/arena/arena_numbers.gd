@@ -7,7 +7,8 @@ extends Node3D
 ## clip's purple numbers are CHAOS hits, the cream ones PHYSICAL); a crit is red. Only damage the warlord DEALS is shown.
 ## Pooled: POOL labels, reused oldest-first; past MAX_LIVE the hit is not shown (cheap by construction).
 
-const FONT_PATH := "/Users/admin/Games/reincarnated-godot/Assets/fonts/bangers/Bangers-Regular.ttf"
+const Paths = preload("res://scripts/arena/arena_paths.gd")
+static var FONT_PATH: String = Paths.font()
 const EM_FRAC := 0.085 * 0.8    # NUM_EM_FRAC_DEALT x 0.8 (R-C9-368, Matt: "a bit smaller")
 const PIXEL_SIZE := 0.012
 const OUTLINE_RATIO := 0.20
@@ -46,7 +47,9 @@ var n_dropped := 0
 func setup(c: Camera3D) -> void:
 	cam = c
 	var ff := FontFile.new()
-	if ff.load_dynamic_font(FONT_PATH) == OK:
+	var fb := Paths.bytes(FONT_PATH)
+	ff.data = fb
+	if fb.size() > 0:
 		_font = FontVariation.new()
 		_font.base_font = ff
 		_font.variation_embolden = EMBOLDEN

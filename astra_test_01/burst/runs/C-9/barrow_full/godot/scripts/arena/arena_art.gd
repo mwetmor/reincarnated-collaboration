@@ -7,7 +7,9 @@ extends RefCounted
 ## (no Godot import, so nothing is staged or duplicated into this project); a cell not yet decoded draws its last
 ## decoded frame (or nothing on first sight) and is ready a frame or two later.
 
-const ROOT := "/Users/admin/Games/reincarnated-godot/kc2_play/art/join1/"
+const Paths = preload("res://scripts/arena/arena_paths.gd")
+## R-C9-391: the catalogue root -- in place on this Mac, the bundle's res://kc2/art/ in a bundled (web) build
+static var ROOT: String = Paths.join1_root()
 const ROOT_X := "res://kc2/art_x/"
 const DIRS: PackedStringArray = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 
@@ -145,6 +147,8 @@ static func cell_tex(kit: String, cid: String) -> Texture2D:
 static func tex_at(path: String) -> Texture2D:
 	if _tex.has(path):
 		return _tex[path]
+	if path.begins_with("res://"):
+		return _tex_res(path)
 	if not _pending.has(path):
 		_pending[path] = WorkerThreadPool.add_task(_decode.bind(path))
 		return null
@@ -166,6 +170,34 @@ static func tex_at(path: String) -> Texture2D:
 		push_warning("[arena] could not decode %s" % path)
 	_tex[path] = t
 	return t
+
+
+## R-C9-391 BUNDLED: the strip is an IMPORTED texture (VRAM-compressed by the bundle's import: Basis Universal, so a
+## phone holds it at ~1/4 of RGBA), loaded on Godot's own loader thread; null until it lands.
+static func _tex_res(path: String) -> Texture2D:
+	if not _pending.has(path):
+		if not ResourceLoader.exists(path):
+			return null                            # its wave pack is not loaded yet
+		ResourceLoader.load_threaded_request(path, "Texture2D")
+		_pending[path] = 1
+		return null
+	var st := ResourceLoader.load_threaded_get_status(path)
+	if st == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		return null
+	_pending.erase(path)
+	var t: Texture2D = ResourceLoader.load_threaded_get(path) if st == ResourceLoader.THREAD_LOAD_LOADED else null
+	if t == null:
+		push_warning("[arena] could not load %s" % path)
+	else:
+		n_tex += 1
+		bytes_rgba += t.get_width() * t.get_height()
+	_tex[path] = t
+	return t
+
+
+## Forget a kit's index so it is re-read (a wave pack holding it has just been loaded).
+static func refresh_kit(kit: String) -> void:
+	_kits.erase(kit)
 
 
 ## Fire decodes for every cell of a kit whose state is in `states` (all when empty). Cheap to repeat.

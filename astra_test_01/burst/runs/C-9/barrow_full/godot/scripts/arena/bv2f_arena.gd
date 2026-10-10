@@ -83,7 +83,8 @@ const V1_PILES := 15
 const V1_FIELD_PX_PER_M := 512.0 / 34.0
 const V1_TRAIL_PX_PER_M := 1024.0 / 34.0
 const V1_SNOW_TINT := Color(1.026, 1.101, 1.174)    # barrow_world.gd SNOW_TINT
-const V1_SNOW_TILE := "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/godot/textures/barrow/snow.png"
+const ArenaPaths = preload("res://scripts/arena/arena_paths.gd")
+static var V1_SNOW_TILE: String = ArenaPaths.v1_snow_tile()
 ## THE FEATHER (R-C9-368 defect a: walls of snow): v2's depth grid comes off a discrete class map, so it steps 1 -> 0 in
 ## one 0.1 m cell at every class edge, and v1's law then extrudes a vertical face there; it also lays full depth right
 ## up to terrain steps and ledges. So, before the field bakes: no snow where the ground itself is steep (a ramp from
@@ -248,7 +249,7 @@ func _build_drift_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, s
 					   "nx": nx, "nz": nz, "mul": mul, "trod": buf.slice(nx * nz, 2 * nx * nz)}
 	# v1's SURFACE GRAIN: v1's snow tile (cliffside3d godot/textures/barrow/snow.png, read in place). barrow_full has
 	#   no res://textures/barrow/snow.png, so SnowField's own fallback drew the snow with NO tile -- the flat "cotton"
-	var st := Image.load_from_file(V1_SNOW_TILE)
+	var st := ArenaPaths.load_image(V1_SNOW_TILE)
 	if st != null and not st.is_empty():
 		if bool(_look().get("desat", true)):
 			# R-C9-375: no blue speckle -- v1's grain; R-C9-377 a/b: the grain's contrast down too (it read "dusty")

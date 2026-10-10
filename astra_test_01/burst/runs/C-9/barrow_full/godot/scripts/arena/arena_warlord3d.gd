@@ -20,7 +20,8 @@ const Body3D = preload("res://scripts/arena/arena_body3d.gd")
 ## the eor3 body spin cells stay. USE_EOR_OVERLAY = true restores the R-C9-348 build's overlay.
 const USE_EOR_OVERLAY := false
 const EorFx = preload("res://scripts/eor_kc2_fx.gd")
-const EOR3_MATRIX := "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/gd-eor-warlord-eor3/matrix_index.json"
+const Paths = preload("res://scripts/arena/arena_paths.gd")
+static var EOR3_MATRIX: String = Paths.eor3_matrix()
 const SRC_REV_S := 0.36
 const BED_K := 0.2                  # kc2_player_channel.gd player_rev_period_s
 const EMBER_BACK_M := 0.117              # render_eor_overlay.gd: 0.93 of the mace = 0.117 m back from its head

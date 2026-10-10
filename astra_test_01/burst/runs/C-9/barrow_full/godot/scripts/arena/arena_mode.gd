@@ -261,7 +261,8 @@ func tick_frac() -> float:
 	return clampf(accum * sim_hz, 0.0, 1.0)                # R-C9-358..361 (`-- --arena-vfx off`: none built -- the fps pair's OFF run)
 var vfx_on := true
 
-const GEOM := "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json"
+const ArenaPathsG = preload("res://scripts/arena/arena_paths.gd")
+static var GEOM: String = ArenaPathsG.geom()
 const FEEL_ONLY := true
 const KC2_GD_PPM := 75.66840334752658          # KC2's ZOOM-GD px per metre: Z switches the barrow camera to it
 const CAP_R := 0.35
@@ -462,8 +463,17 @@ func setup(sc) -> void:
 # --------------------------------------------------------------------------------------------- the session
 func _boot() -> void:
 	fatal = ""
+	# R-C9-391 THE LAUNCH REFUSAL: a bundled build re-hashes its vendored runtime and model pack against their pins
+	var vb := ArenaPathsG.verify_bundle()
+	if vb != "":
+		_fatal("BUNDLE REFUSED: " + vb)
+		return
+	var shim := _leech_path_shim()
+	if shim != "":
+		_fatal("LEECH TABLE SHIM REFUSED: " + shim)
+		return
 	session = ArenaSession.new()
-	if not session.open(Kc2RtPackOfRecord.MODEL_DIR, Kc2RtPackOfRecord.MODEL_DIGEST, GEOM, seed_used, "ZOOM-GD", true):
+	if not session.open(ArenaPathsG.model_pack_dir(), Kc2RtPackOfRecord.MODEL_DIGEST, GEOM, seed_used, "ZOOM-GD", true):
 		_fatal("SESSION OPEN FAILED\n" + String(session.load_error))
 		return
 	if not session.fold_ok:
@@ -529,6 +539,54 @@ func _boot() -> void:
 	print("[arena] open: seed %d, runtime %s, fight centre %s, spawn points %s, pools dropped %d, telemetry %s" % [
 		seed_used, _runtime_digest().substr(0, 12), str(T), _anchors_line(), int(session.fold.get("pools_dropped", -1)),
 		ProjectSettings.globalize_path(out)])
+	# R-C9-391/394: THE LAUNCH LINE the build fence and the browser probe read
+	var g6c := "?"
+	for gr in (session.pack.gates_run as Array):
+		if String(gr).begins_with("G6C"):
+			g6c = String(gr)
+	print("[arena] launch: bundled %s, web %s, runtime tree %s, pack %s, %s, leech shim: %s, solver %s, hero %s" % [
+		str(ArenaPathsG.bundled()), str(OS.has_feature("web")), _runtime_digest().substr(0, 12),
+		ArenaPathsG.model_pack_dir().get_file().substr(0, 40), g6c, leech_shim,
+		String(session.fight.contact_solver), "3d" if hero_3d else "sprite"])
+
+
+## R-C9-394 (conductor, option a) -- A PATH SHIM, NOT A DATA CHANGE. The sealed runtime reads its V1-JOIN-1 leech
+## table from kc2rt_pack.gd's DATA_ROOT, an absolute path on this Mac. In the BROWSER only, before the session opens,
+## the bundled table (byte-identical, sha256 pinned at bundle time) is written into the web build's virtual filesystem at
+## exactly that path; the runtime then reads it and checks its own sha pin (G6C) as everywhere else. Desktop: untouched.
+## Returns "" when done or not needed, else why it stopped (the web FS refusing the path is a STOP, not a reroute).
+const LEECH_REL := "data/kc2/pm4p_leech_resistance.csv"
+const LEECH_SHA := "cb6a008bde1e102573181968ab7f60958cd28fee07ff8736078fa092a80dd62e"
+const LEECH_BUNDLED := "res://kc2/bundle/pm4p_leech_resistance.csv.bin"
+var leech_shim := "not needed"
+func _leech_path_shim() -> String:
+	if not (OS.has_feature("web") or OS.get_cmdline_user_args().has("--arena-test-leech-shim")):
+		return ""
+	const Pack = preload("res://kc2/kc2_runtime/kc2rt_pack.gd")
+	var dst: String = String(Pack.DATA_ROOT).path_join(LEECH_REL)
+	if OS.get_cmdline_user_args().has("--arena-test-leech-shim"):
+		dst = OS.get_user_data_dir().path_join("leech_shim_test").path_join(LEECH_REL)   # the desktop dry run
+	if FileAccess.file_exists(dst) and FileAccess.get_sha256(dst) == LEECH_SHA:
+		leech_shim = "present at %s" % dst
+		return ""
+	var b := FileAccess.get_file_as_bytes(LEECH_BUNDLED if ArenaPathsG.bundled() else String(Pack.DATA_ROOT).path_join(LEECH_REL))
+	var ctx := HashingContext.new()
+	ctx.start(HashingContext.HASH_SHA256)
+	ctx.update(b)
+	if ctx.finish().hex_encode() != LEECH_SHA:
+		return "the bundled table's sha256 is not the pin"
+	if DirAccess.make_dir_recursive_absolute(dst.get_base_dir()) != OK:
+		return "the web filesystem refused the directory %s" % dst.get_base_dir()
+	var f := FileAccess.open(dst, FileAccess.WRITE)
+	if f == null:
+		return "the web filesystem refused %s (%s)" % [dst, error_string(FileAccess.get_open_error())]
+	f.store_buffer(b)
+	f.close()
+	if FileAccess.get_sha256(dst) != LEECH_SHA:
+		return "the written table at %s does not read back to the pin" % dst
+	leech_shim = "written to %s, sha pinned" % dst
+	print("[arena] leech table path shim: " + leech_shim)
+	return ""
 
 
 func _runtime_digest() -> String:

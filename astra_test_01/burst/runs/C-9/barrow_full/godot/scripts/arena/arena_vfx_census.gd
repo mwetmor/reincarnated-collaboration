@@ -6,7 +6,8 @@ extends SceneTree
 
 const Kc2PlaySession = preload("res://kc2/kc2_runtime/play/kc2play_session.gd")
 const Kc2RtPackOfRecord = preload("res://kc2/kc2_runtime/kc2rt_pack_of_record.gd")
-const GEOM := "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json"
+const ArenaPathsG = preload("res://scripts/arena/arena_paths.gd")
+static var GEOM: String = ArenaPathsG.geom()
 
 
 func _init() -> void:
@@ -14,7 +15,7 @@ func _init() -> void:
 	var i := a.find("--out")
 	var out := String(a[i + 1]) if i >= 0 and i + 1 < a.size() else "user://vfx_census.json"
 	var s = Kc2PlaySession.new()
-	if not s.open(Kc2RtPackOfRecord.MODEL_DIR, Kc2RtPackOfRecord.MODEL_DIGEST, GEOM, 12345, "ZOOM-GD", true):
+	if not s.open(ArenaPathsG.model_pack_dir(), Kc2RtPackOfRecord.MODEL_DIGEST, GEOM, 12345, "ZOOM-GD", true):
 		print("open failed: ", s.load_error)
 		quit(1)
 		return

@@ -6,12 +6,13 @@ extends SceneTree
 const RT := "res://kc2/kc2_runtime/"
 const Kc2PlaySession = preload("res://kc2/kc2_runtime/play/kc2play_session.gd")
 const Kc2RtPackOfRecord = preload("res://kc2/kc2_runtime/kc2rt_pack_of_record.gd")
-const GEOM := "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json"
+const ArenaPathsG = preload("res://scripts/arena/arena_paths.gd")
+static var GEOM: String = ArenaPathsG.geom()
 
 
 func _init() -> void:
 	var s = Kc2PlaySession.new()
-	var ok: bool = s.open(Kc2RtPackOfRecord.MODEL_DIR, Kc2RtPackOfRecord.MODEL_DIGEST, GEOM, 12345, "ZOOM-GD", true)
+	var ok: bool = s.open(ArenaPathsG.model_pack_dir(), Kc2RtPackOfRecord.MODEL_DIGEST, GEOM, 12345, "ZOOM-GD", true)
 	print("open ok=", ok, " err=", s.load_error)
 	if not ok:
 		quit(1)

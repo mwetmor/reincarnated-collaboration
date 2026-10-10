@@ -15,7 +15,8 @@ extends "res://scripts/slot_knight.gd"
 ##   Might         a red RIM (fresnel) on every mesh -- the 3D twin of the sprite's outline
 ## The clock is the AnimationTree's at the render rate, so every pose is smooth -- the point of the A/B.
 
-const EOR4X_GLB := "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor4x/wl_body.glb"
+const Paths = preload("res://scripts/arena/arena_paths.gd")
+static var EOR4X_GLB: String = Paths.eor4x_glb()      # R-C9-391: a REQUIRED input of the shared build (raw bytes)
 const HASTE_RATE := 1.3
 const RIM_SHADER := """
 shader_type spatial;
@@ -60,7 +61,7 @@ func _graft_eor4x() -> void:
 		return
 	var doc := GLTFDocument.new()
 	var st := GLTFState.new()
-	if doc.append_from_file(EOR4X_GLB, st) != OK:
+	if doc.append_from_buffer(Paths.bytes(EOR4X_GLB), "", st) != OK:
 		graft_report = {"error": "gltf read"}
 		return
 	var root := doc.generate_scene(st)
