@@ -1,0 +1,93 @@
+{
+ "ruling": "R-C9-384",
+ "hump": {
+  "max_m": 1.953,
+  "scale_k": 1.902,
+  "rear_vertices": 20403,
+  "rear_vertex_cells_still_above_ground_m": 0.0
+ },
+ "terrain": {
+  "cells_changed": 54702,
+  "guard_px": 32,
+  "cells_violating_guard": 0,
+  "max_abs_change_m": 4.898,
+  "max_y3_of_changed_and_neighbours": -92.6
+ },
+ "classes": {
+  "cells_changed": 17133,
+  "cells_violating_guard": 0,
+  "changed_by_class": {
+   "snow": 2366,
+   "shingle": 164,
+   "shore_ice": 8776,
+   "reed": 3121,
+   "lead": 2706
+  }
+ },
+ "stones": {
+  "appended_to": "slope_stones",
+  "existing_instances": 8,
+  "new": [
+   {
+    "kind": "kerb",
+    "uv": [
+     19.265,
+     29.764
+    ],
+    "z": -0.076,
+    "h": 1.9,
+    "ph3_y_base": -589.2,
+    "ph3_y_top": -704.4,
+    "ph4_y_base": 178.8
+   },
+   {
+    "kind": "field",
+    "uv": [
+     24.4,
+     30.4
+    ],
+    "z": -0.1,
+    "h": 1.1,
+    "ph3_y_base": -638.8,
+    "ph3_y_top": -705.5,
+    "ph4_y_base": 129.2
+   },
+   {
+    "kind": "field",
+    "uv": [
+     29.6,
+     27.9
+    ],
+    "z": -0.047,
+    "h": 0.9,
+    "ph3_y_base": -441.2,
+    "ph3_y_top": -495.8,
+    "ph4_y_base": 326.8
+   },
+   {
+    "kind": "field",
+    "uv": [
+     -20.6,
+     30.2
+    ],
+    "z": -0.099,
+    "h": 1.0,
+    "ph3_y_base": -622.8,
+    "ph3_y_top": -683.4,
+    "ph4_y_base": 145.2
+   }
+  ]
+ },
+ "frame": {
+  "v1_ph3": 22.36993715728635,
+  "v1_ph4": 31.933163591268734,
+  "band_px": 768,
+  "plate_ph4": [
+   6656,
+   4864
+  ],
+  "u0": -33.57573954303182,
+  "ppm": 100.617553710938
+ },
+ "level_json_sha256": "2fa89f33bc1163b82af2619a0d273b6a8ff87768e5cee23cf2c101d0e6a9aa1d"
+}

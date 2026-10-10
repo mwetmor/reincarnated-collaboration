@@ -1,0 +1,405 @@
+{
+ "_what": "R-C9-384 ph4 NORTH BAND guide (fid/lv/tools/ph4_band_stitch.py)",
+ "px": [
+  6656,
+  1024
+ ],
+ "rows": "ph4 plate rows 0..1023 (band 0..767 + ph3 rows 0..255)",
+ "guide": {
+  "file": "band_guide.png",
+  "sha256": "f012798460af900940b9039f489dbe8e84b1104c2c72333f4ae21f40881b2aa8"
+ },
+ "ids": {
+  "file": "band_ids.png",
+  "sha256": "0ae396fca17aef3a02fd969d3390674c0fbee0714412d6bdc60ad912ca522b44"
+ },
+ "class": {
+  "file": "band_class.png",
+  "sha256": "fd14a39096445181da07113eef7d7419b0a74d13e046fa91f1ee4bba2f34ef71",
+  "classes": [
+   "none",
+   "snow",
+   "path",
+   "ice",
+   "shrub",
+   "rock",
+   "mound",
+   "shingle",
+   "shore_ice",
+   "stream",
+   "char",
+   "sea",
+   "wood",
+   "passage_dark",
+   "ash",
+   "tide_ice",
+   "wet_rock",
+   "rime",
+   "ice_mid",
+   "reed",
+   "lead"
+  ]
+ },
+ "id_table": {
+  "1": {
+   "id": "barrow_cutting",
+   "class": "rock",
+   "piece": "slabs"
+  },
+  "2": {
+   "id": "carved_wet_rock",
+   "class": "wet_rock",
+   "piece": "carved"
+  },
+  "3": {
+   "id": "cliff_faces",
+   "class": "rock",
+   "piece": "group"
+  },
+  "4": {
+   "id": "cliff_skirt_wall",
+   "class": "rock",
+   "piece": "ribbon"
+  },
+  "5": {
+   "id": "cove_ice",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "6": {
+   "id": "cradle_cracks",
+   "class": "sea",
+   "piece": "slabs"
+  },
+  "7": {
+   "id": "crags",
+   "class": "rock",
+   "piece": "group"
+  },
+  "8": {
+   "id": "curtain_barrow_door",
+   "class": "passage_dark",
+   "piece": "declared_opening"
+  },
+  "9": {
+   "id": "curtain_hall_great_door",
+   "class": "passage_dark",
+   "piece": "declared_opening"
+  },
+  "10": {
+   "id": "curtain_sea_cave_mouth",
+   "class": "passage_dark",
+   "piece": "declared_opening"
+  },
+  "11": {
+   "id": "door_lintel",
+   "class": "none",
+   "piece": "v1-instrument-stub"
+  },
+  "12": {
+   "id": "barrow_front",
+   "class": "rock",
+   "piece": "model"
+  },
+  "13": {
+   "id": "door_post_L",
+   "class": "none",
+   "piece": "v1-instrument-stub"
+  },
+  "14": {
+   "id": "door_post_R",
+   "class": "none",
+   "piece": "v1-instrument-stub"
+  },
+  "15": {
+   "id": "fallen_gable",
+   "class": "char",
+   "piece": "model"
+  },
+  "16": {
+   "id": "ground_ash",
+   "class": "ash",
+   "piece": "ground"
+  },
+  "17": {
+   "id": "ground_ice",
+   "class": "ice",
+   "piece": "ground"
+  },
+  "18": {
+   "id": "ground_ice_mid",
+   "class": "ice_mid",
+   "piece": "ground"
+  },
+  "19": {
+   "id": "ground_lead",
+   "class": "lead",
+   "piece": "ground"
+  },
+  "20": {
+   "id": "ground_mound",
+   "class": "mound",
+   "piece": "ground"
+  },
+  "21": {
+   "id": "ground_reed",
+   "class": "reed",
+   "piece": "ground"
+  },
+  "22": {
+   "id": "ground_rock",
+   "class": "rock",
+   "piece": "ground"
+  },
+  "23": {
+   "id": "carved_ice",
+   "class": "ice",
+   "piece": "carved"
+  },
+  "24": {
+   "id": "ground_sea",
+   "class": "sea",
+   "piece": "ground"
+  },
+  "25": {
+   "id": "ground_shingle",
+   "class": "shingle",
+   "piece": "ground"
+  },
+  "26": {
+   "id": "ground_shore_ice",
+   "class": "shore_ice",
+   "piece": "ground"
+  },
+  "27": {
+   "id": "ground_shrub",
+   "class": "shrub",
+   "piece": "ground"
+  },
+  "28": {
+   "id": "ground_snow",
+   "class": "snow",
+   "piece": "ground"
+  },
+  "29": {
+   "id": "gully_rock",
+   "class": "rock",
+   "piece": "group"
+  },
+  "30": {
+   "id": "ice_brash",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "31": {
+   "id": "ice_drifts",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "32": {
+   "id": "ice_floes",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "33": {
+   "id": "ice_floes_bob",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "34": {
+   "id": "carved_passage_dark",
+   "class": "passage_dark",
+   "piece": "carved"
+  },
+  "35": {
+   "id": "ice_plates",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "36": {
+   "id": "ice_ridges",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "37": {
+   "id": "ice_rims",
+   "class": "snow",
+   "piece": "slabs"
+  },
+  "38": {
+   "id": "ice_shorefast",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "39": {
+   "id": "icicles",
+   "class": "rime",
+   "piece": "slabs"
+  },
+  "40": {
+   "id": "ledge_rocks",
+   "class": "rock",
+   "piece": "slabs"
+  },
+  "41": {
+   "id": "logs",
+   "class": "wood",
+   "piece": "group"
+  },
+  "42": {
+   "id": "longhall",
+   "class": "wood",
+   "piece": "model"
+  },
+  "43": {
+   "id": "mere_cracks",
+   "class": "sea",
+   "piece": "slabs"
+  },
+  "44": {
+   "id": "mere_plates",
+   "class": "ice",
+   "piece": "slabs"
+  },
+  "45": {
+   "id": "carved_rime",
+   "class": "rime",
+   "piece": "carved"
+  },
+  "46": {
+   "id": "mere_seams",
+   "class": "snow",
+   "piece": "slabs"
+  },
+  "47": {
+   "id": "palisade",
+   "class": "wood",
+   "piece": "group"
+  },
+  "48": {
+   "id": "reed_tufts",
+   "class": "reed",
+   "piece": "slabs"
+  },
+  "49": {
+   "id": "ring_fallen",
+   "class": "rock",
+   "piece": "slabs"
+  },
+  "50": {
+   "id": "ring_snow",
+   "class": "snow",
+   "piece": "slabs"
+  },
+  "51": {
+   "id": "ring_stones",
+   "class": "rock",
+   "piece": "group"
+  },
+  "52": {
+   "id": "sea_stacks",
+   "class": "rock",
+   "piece": "group"
+  },
+  "53": {
+   "id": "slope_stones",
+   "class": "rock",
+   "piece": "group"
+  },
+  "54": {
+   "id": "stair_snow",
+   "class": "snow",
+   "piece": "slabs"
+  },
+  "55": {
+   "id": "stair_steps",
+   "class": "rock",
+   "piece": "procedural"
+  },
+  "56": {
+   "id": "carved_rock",
+   "class": "rock",
+   "piece": "carved"
+  },
+  "57": {
+   "id": "stair_treads",
+   "class": "rock",
+   "piece": "slabs"
+  },
+  "58": {
+   "id": "stream_cracks",
+   "class": "sea",
+   "piece": "slabs"
+  },
+  "59": {
+   "id": "stream_ice",
+   "class": "ice",
+   "piece": "slabs"
+  },
+  "60": {
+   "id": "stream_pressure",
+   "class": "ice",
+   "piece": "slabs"
+  },
+  "61": {
+   "id": "talus",
+   "class": "rock",
+   "piece": "group"
+  },
+  "62": {
+   "id": "trans_rubble",
+   "class": "shore_ice",
+   "piece": "slabs"
+  },
+  "63": {
+   "id": "wreck",
+   "class": "wood",
+   "piece": "model"
+  },
+  "64": {
+   "id": "wreck_mast",
+   "class": "wood",
+   "piece": "group"
+  },
+  "65": {
+   "id": "carved_shrub",
+   "class": "shrub",
+   "piece": "carved"
+  },
+  "66": {
+   "id": "carved_snow",
+   "class": "snow",
+   "piece": "carved"
+  },
+  "67": {
+   "id": "carved_tide_ice",
+   "class": "tide_ice",
+   "piece": "carved"
+  }
+ },
+ "band_ids_px": {
+  "ground_snow": 1722154,
+  "ground_mound": 1686967,
+  "ground_shrub": 636133,
+  "ground_ice": 395894,
+  "ground_reed": 149655,
+  "ground_rock": 146259,
+  "barrow_front": 132655,
+  "ground_lead": 87010,
+  "ground_ice_mid": 59337,
+  "slope_stones": 34435,
+  "ground_shore_ice": 30683,
+  "reed_tufts": 26734,
+  "ground_shingle": 3892
+ },
+ "frame_proof": {
+  "overlap_px": 1703936,
+  "id_equal_px": 1703931,
+  "id_differ_px": 5,
+  "id_differ_off_edges_px": 0,
+  "id_differ_on_edges_px": 5,
+  "guide_rgb_differ_px": 661057,
+  "guide_rgb_differ_gt8_px": 70925,
+  "_": "band rows 768..1023 vs the pinned ph3 (d26d14c55) ID / guide render rows 0..255. Same object at the same pixel = the world frame is unchanged; guide RGB differs only by shading (the directional shadow fit follows each render's window)."
+ }
+}
