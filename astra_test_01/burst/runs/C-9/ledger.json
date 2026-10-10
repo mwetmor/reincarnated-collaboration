@@ -56320,6 +56320,17 @@
         "R-C9-386",
         "b4651ab12"
       ]
+    },
+    {
+      "id": "R-C9-389",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-10T03:19:34-04:00",
+      "ruling": "drax 4b3cd24e7 ACCEPTED: arena default site_ph4 (--arena-site ph3 fallback), player-only north barrier on the band's lower edge (walk-north test 12/21 -> 0/21 reach the band), camera centres the door at both zooms with no plate edge, probe ph4 2 FAIL vs ph3 3 FAIL (same pre-existing slow returns), wave 160 52.9/42.5 vs 54.7/42.4 (noise). DEFECT found in play and confirmed by the conductor: a hard horizontal cut through the band's small frozen pool on the mound's east flank, exactly at the old plate edge -- seamcheck's tone metric could not see a shape cut. PT fixes band-side only (ph3 pixels byte-identical): close the pool with a natural shore above the seam or replace it with snow/heather; adds a straight-line shape check to seamcheck; BV2F-N1 cap 12 -> 14; one-round 20 GiB release, no pruning.",
+      "cites": [
+        "R-C9-387",
+        "R-C9-388",
+        "4b3cd24e7"
+      ]
     }
   ],
   "grok_calls": [
