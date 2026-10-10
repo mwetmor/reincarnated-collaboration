@@ -1401,6 +1401,23 @@ func begin() -> void:
 	_head_sparks.visible = _vfx
 
 
+## C-9 R-C9-362 (the barrow_v2 arena only): the channel came back ON while the effect was still FALLING. KC2's channel
+## releases on a Type-B interrupt and auto-resumes while the button is held (KP-1), so its channel_off/channel_on
+## arrive in pairs a tick or two apart; begin() ignores a cast that is not IDLE, so the haze stopped emitting on the
+## first interrupt and never came back. This picks the cast up where it is: emission on, the fall cancelled, the
+## clock and the cuts continuing. Nothing in the walk scene calls it.
+func resume() -> void:
+	if _state != S.FALLING:
+		return
+	_state = S.SUSTAIN
+	_end_revs = INF
+	_fall_t = 0.0
+	_haze.emitting = true
+	_trail_node.emitting = true
+	if not source_look:
+		_head_sparks.emitting = true
+
+
 func end() -> void:
 	if _state == S.SUSTAIN:
 		_state = S.FALLING

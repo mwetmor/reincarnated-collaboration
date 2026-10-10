@@ -38,6 +38,14 @@ const GRAVITY := 18.0
 ## lower half) is not cut off where the screen-facing card dips into the ground behind it.
 const CARD_TOWARD_CAM_M := 2.0
 const EOR_TOWARD_CAM_M := 1.5
+## R-C9-363: THE PAINTED PLATE (level.json frame.envelope, the site_ph3 painting): the camera's view never leaves it,
+## and the player never stands within PLATE_MARGIN_M of its edge (the walk map's boundary).
+const PLATE_U := Vector2(-33.57573954303182, 32.57573954303182)
+const PLATE_V := Vector2(-28.633937157286354, 22.36993715728635)
+const PLATE_MARGIN_M := 1.5
+## ⚑ R-C9-365 (Matt: "do not worry about any fixes for this right now ... at the very end"): the R-C9-363 camera clamp,
+##   zoom cap and plate boundary are UNWIRED behind this flag (false). The R-C9-364 mist stopgap was never written.
+const EDGE_FIXES_R_C9_363 := false
 
 var scene = null                    # the barrow scene (bv2f_arena.gd)
 var session = null
@@ -189,6 +197,7 @@ func _boot() -> void:
 	session.driver.banner_placement_m = Vector2.ZERO      # as kc2p_main: the banner at the start (= the fight centre)
 	T = Vector2(float(session.arena_cfg["fight_centre_sim"][0]), float(session.arena_cfg["fight_centre_sim"][1]))
 	_build_blockers()
+	_build_prop_colliders()
 	await get_tree().physics_frame                 # the blockers' shapes are in the space before the walk map is cast
 	_build_walk_map()
 	player_pos_m = session.fight.player_pos
@@ -313,7 +322,8 @@ func _place_proxy(m: Vector2) -> void:
 ## and never off a lip. Physics still does the motion (walls, the slide); a slide that ends off the map is undone.
 const WALK_CELL_M := 0.25
 const WALK_MAX_DEG := 40.0        # 5 deg under the capsule's 45 deg floor_max_angle
-const WALK_STEP_M := 0.30         # most height change accepted between the cell he is on and the one he steps to
+const WALK_STEP_M := 0.30
+const WALK_STEP_UP_M := 0.60         # most height change accepted between the cell he is on and the one he steps to
 const WALK_X0 := -42.0            # the level's sim extent (level.json sim.heightfield.extent_sim_m)
 const WALK_Y0 := -36.0
 const WALK_NX := 336
@@ -358,6 +368,20 @@ func _build_walk_map() -> void:
 			else:
 				walk_hgt[k] = float((hit["position"] as Vector3).y)
 				walk_ok[k] = 1 if (hit["normal"] as Vector3).y >= cmax else 0
+	# R-C9-363: THE FIGHT BOUNDARY -- no floor within PLATE_MARGIN_M of the painted plate's edge
+	var n_edge := 0
+	for j in (WALK_NY if EDGE_FIXES_R_C9_363 else 0):
+		for i in WALK_NX:
+			var k := j * WALK_NX + i
+			if walk_ok[k] == 0:
+				continue
+			var cx := WALK_X0 + (float(i) + 0.5) * WALK_CELL_M
+			var cv := -(WALK_Y0 + (float(j) + 0.5) * WALK_CELL_M)
+			if cx < PLATE_U.x + PLATE_MARGIN_M or cx > PLATE_U.y - PLATE_MARGIN_M or cv < PLATE_V.x + PLATE_MARGIN_M or cv > PLATE_V.y - PLATE_MARGIN_M:
+				walk_ok[k] = 0
+				n_edge += 1
+	if EDGE_FIXES_R_C9_363:
+		print("[arena] walk map plate boundary: %d cells off" % n_edge)
 	# keep-outs (barrow_arena.json walk_keepout): low ground he could get into and not out of -- the wreck's basin
 	var n_keep := 0
 	for ko_any in (session.arena_cfg.get("walk_keepout", []) as Array):
@@ -435,7 +459,9 @@ func walk_step_ok(a: Vector2, b: Vector2, feet_y: float = NAN) -> bool:
 		if ka < 0 or is_nan(walk_hgt[ka]):
 			return true
 		ref = walk_hgt[ka]
-	return absf(walk_hgt[kb] - ref) <= WALK_STEP_M
+	# down: at most WALK_STEP_M (a drop he could climb back); up: WALK_STEP_UP_M (the capsule decides if it can climb)
+	var dh: float = walk_hgt[kb] - ref
+	return dh <= WALK_STEP_UP_M and -dh <= WALK_STEP_M
 
 
 func _move_proxy(want: Vector2, delta: float) -> Vector2:
@@ -634,7 +660,13 @@ func _cursor_arr() -> Array:
 func _toggle_zoom() -> void:
 	zoomed_out = not zoomed_out
 	var base := float(scene._view_height()) / float(scene.PPM)
-	scene.cam.size = base * (float(scene.PPM) / KC2_GD_PPM if zoomed_out else 1.0)
+	var want := base * (float(scene.PPM) / KC2_GD_PPM if zoomed_out else 1.0)
+	# R-C9-363: never a view larger than the painted plate in either axis
+	var p := deg_to_rad(float(scene.PL_PITCH_DEG))
+	var asp := float(scene._view_width()) / maxf(1.0, float(scene._view_height()))
+	var pw := (PLATE_U.y - PLATE_U.x)
+	var ph := (PLATE_V.y - PLATE_V.x) * sin(p)
+	scene.cam.size = minf(want, minf(ph, pw / asp) * 0.98) if EDGE_FIXES_R_C9_363 else want
 	scene._sync_post_scale()
 
 
@@ -856,7 +888,13 @@ func _render(delta: float) -> void:
 		var c := T + Vector2(0.0, -2.0)
 		scene.set_topdown(Vector2(c.x, -c.y), 62.0)
 	else:
-		scene.look_at_world(scene.aim_for(proxy.global_position))
+		var aim: Vector3 = scene.aim_for(proxy.global_position)
+		if EDGE_FIXES_R_C9_363:
+			aim = _clamp_to_plate(aim)
+		scene.look_at_world(aim)
+		if scene.snowfall != null:          # the walk scene's _process does this for the knight (R-C9-362)
+			scene.snowfall.global_position = aim + scene.up * 9.0 - scene.fwd * 6.0
+		_snow_feet(delta)
 	hud.queue_redraw()
 
 
@@ -938,3 +976,125 @@ func _instruments(delta: float) -> void:
 			String(session.terminal) if session != null else "-", actors.size(), str(kits_seen.keys()),
 			str(no_pack.keys()), n_blocked_stops])
 		quit_arena()
+
+
+
+# --------------------------------------------------------------------------------------------- R-C9-363: the plate
+## The camera's centre clamped so the whole ortho view stays on the painted plate (any zoom, any aspect). Near an
+## edge the camera stops and he walks off-centre.
+func _clamp_to_plate(aim: Vector3) -> Vector3:
+	var cam: Camera3D = scene.cam
+	var p := deg_to_rad(float(scene.PL_PITCH_DEG))
+	var t := aim.y / maxf(-float(scene.fwd.y), 1e-6)
+	var g: Vector3 = aim + scene.fwd * t                  # the aim's ground point along the view
+	var uv: Vector2 = scene.world_to_uv(g)
+	var half_h := cam.size * 0.5                            # metres of screen height (KEEP_HEIGHT)
+	var half_w := half_h * float(scene._view_width()) / maxf(1.0, float(scene._view_height()))
+	var fu := half_w
+	var fv := half_h / sin(p)                               # screen-up metres -> ground v metres
+	var cu := clampf(uv.x, PLATE_U.x + fu, PLATE_U.y - fu) if PLATE_U.x + fu <= PLATE_U.y - fu else (PLATE_U.x + PLATE_U.y) * 0.5
+	var cv := clampf(uv.y, PLATE_V.x + fv, PLATE_V.y - fv) if PLATE_V.x + fv <= PLATE_V.y - fv else (PLATE_V.x + PLATE_V.y) * 0.5
+	return scene.uv_to_world(cu, cv)
+
+
+# --------------------------------------------------------------------------------------------- R-C9-362: props
+## Props the walk scene draws but gives no collider (the palisade's posts and gate, the standing stones, logs, the
+## wreck's mast, the door posts): a player-only box on each, from its own mesh bounds -- only where a ray onto the
+## prop's centre finds no collider at its top already.
+const PROP_IDS := ["palisade", "ring_stones", "slope_stones", "ring_fallen", "logs", "wreck_mast", "door_post_L",
+	"door_post_R", "sea_stacks", "crags"]
+const PROP_MIN_H_M := 0.35
+const PROP_SHRINK := 0.85
+var n_prop_colliders := 0
+
+
+func _build_prop_colliders() -> void:
+	if scene.get_node_or_null("ArenaPropColliders") != null:
+		return
+	var body := StaticBody3D.new()
+	body.name = "ArenaPropColliders"
+	body.collision_layer = int(scene.TERRAIN_BIT)
+	body.collision_mask = 0
+	scene.add_child(body)
+	var space: PhysicsDirectSpaceState3D = scene.get_world_3d().direct_space_state
+	var q := PhysicsRayQueryParameters3D.new()
+	q.collision_mask = int(scene.TERRAIN_BIT)
+	for id_any in (scene.nodes as Dictionary).keys():
+		var id := String(id_any)
+		var base := id.split("__")[0].rstrip("0123456789_")
+		if not PROP_IDS.has(base):
+			continue
+		var root: Node3D = scene.nodes[id]
+		var meshes: Array = scene._meshes(root)
+		if meshes.is_empty():
+			continue
+		var ab := AABB()
+		var first := true
+		for mi in meshes:
+			var m3 := mi as MeshInstance3D
+			if m3.mesh == null or not m3.visible:
+				continue
+			var b: AABB = m3.global_transform * m3.mesh.get_aabb()
+			ab = b if first else ab.merge(b)
+			first = false
+		if first or ab.size.y < PROP_MIN_H_M:
+			continue
+		var c := ab.get_center()
+		q.from = Vector3(c.x, ab.end.y + 2.0, c.z)
+		q.to = Vector3(c.x, ab.position.y - 2.0, c.z)
+		var hit: Dictionary = space.intersect_ray(q)
+		if not hit.is_empty() and float((hit["position"] as Vector3).y) >= ab.end.y - 0.3:
+			continue                                      # it already has a collider at its top
+		var bx := BoxShape3D.new()
+		bx.size = Vector3(maxf(0.2, ab.size.x * PROP_SHRINK), ab.size.y, maxf(0.2, ab.size.z * PROP_SHRINK))
+		var cs := CollisionShape3D.new()
+		cs.shape = bx
+		cs.position = c
+		cs.name = id
+		body.add_child(cs)
+		n_prop_colliders += 1
+	print("[arena] prop colliders added: %d (player only)" % n_prop_colliders)
+
+
+# --------------------------------------------------------------------------------------------- R-C9-362: the snow
+## The walk scene's snow fields carve under the knight's foot bones (SnowField.track). The arena's warlord is a card,
+## so his feet are stepped here: alternate left/right prints one stride apart along his motion, the field's own
+## _stamp/_puff/_plough with its own constants (the same carve the knight's feet make).
+var _snow_last := Vector2.INF
+var _snow_side := 1.0
+var no_snow_feet := "--arena-no-snowfeet" in OS.get_cmdline_user_args()   # perf A/B instrument only
+
+
+func _snow_feet(_delta: float) -> void:
+	if no_snow_feet:
+		return
+	var fields: Array = []
+	for f in [scene.get("snow"), scene.get("stair_snow")]:
+		if f != null and f.has_method("_stamp"):
+			fields.append(f)
+	if fields.is_empty() or proxy == null:
+		return
+	var w: Vector3 = proxy.global_position
+	var here := Vector2(w.x, w.z)
+	if _snow_last == Vector2.INF:
+		_snow_last = here
+		return
+	var mv := here - _snow_last
+	var stride: float = float(fields[0].get("stamp_stride_m"))
+	if mv.length() < stride:
+		return
+	var fwd := mv.normalized()
+	_snow_last = here
+	_snow_side = -_snow_side
+	var foot := here + Vector2(-fwd.y, fwd.x) * 0.12 * _snow_side
+	for f in fields:
+		var D: float = float(f.depth_at(foot))
+		if D <= 0.0:
+			continue
+		var deep: bool = D > float(f.get("plough_depth_m"))
+		f._stamp(foot, fwd, float(f.get("boot_len_m")) * 0.5, float(f.get("boot_w_m")) * 0.5, float(f.get("boot_rim_m")),
+			float(f.get("plough_berm_mult")) if deep else 1.0)
+		if bool(f.get("puffs")):
+			f._puff(Vector3(foot.x, float(f.get("floor_y")) + minf(D, 0.5) * 0.5, foot.y), fwd, D, deep)
+		if deep and f.has_method("_plough"):
+			f._plough(foot, fwd, D)

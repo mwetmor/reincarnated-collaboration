@@ -41,7 +41,13 @@ func _boxes() -> Array:
 	return out
 
 
-static func _inside(p: Vector2, bx: Dictionary) -> bool:
+func _inside(p: Vector2, bx: Dictionary) -> bool:
+	if bx.has("cs"):                                    # a prop: test the real box in its own frame
+		var cs := bx["cs"] as CollisionShape3D
+		var w: Vector3 = arena.scene.uv_to_world(p.x, -p.y, cs.global_position.y)
+		var l: Vector3 = cs.global_transform.affine_inverse() * w
+		var sz: Vector3 = (cs.shape as BoxShape3D).size
+		return absf(l.x) <= sz.x * 0.5 and absf(l.z) <= sz.z * 0.5
 	var d: Vector2 = p - (bx["c"] as Vector2)
 	var a := deg_to_rad(float(bx["deg"]))
 	var along := d.dot(Vector2(cos(a), sin(a)))
@@ -62,6 +68,22 @@ func _f() -> void:
 		for bx in boxes:
 			for k in 16:
 				trials.append({"box": bx, "bearing": TAU * float(k) / 16.0})
+		# R-C9-362: the props given player-only colliders -- every 6th palisade post (incl. the gate) + every stone
+		var pc: Node = arena.scene.get_node_or_null("ArenaPropColliders")
+		if pc != null:
+			var i_p := 0
+			for cs_any in pc.get_children():
+				var cs := cs_any as CollisionShape3D
+				var nm := String(cs.name)
+				var pal := nm.begins_with("palisade")
+				i_p += 1
+				if pal and i_p % 6 != 0:
+					continue
+				var sz: Vector3 = (cs.shape as BoxShape3D).size
+				var uv: Vector2 = arena.scene.world_to_uv(cs.global_position)
+				var pbx := {"id": "prop:" + nm, "c": Vector2(uv.x, -uv.y), "size": Vector2(maxf(sz.x, sz.z), maxf(sz.x, sz.z)), "deg": 0.0, "cs": cs}
+				for k in 8:
+					trials.append({"box": pbx, "bearing": TAU * float(k) / 8.0})
 		ti = 0
 		_start()
 		return
@@ -165,3 +187,27 @@ func _last_contact() -> String:
 		return "-"
 	var n: Node = c.get_collider() as Node
 	return "%s/%s n=%s" % [str(n.get_parent().name) if n.get_parent() != null else "", str(n.name), str(c.get_normal().snapped(Vector3(0.01, 0.01, 0.01)))]
+
+
+
+## R-C9-363: from the fight centre, walk 25 s toward 16 points far outside the plate; he must end inside the plate
+## less its margin (the walk map's boundary), never on its edge.
+func _boundary_check() -> void:
+	var bad := 0
+	for k in 16:
+		var a := TAU * float(k) / 16.0
+		arena.player_pos_m = Vector2.ZERO
+		arena._place_proxy(Vector2.ZERO)
+		var goal := Vector2(cos(a), sin(a)) * 80.0
+		for f in 25 * 60:
+			var to: Vector2 = goal - arena.player_pos_m
+			var want: Vector2 = arena.player_pos_m + to.normalized() * SPEED * DT
+			arena.player_pos_m = arena._move_proxy(want, DT)
+		var s: Vector2 = arena.player_pos_m + arena.T
+		var u := s.x
+		var v := -s.y
+		var inside: bool = u > arena.PLATE_U.x + 1.0 and u < arena.PLATE_U.y - 1.0 and v > arena.PLATE_V.x + 1.0 and v < arena.PLATE_V.y - 1.0
+		if not inside:
+			bad += 1
+		print("[blocker_probe] boundary bearing %3d -> ended at sim %s (u %.2f, v %.2f) %s" % [int(rad_to_deg(a)), str(s.snapped(Vector2(0.01, 0.01))), u, v, "ok" if inside else "FAIL: past the plate margin"])
+	fails += bad

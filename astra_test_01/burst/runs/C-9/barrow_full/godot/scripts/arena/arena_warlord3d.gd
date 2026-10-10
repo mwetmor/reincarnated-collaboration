@@ -30,6 +30,7 @@ var theta0_by_dir: Dictionary = {}
 var theta0 := 0.0
 var _eor_begin_pending := false
 var _eor_end_pending := false
+var n_eor_resumes := 0
 const OV_FPS := 30.0
 const OV_UNDER_FADE_S := 0.8
 ## C-9 (Matt via the conductor, 2026-10-09): the EoR smoke more transparent -- the same knob as the walk's
@@ -195,9 +196,8 @@ func _build_eor_fx() -> void:
 	# ground_y mode was for the offline overlay render, which drew no floor
 	if eor._haze_ember != null:
 		eor._haze_ember.set_shader_parameter("ground_mode", 0.0)
-	# R-C9-359 (Matt: "the smoke from the whirlwind does not travel with the character"): in the arena the haze rides
-	# its emitter (local coordinates), so the cloud stays centred on him while he walks; the walk scene keeps world coords
-	eor._haze.local_coords = true
+	# (R-C9-362: R-C9-359's local-coordinate haze is REVERTED -- the premise was wrong: the smoke followed him; it
+	#   STOPPED, because a KC2 channel interrupt + auto-resume left the effect falling; see resume() below)
 	eor._bed_mat.render_priority = 121
 	((eor._haze.draw_pass_1 as QuadMesh).material as Material).render_priority = 122
 
@@ -235,9 +235,13 @@ func on_event(e: Dictionary) -> void:
 		return
 	var ev := String(e.get("event", ""))
 	if eor != null and ev == "channel_on":
-		theta0 = float(theta0_by_dir.get(dir, 0.0))
-		_eor_begin_pending = true
 		_eor_end_pending = false
+		if eor.state_name() == "FALLING":
+			eor.resume()                         # R-C9-362: an interrupt + auto-resume continues the same cast
+			n_eor_resumes += 1
+		else:
+			theta0 = float(theta0_by_dir.get(dir, 0.0))
+			_eor_begin_pending = true
 	elif eor != null and (ev == "channel_off" or ev == "player_death"):
 		_eor_end_pending = true
 	if ev == "channel_on":
