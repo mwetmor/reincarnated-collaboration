@@ -51473,9 +51473,70 @@
       "codex_version": "codex-cli 0.157.1",
       "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
       "exit": 0
+    },
+    {
+      "id": "BV2F-N1-4_N",
+      "type": "GENERATE",
+      "experiment": "BV2F-pilot-paintover",
+      "register_card": {
+        "path": "runs/C-9/REGISTER_CARD.md",
+        "sha256": "1977d4ba2bdfb7cbd133f9c45675b00647ed6452f389d6a5c21b069580f21a3e"
+      },
+      "brief_sha256": "f2cd51d080266ade007395d43fc827ed865cc33ea427637b9f9c7995d3e4335d",
+      "started": "2026-10-10T06:48:02.712301+00:00",
+      "ended": "2026-10-10T06:49:59.660325+00:00",
+      "minutes": 1.949161023615549,
+      "image_calls": 1,
+      "tool_calls": 2,
+      "audit": {
+        "violations": [],
+        "image_calls": 1,
+        "tool_calls": 2,
+        "tools_seen": {
+          "command_execution": 2
+        },
+        "writes_outside_out": [],
+        "image_calls_events": 0,
+        "generated_images_new": [
+          {
+            "path": "/Users/admin/.codex/generated_images/01a12491-9436-7d13-93cb-5230bf3a2de5/exec-ac175e1f-37d2-4163-b001-46828dc1dd27.png",
+            "sha256": "df779a4317f2de83aeec185f03bda11a841491a4c0c377d9db8fb035623ef4fc"
+          }
+        ]
+      },
+      "receipt_sha256": "02d4c681bb470306ce53e1dffd52e3bef3d202e4213270f830c7a7771f66e1b2",
+      "artifacts": [
+        {
+          "name": "BV2F-N1-4_N.png",
+          "sha256": "df779a4317f2de83aeec185f03bda11a841491a4c0c377d9db8fb035623ef4fc"
+        },
+        {
+          "name": "exec-ac175e1f-37d2-4163-b001-46828dc1dd27.provenance.json",
+          "sha256": "319623b9b97babe461719f9b191afe75664ccc2a5a4a19ea2a26593a3e673c60"
+        }
+      ],
+      "artifacts_in_place": [],
+      "effort": "high",
+      "image_calls_events": 0,
+      "generated_images_new": [
+        {
+          "path": "/Users/admin/.codex/generated_images/01a12491-9436-7d13-93cb-5230bf3a2de5/exec-ac175e1f-37d2-4163-b001-46828dc1dd27.png",
+          "sha256": "df779a4317f2de83aeec185f03bda11a841491a4c0c377d9db8fb035623ef4fc"
+        }
+      ],
+      "generator": {
+        "observed_fingerprint": null,
+        "probe_set_sha256": null
+      },
+      "regeneratable_until": null,
+      "model": "gpt-6-astra",
+      "model_source": "profile",
+      "codex_version": "codex-cli 0.157.1",
+      "profile_sha256": "04725bed2d11a11370350bc64ba8ca83801f8bf52f52fb1d7f6fa4ce0f409038",
+      "exit": 0
     }
   ],
-  "images_used": 1470,
+  "images_used": 1471,
   "images_cap": 1750,
   "experiments": {},
   "milestones": [
@@ -52949,6 +53010,12 @@
       "ts": "2026-10-10T02:47:49-04:00",
       "by": "drax (PT/LV)",
       "note": "BV2F-N1 at 10/10 images with chunk 4_N (x 5120-6656, above the longhall) unpainted; 1_N rejected by eye and repainted (r1). Resolved by R-C9-386."
+    },
+    {
+      "id": "H-C9-BV2F-DISK-PH4",
+      "ts": "2026-10-10T02:58:44-04:00",
+      "by": "drax (PT)",
+      "note": "site4_build halted before lineage at 18-19 GiB (< 21 gate); ph4 plate composed, identity PASS (rows>=768 pixel sha = ph3 1e5f9dd90c0f), seam check PASS, BV2F-N1 11/12. Resolved by N-C9-CLEANUP-M26."
     }
   ],
   "rulings": [
@@ -57280,6 +57347,12 @@
       "ts": "2026-10-09T17:38:32-04:00",
       "by": "gandalf (conductor)",
       "text": "Manifest 25 executed (215 files, 2.58 GiB: the site re-bake surf_*.npz, the raw direct-route AVI, P9c A/B renders, prev_r328, the E-4 copy, DEV-24 intermediate full paintings); excludes build_inputs, ledger-cited files, recent files; build_inputs 223/0 OK; disk 20 -> 23 GiB."
+    },
+    {
+      "id": "N-C9-CLEANUP-M26",
+      "ts": "2026-10-10T02:58:44-04:00",
+      "by": "gandalf (conductor, R-C9-341)",
+      "note": "cleanup/manifest_bv2f_scratch_26.txt run: 1976 untracked files (superseded PH renders site/site_r332/v159/pilot*, pt/site/prev_r332, pt/site/root/work ph3 build scratch, the CONTROL bake crags__crags_0 kept); excluded tracked (52), ledger/QA-cited (3), build_inputs (ph3 231 + north 45, both re-verified 0 bad). Free 19-20 -> 21.8 GiB."
     }
   ]
 }
