@@ -328,8 +328,8 @@ func _place_proxy(m: Vector2) -> void:
 ## and never off a lip. Physics still does the motion (walls, the slide); a slide that ends off the map is undone.
 const WALK_CELL_M := 0.25
 const WALK_MAX_DEG := 40.0        # 5 deg under the capsule's 45 deg floor_max_angle
-const WALK_STEP_M := 0.30
-const WALK_STEP_UP_M := 0.60         # most height change accepted between the cell he is on and the one he steps to
+const WALK_STEP_M := 0.45         # SYMMETRIC: a step he can climb he can also come back down (an asymmetric 0.6 up /
+const WALK_STEP_UP_M := 0.45      #   0.3 down let him up onto ledges he could not leave -- the probe caught it)         # most height change accepted between the cell he is on and the one he steps to
 const WALK_X0 := -42.0            # the level's sim extent (level.json sim.heightfield.extent_sim_m)
 const WALK_Y0 := -36.0
 const WALK_NX := 336

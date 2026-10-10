@@ -62,3 +62,141 @@ func _unhandled_input(e: InputEvent) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST and arena != null:
 		arena._close_recording("window_closed")
+
+
+# ============================================================================================================
+# R-C9-368 (Matt: "the exact barrow_v1's snow ... especially with the snow drifts/banks"): THE ARENA'S SNOW = THE
+# INSTALLED BARROW'S (cliffside3d godot/scripts/barrow_world.gd, "barrow v1"), not the painted pilot's.
+#   FINDING: the painted Barrow (barrow_full.gd _build_painted_snow) DROPPED v1's drift system on purpose ("no
+#   windrows, piles or skirts -- a drift the painting does not show would hide his legs"), and the pilot's DEV-18 is a
+#   FAITHFUL copy of that painted function + terrain height. So v2 lost the drifts with the painted v1, not in DEV-18.
+#   Depth is the same law (base 0.12 m x SNOW_BY_CLASS) -- but v2's field spans 86.2 m on the same 768 px (11.2 cm a
+#   texel; v1 34 m on 512 = 6.6 cm) and its trail 86.2 m on 1024 px (8.4 cm; v1 3.3 cm), so prints and ploughs were
+#   drawn 2.5x coarser and read shallow.
+#   THE ARENA (variant-side; the walk scene's _build_painted_snow is untouched): v1's SnowField law -- its default
+#   windrows and piles at v1's DENSITY (counts scaled by the area ratio), a drift SKIRT on every obstacle (v1's rule:
+#   every placed prop and the mound; here every rock, stone, post, log, the mast, and the buildings' footprints
+#   as a chain of 1.5 m discs), lee tails down the Barrow's wind -- on v2's own depth grid and terrain, at v1's texel
+#   density over the fight's square (SNOW_AREA_M around the fight centre).
+# ============================================================================================================
+const ARENA_SNOW_AREA_M := 72.0
+const V1_SNOW_AREA_M := 34.0
+const V1_WINDROWS := 10
+const V1_PILES := 15
+const V1_FIELD_PX_PER_M := 512.0 / 34.0
+const V1_TRAIL_PX_PER_M := 1024.0 / 34.0
+const V1_SNOW_TINT := Color(1.026, 1.101, 1.174)    # barrow_world.gd SNOW_TINT
+const SNOW_OBSTACLE_IDS := ["ring_stones", "slope_stones", "ring_fallen", "logs", "wreck_mast", "door_post_L", "door_post_R",
+	"talus", "gully_rock", "crags", "sea_stacks", "palisade", "ledge_rocks"]
+const SNOW_BUILDING_IDS := ["longhall", "barrow_front", "fallen_gable", "wreck"]
+var arena_snow_report := {}
+
+
+func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D, shadow_mul: Vector3) -> void:
+	var sn: Dictionary = man["snow"]
+	var g: Dictionary = sn["grid"]
+	var buf := PaintedWorld.load_f32_bin(String(g["file"]), String(g["sha256"]), paint["loads"])
+	var nx := int(g["nx"])
+	var nz := int(g["nz"])
+	if buf.size() != 2 * nx * nz:
+		push_error("bv2f_arena: the snow grid is %d floats, not %d" % [buf.size(), 2 * nx * nz])
+		return
+	var go: Array = g["origin_xz"]
+	snow = SNOW_TERRAIN.new()
+	var ghd: Dictionary = sn.get("ground_h", {})
+	if not ghd.is_empty():
+		var ghb := PaintedWorld.load_f32_bin(String(ghd["file"]), String(ghd["sha256"]), paint["loads"])
+		snow.set_ground_height(ghb, Vector2(float(go[0]), float(go[1])), float(g["cell_m"]), nx, nz)
+	snow.name = "SnowField"
+	snow.fbm_tex = fbm
+	# v1's texel density over the fight's square
+	# THE FIELD SPANS THE SITE'S OWN SNOW AREA (manifest area_xz): the depth grid and the terrain-height grid
+	#   (DEV-18's ground_h_tex, sampled by the mesh UV) are laid over exactly that square -- a different square
+	#   misreads the ground height and floats slabs of snow (the first try did).
+	var ar: Array = sn["area_xz"]
+	var side := float(ar[2])
+	snow.field_px = int(ceil(side * V1_FIELD_PX_PER_M / 64.0)) * 64
+	# a whole number of SnowField's 128 px trail tiles, or it falls back to ONE tile re-sent whole on every print (a
+	#   27 MB upload per footstep: the first build's 1%-low of 11.8 fps)
+	snow.trail_px = int(round(side * V1_TRAIL_PX_PER_M / 128.0)) * 128
+	# v1's drift system at v1's density (its defaults over its 34 m square)
+	var k_area := (side * side) / (V1_SNOW_AREA_M * V1_SNOW_AREA_M)
+	snow.windrow_count = int(round(V1_WINDROWS * k_area))
+	snow.pile_count = int(round(V1_PILES * k_area))
+	snow.cast_shadows = false
+	snow.depth_grid = {"origin": Vector2(float(go[0]), float(go[1])), "cell_m": float(g["cell_m"]),
+					   "nx": nx, "nz": nz, "mul": buf.slice(0, nx * nz), "trod": buf.slice(nx * nz, 2 * nx * nz)}
+	snow.thin_zones = paint.get("_thin_zones", [])
+	paint.erase("_thin_zones")
+	# v1's OWN snow surface (its lit shader and SNOW_TINT) by default: the painted override wears the flat painting
+	#   and the drifts below it read only as edges. `-- --arenasnow painted` keeps the painted surface with the drifts.
+	var painted_surface := Slots.arg("arenasnow") == "painted"
+	if painted_surface:
+		snow.shader_code_override = PaintedWorld.snow_shader_code()
+	else:
+		snow.snow_tint = V1_SNOW_TINT
+	var obstacles := _arena_snow_obstacles()
+	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, obstacles, WIND)
+	add_child(snow)
+	if painted_surface:
+		var smat := snow.material()
+		smat.set_shader_parameter("paint_tex", ground_tex)
+		PaintedWorld.bind_projection(smat, lit, shadow_mul, u_hat, v_hat)
+		snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
+	if heather_mat != null:
+		BarrowHeather.bind_snow(heather_mat, snow, WIND)
+	if reed_mat != null:
+		BarrowHeather.bind_snow(reed_mat, snow, WIND)
+	var br := snow.bake_report()
+	arena_snow_report = {"area_m": side, "field_px": snow.field_px, "trail_px": snow.trail_px,
+		"windrows": snow.windrow_count, "piles": snow.pile_count, "obstacles": obstacles.size(),
+		"surface": "painted" if painted_surface else "v1 (lit, SNOW_TINT)",
+		"mean_depth_m": br.get("mean_depth_m"), "bake_ms": br.get("ms", br.get("bake_ms"))}
+	paint["snow"] = arena_snow_report
+	print("[bv2f_arena] snow (v1 law): " + JSON.stringify(arena_snow_report))
+
+
+func _arena_snow_obstacles() -> Array:
+	var out: Array = []
+	for id_any in nodes.keys():
+		var id := String(id_any)
+		var base := id.split("__")[0].rstrip("0123456789_")
+		var is_prop := SNOW_OBSTACLE_IDS.has(base)
+		var is_bld := SNOW_BUILDING_IDS.has(base)
+		if not (is_prop or is_bld):
+			continue
+		var root: Node3D = nodes[id]
+		var ab := AABB()
+		var first := true
+		for mi in _meshes(root):
+			var m3 := mi as MeshInstance3D
+			if m3.mesh == null:
+				continue
+			var b: AABB = m3.global_transform * m3.mesh.get_aabb()
+			ab = b if first else ab.merge(b)
+			first = false
+		if first or ab.size.y < 0.2:
+			continue
+		if is_prop and maxf(ab.size.x, ab.size.z) < 3.0:
+			out.append({"pos": Vector3(ab.get_center().x, ab.position.y, ab.get_center().z),
+				"radius_m": maxf(ab.size.x, ab.size.z) * 0.5, "height_m": minf(ab.size.y, 3.0)})
+			continue
+		# a long footprint (a building, a long log run): its base as a chain of 1.5 m discs along its AABB rim
+		var x0 := ab.position.x
+		var x1 := ab.end.x
+		var z0 := ab.position.z
+		var z1 := ab.end.z
+		var pts: Array = []
+		var n_x := maxi(1, int(ceil((x1 - x0) / 1.5)))
+		var n_z := maxi(1, int(ceil((z1 - z0) / 1.5)))
+		for i in n_x + 1:
+			var x := lerpf(x0, x1, float(i) / float(n_x))
+			pts.append(Vector2(x, z0))
+			pts.append(Vector2(x, z1))
+		for i in range(1, n_z):
+			var z := lerpf(z0, z1, float(i) / float(n_z))
+			pts.append(Vector2(x0, z))
+			pts.append(Vector2(x1, z))
+		for p in pts:
+			out.append({"pos": Vector3(p.x, ab.position.y, p.y), "radius_m": 0.75, "height_m": minf(ab.size.y, 3.0)})
+	return out
