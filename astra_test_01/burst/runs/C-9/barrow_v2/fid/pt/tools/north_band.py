@@ -316,11 +316,34 @@ def band_blend(rows):
     return acc / ws[..., None], srcs
 
 
+def seam_harmonic(band8, plate_row, taper=TAPER):
+    """R-C9-389 SEAMLESS SEAM (band side only): d(x) = plate row 0 - band row 767 (per pixel, unsmoothed) is extended up
+    into the band as a HARMONIC field (half-plane Poisson: each spatial frequency k decays as exp(-|k| * dist)), then
+    tapered (smoothstep over `taper` rows). The band's last row then equals the plate's first row exactly; fine detail
+    differences fade within a few rows, the low-frequency step over the taper. Plate pixels are never touched."""
+    b = band8.astype(np.float64)
+    d = plate_row.astype(np.float64) - b[BAND - 1]                     # (W, 3)
+    k = np.abs(np.fft.rfftfreq(W)) * 2 * np.pi
+    D = np.fft.rfft(d, axis=0)                                         # (W/2+1, 3)
+    dist = (BAND - 1 - np.arange(BAND)).astype(np.float64)             # 0 at row 767
+    t = np.clip((np.arange(BAND) - (BAND - taper)) / taper, 0, 1)
+    t = t * t * (3 - 2 * t)
+    out = b.copy()
+    for y in range(BAND - taper, BAND):
+        c = np.fft.irfft(D * np.exp(-k * dist[y])[:, None], n=W, axis=0)
+        out[y] += c * t[y]
+    o8 = np.clip(out + 0.5, 0, 255).astype(np.uint8)
+    return o8, {"d_median_abs": round(float(np.median(np.abs(d))), 2), "d_p95_abs": round(float(np.percentile(np.abs(d), 95)), 2),
+                "row767_minus_plate_row0_max_abs": int(np.abs(o8[BAND - 1].astype(int) - plate_row.astype(int)).max()),
+                "taper_px": taper, "method": "half-plane Poisson extension of the per-pixel seam difference"}
+
+
 def cmd_compose():
     cf = load_cfg()
     P8 = np.asarray(Image.open(cf["plate"]).convert("RGB"))
-    band, srcs = band_blend(slice(0, BAND))                          # the FIXED chunks (fixed()), v1's ramps across their joins
-    band8 = np.clip(band + 0.5, 0, 255).astype(np.uint8)
+    band8, srcs = _band_blend_only()                                  # the FIXED chunks (fixed()), v1's ramps across their joins
+    band8, applied = apply_patches(band8)                             # R-C9-389: accepted band patches, band rows only
+    band8, harm = seam_harmonic(band8, P8[0])                         # R-C9-389: seamless seam, band side only
     ph4 = np.concatenate([band8, P8], 0)
     assert ph4.shape == (4096 + BAND, W, 3)
     assert np.array_equal(ph4[BAND:], P8), "a plate pixel changed"
@@ -336,7 +359,7 @@ def cmd_compose():
            "ph4_painting": out, "ph4_file_sha256": sha(out), "ph4_pixels_sha256": pix_sha(R),
            "ph4_rows_768_on_pixels_sha256": pix_sha(R[BAND:]),
            "identical": bool(np.array_equal(R[BAND:], P8)), "differing_px": int((R[BAND:] != P8).any(-1).sum()),
-           "band_chunks": srcs,
+           "band_chunks": srcs, "band_patches": applied, "seam_harmonic": harm,
            "seam_fix": {k_: json.load(open(os.path.join(N, "fixed", "%s.json" % os.path.basename(os.path.dirname(v_["file"])))))
                         for k_, v_ in srcs.items()}}
     # control: a one-pixel change in the plate region must be caught
@@ -345,6 +368,40 @@ def cmd_compose():
     rec["control_one_px_change_caught"] = not np.array_equal(R2[BAND:], P8)
     json.dump(rec, open(os.path.join(N, "final", "identity.json"), "w"), indent=1)
     print(json.dumps({k: v for k, v in rec.items() if k != "band_chunks"}, indent=1))
+
+
+def shape_check(path, win=64, ratio_bar=2.5, abs_bar=10.0):
+    """R-C9-389 SHAPE CHECK: a straight horizontal CUT at the seam (content ending in a line on the seam row) shows as a
+    run of strong vertical gradient exactly between rows 767|768 that the rows around it do not have. Per window of
+    `win` px along x: seam = mean |L(768) - L(767)|; ctl = the mean of the same over the 16 row pairs 752..783 except
+    the seam pair. FAIL where seam > abs_bar AND seam / ctl > ratio_bar, also requiring the step to be one-signed over
+    the window (a cut has one sign; texture crossing the seam flips)."""
+    a = np.asarray(Image.open(path).convert("RGB")).astype(np.float64)
+    L = a.mean(-1)
+    # gap-1 pairs (a raw cut) AND gap-16 pairs (a cut the seam blend smeared over a few rows): the worse one counts
+    G1 = L[1:] - L[:-1]
+    G16 = L[16:] - L[:-16]
+    res = []
+    for g, y0, pairs in ((G1, BAND - 1, [y for y in range(BAND - 16, BAND + 16) if y != BAND - 1]),
+                         (G16, BAND - 8, [y for y in range(BAND - 72, BAND + 56, 8) if abs(y - (BAND - 8)) >= 16])):
+        res.append(_shape_rows(g, y0, pairs, win, ratio_bar, abs_bar))
+    rows = [max(a_, b_, key=lambda r: r["ratio"] * (r["one_signed"] > 0.6)) for a_, b_ in zip(*res)]
+    f = [r for r in rows if r["fail"]]
+    return {"windows": len(rows), "fail_windows": f, "pass": not f,
+            "worst_ratio": max(rows, key=lambda r: r["ratio"]), "params": {"win": win, "ratio_bar": ratio_bar, "abs_bar": abs_bar, "one_signed_bar": 0.6, "gaps": [1, 16]}}
+
+
+def _shape_rows(g, y0, pairs, win, ratio_bar, abs_bar):
+    sg = g[y0]
+    rows = []
+    for x0 in range(0, W - win + 1, win // 2):
+        s_ = np.abs(sg[x0:x0 + win]).mean()
+        c_ = np.mean([np.abs(g[y, x0:x0 + win]).mean() for y in pairs])
+        sign = abs(sg[x0:x0 + win].mean()) / max(s_, 1e-6)
+        rows.append({"x": x0, "seam": round(float(s_), 2), "ctl": round(float(c_), 2), "ratio": round(float(s_ / max(c_, 1e-6)), 2),
+                     "one_signed": round(float(sign), 2),
+                     "fail": bool(s_ > abs_bar and s_ / max(c_, 1e-6) > ratio_bar and sign > 0.6)})
+    return rows
 
 
 def cmd_seamcheck():
@@ -372,12 +429,119 @@ def cmd_seamcheck():
                          "seam_max": max(s_t), "control_max": max(c1_t + c2_t)},
            "grain_ratio": {"seam": s_g, "control_plate": c1_g, "control_band": c2_g,
                            "seam_median": round(float(np.median(s_g)), 3), "control_median": round(float(np.median(c1_g + c2_g)), 3)}}
+    rep["shape_check"] = shape_check(os.path.join(N, "final", "painting_ph4_full.png"))
+    pre = os.path.join(N, "final", "painting_ph4_prepatch_r384.png")
+    if os.path.exists(pre):     # FAIL-FIRST control: the R-C9-384 plate with the pool cut must fail
+        rep["shape_check_control_prepatch"] = shape_check(pre)
     os.makedirs(os.path.join(N, "seam"), exist_ok=True)
     json.dump(rep, open(os.path.join(N, "seam", "seamcheck.json"), "w"), indent=1)
     im = Image.fromarray(ph4.astype(np.uint8))
     for i, x in enumerate(range(0, W, 1280)):
         im.crop((x, BAND - 256, min(W, x + 1280), BAND + 256)).save(os.path.join(N, "seam", "seam_1to1_%d.png" % i))
-    print(json.dumps({k: (v if not isinstance(v, dict) else {kk: vv for kk, vv in v.items() if "median" in kk or "max" in kk}) for k, v in rep.items()}, indent=1))
+    print(json.dumps({k: (v if not isinstance(v, dict) else {kk: vv for kk, vv in v.items() if "median" in kk or "max" in kk or kk in ("pass", "fail_windows", "worst_ratio")}) for k, v in rep.items()}, indent=1))
+
+
+# ------------------------------------------------------------------------------------------------ R-C9-389 band patches
+## A MASKED LOCAL REPAINT of a band area (DEV-24's paste, DEV-30's canvas): the canvas is the COMPOSED ph4 plate's rows
+## 0..1023 at rect x (band + the real plate's top 256 rows as context); the region shows the guide render (with any
+## listed classes inpainted from their surroundings), the paste writes BAND rows only (< 768). compose applies every
+## accepted patch (patches/<name>.json "accepted": true) in order, after the band blend; plate pixels are never touched.
+PATCHES = os.path.join(N, "patches")
+
+
+def _band_blend_only():
+    band, srcs = band_blend(slice(0, BAND))
+    return np.clip(band + 0.5, 0, 255).astype(np.uint8), srcs
+
+
+def apply_patches(band8):
+    sys.path.insert(0, os.path.join(FID, "v1tools"))
+    import dev24
+    applied = []
+    for f in sorted(os.listdir(PATCHES)) if os.path.isdir(PATCHES) else []:
+        if not f.endswith(".json"):
+            continue
+        S = json.load(open(os.path.join(PATCHES, f)))
+        if not S.get("accepted"):
+            continue
+        x0 = S["rect_x"]
+        R = np.asarray(Image.open(S["region_png"])) > 127
+        assert sha(S["region_png"]) == S["region_sha256"] and sha(S["new_png"]) == S["new_sha256"], "patch file moved"
+        new = np.asarray(Image.open(S["new_png"]).convert("RGB")).astype(np.float64)[:BAND]
+        old = band8[:, x0:x0 + CW].astype(np.float64)
+        pc = np.ones((BAND, CW), bool)
+        out, w, corr, M = dev24.paste_local(old, new, R[:BAND], pc)
+        band8 = band8.copy()
+        band8[:, x0:x0 + CW] = np.clip(out + 0.5, 0, 255).astype(np.uint8)
+        applied.append({"name": S["name"], "new_sha256": S["new_sha256"], "paste_px": int((w > 0).sum())})
+    return band8, applied
+
+
+def patch_cmd(sub, name):
+    cf = load_cfg()
+    os.makedirs(PATCHES, exist_ok=True)
+    sp = os.path.join(PATCHES, name + ".json")
+    S = json.load(open(sp))
+    x0 = S["rect_x"]
+    bid = "%s-P-%s" % (PREFIX, name)
+    if sub == "stage":
+        from scipy import ndimage
+        P8 = np.asarray(Image.open(cf["plate"]).convert("RGB"))
+        band8, _ = _band_blend_only()
+        can = np.concatenate([band8, P8[:CH - BAND]], 0)[:, x0:x0 + CW].copy()
+        R = np.zeros((CH, CW), bool)
+        bx = S["region_box_plate"]                                    # [x0, y0, x1, y1] in ph4 px, y1 <= 768
+        assert bx[3] <= BAND
+        R[bx[1]:bx[3], bx[0] - x0:bx[2] - x0] = True
+        G = guide_dev28(cf)[:CH, x0:x0 + CW].copy()
+        CLc = np.asarray(Image.open(cf["class"]))[:CH, x0:x0 + CW]
+        lvl = json.load(open(os.path.join(FID, "../../barrow_full/godot/data/bv2f/site_ph4/level/level.json")))
+        bad = np.isin(CLc, [lvl["classes"].index(n) for n in S.get("inpaint_classes", [])])
+        if S.get("inpaint_blue"):      # any blue-tinted guide pixel (a pool whatever its class)
+            bad |= (G[..., 2].astype(int) - G[..., 0].astype(int)) > 25
+        bad = ndimage.binary_dilation(bad, iterations=4)              # sources: only non-pool pixels, anywhere on the canvas
+        _, (iy, ix) = ndimage.distance_transform_edt(bad, return_indices=True)
+        drop = bad & R
+        G[drop] = G[iy[drop], ix[drop]]
+        can[R] = G[R]
+        Image.fromarray((R * 255).astype(np.uint8)).save(os.path.join(PATCHES, name + "_region.png"))
+        cp = "%s/CS9-guides/%s_canvas.png" % (A9, bid)
+        Image.fromarray(can).save(cp)
+        mp = A9 + "/CS9-guides/manifest.json"
+        man = json.load(open(mp))
+        man[os.path.basename(cp)] = sha(cp)
+        json.dump(man, open(mp, "w"), indent=1)
+        S.update({"bid": bid, "region_png": os.path.join(PATCHES, name + "_region.png"),
+                  "region_sha256": sha(os.path.join(PATCHES, name + "_region.png")), "canvas_sha256": sha(cp),
+                  "region_px": int(R.sum()), "inpainted_px": int(drop.sum())})
+        json.dump(S, open(sp, "w"), indent=1)
+        print(bid, "staged", int(R.sum()), "px; inpainted", int(drop.sum()))
+    elif sub == "brief":
+        cp = "%s/CS9-guides/%s_canvas.png" % (A9, bid)
+        assert sha(cp) == S["canvas_sha256"]
+        text = (("GENERATE BURST %s — %s, a LOCAL REPAINT of one region of the finished BV2F painting (%s). task_id \"%s\".\n\n"
+                 "IMAGE 1 is the canvas to EDIT (1536x1024): it is ALREADY PAINTED everywhere EXCEPT one area that still shows a "
+                 "flat, untextured GREYBOX RENDER (flat pale grey-beige ground with olive patches). Paint ONLY that greybox area, "
+                 "turning every grey form into what it stands for, in place: every form keeps EXACTLY its outline, position and size. "
+                 "The new paint must CONTINUE the painting round it seamlessly -- above all along its BOTTOM edge, where it meets the "
+                 "finished painting: same brushwork, grain, tone and light, every tuft, slope and snow shape running straight on "
+                 "across that edge with no line, step or change. Everything already painted must stay exactly as it is. What the "
+                 "greybox area is: %s\n%s\n\n"
+                 "One image_gen EDIT call, NO retry (image cap 1). Copy the output to out/%s.png with sha256. No code. No other files. "
+                 "No web.\nRETURN: receipt task_id \"%s\"; images = the file with prompt, references and elapsed_s; calls_used = the "
+                 "TRUE number of image_gen calls; status; concerns. Never PASS/FAIL.")
+                % (bid, cf["run_tag"], "R-C9-389", bid, S["note"], cf["rules"], bid, bid))
+        refs = [{"path": cp, "role": "IMAGE 1 — the canvas to EDIT (the finished painting + ONE greybox area to paint)"}] + \
+               [{"path": p, "role": "IMAGE %d — %s" % (i + 2, role)} for i, (p, role) in enumerate(cf["refs"])]
+        json.dump({"text": text, "references": refs, "image_cap": 1, "minutes_cap": 15, "tool_call_cap": 20,
+                   "outputs": ["out/%s.png" % bid], "effort": "high", "add_dirs": [], "experiment": cf["experiment"]},
+                  open(B + "/briefs/C-9/%s.task.json" % bid, "w"), indent=1, ensure_ascii=False)
+        print(bid, "brief ok")
+    elif sub == "accept":
+        np_ = "%s/%s/%s.png" % (A9, bid, bid)
+        S.update({"new_png": np_, "new_sha256": sha(np_), "accepted": True})
+        json.dump(S, open(sp, "w"), indent=1)
+        print(bid, "accepted")
 
 
 if __name__ == "__main__":
@@ -391,6 +555,8 @@ if __name__ == "__main__":
     elif cmd == "fix":
         fixed(int(sys.argv[2]), load_cfg())
         print(json.dumps(json.load(open(os.path.join(N, "fixed", "%s-%s.json" % (PREFIX, key(int(sys.argv[2])))))) if os.path.exists(os.path.join(N, "fixed", "%s-%s.json" % (PREFIX, key(int(sys.argv[2]))))) else "fixed"))
+    elif cmd == "patch":
+        patch_cmd(sys.argv[2], sys.argv[3])
     elif cmd == "compose":
         cmd_compose()
     elif cmd == "seamcheck":

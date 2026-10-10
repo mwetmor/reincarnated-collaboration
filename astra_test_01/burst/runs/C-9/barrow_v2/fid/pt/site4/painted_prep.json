@@ -1,29 +1,29 @@
 {
  "_what": "BV2F PT pilot: the painted pilot's data, measured (fid/pt/tools/bv2f_prep.py = v1 paint_world_prep main on the pilot)",
- "painting_sha256": "5b2d3153a6211aa7316c1f1cfec7dd991186e38b985aa6bb15a7d91c2f194a55",
+ "painting_sha256": "d6e2c438b34e9ef2286ec9c95ea29483781b0f09114dc6c9c8cb875e13e690ed",
  "tufts_self_test": {
   "heather_px": [
-   1307102,
-   1307102
+   1328786,
+   1328786
   ],
   "shrub_px": [
-   75928,
-   75928
+   75892,
+   75892
   ],
   "PASS": true,
   "_": "[this run, step 3's take_report] -- the same classifier on the same painting"
  },
  "reed_split": {
-  "straw_components": 15907,
-  "reed_components": 2593,
-  "heather_components": 13314,
-  "of_which_tips_by_proximity": 595,
-  "reed_px": 159554,
-  "heather_tip_px": 192549,
-  "reed_cards": 149,
+  "straw_components": 15987,
+  "reed_components": 2515,
+  "heather_components": 13472,
+  "of_which_tips_by_proximity": 566,
+  "reed_px": 163336,
+  "heather_tip_px": 192402,
+  "reed_cards": 142,
   "heather_tuft_px": [
-   1254086,
-   1117046
+   1275852,
+   1134935
   ],
   "_": "tuft px [before, after] the reed tufts (dilated 2 px) are taken out of the heather's cover"
  },
@@ -47,7 +47,7 @@
   },
   "pixels": {
    "shadow": 45824,
-   "lit": 2092936
+   "lit": 2095737
   },
   "per_chunk_linear": {
    "2_0": [
@@ -73,10 +73,10 @@
   },
   "painted_vs_rendered_shadow_on_open_snow": {
    "recall_rendered_shadow_painted_as_shadow": 0.8694,
-   "precision": 0.3404,
-   "iou": 0.3239,
-   "painted_shadow_within_10px_of_a_rendered_one": 0.3981,
-   "painted_px": 275915,
+   "precision": 0.3406,
+   "iou": 0.324,
+   "painted_shadow_within_10px_of_a_rendered_one": 0.3983,
+   "painted_px": 275783,
    "rendered_px": 108041,
    "_read": "recall: the share of the render's cast shadow the painter painted as shadow -- where the SUN's real shadow will darken him; the rest of the painted blue is the snow's own washes (hollows, dabs), which no object casts",
    "_instrument": "painted: a pixel's position on the lit->shadow colour axis > 0.5 after a 21 px median; rendered: the blockout's own cast shadow (lit_guide G < 0.5); open snow only"
@@ -85,31 +85,31 @@
  },
  "bakes": 106,
  "heather": {
-  "instances": 841,
+  "instances": 858,
   "placement": {
    "shrub": {
-    "placed": 9,
-    "wanted": 9,
+    "placed": 8,
+    "wanted": 8,
     "footprint_px": [
      54.9,
      64.8
     ],
-    "tuft_cells_covered_share": 0.1335
+    "tuft_cells_covered_share": 0.1525
    },
    "heather": {
-    "placed": 832,
-    "wanted": 832,
+    "placed": 850,
+    "wanted": 850,
     "footprint_px": [
      47.1,
      55.5
     ],
-    "tuft_cells_covered_share": 0.4558
+    "tuft_cells_covered_share": 0.4587
    }
   },
   "painted_mean_linear": [
-   0.28217,
-   0.12075,
-   0.05459
+   0.28182,
+   0.1201,
+   0.05427
   ],
   "painted_mean_srgb": [
    145,
@@ -118,23 +118,23 @@
   ],
   "rel_mul_p10_p50_p90": [
    [
-    0.764,
-    0.922,
-    1.488
+    0.768,
+    0.921,
+    1.48
    ],
    [
-    0.619,
-    0.803,
-    1.789
+    0.623,
+    0.798,
+    1.775
    ],
    [
-    0.595,
-    0.826,
-    1.839
+    0.602,
+    0.823,
+    1.813
    ]
   ],
   "tuft_px_per_spray_median": 1294,
-  "tufts_on_flat_land_share": 0.1996
+  "tufts_on_flat_land_share": 0.1927
  },
  "stair_treads_cut": {
   "cells": 2159,

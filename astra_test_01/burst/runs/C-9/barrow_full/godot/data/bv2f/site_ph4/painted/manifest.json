@@ -2,7 +2,7 @@
  "_what": "what the painted site wears (godot/data/bv2f/site_ph4/painted/), every file's sha256 -- the scene checks each as it loads it",
  "painting": {
   "file": "painting.bin",
-  "sha256": "5b2d3153a6211aa7316c1f1cfec7dd991186e38b985aa6bb15a7d91c2f194a55",
+  "sha256": "d6e2c438b34e9ef2286ec9c95ea29483781b0f09114dc6c9c8cb875e13e690ed",
   "px": [
    6656,
    4864
@@ -12,7 +12,7 @@
  "bakes": {
   "barrow_front": {
    "file": "bakes/barrow_front.bin",
-   "sha256": "c6068b2a0f6e2bf51a4bb99afbf7df59edf5f6d3d640f4eb0070d49609b1a1eb"
+   "sha256": "0be03d784657d447fa93127015bcb60d3eb58437511faba967d6f3f577207e77"
   },
   "cliff_faces__cliff_faces_0": {
    "file": "bakes/cliff_faces__cliff_faces_0.bin",
@@ -356,7 +356,7 @@
   },
   "slope_stones__slope_stones_3": {
    "file": "bakes/slope_stones__slope_stones_3.bin",
-   "sha256": "af09c44acc07e2d0f1e9c8f920f83f217e2cb26d45f95023bc7a5cc651c0a23e"
+   "sha256": "f03a1b9cbb9d7ced25d0e5f202c50ca193e04503477ecdb206a9a5cb1154769b"
   },
   "slope_stones__slope_stones_4": {
    "file": "bakes/slope_stones__slope_stones_4.bin",
@@ -454,7 +454,7 @@
  },
  "ground_as_painted": {
   "file": "painting.bin",
-  "sha256": "5b2d3153a6211aa7316c1f1cfec7dd991186e38b985aa6bb15a7d91c2f194a55",
+  "sha256": "d6e2c438b34e9ef2286ec9c95ea29483781b0f09114dc6c9c8cb875e13e690ed",
   "px": [
    6656,
    4864
@@ -580,7 +580,7 @@
  ],
  "heather": {
   "file": "heather.json",
-  "count": 841,
+  "count": 858,
   "albedo_mul": [
    1.2514,
    1.0106,
@@ -634,16 +634,16 @@
  },
  "reeds": {
   "file": "reeds.json",
-  "sha256": "dedadd62842da4bf1556a0a681e0b22015cf0a0acda4b4d080e972a8421a6760",
+  "sha256": "9af81a6ab9a2767b9d05cb1394ecaf065e8b1352bb75a3a62287f547056cbda2",
   "atlas": {
    "file": "reeds_atlas.bin",
-   "sha256": "8d640b5f04d822b6c75b4c0b17d6a8c5a9a7c3250bd4ff6f823e3687cd3ddb67",
+   "sha256": "f7acced186428b371b1fccc08da7bc2bffe276957a95b9974a81e0e07cadb00c",
    "px": [
     3072,
-    1920
+    1728
    ]
   },
-  "count": 149,
+  "count": 142,
   "_": "DEV-21 (R-C9-205): the painting's own reed tufts, cut as cards (v1's heather-card method), each on its ground"
  }
 }

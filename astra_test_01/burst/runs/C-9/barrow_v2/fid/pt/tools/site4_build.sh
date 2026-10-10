@@ -22,7 +22,7 @@ step() { echo "=== $1 $(date -u +%T)"; }
 fail() { echo "HALT at step $1 (rc $2)"; exit 1; }
 for s in $STEPS; do
   [ "$s" = "$FIRST" ] && go=1; [ $go -eq 1 ] || continue
-  F_=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); [ $F_ -ge 21 ] || { echo "HALT: disk ${F_} GiB < 21 before $s"; exit 9; }
+  F_=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}'); GATE_=${SITE4_DISK_GATE_GIB:-21}; [ $F_ -ge $GATE_ ] || { echo "HALT: disk ${F_} GiB < $GATE_ before $s"; exit 9; }   # R-C9-389: per-run conductor release only
   step $s; echo "disk ${F_} GiB"
   case $s in
     paint)

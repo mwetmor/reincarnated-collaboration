@@ -1,0 +1,649 @@
+{
+ "_what": "what the painted site wears (godot/data/bv2f/site_ph4/painted/), every file's sha256 -- the scene checks each as it loads it -- THE PHONE PAGE'S (fid/pt/tools/site4_web.py, v1's --web recipe)",
+ "frame": {
+  "u0": -33.57573954303182,
+  "v1": 31.933163591268734,
+  "px": [
+   6656,
+   4864
+  ],
+  "px_per_m": 100.617553710938
+ },
+ "shadow_mul": {
+  "linear": [
+   0.4625,
+   0.5494,
+   0.8462
+  ],
+  "_": "measured: the painting's shadowed open snow over its sunlit open snow (median, linear)"
+ },
+ "real_models_in_window": [
+  "barrow_front",
+  "cliff_faces__cliff_faces_0",
+  "cliff_faces__cliff_faces_1",
+  "cliff_faces__cliff_faces_2",
+  "cliff_faces__cliff_faces_3",
+  "cliff_faces__cliff_faces_4",
+  "cliff_faces__cliff_faces_5",
+  "cliff_faces__cliff_faces_6",
+  "crags__crags_0",
+  "crags__crags_1",
+  "fallen_gable",
+  "gully_rock__gully_rock_0",
+  "gully_rock__gully_rock_1",
+  "gully_rock__gully_rock_10",
+  "gully_rock__gully_rock_11",
+  "gully_rock__gully_rock_2",
+  "gully_rock__gully_rock_3",
+  "gully_rock__gully_rock_4",
+  "gully_rock__gully_rock_5",
+  "gully_rock__gully_rock_6",
+  "gully_rock__gully_rock_7",
+  "gully_rock__gully_rock_8",
+  "gully_rock__gully_rock_9",
+  "logs__logs_1",
+  "logs__logs_2",
+  "longhall",
+  "palisade__palisade_0",
+  "palisade__palisade_1",
+  "palisade__palisade_10",
+  "palisade__palisade_11",
+  "palisade__palisade_12",
+  "palisade__palisade_13",
+  "palisade__palisade_14",
+  "palisade__palisade_15",
+  "palisade__palisade_16",
+  "palisade__palisade_17",
+  "palisade__palisade_18",
+  "palisade__palisade_19",
+  "palisade__palisade_2",
+  "palisade__palisade_20",
+  "palisade__palisade_21",
+  "palisade__palisade_22",
+  "palisade__palisade_23",
+  "palisade__palisade_24",
+  "palisade__palisade_25",
+  "palisade__palisade_26",
+  "palisade__palisade_27",
+  "palisade__palisade_28",
+  "palisade__palisade_29",
+  "palisade__palisade_3",
+  "palisade__palisade_30",
+  "palisade__palisade_31",
+  "palisade__palisade_32",
+  "palisade__palisade_33",
+  "palisade__palisade_34",
+  "palisade__palisade_35",
+  "palisade__palisade_36",
+  "palisade__palisade_37",
+  "palisade__palisade_38",
+  "palisade__palisade_39",
+  "palisade__palisade_4",
+  "palisade__palisade_40",
+  "palisade__palisade_41",
+  "palisade__palisade_42",
+  "palisade__palisade_43",
+  "palisade__palisade_44",
+  "palisade__palisade_45",
+  "palisade__palisade_46",
+  "palisade__palisade_47",
+  "palisade__palisade_48",
+  "palisade__palisade_5",
+  "palisade__palisade_6",
+  "palisade__palisade_7",
+  "palisade__palisade_8",
+  "palisade__palisade_9",
+  "ring_stones__ring_stones_0",
+  "ring_stones__ring_stones_1",
+  "ring_stones__ring_stones_2",
+  "ring_stones__ring_stones_3",
+  "sea_stacks__sea_stacks_0",
+  "sea_stacks__sea_stacks_1",
+  "slope_stones__slope_stones_0",
+  "slope_stones__slope_stones_1",
+  "slope_stones__slope_stones_10",
+  "slope_stones__slope_stones_11",
+  "slope_stones__slope_stones_2",
+  "slope_stones__slope_stones_3",
+  "slope_stones__slope_stones_4",
+  "slope_stones__slope_stones_5",
+  "slope_stones__slope_stones_6",
+  "slope_stones__slope_stones_7",
+  "slope_stones__slope_stones_8",
+  "slope_stones__slope_stones_9",
+  "talus__talus_1",
+  "talus__talus_10",
+  "talus__talus_11",
+  "talus__talus_2",
+  "talus__talus_3",
+  "talus__talus_4",
+  "talus__talus_5",
+  "talus__talus_6",
+  "talus__talus_7",
+  "talus__talus_8",
+  "talus__talus_9",
+  "wreck",
+  "wreck_mast__wreck_mast_0"
+ ],
+ "heather": {
+  "file": "heather.json",
+  "count": 858,
+  "albedo_mul": [
+   1.2514,
+   1.0106,
+   0.5677
+  ],
+  "_albedo_mul": "the installed Barrow's stem grade (1.622, 1.254, 0.534) x the overlay check's first calibration (0.7715, 0.8059, 1.0631): the sprays' own colour onto the painted tufts beneath them"
+ },
+ "snow": {
+  "area_xz": [
+   -47.891,
+   -47.103,
+   92.687,
+   92.687
+  ],
+  "field_px": 768,
+  "trail_px": 1024,
+  "ground_h": {
+   "file": "snow_ground_h.bin",
+   "sha256": "aaf3cbe2ec095af355748b56a5432cc1fda3ca3b3a500c247087c82d33fe72e1",
+   "_": "float32 nx*nz ground heights (m), the depth grid's layout"
+  },
+  "grid": {
+   "file": "snow_grid.bin",
+   "sha256": "e57acbf2c61a24fdee2a7325098db39da2c80e748981a39c26934a86fc8d2628",
+   "origin_xz": [
+    -47.891,
+    -47.103
+   ],
+   "cell_m": 0.1,
+   "nx": 928,
+   "nz": 928,
+   "_layout": "float32 little-endian: nx*nz depth multipliers (row = z), then nx*nz trodden amounts"
+  },
+  "_": "v1's SNOW_BY_CLASS on the bv2art class map, flat ground only; the field covers the pilot window + 1.5 m (world xz, square)"
+ },
+ "water": {
+  "sdf": {
+   "file": "water_sdf.bin",
+   "sha256": "8999583917e5c19f750651383647ac6ee8fff12f5d8d8c763ca02d0feb476a08",
+   "rect_xz": [
+    -29.825,
+    -5.004,
+    67.75,
+    50.0
+   ],
+   "_": "R-C9-159's water_sdf: R = metres to the nearest floe or shore edge / 2 (8-bit), world xz, 8 px/m; row 0 = z0"
+  },
+  "floes": 0,
+  "ice_slab_items": 384,
+  "_": "DEV-5: the animated water over the painted sea (scripts/bv2f/pt_water.gd = R-C9-159's shader, base = the painting)"
+ },
+ "reeds": {
+  "file": "reeds.json",
+  "sha256": "9af81a6ab9a2767b9d05cb1394ecaf065e8b1352bb75a3a62287f547056cbda2",
+  "atlas": {
+   "file": "reeds_atlas.bin",
+   "sha256": "f7acced186428b371b1fccc08da7bc2bffe276957a95b9974a81e0e07cadb00c",
+   "px": [
+    3072,
+    1728
+   ]
+  },
+  "count": 142,
+  "_": "DEV-21 (R-C9-205): the painting's own reed tufts, cut as cards (v1's heather-card method), each on its ground"
+ },
+ "painting": {
+  "file": "painting.bin",
+  "sha256": "1aa7bb52433f946ad42350062d99c0c9b22a141c191e11af49b991c82f3cfbdd",
+  "px": [
+   4096,
+   2993
+  ],
+  "_": "the accepted paint-over within 4096 px, lossy WebP q95 (frame.px stays the plate's: sampled by normalised UV)"
+ },
+ "ground_as_painted": {
+  "file": "painting.bin",
+  "sha256": "1aa7bb52433f946ad42350062d99c0c9b22a141c191e11af49b991c82f3cfbdd",
+  "px": [
+   4096,
+   2993
+  ],
+  "_": "the accepted paint-over within 4096 px, lossy WebP q95 (frame.px stays the plate's: sampled by normalised UV)"
+ },
+ "lit": {
+  "file": "lit.bin",
+  "sha256": "c0bfc95f9c1b757caacfa72e7d046aedf41b9da87b463171d50c4a43499dd2be",
+  "px": [
+   1664,
+   1216
+  ],
+  "_": "the painting's direct sun as a share of flat sunlit ground's: lit_guide G x min(B / sin 55, 1), 8-bit, half resolution -- a quarter, for the phone"
+ },
+ "bakes": {
+  "barrow_front": {
+   "file": "bakes/barrow_front.bin",
+   "sha256": "b04492cb2af20af3d923676ca6f5cc79948994c3cae342b5b1fdb7d495cb7df1"
+  },
+  "cliff_faces__cliff_faces_0": {
+   "file": "bakes/cliff_faces__cliff_faces_0.bin",
+   "sha256": "196a5ed384f69a339057d0ee82f28504127faee7ae23fcddac304bee3aac9198"
+  },
+  "cliff_faces__cliff_faces_1": {
+   "file": "bakes/cliff_faces__cliff_faces_1.bin",
+   "sha256": "dbea6c67279baeae4515b27815d766d7407ff9245fecbca63b033b2bcf479784"
+  },
+  "cliff_faces__cliff_faces_2": {
+   "file": "bakes/cliff_faces__cliff_faces_2.bin",
+   "sha256": "f96b7447886d84d628e346bf29e1daf95e73088b30c27bbd9f21a07374c03839"
+  },
+  "cliff_faces__cliff_faces_3": {
+   "file": "bakes/cliff_faces__cliff_faces_3.bin",
+   "sha256": "3c6e433623e19c7bf1a6d1593f36b4685d6a17f5375addaa4fb2a8054958ab40"
+  },
+  "cliff_faces__cliff_faces_4": {
+   "file": "bakes/cliff_faces__cliff_faces_4.bin",
+   "sha256": "8ff989b0857cc8f7f59924946cbdb8b6168ab9fcf047959da8d14dfbb93db5f2"
+  },
+  "cliff_faces__cliff_faces_5": {
+   "file": "bakes/cliff_faces__cliff_faces_5.bin",
+   "sha256": "f39b2d30265e69a0b3ba40d58fd272f1227f29c55f1318185b2ab9b9ba4c3564"
+  },
+  "cliff_faces__cliff_faces_6": {
+   "file": "bakes/cliff_faces__cliff_faces_6.bin",
+   "sha256": "575eff9ed9e5c9042b9b1815a1ac5cafd8f34eb3e4d3931e66c6d79f09b3ca32"
+  },
+  "crags__crags_0": {
+   "file": "bakes/crags__crags_0.bin",
+   "sha256": "5bbc84b10a6faff2815b02565914cce33680a67c47f7e77b1ea4f03ae90ed18c"
+  },
+  "crags__crags_1": {
+   "file": "bakes/crags__crags_1.bin",
+   "sha256": "b90c265a69d41adca97cc91db0648f833e119c758a183f75c8c39b58e1d2d4e2"
+  },
+  "fallen_gable": {
+   "file": "bakes/fallen_gable.bin",
+   "sha256": "1039c2b625d186c5b3c6dda60ee08d56b6bda000301a3bf267cf3a897c55430e"
+  },
+  "gully_rock__gully_rock_0": {
+   "file": "bakes/gully_rock__gully_rock_0.bin",
+   "sha256": "cf2bfc20b4c53cf2594abee62bf4722310c247a6ed06e6df72e60ac33f57fa42"
+  },
+  "gully_rock__gully_rock_1": {
+   "file": "bakes/gully_rock__gully_rock_1.bin",
+   "sha256": "aafee27ef5db1a0810d2564c588c30c98f8cd529905df32535c4cee39d946dfa"
+  },
+  "gully_rock__gully_rock_10": {
+   "file": "bakes/gully_rock__gully_rock_10.bin",
+   "sha256": "21c661233020b59f9fa568aeb99e6aec18ff35808b075b78c77c3886ce940b53"
+  },
+  "gully_rock__gully_rock_11": {
+   "file": "bakes/gully_rock__gully_rock_11.bin",
+   "sha256": "e03f877d7f73bc45ea11839e2b82c2379a5f5449dec56276ae99a3d5565f1d16"
+  },
+  "gully_rock__gully_rock_2": {
+   "file": "bakes/gully_rock__gully_rock_2.bin",
+   "sha256": "fedb660a155407bd18fd28f01c017399c3038addaca12d523305924781016612"
+  },
+  "gully_rock__gully_rock_3": {
+   "file": "bakes/gully_rock__gully_rock_3.bin",
+   "sha256": "04068c7972b649593df26ad5cd84885f6b21f516616b65b608bbdd3169c1e1db"
+  },
+  "gully_rock__gully_rock_4": {
+   "file": "bakes/gully_rock__gully_rock_4.bin",
+   "sha256": "2f23a28191a5ddad61bef007e71a89aac5eaff2fc8faa2e769de357a70ac0782"
+  },
+  "gully_rock__gully_rock_5": {
+   "file": "bakes/gully_rock__gully_rock_5.bin",
+   "sha256": "b1227e55c290bc43392fa3245bed55593770c877a659f1510a0b8d7e9106fe43"
+  },
+  "gully_rock__gully_rock_6": {
+   "file": "bakes/gully_rock__gully_rock_6.bin",
+   "sha256": "3bff2db75ae49f6608c5b69ae639a29d169eaf97dd8c7067c64d5fe84f465b36"
+  },
+  "gully_rock__gully_rock_7": {
+   "file": "bakes/gully_rock__gully_rock_7.bin",
+   "sha256": "43f0b8ef90e7b65630a3669cda3ffd5384a397432ad28679e5dc4a8c9d03ac78"
+  },
+  "gully_rock__gully_rock_8": {
+   "file": "bakes/gully_rock__gully_rock_8.bin",
+   "sha256": "4622f898edcf89a1bb3f0f991e558333dd9313c5e27ec7438e602c77d69a7a3a"
+  },
+  "gully_rock__gully_rock_9": {
+   "file": "bakes/gully_rock__gully_rock_9.bin",
+   "sha256": "d175a807047e4ddfdc44597a83d7d9ff41571da5af72a6455d82f00f4c9cab59"
+  },
+  "logs__logs_1": {
+   "file": "bakes/logs__logs_1.bin",
+   "sha256": "7d5f17c8ef9d77db92a805bda91619c5b716189b1dc033d846c94810a44933ee"
+  },
+  "logs__logs_2": {
+   "file": "bakes/logs__logs_2.bin",
+   "sha256": "64b387b308e4850c95405e53a15c8a95a531e9711f65ae55126a0158b62a61e5"
+  },
+  "longhall": {
+   "file": "bakes/longhall.bin",
+   "sha256": "5cf7c5d423d7aeec3fd207d7a2e028f34f2521552e630cefacb66e15f1da86b2"
+  },
+  "palisade__palisade_0": {
+   "file": "bakes/palisade__palisade_0.bin",
+   "sha256": "ba53b440953f31d5e509e3ffe51d97bdc1aafa154ff90ed314b50d303b4b6522"
+  },
+  "palisade__palisade_1": {
+   "file": "bakes/palisade__palisade_1.bin",
+   "sha256": "692da56d77b991adbccc86caab3e9574d94d888529523458dd5821869e406fd7"
+  },
+  "palisade__palisade_10": {
+   "file": "bakes/palisade__palisade_10.bin",
+   "sha256": "c9d22161442e6647cd6638a128fbea5b7466ec6398f3a38791523fb4967b8ba3"
+  },
+  "palisade__palisade_11": {
+   "file": "bakes/palisade__palisade_11.bin",
+   "sha256": "863541f92c9acfce433f7b9d2dbe5c26eaeeac71bebdfbb7dc66b0c642465b9b"
+  },
+  "palisade__palisade_12": {
+   "file": "bakes/palisade__palisade_12.bin",
+   "sha256": "c65506fe3d1518518c22c64e645d18d6cef17a11da7693e4c5e401476914dfaa"
+  },
+  "palisade__palisade_13": {
+   "file": "bakes/palisade__palisade_13.bin",
+   "sha256": "34a1756ea123e621563ec1efff7e9ca5404a4d203e9daa819abda3c69342c449"
+  },
+  "palisade__palisade_14": {
+   "file": "bakes/palisade__palisade_14.bin",
+   "sha256": "30113fb9fd316cac1de8647aa73cbaa00029b2581ce5ebda47c7ffa94f3d23ce"
+  },
+  "palisade__palisade_15": {
+   "file": "bakes/palisade__palisade_15.bin",
+   "sha256": "6bad47a9a5b74fa1a4859831d9e215c92c10bcd0b5c6ddce6f841f830fb46e3d"
+  },
+  "palisade__palisade_16": {
+   "file": "bakes/palisade__palisade_16.bin",
+   "sha256": "1e8829229fd4ba7f334f38fd20ba17721b3dfb8dc4dbea76838b9d54cfcd7b5f"
+  },
+  "palisade__palisade_17": {
+   "file": "bakes/palisade__palisade_17.bin",
+   "sha256": "3ef16b62e6e4aae2a632e5227771dadfa754e32b7164633759fb7742e56eaaf9"
+  },
+  "palisade__palisade_18": {
+   "file": "bakes/palisade__palisade_18.bin",
+   "sha256": "51acfde408b8217032362fcd0728963da8d55322a2130520f448b7351bb8e9e4"
+  },
+  "palisade__palisade_19": {
+   "file": "bakes/palisade__palisade_19.bin",
+   "sha256": "39d43cf2c9377038691a87153d5cc3bd6ff1f9754b4e87553a6b660242238e37"
+  },
+  "palisade__palisade_2": {
+   "file": "bakes/palisade__palisade_2.bin",
+   "sha256": "cd590a1dfb7be01374f4c81a6501de3b31008e80e672e7f22b3bbf06bc951480"
+  },
+  "palisade__palisade_20": {
+   "file": "bakes/palisade__palisade_20.bin",
+   "sha256": "b2a9d08bbd91072bf2e3c73d3ae7682f6f8390bd017cd430e1ae594c0c5b11a5"
+  },
+  "palisade__palisade_21": {
+   "file": "bakes/palisade__palisade_21.bin",
+   "sha256": "6341c026f5cd8316a9b2944e1d2b1c30dc40d1dceef65cde4d2d61f539c07109"
+  },
+  "palisade__palisade_22": {
+   "file": "bakes/palisade__palisade_22.bin",
+   "sha256": "3344cf963b5fa44b9813827f88fb95aa68f5593af95b3231a128dadf2077a8dc"
+  },
+  "palisade__palisade_23": {
+   "file": "bakes/palisade__palisade_23.bin",
+   "sha256": "08f23f12e226b8c3fbf5122c4e56d0f86d72c6d7dabcb69cd5f1c09b275e462d"
+  },
+  "palisade__palisade_24": {
+   "file": "bakes/palisade__palisade_24.bin",
+   "sha256": "5b0ed14f1dbe1bb075b18442e4f45906d4da162b834b82db045a54fb2b0439c5"
+  },
+  "palisade__palisade_25": {
+   "file": "bakes/palisade__palisade_25.bin",
+   "sha256": "48f23b03340eba7f6aed436a7170edbf047fd8ed308a7000ed7b85e26f8dbd0c"
+  },
+  "palisade__palisade_26": {
+   "file": "bakes/palisade__palisade_26.bin",
+   "sha256": "fa77f2bd9aedd6f16dd59994fe4af95c3c0fcb7095f7bfc0ef99a707fa27ca84"
+  },
+  "palisade__palisade_27": {
+   "file": "bakes/palisade__palisade_27.bin",
+   "sha256": "ea61f9d468d33d9c9ccea04238945632a66985e0473b038345309eeb45cd529a"
+  },
+  "palisade__palisade_28": {
+   "file": "bakes/palisade__palisade_28.bin",
+   "sha256": "829fcad32b0267e11ca1837be00feb4f355309d241db317378ae2993f5f4bc28"
+  },
+  "palisade__palisade_29": {
+   "file": "bakes/palisade__palisade_29.bin",
+   "sha256": "a72923abbd72f21c1fb95cf7631b08ab61c96419be02d858130c40aa08cf5176"
+  },
+  "palisade__palisade_3": {
+   "file": "bakes/palisade__palisade_3.bin",
+   "sha256": "f8f965c938cb2d0cede76156b6cc8fcd17fcf4a0edb893c750665f03fd332a0f"
+  },
+  "palisade__palisade_30": {
+   "file": "bakes/palisade__palisade_30.bin",
+   "sha256": "3a9ee951d994c5a9e2e3db3b14a6665085a939f2862f388e5ca9697b12800a43"
+  },
+  "palisade__palisade_31": {
+   "file": "bakes/palisade__palisade_31.bin",
+   "sha256": "8ceaa641e4e27ff714ff67bf11165611ebf4bf21e95a55096d1f27b06bf70256"
+  },
+  "palisade__palisade_32": {
+   "file": "bakes/palisade__palisade_32.bin",
+   "sha256": "19982cccf04a7252cab752aeeb85d9e41b52fa59a481a9d93bd9d1b5a5571855"
+  },
+  "palisade__palisade_33": {
+   "file": "bakes/palisade__palisade_33.bin",
+   "sha256": "ddea6df47ec2580c7f6129038f78599834ba6c3b27d5796e74e3307e3b05db72"
+  },
+  "palisade__palisade_34": {
+   "file": "bakes/palisade__palisade_34.bin",
+   "sha256": "0c43b87c398f0637741b77f739b50175a83bf27bda6447b044c38c58f8a38c41"
+  },
+  "palisade__palisade_35": {
+   "file": "bakes/palisade__palisade_35.bin",
+   "sha256": "3e7e89cff0108b8737d16a679185b41b0e526a22f551581ade11339396eced96"
+  },
+  "palisade__palisade_36": {
+   "file": "bakes/palisade__palisade_36.bin",
+   "sha256": "cf10464f15fa5e5969738e2498ae2598317c36e56f7303690cac46ec658945fe"
+  },
+  "palisade__palisade_37": {
+   "file": "bakes/palisade__palisade_37.bin",
+   "sha256": "25f68c4b786e9c89c41e3e748531afcc751116858f2181eec5f4f95779ff5259"
+  },
+  "palisade__palisade_38": {
+   "file": "bakes/palisade__palisade_38.bin",
+   "sha256": "1bf32baeed97787f9d1da37f05f0dce189d667e7dccf250623c0fc777d36e417"
+  },
+  "palisade__palisade_39": {
+   "file": "bakes/palisade__palisade_39.bin",
+   "sha256": "6016cf9a2ae4bf0987f3679e3917bb7c11c52fcd88f8a8f82c89025a8f378fff"
+  },
+  "palisade__palisade_4": {
+   "file": "bakes/palisade__palisade_4.bin",
+   "sha256": "660252bde00ba305e68f7851ab2a109c731f8c29e4f5b406cbdc49d5ffdd8eca"
+  },
+  "palisade__palisade_40": {
+   "file": "bakes/palisade__palisade_40.bin",
+   "sha256": "c20cc5322ef9c98645307b1eb585be2a063c696d521527b1fa6f43769d306209"
+  },
+  "palisade__palisade_41": {
+   "file": "bakes/palisade__palisade_41.bin",
+   "sha256": "332c5be8e94485ba0c550faeccd11ff0e58a7e483bd540bad6a497193e78593c"
+  },
+  "palisade__palisade_42": {
+   "file": "bakes/palisade__palisade_42.bin",
+   "sha256": "c448fcca9e0166f1ab99ea2f9efa4e043897f0bbc26e904f91eba378458014c2"
+  },
+  "palisade__palisade_43": {
+   "file": "bakes/palisade__palisade_43.bin",
+   "sha256": "dbeb5e4e46814eed5c3bdb64c8128b16f004729720e86d32b2e81a343aed8c1c"
+  },
+  "palisade__palisade_44": {
+   "file": "bakes/palisade__palisade_44.bin",
+   "sha256": "43ef83a063fb25bdcbcf5e89ad4811141e406e67e178f4c1f234c8fe2aff457d"
+  },
+  "palisade__palisade_45": {
+   "file": "bakes/palisade__palisade_45.bin",
+   "sha256": "884a1d1be3cfe2196f160239221b1a39bdaaed69edfc54ec871715afca7cece1"
+  },
+  "palisade__palisade_46": {
+   "file": "bakes/palisade__palisade_46.bin",
+   "sha256": "e3152cfc07bc991bbd0ac8a22ebe62404ecad37eca7ada22022fe3e7236d8aa9"
+  },
+  "palisade__palisade_47": {
+   "file": "bakes/palisade__palisade_47.bin",
+   "sha256": "f5c861d9c818c61cc3d8f244b801306a6ef4635366c5c62bb8ceb7777f50f9a3"
+  },
+  "palisade__palisade_48": {
+   "file": "bakes/palisade__palisade_48.bin",
+   "sha256": "8ee47770eb584cf7b1c9f92beb5a5c487c7e8b517d8c6c301d0558d5a1188c3f"
+  },
+  "palisade__palisade_5": {
+   "file": "bakes/palisade__palisade_5.bin",
+   "sha256": "555880cb5b0e4f0c93d7014c1a86996a95499d91ab8e8bc8ed05e4dac58e9a83"
+  },
+  "palisade__palisade_6": {
+   "file": "bakes/palisade__palisade_6.bin",
+   "sha256": "397599751188579156947f056d74ddc406e1f1477db3143b5eb1b557184c6e73"
+  },
+  "palisade__palisade_7": {
+   "file": "bakes/palisade__palisade_7.bin",
+   "sha256": "1848a7faf4586ac68373fd1521e3b1a77e634b187076226580f2cf59f2099856"
+  },
+  "palisade__palisade_8": {
+   "file": "bakes/palisade__palisade_8.bin",
+   "sha256": "d2aa8025a70fc57d26422a9879d892202f51c13d2af54909bbdb9e724aa49e9d"
+  },
+  "palisade__palisade_9": {
+   "file": "bakes/palisade__palisade_9.bin",
+   "sha256": "9e81ac20b97ac4ec1654aef9520a4e503e130824fc39cc7fc0b2745774f7c2e6"
+  },
+  "ring_stones__ring_stones_0": {
+   "file": "bakes/ring_stones__ring_stones_0.bin",
+   "sha256": "af15dae18e00f12cc9910ab37b693e8c539ddad357e1edc7cb20baa03c1e29e9"
+  },
+  "ring_stones__ring_stones_1": {
+   "file": "bakes/ring_stones__ring_stones_1.bin",
+   "sha256": "89544242403f197eadcbd47815b7df3639f25ffa7e8f90c47be88bfad4be5d5a"
+  },
+  "ring_stones__ring_stones_2": {
+   "file": "bakes/ring_stones__ring_stones_2.bin",
+   "sha256": "87852a86b5b95ad2f4b6e8d1562edda94cdd19116362ff7daac432b9c66aedac"
+  },
+  "ring_stones__ring_stones_3": {
+   "file": "bakes/ring_stones__ring_stones_3.bin",
+   "sha256": "b7cbe8787405150221ebc3ed1d658700f8be47faeaca98b64bfcc454d0574fd1"
+  },
+  "sea_stacks__sea_stacks_0": {
+   "file": "bakes/sea_stacks__sea_stacks_0.bin",
+   "sha256": "ae455cd1a67b60d11a709e18a7842db66b3738aab179e931df28cee67d35c6e8"
+  },
+  "sea_stacks__sea_stacks_1": {
+   "file": "bakes/sea_stacks__sea_stacks_1.bin",
+   "sha256": "7eda2f38ac7183f93745ee667f17e46eafb9f9f2c0d4b5d9a3b81037b156373d"
+  },
+  "slope_stones__slope_stones_0": {
+   "file": "bakes/slope_stones__slope_stones_0.bin",
+   "sha256": "5b125a3135000a1e0e8a21406cf598d1afe3c04ac0f6071a68645a4f29b90a91"
+  },
+  "slope_stones__slope_stones_1": {
+   "file": "bakes/slope_stones__slope_stones_1.bin",
+   "sha256": "77dc25b842596c5d038838f0e0f5481749819b55c33cc478c2d024989f9c1a74"
+  },
+  "slope_stones__slope_stones_10": {
+   "file": "bakes/slope_stones__slope_stones_10.bin",
+   "sha256": "7bd1be08b31f867384df66a486f82f53acafa3b5534c2bc6b52227d27d4f3270"
+  },
+  "slope_stones__slope_stones_11": {
+   "file": "bakes/slope_stones__slope_stones_11.bin",
+   "sha256": "02c697579b4c38ffbba023290c693d92b6412193e250ace92a145929e3541449"
+  },
+  "slope_stones__slope_stones_2": {
+   "file": "bakes/slope_stones__slope_stones_2.bin",
+   "sha256": "983482f492f20c8dbbdc64a18e85431c55dcca2d25c097754f706d09c8479f36"
+  },
+  "slope_stones__slope_stones_3": {
+   "file": "bakes/slope_stones__slope_stones_3.bin",
+   "sha256": "ac1565bf6d51f3a74110c78f2a355d4c5e2e31cb3b8b83af1f9f749182b7333c"
+  },
+  "slope_stones__slope_stones_4": {
+   "file": "bakes/slope_stones__slope_stones_4.bin",
+   "sha256": "dfb97077e82b777df87c70e5633649b9e1f8400a402a18cd67e31441a7e2b32e"
+  },
+  "slope_stones__slope_stones_5": {
+   "file": "bakes/slope_stones__slope_stones_5.bin",
+   "sha256": "7898a6d8c83611c64bf249fc2b4daceee453f5c78329d338788a38e2d04f7c3e"
+  },
+  "slope_stones__slope_stones_6": {
+   "file": "bakes/slope_stones__slope_stones_6.bin",
+   "sha256": "e6f0be8231f226ac7d7fb6af3ecdc4a5a9ab46cbbaffa558ec45540e2d833b0f"
+  },
+  "slope_stones__slope_stones_7": {
+   "file": "bakes/slope_stones__slope_stones_7.bin",
+   "sha256": "359f21781d861714329b2ac1a0cdeee728f9c51504f223e2096f397b3a3e5b38"
+  },
+  "slope_stones__slope_stones_8": {
+   "file": "bakes/slope_stones__slope_stones_8.bin",
+   "sha256": "c8085ce533f28ab107e033bc5fc4477fd617889385e7e189828b6fff00ba0014"
+  },
+  "slope_stones__slope_stones_9": {
+   "file": "bakes/slope_stones__slope_stones_9.bin",
+   "sha256": "f334f3d760cafd051e4c33016f3194be80324f7799435bf052b54457c26e8e78"
+  },
+  "talus__talus_1": {
+   "file": "bakes/talus__talus_1.bin",
+   "sha256": "ace8210ca3a201dd0a151393c13b0e25e091cc78b704c9d8734bb5cd9125c55d"
+  },
+  "talus__talus_10": {
+   "file": "bakes/talus__talus_10.bin",
+   "sha256": "53ba5774638c060d282f720cecb069e017e949c1dd3090810439255d1f79bea8"
+  },
+  "talus__talus_11": {
+   "file": "bakes/talus__talus_11.bin",
+   "sha256": "3bdc34361971336c5d4e17976597e9b3ec814734e6c6aaf06108c810a8d510eb"
+  },
+  "talus__talus_2": {
+   "file": "bakes/talus__talus_2.bin",
+   "sha256": "3eedb591b6531e1ead05ae61670dd3c027e0d728ebff5004bd7b0c97bcfa32ae"
+  },
+  "talus__talus_3": {
+   "file": "bakes/talus__talus_3.bin",
+   "sha256": "d210df8d35d7171aace7e5f373cad67d8ebfd339348b59726272ace52536dca6"
+  },
+  "talus__talus_4": {
+   "file": "bakes/talus__talus_4.bin",
+   "sha256": "2ae409707cf3345e63abc7435ab4ba3dc6ccbd5418850f6eadb8a9034cb3ec3a"
+  },
+  "talus__talus_5": {
+   "file": "bakes/talus__talus_5.bin",
+   "sha256": "7d19858dd384f08c6e0d0ae25e11bba1efce0511b539f4f8123610858479aec0"
+  },
+  "talus__talus_6": {
+   "file": "bakes/talus__talus_6.bin",
+   "sha256": "9a960ef62b73d39485e9d4fa66453f4d0aef09c28fd131bbab287952192a1215"
+  },
+  "talus__talus_7": {
+   "file": "bakes/talus__talus_7.bin",
+   "sha256": "d590b1c194ef8e01eceb705c8f334e704b20c10fed6a665077ef7101e2c73be3"
+  },
+  "talus__talus_8": {
+   "file": "bakes/talus__talus_8.bin",
+   "sha256": "19cac485b32a8f611ce145e9c27a78a0c26998e286ce3052716e7f05c3f531e9"
+  },
+  "talus__talus_9": {
+   "file": "bakes/talus__talus_9.bin",
+   "sha256": "772137b63ca3f1606659bfbf4bb39755a1994557f9b6b139c02871231af889f1"
+  },
+  "wreck": {
+   "file": "bakes/wreck.bin",
+   "sha256": "8b735f61846cb988a5034aefe519982bcc2c86de0401d3abdb99c20222a8a44b"
+  },
+  "wreck_mast__wreck_mast_0": {
+   "file": "bakes/wreck_mast__wreck_mast_0.bin",
+   "sha256": "492ed22212cd0d1e96eb7fa07085ae0f83addaad854add001098aab961d55068"
+  }
+ }
+}
