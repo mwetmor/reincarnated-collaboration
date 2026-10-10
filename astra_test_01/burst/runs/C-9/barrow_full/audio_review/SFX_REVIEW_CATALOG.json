@@ -1,0 +1,1788 @@
+{
+  "schema": "barrow_sfx_review_v1",
+  "manifest_sha256": "2cde52cd27a22bdaa2822646e46aaeff66ff88c8240bc9e7c903452f5cefc714",
+  "source_root": "/Users/admin/Games/reincarnated-demo/public/audio",
+  "music": "accepted_for_now",
+  "feedback": {
+    "character": "needs_review",
+    "monster_casts": "mostly_rejected_pending_audition",
+    "creature_voices": "some_loved_pending_identification"
+  },
+  "preview": "Full duration MP3, stereo 48 kHz, 160 kbps; no trimming, gain adjustment, or normalization. Browser volume defaults to 50%. Game mix differs.",
+  "actions": [
+    {
+      "key": "slash",
+      "group": "Character",
+      "label": "Sword swing / basic slash",
+      "note": "Also used for physical melee monster attacks. Contact has its own sound below.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/oga/RPG Sound Pack/battle/swing.wav",
+            "sfx/oga/RPG Sound Pack/battle/swing2.wav",
+            "sfx/oga/RPG Sound Pack/battle/swing3.wav"
+          ]
+        },
+        {
+          "id": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav",
+          "label": "0009_combat_sword_swing_c",
+          "sources": [
+            "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Attack 1.ogg",
+          "label": "Sword Attack 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Attack 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/27_sword_miss_1.wav",
+          "label": "27_sword_miss_1",
+          "sources": [
+            "sfx/leohpaz/27_sword_miss_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/07_human_atk_sword_1.wav",
+          "label": "07_human_atk_sword_1",
+          "sources": [
+            "sfx/leohpaz/07_human_atk_sword_1.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "physical_hit",
+      "group": "Character",
+      "label": "Sword contact / physical hit",
+      "note": "Shared by physical hits involving the character, including incoming damage.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/kenney/Audio/impactPunch_heavy_000.ogg",
+            "sfx/kenney/Audio/impactPunch_heavy_001.ogg"
+          ]
+        },
+        {
+          "id": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_hit_flesh_a.wav",
+          "label": "0009_combat_sword_hit_flesh_a",
+          "sources": [
+            "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_hit_flesh_a.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Impact Hit 1.ogg",
+          "label": "Sword Impact Hit 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Impact Hit 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/26_sword_hit_1.wav",
+          "label": "26_sword_hit_1",
+          "sources": [
+            "sfx/leohpaz/26_sword_hit_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/Hits/Body_HIts_01.wav",
+          "label": "Body_HIts_01",
+          "sources": [
+            "sfx/Hits/Body_HIts_01.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "blitz",
+      "group": "Character",
+      "label": "Charge / Blitz",
+      "note": "Sound on an accepted charge cast.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash01.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/08_human_charge_1.wav",
+          "label": "08_human_charge_1",
+          "sources": [
+            "sfx/leohpaz/08_human_charge_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/15_human_dash_1.wav",
+          "label": "15_human_dash_1",
+          "sources": [
+            "sfx/leohpaz/15_human_dash_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Flee_L2_Whoosh.wav",
+          "label": "PM_GENERIC_Flee_L2_Whoosh",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Flee_L2_Whoosh.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "potion",
+      "group": "Character",
+      "label": "Potion / healing",
+      "note": "Sound on an accepted potion use.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light01_Heal_v1.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/02_Heal_02.wav",
+          "label": "02_Heal_02",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/02_Heal_02.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_UI_Menu_SFX/051_use_item_01.wav",
+          "label": "051_use_item_01",
+          "sources": [
+            "sfx/leohpaz/10_UI_Menu_SFX/051_use_item_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff32_Mend_v1.wav",
+          "label": "PM_SPELL_Buff32_Mend_v1",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff32_Mend_v1.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vires_might",
+      "group": "Character",
+      "label": "Might / strength buff",
+      "note": "Sound on activating Vires Might.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/16_Atk_buff_04.wav",
+          "label": "16_Atk_buff_04",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/16_Atk_buff_04.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/17_Def_buff_01.wav",
+          "label": "17_Def_buff_01",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/17_Def_buff_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff12_Shield.wav",
+          "label": "PM_SPELL_Buff12_Shield",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff12_Shield.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "war_cry",
+      "group": "Character",
+      "label": "Battle Cry",
+      "note": "The current cue is a buff, not a voiced shout. Scream is an audition candidate, not a confirmed battle cry.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff04_Aggressive.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_human_special_atk_1.wav",
+          "label": "10_human_special_atk_1",
+          "sources": [
+            "sfx/leohpaz/10_human_special_atk_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/Human_amb/Scream Male 26.wav",
+          "label": "Scream Male 26",
+          "sources": [
+            "sfx/Human_amb/Scream Male 26.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/16_Atk_buff_04.wav",
+          "label": "16_Atk_buff_04",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/16_Atk_buff_04.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "rune_of_rush",
+      "group": "Character",
+      "label": "Haste / Rune of Rush",
+      "note": "Sound on activating the speed buff.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff11_Haste.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/48_Speed_up_02.wav",
+          "label": "48_Speed_up_02",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/48_Speed_up_02.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff22_Quick.wav",
+          "label": "PM_SPELL_Buff22_Quick",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff22_Quick.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash02.wav",
+          "label": "PM_GENERIC_Dash02",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash02.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "whirlwind_start",
+      "group": "Character",
+      "label": "Whirlwind \u2014 start",
+      "note": "One-shot at the start of the channel; separate from the repeating body.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P1.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_human_special_atk_2.wav",
+          "label": "10_human_special_atk_2",
+          "sources": [
+            "sfx/leohpaz/10_human_special_atk_2.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind01_Gust.wav",
+          "label": "PM_ELEM_Wind01_Gust",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind01_Gust.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/25_Wind_01.wav",
+          "label": "25_Wind_01",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/25_Wind_01.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "whirlwind_loop",
+      "group": "Character",
+      "label": "Whirlwind \u2014 repeating body",
+      "note": "Use Repeat preview to hear repetition. Alternatives still need a loop-seam check before game integration.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P2.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/09_human_charging_1_loop.wav",
+          "label": "09_human_charging_1_loop",
+          "sources": [
+            "sfx/leohpaz/09_human_charging_1_loop.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/09_human_charging_2_loop.wav",
+          "label": "09_human_charging_2_loop",
+          "sources": [
+            "sfx/leohpaz/09_human_charging_2_loop.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind04_Cyclone.wav",
+          "label": "PM_ELEM_Wind04_Cyclone",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind04_Cyclone.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "snow_step",
+      "group": "Character",
+      "label": "Movement / footsteps",
+      "note": "Current sound rotates five snow steps. Alternatives include other surfaces for comparison.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/kenney/Audio/footstep_snow_000.ogg",
+            "sfx/kenney/Audio/footstep_snow_001.ogg",
+            "sfx/kenney/Audio/footstep_snow_002.ogg",
+            "sfx/kenney/Audio/footstep_snow_003.ogg",
+            "sfx/kenney/Audio/footstep_snow_004.ogg"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Footsteps/Dirt/Dirt Chain Walk 1.ogg",
+          "label": "Dirt Chain Walk 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Footsteps/Dirt/Dirt Chain Walk 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/16_human_walk_stone_1.wav",
+          "label": "16_human_walk_stone_1",
+          "sources": [
+            "sfx/leohpaz/16_human_walk_stone_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/kenney/Audio/footstep_concrete_000.ogg",
+          "label": "footstep_concrete_000",
+          "sources": [
+            "sfx/kenney/Audio/footstep_concrete_000.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "player_death",
+      "group": "Character",
+      "label": "Character death",
+      "note": "One-shot on player death. These voice candidates may need tailoring.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/leohpaz/14_human_death_spin.wav"
+          ]
+        },
+        {
+          "id": "sfx/Human_amb/Scream Male 60.wav",
+          "label": "Scream Male 60",
+          "sources": [
+            "sfx/Human_amb/Scream Male 60.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/11_human_damage_1.wav",
+          "label": "11_human_damage_1",
+          "sources": [
+            "sfx/leohpaz/11_human_damage_1.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster01.wav",
+          "label": "PM_GENERIC_Death_Monster01",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster01.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "energy_refused",
+      "group": "Character",
+      "label": "Not enough energy",
+      "note": "Short feedback sound when a skill cannot start.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/kenney/Audio/error_001.ogg"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_UI_Menu_SFX/033_Denied_03.wav",
+          "label": "033_Denied_03",
+          "sources": [
+            "sfx/leohpaz/10_UI_Menu_SFX/033_Denied_03.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_UI_Menu_SFX/029_Decline_09.wav",
+          "label": "029_Decline_09",
+          "sources": [
+            "sfx/leohpaz/10_UI_Menu_SFX/029_Decline_09.wav"
+          ]
+        },
+        {
+          "id": "sfx/kenney/Audio/error_002.ogg",
+          "label": "error_002",
+          "sources": [
+            "sfx/kenney/Audio/error_002.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "arrow_cast",
+      "group": "Monster spells",
+      "label": "Physical ranged attack / arrow",
+      "note": "Shared by monsters classified as physical ranged attackers.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Bow Attacks Hits and Blocks/Bow Attack 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Bow Attacks Hits and Blocks/Bow Attack 2.ogg",
+          "label": "Bow Attack 2",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Bow Attacks Hits and Blocks/Bow Attack 2.ogg"
+          ]
+        },
+        {
+          "id": "sfx/MAGIC WEPONES/Weapons/0009_combat_bow_fire_c.wav",
+          "label": "0009_combat_bow_fire_c",
+          "sources": [
+            "sfx/MAGIC WEPONES/Weapons/0009_combat_bow_fire_c.wav"
+          ]
+        },
+        {
+          "id": "sfx/MAGIC WEPONES/Weapons/0009_combat_crossbow_fire_b.wav",
+          "label": "0009_combat_crossbow_fire_b",
+          "sources": [
+            "sfx/MAGIC WEPONES/Weapons/0009_combat_crossbow_fire_b.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "fire_cast",
+      "group": "Monster spells",
+      "label": "Fire \u2014 cast / projectile",
+      "note": "Current mapping groups fire monster casts by element.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Projectiles01.wav",
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Projectiles02.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg",
+          "label": "Fireball 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Firespray 1.ogg",
+          "label": "Firespray 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Firespray 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Fire Elemental/0014_monster_elemental_fire_attack_a.wav",
+          "label": "0014_monster_elemental_fire_attack_a",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Fire Elemental/0014_monster_elemental_fire_attack_a.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "fire_hit",
+      "group": "Monster spells",
+      "label": "Fire \u2014 impact",
+      "note": "Shared by fire hits involving the character.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Impact_Single.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/04_Fire_explosion_04_medium.wav",
+          "label": "04_Fire_explosion_04_medium",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/04_Fire_explosion_04_medium.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 1.ogg",
+          "label": "Spell Impact 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Explosion_Single02.wav",
+          "label": "PM_GENERIC_Explosion_Single02",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Explosion_Single02.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cold_cast",
+      "group": "Monster spells",
+      "label": "Cold / ice \u2014 cast / projectile",
+      "note": "Current mapping groups cold monster casts by element.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P2_Projectile.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Throw 1.ogg",
+          "label": "Ice Throw 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Throw 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Barrage 1.ogg",
+          "label": "Ice Barrage 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Barrage 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Freeze 1.ogg",
+          "label": "Ice Freeze 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Freeze 1.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cold_hit",
+      "group": "Monster spells",
+      "label": "Cold / ice \u2014 impact",
+      "note": "Shared by cold hits involving the character.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P3_Impact.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/13_Ice_explosion_01.wav",
+          "label": "13_Ice_explosion_01",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/13_Ice_explosion_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Freeze 2.ogg",
+          "label": "Ice Freeze 2",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Freeze 2.ogg"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 2.ogg",
+          "label": "Spell Impact 2",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 2.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lightning_cast",
+      "group": "Monster spells",
+      "label": "Lightning \u2014 cast",
+      "note": "Current mapping groups lightning monster casts by element.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric01_Electric_Spark.wav",
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric06_Flash_Zap.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav",
+          "label": "18_Thunder_02",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric07_Lightning_Small.wav",
+          "label": "PM_ELEM_Electric07_Lightning_Small",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric07_Lightning_Small.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast01_Low_Wind.wav",
+          "label": "PM_SPELL_Cast01_Low_Wind",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast01_Low_Wind.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "lightning_hit",
+      "group": "Monster spells",
+      "label": "Lightning \u2014 impact",
+      "note": "Shared by lightning hits involving the character.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single01.wav",
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single02.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav",
+          "label": "18_Thunder_02",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric06_Flash_Zap.wav",
+          "label": "PM_ELEM_Electric06_Flash_Zap",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric06_Flash_Zap.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 3.ogg",
+          "label": "Spell Impact 3",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 3.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "poison_cast",
+      "group": "Monster spells",
+      "label": "Poison \u2014 cast",
+      "note": "Poison has a small dedicated shortlist; other candidates are thematic approximations.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark07_Poison.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/46_Poison_01.wav",
+          "label": "46_Poison_01",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/46_Poison_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav",
+          "label": "PM_ELEM_Dark02_Hex_P1_Trigger",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Waterspray 1.ogg",
+          "label": "Waterspray 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Waterspray 1.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "poison_hit",
+      "group": "Monster spells",
+      "label": "Poison \u2014 impact",
+      "note": "Shared by poison hits involving the character. Some candidates are thematic approximations.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/46_Poison_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark07_Poison.wav",
+          "label": "PM_ELEM_Dark07_Poison",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark07_Poison.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark03_Dispel.wav",
+          "label": "PM_ELEM_Dark03_Dispel",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark03_Dispel.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Waterspray 2.ogg",
+          "label": "Waterspray 2",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Waterspray 2.ogg"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "aether_cast",
+      "group": "Monster spells",
+      "label": "Aether \u2014 cast",
+      "note": "Current light-magic substitution is provisional. No dedicated aether pack is asserted.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light14_Holy_Sword_P1_Cast_v1.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast30_Subtle_Light_Beam.wav",
+          "label": "PM_SPELL_Cast30_Subtle_Light_Beam",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast30_Subtle_Light_Beam.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P1_Cast.wav",
+          "label": "PM_GENERIC_Missile_P1_Cast",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P1_Cast.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Atk_Magic_SFX/45_Charge_05.wav",
+          "label": "45_Charge_05",
+          "sources": [
+            "sfx/leohpaz/8_Atk_Magic_SFX/45_Charge_05.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "aether_hit",
+      "group": "Monster spells",
+      "label": "Aether \u2014 impact",
+      "note": "Shared by aether hits involving the character; candidates are provisional.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light14_Holy_Sword_P2_Impact_v2_noChimes.wav"
+          ]
+        },
+        {
+          "id": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 1.ogg",
+          "label": "Spell Impact 1",
+          "sources": [
+            "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 1.ogg"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P2_Impact.wav",
+          "label": "PM_GENERIC_Missile_P2_Impact",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P2_Impact.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light15_Dazzle.wav",
+          "label": "PM_ELEM_Light15_Dazzle",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light15_Dazzle.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vitality_cast",
+      "group": "Monster spells",
+      "label": "Vitality / dark magic \u2014 cast",
+      "note": "Current mapping groups vitality monster casts by element.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark01_Distort_P1_Trigger.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark04_Absorb_P1_Cast.wav",
+          "label": "PM_ELEM_Dark04_Absorb_P1_Cast",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark04_Absorb_P1_Cast.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav",
+          "label": "PM_ELEM_Dark02_Hex_P1_Trigger",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/21_Debuff_01.wav",
+          "label": "21_Debuff_01",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/21_Debuff_01.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vitality_hit",
+      "group": "Monster spells",
+      "label": "Vitality / dark magic \u2014 impact",
+      "note": "Shared by vitality hits involving the character.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P2_Impact_Single.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/8_Buffs_Heals_SFX/39_Absorb_04.wav",
+          "label": "39_Absorb_04",
+          "sources": [
+            "sfx/leohpaz/8_Buffs_Heals_SFX/39_Absorb_04.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark04_Absorb_P2_Light_Impact.wav",
+          "label": "PM_ELEM_Dark04_Absorb_P2_Light_Impact",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark04_Absorb_P2_Light_Impact.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark10_P2_Impact.wav",
+          "label": "PM_ELEM_Dark10_P2_Impact",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark10_P2_Impact.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ghost_cast",
+      "group": "Creature voices",
+      "label": "Ghost / wraith \u2014 melee attack",
+      "note": "Creature voice replaces the elemental cast sound for spectral melee attackers. Keep current if this is one you love.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current rotation",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_attack_a.wav",
+            "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_attack_b.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_a.wav",
+          "label": "0014_monster_ghost_vocal_a",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_a.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_b.wav",
+          "label": "0014_monster_ghost_vocal_b",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_b.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark05_Ghost_Laughter.wav",
+          "label": "PM_ELEM_Dark05_Ghost_Laughter",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark05_Ghost_Laughter.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ghost_death",
+      "group": "Creature voices",
+      "label": "Ghost / wraith \u2014 death",
+      "note": "Also includes records named spectre or banshee.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_death.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_b.wav",
+          "label": "0014_monster_ghost_vocal_b",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_b.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster01.wav",
+          "label": "PM_GENERIC_Death_Monster01",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster01.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav",
+          "label": "69_Enemy_death_01",
+          "sources": [
+            "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ghoul_death",
+      "group": "Creature voices",
+      "label": "Ghoul / zombie \u2014 death",
+      "note": "Keep current if this is one of the creature sounds you love.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_death.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_vocal_a.wav",
+          "label": "0014_monster_ghoul_vocal_a",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_vocal_a.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav",
+          "label": "69_Enemy_death_01",
+          "sources": [
+            "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Troll/0014_monster_troll_death.wav",
+          "label": "0014_monster_troll_death",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Troll/0014_monster_troll_death.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "golem_death",
+      "group": "Creature voices",
+      "label": "Golem / construct \u2014 death",
+      "note": "Earth elemental voice; also used for records named construct.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_death.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_vocal_a.wav",
+          "label": "0014_monster_elemental_earth_vocal_a",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_vocal_a.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Giant/Enemy_Walker_Rock_LandRock.wav",
+          "label": "Enemy_Walker_Rock_LandRock",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Giant/Enemy_Walker_Rock_LandRock.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Giant/Enemy_Walker_Rock_Grunts_02.wav",
+          "label": "Enemy_Walker_Rock_Grunts_02",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Giant/Enemy_Walker_Rock_Grunts_02.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "orc_death",
+      "group": "Creature voices",
+      "label": "Orc \u2014 death",
+      "note": "Keep current if this is one of the creature sounds you love.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_death.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/24_orc_death_spin.wav",
+          "label": "24_orc_death_spin",
+          "sources": [
+            "sfx/leohpaz/24_orc_death_spin.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_vocal_b.wav",
+          "label": "0014_monster_orc_vocal_b",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_vocal_b.wav"
+          ]
+        },
+        {
+          "id": "sfx/leohpaz/21_orc_damage_1.wav",
+          "label": "21_orc_damage_1",
+          "sources": [
+            "sfx/leohpaz/21_orc_damage_1.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "enemy_death",
+      "group": "Creature voices",
+      "label": "Other monsters \u2014 death",
+      "note": "Fallback for records outside the four named voice families. Note the creature if you want a more specific sound.",
+      "options": [
+        {
+          "id": "current",
+          "label": "Keep current sound",
+          "sources": [
+            "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Goblin/0014_monster_goblin_death.wav",
+          "label": "0014_monster_goblin_death",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Goblin/0014_monster_goblin_death.wav"
+          ]
+        },
+        {
+          "id": "sfx/monsters_creatures_sfx_1_wav/Demon/Muerte_001.wav",
+          "label": "Muerte_001",
+          "sources": [
+            "sfx/monsters_creatures_sfx_1_wav/Demon/Muerte_001.wav"
+          ]
+        },
+        {
+          "id": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster02.wav",
+          "label": "PM_GENERIC_Death_Monster02",
+          "sources": [
+            "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster02.wav"
+          ]
+        }
+      ]
+    }
+  ],
+  "clips": {
+    "sfx/Hits/Body_HIts_01.wav": {
+      "group": "Hits",
+      "seconds": 10.25,
+      "sha256": "9061942c4767e714f7b8b7f2b1c93a934da9c1d31bcf3a575e78c7848bc8ad48"
+    },
+    "sfx/Human_amb/Scream Male 26.wav": {
+      "group": "Human_amb",
+      "seconds": 1.003,
+      "sha256": "817d9ffb7cee73e3e1688cb6fc84b9e707b728426f586967da4b1a3af33798f9"
+    },
+    "sfx/Human_amb/Scream Male 60.wav": {
+      "group": "Human_amb",
+      "seconds": 1.888,
+      "sha256": "280600b3d70236100003a2f8384236a03a34c77d8c86b12663895710eefba710"
+    },
+    "sfx/MAGIC WEPONES/Weapons/0009_combat_bow_fire_c.wav": {
+      "group": "MAGIC WEPONES",
+      "seconds": 0.533,
+      "sha256": "4bcd6f1a4837c10da6419763b947ec6302ab7b2cb026cdf021c15791f90af15a"
+    },
+    "sfx/MAGIC WEPONES/Weapons/0009_combat_crossbow_fire_b.wav": {
+      "group": "MAGIC WEPONES",
+      "seconds": 0.453,
+      "sha256": "60baece5e57df0862b5653da6bb526bee7b847ca545b9ac17c987e99c9f5b7a9"
+    },
+    "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_hit_flesh_a.wav": {
+      "group": "MAGIC WEPONES",
+      "seconds": 0.5,
+      "sha256": "96343f7d3e12d141f605bdea3e6efc2a6a2a3cb5a8e9eace54672ee773df2bca"
+    },
+    "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav": {
+      "group": "MAGIC WEPONES",
+      "seconds": 0.544,
+      "sha256": "3dbfe4d5bf99581186672b0889c32ad98689c40a6635c90f90fc0680fbc53670"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark01_Distort_P1_Trigger.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 0.853,
+      "sha256": "c47e571409ef4236fbd92fc1235de376fad8df623476a0325dc2fb60708fd5a3"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.36,
+      "sha256": "2d440d9901fb647181eeee5c15b0fa17dcbc75eb416a54164a87e5884c8237a8"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P2_Impact_Single.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 0.915,
+      "sha256": "ba29a166e5332590e55df6b9398544634cf22dd84205dbc06d024d4e6f489fc1"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark03_Dispel.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.927,
+      "sha256": "80a96e07a39777c85c0f32aa75cdd4839e5c24e36c21f17c46985ffee4c30f61"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark04_Absorb_P1_Cast.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.503,
+      "sha256": "135a53e5643f80638e2e7510dcac4d4c4329a6d17a9b01021eed4331f5c4909f"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark04_Absorb_P2_Light_Impact.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 3.164,
+      "sha256": "393655a7daec0ab978a47cff87a7a3cd7544074b45f6c791ae5a9484963d7ce4"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark05_Ghost_Laughter.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 4.034,
+      "sha256": "c0b7b8d5dc0938532ed2ba7840e939fe469178aeb1ebf31c77ed7754ca6fa2db"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark07_Poison.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.909,
+      "sha256": "94aea0d986b1938c80a39dee73c3ace695d8ce582d3a688fb5bc65b026d5d685"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark10_P2_Impact.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.868,
+      "sha256": "44982cfe8115e6f4c10f881e4bc7973faf9cdba8184a0b7d2b7abf7750d8788e"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric01_Electric_Spark.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.277,
+      "sha256": "10be62410053408183ccdbe4f4bc371f0580653644fbaac78b964317d99ec896"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single01.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.645,
+      "sha256": "54e7f5ccc0d5c0f2a2d5dd36e6109884afcf09fca6f17fdf82fc560de0539cad"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single02.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.033,
+      "sha256": "938ba636cf764824ca203521cf6a098e3f7bb0912eab457c27139481f57cb008"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric06_Flash_Zap.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 0.915,
+      "sha256": "da33dabfd1cc3d2b43d1fe205b95e9277f7e27e7b84739bdd243be3ecbcd41e5"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric07_Lightning_Small.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.333,
+      "sha256": "cab88ea13f61dfe43ed6ac977cf6839b7e6df01c179cb9bed902f156301e670b"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Impact_Single.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.409,
+      "sha256": "cd02db14bd30a729f9f5768a4a67d42b97b71d0519958b3d2d4f3824f3cd9f71"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Projectiles01.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.197,
+      "sha256": "43d5abc770f2938907ade9edc803cb47a9fdd40c2a48acf5347a08b0188970bf"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Projectiles02.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.379,
+      "sha256": "5deeb8e7a3bbbbe42e56c0fe0239db39d1f026d2cb8cc3ca9591ab847c512dd0"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P2_Projectile.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.498,
+      "sha256": "9f940f47838412c46080981232fc7cb39eef88c9595d01dc3452302e41f51402"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P3_Impact.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.101,
+      "sha256": "d832068b5c2a9d9f91bcc6d27f7097431aae5a922e200c9e01458569d2630b28"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light01_Heal_v1.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 3.032,
+      "sha256": "17b9e6f03c8eb8e3f7327cc83a633042fa3bdc27f8323a80f279f7b997a43f75"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light14_Holy_Sword_P1_Cast_v1.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 3.531,
+      "sha256": "fac10b2f2f7f8d0f9ad377dafcd26744855a6dd8d474bee84ebc102f6233b944"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light14_Holy_Sword_P2_Impact_v2_noChimes.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.083,
+      "sha256": "f5f0417127e1155154231c7ea83a117873932db988138914f7dfd55c4c53be40"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light15_Dazzle.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.61,
+      "sha256": "c2ec689b7dfe47f616e63b1cd776ba99c9aae05cb8d2e62d62cc2d2d780f733a"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind01_Gust.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.757,
+      "sha256": "5b2ca4e10c0a09f2258de3b3607a699d9078ef7a28ed78821f438862f2edbba5"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P1.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.567,
+      "sha256": "d36f969553855774b5920ca6ac9001e67168fdd04cca7a395ff67e0cd25e7f1d"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P2.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.994,
+      "sha256": "9513830306f851f4f6b5c15ebcfe47cab4ffc96d1a25f630fb4d786cbdfb39f4"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind04_Cyclone.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 5.099,
+      "sha256": "29a00397b5a940304104dea9a4c53273a179cd07cee0f03ee6727aba206bc5f6"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash01.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 0.684,
+      "sha256": "75c35d20cb387db72229b6f352619c1604e22c51a178b1f2a306f9d046d0eb54"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash02.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 0.924,
+      "sha256": "bea452d320a80eb694e4ee047fb9a924afb1f2c3b57391e814587d8c7387e3b4"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster01.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.094,
+      "sha256": "17a72dff6e459bcb8d1cce001caa9c4d09e0e680035cbcc2056d5dc1e1b987ec"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Death_Monster02.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.22,
+      "sha256": "046d41503d9aba4b2b92a4e20d5772da847edbef453fc900b6ffc4e4557088f6"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Explosion_Single02.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.3,
+      "sha256": "69ffd7c88f4bb68cf215f96fbfcba4c034ea6a1a518ab79621ebb929ded4ee94"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Flee_L2_Whoosh.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.067,
+      "sha256": "ecaf41ad25c499fb46d5f4aef7b015f3cb1fefa810b5b7da3b5b3593683d0993"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P1_Cast.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.219,
+      "sha256": "15d803e99c8f0fa1a0e856660a03af99469e70536ffb19faa9d33263c3234dbe"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P2_Impact.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.987,
+      "sha256": "f383dc12b225ba8748ff80f4a83e0f8b6d8cc3cce93e1a071cc9de141ebcdeaa"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff04_Aggressive.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.556,
+      "sha256": "8d5fd18861fafd01b2e1bf46276495a4d389b4b3a92c0bdb7b8a9651ff9a6662"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff11_Haste.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.721,
+      "sha256": "23e92ca132a5bac9ac46a20e96954be022ae2f2b39ea41b9d2177f1fefa5faa8"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff12_Shield.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.1,
+      "sha256": "18d81eebf641f6fc63b608013b2319c6c3112107d5be34115fac090fe0a5ee4c"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff22_Quick.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.628,
+      "sha256": "7a45d56029b354792cbbaf3db862f941ca1d76a1887b59257c24abc731bde077"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.514,
+      "sha256": "6535c65cfc3d14fc64d84c766a088edcce1bb69c0ae2b98bab18e3ecb44d70ec"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff32_Mend_v1.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 1.376,
+      "sha256": "eeb85c0fb31c24b93874a8c9fae956a7c728f4530b295f4b7fb4eebfee8fa845"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast01_Low_Wind.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.901,
+      "sha256": "91e1b2ee35b1f29146ba7ec4e53cb76c1859df0ef4107e205676dab6d69902d2"
+    },
+    "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast30_Subtle_Light_Beam.wav": {
+      "group": "Pixel Magic Sound Effects Pack",
+      "seconds": 2.12,
+      "sha256": "a12c31c012b3a8dc509556229c836afce25a01a4d8071f151a3b6ad9ee7d8be1"
+    },
+    "sfx/kenney/Audio/error_001.ogg": {
+      "group": "kenney",
+      "seconds": 0.165,
+      "sha256": "46e67425d16339772e8d328fb36a49426c9467418686e11beeb71ff84b0f6433"
+    },
+    "sfx/kenney/Audio/error_002.ogg": {
+      "group": "kenney",
+      "seconds": 0.165,
+      "sha256": "76810ec365f41078fd0507101da5bb7b8730fe011dde43908329fdabd8575e79"
+    },
+    "sfx/kenney/Audio/footstep_concrete_000.ogg": {
+      "group": "kenney",
+      "seconds": 0.106,
+      "sha256": "d7267e183067757c92c169de2a379abea592cfca6b39bb2e8feea15221ad79fe"
+    },
+    "sfx/kenney/Audio/footstep_snow_000.ogg": {
+      "group": "kenney",
+      "seconds": 0.374,
+      "sha256": "c05fa4a9dc9a7aabc04996466fb589537e49af76de9998d8f9e6270ec92dcef7"
+    },
+    "sfx/kenney/Audio/footstep_snow_001.ogg": {
+      "group": "kenney",
+      "seconds": 0.374,
+      "sha256": "980fb9a1c9227aed7995067b0357f373053337f2416316db8ea0438418542fb4"
+    },
+    "sfx/kenney/Audio/footstep_snow_002.ogg": {
+      "group": "kenney",
+      "seconds": 0.374,
+      "sha256": "db52bafdc66304f3b999f2c29227826c65993916e630ac2ffbca17d07b263178"
+    },
+    "sfx/kenney/Audio/footstep_snow_003.ogg": {
+      "group": "kenney",
+      "seconds": 0.374,
+      "sha256": "68272e3f1cabcabd02d328fd344454d7c04cb58b5a86972fcdd858f845e3d007"
+    },
+    "sfx/kenney/Audio/footstep_snow_004.ogg": {
+      "group": "kenney",
+      "seconds": 0.374,
+      "sha256": "7fe9ce5f5732aaa0a50ef02bb1ac162c27f6bd85214e86aaea6e13e7a41dbc00"
+    },
+    "sfx/kenney/Audio/impactPunch_heavy_000.ogg": {
+      "group": "kenney",
+      "seconds": 0.649,
+      "sha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8"
+    },
+    "sfx/kenney/Audio/impactPunch_heavy_001.ogg": {
+      "group": "kenney",
+      "seconds": 0.536,
+      "sha256": "f92f5cb6ba4ff2766497292ffd90865654317eeca976f5652e0708dbdcdc0dd9"
+    },
+    "sfx/leohpaz/07_human_atk_sword_1.wav": {
+      "group": "leohpaz",
+      "seconds": 0.667,
+      "sha256": "197286c065d27819e8448f9f93466228ceed298808b768849dabcfce3d23ecbe"
+    },
+    "sfx/leohpaz/08_human_charge_1.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "9b07f79e40dacff2d31aaf88d5ef5bff467c52edcbaacc5f5891ef17308c0b61"
+    },
+    "sfx/leohpaz/09_human_charging_1_loop.wav": {
+      "group": "leohpaz",
+      "seconds": 3.0,
+      "sha256": "5c0420d7e3dcf9e19074de923ad0fdd5e21682215b97dc7aa90ca340ee595f93"
+    },
+    "sfx/leohpaz/09_human_charging_2_loop.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "cfe06b61a421c81e119e99e2f09bccc66243304f0d0e009c9a39545efe3cb115"
+    },
+    "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav": {
+      "group": "leohpaz",
+      "seconds": 2.667,
+      "sha256": "679882a81a208b5aa2644c3183ca532911e8d0a8092b38ceea099cde2775b54c"
+    },
+    "sfx/leohpaz/10_UI_Menu_SFX/029_Decline_09.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "afbe9f8e24fb96ca10843266e59fd5767b1d6e3c62ffddf7ff1edd8b40210627"
+    },
+    "sfx/leohpaz/10_UI_Menu_SFX/033_Denied_03.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "b82cdf1e4f349e68ede0dcd7dbf7476698872e3a5b81fbec9aeb4804caa059fa"
+    },
+    "sfx/leohpaz/10_UI_Menu_SFX/051_use_item_01.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "c890b19c0eb57370f248ae10732e8bd2f9656797aae0900e7a0101b3e5df1893"
+    },
+    "sfx/leohpaz/10_human_special_atk_1.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "dd1a0ee67e22ad94c07c2d2b1fed2d97815509429dade68764e296a1d155b4d3"
+    },
+    "sfx/leohpaz/10_human_special_atk_2.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "da7d537c91d780b3c576cf5b7902569206da354c88ce9a882d577c9f8a77c22d"
+    },
+    "sfx/leohpaz/11_human_damage_1.wav": {
+      "group": "leohpaz",
+      "seconds": 1.333,
+      "sha256": "4303112fb78ff0acaedec5a90b21060851d4378f661430a379e9e6c5ba86de18"
+    },
+    "sfx/leohpaz/14_human_death_spin.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "083aefc6c6e23350121ee3a0d09774daea84cbece9182501e7d616334b6bf298"
+    },
+    "sfx/leohpaz/15_human_dash_1.wav": {
+      "group": "leohpaz",
+      "seconds": 0.667,
+      "sha256": "939ee713f9ed227ce51da545f586104d3dabdc67c6893f9a7bb87775fd50f05e"
+    },
+    "sfx/leohpaz/16_human_walk_stone_1.wav": {
+      "group": "leohpaz",
+      "seconds": 0.667,
+      "sha256": "0de8fff7ff8803faefbef1b20de69e60ce8b316cfdbbe3b70b0e4d9efa428a78"
+    },
+    "sfx/leohpaz/21_orc_damage_1.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "04056abe06840df26e181cb80da8ac437f7d37535244e2f2226210a3619d0165"
+    },
+    "sfx/leohpaz/24_orc_death_spin.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "39c1af9d01934897e1ded5744e927912c0142727e73e74ac922011b867509ca3"
+    },
+    "sfx/leohpaz/26_sword_hit_1.wav": {
+      "group": "leohpaz",
+      "seconds": 0.667,
+      "sha256": "b8a55776b70a60a1d4058cfb0528ba4897382acf7cd0e36b9a7d990d59762a95"
+    },
+    "sfx/leohpaz/27_sword_miss_1.wav": {
+      "group": "leohpaz",
+      "seconds": 0.667,
+      "sha256": "b07fb410bcd5ba82e93c059a0e0d0eb3305d823aa1f5aaa0d7c6da65b88d17e3"
+    },
+    "sfx/leohpaz/8_Atk_Magic_SFX/04_Fire_explosion_04_medium.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "b4c425e04c1562cf83d3193fe40462d7014b7b1a1e3387017db247d1901833fd"
+    },
+    "sfx/leohpaz/8_Atk_Magic_SFX/13_Ice_explosion_01.wav": {
+      "group": "leohpaz",
+      "seconds": 2.667,
+      "sha256": "b76c65adbc704f095fbc27593f0c2ad3dd0e6f2c105a6b70b7a6e061694d2c96"
+    },
+    "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav": {
+      "group": "leohpaz",
+      "seconds": 2.667,
+      "sha256": "f97cd32aacb0e65085aafed9895f4a9a2740ad7b44e0d0fce2069b854c543f43"
+    },
+    "sfx/leohpaz/8_Atk_Magic_SFX/25_Wind_01.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "78fbb9ac12dc03788e4b50638c15496472324e3944d71290fe878ce842534ed7"
+    },
+    "sfx/leohpaz/8_Atk_Magic_SFX/45_Charge_05.wav": {
+      "group": "leohpaz",
+      "seconds": 5.333,
+      "sha256": "b3cbf3109a3bd08f979ab12920e62fed8dbafdcdc6175fee2804089d070e3e16"
+    },
+    "sfx/leohpaz/8_Atk_Magic_SFX/46_Poison_01.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "07de4efd8bb5d36ce4419f7d5f48f640b4007ecdc9b8ca66184480a7090ffc2e"
+    },
+    "sfx/leohpaz/8_Buffs_Heals_SFX/02_Heal_02.wav": {
+      "group": "leohpaz",
+      "seconds": 2.0,
+      "sha256": "af8f4d5128284735731b710e5a54d00e3bc30622d21f3c46cceaccf17e69c473"
+    },
+    "sfx/leohpaz/8_Buffs_Heals_SFX/16_Atk_buff_04.wav": {
+      "group": "leohpaz",
+      "seconds": 3.333,
+      "sha256": "3a941dcf075bb07f7202c2d7cb4a377fa9d3a51ee32f3417f8f5aba109401040"
+    },
+    "sfx/leohpaz/8_Buffs_Heals_SFX/17_Def_buff_01.wav": {
+      "group": "leohpaz",
+      "seconds": 4.0,
+      "sha256": "ae2cc71181c7c827d73ffdfe448a728323e199440ab3e2b484abb7c799ee6bd0"
+    },
+    "sfx/leohpaz/8_Buffs_Heals_SFX/21_Debuff_01.wav": {
+      "group": "leohpaz",
+      "seconds": 3.333,
+      "sha256": "9adcae1f6da38c5b973519eecce698d823d65adb6b2c99f1d130af717bf01198"
+    },
+    "sfx/leohpaz/8_Buffs_Heals_SFX/39_Absorb_04.wav": {
+      "group": "leohpaz",
+      "seconds": 4.0,
+      "sha256": "92dd6c9f24ed76c48338c32fb69adc6bf59ac9631e18ed1e3fa60542b9f503b5"
+    },
+    "sfx/leohpaz/8_Buffs_Heals_SFX/48_Speed_up_02.wav": {
+      "group": "leohpaz",
+      "seconds": 4.0,
+      "sha256": "dec16cc731a187c2a183ea771589fb551ecfb5c8d006e593add5813ca1686efb"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Demon/Muerte_001.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.651,
+      "sha256": "a5ca6f4da666f58d41293bc23c06f0ffe0e01eac7c989f67d21a4da420ec4e26"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_death.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.4,
+      "sha256": "0dd3d564388173cd4fdf30a09e1e0510b1cf6223e5f09ac4d94cf4ef60360a04"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_vocal_a.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.6,
+      "sha256": "b031eb07f762dbf81f2992c5f164228a8c9575005a4d0ac13b69d34f5f2dfa43"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Fire Elemental/0014_monster_elemental_fire_attack_a.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.8,
+      "sha256": "91fe2462358894b781c977ca48e82e87cc75c1947f0e569a7909d80496bbad7c"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_attack_a.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.7,
+      "sha256": "4b2314e0153996aaff852b7b68201835523917a5f9b2ecc76a0a37973874425e"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_attack_b.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.7,
+      "sha256": "09ea8dead38c18049652d9a492921f53493ff6d0c286115995e9a8eb4e3ba930"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_death.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.66,
+      "sha256": "1815f17a002915e43253b760555c6381fc99632e772666da25425ae8187d21ae"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_a.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.529,
+      "sha256": "2f2613222507c3356d47d3d06e91b94996fc774ce403e8d082a7b5a47102ee6f"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_b.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.67,
+      "sha256": "659491eb0061de55e82406582e6d03c658fe253139d1dbd738b3a6fee8666732"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_death.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.719,
+      "sha256": "b6d21f827037c287bf98155751f98ed6a8331d1f9704848d3dda253ab4e3fdf0"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_vocal_a.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.957,
+      "sha256": "5d9fd6ac2bc4e4344f1a9cc03d90969299602b63d465ece4ab0a41eb3e911162"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Giant/Enemy_Walker_Rock_Grunts_02.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.1,
+      "sha256": "a131a21d174d0e9504aae0e31c8f8f64afcdda39fb490d4523d646d87f1b9460"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Giant/Enemy_Walker_Rock_LandRock.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.635,
+      "sha256": "421c1772504ef0535cfee513f01364cc948f78ae8b42b64d45bb3fddc4516a7f"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Goblin/0014_monster_goblin_death.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.0,
+      "sha256": "7fdf0c13484b040ea28bc1ee842f2b77f4aac8d2205511d615e05dca78534e61"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_death.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 1.239,
+      "sha256": "81985e41abe81dc4e8bd0df2c25661e75ec3b0125f541f4500927af3649e187f"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_vocal_b.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.6,
+      "sha256": "cf679253fc40f0df5b04f12476cfc5f2a8fbdcbc3a8a850d470525319011bf54"
+    },
+    "sfx/monsters_creatures_sfx_1_wav/Troll/0014_monster_troll_death.wav": {
+      "group": "monsters_creatures_sfx_1_wav",
+      "seconds": 0.713,
+      "sha256": "fdd2b8945f0275480272732aa14acb167fe8348ed7b9460a5bf08279d9299061"
+    },
+    "sfx/oga/RPG Sound Pack/battle/swing.wav": {
+      "group": "oga",
+      "seconds": 0.229,
+      "sha256": "c7d50b9cb20ccda5aee6c023f4450915594061e36f3f9e78af241ca9fde0f817"
+    },
+    "sfx/oga/RPG Sound Pack/battle/swing2.wav": {
+      "group": "oga",
+      "seconds": 0.146,
+      "sha256": "2e4064e294d136e06c40cc562df969493907e6873f39895ca86b4a6b2e034c6e"
+    },
+    "sfx/oga/RPG Sound Pack/battle/swing3.wav": {
+      "group": "oga",
+      "seconds": 0.138,
+      "sha256": "d725421956c9958de6d7a17c4fca299abe583a1800c59eaec358ec2e82d79bae"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Bow Attacks Hits and Blocks/Bow Attack 1.ogg": {
+      "group": "tommusic",
+      "seconds": 0.625,
+      "sha256": "626d2d6da17c117336a324070160b51f77189e63e347887e441cc71d6fd50eb6"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Bow Attacks Hits and Blocks/Bow Attack 2.ogg": {
+      "group": "tommusic",
+      "seconds": 0.625,
+      "sha256": "d2ecb917432cd15e3d364fe59658074fc2acd4895c3489e173b6c09430fbbe0f"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Attack 1.ogg": {
+      "group": "tommusic",
+      "seconds": 0.5,
+      "sha256": "30f752c8bbaac9ee4f575a5e34612a8c87ea393371b482059ca7fe1909d30efb"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Sword Attacks Hits and Blocks/Sword Impact Hit 1.ogg": {
+      "group": "tommusic",
+      "seconds": 0.5,
+      "sha256": "3f3bdd7f3637e9bfe7d14a4cabed00f0e195eda95bdeb260233705e7e012d9c3"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Footsteps/Dirt/Dirt Chain Walk 1.ogg": {
+      "group": "tommusic",
+      "seconds": 0.502,
+      "sha256": "2462f1752e9c3f4d64b62ac2929eb402390cdc1ce82141cb868b387ff20850dd"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg": {
+      "group": "tommusic",
+      "seconds": 1.219,
+      "sha256": "7b515ce1c85396b7ebabb9dc9876e892a0f642c8d696cf03aa69aa83cb6f30d3"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Firespray 1.ogg": {
+      "group": "tommusic",
+      "seconds": 2.045,
+      "sha256": "d5ef69b516d4c0e9af711f99dc4cb5d8731155a2b81f9ef5dc67c2b394e0167a"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Barrage 1.ogg": {
+      "group": "tommusic",
+      "seconds": 2.09,
+      "sha256": "d538a890ac8174dea0114eba98f87aeebd0a6cd9a1d178c6f81baff563720d33"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Freeze 1.ogg": {
+      "group": "tommusic",
+      "seconds": 0.83,
+      "sha256": "88ddc85013a00584c1e80aa4d036dc1134bbf35662c44030dfd38d0ca7b81bff"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Freeze 2.ogg": {
+      "group": "tommusic",
+      "seconds": 0.81,
+      "sha256": "0da629ed25ae18fcdef65a999e5313977b8ff0ad18f8fe2b0e8fb8178f85fd51"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Throw 1.ogg": {
+      "group": "tommusic",
+      "seconds": 1.053,
+      "sha256": "cd5b436a0c0c7866f6073f289c733a2201b34d345f2691a9a060b5c2aec0e3c0"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 1.ogg": {
+      "group": "tommusic",
+      "seconds": 0.372,
+      "sha256": "962097dd786567097c471ad4ce5f0a42dddb6c2f334b1f147edfd3f688c20b96"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 2.ogg": {
+      "group": "tommusic",
+      "seconds": 0.308,
+      "sha256": "c3baeb69100a0ef666c16a757a992f7e00347f5dc4e4fbac6ab4b7ecaae1b0a4"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Spell Impact 3.ogg": {
+      "group": "tommusic",
+      "seconds": 0.372,
+      "sha256": "267a197d97d33a4acb09b974f908d82234cd548a369eb218f169238900586f0a"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Waterspray 1.ogg": {
+      "group": "tommusic",
+      "seconds": 2.009,
+      "sha256": "74eb2dd1057d5d6af3776bd9394e5ed39fee288650449e67237fd0985cecc6ff"
+    },
+    "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Waterspray 2.ogg": {
+      "group": "tommusic",
+      "seconds": 1.979,
+      "sha256": "9e22485c8aabd8395d35886102e00b2fb5f03d3695cba5ce9298efcf37a9a823"
+    }
+  },
+  "catalog_sha256": "1f783e8a9ba532b014dd0f79229652904d409bc9ecf9d147f121c20a9d5ae298"
+}

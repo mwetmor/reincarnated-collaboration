@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Barrow Arena — SFX review</title>
+<style>
+:root{color-scheme:dark;--bg:#17191c;--panel:#212428;--text:#f0f1f2;--muted:#abb2bc;--line:#3a4047;--accent:#a7cebc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,sans-serif}header{padding:24px 32px 18px;border-bottom:1px solid var(--line)}h1{font-size:25px;margin:0 0 6px}h2{font-size:23px;margin:0}h3{font-size:16px;margin:0}p{margin:8px 0;color:var(--muted)}button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--text);padding:7px 12px}button:hover,button:focus-visible{border-color:var(--accent)}button:disabled{opacity:.45;cursor:default}button.primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}input[type=radio],input[type=checkbox]{accent-color:var(--accent)}input[type=search],textarea{background:var(--panel);border:1px solid var(--line);border-radius:5px;color:var(--text);padding:9px;width:100%}textarea{min-height:80px;resize:vertical}small,.small{font-size:13px;color:var(--muted)}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:14px}.layout{display:grid;grid-template-columns:300px minmax(0,1fr);max-width:1400px;margin:auto}aside{padding:20px;border-right:1px solid var(--line);height:calc(100vh - 195px);overflow:auto;position:sticky;top:0}.group{margin:20px 0 7px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.action{display:block;text-align:left;width:100%;margin:4px 0;background:transparent;border-color:transparent}.action[aria-current=true]{background:var(--panel);border-color:var(--accent)}.action .mark{float:right;color:var(--accent);font-size:12px}main{padding:28px 32px;min-width:0}.eyebrow{color:var(--accent);font-size:13px;margin-bottom:5px}.player{background:var(--panel);padding:16px;margin:20px 0}.player audio{width:100%;margin:8px 0}.option{padding:16px 0;border-top:1px solid var(--line)}.option label{display:flex;align-items:center;gap:9px;font-weight:600;cursor:pointer}.clip{display:flex;align-items:flex-start;gap:12px;margin:10px 0 0 25px}.clip button{flex:none;min-width:65px}.clip .details{min-width:0}.path{overflow-wrap:anywhere;font-size:12px;color:var(--muted)}.pick{color:var(--accent)}.simple{display:flex;flex-wrap:wrap;gap:18px;margin:18px 0}.simple label{cursor:pointer}.nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px}#status{min-height:20px}#summary-list{max-height:250px;overflow:auto}details{margin-top:15px}summary{cursor:pointer}.error{color:#ffc4b8}@media(max-width:760px){header{padding:18px}.layout{grid-template-columns:1fr}aside{position:static;height:auto;max-height:230px;border-right:0;border-bottom:1px solid var(--line);padding:14px}main{padding:22px 18px}.clip{margin-left:0}}
+</style>
+<header>
+<h1>Barrow Arena — SFX review</h1>
+<p>Choose an action, listen, then select a sound. Music stays as it is. Choices are for review; the game changes after you send them back.</p>
+<div class="toolbar"><button id="export" class="primary">Export selections</button><button id="import">Import selections</button><input id="import-file" type="file" accept=".json,application/json" hidden><span id="progress"></span><span id="save-state" class="small"></span></div>
+<details><summary>View my selections</summary><div id="summary-list"></div></details>
+</header>
+<div class="layout"><aside aria-label="Actions"><label for="search" class="small">Find an action</label><input id="search" type="search" placeholder="Sword, fire, ghost…"><nav id="actions"></nav></aside>
+<main>
+<div id="group" class="eyebrow"></div><h2 id="title"></h2><p id="note"></p>
+<div class="player"><strong id="now-playing">Press Play beside a sound</strong><audio id="audio" controls preload="none"></audio><label><input id="repeat" type="checkbox"> Repeat preview</label><p class="small">Full-length previews at their source levels. Start at a comfortable volume; the game’s mix is quieter and varies by actor. Loop candidates may need editing.</p><div id="status" role="status" class="small" aria-live="polite"></div></div>
+<div id="options"></div>
+<div class="simple" id="other-choices"></div>
+<label for="notes">Notes / what should sound different?</label><textarea id="notes" maxlength="10000" placeholder="Heavier sword, less magical, keep this monster voice…"></textarea>
+<div class="nav"><button id="previous">Previous action</button><button id="next">Next action</button></div>
+</main></div>
+<script id="review-data" type="application/json">__REVIEW_DATA__</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('review-data').textContent);
+const $=id=>document.getElementById(id), audio=$('audio');
+const storageKey='barrow.sfx.review.v1.'+DATA.catalog_sha256;
+let state={choices:{}}, current=DATA.actions[0].key, storageAvailable=true;
+function emptyState(){return {schema:'barrow_sfx_selections_v1',catalog_sha256:DATA.catalog_sha256,manifest_sha256:DATA.manifest_sha256,choices:{}};}
+function validated(raw){
+ if(!raw||raw.schema!=='barrow_sfx_selections_v1'||raw.catalog_sha256!==DATA.catalog_sha256||raw.manifest_sha256!==DATA.manifest_sha256||!raw.choices||typeof raw.choices!=='object'||Array.isArray(raw.choices))throw Error('This selection file belongs to a different sound review.');
+ const result=emptyState();
+ for(const action of DATA.actions){
+  const row=raw.choices[action.key];if(!row)continue;
+  const allowed=['pending','mute','find_more',...action.options.map(o=>o.id)];
+  if(!allowed.includes(row.choice)||typeof row.notes!=='string'||row.notes.length>10000)throw Error('Invalid choice for '+action.label);
+  result.choices[action.key]={choice:row.choice,notes:row.notes};
+ }
+ return result;
+}
+try{const saved=localStorage.getItem(storageKey);state=saved?validated(JSON.parse(saved)):emptyState();}catch(error){state=emptyState();storageAvailable=false;$('status').textContent='Could not restore browser storage. Use Export selections to keep a copy.';}
+audio.volume=.5;
+function action(){return DATA.actions.find(a=>a.key===current);}
+function decision(key){return state.choices[key]||{choice:'pending',notes:''};}
+function describe(a){const choice=decision(a.key).choice;return a.options.find(o=>o.id===choice)?.label||({mute:'Mute',find_more:'Find more alternatives',pending:'Not reviewed'}[choice]);}
+function save(){
+ try{localStorage.setItem(storageKey,JSON.stringify(state));storageAvailable=true;}catch(error){storageAvailable=false;}
+ $('save-state').textContent=storageAvailable?'Saved in this browser · export to send back':'Browser save unavailable · export to keep choices';
+ updateSummary();renderNav();
+}
+function choose(id){state.choices[current]={choice:id,notes:$('notes').value};save();renderOptions();}
+function node(tag,txt,className){const el=document.createElement(tag);if(txt!==undefined)el.textContent=txt;if(className)el.className=className;return el;}
+function radio(id,label){const wrap=node('label'),input=document.createElement('input');input.type='radio';input.name='choice';input.value=id;input.checked=decision(current).choice===id;input.addEventListener('change',()=>choose(id));wrap.append(input,node('span',label));return wrap;}
+function renderNav(){
+ const nav=$('actions');nav.replaceChildren();const query=$('search').value.toLowerCase();
+ for(const group of [...new Set(DATA.actions.map(a=>a.group))]){
+  const list=DATA.actions.filter(a=>a.group===group&&(a.label+' '+a.note).toLowerCase().includes(query));if(!list.length)continue;
+  nav.append(node('div',group,'group'));
+  for(const a of list){const b=node('button',a.label,'action');b.setAttribute('aria-current',String(current===a.key));if(decision(a.key).choice!=='pending')b.append(node('span','Chosen','mark'));b.addEventListener('click',()=>show(a.key));nav.append(b);}
+ }
+}
+function updateSummary(){
+ const chosen=DATA.actions.filter(a=>decision(a.key).choice!=='pending').length;
+ $('progress').textContent=chosen+' / '+DATA.actions.length+' actions chosen';
+ const list=$('summary-list');list.replaceChildren();
+ for(const a of DATA.actions)if(decision(a.key).choice!=='pending')list.append(node('p',a.label+' — '+describe(a),'small'));
+ if(!chosen)list.append(node('p','No sounds chosen yet. Playing a preview does not select it.','small'));
+}
+function renderOptions(){
+ const box=$('options');box.replaceChildren();
+ for(const option of action().options){
+  const row=node('div',undefined,'option');row.append(radio(option.id,option.label));
+  for(const path of option.sources){
+   const clip=DATA.clips[path], line=node('div',undefined,'clip'),play=node('button','Play'),details=node('div',undefined,'details');
+   play.setAttribute('aria-label','Play '+path.split('/').pop());
+   play.addEventListener('click',()=>{
+    audio.pause();audio.src=DATA.media[path];audio.loop=$('repeat').checked;audio.load();
+    $('now-playing').textContent=path.split('/').pop()+' · '+clip.seconds.toFixed(2)+' s';$('status').textContent='';
+    audio.play().catch(error=>{$('status').textContent='Could not play this preview: '+error.message;});
+   });
+   details.append(node('div',path.split('/').pop()+' · '+clip.seconds.toFixed(2)+' s'),node('div',clip.group,'small'),node('div',path,'path'));line.append(play,details);row.append(line);
+  }
+  box.append(row);
+ }
+ const other=$('other-choices');other.replaceChildren();for(const [id,label] of [['mute','Mute this action'],['find_more','None fit — find more'],['pending','Leave unreviewed']])other.append(radio(id,label));
+}
+function show(key){
+ audio.pause();audio.removeAttribute('src');audio.load();$('now-playing').textContent='Press Play beside a sound';$('status').textContent='';current=key;
+ const a=action();$('group').textContent=a.group;$('title').textContent=a.label;$('note').textContent=a.note;$('notes').value=decision(key).notes;$('repeat').checked=false;audio.loop=false;
+ const index=DATA.actions.findIndex(a=>a.key===key);$('previous').disabled=index===0;$('next').disabled=index===DATA.actions.length-1;renderOptions();renderNav();
+}
+$('notes').addEventListener('input',()=>{state.choices[current]={choice:decision(current).choice,notes:$('notes').value};save();});
+$('search').addEventListener('input',renderNav);
+$('repeat').addEventListener('change',()=>{audio.loop=$('repeat').checked;});
+audio.addEventListener('error',()=>{$('status').textContent='Preview failed to load. Try opening this HTML in Chrome or Safari.';});
+$('previous').addEventListener('click',()=>{const i=DATA.actions.findIndex(a=>a.key===current);if(i>0)show(DATA.actions[i-1].key);});
+$('next').addEventListener('click',()=>{const i=DATA.actions.findIndex(a=>a.key===current);if(i<DATA.actions.length-1)show(DATA.actions[i+1].key);});
+$('export').addEventListener('click',()=>{
+ const resolved=DATA.actions.map(a=>{const d=decision(a.key),o=a.options.find(o=>o.id===d.choice);return {cue:a.key,label:a.label,choice:d.choice,notes:d.notes,sources:o?o.sources.map(path=>({path,sha256:DATA.clips[path].sha256})):[]};});
+ const file={...state,exported_at:new Date().toISOString(),music:'accepted_for_now',resolved_choices:resolved};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(file,null,2)+'\n'],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download='barrow-sfx-selections.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='Selection file exported. Send barrow-sfx-selections.json back to apply your choices.';
+});
+$('import').addEventListener('click',()=>{$('import-file').click();});
+$('import-file').addEventListener('change',async event=>{
+ const file=event.target.files[0];if(!file)return;
+ try{if(file.size>1000000)throw Error('Selection file is too large.');state=validated(JSON.parse(await file.text()));save();show(current);$('status').textContent='Selections imported.';}catch(error){$('status').textContent='Import failed: '+error.message;}
+ event.target.value='';
+});
+show(current);save();
+</script>
+</html>
