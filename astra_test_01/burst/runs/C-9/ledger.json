@@ -56430,6 +56430,17 @@
         "R-C9-392",
         "63da0b4c5"
       ]
+    },
+    {
+      "id": "R-C9-394",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-10T11:32:58-04:00",
+      "ruling": "Web build blocker: sealed kc2rt_pack.gd:108 hard-codes DATA_ROOT=/Users/admin/Games/reincarnated-engine; gate G6C-LEECH-JOIN reads data/kc2/pm4p_leech_resistance.csv (sha cb6a008b..., 7900 rows) from it, absent in a browser. Option (a) APPROVED (conductor; no sealed byte changes; the runtime still verifies its own sha pin; arena claims no parity per R-C9-345): web-only path shim writes the byte-identical bundled CSV into the browser virtual FS at that exact path before session.open(); sha checked at bundle and after write; launch probe shows G6C passing; desktop unchanged; if the web FS refuses the path, STOP -- no further reroute. Option (b) (sealed DATA_ROOT override via KP-312) not taken.",
+      "cites": [
+        "R-C9-345",
+        "R-C9-391",
+        "KP-312"
+      ]
     }
   ],
   "grok_calls": [
