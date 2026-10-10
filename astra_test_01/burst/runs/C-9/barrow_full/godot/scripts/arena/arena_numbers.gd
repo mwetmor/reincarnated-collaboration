@@ -8,7 +8,7 @@ extends Node3D
 ## Pooled: POOL labels, reused oldest-first; past MAX_LIVE the hit is not shown (cheap by construction).
 
 const FONT_PATH := "/Users/admin/Games/reincarnated-godot/Assets/fonts/bangers/Bangers-Regular.ttf"
-const EM_FRAC := 0.085          # NUM_EM_FRAC_DEALT
+const EM_FRAC := 0.085 * 0.8    # NUM_EM_FRAC_DEALT x 0.8 (R-C9-368, Matt: "a bit smaller")
 const PIXEL_SIZE := 0.012
 const OUTLINE_RATIO := 0.20
 const EMBOLDEN := 0.08
@@ -28,6 +28,9 @@ const COL_CRIT := Color(1.00, 0.12, 0.10)
 const ELEMENT_COLORS := {
 	"cold": Color(0.70, 0.90, 1.00), "chaos": Color(0.72, 0.45, 0.95), "physical": Color(0.88, 0.88, 0.88),
 	"fire": Color(1.00, 0.45, 0.20), "lightning": Color(0.95, 0.90, 0.35), "poison": Color(0.55, 0.85, 0.25)}
+## R-C9-368 (Matt: "the basic damage numbers changed from white to red"): the basic (physical) number is a strong red
+## that reads on snow under the black rim; the element colours (purple chaos ...) stay as ported
+const COL_BASIC := Color(0.93, 0.10, 0.08)
 
 var cam: Camera3D = null
 var _pool: Array = []           # [{lbl, t0, start, col, live}]
@@ -96,7 +99,8 @@ func show_hit(at: Vector3, amount: float, element: String, crit: bool, key: int 
 	var fs := int(round(EM_FRAC * cam.size / PIXEL_SIZE))
 	l.font_size = clampi(fs, 16, 512)
 	l.outline_size = maxi(2, int(round(float(l.font_size) * OUTLINE_RATIO)))
-	var col: Color = COL_CRIT if crit else ELEMENT_COLORS.get(element.to_lower(), ELEMENT_COLORS["physical"])
+	var el := element.to_lower()
+	var col: Color = COL_CRIT if crit else (COL_BASIC if el == "physical" or not ELEMENT_COLORS.has(el) else ELEMENT_COLORS[el])
 	p["col"] = col
 	p["t0"] = Time.get_ticks_msec() / 1000.0
 	p["start"] = at + Vector3(0, 1.6, 0)
