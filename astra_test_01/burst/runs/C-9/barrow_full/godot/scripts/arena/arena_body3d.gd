@@ -35,6 +35,7 @@ const FLASH_WHITE := Color(1.8, 1.75, 1.6)
 const FLASH_RED := Color(2.2, 0.35, 0.30)
 var flash_col: Color = FLASH_WHITE
 var alpha_mult: float = 1.0
+var entry_alpha: float = 1.0        # R-C9-383 item 3: the doorway / in-solid hide (arena_mode._entry), x alpha_mult
 var _shown: String = ""
 
 
@@ -219,9 +220,10 @@ func _show() -> void:
 	# frame's top-left) on the origin: offset = (-ax, ay - fh).
 	offset = Vector2(-float(anc[0]), float(anc[1]) - fh)
 	_cast_shadow(tex, float(anc[0]), float(anc[1]), fw, fh)
-	var m := Color(1, 1, 1, alpha_mult)
+	var am := alpha_mult * entry_alpha
+	var m := Color(1, 1, 1, am)
 	if clock_s < flash_until_s:
-		m = Color(flash_col.r, flash_col.g, flash_col.b, alpha_mult)
+		m = Color(flash_col.r, flash_col.g, flash_col.b, am)
 	modulate = m
 
 
@@ -335,5 +337,5 @@ func _cast_shadow(tex: Texture2D, ax: float, ay: float, fw: float, fh: float) ->
 	_shadow_sm.set_shader_parameter("region", Vector4(rr.position.x / ts.x, rr.position.y / ts.y, rr.size.x / ts.x, rr.size.y / ts.y))
 	_shadow_sm.set_shader_parameter("frame_px", Vector2(fw, fh))
 	_shadow_sm.set_shader_parameter("tint", Vector3(shadow_tint.r, shadow_tint.g, shadow_tint.b))
-	_shadow_sm.set_shader_parameter("strength", alpha_mult * (1.0 if visible else 0.0))
-	_shadow_mi.visible = visible and alpha_mult > 0.01
+	_shadow_sm.set_shader_parameter("strength", alpha_mult * entry_alpha * (1.0 if visible else 0.0))
+	_shadow_mi.visible = visible and alpha_mult * entry_alpha > 0.01

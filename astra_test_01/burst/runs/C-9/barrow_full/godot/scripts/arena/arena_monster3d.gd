@@ -39,6 +39,7 @@ var hold_ticks_left: int = 0
 var ticks_per_s: float = 12.25
 var true_height_m: float = 1.9
 var slot_state_cache: Dictionary = {}
+var ring_ok := true                 # R-C9-383 item 3: no arriving ring drawn inside solid ground / a doorway's dark
 const INTERP_SNAP_M := 3.0          # a jump larger than this in one tick (a spawn, a teleport) is drawn as a jump
 var interp_from_m := Vector2.INF
 var interp_to_m := Vector2.INF
@@ -301,7 +302,7 @@ func advance_monster(dt: float) -> void:
 	else:
 		alpha_mult = 1.0
 	if _ring != null:
-		_ring.visible = not released and not dying
+		_ring.visible = not released and not dying and ring_ok
 		var ph := 0.5 + 0.5 * sin(clock_s * 10.0)
 		(_ring.material_override as StandardMaterial3D).albedo_color.a = 0.35 + 0.45 * ph
 	if _shadow != null:

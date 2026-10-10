@@ -32,6 +32,92 @@ const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # on by def
 var enemy_vfx = null
 ## R-C9-383: bodies DRAWN between their last two sim-tick positions (one tick behind; drawing only). Off: --arena-interp off
 var interp_on := true
+# ---- R-C9-383 item 3: DOORWAY ENTRY + NOTHING SHOWN INSIDE SOLID (drawing only; the sim scatter is untouched) -----
+## A body from a DOOR spawn (p02 barrow door, p03 sea cave, p04 hall door) steps out of the door's darkness: it is
+## drawn from the door's threshold point to where the sim has it, hidden while behind the threshold, fading in over
+## ENTRY_FADE_S once across. Any body whose sim position is not open ground (off the walk map, or not reachable from
+## the player's start -- the mound, hills, house walls, the wreck, the cliff) is not drawn there: it fades out, and
+## fades back in where it next stands on open ground (the nearest walkable point of its own track).
+const ENTRY_FADE_S := 0.3
+const ENTRY_RUN_M_S := 4.0
+const ENTRY_GIVE_UP_S := 6.0          # a body that never reaches open ground is shown anyway after this (never lost)
+const DOORS := {          # anchor -> the opening it steps out of (level.json sim.openings: centre_sim, faces_deg)
+	"p02": {"c": Vector2(2.0, -17.5928), "faces_deg": 180.0},
+	"p03": {"c": Vector2(-1.2321, 11.7551), "faces_deg": 174.667},
+	"p04": {"c": Vector2(21.25, -0.1044), "faces_deg": 220.667},
+}
+var spawn_anchor: Dictionary = {}      # actor id -> "p0N" (the spawn event's spawn_point_id)
+var entry: Dictionary = {}             # actor id -> {phase, t, door, from}
+var entry_on := true
+var n_entry_door := 0
+var n_entry_solid := 0
+
+
+func _open_at(m: Vector2) -> bool:
+	var c := _cell(m)
+	return c >= 0 and walk_reach.size() > c and walk_reach[c] == 1
+
+
+## Called every frame per body, after its drawn position: may move the DRAWN position (the door walk) and sets its
+## entry_alpha. Never touches the sim.
+func _entry(id: int, m, delta: float) -> void:
+	if not entry_on:
+		return
+	var open := _open_at(m.pos_m)
+	m.ring_ok = open
+	if not m.released or m.dying:
+		return
+	var e: Dictionary = entry.get(id, {})
+	if e.is_empty():
+		var a := String(spawn_anchor.get(id, ""))
+		e = {"phase": "done", "t": 0.0, "age": 0.0}
+		if DOORS.has(a):
+			var d: Dictionary = DOORS[a]
+			var b := deg_to_rad(float(d["faces_deg"]))
+			e["phase"] = "door"
+			e["D"] = Vector2(d["c"]) - T
+			e["n"] = Vector2(sin(b), -cos(b))          # compass bearing in the sim frame: 0 = -y, 90 = +x, 180 = +y
+			e["alpha"] = 0.0
+			n_entry_door += 1
+		elif not open:
+			e["phase"] = "solid"
+			e["alpha"] = 0.0
+			n_entry_solid += 1
+		else:
+			e["alpha"] = 1.0
+		entry[id] = e
+	e["age"] = float(e["age"]) + delta
+	var stationary: bool = m.get("stationary") == true
+	var give_up: bool = float(e["age"]) > ENTRY_GIVE_UP_S
+	var target := 1.0
+	match String(e["phase"]):
+		"door":
+			var D: Vector2 = e["D"]
+			var n: Vector2 = e["n"]
+			if not open and not give_up:
+				m.draw_m = D - n * 0.6                  # held inside the door's dark
+				target = 0.0
+			else:
+				var dist: float = D.distance_to(m.draw_m)
+				var dur := clampf(dist / ENTRY_RUN_M_S, 0.25, 1.2)
+				e["t"] = float(e["t"]) + delta
+				var s := clampf(float(e["t"]) / dur, 0.0, 1.0)
+				var start: Vector2 = D - n * 0.6
+				var p := start.lerp(m.draw_m, s * s * (3.0 - 2.0 * s))
+				m.draw_m = p
+				target = 1.0 if (p - D).dot(n) > 0.0 else 0.0
+				if s >= 1.0:
+					e["phase"] = "done"
+		"solid", "done":
+			target = 1.0 if (open or stationary or give_up) else 0.0
+			if open:
+				e["phase"] = "done"
+	var al := move_toward(float(e["alpha"]), target, delta / ENTRY_FADE_S)
+	e["alpha"] = al
+	m.entry_alpha = al
+	if m is Token3D:
+		m.visible = al > 0.5
+
 ## R-C9-383 item 2: the warlord as the walk scene's LIVE 3D RIG (`-- --arena-hero 3d`; default the sprite card)
 var hero_3d := false
 var hero3d = null
@@ -255,6 +341,7 @@ func setup(sc) -> void:
 	vfx_on = _arg(args, "--arena-vfx", "on") != "off" or "--arena-vfx-gallery" in args
 	interp_on = _arg(args, "--arena-interp", "on") != "off"
 	hero_3d = _arg(args, "--arena-hero", "sprite") == "3d"
+	entry_on = _arg(args, "--arena-entry", "on") != "off"
 	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
 	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
 	var ln := _arg(args, "--arena-look-nodes", "")
@@ -334,6 +421,8 @@ func _boot() -> void:
 	for c in actors_root.get_children():
 		c.queue_free()
 	actors.clear()
+	entry.clear()
+	spawn_anchor.clear()
 	if warlord != null:
 		warlord.queue_free()
 	warlord = Warlord3D.new()
@@ -1003,6 +1092,11 @@ func _consume_events(evs: Array) -> void:
 			warlord.on_event(e)
 			_hero3d_event(e)
 			continue
+		if ev == "spawn":
+			var pk := String(e.get("spawn_point_id", "")).split("|")
+			if pk.size() >= 2:
+				spawn_anchor[int(e.get("actor_id", -1))] = "p%02d" % int(pk[1])
+			continue
 		if ev == "cast_start":
 			var t = actors.get(int(e.get("actor_id", 0)), null)
 			if t != null:
@@ -1095,6 +1189,7 @@ func _render(delta: float) -> void:
 				continue
 		m.advance_monster(delta)
 		m.draw_m = m.drawn_at(tick_frac(), interp_on)
+		_entry(int(k_any), m, delta)
 		m.position = to_world(m.draw_m + (m.lunge_offset_m if m is Token3D else Vector2.ZERO)) \
 			- (scene.fwd * CARD_TOWARD_CAM_M if not (m is Token3D) else Vector3.ZERO)
 	if warlord != null:
@@ -1300,6 +1395,7 @@ func _instruments(delta: float) -> void:
 				for kk in (t5.no_ranged_clip as Dictionary).keys():
 					nf[kk] = true
 		print("[arena] packs with no ranged (hurl/cast) clip, attack used: %s" % str(nf.keys()))
+		print("[arena] entry: door walks %d, started in solid %d" % [n_entry_door, n_entry_solid])
 		print("[arena] slashes %d; whirlwind tick mean %.2f over %d hits (fallback %.1f)" % [n_slashes, _eor_tick_value(),
 			_eor_tick_n, SLASH_TICK_FALLBACK])
 		print("[arena] quit timer: wave %d, running %s, terminal '%s', actors %d, kits %s, no-pack %s, blocked stops %d" % [
