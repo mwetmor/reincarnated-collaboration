@@ -170,7 +170,18 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 	#   no res://textures/barrow/snow.png, so SnowField's own fallback drew the snow with NO tile -- the flat "cotton"
 	var st := Image.load_from_file(V1_SNOW_TILE)
 	if st != null and not st.is_empty():
-		st.adjust_bcs(1.0, 1.0, 0.0)          # R-C9-375: no blue speckle -- v1's grain, grey
+		if bool(_look().get("desat", true)):
+			# R-C9-375: no blue speckle -- v1's grain; R-C9-377 a/b: the grain's contrast down too (it read "dusty")
+			st.adjust_bcs(1.0, 1.0, 0.0)
+			var gk := float(_look().get("grain", 1.0))
+			if gk < 1.0:
+				# the grain's DARKNESS scaled toward white (v' = 1 - (1 - v) x gk): the tile keeps its pattern, loses its dust
+				st.convert(Image.FORMAT_RGBA8)
+				var data := st.get_data()
+				for bi in range(0, data.size(), 4):
+					for ch in 3:
+						data[bi + ch] = 255 - int(float(255 - data[bi + ch]) * gk)
+				st = Image.create_from_data(st.get_width(), st.get_height(), false, Image.FORMAT_RGBA8, data)
 		st.generate_mipmaps()
 		snow.snow_tile = ImageTexture.create_from_image(st)
 	else:
@@ -184,7 +195,7 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 		snow.shader_code_override = PaintedWorld.snow_shader_code()
 	else:
 		snow.snow_tint = _snow_white_tint()
-		snow.press_tint = SNOW_PRESS_NEUTRAL      # R-C9-375: prints read by value, not by blue
+		snow.press_tint = _look_color("press", SNOW_PRESS_NEUTRAL)   # R-C9-375: prints read by value, not by blue
 		var shard := _shard_cull_code(SnowField.SHADER)
 		if shard != "":
 			snow.shader_code_override = shard
@@ -223,7 +234,10 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 		#   world's BLUE-VIOLET (0.34, 0.37, 0.56); the lit side is the sun's warm colour, which the white tint already
 		#   cancels. So the snow's shade takes the SUN'S OWN HUE at SNOW_SHADE_K of its value: through the same tint it
 		#   lands neutral (a touch warm), and drifts and prints keep their value contrast.
-		snow.material().set_shader_parameter("shadow_color", _snow_shade_color())
+		if _look().get("shade", "") is Color or Slots.arg("arenasnow-shade") != "" or _look().is_empty():
+			snow.material().set_shader_parameter("shadow_color", _snow_shade_color())
+	if _look().has("mottle"):
+		snow.material().set_shader_parameter("mottle_amp", float(_look()["mottle"]))
 	if snow.shader_code_override.contains("shard_rise_m"):
 		var sm := snow.material()
 		sm.set_shader_parameter("shard_step_uv", Vector2(snow.grid_quad_m / float(ar[2]), snow.grid_quad_m / float(ar[3])))
@@ -254,25 +268,50 @@ const SNOW_PRESS_NEUTRAL := Color(0.80, 0.79, 0.775)
 const SNOW_SHADE := Color(1.0, 0.80, 0.55)
 
 
+## R-C9-377 (Matt: "real fallen snow starts off pure white ... now it just kind of looks dusty/dirty/dingy"): THREE
+## LOOKS for his pick, `-- --arenasnow-look a|b|c` (the default stays R-C9-375's until he picks):
+##   a  PURE WHITE  lit at the ceiling, shade ~3.5 % under it in the PAINTING'S OWN snow-white hue (246, 233, 221)
+##   b  WHITE + PAINT-MATCHED COOL  lit at the ceiling, shade ~7 % under it in the hue of the painting's blue hex marks
+##      (213, 213, 231)
+##   c  THE PREVIOUS BLUE (aaf350b47 / ecfc82a66): v1's SNOW_TINT-era tint, the world's blue-violet shade, v1's tile
+## Each: tint (lit), shade (the ramp's shadow_color for the snow), press (prints, scaled to the shade), desat (grain).
+const SNOW_LOOKS := {
+	"a": {"tint": Color(1.27, 1.335, 1.40), "shade": Color(1.0, 0.89, 0.78), "press": Color(0.955, 0.94, 0.925), "desat": true,
+		"grain": 0.35, "mottle": 0.03},
+	"b": {"tint": Color(1.27, 1.335, 1.40), "shade": Color(0.80, 0.80, 1.0), "press": Color(0.90, 0.905, 0.95), "desat": true,
+		"grain": 0.5, "mottle": 0.05},
+	"c": {"tint": Color(1.17, 1.36, 1.58), "shade": "world", "press": Color(0.775, 0.815, 0.885), "desat": false},
+}
+
+
+func _look() -> Dictionary:
+	return SNOW_LOOKS.get(Slots.arg("arenasnow-look"), {})
+
+
+func _look_color(key: String, dflt: Color) -> Color:
+	var knob := Slots.arg("arenasnow-" + key)
+	if knob != "":
+		var q := knob.split(",")
+		if q.size() == 3:
+			return Color(float(q[0]), float(q[1]), float(q[2]))
+	var v: Variant = _look().get(key, dflt)
+	return v if v is Color else dflt
+
+
 func _snow_shade_color() -> Color:
 	var k := Slots.arg("arenasnow-shade")
 	if k != "":
 		var q := k.split(",")
 		if q.size() == 3:
 			return Color(float(q[0]), float(q[1]), float(q[2]))
-	return SNOW_SHADE
+	return _look_color("shade", SNOW_SHADE)
 
 
 const ARENA_SNOW_WHITE := Color(1.20, 1.26, 1.30)     # R-C9-375: lit (247, 243, 241), shade (222, 218, 216), grain grey
 
 
 func _snow_white_tint() -> Color:
-	var k := Slots.arg("arenasnow-tint")
-	if k != "":
-		var q := k.split(",")
-		if q.size() == 3:
-			return Color(float(q[0]), float(q[1]), float(q[2]))
-	return ARENA_SNOW_WHITE
+	return _look_color("tint", ARENA_SNOW_WHITE)
 
 
 ## THE SHARDS (conductor, after R-C9-371: "thin pale shards on the cliff and rock edges near the door posts"): the
