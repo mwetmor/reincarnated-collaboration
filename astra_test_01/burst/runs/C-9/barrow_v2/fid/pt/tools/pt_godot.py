@@ -22,8 +22,9 @@ HL = "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-7
 if LOG is None:
     sys.exit("pt_godot: --log is required")
 free = shutil.disk_usage("/System/Volumes/Data").free / 2 ** 30
-if free < 21:
-    print("pt_godot: HALT disk %.1f GiB < 21" % free)
+GATE = float(os.environ.get("PT_DISK_GATE_GIB", "21"))   # R-C9-387: per-run override for a conductor release only; default 21
+if free < GATE:
+    print("pt_godot: HALT disk %.1f GiB < %g" % (free, GATE))
     sys.exit(9)
 p = subprocess.Popen(["python3", HL, "C-9", "--"] + cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                      start_new_session=True, env=os.environ.copy())
