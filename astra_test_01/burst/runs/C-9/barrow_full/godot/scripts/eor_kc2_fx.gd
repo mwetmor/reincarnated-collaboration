@@ -1419,6 +1419,58 @@ func resume() -> void:
 		_head_sparks.emitting = true
 
 
+## C-9 R-C9-392 (the barrow_v2 arena's LIVE 3D warlord only; nothing in the walk scene calls these): THE HAZE
+## EMANATES FROM THE MACE. The haze's births move from the source's ground disc to the MACE HEAD: the emitter rides the
+## head every frame (place_mace_emitter), each puff leaves it outward along the head's radial at MACE_V and slows to a
+## stop (damping), growing as it goes -- so the cloud forms a ring around him at about the wire radius and the centre,
+## where he stands, stays clear. The source's colour and alpha stops, texture, count and life are kept.
+const MACE_V := Vector2(0.9, 1.6)          # m/s outward at birth
+const MACE_DAMP := 0.75                    # m/s^2: ~0.5-1.7 m of travel, so the ring sits ~2.4-3.6 m out
+const MACE_SCALE := Vector2(0.6, 1.5)      # puff size range; the scale curve grows each puff to it
+const MACE_SINK := -0.35                   # m/s^2: the powder settles toward the ground as it spreads
+var mace_emit := false
+
+
+func enable_mace_emit() -> void:
+	mace_emit = true
+	_haze.preprocess = 0.0                     # nothing pre-made on a disc: every puff is born at the mace
+	var m := _haze.process_material as ParticleProcessMaterial
+	m.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
+	m.emission_sphere_radius = 0.12
+	m.direction = Vector3(1.0, 0.0, 0.0)       # local +X = the head's radial (place_mace_emitter turns it)
+	m.spread = 18.0
+	m.flatness = 0.7
+	m.initial_velocity_min = MACE_V.x
+	m.initial_velocity_max = MACE_V.y
+	m.damping_min = MACE_DAMP
+	m.damping_max = MACE_DAMP
+	m.gravity = Vector3(0.0, MACE_SINK, 0.0)
+	m.scale_min = MACE_SCALE.x
+	m.scale_max = MACE_SCALE.y
+	var c := Curve.new()
+	c.add_point(Vector2(0.0, 0.25))
+	c.add_point(Vector2(0.35, 0.8))
+	c.add_point(Vector2(1.0, 1.0))
+	var ct := CurveTexture.new()
+	ct.curve = c
+	m.scale_curve = ct
+	_haze.top_level = true
+
+
+## Per frame (the arena): the emitter on the mace head, its local +X along the head's horizontal radial from him.
+func place_mace_emitter(head: Vector3, station: Vector3) -> void:
+	if not mace_emit:
+		return
+	var r := Vector3(head.x - station.x, 0.0, head.z - station.z)
+	if r.length() < 1e-4:
+		r = Vector3.RIGHT
+	r = r.normalized()
+	var fwd := r.cross(Vector3.UP).normalized()
+	_haze.global_transform = Transform3D(Basis(r, Vector3.UP, -fwd), head)
+	if _haze_ember != null:
+		_haze_ember.set_shader_parameter("ember_centre", station)
+
+
 func end() -> void:
 	if _state == S.SUSTAIN:
 		_state = S.FALLING

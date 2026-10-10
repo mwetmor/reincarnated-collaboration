@@ -115,6 +115,26 @@ func _end_override() -> void:
 		_tree.active = true
 
 
+## R-C9-392: the mace head, world -- the weapon bone's origin plus MACE_LEN along its +Y (the haft axis, grip -> head;
+## eor_spin's own law: "the head = weapon_r origin + its +Y"). Falls back to his hand height in front of him.
+const MACE_LEN := 1.05
+var _wbone := -2
+func mace_head() -> Vector3:
+	if _skel == null:
+		return global_position + Vector3.UP * 1.3
+	if _wbone == -2:
+		_wbone = -1
+		for nm in ["weapon_r", "Weapon_R", "weapon.R", "hand_r", "RightHand", "mixamorig:RightHand"]:
+			var i := _skel.find_bone(nm)
+			if i >= 0:
+				_wbone = i
+				break
+	if _wbone < 0:
+		return global_position + Vector3.UP * 1.3
+	var t: Transform3D = _skel.global_transform * _skel.get_bone_global_pose(_wbone)
+	return t.origin + t.basis.y.normalized() * MACE_LEN
+
+
 func strike(which: String) -> bool:
 	if dead or _override_clip != "":
 		return false

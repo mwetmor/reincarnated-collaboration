@@ -211,12 +211,15 @@ func _build_eor_fx() -> void:
 
 ## Per frame, from the arena view: his ground point (world), the source clock's revolutions since the cast, and the
 ## barrow ground basis. The steel is placed on the spin circle at theta0 + TAU * revs (source: a uniform spin).
-func drive_eor(station: Vector3, revs: float, u_hat: Vector3, v_hat: Vector3) -> void:
+func drive_eor(station: Vector3, revs: float, u_hat: Vector3, v_hat: Vector3, head_3d := Vector3.INF) -> void:
 	if eor == null:
 		return
 	var th := theta0 + TAU * revs
 	var radial: Vector3 = u_hat * sin(th) - v_hat * cos(th)
 	var head: Vector3 = station + radial * steel_r + Vector3.UP * steel_h
+	if head_3d != Vector3.INF:
+		head = head_3d                       # R-C9-392: the live 3D rig's own mace head
+		eor.place_mace_emitter(head, station)
 	var grip: Vector3 = station + radial * (steel_r * 0.35) + Vector3.UP * (steel_h - 0.15)
 	var ax := (head - grip).normalized()
 	eor.syn_station = station

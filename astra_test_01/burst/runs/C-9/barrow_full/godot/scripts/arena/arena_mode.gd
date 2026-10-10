@@ -146,6 +146,15 @@ func _build_hero3d() -> void:
 	k.set_gear_stack(k.gear_stack_count() - 1)
 	var saved: Dictionary = PaintStack.adopt_character(k, scene.fbm, PaintStack.INK, {
 		"wash_scale": 2.6, "wash_amp": 0.13, "band_soft": 0.075})
+	# R-C9-392 (Matt: "The lighting needs to be stronger/brighter on him"): his ramp material's albedo multiplier
+	#   (CHAR_SHADER `tint`, a source_color: the LINEAR gain k is handed over in sRGB) -- every band, lit and shade
+	var kq := Slots.arg("arena-hero-light")
+	hero_light = float(kq) if kq.is_valid_float() else HERO_LIGHT
+	# the gain goes on BOTH halves of his ramp: the albedo (`tint`) and the ramp's shaded floor (`shadow_energy`), so the
+	#   lit side and the turned-away side brighten alike (the tint alone measured +13 % at 1.5x: the painted post pass
+	#   and the ramp's cool floor compress it)
+	PaintStack.set_character_param(saved, "tint", Color(hero_light, hero_light, hero_light))
+	PaintStack.set_character_param(saved, "shadow_energy", 0.62 * hero_light)
 	if k.get("_skel") != null:
 		var eyes = load("res://scripts/warlord_eyes.gd").new()
 		eyes.name = "WarlordEyes"
@@ -153,9 +162,58 @@ func _build_hero3d() -> void:
 		await eyes.setup(k._skel, "")
 	hero3d = k
 	warlord.hide_card = true
-	hero3d_report = {"model": String(k.cfg.get("model", "?")), "meshes_under_ramp": (saved.get("meshes", []) as Array).size(),
+	hero3d_report = {"light": hero_light, "model": String(k.cfg.get("model", "?")), "meshes_under_ramp": (saved.get("meshes", []) as Array).size(),
 		"graft": k.graft_report, "clips": k._clip_len.keys()}
 	print("[arena] hero 3d: " + JSON.stringify(hero3d_report))
+
+
+const HERO3D_EOR_SLIDE_M := 0.3
+const HERO_LIGHT := 1.5              # R-C9-392: his brightness gain (1.0 = the walk scene's); -- --arena-hero-light <k>
+var hero_light := 1.0
+## R-C9-392 (Matt: "the warlord should not be dimmed/obscured by his own dust cloud"): THE HAZE NEVER DRAWS OVER HIM.
+## The haze's own shader (eor_kc2_fx's kc2_haze_ember) gets two soft screen-space holes, each frame: his body (feet to
+## crown, his width) and his mace head -- an arena-only copy of the shader with the mask added (the walk scene's
+## shader file is untouched). A puff behind him is hidden by his body anyway; a puff in front of him is cut away.
+const HAZE_MASK_INJECT := "	a *= prox;\n"
+const HAZE_MASK_CODE := """	{
+		vec2 hb = (SCREEN_UV - hero_c) / max(hero_r, vec2(1e-4));
+		vec2 hm = (SCREEN_UV - mace_c) / max(mace_r, vec2(1e-4));
+		a *= mix(1.0, smoothstep(0.80, 1.15, length(hb)) * smoothstep(0.75, 1.2, length(hm)), mask_on);
+	}
+	a *= prox;
+"""
+var _haze_mask_ready := false
+func _hero3d_haze_mask() -> void:
+	var em = warlord.eor._haze_ember if warlord.eor != null else null
+	if em == null:
+		return
+	if not _haze_mask_ready:
+		_haze_mask_ready = true
+		var code: String = (em as ShaderMaterial).shader.code
+		if code.count(HAZE_MASK_INJECT) != 1:
+			push_warning("[arena] haze mask: anchor not found once -- not applied")
+			return
+		code = code.replace(HAZE_MASK_INJECT, HAZE_MASK_CODE)
+		code = code.replace("uniform float ground_y = 0.0;", "uniform float ground_y = 0.0;\nuniform float mask_on = 0.0;\nuniform vec2 hero_c = vec2(-9.0);\nuniform vec2 hero_r = vec2(0.01);\nuniform vec2 mace_c = vec2(-9.0);\nuniform vec2 mace_r = vec2(0.01);")
+		var sh := Shader.new()
+		sh.code = code
+		(em as ShaderMaterial).shader = sh
+		em.set_shader_parameter("mask_on", 1.0)
+		warlord.eor.enable_mace_emit()
+	var cam: Camera3D = scene.cam
+	var vp := get_viewport().get_visible_rect().size
+	var feet: Vector3 = hero3d.global_position
+	var crown: Vector3 = feet + Vector3.UP * 2.05
+	var sf := cam.unproject_position(feet) / vp
+	var sc := cam.unproject_position(crown) / vp
+	var half_w := (cam.unproject_position(feet + cam.global_transform.basis.x * 0.62) / vp - sf).length()
+	em.set_shader_parameter("hero_c", (sf + sc) * 0.5)
+	em.set_shader_parameter("hero_r", Vector2(half_w, absf(sf.y - sc.y) * 0.5 + half_w * 0.3))
+	var mh: Vector3 = hero3d.mace_head()
+	var smh := cam.unproject_position(mh) / vp
+	var mr := (cam.unproject_position(mh + cam.global_transform.basis.x * 0.32) / vp - smh).length()
+	em.set_shader_parameter("mace_c", smh)
+	em.set_shader_parameter("mace_r", Vector2(mr, mr * vp.x / maxf(vp.y, 1.0)))
 
 
 func _hero3d_frame(delta: float) -> void:
@@ -338,6 +396,8 @@ func setup(sc) -> void:
 	var args := OS.get_cmdline_user_args()
 	if "--arena-auto" in args:
 		autopilot = "on"
+	if "--arena-auto-channel" in args:
+		autopilot = "channel"          # R-C9-392 eye-check: hold the whirlwind; stand 2.5 s, then walk a slow square
 	if "--arena-auto-slash" in args:
 		autopilot = "slash"            # R-C9-370 eye-check: no channel; walks in and slashes whatever is in reach
 	shot_dir = _arg(args, "--arena-shot-dir", "")
@@ -347,7 +407,7 @@ func setup(sc) -> void:
 	# R-C9-381 (Matt: "the enemy vfx are good for now. leave them in"): ON by default; `-- --arena-vfx off` is the switch
 	vfx_on = _arg(args, "--arena-vfx", "on") != "off" or "--arena-vfx-gallery" in args
 	interp_on = _arg(args, "--arena-interp", "on") != "off"
-	hero_3d = _arg(args, "--arena-hero", "sprite") == "3d"
+	hero_3d = _arg(args, "--arena-hero", "3d") != "sprite"      # R-C9-391: the live 3D rig by default; sprite = fallback
 	entry_on = _arg(args, "--arena-entry", "on") != "off"
 	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
 	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
@@ -1223,8 +1283,15 @@ func _render(delta: float) -> void:
 			st.y = maxf(st.y, float(sn.get("floor_y")) + float(sn.depth_at(Vector2(st.x, st.z))))
 		# ...and, like the cards, slid along the ortho view ray toward the camera (the same pixels on screen), so the
 		# flat bed disc is not cut where the snow rises behind him
-		warlord.drive_eor(st - scene.fwd * EOR_TOWARD_CAM_M, revs, scene.u_hat, scene.v_hat)
-		warlord.ring_station = st - scene.fwd * EOR_TOWARD_CAM_M
+		if hero3d != null:
+			# R-C9-392: the live rig is a real 3D body, so the effect stands ON the snow (no long slide toward the
+			#   camera that put the haze in front of him) and the haze is born at his own mace head
+			warlord.drive_eor(st - scene.fwd * HERO3D_EOR_SLIDE_M, revs, scene.u_hat, scene.v_hat, hero3d.mace_head())
+			warlord.ring_station = st - scene.fwd * HERO3D_EOR_SLIDE_M
+			_hero3d_haze_mask()
+		else:
+			warlord.drive_eor(st - scene.fwd * EOR_TOWARD_CAM_M, revs, scene.u_hat, scene.v_hat)
+			warlord.ring_station = st - scene.fwd * EOR_TOWARD_CAM_M
 	if topdown:
 		var c := T + Vector2(0.0, -2.0)
 		scene.set_topdown(Vector2(c.x, -c.y), 62.0)
@@ -1350,6 +1417,12 @@ func _auto() -> void:
 	elif ef > 0.45:
 		_auto_rest = false
 	_auto_channel = bd < 4.0 and not _auto_rest and autopilot != "slash"
+	if autopilot == "channel":
+		_auto_channel = true
+		var leg := int(maxf(0.0, _wall_s - 2.5) / 1.6) % 4
+		var sq := [Vector2(3, 0), Vector2(3, 3), Vector2(0, 3), Vector2(0, 0)]
+		move_target_m = null if _wall_s < 2.5 else sq[leg]
+		return
 	if autopilot == "slash" and _wall_s >= _slash_until_s:
 		for t in actors.values():
 			if t != null and not t.dying and t.released and \
