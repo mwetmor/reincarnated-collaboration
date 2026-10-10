@@ -320,12 +320,18 @@ func sync(player_m: Vector2, driver) -> void:
 	body.play_loop(state)
 
 
+var hide_card := false               # R-C9-383: the live 3D rig stands in (--arena-hero 3d): no card, no outline
+
+
 func advance(dt: float) -> void:
 	if not ok:
 		return
 	body.advance(dt)
 	_drive_overlay()
 	_drive_moves(dt)
+	if hide_card:
+		body.visible = false
+		outline.visible = false
 
 
 func _drive_overlay() -> void:

@@ -32,6 +32,75 @@ const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # on by def
 var enemy_vfx = null
 ## R-C9-383: bodies DRAWN between their last two sim-tick positions (one tick behind; drawing only). Off: --arena-interp off
 var interp_on := true
+## R-C9-383 item 2: the warlord as the walk scene's LIVE 3D RIG (`-- --arena-hero 3d`; default the sprite card)
+var hero_3d := false
+var hero3d = null
+var _hero_last_pos := Vector3.INF
+var _hero_charging := false
+var hero3d_report := {}
+
+
+func _build_hero3d() -> void:
+	var k = load("res://scripts/arena/arena_knight3d.gd").new()
+	k.slot_path = "res://data/slots/warlord.json"
+	k.name = "Warlord3D"
+	k.setup(scene.right, scene.up, scene.fwd, 1.0)
+	k.ext_pos = proxy.global_position
+	add_child(k)
+	k.global_position = proxy.global_position
+	await get_tree().physics_frame
+	k.set_figure_scale(1.0)
+	k.set_gear_stack(k.gear_stack_count() - 1)
+	var saved: Dictionary = PaintStack.adopt_character(k, scene.fbm, PaintStack.INK, {
+		"wash_scale": 2.6, "wash_amp": 0.13, "band_soft": 0.075})
+	if k.get("_skel") != null:
+		var eyes = load("res://scripts/warlord_eyes.gd").new()
+		eyes.name = "WarlordEyes"
+		add_child(eyes)
+		await eyes.setup(k._skel, "")
+	hero3d = k
+	warlord.hide_card = true
+	hero3d_report = {"model": String(k.cfg.get("model", "?")), "meshes_under_ramp": (saved.get("meshes", []) as Array).size(),
+		"graft": k.graft_report, "clips": k._clip_len.keys()}
+	print("[arena] hero 3d: " + JSON.stringify(hero3d_report))
+
+
+func _hero3d_frame(delta: float) -> void:
+	if hero3d == null:
+		return
+	var p: Vector3 = proxy.global_position
+	var v := Vector3.ZERO
+	if _hero_last_pos != Vector3.INF and delta > 0.0:
+		v = (p - _hero_last_pos) / delta
+	_hero_last_pos = p
+	hero3d.ext_pos = p
+	hero3d.ext_vel = v
+	var drv = session.driver
+	var charging: bool = drv.charge_to != null
+	var sk := String(drv.charge_skill) if charging else ""
+	hero3d.haste = sk == "rune_of_rush"
+	if charging and not _hero_charging:
+		var dash_t: float = (Vector2(drv.charge_to) - player_pos_m).length() / maxf(float(drv.charge_speed), 0.1)
+		if sk == "blitz":
+			hero3d.play_override("charge", maxf(dash_t, 0.45))
+		if sk == "vires_might":
+			hero3d.might_until = hero3d._clock + dash_t + 2.0
+	_hero_charging = charging
+
+
+func _hero3d_event(e: Dictionary) -> void:
+	if hero3d == null:
+		return
+	match String(e.get("event", "")):
+		"channel_on":
+			hero3d.eor_begin()
+		"channel_off":
+			hero3d.eor_end()
+		"player_death":
+			hero3d.die()
+		"cast_start":
+			if String(e.get("skill_id", "")) == "war_cry":
+				hero3d.strike("chop")
 
 
 ## The fraction of the current sim tick elapsed (0 at a tick, toward 1 before the next): the interpolation weight.
@@ -185,6 +254,7 @@ func setup(sc) -> void:
 	# R-C9-381 (Matt: "the enemy vfx are good for now. leave them in"): ON by default; `-- --arena-vfx off` is the switch
 	vfx_on = _arg(args, "--arena-vfx", "on") != "off" or "--arena-vfx-gallery" in args
 	interp_on = _arg(args, "--arena-interp", "on") != "off"
+	hero_3d = _arg(args, "--arena-hero", "sprite") == "3d"
 	# R-C9-371 still instrument: `--arena-look-nodes barrow_front,wreck` parks the camera on each named site node's
 	#   centre in turn, one per --arena-shot-every (before/after stills of the same places)
 	var ln := _arg(args, "--arena-look-nodes", "")
@@ -270,6 +340,11 @@ func _boot() -> void:
 	warlord.name = "Warlord"
 	actors_root.add_child(warlord)
 	warlord.setup()
+	if hero3d != null:
+		hero3d.queue_free()
+		hero3d = null
+	if hero_3d:
+		await _build_hero3d()
 	if enemy_vfx != null:
 		enemy_vfx.queue_free()
 		enemy_vfx = null
@@ -747,6 +822,9 @@ func _slash_target():
 func _start_slash(tgt) -> void:
 	move_target_m = null
 	var contact: float = warlord.play_slash(tgt.pos_m - player_pos_m)
+	if hero3d != null:
+		hero3d.face_world(to_world(tgt.pos_m) - to_world(player_pos_m))
+		hero3d.strike("slash")
 	_slash_until_s = _wall_s + float(warlord.slash_clip_s())
 	_slash_contact_s = _wall_s + contact
 	_slash_tgt = tgt
@@ -923,6 +1001,7 @@ func _consume_events(evs: Array) -> void:
 			if ev == "channel_on":
 				eor_t0_tick = int(session.fight.run_tick)      # R-C9-352: the source clock starts at the cast's tick
 			warlord.on_event(e)
+			_hero3d_event(e)
 			continue
 		if ev == "cast_start":
 			var t = actors.get(int(e.get("actor_id", 0)), null)
@@ -934,6 +1013,8 @@ func _consume_events(evs: Array) -> void:
 		elif ev == "hit" and int(e.get("dst_id", 0)) == 0 and int(e.get("src_id", 0)) != 0:
 			if enemy_vfx != null:
 				enemy_vfx.on_player_hit(int(e.get("src_id", 0)), warlord)
+			if hero3d != null:
+				hero3d.flash_red()
 		elif ev == "hit" and int(e.get("dst_id", 0)) != 0:
 			var t2 = actors.get(int(e["dst_id"]), null)
 			if t2 != null:
@@ -1020,6 +1101,7 @@ func _render(delta: float) -> void:
 		warlord.sync(player_pos_m, session.driver)
 		warlord.advance(delta)
 		warlord.position = proxy.global_position - scene.fwd * CARD_TOWARD_CAM_M
+		_hero3d_frame(delta)
 		# R-C9-352: the source clock -- revolutions = (sim ticks since the cast + the frame's fraction of a tick) x
 		#   tick period / the source's 0.36 s per revolution; it runs on after the release so the cuts finish
 		var tp := 1.0 / maxf(float(session.fight.ticks_per_s), 1e-6)
