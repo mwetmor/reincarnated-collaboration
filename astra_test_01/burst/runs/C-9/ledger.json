@@ -55820,6 +55820,18 @@
       "cites": [
         "R-C9-381"
       ]
+    },
+    {
+      "id": "R-C9-383",
+      "by": "gandalf (conductor), under Matt's R-C9-381/382",
+      "ts": "2026-10-10T01:25:35-04:00",
+      "ruling": "drax choppiness root cause ACCEPTED (1582b6c50 VFX default on; 1384ba466 profiling switch): NOT scenery -- all scenery off gains only ~6 fps (wave 160 52.8 -> 59.2 avg); causes are (b) JOIN-1 sprite clips baked at 12 frames per clip = ~3-16 fps playback (warlord strips 3.6-8.8 fps) and (c) monster positions drawn at the 12.25 Hz sim tick without interpolation (moves on 12-15% of frames); barrow_v1 tests drew a live 3D rig at render rate. Approved in order: (1) drawing-only interpolation between sim ticks (one-tick 82 ms lag accepted; --arena-interp off); (2) warlord live 3D rig A/B (--arena-hero sprite|3d, default sprite until Matt picks; Might = red rim tint; real shadows; eor4x staged); (3) doorway entry (threshold clip + 0.3 s fade; spawns inside solids slide out hidden). Monster clip smoothing deferred (monsters stay strips per R-C9-382).",
+      "cites": [
+        "R-C9-381",
+        "R-C9-382",
+        "1582b6c50",
+        "1384ba466"
+      ]
     }
   ],
   "grok_calls": [
