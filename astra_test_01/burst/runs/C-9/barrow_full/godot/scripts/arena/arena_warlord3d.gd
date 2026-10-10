@@ -410,7 +410,7 @@ func _over_hide() -> void:
 # Haste (rune_of_rush) are the SAME driver call -- a dash to the aim at 3x speed, damage a declared placeholder, NO buff
 # duration -- so each is shown on its own dash: Charge plays the slide attack; Haste his run at HASTE_RATE; Might lights
 # the red outline for the dash + MIGHT_AFTERGLOW_S. Battle Cry (war_cry cast_start) plays the battlecry + the ring.
-# The basic SLASH (R-C9-369) is driven from arena_mode (play_slash) and lands real damage there.
+# The basic SLASH (R-C9-370/373) is driven from arena_mode (play_slash): PRESENTATION ONLY, no fight call, no damage.
 # =====================================================================================================================
 const EOR4X := "gd-eor-warlord-eor4x"
 const HASTE_RATE := 1.3
@@ -525,7 +525,7 @@ func _ring_fire() -> void:
 	ring.visible = true
 
 
-## The basic slash (R-C9-369): the great sword slash toward `aim` (a KC2-frame vector); returns the contact time (s).
+## The basic slash (R-C9-370/373, presentation only): the great sword slash toward `aim` (a KC2-frame vector); returns the contact time (s).
 func play_slash(aim: Vector2) -> float:
 	if not ok or dead:
 		return 0.0

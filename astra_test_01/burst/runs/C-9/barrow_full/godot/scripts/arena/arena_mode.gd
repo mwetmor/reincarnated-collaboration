@@ -162,6 +162,8 @@ func setup(sc) -> void:
 	var args := OS.get_cmdline_user_args()
 	if "--arena-auto" in args:
 		autopilot = "on"
+	if "--arena-auto-slash" in args:
+		autopilot = "slash"            # R-C9-370 eye-check: no channel; walks in and slashes whatever is in reach
 	shot_dir = _arg(args, "--arena-shot-dir", "")
 	shot_every_s = float(_arg(args, "--arena-shot-every", "0"))
 	quit_after_s = float(_arg(args, "--arena-quit-s", "0"))
@@ -629,6 +631,12 @@ func handle_input(e: InputEvent) -> void:
 			pending_presses = []
 		return
 	if e is InputEventMouseButton and e.pressed and (e as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
+		# R-C9-370/373 (presentation only): a click ON a live enemy within his reach, while not channelling or
+		# charging, is the SLASH -- he stands and swings; NO press reaches the sim. Every other click is Charge.
+		var tgt = _slash_target()
+		if tgt != null:
+			_start_slash(tgt)
+			return
 		pending_presses.append({"skill_id": "blitz", "aim_m": _cursor_arr()})
 	if e is InputEventKey and e.pressed and not e.echo:
 		var kc := (e as InputEventKey).keycode
@@ -643,6 +651,68 @@ func handle_input(e: InputEvent) -> void:
 			sid = "rune_of_rush"
 		if sid != "":
 			pending_presses.append({"skill_id": sid, "aim_m": _cursor_arr()})
+
+
+# ---- R-C9-370/371/373 the SLASH: presentation only (no fight call, no fight state) ----------------------
+const SLASH_REACH_M := 1.6            # past both bodies' edges: the great sword's sweep
+const SLASH_PICK_M := 0.6             # the cursor's slack around a body
+const SLASH_NUMBER_K := 0.1           # R-C9-371 amendment (Matt): the shown number = 0.1x one whirlwind tick
+const SLASH_NUMBER_SPREAD := 0.10     #   +-10 %
+const SLASH_TICK_FALLBACK := 37000.0  # one whirlwind tick before any lands this run: --arena-auto, waves 151-154, mean of 848 dealt hits 37235
+var _slash_until_s := -1.0
+var _slash_contact_s := -1.0
+var _slash_tgt = null
+var n_slashes := 0
+var _eor_tick_sum := 0.0              # the whirlwind's dealt hits, seen in the event stream (read only)
+var _eor_tick_n := 0
+
+
+func _slash_target():
+	if warlord == null or warlord.dead or warlord.eor_channelling() or _channel_held():
+		return null
+	if session == null or session.driver.charge_to != null or session.driver.channel_on:
+		return null
+	var c := _cursor_m()
+	var best = null
+	var best_d := INF
+	for t in actors.values():
+		if t == null or t.dying or not t.released:
+			continue
+		var r: float = float(t.radius_m)
+		if (c - t.pos_m).length() > r + SLASH_PICK_M:
+			continue
+		var d: float = (t.pos_m - player_pos_m).length()
+		if d <= CAP_R + r + SLASH_REACH_M and d < best_d:
+			best = t
+			best_d = d
+	return best
+
+
+func _start_slash(tgt) -> void:
+	move_target_m = null
+	var contact: float = warlord.play_slash(tgt.pos_m - player_pos_m)
+	_slash_until_s = _wall_s + float(warlord.slash_clip_s())
+	_slash_contact_s = _wall_s + contact
+	_slash_tgt = tgt
+	n_slashes += 1
+
+
+func _eor_tick_value() -> float:
+	return _eor_tick_sum / float(_eor_tick_n) if _eor_tick_n > 0 else SLASH_TICK_FALLBACK
+
+
+func _drive_slash() -> void:
+	if _slash_contact_s < 0.0 or _wall_s < _slash_contact_s:
+		return
+	_slash_contact_s = -1.0
+	var t = _slash_tgt
+	_slash_tgt = null
+	if t == null or not is_instance_valid(t) or t.dying or numbers == null:
+		return
+	var v := _eor_tick_value() * SLASH_NUMBER_K * randf_range(1.0 - SLASH_NUMBER_SPREAD, 1.0 + SLASH_NUMBER_SPREAD)
+	numbers.show_hit(to_world(t.pos_m) + Vector3.UP * (float(t.true_height_m) * 0.5), maxf(1.0, roundf(v)),
+		"Physical", false, -1000 - int(t.actor_id))
+	t.on_hit()
 
 
 ## The cursor on the ground: the camera ray through the mouse, met with the horizontal plane through his feet.
@@ -698,6 +768,7 @@ func _restart() -> void:
 # --------------------------------------------------------------------------------------------- the loop
 func _process(delta: float) -> void:
 	_instruments(delta)
+	_drive_slash()
 	if session == null:
 		return
 	if running and fight_started:
@@ -710,7 +781,7 @@ func _process(delta: float) -> void:
 func _frame(delta: float) -> void:
 	if autopilot != "":
 		_auto()
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not Input.is_key_pressed(KEY_SHIFT):
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not Input.is_key_pressed(KEY_SHIFT) and _wall_s >= _slash_until_s:
 		move_target_m = _cursor_m()
 	# ---- the F1 rider: the player integrates AT RENDER RATE (through barrow_v2's colliders) ----
 	var speed: float = session.fight.v_ref_speed
@@ -806,6 +877,9 @@ func _consume_events(evs: Array) -> void:
 			if t2 != null:
 				t2.on_hit()
 				# R-C9-367: the numbers the warlord DEALS, over the body hit (NUM-POP style)
+				if int(e.get("src_id", -1)) == 0:
+					_eor_tick_sum += float(e.get("amount", 0.0))
+					_eor_tick_n += 1
 				if int(e.get("src_id", -1)) == 0 and numbers != null:
 					numbers.show_hit(to_world(t2.pos_m) + Vector3.UP * (float(t2.true_height_m) * 0.5),
 						float(e.get("amount", 0.0)), String(e.get("damage_type", "physical")), bool(e.get("crit", false)),
@@ -939,7 +1013,13 @@ func _auto() -> void:
 		_auto_rest = true
 	elif ef > 0.45:
 		_auto_rest = false
-	_auto_channel = bd < 4.0 and not _auto_rest
+	_auto_channel = bd < 4.0 and not _auto_rest and autopilot != "slash"
+	if autopilot == "slash" and _wall_s >= _slash_until_s:
+		for t in actors.values():
+			if t != null and not t.dying and t.released and \
+					(t.pos_m - player_pos_m).length() <= CAP_R + float(t.radius_m) + SLASH_REACH_M:
+				_start_slash(t)
+				break
 	if n_blocked_stops != _auto_blocked_seen:
 		_auto_blocked_seen = n_blocked_stops
 		if _wall_s >= _auto_home_until:
@@ -983,6 +1063,8 @@ func _instruments(delta: float) -> void:
 			var nr2: Dictionary = no_pack_records[rk]
 			print("[arena] no-art record %s family %s n %d waves %s r_body %.3f placeholder %s" % [rk, nr2["family"], int(nr2["n"]),
 				str((nr2["waves"] as Dictionary).keys()), float(nr2["r_body"]), String(nr2["placeholder"])])
+		print("[arena] slashes %d; whirlwind tick mean %.2f over %d hits (fallback %.1f)" % [n_slashes, _eor_tick_value(),
+			_eor_tick_n, SLASH_TICK_FALLBACK])
 		print("[arena] quit timer: wave %d, running %s, terminal '%s', actors %d, kits %s, no-pack %s, blocked stops %d" % [
 			int(snap.get("wave", 0)) if not snap.is_empty() else 0, str(running),
 			String(session.terminal) if session != null else "-", actors.size(), str(kits_seen.keys()),
