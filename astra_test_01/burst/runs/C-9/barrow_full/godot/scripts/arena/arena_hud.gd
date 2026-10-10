@@ -8,8 +8,14 @@ var floats: Array = []          # {txt, at_m, t0, col}
 var t_now := 0.0
 
 const SLOTS := [
-	["LMB", "Blitz", "blitz"], ["RMB", "Eye of Reckoning", "eye_of_reckoning"], ["1", "Potion", "potion"],
-	["2", "Vire's Might", "vires_might"], ["3", "War Cry", "war_cry"], ["4", "Rune of Rush", "rune_of_rush"]]
+	["LMB", "Charge", "blitz"], ["RMB", "Whirlwind", "eye_of_reckoning"], ["1", "Potion", "potion"],
+	["2", "Might", "vires_might"], ["3", "Battle Cry", "war_cry"], ["4", "Haste", "rune_of_rush"]]
+## R-C9-353 (Matt): generic names on screen, no Grim Dawn skill names. DISPLAY ONLY: the sim's skill ids are unchanged.
+const BUFF_NAMES := {"war_cry": "Battle Cry", "warcry": "Battle Cry", "vires_might": "Might", "rune_of_rush": "Haste",
+	"blitz": "Charge", "eye_of_reckoning": "Whirlwind", "potion": "Potion", "health_potion": "Potion",
+	"potion_hot": "Potion",
+	# the automatic procs (KP-298): GD names in the sim; PROVISIONAL generic labels, listed for Matt in the report
+	"turtle_shell": "Guard", "arcane_barrier": "Barrier", "ascension": "Rally", "menhirs_will": "Endure"}
 
 
 func bind(m) -> void:
@@ -131,10 +137,11 @@ func _draw() -> void:
 	var bl := []
 	for b_any in (p.get("buffs", []) as Array):
 		var b = b_any
-		bl.append(String((b as Dictionary).get("id", (b as Dictionary).get("name", "?"))) if typeof(b) == TYPE_DICTIONARY else str(b))
+		var bid: String = String((b as Dictionary).get("id", (b as Dictionary).get("name", "?"))) if typeof(b) == TYPE_DICTIONARY else str(b)
+		bl.append(String(BUFF_NAMES.get(bid, bid.replace("_", " "))))
 	if not bl.is_empty():
 		_text("buffs: " + ", ".join(bl), Vector2(bx, by - 8), 13, Color(0.7, 1.0, 0.7))
-	_text("hold LMB move · click LMB Blitz · hold RMB Eye of Reckoning · 1-4 skills · Z zoom · N bars · R restart · C capture · Esc quit",
+	_text("hold LMB move · click LMB Charge · hold RMB Whirlwind · 1 Potion · 2 Might · 3 Battle Cry · 4 Haste · Z zoom · N bars · R restart · C capture · Esc quit",
 		Vector2(vs.x * 0.5, vs.y - 36), 12, Color(0.85, 0.85, 0.9, 0.85), true)
 	# ---- the start card / RUN OVER ----
 	if not mode.fight_started:

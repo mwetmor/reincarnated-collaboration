@@ -24,10 +24,33 @@ var arena: Node3D = null
 func _ready() -> void:
 	await super._ready()
 	set_hud_visible(false)
+	# R-C9-353 (Matt: the load "stays ... in the bottom-right corner ... where all you see is the lack of map"): the
+	# pilot's shader warm-up ends parked on the LAST view of its grid (the window's far corner), and the fight's
+	# session then loads for seconds in front of it. So: the camera goes to the warlord's start NOW, under a plain
+	# "loading the fight" card, and two frames are presented before the session opens.
+	var j: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/arena/barrow_arena.json"))
+	if typeof(j) == TYPE_DICTIONARY:
+		var t: Array = (j as Dictionary)["fight_centre_sim"]
+		set_process(false)
+		look_at_world(aim_for(uv_to_world(float(t[0]), -float(t[1]), floor_y_at(float(t[0]), -float(t[1])))))
+	var card := CanvasLayer.new()
+	card.layer = 120
+	var lb := Label.new()
+	lb.text = "Loading the fight..."
+	lb.add_theme_font_size_override("font_size", 28)
+	lb.add_theme_color_override("font_color", Color(1, 0.93, 0.8))
+	lb.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.8))
+	lb.set_anchors_preset(Control.PRESET_CENTER)
+	lb.position = Vector2(-120, -20)
+	card.add_child(lb)
+	add_child(card)
+	await get_tree().process_frame
+	await get_tree().process_frame
 	arena = load("res://scripts/arena/arena_mode.gd").new()
 	arena.name = "Arena"
 	add_child(arena)
 	arena.setup(self)
+	card.queue_free()
 	print("[bv2f_arena] site %s, arena %s" % [pilot_set, "up" if arena.fatal == "" else "REFUSED: " + String(arena.fatal)])
 
 

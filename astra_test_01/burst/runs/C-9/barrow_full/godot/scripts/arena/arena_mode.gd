@@ -14,8 +14,8 @@ extends Node3D
 ## where KC2's view tested its polygon mask; the sim samples that position at each tick boundary exactly as it sampled
 ## KC2's, and a sim correction still SNAPS him.
 ##
-## CONTROLS (KC2's): hold LMB = move to the cursor (Shift+LMB = stand), LMB click = Blitz, hold RMB = Eye of Reckoning,
-## 1 potion, 2 Vire's Might, 3 War Cry, 4 Rune of Rush (numpad too), Z zoom, N bars, R restart, C / F12 capture, Esc quit.
+## CONTROLS (KC2's): hold LMB = move to the cursor (Shift+LMB = stand), LMB click = Charge (blitz), hold RMB = Whirlwind
+## (eye_of_reckoning), 1 Potion, 2 Might (vires_might), 3 Battle Cry (war_cry), 4 Haste (rune_of_rush) (numpad too), Z zoom, N bars, R restart, C / F12 capture, Esc quit.
 
 const ArenaSession = preload("res://scripts/arena/arena_session.gd")
 const Kc2PlayRecorder = preload("res://kc2/kc2_runtime/play/kc2play_recorder.gd")
@@ -129,6 +129,8 @@ func _boot() -> void:
 	session.driver.banner_placement_m = Vector2.ZERO      # as kc2p_main: the banner at the start (= the fight centre)
 	T = Vector2(float(session.arena_cfg["fight_centre_sim"][0]), float(session.arena_cfg["fight_centre_sim"][1]))
 	_build_blockers()
+	await get_tree().physics_frame                 # the blockers' shapes are in the space before the walk map is cast
+	_build_walk_map()
 	player_pos_m = session.fight.player_pos
 	move_target_m = null
 	_place_proxy(player_pos_m)
@@ -240,7 +242,141 @@ func _place_proxy(m: Vector2) -> void:
 
 
 ## Move the capsule toward `want` (KC2 frame) by physics; return where it ended (KC2 frame).
+## R-C9-353 (Matt: "the player character gets sucked into the viking ship and cannot get out"). CAUSE, measured by
+## scripts/arena/arena_blocker_probe.gd: the wreck lies in a basin 4.2 m below the plateau behind a 60-70 deg bank (and
+## its hull blocker was smaller than the ship). The capsule slid off the bank's lip, dropped to the shore ice, and could
+## not climb a face steeper than its 45 deg floor -- a pit (8 of 9 standing starts round the wreck never got back).
+## FIX: THE WALK MAP, the KC2 view's walkable-mask rule rebuilt from barrow_v2's own colliders. At load, one ray per
+## WALK_CELL_M cell straight down onto the walk colliders (terrain, models, bounds, blockers) gives the surface height
+## and its normal. A cell is FLOOR if its normal is within WALK_MAX_DEG of up. A step is taken only onto floor whose
+## height is within WALK_STEP_M of the floor he stands on -- so he never steps onto a bank, a cliff face or a rock top,
+## and never off a lip. Physics still does the motion (walls, the slide); a slide that ends off the map is undone.
+const WALK_CELL_M := 0.25
+const WALK_MAX_DEG := 40.0        # 5 deg under the capsule's 45 deg floor_max_angle
+const WALK_STEP_M := 0.30         # most height change accepted between the cell he is on and the one he steps to
+const WALK_X0 := -42.0            # the level's sim extent (level.json sim.heightfield.extent_sim_m)
+const WALK_Y0 := -36.0
+const WALK_NX := 336
+const WALK_NY := 288
+var walk_hgt := PackedFloat32Array()   # surface height per cell (NAN = nothing below)
+var walk_ok := PackedByteArray()       # 1 = floor
+var walk_reach := PackedByteArray()    # 1 = reachable from the start over floor steps
+var walk_built_ms := 0
+var n_ledge_refusals := 0
+
+
+func walk_h(m: Vector2) -> float:
+	var s := m + T
+	return float(scene.floor_y_at(s.x, -s.y))
+
+
+func _build_walk_map() -> void:
+	if not walk_ok.is_empty():
+		return
+	var t0 := Time.get_ticks_msec()
+	var space: PhysicsDirectSpaceState3D = scene.get_world_3d().direct_space_state
+	var q := PhysicsRayQueryParameters3D.new()
+	q.collision_mask = int(scene.TERRAIN_BIT)
+	q.collide_with_areas = false
+	walk_hgt.resize(WALK_NX * WALK_NY)
+	walk_ok.resize(WALK_NX * WALK_NY)
+	var cmax := cos(deg_to_rad(WALK_MAX_DEG))
+	for j in WALK_NY:
+		# the ray sits OFF the cell centre: centres fall on the heightmap's own vertices (8 per metre), where a ray
+		#   returns an edge's normal -- a regular grid of false "steep" cells across flat ground
+		var y := WALK_Y0 + (float(j) + 0.5) * WALK_CELL_M + 0.0371
+		for i in WALK_NX:
+			var x := WALK_X0 + (float(i) + 0.5) * WALK_CELL_M + 0.0529
+			var top: Vector3 = scene.uv_to_world(x, -y, 40.0)
+			q.from = top
+			q.to = top - Vector3(0.0, 60.0, 0.0)
+			var hit: Dictionary = space.intersect_ray(q)
+			var k := j * WALK_NX + i
+			if hit.is_empty():
+				walk_hgt[k] = NAN
+				walk_ok[k] = 0
+			else:
+				walk_hgt[k] = float((hit["position"] as Vector3).y)
+				walk_ok[k] = 1 if (hit["normal"] as Vector3).y >= cmax else 0
+	# keep-outs (barrow_arena.json walk_keepout): low ground he could get into and not out of -- the wreck's basin
+	var n_keep := 0
+	for ko_any in (session.arena_cfg.get("walk_keepout", []) as Array):
+		var ko: Dictionary = ko_any
+		var kc := Vector2(float(ko["centre_sim"][0]), float(ko["centre_sim"][1]))
+		var kr := float(ko["radius_m"])
+		var kh := float(ko["below_h_m"])
+		for j in WALK_NY:
+			for i in WALK_NX:
+				var k := j * WALK_NX + i
+				if walk_ok[k] == 0 or is_nan(walk_hgt[k]):
+					continue
+				var c := Vector2(WALK_X0 + (float(i) + 0.5) * WALK_CELL_M, WALK_Y0 + (float(j) + 0.5) * WALK_CELL_M)
+				if c.distance_to(kc) <= kr and walk_hgt[k] < kh:
+					walk_ok[k] = 0
+					n_keep += 1
+	print("[arena] walk map keep-outs: %d cells" % n_keep)
+	# what he can REACH from the start, over floor steps (4-neighbour flood fill): the probe's and the report's measure
+	walk_reach.resize(WALK_NX * WALK_NY)
+	walk_reach.fill(0)
+	var k0 := _cell(Vector2.ZERO)
+	if k0 >= 0 and walk_ok[k0] == 1:
+		var stack := PackedInt32Array([k0])
+		walk_reach[k0] = 1
+		while not stack.is_empty():
+			var k := stack[stack.size() - 1]
+			stack.resize(stack.size() - 1)
+			var ci := k % WALK_NX
+			var cj := k / WALK_NX
+			for dd in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+				var ni: int = ci + dd.x
+				var nj: int = cj + dd.y
+				if ni < 0 or nj < 0 or ni >= WALK_NX or nj >= WALK_NY:
+					continue
+				var nk := nj * WALK_NX + ni
+				if walk_reach[nk] == 1 or walk_ok[nk] == 0 or absf(walk_hgt[nk] - walk_hgt[k]) > WALK_STEP_M:
+					continue
+				walk_reach[nk] = 1
+				stack.append(nk)
+	walk_built_ms = Time.get_ticks_msec() - t0
+	var n := 0
+	for v in walk_ok:
+		n += int(v)
+	var nr := 0
+	for v in walk_reach:
+		nr += int(v)
+	print("[arena] walk map: %d x %d cells @ %.2f m, %d floor (%.0f m2), %d reachable from the start (%.0f m2), built in %d ms" % [
+		WALK_NX, WALK_NY, WALK_CELL_M, n, float(n) * WALK_CELL_M * WALK_CELL_M, nr, float(nr) * WALK_CELL_M * WALK_CELL_M,
+		walk_built_ms])
+
+
+func _cell(m: Vector2) -> int:
+	var s := m + T
+	var i := int(floor((s.x - WALK_X0) / WALK_CELL_M))
+	var j := int(floor((s.y - WALK_Y0) / WALK_CELL_M))
+	if i < 0 or j < 0 or i >= WALK_NX or j >= WALK_NY:
+		return -1
+	return j * WALK_NX + i
+
+
+## May he step from `a` to `b` (KC2 frame)? Floor cell, and a height change he could walk.
+func walk_step_ok(a: Vector2, b: Vector2) -> bool:
+	if walk_ok.is_empty():
+		return true
+	var kb := _cell(b)
+	if kb < 0 or walk_ok[kb] == 0:
+		return false
+	var ka := _cell(a)
+	if ka < 0 or ka == kb or is_nan(walk_hgt[ka]):
+		return true
+	return absf(walk_hgt[kb] - walk_hgt[ka]) <= WALK_STEP_M
+
+
 func _move_proxy(want: Vector2, delta: float) -> Vector2:
+	var old_tf := proxy.global_transform
+	var old_m := world_to_m(old_tf.origin)
+	if want.distance_to(old_m) > 1e-5 and not walk_step_ok(old_m, want):
+		n_ledge_refusals += 1
+		want = old_m                                   # refused: he stands (gravity still settles him)
 	var d := want - player_pos_m
 	var s := d + Vector2.ZERO
 	var disp: Vector3 = scene.u_hat * s.x - scene.v_hat * s.y
@@ -249,7 +385,13 @@ func _move_proxy(want: Vector2, delta: float) -> Vector2:
 	proxy.move_and_slide()
 	if proxy.is_on_floor():
 		proxy.velocity.y = 0.0
-	return world_to_m(proxy.global_position)
+	var new_m := world_to_m(proxy.global_position)
+	if new_m.distance_to(old_m) > 1e-5 and not walk_step_ok(old_m, new_m):
+		proxy.global_transform = old_tf               # the slide carried him off the walk map: undone
+		proxy.velocity = Vector3.ZERO
+		n_ledge_refusals += 1
+		return old_m
+	return new_m
 
 
 # --------------------------------------------------------------------------------------------- the blockers

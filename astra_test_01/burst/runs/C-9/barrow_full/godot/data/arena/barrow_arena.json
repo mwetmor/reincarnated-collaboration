@@ -115,15 +115,15 @@
     -2.9
    ],
    "size_m": [
-    9.7,
-    2.7
+    13.6,
+    5.2
    ],
    "axis_deg": 32.471,
    "z_m": [
-    -6.0,
+    -7.0,
     3.0
    ],
-   "rule": "the hull probe (h_rect L 9.1 x W 2.082, rot 32.471) + 0.3 m a side"
+   "rule": "the WRECK MODEL's footprint (level.json sim.models.wreck 13.0 x 4.63 m, at the hull probe's 32.471 deg) + 0.3 m a side (R-C9-353: was the 9.1 x 2.08 hull probe, smaller than the ship)"
   },
   {
    "id": "block_p06_gable_rubble",
@@ -144,5 +144,17 @@
   }
  ],
  "spawn_disc_m": 8.0,
- "hazards": "none: the six crucible floor pools are dropped (R-C9-348); doorways + wreck + gable are blockers instead; p05 needs none"
+ "hazards": "none: the six crucible floor pools are dropped (R-C9-348); doorways + wreck + gable are blockers instead; p05 needs none",
+ "walk_keepout": [
+  {
+   "id": "wreck_basin",
+   "centre_sim": [
+    -27.1,
+    -2.9
+   ],
+   "radius_m": 14.0,
+   "below_h_m": -1.0,
+   "rule": "R-C9-353: the wreck's basin (walk surface below -1.0 m within 14 m of the hull) is not floor for the player: the only ways down are banks he cannot climb back up"
+  }
+ ]
 }
