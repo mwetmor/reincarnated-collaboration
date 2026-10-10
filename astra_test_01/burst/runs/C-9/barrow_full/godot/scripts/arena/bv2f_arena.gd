@@ -181,6 +181,9 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 		snow.shader_code_override = PaintedWorld.snow_shader_code()
 	else:
 		snow.snow_tint = _snow_white_tint()
+		var shard := _shard_cull_code(SnowField.SHADER)
+		if shard != "":
+			snow.shader_code_override = shard
 	snow.clear_zones = zones
 	var obstacles := _arena_snow_obstacles(drop, zones)
 	snow.setup(Rect2(float(ar[0]), float(ar[1]), float(ar[2]), float(ar[3])), 0.0, obstacles, WIND)
@@ -190,6 +193,11 @@ func _build_painted_snow(man: Dictionary, ground_tex: Texture2D, lit: Texture2D,
 		smat.set_shader_parameter("paint_tex", ground_tex)
 		PaintedWorld.bind_projection(smat, lit, shadow_mul, u_hat, v_hat)
 		snow.surface().layers = PaintedWorld.LAYER_ON_PAINT
+	if snow.shader_code_override.contains("shard_rise_m"):
+		var sm := snow.material()
+		sm.set_shader_parameter("shard_step_uv", Vector2(snow.grid_quad_m / float(ar[2]), snow.grid_quad_m / float(ar[3])))
+		var kr := Slots.arg("arenasnow-shard")
+		sm.set_shader_parameter("shard_rise_m", float(kr) if kr != "" else SHARD_RISE_M)
 	if heather_mat != null:
 		BarrowHeather.bind_snow(heather_mat, snow, WIND)
 	if reed_mat != null:
@@ -218,6 +226,32 @@ func _snow_white_tint() -> Color:
 		if q.size() == 3:
 			return Color(float(q[0]), float(q[1]), float(q[2]))
 	return ARENA_SNOW_WHITE
+
+
+## THE SHARDS (conductor, after R-C9-371: "thin pale shards on the cliff and rock edges near the door posts"): the
+## snow surface is a grid of grid_quad_m quads lifted by the terrain height at each vertex, so where the ground jumps
+## within one quad (a cliff lip, a rock's edge) a quad stands near vertical and wears the snow -- a stretched pale
+## sheet. Culled: each vertex measures the ground's largest rise to its four grid neighbours, and a fragment whose
+## interpolated rise exceeds SHARD_RISE_M is discarded (`-- --arenasnow-shard m` to tune). Arena-only: the walk
+## scene's shader is untouched (the swap is applied to the arena's own copy of v1's SHADER, each anchor asserted).
+const SHARD_RISE_M := 0.35
+
+
+static func _shard_cull_code(code: String) -> String:
+	var anchors := ["varying vec3 v_world;\n", "\tv_press = p;\n", "void fragment() {\n"]
+	for a in anchors:
+		if code.count(a) != 1:
+			push_warning("[bv2f_arena] shard cull: anchor %s found %d times -- not applied" % [a.strip_edges(), code.count(a)])
+			return ""
+	code = code.replace("varying vec3 v_world;\n", "uniform vec2 shard_step_uv = vec2(0.002);\nuniform float shard_rise_m = 0.35;\nvarying float v_rise;\nvarying vec3 v_world;\n")
+	code = code.replace("\tv_press = p;\n", "\tfloat g0 = ground_h_on * textureLod(ground_h_tex, UV, 0.0).r;\n" +
+		"\tfloat ge = ground_h_on * textureLod(ground_h_tex, UV + vec2(shard_step_uv.x, 0.0), 0.0).r;\n" +
+		"\tfloat gw = ground_h_on * textureLod(ground_h_tex, UV - vec2(shard_step_uv.x, 0.0), 0.0).r;\n" +
+		"\tfloat gn = ground_h_on * textureLod(ground_h_tex, UV + vec2(0.0, shard_step_uv.y), 0.0).r;\n" +
+		"\tfloat gs = ground_h_on * textureLod(ground_h_tex, UV - vec2(0.0, shard_step_uv.y), 0.0).r;\n" +
+		"\tv_rise = max(max(abs(ge - g0), abs(gw - g0)), max(abs(gn - g0), abs(gs - g0)));\n\tv_press = p;\n")
+	code = code.replace("void fragment() {\n", "void fragment() {\n\tif (v_rise > shard_rise_m) { discard; }\n")
+	return code
 
 
 func _arena_snow_obstacles(drop: String = "", zones: Array = []) -> Array:
