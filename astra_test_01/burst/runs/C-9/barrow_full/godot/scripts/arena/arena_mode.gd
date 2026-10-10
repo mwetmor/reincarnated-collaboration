@@ -216,6 +216,7 @@ func setup(sc) -> void:
 	if not J.ok():
 		_fatal("JOIN-1 art index missing: " + J._index_error)
 		return
+	_prof_off_arena(_arg(args, "--arena-prof-off", ""))
 	seed_used = int(Time.get_unix_time_from_system()) & 0x7fffffff
 	if _arg(args, "--arena-seed", "") != "":          # instruments: a like-for-like pair (the fps on/off runs)
 		seed_used = int(_arg(args, "--arena-seed", "0"))
@@ -1035,6 +1036,63 @@ func _render(delta: float) -> void:
 			scene.snowfall.global_position = aim + scene.up * 9.0 - scene.fwd * 6.0
 		_snow_feet(delta)
 	hud.queue_redraw()
+
+
+## R-C9-381 PROFILING ONLY: `-- --arena-prof-off snowfall,snow,feet,motion` hides arena-run layers for the fps
+## census (BV2F_PROF_OFF covers the pilot's own: heather, reeds, stairsnow, water, bakes1k, groundtiles). `motion` =
+## every scenery motion layer the arena can stop without rebuilding: snowfall off, heather + reed sway frozen, the
+## sea's and the floes' clocks frozen.
+var prof_off_arena: PackedStringArray = []
+func _prof_off_arena(spec: String) -> void:
+	prof_off_arena = spec.split(",", false)
+	if prof_off_arena.is_empty():
+		return
+	var all := prof_off_arena.has("motion")
+	if (all or prof_off_arena.has("snowfall")) and scene.get("snowfall") != null:
+		scene.snowfall.emitting = false
+		scene.snowfall.visible = false
+	if prof_off_arena.has("snow") and scene.get("snow") != null:
+		scene.snow.visible = false
+		scene.snow.set_physics_process(false)
+	if all:
+		for mat_name in ["heather_mat", "reed_mat"]:
+			var m = scene.get(mat_name)
+			if m != null:
+				(m as ShaderMaterial).set_shader_parameter("wind_time", 0.0)
+		scene.set_physics_process(false)      # the heather's wind clock (barrow_full _physics_process)
+		_freeze_time_uniforms(scene)
+	print("[arena] PROFILING: arena layers off: %s (TIME frozen in %d materials)" % [str(prof_off_arena), _frozen])
+
+
+## Freeze every ShaderMaterial uniform named like a clock under the scene (water / floes / sway), so their motion stops.
+var _frozen := 0
+func _freeze_time_uniforms(n: Node) -> void:
+	if n is GeometryInstance3D:
+		var mats: Array = []
+		var gi := n as GeometryInstance3D
+		if gi.material_override != null:
+			mats.append(gi.material_override)
+		if n is MeshInstance3D and (n as MeshInstance3D).mesh != null:
+			for si in (n as MeshInstance3D).mesh.get_surface_count():
+				var sm := (n as MeshInstance3D).get_active_material(si)
+				if sm != null:
+					mats.append(sm)
+		if n is MultiMeshInstance3D and (n as MultiMeshInstance3D).multimesh != null and (n as MultiMeshInstance3D).multimesh.mesh != null:
+			var mm2: Mesh = (n as MultiMeshInstance3D).multimesh.mesh
+			for si in mm2.get_surface_count():
+				if mm2.surface_get_material(si) != null:
+					mats.append(mm2.surface_get_material(si))
+		for m in mats:
+			if m is ShaderMaterial and (m as ShaderMaterial).shader != null:
+				var code := (m as ShaderMaterial).shader.code
+				if code.contains("TIME"):
+					var sh := Shader.new()
+					sh.code = code.replace("TIME", "0.0")
+					(m as ShaderMaterial).shader = sh
+					_frozen += 1
+	for c in n.get_children():
+		if c != self:
+			_freeze_time_uniforms(c)
 
 
 func _node_centre(id: String) -> Vector3:
