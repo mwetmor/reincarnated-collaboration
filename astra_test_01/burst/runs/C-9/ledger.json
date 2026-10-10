@@ -55714,6 +55714,18 @@
         "R-C9-371",
         "R-C9-372"
       ]
+    },
+    {
+      "id": "R-C9-374",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T23:16:12-04:00",
+      "verbatim": "Drax doesn't seem to be using the speedy fireball from the cliffside.. he is making his own new VFX it seems. Also I lost the arena with the white snow..",
+      "ruling": "Enemy VFX must REUSE existing effects (R-C9-359): drax's uncommitted arena_enemy_vfx.gd authors new shapes -- stopped. The '2D flipbooks can't be used in 3D' premise is rejected: the arena already draws monsters as camera-facing billboards of 2D strips at the same pitch; the cliffside flipbook VFX are drawn the same way. Fire = the actual speedy fireball (fire_ball_fx.gd / C-7 e1_B); thrown = Blackwater cocktail gray bottle + floor fire (V45 frames); lightning = the cliffside strikes if they exist; auras = existing; other elements = fireball atlas recoloured; only melee swipe/spark may be new. drax lists reused asset paths/shas before wiring; WIP flag-gated out of the default launch. Also: drax kills only its own PIDs (Matt's window closed during drax's work).",
+      "cites": [
+        "R-C9-118",
+        "R-C9-359",
+        "R-C9-366"
+      ]
     }
   ],
   "grok_calls": [
