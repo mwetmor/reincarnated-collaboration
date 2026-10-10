@@ -55737,6 +55737,18 @@
         "R-C9-371",
         "R-C9-374"
       ]
+    },
+    {
+      "id": "R-C9-376",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-09T23:47:01-04:00",
+      "ruling": "drax 58369152e (snow shade neutral: lit 247/244/242, shade 223/219/217; sun-cast silhouette shadows for every body incl. the warlord along the scene sun, elevation 55 deg; bank leftovers removed by rule -- 3 m clearance + skirt reach test) and 317563277 (arena-only shard cull) ACCEPTED. Disclosed: the painted ground without 3D snow keeps the painting's own cream + blue hex marks (painting not regraded). VFX REUSE MAPPING APPROVED: fire = fire_ball_fx.gd unmodified via aim/time wrapper (burst 0.55; skip early flight frames when caster < 4.4 m; >4 concurrent -> en_r_flame); other elements = existing en_e2 per-element bolt/burst (accepted deviation from 'recolour'); area = en_e2 ring_burst/ring_smoke (cap 6); lightning = cliffside C-7 lightning_blast (en_q_storm overflow); auras = en_e2 aura phase (poison = blight ring_tele); thrown = V45 Blackwater cocktail flask arc + field/pulse floor fire, non-fire = en_g_mud burst; melee = en_e2 slash phase; only the hit spark is new; warlord red flash. Flag-gated until Matt sees the clip.",
+      "cites": [
+        "R-C9-374",
+        "R-C9-375",
+        "58369152e",
+        "317563277"
+      ]
     }
   ],
   "grok_calls": [
