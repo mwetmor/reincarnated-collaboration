@@ -69,6 +69,66 @@ var n_blocked_stops := 0
 var waves_seen: Dictionary = {}
 var kits_seen: Dictionary = {}
 var no_pack: Dictionary = {}
+var no_pack_records: Dictionary = {}    # R-C9-356: record -> {family, n, waves, r_body, placeholder}
+var placeholder_table: Dictionary = {}  # record -> row (data/arena/placeholder_bodies.json)
+const PLACEHOLDER_JSON := "res://data/arena/placeholder_bodies.json"
+var _by_type: Dictionary = {}
+var _names: Dictionary = {}
+const NAMES_JSON := "res://data/arena/display_names.json"
+
+
+## R-C9-357: the generic on-screen name of a record (display only): its kit's name, else its type's, else "Creature".
+func display_name(rec: String, kit: String, champion: bool) -> String:
+	if _names.is_empty():
+		var j: Variant = JSON.parse_string(FileAccess.get_file_as_string(NAMES_JSON)) if FileAccess.file_exists(NAMES_JSON) else null
+		_names = j if typeof(j) == TYPE_DICTIONARY else {"_none": true}
+	var nm := ""
+	if kit != "" and (_names.get("by_kit", {}) as Dictionary).has(kit):
+		nm = String(_names["by_kit"][kit])
+	if nm == "":
+		var ty := String(placeholder_table.get(rec, {}).get("type", "")) if placeholder_table.has(rec) else ""
+		if ty == "":
+			ty = String(J.record_entry(rec).get("family", J.record_entry(rec).get("type_id", "")))
+		nm = String((_names.get("by_type", {}) as Dictionary).get(ty, "Creature"))
+	return nm + (String(_names.get("champion_suffix", " Champion")) if champion else "")
+
+
+## The oracle's own body radius for a record (ge_fold.r_body = actorRadius x scale; 0.5 the oracle's fallback).
+func _r_body(rec: String) -> float:
+	var ge = session.fight.get("ge_fold")
+	if ge != null and (ge.r_body as Dictionary).has(rec):
+		return float(ge.r_body[rec])
+	return 0.5
+
+
+## R-C9-356: a record with no art drawn with an existing kit, scaled so its radius is the record's: the kit's own
+## reference radius (its mapped records' actorRadius / factor, the median) -> factor = r_body(rec) / r_ref.
+func _placeholder_entry(rec: String) -> Dictionary:
+	if placeholder_table.is_empty():
+		var j: Variant = JSON.parse_string(FileAccess.get_file_as_string(PLACEHOLDER_JSON)) if FileAccess.file_exists(PLACEHOLDER_JSON) else null
+		placeholder_table = {"_loaded": true}
+		if typeof(j) == TYPE_DICTIONARY:
+			_by_type = (j as Dictionary).get("by_type", {})
+			for r_any in ((j as Dictionary).get("rows", []) as Array):
+				placeholder_table[String((r_any as Dictionary)["record"])] = r_any
+	var kit := ""
+	if placeholder_table.has(rec):
+		kit = String((placeholder_table[rec] as Dictionary)["placeholder_kit"])
+	else:
+		var ty := String(J.record_entry(rec).get("family", ""))
+		kit = String(_by_type.get(ty, ""))
+	if kit == "":
+		return {}
+	if J.kit_meta(kit).is_empty():
+		return {}
+	var refs: Array = []
+	for rr_any in (J.index().get("record_map", {}) as Dictionary).values():
+		var rr: Dictionary = rr_any
+		if String(rr.get("kit", "")) == kit and rr.get("actorRadius_m", null) != null and float(rr.get("factor", 0.0)) > 0.0:
+			refs.append(float(rr["actorRadius_m"]) * float(rr.get("roster_scale", 1.0)) / float(rr["factor"]))
+	refs.sort()
+	var r_ref: float = float(refs[refs.size() / 2]) if not refs.is_empty() else 0.75
+	return {"kind": "kit", "kit": kit, "factor": clampf(_r_body(rec) / maxf(r_ref, 0.05), 0.3, 4.0), "placeholder": true}
 var eor_t0_tick := 0
 var autopilot := ""                 # "--arena-auto" smoke mode (no human): see _auto()
 ## smoke/evidence instruments (command-line only; unset in play): timed captures, a quit timer, a top-down view
@@ -359,24 +419,35 @@ func _cell(m: Vector2) -> int:
 
 
 ## May he step from `a` to `b` (KC2 frame)? Floor cell, and a height change he could walk.
-func walk_step_ok(a: Vector2, b: Vector2) -> bool:
+## `feet_y` (his capsule's actual height) is the reference when given: the cell he stands in is sampled at one point,
+## and comparing cell to cell could leave a pocket whose only open neighbour is the diagonal he came in by.
+func walk_step_ok(a: Vector2, b: Vector2, feet_y: float = NAN) -> bool:
 	if walk_ok.is_empty():
 		return true
 	var kb := _cell(b)
 	if kb < 0 or walk_ok[kb] == 0:
 		return false
 	var ka := _cell(a)
-	if ka < 0 or ka == kb or is_nan(walk_hgt[ka]):
+	if ka == kb:
 		return true
-	return absf(walk_hgt[kb] - walk_hgt[ka]) <= WALK_STEP_M
+	var ref: float = feet_y
+	if is_nan(ref):
+		if ka < 0 or is_nan(walk_hgt[ka]):
+			return true
+		ref = walk_hgt[ka]
+	return absf(walk_hgt[kb] - ref) <= WALK_STEP_M
 
 
 func _move_proxy(want: Vector2, delta: float) -> Vector2:
 	var old_tf := proxy.global_transform
 	var old_m := world_to_m(old_tf.origin)
-	if want.distance_to(old_m) > 1e-5 and not walk_step_ok(old_m, want):
+	# R-C9-359 (Matt: "makes you stick to it instead of slide around it"): a refused step is not dropped -- it is
+	# PROJECTED along the boundary (the first of the step's directions turned 25 / 50 / 75 deg either way, scaled by
+	# the cosine, that the map allows), so he glides along an edge as he does along a wall
+	var fy := old_tf.origin.y
+	if want.distance_to(old_m) > 1e-5 and not walk_step_ok(old_m, want, fy):
 		n_ledge_refusals += 1
-		want = old_m                                   # refused: he stands (gravity still settles him)
+		want = _slide(old_m, want - old_m, fy)
 	var d := want - player_pos_m
 	var s := d + Vector2.ZERO
 	var disp: Vector3 = scene.u_hat * s.x - scene.v_hat * s.y
@@ -386,12 +457,31 @@ func _move_proxy(want: Vector2, delta: float) -> Vector2:
 	if proxy.is_on_floor():
 		proxy.velocity.y = 0.0
 	var new_m := world_to_m(proxy.global_position)
-	if new_m.distance_to(old_m) > 1e-5 and not walk_step_ok(old_m, new_m):
-		proxy.global_transform = old_tf               # the slide carried him off the walk map: undone
-		proxy.velocity = Vector3.ZERO
+	if new_m.distance_to(old_m) > 1e-5 and not walk_step_ok(old_m, new_m, fy):
+		# the physics slide ended off the map: back, then the projected step along the edge, if there is one
 		n_ledge_refusals += 1
+		var alt := _slide(old_m, new_m - old_m, fy)
+		proxy.global_transform = old_tf
+		proxy.velocity = Vector3.ZERO
+		if alt.distance_to(old_m) > 1e-5:
+			var k := _cell(alt)
+			var h: float = walk_hgt[k] if k >= 0 and not is_nan(walk_hgt[k]) else old_tf.origin.y
+			proxy.global_position = scene.uv_to_world((alt + T).x, -(alt + T).y, maxf(h, old_tf.origin.y - 0.3) + 0.02)
+			return alt
 		return old_m
 	return new_m
+
+
+const SLIDE_ANGLES_DEG := [25.0, -25.0, 50.0, -50.0, 75.0, -75.0]
+
+
+func _slide(a: Vector2, step: Vector2, feet_y: float = NAN) -> Vector2:
+	for ang_d in SLIDE_ANGLES_DEG:
+		var ang := deg_to_rad(float(ang_d))
+		var d := step.rotated(ang) * cos(ang)
+		if walk_step_ok(a, a + d, feet_y):
+			return a + d
+	return a
 
 
 # --------------------------------------------------------------------------------------------- the blockers
@@ -710,10 +800,26 @@ func _render(delta: float) -> void:
 				kits_seen[String(entry["kit"])] = true
 				t = Monster3D.new()
 			else:
-				# a record with no JOIN-1 pack: KC2 draws it as a labelled TOKEN, and so does this view
-				no_pack[String(entry.get("family", rec))] = true
-				t = Token3D.new()
+				# a record with no JOIN-1 pack (KC2 draws a token). R-C9-356: a PLACEHOLDER body from an existing kit
+				# (data/arena/placeholder_bodies.json), scaled to the record's own sim radius; a token only if none
+				var fam := String(entry.get("family", rec))
+				no_pack[fam] = true
+				var nr: Dictionary = no_pack_records.get(rec, {"family": fam, "n": 0, "waves": {}, "r_body": _r_body(rec),
+					"placeholder": ""})
+				nr["n"] = int(nr["n"]) + 1
+				(nr["waves"] as Dictionary)[int(snap.get("wave", 0))] = true
+				var ph := _placeholder_entry(rec)
+				if not ph.is_empty():
+					nr["placeholder"] = String(ph["kit"])
+					no_pack_records[rec] = nr
+					t = Monster3D.new()
+					entry = ph
+				else:
+					no_pack_records[rec] = nr
+					t = Token3D.new()
 			t.setup_monster(session, a, entry)
+			# R-C9-357: never a Grim Dawn name or a file name on screen
+			t.label = display_name(rec, String(J.record_entry(rec).get("kit", entry.get("kit", ""))) if String(J.record_entry(rec).get("kind", "")) == "kit" else "", bool(a.get("is_hero", false)))
 			actors_root.add_child(t)
 			actors[id] = t
 		t.hold_ticks_left = int(enter_by_vid.get(id, 0)) - wave_local
@@ -823,6 +929,10 @@ func _instruments(delta: float) -> void:
 	if quit_after_s > 0.0 and _wall_s >= quit_after_s:
 		quit_after_s = 0.0
 		print("[arena] frames %d in %.1f s = %.1f fps average" % [Engine.get_process_frames() - _f0, _wall_s, float(Engine.get_process_frames() - _f0) / maxf(_wall_s, 1e-3)])
+		for rk in no_pack_records.keys():
+			var nr2: Dictionary = no_pack_records[rk]
+			print("[arena] no-art record %s family %s n %d waves %s r_body %.3f placeholder %s" % [rk, nr2["family"], int(nr2["n"]),
+				str((nr2["waves"] as Dictionary).keys()), float(nr2["r_body"]), String(nr2["placeholder"])])
 		print("[arena] quit timer: wave %d, running %s, terminal '%s', actors %d, kits %s, no-pack %s, blocked stops %d" % [
 			int(snap.get("wave", 0)) if not snap.is_empty() else 0, str(running),
 			String(session.terminal) if session != null else "-", actors.size(), str(kits_seen.keys()),

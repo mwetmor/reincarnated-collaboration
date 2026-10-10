@@ -195,6 +195,9 @@ func _build_eor_fx() -> void:
 	# ground_y mode was for the offline overlay render, which drew no floor
 	if eor._haze_ember != null:
 		eor._haze_ember.set_shader_parameter("ground_mode", 0.0)
+	# R-C9-359 (Matt: "the smoke from the whirlwind does not travel with the character"): in the arena the haze rides
+	# its emitter (local coordinates), so the cloud stays centred on him while he walks; the walk scene keeps world coords
+	eor._haze.local_coords = true
 	eor._bed_mat.render_priority = 121
 	((eor._haze.draw_pass_1 as QuadMesh).material as Material).render_priority = 122
 

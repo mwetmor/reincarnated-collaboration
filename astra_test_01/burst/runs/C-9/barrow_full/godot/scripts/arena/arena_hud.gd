@@ -3,6 +3,7 @@ extends Control
 ## slot bar with its live cooldowns, buffs, monster health bars (N), the start card and RUN OVER. Read-only: it reads
 ## the snapshot, the driver and the event stream; it posts nothing.
 
+const Token3D = preload("res://scripts/arena/arena_token3d.gd")
 var mode = null
 var floats: Array = []          # {txt, at_m, t0, col}
 var t_now := 0.0
@@ -83,7 +84,7 @@ func _draw() -> void:
 			var bw := 34.0 if not m.champion else 60.0
 			_bar(Rect2(sp - Vector2(bw * 0.5, 0), Vector2(bw, 4)), float(m.hp) / maxf(1.0, float(m.hp_max)),
 				Color(0.86, 0.30, 0.30))
-			if m.champion or m.label.begins_with("NO PACK") or m.label.contains("NO PACK"):
+			if m.champion or m is Token3D:
 				if m.label != "":
 					_text(m.label.substr(0, 40), sp + Vector2(0, -6), 12, Color(1, 0.92, 0.82), true)
 	# ---- floats on the player ----

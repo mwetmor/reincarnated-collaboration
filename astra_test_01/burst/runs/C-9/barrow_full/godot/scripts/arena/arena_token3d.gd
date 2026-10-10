@@ -34,9 +34,7 @@ func setup_monster(_sess, a: Dictionary, entry: Dictionary) -> void:
 	record = String(a.get("record_path", ""))
 	radius_m = float(a.get("body_radius_m", 0.62))
 	champion = bool(a.get("is_hero", false))
-	label = "NO PACK · " + String(entry.get("family", "?"))
-	if a.get("name", null) != null:
-		label = String(a["name"]) + "  (" + label + ")"
+	label = "Creature"                         # replaced by arena_mode.display_name (R-C9-357); no record name shown
 	var cm := CapsuleMesh.new()
 	cm.radius = radius_m
 	cm.height = maxf(true_height_m, radius_m * 2.0 + 0.1)

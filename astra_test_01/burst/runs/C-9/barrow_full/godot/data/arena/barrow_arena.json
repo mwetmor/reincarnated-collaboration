@@ -153,8 +153,8 @@
     -2.9
    ],
    "radius_m": 14.0,
-   "below_h_m": -1.0,
-   "rule": "R-C9-353: the wreck's basin (walk surface below -1.0 m within 14 m of the hull) is not floor for the player: the only ways down are banks he cannot climb back up"
+   "below_h_m": -2.0,
+   "rule": "R-C9-353/359: the wreck basin FLOOR (walk surface below -2.0 m within 14 m of the hull) is not floor for the player; the bank itself is already off the walk map as too steep, so he stops at the bank top's own edge"
   }
  ]
 }

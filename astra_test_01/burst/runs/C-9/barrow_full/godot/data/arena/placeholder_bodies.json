@@ -1,0 +1,199 @@
+{
+ "_what": "C-9 BV2F ARENA (R-C9-356): PLACEHOLDER BODIES for records with no JOIN-1 art. Each is drawn with an existing en-* kit, scaled so its radius = the record's own sim body radius (ge_fold.r_body) over the kit's reference radius (its mapped records' actorRadius x roster_scale / factor, median). Health bar and name label kept; placeholders are marked HERE ONLY, not on screen. 'rows' = records seen in the smoke runs (by record); 'by_type' = the fallback for any other unmapped record, by its JOIN-1 type_id. Read by scripts/arena/arena_mode.gd.",
+ "why_no_body": "No JOIN-1 pack was ever made for these creature types (join1_index.json unmapped_wave_records), or the record is a boss's summoned OBJECT (crystal, shard, pool, trap) that KC2 also draws as a token; for gryphon01a a kit exists for the type but the stager kept it for the hypporavens only (deliberate, a5dd23b), so it is treated as a placeholder, not a mapping fix.",
+ "rows": [
+  {
+   "record": "records/creatures/enemies/devotion/chthonianherald_h01.dbr",
+   "type": "chthonianherald",
+   "placeholder_kit": "en-voidlord",
+   "why": "same void faction, a big caster champion -> the void lord body"
+  },
+  {
+   "record": "records/creatures/enemies/devotion/chthonianherald_h02.dbr",
+   "type": "chthonianherald",
+   "placeholder_kit": "en-voidlord",
+   "why": "same void faction, a big caster champion -> the void lord body"
+  },
+  {
+   "record": "records/creatures/enemies/devotion/dranghoul_h04.dbr",
+   "type": "dranghoul_01",
+   "placeholder_kit": "en-wretch",
+   "why": "a ghoul: humanoid trash -> the wretch (cannibal) body"
+  },
+  {
+   "record": "records/creatures/enemies/boss&quest/beetle_maggot01.dbr",
+   "type": "sandbeetle01a",
+   "placeholder_kit": "en-crawlerlarva_p",
+   "why": "a beetle-maggot boss: the larva body, scaled up to its radius"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/ku_bounty_05.dbr",
+   "type": "gryphon01a",
+   "placeholder_kit": "en-gloamwing",
+   "why": "a gryphon champion: the same type's kit (the JOIN-1 stager kept gloamwing for the hypporavens only, a5dd23b)"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/ku_bounty_09.dbr",
+   "type": "roc",
+   "placeholder_kit": "en-gloamwing",
+   "why": "a roc champion: the winged-beast body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/ku_bounty_10.dbr",
+   "type": "avian",
+   "placeholder_kit": "en-gloamwing",
+   "why": "a bird champion: the winged-beast body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/ku_bounty_07.dbr",
+   "type": "dranghoul_01",
+   "placeholder_kit": "en-wretch",
+   "why": "a ghoul champion: humanoid -> the wretch body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/kc_bounty11.dbr",
+   "type": "ghoul",
+   "placeholder_kit": "en-wretch",
+   "why": "a ghoul champion: humanoid -> the wretch body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/bl_bounty19.dbr",
+   "type": "ghoul",
+   "placeholder_kit": "en-wretch",
+   "why": "a ghoul champion: humanoid -> the wretch body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/exile_bounty12.dbr",
+   "type": "run_01",
+   "placeholder_kit": "en-acolyte-m",
+   "why": "an outlaw champion (human): the human acolyte body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/dc_bounty17.dbr",
+   "type": "reanimator",
+   "placeholder_kit": "en-magister_p",
+   "why": "a necromancer champion (caster): the magister body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/hs_bounty12.dbr",
+   "type": "half-troll_sword1h",
+   "placeholder_kit": "en-brute",
+   "why": "a half-troll champion (big melee): the brute body"
+  },
+  {
+   "record": "records/creatures/enemies/hellhound_witchgod_a01_summon.dbr",
+   "type": "hellhound",
+   "placeholder_kit": "en-hellhound",
+   "why": "a summoned hellhound: the hellhound kit (same creature; not in the JOIN-1 record map)"
+  },
+  {
+   "record": "records/creatures/enemies/hellhound_witchgod_b01_summon.dbr",
+   "type": "hellhound",
+   "placeholder_kit": "en-hellhound",
+   "why": "a summoned hellhound: the hellhound kit (same creature; not in the JOIN-1 record map)"
+  },
+  {
+   "record": "records/creatures/enemies/bonerat_witchgod_a01_summon.dbr",
+   "type": "bonerat",
+   "placeholder_kit": "en-crawlerlarva_p",
+   "why": "a summoned bone rat (small vermin): the larva body"
+  },
+  {
+   "record": "records/creatures/enemies/bonerat_witchgod_b01_summon.dbr",
+   "type": "bonerat",
+   "placeholder_kit": "en-crawlerlarva_p",
+   "why": "a summoned bone rat (small vermin): the larva body"
+  },
+  {
+   "record": "records/creatures/enemies/raptor_witchgod_a01_summon.dbr",
+   "type": "raptor",
+   "placeholder_kit": "en-cinderstalker",
+   "why": "a summoned raptor (reptile runner): the lizard body"
+  },
+  {
+   "record": "records/creatures/enemies/raptor_witchgod_b01_summon.dbr",
+   "type": "raptor",
+   "placeholder_kit": "en-cinderstalker",
+   "why": "a summoned raptor (reptile runner): the lizard body"
+  },
+  {
+   "record": "records/creatures/enemies/trap_lightningspike_hero_a01.dbr",
+   "type": "trap",
+   "placeholder_kit": "en-rimethorn",
+   "why": "a spike trap (stationary object): the thorn body"
+  },
+  {
+   "record": "records/skills/nonplayerskillsgdx1/bossskills/pets/gabbalthunn_obsidianshard.dbr",
+   "type": "boss pet object",
+   "placeholder_kit": "en-statue",
+   "why": "a boss's summoned shard (an object, not a creature): the statue body"
+  },
+  {
+   "record": "records/skills/nonplayerskills/bossskills/pets/witchgodguardian_sentinel_crystal.dbr",
+   "type": "boss pet object",
+   "placeholder_kit": "en-statue",
+   "why": "a boss's sentinel crystal (an object): the statue body"
+  },
+  {
+   "record": "records/skills/nonplayerskillsgdx1/bossskills/nemesis/aetherialvanguard_crystal.dbr",
+   "type": "aetherialwisp",
+   "placeholder_kit": "en-statue",
+   "why": "a nemesis's summoned crystal (an object; 123 in one wave 160): the statue body"
+  },
+  {
+   "record": "records/skills/nonplayerskillsgdx1/bossskills/nemesis/beast_bloodpool.dbr",
+   "type": "boss pet object",
+   "placeholder_kit": "en-blightsac",
+   "why": "a nemesis's blood pool (a ground object): the blightsac body"
+  },
+  {
+   "record": "records/creatures/enemies/bounties/hs_bounty09.dbr",
+   "type": "troll",
+   "placeholder_kit": "en-brute",
+   "why": "a troll champion (big melee): the brute body"
+  }
+ ],
+ "by_type": {
+  "ghoul": "en-wretch",
+  "dranghoul_01": "en-wretch",
+  "zombie01_unarmed": "en-wretch",
+  "zombiemutated02": "en-fleshhulk",
+  "wight01a": "en-revenant",
+  "wight02a": "en-revenant",
+  "hero01_sword1h": "en-acolyte-m",
+  "hero01_sword2h": "en-acolyte-m",
+  "hero01_gun1h": "en-acolyte-m",
+  "hero01_gun2h": "en-acolyte-m",
+  "run_01": "en-acolyte-m",
+  "heroine01_sword1h": "en-acolyte-f",
+  "heroine01_gun1h": "en-acolyte-f",
+  "heroine01_gun2h": "en-acolyte-f",
+  "heroine01_sword1h_floating": "en-witch_p",
+  "reanimator": "en-magister_p",
+  "dreadguard_sword2h": "en-vigillord",
+  "giant": "en-icebrute",
+  "troll": "en-brute",
+  "half-troll_sword1h": "en-brute",
+  "half-troll_corrupted_sword1h": "en-brute",
+  "chthonianherald": "en-voidlord",
+  "chthonian": "en-voiddrone",
+  "aetherialwisp": "en-statue",
+  "gryphon01a": "en-gloamwing",
+  "roc": "en-gloamwing",
+  "avian": "en-gloamwing",
+  "raven": "en-gloamwing",
+  "harpy": "en-gloamwing",
+  "manticore": "en-hellhound",
+  "rifthound": "en-hellhound",
+  "stalker": "en-cinderstalker",
+  "spidergiant": "en-ossuarycrab",
+  "prawn": "en-ossuarycrab",
+  "sandbeetle01a": "en-crawlerlarva_p",
+  "dermapteran": "en-crawlerlarva_p",
+  "weavil": "en-crawlerlarva_p",
+  "leech": "en-burrowworm_p",
+  "golembone_phase02": "en-bonegolem",
+  "groble01": "en-imp",
+  "None": "en-statue"
+ }
+}
