@@ -9,13 +9,10 @@ extends "res://scripts/bv2f/bv2f_pilot.gd"
 
 
 func _init() -> void:
-	# the arena is laid out on site_ph3's level: pin it whatever BV2F_PILOT says
-	pilot_set = "site_ph3"
-	PILOT_PX = PILOT_WINDOWS["site_ph3"]
-	PILOT_REL = "../bv2f/%s/painted/" % pilot_set
-	PILOT_MANIFEST = "res://data/bv2f/%s/painted/manifest.json" % pilot_set
-	PILOT_LEVEL_DIR = "res://data/bv2f/%s/level/" % pilot_set
-	BV2F_DATA = PILOT_LEVEL_DIR
+	# R-C9-388: the arena is laid out on site_ph4 (site_ph3 + the painted north band; the world frame is unchanged, so
+	# every arena coordinate holds) -- whatever BV2F_PILOT says. `-- --arena-site ph3` falls back to the ph3 plate.
+	# use_set() sets the WINDOW and its top edge (PILOT_V1 depends on the data set), not only the paths.
+	use_set("site_ph3" if Slots.arg("arena-site") == "ph3" else "site_ph4")
 
 
 var arena: Node3D = null

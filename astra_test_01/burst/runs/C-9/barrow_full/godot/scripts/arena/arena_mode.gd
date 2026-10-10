@@ -763,6 +763,8 @@ func _build_blockers() -> void:
 	scene.add_child(body)
 	for b_any in (session.arena_cfg.get("blockers", []) as Array):
 		var b: Dictionary = b_any
+		if String(b["id"]) == "north_barrier" and OS.get_cmdline_user_args().has("--arena-no-north-barrier"):
+			continue                                # instrument only: the barrier's fail-first A/B
 		var c := Vector2(float(b["centre_sim"][0]), float(b["centre_sim"][1]))
 		var sz: Array = b["size_m"]
 		var z: Array = b["z_m"]

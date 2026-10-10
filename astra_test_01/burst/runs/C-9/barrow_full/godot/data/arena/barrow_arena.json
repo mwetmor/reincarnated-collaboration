@@ -141,6 +141,23 @@
     4.0
    ],
    "rule": "the breach probe (h_rect 4 x 4, rot 104.379) + 0.2 m a side"
+  },
+  {
+   "id": "north_barrier",
+   "centre_sim": [
+    0.0,
+    -22.62
+   ],
+   "size_m": [
+    84.0,
+    0.5
+   ],
+   "axis_deg": 0.0,
+   "z_m": [
+    -8.0,
+    12.0
+   ],
+   "rule": "R-C9-388: site_ph4's painted NORTH BAND (v > 22.36994, sim y < -22.36994) is scenery, not ground: a player-only wall whose south face sits on the band's lower edge, the full width of the level (through the mound, which is off the walk map anyway). Monsters are the sim's and are unaffected."
   }
  ],
  "spawn_disc_m": 8.0,
