@@ -25,6 +25,8 @@ const J = preload("res://scripts/arena/arena_art.gd")
 const Monster3D = preload("res://scripts/arena/arena_monster3d.gd")
 const Warlord3D = preload("res://scripts/arena/arena_warlord3d.gd")
 const ArenaHud = preload("res://scripts/arena/arena_hud.gd")
+const ArenaNumbers = preload("res://scripts/arena/arena_numbers.gd")
+var numbers = null
 const Token3D = preload("res://scripts/arena/arena_token3d.gd")
 
 const GEOM := "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/galadriel/notes/crucible-arena-geometry-v1.json"
@@ -176,6 +178,10 @@ func setup(sc) -> void:
 	actors_root = Node3D.new()
 	actors_root.name = "ArenaActors"
 	add_child(actors_root)
+	numbers = ArenaNumbers.new()
+	numbers.name = "DamageNumbers"
+	add_child(numbers)
+	numbers.setup(scene.cam)
 	_build_proxy()
 	if not J.ok():
 		_fatal("JOIN-1 art index missing: " + J._index_error)
@@ -799,6 +805,11 @@ func _consume_events(evs: Array) -> void:
 			var t2 = actors.get(int(e["dst_id"]), null)
 			if t2 != null:
 				t2.on_hit()
+				# R-C9-367: the numbers the warlord DEALS, over the body hit (NUM-POP style)
+				if int(e.get("src_id", -1)) == 0 and numbers != null:
+					numbers.show_hit(to_world(t2.pos_m) + Vector3.UP * (float(t2.true_height_m) * 0.5),
+						float(e.get("amount", 0.0)), String(e.get("damage_type", "physical")), bool(e.get("crit", false)),
+						int(e["dst_id"]))
 		elif ev == "death" and int(e.get("actor_id", 0)) != 0:
 			var t3 = actors.get(int(e["actor_id"]), null)
 			if t3 != null:

@@ -184,6 +184,7 @@ const SMOKE_OPACITY_DEFAULT := 0.7          # R-C9-351/352 (Matt: "about 70% opa
 # mix / streak), no fourth (head) spark emitter. Kept: the soft-particle fade (PORT 18, draw only) and the
 # SMOKE_OPACITY multiplier on the haze alone (eorsmokea 1.0 = the source haze).
 var source_look := false
+var bed_opacity := 1.0                 # C-9 R-C9-367: the arena's dark-bed multiplier (1.0 = unchanged; the walk never sets it)
 var _smoke_opacity_k := -1.0
 # the fourth spark emitter, on the mace head: the source's _sparks() with these
 const HEAD_SPARK_AMOUNT := 32
@@ -1505,7 +1506,7 @@ func _apply_fade(f: float) -> void:
 	_haze_mat.albedo_color = Color(1.0, 1.0, 1.0, f * k)
 	if _haze_ember != null:
 		_haze_ember.set_shader_parameter("fade", f * k)
-	_bed_mat.albedo_color = Color(1.0, 1.0, 1.0, f)
+	_bed_mat.albedo_color = Color(1.0, 1.0, 1.0, f * bed_opacity)
 
 
 func _place_station() -> void:

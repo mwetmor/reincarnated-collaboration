@@ -21,7 +21,8 @@ const Body3D = preload("res://scripts/arena/arena_body3d.gd")
 const USE_EOR_OVERLAY := false
 const EorFx = preload("res://scripts/eor_kc2_fx.gd")
 const EOR3_MATRIX := "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/gd-eor-warlord-eor3/matrix_index.json"
-const SRC_REV_S := 0.36                  # kc2_player_channel.gd player_rev_period_s
+const SRC_REV_S := 0.36
+const BED_K := 0.2                  # kc2_player_channel.gd player_rev_period_s
 const EMBER_BACK_M := 0.117              # render_eor_overlay.gd: 0.93 of the mace = 0.117 m back from its head
 var eor = null                           # the eor_kc2_fx.gd instance (source look)
 var steel_r := 1.93
@@ -198,6 +199,11 @@ func _build_eor_fx() -> void:
 		eor._haze_ember.set_shader_parameter("ground_mode", 0.0)
 	# (R-C9-362: R-C9-359's local-coordinate haze is REVERTED -- the premise was wrong: the smoke followed him; it
 	#   STOPPED, because a KC2 channel interrupt + auto-resume left the effect falling; see resume() below)
+	# R-C9-367 (Matt: the shadow under the smoke "tone way down ... or simply remove"): the dark bed at BED_K of its darkness;
+	# knob eorbed (0 = removed, 1 = the source bed), default 0.2; the walk scene's bed is untouched
+	var qb := Slots.arg("eorbed")
+	eor.bed_opacity = clampf(float(qb), 0.0, 1.0) if qb.is_valid_float() else BED_K
+	eor._bed.visible = eor.bed_opacity > 0.0
 	eor._bed_mat.render_priority = 121
 	((eor._haze.draw_pass_1 as QuadMesh).material as Material).render_priority = 122
 

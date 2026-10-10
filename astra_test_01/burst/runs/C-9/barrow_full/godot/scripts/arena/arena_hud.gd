@@ -27,10 +27,7 @@ func consume_events(evs: Array) -> void:
 	for e_any in evs:
 		var e: Dictionary = e_any
 		var ev := String(e.get("event", ""))
-		if ev == "hit" and int(e.get("dst_id", -1)) == 0:
-			floats.append({"txt": "-%d" % int(round(float(e.get("amount", 0.0)))), "player": true, "t0": t_now,
-				"col": Color(1.0, 0.45, 0.4)})
-		elif ev == "pool_tick":
+		if ev == "pool_tick":   # R-C9-367: no numbers for damage the warlord RECEIVES (only pools, none in the arena)
 			floats.append({"txt": "-%d pool" % int(round(float(e.get("amount", 0.0)))), "player": true, "t0": t_now,
 				"col": Color(0.6, 1.0, 0.5)})
 
