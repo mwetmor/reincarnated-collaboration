@@ -55547,6 +55547,17 @@
       "cites": [
         "R-C9-360"
       ]
+    },
+    {
+      "id": "R-C9-362",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-09T20:50:51-04:00",
+      "verbatim": "I explained the issue wrong for the whirlwind smoke: it travels with the warlord, but it disappears after about a second and just stops smoking. Also, I think the 3D snow is missing and maybe the 3d water/ice flows.. and you can pass through some objects like the gate/stakes at the house.",
+      "ruling": "Corrects R-C9-359 item 2: the defect is the haze STOPPING after ~1 s, not following -- drax root-causes and makes it emit for the whole channel, fading only on release; the follow change reverted if its premise was wrong. Plus: restore every walk-scene layer missing from the arena (3D snow field reacting to the arena warlord, animated water, 39 bobbing floes, heather/reeds), re-measure fps; the player collides with every solid prop (palisade posts, gate, walls, stones, mast), probe extended. Same priority as the wreck slide.",
+      "cites": [
+        "R-C9-352",
+        "R-C9-359"
+      ]
     }
   ],
   "grok_calls": [
