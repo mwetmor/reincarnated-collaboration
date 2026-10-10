@@ -20,11 +20,30 @@ fs.mkdirSync(outdir, { recursive: true });
     args: ['--use-angle=metal', '--ignore-gpu-blocklist', '--disable-background-timer-throttling', '--disable-renderer-backgrounding'],
   });
   const touch = mode === '--touch';
-  const page = await browser.newPage({ viewport: touch ? { width: 844, height: 390 } : { width: 1280, height: 720 }, hasTouch: touch, deviceScaleFactor: 1 });
-  if (process.env.VERCEL_OIDC_TOKEN) {
-    const origin = new URL(url).origin;
-    await page.route(u => u.origin === origin, route => route.continue({headers:{...route.request().headers(), 'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_OIDC_TOKEN}}));
+  const origin = new URL(url).origin;
+  // Context headers also cover AudioWorklet module fetches, which page.route misses.
+  // The authenticated context is restricted to this deployment's origin.
+  const context = await browser.newContext({
+    viewport: touch ? { width: 844, height: 390 } : { width: 1280, height: 720 },
+    hasTouch: touch, deviceScaleFactor: 1,
+    extraHTTPHeaders: process.env.VERCEL_OIDC_TOKEN ? {'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_OIDC_TOKEN} : {},
+  });
+  if (process.env.VERCEL_OIDC_TOKEN) await context.route(u => u.origin !== origin, route => route.abort());
+  if (process.env.VERCEL_CLI_PATH && process.env.VERCEL_OIDC_TOKEN) {
+    // AudioWorklet fetches do not inherit CDP custom headers. Obtain a normal
+    // same-origin bypass session with the authenticated CLI; keep cookies in memory.
+    const { spawnSync } = require('child_process');
+    const session = spawnSync(process.env.VERCEL_CLI_PATH, [
+      'curl', '/playtest/barrow-arena/?x-vercel-set-bypass-cookie=true',
+      '--deployment', origin, '--', '--silent', '--dump-header', '-', '--output', '/dev/null',
+    ], {encoding:'utf8', env:{...process.env,VERCEL_CLI_USE_NATIVE_BINARY:'0'}, maxBuffer:1024*1024});
+    if (session.status !== 0) { await browser.close(); throw new Error('Vercel preview cookie bootstrap failed'); }
+    const cookies = [...session.stdout.matchAll(/^set-cookie:\s*([^=;]+)=([^;\r\n]+)/gmi)]
+      .map(m => ({name:m[1],value:m[2],url:origin,secure:true,httpOnly:true,sameSite:'Lax'}));
+    if (!cookies.length) { await browser.close(); throw new Error('Vercel preview did not issue a bypass session cookie'); }
+    await context.addCookies(cookies);
   }
+  const page = await context.newPage();
   const started = Date.now();
   const logs = [], responses = [], failures = [], inputs = [];
   let launch = '', ready = false, packFailure = false;
