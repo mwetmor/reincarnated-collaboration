@@ -108,6 +108,7 @@ func setup() -> void:
 		add_child(body)
 		J.prefetch(hero_kit)
 		body.play_loop("idle")
+		_build_moves()
 		_build_eor_fx()
 		ok = true
 		return
@@ -261,8 +262,13 @@ func on_event(e: Dictionary) -> void:
 		ov_seg = "end"
 		ov_end_t0 = body.clock_s
 	elif ev == "cast_start" and int(e.get("actor_id", -1)) == 0:
-		if String(e.get("skill_id", "")) == "war_cry" and not channel and J.has_state(hero_kit, "warcry"):
-			body.release_now("warcry", body.clip_T("warcry") - body.rel_s("warcry"))
+		if String(e.get("skill_id", "")) == "war_cry":
+			# R-C9-366: BATTLE CRY = the standing-taunt battlecry clip (eor4x; eor3's warcry where absent), shout on the
+			#   cast tick (the model fires on activation: L1 = 0), plus the expanding ring
+			var bc := "battlecry" if body.state_kit.has("battlecry") else "warcry"
+			if not channel and (body.state_kit.has(bc) or J.has_state(hero_kit, bc)):
+				body.release_now(bc, body.clip_T(bc) - body.rel_s(bc))
+			_ring_fire()
 	elif ev == "player_death":
 		dead = true
 		channel = false
@@ -292,6 +298,17 @@ func sync(player_m: Vector2, driver) -> void:
 		elif body.a_state != "eor_spin_start" and body.a_state != "eor_spin_loop":
 			body.play_loop("eor_spin_loop")
 		return
+	var sk := String(driver.charge_skill) if driver.charge_to != null else ""
+	if sk == "vires_might":
+		might_until_s = body.clock_s + MIGHT_AFTERGLOW_S
+	body.rate = HASTE_RATE if sk == "rune_of_rush" else 1.0
+	if sk == "blitz" and body.state_kit.has("charge"):
+		# R-C9-366: CHARGE = great sword slide attack, the clip warped onto the dash (its length at the dash speed)
+		if body.a_state != "charge":
+			var to := Vector2(driver.charge_to) - pos_m
+			var dash_t := to.length() / maxf(float(driver.charge_speed), 0.1)
+			body.play_window("charge", body.clock_s, body.clock_s + maxf(dash_t, CHARGE_MIN_S))
+		return
 	if body.busy():
 		return
 	if driver.charge_to != null:
@@ -308,6 +325,7 @@ func advance(dt: float) -> void:
 		return
 	body.advance(dt)
 	_drive_overlay()
+	_drive_moves(dt)
 
 
 func _drive_overlay() -> void:
@@ -384,3 +402,175 @@ func _over_hide() -> void:
 		over_draw.cid = ""
 		over_draw.queue_redraw()
 	over.visible = false
+
+
+
+# =====================================================================================================================
+# R-C9-366 MOVES (animate only; the sim's rules are unchanged). In KC2's kit Charge (blitz), Might (vires_might) and
+# Haste (rune_of_rush) are the SAME driver call -- a dash to the aim at 3x speed, damage a declared placeholder, NO buff
+# duration -- so each is shown on its own dash: Charge plays the slide attack; Haste his run at HASTE_RATE; Might lights
+# the red outline for the dash + MIGHT_AFTERGLOW_S. Battle Cry (war_cry cast_start) plays the battlecry + the ring.
+# The basic SLASH (R-C9-369) is driven from arena_mode (play_slash) and lands real damage there.
+# =====================================================================================================================
+const EOR4X := "gd-eor-warlord-eor4x"
+const HASTE_RATE := 1.3
+const CHARGE_MIN_S := 0.45
+const MIGHT_AFTERGLOW_S := 2.0
+const MIGHT_COLOR := Color(0.95, 0.04, 0.02)
+const MIGHT_WIDTH_PX := 7.0          # the glow's reach outside his silhouette, in staged px
+const MIGHT_PULSE_HZ := 1.6
+const RING_T_S := 0.6
+const RING_R_M := 6.0                 # no Battle Cry radius in the sim: the spec's ~6 m
+const RING_W0_M := 0.15
+const RING_W1_M := 0.9
+const RING_COLOR := Color(1.0, 0.94, 0.78)
+var might_until_s := -1.0
+var outline: MeshInstance3D = null
+var outline_mat: ShaderMaterial = null
+var ring: MeshInstance3D = null
+var ring_mat: ShaderMaterial = null
+var _ring_t := -1.0
+var ring_station := Vector3.ZERO
+const OUTLINE_SHADER := """
+shader_type spatial;
+render_mode unshaded, cull_disabled, depth_test_disabled, depth_draw_never;
+uniform sampler2D tex : filter_linear, repeat_disable;
+uniform vec4 region;      // uv rect of the frame in the strip
+uniform vec2 frame_px;
+uniform float margin_px;
+uniform vec4 col : source_color;
+uniform float strength;
+float a_at(vec2 p) {
+	if (p.x < 0.0 || p.y < 0.0 || p.x > frame_px.x || p.y > frame_px.y) { return 0.0; }
+	return texture(tex, region.xy + p / frame_px * region.zw).a;
+}
+void vertex() {
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
+}
+void fragment() {
+	vec2 p = UV * (frame_px + 2.0 * margin_px) - margin_px;
+	float own = a_at(p);
+	float acc = 0.0;
+	for (int i = 0; i < 12; i++) {
+		float an = 6.2831853 * float(i) / 12.0;
+		vec2 d = vec2(cos(an), sin(an));
+		acc += a_at(p + d * margin_px) * 0.6 + a_at(p + d * margin_px * 0.5) * 0.4;
+	}
+	acc /= 12.0;
+	float glow = clamp(acc * 2.2 - own * 1.4, 0.0, 1.0);
+	ALBEDO = col.rgb;
+	ALPHA = glow * strength;
+}
+"""
+const RING_SHADER := """
+shader_type spatial;
+render_mode unshaded, cull_disabled, depth_test_disabled, depth_draw_never;
+uniform vec4 col : source_color;
+uniform float r_now;
+uniform float w_now;
+uniform float a_now;
+uniform float r_max;
+void fragment() {
+	float d = length(UV - vec2(0.5)) * 2.0 * r_max;
+	float k = 1.0 - smoothstep(0.0, w_now * 0.5, abs(d - r_now));
+	ALBEDO = col.rgb;
+	ALPHA = k * a_now;
+}
+"""
+
+
+func _build_moves() -> void:
+	if not J.kit_meta(EOR4X).is_empty():
+		for st in (J.kit_meta(EOR4X).get("states", {}) as Dictionary).keys():
+			body.state_kit[String(st)] = EOR4X
+		J.prefetch(EOR4X)
+	else:
+		push_warning("[arena] %s is not staged (tools/arena_stage_x.py): charge/battlecry use eor3's run/warcry" % EOR4X)
+	outline_mat = ShaderMaterial.new()
+	var sh := Shader.new()
+	sh.code = OUTLINE_SHADER
+	outline_mat.shader = sh
+	outline_mat.render_priority = 124
+	outline = MeshInstance3D.new()
+	outline.name = "MightOutline"
+	outline.mesh = QuadMesh.new()
+	outline.material_override = outline_mat
+	outline.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	outline.visible = false
+	add_child(outline)
+	ring_mat = ShaderMaterial.new()
+	var sh2 := Shader.new()
+	sh2.code = RING_SHADER
+	ring_mat.shader = sh2
+	ring_mat.render_priority = 122
+	ring_mat.set_shader_parameter("col", RING_COLOR)
+	ring_mat.set_shader_parameter("r_max", RING_R_M + RING_W1_M)
+	ring = MeshInstance3D.new()
+	ring.name = "BattleCryRing"
+	var pm := PlaneMesh.new()
+	pm.size = Vector2.ONE * 2.0 * (RING_R_M + RING_W1_M)
+	ring.mesh = pm
+	ring.material_override = ring_mat
+	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	ring.top_level = true
+	ring.visible = false
+	add_child(ring)
+
+
+func _ring_fire() -> void:
+	if ring == null:
+		return
+	_ring_t = 0.0
+	ring.global_position = ring_station
+	ring.visible = true
+
+
+## The basic slash (R-C9-369): the great sword slash toward `aim` (a KC2-frame vector); returns the contact time (s).
+func play_slash(aim: Vector2) -> float:
+	if not ok or dead:
+		return 0.0
+	if aim.length() > 1e-4:
+		dir = dir_of(aim)
+		body.dir = dir
+	body.rate = 1.0
+	body.play_oneshot("attack")
+	return SLASH_CONTACT_FRAC * body.clip_T("attack")
+
+
+const SLASH_CONTACT_FRAC := 0.47      # great sword slash (3): contact at 47 % (clip_sources / R-C9-369)
+
+
+func slash_clip_s() -> float:
+	return body.clip_T("attack")
+
+
+func _drive_moves(dt: float) -> void:
+	# Might: his silhouette's red glow, pulsing gently, while lit
+	var lit: bool = float(body.clock_s) < might_until_s and not dead
+	outline.visible = lit
+	if lit and body.texture != null:
+		var tex: Texture2D = body.texture
+		var rr: Rect2 = body.region_rect
+		var ts := Vector2(tex.get_width(), tex.get_height())
+		var m := MIGHT_WIDTH_PX
+		var ps: float = body.pixel_size
+		(outline.mesh as QuadMesh).size = (rr.size + Vector2(2.0 * m, 2.0 * m)) * ps
+		var ofs: Vector2 = body.offset
+		(outline.mesh as QuadMesh).center_offset = Vector3((ofs.x + rr.size.x * 0.5) * ps, (ofs.y + rr.size.y * 0.5) * ps, 0.0)
+		outline_mat.set_shader_parameter("tex", tex)
+		outline_mat.set_shader_parameter("region", Vector4(rr.position.x / ts.x, rr.position.y / ts.y, rr.size.x / ts.x, rr.size.y / ts.y))
+		outline_mat.set_shader_parameter("frame_px", rr.size)
+		outline_mat.set_shader_parameter("margin_px", m)
+		outline_mat.set_shader_parameter("col", MIGHT_COLOR)
+		outline_mat.set_shader_parameter("strength", 0.75 + 0.25 * sin(body.clock_s * TAU * MIGHT_PULSE_HZ))
+	# Battle Cry: the ring grows, widens and fades
+	if _ring_t >= 0.0:
+		_ring_t += dt
+		var t := clampf(_ring_t / RING_T_S, 0.0, 1.0)
+		var e := 1.0 - (1.0 - t) * (1.0 - t)
+		ring_mat.set_shader_parameter("r_now", RING_R_M * e)
+		ring_mat.set_shader_parameter("w_now", lerpf(RING_W0_M, RING_W1_M, t))
+		ring_mat.set_shader_parameter("a_now", (1.0 - t) * 0.9)
+		if _ring_t >= RING_T_S:
+			_ring_t = -1.0
+			ring.visible = false

@@ -8,6 +8,7 @@ extends RefCounted
 ## decoded frame (or nothing on first sight) and is ready a frame or two later.
 
 const ROOT := "/Users/admin/Games/reincarnated-godot/kc2_play/art/join1/"
+const ROOT_X := "res://kc2/art_x/"
 const DIRS: PackedStringArray = ["S", "SW", "W", "NW", "N", "NE", "E", "SE"]
 
 static var _index: Dictionary = {}
@@ -61,10 +62,16 @@ static func record_entry(rec: String) -> Dictionary:
 	return {"kind": "none", "family": tid if tid != "" else rec.get_file().get_basename(), "factor": 1.0}
 
 
+## R-C9-366: a VARIANT kit staged for the arena (tools/arena_stage_x.py -> res://kc2/art_x/<kit>/) is read from there.
+static func root_of(kit: String) -> String:
+	var x := ProjectSettings.globalize_path(ROOT_X)
+	return x if FileAccess.file_exists(x + kit + "/index.json") else ROOT
+
+
 static func kit_meta(kit: String) -> Dictionary:
 	if _kits.has(kit):
 		return _kits[kit]
-	var p := ROOT + kit + "/index.json"
+	var p := root_of(kit) + kit + "/index.json"
 	var d: Variant = JSON.parse_string(FileAccess.get_file_as_string(p)) if FileAccess.file_exists(p) else null
 	_kits[kit] = d if typeof(d) == TYPE_DICTIONARY else {}
 	if (_kits[kit] as Dictionary).is_empty():
@@ -132,7 +139,7 @@ static func cell_tex(kit: String, cid: String) -> Texture2D:
 	var c := cell(kit, cid)
 	if c.is_empty():
 		return null
-	return tex_at(ROOT + String(c["file"]))
+	return tex_at(root_of(kit) + String(c["file"]))
 
 
 static func tex_at(path: String) -> Texture2D:

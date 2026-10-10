@@ -14,6 +14,8 @@ const PRIORITY_BODY := 125
 const PRIORITY_OVER := 126
 
 var kit: String = ""
+var state_kit: Dictionary = {}      # R-C9-366: state -> a variant kit that carries it (gd-eor-warlord-eor4x)
+var rate := 1.0                     # R-C9-366: the clip clock's speed (Haste plays his run at 1.3x)
 var factor: float = 1.0
 var ppm_render: float = 151.33680669505316
 var stage_scale: float = 0.5
@@ -53,8 +55,12 @@ func setup_body(kit_name: String, f: float) -> void:
 	render_priority = PRIORITY_BODY
 
 
+func _k(st: String) -> String:
+	return String(state_kit.get(st, kit))
+
+
 func st_meta(st: String) -> Dictionary:
-	return J.state(kit, st)
+	return J.state(_k(st), st)
 
 
 func clip_T(st: String) -> float:
@@ -173,7 +179,7 @@ func flash() -> void:
 
 
 func advance(dt: float) -> void:
-	clock_s += dt
+	clock_s += dt * rate
 	if a_state != "":
 		frame_i = _frame_now()
 	_show()
@@ -185,10 +191,10 @@ func _show() -> void:
 	if kit == "" or a_state == "":
 		return
 	var cid := "%s/%s" % [a_state, dir]
-	var c := J.cell(kit, cid)
+	var c := J.cell(_k(a_state), cid)
 	if c.is_empty():
 		return
-	var tex := J.cell_tex(kit, cid)
+	var tex := J.cell_tex(_k(a_state), cid)
 	if tex == null:
 		return
 	var n := int(c["n"])

@@ -1,0 +1,5263 @@
+{
+ "schema": "join1-sprite-cells/1",
+ "kit": "gd-eor-warlord-eor4x",
+ "pack_version": 2,
+ "supersedes": null,
+ "status": "DRAFT -- rendered and linted by C-9; NOT declared COMPLETE as a pack (the conductor declares after Matt's look and moves it to join1_pack/)",
+ "producer": {
+  "run": "C-9",
+  "tool": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/render_cells.gd",
+  "tool_sha256": "2682e46ed9e418b8c4d539b8bfc3380dc8aa0445e8eb93f6ba6905c8dae3e5e7",
+  "indexer": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/scripts/index_cells.py",
+  "indexer_sha256": "2115ceca44e9060484e8c2e1161c80e6229ae84b38eaf529505eda9ebcd7009e",
+  "kit_config": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/kits/gd-eor-warlord-eor4x.json",
+  "kit_config_sha256": "33bbf3d8a9e4c8d34a402bff67fb084a3207f39b5daef04d28e03af7854e1cc9",
+  "ts": "2026-10-09T21:24:04-0400"
+ },
+ "source": {
+  "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor4x/wl_body.glb",
+  "glb_sha256": "bac47fde1a91de39b1599ed10bec7d5e0d633cecb9cb5b073552b4a9d6a96d1c",
+  "pieces": [
+   {
+    "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_chest.glb",
+    "sha256": "eaded4a6cd0161f2ab4fa68a4b04079ce1716e5a159b8a2c091c34aebc2b9e00"
+   },
+   {
+    "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_pauldrons.glb",
+    "sha256": "6b214595c985be44231ca265a4e52772b56ae9a1c5350dd527148573225caf82"
+   },
+   {
+    "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_cape.glb",
+    "sha256": "521974ba28ca05f94e32f891470f04f0e50248e77c890192c3da4a274e26fe01"
+   },
+   {
+    "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_helm.glb",
+    "sha256": "bc9257b9c039a755bbfee472bffffa78aea2249d80b479eb8f61c65737cbfd8d"
+   },
+   {
+    "glb": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_mace.glb",
+    "sha256": "9eef420b0480dfea76dcc78af8babf87c4435cb8aae5344798e0460cdc33729d"
+   }
+  ],
+  "h_model_m": 1.9599,
+  "h_model_method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres (every 7th vertex; sole 0.0001, crown 1.9600)",
+  "loadout": {
+   "main_hand": "mace (two-handed)",
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "clip_manifest": {
+  "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/gd-eor-warlord-eor4x_clips.json",
+  "sha256": "4773ee166b766fb1de253ed9362edd65a11bd17625d720ace38b37ca5416dad2"
+ },
+ "camera": {
+  "projection": "orthographic",
+  "pitch_deg": 52.9535411256029,
+  "ppm_render": 151.33680669505316,
+  "ppm_multiple_of_gd": 2,
+  "canvas_px": [
+   768,
+   768
+  ],
+  "anchor_px": [
+   384,
+   448
+  ],
+  "ortho_size_m": 5.07477,
+  "frame": "port model: x screen-right, y toward camera, z up; origin = character ground origin",
+  "yaw_deg": 0.0,
+  "character_heading": "theta = 90 - bearing about +Y (the model faces +Z); frame-0 root forward measured per cell"
+ },
+ "image": {
+  "format": "png",
+  "mode": "RGBA",
+  "alpha": "straight",
+  "colorspace": "sRGB",
+  "plate": null,
+  "baked_shadow": false,
+  "baked_vfx": false,
+  "lights": "camera-parented",
+  "lights_detail": "the Barrow's winter sun (paint_stack.gd: 55 deg, screen azimuth 305, (1.0, 0.955, 0.885), energy 0.90, shadow blur 1.7) as a child of the camera, ambient 0.30 white; self-shadowing only (no ground)",
+  "antialias": "none: every alpha is 0 or 255"
+ },
+ "directions": {
+  "order": [
+   "S",
+   "SW",
+   "W",
+   "NW",
+   "N",
+   "NE",
+   "E",
+   "SE"
+  ],
+  "facing_ground_bearing_deg": {
+   "S": 90,
+   "SW": 135,
+   "W": 180,
+   "NW": 225,
+   "N": 270,
+   "NE": 315,
+   "E": 0,
+   "SE": 45
+  }
+ },
+ "states": {
+  "charge": {
+   "kind": "oneshot",
+   "role": "oneshot",
+   "clip": {
+    "animation": "charge",
+    "duration_s": 2.133333,
+    "manifest_entry": "clips.charge"
+   },
+   "frames": 12,
+   "t_s": [
+    0.0,
+    0.193939,
+    0.387879,
+    0.581818,
+    0.775758,
+    0.969697,
+    1.163636,
+    1.357576,
+    1.551515,
+    1.745455,
+    1.939394,
+    2.133333
+   ],
+   "root_motion": "stripped",
+   "stride_m_per_cycle": null,
+   "release_index": null,
+   "release_s": null,
+   "hold_last": false,
+   "closure_mad": null,
+   "skill": "Charge (KC2 blitz): great sword slide attack"
+  },
+  "battlecry": {
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "clip": {
+    "animation": "battlecry",
+    "duration_s": 2.833333,
+    "manifest_entry": "casts.battlecry"
+   },
+   "frames": 12,
+   "t_s": [
+    0.0,
+    0.247571,
+    0.495143,
+    0.742714,
+    0.990286,
+    1.237857,
+    1.485429,
+    1.733,
+    2.008083,
+    2.283167,
+    2.55825,
+    2.833333
+   ],
+   "root_motion": "stripped",
+   "stride_m_per_cycle": null,
+   "release_index": 7,
+   "release_s": 1.733,
+   "hold_last": false,
+   "closure_mad": null,
+   "skill": "Battle Cry (KC2 war_cry): standing taunt battlecry",
+   "release_socket": "head_top"
+  }
+ },
+ "sockets_def": {
+  "main_grip": "the mace grip = the right FIST in every state: RightHand + the weapon_r seat measured at rest in RightHand's normalised frame (metres). Identical to the weapon_r joint in the 7 non-spin clips (weapon_r is fixed in the hand there); in eor_spin_start/loop (final_k_eor2) the haft slide (e54) moves weapon_r 0.2 m off the fist, so weapon_r is no longer the grip. Was bone weapon_r until 2026-10-02",
+  "main_tip": "the mace head's far point: weapon_r + 0.9251 m along +Y (measured off wl_mace.glb in the bone's frame)",
+  "head_top": "the top of the head",
+  "chest": "the chest: Meshy's \"Spine\" is the TOP spine joint (parent of neck and both shoulders; Spine02 is the LOWEST, child of Hips). Was Spine02 (belly height) until the socket fix of 2026-10-02"
+ },
+ "alpha_union_bbox_convention": "[x0, y0, x1, y1), x1/y1 exclusive -- PIL getchannel('A').getbbox(), as stage_art.py crops",
+ "layers": {
+  "layer_specs": [],
+  "layer_list": null,
+  "layer_list_from": null
+ },
+ "morphs": {},
+ "runtime_resampling": null,
+ "render_passes": null,
+ "cells": {
+  "charge/S": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_S_00.png",
+     "sha256": "f0c67a56fda5e79e1ce3405f9285b33ac89956809fd516db7d7eca7c615d7a26"
+    },
+    {
+     "name": "charge_S_01.png",
+     "sha256": "22561f582fc744041a3edd263d153d8e9c9629ba2e16af5982e0eca99e5d884b"
+    },
+    {
+     "name": "charge_S_02.png",
+     "sha256": "966e4db626dfbd69dbd992e4ae1ae2c1e76b498333a3718c85c81ded53264f11"
+    },
+    {
+     "name": "charge_S_03.png",
+     "sha256": "d3cde22fb2a1b10a0ce8e29f0e751a641020febadb2a116e11247f56848ae3ce"
+    },
+    {
+     "name": "charge_S_04.png",
+     "sha256": "5ba602423afe25ad9dd10c85c2ff0289b4a4e51525a90097f0fd94d088de5aa1"
+    },
+    {
+     "name": "charge_S_05.png",
+     "sha256": "094ee3a5af4c76a070c7fbe56c8dece5179f08d9dc3e65fb97ee45fa99e7b367"
+    },
+    {
+     "name": "charge_S_06.png",
+     "sha256": "734ecdc74c49f86a23165e9568cd8e1b0c8e6e479f3a67d3fc2fce2f0b6e42ca"
+    },
+    {
+     "name": "charge_S_07.png",
+     "sha256": "5d39a3d9e6fa3b7e1d633af4f42a1cb7d1c8fe7b24fd1b962b21a602e6a32366"
+    },
+    {
+     "name": "charge_S_08.png",
+     "sha256": "8cf20f32548f02bc91705cf2e84426dbf9d56d7871f8423c1b856775db394bcb"
+    },
+    {
+     "name": "charge_S_09.png",
+     "sha256": "efbe36603aa07b344a5763a91af3300b210802fd8f876d82aa23167f5a8640f5"
+    },
+    {
+     "name": "charge_S_10.png",
+     "sha256": "70c81209adc6ffa18201d8dfda03c464c77fe387e4d1a5e83a11c04300a19e85"
+    },
+    {
+     "name": "charge_S_11.png",
+     "sha256": "7f8810a1b8ea04dacd0a5416ee8d21fd68350bb08d983ccd1055e23ea0707ffa"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "65fa0d68d8250f5207471c1cef6822923bca6c30ebc515a6c3701a323c2fec34",
+   "alpha_union_bbox": [
+    200,
+    258,
+    581,
+    634
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 90.0,
+   "facing_hips_frame0_deg": 118.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.25958,
+      0.55276,
+      1.13762
+     ],
+     [
+      0.02628,
+      0.75893,
+      1.62093
+     ],
+     [
+      -0.03798,
+      0.77692,
+      1.60447
+     ],
+     [
+      -0.1748,
+      1.08969,
+      1.17759
+     ],
+     [
+      -0.20857,
+      0.98811,
+      0.88187
+     ],
+     [
+      -0.33494,
+      0.73581,
+      0.97339
+     ],
+     [
+      -0.35011,
+      1.34206,
+      1.0365
+     ],
+     [
+      0.4185,
+      1.00285,
+      0.891
+     ],
+     [
+      -0.14988,
+      0.17985,
+      1.12663
+     ],
+     [
+      -0.36642,
+      0.45459,
+      1.19026
+     ],
+     [
+      -0.13259,
+      0.58198,
+      1.09437
+     ],
+     [
+      -0.05554,
+      0.43313,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      -0.25858,
+      1.24366,
+      1.75283
+     ],
+     [
+      -0.16427,
+      0.25436,
+      2.37254
+     ],
+     [
+      -0.13721,
+      0.12558,
+      2.25388
+     ],
+     [
+      -0.14748,
+      0.66277,
+      1.99784
+     ],
+     [
+      -0.35169,
+      0.37543,
+      1.56007
+     ],
+     [
+      -0.27041,
+      -0.18111,
+      1.07784
+     ],
+     [
+      -1.21863,
+      1.17967,
+      1.31057
+     ],
+     [
+      1.30124,
+      1.27107,
+      0.82274
+     ],
+     [
+      -0.97726,
+      -0.13879,
+      1.39067
+     ],
+     [
+      -0.49643,
+      1.29983,
+      1.54309
+     ],
+     [
+      0.12402,
+      1.30081,
+      1.61711
+     ],
+     [
+      -0.0734,
+      1.17133,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      -0.06656,
+      0.2489,
+      1.85972
+     ],
+     [
+      0.05386,
+      0.38049,
+      1.6279
+     ],
+     [
+      0.08961,
+      0.56121,
+      1.33912
+     ],
+     [
+      0.14517,
+      0.81004,
+      1.27375
+     ],
+     [
+      0.16216,
+      1.04918,
+      1.3716
+     ],
+     [
+      0.08485,
+      1.18674,
+      1.48486
+     ],
+     [
+      0.14176,
+      1.12481,
+      1.49322
+     ],
+     [
+      0.08165,
+      1.02216,
+      1.58701
+     ],
+     [
+      0.03317,
+      0.76958,
+      1.79756
+     ],
+     [
+      -0.02296,
+      0.48999,
+      1.84008
+     ],
+     [
+      -0.04238,
+      0.37252,
+      1.85506
+     ],
+     [
+      -0.02686,
+      0.18916,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      -0.06032,
+      0.1061,
+      1.46853
+     ],
+     [
+      0.03802,
+      0.28931,
+      1.21342
+     ],
+     [
+      0.05379,
+      0.55717,
+      0.92224
+     ],
+     [
+      0.12979,
+      0.78538,
+      0.85675
+     ],
+     [
+      0.18683,
+      0.93778,
+      0.97108
+     ],
+     [
+      0.11133,
+      0.98072,
+      1.12913
+     ],
+     [
+      0.0682,
+      0.89542,
+      1.14773
+     ],
+     [
+      -0.04663,
+      0.79594,
+      1.25401
+     ],
+     [
+      -0.00448,
+      0.68498,
+      1.40238
+     ],
+     [
+      0.01914,
+      0.37944,
+      1.44622
+     ],
+     [
+      -0.02865,
+      0.23151,
+      1.46188
+     ],
+     [
+      -0.01993,
+      0.03534,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/SW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_SW_00.png",
+     "sha256": "7bf624b022bd92cfc63ad78e1f9ca6c5eafba1ed26c23f64ff8c9707e8d5aabb"
+    },
+    {
+     "name": "charge_SW_01.png",
+     "sha256": "09d26c9ade1a06dac8668ca1b461ef25e978904c2e77ab1c66a9eb75dc300427"
+    },
+    {
+     "name": "charge_SW_02.png",
+     "sha256": "20863d0d4c2a2191feb0b665fe1fda29acde7de39295b21f9487bb887e56b74f"
+    },
+    {
+     "name": "charge_SW_03.png",
+     "sha256": "42f00db9a247db863766668fc7156378259e416f603c7e83457de7b59277fb0f"
+    },
+    {
+     "name": "charge_SW_04.png",
+     "sha256": "6c3cbeb8a0b04b65b4aaa11eb609442e98040879a06205bf72f4a6f39a14af1d"
+    },
+    {
+     "name": "charge_SW_05.png",
+     "sha256": "bd0af758bd99274f0a226d81c876b436fbdbe2cb4d6ac5ee196bf81fc4172cd5"
+    },
+    {
+     "name": "charge_SW_06.png",
+     "sha256": "80d7668f8c66a34c24cb6b849ddff993aa5197dfbe54598b9aeb5849078f5dc4"
+    },
+    {
+     "name": "charge_SW_07.png",
+     "sha256": "3129a41e53fd4e6077cb76113d501817a13175bea54368254556f629c3edd360"
+    },
+    {
+     "name": "charge_SW_08.png",
+     "sha256": "87ee38c1722751a93210c5818225f6ac56bb5c247c44ec86dea6d709e8df69d2"
+    },
+    {
+     "name": "charge_SW_09.png",
+     "sha256": "a9f1768fd40311c49d030be51643d7c0823b8504edc33eb23bdacac98c030ff4"
+    },
+    {
+     "name": "charge_SW_10.png",
+     "sha256": "6c6843a2500fcbfa600ff70bf0a7b9a27404dcca8301663aaefa458f6ed0de81"
+    },
+    {
+     "name": "charge_SW_11.png",
+     "sha256": "e92fe0bf8b868d3b8b3aa9428e3507122caaf023d6503b1bbb96475580debe6e"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "cc80aad3ec76069b8989f5ad882cad92eec41100d65a17639a33cf6c5e9e1926",
+   "alpha_union_bbox": [
+    121,
+    226,
+    513,
+    611
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 135.0,
+   "facing_hips_frame0_deg": 163.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.57441,
+      0.20731,
+      1.13762
+     ],
+     [
+      -0.51806,
+      0.55523,
+      1.62093
+     ],
+     [
+      -0.57622,
+      0.52251,
+      1.60447
+     ],
+     [
+      -0.89413,
+      0.64693,
+      1.17759
+     ],
+     [
+      -0.84618,
+      0.55122,
+      0.88187
+     ],
+     [
+      -0.75713,
+      0.28346,
+      0.97339
+     ],
+     [
+      -1.19655,
+      0.70142,
+      1.0365
+     ],
+     [
+      -0.41319,
+      1.00505,
+      0.891
+     ],
+     [
+      -0.23315,
+      0.0212,
+      1.12663
+     ],
+     [
+      -0.58054,
+      0.06235,
+      1.19026
+     ],
+     [
+      -0.50528,
+      0.31777,
+      1.09437
+     ],
+     [
+      -0.34555,
+      0.267,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      -1.06224,
+      0.69656,
+      1.75283
+     ],
+     [
+      -0.29602,
+      0.06371,
+      2.37254
+     ],
+     [
+      -0.18582,
+      -0.00822,
+      2.25388
+     ],
+     [
+      -0.57293,
+      0.36437,
+      1.99784
+     ],
+     [
+      -0.51415,
+      0.01679,
+      1.56007
+     ],
+     [
+      -0.06314,
+      -0.31927,
+      1.07784
+     ],
+     [
+      -1.69586,
+      -0.02755,
+      1.31057
+     ],
+     [
+      0.02133,
+      1.81889,
+      0.82274
+     ],
+     [
+      -0.59289,
+      -0.78917,
+      1.39067
+     ],
+     [
+      -1.27015,
+      0.56809,
+      1.54309
+     ],
+     [
+      -0.83211,
+      1.00751,
+      1.61711
+     ],
+     [
+      -0.88016,
+      0.77636,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      -0.22306,
+      0.12893,
+      1.85972
+     ],
+     [
+      -0.23096,
+      0.30713,
+      1.6279
+     ],
+     [
+      -0.33347,
+      0.4602,
+      1.33912
+     ],
+     [
+      -0.47013,
+      0.67544,
+      1.27375
+     ],
+     [
+      -0.62722,
+      0.85655,
+      1.3716
+     ],
+     [
+      -0.77915,
+      0.89915,
+      1.48486
+     ],
+     [
+      -0.69512,
+      0.8956,
+      1.49322
+     ],
+     [
+      -0.66504,
+      0.78051,
+      1.58701
+     ],
+     [
+      -0.52072,
+      0.56763,
+      1.79756
+     ],
+     [
+      -0.36271,
+      0.33024,
+      1.84008
+     ],
+     [
+      -0.29338,
+      0.23344,
+      1.85506
+     ],
+     [
+      -0.15275,
+      0.11477,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      -0.11768,
+      0.03237,
+      1.46853
+     ],
+     [
+      -0.17769,
+      0.23146,
+      1.21342
+     ],
+     [
+      -0.35594,
+      0.43201,
+      0.92224
+     ],
+     [
+      -0.46357,
+      0.64712,
+      0.85675
+     ],
+     [
+      -0.531,
+      0.79522,
+      0.97108
+     ],
+     [
+      -0.61475,
+      0.7722,
+      1.12913
+     ],
+     [
+      -0.58494,
+      0.68138,
+      1.14773
+     ],
+     [
+      -0.59578,
+      0.52984,
+      1.25401
+     ],
+     [
+      -0.48752,
+      0.48118,
+      1.40238
+     ],
+     [
+      -0.25477,
+      0.28184,
+      1.44622
+     ],
+     [
+      -0.18396,
+      0.14345,
+      1.46188
+     ],
+     [
+      -0.03908,
+      0.0109,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/W": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_W_00.png",
+     "sha256": "503ece49d6e1d37d47b323ef202b4ea0d21b096dc29b4e312988431fa93c8b57"
+    },
+    {
+     "name": "charge_W_01.png",
+     "sha256": "2c82246d9acaf8e49151764556d156a927aa0230a7e98f9cb89261285828e9dc"
+    },
+    {
+     "name": "charge_W_02.png",
+     "sha256": "793b07fc4a78d86d5228a2582238d5a2489a36fbd0f0dd778536dd10770245f0"
+    },
+    {
+     "name": "charge_W_03.png",
+     "sha256": "dc47d682fa0f213abd6c93417f3568a97bc7d4440b26f3cd4d0aedeef2900eef"
+    },
+    {
+     "name": "charge_W_04.png",
+     "sha256": "ce649bc2535fef09e3e86632b1b092d8e89e9c85e90954e8996e09e249c8bddf"
+    },
+    {
+     "name": "charge_W_05.png",
+     "sha256": "682394b8b7d55283273ea5090a1389fb50abd5c40041410f51f658e5bf4d3a85"
+    },
+    {
+     "name": "charge_W_06.png",
+     "sha256": "814db7f9149e7f6390f990ca188b1a95c69ac1f7bc0491930af2ac39f57aa1f5"
+    },
+    {
+     "name": "charge_W_07.png",
+     "sha256": "0bfeebae95ba3e537a9545df1088c2b1aa41e08c090d85ee488f17e12984920a"
+    },
+    {
+     "name": "charge_W_08.png",
+     "sha256": "d395b237c39f3b729b3215db6c454dd810f5f7a799d1cc0ad92858881fde0d02"
+    },
+    {
+     "name": "charge_W_09.png",
+     "sha256": "c2bd366a9857ea4ab2c3bc37cb436187582c85f75173eb3159af1b6bcce0845b"
+    },
+    {
+     "name": "charge_W_10.png",
+     "sha256": "583de73a7794482d267698c2c6f70c71edab9dee175e0cb847567984d56e7b06"
+    },
+    {
+     "name": "charge_W_11.png",
+     "sha256": "589f72e1fac555e5afeca907405edffee6e2b54be9af12216fe972363191c108"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "a63b4ac604d7d9346395dc5a3858759962b0abc7e140c07c03eaf706a9c1c8f6",
+   "alpha_union_bbox": [
+    126,
+    181,
+    519,
+    542
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 180.0,
+   "facing_hips_frame0_deg": 208.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.55276,
+      -0.25958,
+      1.13762
+     ],
+     [
+      -0.75893,
+      0.02628,
+      1.62093
+     ],
+     [
+      -0.77692,
+      -0.03798,
+      1.60447
+     ],
+     [
+      -1.08969,
+      -0.1748,
+      1.17759
+     ],
+     [
+      -0.98811,
+      -0.20857,
+      0.88187
+     ],
+     [
+      -0.73581,
+      -0.33494,
+      0.97339
+     ],
+     [
+      -1.34206,
+      -0.35011,
+      1.0365
+     ],
+     [
+      -1.00285,
+      0.4185,
+      0.891
+     ],
+     [
+      -0.17985,
+      -0.14988,
+      1.12663
+     ],
+     [
+      -0.45459,
+      -0.36642,
+      1.19026
+     ],
+     [
+      -0.58198,
+      -0.13259,
+      1.09437
+     ],
+     [
+      -0.43313,
+      -0.05554,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      -1.24366,
+      -0.25858,
+      1.75283
+     ],
+     [
+      -0.25436,
+      -0.16427,
+      2.37254
+     ],
+     [
+      -0.12558,
+      -0.13721,
+      2.25388
+     ],
+     [
+      -0.66277,
+      -0.14748,
+      1.99784
+     ],
+     [
+      -0.37543,
+      -0.35169,
+      1.56007
+     ],
+     [
+      0.18111,
+      -0.27041,
+      1.07784
+     ],
+     [
+      -1.17967,
+      -1.21863,
+      1.31057
+     ],
+     [
+      -1.27107,
+      1.30124,
+      0.82274
+     ],
+     [
+      0.13879,
+      -0.97726,
+      1.39067
+     ],
+     [
+      -1.29983,
+      -0.49643,
+      1.54309
+     ],
+     [
+      -1.30081,
+      0.12402,
+      1.61711
+     ],
+     [
+      -1.17133,
+      -0.0734,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      -0.2489,
+      -0.06656,
+      1.85972
+     ],
+     [
+      -0.38049,
+      0.05386,
+      1.6279
+     ],
+     [
+      -0.56121,
+      0.08961,
+      1.33912
+     ],
+     [
+      -0.81004,
+      0.14517,
+      1.27375
+     ],
+     [
+      -1.04918,
+      0.16216,
+      1.3716
+     ],
+     [
+      -1.18674,
+      0.08485,
+      1.48486
+     ],
+     [
+      -1.12481,
+      0.14176,
+      1.49322
+     ],
+     [
+      -1.02216,
+      0.08165,
+      1.58701
+     ],
+     [
+      -0.76958,
+      0.03317,
+      1.79756
+     ],
+     [
+      -0.48999,
+      -0.02296,
+      1.84008
+     ],
+     [
+      -0.37252,
+      -0.04238,
+      1.85506
+     ],
+     [
+      -0.18916,
+      -0.02686,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      -0.1061,
+      -0.06032,
+      1.46853
+     ],
+     [
+      -0.28931,
+      0.03802,
+      1.21342
+     ],
+     [
+      -0.55717,
+      0.05379,
+      0.92224
+     ],
+     [
+      -0.78538,
+      0.12979,
+      0.85675
+     ],
+     [
+      -0.93778,
+      0.18683,
+      0.97108
+     ],
+     [
+      -0.98072,
+      0.11133,
+      1.12913
+     ],
+     [
+      -0.89542,
+      0.0682,
+      1.14773
+     ],
+     [
+      -0.79594,
+      -0.04663,
+      1.25401
+     ],
+     [
+      -0.68498,
+      -0.00448,
+      1.40238
+     ],
+     [
+      -0.37944,
+      0.01914,
+      1.44622
+     ],
+     [
+      -0.23151,
+      -0.02865,
+      1.46188
+     ],
+     [
+      -0.03534,
+      -0.01993,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/NW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_NW_00.png",
+     "sha256": "7b3814adc4bff96805201a637e83f0dbf2f93ce18b1725548d95eb00338a1a55"
+    },
+    {
+     "name": "charge_NW_01.png",
+     "sha256": "1b6ec0f780555906ecea74f0bff53d97a6551fbbb74cdc4e7da8d4bced6aa630"
+    },
+    {
+     "name": "charge_NW_02.png",
+     "sha256": "43045da5ed3ef6e7c25841a042aea544ce92e5148517ccb185756fc30b2bdee0"
+    },
+    {
+     "name": "charge_NW_03.png",
+     "sha256": "2cee1f591e8a23781a79b224ede67ea31923b8ea68f19a670f846b6f85bfd233"
+    },
+    {
+     "name": "charge_NW_04.png",
+     "sha256": "fd9b76eb3393baf6cfbc027b21b0c9eeb5053de9ee900f4bd8744e89552a6bcf"
+    },
+    {
+     "name": "charge_NW_05.png",
+     "sha256": "49d1685cf59ef175c3873c63b864cddccfe7d27366fca2901c8f25df881292dd"
+    },
+    {
+     "name": "charge_NW_06.png",
+     "sha256": "3f1e48bdc5745fb3fcdb73dd8c9da06997f2a76b9d84b64f453cfc80bdc45b8a"
+    },
+    {
+     "name": "charge_NW_07.png",
+     "sha256": "191a2e8d6f37af8b52bb037035945ff71c6ead2ee6f390790a4f98ccc24fdb5d"
+    },
+    {
+     "name": "charge_NW_08.png",
+     "sha256": "e96f660828bd4a010e10d54aad91b6e3f451f33eacf49c56160df2805233e3b9"
+    },
+    {
+     "name": "charge_NW_09.png",
+     "sha256": "2f26196df799b37f846186d32c316775ac64c937614668a0362ffa0b1f6d2749"
+    },
+    {
+     "name": "charge_NW_10.png",
+     "sha256": "5b04a95638c9f5ddf65ac81f9bf3da30273c09052eb4c4118944df4856573d08"
+    },
+    {
+     "name": "charge_NW_11.png",
+     "sha256": "7f3158527e76ee9b2e71d65aeaa412a43aae9900a862937e500353e3ae2b45d5"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "7c07ccc6ea1ee9774a4c37ac3a274bf4e3490910b651dd0f7aa008423e70cb06",
+   "alpha_union_bbox": [
+    109,
+    117,
+    503,
+    505
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 225.0,
+   "facing_hips_frame0_deg": 253.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.20731,
+      -0.57441,
+      1.13762
+     ],
+     [
+      -0.55523,
+      -0.51806,
+      1.62093
+     ],
+     [
+      -0.52251,
+      -0.57622,
+      1.60447
+     ],
+     [
+      -0.64693,
+      -0.89413,
+      1.17759
+     ],
+     [
+      -0.55122,
+      -0.84618,
+      0.88187
+     ],
+     [
+      -0.28346,
+      -0.75713,
+      0.97339
+     ],
+     [
+      -0.70142,
+      -1.19655,
+      1.0365
+     ],
+     [
+      -1.00505,
+      -0.41319,
+      0.891
+     ],
+     [
+      -0.0212,
+      -0.23315,
+      1.12663
+     ],
+     [
+      -0.06235,
+      -0.58054,
+      1.19026
+     ],
+     [
+      -0.31777,
+      -0.50528,
+      1.09437
+     ],
+     [
+      -0.267,
+      -0.34555,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      -0.69656,
+      -1.06224,
+      1.75283
+     ],
+     [
+      -0.06371,
+      -0.29602,
+      2.37254
+     ],
+     [
+      0.00822,
+      -0.18582,
+      2.25388
+     ],
+     [
+      -0.36437,
+      -0.57293,
+      1.99784
+     ],
+     [
+      -0.01679,
+      -0.51415,
+      1.56007
+     ],
+     [
+      0.31927,
+      -0.06314,
+      1.07784
+     ],
+     [
+      0.02755,
+      -1.69586,
+      1.31057
+     ],
+     [
+      -1.81889,
+      0.02133,
+      0.82274
+     ],
+     [
+      0.78917,
+      -0.59289,
+      1.39067
+     ],
+     [
+      -0.56809,
+      -1.27015,
+      1.54309
+     ],
+     [
+      -1.00751,
+      -0.83211,
+      1.61711
+     ],
+     [
+      -0.77636,
+      -0.88016,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      -0.12893,
+      -0.22306,
+      1.85972
+     ],
+     [
+      -0.30713,
+      -0.23096,
+      1.6279
+     ],
+     [
+      -0.4602,
+      -0.33347,
+      1.33912
+     ],
+     [
+      -0.67544,
+      -0.47013,
+      1.27375
+     ],
+     [
+      -0.85655,
+      -0.62722,
+      1.3716
+     ],
+     [
+      -0.89915,
+      -0.77915,
+      1.48486
+     ],
+     [
+      -0.8956,
+      -0.69512,
+      1.49322
+     ],
+     [
+      -0.78051,
+      -0.66504,
+      1.58701
+     ],
+     [
+      -0.56763,
+      -0.52072,
+      1.79756
+     ],
+     [
+      -0.33024,
+      -0.36271,
+      1.84008
+     ],
+     [
+      -0.23344,
+      -0.29338,
+      1.85506
+     ],
+     [
+      -0.11477,
+      -0.15275,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      -0.03237,
+      -0.11768,
+      1.46853
+     ],
+     [
+      -0.23146,
+      -0.17769,
+      1.21342
+     ],
+     [
+      -0.43201,
+      -0.35594,
+      0.92224
+     ],
+     [
+      -0.64712,
+      -0.46357,
+      0.85675
+     ],
+     [
+      -0.79522,
+      -0.531,
+      0.97108
+     ],
+     [
+      -0.7722,
+      -0.61475,
+      1.12913
+     ],
+     [
+      -0.68138,
+      -0.58494,
+      1.14773
+     ],
+     [
+      -0.52984,
+      -0.59578,
+      1.25401
+     ],
+     [
+      -0.48118,
+      -0.48752,
+      1.40238
+     ],
+     [
+      -0.28184,
+      -0.25477,
+      1.44622
+     ],
+     [
+      -0.14345,
+      -0.18396,
+      1.46188
+     ],
+     [
+      -0.0109,
+      -0.03908,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/N": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_N_00.png",
+     "sha256": "b680f1b8e3fb93d78c45c619ac24b00cf26ec00c85d02f6dcb8a29854d62afdf"
+    },
+    {
+     "name": "charge_N_01.png",
+     "sha256": "09107925c54471b81ed12812c15aa0933e535b5baa056ac0f99f78cea396b4fa"
+    },
+    {
+     "name": "charge_N_02.png",
+     "sha256": "48ede936f573a74d7e04c9a4fec4c095b7806be71d176c8ca0aa3ba6083b17c4"
+    },
+    {
+     "name": "charge_N_03.png",
+     "sha256": "9b10631db1326fa6b9fd7adb388e7b9374b20bd6ebc7b169ca5aa4bc847a7f1a"
+    },
+    {
+     "name": "charge_N_04.png",
+     "sha256": "7b7e2f00f41a5eb6dfafe88be7c5dda9428b28742c32ffc6b50bc65b99d8a8c4"
+    },
+    {
+     "name": "charge_N_05.png",
+     "sha256": "0e7fafc8b7326ad07b1b3809f50534ada6fda723d9b73af0df0c2b819f7d7761"
+    },
+    {
+     "name": "charge_N_06.png",
+     "sha256": "3050d926506f0afd3c038a21f119c2740698dedd9f46275769d631ca52204239"
+    },
+    {
+     "name": "charge_N_07.png",
+     "sha256": "cad9b3994e6e8307ed6b328c514782d2adf605e55774c16322a28473d50306cc"
+    },
+    {
+     "name": "charge_N_08.png",
+     "sha256": "ad64667768db2dc31f58593d862599c8349cc5b6f016d1df8dd9360f1ae6e15f"
+    },
+    {
+     "name": "charge_N_09.png",
+     "sha256": "65c03a9de8dab206837b0599dafdc366da677ec7dd4c88021f3a91d45bf9fdc0"
+    },
+    {
+     "name": "charge_N_10.png",
+     "sha256": "bc9adae64c3f519aac85b9df6589fa7c8badac037e28f04902731b1c7e5237b3"
+    },
+    {
+     "name": "charge_N_11.png",
+     "sha256": "5afaac72be68e80a8dbe9729f35f3744f76c529a411342f8f71c03e06a766e5c"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "860c8d8e46d67b9dc457125f58ed752930a3c52fd37a0a46f425a80170fe1c93",
+   "alpha_union_bbox": [
+    187,
+    138,
+    568,
+    511
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 270.0,
+   "facing_hips_frame0_deg": 298.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.25958,
+      -0.55276,
+      1.13762
+     ],
+     [
+      -0.02628,
+      -0.75893,
+      1.62093
+     ],
+     [
+      0.03798,
+      -0.77692,
+      1.60447
+     ],
+     [
+      0.1748,
+      -1.08969,
+      1.17759
+     ],
+     [
+      0.20857,
+      -0.98811,
+      0.88187
+     ],
+     [
+      0.33494,
+      -0.73581,
+      0.97339
+     ],
+     [
+      0.35011,
+      -1.34206,
+      1.0365
+     ],
+     [
+      -0.4185,
+      -1.00285,
+      0.891
+     ],
+     [
+      0.14988,
+      -0.17985,
+      1.12663
+     ],
+     [
+      0.36642,
+      -0.45459,
+      1.19026
+     ],
+     [
+      0.13259,
+      -0.58198,
+      1.09437
+     ],
+     [
+      0.05554,
+      -0.43313,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      0.25858,
+      -1.24366,
+      1.75283
+     ],
+     [
+      0.16427,
+      -0.25436,
+      2.37254
+     ],
+     [
+      0.13721,
+      -0.12558,
+      2.25388
+     ],
+     [
+      0.14748,
+      -0.66277,
+      1.99784
+     ],
+     [
+      0.35169,
+      -0.37543,
+      1.56007
+     ],
+     [
+      0.27041,
+      0.18111,
+      1.07784
+     ],
+     [
+      1.21863,
+      -1.17967,
+      1.31057
+     ],
+     [
+      -1.30124,
+      -1.27107,
+      0.82274
+     ],
+     [
+      0.97726,
+      0.13879,
+      1.39067
+     ],
+     [
+      0.49643,
+      -1.29983,
+      1.54309
+     ],
+     [
+      -0.12402,
+      -1.30081,
+      1.61711
+     ],
+     [
+      0.0734,
+      -1.17133,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      0.06656,
+      -0.2489,
+      1.85972
+     ],
+     [
+      -0.05386,
+      -0.38049,
+      1.6279
+     ],
+     [
+      -0.08961,
+      -0.56121,
+      1.33912
+     ],
+     [
+      -0.14517,
+      -0.81004,
+      1.27375
+     ],
+     [
+      -0.16216,
+      -1.04918,
+      1.3716
+     ],
+     [
+      -0.08485,
+      -1.18674,
+      1.48486
+     ],
+     [
+      -0.14176,
+      -1.12481,
+      1.49322
+     ],
+     [
+      -0.08165,
+      -1.02216,
+      1.58701
+     ],
+     [
+      -0.03317,
+      -0.76958,
+      1.79756
+     ],
+     [
+      0.02296,
+      -0.48999,
+      1.84008
+     ],
+     [
+      0.04238,
+      -0.37252,
+      1.85506
+     ],
+     [
+      0.02686,
+      -0.18916,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      0.06032,
+      -0.1061,
+      1.46853
+     ],
+     [
+      -0.03802,
+      -0.28931,
+      1.21342
+     ],
+     [
+      -0.05379,
+      -0.55717,
+      0.92224
+     ],
+     [
+      -0.12979,
+      -0.78538,
+      0.85675
+     ],
+     [
+      -0.18683,
+      -0.93778,
+      0.97108
+     ],
+     [
+      -0.11133,
+      -0.98072,
+      1.12913
+     ],
+     [
+      -0.0682,
+      -0.89542,
+      1.14773
+     ],
+     [
+      0.04663,
+      -0.79594,
+      1.25401
+     ],
+     [
+      0.00448,
+      -0.68498,
+      1.40238
+     ],
+     [
+      -0.01914,
+      -0.37944,
+      1.44622
+     ],
+     [
+      0.02865,
+      -0.23151,
+      1.46188
+     ],
+     [
+      0.01993,
+      -0.03534,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/NE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_NE_00.png",
+     "sha256": "f6d87eda04a506d01cca0f6419e5e4a45f7125156817988ffcc82728c32cae00"
+    },
+    {
+     "name": "charge_NE_01.png",
+     "sha256": "daa9bacba68a7a700939740e1557091d6d4079ae2dc919dbb74c561e7c46ac85"
+    },
+    {
+     "name": "charge_NE_02.png",
+     "sha256": "1d7eb0c75afcba8f3a0fbf632ab191198cd911389a83a00aea572fdf2b4a4e5e"
+    },
+    {
+     "name": "charge_NE_03.png",
+     "sha256": "c40c32639b0eee9502dc5ec0011f30ab383a7439beb9a8934802f7afa9fded57"
+    },
+    {
+     "name": "charge_NE_04.png",
+     "sha256": "60696ffe8390b3ca18fd507b0c402a63465c7f6a692e20879d95e3652868f3e4"
+    },
+    {
+     "name": "charge_NE_05.png",
+     "sha256": "bd3795106361eef5a972349a872317e1e6e9ed159493dae6d6ca7c2e9523c6d7"
+    },
+    {
+     "name": "charge_NE_06.png",
+     "sha256": "10ae2eef74de97ea0a51c4912f68a59e4134979ea767ede2f37d10ad3f49b0eb"
+    },
+    {
+     "name": "charge_NE_07.png",
+     "sha256": "54d3f7843a99a39ffa7bbcbc87599125d2b8420c071914b171ec5303eaf025de"
+    },
+    {
+     "name": "charge_NE_08.png",
+     "sha256": "d7903790d6ff9e3a4addb4aacde01a5a593af7fee31bd81a30636bd57f244fb8"
+    },
+    {
+     "name": "charge_NE_09.png",
+     "sha256": "a96ab58aa672cc05ff0242691f702c9c7ee810c26d7c698f3976362014a7cac8"
+    },
+    {
+     "name": "charge_NE_10.png",
+     "sha256": "e1a94c2eb4ed318ca673ce43b080d924bcb4d8b6f804bbb6ffc789c3ae2fc5dc"
+    },
+    {
+     "name": "charge_NE_11.png",
+     "sha256": "e802a8a434d656e43f8d4bbdd5aac8ff83d705465cb1ed7366ae18eba8f7b706"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "61d1e59c457adde2733221d36b89b39fad8ad5b4a2f8aa8facd9f3d8c5644ca5",
+   "alpha_union_bbox": [
+    254,
+    150,
+    647,
+    503
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 315.0,
+   "facing_hips_frame0_deg": 343.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.57441,
+      -0.20731,
+      1.13762
+     ],
+     [
+      0.51806,
+      -0.55523,
+      1.62093
+     ],
+     [
+      0.57622,
+      -0.52251,
+      1.60447
+     ],
+     [
+      0.89413,
+      -0.64693,
+      1.17759
+     ],
+     [
+      0.84618,
+      -0.55122,
+      0.88187
+     ],
+     [
+      0.75713,
+      -0.28346,
+      0.97339
+     ],
+     [
+      1.19655,
+      -0.70142,
+      1.0365
+     ],
+     [
+      0.41319,
+      -1.00505,
+      0.891
+     ],
+     [
+      0.23315,
+      -0.0212,
+      1.12663
+     ],
+     [
+      0.58054,
+      -0.06235,
+      1.19026
+     ],
+     [
+      0.50528,
+      -0.31777,
+      1.09437
+     ],
+     [
+      0.34555,
+      -0.267,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      1.06224,
+      -0.69656,
+      1.75283
+     ],
+     [
+      0.29602,
+      -0.06371,
+      2.37254
+     ],
+     [
+      0.18582,
+      0.00822,
+      2.25388
+     ],
+     [
+      0.57293,
+      -0.36437,
+      1.99784
+     ],
+     [
+      0.51415,
+      -0.01679,
+      1.56007
+     ],
+     [
+      0.06314,
+      0.31927,
+      1.07784
+     ],
+     [
+      1.69585,
+      0.02755,
+      1.31057
+     ],
+     [
+      -0.02133,
+      -1.81889,
+      0.82274
+     ],
+     [
+      0.59289,
+      0.78917,
+      1.39067
+     ],
+     [
+      1.27015,
+      -0.56809,
+      1.54309
+     ],
+     [
+      0.83211,
+      -1.00751,
+      1.61711
+     ],
+     [
+      0.88016,
+      -0.77636,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      0.22306,
+      -0.12893,
+      1.85972
+     ],
+     [
+      0.23096,
+      -0.30713,
+      1.6279
+     ],
+     [
+      0.33347,
+      -0.4602,
+      1.33912
+     ],
+     [
+      0.47013,
+      -0.67544,
+      1.27375
+     ],
+     [
+      0.62722,
+      -0.85655,
+      1.3716
+     ],
+     [
+      0.77915,
+      -0.89915,
+      1.48486
+     ],
+     [
+      0.69512,
+      -0.8956,
+      1.49322
+     ],
+     [
+      0.66504,
+      -0.78051,
+      1.58701
+     ],
+     [
+      0.52072,
+      -0.56763,
+      1.79756
+     ],
+     [
+      0.36271,
+      -0.33024,
+      1.84008
+     ],
+     [
+      0.29338,
+      -0.23344,
+      1.85506
+     ],
+     [
+      0.15275,
+      -0.11477,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      0.11768,
+      -0.03237,
+      1.46853
+     ],
+     [
+      0.17769,
+      -0.23146,
+      1.21342
+     ],
+     [
+      0.35594,
+      -0.43201,
+      0.92224
+     ],
+     [
+      0.46357,
+      -0.64712,
+      0.85675
+     ],
+     [
+      0.531,
+      -0.79522,
+      0.97108
+     ],
+     [
+      0.61475,
+      -0.7722,
+      1.12913
+     ],
+     [
+      0.58494,
+      -0.68138,
+      1.14773
+     ],
+     [
+      0.59578,
+      -0.52984,
+      1.25401
+     ],
+     [
+      0.48752,
+      -0.48118,
+      1.40238
+     ],
+     [
+      0.25477,
+      -0.28184,
+      1.44622
+     ],
+     [
+      0.18396,
+      -0.14345,
+      1.46188
+     ],
+     [
+      0.03908,
+      -0.0109,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/E": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_E_00.png",
+     "sha256": "5aced1c9e14ecf6fa39a18dcf0460b43c5478dbeb176c162677dd057fefddc89"
+    },
+    {
+     "name": "charge_E_01.png",
+     "sha256": "eeaf3ba54db9da5562269bd3e64ea06c03c03e1bb2d57e64c88141836ee2c85b"
+    },
+    {
+     "name": "charge_E_02.png",
+     "sha256": "851fc7ea9b11c8c89ce59ac1288b8cccf101320b6f169f2ebdefde4a83e3ea1a"
+    },
+    {
+     "name": "charge_E_03.png",
+     "sha256": "0a15e913a6e9265ab6085b360749461ba0b9957dfe75ea63baee506777f0556f"
+    },
+    {
+     "name": "charge_E_04.png",
+     "sha256": "9abe799229917a72f02ae1367da7508804904e8406329a2cc7bb0adf573df8a4"
+    },
+    {
+     "name": "charge_E_05.png",
+     "sha256": "816c1997e2745efe3ae4be9c5678623e111ce95ef7ad90a89c2c85975b868022"
+    },
+    {
+     "name": "charge_E_06.png",
+     "sha256": "bcc6f787dbb8f1465245daf62e1ce584e024dac5ba5f3c85e83ae34c978c0d76"
+    },
+    {
+     "name": "charge_E_07.png",
+     "sha256": "eaf3f5564321eb92d4ee7784f8ca73a71664a1bd23df998691e73d0b81232349"
+    },
+    {
+     "name": "charge_E_08.png",
+     "sha256": "4900746d66c6d9cdb80416dd7fa166a6d5d567779b566002a356d38c178a3fe6"
+    },
+    {
+     "name": "charge_E_09.png",
+     "sha256": "e51cc8b55f0780a1f90a7117d745c80c408e339a905d8b3f0e44fcbe17bdbdf2"
+    },
+    {
+     "name": "charge_E_10.png",
+     "sha256": "1064452c528c969653baf68bf6e202cf9ec616b60e3b604825a45e8c7c903c90"
+    },
+    {
+     "name": "charge_E_11.png",
+     "sha256": "321a43963fba1e0142dd32848c6c34af7da2e430a1768dd08f8270eb801b695e"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "2a329833a1c619128ce280ec32789cab376116876dcd7bf1b1a5920a5e824cf3",
+   "alpha_union_bbox": [
+    249,
+    216,
+    642,
+    535
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 360.0,
+   "facing_hips_frame0_deg": 28.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.55276,
+      0.25958,
+      1.13762
+     ],
+     [
+      0.75893,
+      -0.02628,
+      1.62093
+     ],
+     [
+      0.77692,
+      0.03798,
+      1.60447
+     ],
+     [
+      1.08969,
+      0.1748,
+      1.17759
+     ],
+     [
+      0.98811,
+      0.20857,
+      0.88187
+     ],
+     [
+      0.73581,
+      0.33494,
+      0.97339
+     ],
+     [
+      1.34206,
+      0.35011,
+      1.0365
+     ],
+     [
+      1.00285,
+      -0.4185,
+      0.891
+     ],
+     [
+      0.17985,
+      0.14988,
+      1.12663
+     ],
+     [
+      0.45459,
+      0.36642,
+      1.19026
+     ],
+     [
+      0.58198,
+      0.13259,
+      1.09437
+     ],
+     [
+      0.43313,
+      0.05554,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      1.24366,
+      0.25858,
+      1.75283
+     ],
+     [
+      0.25436,
+      0.16427,
+      2.37254
+     ],
+     [
+      0.12558,
+      0.13721,
+      2.25388
+     ],
+     [
+      0.66277,
+      0.14748,
+      1.99784
+     ],
+     [
+      0.37543,
+      0.35169,
+      1.56007
+     ],
+     [
+      -0.18111,
+      0.27041,
+      1.07784
+     ],
+     [
+      1.17967,
+      1.21863,
+      1.31057
+     ],
+     [
+      1.27107,
+      -1.30124,
+      0.82274
+     ],
+     [
+      -0.13879,
+      0.97726,
+      1.39067
+     ],
+     [
+      1.29983,
+      0.49643,
+      1.54309
+     ],
+     [
+      1.30081,
+      -0.12402,
+      1.61711
+     ],
+     [
+      1.17133,
+      0.0734,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      0.2489,
+      0.06656,
+      1.85972
+     ],
+     [
+      0.38049,
+      -0.05386,
+      1.6279
+     ],
+     [
+      0.56121,
+      -0.08961,
+      1.33912
+     ],
+     [
+      0.81004,
+      -0.14517,
+      1.27375
+     ],
+     [
+      1.04918,
+      -0.16216,
+      1.3716
+     ],
+     [
+      1.18674,
+      -0.08485,
+      1.48486
+     ],
+     [
+      1.12481,
+      -0.14176,
+      1.49322
+     ],
+     [
+      1.02216,
+      -0.08165,
+      1.58701
+     ],
+     [
+      0.76958,
+      -0.03317,
+      1.79756
+     ],
+     [
+      0.48999,
+      0.02296,
+      1.84008
+     ],
+     [
+      0.37252,
+      0.04238,
+      1.85506
+     ],
+     [
+      0.18916,
+      0.02686,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      0.1061,
+      0.06032,
+      1.46853
+     ],
+     [
+      0.28931,
+      -0.03802,
+      1.21342
+     ],
+     [
+      0.55717,
+      -0.05379,
+      0.92224
+     ],
+     [
+      0.78538,
+      -0.12979,
+      0.85675
+     ],
+     [
+      0.93778,
+      -0.18683,
+      0.97108
+     ],
+     [
+      0.98072,
+      -0.11133,
+      1.12913
+     ],
+     [
+      0.89542,
+      -0.0682,
+      1.14773
+     ],
+     [
+      0.79594,
+      0.04663,
+      1.25401
+     ],
+     [
+      0.68498,
+      0.00448,
+      1.40238
+     ],
+     [
+      0.37944,
+      -0.01914,
+      1.44622
+     ],
+     [
+      0.23151,
+      0.02865,
+      1.46188
+     ],
+     [
+      0.03534,
+      0.01993,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "charge/SE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "charge_SE_00.png",
+     "sha256": "8225c36b2033a26100df3a5cd89249c22d8cd8aad2c4092d31bb32aaa6210c4b"
+    },
+    {
+     "name": "charge_SE_01.png",
+     "sha256": "1b665b4b3e3be453ef3af8a448079220d03d1e580dca453e59dbdbcfbf79a87b"
+    },
+    {
+     "name": "charge_SE_02.png",
+     "sha256": "5ec28d447bbd908210b0a10adec312ce4a3d35645fc386359dbed07f190498b9"
+    },
+    {
+     "name": "charge_SE_03.png",
+     "sha256": "0d0ad9629b9ed15ad0df10b51ac93413200d9f14ecb4aa09e5cca401d7f82240"
+    },
+    {
+     "name": "charge_SE_04.png",
+     "sha256": "b44ed7875bbb791aa86809f2e44709f22f301b134de711f62cf62e6e1ade1249"
+    },
+    {
+     "name": "charge_SE_05.png",
+     "sha256": "1346b11f69c430250cd70a92a21a893f936f5266a5ef58f042250bf27207372a"
+    },
+    {
+     "name": "charge_SE_06.png",
+     "sha256": "3f49f32bbbec5b201db681ef60191bfa037465bfa0f99f9a8cf746a01b2c40cd"
+    },
+    {
+     "name": "charge_SE_07.png",
+     "sha256": "19e8f9f888260ccd098794c9db47a0b079a86db18d41cf20531a1b2c449a90ac"
+    },
+    {
+     "name": "charge_SE_08.png",
+     "sha256": "1b342a7b9e6042586231ef39e961143a72e9095ae891427289b12c9748d78d1b"
+    },
+    {
+     "name": "charge_SE_09.png",
+     "sha256": "f3c7cb73c6a2bce6bab4b3270f5eb8957da6350eb53bca0df86cbf75fa1faa60"
+    },
+    {
+     "name": "charge_SE_10.png",
+     "sha256": "1c593b411cc5db8d17e6de1c3828487ded471a731cc65aceb822bf7bc8173c59"
+    },
+    {
+     "name": "charge_SE_11.png",
+     "sha256": "8e0f2c17cd54a14d9c8cd3842c1997da8ca948ba1f767c20e169abc151865147"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "c9b3f2d9d490ccb6e30dcf4336117994e1c17a2365864a02763901325e5aa069",
+   "alpha_union_bbox": [
+    265,
+    265,
+    659,
+    591
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 45.0,
+   "facing_hips_frame0_deg": 73.137,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.20731,
+      0.57441,
+      1.13762
+     ],
+     [
+      0.55523,
+      0.51806,
+      1.62093
+     ],
+     [
+      0.52251,
+      0.57622,
+      1.60447
+     ],
+     [
+      0.64693,
+      0.89413,
+      1.17759
+     ],
+     [
+      0.55122,
+      0.84618,
+      0.88187
+     ],
+     [
+      0.28346,
+      0.75713,
+      0.97339
+     ],
+     [
+      0.70142,
+      1.19655,
+      1.0365
+     ],
+     [
+      1.00505,
+      0.41319,
+      0.891
+     ],
+     [
+      0.0212,
+      0.23315,
+      1.12663
+     ],
+     [
+      0.06235,
+      0.58054,
+      1.19026
+     ],
+     [
+      0.31777,
+      0.50528,
+      1.09437
+     ],
+     [
+      0.267,
+      0.34555,
+      1.10014
+     ]
+    ],
+    "main_tip": [
+     [
+      0.69656,
+      1.06224,
+      1.75283
+     ],
+     [
+      0.06371,
+      0.29602,
+      2.37254
+     ],
+     [
+      -0.00822,
+      0.18582,
+      2.25388
+     ],
+     [
+      0.36437,
+      0.57293,
+      1.99784
+     ],
+     [
+      0.01679,
+      0.51415,
+      1.56007
+     ],
+     [
+      -0.31927,
+      0.06314,
+      1.07784
+     ],
+     [
+      -0.02755,
+      1.69586,
+      1.31057
+     ],
+     [
+      1.81889,
+      -0.02133,
+      0.82274
+     ],
+     [
+      -0.78917,
+      0.59289,
+      1.39067
+     ],
+     [
+      0.56809,
+      1.27015,
+      1.54309
+     ],
+     [
+      1.00751,
+      0.83211,
+      1.61711
+     ],
+     [
+      0.77636,
+      0.88016,
+      1.65742
+     ]
+    ],
+    "head_top": [
+     [
+      0.12893,
+      0.22306,
+      1.85972
+     ],
+     [
+      0.30713,
+      0.23096,
+      1.6279
+     ],
+     [
+      0.4602,
+      0.33347,
+      1.33912
+     ],
+     [
+      0.67544,
+      0.47013,
+      1.27375
+     ],
+     [
+      0.85655,
+      0.62722,
+      1.3716
+     ],
+     [
+      0.89915,
+      0.77915,
+      1.48486
+     ],
+     [
+      0.8956,
+      0.69512,
+      1.49322
+     ],
+     [
+      0.78051,
+      0.66504,
+      1.58701
+     ],
+     [
+      0.56763,
+      0.52072,
+      1.79756
+     ],
+     [
+      0.33024,
+      0.36271,
+      1.84008
+     ],
+     [
+      0.23344,
+      0.29338,
+      1.85506
+     ],
+     [
+      0.11477,
+      0.15275,
+      1.90839
+     ]
+    ],
+    "chest": [
+     [
+      0.03237,
+      0.11768,
+      1.46853
+     ],
+     [
+      0.23146,
+      0.17769,
+      1.21342
+     ],
+     [
+      0.43201,
+      0.35594,
+      0.92224
+     ],
+     [
+      0.64712,
+      0.46357,
+      0.85675
+     ],
+     [
+      0.79522,
+      0.531,
+      0.97108
+     ],
+     [
+      0.7722,
+      0.61475,
+      1.12913
+     ],
+     [
+      0.68138,
+      0.58494,
+      1.14773
+     ],
+     [
+      0.52984,
+      0.59578,
+      1.25401
+     ],
+     [
+      0.48118,
+      0.48752,
+      1.40238
+     ],
+     [
+      0.28184,
+      0.25477,
+      1.44622
+     ],
+     [
+      0.14345,
+      0.18396,
+      1.46188
+     ],
+     [
+      0.0109,
+      0.03908,
+      1.51338
+     ]
+    ]
+   }
+  },
+  "battlecry/S": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_S_00.png",
+     "sha256": "2003180f723955d3d22fc5d0e1b3c00aec1d9502d3755331c33aa0141ddcb80d"
+    },
+    {
+     "name": "battlecry_S_01.png",
+     "sha256": "803687dd3db196548c7e83ea03e1d250e230e9c80fe15b3c3b447044714dcbe2"
+    },
+    {
+     "name": "battlecry_S_02.png",
+     "sha256": "26df72c2093cbab5995a9ffe92b1154e44923653cfcc22a8512592df5f28ecde"
+    },
+    {
+     "name": "battlecry_S_03.png",
+     "sha256": "bbb1bc4ab68d7cd775a0f74ef25b174b5e908d8b2eb212d8886a437cb2302e66"
+    },
+    {
+     "name": "battlecry_S_04.png",
+     "sha256": "7b3fe85b0f50c48d7df7ae8663808a0f7bd8ee3879ff577bd4d6f61ea8a3e14a"
+    },
+    {
+     "name": "battlecry_S_05.png",
+     "sha256": "1c562a6f751b2d066024292ef6a245d731f6320695640521dc3623686c3fc625"
+    },
+    {
+     "name": "battlecry_S_06.png",
+     "sha256": "367fef21d1b632ef5a422e88f12c3a0f55d450440ceb9ddf553100c67e434b03"
+    },
+    {
+     "name": "battlecry_S_07.png",
+     "sha256": "a6f01f2ec95ab8e2511ee383ed5c2c5a64437f1b5c8e24fda8d9b0b83384cc3c"
+    },
+    {
+     "name": "battlecry_S_08.png",
+     "sha256": "ab083873a25ff92649168f63342feaf9bec04e5ec494eafc3403ed52f6500238"
+    },
+    {
+     "name": "battlecry_S_09.png",
+     "sha256": "0012bcffb0cc5530edf80f33b635da67c7ce4d241d4a676a920d52444bf98b7f"
+    },
+    {
+     "name": "battlecry_S_10.png",
+     "sha256": "907af6f7689592e333b0f1ccac97f59669d8a701f504540de13bbe66a33e137c"
+    },
+    {
+     "name": "battlecry_S_11.png",
+     "sha256": "144b08abb9f0c089b869f88ded4539cb25af9d5f19f0367a74da1e0cc131a18c"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "7cf1840f4972184ee763c256b5e6341a8d66e699f9ce9e034bb3ee509d719abf",
+   "alpha_union_bbox": [
+    193,
+    170,
+    497,
+    521
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 90.0,
+   "facing_hips_frame0_deg": 139.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.58299,
+      -0.14584,
+      0.89918
+     ],
+     [
+      -0.285,
+      0.29828,
+      0.86489
+     ],
+     [
+      -0.70424,
+      -0.20678,
+      1.25562
+     ],
+     [
+      -0.36191,
+      -0.61869,
+      0.94393
+     ],
+     [
+      -0.35921,
+      -0.44028,
+      0.84236
+     ],
+     [
+      -0.32379,
+      -0.4162,
+      0.81946
+     ],
+     [
+      -0.29885,
+      -0.44402,
+      0.83069
+     ],
+     [
+      -0.34469,
+      -0.37797,
+      0.87162
+     ],
+     [
+      -0.56998,
+      -0.1705,
+      0.96301
+     ],
+     [
+      -0.60024,
+      -0.2221,
+      0.86327
+     ],
+     [
+      -0.59615,
+      -0.20027,
+      0.84388
+     ],
+     [
+      -0.58299,
+      -0.14586,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      -0.98543,
+      0.54738,
+      1.36104
+     ],
+     [
+      0.55604,
+      0.68224,
+      0.89725
+     ],
+     [
+      -1.13841,
+      0.07711,
+      2.0216
+     ],
+     [
+      -0.70118,
+      -1.46136,
+      1.11892
+     ],
+     [
+      -0.97578,
+      -1.12981,
+      0.82807
+     ],
+     [
+      -0.97537,
+      -1.07125,
+      0.77288
+     ],
+     [
+      -0.94831,
+      -1.10271,
+      0.81851
+     ],
+     [
+      -1.26495,
+      -0.43829,
+      0.94442
+     ],
+     [
+      -1.23645,
+      0.34225,
+      1.34867
+     ],
+     [
+      -1.1342,
+      0.40817,
+      1.27976
+     ],
+     [
+      -1.03835,
+      0.50624,
+      1.2453
+     ],
+     [
+      -0.98545,
+      0.54735,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      -0.08206,
+      0.1302,
+      1.77989
+     ],
+     [
+      -0.25106,
+      0.1955,
+      1.43135
+     ],
+     [
+      0.01568,
+      -0.12161,
+      1.84842
+     ],
+     [
+      0.17855,
+      -0.23161,
+      1.72447
+     ],
+     [
+      0.2354,
+      -0.23179,
+      1.72112
+     ],
+     [
+      0.23594,
+      -0.27973,
+      1.70585
+     ],
+     [
+      0.21512,
+      -0.28185,
+      1.72473
+     ],
+     [
+      0.09204,
+      -0.11164,
+      1.85783
+     ],
+     [
+      -0.02113,
+      0.12209,
+      1.81251
+     ],
+     [
+      -0.09032,
+      0.15954,
+      1.7177
+     ],
+     [
+      -0.11025,
+      0.15406,
+      1.71929
+     ],
+     [
+      -0.08207,
+      0.1302,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      -0.05367,
+      -0.02028,
+      1.38381
+     ],
+     [
+      -0.01555,
+      -0.09838,
+      1.31594
+     ],
+     [
+      -0.00546,
+      -0.06126,
+      1.43432
+     ],
+     [
+      -0.01327,
+      -0.00515,
+      1.43133
+     ],
+     [
+      0.02381,
+      -0.00975,
+      1.43787
+     ],
+     [
+      0.03711,
+      -0.0278,
+      1.44001
+     ],
+     [
+      0.03259,
+      -0.03583,
+      1.44259
+     ],
+     [
+      0.03443,
+      -0.0387,
+      1.44734
+     ],
+     [
+      0.01204,
+      -0.03697,
+      1.4307
+     ],
+     [
+      -0.03399,
+      -0.02653,
+      1.34278
+     ],
+     [
+      -0.05565,
+      -0.02603,
+      1.33868
+     ],
+     [
+      -0.05367,
+      -0.02028,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/SW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_SW_00.png",
+     "sha256": "fc7e99c3cf35ad1324912fe13490891fd6eec835218ddae60760e7742261bb30"
+    },
+    {
+     "name": "battlecry_SW_01.png",
+     "sha256": "35a7048fcf2e4a50005366209769284858efd76d46b52104ef2076973be50d76"
+    },
+    {
+     "name": "battlecry_SW_02.png",
+     "sha256": "9cb18a00f23acc8d5ffa5f6ccd2eb9c6c0213d6df1b40d63677e4020e5a04a4e"
+    },
+    {
+     "name": "battlecry_SW_03.png",
+     "sha256": "46059a1c82b8262265759f92d5fbbe97bc2c01037e68fd0c295883076ea84f90"
+    },
+    {
+     "name": "battlecry_SW_04.png",
+     "sha256": "f256cffd77fbbd1afa6b02859401653b9dc1ce3fd80734f2c7d272bc9afc0f8d"
+    },
+    {
+     "name": "battlecry_SW_05.png",
+     "sha256": "f5160d4cac31324c8b59bdfb43e52c577edcf549eb0447b22c766c9b1a685549"
+    },
+    {
+     "name": "battlecry_SW_06.png",
+     "sha256": "36b9241e6e9055c60feebc5e913377c80e66d96c029d18c89453f575eaf9dea3"
+    },
+    {
+     "name": "battlecry_SW_07.png",
+     "sha256": "704f74fae0056c90c26a1e3f3c6d7940c33316eb387775f8416f67686ac45d39"
+    },
+    {
+     "name": "battlecry_SW_08.png",
+     "sha256": "5f754bebde4fc7aff65220c7b4baa6e18a3a1524634964a1db72e7d5ddbb1990"
+    },
+    {
+     "name": "battlecry_SW_09.png",
+     "sha256": "bcf2992039ee5e3ace70de6305d0da0c0df57a011e3f8a067ce8e4da6ddeeceb"
+    },
+    {
+     "name": "battlecry_SW_10.png",
+     "sha256": "b0ae35a22dec13cb988fabd7253808a976ffe19db75177019e6e27840bda16d6"
+    },
+    {
+     "name": "battlecry_SW_11.png",
+     "sha256": "7d88f8b502fbe38fadb04119c074f22af42d07be46172d6283d278463c960939"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "dd2490ff6dd41b360f86bd6003c7d1eb799e8ffa9f261e3f70eaf6c8fe5892db",
+   "alpha_union_bbox": [
+    215,
+    161,
+    534,
+    506
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 135.0,
+   "facing_hips_frame0_deg": 184.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.30912,
+      -0.51536,
+      0.89918
+     ],
+     [
+      -0.41244,
+      0.00939,
+      0.86489
+     ],
+     [
+      -0.35176,
+      -0.64419,
+      1.25562
+     ],
+     [
+      0.18157,
+      -0.69339,
+      0.94393
+     ],
+     [
+      0.05732,
+      -0.56532,
+      0.84236
+     ],
+     [
+      0.06535,
+      -0.52325,
+      0.81946
+     ],
+     [
+      0.10266,
+      -0.52529,
+      0.83069
+     ],
+     [
+      0.02353,
+      -0.511,
+      0.87162
+     ],
+     [
+      -0.28248,
+      -0.5236,
+      0.96301
+     ],
+     [
+      -0.26738,
+      -0.58148,
+      0.86327
+     ],
+     [
+      -0.27993,
+      -0.56316,
+      0.84388
+     ],
+     [
+      -0.3091,
+      -0.51538,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      -1.08386,
+      -0.30975,
+      1.36104
+     ],
+     [
+      -0.08923,
+      0.87559,
+      0.89725
+     ],
+     [
+      -0.8595,
+      -0.75045,
+      2.0216
+     ],
+     [
+      0.53753,
+      -1.52914,
+      1.11892
+     ],
+     [
+      0.10892,
+      -1.48888,
+      0.82807
+     ],
+     [
+      0.0678,
+      -1.44718,
+      0.77288
+     ],
+     [
+      0.10918,
+      -1.45029,
+      0.81851
+     ],
+     [
+      -0.58454,
+      -1.20438,
+      0.94442
+     ],
+     [
+      -1.11631,
+      -0.63229,
+      1.34867
+     ],
+     [
+      -1.09062,
+      -0.51338,
+      1.27976
+     ],
+     [
+      -1.09219,
+      -0.37626,
+      1.2453
+     ],
+     [
+      -1.08385,
+      -0.30979,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      -0.15009,
+      0.03403,
+      1.77989
+     ],
+     [
+      -0.31577,
+      -0.03928,
+      1.43135
+     ],
+     [
+      0.09708,
+      -0.0749,
+      1.84842
+     ],
+     [
+      0.29002,
+      -0.03752,
+      1.72447
+     ],
+     [
+      0.33036,
+      0.00255,
+      1.72112
+     ],
+     [
+      0.36463,
+      -0.03097,
+      1.70585
+     ],
+     [
+      0.35141,
+      -0.04719,
+      1.72473
+     ],
+     [
+      0.14402,
+      -0.01386,
+      1.85783
+     ],
+     [
+      -0.10127,
+      0.07139,
+      1.81251
+     ],
+     [
+      -0.17668,
+      0.04895,
+      1.7177
+     ],
+     [
+      -0.1869,
+      0.03097,
+      1.71929
+     ],
+     [
+      -0.15009,
+      0.03403,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      -0.02361,
+      -0.05229,
+      1.38381
+     ],
+     [
+      0.05857,
+      -0.08056,
+      1.31594
+     ],
+     [
+      0.03946,
+      -0.04718,
+      1.43432
+     ],
+     [
+      -0.00574,
+      -0.01303,
+      1.43133
+     ],
+     [
+      0.02373,
+      0.00995,
+      1.43787
+     ],
+     [
+      0.0459,
+      0.00658,
+      1.44001
+     ],
+     [
+      0.04838,
+      -0.00229,
+      1.44259
+     ],
+     [
+      0.05171,
+      -0.00302,
+      1.44734
+     ],
+     [
+      0.03465,
+      -0.01763,
+      1.4307
+     ],
+     [
+      -0.00527,
+      -0.04279,
+      1.34278
+     ],
+     [
+      -0.02095,
+      -0.05775,
+      1.33868
+     ],
+     [
+      -0.02361,
+      -0.05229,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/W": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_W_00.png",
+     "sha256": "5f70a9b0d2abce9a45007454213012a276c966e12cde2431f9f729bb9004273f"
+    },
+    {
+     "name": "battlecry_W_01.png",
+     "sha256": "1d6aa93e4f086d7acc2a3cea24c34c8a8651701565cc86bf9efd72cc9f13c60e"
+    },
+    {
+     "name": "battlecry_W_02.png",
+     "sha256": "998596c2bcf8ef9f5e348ccd100edc2473665bd24da4580afcc0e9531b525d6b"
+    },
+    {
+     "name": "battlecry_W_03.png",
+     "sha256": "adc31aee95e41603a91dd8b74de5e6cdda8bf295d3b311358f02919828e77291"
+    },
+    {
+     "name": "battlecry_W_04.png",
+     "sha256": "7575688dd09e8b23e7a539ac390e9d8594d72c82c3fd77bc29966cb4255947ae"
+    },
+    {
+     "name": "battlecry_W_05.png",
+     "sha256": "2092c0e2e40157ce936f82913de2aa40455fe4dea191fce3d0fb866d2ef8323e"
+    },
+    {
+     "name": "battlecry_W_06.png",
+     "sha256": "9bb9c4e976e9ad5a40726adf4de4c2d16780a4852ec30fe5cf6b1c3bd7561e49"
+    },
+    {
+     "name": "battlecry_W_07.png",
+     "sha256": "6bfb1bd35de0d46ef0b6dc0514d7fe37ebfd9906d89c0e95082e242ee74a8ae0"
+    },
+    {
+     "name": "battlecry_W_08.png",
+     "sha256": "303210e41b6b120c153fabbc45386bafd42444ddf8cf69e6bf457c755be961ed"
+    },
+    {
+     "name": "battlecry_W_09.png",
+     "sha256": "cc963b60935fe08d3a2d024b2d35824d4a128517471ae07f27d924422e4c92a9"
+    },
+    {
+     "name": "battlecry_W_10.png",
+     "sha256": "baea93e4a88bf95012a17051d7ee0f49f4bff91b23b3db33d642eeeac470da7a"
+    },
+    {
+     "name": "battlecry_W_11.png",
+     "sha256": "c4930812b738ef7c81139105aa2af841b4db3fcccb069a9da0c15e53f6806e76"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "3478a994c9f1de7e5bf05fba3e6c345896224a8edf4c996db34058156eb9f55e",
+   "alpha_union_bbox": [
+    267,
+    126,
+    605,
+    520
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 180.0,
+   "facing_hips_frame0_deg": 229.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.14584,
+      -0.58299,
+      0.89918
+     ],
+     [
+      -0.29828,
+      -0.285,
+      0.86489
+     ],
+     [
+      0.20678,
+      -0.70424,
+      1.25562
+     ],
+     [
+      0.61869,
+      -0.36191,
+      0.94393
+     ],
+     [
+      0.44028,
+      -0.35921,
+      0.84236
+     ],
+     [
+      0.4162,
+      -0.32379,
+      0.81946
+     ],
+     [
+      0.44402,
+      -0.29885,
+      0.83069
+     ],
+     [
+      0.37797,
+      -0.34469,
+      0.87162
+     ],
+     [
+      0.1705,
+      -0.56998,
+      0.96301
+     ],
+     [
+      0.2221,
+      -0.60024,
+      0.86327
+     ],
+     [
+      0.20027,
+      -0.59615,
+      0.84388
+     ],
+     [
+      0.14586,
+      -0.58299,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      -0.54738,
+      -0.98543,
+      1.36104
+     ],
+     [
+      -0.68224,
+      0.55604,
+      0.89725
+     ],
+     [
+      -0.07711,
+      -1.13841,
+      2.0216
+     ],
+     [
+      1.46136,
+      -0.70118,
+      1.11892
+     ],
+     [
+      1.12981,
+      -0.97578,
+      0.82807
+     ],
+     [
+      1.07125,
+      -0.97537,
+      0.77288
+     ],
+     [
+      1.10271,
+      -0.94831,
+      0.81851
+     ],
+     [
+      0.43829,
+      -1.26495,
+      0.94442
+     ],
+     [
+      -0.34225,
+      -1.23645,
+      1.34867
+     ],
+     [
+      -0.40817,
+      -1.1342,
+      1.27976
+     ],
+     [
+      -0.50624,
+      -1.03835,
+      1.2453
+     ],
+     [
+      -0.54735,
+      -0.98545,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      -0.1302,
+      -0.08206,
+      1.77989
+     ],
+     [
+      -0.1955,
+      -0.25106,
+      1.43135
+     ],
+     [
+      0.12161,
+      0.01568,
+      1.84842
+     ],
+     [
+      0.23161,
+      0.17855,
+      1.72447
+     ],
+     [
+      0.23179,
+      0.2354,
+      1.72112
+     ],
+     [
+      0.27973,
+      0.23594,
+      1.70585
+     ],
+     [
+      0.28185,
+      0.21512,
+      1.72473
+     ],
+     [
+      0.11164,
+      0.09204,
+      1.85783
+     ],
+     [
+      -0.12209,
+      -0.02113,
+      1.81251
+     ],
+     [
+      -0.15954,
+      -0.09032,
+      1.7177
+     ],
+     [
+      -0.15406,
+      -0.11025,
+      1.71929
+     ],
+     [
+      -0.1302,
+      -0.08207,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      0.02028,
+      -0.05367,
+      1.38381
+     ],
+     [
+      0.09838,
+      -0.01555,
+      1.31594
+     ],
+     [
+      0.06126,
+      -0.00546,
+      1.43432
+     ],
+     [
+      0.00515,
+      -0.01327,
+      1.43133
+     ],
+     [
+      0.00975,
+      0.02381,
+      1.43787
+     ],
+     [
+      0.0278,
+      0.03711,
+      1.44001
+     ],
+     [
+      0.03583,
+      0.03259,
+      1.44259
+     ],
+     [
+      0.0387,
+      0.03443,
+      1.44734
+     ],
+     [
+      0.03697,
+      0.01204,
+      1.4307
+     ],
+     [
+      0.02653,
+      -0.03399,
+      1.34278
+     ],
+     [
+      0.02603,
+      -0.05565,
+      1.33868
+     ],
+     [
+      0.02028,
+      -0.05367,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/NW": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_NW_00.png",
+     "sha256": "a39f79394134fd8b75f0be73801a57400d7df1f6a8f0663ea169c26f5fcc2c92"
+    },
+    {
+     "name": "battlecry_NW_01.png",
+     "sha256": "724ff46f81d36ed6937df16896d0853e0b3e6e96e9e59c2af85b59b9d64caf26"
+    },
+    {
+     "name": "battlecry_NW_02.png",
+     "sha256": "419b964f7567d3eb6e04f1477c9360a6d0aef98a57967a278da5c998f566488f"
+    },
+    {
+     "name": "battlecry_NW_03.png",
+     "sha256": "d11756bbdc73aad59b43599da0a2a5f70132ce07e86195de89fbfa1e611f8864"
+    },
+    {
+     "name": "battlecry_NW_04.png",
+     "sha256": "678f78133d30b6ae7d88cbfb912c20068dd731d105bd97a4c5c9f3d1c11dffdf"
+    },
+    {
+     "name": "battlecry_NW_05.png",
+     "sha256": "bb33fc38e3bec39da53aa62a0dc797153fa5c6cbc0df5dce59ede78037b71bf2"
+    },
+    {
+     "name": "battlecry_NW_06.png",
+     "sha256": "fa695d7d5eeab4cc175875c2a988b4376f32b6366ffde238c4823e0fc3b54e12"
+    },
+    {
+     "name": "battlecry_NW_07.png",
+     "sha256": "71765d476f53b2a59dd04e1f139552b1f644a0d63ea3a7148d46055f623422a1"
+    },
+    {
+     "name": "battlecry_NW_08.png",
+     "sha256": "694c5a05cf21c6dd6847d4f21a80039684571188be231e8e41ca87d98d920c22"
+    },
+    {
+     "name": "battlecry_NW_09.png",
+     "sha256": "a49fa2b933749b2d5db3b661afd90b1fce5526dad08b9c54251ae04e88307ae9"
+    },
+    {
+     "name": "battlecry_NW_10.png",
+     "sha256": "5535034fc036350ad3345baeb4f2c52047493eb10ac0f154486da2b45171cb73"
+    },
+    {
+     "name": "battlecry_NW_11.png",
+     "sha256": "22c99680894c55ea56bae2506253382002fd858037220eade1a9bbd8f0f62765"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "0b1d7ef6c879084dad5e341919aac25b72b379797febc02280602bdc4ea6fb12",
+   "alpha_union_bbox": [
+    252,
+    160,
+    616,
+    544
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 225.0,
+   "facing_hips_frame0_deg": 274.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.51536,
+      -0.30912,
+      0.89918
+     ],
+     [
+      -0.00939,
+      -0.41244,
+      0.86489
+     ],
+     [
+      0.64419,
+      -0.35176,
+      1.25562
+     ],
+     [
+      0.69339,
+      0.18157,
+      0.94393
+     ],
+     [
+      0.56532,
+      0.05732,
+      0.84236
+     ],
+     [
+      0.52325,
+      0.06535,
+      0.81946
+     ],
+     [
+      0.52529,
+      0.10266,
+      0.83069
+     ],
+     [
+      0.511,
+      0.02353,
+      0.87162
+     ],
+     [
+      0.5236,
+      -0.28248,
+      0.96301
+     ],
+     [
+      0.58148,
+      -0.26738,
+      0.86327
+     ],
+     [
+      0.56316,
+      -0.27993,
+      0.84388
+     ],
+     [
+      0.51538,
+      -0.3091,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      0.30975,
+      -1.08386,
+      1.36104
+     ],
+     [
+      -0.87559,
+      -0.08923,
+      0.89725
+     ],
+     [
+      0.75045,
+      -0.8595,
+      2.0216
+     ],
+     [
+      1.52914,
+      0.53753,
+      1.11892
+     ],
+     [
+      1.48888,
+      0.10892,
+      0.82807
+     ],
+     [
+      1.44718,
+      0.0678,
+      0.77288
+     ],
+     [
+      1.45029,
+      0.10918,
+      0.81851
+     ],
+     [
+      1.20438,
+      -0.58454,
+      0.94442
+     ],
+     [
+      0.63229,
+      -1.11631,
+      1.34867
+     ],
+     [
+      0.51338,
+      -1.09062,
+      1.27976
+     ],
+     [
+      0.37626,
+      -1.09219,
+      1.2453
+     ],
+     [
+      0.30979,
+      -1.08385,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      -0.03403,
+      -0.15009,
+      1.77989
+     ],
+     [
+      0.03928,
+      -0.31577,
+      1.43135
+     ],
+     [
+      0.0749,
+      0.09708,
+      1.84842
+     ],
+     [
+      0.03752,
+      0.29002,
+      1.72447
+     ],
+     [
+      -0.00255,
+      0.33036,
+      1.72112
+     ],
+     [
+      0.03097,
+      0.36463,
+      1.70585
+     ],
+     [
+      0.04719,
+      0.35141,
+      1.72473
+     ],
+     [
+      0.01386,
+      0.14402,
+      1.85783
+     ],
+     [
+      -0.07139,
+      -0.10127,
+      1.81251
+     ],
+     [
+      -0.04895,
+      -0.17668,
+      1.7177
+     ],
+     [
+      -0.03097,
+      -0.1869,
+      1.71929
+     ],
+     [
+      -0.03403,
+      -0.15009,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      0.05229,
+      -0.02361,
+      1.38381
+     ],
+     [
+      0.08056,
+      0.05857,
+      1.31594
+     ],
+     [
+      0.04718,
+      0.03946,
+      1.43432
+     ],
+     [
+      0.01303,
+      -0.00574,
+      1.43133
+     ],
+     [
+      -0.00995,
+      0.02373,
+      1.43787
+     ],
+     [
+      -0.00658,
+      0.0459,
+      1.44001
+     ],
+     [
+      0.00229,
+      0.04838,
+      1.44259
+     ],
+     [
+      0.00302,
+      0.05171,
+      1.44734
+     ],
+     [
+      0.01763,
+      0.03465,
+      1.4307
+     ],
+     [
+      0.04279,
+      -0.00527,
+      1.34278
+     ],
+     [
+      0.05775,
+      -0.02095,
+      1.33868
+     ],
+     [
+      0.05229,
+      -0.02361,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/N": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_N_00.png",
+     "sha256": "671e2edfe9b90185b49a9ae24b2aa2b15ba256e7625f1a7afda4215e36856b87"
+    },
+    {
+     "name": "battlecry_N_01.png",
+     "sha256": "1b1da14b1c94087b66e868d02ef08d1f204e1cb1e1f55bcb255affea6ca3b6d4"
+    },
+    {
+     "name": "battlecry_N_02.png",
+     "sha256": "c56726b93e79a665160fee5fcb69103e12e5f0f6af00ac1c4a4594e7bbe65672"
+    },
+    {
+     "name": "battlecry_N_03.png",
+     "sha256": "aeb90b048c351f82f3c4845ca552768fa264070cf7ff3addd052b1f39b6baf06"
+    },
+    {
+     "name": "battlecry_N_04.png",
+     "sha256": "c0ff0bf526e908d2b8b321964932e9e59c2de003c59cbbb2c8aba412427d703b"
+    },
+    {
+     "name": "battlecry_N_05.png",
+     "sha256": "9e961e493abc538f6639809686b004577dbfa48b2ae477a6ac0b09f0713502ab"
+    },
+    {
+     "name": "battlecry_N_06.png",
+     "sha256": "a85d75bdbcb44396d13ebb9d53cd655b5f0534ef9568215717b2faca3faa44d3"
+    },
+    {
+     "name": "battlecry_N_07.png",
+     "sha256": "3edeadc9b50deff949343dd6b8296cbb3dbf0a7555b5c36cc8cc61663348be6c"
+    },
+    {
+     "name": "battlecry_N_08.png",
+     "sha256": "16299e1b9d83f161a32ff1ce00ae2a452193e5d9c223123667a07fae58464361"
+    },
+    {
+     "name": "battlecry_N_09.png",
+     "sha256": "61f2d751785633f4888a78532bb10902498a91d94d173d4a2f9ee8341d7445a0"
+    },
+    {
+     "name": "battlecry_N_10.png",
+     "sha256": "0bdb103555619dc8a325042f6f22cd7cefa9bfe71017b5c6832cc18056625651"
+    },
+    {
+     "name": "battlecry_N_11.png",
+     "sha256": "b7aa113567d33fdb354bc3716a8b2a3e665a319d8103d2cc0f87b54fb476ea05"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "f7456a7b0e4efa0147fd76b67a88d0386f09c90caaefaeed5da332b81526b2cf",
+   "alpha_union_bbox": [
+    270,
+    254,
+    575,
+    526
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 270.0,
+   "facing_hips_frame0_deg": 319.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.58299,
+      0.14584,
+      0.89918
+     ],
+     [
+      0.285,
+      -0.29828,
+      0.86489
+     ],
+     [
+      0.70424,
+      0.20678,
+      1.25562
+     ],
+     [
+      0.36191,
+      0.61869,
+      0.94393
+     ],
+     [
+      0.35921,
+      0.44028,
+      0.84236
+     ],
+     [
+      0.32379,
+      0.4162,
+      0.81946
+     ],
+     [
+      0.29885,
+      0.44402,
+      0.83069
+     ],
+     [
+      0.34469,
+      0.37797,
+      0.87162
+     ],
+     [
+      0.56998,
+      0.1705,
+      0.96301
+     ],
+     [
+      0.60024,
+      0.2221,
+      0.86327
+     ],
+     [
+      0.59615,
+      0.20027,
+      0.84388
+     ],
+     [
+      0.58299,
+      0.14586,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      0.98543,
+      -0.54738,
+      1.36104
+     ],
+     [
+      -0.55604,
+      -0.68224,
+      0.89725
+     ],
+     [
+      1.13841,
+      -0.07711,
+      2.0216
+     ],
+     [
+      0.70118,
+      1.46136,
+      1.11892
+     ],
+     [
+      0.97578,
+      1.12981,
+      0.82807
+     ],
+     [
+      0.97537,
+      1.07125,
+      0.77288
+     ],
+     [
+      0.94831,
+      1.10271,
+      0.81851
+     ],
+     [
+      1.26495,
+      0.43829,
+      0.94442
+     ],
+     [
+      1.23645,
+      -0.34225,
+      1.34867
+     ],
+     [
+      1.1342,
+      -0.40817,
+      1.27976
+     ],
+     [
+      1.03835,
+      -0.50624,
+      1.2453
+     ],
+     [
+      0.98545,
+      -0.54735,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      0.08206,
+      -0.1302,
+      1.77989
+     ],
+     [
+      0.25106,
+      -0.1955,
+      1.43135
+     ],
+     [
+      -0.01568,
+      0.12161,
+      1.84842
+     ],
+     [
+      -0.17855,
+      0.23161,
+      1.72447
+     ],
+     [
+      -0.2354,
+      0.23179,
+      1.72112
+     ],
+     [
+      -0.23594,
+      0.27973,
+      1.70585
+     ],
+     [
+      -0.21512,
+      0.28185,
+      1.72473
+     ],
+     [
+      -0.09204,
+      0.11164,
+      1.85783
+     ],
+     [
+      0.02113,
+      -0.12209,
+      1.81251
+     ],
+     [
+      0.09032,
+      -0.15954,
+      1.7177
+     ],
+     [
+      0.11025,
+      -0.15406,
+      1.71929
+     ],
+     [
+      0.08207,
+      -0.1302,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      0.05367,
+      0.02028,
+      1.38381
+     ],
+     [
+      0.01555,
+      0.09838,
+      1.31594
+     ],
+     [
+      0.00546,
+      0.06126,
+      1.43432
+     ],
+     [
+      0.01327,
+      0.00515,
+      1.43133
+     ],
+     [
+      -0.02381,
+      0.00975,
+      1.43787
+     ],
+     [
+      -0.03711,
+      0.0278,
+      1.44001
+     ],
+     [
+      -0.03259,
+      0.03583,
+      1.44259
+     ],
+     [
+      -0.03443,
+      0.0387,
+      1.44734
+     ],
+     [
+      -0.01204,
+      0.03697,
+      1.4307
+     ],
+     [
+      0.03399,
+      0.02653,
+      1.34278
+     ],
+     [
+      0.05565,
+      0.02603,
+      1.33868
+     ],
+     [
+      0.05367,
+      0.02028,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/NE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_NE_00.png",
+     "sha256": "c0912e8fcef3725f61fb465f774353af9231034f9d8a052ed197a0a938c4e2c1"
+    },
+    {
+     "name": "battlecry_NE_01.png",
+     "sha256": "4ac9d15e88749c141acde710127e4ec86eee73c6d37e73e3a046543ee1a46e42"
+    },
+    {
+     "name": "battlecry_NE_02.png",
+     "sha256": "fd9df3242f20d73f6a20f40ba5082dce1288334524181c02f6085b002aca1b06"
+    },
+    {
+     "name": "battlecry_NE_03.png",
+     "sha256": "5b165dec65c4e977743466a20375ea6c4dca9adcead3b0379ad6ae3f29c93d2f"
+    },
+    {
+     "name": "battlecry_NE_04.png",
+     "sha256": "d4a1c2d28ab7d2c3f7b19a569973a3e7e8f283bde13e761a5a3db44d09b2ce9d"
+    },
+    {
+     "name": "battlecry_NE_05.png",
+     "sha256": "6d4c8111008a559b546087cd4788d659f2cd2d3de22cd09d9d70c4c694eebbcf"
+    },
+    {
+     "name": "battlecry_NE_06.png",
+     "sha256": "502675f6c0d249b52a18c34884a90950ac3ac5d5e62d0def1bb999e1a8dac249"
+    },
+    {
+     "name": "battlecry_NE_07.png",
+     "sha256": "c02d46d6d060b33b17083d923ddf5b803b4fe720fe3f1916983b5f8b69697b4c"
+    },
+    {
+     "name": "battlecry_NE_08.png",
+     "sha256": "c63e30ec17fdeec9b6e47b4eaa63ba85ee6a9bae24586cdf8fa9b864fe3a83b1"
+    },
+    {
+     "name": "battlecry_NE_09.png",
+     "sha256": "8c958e9d4004d0986c817743e67a0874e19c28b68c9ebcee71c4d6b0a004a65d"
+    },
+    {
+     "name": "battlecry_NE_10.png",
+     "sha256": "df3b18f9bf127b47d9386a3a152f50a5d2f0093ff78e8ee37b627fe150f0ca14"
+    },
+    {
+     "name": "battlecry_NE_11.png",
+     "sha256": "3d0b1860680c31b5e2d5a32a80f2b4aaa81520a572805be5d3cab5dd9fbefaaa"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "675f202a70dc11a72101288f0fada65b8cadc36885ea8275e9d54ffdaee79e5f",
+   "alpha_union_bbox": [
+    234,
+    237,
+    553,
+    552
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 315.0,
+   "facing_hips_frame0_deg": 4.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      0.30912,
+      0.51536,
+      0.89918
+     ],
+     [
+      0.41244,
+      -0.00939,
+      0.86489
+     ],
+     [
+      0.35176,
+      0.64419,
+      1.25562
+     ],
+     [
+      -0.18157,
+      0.69339,
+      0.94393
+     ],
+     [
+      -0.05732,
+      0.56532,
+      0.84236
+     ],
+     [
+      -0.06535,
+      0.52325,
+      0.81946
+     ],
+     [
+      -0.10266,
+      0.52529,
+      0.83069
+     ],
+     [
+      -0.02353,
+      0.511,
+      0.87162
+     ],
+     [
+      0.28248,
+      0.5236,
+      0.96301
+     ],
+     [
+      0.26738,
+      0.58148,
+      0.86327
+     ],
+     [
+      0.27993,
+      0.56316,
+      0.84388
+     ],
+     [
+      0.3091,
+      0.51538,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      1.08386,
+      0.30975,
+      1.36104
+     ],
+     [
+      0.08923,
+      -0.87559,
+      0.89725
+     ],
+     [
+      0.8595,
+      0.75045,
+      2.0216
+     ],
+     [
+      -0.53753,
+      1.52914,
+      1.11892
+     ],
+     [
+      -0.10892,
+      1.48888,
+      0.82807
+     ],
+     [
+      -0.0678,
+      1.44718,
+      0.77288
+     ],
+     [
+      -0.10918,
+      1.45029,
+      0.81851
+     ],
+     [
+      0.58454,
+      1.20438,
+      0.94442
+     ],
+     [
+      1.11631,
+      0.63229,
+      1.34867
+     ],
+     [
+      1.09062,
+      0.51338,
+      1.27976
+     ],
+     [
+      1.09219,
+      0.37626,
+      1.2453
+     ],
+     [
+      1.08385,
+      0.30979,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      0.15009,
+      -0.03403,
+      1.77989
+     ],
+     [
+      0.31577,
+      0.03928,
+      1.43135
+     ],
+     [
+      -0.09708,
+      0.0749,
+      1.84842
+     ],
+     [
+      -0.29002,
+      0.03752,
+      1.72447
+     ],
+     [
+      -0.33036,
+      -0.00255,
+      1.72112
+     ],
+     [
+      -0.36463,
+      0.03097,
+      1.70585
+     ],
+     [
+      -0.35141,
+      0.04719,
+      1.72473
+     ],
+     [
+      -0.14402,
+      0.01386,
+      1.85783
+     ],
+     [
+      0.10127,
+      -0.07139,
+      1.81251
+     ],
+     [
+      0.17668,
+      -0.04895,
+      1.7177
+     ],
+     [
+      0.1869,
+      -0.03097,
+      1.71929
+     ],
+     [
+      0.15009,
+      -0.03403,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      0.02361,
+      0.05229,
+      1.38381
+     ],
+     [
+      -0.05857,
+      0.08056,
+      1.31594
+     ],
+     [
+      -0.03946,
+      0.04718,
+      1.43432
+     ],
+     [
+      0.00574,
+      0.01303,
+      1.43133
+     ],
+     [
+      -0.02373,
+      -0.00995,
+      1.43787
+     ],
+     [
+      -0.0459,
+      -0.00658,
+      1.44001
+     ],
+     [
+      -0.04838,
+      0.00229,
+      1.44259
+     ],
+     [
+      -0.05171,
+      0.00302,
+      1.44734
+     ],
+     [
+      -0.03465,
+      0.01763,
+      1.4307
+     ],
+     [
+      0.00527,
+      0.04279,
+      1.34278
+     ],
+     [
+      0.02095,
+      0.05775,
+      1.33868
+     ],
+     [
+      0.02361,
+      0.05229,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/E": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_E_00.png",
+     "sha256": "1aa1e7d72270dcd7c6761d603dc0704a15aed096ffafcc4ee132a8ad88dac65a"
+    },
+    {
+     "name": "battlecry_E_01.png",
+     "sha256": "ee04118971eaaea1211a7a4e862c9051157e7da6525fa537333bedacc79087f0"
+    },
+    {
+     "name": "battlecry_E_02.png",
+     "sha256": "fbef54ccb41617257b1061d3889be4b5ddb1f82efac00eaad6794b2fefbe4899"
+    },
+    {
+     "name": "battlecry_E_03.png",
+     "sha256": "5d83170c27b7bc93c50f739a448eeec1a2cd4b0ca5eb32d36ced612f538ced67"
+    },
+    {
+     "name": "battlecry_E_04.png",
+     "sha256": "5625fa58cec94db2243a21d87497373cbf13cdcb3b1fab1a4f9b967ee46839c0"
+    },
+    {
+     "name": "battlecry_E_05.png",
+     "sha256": "f7b0d36925c93ffe18fb7abc04f086eaa0fd5dbb562a6b455266f7578ca980f9"
+    },
+    {
+     "name": "battlecry_E_06.png",
+     "sha256": "1b77badd4d1389eb1e1a654e2ee15c401f388ad50c19651fa5d77002a8708b14"
+    },
+    {
+     "name": "battlecry_E_07.png",
+     "sha256": "6e38a649ceeec79012b559a3b1ca04c1c366a5d11c98c9497ba82f01a1332bff"
+    },
+    {
+     "name": "battlecry_E_08.png",
+     "sha256": "ac1ba9906a1acabe8f0744f88599a61ee94947c18237bab842137b9c5f7ece87"
+    },
+    {
+     "name": "battlecry_E_09.png",
+     "sha256": "4e15cce20148d9eda1c958e548c979f8a4044744a7fedd24fbc7e2a9b86ab098"
+    },
+    {
+     "name": "battlecry_E_10.png",
+     "sha256": "d784b8d945508d942f3b7979768461329042624b5a7ff3610498dcdf4ae15779"
+    },
+    {
+     "name": "battlecry_E_11.png",
+     "sha256": "ecd9ab2720c4becba2a7629cc7ad8c9c5f1ad8a99612a2e40389940570102969"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "b74f3170340b929517bbb48293f7deb914dfed6e8099883ab96bfe3419f9cd62",
+   "alpha_union_bbox": [
+    163,
+    252,
+    501,
+    515
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 360.0,
+   "facing_hips_frame0_deg": 49.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.14584,
+      0.58299,
+      0.89918
+     ],
+     [
+      0.29828,
+      0.285,
+      0.86489
+     ],
+     [
+      -0.20678,
+      0.70424,
+      1.25562
+     ],
+     [
+      -0.61869,
+      0.36191,
+      0.94393
+     ],
+     [
+      -0.44028,
+      0.35921,
+      0.84236
+     ],
+     [
+      -0.4162,
+      0.32379,
+      0.81946
+     ],
+     [
+      -0.44402,
+      0.29885,
+      0.83069
+     ],
+     [
+      -0.37797,
+      0.34469,
+      0.87162
+     ],
+     [
+      -0.1705,
+      0.56998,
+      0.96301
+     ],
+     [
+      -0.2221,
+      0.60024,
+      0.86327
+     ],
+     [
+      -0.20027,
+      0.59615,
+      0.84388
+     ],
+     [
+      -0.14586,
+      0.58299,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      0.54738,
+      0.98543,
+      1.36104
+     ],
+     [
+      0.68224,
+      -0.55604,
+      0.89725
+     ],
+     [
+      0.07711,
+      1.13841,
+      2.0216
+     ],
+     [
+      -1.46136,
+      0.70118,
+      1.11892
+     ],
+     [
+      -1.12981,
+      0.97578,
+      0.82807
+     ],
+     [
+      -1.07125,
+      0.97537,
+      0.77288
+     ],
+     [
+      -1.10271,
+      0.94831,
+      0.81851
+     ],
+     [
+      -0.43829,
+      1.26495,
+      0.94442
+     ],
+     [
+      0.34225,
+      1.23645,
+      1.34867
+     ],
+     [
+      0.40817,
+      1.1342,
+      1.27976
+     ],
+     [
+      0.50624,
+      1.03835,
+      1.2453
+     ],
+     [
+      0.54735,
+      0.98545,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      0.1302,
+      0.08206,
+      1.77989
+     ],
+     [
+      0.1955,
+      0.25106,
+      1.43135
+     ],
+     [
+      -0.12161,
+      -0.01568,
+      1.84842
+     ],
+     [
+      -0.23161,
+      -0.17855,
+      1.72447
+     ],
+     [
+      -0.23179,
+      -0.2354,
+      1.72112
+     ],
+     [
+      -0.27973,
+      -0.23594,
+      1.70585
+     ],
+     [
+      -0.28185,
+      -0.21512,
+      1.72473
+     ],
+     [
+      -0.11164,
+      -0.09204,
+      1.85783
+     ],
+     [
+      0.12209,
+      0.02113,
+      1.81251
+     ],
+     [
+      0.15954,
+      0.09032,
+      1.7177
+     ],
+     [
+      0.15406,
+      0.11025,
+      1.71929
+     ],
+     [
+      0.1302,
+      0.08207,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      -0.02028,
+      0.05367,
+      1.38381
+     ],
+     [
+      -0.09838,
+      0.01555,
+      1.31594
+     ],
+     [
+      -0.06126,
+      0.00546,
+      1.43432
+     ],
+     [
+      -0.00515,
+      0.01327,
+      1.43133
+     ],
+     [
+      -0.00975,
+      -0.02381,
+      1.43787
+     ],
+     [
+      -0.0278,
+      -0.03711,
+      1.44001
+     ],
+     [
+      -0.03583,
+      -0.03259,
+      1.44259
+     ],
+     [
+      -0.0387,
+      -0.03443,
+      1.44734
+     ],
+     [
+      -0.03697,
+      -0.01204,
+      1.4307
+     ],
+     [
+      -0.02653,
+      0.03399,
+      1.34278
+     ],
+     [
+      -0.02603,
+      0.05565,
+      1.33868
+     ],
+     [
+      -0.02028,
+      0.05367,
+      1.38381
+     ]
+    ]
+   }
+  },
+  "battlecry/SE": {
+   "status": "COMPLETE",
+   "flags": [],
+   "frames": 12,
+   "files": [
+    {
+     "name": "battlecry_SE_00.png",
+     "sha256": "0a4fab1058d8f02ad8b34586eacb5e608f6b080194a2bf727e149ef300e261d5"
+    },
+    {
+     "name": "battlecry_SE_01.png",
+     "sha256": "07f78868d8c4f58fca3c2d14c69671dc5063e9fda1fe652ed796ec3717cbb9ff"
+    },
+    {
+     "name": "battlecry_SE_02.png",
+     "sha256": "32710f267bf011877b5e41b21011d95594e99cd2b070dfce0edd66d4a9010fcb"
+    },
+    {
+     "name": "battlecry_SE_03.png",
+     "sha256": "1b9a393e6a84b41b14987f1bef2554d5172fd1ef2701da4638d284dbc59e53f4"
+    },
+    {
+     "name": "battlecry_SE_04.png",
+     "sha256": "612f6ca2660ba0edad38a96658e498549355190c7e355cb2d5b5789d161ddbc8"
+    },
+    {
+     "name": "battlecry_SE_05.png",
+     "sha256": "43deb55f66afbe54bbe2f64edd7698c6cfbb643b6f87a9696cc65f3c351e16ef"
+    },
+    {
+     "name": "battlecry_SE_06.png",
+     "sha256": "2d528f439153b9ae12f9947327ebf940ce4c7f8c1a4796b98ef40c1bb0d1e1b1"
+    },
+    {
+     "name": "battlecry_SE_07.png",
+     "sha256": "3b269e4d31c05854ae626880f637ec835ab4f672e755372cb8e249c71e4222e6"
+    },
+    {
+     "name": "battlecry_SE_08.png",
+     "sha256": "800ca42fc799d27441fb86d998d765a5b5031ad7a5b2e44472ceb35cf9e741b0"
+    },
+    {
+     "name": "battlecry_SE_09.png",
+     "sha256": "b00ce31b88c23a33532d4c1be8d73e30f4aa2773b5184ea2a0f936e836b5bad7"
+    },
+    {
+     "name": "battlecry_SE_10.png",
+     "sha256": "29668d148df8b5776bf2b1cba68e9fd31642b8101e9c9deb77a3415a8fb9c933"
+    },
+    {
+     "name": "battlecry_SE_11.png",
+     "sha256": "cecd11a86afa0786a81f72028cbd045af303e41ca241c6ed8f3b14a1a668a567"
+    }
+   ],
+   "render_pass": null,
+   "cell_sha256": "8d17b50cecb810911fbc1fc34aa1d8457fa3b8da66084034602ac7c929903456",
+   "alpha_union_bbox": [
+    152,
+    239,
+    516,
+    495
+   ],
+   "edge_touch": false,
+   "facing_measured_deg": 45.0,
+   "facing_hips_frame0_deg": 94.956,
+   "anchor_measured_max_dev_px": 0.0,
+   "sockets_m": {
+    "main_grip": [
+     [
+      -0.51536,
+      0.30912,
+      0.89918
+     ],
+     [
+      0.00939,
+      0.41244,
+      0.86489
+     ],
+     [
+      -0.64419,
+      0.35176,
+      1.25562
+     ],
+     [
+      -0.69339,
+      -0.18157,
+      0.94393
+     ],
+     [
+      -0.56532,
+      -0.05732,
+      0.84236
+     ],
+     [
+      -0.52325,
+      -0.06535,
+      0.81946
+     ],
+     [
+      -0.52529,
+      -0.10266,
+      0.83069
+     ],
+     [
+      -0.511,
+      -0.02353,
+      0.87162
+     ],
+     [
+      -0.5236,
+      0.28248,
+      0.96301
+     ],
+     [
+      -0.58148,
+      0.26738,
+      0.86327
+     ],
+     [
+      -0.56316,
+      0.27993,
+      0.84388
+     ],
+     [
+      -0.51538,
+      0.3091,
+      0.89918
+     ]
+    ],
+    "main_tip": [
+     [
+      -0.30975,
+      1.08386,
+      1.36104
+     ],
+     [
+      0.87559,
+      0.08923,
+      0.89725
+     ],
+     [
+      -0.75045,
+      0.8595,
+      2.0216
+     ],
+     [
+      -1.52914,
+      -0.53753,
+      1.11892
+     ],
+     [
+      -1.48888,
+      -0.10892,
+      0.82807
+     ],
+     [
+      -1.44718,
+      -0.0678,
+      0.77288
+     ],
+     [
+      -1.45029,
+      -0.10918,
+      0.81851
+     ],
+     [
+      -1.20438,
+      0.58454,
+      0.94442
+     ],
+     [
+      -0.63229,
+      1.11631,
+      1.34867
+     ],
+     [
+      -0.51338,
+      1.09062,
+      1.27976
+     ],
+     [
+      -0.37626,
+      1.09219,
+      1.2453
+     ],
+     [
+      -0.30979,
+      1.08385,
+      1.36104
+     ]
+    ],
+    "head_top": [
+     [
+      0.03403,
+      0.15009,
+      1.77989
+     ],
+     [
+      -0.03928,
+      0.31577,
+      1.43135
+     ],
+     [
+      -0.0749,
+      -0.09708,
+      1.84842
+     ],
+     [
+      -0.03752,
+      -0.29002,
+      1.72447
+     ],
+     [
+      0.00255,
+      -0.33036,
+      1.72112
+     ],
+     [
+      -0.03097,
+      -0.36463,
+      1.70585
+     ],
+     [
+      -0.04719,
+      -0.35141,
+      1.72473
+     ],
+     [
+      -0.01386,
+      -0.14402,
+      1.85783
+     ],
+     [
+      0.07139,
+      0.10127,
+      1.81251
+     ],
+     [
+      0.04895,
+      0.17668,
+      1.7177
+     ],
+     [
+      0.03097,
+      0.1869,
+      1.71929
+     ],
+     [
+      0.03403,
+      0.15009,
+      1.77989
+     ]
+    ],
+    "chest": [
+     [
+      -0.05229,
+      0.02361,
+      1.38381
+     ],
+     [
+      -0.08056,
+      -0.05857,
+      1.31594
+     ],
+     [
+      -0.04718,
+      -0.03946,
+      1.43432
+     ],
+     [
+      -0.01303,
+      0.00574,
+      1.43133
+     ],
+     [
+      0.00995,
+      -0.02373,
+      1.43787
+     ],
+     [
+      0.00658,
+      -0.0459,
+      1.44001
+     ],
+     [
+      -0.00229,
+      -0.04838,
+      1.44259
+     ],
+     [
+      -0.00302,
+      -0.05171,
+      1.44734
+     ],
+     [
+      -0.01763,
+      -0.03465,
+      1.4307
+     ],
+     [
+      -0.04279,
+      0.00527,
+      1.34278
+     ],
+     [
+      -0.05775,
+      0.02095,
+      1.33868
+     ],
+     [
+      -0.05229,
+      0.02361,
+      1.38381
+     ]
+    ]
+   }
+  }
+ },
+ "expected": 16,
+ "complete": 16
+}

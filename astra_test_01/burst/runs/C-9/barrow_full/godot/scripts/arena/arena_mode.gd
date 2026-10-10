@@ -895,6 +895,7 @@ func _render(delta: float) -> void:
 		# ...and, like the cards, slid along the ortho view ray toward the camera (the same pixels on screen), so the
 		# flat bed disc is not cut where the snow rises behind him
 		warlord.drive_eor(st - scene.fwd * EOR_TOWARD_CAM_M, revs, scene.u_hat, scene.v_hat)
+		warlord.ring_station = st - scene.fwd * EOR_TOWARD_CAM_M
 	if topdown:
 		var c := T + Vector2(0.0, -2.0)
 		scene.set_topdown(Vector2(c.x, -c.y), 62.0)

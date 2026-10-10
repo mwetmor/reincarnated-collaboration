@@ -1,0 +1,90 @@
+{
+ "kit": "gd-eor-warlord-eor4x",
+ "_what": "R-C9-366: a VARIANT pack root of NEW STATES ONLY for the dark knight (eor3 stays the root of record for every other state): charge (great sword slide attack) and battlecry (standing taunt battlecry), on final_k_eor4x/wl_body.glb = final_k_eor3/wl_body.glb + those two clips grafted by e40b. Same pieces, gear, camera, sockets and eyes as eor3.",
+ "contract": {
+  "doc": "reincarnated-godot/docs/join1-sprite-cell-contract-2026-09-29.md",
+  "commit": "d95e1df",
+  "schema": "join1-sprite-cells/1"
+ },
+ "source": {
+  "body": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor4x/wl_body.glb",
+  "pieces": [
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_chest.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_pauldrons.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_cape.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_helm.glb",
+   "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/wl_mace.glb"
+  ],
+  "clip_manifest": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_render/manifests/gd-eor-warlord-eor4x_clips.json",
+  "loadout": {
+   "main_hand": "mace (two-handed)",
+   "main_side": "R",
+   "off_hand": null,
+   "weapsel": 0
+  }
+ },
+ "h_model": {
+  "method": "rest pose, the body mesh (char1) skinned at rest by the runtime importer: crown (max up) minus sole (min up), metres",
+  "mesh_name_contains": "char1"
+ },
+ "camera": {},
+ "states": {
+  "charge": {
+   "clip": "charge",
+   "kind": "oneshot",
+   "role": "oneshot",
+   "frames": 12,
+   "sampling": "ends",
+   "manifest_entry": "clips.charge",
+   "skill": "Charge (KC2 blitz): great sword slide attack"
+  },
+  "battlecry": {
+   "clip": "battlecry",
+   "kind": "oneshot",
+   "role": "oneshot_release",
+   "frames": 12,
+   "sampling": "release",
+   "release_from": "casts.battlecry.release_s",
+   "release_socket": "head_top",
+   "manifest_entry": "casts.battlecry",
+   "skill": "Battle Cry (KC2 war_cry): standing taunt battlecry"
+  }
+ },
+ "morphs": {},
+ "eyes": {
+  "sockets": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor3/eye_sockets.json",
+  "color": "#9e4dff",
+  "_what": "his runtime eye billboards rendered INTO the cells (render_cells.gd _eyes); steady, no flicker"
+ },
+ "sockets": {
+  "main_grip": {
+   "bone": "RightHand",
+   "local_m": [
+    0.00207,
+    0.12698,
+    0.00791
+   ],
+   "_what": "the mace grip = the right FIST in every state: RightHand + the weapon_r seat measured at rest in RightHand's normalised frame (metres). Identical to the weapon_r joint in the 7 non-spin clips (weapon_r is fixed in the hand there); in eor_spin_start/loop (final_k_eor2) the haft slide (e54) moves weapon_r 0.2 m off the fist, so weapon_r is no longer the grip. Was bone weapon_r until 2026-10-02"
+  },
+  "main_tip": {
+   "bone": "weapon_r",
+   "along_bone_m": 0.9251,
+   "_what": "the mace head's far point: weapon_r + 0.9251 m along +Y (measured off wl_mace.glb in the bone's frame)"
+  },
+  "head_top": {
+   "bone": "head_end",
+   "_what": "the top of the head"
+  },
+  "chest": {
+   "bone": "Spine",
+   "_what": "the chest: Meshy's \"Spine\" is the TOP spine joint (parent of neck and both shoulders; Spine02 is the LOWEST, child of Hips). Was Spine02 (belly height) until the socket fix of 2026-10-02"
+  }
+ },
+ "watchdog_s": 2400,
+ "cape": "the cape's spring-bone secondary motion (gear_stills.gd _cape_sim) is a runtime simulation and is NOT in the cells: the cape rides its bind (rigid chain)",
+ "pack_version": 2,
+ "extends": {
+  "pack": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/join1_pack/gd-eor-warlord-eor3",
+  "rule": "states not in this root are drawn from eor3"
+ }
+}
