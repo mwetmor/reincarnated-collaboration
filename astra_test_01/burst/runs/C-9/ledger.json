@@ -55784,6 +55784,19 @@
       "cites": [
         "R-C9-378"
       ]
+    },
+    {
+      "id": "R-C9-380",
+      "by": "gandalf (conductor)",
+      "ts": "2026-10-10T00:30:41-04:00",
+      "ruling": "drax a80bd0eb5 ACCEPTED: arena default snow = the deployed painted Barrow's snow (loadout public/playtest/barrow-painted @ e8d0d0f; web data density ~9 cm/texel, half-float; no drifts; painted surface), steep feather + shard cull kept; mean depth 0.053 -> 0.033 m; lit (250,238,226) vs v1 phone path (248,236,228). Enemy VFX 10a1e460d committed, flag-gated (--arena-vfx on); wave-160 cost ~1% avg; awaiting Matt's look at captures/enemy_vfx/families.mp4 before default-on.",
+      "cites": [
+        "R-C9-376",
+        "R-C9-378",
+        "R-C9-379",
+        "a80bd0eb5",
+        "10a1e460d"
+      ]
     }
   ],
   "grok_calls": [
