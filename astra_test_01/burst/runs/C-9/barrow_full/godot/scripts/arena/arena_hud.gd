@@ -103,6 +103,11 @@ func _draw() -> void:
 	_text("WAVE %d  (%d of 10)" % [wave, wave - 150], Vector2(24, 40), 26, Color(1, 0.93, 0.8))
 	_text("%.1f s   ·   %d on the field" % [float(snap.get("wave_elapsed_s", 0.0)), (snap.get("actors", []) as Array).size()],
 		Vector2(24, 66), 15, Color(0.85, 0.85, 0.9))
+	if mode.audio != null:
+		_text("M music %s · K effects %s · B next track" %
+			["off" if mode.audio.music_muted else "on", "off" if mode.audio.sfx_muted else "on"],
+			Vector2(24, 90), 12, Color(0.85, 0.85, 0.9))
+		_text(mode.audio.music_title(), Vector2(24, 108), 12, Color(0.75, 0.80, 0.85))
 	_text("BARROW_V2 ARENA - the KC2 fight, spawn points moved (R-C9-348). Not the KC2 test.", Vector2(24, vs.y - 16), 12,
 		Color(0.8, 0.8, 0.85, 0.8))
 	# ---- the warlord ----

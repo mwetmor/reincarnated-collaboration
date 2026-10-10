@@ -22,6 +22,7 @@ rsync -a --delete --filter 'P .godot/' --filter 'P build/' \
 mkdir -p "$DEST/build/logs"
 touch "$DEST/build/.gdignore"
 python3 "$TOOLS/arena_bundle_native.py" "$DEST" > "$DEST/build/logs/bundle.log"
+python3 "$TOOLS/arena_stage_audio.py" --project "$DEST" > "$DEST/build/logs/audio_stage.log"
 python3 - "$DEST" <<'PY'
 import pathlib, re, sys
 root = pathlib.Path(sys.argv[1])
@@ -82,5 +83,12 @@ grep -q 'NATIVE_SCENE: PASS' "$DEST/build/logs/native_probe.log" || { echo 'Nati
 if grep -q 'SCRIPT ERROR:' "$DEST/build/logs/native_probe.log"; then
   echo 'Native scene probe emitted a script error' >&2; exit 7
 fi
+rm -f "$DEST/build/logs/native/audio_probe.json"
+"$GODOT" --headless --audio-driver CoreAudio --path "$ISOLATED" \
+  --main-pack "$DEST/build/BarrowArena-Windows-x64/BarrowArena.pck" \
+  --script "$TOOLS/arena_audio_probe.gd" -- --audio-evidence "$DEST/build/logs/native/audio_probe.json" \
+  > "$DEST/build/logs/audio_native_mix.log" 2>&1
+grep -q 'ARENA_AUDIO: PASS' "$DEST/build/logs/audio_native_mix.log" || exit 7
+! grep -q 'SCRIPT ERROR:' "$DEST/build/logs/audio_native_mix.log" || exit 7
 python3 "$TOOLS/arena_native_zip.py" "$DEST"
 echo "Export ready: $DEST/build/BarrowArena-Windows-x64"

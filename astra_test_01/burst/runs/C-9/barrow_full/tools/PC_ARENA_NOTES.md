@@ -25,6 +25,32 @@ The bundle includes the whole original JOIN-1 catalogue and arena variants, incl
 
 Expected export warning: the sealed extension declares only a Mac arm64 library, so Godot warns that it has no Windows x64 library. The generated startup list is suppressed, and the Windows adapter uses the reference solver. Native probes retain the pre-existing 78 NUL decoder warnings from the sealed data reader and Godot shutdown resource/RID leak diagnostics; no sealed reader or shutdown behavior was changed. Fatal script/scene errors are not accepted.
 
-Verified artifact: `pc_arena/build/BarrowArena-Windows-x64.zip`, 2,439,475,745 bytes, SHA256 `8ea2874dfe0b101e18698b4c72a9e6eb9d6f489b9832d4f4982c8233663b068b`. The final payload audit passed for 3,401 raw/pinned inputs (2,625 original art/VFX files, 42 kits). The isolated Mac reference-solver scene probe passed: native painting, 825 mesh instances, 334 collision shapes, 10 MultiMeshes, 29,200 reachable walk cells, live 3D hero, 51 enemy VFX sets, all 42 kits decoded, 125 combat ticks and 3 m of physical movement. Counts of actor meshes vary with the test seed. Actual Windows executable launch is explicitly unverified in the package manifest.
+Initial package, before the audio update: `pc_arena/build/BarrowArena-Windows-x64.zip`, 2,439,475,745 bytes, SHA256 `8ea2874dfe0b101e18698b4c72a9e6eb9d6f489b9832d4f4982c8233663b068b`. The final payload audit passed for 3,401 raw/pinned inputs (2,625 original art/VFX files, 42 kits). The isolated Mac reference-solver scene probe passed: native painting, 825 mesh instances, 334 collision shapes, 10 MultiMeshes, 29,200 reachable walk cells, live 3D hero, 51 enemy VFX sets, all 42 kits decoded, 125 combat ticks and 3 m of physical movement. Counts of actor meshes vary with the test seed. Actual Windows executable launch is explicitly unverified in the package manifest.
 
 The final graphics probe also passed from an empty project using the Windows PCK on this Mac: Metal 3.2 / Forward+ / Apple M2, all 42 kits decoded, 812 live mesh instances, 334 collision shapes, 29,200 reachable cells, 125 advancing combat ticks and 3 m of movement. The screenshot `pc_arena/build/logs/native-gpu/native_probe.png` was visually inspected: painted terrain, the barrow structure/door, palisade, snow, hero rig, monster art, shadows and combat effects are present. This is local graphics evidence, not a Windows GPU acceptance claim.
+
+
+## Audio update — 2026-10-10
+
+The current Windows ZIP includes 42 SFX and all five original demo music tracks, with
+Ossuary Procession as the provisional default. M toggles music, K toggles effects,
+and B selects the next track. Inventory, gaps, provenance and evidence are in
+`../audio_review/AUDIO_REVIEW.md` and `AUDIO_VERIFICATION.json`.
+
+`tools/refresh_pc_arena_audio.sh` updates only the audio manifest/assets and three
+presentation scripts in an existing native mirror. It preserves the full build's
+20 GiB gate; its separate 8 GiB incremental gate accounts for the existing export
+and temporary ZIP. The last delivered ZIP remains intact until the replacement
+passes CRC/hash checks and is atomically substituted.
+
+Updated artifact: 2,497,882,092 bytes; SHA256
+`e25e01072058e34c96b6a8d60bd55feb40130f2079b614939c9386b2d9a7b3b1`.
+Payload audit: 3,449 byte-verified inputs, including all 47 original-byte audio files.
+Packed scene probe: all 42 native kits, Forward+, 334 collision shapes, 29,200
+reachable cells, 125 advancing ticks and 3 m movement; 42 SFX decoded and five
+music tracks available. Packed CoreAudio probe on Mac, using the PC's GDScript
+reference solver: 480,256 mixed frames, peak 0.441226 (-7.1 dBFS), no silent
+output/clipping, successful/failed cooldown distinction, unchanged snapshot after
+audio event consumption, loop lifecycle, independent mutes and the 11-voice cap.
+Actual Windows launch, Windows audio/GPU behavior and final listening balance
+remain playtest criteria.

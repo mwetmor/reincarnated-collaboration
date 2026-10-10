@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-10",
+  "source_audio_probe": {
+    "accepted_vs_cooldown_refusal": true,
+    "adapter_snapshot_unchanged": true,
+    "audio_driver": "CoreAudio",
+    "loop_lifecycle_and_independent_mutes": true,
+    "mixed_frames": 480256,
+    "mixed_peak": 0.433373421430588,
+    "music_decoded": 5,
+    "platform": "macOS",
+    "report": {
+      "dropped": 136,
+      "loaded": 48,
+      "missing": [],
+      "peak_voices": 11,
+      "played": {
+        "blitz": 1,
+        "cold_cast": 4,
+        "enemy_death": 2,
+        "fire_cast": 5,
+        "ghost_cast": 3,
+        "ghost_death": 6,
+        "golem_death": 2,
+        "lightning_cast": 5,
+        "physical_hit": 43,
+        "poison_cast": 3,
+        "poison_hit": 5,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 1,
+        "snow_step": 8,
+        "vires_might": 1,
+        "war_cry": 1,
+        "whirlwind_start": 3
+      }
+    },
+    "sfx_decoded": 42,
+    "voice_cap": 11
+  },
+  "packed_native_scene_probe": {
+    "decoded_full_resolution_kits": 42,
+    "distance_m": 3.00005054473877,
+    "enemy_vfx_sets": 51,
+    "geometry": {
+      "CollisionShape3D": 334,
+      "MeshInstance3D": 827,
+      "MultiMeshInstance3D": 10
+    },
+    "hero": "3d",
+    "music_tracks": 5,
+    "painting": "res://data/bv2f/site_ph4/painted/manifest.json",
+    "platform_executed": "macOS",
+    "renderer_setting": "forward_plus",
+    "sfx_decoded": 42,
+    "solver": "gdscript",
+    "ticks_advanced": 125,
+    "walk_reachable_cells": 29200
+  },
+  "packed_audio_probe": {
+    "accepted_vs_cooldown_refusal": true,
+    "adapter_snapshot_unchanged": true,
+    "audio_driver": "CoreAudio",
+    "audio_manifest_sha256": "2cde52cd27a22bdaa2822646e46aaeff66ff88c8240bc9e7c903452f5cefc714",
+    "loop_lifecycle_and_independent_mutes": true,
+    "mixed_frames": 480256,
+    "mixed_peak": 0.441226094961166,
+    "music_decoded": 5,
+    "platform": "macOS",
+    "report": {
+      "dropped": 149,
+      "loaded": 48,
+      "missing": [],
+      "peak_voices": 11,
+      "played": {
+        "blitz": 1,
+        "cold_cast": 4,
+        "enemy_death": 2,
+        "fire_cast": 6,
+        "ghost_cast": 6,
+        "ghost_death": 5,
+        "golem_death": 1,
+        "lightning_cast": 2,
+        "physical_hit": 42,
+        "poison_hit": 8,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 2,
+        "snow_step": 8,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 3
+      }
+    },
+    "sfx_decoded": 42,
+    "solver": "gdscript",
+    "voice_cap": 11
+  },
+  "windows_executable_launch_verified": false,
+  "zip": {
+    "path": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/pc_arena/build/BarrowArena-Windows-x64.zip",
+    "bytes": 2497882092,
+    "sha256": "e25e01072058e34c96b6a8d60bd55feb40130f2079b614939c9386b2d9a7b3b1",
+    "crc_verified": true
+  },
+  "sealed_runtime_tree": "a0e75469a78b3b81d979d9d525e0bbf1c5324459260c62110192878c33a53f1c",
+  "model_pack": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788"
+}

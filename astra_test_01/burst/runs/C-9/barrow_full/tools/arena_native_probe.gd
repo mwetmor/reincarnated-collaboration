@@ -54,6 +54,9 @@ func _run() -> void:
 		_fail("scene startup timed out")
 		return
 	var arena = scene.arena
+	if arena.audio == null or arena.audio.streams.size() != 42 or not arena.audio.report["missing"].is_empty():
+		_fail("native audio missing/undecodable")
+		return
 	if scene.PILOT_MANIFEST != "res://data/bv2f/site_ph4/painted/manifest.json":
 		_fail("did not select full native painting")
 		return
@@ -94,6 +97,7 @@ func _run() -> void:
 		_fail("fight/movement did not advance")
 		return
 	var result := {"renderer_setting": "forward_plus", "painting": scene.PILOT_MANIFEST,
+		"sfx_decoded": arena.audio.streams.size(), "music_tracks": arena.audio.manifest["music"].size(),
 		"geometry": counts, "walk_reachable_cells": arena.walk_reach.count(1),
 		"decoded_full_resolution_kits": decoded, "hero": "3d", "enemy_vfx_sets": arena.enemy_vfx.sets.size(),
 		"solver": arena.session.fight.contact_solver, "ticks_advanced": after - before,

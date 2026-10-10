@@ -22,6 +22,7 @@ def main():
     output = root / 'build/BarrowArena-Windows-x64'
     pack = output / 'BarrowArena.pck'
     stamp = json.loads((root / 'kc2/bundle/BUNDLE_STAMP.json').read_text())
+    audio = json.loads((root / 'data/audio/arena_audio.json').read_text())
     expected = dict(stamp['art_files'])
     expected.update({'kc2/bundle/' + name: digest for name, digest in stamp['files'].items()})
     for directory, filename in [('kc2/kc2_runtime', 'MANIFEST.json'), ('kc2/model_pack', 'manifest.json')]:
@@ -33,6 +34,11 @@ def main():
         if source.is_file() and source.suffix in ('.bin', '.json', '.gdshader', '.f32'):
             expected[str(source.relative_to(root))] = sha(source)
     expected[ALIAS] = PIN
+    for clip in audio['clips'].values():
+        name = 'data/audio/' + clip['file']
+        if sha(root / name) != clip['sha256']:
+            raise ValueError('audio differs from original demo: ' + name)
+        expected[name] = clip['sha256']
     with open(pack, 'rb') as f:
         base, rows = entries(f)
         table = {name: (offset, size) for name, offset, size, _ in rows}
@@ -61,6 +67,8 @@ def main():
         assert f.read(4) == b'PE\0\0'
         assert struct.unpack('<H', f.read(2))[0] == 0x8664, 'not Windows x64'
     (output / 'Play Barrow Arena.cmd').write_bytes(b'@echo off\r\ncd /d "%~dp0"\r\nstart "" /wait "%~dp0BarrowArena.exe"\r\n')
+    shutil.copy2(Path(__file__).resolve().parent.parent / 'audio_review/AUDIO_CREDITS.txt',
+                 output / 'AUDIO_CREDITS.txt')
     (output / 'READ ME.txt').write_text('''BARROW ARENA - Windows x64 playtest (2026-10-10)
 
 1. Extract the entire ZIP to a folder on your Windows PC.
@@ -74,6 +82,10 @@ Left mouse: move / click an enemy to charge and attack
 Right mouse (hold): Whirlwind
 1: Potion   2: Might   3: Battle Cry   4: Haste
 Z: zoom   R: restart   Escape: exit
+M: music on/off   K: sound effects on/off   B: next soundtrack
+
+Includes original demo audio: character skills, weapon swings, monster casts,
+impacts/deaths, snow footsteps, and five switchable season soundtracks.
 
 This is the existing native bv2f_arena scene, using Forward+ rendering,
 original-resolution character strips, native level/painting data, the live
@@ -99,6 +111,7 @@ The web/mobile bugs are deferred separately; this is an offline PC playtest.
                 'model_pack_digest': stamp['model_pack_digest'],
                 'verified_native_payloads': len(expected), 'native_art_files': len(stamp['art_files']),
                 'kit_count': len(stamp['kit_sources']), 'windows_launch_verified': False,
+                'audio_clips': len(audio['clips']), 'soundtracks': [t['title'] for t in audio['music']],
                 'legacy_table_alias': ALIAS,
                 'files': {p.name: {'bytes': p.stat().st_size, 'sha256': sha(p)}
                           for p in sorted(output.iterdir()) if p.is_file() and p.name != 'BUILD_MANIFEST.json'}}

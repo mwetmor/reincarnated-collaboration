@@ -26,6 +26,8 @@ const Monster3D = preload("res://scripts/arena/arena_monster3d.gd")
 const Warlord3D = preload("res://scripts/arena/arena_warlord3d.gd")
 const ArenaHud = preload("res://scripts/arena/arena_hud.gd")
 const ArenaNumbers = preload("res://scripts/arena/arena_numbers.gd")
+const ArenaAudio = preload("res://scripts/arena/arena_audio.gd")
+var audio = null
 var numbers = null
 const Token3D = preload("res://scripts/arena/arena_token3d.gd")
 const ENEMY_VFX_SCRIPT := "res://scripts/arena/arena_enemy_vfx.gd"   # on by default (R-C9-381); needs tools/arena_stage_vfx.py run once
@@ -539,6 +541,13 @@ func _boot() -> void:
 	accum = 0.0
 	pending_presses = []
 	snap = session.snapshot()
+	if audio == null:
+		audio = ArenaAudio.new()
+		audio.name = "ArenaAudio"
+		add_child(audio)
+		audio.setup(self)
+	else:
+		audio.reset()
 	# the opening wave's spawn events fire inside open(), before the first tick is consumed: their anchors too
 	for e0 in session.stream.events:
 		if String((e0 as Dictionary).get("event", "")) == "spawn":
@@ -970,6 +979,18 @@ func handle_input(e: InputEvent) -> void:
 	if e is InputEventKey and e.pressed and not e.echo:
 		var k := (e as InputEventKey).keycode
 		match k:
+			KEY_M:
+				if audio != null:
+					audio.toggle_music()
+				return
+			KEY_K:
+				if audio != null:
+					audio.toggle_sfx()
+				return
+			KEY_B:
+				if audio != null:
+					audio.next_music()
+				return
 			KEY_ESCAPE:
 				quit_arena()
 				return
@@ -1046,6 +1067,8 @@ func _slash_target():
 
 
 func _start_slash(tgt) -> void:
+	if audio != null:
+		audio.cue("slash", false, 0.12)
 	move_target_m = null
 	var contact: float = warlord.play_slash(tgt.pos_m - player_pos_m)
 	if hero3d != null:
@@ -1073,6 +1096,8 @@ func _drive_slash() -> void:
 	numbers.show_hit(to_world(t.draw_m) + Vector3.UP * (float(t.true_height_m) * 0.5), maxf(1.0, roundf(v)),
 		"Physical", false, -1000 - int(t.actor_id))
 	t.on_hit()
+	if audio != null:
+		audio.cue("physical_hit", false, 0.14)
 
 
 ## R-C9-370/373 (presentation only): a click ON a live enemy within his reach, while not channelling or charging, is
@@ -1255,6 +1280,8 @@ func _one_tick() -> void:
 	hud.consume_events(last_events)
 	if term != "":
 		running = false
+		if audio != null:
+			audio.end_fight()
 		recorder.close(session.report())
 		print("[arena] RUN OVER: %s at wave %d, tick %d (waves seen %s; kits %s; no-pack families %s; blocked stops %d)" % [
 			term, int(session.fight.terminal_wave), int(session.fight.run_tick), str(waves_seen.keys()),
@@ -1268,6 +1295,8 @@ func _channel_held() -> bool:
 
 
 func _consume_events(evs: Array) -> void:
+	if audio != null:
+		audio.consume(evs)
 	for e_any in evs:
 		var e: Dictionary = e_any
 		var ev := String(e.get("event", ""))
