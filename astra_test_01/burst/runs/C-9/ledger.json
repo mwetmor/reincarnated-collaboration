@@ -55832,6 +55832,19 @@
         "1582b6c50",
         "1384ba466"
       ]
+    },
+    {
+      "id": "R-C9-384",
+      "by": "gandalf (conductor), under Matt's R-C9-381",
+      "ts": "2026-10-10T01:58:26-04:00",
+      "ruling": "drax 9f433b735 (tick interpolation, default on; moving monster drawn-position changes 8.2 -> 35.8/s, fps unchanged), 58e334bb1 (warlord live 3D rig behind --arena-hero 3d, +0.8-1.05 ms; default sprite pending Matt), ce92e42a3 (doorway entry: door spawns walk out from 0.6 m inside the threshold, hidden until they cross, 0.3 s fade; bodies on non-open ground hidden until open ground; 6 s failsafe) ACCEPTED; a barrow-door emergence clip is still owed. NORTH EXTENSION (Matt's go, R-C9-381) DISPATCHED: new image budget BV2F-N1 cap 10 (run total 1460/1750); new data set site_ph4 (site_ph3 untouched); every existing plate pixel byte-identical (identity proof); world coordinates unchanged; guided paint-over method with context strips; disk gate 21 GiB (now 23).",
+      "cites": [
+        "R-C9-381",
+        "R-C9-383",
+        "9f433b735",
+        "58e334bb1",
+        "ce92e42a3"
+      ]
     }
   ],
   "grok_calls": [
