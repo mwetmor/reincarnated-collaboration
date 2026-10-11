@@ -1,0 +1,52 @@
+{
+  "id": "dpl_2Rtd1yHdjEycAZ4nX68yLpW3ijMg",
+  "name": "reincarnated-loadout",
+  "url": "reincarnated-loadout-2km8jkcaf-matthew-wetmore-s-projects.vercel.app",
+  "target": "production",
+  "readyState": "READY",
+  "createdAt": 1791728818730,
+  "duration": {
+    "startTime": 1791728823212,
+    "timeToReady": 157046
+  },
+  "buildMachine": {
+    "cores": 2,
+    "memory": 8192,
+    "machine": "basic",
+    "selectionType": "fixed",
+    "selectionSource": "plan-default"
+  },
+  "aliases": [
+    "reincarnated-loadout-matthew-wetmore-s-projects.vercel.app",
+    "reincarnated-loadout-git-main-matthew-wetmore-s-projects.vercel.app"
+  ],
+  "builds": [
+    {
+      "id": "bld_fsxk8bmqd",
+      "deploymentId": "dpl_2Rtd1yHdjEycAZ4nX68yLpW3ijMg",
+      "entrypoint": ".",
+      "readyState": "READY",
+      "readyStateAt": 1791728818625,
+      "createdAt": 1791728818625,
+      "createdIn": "sfo1",
+      "use": "@vercel/vc-build",
+      "config": {
+        "framework": "vite",
+        "nodeVersion": "24.x",
+        "projectCreatedAt": 1778651600090,
+        "vercelConfig": {
+          "rewrites": [
+            {
+              "source": "/(.*)",
+              "destination": "/index.html"
+            }
+          ]
+        }
+      },
+      "middleware": [],
+      "output": [],
+      "fingerprint": null
+    }
+  ],
+  "contextName": "matthew-wetmore-s-projects"
+}

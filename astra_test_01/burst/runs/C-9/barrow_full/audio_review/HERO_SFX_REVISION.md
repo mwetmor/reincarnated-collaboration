@@ -79,7 +79,29 @@ This remains a large cold download. Physical phone/Safari and the actual Windows
 executable/GPU/performance have not been tested; no zero-lag guarantee.
 
 Public route: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
-Final release provenance and public measurements are appended below after deployment.
+Loadout commit: `206b4169d4a1272481c8ccb1b2a361ca722e4055`.
+Source implementation commit: `cc79fc924` (documentation completion follows).
+Vercel production deployment: `dpl_2Rtd1yHdjEycAZ4nX68yLpW3ijMg`, READY.
+All 21 public files download without authentication/cookies and match export hashes.
+
+Fresh unauthenticated Chrome 154 touch test on this M2 Mac mini (8 GB RAM):
+actual WebAudio peak 0.60895; all four skill buttons, movement, Whirlwind
+hold/release, zoom, mutes and score switching pass. Manifest and world painting
+checks pass in the hosted WASM scene; no page/script failures. The rendered canvas
+is 2532x1170 at 3x DPR. Sustained combat advances from tick 104 to 536.
+RAF-interval estimate: 62.6 FPS, p99 30.4 ms, worst 42.6 ms, two intervals above
+33.4 ms across 2,236 intervals. Including initial controls: 61.6 FPS, worst 91.9 ms,
+nine intervals above 33.4 ms. These are browser callback timing estimates on this
+Mac, not physical-phone or all-wave GPU benchmarks. Startup to arena-up is 84.9 s
+in this run; network/cache conditions are not controlled against the earlier release.
+
+Remaining visual limits: character body strips retain the existing half-size/q82
+conversion; large sprites can still look softer than native. The Compatibility
+palette/shadow repair does not establish pixel-identical native appearance. Further
+object/sprite-specific visual acceptance and physical phone/Safari testing remain.
+
+Compact committed evidence: `evidence/hero-web-repair/`. Full public logs/screens:
+`../web_arena/build/logs/hero-public-touch-long/`.
 
 Local full evidence: `../web_arena/build/logs/{audio-fail-first,browser-desktop,
 browser-touch,browser-fail-pack,art-source-check.json,world_texture_detail.json}`
