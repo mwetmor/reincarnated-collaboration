@@ -7,6 +7,7 @@ const MIX := "BarrowMix"
 const SFX := "BarrowSFX"
 const MUSIC := "BarrowMusic"
 const ENVIRONMENT := "BarrowEnvironment"
+const WHIRLWIND_HIT_GAIN_DB := -10.0
 var mode = null
 var manifest: Dictionary = {}
 var streams: Dictionary = {}
@@ -242,7 +243,10 @@ func consume(events: Array) -> void:
 				if source == 0 or target == 0:
 					var families := {String(e.get("damage_type", "Physical")): true}
 					var element := EnemyVFX._element(families, "")
-					cue(element + "_hit", target == 0, 0.14)
+					# Let the approved pendulum sweeps lead during Whirlwind.
+					# Incoming hits and the hero's other attacks keep their level.
+					var hit_gain := WHIRLWIND_HIT_GAIN_DB if source == 0 and element == "physical" and whirlwind.playing else 0.0
+					cue(element + "_hit", target == 0, 0.14, hit_gain)
 			"death":
 				if id > 0:
 					cue(_voice_family(_record(id)) + "_death", true, 0.25)

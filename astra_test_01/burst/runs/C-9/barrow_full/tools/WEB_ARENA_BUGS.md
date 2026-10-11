@@ -6,7 +6,8 @@ art, Vercel login on mobile, and failure to load on his phone.
 
 Native reference: `godot/scenes/bv2f_arena.tscn`.
 Public playtest route: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
-See `../audio_review/HERO_SFX_REVISION.md` for the current release;
+See `../audio_review/WHIRLWIND_HIT_BALANCE.md` for the latest mix release and
+`../audio_review/HERO_SFX_REVISION.md` for rendering/audio repair evidence;
 `ARENA_RELEASE_2026-10-10.md` remains historical evidence.
 
 | ID | Finding and change | Remaining acceptance |

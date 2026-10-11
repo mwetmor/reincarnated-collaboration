@@ -98,3 +98,7 @@ Chrome; playback loaded with a valid duration; selecting an alternative and
 adding notes persisted across reload. Keep-current, mute, find-more, search,
 JSON export/import, and rejection of a different catalogue passed with zero
 JavaScript errors. No audition verdicts were inferred from those technical checks.
+
+Whirlwind pendulum sweeps are accepted; runtime contact hits are now 10 dB quieter
+while channeling. See `WHIRLWIND_HIT_BALANCE.md`. The listening page plays the
+approved loop by itself; contact-hit balancing is heard during actual combat.

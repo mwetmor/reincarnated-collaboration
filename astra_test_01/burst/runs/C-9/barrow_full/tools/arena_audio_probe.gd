@@ -97,6 +97,32 @@ func _run() -> void:
 	if sound.whirlwind.playing:
 		_fail("Whirlwind release did not stop loop")
 		return
+	# Same physical-hit clip: only the hero's outgoing Whirlwind contacts quieten.
+	var hit_levels := {}
+	for label in ["normal", "whirlwind", "incoming", "released"]:
+		for voice in sound.player_voices + sound.enemy_voices:
+			voice.stop()
+		sound.now += 0.3
+		if label == "whirlwind":
+			sound.consume([{"event": "channel_on", "actor_id": 0}])
+		elif label == "released":
+			sound.consume([{"event": "channel_off", "actor_id": 0}])
+		var incoming: bool = label == "incoming"
+		sound.consume([{"event": "hit", "src_id": 1 if incoming else 0,
+			"dst_id": 0 if incoming else 1, "damage_type": "Physical"}])
+		var pool = sound.enemy_voices if incoming else sound.player_voices
+		var level := 100.0
+		for voice in pool:
+			if voice.playing:
+				level = voice.volume_db
+		var expected := -8.0 if incoming else (-12.0 if label == "whirlwind" else -2.0)
+		if not is_equal_approx(level, expected) or not is_equal_approx(sound.whirlwind.volume_db, -8.0):
+			_fail("Whirlwind hit balance failed: %s, level %.2f expected %.2f" % [label, level, expected])
+			return
+		hit_levels[label] = level
+	if state != JSON.stringify(arena.session.snapshot()):
+		_fail("hit balance altered fight state")
+		return
 	sound.now += 0.3
 	sound.consume([{"event": "channel_on", "actor_id": 0}])
 	sound.toggle_sfx()
@@ -144,6 +170,8 @@ func _run() -> void:
 		"mixed_frames": frames, "mixed_peak": peak, "report": sound.report,
 		"accepted_vs_cooldown_refusal": true, "adapter_snapshot_unchanged": true,
 		"loop_lifecycle_and_independent_mutes": true, "voice_cap": 11}
+	result["hit_voice_db"] = hit_levels
+	result["pendulum_voice_db"] = sound.whirlwind.volume_db
 	var args := OS.get_cmdline_user_args()
 	var at := args.find("--audio-evidence")
 	if at >= 0 and at + 1 < args.size():
