@@ -34,7 +34,7 @@ const $=id=>document.getElementById(id), audio=$('audio');
 const storageKey='barrow.sfx.review.v1.'+DATA.catalog_sha256;
 let state={choices:{}}, current=DATA.actions[0].key, storageAvailable=true;
 const serverMode=window.BARROW_REVIEW_SERVER===true;
-let serverRevision=null, localEdit=0;
+let serverRevision=null, localEdit=0, serverReady=false;
 function emptyState(){return {schema:'barrow_sfx_selections_v1',catalog_sha256:DATA.catalog_sha256,manifest_sha256:DATA.manifest_sha256,choices:{}};}
 function validated(raw){
  if(!raw||raw.schema!=='barrow_sfx_selections_v1'||raw.catalog_sha256!==DATA.catalog_sha256||raw.manifest_sha256!==DATA.manifest_sha256||!raw.choices||typeof raw.choices!=='object'||Array.isArray(raw.choices))throw Error('This selection file belongs to a different sound review.');
@@ -128,22 +128,33 @@ async function loadMac(force=false){
  const editBefore=localEdit;
  $('server-status').textContent='Connecting to the Mac…';
  try{
-  const response=await fetch('/api/selections',{cache:'no-store'}),result=await response.json();if(!response.ok)throw Error(result.error||'Could not load choices');
-  if(localEdit!==editBefore)throw Error('You changed choices while loading. Tap Load saved choices again when ready.');
+  const result=await serverRequest('/api/selections',{cache:'no-store'});
+  serverRevision=result.revision;serverReady=true;
+  if(localEdit!==editBefore){$('server-status').textContent='Kept your new edits. Tap Save to Mac to send them.';return;}
   if(force&&result.selection&&Object.keys(state.choices).length&&!confirm('Replace this device’s choices with the choices saved on the Mac? Export first if you want a backup.')){$('server-status').textContent='Kept the choices on this device.';return;}
-  serverRevision=result.revision;
   if(result.selection&&(force||Object.keys(state.choices).length===0)){state=validated(result.selection);save();show(current);$('server-status').textContent='Loaded the choices saved on the Mac.';}
   else $('server-status').textContent=result.selection?'Saved Mac choices are available. Load them, or save this device’s choices.':'Ready. Tap Save to Mac after making your choices.';
   $('save-mac').disabled=false;
  }catch(error){$('server-status').textContent='Could not load from Mac: '+error.message;}
- finally{$('load-mac').disabled=false;}
+ finally{$('load-mac').disabled=false;$('save-mac').disabled=false;}
+}
+async function serverRequest(url,options={}){
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),8000);
+ try{
+  const response=await fetch(url,{...options,signal:controller.signal}),result=await response.json();
+  if(!response.ok)throw Error(result.error||'Server request failed');return result;
+ }catch(error){
+  if(error.name==='AbortError')throw Error('Connection timed out. Stay on the Mac’s Wi-Fi and tap Save to Mac to retry.');
+  throw error;
+ }finally{clearTimeout(timeout);}
 }
 if(serverMode){
  $('save-mac').hidden=false;$('load-mac').hidden=false;
  $('save-mac').addEventListener('click',async()=>{
   const editBefore=localEdit;$('save-mac').disabled=true;$('server-status').textContent='Saving to the Mac…';
   try{
-   const response=await fetch('/api/selections',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_revision:serverRevision,selection:state})}),result=await response.json();if(!response.ok)throw Error(result.error||'Save failed');
+   if(!serverReady){const latest=await serverRequest('/api/selections',{cache:'no-store'});serverRevision=latest.revision;serverReady=true;}
+   const result=await serverRequest('/api/selections',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({expected_revision:serverRevision,selection:state})});
    serverRevision=result.revision;$('server-status').textContent=editBefore===localEdit?'Saved to the Mac. Your selections are ready for review.':'Earlier choices saved. Tap Save to Mac again to send your latest edits.';
   }catch(error){$('server-status').textContent='Not saved to Mac: '+error.message;}
   finally{$('save-mac').disabled=false;}

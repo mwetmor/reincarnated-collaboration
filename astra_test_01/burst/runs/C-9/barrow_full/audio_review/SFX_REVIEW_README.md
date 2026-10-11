@@ -34,6 +34,13 @@ saves, stale revisions, foreign origins/hosts, and project-file requests were
 rejected without changing saved choices. No JavaScript errors. Actual iPhone
 Safari/network reachability still requires opening the link on the phone.
 
+Save recovery: editing during the initial server load keeps those edits and
+enables Save to Mac. Requests time out after eight seconds; a failed initial
+connection leaves Save available to reconnect and retry. Both the delayed-load
+edit and aborted-request retry were exercised in the mobile browser smoke check,
+followed by a real server save and fresh-device restore. If a phone still cannot
+connect, export its JSON backup before refreshing; Import restores a saved file.
+
 To stop the background instance started by Codex, use the PID recorded in
 `audio_review/selections/server.pid` with `kill <PID>`. To restart manually,
 use the command above (Ctrl-C stops a foreground instance).
