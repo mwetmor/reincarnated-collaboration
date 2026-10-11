@@ -1,6 +1,6 @@
 {
   "request": "Use supplied 16_38_03 ElevenLabs MP3 for Might unchanged",
-  "status": "local_gates_passed",
+  "status": "published_public_files_verified",
   "cue": "vires_might",
   "source_sha256": "1db4e2f682613e0981d9c5362654364f7c15ee7c4cc8fad9dc993d4a34031066",
   "only_changed_cue": true,
@@ -438,5 +438,210 @@
     "evidence": "web_arena/build/logs/might-selected-touch/result.json",
     "web_audio_peak": 0.4194488525390625,
     "physical_phone_tested": false
+  },
+  "local_phone_audition": {
+    "url": "http://127.0.0.1:8796/",
+    "viewport": 375,
+    "root_rendered": true,
+    "root_excerpt": "\u2699Reincarnated\nPlaySummaryLoadoutKitsCanonAnalyticsEncountersCourtEngineForgePlanning\n\u25c8\n\nKit Space \u2014 Duskweaver of the Eclipsed Meridian\n\nQDX-5 kit-space output (kse_20260602_008). B4.5 substrate-selec",
+    "sections": 6,
+    "might": {
+      "duration": 4,
+      "currentTime": 0.509384,
+      "paused": false,
+      "error": null
+    },
+    "page_errors": []
+  },
+  "production": {
+    "deployment_id": "dpl_4Zk7MqKYeGLCum9D9k9Wo2JCANci",
+    "status": "READY",
+    "loadout_commit": "d29465e81fe0a583837aba69909f4ac60fac24c5",
+    "url": "https://reincarnated-loadout.vercel.app/playtest/barrow-arena/",
+    "unauthenticated_files": [
+      {
+        "file": "audio_0.pck",
+        "http": 200,
+        "bytes": 36892220,
+        "sha256": "1cae01cca0dba1ae81dfd933149b7180f712ae9f4c69324df58dae63012c6e1d"
+      },
+      {
+        "file": "audio_1.pck",
+        "http": 200,
+        "bytes": 15935848,
+        "sha256": "28b494f503f625ba17d92234b1ad6f921ca341a23583924ee45e1a3222a9043d"
+      },
+      {
+        "file": "hero-sfx.html",
+        "http": 200,
+        "bytes": 1726246,
+        "sha256": "f77f54191c216832bbc556c3a25647addf23e8b7d922896fdfb37baa62c479f2"
+      },
+      {
+        "file": "hero_0_part0.pck",
+        "http": 200,
+        "bytes": 35039273,
+        "sha256": "96817d182dc8d292d6095992fbcb5655f965bfdb1decdd0b4286d5d261d6c337"
+      },
+      {
+        "file": "hero_0_part1.pck",
+        "http": 200,
+        "bytes": 16337453,
+        "sha256": "ebaba316cc1977f247abef533615957b5821125d7d493fffa4d9e7cdc4ac4dc4"
+      },
+      {
+        "file": "index.apple-touch-icon.png",
+        "http": 200,
+        "bytes": 11952,
+        "sha256": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a"
+      },
+      {
+        "file": "index.audio.position.worklet.js",
+        "http": 200,
+        "bytes": 2973,
+        "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+      },
+      {
+        "file": "index.audio.worklet.js",
+        "http": 200,
+        "bytes": 7298,
+        "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+      },
+      {
+        "file": "index.html",
+        "http": 200,
+        "bytes": 7101,
+        "sha256": "362157d298d0a84e2366a7fb9590023286e63a152116b9715e0eaf4f4c299a93"
+      },
+      {
+        "file": "index.icon.png",
+        "http": 200,
+        "bytes": 5702,
+        "sha256": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5"
+      },
+      {
+        "file": "index.js",
+        "http": 200,
+        "bytes": 315759,
+        "sha256": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981"
+      },
+      {
+        "file": "index.pck",
+        "http": 200,
+        "bytes": 40903400,
+        "sha256": "00ac0a5ad6b11587ef21e918a1c80b3fdf554182189d0595dae55360d39eed67"
+      },
+      {
+        "file": "index.png",
+        "http": 200,
+        "bytes": 21443,
+        "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+      },
+      {
+        "file": "index.wasm",
+        "http": 200,
+        "bytes": 37700666,
+        "sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6"
+      },
+      {
+        "file": "kits_0.pck",
+        "http": 200,
+        "bytes": 33177324,
+        "sha256": "3a6da3c96ba6a706c6a7c9adbf3c4e22ce4cc62edb81459794fb6ec29aed9b88"
+      },
+      {
+        "file": "kits_1.pck",
+        "http": 200,
+        "bytes": 31700024,
+        "sha256": "15a5dd960298424a64f88f9a8832e40402b1902fcf74c90d394442783977b2f0"
+      },
+      {
+        "file": "kits_2.pck",
+        "http": 200,
+        "bytes": 38419920,
+        "sha256": "bacac8083d6517e22c871c91febb4177d895c2e296603f29fa61a2968d9af6a9"
+      },
+      {
+        "file": "kits_3.pck",
+        "http": 200,
+        "bytes": 34291704,
+        "sha256": "4d3fd47f812330cb295c6123a38908d082a940bdcfb71fb1c2cd344ac1fc4ecd"
+      },
+      {
+        "file": "kits_4.pck",
+        "http": 200,
+        "bytes": 30046736,
+        "sha256": "1ed640a24f16a85ce2b6c642b2ed2a7e5ee3b1d1b0f82adb6d7277d2b22c8b16"
+      },
+      {
+        "file": "kits_5.pck",
+        "http": 200,
+        "bytes": 37900728,
+        "sha256": "77bf717862cbbe199aeb01141e485d571a9f6a216dc6ac0e299888e400646c9d"
+      },
+      {
+        "file": "kits_6.pck",
+        "http": 200,
+        "bytes": 38521968,
+        "sha256": "778640ba3e6ceac9e378f2cd2909d7be1310215bc6f9c759eeca5c8cf9087ee7"
+      },
+      {
+        "file": "kits_7.pck",
+        "http": 200,
+        "bytes": 12728332,
+        "sha256": "02de0fa679ddbc8ffe2cd99a4cccbe025442e6fe3f8a8d91876e8eb31e7d8673"
+      },
+      {
+        "file": "model_0.pck",
+        "http": 200,
+        "bytes": 26990116,
+        "sha256": "3bbe007974d8e214c64ca2744d2b7e75a8391cd3b3425185cfc2c9b86f3e37be"
+      },
+      {
+        "file": "model_1.pck",
+        "http": 200,
+        "bytes": 38038436,
+        "sha256": "13e61fd459a92590ef3d963a13caff565195584a9ab12e78ea90dd7041368af2"
+      },
+      {
+        "file": "model_2.pck",
+        "http": 200,
+        "bytes": 25768208,
+        "sha256": "334b4becbbfad14f575c9a142ee1647b5c1268b251f8b81aaff69307e8cac401"
+      },
+      {
+        "file": "site_0.pck",
+        "http": 200,
+        "bytes": 30576160,
+        "sha256": "0ac4ab8b273d5e9292d7ff3aacfdbdc3390dd7142652fbd64f96824e374682c2"
+      },
+      {
+        "file": "site_1.pck",
+        "http": 200,
+        "bytes": 44437136,
+        "sha256": "a682f861df6db98d88d4f4900692de0b34192852ca6c62c7fd5f6e5310eb39c3"
+      },
+      {
+        "file": "vfx_0.pck",
+        "http": 200,
+        "bytes": 41429104,
+        "sha256": "d75bdf1260fa4e89a6795db0145c964352ea5a2f694b54f7788032aba2f5e386"
+      }
+    ],
+    "audition_might_exact_bytes": true,
+    "phone_audition": {
+      "url": "https://reincarnated-loadout.vercel.app/",
+      "viewport": 375,
+      "root_rendered": true,
+      "root_excerpt": "\u2699\nPlay\nSummary\nLoadout\nKits\nCanon\nAnalytics\nEncounters\nCourt\nEngine\nForge\nPlanning\n\u25c8\n\nKit Space \u2014 Duskweaver of the Eclipsed Meridian\n\nQDX-5 kit-space output (kse_20260602_008). B4.5 substrate-selecti",
+      "sections": 6,
+      "might": {
+        "duration": 4,
+        "currentTime": 0.495654,
+        "paused": false,
+        "error": null
+      },
+      "page_errors": []
+    }
   }
 }

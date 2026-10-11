@@ -27,6 +27,16 @@ Might), movement, Whirlwind release, zoom, score and mute controls. Real WebAudi
 output is nonzero (peak 0.41945), with no script/page/network failures. Physical
 phone behavior remains untested. Evidence: `evidence/might-selected-release.json`.
 
+Published source `6c15221e96f2d32736fa457219e8f34acb2dcebd` and loadout
+`d29465e81fe0a583837aba69909f4ac60fac24c5`. Git-triggered production deployment
+`dpl_4Zk7MqKYeGLCum9D9k9Wo2JCANci` is READY (2m 38s build). All 28 public game
+files hash-match this tested export without authentication/cookies. The public
+six-skill page embeds the original Might MP3, and Chrome at 375px with emulated
+touch plays it for four seconds; the loadout root also renders with no page errors.
+Game: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
+Audition: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/hero-sfx.html
+No new physical-phone or crowded-combat performance claim is made.
+
 The remainder of this document records the preceding Fortify-candidate release.
 
 
