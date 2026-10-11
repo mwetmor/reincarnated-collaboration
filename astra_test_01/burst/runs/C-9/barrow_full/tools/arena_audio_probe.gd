@@ -148,6 +148,7 @@ func _run() -> void:
 		return
 	arena.autopilot = "channel"
 	arena.fight_started = true
+	var physical_hits_before_combat := int(sound.report["played"].get("physical_hit", 0))
 	var start := Time.get_ticks_msec()
 	while Time.get_ticks_msec() - start < 10000:
 		await process_frame
@@ -155,7 +156,7 @@ func _run() -> void:
 	if peak <= 0.0001 or peak > 0.9 or frames == 0:
 		_fail("mixed audio silent/clipping: peak %.5f frames %d" % [peak, frames])
 		return
-	if int(sound.report["played"].get("physical_hit", 0)) == 0:
+	if int(sound.report["played"].get("physical_hit", 0)) <= physical_hits_before_combat:
 		_fail("real combat impacts missing")
 		return
 	sound.end_fight()

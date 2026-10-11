@@ -14,7 +14,7 @@ audio manifest remains `e015b2814bde44e206521e089243c9b015963355b64c800ee29cf834
 The real local CoreAudio probe compares the same contact clip before channeling,
 during channeling, as an incoming hit, and after release. Measured player levels
 are -2 / -12 / -2 dB; incoming enemy voice stays -8 dB. Mixer output is nonzero
-(peak 0.38055); loop lifecycle, independent mutes, six scores, accepted/refused
+(peak 0.37935); loop lifecycle, independent mutes, six scores, accepted/refused
 skills, the 11-voice effect cap and simulation snapshot invariance pass.
 Evidence: `evidence/whirlwind-hit-balance/native-audio.json`.
 
@@ -39,3 +39,22 @@ Not 100% identical. Gameplay/content and selected sound sources are shared, but:
 
 Prior detailed release evidence: `HERO_SFX_REVISION.md`; open dispositions:
 `../tools/WEB_ARENA_BUGS.md`. No claim of pixel-identical appearance or zero lag.
+
+## Hosted release
+
+Local presentation implementation: `a34c2f71e`.
+Loadout release: `653ad53c556ca226dab2234dae15bc6b55a63a35`.
+Vercel production deployment `dpl_B9hPoEdutPN1LVAvHqwTJqqA3Yy5` is READY.
+https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
+
+All 21 files match the tested export without authentication/cookies. Fresh public
+Chrome touch test passes movement, all four hero skills, Whirlwind hold/release,
+zoom, score switching and independent mutes. Actual WebAudio combined output
+peak 0.39279; both-muted output zero and SFX-only output nonzero. No page/script
+failures. This is a Mac Chrome touch emulation check, not a physical-phone test.
+Latest CoreAudio probe also requires real combat to add impacts after the controlled
+normal/channel/incoming/released comparison, preventing the artificial comparison
+hits from satisfying the real-combat gate.
+
+Committed compact evidence: `evidence/whirlwind-hit-balance/`. Full public logs:
+`../web_arena/build/logs/whirlwind-hit-public-touch/`.
