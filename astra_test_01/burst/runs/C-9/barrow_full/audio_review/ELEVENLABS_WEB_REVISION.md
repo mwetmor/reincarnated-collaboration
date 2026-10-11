@@ -1,5 +1,35 @@
 # War Cry, Might and web fidelity — 2026-10-11
 
+## Current follow-up — user-selected Might (2026-10-11)
+
+Matt replaced the Fortify candidate with the supplied
+`ElevenLabs_audio_elevenlabs-sound-effects-v2_Deep male bass-_2026-10-11T16_38_03.mp3`.
+The original four-second MP3 is copied to `selected_sfx/might_elevenlabs.mp3`
+and beside the soundtracks in `pc_arena/build/SFX_and_Sound_Selections/`.
+SHA-256: `1db4e2f682613e0981d9c5362654364f7c15ee7c4cc8fad9dc993d4a34031066`.
+No pitch, timing, filter or normalization changes. The only changed cue is
+`vires_might`; other active clip metadata and all mix settings match the prior
+release. Might and War Cry are now user-selected; Charge/Potion remain candidates.
+The six-skill audition embeds the exact selected MP3.
+
+Local CoreAudio passes all 43 SFX, six scores, Might playback, lifecycle/mute and
+simulation invariance gates. Peak 0.38347. Manifest SHA:
+`c3a66faf8017ca6bcd4de04893606881bdbd96579832a8c938730f22175fff2e`.
+Evidence: `evidence/might-selected-local.json`.
+The web audio pack and main manifest were re-exported; the pack audit passes
+3,076 payloads, 42 kits, 24 terrain fields and 50 audio clips. Ordered isolated
+pack mounting passes. The Vite production build passes. Textures, renderer,
+mobile controls and the prior performance limits are unchanged. Windows ZIP
+has not been rebuilt for this follow-up.
+
+Local packaged Chrome touch emulation passes startup, all four skills (including
+Might), movement, Whirlwind release, zoom, score and mute controls. Real WebAudio
+output is nonzero (peak 0.41945), with no script/page/network failures. Physical
+phone behavior remains untested. Evidence: `evidence/might-selected-release.json`.
+
+The remainder of this document records the preceding Fortify-candidate release.
+
+
 Matt selected the supplied 2.48-second ElevenLabs deep male bass MP3 for War Cry.
 The local scene plays the original MP3 bytes, without pitch, time, filter or
 normalization changes. Its SHA-256 is

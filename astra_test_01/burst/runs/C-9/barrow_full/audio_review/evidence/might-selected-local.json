@@ -1,0 +1,50 @@
+{
+	"accepted_vs_cooldown_refusal": true,
+	"adapter_snapshot_unchanged": true,
+	"ambience_crossfades": 1,
+	"audio_driver": "CoreAudio",
+	"audio_manifest_sha256": "c3a66faf8017ca6bcd4de04893606881bdbd96579832a8c938730f22175fff2e",
+	"environment_loop_handoff": true,
+	"hit_voice_db": {
+		"incoming": -8.0,
+		"normal": -2.0,
+		"released": -2.0,
+		"whirlwind": -12.0
+	},
+	"loop_lifecycle_and_independent_mutes": true,
+	"mixed_frames": 481792,
+	"mixed_peak": 0.383471429347992,
+	"music_decoded": 6,
+	"pendulum_voice_db": -8.0,
+	"platform": "macOS",
+	"report": {
+		"ambience_crossfades": 1,
+		"dropped": 173,
+		"loaded": 51,
+		"missing": [],
+		"peak_voices": 11,
+		"played": {
+			"blitz": 1,
+			"cold_cast": 6,
+			"enemy_death": 3,
+			"fire_cast": 6,
+			"ghost_cast": 5,
+			"ghost_death": 4,
+			"golem_death": 2,
+			"lightning_cast": 2,
+			"physical_hit": 50,
+			"poison_cast": 1,
+			"poison_hit": 6,
+			"potion": 1,
+			"rune_of_rush": 1,
+			"slash": 1,
+			"snow_step": 10,
+			"vires_might": 1,
+			"war_cry": 1,
+			"whirlwind_start": 4
+		}
+	},
+	"sfx_decoded": 43,
+	"solver": "gdscript",
+	"voice_cap": 11
+}

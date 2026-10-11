@@ -1,5 +1,5 @@
 {
-  "request": "Use Matt's ElevenLabs War Cry unchanged; replace rejected Might Star Power with Fortify",
+  "request": "Use Matt's ElevenLabs selections unchanged for War Cry and Might",
   "status": "implemented_for_listening; artistic approval pending",
   "cues": {
     "blitz": {
@@ -54,25 +54,17 @@
       }
     },
     "vires_might": {
-      "label": "Might \u2014 Fortify (new candidate)",
-      "sources": [
-        {
-          "path": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav",
-          "sha256": "6535c65cfc3d14fc64d84c766a088edcce1bb69c0ae2b98bab18e3ecb44d70ec",
-          "ffmpeg_filter": "aresample=48000,highpass=f=60,lowpass=f=5000,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
-          "offset_seconds": 0.0,
-          "layer_gain": 1.0
-        }
-      ],
-      "peak_target": 0.8,
+      "label": "Might \u2014 your ElevenLabs selection",
+      "status": "user_selected",
+      "processing": "none; original MP3 bytes and pitch preserved",
       "output": {
-        "source": "hero_vires_might_revision.wav",
-        "source_root": "derived_sfx",
-        "file": "hero_vires_might_revision.wav.bin",
-        "format": "wav",
-        "bytes": 239372,
-        "sha256": "0d4df701d368f2eae0f9b7d745db38a3a36c283a524e066334b462efea6cb2b4",
-        "seconds": 2.493
+        "source": "might_elevenlabs.mp3",
+        "source_root": "selected_sfx",
+        "file": "might_elevenlabs.mp3.bin",
+        "format": "mp3",
+        "bytes": 82371,
+        "sha256": "1db4e2f682613e0981d9c5362654364f7c15ee7c4cc8fad9dc993d4a34031066",
+        "seconds": 4.0
       }
     },
     "war_cry": {
@@ -90,5 +82,5 @@
       }
     }
   },
-  "manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d"
+  "manifest_sha256": "c3a66faf8017ca6bcd4de04893606881bdbd96579832a8c938730f22175fff2e"
 }

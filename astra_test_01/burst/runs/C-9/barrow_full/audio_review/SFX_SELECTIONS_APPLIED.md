@@ -20,15 +20,13 @@ supersedes those deferrals with implemented listening revisions:
 
 - Charge / Blitz: lower weapon-air rush with a restrained metal strike.
 - Potion: the demo's bottle opening/handling Foley, replacing the healing spell.
-- Might: a new Star Power cast, lowered and kept at roughly its original duration.
-- Battle Cry: the closest male voice from the review, lowered about eight
-  semitones and shortened to 1.16 seconds; the rejected magical rally is removed.
+- Might: Matt's supplied four-second ElevenLabs MP3 (`16_38_03`), unchanged.
+- Battle Cry: Matt's supplied 2.48-second ElevenLabs MP3 (`16_39_01`), unchanged.
 
-These revisions are not marked artistically approved. In particular, lowering
-an existing scream does not prove it has the requested barbarian delivery.
-Listen to `derived_sfx/HERO_SFX_REVIEW.html` to compare the live revised cues
-against their previous sounds. Haste retains Matt's approved Dash02; Whirlwind
-now follows Matt's later rotating-pendulum direction. Reapply preserves both revision recipes.
+Might and War Cry are user-selected. Charge and Potion remain implemented
+listening candidates. Listen to `derived_sfx/HERO_SFX_REVIEW.html` for the current
+six-skill set. Haste retains Matt's approved Dash02; Whirlwind retains the rotating
+pendulum and the quieter contact-hit mix. Reapply preserves these selections.
 
 Two monster cues remain unresolved and retain the prior cue:
 
