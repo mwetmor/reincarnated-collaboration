@@ -17,9 +17,8 @@ FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 if [ "${C9_AUDIO_LOCKED:-}" != 1 ]; then
   exec env C9_AUDIO_LOCKED=1 python3 "$LOCK" C-9-PC-AUDIO -- bash "$0"
 fi
-for SCRIPT in arena_mode.gd arena_hud.gd arena_audio.gd; do
-  cp "$ROOT/godot/scripts/arena/$SCRIPT" "$DEST/scripts/arena/$SCRIPT"
-done
+# Keep all presentation scripts current; sealed runtime/art remain audited copies.
+rsync -a "$ROOT/godot/scripts/" "$DEST/scripts/"
 mkdir -p "$DEST/data/audio"
 cp "$ROOT/godot/data/audio/arena_audio.json" "$DEST/data/audio/arena_audio.json"
 python3 "$TOOLS/arena_stage_audio.py" --project "$DEST" > "$DEST/build/logs/audio_stage.log"

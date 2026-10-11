@@ -24,6 +24,12 @@ def main():
     stamp = json.loads((root / 'kc2/bundle/BUNDLE_STAMP.json').read_text())
     audio = json.loads((root / 'data/audio/arena_audio.json').read_text())
     expected = dict(stamp['art_files'])
+    source_root = Path(__file__).resolve().parent.parent / 'godot'
+    for source in (source_root / 'scripts').rglob('*.gd'):
+        name = str(source.relative_to(source_root))
+        if sha(root / name) != sha(source):
+            raise ValueError('native script differs from local scene: ' + name)
+        expected[name] = sha(source)
     expected.update({'kc2/bundle/' + name: digest for name, digest in stamp['files'].items()})
     for directory, filename in [('kc2/kc2_runtime', 'MANIFEST.json'), ('kc2/model_pack', 'manifest.json')]:
         manifest = json.loads((root / directory / filename).read_text())
@@ -85,7 +91,8 @@ Z: zoom   R: restart   Escape: exit
 M: music on/off   K: sound effects on/off   B: next soundtrack
 
 Includes original demo audio: character skills, weapon swings, monster casts,
-impacts/deaths, snow footsteps, and five switchable season soundtracks.
+impacts/deaths, snow footsteps, six switchable soundtracks, and Fjordstormen.
+Whirlwind uses slower, deeper metallic strikes; storm ambience is raised 8 dB.
 
 This is the existing native bv2f_arena scene, using Forward+ rendering,
 original-resolution character strips, native level/painting data, the live
@@ -102,7 +109,8 @@ created at that path on the PC. Telemetry/logs use Godot's user data folder.
 Validation performed on Mac: packed payload checks and native scene probes.
 Windows executable launch, GPU appearance, and performance require a real PC
 playtest. This package is unsigned. See BUILD_MANIFEST.json for verified inputs.
-The web/mobile bugs are deferred separately; this is an offline PC playtest.
+Web uses the same gameplay and selected audio with Compatibility rendering
+and reduced textures. Physical phone and Windows performance need playtests.
 ''', encoding='utf-8')
     manifest = {'platform': 'Windows.x86_64', 'engine': 'Godot 4.6.3 stable',
                 'main_scene': 'res://scenes/bv2f_arena.tscn', 'renderer': 'forward_plus',

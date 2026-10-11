@@ -20,3 +20,19 @@ The Windows ZIP is feasible as a separate native export, but is not produced by 
 Protected-preview testing uses the linked loadout project's development OIDC credentials. AudioWorklet fetches do not inherit the browser automation's custom headers, so the optional `VERCEL_CLI_PATH` hook uses `vercel curl` to obtain an ordinary same-origin bypass session cookie in memory. Tokens/cookies are never written to evidence or source. Use `VERCEL_CLI_USE_NATIVE_BINARY=0` with CLI 63.1.2's `env run`: the native variant incorrectly re-entered its deploy command when asked to run Node. The incidental `barrow-oidc-check` project was deleted and its deletion confirmed by HTTP 404.
 
 Final hosted verification: Vercel preview `dpl_8CGFbFqDzh9E1g42MjFSnPP7Ww8B`, loadout branch `codex/c9-arena-web` at `5aa8673`. URL: https://reincarnated-loadout-5i1cmo8xq-matthew-wetmore-s-projects.vercel.app/playtest/barrow-arena/ . The hosted desktop test passed, including audio module loading. The downloaded main PCK and audio worklet hash-equal the staged build. Local desktop, landscape touch and missing-pack tests passed; the isolated pack probe reported bundle intact. Evidence is retained in `web_arena/build/logs/verified/` (generated, gitignored). This is a preview deployment; production main was not changed.
+
+## 2026-10-10 follow-up: native/audio parity and public release
+
+This follow-up supersedes the older preview-only and deferred-PC statements
+above. Whirlwind is slower and metallic, Fjordstormen is raised 8 dB, and Windows
+is rebuilt from the current local scene. Web now includes the active terrain
+fields and all 42 native catalogue kits, with the identical selected audio and
+presentation scripts. The 3D hero receives the web color correction at creation.
+
+`arena_web_payload_audit.py` verifies actual PCK members; `--refresh` preserves
+import/art caches and uses a separate 8 GiB incremental gate. A full fresh build
+retains its 26 GiB gate. The native full-build gate remains 20 GiB.
+
+Current measurements, ZIP verification, public deployment and limitations are
+recorded in `../audio_review/ARENA_RELEASE_2026-10-10.md`. Physical mobile/Windows
+acceptance and zero-lag claims are not inferred from desktop Chrome tests.

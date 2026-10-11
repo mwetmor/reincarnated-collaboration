@@ -118,6 +118,8 @@ def main():
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
     shutil.copy2(source_selection, ROOT / 'audio_review/APPROVED_SFX_SELECTIONS.json')
     subprocess.run(['python3', str(ROOT / 'tools/arena_stage_audio.py'), '--update-derived-hashes'], check=True)
+    if (ROOT / 'audio_review/WHIRLWIND_TUNING.json').exists():
+        subprocess.run(['python3', str(ROOT / 'tools/arena_tune_audio.py')], check=True)
     receipt['manifest_sha256'] = sha(manifest_path)
     receipt['soundtracks'] = {name: sha(soundtrack_root / name) for name in ['Northern Omen.mp3', 'Fjordstormen.mp3']}
     (ROOT / 'audio_review/SELECTION_APPLICATION.json').write_text(json.dumps(receipt, indent=2) + '\n')

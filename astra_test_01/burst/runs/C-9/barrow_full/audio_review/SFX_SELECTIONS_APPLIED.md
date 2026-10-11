@@ -14,13 +14,12 @@ Demon, Troll, Minotaur, and Fire Elemental deaths; the approved ghost, ghoul,
 golem and orc family death cues remain unchanged. Rotation is presentation-only
 and does not consume simulation RNG.
 
-Eight cues request a new audition and retain the prior cue for now:
+Six cues request a new audition and retain the prior cue for now:
 
 - Charge / Blitz: all auditioned choices rejected.
 - Potion: bottle opening or pouring requested.
 - Might: a more magical effect requested.
 - Battle Cry: barbarian yell / shout requested.
-- Whirlwind start and repeating body: rotating mace, rushing air and metal.
 - Poison cast: new choices needed.
 - Poison impact: breaking glass requested.
 
@@ -32,7 +31,8 @@ The local scene defaults to **Northern Omen** (190 seconds), with **Fjordstormen
 copied to `audio_review/soundtracks/` outside the disposable build directory.
 The score begins with the fight; storm ambience begins while the arena is ready,
 and its repeats use a 1.5-second overlap with linear gain crossfade. Score levels
-are -22 dB / -28 dB in combat; environment levels are -28 dB / -32 dB in combat.
+are -22 dB / -28 dB in combat; environment levels are -20 dB / -24 dB in combat
+(raised 8 dB at Matt's follow-up request).
 The existing SFX mix and limiter stay intact. M mutes both background layers,
 K mutes effects, B changes the score while keeping the storm layer.
 
@@ -51,6 +51,13 @@ The adapter preserved the exact combat snapshot. Evidence is locally retained at
 `audio_review/evidence/selected_audio_probe.json`. Existing sealed-reader NUL
 warnings and Godot shutdown resource warnings remain outside this audio change.
 
-This changes the **local source scene**. The existing Windows ZIP is the prior
-audio build and has not been re-exported in this task; its previous package
-verification remains historical evidence for that ZIP.
+Matt's follow-up replaces Whirlwind start/body with slower, lower-pitched sword
+air and alternating metal strikes from the demo. The looping body has six
+strikes across 4.8 seconds, with a 0.8-second interval. Source hashes, gains,
+conversion and output hashes are in `WHIRLWIND_TUNING.json`; regenerate with
+`tools/arena_tune_audio.py`. Reapplying the handoff preserves this later tuning.
+The default score is prepared during loading to reduce first-input work.
+
+The current release rebuilds Windows and web from this same audio manifest.
+See `ARENA_RELEASE_2026-10-10.md` for current package and browser evidence;
+the earlier probe measurements above remain historical.

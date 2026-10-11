@@ -20,7 +20,20 @@ HEAVY_LOCK=${HEAVY_LOCK:-$HOME/Games/reincarnated-collaboration/astra_test_01/bu
 MAX_FILE_MB=50
 GATE=${DISK_GATE_GIB:-26}
 NO_STAGE=0
-[ "${1:-}" = "--no-stage" ] && NO_STAGE=1
+REFRESH=0
+for ARG in "$@"; do
+  case "$ARG" in
+    --no-stage) NO_STAGE=1 ;;
+    --refresh) REFRESH=1 ;;
+    *) echo "Unknown option: $ARG" >&2; exit 2 ;;
+  esac
+done
+if [ "$REFRESH" = 1 ]; then
+  # Reuse existing audited art/imports; exports total <600 MB. Full build's
+  # 26 GiB reservation remains unchanged. Refresh has a separate 8 GiB gate.
+  [ -f "$DEST/build/web/index.pck" ] && [ -f "$DEST/.godot/global_script_class_cache.cfg" ] || exit 2
+  GATE=8
+fi
 FREE=$(df -g /System/Volumes/Data | awk 'NR==2{print $4}')
 [ "$FREE" -ge "$GATE" ] || { echo "HALT: ${FREE} GiB free, under the $GATE GiB gate" >&2; exit 9; }
 if [ -z "${C9_LOCKED:-}" ]; then
@@ -29,7 +42,9 @@ fi
 
 echo "== 1 mirror $SRC -> $DEST"
 mkdir -p "$DEST" "$LOG"
-rsync -a --delete --delete-excluded --filter 'P .godot/' --filter 'P build/' --filter 'P export_presets.cfg' --filter 'P kc2/kc2_runtime/' --filter 'P kc2/model_pack/' --filter 'P kc2/art/' --filter 'P kc2/bundle/' --exclude '.godot/' --exclude 'build/' --exclude 'export_presets.cfg' --exclude 'tools/' \
+# Exclusions also protect receiver caches. macOS openrsync's --delete-excluded
+# ignores P rules and destroys those caches; do not use that switch here.
+rsync -a --delete --exclude 'kc2/model_pack/' --exclude 'kc2/art/' --exclude 'kc2/bundle/' --exclude '.godot/' --exclude 'build/' --exclude 'export_presets.cfg' --exclude 'tools/' \
   --exclude 'data/painted/' --exclude 'data/painted_web/' --exclude 'data/bv2f/site_ph3/' --exclude 'data/bv2f/pilot*/' \
   --exclude 'data/bv2f/site_ph4/painted/' --exclude 'models/barrow/' --exclude 'models/gear/' --exclude 'models/sorceress/' \
   --exclude 'models/variants/' --exclude 'data/vfx/meteor*/' --exclude 'data/meteor/' --exclude 'data/bv2f/stair_snow/' --exclude 'data/barrow_v2_sw/' --exclude 'kc2/kc2_runtime' --exclude 'kc2/art_x/' --exclude 'kc2/.gdignore' \
@@ -47,7 +62,33 @@ assert 'renderer/rendering_method.web="gl_compatibility"' in t, "no web Compatib
 PY
 
 echo "== 2 bundle"
-python3 "$TOOLS/arena_bundle.py" "$DEST" | tee "$LOG/bundle.log"
+if [ "$REFRESH" = 1 ]; then
+  python3 "$TOOLS/arena_restore_web_cache.py" "$DEST"
+  python3 "$TOOLS/arena_bundle.py" "$DEST" --refresh | tee "$LOG/bundle.log"
+else
+  python3 "$TOOLS/arena_bundle.py" "$DEST" | tee "$LOG/bundle.log"
+fi
+python3 "$TOOLS/arena_stage_audio.py" --project "$DEST" | tee "$LOG/audio_stage.log"
+# Prune unused derived payloads only in this disposable export mirror.
+python3 - "$DEST" <<'PY'
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1]); audio = root / 'data/audio'
+manifest = json.loads((audio / 'arena_audio.json').read_text())
+used = {c['file'] for c in manifest['clips'].values()}
+for p in audio.glob('*.bin'):
+    if p.name not in used: p.unlink()
+groups, group, size = [], [], 0
+for c in manifest['clips'].values():
+    if group and size + c['bytes'] > 38_000_000:
+        groups.append(group); group, size = [], 0
+    group.append('data/audio/' + c['file']); size += c['bytes']
+if group: groups.append(group)
+stamp_path = root / 'kc2/bundle/BUNDLE_STAMP.json'
+stamp = json.loads(stamp_path.read_text())
+stamp['audio_packs'] = {'audio_%d.pck' % i: g for i, g in enumerate(groups)}
+stamp['kit_packs'] += list(stamp['audio_packs'])
+stamp_path.write_text(json.dumps(stamp, indent=1))
+PY
 
 echo "== 2b the rig's textures for the web (VRAM + mips, cut to 1024; the walk build's rule)"
 python3 - "$DEST" <<'PY'
@@ -114,12 +155,12 @@ def preset(i, name, filt, files_, inc, exc):
 # script_export_mode=0: scripts ship as TEXT -- the vendored runtime's .gd bytes are its source bytes (the launch
 #   refusal re-hashes them from the pck)
 preset(0, "WebArena", "resources", files,
-       "data/*.json,data/*.bin,data/*.gdshader,data/*.webp,kc2/bundle/*,kc2/model_pack/manifest.json,kc2/kc2_runtime/*,kc2/art/join1_index.json,data/vfx/*",
-       "tools/*,kc2/model_pack/model/*,kc2/bundle/eor4x*,models/*,data/bv2f/ext/*,data/bv2f/site_ph4/*," + ",".join("kc2/art/%s/*" % k for k in art_kits))
+       "data/*.json,data/*.bin,data/*.f32,data/*.gdshader,data/*.webp,kc2/bundle/*,kc2/model_pack/manifest.json,kc2/kc2_runtime/*,kc2/art/join1_index.json,data/vfx/*",
+       "tools/*,data/audio/*.bin,kc2/model_pack/model/*,kc2/bundle/eor4x*,models/*,data/bv2f/ext/*,data/bv2f/site_ph4/*," + ",".join("kc2/art/%s/*" % k for k in art_kits))
 # the hero's rig (his GLBs + the eor4x clips) rides in its own pack: it is read only when the arena opens
 preset(1, "hero_0", "resources", glbs, "kc2/bundle/eor4x*", "tools/*")
 n = 2
-for pk, mem in {**st["model_packs"], **st["vfx_packs"]}.items():
+for pk, mem in {**st["model_packs"], **st["vfx_packs"], **st['audio_packs']}.items():
     preset(n, pk.replace(".pck", ""), "resources", [], ",".join(mem), "tools/*")
     n += 1
 for i, (pk, kits) in enumerate(st["kit_pack_members"].items()):
@@ -148,6 +189,7 @@ BIG=$(find "$DEST/build/web" -type f -size +${MAX_FILE_MB}M | wc -l | tr -d ' ')
 [ "$BIG" = "0" ] || { echo "FENCE: a file at or over $MAX_FILE_MB MB" >&2; exit 6; }
 grep -q 'base href="/playtest/barrow-arena/"' "$DEST/build/web/index.html" || { echo "FENCE: base href" >&2; exit 6; }
 echo "== 4b isolated pack-order and byte-identity probe (no loose project files)"
+python3 "$TOOLS/arena_web_payload_audit.py" "$DEST" | tee "$LOG/payload_audit.log"
 ISOLATED=$(mktemp -d "${TMPDIR:-/tmp}/barrow-arena-probe.XXXXXX")
 "$GODOT" --headless --path "$ISOLATED" --main-pack "$DEST/build/web/index.pck" \
   --script "$TOOLS/arena_pack_order_probe.gd" -- --as-web --pack-dir "$DEST/build/web" \

@@ -1,0 +1,41 @@
+{
+  "request": "Slower, deeper strike/clanging Whirlwind; Fjordstormen +8 dB",
+  "sources": {
+    "swing": {
+      "path": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav",
+      "sha256": "3dbfe4d5bf99581186672b0889c32ad98689c40a6635c90f90fc0680fbc53670"
+    },
+    "metal": {
+      "path": "sfx/Hits/Metal_Hit_05.wav",
+      "sha256": "38e5de64d70465371c88c83bba8d8f9980ab06cdbfe3eef56c11bbbd31818ace"
+    },
+    "clang": {
+      "path": "sfx/Hits/Metal_Hit_08.wav",
+      "sha256": "2b44915672f6c05bc45a398c8b2b35ce2ef7252822ab1941c1efcb48a0d08c32"
+    }
+  },
+  "speed_and_pitch": 0.7,
+  "strike_spacing_seconds": 0.8,
+  "loop_seconds": 4.8,
+  "outputs": {
+    "whirlwind_metal_start": {
+      "source": "whirlwind_metal_start.wav",
+      "source_root": "derived_sfx",
+      "file": "whirlwind_metal_start.wav.bin",
+      "format": "wav",
+      "bytes": 240044,
+      "sha256": "80f60e6b1855467412340a2152175c8cf7754022ff6c4937bcb59f600260d651",
+      "seconds": 2.5
+    },
+    "whirlwind_metal_loop": {
+      "source": "whirlwind_metal_loop.wav",
+      "source_root": "derived_sfx",
+      "file": "whirlwind_metal_loop.wav.bin",
+      "format": "wav",
+      "bytes": 460844,
+      "sha256": "25652d6be176e8e3c494d4e0a5962a1ce1c6a7fd49548326b28c73c2627b05b0",
+      "seconds": 4.8
+    }
+  },
+  "manifest_sha256": "15fae13bd965cb8b583f875a82c6fb43ae2c9cea9f7cf5692a77f1bd5ac48809"
+}

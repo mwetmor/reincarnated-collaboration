@@ -16,6 +16,8 @@ var player_voices: Array[AudioStreamPlayer] = []
 var enemy_voices: Array[AudioStreamPlayer] = []
 var whirlwind: AudioStreamPlayer
 var music: AudioStreamPlayer
+var prepared_music: AudioStream = null
+var prepared_music_id := ""
 var ambience_voices: Array[AudioStreamPlayer] = []
 var ambience_primary := 0
 var ambience_fading := false
@@ -69,7 +71,8 @@ func setup(arena) -> void:
 	music_index = int(manifest.get("default_music", 2))
 	music_db = float(manifest.get("mix", {}).get("music_db", -20.0))
 	ambience_db = float(manifest.get("mix", {}).get("ambience_db", -28.0))
-	# Decode SFX once. Music loads lazily as compressed MP3, one current track at a time.
+	# Decode SFX once. Prepare one compressed score during loading, before the
+	# first combat input; MP3 duration scanning must not stall that first cast.
 	for ids in manifest.get("cues", {}).values():
 		for id in ids:
 			if not streams.has(id):
@@ -88,6 +91,7 @@ func setup(arena) -> void:
 		var environment_stream := _load_clip(ambience_id)
 		for voice in ambience_voices:
 			voice.stream = environment_stream
+	_prepare_music()
 	reset()
 	print("[arena audio] %d SFX decoded; %d music tracks; missing %s" %
 		[streams.size(), manifest.get("music", []).size(), str(report["missing"])])
@@ -289,11 +293,19 @@ func next_music() -> void:
 	_play_music()
 
 
-func _play_music() -> void:
+func _prepare_music() -> AudioStream:
 	var tracks: Array = manifest.get("music", [])
 	if tracks.is_empty():
-		return
-	var stream := _load_clip(String(tracks[music_index]["clip"]))
+		return null
+	var id := String(tracks[music_index]["clip"])
+	if prepared_music_id != id:
+		prepared_music = _load_clip(id)
+		prepared_music_id = id
+	return prepared_music
+
+
+func _play_music() -> void:
+	var stream := _prepare_music()
 	if stream is AudioStreamMP3:
 		stream.loop = true
 		music.stop()

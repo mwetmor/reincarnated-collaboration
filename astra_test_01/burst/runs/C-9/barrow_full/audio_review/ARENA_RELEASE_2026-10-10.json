@@ -1,0 +1,466 @@
+{
+  "release_date": "2026-10-10",
+  "local_scene": "godot/scenes/bv2f_arena.tscn",
+  "web_commit": "d137ba995485528ae25ec1b7f5110e7a9209452e",
+  "public_url": "https://reincarnated-loadout.vercel.app/playtest/barrow-arena/",
+  "public_verification": "PASS",
+  "audio_manifest_sha256": "15fae13bd965cb8b583f875a82c6fb43ae2c9cea9f7cf5692a77f1bd5ac48809",
+  "windows_zip": {
+    "bytes": 2506414675,
+    "sha256": "59c7c35c1b5959c2b190cb564c73c1bda220c2ba1cbaf993c4fe68dbaf87266e",
+    "windows_launch_verified": false,
+    "native_payloads": 3528,
+    "packed_scene_probe": {
+      "decoded_full_resolution_kits": 42,
+      "distance_m": 3.00004959106445,
+      "enemy_vfx_sets": 51,
+      "geometry": {
+        "CollisionShape3D": 334,
+        "MeshInstance3D": 825,
+        "MultiMeshInstance3D": 10
+      },
+      "hero": "3d",
+      "music_tracks": 6,
+      "painting": "res://data/bv2f/site_ph4/painted/manifest.json",
+      "platform_executed": "macOS",
+      "renderer_setting": "forward_plus",
+      "sfx_decoded": 43,
+      "solver": "gdscript",
+      "ticks_advanced": 125,
+      "walk_reachable_cells": 29200
+    },
+    "packed_audio_probe": {
+      "accepted_vs_cooldown_refusal": true,
+      "adapter_snapshot_unchanged": true,
+      "ambience_crossfades": 1,
+      "audio_driver": "CoreAudio",
+      "audio_manifest_sha256": "15fae13bd965cb8b583f875a82c6fb43ae2c9cea9f7cf5692a77f1bd5ac48809",
+      "environment_loop_handoff": true,
+      "loop_lifecycle_and_independent_mutes": true,
+      "mixed_frames": 480768,
+      "mixed_peak": 0.512806236743927,
+      "music_decoded": 6,
+      "platform": "macOS",
+      "report": {
+        "ambience_crossfades": 1,
+        "dropped": 192,
+        "loaded": 51,
+        "missing": [],
+        "peak_voices": 11,
+        "played": {
+          "blitz": 1,
+          "cold_cast": 4,
+          "enemy_death": 6,
+          "fire_cast": 8,
+          "ghost_cast": 4,
+          "ghost_death": 7,
+          "lightning_cast": 2,
+          "physical_hit": 51,
+          "poison_cast": 1,
+          "poison_hit": 5,
+          "potion": 1,
+          "rune_of_rush": 1,
+          "slash": 3,
+          "snow_step": 10,
+          "vires_might": 1,
+          "war_cry": 1,
+          "whirlwind_start": 3
+        }
+      },
+      "sfx_decoded": 43,
+      "solver": "gdscript",
+      "voice_cap": 11
+    }
+  },
+  "web_payload_audit": {
+    "verified_payloads": 3076,
+    "terrain_fields": 24,
+    "character_kits": 42,
+    "art_strips": 2578,
+    "audio_clips": 50,
+    "audio_manifest_sha256": "15fae13bd965cb8b583f875a82c6fb43ae2c9cea9f7cf5692a77f1bd5ac48809",
+    "runtime_digest": "a0e75469a78b3b81d979d9d525e0bbf1c5324459260c62110192878c33a53f1c",
+    "model_digest": "997117278c1e28dac0da9a6cf64ddaf72111347094a7ac5e3b4c03590507d788",
+    "files": {
+      "audio_0.pck": {
+        "bytes": 36892220,
+        "sha256": "8c4e79b43bd0228a5186ccc002e44749cdb9492c1fb63169958d4e127cacb03b"
+      },
+      "audio_1.pck": {
+        "bytes": 20764764,
+        "sha256": "801681b80fba27ec62cae5a8d29a9eb7c9543f44ce928935cbac3cfc9f4b3ae0"
+      },
+      "hero_0.pck": {
+        "bytes": 34599404,
+        "sha256": "d324012cf6d5507ef7c8497443b79f5165e2e5dc8ff1e5c0b5b4d216eef8d34e"
+      },
+      "index.apple-touch-icon.png": {
+        "bytes": 11952,
+        "sha256": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a"
+      },
+      "index.audio.position.worklet.js": {
+        "bytes": 2973,
+        "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+      },
+      "index.audio.worklet.js": {
+        "bytes": 7298,
+        "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+      },
+      "index.html": {
+        "bytes": 5990,
+        "sha256": "59c9dd0fce5fe2211a333e9337ae87c87a8bdd728faefdc99d8cb6308627757f"
+      },
+      "index.icon.png": {
+        "bytes": 5702,
+        "sha256": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5"
+      },
+      "index.js": {
+        "bytes": 315759,
+        "sha256": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981"
+      },
+      "index.pck": {
+        "bytes": 40899592,
+        "sha256": "548bebeffa59755b8ca356ef3c3b8305b5ea330ac145b588a8e82b792215fa09"
+      },
+      "index.png": {
+        "bytes": 21443,
+        "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+      },
+      "index.wasm": {
+        "bytes": 37700666,
+        "sha256": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6"
+      },
+      "kits_0.pck": {
+        "bytes": 38387908,
+        "sha256": "28c57abe61a8a70d73d9aa84d8f804634443110bdec14dda9ae5e8665b77d836"
+      },
+      "kits_1.pck": {
+        "bytes": 39705516,
+        "sha256": "88a252fd33608c95306b8112cd409ea9d570c06fc67f2dbd00b876acd8a46005"
+      },
+      "kits_2.pck": {
+        "bytes": 27088748,
+        "sha256": "2710b3decf39035b3074917d2d25a52da5210deba18a5fff80f1a861a58b200c"
+      },
+      "model_0.pck": {
+        "bytes": 26990116,
+        "sha256": "d565edf74c8801f41af543cfdef39893e173dd2873f4818031cba426d6b28a15"
+      },
+      "model_1.pck": {
+        "bytes": 38038436,
+        "sha256": "67d6aaa1105f2c1ab2022269df0bdfd5b65b65afa97f05da26437b6345374c76"
+      },
+      "model_2.pck": {
+        "bytes": 25768208,
+        "sha256": "eb12ee17aaa6bec67d70edc2c63e975d3fac10a8d9a24353aed2a93a74d4eccb"
+      },
+      "site_0.pck": {
+        "bytes": 30576160,
+        "sha256": "11b4e3d6710f472fe2d8231101f4671fc65d1f2b9d2ec881fedd8b366ddbf77e"
+      },
+      "site_1.pck": {
+        "bytes": 22625856,
+        "sha256": "80e3ddc7c7406472e17957d64be6d545ab22e2ba47480c99aa16ce5307228ebe"
+      },
+      "vfx_0.pck": {
+        "bytes": 41429104,
+        "sha256": "7737e460955cf293da27adeb3a0a60fb91385d40ad1c73f3eb052ab059827cc3"
+      }
+    },
+    "web_texture_conversion": "Half-resolution WebP character art and phone painting; gameplay and audio bytes unchanged"
+  },
+  "local_chrome_frame_timings": {
+    "desktop": {
+      "frames": 386,
+      "average_ms": 18.132901554404135,
+      "fps": 55.14837198005518,
+      "p99_ms": 50.69999999999709,
+      "max_ms": 366.8000000000029,
+      "over_33_ms": 6,
+      "surface": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      }
+    },
+    "touch": {
+      "frames": 489,
+      "average_ms": 17.82556237218815,
+      "fps": 56.099211857698414,
+      "p99_ms": 50.10000000000582,
+      "max_ms": 382.1000000000058,
+      "over_33_ms": 7,
+      "surface": {
+        "width": 844,
+        "height": 390,
+        "dpr": 1
+      }
+    },
+    "perf": {
+      "frames": 2228,
+      "average_ms": 16.875852782764817,
+      "fps": 59.25626472762861,
+      "p99_ms": 18.60000000000582,
+      "max_ms": 234.39999999999418,
+      "over_33_ms": 6,
+      "surface": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      }
+    },
+    "perf-touch": {
+      "frames": 2160,
+      "average_ms": 17.42222222222222,
+      "fps": 57.39795918367347,
+      "p99_ms": 34.09999999999127,
+      "max_ms": 216.5,
+      "over_33_ms": 41,
+      "surface": {
+        "width": 2532,
+        "height": 1170,
+        "dpr": 3
+      }
+    }
+  },
+  "limitations": [
+    "Physical phone and Windows executable performance unverified",
+    "WebGL Compatibility and reduced textures differ from Forward+",
+    "Short first-input/cast/zoom hitches remain; full ten-wave no-lag guarantee not established",
+    "Web initial download is large; actual phone memory/startup needs testing"
+  ],
+  "deployment": {
+    "id": "dpl_EQDyAHh3Ny9JaGJhdeQUAWvuQh8V",
+    "name": "reincarnated-loadout",
+    "url": "reincarnated-loadout-aqpgwewyw-matthew-wetmore-s-projects.vercel.app",
+    "target": "production",
+    "readyState": "READY",
+    "createdAt": 1791691805444,
+    "duration": {
+      "startTime": 1791691807176,
+      "timeToReady": 129682
+    },
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "aliases": [
+      "reincarnated-loadout.vercel.app",
+      "reincarnated-loadout-git-main-matthew-wetmore-s-projects.vercel.app"
+    ],
+    "builds": [
+      {
+        "id": "bld_908o2bopt",
+        "deploymentId": "dpl_EQDyAHh3Ny9JaGJhdeQUAWvuQh8V",
+        "entrypoint": ".",
+        "readyState": "READY",
+        "readyStateAt": 1791691805341,
+        "createdAt": 1791691805341,
+        "createdIn": "sfo1",
+        "use": "@vercel/vc-build",
+        "config": {
+          "framework": "vite",
+          "nodeVersion": "24.x",
+          "projectCreatedAt": 1778651600090,
+          "vercelConfig": {
+            "rewrites": [
+              {
+                "source": "/(.*)",
+                "destination": "/index.html"
+              }
+            ]
+          }
+        },
+        "middleware": [],
+        "output": [],
+        "fingerprint": null
+      }
+    ],
+    "contextName": "matthew-wetmore-s-projects"
+  },
+  "hosted_download_audit": {
+    "url": "https://reincarnated-loadout.vercel.app/playtest/barrow-arena/",
+    "authentication_used": false,
+    "files_verified": [
+      "audio_0.pck",
+      "audio_1.pck",
+      "hero_0.pck",
+      "index.apple-touch-icon.png",
+      "index.audio.position.worklet.js",
+      "index.audio.worklet.js",
+      "index.html",
+      "index.icon.png",
+      "index.js",
+      "index.pck",
+      "index.png",
+      "index.wasm",
+      "kits_0.pck",
+      "kits_1.pck",
+      "kits_2.pck",
+      "model_0.pck",
+      "model_1.pck",
+      "model_2.pck",
+      "site_0.pck",
+      "site_1.pck",
+      "vfx_0.pck"
+    ],
+    "total_bytes": 461837815,
+    "seconds": 9.676584005355835,
+    "commit": "d137ba995485528ae25ec1b7f5110e7a9209452e"
+  },
+  "test_hardware": {
+    "model": "Mac mini",
+    "chip": "Apple M2",
+    "ram_gb": 8,
+    "browser": "Chrome 154"
+  },
+  "hosted_before_parallel": {
+    "public-perf": {
+      "startup_ms": 214522,
+      "performance": {
+        "frames": 2232,
+        "average_ms": 16.86043906810036,
+        "fps": 59.31043645784893,
+        "p99_ms": 18.60000000000582,
+        "max_ms": 233.30000000001746,
+        "over_33_ms": 2,
+        "surface": {
+          "width": 1280,
+          "height": 720,
+          "dpr": 1
+        }
+      }
+    },
+    "public-touch": {
+      "startup_ms": 210747,
+      "performance": {
+        "frames": 487,
+        "average_ms": 18.276386036960997,
+        "fps": 54.71541244410486,
+        "p99_ms": 65.39999999999418,
+        "max_ms": 416.29999999998836,
+        "over_33_ms": 9,
+        "surface": {
+          "width": 2532,
+          "height": 1170,
+          "dpr": 3
+        }
+      }
+    }
+  },
+  "completed_utc": "2026-10-11T04:17:04.589251+00:00",
+  "hosted_browser": {
+    "mode": "--touch-long",
+    "startup_ms": 145262,
+    "authentication_used": false,
+    "launch": "[arena] launch: bundled true, web true, runtime tree a0e75469a78b, pack model_pack, G6C-LEECH-JOIN:PASS, leech shim: written to /Users/admin/Games/reincarnated-engine/data/kc2/pm4p_leech_resistance.csv, sha pinned, solver gdscript, hero 3d",
+    "ready": true,
+    "failures": [],
+    "frame_timings": {
+      "frames": 2621,
+      "average_ms": 17.003243037008776,
+      "fps": 58.81230997071726,
+      "p99_ms": 18.70000000001164,
+      "max_ms": 400.30000000001746,
+      "over_33_ms": 13,
+      "surface": {
+        "width": 2532,
+        "height": 1170,
+        "dpr": 3
+      },
+      "sustained_combat": {
+        "frames": 2138,
+        "average_ms": 16.69803554724041,
+        "fps": 59.887284176087675,
+        "p99_ms": 18.60000000000582,
+        "max_ms": 34.70000000001164,
+        "over_33_ms": 2
+      }
+    },
+    "non_200_responses": [],
+    "input_checks": {
+      "before": {
+        "tick": 0,
+        "channel": false,
+        "touch": false,
+        "zoomed_out": false,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "moving": {
+        "tick": 12,
+        "channel": false,
+        "touch": true,
+        "zoomed_out": false,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "channel-held": {
+        "tick": 70,
+        "channel": true,
+        "touch": true,
+        "zoomed_out": false,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "after": {
+        "tick": 102,
+        "channel": false,
+        "touch": true,
+        "zoomed_out": true,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "long-channel-held": {
+        "tick": 115,
+        "channel": true,
+        "touch": true,
+        "zoomed_out": true,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "sustained-touch-combat": {
+        "tick": 533,
+        "channel": true,
+        "touch": true,
+        "zoomed_out": true,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "sustained-channel-released": {
+        "tick": 539,
+        "channel": false,
+        "touch": true,
+        "zoomed_out": true,
+        "music_index": 0,
+        "music_muted": false,
+        "sfx_muted": false
+      },
+      "next-score": {
+        "tick": 562,
+        "channel": false,
+        "touch": true,
+        "zoomed_out": true,
+        "music_index": 1,
+        "music_muted": false,
+        "sfx_muted": false
+      }
+    },
+    "accepted_touch_skill_cues": {
+      "accepted-Potion": 1,
+      "accepted-Might": 1,
+      "accepted-Battle Cry": 1,
+      "accepted-Haste": 1
+    },
+    "full_evidence": "web_arena/build/logs/release-public-touch-long/result.json"
+  }
+}

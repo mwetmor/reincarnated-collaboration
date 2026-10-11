@@ -54,6 +54,9 @@ func _run() -> void:
 		_fail("scene startup timed out")
 		return
 	var arena = scene.arena
+	if not scene.paint.files_bad.is_empty():
+		_fail("scene inputs missing: " + JSON.stringify(scene.paint.files_bad))
+		return
 	var expected_sfx := {}
 	if arena.audio != null:
 		for ids in arena.audio.manifest["cues"].values():

@@ -14,12 +14,13 @@ Copied, never referenced (an export cannot follow a symlink or an absolute path)
     join1_index.json copied; kits grouped into KIT PACKS of <= 40 MB (the 50 MB file fence) by the first wave they appear
 Writes <mirror>/kc2/bundle/BUNDLE_STAMP.json (what the running arena verifies at launch: scripts/arena/arena_paths.gd).
 usage: python3 tools/arena_bundle.py <mirror godot dir>"""
-import hashlib, importlib.util, io, json, os, shutil, sys
+import glob, hashlib, importlib.util, io, json, os, shutil, sys
 from PIL import Image
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_GODOT = os.path.join(HERE, "godot")
 DST = os.path.abspath(sys.argv[1])
+REFRESH = '--refresh' in sys.argv[2:]
 RT_SRC = "/Users/admin/Games/reincarnated-godot/kc2_runtime"
 RT_PIN = "a0e75469a78b3b81d979d9d525e0bbf1c5324459260c62110192878c33a53f1c"
 PACK_SRC = "/Users/admin/Games/reincarnated-engine/src/reincarnated/output/kc2-model-pack-v3-E-s09-cp150-mech-v3p11-20261002_192143"
@@ -63,6 +64,11 @@ def vendor_tree(src, dst, man_name, key, pin):
     for m in man["members"]:
         if sha(os.path.join(src, m["path"])) != m["sha256"]:
             die("%s member %s at source" % (src, m["path"]))
+    if REFRESH:
+        for m in man['members']:
+            if sha(os.path.join(dst, m['path'])) != m['sha256']:
+                die('refresh requires intact cached vendor tree: ' + dst)
+        return len(man['members'])
     if os.path.lexists(dst):
         if os.path.islink(dst):
             os.unlink(dst)
@@ -164,9 +170,9 @@ def main():
     # ---- the art ----
     wk = json.load(open(os.path.join(SRC_GODOT, "data", "arena", "wave_kits.json")))
     art = os.path.join(kc2, "art")
-    if os.path.isdir(art):
+    if os.path.isdir(art) and not REFRESH:
         shutil.rmtree(art)
-    os.makedirs(art)
+    os.makedirs(art, exist_ok=True)
     shutil.copy2(os.path.join(JOIN1, "join1_index.json"), os.path.join(art, "join1_index.json"))
     order, first = [], {}
     for w in sorted(wk["waves"], key=int):
@@ -175,12 +181,25 @@ def main():
                 first[k] = int(w)
                 order.append(k)
     heroes = [wk["hero"], "gd-eor-warlord-eor4x"]
+    # The native catalogue includes fallback larva/worm and overlay kits, too.
+    extras = sorted({os.path.basename(os.path.dirname(p)) for base in (JOIN1, ART_X)
+                     for p in glob.glob(os.path.join(base, '*/index.json'))}
+                    - set(heroes + order))
+    order += extras
     sizes = {}
     for k in heroes + order:
         src = os.path.join(ART_X, k) if os.path.isdir(os.path.join(ART_X, k)) else os.path.join(JOIN1, k)
         if not os.path.isfile(os.path.join(src, "index.json")):
             die("kit %s has no index at %s" % (k, src))
-        sizes[k] = stage_kit(src, os.path.join(art, k))
+        target = os.path.join(art, k)
+        if REFRESH and os.path.isfile(os.path.join(target, 'index.json')):
+            index = json.load(open(os.path.join(target, 'index.json')))
+            members = {c['file'] for c in index['cells'].values()}
+            if any(not os.path.isfile(os.path.join(art, f)) for f in members):
+                die('refresh requires complete cached art: ' + k)
+            sizes[k] = sum(os.path.getsize(os.path.join(art, f)) for f in members) + os.path.getsize(os.path.join(target, 'index.json'))
+        else:
+            sizes[k] = stage_kit(src, target)
         print("   kit %-28s %6.1f MB" % (k, sizes[k] / 1e6))
     # the art_x variant copy is now in kc2/art; the mirror's own art_x would be imported PNGs -- drop it
     ax = os.path.join(kc2, "art_x")

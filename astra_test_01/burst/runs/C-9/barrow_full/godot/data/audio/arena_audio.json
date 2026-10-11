@@ -75,22 +75,6 @@
       "sha256": "17b9e6f03c8eb8e3f7327cc83a633042fa3bdc27f8323a80f279f7b997a43f75",
       "seconds": 3.032
     },
-    "clip_019": {
-      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P1.wav",
-      "file": "clip_019.wav.bin",
-      "format": "wav",
-      "bytes": 919340,
-      "sha256": "d36f969553855774b5920ca6ac9001e67168fdd04cca7a395ff67e0cd25e7f1d",
-      "seconds": 1.567
-    },
-    "clip_020": {
-      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P2.wav",
-      "file": "clip_020.wav.bin",
-      "format": "wav",
-      "bytes": 1165484,
-      "sha256": "9513830306f851f4f6b5c15ebcfe47cab4ffc96d1a25f630fb4d786cbdfb39f4",
-      "seconds": 1.994
-    },
     "clip_021": {
       "source": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash01.wav",
       "file": "clip_021.wav.bin",
@@ -500,6 +484,24 @@
       "sha256": "870226efac3a0776e6a0d044efbfbf0bf918cc611b88d199fe5989b68aeb1095",
       "seconds": 29.9735,
       "source_root": "soundtracks"
+    },
+    "whirlwind_metal_start": {
+      "source": "whirlwind_metal_start.wav",
+      "source_root": "derived_sfx",
+      "file": "whirlwind_metal_start.wav.bin",
+      "format": "wav",
+      "bytes": 240044,
+      "sha256": "80f60e6b1855467412340a2152175c8cf7754022ff6c4937bcb59f600260d651",
+      "seconds": 2.5
+    },
+    "whirlwind_metal_loop": {
+      "source": "whirlwind_metal_loop.wav",
+      "source_root": "derived_sfx",
+      "file": "whirlwind_metal_loop.wav.bin",
+      "format": "wav",
+      "bytes": 460844,
+      "sha256": "25652d6be176e8e3c494d4e0a5962a1ce1c6a7fd49548326b28c73c2627b05b0",
+      "seconds": 4.8
     }
   },
   "cues": {
@@ -519,10 +521,10 @@
       "clip_048"
     ],
     "whirlwind_start": [
-      "clip_019"
+      "whirlwind_metal_start"
     ],
     "whirlwind_loop": [
-      "clip_020"
+      "whirlwind_metal_loop"
     ],
     "fire_cast": [
       "clip_050"
@@ -641,7 +643,8 @@
     "Northern Omen is the default score; Fjordstormen is a separate quieter looping environment layer."
   ],
   "source_roots": {
-    "soundtracks": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/soundtracks"
+    "soundtracks": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/soundtracks",
+    "derived_sfx": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/derived_sfx"
   },
   "ambience": {
     "clip": "clip_066",
@@ -651,8 +654,8 @@
   "mix": {
     "music_db": -22.0,
     "music_combat_db": -28.0,
-    "ambience_db": -28.0,
-    "ambience_combat_db": -32.0
+    "ambience_db": -20.0,
+    "ambience_combat_db": -24.0
   },
   "selection_sha256": "e27c46866832dba5eb12fb9ad5973ccc034b2967f329015f5ef84fa7569e010f"
 }

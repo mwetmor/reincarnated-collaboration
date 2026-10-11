@@ -4,14 +4,14 @@
 // the browser accepts br, cached in memory; everything else as-is. Logs each response.
 //   node br_server.js <root> <port>
 const http = require('http'); const fs = require('fs'); const path = require('path'); const zlib = require('zlib');
-const root = process.argv[2]; const port = parseInt(process.argv[3] || '8792', 10);
+const root = path.resolve(process.argv[2]); const port = parseInt(process.argv[3] || '8792', 10);
 const types = { '.html': 'text/html', '.js': 'application/javascript', '.wasm': 'application/wasm', '.pck': 'application/octet-stream', '.png': 'image/png' };
 const cache = {};
 http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]);
   if (p.endsWith('/')) p += 'index.html';
   const f = path.join(root, p);
-  if (!f.startsWith(root) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); res.end(); return; }
+  if (!f.startsWith(root + path.sep) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); res.end(); return; }
   const ae = req.headers['accept-encoding'] || '';
   const ext = path.extname(f);
   const hdr = { 'Content-Type': types[ext] || 'application/octet-stream', 'Cache-Control': 'no-store' };

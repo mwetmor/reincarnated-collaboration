@@ -16,6 +16,7 @@ func _init() -> void:
 
 
 var arena: Node3D = null
+var web_preparing := false
 
 
 func _ready() -> void:
@@ -70,8 +71,75 @@ func _ready() -> void:
 	arena.name = "Arena"
 	add_child(arena)
 	arena.setup(self)
+	if OS.has_feature("web"):
+		if not await _warm_web_arena(card, lb):
+			return
 	card.queue_free()
 	print("[bv2f_arena] site %s, arena %s" % [pilot_set, "up" if arena.fatal == "" else "REFUSED: " + String(arena.fatal)])
+
+
+func _warm_web_arena(card: CanvasLayer, lb: Label) -> bool:
+	# Preparation changes presentation caches only. No casts, ticks, or fight RNG.
+	if arena.fatal != "":
+		return false
+	web_preparing = true
+	arena.set_process(false)
+	arena.touch_layer.set_process_input(false)
+	var cover := ColorRect.new()
+	cover.color = Color(0.04, 0.05, 0.07)
+	cover.set_anchors_preset(Control.PRESET_FULL_RECT)
+	card.add_child(cover)
+	card.move_child(cover, 0)
+	lb.text = "Preparing combat effects..."
+	var before: String = JSON.stringify(arena.session.snapshot())
+	var deadline := Time.get_ticks_msec() + 60000
+	while arena.hero_3d and arena.hero3d == null:
+		if Time.get_ticks_msec() > deadline:
+			lb.text = "The hero could not load. Please reload the page."
+			push_error("bv2f_arena: web hero preparation timed out")
+			return false
+		await get_tree().process_frame
+	arena._render(0.0)
+	# Native pipeline preparation already warms both kinds of snow puff.
+	# The web arena must exercise them too, beneath the preparation cover.
+	if snow != null:
+		snow._puff(arena.proxy.global_position, Vector2(0, 1), 0.05, false)
+		snow._puff(arena.proxy.global_position, Vector2(0, 1), 0.4, true)
+	var art = load("res://scripts/arena/arena_art.gd")
+	var waves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/arena/wave_kits.json"))
+	var keys := {}
+	# Preload first-wave animation cells incrementally, outside interactive play.
+	for kit in waves["waves"]["151"]:
+		for cell in art.kit_meta(kit).get("cells", {}):
+			keys[String(kit) + "|" + String(cell)] = [kit, cell]
+	for pair in keys.values():
+		var clip_deadline := Time.get_ticks_msec() + 5000
+		while art.cell_tex(pair[0], pair[1]) == null:
+			if Time.get_ticks_msec() > clip_deadline:
+				lb.text = "A character animation could not load. Please reload the page."
+				push_error("bv2f_arena: web animation preparation failed: " + str(pair))
+				return false
+			await get_tree().process_frame
+		await get_tree().process_frame
+	var fx = arena.warlord.eor
+	if fx != null:
+		fx.warm(true, arena.proxy.global_position)
+		for i in 8:
+			await get_tree().process_frame
+		fx.warm(false, arena.proxy.global_position)
+	# Draw both camera sizes before the first player zoom.
+	arena._toggle_zoom()
+	for i in 2:
+		await get_tree().process_frame
+	arena._toggle_zoom()
+	for i in 8:
+		await get_tree().process_frame
+	assert(before == JSON.stringify(arena.session.snapshot()), "Web preparation changed fight state")
+	arena.touch_layer.set_process_input(true)
+	arena.set_process(true)
+	web_preparing = false
+	print("[arena] web preparation: %d first-wave cells; Whirlwind and zoom warmed; snapshot unchanged" % keys.size())
+	return true
 
 
 ## R-C9-391: a bundled build's monster art ships in KIT PACKS beside the main pack (the 50 MB file fence): on the page
@@ -96,6 +164,8 @@ func _load_kit_packs(lb: Label) -> bool:
 		return true
 	var st: Variant = JSON.parse_string(FileAccess.get_file_as_string(ArenaPaths.STAMP))
 	var packs: Array = (st as Dictionary).get("kit_packs", []) if typeof(st) == TYPE_DICTIONARY else []
+	if OS.has_feature("web"):
+		return await _download_web_packs(packs, lb)
 	var a := OS.get_cmdline_user_args()
 	var dir := String(a[a.find("--kit-pack-dir") + 1]) if a.find("--kit-pack-dir") >= 0 and a.find("--kit-pack-dir") + 1 < a.size() else ""
 	var i := 0
@@ -104,28 +174,7 @@ func _load_kit_packs(lb: Label) -> bool:
 		i += 1
 		lb.text = "Loading the arena %d / %d..." % [i, packs.size()]
 		var r := {"pack": nm}
-		if OS.has_feature("web"):
-			var base := str(JavaScriptBridge.eval("document.baseURI", true))
-			var url := (base if base.ends_with("/") else base.get_base_dir() + "/") + nm
-			var http := HTTPRequest.new()
-			add_child(http)
-			# Large packs should not be drained 64 KiB per frame on a single thread.
-			http.download_chunk_size = 1024 * 1024
-			http.download_file = "user://" + nm
-			var t0 := Time.get_ticks_msec()
-			var started := http.request(url)
-			if started != OK:
-				http.queue_free()
-				lb.text = "The arena download could not start. Please reload the page."
-				push_error("bv2f_arena: request %s failed: %s" % [nm, error_string(started)])
-				return false
-			var res: Array = await http.request_completed
-			http.queue_free()
-			r["http"] = int(res[1])
-			r["ms"] = Time.get_ticks_msec() - t0
-			r["loaded"] = int(res[0]) == HTTPRequest.RESULT_SUCCESS and int(res[1]) == 200 \
-				and ProjectSettings.load_resource_pack("user://" + nm)
-		elif dir != "":
+		if dir != "":
 			r["loaded"] = ProjectSettings.load_resource_pack(dir.path_join(nm))
 		else:
 			r["loaded"] = "in project"
@@ -138,9 +187,65 @@ func _load_kit_packs(lb: Label) -> bool:
 	print("[bv2f_arena] kit packs: " + JSON.stringify(kit_pack_report))
 	return true
 
+func _web_pack_completed(result: int, status: int, _headers: PackedStringArray, _body: PackedByteArray, job: Dictionary) -> void:
+	job["result"] = result
+	job["http"] = status
+	job["ms"] = Time.get_ticks_msec() - int(job["start"])
+
+
+func _download_web_packs(packs: Array, lb: Label) -> bool:
+	var base := str(JavaScriptBridge.eval("document.baseURI", true))
+	base = base if base.ends_with("/") else base.get_base_dir() + "/"
+	# Bound transient download buffers; mount completed batches in stamp order.
+	# Independent streams avoid serializing every large response behind one request.
+	for first in range(0, packs.size(), 3):
+		var jobs: Array = []
+		var end := mini(first + 3, packs.size())
+		lb.text = "Loading the arena %d–%d / %d..." % [first + 1, end, packs.size()]
+		for i in range(first, end):
+			var http := HTTPRequest.new()
+			add_child(http)
+			http.download_chunk_size = 1024 * 1024
+			var name := String(packs[i])
+			http.download_file = "user://" + name
+			var job := {"pack": name, "request": http, "start": Time.get_ticks_msec()}
+			jobs.append(job)
+			http.request_completed.connect(_web_pack_completed.bind(job), CONNECT_ONE_SHOT)
+			var error := http.request(base + name)
+			if error != OK:
+				for pending in jobs:
+					pending["request"].cancel_request()
+					pending["request"].queue_free()
+				lb.text = "The arena download could not start. Please reload the page."
+				push_error("bv2f_arena: request %s failed: %s" % [name, error_string(error)])
+				return false
+		while true:
+			var done := true
+			for job in jobs:
+				if not job.has("result"):
+					done = false
+			if done:
+				break
+			await get_tree().process_frame
+		for job in jobs:
+			job["request"].queue_free()
+		for job in jobs:
+			var r := {"pack": job["pack"], "http": job["http"], "ms": job["ms"],
+				"loaded": int(job["result"]) == HTTPRequest.RESULT_SUCCESS and int(job["http"]) == 200
+					and ProjectSettings.load_resource_pack("user://" + String(job["pack"]))}
+			kit_pack_report.append(r)
+			print("[bv2f_arena] pack: " + JSON.stringify(r))
+			if not r["loaded"]:
+				lb.text = "An arena download failed. Please reload the page."
+				push_error("bv2f_arena: pack failed: " + JSON.stringify(r))
+				return false
+	print("[bv2f_arena] kit packs: " + JSON.stringify(kit_pack_report))
+	return true
+
+
 
 func _unhandled_input(e: InputEvent) -> void:
-	if arena != null:
+	if arena != null and not web_preparing:
 		arena.handle_input(e)
 
 

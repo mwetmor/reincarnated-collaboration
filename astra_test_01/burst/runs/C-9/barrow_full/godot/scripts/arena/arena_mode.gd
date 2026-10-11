@@ -157,6 +157,31 @@ func _build_hero3d() -> void:
 	#   and the ramp's cool floor compress it)
 	PaintStack.set_character_param(saved, "tint", Color(hero_light, hero_light, hero_light))
 	PaintStack.set_character_param(saved, "shadow_energy", 0.62 * hero_light)
+	# The arena creates this rig AFTER the world's Compatibility correction.
+	# Apply the same light/color-space treatment the walk's original rig receives.
+	if PaintStack.is_compatibility():
+		var amb: Array = scene.paint.get("compat_light", {}).get("ambient_linear", [0.0, 0.0, 0.0])
+		PaintStack.set_character_param(saved, "ambient_in_light", Vector3(float(amb[0]), float(amb[1]), float(amb[2])))
+		PaintStack.web_color_space(k)
+		# Compatibility clamps the sRGB ALBEDO before lighting. An HDR tint
+		# bleaches gold armor there; apply the equivalent LINEAR gain in light().
+		var gain := Color(hero_light, hero_light, hero_light).srgb_to_linear().r
+		var shaders := {}
+		for mesh in saved["meshes"]:
+			var material: ShaderMaterial = mesh["ramp"]
+			var code: String = material.shader.code
+			if not shaders.has(code):
+				var shader := Shader.new()
+				shader.code = code.replace("void light() {", "uniform float arena_light_gain = 1.0;\nvoid light() {") \
+					.replace("DIFFUSE_LIGHT += _ramp_light(", "DIFFUSE_LIGHT += arena_light_gain * _ramp_light(")
+				shaders[code] = shader
+			material.shader = shaders[code]
+			material.set_shader_parameter("tint", Color.WHITE)
+			material.set_shader_parameter("arena_light_gain", gain)
+		for ink in saved.get("inks", []):
+			var hull = ink.get("mi")
+			if hull is Node3D and is_instance_valid(hull):
+				hull.visible = false
 	if k.get("_skel") != null:
 		var eyes = load("res://scripts/warlord_eyes.gd").new()
 		eyes.name = "WarlordEyes"
@@ -1598,6 +1623,7 @@ const PERF_SETTLE_S := 5.0
 const PERF_WINDOW_S := 30.0
 var perf_on := false
 var _perf_dts: Array = []
+var _perf_total_ms := 0.0
 var _perf_done := false
 func _perf(delta: float) -> void:
 	if not perf_on or _perf_done or not (running and fight_started):
@@ -1605,9 +1631,8 @@ func _perf(delta: float) -> void:
 	if _wall_s < PERF_SETTLE_S:
 		return
 	_perf_dts.append(delta * 1000.0)
-	var tot := 0.0
-	for v in _perf_dts:
-		tot += float(v)
+	_perf_total_ms += delta * 1000.0
+	var tot := _perf_total_ms
 	if tot < PERF_WINDOW_S * 1000.0:
 		return
 	_perf_done = true
@@ -1638,7 +1663,17 @@ func _instruments(delta: float) -> void:
 			_input_probe_s = 0.0
 			var state := {"fight_started": fight_started, "touch": touch_on, "exploration_touch": scene.get("touch") != null, "channel": _channel_held(),
 				"zoomed_out": zoomed_out, "position": [player_pos_m.x, player_pos_m.y],
-				"tick": int(snap.get("tick", 0))}
+				"tick": int(snap.get("tick", 0)), "actors": actors.size(), "wave": int(snap.get("wave", 0)),
+				"walk_reachable_cells": walk_reach.count(1), "hero_3d": hero_3d,
+				"audio_manifest_sha256": FileAccess.get_sha256("res://data/audio/arena_audio.json"),
+				"sfx_loaded": audio.streams.size() if audio != null else 0,
+				"audio_missing": audio.report["missing"] if audio != null else ["audio adapter absent"],
+				"ambience_db": audio.manifest["mix"]["ambience_db"] if audio != null else -80,
+				"ambience_crossfades": audio.report.get("ambience_crossfades", 0) if audio != null else 0,
+				"audio_played": audio.report["played"] if audio != null else {},
+				"music_index": audio.music_index if audio != null else -1,
+				"music_muted": audio.music_muted if audio != null else false,
+				"sfx_muted": audio.sfx_muted if audio != null else false}
 			JavaScriptBridge.eval("window.__barrowProbe = " + JSON.stringify(state), true)
 	if _f0 < 0:
 		_f0 = Engine.get_process_frames()

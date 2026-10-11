@@ -1,5 +1,5 @@
 // Packaged browser smoke test: startup, integrity gates, rendering, and inputs.
-// PLAYWRIGHT_CORE=<installed module> node web_arena_test.cjs <url> <outdir> [--touch|--fail-pack]
+// node web_arena_test.cjs <url> <outdir> [desktop|--touch|--fail-pack|--perf|--perf-touch|--touch-long]
 const fs = require('fs');
 const path = require('path');
 let playwright;
@@ -19,13 +19,14 @@ fs.mkdirSync(outdir, { recursive: true });
     headless: false,
     args: ['--use-angle=metal', '--ignore-gpu-blocklist', '--disable-background-timer-throttling', '--disable-renderer-backgrounding'],
   });
-  const touch = mode === '--touch';
+  const touch = ['--touch', '--perf-touch', '--touch-long'].includes(mode);
+  const perf = mode === '--perf' || mode === '--perf-touch';
   const origin = new URL(url).origin;
   // Context headers also cover AudioWorklet module fetches, which page.route misses.
   // The authenticated context is restricted to this deployment's origin.
   const context = await browser.newContext({
     viewport: touch ? { width: 844, height: 390 } : { width: 1280, height: 720 },
-    hasTouch: touch, deviceScaleFactor: 1,
+    hasTouch: touch, deviceScaleFactor: Number(process.env.ARENA_DEVICE_SCALE || (['--perf-touch','--touch-long'].includes(mode) ? 3 : 1)),
     extraHTTPHeaders: process.env.VERCEL_OIDC_TOKEN ? {'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_OIDC_TOKEN} : {},
   });
   if (process.env.VERCEL_OIDC_TOKEN) await context.route(u => u.origin !== origin, route => route.abort());
@@ -46,8 +47,8 @@ fs.mkdirSync(outdir, { recursive: true });
   const page = await context.newPage();
   const started = Date.now();
   const logs = [], responses = [], failures = [], inputs = [];
-  let launch = '', ready = false, packFailure = false;
-  const persist = () => fs.writeFileSync(path.join(outdir, 'result.json'), JSON.stringify({ mode, elapsed_ms: Date.now() - started, launch, ready, packFailure, logs, responses, failures, inputs }, null, 2));
+  let launch = '', ready = false, packFailure = false, frameTimes = [];
+  const persist = () => fs.writeFileSync(path.join(outdir, 'result.json'), JSON.stringify({ mode, elapsed_ms: Date.now() - started, launch, ready, packFailure, logs, responses, failures, inputs, frameTimes }, null, 2));
   page.on('console', msg => {
     const text = msg.text();
     logs.push({ ms: Date.now() - started, type: msg.type(), text });
@@ -62,6 +63,7 @@ fs.mkdirSync(outdir, { recursive: true });
   if (mode === '--fail-pack') await page.route('**/site_0.pck', r => r.fulfill({status:404,body:'missing test pack'}));
   try {
     const testUrl = new URL(url); testUrl.searchParams.set('probe', '1');
+    if (perf) testUrl.searchParams.set('perf', '1');
     await page.goto(testUrl.toString(), { waitUntil: 'domcontentloaded', timeout: 120000 });
     await page.bringToFront();
     while (!(ready && launch) && !packFailure && !logs.some(x => /REFUSED|SCRIPT ERROR/.test(x.text)) && Date.now() - started < 240000) await sleep(250);
@@ -84,9 +86,27 @@ fs.mkdirSync(outdir, { recursive: true });
       return state;
     };
     const before = await observe('before');
+    await page.screenshot({path:path.join(outdir,'ready.png')});
     if (before.exploration_touch) throw new Error('Exploration controls overlap arena controls');
+    const manifest = fs.readFileSync(path.join(__dirname, '../godot/data/audio/arena_audio.json'));
+    const expectedAudio = require('crypto').createHash('sha256').update(manifest).digest('hex');
+    const sfxCount = new Set(Object.values(JSON.parse(manifest).cues).flat()).size;
+    if (before.audio_manifest_sha256 !== expectedAudio || before.sfx_loaded !== sfxCount || before.audio_missing.length || before.ambience_db !== -20)
+      throw new Error('Web audio differs from current local scene: ' + JSON.stringify(before));
+    if (!before.hero_3d || before.walk_reachable_cells < 100) throw new Error('3D hero or traversal geometry missing');
+    // Measure wall-clock presentation intervals, independently of engine delta clamping.
+    await page.evaluate(() => {
+      window.__arenaFrames = []; let previous;
+      const sample = now => { if (previous !== undefined) window.__arenaFrames.push(now - previous); previous = now; window.__arenaFrame = requestAnimationFrame(sample); };
+      window.__arenaFrame = requestAnimationFrame(sample);
+    });
     const cdp = await page.context().newCDPSession(page);
-    if (touch) {
+    if (perf) {
+      await page.keyboard.press('m'); // Autopilot still needs a user gesture to resume browser audio.
+      await page.keyboard.press('m');
+      await sleep(35000);
+      await observe('performance-combat');
+    } else if (touch) {
       await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[{x:320,y:210,id:1}]});
       await sleep(1500);
       await observe('moving');
@@ -94,6 +114,16 @@ fs.mkdirSync(outdir, { recursive: true });
       // Buttons use the 1920x1080 canvas, scaled/letterboxed into 844x390.
       const scale = 390 / 1080, padX = (844 - 1920 * scale) / 2;
       const at = (x,y) => ({x:padX + x*scale,y:y*scale,id:2});
+      // Exercise every skill button and verify accepted cues from the real adapter.
+      for (const [skill,x,y,cue] of [['Potion',1586.5,988,'potion'], ['Might',1609.5,815.5,'vires_might'], ['Battle Cry',1713,700.5,'war_cry'], ['Haste',1851,700.5,'rune_of_rush']]) {
+        const previous = await observe('before-' + skill);
+        await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[at(x,y)]});
+        await sleep(100);
+        await cdp.send('Input.dispatchTouchEvent', {type:'touchEnd',touchPoints:[]});
+        await sleep(400);
+        const accepted = await observe('accepted-' + skill);
+        if ((accepted.audio_played[cue] || 0) <= (previous.audio_played[cue] || 0)) throw new Error('Touch skill not accepted: ' + skill);
+      }
       await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[at(1782,907.5)]});
       await sleep(2000);
       const held = await observe('channel-held');
@@ -116,8 +146,46 @@ fs.mkdirSync(outdir, { recursive: true });
     }
     await sleep(2500);
     const after = await observe('after');
-    if (after.channel || after.zoomed_out === before.zoomed_out) throw new Error('Channel release or zoom input failed');
-    if (!inputs.some(x => x.label === 'moving' && JSON.stringify(x.position) !== JSON.stringify(before.position))) throw new Error('Player did not move');
+    if (!perf && (after.channel || after.zoomed_out === before.zoomed_out)) throw new Error('Channel release or zoom input failed');
+    if (!perf && !inputs.some(x => x.label === 'moving' && JSON.stringify(x.position) !== JSON.stringify(before.position))) throw new Error('Player did not move');
+    let sustainedStart = null;
+    if (mode === '--touch-long') {
+      sustainedStart = await page.evaluate(() => window.__arenaFrames.length);
+      const scale = 390 / 1080, padX = (844 - 1920 * scale) / 2;
+      await cdp.send('Input.dispatchTouchEvent', {type:'touchStart',touchPoints:[{x:padX+1782*scale,y:907.5*scale,id:3}]});
+      await sleep(1000);
+      if (!(await observe('long-channel-held')).channel) throw new Error('Long touch channel did not start');
+      await sleep(34000);
+      const sustained = await observe('sustained-touch-combat');
+      if (sustained.tick < after.tick + 350) throw new Error('Sustained combat did not advance for the test interval');
+      await cdp.send('Input.dispatchTouchEvent', {type:'touchEnd',touchPoints:[]});
+      await sleep(500);
+      if ((await observe('sustained-channel-released')).channel) throw new Error('Long touch channel did not release');
+    }
+    frameTimes = await page.evaluate(() => { cancelAnimationFrame(window.__arenaFrame); return window.__arenaFrames; });
+    const ordered = [...frameTimes].sort((a,b) => a-b);
+    const average = frameTimes.reduce((a,b) => a+b,0) / frameTimes.length;
+    const surface = await page.evaluate(() => { const c=document.querySelector('canvas'); return {width:c.width,height:c.height,dpr:devicePixelRatio}; });
+    const timing = {frames:frameTimes.length, average_ms:average, fps:1000/average, p99_ms:ordered[Math.floor(ordered.length*.99)], max_ms:ordered.at(-1), over_33_ms:frameTimes.filter(x=>x>33.4).length, surface};
+    if (sustainedStart !== null) {
+      const frames = frameTimes.slice(sustainedStart), sorted = [...frames].sort((a,b)=>a-b);
+      const mean = frames.reduce((a,b)=>a+b,0)/frames.length;
+      timing.sustained_combat = {frames:frames.length, average_ms:mean, fps:1000/mean, p99_ms:sorted[Math.floor(sorted.length*.99)], max_ms:sorted.at(-1), over_33_ms:frames.filter(x=>x>33.4).length};
+    }
+    fs.writeFileSync(path.join(outdir, 'performance.json'), JSON.stringify(timing,null,2));
+    console.log('Frame timings: ' + JSON.stringify(timing));
+    if (!perf) {
+      for (const [key, property] of [['m','music_muted'], ['k','sfx_muted']]) {
+        await page.keyboard.press(key); await sleep(350);
+        if (!(await observe('muted-' + property))[property]) throw new Error('Mute key failed: ' + key);
+        await page.keyboard.press(key); await sleep(350);
+        if ((await observe('unmuted-' + property))[property]) throw new Error('Unmute key failed: ' + key);
+      }
+      await page.keyboard.press('b');
+      await page.waitForFunction(expected => window.__barrowProbe?.music_index === expected,
+        (before.music_index + 1) % JSON.parse(manifest).music.length, {timeout:15000});
+      if ((await observe('next-score')).music_index !== (before.music_index + 1) % JSON.parse(manifest).music.length) throw new Error('Score selection failed');
+    }
     await page.screenshot({path:path.join(outdir,'playing.png')});
     // Same non-fatal decoder warning exists in the pinned native runtime's launch.log.
     // Keep it in result.json; do not change sealed runtime bytes to silence it.
