@@ -1,5 +1,9 @@
 # SFX listening review
 
+The approved handoff has now been applied to the local scene; see
+`SFX_SELECTIONS_APPLIED.md`. The listening sheet remains tied to its original
+audition baseline, and the eight find-more cues await a new review.
+
 ## Phone / local Wi-Fi server
 
 The phone page uses the same sounds and catalogue. Run the server on the Mac:
@@ -71,8 +75,8 @@ require a loop-seam check before integration.
 
 Feedback recorded: music accepted for now; character SFX need review; most monster
 casts rejected pending review; some creature voices loved but not yet identified.
-No individual SFX is pre-approved. Game mappings and the delivered PC ZIP stay
-at their existing baseline until the selection handoff.
+The sheet does not preselect any individual SFX. The local game's approved
+handoff is recorded separately; the delivered PC ZIP is still the earlier build.
 
 Rebuild from the original, read-only demo audio (ffmpeg already installed):
 

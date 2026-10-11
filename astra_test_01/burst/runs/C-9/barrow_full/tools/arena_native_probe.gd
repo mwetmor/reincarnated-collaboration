@@ -54,7 +54,12 @@ func _run() -> void:
 		_fail("scene startup timed out")
 		return
 	var arena = scene.arena
-	if arena.audio == null or arena.audio.streams.size() != 42 or not arena.audio.report["missing"].is_empty():
+	var expected_sfx := {}
+	if arena.audio != null:
+		for ids in arena.audio.manifest["cues"].values():
+			for id in ids:
+				expected_sfx[id] = true
+	if arena.audio == null or arena.audio.streams.size() != expected_sfx.size() or not arena.audio.report["missing"].is_empty():
 		_fail("native audio missing/undecodable")
 		return
 	if scene.PILOT_MANIFEST != "res://data/bv2f/site_ph4/painted/manifest.json":

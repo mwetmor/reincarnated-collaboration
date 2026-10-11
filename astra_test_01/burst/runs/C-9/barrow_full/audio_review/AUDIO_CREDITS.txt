@@ -111,3 +111,10 @@ https://drive.google.com/drive/folders/1tlJMeJp5PabLjmHyc3kTVd5dPycUKSav?usp=dri
 Target staging dir: reincarnated-demo/public/audio/sfx/kmontesdev/
 
 Crawl date: 2026-05-17
+
+Additional user-supplied Suno tracks (local scene selection update):
+Northern Omen — mhwetmore, Suno creation 2026-10-11; default symphonic score.
+Fjordstormen — mhwetmore, Suno creation 2026-10-11; separate storm/wave layer.
+Original MP3s retained without transcoding; SHA-256s in arena_audio.json.
+Selected new WAV effects are derived to plain PCM16 for Godot compatibility;
+their original-source hashes and conversion recipes are pinned in that manifest.

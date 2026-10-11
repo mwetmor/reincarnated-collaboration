@@ -87,7 +87,8 @@ def main():
     args = parser.parse_args()
     inventory = json.loads((ROOT / "audio_review/AUDIO_INVENTORY.json").read_text())
     indexed = {row["path"]: row for row in inventory["files"]}
-    manifest_bytes = (ROOT / "godot/data/audio/arena_audio.json").read_bytes()
+    baseline = ROOT / "audio_review/ARENA_AUDIO_REVIEW_BASELINE.json"
+    manifest_bytes = (baseline if baseline.exists() else ROOT / "godot/data/audio/arena_audio.json").read_bytes()
     manifest = json.loads(manifest_bytes)
     rows, wanted = [], set()
     for key, group, label, note, alternatives in actions():

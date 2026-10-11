@@ -1,0 +1,452 @@
+{
+  "schema": "barrow_sfx_selections_v1",
+  "catalog_sha256": "1f783e8a9ba532b014dd0f79229652904d409bc9ecf9d147f121c20a9d5ae298",
+  "manifest_sha256": "2cde52cd27a22bdaa2822646e46aaeff66ff88c8240bc9e7c903452f5cefc714",
+  "choices": {
+    "slash": {
+      "choice": "current",
+      "notes": ""
+    },
+    "physical_hit": {
+      "choice": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_hit_flesh_a.wav",
+      "notes": "The character uses a mace and this sounds closer to a mace "
+    },
+    "blitz": {
+      "choice": "find_more",
+      "notes": "All of these are poor choices"
+    },
+    "potion": {
+      "choice": "find_more",
+      "notes": "A bottle opening or pouring a glass is a better fit"
+    },
+    "vires_might": {
+      "choice": "find_more",
+      "notes": "All are poor choices. Let’s try some that seem more magical."
+    },
+    "war_cry": {
+      "choice": "find_more",
+      "notes": "These are all bad choices. The closest is the “scream male” option but it’s the wrong type of scream. It needs to be a barbarian yell or shout or war cry."
+    },
+    "rune_of_rush": {
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash02.wav",
+      "notes": ""
+    },
+    "whirlwind_start": {
+      "choice": "find_more",
+      "notes": "These are all poor choices. Jt needs to be the sound of a rotating, swinging mace/weapon. Wind rushing and metal clashing."
+    },
+    "whirlwind_loop": {
+      "choice": "find_more",
+      "notes": "See prior whirlwind details."
+    },
+    "energy_refused": {
+      "choice": "sfx/leohpaz/10_UI_Menu_SFX/033_Denied_03.wav",
+      "notes": ""
+    },
+    "fire_cast": {
+      "choice": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg",
+      "notes": ""
+    },
+    "fire_hit": {
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Explosion_Single02.wav",
+      "notes": ""
+    },
+    "cold_cast": {
+      "choice": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Throw 1.ogg",
+      "notes": ""
+    },
+    "cold_hit": {
+      "choice": "current",
+      "notes": ""
+    },
+    "lightning_cast": {
+      "choice": "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav",
+      "notes": ""
+    },
+    "lightning_hit": {
+      "choice": "current",
+      "notes": ""
+    },
+    "poison_cast": {
+      "choice": "find_more",
+      "notes": ""
+    },
+    "poison_hit": {
+      "choice": "find_more",
+      "notes": "This needs the sound of breaking glass"
+    },
+    "aether_cast": {
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P1_Cast.wav",
+      "notes": ""
+    },
+    "aether_hit": {
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P2_Impact.wav",
+      "notes": ""
+    },
+    "vitality_cast": {
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav",
+      "notes": ""
+    },
+    "vitality_hit": {
+      "choice": "sfx/leohpaz/8_Buffs_Heals_SFX/39_Absorb_04.wav",
+      "notes": ""
+    },
+    "ghost_cast": {
+      "choice": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_a.wav",
+      "notes": "Alternate between ghost vocal A and B"
+    },
+    "ghost_death": {
+      "choice": "current",
+      "notes": ""
+    },
+    "ghoul_death": {
+      "choice": "current",
+      "notes": ""
+    },
+    "golem_death": {
+      "choice": "current",
+      "notes": ""
+    },
+    "orc_death": {
+      "choice": "current",
+      "notes": ""
+    },
+    "enemy_death": {
+      "choice": "sfx/monsters_creatures_sfx_1_wav/Goblin/0014_monster_goblin_death.wav",
+      "notes": "Can you please alternate between an assortment of death sounds?"
+    }
+  },
+  "exported_at": "2026-10-11T02:36:06.501Z",
+  "music": "accepted_for_now",
+  "resolved_choices": [
+    {
+      "cue": "slash",
+      "label": "Sword swing / basic slash",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/oga/RPG Sound Pack/battle/swing.wav",
+          "sha256": "c7d50b9cb20ccda5aee6c023f4450915594061e36f3f9e78af241ca9fde0f817"
+        },
+        {
+          "path": "sfx/oga/RPG Sound Pack/battle/swing2.wav",
+          "sha256": "2e4064e294d136e06c40cc562df969493907e6873f39895ca86b4a6b2e034c6e"
+        },
+        {
+          "path": "sfx/oga/RPG Sound Pack/battle/swing3.wav",
+          "sha256": "d725421956c9958de6d7a17c4fca299abe583a1800c59eaec358ec2e82d79bae"
+        }
+      ]
+    },
+    {
+      "cue": "physical_hit",
+      "label": "Sword contact / physical hit",
+      "choice": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_hit_flesh_a.wav",
+      "notes": "The character uses a mace and this sounds closer to a mace ",
+      "sources": [
+        {
+          "path": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_hit_flesh_a.wav",
+          "sha256": "96343f7d3e12d141f605bdea3e6efc2a6a2a3cb5a8e9eace54672ee773df2bca"
+        }
+      ]
+    },
+    {
+      "cue": "blitz",
+      "label": "Charge / Blitz",
+      "choice": "find_more",
+      "notes": "All of these are poor choices",
+      "sources": []
+    },
+    {
+      "cue": "potion",
+      "label": "Potion / healing",
+      "choice": "find_more",
+      "notes": "A bottle opening or pouring a glass is a better fit",
+      "sources": []
+    },
+    {
+      "cue": "vires_might",
+      "label": "Might / strength buff",
+      "choice": "find_more",
+      "notes": "All are poor choices. Let’s try some that seem more magical.",
+      "sources": []
+    },
+    {
+      "cue": "war_cry",
+      "label": "Battle Cry",
+      "choice": "find_more",
+      "notes": "These are all bad choices. The closest is the “scream male” option but it’s the wrong type of scream. It needs to be a barbarian yell or shout or war cry.",
+      "sources": []
+    },
+    {
+      "cue": "rune_of_rush",
+      "label": "Haste / Rune of Rush",
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash02.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash02.wav",
+          "sha256": "bea452d320a80eb694e4ee047fb9a924afb1f2c3b57391e814587d8c7387e3b4"
+        }
+      ]
+    },
+    {
+      "cue": "whirlwind_start",
+      "label": "Whirlwind — start",
+      "choice": "find_more",
+      "notes": "These are all poor choices. Jt needs to be the sound of a rotating, swinging mace/weapon. Wind rushing and metal clashing.",
+      "sources": []
+    },
+    {
+      "cue": "whirlwind_loop",
+      "label": "Whirlwind — repeating body",
+      "choice": "find_more",
+      "notes": "See prior whirlwind details.",
+      "sources": []
+    },
+    {
+      "cue": "snow_step",
+      "label": "Movement / footsteps",
+      "choice": "pending",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "cue": "player_death",
+      "label": "Character death",
+      "choice": "pending",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "cue": "energy_refused",
+      "label": "Not enough energy",
+      "choice": "sfx/leohpaz/10_UI_Menu_SFX/033_Denied_03.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/leohpaz/10_UI_Menu_SFX/033_Denied_03.wav",
+          "sha256": "b82cdf1e4f349e68ede0dcd7dbf7476698872e3a5b81fbec9aeb4804caa059fa"
+        }
+      ]
+    },
+    {
+      "cue": "arrow_cast",
+      "label": "Physical ranged attack / arrow",
+      "choice": "pending",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "cue": "fire_cast",
+      "label": "Fire — cast / projectile",
+      "choice": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Fireball 1.ogg",
+          "sha256": "7b515ce1c85396b7ebabb9dc9876e892a0f642c8d696cf03aa69aa83cb6f30d3"
+        }
+      ]
+    },
+    {
+      "cue": "fire_hit",
+      "label": "Fire — impact",
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Explosion_Single02.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Explosion_Single02.wav",
+          "sha256": "69ffd7c88f4bb68cf215f96fbfcba4c034ea6a1a518ab79621ebb929ded4ee94"
+        }
+      ]
+    },
+    {
+      "cue": "cold_cast",
+      "label": "Cold / ice — cast / projectile",
+      "choice": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Throw 1.ogg",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Spells/Ice Throw 1.ogg",
+          "sha256": "cd5b436a0c0c7866f6073f289c733a2201b34d345f2691a9a060b5c2aec0e3c0"
+        }
+      ]
+    },
+    {
+      "cue": "cold_hit",
+      "label": "Cold / ice — impact",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P3_Impact.wav",
+          "sha256": "d832068b5c2a9d9f91bcc6d27f7097431aae5a922e200c9e01458569d2630b28"
+        }
+      ]
+    },
+    {
+      "cue": "lightning_cast",
+      "label": "Lightning — cast",
+      "choice": "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/leohpaz/8_Atk_Magic_SFX/18_Thunder_02.wav",
+          "sha256": "f97cd32aacb0e65085aafed9895f4a9a2740ad7b44e0d0fce2069b854c543f43"
+        }
+      ]
+    },
+    {
+      "cue": "lightning_hit",
+      "label": "Lightning — impact",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single01.wav",
+          "sha256": "54e7f5ccc0d5c0f2a2d5dd36e6109884afcf09fca6f17fdf82fc560de0539cad"
+        },
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single02.wav",
+          "sha256": "938ba636cf764824ca203521cf6a098e3f7bb0912eab457c27139481f57cb008"
+        }
+      ]
+    },
+    {
+      "cue": "poison_cast",
+      "label": "Poison — cast",
+      "choice": "find_more",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "cue": "poison_hit",
+      "label": "Poison — impact",
+      "choice": "find_more",
+      "notes": "This needs the sound of breaking glass",
+      "sources": []
+    },
+    {
+      "cue": "aether_cast",
+      "label": "Aether — cast",
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P1_Cast.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P1_Cast.wav",
+          "sha256": "15d803e99c8f0fa1a0e856660a03af99469e70536ffb19faa9d33263c3234dbe"
+        }
+      ]
+    },
+    {
+      "cue": "aether_hit",
+      "label": "Aether — impact",
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P2_Impact.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Missile_P2_Impact.wav",
+          "sha256": "f383dc12b225ba8748ff80f4a83e0f8b6d8cc3cce93e1a071cc9de141ebcdeaa"
+        }
+      ]
+    },
+    {
+      "cue": "vitality_cast",
+      "label": "Vitality / dark magic — cast",
+      "choice": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P1_Trigger.wav",
+          "sha256": "2d440d9901fb647181eeee5c15b0fa17dcbc75eb416a54164a87e5884c8237a8"
+        }
+      ]
+    },
+    {
+      "cue": "vitality_hit",
+      "label": "Vitality / dark magic — impact",
+      "choice": "sfx/leohpaz/8_Buffs_Heals_SFX/39_Absorb_04.wav",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/leohpaz/8_Buffs_Heals_SFX/39_Absorb_04.wav",
+          "sha256": "92dd6c9f24ed76c48338c32fb69adc6bf59ac9631e18ed1e3fa60542b9f503b5"
+        }
+      ]
+    },
+    {
+      "cue": "ghost_cast",
+      "label": "Ghost / wraith — melee attack",
+      "choice": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_a.wav",
+      "notes": "Alternate between ghost vocal A and B",
+      "sources": [
+        {
+          "path": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_vocal_a.wav",
+          "sha256": "2f2613222507c3356d47d3d06e91b94996fc774ce403e8d082a7b5a47102ee6f"
+        }
+      ]
+    },
+    {
+      "cue": "ghost_death",
+      "label": "Ghost / wraith — death",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_death.wav",
+          "sha256": "1815f17a002915e43253b760555c6381fc99632e772666da25425ae8187d21ae"
+        }
+      ]
+    },
+    {
+      "cue": "ghoul_death",
+      "label": "Ghoul / zombie — death",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_death.wav",
+          "sha256": "b6d21f827037c287bf98155751f98ed6a8331d1f9704848d3dda253ab4e3fdf0"
+        }
+      ]
+    },
+    {
+      "cue": "golem_death",
+      "label": "Golem / construct — death",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_death.wav",
+          "sha256": "0dd3d564388173cd4fdf30a09e1e0510b1cf6223e5f09ac4d94cf4ef60360a04"
+        }
+      ]
+    },
+    {
+      "cue": "orc_death",
+      "label": "Orc — death",
+      "choice": "current",
+      "notes": "",
+      "sources": [
+        {
+          "path": "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_death.wav",
+          "sha256": "81985e41abe81dc4e8bd0df2c25661e75ec3b0125f541f4500927af3649e187f"
+        }
+      ]
+    },
+    {
+      "cue": "enemy_death",
+      "label": "Other monsters — death",
+      "choice": "sfx/monsters_creatures_sfx_1_wav/Goblin/0014_monster_goblin_death.wav",
+      "notes": "Can you please alternate between an assortment of death sounds?",
+      "sources": [
+        {
+          "path": "sfx/monsters_creatures_sfx_1_wav/Goblin/0014_monster_goblin_death.wav",
+          "sha256": "7fdf0c13484b040ea28bc1ee842f2b77f4aac8d2205511d615e05dca78534e61"
+        }
+      ]
+    }
+  ]
+}

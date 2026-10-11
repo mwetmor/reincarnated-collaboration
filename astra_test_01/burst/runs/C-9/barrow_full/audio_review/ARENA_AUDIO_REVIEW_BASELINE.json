@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "source_root": "/Users/admin/Games/reincarnated-demo/public/audio",
+  "default_music": 2,
+  "clips": {
+    "clip_000": {
+      "source": "music/season_001001.mp3",
+      "file": "clip_000.mp3.bin",
+      "format": "mp3",
+      "bytes": 10730478,
+      "sha256": "575b7135a4baffc2036504fdb9279f3a4a128dcf068b4edd00491a382505ae10",
+      "seconds": 479.96
+    },
+    "clip_001": {
+      "source": "music/season_001002.mp3",
+      "file": "clip_001.mp3.bin",
+      "format": "mp3",
+      "bytes": 6606235,
+      "sha256": "616309c46eec3c45849a852094b833a34355e8eebf46f0330ce06b18714dbe11",
+      "seconds": 285.56
+    },
+    "clip_002": {
+      "source": "music/season_001003.mp3",
+      "file": "clip_002.mp3.bin",
+      "format": "mp3",
+      "bytes": 8337393,
+      "sha256": "05d208b6dd0776d460eb2c7d7935e593e03d1cf6fa44ae2df2822ee19dda7e1c",
+      "seconds": 351.0
+    },
+    "clip_003": {
+      "source": "music/season_001004.mp3",
+      "file": "clip_003.mp3.bin",
+      "format": "mp3",
+      "bytes": 4064699,
+      "sha256": "d620e29c70d93d5900e1a06e920d314638992ecda320bfcdd5e2d42fa9886627",
+      "seconds": 169.96
+    },
+    "clip_004": {
+      "source": "music/season_001005.mp3",
+      "file": "clip_004.mp3.bin",
+      "format": "mp3",
+      "bytes": 5585279,
+      "sha256": "f0e384a9e9f3d2d3a52e2b513ef2a6848129a891a97e4bb74ba15cd8008b71b5",
+      "seconds": 243.92
+    },
+    "clip_005": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark01_Distort_P1_Trigger.wav",
+      "file": "clip_005.wav.bin",
+      "format": "wav",
+      "bytes": 508554,
+      "sha256": "c47e571409ef4236fbd92fc1235de376fad8df623476a0325dc2fb60708fd5a3",
+      "seconds": 0.853
+    },
+    "clip_006": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark02_Hex_P2_Impact_Single.wav",
+      "file": "clip_006.wav.bin",
+      "format": "wav",
+      "bytes": 544282,
+      "sha256": "ba29a166e5332590e55df6b9398544634cf22dd84205dbc06d024d4e6f489fc1",
+      "seconds": 0.915
+    },
+    "clip_007": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric01_Electric_Spark.wav",
+      "file": "clip_007.wav.bin",
+      "format": "wav",
+      "bytes": 752804,
+      "sha256": "10be62410053408183ccdbe4f4bc371f0580653644fbaac78b964317d99ec896",
+      "seconds": 1.277
+    },
+    "clip_008": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single01.wav",
+      "file": "clip_008.wav.bin",
+      "format": "wav",
+      "bytes": 1540814,
+      "sha256": "54e7f5ccc0d5c0f2a2d5dd36e6109884afcf09fca6f17fdf82fc560de0539cad",
+      "seconds": 2.645
+    },
+    "clip_009": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric03_Strike_Impact_Single02.wav",
+      "file": "clip_009.wav.bin",
+      "format": "wav",
+      "bytes": 1188302,
+      "sha256": "938ba636cf764824ca203521cf6a098e3f7bb0912eab457c27139481f57cb008",
+      "seconds": 2.033
+    },
+    "clip_010": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Electric06_Flash_Zap.wav",
+      "file": "clip_010.wav.bin",
+      "format": "wav",
+      "bytes": 543876,
+      "sha256": "da33dabfd1cc3d2b43d1fe205b95e9277f7e27e7b84739bdd243be3ecbcd41e5",
+      "seconds": 0.915
+    },
+    "clip_011": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Impact_Single.wav",
+      "file": "clip_011.wav.bin",
+      "format": "wav",
+      "bytes": 1404514,
+      "sha256": "cd02db14bd30a729f9f5768a4a67d42b97b71d0519958b3d2d4f3824f3cd9f71",
+      "seconds": 2.409
+    },
+    "clip_012": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Projectiles01.wav",
+      "file": "clip_012.wav.bin",
+      "format": "wav",
+      "bytes": 1282786,
+      "sha256": "43d5abc770f2938907ade9edc803cb47a9fdd40c2a48acf5347a08b0188970bf",
+      "seconds": 2.197
+    },
+    "clip_013": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Fire03_Fireball_Projectiles02.wav",
+      "file": "clip_013.wav.bin",
+      "format": "wav",
+      "bytes": 1387234,
+      "sha256": "5deeb8e7a3bbbbe42e56c0fe0239db39d1f026d2cb8cc3ca9591ab847c512dd0",
+      "seconds": 2.379
+    },
+    "clip_014": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P2_Projectile.wav",
+      "file": "clip_014.wav.bin",
+      "format": "wav",
+      "bytes": 879992,
+      "sha256": "9f940f47838412c46080981232fc7cb39eef88c9595d01dc3452302e41f51402",
+      "seconds": 1.498
+    },
+    "clip_015": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Ice02_Icicle_P3_Impact.wav",
+      "file": "clip_015.wav.bin",
+      "format": "wav",
+      "bytes": 1227332,
+      "sha256": "d832068b5c2a9d9f91bcc6d27f7097431aae5a922e200c9e01458569d2630b28",
+      "seconds": 2.101
+    },
+    "clip_016": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light01_Heal_v1.wav",
+      "file": "clip_016.wav.bin",
+      "format": "wav",
+      "bytes": 1763278,
+      "sha256": "17b9e6f03c8eb8e3f7327cc83a633042fa3bdc27f8323a80f279f7b997a43f75",
+      "seconds": 3.032
+    },
+    "clip_017": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light14_Holy_Sword_P1_Cast_v1.wav",
+      "file": "clip_017.wav.bin",
+      "format": "wav",
+      "bytes": 2050820,
+      "sha256": "fac10b2f2f7f8d0f9ad377dafcd26744855a6dd8d474bee84ebc102f6233b944",
+      "seconds": 3.531
+    },
+    "clip_018": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light14_Holy_Sword_P2_Impact_v2_noChimes.wav",
+      "file": "clip_018.wav.bin",
+      "format": "wav",
+      "bytes": 1216848,
+      "sha256": "f5f0417127e1155154231c7ea83a117873932db988138914f7dfd55c4c53be40",
+      "seconds": 2.083
+    },
+    "clip_019": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P1.wav",
+      "file": "clip_019.wav.bin",
+      "format": "wav",
+      "bytes": 919340,
+      "sha256": "d36f969553855774b5920ca6ac9001e67168fdd04cca7a395ff67e0cd25e7f1d",
+      "seconds": 1.567
+    },
+    "clip_020": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Wind02_Whirlwind_P2.wav",
+      "file": "clip_020.wav.bin",
+      "format": "wav",
+      "bytes": 1165484,
+      "sha256": "9513830306f851f4f6b5c15ebcfe47cab4ffc96d1a25f630fb4d786cbdfb39f4",
+      "seconds": 1.994
+    },
+    "clip_021": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash01.wav",
+      "file": "clip_021.wav.bin",
+      "format": "wav",
+      "bytes": 411052,
+      "sha256": "75c35d20cb387db72229b6f352619c1604e22c51a178b1f2a306f9d046d0eb54",
+      "seconds": 0.684
+    },
+    "clip_022": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff04_Aggressive.wav",
+      "file": "clip_022.wav.bin",
+      "format": "wav",
+      "bytes": 1489212,
+      "sha256": "8d5fd18861fafd01b2e1bf46276495a4d389b4b3a92c0bdb7b8a9651ff9a6662",
+      "seconds": 2.556
+    },
+    "clip_023": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff11_Haste.wav",
+      "file": "clip_023.wav.bin",
+      "format": "wav",
+      "bytes": 1008050,
+      "sha256": "23e92ca132a5bac9ac46a20e96954be022ae2f2b39ea41b9d2177f1fefa5faa8",
+      "seconds": 1.721
+    },
+    "clip_024": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav",
+      "file": "clip_024.wav.bin",
+      "format": "wav",
+      "bytes": 1465078,
+      "sha256": "6535c65cfc3d14fc64d84c766a088edcce1bb69c0ae2b98bab18e3ecb44d70ec",
+      "seconds": 2.514
+    },
+    "clip_025": {
+      "source": "sfx/kenney/Audio/error_001.ogg",
+      "file": "clip_025.ogg.bin",
+      "format": "ogg",
+      "bytes": 7373,
+      "sha256": "46e67425d16339772e8d328fb36a49426c9467418686e11beeb71ff84b0f6433",
+      "seconds": 0.165
+    },
+    "clip_026": {
+      "source": "sfx/kenney/Audio/footstep_snow_000.ogg",
+      "file": "clip_026.ogg.bin",
+      "format": "ogg",
+      "bytes": 7880,
+      "sha256": "c05fa4a9dc9a7aabc04996466fb589537e49af76de9998d8f9e6270ec92dcef7",
+      "seconds": 0.374
+    },
+    "clip_027": {
+      "source": "sfx/kenney/Audio/footstep_snow_001.ogg",
+      "file": "clip_027.ogg.bin",
+      "format": "ogg",
+      "bytes": 7794,
+      "sha256": "980fb9a1c9227aed7995067b0357f373053337f2416316db8ea0438418542fb4",
+      "seconds": 0.374
+    },
+    "clip_028": {
+      "source": "sfx/kenney/Audio/footstep_snow_002.ogg",
+      "file": "clip_028.ogg.bin",
+      "format": "ogg",
+      "bytes": 7694,
+      "sha256": "db52bafdc66304f3b999f2c29227826c65993916e630ac2ffbca17d07b263178",
+      "seconds": 0.374
+    },
+    "clip_029": {
+      "source": "sfx/kenney/Audio/footstep_snow_003.ogg",
+      "file": "clip_029.ogg.bin",
+      "format": "ogg",
+      "bytes": 7860,
+      "sha256": "68272e3f1cabcabd02d328fd344454d7c04cb58b5a86972fcdd858f845e3d007",
+      "seconds": 0.374
+    },
+    "clip_030": {
+      "source": "sfx/kenney/Audio/footstep_snow_004.ogg",
+      "file": "clip_030.ogg.bin",
+      "format": "ogg",
+      "bytes": 7630,
+      "sha256": "7fe9ce5f5732aaa0a50ef02bb1ac162c27f6bd85214e86aaea6e13e7a41dbc00",
+      "seconds": 0.374
+    },
+    "clip_031": {
+      "source": "sfx/kenney/Audio/impactPunch_heavy_000.ogg",
+      "file": "clip_031.ogg.bin",
+      "format": "ogg",
+      "bytes": 11617,
+      "sha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8",
+      "seconds": 0.649
+    },
+    "clip_032": {
+      "source": "sfx/kenney/Audio/impactPunch_heavy_001.ogg",
+      "file": "clip_032.ogg.bin",
+      "format": "ogg",
+      "bytes": 10861,
+      "sha256": "f92f5cb6ba4ff2766497292ffd90865654317eeca976f5652e0708dbdcdc0dd9",
+      "seconds": 0.536
+    },
+    "clip_033": {
+      "source": "sfx/leohpaz/10_Battle_SFX/69_Enemy_death_01.wav",
+      "file": "clip_033.wav.bin",
+      "format": "wav",
+      "bytes": 706336,
+      "sha256": "679882a81a208b5aa2644c3183ca532911e8d0a8092b38ceea099cde2775b54c",
+      "seconds": 2.667
+    },
+    "clip_034": {
+      "source": "sfx/leohpaz/14_human_death_spin.wav",
+      "file": "clip_034.wav.bin",
+      "format": "wav",
+      "bytes": 529936,
+      "sha256": "083aefc6c6e23350121ee3a0d09774daea84cbece9182501e7d616334b6bf298",
+      "seconds": 2.0
+    },
+    "clip_035": {
+      "source": "sfx/monsters_creatures_sfx_1_wav/Earth Elemental/0014_monster_elemental_earth_death.wav",
+      "file": "clip_035.wav.bin",
+      "format": "wav",
+      "bytes": 209944,
+      "sha256": "0dd3d564388173cd4fdf30a09e1e0510b1cf6223e5f09ac4d94cf4ef60360a04",
+      "seconds": 1.4
+    },
+    "clip_036": {
+      "source": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_attack_a.wav",
+      "file": "clip_036.wav.bin",
+      "format": "wav",
+      "bytes": 104274,
+      "sha256": "4b2314e0153996aaff852b7b68201835523917a5f9b2ecc76a0a37973874425e",
+      "seconds": 0.7
+    },
+    "clip_037": {
+      "source": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_attack_b.wav",
+      "file": "clip_037.wav.bin",
+      "format": "wav",
+      "bytes": 102264,
+      "sha256": "09ea8dead38c18049652d9a492921f53493ff6d0c286115995e9a8eb4e3ba930",
+      "seconds": 0.7
+    },
+    "clip_038": {
+      "source": "sfx/monsters_creatures_sfx_1_wav/Ghost/0014_monster_ghost_death.wav",
+      "file": "clip_038.wav.bin",
+      "format": "wav",
+      "bytes": 240578,
+      "sha256": "1815f17a002915e43253b760555c6381fc99632e772666da25425ae8187d21ae",
+      "seconds": 1.66
+    },
+    "clip_039": {
+      "source": "sfx/monsters_creatures_sfx_1_wav/Ghoul/0014_monster_ghoul_death.wav",
+      "file": "clip_039.wav.bin",
+      "format": "wav",
+      "bytes": 253330,
+      "sha256": "b6d21f827037c287bf98155751f98ed6a8331d1f9704848d3dda253ab4e3fdf0",
+      "seconds": 1.719
+    },
+    "clip_040": {
+      "source": "sfx/monsters_creatures_sfx_1_wav/Orc/0014_monster_orc_death.wav",
+      "file": "clip_040.wav.bin",
+      "format": "wav",
+      "bytes": 183050,
+      "sha256": "81985e41abe81dc4e8bd0df2c25661e75ec3b0125f541f4500927af3649e187f",
+      "seconds": 1.239
+    },
+    "clip_041": {
+      "source": "sfx/oga/RPG Sound Pack/battle/swing.wav",
+      "file": "clip_041.wav.bin",
+      "format": "wav",
+      "bytes": 61462,
+      "sha256": "c7d50b9cb20ccda5aee6c023f4450915594061e36f3f9e78af241ca9fde0f817",
+      "seconds": 0.229
+    },
+    "clip_042": {
+      "source": "sfx/oga/RPG Sound Pack/battle/swing2.wav",
+      "file": "clip_042.wav.bin",
+      "format": "wav",
+      "bytes": 39384,
+      "sha256": "2e4064e294d136e06c40cc562df969493907e6873f39895ca86b4a6b2e034c6e",
+      "seconds": 0.146
+    },
+    "clip_043": {
+      "source": "sfx/oga/RPG Sound Pack/battle/swing3.wav",
+      "file": "clip_043.wav.bin",
+      "format": "wav",
+      "bytes": 37316,
+      "sha256": "d725421956c9958de6d7a17c4fca299abe583a1800c59eaec358ec2e82d79bae",
+      "seconds": 0.138
+    },
+    "clip_044": {
+      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Dark07_Poison.wav",
+      "file": "clip_044.wav.bin",
+      "format": "wav",
+      "bytes": 1116928,
+      "sha256": "94aea0d986b1938c80a39dee73c3ace695d8ce582d3a688fb5bc65b026d5d685",
+      "seconds": 1.909
+    },
+    "clip_045": {
+      "source": "sfx/leohpaz/8_Atk_Magic_SFX/46_Poison_01.wav",
+      "file": "clip_045.wav.bin",
+      "format": "wav",
+      "bytes": 529936,
+      "sha256": "07de4efd8bb5d36ce4419f7d5f48f640b4007ecdc9b8ca66184480a7090ffc2e",
+      "seconds": 2.0
+    },
+    "clip_046": {
+      "source": "sfx/tommusic/Free Fantasy SFX Pack By TomMusic/OGG Files/SFX/Attacks/Bow Attacks Hits and Blocks/Bow Attack 1.ogg",
+      "file": "clip_046.ogg.bin",
+      "format": "ogg",
+      "bytes": 45633,
+      "sha256": "626d2d6da17c117336a324070160b51f77189e63e347887e441cc71d6fd50eb6",
+      "seconds": 0.625
+    }
+  },
+  "cues": {
+    "blitz": [
+      "clip_021"
+    ],
+    "potion": [
+      "clip_016"
+    ],
+    "vires_might": [
+      "clip_024"
+    ],
+    "war_cry": [
+      "clip_022"
+    ],
+    "rune_of_rush": [
+      "clip_023"
+    ],
+    "whirlwind_start": [
+      "clip_019"
+    ],
+    "whirlwind_loop": [
+      "clip_020"
+    ],
+    "fire_cast": [
+      "clip_012",
+      "clip_013"
+    ],
+    "fire_hit": [
+      "clip_011"
+    ],
+    "cold_cast": [
+      "clip_014"
+    ],
+    "cold_hit": [
+      "clip_015"
+    ],
+    "lightning_cast": [
+      "clip_007",
+      "clip_010"
+    ],
+    "lightning_hit": [
+      "clip_008",
+      "clip_009"
+    ],
+    "poison_cast": [
+      "clip_044"
+    ],
+    "poison_hit": [
+      "clip_045"
+    ],
+    "aether_cast": [
+      "clip_017"
+    ],
+    "aether_hit": [
+      "clip_018"
+    ],
+    "vitality_cast": [
+      "clip_005"
+    ],
+    "vitality_hit": [
+      "clip_006"
+    ],
+    "slash": [
+      "clip_041",
+      "clip_042",
+      "clip_043"
+    ],
+    "physical_hit": [
+      "clip_031",
+      "clip_032"
+    ],
+    "ghost_cast": [
+      "clip_036",
+      "clip_037"
+    ],
+    "enemy_death": [
+      "clip_033"
+    ],
+    "player_death": [
+      "clip_034"
+    ],
+    "snow_step": [
+      "clip_026",
+      "clip_027",
+      "clip_028",
+      "clip_029",
+      "clip_030"
+    ],
+    "energy_refused": [
+      "clip_025"
+    ],
+    "ghost_death": [
+      "clip_038"
+    ],
+    "ghoul_death": [
+      "clip_039"
+    ],
+    "golem_death": [
+      "clip_035"
+    ],
+    "orc_death": [
+      "clip_040"
+    ],
+    "arrow_cast": [
+      "clip_046"
+    ]
+  },
+  "music": [
+    {
+      "clip": "clip_000",
+      "title": "Black Salt Depths"
+    },
+    {
+      "clip": "clip_001",
+      "title": "Catacomb Ember"
+    },
+    {
+      "clip": "clip_002",
+      "title": "Ossuary Procession"
+    },
+    {
+      "clip": "clip_003",
+      "title": "Mercury Throne"
+    },
+    {
+      "clip": "clip_004",
+      "title": "Dirt Road Echoes"
+    }
+  ],
+  "notes": [
+    "Original file bytes; no synthesized assets.",
+    "Aether uses provisional light magic. Battle Cry uses a rally effect; voiced shout remains an audition gap.",
+    "Music tagged mhwetmore / Suno. Generation license receipt not found in audio folder."
+  ]
+}

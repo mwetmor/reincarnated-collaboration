@@ -38,7 +38,12 @@ func _run() -> void:
 		_fail("PC reference solver selection refused")
 		return
 	var sound = arena.audio
-	if sound == null or not sound.report["missing"].is_empty() or sound.streams.size() != 42:
+	var expected_sfx := {}
+	if sound != null:
+		for ids in sound.manifest["cues"].values():
+			for id in ids:
+				expected_sfx[id] = true
+	if sound == null or not sound.report["missing"].is_empty() or sound.streams.size() != expected_sfx.size():
 		_fail("SFX missing/undecodable")
 		return
 	for track in sound.manifest["music"]:
@@ -46,6 +51,19 @@ func _run() -> void:
 		var stream: AudioStream = sound._load_clip(id)
 		if stream == null or absf(stream.get_length() - float(sound.manifest["clips"][id]["seconds"])) > 0.1:
 			_fail("soundtrack decode/duration: " + id)
+			return
+	var ambience_present: bool = sound.manifest.has("ambience")
+	if ambience_present:
+		if sound.ambience_voices[0].stream == null:
+			_fail("environment track missing")
+			return
+		sound._tick_ambience(0.016)
+		var loops_before := int(sound.report["ambience_crossfades"])
+		var environment_voice = sound.ambience_voices[sound.ambience_primary]
+		environment_voice.seek(environment_voice.stream.get_length() - 0.4)
+		await create_timer(1.0).timeout
+		if int(sound.report["ambience_crossfades"]) <= loops_before:
+			_fail("environment loop handoff failed")
 			return
 	capture.buffer_length = 2.0
 	AudioServer.add_bus_effect(AudioServer.get_bus_index(sound.MIX), capture)
@@ -87,7 +105,7 @@ func _run() -> void:
 		return
 	sound.toggle_sfx()
 	sound.toggle_music()
-	if not AudioServer.is_bus_mute(AudioServer.get_bus_index(sound.MUSIC)) or AudioServer.is_bus_mute(AudioServer.get_bus_index(sound.SFX)):
+	if not AudioServer.is_bus_mute(AudioServer.get_bus_index(sound.MUSIC)) or not AudioServer.is_bus_mute(AudioServer.get_bus_index(sound.ENVIRONMENT)) or AudioServer.is_bus_mute(AudioServer.get_bus_index(sound.SFX)):
 		_fail("music/effects mute not independent")
 		return
 	sound.toggle_music()
@@ -121,7 +139,8 @@ func _run() -> void:
 	var result := {"platform": OS.get_name(), "audio_driver": AudioServer.get_driver_name(),
 		"solver": arena.session.fight.contact_solver,
 		"audio_manifest_sha256": FileAccess.get_sha256(sound.MANIFEST),
-		"sfx_decoded": sound.streams.size(), "music_decoded": 5,
+		"sfx_decoded": sound.streams.size(), "music_decoded": sound.manifest["music"].size(),
+		"environment_loop_handoff": ambience_present, "ambience_crossfades": sound.report["ambience_crossfades"],
 		"mixed_frames": frames, "mixed_peak": peak, "report": sound.report,
 		"accepted_vs_cooldown_refusal": true, "adapter_snapshot_unchanged": true,
 		"loop_lifecycle_and_independent_mutes": true, "voice_cap": 11}

@@ -1,11 +1,12 @@
 extends Node
 ## Presentation-only audio. Consume accepted events; never write fight state or draw its RNG.
-## Original demo files are staged by tools/arena_stage_audio.py; raw .bin files survive exports.
+## Pinned demo/user audio is staged by tools/arena_stage_audio.py; raw .bin files survive exports.
 const MANIFEST := "res://data/audio/arena_audio.json"
 const EnemyVFX = preload("res://scripts/arena/arena_enemy_vfx.gd")
 const MIX := "BarrowMix"
 const SFX := "BarrowSFX"
 const MUSIC := "BarrowMusic"
+const ENVIRONMENT := "BarrowEnvironment"
 var mode = null
 var manifest: Dictionary = {}
 var streams: Dictionary = {}
@@ -15,6 +16,12 @@ var player_voices: Array[AudioStreamPlayer] = []
 var enemy_voices: Array[AudioStreamPlayer] = []
 var whirlwind: AudioStreamPlayer
 var music: AudioStreamPlayer
+var ambience_voices: Array[AudioStreamPlayer] = []
+var ambience_primary := 0
+var ambience_fading := false
+var ambience_fade_elapsed := 0.0
+var ambience_fade_span := 1.5
+var ambience_db := -28.0
 var now := 0.0
 var music_index := 2
 var music_muted := false
@@ -24,7 +31,7 @@ var previous_pos := Vector2.ZERO
 var stride_m := 0.0
 var music_db := -20.0
 var last_combat := -10.0
-var report := {"loaded": 0, "missing": [], "played": {}, "dropped": 0, "peak_voices": 0}
+var report := {"loaded": 0, "missing": [], "played": {}, "dropped": 0, "peak_voices": 0, "ambience_crossfades": 0}
 var fallback_classifier = null
 
 
@@ -33,7 +40,7 @@ func setup(arena) -> void:
 	fallback_classifier = EnemyVFX.new()
 	fallback_classifier.mode = arena
 	fallback_classifier._build_families()
-	for pair in [[MIX, "Master", 0.0], [SFX, MIX, -10.0], [MUSIC, MIX, music_db]]:
+	for pair in [[MIX, "Master", 0.0], [SFX, MIX, -10.0], [MUSIC, MIX, music_db], [ENVIRONMENT, MIX, ambience_db]]:
 		if AudioServer.get_bus_index(pair[0]) < 0:
 			AudioServer.add_bus()
 			var i := AudioServer.bus_count - 1
@@ -49,6 +56,8 @@ func setup(arena) -> void:
 		enemy_voices.append(_voice("MonsterSound%d" % i, SFX))
 	whirlwind = _voice("Whirlwind", SFX)
 	music = _voice("Soundtrack", MUSIC)
+	for i in 2:
+		ambience_voices.append(_voice("Environment%d" % i, ENVIRONMENT))
 	if not FileAccess.file_exists(MANIFEST):
 		push_warning("Arena audio manifest missing; run arena_stage_audio.py")
 		return
@@ -58,6 +67,8 @@ func setup(arena) -> void:
 		return
 	manifest = parsed
 	music_index = int(manifest.get("default_music", 2))
+	music_db = float(manifest.get("mix", {}).get("music_db", -20.0))
+	ambience_db = float(manifest.get("mix", {}).get("ambience_db", -28.0))
 	# Decode SFX once. Music loads lazily as compressed MP3, one current track at a time.
 	for ids in manifest.get("cues", {}).values():
 		for id in ids:
@@ -72,6 +83,11 @@ func setup(arena) -> void:
 		loop_stream.loop_end = roundi(loop_stream.get_length() * loop_stream.mix_rate)
 	whirlwind.stream = loop_stream
 	whirlwind.volume_db = -8.0
+	var ambience_id := String(manifest.get("ambience", {}).get("clip", ""))
+	if ambience_id != "":
+		var environment_stream := _load_clip(ambience_id)
+		for voice in ambience_voices:
+			voice.stream = environment_stream
 	reset()
 	print("[arena audio] %d SFX decoded; %d music tracks; missing %s" %
 		[streams.size(), manifest.get("music", []).size(), str(report["missing"])])
@@ -236,6 +252,9 @@ func reset() -> void:
 	whirlwind.stop()
 	music.stop()
 	music.stream = null
+	for voice in ambience_voices:
+		voice.stop()
+	ambience_fading = false
 	last_cue.clear()
 	stride_m = 0.0
 	previous_pos = mode.player_pos_m
@@ -259,6 +278,7 @@ func toggle_sfx() -> void:
 func toggle_music() -> void:
 	music_muted = not music_muted
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(MUSIC), music_muted)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(ENVIRONMENT), music_muted)
 
 
 func next_music() -> void:
@@ -283,18 +303,55 @@ func _play_music() -> void:
 
 func music_title() -> String:
 	var tracks: Array = manifest.get("music", [])
-	return String(tracks[music_index]["title"]) if not tracks.is_empty() else "unavailable"
+	var title := String(tracks[music_index]["title"]) if not tracks.is_empty() else "unavailable"
+	var environment_title := String(manifest.get("ambience", {}).get("title", ""))
+	return title + " + " + environment_title if environment_title != "" else title
+
+
+func _tick_ambience(delta: float) -> void:
+	if not focused or ambience_voices.is_empty() or ambience_voices[0].stream == null:
+		return
+	var current := ambience_voices[ambience_primary]
+	var next := ambience_voices[1 - ambience_primary]
+	if not current.playing and not ambience_fading:
+		current.volume_db = 0.0
+		current.play()
+	var remaining := current.stream.get_length() - current.get_playback_position()
+	var fade := float(manifest.get("ambience", {}).get("crossfade_seconds", 1.5))
+	if not ambience_fading and remaining <= fade:
+		ambience_fading = true
+		ambience_fade_elapsed = 0.0
+		ambience_fade_span = maxf(0.02, minf(fade, remaining))
+		next.volume_db = -60.0
+		next.play()
+	if ambience_fading:
+		ambience_fade_elapsed += delta
+		var blend := clampf(ambience_fade_elapsed / ambience_fade_span, 0.0, 1.0)
+		current.volume_db = linear_to_db(maxf(0.001, 1.0 - blend))
+		next.volume_db = linear_to_db(maxf(0.001, blend))
+		if blend >= 1.0:
+			current.stop()
+			next.volume_db = 0.0
+			ambience_primary = 1 - ambience_primary
+			ambience_fading = false
+			report["ambience_crossfades"] += 1
 
 
 func _process(delta: float) -> void:
 	now += delta
 	if mode == null or mode.session == null:
 		return
+	_tick_ambience(delta)
 	if mode.fight_started and not music.playing and music.stream == null:
 		_play_music()
-	var target_db := -26.0 if now - last_combat < 0.5 or whirlwind.playing else -20.0
+	var in_combat := now - last_combat < 0.5 or whirlwind.playing
+	var levels: Dictionary = manifest.get("mix", {})
+	var target_db := float(levels.get("music_combat_db", -26.0)) if in_combat else float(levels.get("music_db", -20.0))
 	music_db = move_toward(music_db, target_db, delta * 12.0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(MUSIC), music_db)
+	var environment_target := float(levels.get("ambience_combat_db", -32.0)) if in_combat else float(levels.get("ambience_db", -28.0))
+	ambience_db = move_toward(ambience_db, environment_target, delta * 12.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ENVIRONMENT), ambience_db)
 	var distance: float = mode.player_pos_m.distance_to(previous_pos)
 	previous_pos = mode.player_pos_m
 	if mode.running and mode.fight_started and mode.session.driver.charge_to == null and distance < 2.5:
@@ -318,7 +375,7 @@ func _exit_tree() -> void:
 	if fallback_classifier != null:
 		fallback_classifier.free()
 	# Arena owns these buses; leave the rest of the application's audio untouched.
-	for bus in [MUSIC, SFX, MIX]:
+	for bus in [ENVIRONMENT, MUSIC, SFX, MIX]:
 		var index := AudioServer.get_bus_index(bus)
 		if index >= 0:
 			AudioServer.remove_bus(index)
