@@ -1,5 +1,45 @@
 # SFX listening review
 
+## Phone / local Wi-Fi server
+
+The phone page uses the same sounds and catalogue. Run the server on the Mac:
+
+```sh
+python3 /Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/tools/arena_sfx_review_server.py
+```
+
+Open the printed `phone_url` on a phone connected to the same Wi-Fi/LAN. There
+is no Vercel login. The Mac and server must remain running. The page has an
+action dropdown and touch-sized buttons on a small screen.
+
+Tap **Save to Mac** to send the current selections and notes directly to
+`audio_review/selections/barrow-sfx-selections.json`. Browser edits remain local
+until this button reports success. A fresh device loads saved Mac choices; an
+existing device can use **Load saved choices**. **Export selections** remains
+available for backup and for moving choices from the earlier offline HTML page.
+The offline file and HTTP page have separate browser storage origins.
+
+The server exposes only this document and a selection API, not the project
+directory. Saves validate catalogue/manifest IDs and every cue/option, atomically
+replace the handoff, and retain one `.previous.json` backup. Concurrent devices
+must load the latest revision before overwriting it. All handoffs/logs/PIDs stay
+in the ignored `audio_review/selections/` directory. No game mappings change.
+This is a local-network server; it does not provide cellular/internet access.
+
+Phone-server verification: rendered at 390 px width in an isolated Chrome
+profile; all 31 actions fit without horizontal overflow, the dropdown switched
+actions, MP3 playback loaded, and Save to Mac wrote the actual JSON handoff.
+A fresh browser state restored the server choices. Invalid catalogue/option
+saves, stale revisions, foreign origins/hosts, and project-file requests were
+rejected without changing saved choices. No JavaScript errors. Actual iPhone
+Safari/network reachability still requires opening the link on the phone.
+
+To stop the background instance started by Codex, use the PID recorded in
+`audio_review/selections/server.pid` with `kill <PID>`. To restart manually,
+use the command above (Ctrl-C stops a foreground instance).
+
+## Offline document
+
 Open `SFX_REVIEW.html` in Chrome or Safari by double-clicking it. It is a single
 offline HTML document with embedded audio: no server, login, or dependencies.
 Choose an action from the left, play its current sound(s) and alternatives,
