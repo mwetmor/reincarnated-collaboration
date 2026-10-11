@@ -85,3 +85,27 @@ are not a controlled GPU comparison. Disabling MSAA did not reliably improve
 speed (19.9 FPS in a later run), so that experiment is reverted. No texture,
 physics or enemy content is removed to conceal lag. Crowded-combat performance
 remains an open issue; no zero-lag or physical-phone performance claim is made.
+
+
+## Published release
+
+Source implementation `155864993afb428c7f4c5a4b7c654445085af155` is pushed.
+Loadout release `4b50a63bbf76e0b8ee612f3337c80250baf699d4` is pushed;
+Git-triggered production deployment `dpl_E8wCW2FvJnsxZvz9LiiAWURKMjfC` is READY.
+
+Public game: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
+Six-skill audition: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/hero-sfx.html
+
+All 28 public files match the export without authentication or cookies. The
+hosted fresh-browser DPR3 touch check passes all four skill buttons, movement,
+Whirlwind hold/release, zoom, independent mute controls and score switching.
+It also passes second-finger movement while holding Whirlwind, releasing the
+movement finger without releasing Whirlwind, and 35 seconds of advancing combat.
+Actual WebAudio peak is 0.43651, with running AudioContext and nonzero samples.
+No script/page/network failures; the pinned runtime's 78 historical NUL warnings
+remain. The audition's War Cry MP3 is byte-identical to Matt's file.
+
+Sustained hosted combat averages **29.7 FPS**, p99 114.3 ms, maximum 255.5 ms.
+Crowded-combat lag remains real and recorded. The first download is about 650 MB.
+Neither exact native graphics/physics parity nor zero lag nor physical-phone
+compatibility is claimed. Evidence: `evidence/elevenlabs-web/production-verification.json`.
