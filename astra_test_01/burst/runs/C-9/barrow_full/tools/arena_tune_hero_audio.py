@@ -18,6 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEMO = Path('/Users/admin/Games/reincarnated-demo/public/audio')
 RATE = 48000
+SELECTED = ROOT / 'audio_review/selected_sfx'
+WAR_CRY_SHA = 'adf412b8e02d28f01a1d02a5013946af4b08a154db9612933781f09b7148de3e'
 RECIPES = {
     'blitz': ('Heavy weapon-air charge', [
         ('sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav',
@@ -27,12 +29,10 @@ RECIPES = {
     'potion': ('Bottle opening / handling', [
         ('sfx/oga/RPG Sound Pack/inventory/bottle.wav',
          'highpass=f=80,lowpass=f=8500', 0.0, 1.0)], 0.75),
-    'vires_might': ('Low magical power rise', [
-        ('sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast12_Star_Power_P1_Cast.wav',
-         'asetrate=38400,aresample=48000,atempo=1.25,lowpass=f=4500,highpass=f=65', 0.0, 1.0)], 0.80),
-    'war_cry': ('Deep voiced Battle Cry', [
-        ('sfx/Human_amb/Scream Male 26.wav',
-         'asetrate=30240,aresample=48000,atempo=1.35,highpass=f=75,equalizer=f=160:t=q:w=0.8:g=3,lowpass=f=3400', 0.0, 1.0)], 0.85),
+    'vires_might': ('Might — Fortify (new candidate)', [
+        ('sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav',
+         'highpass=f=60,lowpass=f=5000', 0.0, 1.0)], 0.80),
+
 }
 
 
@@ -75,13 +75,16 @@ def main():
     before = json.loads(path.read_text())
     baseline = json.loads((ROOT / 'audio_review/ARENA_AUDIO_REVIEW_BASELINE.json').read_text())
     inventory = {row['path']: row for row in json.loads((ROOT / 'audio_review/AUDIO_INVENTORY.json').read_text())['files']}
+    war_data = (SELECTED / 'war_cry_elevenlabs.mp3').read_bytes()
+    if sha(war_data) != WAR_CRY_SHA:
+        raise ValueError('Your selected War Cry differs from its receipt')
     for _, layers, _ in RECIPES.values():
         for source, _, _, _ in layers:
             if sha((DEMO / source).read_bytes()) != inventory[source]['sha256']:
                 raise ValueError('Changed hero audio input: ' + source)
     output = ROOT / 'audio_review/derived_sfx'
     output.mkdir(parents=True, exist_ok=True)
-    receipt = {'request': 'Implement rejected main-character SFX notes; deepen voiced Battle Cry',
+    receipt = {'request': "Use Matt's ElevenLabs War Cry unchanged; replace rejected Might Star Power with Fortify",
                'status': 'implemented_for_listening; artistic approval pending', 'cues': {}}
     sections = []
     for cue, (label, layers, peak) in RECIPES.items():
@@ -113,8 +116,18 @@ def main():
             return '<audio controls preload="none" src="data:audio/wav;base64,' + base64.b64encode(payload).decode() + '"></audio>'
         sections.append('<section><h2>' + html.escape(label) + '</h2><p>Implemented in the local scene</p>' + player(data)
                         + '<details><summary>Previous rejected cue</summary>' + player(old_audio) + '</details></section>')
+    war_key = 'hero_war_cry_elevenlabs'
+    war_clip = {'source': 'war_cry_elevenlabs.mp3', 'source_root': 'selected_sfx',
+                'file': 'war_cry_elevenlabs.mp3.bin', 'format': 'mp3',
+                'bytes': len(war_data), 'sha256': WAR_CRY_SHA, 'seconds': 2.48}
+    manifest['clips'][war_key] = war_clip
+    manifest['cues']['war_cry'] = [war_key]
+    manifest.setdefault('source_roots', {})['selected_sfx'] = str(SELECTED)
+    receipt['cues']['war_cry'] = {'label': 'War Cry — your ElevenLabs selection',
+        'status': 'user_selected', 'processing': 'none; original MP3 bytes and pitch preserved', 'output': war_clip}
+    sections.append('<section><h2>War Cry — your ElevenLabs selection</h2><p>Original voice and pitch, installed in game.</p><audio controls preload="none" src="data:audio/mpeg;base64,' + base64.b64encode(war_data).decode() + '"></audio></section>')
     # No changes to Haste, Whirlwind, physical hits, approved monster cues or mix.
-    for cue in set(before['cues']) - set(RECIPES):
+    for cue in set(before['cues']) - set(RECIPES) - {'war_cry'}:
         assert manifest['cues'][cue] == before['cues'][cue]
     assert manifest['mix'] == before['mix']
     needed = {c for ids in manifest['cues'].values() for c in ids} | {t['clip'] for t in manifest['music']} | {manifest['ambience']['clip']}
@@ -130,7 +143,7 @@ def main():
         clip = manifest['clips'][manifest['cues'][cue][0]]
         data = (ROOT / 'godot/data/audio' / clip['file']).read_bytes()
         sections.append('<section><h2>' + html.escape(label) + '</h2><p>Current local cue</p>' + player(data) + '</section>')
-    page = '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hero SFX revisions</title><style>body{background:#131a21;color:#eef1f6;font:17px system-ui;max-width:740px;margin:32px auto;padding:16px}section{background:#23303d;padding:18px;margin:18px 0;border-radius:10px}audio{width:100%}summary{cursor:pointer;padding:12px 0}h2{font-size:21px}</style><h1>Hero SFX revisions</h1><p>These four sounds are now in the local playable scene. Haste uses your selected Dash02; Whirlwind keeps the deep rotating pendulum sweeps. Battle Cry is a lowered, shortened version of the male voice you called the closest candidate; its performance still needs your listening verdict.</p>' + ''.join(sections) + '<script>document.addEventListener("play",e=>{if(e.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==e.target)a.pause()})},true)</script></html>'
+    page = '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hero SFX revisions</title><style>body{background:#131a21;color:#eef1f6;font:17px system-ui;max-width:740px;margin:32px auto;padding:16px}section{background:#23303d;padding:18px;margin:18px 0;border-radius:10px}audio{width:100%}summary{cursor:pointer;padding:12px 0}h2{font-size:21px}</style><h1>Hero SFX revisions</h1><p>These four sounds are now in the local playable scene. Haste uses your selected Dash02; Whirlwind keeps the deep rotating pendulum sweeps. War Cry uses your supplied ElevenLabs MP3 without pitch or timing changes. Might now uses Fortify instead of Star Power; this new candidate still needs your listening verdict.</p>' + ''.join(sections) + '<script>document.addEventListener("play",e=>{if(e.target.tagName==="AUDIO")document.querySelectorAll("audio").forEach(a=>{if(a!==e.target)a.pause()})},true)</script></html>'
     (output / 'HERO_SFX_REVIEW.html').write_text(page)
     print('HERO_SFX: PASS; 4 changed cues; approved Haste/Whirlwind/monster cues preserved')
 

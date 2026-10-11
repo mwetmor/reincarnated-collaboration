@@ -102,3 +102,9 @@ JavaScript errors. No audition verdicts were inferred from those technical check
 Whirlwind pendulum sweeps are accepted; runtime contact hits are now 10 dB quieter
 while channeling. See `WHIRLWIND_HIT_BALANCE.md`. The listening page plays the
 approved loop by itself; contact-hit balancing is heard during actual combat.
+
+Current 2026-10-11 voice/Might revision: `ELEVENLABS_WEB_REVISION.md`. War Cry now
+uses Matt's supplied ElevenLabs MP3 unchanged, copied alongside the soundtrack
+selections. Might uses Fortify instead of the rejected Star Power; artistic
+approval remains pending. The six-skill page is regenerated; approved pendulum
+and quieter Whirlwind contacts are preserved.

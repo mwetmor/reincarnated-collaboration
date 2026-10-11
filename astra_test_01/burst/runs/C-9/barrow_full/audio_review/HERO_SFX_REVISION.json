@@ -1,5 +1,5 @@
 {
-  "request": "Implement rejected main-character SFX notes; deepen voiced Battle Cry",
+  "request": "Use Matt's ElevenLabs War Cry unchanged; replace rejected Might Star Power with Fortify",
   "status": "implemented_for_listening; artistic approval pending",
   "cues": {
     "blitz": {
@@ -54,12 +54,12 @@
       }
     },
     "vires_might": {
-      "label": "Low magical power rise",
+      "label": "Might \u2014 Fortify (new candidate)",
       "sources": [
         {
-          "path": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast12_Star_Power_P1_Cast.wav",
-          "sha256": "55f0fd21cf4b030c9bea9e3c25a9cbe0cd35fd367f21d2a227bad4b8d0acb4d4",
-          "ffmpeg_filter": "aresample=48000,asetrate=38400,aresample=48000,atempo=1.25,lowpass=f=4500,highpass=f=65,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav",
+          "sha256": "6535c65cfc3d14fc64d84c766a088edcce1bb69c0ae2b98bab18e3ecb44d70ec",
+          "ffmpeg_filter": "aresample=48000,highpass=f=60,lowpass=f=5000,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
           "offset_seconds": 0.0,
           "layer_gain": 1.0
         }
@@ -70,33 +70,25 @@
         "source_root": "derived_sfx",
         "file": "hero_vires_might_revision.wav.bin",
         "format": "wav",
-        "bytes": 217540,
-        "sha256": "e6d9139b99a36b5278d4cd594e2056530c1232dab8eed714ffeabb6f3a2f27ae",
-        "seconds": 2.2655833333333333
+        "bytes": 239372,
+        "sha256": "0d4df701d368f2eae0f9b7d745db38a3a36c283a524e066334b462efea6cb2b4",
+        "seconds": 2.493
       }
     },
     "war_cry": {
-      "label": "Deep voiced Battle Cry",
-      "sources": [
-        {
-          "path": "sfx/Human_amb/Scream Male 26.wav",
-          "sha256": "817d9ffb7cee73e3e1688cb6fc84b9e707b728426f586967da4b1a3af33798f9",
-          "ffmpeg_filter": "aresample=48000,asetrate=30240,aresample=48000,atempo=1.35,highpass=f=75,equalizer=f=160:t=q:w=0.8:g=3,lowpass=f=3400,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
-          "offset_seconds": 0.0,
-          "layer_gain": 1.0
-        }
-      ],
-      "peak_target": 0.85,
+      "label": "War Cry \u2014 your ElevenLabs selection",
+      "status": "user_selected",
+      "processing": "none; original MP3 bytes and pitch preserved",
       "output": {
-        "source": "hero_war_cry_revision.wav",
-        "source_root": "derived_sfx",
-        "file": "hero_war_cry_revision.wav.bin",
-        "format": "wav",
-        "bytes": 111858,
-        "sha256": "8571581991efda6daa8575d5f2c54864fa44bfa75af73cc1439527ca69443514",
-        "seconds": 1.1647291666666666
+        "source": "war_cry_elevenlabs.mp3",
+        "source_root": "selected_sfx",
+        "file": "war_cry_elevenlabs.mp3.bin",
+        "format": "mp3",
+        "bytes": 57712,
+        "sha256": "adf412b8e02d28f01a1d02a5013946af4b08a154db9612933781f09b7148de3e",
+        "seconds": 2.48
       }
     }
   },
-  "manifest_sha256": "e015b2814bde44e206521e089243c9b015963355b64c800ee29cf8345f65427c"
+  "manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d"
 }

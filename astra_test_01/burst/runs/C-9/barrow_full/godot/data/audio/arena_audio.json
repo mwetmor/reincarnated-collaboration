@@ -494,18 +494,18 @@
       "source_root": "derived_sfx",
       "file": "hero_vires_might_revision.wav.bin",
       "format": "wav",
-      "bytes": 217540,
-      "sha256": "e6d9139b99a36b5278d4cd594e2056530c1232dab8eed714ffeabb6f3a2f27ae",
-      "seconds": 2.2655833333333333
+      "bytes": 239372,
+      "sha256": "0d4df701d368f2eae0f9b7d745db38a3a36c283a524e066334b462efea6cb2b4",
+      "seconds": 2.493
     },
-    "hero_war_cry_revision": {
-      "source": "hero_war_cry_revision.wav",
-      "source_root": "derived_sfx",
-      "file": "hero_war_cry_revision.wav.bin",
-      "format": "wav",
-      "bytes": 111858,
-      "sha256": "8571581991efda6daa8575d5f2c54864fa44bfa75af73cc1439527ca69443514",
-      "seconds": 1.1647291666666666
+    "hero_war_cry_elevenlabs": {
+      "source": "war_cry_elevenlabs.mp3",
+      "source_root": "selected_sfx",
+      "file": "war_cry_elevenlabs.mp3.bin",
+      "format": "mp3",
+      "bytes": 57712,
+      "sha256": "adf412b8e02d28f01a1d02a5013946af4b08a154db9612933781f09b7148de3e",
+      "seconds": 2.48
     }
   },
   "cues": {
@@ -519,7 +519,7 @@
       "hero_vires_might_revision"
     ],
     "war_cry": [
-      "hero_war_cry_revision"
+      "hero_war_cry_elevenlabs"
     ],
     "rune_of_rush": [
       "clip_048"
@@ -648,7 +648,8 @@
   ],
   "source_roots": {
     "soundtracks": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/soundtracks",
-    "derived_sfx": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/derived_sfx"
+    "derived_sfx": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/derived_sfx",
+    "selected_sfx": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/barrow_full/audio_review/selected_sfx"
   },
   "ambience": {
     "clip": "clip_066",

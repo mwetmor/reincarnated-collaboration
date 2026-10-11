@@ -9,8 +9,8 @@ Copied, never referenced (an export cannot follow a symlink or an absolute path)
   * the V1-JOIN-1 leech table (R-C9-394 path shim input), sha cb6a008b... at source and copy
   * the crucible geometry (sha 68d895d7...), the NUM-POP font, the eor3 matrix, the eor4x GLB, v1's snow tile -- as raw
     *.bin / json, their sha256 recorded
-  * the JOIN-1 kits the ten waves draw (data/arena/wave_kits.json) + the hero kits: every strip at HALF size as lossy
-    WebP (q82) named *.webp.bin, each kit's index.json rewritten for the half size (cell px, anchors, stage_scale), the
+  * the JOIN-1 kits the ten waves draw (data/arena/wave_kits.json) + the hero kits: every strip at native dimensions as high-quality
+    WebP (q95) named *.webp.bin, each kit's index.json rewritten for the half size (cell px, anchors, stage_scale), the
     join1_index.json copied; kits grouped into KIT PACKS of <= 40 MB (the 50 MB file fence) by the first wave they appear
 Writes <mirror>/kc2/bundle/BUNDLE_STAMP.json (what the running arena verifies at launch: scripts/arena/arena_paths.gd).
 usage: python3 tools/arena_bundle.py <mirror godot dir>"""
@@ -37,8 +37,8 @@ FILES = {   # bundle name -> source (raw bytes; their sha recorded)
     "eor4x_wl_body.glb.bin": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/wl_e1/export/final_k_eor4x/wl_body.glb",
     "v1_snow.png.bin": "/Users/admin/Games/reincarnated-collaboration/astra_test_01/burst/runs/C-9/cliffside3d/godot/textures/barrow/snow.png",
 }
-HALF = 0.5
-Q = 82
+HALF = 1.0
+Q = 95
 PACK_MB = 40.0
 
 
@@ -87,7 +87,7 @@ def vendor_tree(src, dst, man_name, key, pin):
 
 
 def stage_kit(src_dir, dst_dir):
-    """half-size WebP strips + the rewritten index; returns bytes written. A cell's `file` is relative to the art ROOT
+    """native-size WebP strips + the rewritten index; returns bytes written. A cell's `file` is relative to the art ROOT
     (it carries the kit dir: '<kit>/<state>_<dir>.png'), as arena_art reads root_of(kit) + file."""
     idx = json.load(open(os.path.join(src_dir, "index.json")))
     src_root = os.path.dirname(src_dir)
@@ -95,12 +95,39 @@ def stage_kit(src_dir, dst_dir):
     os.makedirs(dst_dir, exist_ok=True)
     total = 0
     done = {}
+    provenance = {}
+    layouts = {}
     for cid, c in idx.get("cells", {}).items():
         f = c["file"]
         if f not in done:
             im = Image.open(os.path.join(src_root, f)).convert("RGBA")
             w, h = max(1, round(im.width * HALF)), max(1, round(im.height * HALF))
-            im = im.resize((w, h), Image.LANCZOS)
+            if im.size != (w, h):
+                im = im.resize((w, h), Image.LANCZOS)
+            grid = None
+            if max(im.size) > 4096:
+                if c.get('tiled'):
+                    die('Sparse atlas exceeds portable 4096px bound: ' + f)
+                fw, fh, source_cols = int(c['fw']), int(c['fh']), int(c['cols'])
+                if im.width != source_cols * fw or im.height % fh:
+                    die('Cannot repack irregular frame atlas: ' + f)
+                cols = min(source_cols, 4096 // fw)
+                slots = source_cols * (im.height // fh)
+                rows = (slots + cols - 1) // cols
+                if cols <= 0 or rows * fh > 4096:
+                    die('Frame atlas cannot fit portable bound: ' + f)
+                rearranged = Image.new('RGBA', (cols * fw, rows * fh))
+                for frame in range(slots):
+                    tile = im.crop(((frame % source_cols) * fw, (frame // source_cols) * fh,
+                                    (frame % source_cols + 1) * fw, (frame // source_cols + 1) * fh))
+                    rearranged.paste(tile, ((frame % cols) * fw, (frame // cols) * fh))
+                    if rearranged.crop(((frame % cols) * fw, (frame // cols) * fh,
+                                         (frame % cols + 1) * fw, (frame // cols + 1) * fh)).tobytes() != tile.tobytes():
+                        die('Atlas layout changed frame pixels: ' + f)
+                grid = {'source_cols': source_cols, 'cols': cols, 'fw': fw, 'fh': fh, 'slots': slots}
+                im = rearranged
+                w, h = im.size
+                layouts[f] = grid
             b = io.BytesIO()
             im.save(b, "WEBP", quality=Q, method=4)
             nm = os.path.splitext(f)[0] + ".webp.bin"
@@ -108,14 +135,19 @@ def stage_kit(src_dir, dst_dir):
             open(os.path.join(dst_root, nm), "wb").write(b.getvalue())
             total += b.tell()
             done[f] = nm
+            provenance[f] = {"source_sha256": sha(os.path.join(src_root, f)),
+                             "output_sha256": sha(os.path.join(dst_root, nm)), "px": [w, h], "repacked_grid": grid}
         c["file"] = done[f]
+        if f in layouts:
+            c["cols"] = layouts[f]["cols"]
         for k in ("fw", "fh"):
             if k in c:
                 c[k] = float(c[k]) * HALF
         if "anchor_px" in c:
             c["anchor_px"] = [float(v) * HALF for v in c["anchor_px"]]
     idx["stage_scale"] = float(idx.get("stage_scale", 0.5)) * HALF
-    idx["_bundle"] = "R-C9-391: strips at %.2f size as lossy WebP q%d (*.webp.bin); cell px and anchors scaled" % (HALF, Q)
+    idx["_bundle"] = {"recipe": {"scale": HALF, "codec": "webp", "quality": Q, "method": 4},
+                      "source_index_sha256": sha(os.path.join(src_dir, "index.json")), "strips": provenance}
     json.dump(idx, open(os.path.join(dst_dir, "index.json"), "w"), indent=1, sort_keys=True)
     return total + os.path.getsize(os.path.join(dst_dir, "index.json"))
 
@@ -192,13 +224,22 @@ def main():
         if not os.path.isfile(os.path.join(src, "index.json")):
             die("kit %s has no index at %s" % (k, src))
         target = os.path.join(art, k)
+        cached = False
         if REFRESH and os.path.isfile(os.path.join(target, 'index.json')):
             index = json.load(open(os.path.join(target, 'index.json')))
-            members = {c['file'] for c in index['cells'].values()}
-            if any(not os.path.isfile(os.path.join(art, f)) for f in members):
-                die('refresh requires complete cached art: ' + k)
-            sizes[k] = sum(os.path.getsize(os.path.join(art, f)) for f in members) + os.path.getsize(os.path.join(target, 'index.json'))
-        else:
+            proof = index.get('_bundle', {})
+            if isinstance(proof, dict) and proof.get('recipe') == {"scale": HALF, "codec": "webp", "quality": Q, "method": 4}:
+                cached = proof.get('source_index_sha256') == sha(os.path.join(src, 'index.json'))
+                for f, member in proof.get('strips', {}).items():
+                    cached = cached and max(member['px']) <= 4096
+                    output_file = os.path.splitext(f)[0] + '.webp.bin'
+                    cached = cached and os.path.isfile(os.path.join(art, output_file))
+                    cached = cached and sha(os.path.join(os.path.dirname(src), f)) == member['source_sha256']
+                    cached = cached and sha(os.path.join(art, output_file)) == member['output_sha256']
+            if cached:
+                members = {c['file'] for c in index['cells'].values()}
+                sizes[k] = sum(os.path.getsize(os.path.join(art, f)) for f in members) + os.path.getsize(os.path.join(target, 'index.json'))
+        if not cached:
             sizes[k] = stage_kit(src, target)
         print("   kit %-28s %6.1f MB" % (k, sizes[k] / 1e6))
     # the art_x variant copy is now in kc2/art; the mirror's own art_x would be imported PNGs -- drop it

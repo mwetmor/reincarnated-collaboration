@@ -74,3 +74,9 @@ The default score is prepared during loading to reduce first-input work.
 The current release rebuilds Windows and web from this same audio manifest.
 See `ARENA_RELEASE_2026-10-10.md` for current package and browser evidence;
 the earlier probe measurements above remain historical.
+
+Current 2026-10-11 voice/Might revision: `ELEVENLABS_WEB_REVISION.md`. War Cry now
+uses Matt's supplied ElevenLabs MP3 unchanged, copied alongside the soundtrack
+selections. Might uses Fortify instead of the rejected Star Power; artistic
+approval remains pending. The six-skill page is regenerated; approved pendulum
+and quieter Whirlwind contacts are preserved.

@@ -1,0 +1,74 @@
+{
+  "phase": "first high-detail touch build; rejected before publication",
+  "storage_errors": [
+    {
+      "ms": 3393,
+      "type": "error",
+      "text": "Failed to save IDB file system: "
+    },
+    {
+      "ms": 46027,
+      "type": "error",
+      "text": "Failed to save IDB file system: "
+    },
+    {
+      "ms": 66427,
+      "type": "error",
+      "text": "Failed to save IDB file system: "
+    }
+  ],
+  "ready": true,
+  "launch": "[arena] launch: bundled true, web true, runtime tree a0e75469a78b, pack model_pack, G6C-LEECH-JOIN:PASS, leech shim: written to /Users/admin/Games/reincarnated-engine/data/kc2/pm4p_leech_resistance.csv, sha pinned, solver gdscript, hero 3d",
+  "audio": {
+    "combined": {
+      "peak": 0.38531494140625,
+      "samples": 354,
+      "nonzero": 165,
+      "contexts": [
+        {
+          "state": "running",
+          "sample_rate": 48000
+        }
+      ],
+      "outputs": 2
+    },
+    "all_muted": {
+      "peak": 0,
+      "samples": 20,
+      "nonzero": 0,
+      "contexts": [
+        {
+          "state": "running",
+          "sample_rate": 48000
+        }
+      ],
+      "outputs": 2
+    },
+    "sfx_only": {
+      "peak": 0.253875732421875,
+      "samples": 72,
+      "nonzero": 34,
+      "contexts": [
+        {
+          "state": "running",
+          "sample_rate": 48000
+        }
+      ],
+      "outputs": 2
+    }
+  },
+  "performance": {
+    "frames": 552,
+    "average_ms": 16.04076086956522,
+    "fps": 62.341182449601895,
+    "p99_ms": 54.799999999995634,
+    "max_ms": 97,
+    "over_33_ms": 7,
+    "surface": {
+      "width": 844,
+      "height": 390,
+      "dpr": 1
+    }
+  },
+  "fix": "Custom HTML shell with persistentPaths=[]; playtest telemetry remains session-local; no progress-save feature existed."
+}

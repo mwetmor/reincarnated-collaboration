@@ -213,6 +213,41 @@ static func refresh_kit(kit: String) -> void:
 	_kits.erase(kit)
 
 
+## Full-size web atlases must not accumulate across all ten waves. Keep every
+## living/fading actor's kit and the hero overlays; only release unused kits.
+## Native keeps its existing cache. This never changes animation or fight state.
+static func release_unused_web_kits(keep: Array) -> void:
+	if not OS.has_feature("web"):
+		return
+	var prefixes: Array[String] = []
+	for kit in keep:
+		prefixes.append(root_of(String(kit)) + String(kit) + "/")
+	for path in _tex.keys():
+		var retained := false
+		for prefix in prefixes:
+			if String(path).begins_with(prefix):
+				retained = true
+				break
+		if not retained:
+			var texture: Texture2D = _tex[path]
+			if texture != null:
+				bytes_rgba -= texture.get_width() * texture.get_height() * 4
+				n_tex -= 1
+			_tex.erase(path)
+	for path in _pending.keys():
+		var retained := false
+		for prefix in prefixes:
+			if String(path).begins_with(prefix):
+				retained = true
+				break
+		if not retained and WorkerThreadPool.is_task_completed(int(_pending[path])):
+			WorkerThreadPool.wait_for_task_completion(int(_pending[path]))
+			_pending.erase(path)
+			_mutex.lock()
+			_images.erase(path)
+			_mutex.unlock()
+
+
 ## Fire decodes for every cell of a kit whose state is in `states` (all when empty). Cheap to repeat.
 static func prefetch(kit: String, states: Array = []) -> void:
 	for cid_any in (kit_meta(kit).get("cells", {}) as Dictionary).keys():

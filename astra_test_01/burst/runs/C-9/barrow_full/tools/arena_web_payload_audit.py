@@ -63,14 +63,25 @@ for kit in kits:
     name = 'kc2/art/' + kit + '/index.json'
     index = json.loads((web / name).read_text())
     native_index = json.loads((ROOT / 'pc_arena' / name).read_text())
+    proof = index['_bundle']
     for cell in native_index['cells'].values():
+        source_name = cell['file'].removesuffix('.bin')
+        member = proof['strips'][source_name]
+        if max(member['px']) > 4096:
+            raise ValueError('Web atlas exceeds portable texture bound: ' + source_name)
+        grid = member.get('repacked_grid')
+        if grid is not None:
+            if (cell['cols'], cell['fw'], cell['fh']) != (grid['source_cols'], grid['fw'], grid['fh']):
+                raise ValueError('Repacked frame geometry differs: ' + source_name)
+            if grid['cols'] != min(grid['source_cols'], 4096 // grid['fw']):
+                raise ValueError('Unexpected atlas layout: ' + source_name)
+            cell['cols'] = grid['cols']
         cell['file'] = str(Path(cell['file'].removesuffix('.bin')).with_suffix('.webp.bin'))
-        for key in ('fw', 'fh'):
-            if key in cell:
-                cell[key] *= 0.5
-        if 'anchor_px' in cell:
-            cell['anchor_px'] = [v * 0.5 for v in cell['anchor_px']]
-    native_index['stage_scale'] = native_index.get('stage_scale', 0.5) * 0.5
+    # Missing stage_scale has always meant 0.5 to the renderer (e.g. EOR overlay).
+    native_index['stage_scale'] = native_index.get('stage_scale', 0.5)
+    proof = index['_bundle']
+    if proof['recipe'] != {'scale': 1.0, 'codec': 'webp', 'quality': 95, 'method': 4}:
+        raise ValueError('Unexpected web sprite recipe: ' + kit)
     comparable = {k: v for k, v in index.items() if k != '_bundle'}
     if native_index != comparable:
         raise ValueError('Web animation catalogue differs from native: ' + kit)
@@ -86,6 +97,6 @@ result = {'verified_payloads': len(expected), 'terrain_fields': len(fields), 'ch
     'art_strips': len(art_files), 'audio_clips': len(manifest['clips']), 'audio_manifest_sha256': digest(manifest_path),
     'runtime_digest': stamp['runtime_tree_digest'], 'model_digest': stamp['model_pack_digest'],
     'files': {p.name: {'bytes': p.stat().st_size, 'sha256': digest(p)} for p in sorted(output.iterdir()) if p.is_file()},
-    'web_texture_conversion': 'Half-resolution WebP character art and phone painting; gameplay and audio bytes unchanged'}
+    'web_texture_conversion': 'Native sprite dimensions/anchors, WebP q95; world bakes native up to 2048px; hero textures 2048px; gameplay and audio bytes unchanged'}
 (web / 'build/logs/web_payload_audit.json').write_text(json.dumps(result, indent=2) + '\n')
 print('WEB_PAYLOAD: PASS; ' + json.dumps({k: result[k] for k in ['verified_payloads', 'terrain_fields', 'character_kits', 'audio_clips']}))

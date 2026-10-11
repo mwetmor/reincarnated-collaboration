@@ -6,7 +6,8 @@ art, Vercel login on mobile, and failure to load on his phone.
 
 Native reference: `godot/scenes/bv2f_arena.tscn`.
 Public playtest route: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
-See `../audio_review/WHIRLWIND_HIT_BALANCE.md` for the latest mix release and
+See `../audio_review/ELEVENLABS_WEB_REVISION.md` for the latest voice/fidelity release,
+`../audio_review/WHIRLWIND_HIT_BALANCE.md` for the accepted pendulum/contact balance and
 `../audio_review/HERO_SFX_REVISION.md` for rendering/audio repair evidence;
 `ARENA_RELEASE_2026-10-10.md` remains historical evidence.
 
@@ -23,10 +24,15 @@ See `../audio_review/WHIRLWIND_HIT_BALANCE.md` for the latest mix release and
 
 
 | WEB-09 | Reproduced actual silent WebAudio output despite decoded clips, cue counters and a running audio context. Force streamed mixer playback for every voice. Actual destination PCM now passes in desktop/touch tests; both mutes yield zero, SFX-only playback is nonzero. | Physical phone/Safari audio still needs device confirmation; playback starts after a click/tap. |
-| WEB-10 | Large world bakes were all reduced to 512px. Preserve half the native dimensions (512/1024/2048), encode resized pixels losslessly, and verify all 106 bakes. Restore the arena's inherited Compatibility ambient/color correction. Encode custom enemy VFX/shadow linear colors correctly for Compatibility. | No missing world bake is reproduced in the current loader (113 files pass; 57 baked meshes, no missing bakes). User identification of any remaining bare object or incorrect sprite; web body strips still use half resolution/lossy q82. |
+| WEB-10 | Large world bakes were all reduced to 512px. Preserve half the native dimensions (512/1024/2048), encode resized pixels losslessly, and verify all 106 bakes. Restore the arena's inherited Compatibility ambient/color correction. Encode custom enemy VFX/shadow linear colors correctly for Compatibility. | No missing world bake is reproduced in the current loader (113 files pass; 57 baked meshes, no missing bakes). User identification of any remaining bare object or incorrect sprite; web body strips now use native dimensions at q95; two world bakes and hero textures remain bounded at 2048px. |
 
 The audit verifies every retained raw scene input, all local presentation scripts,
 all selected audio, the sealed runtime/model members and all converted character
 strips in the actual exported packs. Historical unused levels are excluded from
 web staging. The sealed runtime and model pack are unchanged. Both web and Windows
 use the existing reference contact solver; the native Mac can use its compiled solver.
+
+Latest fidelity revision restores native sprite frame dimensions/anchors, increases
+WebP from q82 to q95, retains native texels for 104/106 world bakes and raises the
+hero texture bound from 1024 to 2048. Full native rendering parity and physical
+phone performance remain open; the high-resolution conversion does not close them.

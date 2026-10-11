@@ -338,6 +338,7 @@ var debug_on := false
 var n_blocked_stops := 0
 var waves_seen: Dictionary = {}
 var kits_seen: Dictionary = {}
+var _web_art_cleanup_ms: int = 0
 var no_pack: Dictionary = {}
 var no_pack_records: Dictionary = {}    # R-C9-356: record -> {family, n, waves, r_body, placeholder}
 var placeholder_table: Dictionary = {}  # record -> row (data/arena/placeholder_bodies.json)
@@ -1431,6 +1432,13 @@ func _render(delta: float) -> void:
 		_entry(int(k_any), m, delta)
 		m.position = to_world(m.draw_m + (m.lunge_offset_m if m is Token3D else Vector2.ZERO)) \
 			- (scene.fwd * CARD_TOWARD_CAM_M if not (m is Token3D) else Vector3.ZERO)
+	if OS.has_feature("web") and fight_started and running and Time.get_ticks_msec() - _web_art_cleanup_ms > 10000:
+		_web_art_cleanup_ms = Time.get_ticks_msec()
+		var keep: Array = [J.hero_kit(), "gd-eor-warlord-eor4x", "eor_overlay"]
+		for actor in actors.values():
+			if actor is Monster3D and not keep.has(actor.kit):
+				keep.append(actor.kit)
+		J.release_unused_web_kits(keep)
 	if warlord != null:
 		warlord.sync(player_pos_m, session.driver)
 		warlord.advance(delta)

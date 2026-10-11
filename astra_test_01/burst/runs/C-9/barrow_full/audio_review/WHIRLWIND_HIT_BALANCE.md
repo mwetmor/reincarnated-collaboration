@@ -1,5 +1,8 @@
 # Whirlwind hit balance — 2026-10-11
 
+Latest War Cry/Might choices and web fidelity bounds: `ELEVENLABS_WEB_REVISION.md`.
+The release evidence below records the earlier revision.
+
 Matt accepted the pendulum portion and requested quieter character strikes during
 Whirlwind. Reduce only outgoing hero physical contacts while the Whirlwind loop
 is playing by 10 dB. Incoming monster hits and physical attacks after release keep

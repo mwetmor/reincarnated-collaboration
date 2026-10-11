@@ -1,5 +1,8 @@
 # Barrow hero SFX and web repair — 2026-10-11
 
+Latest War Cry/Might choices and web fidelity bounds: `ELEVENLABS_WEB_REVISION.md`.
+The release evidence below records the earlier revision.
+
 The earlier release left four rejected hero cues on their baseline. That omission
 is corrected in the local scene, Windows payload and web export. This is drax
 presentation work; no delegation/fallback, engine or sealed runtime edits.

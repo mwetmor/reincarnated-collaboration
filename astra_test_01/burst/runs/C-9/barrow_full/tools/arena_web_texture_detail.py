@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Keep half-native world bake detail instead of flattening every bake to 512px.
+"""Restore native world bake detail within a 2048px web memory bound.
 
 Only changes the disposable web mirror. Native originals are hash checked and
-read-only. Half-size images remain bounded at 2048px; lossless WebP preserves
-the resized RGB/alpha values. The 4096px overview painting stays unchanged.
+read-only. Images remain bounded at 2048px; lossless WebP preserves
+RGB/alpha values, including every original texel for bakes at or below the bound. The 4096px overview painting stays unchanged.
 """
 import hashlib
 import io
@@ -32,15 +32,15 @@ def main():
     for row in native['bakes'].values():
         if sha((source / row['file']).read_bytes()) != row['sha256']:
             raise ValueError('Changed native world texture: ' + row['file'])
-    report = {'recipe': 'half native dimensions; lossless WebP; max 2048px', 'bakes': {}, 'bytes': 0}
+    report = {'recipe': 'native dimensions up to 2048px; lossless WebP', 'bakes': {}, 'bytes': 0}
     rgba_with_mips = 0
     for key, row in native['bakes'].items():
         with Image.open(source / row['file']) as original:
             image = original.convert('RGBA')
-            size = (max(1, image.width // 2), max(1, image.height // 2))
-            if max(size) > 2048:
-                raise ValueError('World texture exceeds 2048px bound')
-            image = image.resize(size, Image.Resampling.LANCZOS)
+            ratio = min(1.0, 2048 / max(image.size))
+            size = (round(image.width * ratio), round(image.height * ratio))
+            if image.size != size:
+                image = image.resize(size, Image.Resampling.LANCZOS)
         buffer = io.BytesIO()
         image.save(buffer, 'WEBP', lossless=True, method=4, exact=True)
         data = buffer.getvalue()

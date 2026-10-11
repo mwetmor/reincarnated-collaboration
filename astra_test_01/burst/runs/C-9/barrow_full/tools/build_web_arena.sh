@@ -3,7 +3,7 @@
 # /playtest/barrow-arena/ on the loadout site. Shape: tools/build_web_painted.sh (e8d0d0f's route).
 #   1. mirror barrow_full/godot -> web_arena/ (only what the arena reads; its .godot import cache kept between builds)
 #   2. tools/arena_bundle.py: vendor + verify the KC2 runtime (a0e75469) and the model pack of record, the leech table
-#      (the R-C9-394 path shim's input), the outside files, and the waves' kits at half size as WebP, in KIT PACKS
+#      (the R-C9-394 path shim's input), the outside files, and the waves' kits at native size as q95 WebP, in KIT PACKS
 #   3. import; Web preset (nothreads, Compatibility, base href) + one preset per kit pack; export
 #   4. FENCE: file sizes + isolated packaged-input probe + real Chrome startup/desktop/touch/failure tests
 #   5. stage build/web/ into reincarnated-loadout/public/playtest/barrow-arena/ (never commits, never pushes)
@@ -50,6 +50,7 @@ rsync -a --delete --exclude 'kc2/model_pack/' --exclude 'kc2/art/' --exclude 'kc
   --exclude 'models/variants/' --exclude 'data/vfx/meteor*/' --exclude 'data/meteor/' --exclude 'data/bv2f/stair_snow/' --exclude 'data/barrow_v2_sw/' --exclude 'kc2/kc2_runtime' --exclude 'kc2/art_x/' --exclude 'kc2/.gdignore' \
   --exclude 'captures/' "$SRC"/ "$DEST"/
 mkdir -p "$DEST/build" "$LOG"; touch "$DEST/build/.gdignore"
+cp "$TOOLS/arena_web_shell.html" "$DEST/arena_web_shell.html"
 python3 - "$DEST" <<'PY'
 import pathlib, re, sys
 pg = pathlib.Path(sys.argv[1]) / "project.godot"
@@ -91,7 +92,7 @@ stamp['kit_packs'] += list(stamp['audio_packs'])
 stamp_path.write_text(json.dumps(stamp, indent=1))
 PY
 
-echo "== 2b the rig's textures for the web (VRAM + mips, cut to 1024; the walk build's rule)"
+echo "== 2b the rig's textures for the web (VRAM + mips, bounded at 2048; the walk build's rule)"
 python3 - "$DEST" <<'PY'
 import pathlib, re, sys
 root = pathlib.Path(sys.argv[1])
@@ -102,7 +103,7 @@ n = 0
 for imp in sorted((root / "models" / "warlord").glob("*.import")):
     if imp.with_suffix("").suffix.lower() in (".png", ".jpg", ".jpeg"):
         t = imp.read_text()
-        for k, v in (("compress/mode", "2"), ("mipmaps/generate", "true"), ("process/size_limit", "1024")):
+        for k, v in (("compress/mode", "2"), ("mipmaps/generate", "true"), ("process/size_limit", "2048")):
             t = setk(t, k, v)
         imp.write_text(t)
         n += 1
@@ -135,7 +136,7 @@ variant/thread_support=false
 vram_texture_compression/for_desktop=false
 vram_texture_compression/for_mobile=true
 html/export_icon=true
-html/custom_html_shell=""
+html/custom_html_shell="res://arena_web_shell.html"
 html/head_include="%s"
 html/canvas_resize_policy=2
 html/focus_canvas_on_start=true
@@ -183,6 +184,14 @@ for PK in $(python3 -c "import json;print(' '.join(json.load(open('$DEST/kc2/bun
   "$GODOT" --headless --path "$DEST" --export-pack "${PK%.pck}" "$DEST/build/web/$PK" >> "$LOG/export.log" 2>&1 \
     || { tail -30 "$LOG/export.log" >&2; exit 5; }
 done
+
+echo "== 3d split oversized data packs without changing payload bytes"
+python3 "$TOOLS/arena_split_web_packs.py" "$DEST" | tee "$LOG/pack_split.log"
+# The main pack embeds the final mount list after oversized packs are split.
+"$GODOT" --headless --path "$DEST" --export-release "WebArena" "$DEST/build/web/index.html" >> "$LOG/export.log" 2>&1
+python3 "$TOOLS/pck_web_extensions.py" "$DEST/build/web/index.pck"
+
+cp "$(dirname "$SRC")/audio_review/derived_sfx/HERO_SFX_REVIEW.html" "$DEST/build/web/hero-sfx.html"
 
 echo "== 4 fence"
 ls -la "$DEST/build/web" | tee "$LOG/files.txt"

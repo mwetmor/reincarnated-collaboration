@@ -1,0 +1,1432 @@
+{
+  "scope": "Mac Chrome touch emulation, DPR3 with bounded framebuffer and native MSAA4; no physical phone claim",
+  "performance": {
+    "frames": 1609,
+    "average_ms": 27.850963331261656,
+    "fps": 35.90540076139979,
+    "p99_ms": 72.5,
+    "max_ms": 127.5,
+    "over_33_ms": 551,
+    "surface": {
+      "width": 1266,
+      "height": 585,
+      "dpr": 3
+    },
+    "sustained_combat": {
+      "frames": 1035,
+      "average_ms": 34.7825120772947,
+      "fps": 28.75007986133294,
+      "p99_ms": 72.70000000001164,
+      "max_ms": 127.5,
+      "over_33_ms": 545
+    }
+  },
+  "inputs": [
+    {
+      "label": "before",
+      "actors": 25,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {},
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": false,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        0,
+        0
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 0,
+      "touch": false,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "moving",
+      "actors": 29,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "fire_cast": 2,
+        "snow_step": 4
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.33080911636353,
+        -0.6424959897995
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 17,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "before-Potion",
+      "actors": 29,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "fire_cast": 2,
+        "snow_step": 4
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.33080911636353,
+        -0.6424959897995
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 17,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "accepted-Potion",
+      "actors": 29,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 2,
+        "ghost_cast": 1,
+        "potion": 1,
+        "snow_step": 7
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -11.3051128387451,
+        -0.892516493797302
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 26,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "before-Might",
+      "actors": 29,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 2,
+        "ghost_cast": 1,
+        "potion": 1,
+        "snow_step": 7
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -11.3051128387451,
+        -0.892516493797302
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 26,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "accepted-Might",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 3,
+        "ghost_cast": 1,
+        "physical_hit": 1,
+        "potion": 1,
+        "snow_step": 8,
+        "vires_might": 1
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -15.660717010498,
+        -1.16007030010223
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 33,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "before-Battle Cry",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 3,
+        "ghost_cast": 1,
+        "physical_hit": 1,
+        "potion": 1,
+        "snow_step": 8,
+        "vires_might": 1
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -15.660717010498,
+        -1.16007030010223
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 33,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "accepted-Battle Cry",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 3,
+        "ghost_cast": 1,
+        "physical_hit": 1,
+        "potion": 1,
+        "snow_step": 9,
+        "vires_might": 1,
+        "war_cry": 1
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -18.5067310333252,
+        -1.33000802993774
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 39,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "before-Haste",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 3,
+        "ghost_cast": 1,
+        "physical_hit": 1,
+        "potion": 1,
+        "snow_step": 9,
+        "vires_might": 1,
+        "war_cry": 1
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -18.5067310333252,
+        -1.33000802993774
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 39,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "accepted-Haste",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 4,
+        "ghost_cast": 2,
+        "physical_hit": 4,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "snow_step": 9,
+        "vires_might": 1,
+        "war_cry": 1
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -23.0037307739258,
+        -1.5984947681427
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 45,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "channel-held",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 4,
+        "ghost_cast": 4,
+        "ghost_death": 2,
+        "physical_hit": 14,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "snow_step": 13,
+        "vires_might": 1,
+        "war_cry": 1,
+        "whirlwind_start": 1
+      },
+      "channel": true,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -30.2935600280762,
+        -2.10628151893616
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 70,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": false
+    },
+    {
+      "label": "after",
+      "actors": 28,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 1,
+        "fire_cast": 4,
+        "ghost_cast": 4,
+        "ghost_death": 2,
+        "physical_hit": 18,
+        "poison_cast": 1,
+        "poison_hit": 6,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "snow_step": 14,
+        "vires_might": 1,
+        "war_cry": 1,
+        "whirlwind_start": 1
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -31.2920608520508,
+        -2.43439126014709
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 105,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "long-channel-held",
+      "actors": 28,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "fire_cast": 4,
+        "ghost_cast": 5,
+        "ghost_death": 2,
+        "physical_hit": 21,
+        "poison_cast": 1,
+        "poison_hit": 8,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "snow_step": 14,
+        "vires_might": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": true,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -31.2920608520508,
+        -2.43439126014709
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 117,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "move-while-channel-held",
+      "actors": 30,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 2,
+        "fire_cast": 5,
+        "ghost_cast": 6,
+        "ghost_death": 2,
+        "lightning_cast": 1,
+        "physical_hit": 33,
+        "poison_cast": 2,
+        "poison_hit": 9,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "snow_step": 21,
+        "vires_might": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": true,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -21.7771263122559,
+        -0.366874009370804
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 146,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "movement-finger-released",
+      "actors": 31,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 3,
+        "fire_cast": 5,
+        "ghost_cast": 6,
+        "ghost_death": 2,
+        "lightning_cast": 1,
+        "physical_hit": 36,
+        "poison_cast": 2,
+        "poison_hit": 10,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "snow_step": 23,
+        "vires_might": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": true,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -19.6259536743164,
+        0.104801386594772
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 152,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "sustained-touch-combat",
+      "actors": 11,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 147,
+        "poison_cast": 5,
+        "poison_hit": 24,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 16,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": true,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.13075971603394,
+        4.06846332550049
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 537,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "sustained-channel-released",
+      "actors": 11,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 148,
+        "poison_cast": 5,
+        "poison_hit": 25,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 16,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.13073301315308,
+        4.06842803955078
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 544,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "muted-music_muted",
+      "actors": 10,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 148,
+        "poison_cast": 5,
+        "poison_hit": 25,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 16,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": true,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.130784034729,
+        4.06849813461304
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 553,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "unmuted-music_muted",
+      "actors": 10,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 149,
+        "poison_cast": 5,
+        "poison_hit": 25,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 16,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.13078355789185,
+        4.06849765777588
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 557,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "muted-sfx_muted",
+      "actors": 10,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 149,
+        "poison_cast": 5,
+        "poison_hit": 25,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 16,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.13074922561646,
+        4.06844997406006
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": true,
+      "tick": 563,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "unmuted-sfx_muted",
+      "actors": 9,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 150,
+        "poison_cast": 5,
+        "poison_hit": 25,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 17,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 0,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.13071870803833,
+        4.06840467453003
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 570,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    },
+    {
+      "label": "next-score",
+      "actors": 9,
+      "ambience_crossfades": 0,
+      "ambience_db": -20,
+      "audio_manifest_sha256": "f9a98d93da157be0b9ef93601bce6a3983c9ea7ee8d498ecc746b6b2df2bef2d",
+      "audio_missing": [],
+      "audio_played": {
+        "cold_cast": 2,
+        "enemy_death": 17,
+        "fire_cast": 17,
+        "ghost_cast": 8,
+        "ghost_death": 7,
+        "lightning_cast": 2,
+        "physical_hit": 150,
+        "poison_cast": 5,
+        "poison_hit": 25,
+        "potion": 1,
+        "rune_of_rush": 1,
+        "slash": 18,
+        "snow_step": 31,
+        "vires_might": 1,
+        "vitality_cast": 1,
+        "war_cry": 1,
+        "whirlwind_start": 2
+      },
+      "channel": false,
+      "exploration_touch": false,
+      "fight_started": true,
+      "hero_3d": true,
+      "music_index": 1,
+      "music_muted": false,
+      "paint_files_bad": [],
+      "paint_pieces": {
+        "baked": 57,
+        "baked_meshes": 57,
+        "bakes_missing": [],
+        "floe_materials": "shared + instance uniform (R-C9-317)",
+        "frame_rebound_materials": 101,
+        "ground_tiles": {
+          "meshes": 11,
+          "tiles": 279,
+          "tris": 1615042
+        },
+        "inks_hidden": 190,
+        "projected": 62,
+        "projected_posts": 49,
+        "projected_uvless": 1,
+        "warmup": {
+          "skipped": true
+        },
+        "water": {
+          "floes_bobbing": 39,
+          "sea_above_water_split": 0,
+          "sea_meshes": 1,
+          "sea_y": -4.15
+        }
+      },
+      "position": [
+        -7.13073110580444,
+        4.06847715377808
+      ],
+      "sfx_loaded": 43,
+      "sfx_muted": false,
+      "tick": 575,
+      "touch": true,
+      "walk_reachable_cells": 29264,
+      "wave": 151,
+      "zoomed_out": true
+    }
+  ],
+  "errors": [],
+  "network_failures": []
+}
