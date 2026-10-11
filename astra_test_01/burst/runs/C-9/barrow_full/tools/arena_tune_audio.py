@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce Matt's slower metal Whirlwind and louder Fjordstormen tuning.
+"""Reproduce Matt's heavy rotating-pendulum Whirlwind and louder Fjordstormen.
 
 Original demo files stay read-only. Run under the shared heavy lock.
 """
@@ -18,7 +18,6 @@ RATE = 48000
 SOURCES = {
     'swing': ('sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav', '3dbfe4d5bf99581186672b0889c32ad98689c40a6635c90f90fc0680fbc53670'),
     'metal': ('sfx/Hits/Metal_Hit_05.wav', '38e5de64d70465371c88c83bba8d8f9980ab06cdbfe3eef56c11bbbd31818ace'),
-    'clang': ('sfx/Hits/Metal_Hit_08.wav', '2b44915672f6c05bc45a398c8b2b35ce2ef7252822ab1941c1efcb48a0d08c32'),
 }
 
 
@@ -44,7 +43,8 @@ def main():
             samples.byteswap()
         peak = max(abs(v) for v in samples) or 1
         sounds[name] = [v / peak for v in samples]
-    duration = 4.8
+    spacing = 0.42
+    duration = spacing * 8
     count = round(RATE * duration)
     loop = [0.0] * count
     start = [0.0] * round(RATE * 2.5)
@@ -55,16 +55,18 @@ def main():
                 at %= len(target)  # ring tails across the loop boundary, without a hard cut
             if at < len(target):
                 target[at] += v * gain
-    for beat in range(6):
-        layer(loop, 'swing', beat * 0.8, 0.30, True)
-        layer(loop, 'metal' if beat % 2 == 0 else 'clang', beat * 0.8 + 0.20, 0.75, True)
-    layer(start, 'swing', 0, 0.30)
-    layer(start, 'metal', 0.20, 0.75)
+    for beat in range(8):
+        # One heavy air pass per rotation; overlap the low tails continuously.
+        # Real contact events already play Matt's selected mace hit separately.
+        layer(loop, 'swing', beat * spacing, 0.85, True)
+    layer(start, 'swing', 0, 0.85)
+    layer(start, 'metal', 0.20, 0.18)
     output = ROOT / 'audio_review/derived_sfx'
     output.mkdir(parents=True, exist_ok=True)
-    receipt = {'request': 'Slower, deeper strike/clanging Whirlwind; Fjordstormen +8 dB',
+    receipt = {'request': 'Heavy pendulum-like sweeps at a faster circular pace; Fjordstormen +8 dB',
         'sources': {name: {'path': path, 'sha256': digest} for name, (path, digest) in SOURCES.items()},
-        'speed_and_pitch': 0.70, 'strike_spacing_seconds': 0.8, 'loop_seconds': duration, 'outputs': {}}
+        'speed_and_pitch': 0.70, 'sweep_spacing_seconds': spacing, 'loop_seconds': duration,
+        'sweeps_per_loop': 8, 'impact_source': 'existing accepted physical_hit contact events', 'outputs': {}}
     for key, cue, samples in [('whirlwind_metal_start', 'whirlwind_start', start), ('whirlwind_metal_loop', 'whirlwind_loop', loop)]:
         gain = 0.85 / (max(abs(v) for v in samples) or 1)
         pcm = array.array('h', [round(max(-1, min(1, v * gain)) * 32767) for v in samples])
@@ -88,7 +90,7 @@ def main():
     receipt['manifest_sha256'] = sha(manifest_path.read_bytes())
     (ROOT / 'audio_review/WHIRLWIND_TUNING.json').write_text(json.dumps(receipt, indent=2) + '\n')
     subprocess.run(['python3', str(ROOT / 'tools/arena_stage_audio.py')], check=True)
-    print('AUDIO_TUNING: PASS; six low metal strikes / 4.8 seconds; environment +8 dB')
+    print('AUDIO_TUNING: PASS; eight heavy rotating sweeps / 3.36 seconds; environment +8 dB')
 
 
 if __name__ == '__main__':

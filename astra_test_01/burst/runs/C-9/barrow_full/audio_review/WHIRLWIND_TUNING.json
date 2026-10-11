@@ -1,5 +1,5 @@
 {
-  "request": "Slower, deeper strike/clanging Whirlwind; Fjordstormen +8 dB",
+  "request": "Heavy pendulum-like sweeps at a faster circular pace; Fjordstormen +8 dB",
   "sources": {
     "swing": {
       "path": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav",
@@ -8,15 +8,13 @@
     "metal": {
       "path": "sfx/Hits/Metal_Hit_05.wav",
       "sha256": "38e5de64d70465371c88c83bba8d8f9980ab06cdbfe3eef56c11bbbd31818ace"
-    },
-    "clang": {
-      "path": "sfx/Hits/Metal_Hit_08.wav",
-      "sha256": "2b44915672f6c05bc45a398c8b2b35ce2ef7252822ab1941c1efcb48a0d08c32"
     }
   },
   "speed_and_pitch": 0.7,
-  "strike_spacing_seconds": 0.8,
-  "loop_seconds": 4.8,
+  "sweep_spacing_seconds": 0.42,
+  "loop_seconds": 3.36,
+  "sweeps_per_loop": 8,
+  "impact_source": "existing accepted physical_hit contact events",
   "outputs": {
     "whirlwind_metal_start": {
       "source": "whirlwind_metal_start.wav",
@@ -24,7 +22,7 @@
       "file": "whirlwind_metal_start.wav.bin",
       "format": "wav",
       "bytes": 240044,
-      "sha256": "80f60e6b1855467412340a2152175c8cf7754022ff6c4937bcb59f600260d651",
+      "sha256": "da2b3542ba9039dbde53335a87db8f1f01c949266350cf7c726e5c704fd6ef02",
       "seconds": 2.5
     },
     "whirlwind_metal_loop": {
@@ -32,10 +30,10 @@
       "source_root": "derived_sfx",
       "file": "whirlwind_metal_loop.wav.bin",
       "format": "wav",
-      "bytes": 460844,
-      "sha256": "25652d6be176e8e3c494d4e0a5962a1ce1c6a7fd49548326b28c73c2627b05b0",
-      "seconds": 4.8
+      "bytes": 322604,
+      "sha256": "2b0dfb7ff1c8dbf16fb0d1b523297f6976f7be4de525a96bed4031b2a417bc60",
+      "seconds": 3.36
     }
   },
-  "manifest_sha256": "15fae13bd965cb8b583f875a82c6fb43ae2c9cea9f7cf5692a77f1bd5ac48809"
+  "manifest_sha256": "e015b2814bde44e206521e089243c9b015963355b64c800ee29cf8345f65427c"
 }

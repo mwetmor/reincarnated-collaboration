@@ -75,7 +75,7 @@ def main():
     (output / 'Play Barrow Arena.cmd').write_bytes(b'@echo off\r\ncd /d "%~dp0"\r\nstart "" /wait "%~dp0BarrowArena.exe"\r\n')
     shutil.copy2(Path(__file__).resolve().parent.parent / 'audio_review/AUDIO_CREDITS.txt',
                  output / 'AUDIO_CREDITS.txt')
-    (output / 'READ ME.txt').write_text('''BARROW ARENA - Windows x64 playtest (2026-10-10)
+    (output / 'READ ME.txt').write_text('''BARROW ARENA - Windows x64 playtest (2026-10-11)
 
 1. Extract the entire ZIP to a folder on your Windows PC.
 2. Open BarrowArena.exe (or Play Barrow Arena.cmd).
@@ -92,7 +92,9 @@ M: music on/off   K: sound effects on/off   B: next soundtrack
 
 Includes original demo audio: character skills, weapon swings, monster casts,
 impacts/deaths, snow footsteps, six switchable soundtracks, and Fjordstormen.
-Whirlwind uses slower, deeper metallic strikes; storm ambience is raised 8 dB.
+Whirlwind uses deep rotating air sweeps every 0.42 seconds, with metallic
+impacts on actual monster contacts. Battle Cry is deepened; Charge, Potion
+and Might use revised cues. Storm ambience is raised 8 dB.
 
 This is the existing native bv2f_arena scene, using Forward+ rendering,
 original-resolution character strips, native level/painting data, the live

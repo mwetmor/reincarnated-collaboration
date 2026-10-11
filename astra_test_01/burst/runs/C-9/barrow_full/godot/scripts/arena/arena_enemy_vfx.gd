@@ -47,6 +47,10 @@ uniform vec4 pal[16];                 // 4 palettes x 4 bands, LINEAR (converted
 varying flat vec4 v_c;                // page, mode, palette, fade
 varying flat vec4 v_r;                // the frame's rect on its page (0..1)
 float lin(float c) { return c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4); }
+vec3 srgb(vec3 c) {
+	c = max(c, vec3(0.0));
+	return mix(1.055 * pow(c, vec3(1.0 / 2.4)) - 0.055, c * 12.92, lessThanEqual(c, vec3(0.0031308)));
+}
 void vertex() {
 	v_c = COLOR;
 	v_r = INSTANCE_CUSTOM;
@@ -79,7 +83,9 @@ void fragment() {
 	}
 	rgb *= v_c.a;
 	a *= v_c.a;
-	ALBEDO = rgb;
+	// The atlas/palettes above produce linear RGB. Compatibility interprets
+	// ALBEDO as sRGB, so encode once there instead of darkening it twice.
+	ALBEDO = OUTPUT_IS_SRGB ? srgb(rgb) : rgb;
 	ALPHA = (mode == 2 || mode == 3) ? 0.0 : a;   // additive layers: colour added, nothing covered
 }
 """

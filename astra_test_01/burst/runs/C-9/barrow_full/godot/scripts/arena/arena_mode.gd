@@ -1665,6 +1665,8 @@ func _instruments(delta: float) -> void:
 				"zoomed_out": zoomed_out, "position": [player_pos_m.x, player_pos_m.y],
 				"tick": int(snap.get("tick", 0)), "actors": actors.size(), "wave": int(snap.get("wave", 0)),
 				"walk_reachable_cells": walk_reach.count(1), "hero_3d": hero_3d,
+				"paint_files_bad": scene.paint.get("files_bad", ["paint report absent"]),
+				"paint_pieces": scene.paint.get("pieces", {}),
 				"audio_manifest_sha256": FileAccess.get_sha256("res://data/audio/arena_audio.json"),
 				"sfx_loaded": audio.streams.size() if audio != null else 0,
 				"audio_missing": audio.report["missing"] if audio != null else ["audio adapter absent"],

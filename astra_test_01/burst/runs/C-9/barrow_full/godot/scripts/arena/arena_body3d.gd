@@ -275,7 +275,9 @@ void fragment() {
 		a += a_at(p + vec2(cos(an), sin(an)) * r) * 0.09;
 	}
 	vec3 c = mix(vec3(1.0), tint, clamp(a * strength, 0.0, 1.0));
-	ALBEDO = c;
+	// tint is a linear-light shadow ratio. Compatibility expects encoded ALBEDO.
+	ALBEDO = OUTPUT_IS_SRGB ? mix(1.055 * pow(c, vec3(1.0 / 2.4)) - 0.055,
+		c * 12.92, lessThanEqual(c, vec3(0.0031308))) : c;
 }
 """
 var _shadow_mi: MeshInstance3D = null

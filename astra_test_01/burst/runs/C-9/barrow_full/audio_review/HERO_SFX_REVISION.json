@@ -1,0 +1,102 @@
+{
+  "request": "Implement rejected main-character SFX notes; deepen voiced Battle Cry",
+  "status": "implemented_for_listening; artistic approval pending",
+  "cues": {
+    "blitz": {
+      "label": "Heavy weapon-air charge",
+      "sources": [
+        {
+          "path": "sfx/MAGIC WEPONES/Weapons/0009_combat_sword_swing_c.wav",
+          "sha256": "3dbfe4d5bf99581186672b0889c32ad98689c40a6635c90f90fc0680fbc53670",
+          "ffmpeg_filter": "aresample=48000,asetrate=36000,aresample=48000,lowpass=f=3200,highpass=f=65,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
+          "offset_seconds": 0.0,
+          "layer_gain": 0.85
+        },
+        {
+          "path": "sfx/Hits/Metal_Hit_05.wav",
+          "sha256": "38e5de64d70465371c88c83bba8d8f9980ab06cdbfe3eef56c11bbbd31818ace",
+          "ffmpeg_filter": "aresample=48000,asetrate=31200,aresample=48000,lowpass=f=1800,highpass=f=65,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
+          "offset_seconds": 0.16,
+          "layer_gain": 0.22
+        }
+      ],
+      "peak_target": 0.85,
+      "output": {
+        "source": "hero_blitz_revision.wav",
+        "source_root": "derived_sfx",
+        "file": "hero_blitz_revision.wav.bin",
+        "format": "wav",
+        "bytes": 254208,
+        "sha256": "ed19ea9c4f620eb1679ebf9e226c2823c2a24bc5be4540bd83f44ae88219187c",
+        "seconds": 2.6475416666666667
+      }
+    },
+    "potion": {
+      "label": "Bottle opening / handling",
+      "sources": [
+        {
+          "path": "sfx/oga/RPG Sound Pack/inventory/bottle.wav",
+          "sha256": "b80e52ce602f0e8f75b3a80516771a759b815416f749888f72cadcd9448ecea0",
+          "ffmpeg_filter": "aresample=48000,highpass=f=80,lowpass=f=8500,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
+          "offset_seconds": 0.0,
+          "layer_gain": 1.0
+        }
+      ],
+      "peak_target": 0.75,
+      "output": {
+        "source": "hero_potion_revision.wav",
+        "source_root": "derived_sfx",
+        "file": "hero_potion_revision.wav.bin",
+        "format": "wav",
+        "bytes": 43606,
+        "sha256": "1c6172f327bce8d933412f2d4556ac43d4e9c6ab177a83da111ce5366bc659c3",
+        "seconds": 0.45377083333333335
+      }
+    },
+    "vires_might": {
+      "label": "Low magical power rise",
+      "sources": [
+        {
+          "path": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Cast12_Star_Power_P1_Cast.wav",
+          "sha256": "55f0fd21cf4b030c9bea9e3c25a9cbe0cd35fd367f21d2a227bad4b8d0acb4d4",
+          "ffmpeg_filter": "aresample=48000,asetrate=38400,aresample=48000,atempo=1.25,lowpass=f=4500,highpass=f=65,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
+          "offset_seconds": 0.0,
+          "layer_gain": 1.0
+        }
+      ],
+      "peak_target": 0.8,
+      "output": {
+        "source": "hero_vires_might_revision.wav",
+        "source_root": "derived_sfx",
+        "file": "hero_vires_might_revision.wav.bin",
+        "format": "wav",
+        "bytes": 217540,
+        "sha256": "e6d9139b99a36b5278d4cd594e2056530c1232dab8eed714ffeabb6f3a2f27ae",
+        "seconds": 2.2655833333333333
+      }
+    },
+    "war_cry": {
+      "label": "Deep voiced Battle Cry",
+      "sources": [
+        {
+          "path": "sfx/Human_amb/Scream Male 26.wav",
+          "sha256": "817d9ffb7cee73e3e1688cb6fc84b9e707b728426f586967da4b1a3af33798f9",
+          "ffmpeg_filter": "aresample=48000,asetrate=30240,aresample=48000,atempo=1.35,highpass=f=75,equalizer=f=160:t=q:w=0.8:g=3,lowpass=f=3400,silenceremove=start_periods=1:start_duration=0.005:start_threshold=-55dB",
+          "offset_seconds": 0.0,
+          "layer_gain": 1.0
+        }
+      ],
+      "peak_target": 0.85,
+      "output": {
+        "source": "hero_war_cry_revision.wav",
+        "source_root": "derived_sfx",
+        "file": "hero_war_cry_revision.wav.bin",
+        "format": "wav",
+        "bytes": 111858,
+        "sha256": "8571581991efda6daa8575d5f2c54864fa44bfa75af73cc1439527ca69443514",
+        "seconds": 1.1647291666666666
+      }
+    }
+  },
+  "manifest_sha256": "e015b2814bde44e206521e089243c9b015963355b64c800ee29cf8345f65427c"
+}

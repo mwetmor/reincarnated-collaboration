@@ -62,6 +62,7 @@ assert 'renderer/rendering_method.web="gl_compatibility"' in t, "no web Compatib
 PY
 
 echo "== 2 bundle"
+python3 "$TOOLS/arena_web_texture_detail.py" "$DEST" | tee "$LOG/world_texture_detail.log"
 if [ "$REFRESH" = 1 ]; then
   python3 "$TOOLS/arena_restore_web_cache.py" "$DEST"
   python3 "$TOOLS/arena_bundle.py" "$DEST" --refresh | tee "$LOG/bundle.log"

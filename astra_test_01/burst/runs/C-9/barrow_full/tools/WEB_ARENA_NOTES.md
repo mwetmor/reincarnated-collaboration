@@ -36,3 +36,8 @@ retains its 26 GiB gate. The native full-build gate remains 20 GiB.
 Current measurements, ZIP verification, public deployment and limitations are
 recorded in `../audio_review/ARENA_RELEASE_2026-10-10.md`. Physical mobile/Windows
 acceptance and zero-lag claims are not inferred from desktop Chrome tests.
+
+
+2026-10-11: See `../audio_review/HERO_SFX_REVISION.md` for streamed-audio repair,
+actual PCM/mute verification, sharper world bakes and Compatibility color fixes.
+The 2026-10-10 performance figures above refer to the previous release.

@@ -39,6 +39,12 @@ func _ready() -> void:
 			return
 		c0.queue_free()
 	await super._ready()
+	# The pilot overrides barrow_full._dress_painted(), so it skipped the walk's
+	# measured Compatibility color/light corrections. Apply them before the
+	# arena adds its separately corrected hero and unlit character cards.
+	if PaintStack.is_compatibility():
+		paint["compat_light"] = PaintStack.move_ambient_into_light(self, env_node.environment)
+		paint["compat_color"] = PaintStack.web_color_space(self)
 	# The arena owns its touch inputs. Remove the inherited exploration joystick/strikes.
 	if touch != null:
 		touch.process_mode = Node.PROCESS_MODE_DISABLED

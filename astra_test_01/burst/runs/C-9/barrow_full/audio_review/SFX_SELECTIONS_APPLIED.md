@@ -14,12 +14,24 @@ Demon, Troll, Minotaur, and Fire Elemental deaths; the approved ghost, ghoul,
 golem and orc family death cues remain unchanged. Rotation is presentation-only
 and does not consume simulation RNG.
 
-Six cues request a new audition and retain the prior cue for now:
+The original application left four rejected hero cues at their baseline; Matt's
+follow-up identifies this as unfinished work. `HERO_SFX_REVISION.json` now
+supersedes those deferrals with implemented listening revisions:
 
-- Charge / Blitz: all auditioned choices rejected.
-- Potion: bottle opening or pouring requested.
-- Might: a more magical effect requested.
-- Battle Cry: barbarian yell / shout requested.
+- Charge / Blitz: lower weapon-air rush with a restrained metal strike.
+- Potion: the demo's bottle opening/handling Foley, replacing the healing spell.
+- Might: a new Star Power cast, lowered and kept at roughly its original duration.
+- Battle Cry: the closest male voice from the review, lowered about eight
+  semitones and shortened to 1.16 seconds; the rejected magical rally is removed.
+
+These revisions are not marked artistically approved. In particular, lowering
+an existing scream does not prove it has the requested barbarian delivery.
+Listen to `derived_sfx/HERO_SFX_REVIEW.html` to compare the live revised cues
+against their previous sounds. Haste retains Matt's approved Dash02; Whirlwind
+now follows Matt's later rotating-pendulum direction. Reapply preserves both revision recipes.
+
+Two monster cues remain unresolved and retain the prior cue:
+
 - Poison cast: new choices needed.
 - Poison impact: breaking glass requested.
 
@@ -51,9 +63,10 @@ The adapter preserved the exact combat snapshot. Evidence is locally retained at
 `audio_review/evidence/selected_audio_probe.json`. Existing sealed-reader NUL
 warnings and Godot shutdown resource warnings remain outside this audio change.
 
-Matt's follow-up replaces Whirlwind start/body with slower, lower-pitched sword
-air and alternating metal strikes from the demo. The looping body has six
-strikes across 4.8 seconds, with a 0.8-second interval. Source hashes, gains,
+Matt's latest follow-up changes Whirlwind to heavy pendulum-like weapon-air
+passes at a faster circular pace: eight sweeps across 3.36 seconds, spaced
+0.42 seconds apart, with low overlapping tails. The initial cue has a quiet
+metal onset. Mace impacts come from actual accepted physical contact events. Source hashes, gains,
 conversion and output hashes are in `WHIRLWIND_TUNING.json`; regenerate with
 `tools/arena_tune_audio.py`. Reapplying the handoff preserves this later tuning.
 The default score is prepared during loading to reduce first-input work.

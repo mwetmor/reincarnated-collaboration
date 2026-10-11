@@ -100,6 +100,9 @@ func setup(arena) -> void:
 func _voice(label: String, bus: String) -> AudioStreamPlayer:
 	var voice := AudioStreamPlayer.new()
 	voice.name = label
+	# Use the engine mixer on every platform. Web's default Sample path can
+	# silently lose dynamically created bus sends, and bypasses mixer effects.
+	voice.playback_type = AudioServer.PLAYBACK_TYPE_STREAM
 	voice.bus = bus
 	add_child(voice)
 	return voice

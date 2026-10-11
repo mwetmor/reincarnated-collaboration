@@ -30,6 +30,37 @@ fs.mkdirSync(outdir, { recursive: true });
     extraHTTPHeaders: process.env.VERCEL_OIDC_TOKEN ? {'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_OIDC_TOKEN} : {},
   });
   if (process.env.VERCEL_OIDC_TOKEN) await context.route(u => u.origin !== origin, route => route.abort());
+  // Observe actual WebAudio samples reaching the destination. Cue counters
+  // alone can pass while browser autoplay or the output graph is silent.
+  await context.addInitScript(() => {
+    const contexts = [], analysers = [];
+    window.__arenaAudioOutput = {contexts, analysers, peak:0, samples:0, nonzero:0};
+    const connect = AudioNode.prototype.connect;
+    AudioNode.prototype.connect = function(destination, output = 0, input = 0) {
+      if (destination instanceof AudioDestinationNode) {
+        const analyser = this.context.createAnalyser(); analyser.fftSize = 1024;
+        connect.call(this, analyser, output, 0); connect.call(analyser, destination, 0, input);
+        analysers.push(analyser); return destination;
+      }
+      return connect.apply(this, arguments);
+    };
+    for (const name of ['AudioContext', 'webkitAudioContext']) {
+      const Original = window[name];
+      if (Original) window[name] = new Proxy(Original, {construct(target, args) {
+        const ctx = Reflect.construct(target, args); contexts.push(ctx); return ctx;
+      }});
+    }
+    const buffer = new Float32Array(1024);
+    setInterval(() => {
+      const report = window.__arenaAudioOutput;
+      for (const analyser of analysers) {
+        analyser.getFloatTimeDomainData(buffer);
+        let peak = 0; for (const value of buffer) peak = Math.max(peak, Math.abs(value));
+        report.peak = Math.max(report.peak, peak); report.samples++;
+        if (peak > 0.00001) report.nonzero++;
+      }
+    }, 50);
+  });
   if (process.env.VERCEL_CLI_PATH && process.env.VERCEL_OIDC_TOKEN) {
     // AudioWorklet fetches do not inherit CDP custom headers. Obtain a normal
     // same-origin bypass session with the authenticated CLI; keep cookies in memory.
@@ -86,6 +117,11 @@ fs.mkdirSync(outdir, { recursive: true });
       return state;
     };
     const before = await observe('before');
+    const audioOutput = () => page.evaluate(() => {
+      const p = window.__arenaAudioOutput;
+      return {peak:p.peak,samples:p.samples,nonzero:p.nonzero,contexts:p.contexts.map(c=>({state:c.state,sample_rate:c.sampleRate})),outputs:p.analysers.length};
+    });
+    await page.evaluate(() => { const p=window.__arenaAudioOutput; p.peak=0; p.samples=0; p.nonzero=0; });
     await page.screenshot({path:path.join(outdir,'ready.png')});
     if (before.exploration_touch) throw new Error('Exploration controls overlap arena controls');
     const manifest = fs.readFileSync(path.join(__dirname, '../godot/data/audio/arena_audio.json'));
@@ -94,6 +130,8 @@ fs.mkdirSync(outdir, { recursive: true });
     if (before.audio_manifest_sha256 !== expectedAudio || before.sfx_loaded !== sfxCount || before.audio_missing.length || before.ambience_db !== -20)
       throw new Error('Web audio differs from current local scene: ' + JSON.stringify(before));
     if (!before.hero_3d || before.walk_reachable_cells < 100) throw new Error('3D hero or traversal geometry missing');
+    if (before.paint_files_bad?.length || before.paint_pieces?.bakes_missing?.length || !(before.paint_pieces?.baked_meshes > 0))
+      throw new Error('World painting missing: ' + JSON.stringify(before.paint_pieces));
     // Measure wall-clock presentation intervals, independently of engine delta clamping.
     await page.evaluate(() => {
       window.__arenaFrames = []; let previous;
@@ -146,6 +184,11 @@ fs.mkdirSync(outdir, { recursive: true });
     }
     await sleep(2500);
     const after = await observe('after');
+    const audible = await audioOutput();
+    fs.writeFileSync(path.join(outdir, 'audio-output.json'), JSON.stringify(audible,null,2));
+    console.log('WebAudio output: ' + JSON.stringify(audible));
+    if (!audible.contexts.some(c=>c.state==='running') || audible.peak <= 0.00001 || audible.nonzero === 0)
+      throw new Error('Browser output is silent despite triggered cues: ' + JSON.stringify(audible));
     if (!perf && (after.channel || after.zoomed_out === before.zoomed_out)) throw new Error('Channel release or zoom input failed');
     if (!perf && !inputs.some(x => x.label === 'moving' && JSON.stringify(x.position) !== JSON.stringify(before.position))) throw new Error('Player did not move');
     let sustainedStart = null;
@@ -175,6 +218,30 @@ fs.mkdirSync(outdir, { recursive: true });
     fs.writeFileSync(path.join(outdir, 'performance.json'), JSON.stringify(timing,null,2));
     console.log('Frame timings: ' + JSON.stringify(timing));
     if (!perf) {
+      if (mode !== '--touch-long') {
+        // Verify the real graph is silent with both buses muted, then prove
+        // combat SFX reach it while music and environment remain muted.
+        await page.keyboard.press('m'); await page.keyboard.press('k');
+        await sleep(350);
+        const resetOutput = () => page.evaluate(() => { const p=window.__arenaAudioOutput; p.peak=0; p.samples=0; p.nonzero=0; });
+        await resetOutput(); await sleep(500);
+        const mutedOutput = await audioOutput();
+        if (mutedOutput.peak > 0.00001) throw new Error('Muted audio graph still emits sound: ' + JSON.stringify(mutedOutput));
+        await page.keyboard.press('k');
+        await resetOutput();
+        if (touch) {
+          const scale=390/1080,padX=(844-1920*scale)/2;
+          await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:padX+1782*scale,y:907.5*scale,id:4}]});
+          await sleep(1800);
+          await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+        } else {
+          await page.mouse.down({button:'right'}); await sleep(1800); await page.mouse.up({button:'right'});
+        }
+        const sfxOutput = await audioOutput();
+        if (sfxOutput.peak <= 0.00001 || sfxOutput.nonzero===0) throw new Error('Combat SFX output is silent with background muted');
+        await page.keyboard.press('m');
+        fs.writeFileSync(path.join(outdir,'audio-output.json'),JSON.stringify({combined:audible,all_muted:mutedOutput,sfx_only:sfxOutput},null,2));
+      }
       for (const [key, property] of [['m','music_muted'], ['k','sfx_muted']]) {
         await page.keyboard.press(key); await sleep(350);
         if (!(await observe('muted-' + property))[property]) throw new Error('Mute key failed: ' + key);

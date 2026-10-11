@@ -67,38 +67,6 @@
       "sha256": "d832068b5c2a9d9f91bcc6d27f7097431aae5a922e200c9e01458569d2630b28",
       "seconds": 2.101
     },
-    "clip_016": {
-      "source": "sfx/Pixel Magic Sound Effects Pack/PM_ELEM_Light01_Heal_v1.wav",
-      "file": "clip_016.wav.bin",
-      "format": "wav",
-      "bytes": 1763278,
-      "sha256": "17b9e6f03c8eb8e3f7327cc83a633042fa3bdc27f8323a80f279f7b997a43f75",
-      "seconds": 3.032
-    },
-    "clip_021": {
-      "source": "sfx/Pixel Magic Sound Effects Pack/PM_GENERIC_Dash01.wav",
-      "file": "clip_021.wav.bin",
-      "format": "wav",
-      "bytes": 411052,
-      "sha256": "75c35d20cb387db72229b6f352619c1604e22c51a178b1f2a306f9d046d0eb54",
-      "seconds": 0.684
-    },
-    "clip_022": {
-      "source": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff04_Aggressive.wav",
-      "file": "clip_022.wav.bin",
-      "format": "wav",
-      "bytes": 1489212,
-      "sha256": "8d5fd18861fafd01b2e1bf46276495a4d389b4b3a92c0bdb7b8a9651ff9a6662",
-      "seconds": 2.556
-    },
-    "clip_024": {
-      "source": "sfx/Pixel Magic Sound Effects Pack/PM_SPELL_Buff28_Fortify.wav",
-      "file": "clip_024.wav.bin",
-      "format": "wav",
-      "bytes": 1465078,
-      "sha256": "6535c65cfc3d14fc64d84c766a088edcce1bb69c0ae2b98bab18e3ecb44d70ec",
-      "seconds": 2.514
-    },
     "clip_026": {
       "source": "sfx/kenney/Audio/footstep_snow_000.ogg",
       "file": "clip_026.ogg.bin",
@@ -491,7 +459,7 @@
       "file": "whirlwind_metal_start.wav.bin",
       "format": "wav",
       "bytes": 240044,
-      "sha256": "80f60e6b1855467412340a2152175c8cf7754022ff6c4937bcb59f600260d651",
+      "sha256": "da2b3542ba9039dbde53335a87db8f1f01c949266350cf7c726e5c704fd6ef02",
       "seconds": 2.5
     },
     "whirlwind_metal_loop": {
@@ -499,23 +467,59 @@
       "source_root": "derived_sfx",
       "file": "whirlwind_metal_loop.wav.bin",
       "format": "wav",
-      "bytes": 460844,
-      "sha256": "25652d6be176e8e3c494d4e0a5962a1ce1c6a7fd49548326b28c73c2627b05b0",
-      "seconds": 4.8
+      "bytes": 322604,
+      "sha256": "2b0dfb7ff1c8dbf16fb0d1b523297f6976f7be4de525a96bed4031b2a417bc60",
+      "seconds": 3.36
+    },
+    "hero_blitz_revision": {
+      "source": "hero_blitz_revision.wav",
+      "source_root": "derived_sfx",
+      "file": "hero_blitz_revision.wav.bin",
+      "format": "wav",
+      "bytes": 254208,
+      "sha256": "ed19ea9c4f620eb1679ebf9e226c2823c2a24bc5be4540bd83f44ae88219187c",
+      "seconds": 2.6475416666666667
+    },
+    "hero_potion_revision": {
+      "source": "hero_potion_revision.wav",
+      "source_root": "derived_sfx",
+      "file": "hero_potion_revision.wav.bin",
+      "format": "wav",
+      "bytes": 43606,
+      "sha256": "1c6172f327bce8d933412f2d4556ac43d4e9c6ab177a83da111ce5366bc659c3",
+      "seconds": 0.45377083333333335
+    },
+    "hero_vires_might_revision": {
+      "source": "hero_vires_might_revision.wav",
+      "source_root": "derived_sfx",
+      "file": "hero_vires_might_revision.wav.bin",
+      "format": "wav",
+      "bytes": 217540,
+      "sha256": "e6d9139b99a36b5278d4cd594e2056530c1232dab8eed714ffeabb6f3a2f27ae",
+      "seconds": 2.2655833333333333
+    },
+    "hero_war_cry_revision": {
+      "source": "hero_war_cry_revision.wav",
+      "source_root": "derived_sfx",
+      "file": "hero_war_cry_revision.wav.bin",
+      "format": "wav",
+      "bytes": 111858,
+      "sha256": "8571581991efda6daa8575d5f2c54864fa44bfa75af73cc1439527ca69443514",
+      "seconds": 1.1647291666666666
     }
   },
   "cues": {
     "blitz": [
-      "clip_021"
+      "hero_blitz_revision"
     ],
     "potion": [
-      "clip_016"
+      "hero_potion_revision"
     ],
     "vires_might": [
-      "clip_024"
+      "hero_vires_might_revision"
     ],
     "war_cry": [
-      "clip_022"
+      "hero_war_cry_revision"
     ],
     "rune_of_rush": [
       "clip_048"
@@ -638,7 +642,7 @@
     }
   ],
   "notes": [
-    "Approved handoff applied; find-more and pending cues retain their reviewed baseline until new approval.",
+    "Approved handoff plus later Whirlwind and hero SFX revisions; only poison find-more cues retain baseline.",
     "New WAV selections use derived PCM16; original hashes and conversion recipes are pinned.",
     "Northern Omen is the default score; Fjordstormen is a separate quieter looping environment layer."
   ],
@@ -657,5 +661,6 @@
     "ambience_db": -20.0,
     "ambience_combat_db": -24.0
   },
-  "selection_sha256": "e27c46866832dba5eb12fb9ad5973ccc034b2967f329015f5ef84fa7569e010f"
+  "selection_sha256": "e27c46866832dba5eb12fb9ad5973ccc034b2967f329015f5ef84fa7569e010f",
+  "hero_revision": "HERO_SFX_REVISION.json"
 }

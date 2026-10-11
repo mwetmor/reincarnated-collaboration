@@ -6,7 +6,8 @@ art, Vercel login on mobile, and failure to load on his phone.
 
 Native reference: `godot/scenes/bv2f_arena.tscn`.
 Public playtest route: https://reincarnated-loadout.vercel.app/playtest/barrow-arena/
-See `../audio_review/ARENA_RELEASE_2026-10-10.md` for current deployment and evidence.
+See `../audio_review/HERO_SFX_REVISION.md` for the current release;
+`ARENA_RELEASE_2026-10-10.md` remains historical evidence.
 
 | ID | Finding and change | Remaining acceptance |
 | --- | --- | --- |
@@ -18,6 +19,10 @@ See `../audio_review/ARENA_RELEASE_2026-10-10.md` for current deployment and evi
 | WEB-06 | A phone model/browser and exact failure stage have not been provided. Fresh public Chrome touch emulation passes every skill, movement, Whirlwind, zoom and mutes at 3x DPR. Sustained real touch combat averaged 59.9 FPS. | Physical-phone startup, Safari compatibility, memory, speed, audio unlock and every touch control remain unverified until a device playtest. |
 | WEB-07 | First-use animation/shader work caused large action hitches. Prepare first-wave cells, Whirlwind, snow puffs, both zoom sizes and the default score before enabling play. Make perf accounting linear instead of repeatedly summing the entire frame history. | Short first-action/later-wave hitches may remain. Sustained desktop measurements cannot establish zero lag on every phone or all ten waves. |
 | WEB-08 | Cold public startup was 214.5 seconds with serial pack downloads. Three bounded concurrent downloads reduce the measured startup to 145.3 seconds (32% shorter), preserving mount order and fail-closed startup. | The 461.8 MB raw payload and remaining loading time still need mobile memory/network testing; no instant-load claim. |
+
+
+| WEB-09 | Reproduced actual silent WebAudio output despite decoded clips, cue counters and a running audio context. Force streamed mixer playback for every voice. Actual destination PCM now passes in desktop/touch tests; both mutes yield zero, SFX-only playback is nonzero. | Physical phone/Safari audio still needs device confirmation; playback starts after a click/tap. |
+| WEB-10 | Large world bakes were all reduced to 512px. Preserve half the native dimensions (512/1024/2048), encode resized pixels losslessly, and verify all 106 bakes. Restore the arena's inherited Compatibility ambient/color correction. Encode custom enemy VFX/shadow linear colors correctly for Compatibility. | No missing world bake is reproduced in the current loader (113 files pass; 57 baked meshes, no missing bakes). User identification of any remaining bare object or incorrect sprite; web body strips still use half resolution/lossy q82. |
 
 The audit verifies every retained raw scene input, all local presentation scripts,
 all selected audio, the sealed runtime/model members and all converted character
