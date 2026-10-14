@@ -1,5 +1,7 @@
 # JOIN-1 J0: the D2 Fire Sorceress INTERNAL / BOUNDARY census (J-S3b)
 
+> ⚑ **ADDENDUM 2026-10-14 (§ 7; Matt, KC2 KP-420; JOIN-1 charter v0.8): her shield block JOINS as row 19, BOUNDARY / WIDEN. The count moves 18 → 19 and the fraction-(b) population 10 → 11, as a NAMED FINDING after her J0 anchor.** § 6 C-4 is superseded. One question is held for the conductor (§ 7.4, D-1). § 7 governs over anything above it.
+
 > ⚑ **GATE-2 PASSED WITH WARN (jack-ryan, collab `b48500a4d`; charter v0.5.1; KP-165). The count (18) and every row's class are FROZEN.** Forward corrections asked of this seat are in **§ 6**. The text above § 6 is left exactly as committed (`b4d151a4a`), so where § 6 corrects a line, § 6 governs.
 > **STATUS:** CURRENT. J0 deliverable, seat elrond, Run JOIN-1 (charter `gandalf/notes/2026-09-29-join-1-run-charter.md` v0.5, § 1 J-S3b and § 5 J0 elrond row). **Subject of jack-ryan's J0 Gate-2: the COUNT and every row's CLASS freeze there. J3 does not open until that Gate-2 passes.**
 > **Date:** 2026-10-01 · **Author:** elrond (data steward) · **Conductor:** gandalf (`RUN-CONDUCTOR`).
@@ -142,3 +144,79 @@ Each item names the line it corrects. The original text above stays visible.
 **Frozen record, restated:** 18 rows: INTERNAL 7 (1–7) · BOUNDARY 10 (AS-IS 13, 15 · WIDEN 8, 9, 10, 17 · GD-EMPTY 11, 12, 14, 16) · OUT-OF-ARENA 1 (18) · HELD 0. Operands for row 4: Fire Bolt (36) and Inferno (41).
 
 *Forward corrections signed:* elrond, 2026-10-01.
+
+---
+
+## 7 · Addendum 2026-10-14: her shield block joins (Matt, KC2 KP-420; charter v0.8). Count 18 → 19, a NAMED FINDING
+
+**Source of the change.** Matt, 2026-10-14, KC2-PLAY ledger **KP-420** (`gandalf/notes/2026-09-20-kc2-play-run-charter.md`), folded as JOIN-1 charter **v0.8**: *"The Sorceress joins with her FULL D2 defensive sheet including shield block … block is a census row, denominator 18→19, recorded as a named finding."* This **supersedes** charter v0.5.1 amendment (8) and jack-ryan's census Gate-2 **W4** (`qa/findings/2026-10-01-join1-j0-sorceress-census-gate2.md`, `b48500a4d`), and with them § 6 **C-4** above. C-4 was right under the pin it was written against, which admitted gear only as an operand of a pinned-row mechanism. KP-420 widens her scope to her whole defensive sheet, so block no longer needs a pinned row to feed.
+
+**What this addendum does not touch.** Rows 1–18, their classes and their verdicts stand exactly as § 2 and § 6 left them. The text above is left as committed (`b4d151a4a`, `3ade1a6a6`); where § 7 corrects a line, § 7 governs.
+
+### 7.1 · Correction to § 1 and § 6 C-4: block leaves the "do not enter" list
+
+- **§ 1, "Rows that the record references but that do not enter":** her shield block is **removed** from this list (it was added there by C-4). It now enters as row 19.
+- **§ 1, the "Defensive gear" bullet** (*"Chains of Honor, Spirit's resistances … a player-sheet operand of the INTAKE rule, not a kit mechanism"*): the classification stands for life and resists, but the bullet's scope is now the whole defensive sheet. See § 7.3. Defence is the exception held at § 7.4.
+- **The fidelity-cost table** no longer carries block as "a home mechanism not joined". That line goes, because the mechanism is joined.
+
+### 7.2 · Row 19
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **19** | **Shield block: a blocked monster hit is fully negated, and the block locks her in the BL animation for a time set by her FBR.** The kit loadout carries a Spirit Monarch (the kit record; legolas: "the only effect of the shield is that BL becomes reachable") | **DM** for the lock's frame data: `SO BL 5 · 256`, base 9 ticks (0.36 s) at 0 % FBR (Basin AnimData dump, cross-checked against Maxroll's per-class block base; legolas `b0f9d77fa` § 1, the `d2-fire-sorc` **BL** row, status MISSING "only if the model resolves blocks"). **MV** for the lock duration by FBR: `ticks = ceil(256·5 / floor(256·(50+EFBR)/100) − 1)`, table FBR 0/7/15/27/48/86/200 → 9…3 ticks (legolas § 3.4, COMMUNITY-VERIFIED). **MV, not sourced this session,** for the block-chance law and the full-negate rule. **Magnitude NONE** for her block chance: it depends on the shield's base block, her Dexterity and her character level, and the kit record carries no stat values (legolas Q7) | **BOUNDARY** (intake avoidance × B7: a lock on the player's actions) | `threat.PLAYER_BLOCK_PCT = 0.0` (`threat.py:126`, engine HEAD `f72316b7`), **MEASURED** (sheet 519: *"block / dodge / deflect are ALL ZERO … Carried as a constant so the zero is a measurement on the wire rather than an omission"*). It is emitted in `declared_constants()` (`threat.py:2317`). **No resolve path reads it.** `resolve_attack`'s hit-certainty reasoning (`threat.py:1895`) is conditioned on its being zero. GD itself resolves block as a chance plus a partial **block value** plus a shield **recovery** time; the oracle implements none of these, because the sheet zero makes them unreachable | **WIDEN.** Candidate lever **L-S5 `player_block_model`** {`gd` (referent: chance **0.0, MEASURED**) \| `d2-full-negate-bl-lock`}. Settable. The id is registered by the delta Gate-2, not by this seat |
+
+**Why WIDEN, and why not AS-IS or GD-EMPTY.** I confirm W4's provisional class, and I have checked it against both neighbours.
+
+- **Not AS-IS.** GD's rule cannot express D2 block. GD negates part of a blocked hit (block value) and puts the *shield* on recovery. D2 negates the whole hit and locks the *player*. The lock is a B7 action interruption, the same shape as rows 9 and 17. Nothing in GD's form carries it. Even GD's form is unbuilt in the oracle: a non-zero `PLAYER_BLOCK_PCT` would change nothing today, because no path reads it.
+- **Not GD-EMPTY.** P0 § 7.1 reserves GD-EMPTY for a boundary question with **no GD rule at all**, where the registry's referent must read `NONE — no GD rule`. Block has a GD referent value, and it is not silence. It is a **measured zero** on the referent sheet, which P0 § 7.1 tells us to keep distinct from `NONE` ("a GD value that happens to be zero"). Setting the lever to `gd` reproduces REFERENT-v1 exactly. That is the defining property of a WIDEN row's default. The GD-EMPTY rows in this census (11, 12, 14, 16) have no such setting.
+- **Precedent inside this census.** Rows 9 and 17 are WIDEN with no wired oracle body either (row 9: "NONE wired"; row 17: GD referent `NONE` with a DECLARED-INVENTED default `off`, A-5). Row 19 is stronger than row 17: its GD default is **measured**, not invented.
+- **What WIDEN costs here, named so it is not hidden in the class.** The `d2` setting needs three pieces. First, a block resolve step in the intake path, between the hit and mitigation. Second, a per-attack **block-eligibility** rule: in D2, block applies to some attack kinds (community law: melee and missile attacks), so each GD monster attack slot needs a declared mapping. Third, the BL lock in the player-action lane, where it shares the lock primitive with rows 9 and 17. These are build items *inside* a settable lever. They are not a new GD-EMPTY row. Whether the lock shares L-18's machinery is gamora's design call.
+- **Coupling.** The BL lock is an action interruption, and it composes with row 17 (L-18). D2's community rule set also reduces block chance while the player is moving. If legolas's leg sources that rule, it couples row 19 to her movement. These are operand and law details for gamora's addendum, not further rows.
+
+**Falsifiers.** For WIDEN over GD-EMPTY: a reading in which `PLAYER_BLOCK_PCT = 0.0` is an unmeasured placeholder rather than sheet 519's measurement. Under that reading the referent is `NONE` and the row is GD-EMPTY (fraction (b) is unchanged either way, see § 7.5). For WIDEN over AS-IS: any `kc2/` resolve path that reads `PLAYER_BLOCK_PCT`, or that already negates a whole hit and locks the player.
+
+### 7.3 · Her other defensive operands enter as player-sheet operands, not rows
+
+Under KP-420 (b), enemy attacks are anchored against the kit's defences: *"life, resists, defence, block"*. My method (P0 § 1) makes a row only for a distinct mechanism or a distinct boundary question. An operand that drops into an existing GD intake form is not a row (P0 precedent: WW's defensive gear was not censused; § 1 above).
+
+| Operand | Enters GD's intake as | Class here |
+|---|---|---|
+| **Life** | `PLAYER_HP_MAX`: the same pool form | operand, no row |
+| **Elemental and poison resists** | `RESIST_PCT[family]`: the same per-family `× (1 − res/100)` form, guarded by the `KeyError` refusal. D2's cap (75, plus +max) and the Hell penalty (−100) are her sheet's own derivation, which happens before the boundary. They are not a boundary rule | operand, no row |
+| **Physical damage reduction** (D2 "Damage Reduced by %", e.g. Chains of Honor) | ⚑ **declared map:** `RESIST_PCT["Physical"]`. D2 has no armour-absorption term, so GD's armour leg takes a declared operand of **0**. That is the P0 WW row-12 shape: AS-IS form with a D2 operand | operand, no row; the map is **declared**, and gamora's addendum states it |
+| **Block** | no existing form | **row 19** (§ 7.2) |
+| **Defence** | ⚑ **held, see § 7.4** | — |
+
+### 7.4 · ⚑ HELD FOR THE CONDUCTOR (D-1): defence does not enter as a bare operand under my method
+
+**I am stopping on this item. It is not added here.**
+
+D2 **Defence** is not a GD operand. In GD, a monster hits the player through `threat.probability_to_hit(oa, da)` against **DA**, with `PTH_MINIMUM = 55`, and the crit tier comes from the same roll (`resolve_hit`). In D2, a monster hits the player through a different function: AR against Defence, with level terms, clamped to **[5 %, 95 %]**. D2 monsters have no PTH crit tier. Putting her Defence into GD's DA slot would be an **invented mapping**, not an operand.
+
+By my method, "under which hit law does a GD body's attack land on a D2 player?" is a **distinct boundary question**. It is the intake-direction twin of P0 WW row 9 (L-04/L-05, the clamps) and of row 10 here (L-06). jack-ryan's W1 established that boundary rules are stated **per direction**, and the charter already carries an intake L-06 setting (v0.6.7, KP-321). Until KP-420 it did not arise for her, because gamora's M-2 option (I) would have put the referent's sheet in her place. KP-420 retired option (I).
+
+If the conductor admits it, it is **row 20, BOUNDARY / WIDEN** (L-04/L-05 and L-06 in the intake direction, plus a declared Defence ↔ DA disposition). That would be a **second named finding: 19 → 20 and 11 → 12.** If the conductor rules instead that Defence enters as an anchored operand under GD's hit law, that ruling is an E-1 measured cost, and the conductor records it with the map declared. **Either way the choice is above this seat.** KP-420 names block as the row, and adding a further row would let this seat amend the scope it is censusing (the A-1 discipline). Row 19 and the denominators in § 7.5 do not depend on D-1's outcome, except as stated there.
+
+### 7.5 · NAMED FINDING: the Sorceress's denominators after her J0 anchor
+
+**Reason:** Matt, KP-420 (charter v0.8): her full D2 defensive sheet, including shield block, joins. **This is an addition after her J0 Gate-2 anchor** (charter v0.5.1 (1), `b48500a4d`), so it is a named finding (charter § 4.5), printed against that anchor with its reason. It is not a silent re-map. Like the Barbarian's 14 → 16, it makes coverage harder, not easier, and it lands before J4b is graded.
+
+| Fraction | J0 anchor (v0.5.1) | After KP-420 | Why |
+|---|---|---|---|
+| **(a)** rows mapped / all rows | **18** | **19** | row 19 added |
+| **(b)** population = all BOUNDARY rows (Gate-2 W2; v0.5.1 (2)) | **10** | **11** | row 19 is BOUNDARY. Its WIDEN sub-class does not matter for (b), because (b) counts every BOUNDARY row. A GD-EMPTY re-reading (§ 7.2 falsifier) would leave (b) at 11 |
+
+⚑ **Conditional on D-1 (§ 7.4):** if the conductor admits intake hit resolution as a row, a further named finding moves these to **20 and 12**.
+
+**Corrected frozen record (after KP-420): 19 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| INTERNAL | 7 | 1–7 |
+| **BOUNDARY** | **11** | **AS-IS 2**: 13, 15 · **WIDEN 5**: 8, 9, 10, 17, **19** · **GD-EMPTY 4**: 11, 12, 14, 16 |
+| OUT-OF-ARENA | 1 | 18 |
+| HELD | 0 | — |
+
+Operands for row 4: Fire Bolt (36) and Inferno (41), unchanged. Candidate lever surfaced: **L-S5 `player_block_model`** (§ 7.2), for registration at the delta Gate-2. **Owed downstream (not this seat's):** legolas sources the block-chance law, the full-negate rule and the block-eligibility rule with grades. These go with the KP-420 enemy-anchor leg, together with the Q7 gear values (FBR, Dexterity, shield base block). gamora's design addendum carries the row-19 build pieces and the § 7.3 declared physical map. jack-ryan delta-gates the class and the denominators.
+
+*Addendum signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `f72316b7`.
