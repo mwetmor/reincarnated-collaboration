@@ -1,5 +1,6 @@
 # JOIN-1 P0 — the INTERNAL / BOUNDARY census (paper, zero code)
 
+> ⚑ **NAMED FINDING, 2026-10-14 (§ 12, forward; conductor ruling, to be ledgered as KC2 KP-424):** the D2 WW Barbarian gains **row B-17, D2 belt potions, BOUNDARY / WIDEN, lever L-S7**. **16 → 17 rows; fraction (b) 11 → 12.** § 12 governs over § 11's totals.
 > ⚑ **NAMED FINDING, 2026-10-01 (§ 11, forward):** the D2 WW Barbarian's frozen record goes from **14 rows to 16** (BOUNDARY 9 → 11), per jack-ryan's Sorceress-census Gate-2 A-4/W3 (collab `b48500a4d`, KP-165). The text above § 11 is left as committed (`78797db4b`); § 11 governs where it differs.
 > **STATUS:** CURRENT — W1 deliverable of the KC2-PLAY **SEAL LAP** (`gandalf/notes/2026-09-28-kc2-play-seal-lap-plan.md` § 2, seat elrond; launch-sheet **L3**, paper-only).
 > **Date:** 2026-09-28 · **Author:** elrond (data steward) · **Conductor:** gandalf (`RUN-CONDUCTOR`).
@@ -329,3 +330,33 @@ Per architect § 3: levers are **discovered, never authored by hand** (Disciplin
 **Slate totals, derived (for the record; J-S2 is the conductor's to amend):** 48 classed rows (it was 46) + 3 cross-cutting misfits = 51. INTERNAL 15 · BOUNDARY 27 (AS-IS 8 · WIDEN 15 · GD-EMPTY 4) · OUT-OF-ARENA 5 · HELD 1.
 
 *Named finding signed:* elrond, 2026-10-01.
+
+---
+
+## 12 · Named finding (forward, 2026-10-14): the D2 WW Barbarian gains a potion row, 16 → 17
+
+**Source:** conductor gandalf, 2026-10-14, a ruling to be ledgered as **KC2 KP-424**: *"The Barbarian's potion omission: ADMIT it on the same grounds as KP-423."* The omission was raised by this seat in the Sorceress census § 9.6 (collab `cd432f2de`), after KP-423 (`edf2b88bc`) admitted potions as her row 21. **This is an addition after his launch anchor (J-S2), so it is a named finding (charter § 4.5), printed with its reason. It is not a silent re-map.** It makes his coverage harder, not easier, and it lands before J4a is graded.
+
+**Why this census missed it.** The same blind spot as B-15: § 2 enumerated his records (`Skills.txt` 151 and 149, plus the kit record), and a potion is a universal player consumable with no field on any of them. KP-423's grounds carry over unchanged. (1) KP-420 (f): he inherits the enemy-anchored key, both sides anchored. (2) The Warlord's comparison arm keeps his potion, so leaving the Barbarian's out would bias the margin against him. (3) His mana economy cannot be read without it: `AttackNoMana=1` keeps the spin going at zero mana, but each WW initiation (`mana=25`) and each Battle Orders cast still spends mana (row 5). (4) It makes coverage harder.
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **B-17** | **D2 belt potions: health and mana potions restore their pool over a duration; rejuvenation restores a share of both pools at once; every drink spends one potion from a finite belt.** Heals land on his anchored life; mana lands on his native mana pool | **MV, not sourced** for the D2 laws (legolas, C-13, as for the Sorceress) / **NONE** for every magnitude. ⚑ **His kit record names no belt** (`d2-ww-barb.json`; grep finds no belt), so his belt's slot count has no source. It needs a conductor-default operand, labelled as such, unless legolas's leg sources it | **BOUNDARY** (the player's consumable-sustain layer × the run-wide clock × agency) | `counterplay` K-4: 800 flat + 25 % instant, plus 25 % over its 12 s cooldown; life only; trigger = IDENTIFIED theta; `RequestUseItem` PERMITTED in every control state; no count consumed (engine `20ff8684`; full citation in the Sorceress census § 9.1) | **WIDEN → L-S7 `player_potion_model`** {`gd` (K-4 at its measured values; count unbounded, cooldown-gated, DECLARED) \| `d2-belt`}. The same row, class and lever as her row 21 |
+
+**The class reasoning is the Sorceress census § 9.2, without change.** BOUNDARY, because a potion is the game's universal consumable, driven in the oracle by world-side rulebook terms, not a mechanism of his kit (B-16 precedent). WIDEN, because GD's instant-plus-drip, life-only, uncounted form cannot express D2's duration restore, mana target, rejuvenation or belt count. Not GD-EMPTY, because `gd` reproduces REFERENT-v1 at measured values. **One row, not two** (§ 9.3 there): pool and magnitude are operands of one law, and the belt is one shared count limit. **Drink policy:** JUDGED (conductor), mirroring the Warlord's identified theta at its end-of-tick scalar; his mana trigger is DECLARED-INVENTED, because the Warlord has no mana potion. **Units:** heal amounts are D2 units × r_DMG; mana is native.
+
+**D2 WW Barb, corrected frozen record: 17 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| INTERNAL | 3 | 5, 6, 7 |
+| **BOUNDARY** | **12** | **AS-IS 3**: 1, 4, 12 · **WIDEN 8**: 2, 3, 8, 9, 10, 11, B-16, **B-17** · **GD-EMPTY 1**: B-15 |
+| OUT-OF-ARENA | 2 | 13, and the ally-scope row |
+
+**Fraction-(a) denominator: 17. Fraction-(b) population: 12** (all BOUNDARY rows, per Gate-2 W2).
+
+**Slate totals, derived (for the record; J-S2 is the conductor's to amend):** 49 classed rows (it was 48) + 3 cross-cutting misfits = 52. INTERNAL 15 · BOUNDARY 28 (AS-IS 8 · WIDEN 16 · GD-EMPTY 4) · OUT-OF-ARENA 5 · HELD 1.
+
+⚑ **Pending:** the conductor has commissioned one universal-player-layer sweep across both D2 kits before any J4b build (same ruling). Any further rows it yields are ruled by the conductor first, and then recorded here as their own named finding.
+
+*Named finding signed:* elrond, 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
