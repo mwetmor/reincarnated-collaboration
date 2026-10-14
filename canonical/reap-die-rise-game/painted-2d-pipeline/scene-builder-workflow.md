@@ -1,6 +1,8 @@
 # Painted-2D Scene Builder — THE SCENE WORKFLOW
 
 > **STATUS:** CURRENT (load-bearing as of 2026-09-15) — see `canonical/00-ground-state.md`. The official scene-builder workflow for *Reap. Die. Rise.* (Matt R-C3-102). Workflow canon: it says **how a scene is built, by whom, with what gate**; the lane's machinery (bursts, audit, oracles, freeze, SYNC) is described in `00-system.md` and is not repeated here.
+>
+> ⚠ **PARTIALLY SUPERSEDED 2026-10-13:** the *"3D scenes crossed off the plan"* clause no longer holds for **painted-onto-3D sites** — see `painted-site-scene-and-arena-pipeline.md` (C-9 BV2F, barrow_v2). Everything else here stands for painted-2D scenes.
 
 **Date:** 2026-09-15
 **Author:** gandalf (CANON-STEWARD / SPEC-AUTHOR; RUN-CONDUCTOR of Run C-3)
