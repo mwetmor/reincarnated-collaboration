@@ -1,5 +1,6 @@
 # JOIN-1 P0 — the INTERNAL / BOUNDARY census (paper, zero code)
 
+> ⚑ **NAMED FINDING, 2026-10-14 (§ 13, forward; conductor ruling KC2 KP-426, `99d55f74e`):** the universal-player-layer sweep admits **eight rows, B-18 to B-25** (6 BOUNDARY, 2 INTERNAL). The D2 WW Barbarian goes **17 → 25 rows, fraction (b) 12 → 18**. § 7.2's Battle Orders stamina text is corrected. § 13 governs over § 12's totals.
 > ⚑ **NAMED FINDING, 2026-10-14 (§ 12, forward; conductor ruling, to be ledgered as KC2 KP-424):** the D2 WW Barbarian gains **row B-17, D2 belt potions, BOUNDARY / WIDEN, lever L-S7**. **16 → 17 rows; fraction (b) 11 → 12.** § 12 governs over § 11's totals.
 > ⚑ **NAMED FINDING, 2026-10-01 (§ 11, forward):** the D2 WW Barbarian's frozen record goes from **14 rows to 16** (BOUNDARY 9 → 11), per jack-ryan's Sorceress-census Gate-2 A-4/W3 (collab `b48500a4d`, KP-165). The text above § 11 is left as committed (`78797db4b`); § 11 governs where it differs.
 > **STATUS:** CURRENT — W1 deliverable of the KC2-PLAY **SEAL LAP** (`gandalf/notes/2026-09-28-kc2-play-seal-lap-plan.md` § 2, seat elrond; launch-sheet **L3**, paper-only).
@@ -360,3 +361,58 @@ Per architect § 3: levers are **discovered, never authored by hand** (Disciplin
 ⚑ **Pending:** the conductor has commissioned one universal-player-layer sweep across both D2 kits before any J4b build (same ruling). Any further rows it yields are ruled by the conductor first, and then recorded here as their own named finding.
 
 *Named finding signed:* elrond, 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
+
+---
+
+## 13 · Named finding (forward, 2026-10-14): the universal-player-layer sweep, D2 WW Barbarian 17 → 25
+
+**Source:** conductor gandalf, KC2-PLAY ledger **KP-426** (collab `99d55f74e`). It rules on this seat's sweep batch, commissioned at KP-424: one universal-player-layer sweep for both D2 kits before any J4b build. **Method:** the oracle's player-side modules under `simulation/kc2/`, read-only at engine HEAD `20ff8684`, checked against every law D2 1.13 applies to any character. **The D2 laws are MV, unsourced this session; legolas sources them in C-13.** **This is an addition after his launch anchor (J-S2), so it is a named finding (charter § 4.5), printed with its reason.** It makes his coverage harder and lands before J4a is graded. No existing row's class changes.
+
+**Full row reasoning:** rows B-19 to B-24 are the same mechanisms, classes and verdicts as Sorceress census § 10.1, rows 22–27 (`2026-10-01-join1-j0-sorceress-census.md`, collab `8fdf4c267`). The cells below state them for him and note where he differs. B-18 and B-25 are his alone, because her census already had them (rows 20 and 2).
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **B-18** | **Intake hit law: a monster's attack lands on him by D2's law, AR against his Defence, with level terms, clamped to [5 %, 95 %], with no PTH crit tier.** P0 row 9 covers only his offense | MV / NONE (his Defence; the anchored monster AR, KP-420) | **BOUNDARY** (hit resolution, intake) | `threat.probability_to_hit(oa, da)`, `PTH_MINIMUM = 55`, crit tier from the same roll (`resolve_hit`) | **WIDEN → L-24 `intake_hit_law`** (registered KP-425, intake only). The twin of Sorceress row 20, on KP-421's grounds. The `gd` setting's Defence → DA map is DECLARED-INVENTED |
+| **B-19** | **GD control families landing on a D2 player** (Stun, Sleep, Trap, Immobilize, Knockdown, Freeze, Petrify). ⚑ For him the question is narrower in one place: Whirlwind is uninterruptible once it starts (legolas `b0f9d77fa`: "nothing interrupts the whirl"). Whether a GD control state ends a whirl is part of the D2 setting | MV / NONE | **BOUNDARY** (CC/status on the player) | `control_application` (longest wins per family; one involuntary effect acts; resists from sheet 519; suppression matrix). ⚑ **`gd` value (settled 2026-10-14, gamora, read-only on the sealed oracle `969fbd8d`): APPLIED** (armed, `ApplicationLimb.RECORD`; `scripts/gamora_kc2_w1w2_lift_build_2026_08_25.py:179-181`, `control_application.py:403-406`), **UNREACHED on the J-S8 board** (the G6 status grain is empty). ⚑ So this row's negative control may be unreachable on this board. It then reports REACHED-INSENSITIVE or needs a forced-landing control; gamora decides which in J4b ADDENDUM-4 | **WIDEN → L-12 `control_family_registry`, receiving direction,** plus D2's duration law (Sorceress row 22) |
+| **B-20** | **DoTs landing on a D2 player** | MV / NONE | **BOUNDARY** (DoT × tick clock, intake) | `dot_timeline` (decoded; per `(damage_type, ATTACKER)`; MAX / ADD) | **WIDEN** (Sorceress row 23) |
+| **B-21** | **Chill: cold damage slows the player** | MV / NONE | **BOUNDARY** (status on the player, triggered by damage type) | None. GD slows are `debuff`/`modifier` kinds, not applied | **WIDEN**, GD **`NONE`**, DECLARED-INVENTED default `off` (Sorceress row 24; row 17 / A-5 precedent). Kept separate from B-19 by ruling |
+| **B-22** | **Intake damage-family map:** GD families with no D2 resistance (Pierce, Chaos, Aether, Vitality, Acid, Bleeding, Elemental) | DM (GD family list) / DECLARED | **BOUNDARY** (damage type vs resistance, intake; B8) | `threat.RESIST_PCT`, `× (1 − res/100)`, `KeyError` on an unmapped family | **AS-IS in form, DECLARED in operand** (Sorceress row 25; the intake twin of his row 12) |
+| **B-23** | **World and arena modifiers on the player:** the Vanguard Banner +100 % within 8 m; Cruel ×0.92 for 1 s after a hit; Resilient +8 % max poison/acid and bleeding resistance; Ascended +8 % added into the pool | DM / DM | **BOUNDARY** (world → kit composition) | `defenses`, `mutators`. ⚑ **Banner `gd` value (settled 2026-10-14, gamora, read-only on `969fbd8d`): LIVE**, `offensiveTotalDamageModifier +100 %` within the measured 8 m (`kc2/defenses.py:11-19`, `:86`), applied through `PlayerOffense.banner_factor` (`run.py:2939`, `:3070`/`:3072`/`:3127`). Composition per `BANNER_ADDITIVE_OF_RECORD = True`: the +100 % is ADDED into the sheet's own damage modifier, not multiplied onto the result (`player_offense.py:484-491`; engine prereg `kc2-play-v3p2-lift-prereg-2026-09-20.md` § 228ff). MIGRATION records V311-FULL as including the six mutators | **AS-IS**, with declared placement in D2's composition (Sorceress row 26). For him, **the banner's +100 % and Ascended both add into his D2 enhanced-damage pool** (the oracle's additive limbs of record); Cruel multiplies total outgoing |
+| **B-24** | **Stamina:** running drains stamina; at zero he walks. ⚑ For him, Whirlwind's own movement does not run on stamina (MV), so stamina binds only on his non-WW movement. Battle Orders raises his stamina (row 7's `aurastat3 = skill_staminapercent`) | MV / NONE | **INTERNAL** | None (GD has no stamina) | Native (Sorceress row 27). **Battle Orders' stamina term becomes an operand of this row** (see the § 7.2 correction below) |
+| **B-25** | **Mana income: the D2 regeneration law.** P0 censused his mana spend (row 5) and his mana leech (row 6) but not his regen. Each WW start (`mana = 25`) and each Battle Orders cast spends mana, even though `AttackNoMana = 1` keeps the spin going at zero | MV (base regen law) / NONE (his mana pool; the kit record has no stat values) | **INTERNAL** | `energy.EnergyModel` income | Native. The twin of Sorceress row 2 |
+
+**Correction to § 7.2 (text only, no count change).** § 7.2 lists *"(and D2 Battle Orders' loot-irrelevant stamina term)"* among the OUT-OF-ARENA instances. With stamina admitted as **B-24**, that term is **not** out of arena: it is an operand of B-24, raising his stamina pool while the buff lasts. It was never a counted row; it was a term inside row 7. So **§ 7.2 reads four kits and four counted OUT-OF-ARENA instances, plus that term**, and the term moves to B-24. The text above § 13 is left as committed; this line governs.
+
+**Excluded, with fidelity-cost lines (KP-426), the same as Sorceress § 10.2:**
+- **Curses and debuffs received.** D2 curses need D2 casters, and GD debuff/modifier kinds are not applied in either arm (`threat.NON_HEALTH_KINDS`). This is a referent gap. Line: *"not applied in either arm; direction of the margin unknown."*
+- **Monster mana drains and Disruption** (`SlowManaLeach`, `ManaBurnDrain`, `Disruption`). Not applied in either arm (declared under-reads). Line: *"not applied in either arm. For the Barbarian the bias is small: `AttackNoMana = 1` keeps the spin going at zero mana, and his only cooldown-bearing action is none. The exclusion's main beneficiary is the Sorceress, whose line prints that it favours her."*
+
+**Operands confirmed by KP-426 (no rows), as Sorceress § 10.3:**
+- **Life regen and Replenish Life** → `PLAYER_REGEN_HP_PER_S` × r_DMG.
+- **Run speed and FRW, and body radius** → locomotion and geometry, through the declared D2-units-to-metres conversion that row 4's footprint also needs.
+- **Defence against %-current-life attacks** → 0 (D2 fact).
+- **Resistance to monster leech** → 0, so the multiplier is 1.0.
+- **Cannot Be Frozen, freeze and poison length reduction** → operands of B-19 to B-21.
+- **The Hell resist penalty, cap and +max, and physical damage reduction** → entries in B-22's map (as Sorceress § 7.3).
+- **His own life leech** → an operand of row 6.
+
+**Deferred to his loadout pin (KP-426), not rows yet:**
+- **Flat "Damage Reduced by N" and Magic Damage Reduced.** If his pin carries them, it raises a law question: GD's armour leg absorbs at 0.70, while D2 subtracts the full amount.
+- **Grief's life-after-each-kill.** An on-kill sustain law; the oracle's player path has none.
+- **Prevent Monster Heal.** It interacts with the Leeching mutator.
+
+**D2 WW Barb, corrected frozen record: 25 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| **INTERNAL** | **5** | 5, 6, 7, **B-24**, **B-25** |
+| **BOUNDARY** | **18** | **AS-IS 5**: 1, 4, 12, **B-22**, **B-23** · **WIDEN 12**: 2, 3, 8, 9, 10, 11, B-16, B-17, **B-18**, **B-19**, **B-20**, **B-21** · **GD-EMPTY 1**: B-15 |
+| OUT-OF-ARENA | 2 | 13, and the ally-scope row |
+
+**Fraction-(a) denominator: 25. Fraction-(b) population: 18** (all BOUNDARY rows, per Gate-2 W2). **Reason: KP-426**, after his launch anchor. The chain since the anchor is 14 → 16 (§ 11), 16 → 17 (§ 12), 17 → 25 (§ 13).
+
+**Slate totals, derived (for the record; J-S2 is the conductor's to amend):** 57 classed rows (it was 49) + 3 cross-cutting misfits = 60. INTERNAL 17 · BOUNDARY 34 (AS-IS 10 · WIDEN 20 · GD-EMPTY 4) · OUT-OF-ARENA 5 · HELD 1.
+
+**Settled 2026-10-14 (gamora, read-only on the sealed oracle `969fbd8d`):** B-19's control fold is **APPLIED, UNREACHED on the J-S8 board** (its negative control may be unreachable; gamora's ADDENDUM-4 decides between REACHED-INSENSITIVE and a forced-landing control). B-23's banner is **LIVE**, composing additively. Neither changes a class or a count.
+
+*Named finding signed:* elrond, 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `20ff8684`.
