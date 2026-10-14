@@ -286,3 +286,55 @@ Gaps: the code is 1.10f, and no source shows a 1.13 change. Knockback distance i
 - **Basin wiki** (action=raw, `captures/basin-*`): MonLvl, Champion, Unique (monster), Block, Defense, Attack, Life, Mana, Dexterity, Vitality, Faster Block Rate.
 - **Prior packets:** J4a (F05, F06, F07, F12, F13), J4b (H07, H09, § 3 loadout), the animation packet (§ 3.4 FBR, § 3.7 movement), C-12b, D-L5 (`2026-10-08-gd-crit-roll-rule-dl5`), and jack-ryan's J4b adapter Gate-1 (INFO-9, the yard→metre item).
 - **GD:** the KC2 oracle loaders and `data/kc2/*`, digests in `gd_enemy_quantities.json → inputs_sha256`.
+
+---
+
+## 12. KP-428 follow-up: r_DMG, stage 3 (2026-10-14). The GD side is PENDING
+
+### 12.1 D2 monster skill damage (done) — `d2_skill_damage.json`, `scripts/d2_skill_damage.py`, `verification_skill_damage.log`
+
+**Laws** (D2MOO, captured in `captures/`):
+- Skill level = MonStats `SkNlvl` + Hell `MonsterSkillBonus` 7 (`Monster.cpp` L246–262).
+- Level brackets: levels 2–8, 9–16, 17–22, 23–28 and 29+ (`D2Skills.cpp` L2459).
+- Skill damage: phys and elemental = (base + bracket) << HitShift, plus SrcDam/128 × owner weapon damage (`D2Skills.cpp` L2490–2717).
+- Missile damage: the missile's own damage when `Missiles.Skill` is blank, otherwise the named skill's (`Missile.cpp` L466–760, L1001+).
+- DoomKnightMissile: `srvdo148` = srvmissilea + the monster's random component, which gives `undeadmissile1–4` (`SkillMonst.cpp` L2119).
+
+Grade: **structure MODEL-VERIFIED (code); per-skill values INFERRED (computed; no second numeric source found).**
+
+**Declared choices:**
+- **Streams excluded from per-hit; their per-second rate is reported:** Infernos, Firewalls, Blizzard, Mosquito, Regurgitator.
+- **Not hit damage:** Blood Mana and Healing Vortex are declared non-damaging.
+- **Poison is a DoT:** excluded from per-hit.
+- **Doom Knight missile:** equal weight over its three hit variants.
+- **Imp charged bolt:** HitShift is blank (0), so its value is 0.1 per hit. Flagged UNVERIFIED.
+
+**Use weighting:** D2 monster AI picks attacks through per-AI code (`aip*` parameters), so a general use frequency cannot be derived from data. Two figures are reported instead:
+- **best** = the worst-case attack;
+- **mean** = equal weight per damaging attack.
+
+**Result: adding skills barely moves the D2 side.**
+
+| Rule | Melee best | Best attack incl. skills | Mean of damaging attacks |
+|---|---|---|---|
+| R1 | 93 | **97 [84–135]** | 95 |
+| R2 | 93 | 116 | 98 |
+| R3 | 108 | 110 | 103 |
+| R4 | 99 | 106 | 96 |
+
+27 of 70 R1 types have a damaging skill hit; 10 have a stream skill. Most of the 55 skill-bearing types carry utility skills (raise, curse, teleport, nest).
+
+### 12.2 GD side (PENDING)
+
+The reconcile against `config_of_record.json` and the oracle's runtime damage path is still running in the fork. It will land as `gd_damage_reconcile.{json,md}` and `scripts/gd_damage_reconcile.py`. **Until it lands, r_DMG is bounded by the stage-1 GD figures:**
+
+| Rule | Provisional r_DMG, folded (upper) | Provisional r_DMG, raw (lower) |
+|---|---|---|
+| R1 | **×82.9** | **×8.0** |
+| R2 | ×69.7 | ×6.7 |
+| R3 | ×73.4 | ×7.1 |
+| R4 | ×76.4 | ×7.4 |
+
+These use the GD BOARD trash basic hit (folded 8,056, raw 779) over the D2 best attack including skills.
+
+**Baal's hard-coded waves:** not attempted.
