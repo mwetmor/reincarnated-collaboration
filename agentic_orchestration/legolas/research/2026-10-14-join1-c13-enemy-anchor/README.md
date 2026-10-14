@@ -483,3 +483,66 @@ Defence mid; median [p25–p75] (min–max):
 ### Gaps
 - **4 R1 types have no per-slot attack in this table:** `fetishshaman8` (stream-only inferno) and `skmage_ltng4`, `skmage_ltng6`, `skmage_pois6` (their A1 fires a Missiles.txt missile with no ToHit, and the damage is not computed). **They are casters, so they auto-hit**; for role counts, casters are 10 types.
 - **Grades:** AR is DATAMINED; hit chance is computed (INFERRED) through MODEL-VERIFIED laws; the role split is DATAMINED flags plus H4.
+
+---
+
+## 14. Stage 7 (KP-432, gamora ADDENDUM-6): mean ÷ mean r_DMG, and the D2 unique attack rating
+
+Files: `d2_unique_ar_r1.json`, `scripts/d2_unique_ar_r1.py`, `verification_unique_ar.log`.
+
+### 14.1 Mean ÷ mean r_DMG (now the primary)
+
+The ratio is GD engine-native E5 mean damaging slot (trash, body-weighted: 7,481 [6,003–9,947]) over the D2 mean of damaging attacks including skills (normal, equal per type).
+
+| Rule | **r_DMG, mean ÷ mean** | IQR ratio (p25/p25 – p75/p75) |
+|---|---|---|
+| **R1** | **×78.58** | 81.9 – 88.1 |
+| R2 | **×76.56** | 72.2 – 89.5 |
+| R3 | **×72.38** | 87.6 – 82.9 |
+| R4 | **×77.93** | 80.9 – 85.2 |
+
+- R1 reproduces the KP-432 figure (×78.58).
+- The IQR is a ratio of quartiles, so it need not bracket the median.
+- Grade: INFERRED (the ratio of a GD figure composed by the oracle's MODEL-VERIFIED path and an INFERRED D2 figure).
+
+### 14.2 D2 unique / superunique / boss attack rating, R1 areas, Hell, players 1
+
+Defender: NODEX, Defence 1,203 melee and 1,453 against missiles; clvl 90.
+
+**Laws:**
+- **U1:** unique and minion level is +3, and that level selects the MonLvl attack-rating row. Sources: Basin Unique (monster), and D2MOO `UMod4_LevelBonus`. MODEL-VERIFIED.
+- **U2:** Extra Strong, if rolled, gives a unique **+66 % to-hit** (MonUMod[13] 100 × ChampionDamageBonus 66/100) and a minion +33 % (MonUMod[12] 50 × 0.66). Sources: D2MOO `UMod5_Strong`; asserted in the script. MODEL-VERIFIED.
+- **U3:** superunique level = alvl + 3, INFERRED. Fixed mods come from SuperUniques.txt (Mod 5 = Extra Strong).
+- **Not modelled:** Hell's three random unique bonuses (Basin). **Both arms are given** (no Extra Strong / Extra Strong).
+- **U4:** bosses use MonStats `Level(H)`.
+- **Casters auto-hit,** as in stage 6.
+
+**Uniques built on R1 types** (64 types with a rolling attack; 10 caster types auto-hit at 100 %):
+
+| Quantity | Median [IQR] (min–max) |
+|---|---|
+| Attack AR, unique | 4,226 [3,698–5,283] (2,465–11,763) |
+| Attack AR, unique with Extra Strong | 7,015 [6,138–8,769] (4,091–19,526) |
+| **Hit % per type (best attack), unique** | **76 [74–80.25] (66–88)**; melee 76 [74–81], ranged-physical 77 |
+| **Hit % per type, unique with Extra Strong** | **84 [82–87] (76–92)** |
+| (for comparison) normal, same types | 74 [71–78] (64–87) |
+
+Minions use the unique attack rating (+3 levels); with Strong they get +33 % to-hit. Per-attack rows are in `rows`.
+
+**Named superuniques and bosses** (best rolling attack):
+
+| Name (class) | Level | Fixed mods | AR | **Hit % melee / vs missile defence** |
+|---|---|---|---|---|
+| Grand Vizier of Chaos (`fingermage3`) | 88 | Extra Strong (5), 9 | 7,015 | **84 / 81** |
+| Lord De Seis (`doomknight3`) | 88 | Extra Strong (5), 30, 24 | 9,354 | **87 / 85** |
+| Infector of Souls (`megademon3`) | 88 | 6, 27 (no Strong) | 5,635 | **81 / 78** |
+| Diablo (boss) | 94 | — | 8,062 | **88 / 85** |
+| Baal (`baalcrab`, boss) | 99 | — | 9,850 | **93 / 91** |
+
+The boss rows are the melee roll only. **Most boss and superunique damage is skill-based and therefore auto-hit (100 %).**
+
+**Suggested pairing for gamora** (her call):
+- GD boss/nemesis ↔ the superunique + boss rows, or the unique-with-Extra-Strong arm: **84–93 %**.
+- GD champion-hero ↔ the stage-6 champion figure (≥ 81 %), or plain uniques (**76 [74–80]**).
+
+Grades: AR inputs are DATAMINED; the laws are as marked; hit % is INFERRED (computed).
