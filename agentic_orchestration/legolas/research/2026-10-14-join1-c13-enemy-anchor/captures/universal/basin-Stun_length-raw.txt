@@ -1,0 +1,125 @@
+{{Movement nav}}
+[[File:Stun.gif|right|frame|Stunned]]
+*When this overlay displays above a unit, stun length is applied.
+*Can be active at the same time as a [[curse]], [[Inner Sight]] and [[Slow Missiles]].
+*Normal and minion monsters are completely incapacitated until length expires.
+*Only 10% chance of applying to [[Champion]], [[Unique (monster)|Unique]] and [[Super Unique]] monsters, who will still be completely incapacitated until length expires.
+*Players are not incapacitated but they are always put into [[hit recovery]] when hit before length expires, even when no damage is applied.
+*Length is not subject to any penalties, but there is normally a 10 second ceiling. {{Warn|=Skill description does not always apply this ceiling to stun length.}}
+*Only the most recent of multiple sources of stun length is applied: if a 2 second stun length is applied 2 seconds after a 10 second stun length, only 4 second stun length is applied in total.
+*Does not apply to [[boss]]es, or the following static units:
+
+
+{|cellpadding=0 cellspacing=0
+!align=left|[[Animal]]
+!align=left colspan=2|[[Construct]]
+!align=left|[[Demon]]
+|-valign=top
+|width=192|
+*[[Blood Hawk Nest]]
+*[[Coldworm the Burrower|{{Ub|=Coldworm the Burrower}}]]
+*[[Sand Maggot Egg]]
+*[[Tentacle Beast]]
+|width=192 rowspan=2|
+*[[Barricade]]
+*[[Barricaded Door]]
+*[[Barricaded Tower]]
+*[[Catapult]]
+*[[Evil Demon Hut]]
+*[[Fire Tower]]
+|width=192|
+*[[Gargoyle Trap]]
+*[[Lightning Spire]]
+*[[Prison Door]]
+*[[Mummy Sarcophagus]]
+*[[Trapped Soul]]
+*[[Window]]
+|
+*[[Festering Appendage]]
+|}
+
+
+==Skill==
+*The following player skills apply stun length, measured in seconds:
+
+
+{{Number table}}
+|-valign=top
+!width=144 rowspan=2 align=left|Skill
+!colspan=6 align=center|Level
+|-align=center
+!width=128|1-8
+!width=128|9-16
+!width=128|17-22
+!width=128|23-28
+!width=128|>28
+!width=128|Ceiling
+|-
+!align=left|[[Smite]]
+|align=center colspan=5|min(0.4 + (0.2*slvl) , 10)
+|align=center|10 ('''48''')
+|-
+!align=left|[[Stun]]
+|align=center colspan=2|1 + (0.2*slvl)
+|align=center colspan=3|min(2.92 + (0.08*slvl) , 10)
+|align=center|10 ({{Warn|='''89'''}})
+|-
+!align=left|[[Maul]]
+|colspan=5 align=center|min(0.4 + ( [90 * [ (110*lvl) / (lvl+6) ] / 100] / 25) , 4)
+|align=center|4 ({{Warn|='''114'''}})
+|-
+!align=left|[[Twister]]
+|align=center colspan=5|0.4
+|align=center|0.4 ('''1''')
+|-
+!align=left|[[Shock Wave]]
+|align=center colspan=5|min(1 + (0.6*slvl) , 10)
+|align=center|10 ('''15''')
+|-
+!align=left|[[Mind Blast]]
+|align=center colspan=5|min(1.8 + (0.2*slvl) , 10)
+|align=center|10 ('''41''')
+|-
+!align=left|[[War Cry]]
+|align=center colspan=5|min(0.8 + (0.2*slvl) , 10)
+|align=center|10 ('''46''')
+|}
+
+
+*{{Warn|=Red ceiling levels are beyond reach in the unmodified game.}}
+*[[Maul#Detail|Maul]]: lvl = 3 + [slvl/2] is the ''charge'' level, not the skill level (slvl): lvl = 60 corresponds to slvl {{Warn|=114-115}}.
+*Stun receives a synergy bonus from War Cry, increasing stun length by 5% per skill point. This lowers the skill level at which its stun length reaches the 10 second ceiling:
+
+
+{{Number table}}
+|-valign=top
+!width=150 rowspan=2 align=left|Stun
+!colspan=20 align=center|War Cry.blvl
+|-align=center
+!width=18|1
+!width=18|2
+!width=18|3
+!width=18|4
+!width=18|5
+!width=18|6
+!width=18|7
+!width=18|8
+!width=18|9
+!width=18|10
+!width=18|11
+!width=18|12
+!width=18|13
+!width=18|14
+!width=18|15
+!width=18|16
+!width=18|17
+!width=18|18
+!width=18|19
+!width=18|20
+|-
+!align=left|Ceiling Level
+|{{Warn|=83}}||{{Warn|=78}}||{{Warn|=73}}||{{Warn|=68}}||{{Warn|=64}}||{{Warn|=60}}||{{C|=57}}||53||50||47||45||42||40||38||35||33||32||30||28||26
+|}
+
+
+*{{Warn|=[[Summon Grizzly|Grizzly]] Bear Smite only applied stun length prior to 1.10.}}

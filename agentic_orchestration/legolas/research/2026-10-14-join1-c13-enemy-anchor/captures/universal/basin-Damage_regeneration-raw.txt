@@ -1,0 +1,298 @@
+{{Unit nav}}
+{{Intro}}
+*Units other than players can regenerate damage automatically, based on a fraction of their maximum life:
+
+
+{{Number table}}
+|-valign=top align=center
+!width=106 rowspan=2|Value
+!colspan=2|Maximum Life
+!width=106 rowspan=2|0-100% Life (Seconds)
+|-align=center
+!width=106|/Frame
+!width=106|/Second
+|-
+!2
+|2/4096
+|50/4096 (~1.22%)
+|~82
+|-
+!3
+|3/4096
+|75/4096 (~1.83%)
+|~55
+|-
+!4
+|4/4096
+|100/4096 (~2.44%)
+|~41
+|-
+!5
+|5/4096
+|125/4096 (~3.05%)
+|~33
+|-
+!6
+|6/4096
+|150/4096 (~3.66%)
+|~28
+|-
+!10
+|10/4096
+|250/4096 (~6.10%)
+|~17
+|-
+!12
+|12/4096
+|300/4096 (~7.32%)
+|~14
+|-
+!15
+|15/4096
+|375/4096 (~9.15%)
+|~11
+|}
+[https://www.mannm.org/d2library/faqtoids/leben_eng.html#lifereg]
+|}
+
+
+*Units only regenerate when >= 1 bit (1/256 point) is regenerated per frame, so some monsters in early Normal will not regenerate because their maximum life is not high enough for this to happen.
+*Units do not regenerate in frames in which they take as little as 1 bit (1/256 point) damage. Consequently skills applying damage every frame (like [[Immolation Arrow]] pyres and [[Fire Wall]]) can stop regeneration entirely, those applying damage every other frame (like [[Inferno]] and [[Arctic Blast]]) effectively half regeneration, and attacking or casting more frequently will reduce regeneration. [https://planetdiablo.eu/forum/threads/schadensunterbrechung-giftnova-und-anderer-schaden.1639530/] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121166-any-damage-stops-unit-damage-regeneration/]
+**{{Warn|=In online modes (LoD and D2R, Expansion and Classic, LD and NLD) damage regeneration stops for additional 7 frames after taking damage. To stop the regeneration completely, it is enough to deal damage every 8 frames. This mechanic is also applied to [[Poison Damage]].}}[https://www.reddit.com/r/diablo2/comments/1dzb3jq]
+*Units do not regenerate while [[Poison Damage]] or [[Open Wounds]] are being applied.
+*Monsters do not regenerate after [[Prevent Monster Heal]] has been applied, with the exception of [[Pandemonium Event]] bosses.
+
+
+==[[Mercenary]]==
+{{Text table}}
+|-align=center
+!colspan=2|Damage Regen
+|-align=center
+!width=128|4
+!width=128|10
+|-valign=top
+|
+*[[Rogue Scout]]
+*[[Desert Mercenary]]
+*[[Iron Wolf]]
+|
+*[[Barbarian (mercenary)|Barbarian]]
+|}
+<br>
+
+
+==[[Pet]]==
+{{Text table}}
+|-align=center
+!colspan=6|Damage Regen
+|-align=center
+!width=128|2
+!width=128|3
+!width=128|4
+!width=128|5
+!width=128|12
+!width=128|15
+|-valign=top
+|
+*[[Bone Wall]]
+*[[Bone Prison]]
+*[[Shadow Master]]
+|
+*[[Blood Golem]]
+*[[Carrion Vine]]
+*[[Clay Golem]]
+*[[Fire Golem]]
+*[[Heart of Wolverine]]
+*[[Iron Golem]]
+*[[Oak Sage]]
+*[[Poison Creeper]]
+*[[Shadow Warrior]]
+*[[Solar Creeper]]
+*[[Spirit of Barbs]]
+|
+*[[Summon Dire Wolf|Dire Wolf]]
+*[[Raise Skeletal Mage|Necromage]]
+*[[Raise Skeleton|Necroskeleton]]
+*[[Summon Spirit Wolf|Spirit Wolf]]
+|
+*[[Summon Grizzly|Grizzly]]
+|
+*[[Valkyrie]]
+|
+*[[Decoy]]
+|}
+<br>
+
+==Monster==
+*[[Super Unique]] monsters do not regenerate damage.
+
+
+{{Text table}}
+|-align=center
+!colspan=6|Damage Regen
+|-align=center
+!width=128|0
+!width=128|2
+!width=128|3
+!width=128|4
+!width=128|5
+!width=128|6
+|-valign=top
+|
+*[[Andariel|{{Ub|=Andariel}}]]
+*[[Baal|{{Ub|=Baal}}]]
+*{{Ub|=Baal}} clone
+*[[Blood Raven|{{Ub|=Blood Raven}}]]
+*[[Diablo|{{Ub|=Diablo}}]]
+*[[Duriel|{{Ub|=Duriel}}]]
+*[[Hephasto the Armorer|{{Ub|=Hephasto}}]]
+*[[Izual|{{Ub|=Izual}}]]
+*[[Korlic|{{Ub|=Korlic}}]]
+*[[Madawc|{{Ub|=Madawc}}]]
+*[[Mephisto|{{Ub|=Mephisto}}]]
+*[[Nihlathak (boss)|{{Ub|=Nihlathak}}]]
+*[[Radament|{{Ub|=Radament}}]]
+*[[The Smith|{{Ub|=The Smith}}]]
+*[[The Summoner (boss)|{{Ub|=The Summoner}}]]
+*[[Talic|{{Ub|=Talic}}]]
+*[[Barricade]]
+*[[Barricaded Door]]
+*[[Barricaded Tower]]
+*[[Catapult]]
+*[[Council Member]]
+*[[Diablo|{{Ub|=Diablo}}]] bone prison
+*[[Evil Demon Hut]]
+*[[Fire Tower]]
+*[[Gargoyle Trap]]
+*[[Lightning Spire]]
+*[[Prison Door]]
+|
+*[[Diablo (World Event)|{{Ub|=Diablo}}]] clone
+*[[Griswold|{{Ub|=Griswold}}]]
+*[[Abominable]]
+*[[Abyss Knight]]
+*[[Baal's Minion]]
+*[[Baboon Demon]]
+*[[Bat Demon]]
+*[[Blood Hawk]]
+*[[Blood Hawk Nest]]
+*[[Blood Lord]]
+*[[Blow Pipe Fetish]]
+*[[Bone Fetish]]
+*[[Claw Viper]]
+*[[Corrupt Rogue]]
+*[[Corrupt Rogue Archer]]
+*[[Corrupt Rogue Spearwoman|CR Spearwoman]]
+*[[Death Mauler]]
+*[[Demon Imp]]
+*[[Doom Knight]]
+*[[Fallen]]
+*[[Fallen Shaman]]
+*[[Festering Appendage]]
+*[[Fetish]]
+*[[Fetish Shaman]]
+*[[Finger Mage]]
+*[[Flying Scimitar]]
+*[[Frog Demon]]
+*[[Frozen Horror]]
+*[[Giant Mosquito]]
+*[[Goatman]]
+*[[Greater Mummy|Guardian]] <sup>1</sup>
+*[[Greater Mummy|Unraveler]] <sup>2</sup>
+*[[Greater Mummy|Horadrim Ancients]] <sup>3 4</sup>
+*[[Hell Bovine]]
+*[[Leaper]]
+*[[Megademon]]
+*[[Minion of Destruction]]
+*[[Mummy]]
+*[[Mummy Sarcophagus]]
+*[[Oblivion Knight]]
+*[[Overseer|Hell Whip]] <sup>5</sup>
+*[[Pain Worm]]
+*[[Putrid Defiler]]
+*[[Reanimated Horde]]
+*[[Regurgitator]]
+*[[Sabre Cat]]
+*[[Sand Maggot]]
+*[[Sand Maggot Egg]]
+*[[Sand Maggot Young]]
+*[[Sand Raider]]
+*[[Scarab Demon|Dung Soldier]] <sup>6</sup>
+*[[Siege Beast]]
+*[[Skeleton]]
+*[[Skeleton Archer]]
+*[[Skeleton Mage]]
+*[[Slinger]]
+*[[Spike Fiend]]
+*[[Stygian Fury]]
+*[[Succubus]]
+*[[Suicide Minion]]
+*[[Swarm]]
+*[[Tainted]]
+*[[Tentacle Beast]]
+*[[Trapped Soul]]
+*[[Vile Child]]
+*[[Vile Mother]]
+*[[Vulture Demon]]
+*[[Wendigo]]
+*[[Willowisp]]
+*[[Window]]
+*[[Wraith]]
+*[[Zakarum Priest]]
+*[[Zakarum Zealot]]
+*[[Zombie]]
+|
+*[[Blunderbore]] <sup>7</sup>
+*[[Blunderbore|Mauler]] <sup>2</sup>
+*[[Giant Spider]] 
+*[[Greater Mummy]]
+*[[Overseer]]
+*[[Scarab Demon|Death Beetle]] <sup>8</sup>
+*[[Vampire]]
+|
+*[[Lilith|{{Ub|=Lilith}}]]
+*Über [[Baal (Pandemonium Event)|{{Ub|=Baal}}]]
+*Pandemonium [[Diablo (Pandemonium Event)|{{Ub|=Diablo}}]]
+*Über [[Duriel (Pandemonium Event)|{{Ub|=Duriel}}]]
+*Über [[Izual (Pandemonium Event)|{{Ub|=Izual}}]]
+*Über [[Mephisto (Pandemonium Event)|{{Ub|=Mephisto}}]]
+*[[Blunderbore]]
+*[[Scarab Demon|Scarab]] <sup>9</sup>
+*[[Thorned Hulk]]
+|
+*[[Scarab Demon|Steel Scarab]] <sup>10</sup>
+*[[Vampire|Blood Lord]] <sup>11</sup>
+*[[Vampire|Ghoul Lord]] <sup>12</sup>
+*[[Vampire|Dark Lord]] <sup>4 13<sup>
+|
+*[[Scarab Demon]]
+*[[Giant Spider|Arach]] <sup>14 15</sup>
+|}
+
+
+{|cellpadding=0 cellspacing=0 style=font-size:90%
+|-valign=top
+|width=396|
+<sup>1</sup> Spawn in [[Halls of Pain]]<br>
+<sup>2</sup> Spawn in [[Pit of Acheron]]<br>
+<sup>3</sup> Spawn in [[Worldstone Keep Level 2]]<br>
+<sup>4</sup> Spawn in [[Throne of Destruction]]<br>
+<sup>5</sup> Spawn in [[Arreat Plateau]]<br>
+<sup>6</sup> Spawn in [[Rocky Waste]] and [[Stony Tomb Level 1]] and [[Stony Tomb Level 2|2]]<br>
+<sup>7</sup> Spawn in [[Frigid Highlands]]<br>
+<sup>8</sup> Spawn in [[Far Oasis]] and [[Maggot Lair Level 1]], [[Maggot Lair Level 2|2]] and [[Maggot Lair Level 3|3]]<br>
+<sup>9</sup> Spawn in [[Maggot Lair Level 1]], [[Maggot Lair Level 2|2]] and [[Maggot Lair Level 3|3]]<br>
+|
+<sup>10</sup> Spawn in [[Canyon of the Magi]] and [[Tal Rasha's Tomb]]<br>
+<sup>11</sup> Spawn in [[Infernal Pit]]<br>
+<sup>12</sup> Spawn in [[Worldstone Keep Level 1]]<br>
+<sup>13</sup> Spawn in [[Tristram (Pandemonium Event)|Tristram]] ([[Pandemonium Event]])<br>
+<sup>14</sup> Spawn in [[Halls of Vaught]]<br>
+<sup>15</sup> Spawn in [[Forgotten Sands]]
+|}
+<br>
+
+==Reference==
+*[https://planetdiablo.eu/forum/threads/schadensunterbrechung-giftnova-und-anderer-schaden.1639530/ Schadensunterbrechung: Giftnova und anderer Schaden] (PlanetDiablo.eu)
+*Librarian, [https://www.mannm.org/d2library/faqtoids/leben_eng.html#lifereg life regeneration of non-player units] (FAQtoids)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121166-any-damage-stops-unit-damage-regeneration/ ANY damage stops unit damage regeneration] (D2 Technical)

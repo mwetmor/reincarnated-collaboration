@@ -1,0 +1,246 @@
+{{Movement nav}}
+{{Intro}}
+*Freezes target can freeze normal or minion monsters, and chill all other units, when applied with a successful weapon attack, as long as they are not [[Immune to Cold]] and they do not have 0 [[chill effectiveness]].
+*Bonuses from multiple sources are summed, although when [[two weapons]] are equipped only that of the primary or attacking weapon is added (that of the other weapon is ignored).
+*Applied by any melee or ranged attack with the exception of [[Blade Sentinel]], [[Blade Shield]] and the additional arrows of [[Multiple Shot]] (only applied by the original two arrows).
+
+
+{|cellpadding=0 cellspacing=0
+|-
+!width=132|% Chance Melee
+| = 5*(4B + A - D) + 30
+|-
+!% Chance Ranged
+| = 5*(4B + A - D)/3
+|-valign=top
+|height=19|
+|-style=font-size:90%
+!B
+|Sum of FT bonuses
+|-style=font-size:90%
+!A
+|Attacker level
+|-style=font-size:90%
+!D
+|Defender level
+|}
+[https://www.mannm.org/d2library/faqtoids/hft_eng.html] [http://d2wissen.d2chars.de/items/110/eig_angriffseffekte-x.html#erstarren]
+
+
+*Minimum 0% chance and maximum 100% chance to freeze or chill target.
+*Freeze or chill length in frames is a random odd number from {27, 29 ... 2*('''% Chance''') + 25}, viz, 1-9 seconds. [https://www.mannm.org/d2library/faqtoids/hft_eng.html] [http://d2wissen.d2chars.de/items/110/eig_angriffseffekte-x.html#erstarren]
+*Length of freezing or chilling is affected by target [[Cold Resist]] and difficulty level penalties (1/2 in Nightmare and 1/4 in Hell).
+*Applied independently of [[freeze length]] and [[Cold Damage|cold length]]: [[Freezing Arrow]] would freeze eligible targets within its 3 1/3 yard [[radius]] for ~2 seconds, Freezes target would freeze any eligible target hit by the arrow  for 1-9 seconds.
+|}
+
+
+==Body armor==
+{{Skill bonus}}
+|-
+| +1
+!align=left|[[Iceblink|{{U|=Iceblink Splint Mail}}]]
+|22
+|No
+|}
+<br>
+
+==Weapon==
+{{Skill bonus}}
+|-
+| +3
+|align=left|[[Cham Rune|{{Cb|=Cham Rune}}]] in socket
+|67
+|No
+|-
+| +3
+|align=left|[[Hand of Justice|{{Ub|=Hand of Justice}}]] weapon
+|67
+|No
+|}
+<br>
+
+===Axe===
+{{Skill bonus}}
+|-
+| +3
+!align=left|[[Axe of Fechmar|{{U|=Axe of Fechmar Large Axe}}]]
+|8
+|No
+|-
+| +3
+|align=left|[[Doom|{{Ub|=Doom}}]] axe
+|67
+|No
+|}
+<br>
+
+===Bow===
+{{Skill bonus}}
+|-
+| +3
+|align=left|[[Mist|{{Ub|=Mist}}]] bow {{D2R-inline}}
+|67
+|No (D2R only)
+|}
+<br>
+
+===Claw===
+{{Skill bonus}}
+|-
+| +2
+!align=left|[[Shadow Killer|{{U|=Shadow Killer Battle Cestus}}]]
+|78
+!{{Warn|=Yes}} (LoD only)
+|-
+| +3
+|align=left|[[Plague|{{Ub|=Plague}}]] claw {{D2R-inline}}
+|67
+|No (D2R only)
+|}
+<br>
+
+===Club===
+{{Skill bonus}}
+|-
+| +(2-4)
+!align=left|[[Nord's Tenderizer|{{U|=Nord's Tenderizer Truncheon}}]]
+|68
+|No
+|}
+<br>
+
+===Crossbow===
+{{Skill bonus}}
+|-
+| +3
+!align=left|[[Buriza-Do Kyanon|{{U|=Buriza-Do Kyanon Ballista}}]]
+|41
+|No
+|-
+| +3
+|align=left|[[Mist|{{Ub|=Mist}}]] crossbow {{D2R-inline}}
+|67
+|No (D2R only)
+|}
+<br>
+
+===Dagger===
+{{Skill bonus}}
+|-
+| +3
+|align=left|[[Plague|{{Ub|=Plague}}]] dagger {{D2R-inline}}
+|67
+|No (D2R only)
+|}
+<br>
+
+===Hammer===
+{{Skill bonus}}
+|-
+| +3
+|align=left|[[Doom|{{Ub|=Doom}}]] hammer
+|67
+|No
+|}
+<br>
+
+===Mace===
+{{Skill bonus}}
+|-
+| +3
+!align=left|[[Sureshrill Frost|{{U|=Sureshrill Frost Flanged Mace}}]]
+|39
+|No
+|}
+<br>
+
+===Polearm===
+{{Skill bonus}}
+|-
+| +1
+!align=left|[[Woestave|{{U|=Woestave Halberd}}]]
+|28
+|No
+|-
+| +3
+|align=left|[[Doom|{{Ub|=Doom}}]] polearm
+|67
+|No
+|-
+| +3
+|align=left|[[Pride|{{Ub|=Pride}}]] polearm
+|67
+!{{Warn|=Yes}} (LoD only)
+|}
+<br>
+
+===Spear===
+{{Skill bonus}}
+|-
+| +3
+|align=left|[[Pride|{{Ub|=Pride}}]] spear {{D2R-inline}}
+|67
+|No (D2R only)
+|}
+<br>
+
+===Sword===
+{{Skill bonus}}
+|-
+| +2
+!align=left|[[Bing Sz Wang|{{U|=Bing Sz Wang Dacian Falx}}]]
+|43
+|No
+|-
+| +3
+|align=left|[[Plague|{{Ub|=Plague}}]] sword {{D2R-inline}}
+|67
+|No (D2R only)
+|-
+| +4
+!align=left|[[Frostwind|{{U|=Frostwind Cryptic Sword}}]]
+|70
+|No
+|}
+<br>
+
+==Auric shield==
+{{Skill bonus}}
+|-
+| +1
+|align=left|[[Exile|{{Ub|=Exile}}]] auric shield
+|57
+|No
+|}
+<br>
+
+==Gloves==
+{{Skill bonus}}
+|-
+| +2
+|align=left|[[Immortal King's Forge|{{Sb|=Immortal King's Forge War Gauntlets}}]] ({{S|=6}})
+|76
+|No
+|}
+<br>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+| +1
+|align=left|[[Vidala's Rig|{{Ub|=Vidala's Rig}}]] ({{U|=F}})
+|14
+|No
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/items/magic.shtml#sma Special Magic Effects] (Arreat Summit)
+*Librarian, [https://www.mannm.org/d2library/faqtoids/hft_eng.html Hit Freezes Target - HFT] (FAQtoids)
+*Atair, [http://d2wissen.d2chars.de/items/110/eig_angriffseffekte-x.html#erstarren Gegner erstarren lassen] (D2Wissen.de)
+
+
+[[Category:Attack]]
+[[Category:Modifiers]]
+[[Category:Movement modifiers]]
+[[Category:Attack modifiers]]

@@ -1,0 +1,1381 @@
+{{Damage nav}}
+{{Intro}}
+[[File:Poison Damage.gif|right|frame|Poison damage overlay]]
+{{Mb|=Poison Damage}} normally causes a target to turn green when poisoned, a state which stops [[damage regeneration]] and can apply poison damage over the state's length. However, if cold length or [[Holy Freeze]] are also applied then the target remains or turns blue.
+*Damage of multiple types can be applied by the same attack, but only one damage overlay is displayed at a time: this means that poison damage can still be applied even if the only overlay displayed is for fire, lightning or cold damage.
+*It is not added to [[Smite]] or [[Lightning Bolt]].
+*While damage is displayed in points and length in seconds, both are calculated and applied using more precise units of measurement: each point is divided into 1/256ths, while each second is divided into 25 frames. [http://web.archive.org/web/20080125084439/http://www.diabloii.net/strategy/x-articles/taopoison.shtml#Terminology]
+*Targets are poisoned if as little as 1/256 poison damage is applied per frame.
+*Poison damage is displayed as the total damage applied over its length, but it's calculated by applying its 1/256 damage rate for a specified number of frames: a {{Mb|=Toxic [[Small Charm]]}} applies poison damage at a rate of 205/256 for 125 frames, which is displayed as 100 Poison Damage Over 5 Seconds (125 * 205/256 over 125/25).
+*Poison damage from multiple attacks doesn't sum: if a target is already poisoned, then the rate and length of that poison will be overwritten by that of any subsequent attack which has an equal or greater rate. Rates are compared after all modifiers have been applied. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/92845-clarifications-on-110-poison-needed/]
+*When player, [[mercenary]] or [[pet]] applies poison to a poisoned monster, their poison is applied for one frame '''instead of''' the current poison: if their poison has an equal or greater rate, it then overwrites the current poison and it gets applied for its length; if their poison has a lower rate, the current poison then continues for its remaining length. Rates are compared after all modifiers have been applied. More generally, poison damage does not get applied in frames in which ''any'' damage from other sources is applied (although poison and [[Open Wounds]] both apply simultaneously). [https://planetdiablo.eu/forum/threads/schadensunterbrechung-giftnova-und-anderer-schaden.1639530/] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/101657-diablo-ii-basin-wiki/&do=findComment&comment=1502225]
+**{{Warn|=In online modes (LoD and D2R, Expansion and Classic, LD and NLD) any damage from other source stops poison damage for additional 7 frames after taking damage. Builds relying on poison damage should refrain from utilizing other damage sources, such as [[Raise Skeleton]]. This mechanic is also applied to [[damage regeneration]].}}[https://www.reddit.com/r/diablo2/comments/1dzb3jq]
+*When using [[Whirlwind]] while equipping [[two weapons]] with the same [[attack rate]] against a single target (which can result in poison damage being applied by both attacks in the same frame), each attack applies one frame of its poison damage, then the highest rate is applied for its remaining length. When equal rates are applied, the length of the last is applied (whichever is the secondary weapon for that attack check). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122086-kkkkaaaaoooozzzz/&do=findComment&comment=1516344]
+*When monsters apply poison to a player, mercenary or pet, their poison is applied for one frame '''as well as''' the current poison: if their poison has an equal or greater rate, it then overwrites the current poison and it gets applied for its length; if their poison has a lower rate, the current poison then continues for its remaining length. [[Rabies]] and [[Poison Creeper]] can also apply additional frames of poison damage when applied to more than one monster.
+*Poison damage can kill monsters, mercenaries and pets but will only reduce players to 1 life (although poison damage from a subsequent attack would kill them if they remained on 1 life). [http://web.archive.org/web/20080125084439/http://www.diabloii.net/strategy/x-articles/taopoison2.shtml#Poison%20Control]
+|}
+
+
+==Item==
+If a single [[item]] has both a [[affix|prefix]] and a suffix applying poison damage, then the rates and lengths of both are simply added. [http://web.archive.org/web/20080125084439/http://www.diabloii.net/strategy/x-articles/taopoison2.shtml#Poison%20Items]
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!width=25% rowspan=2 align=left|Source
+!colspan=3|Poison Damage
+!colspan=2|Frame Rate (1/256)
+!width=10% rowspan=2|Frames
+|-align=center
+!width=13%|Min
+!width=13%|Max
+!width=13%|Seconds
+!width=13%|Min
+!width=13%|Max
+|-
+!align=left|{{M|=Toxic [[Small Charm]]}}
+|100||100||5
+|205||205||125
+|-
+!align=left|{{M|=Small Charm of Anthrax}}
+|50||50||6
+|86||86||150
+|-
+!align=left|{{M|=Toxic Small Charm of Anthrax}}
+|313||313||11
+|291||291||275
+|}
+
+
+Displayed damage is rounded to the nearest point, although it should always be rounded down. When multiple items applying poison damage are equipped, then the rates are added and the lengths are averaged. [http://web.archive.org/web/20080125084439/http://www.diabloii.net/strategy/x-articles/taopoison.shtml#Effective%20Poison%20with%20Melee%20Weapons]
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!width=25% rowspan=2 align=left|Source
+!colspan=3|Poison Damage
+!colspan=2|Frame Rate (1/256)
+!width=10% rowspan=2|Frames
+|-align=center
+!width=13%|Min
+!width=13%|Max
+!width=13%|Seconds
+!width=13%|Min
+!width=13%|Max
+|-
+!align=left|{{M|=Toxic Small Charm of Anthrax}}
+|313||313||11
+|291||291||275
+|-
+!align=left|[[Blackbog's Sharp|{{U|=Blackbog's Sharp Cinquedeas}}]]
+|488||488||10
+|500||500||250
+|-
+!align=left|[[Perfect Emerald]]
+|100||100||7.16
+|143||143||179
+|-
+!align=left colspan=4|Total
+!align=right|934
+!align=right|934
+!align=right|704
+|}
+
+
+*853 <sub>188/256</sub> (234 * 934/256) poison damage over 9.36 ( [704/3] /25) seconds is applied (values are rounded down to the nearest 1/256 and frame). [[Gem]]s, [[jewel]]s and [[rune]]s all count as separate items, even if they're socketed in a single item. [http://web.archive.org/web/20080125084439/http://www.diabloii.net/strategy/x-articles/taopoison.shtml#Effective%20Poison%20with%20Melee%20Weapons]
+*{{Warn|=Length is calculated differently when multiple items applying poison damage are used with skills that apply less than 100% weapon damage.
+**Poison length = [sum of lengths / (sources - 1) ]
+***[[Multiple Shot]]
+***[[Strafe]]
+***[[Blade Sentinel]] using one-handed weapon
+***[[Blade Fury]] using one-handed weapon
+**Poison length = sum of lengths
+***Blade Sentinel using two-handed weapon
+***Blade Fury using two-handed weapon}} [https://planetdiablo.eu/forum/threads/giftdauer-bei-srcdam-128-missiles.1743741/#post-26832117] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/&do=findComment&comment=1419316] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/114387-blade-skill-modifiers-guide/&do=findComment&comment=1574496]
+<br>
+
+===Charm===
+
+====Small Charm====
+{{Poison affix}}
+|-
+|15||15||3
+|52||52||75
+!align=left|{{M|=Septic Small Charm}}
+|13||18
+|-
+|50||50||4
+|128||128||100
+!align=left|{{M|=Foul Small Charm}}
+|31||39
+|-
+|100||100||5
+|205||205||125
+!align=left|{{M|=Toxic Small Charm}}
+|55||63
+|-
+|175||175||6
+|299||299||150
+!align=left|{{M|=Pestilent Small Charm}}
+|80||88
+|-
+|6||6||3
+|21||21||75
+!align=left|{{M|=Small Charm of Blight}}
+|6||9
+|-
+|15||15||4
+|39||39||100
+!align=left|{{M|=Small Charm of Venom}}
+|15||20
+|-
+|25||25||5
+|52||52||125
+!align=left|{{M|=Small Charm of Pestilence}}
+|24||32
+|-
+|50||50||6
+|86||86||150
+!align=left|{{M|=Small Charm of Anthrax}}
+|36||44
+|}
+<br>
+
+====Large Charm====
+{{Poison affix}}
+|-
+|10||10||3
+|35||35||75
+!align=left|{{M|=Septic Large Charm}}
+|6||9
+|-
+|30||30||4
+|77||77||100
+!align=left|{{M|=Foul Large Charm}}
+|19||26
+|-
+|90||90||5
+|185||185||125
+!align=left|{{M|=Toxic Large Charm}}
+|38||46
+|-
+|175||175||6
+|299||299||150
+!align=left|{{M|=Pestilent Large Charm}}
+|58||66
+|-
+|6||6||3
+|21||21||75
+!align=left|{{M|=Large Charm of Blight}}
+|3||5
+|-
+|15||15||4
+|39||39||100
+!align=left|{{M|=Large Charm of Venom}}
+|9||13
+|-
+|25||25||5
+|52||52||125
+!align=left|{{M|=Large Charm of Pestilence}}
+|17||23
+|-
+|50||50||6
+|86||86||150
+!align=left|{{M|=Large Charm of Anthrax}}
+|25||33
+|}
+<br>
+
+====Grand Charm====
+{{Poison affix}}
+|-
+|5||5||3
+|18||18||75
+!align=left|{{M|=Septic Grand Charm}}
+|1||1
+|-
+|15||15||4
+|39||39||100
+!align=left|{{M|=Foul Grand Charm}}
+|9||12
+|-
+|50||50||5
+|103||103||125
+!align=left|{{M|=Toxic Grand Charm}}
+|20||27
+|-
+|100||100||6
+|171||171||150
+!align=left|{{M|=Pestilent Grand Charm}}
+|34||42
+|-
+|6||6||3
+|21||21||75
+!align=left|{{M|=Grand Charm of Blight}}
+|1||1
+|-
+|15||15||4
+|39||39||100
+!align=left|{{M|=Grand Charm of Venom}}
+|4||6
+|-
+|25||25||5
+|52||52||125
+!align=left|{{M|=Grand Charm of Pestilence}}
+|10||14
+|-
+|50||50||6
+|86||86||150
+!align=left|{{M|=Grand Charm of Anthrax}}
+|15||21
+|}
+<br>
+
+===Any socket===
+{{Poison affix}}
+|-
+|20||20||2
+|103||103||50
+!align=left|{{R|=Jewel of Envy}}
+|1||1
+|}
+
+
+{{Poison}}
+|-
+|37||37||2
+|187||187||50
+!align=left|[[Rainbow Facet|{{U|=Rainbow Facet Jewel}}]]
+|49
+|No
+|-
+|95||95||1
+|975||975||25
+|align=left| [[Defender's Bile|{{Ub|=Defender's Bile Colossal Jewel}}]] {{RotW-inline}}
+|75
+|No
+|}
+<br>
+
+===Helm===
+{{Poison}}
+|-
+|80||80||8
+|102||102||200
+!align=left|[[Wormskull|{{U|=Wormskull Bone Helm}}]]
+|21
+|No
+|}
+<br>
+
+====Circlet====
+{{Poison affix}}
+|-
+|6||6||2
+|31||31||50
+!align=left|{{R|=Septic Circlet}}
+|1||1
+|-
+|7||7||3
+|24||24||75
+!align=left|{{R|=Circlet of Blight}}
+|3||5
+|-
+|21||21||4
+|54||54||100
+!align=left|{{R|=Circlet of Venom}}
+|11||15
+|-
+|50||50||5
+|103||103||125
+!align=left|{{R|=Circlet of Pestilence}}
+|18||25
+|}
+<br>
+
+===Amulet===
+{{Poison affix}}
+|-
+|50||50||3
+|171||171||75
+!align=left|{{R|=Amulet of Blight}}
+|33||45
+|}
+
+
+{{Poison}}
+|-
+|40||40||4
+|102||102||100
+!align=left|[[Unique amulet#Atma's Scarab|{{U|=Atma's Scarab Amulet}}]]
+|60
+|No
+|}
+<br>
+
+===Body armor===
+{{Poison}}
+|-
+|24||34||2
+|125||175||50
+!align=left|[[Dark Adherent|{{S|=Dark Adherent Dusk Shroud}}]]
+|49
+|No
+|}
+<br>
+
+===Weapon===
+{{Poison}}
+|-
+|10||10||3
+|34||34||75
+|align=left|[[Chipped Emerald]] in socket
+|1
+|No
+|-
+|20||20||4
+|51||51||100
+|align=left|[[Flawed Emerald]] in socket
+|5
+|No
+|-
+|40||40||5
+|82||82||125
+|align=left|[[Emerald]] in socket
+|12
+|No
+|-
+|60||60||6.08
+|101||101||152
+|align=left|[[Flawless Emerald]] in socket
+|15
+|No
+|-
+|100||100||7.16
+|143||143||179
+|align=left|[[Perfect Emerald]] in socket
+|18||No
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Tal Rune|{{Cb|=Tal Rune}}]] in socket
+|17||No
+|-
+|273||273||6
+|466||466||150
+|align=left rowspan=2|[[Venom (Rune Word)|{{Ub|=Venom}}]] weapon
+|49||No
+|}
+
+
+{{Poison affix}}
+|-
+|6||6||2
+|31||31||50
+!align=left|{{R|=Septic Weapon}}
+|1||1
+|-
+|12||12||3
+|41||41||75
+!align=left|{{R|=Foul Weapon}}
+|7||10
+|-
+|80||80||4
+|205||205||100
+!align=left|{{R|=Corrosive Weapon}}
+|15||20
+|-
+|150||150||5
+|308||308||125
+!align=left|{{R|=Toxic Weapon}}
+|26||35
+|-
+|275||275||6
+|470||470||150
+!align=left|{{M|=Pestilent Weapon}}
+|37||50
+|-
+|2||2||2
+|8||8||50
+!align=left|{{R|=Weapon of Blight}} <sup>1</sup>
+|1||1-4
+|-
+|7||7||3
+|24||24||75
+!align=left|{{R|=Weapon of Blight}} <sup>2</sup>
+|3||5
+|-
+|21||21||4
+|54||54||100
+!align=left|{{R|=Weapon of Venom}} <sup>2</sup>
+|11||15
+|-
+|50||50||5
+|103||103||125
+!align=left|{{R|=Weapon of Pestilence}} <sup>2</sup>
+|18||25
+|-
+|100||100||6
+|171||171||150
+!align=left|{{R|=Weapon of Anthrax}} <sup>2</sup>
+|25||33
+|}
+<span style=font-size:90%><sup>1</sup> Excluding [[scepter]]s, [[staff|staves]] and [[orb]]s<br>
+<sup>2</sup> Excluding [[Item type#Melee|rods]] (scepters, staves and [[wand]]s) and orbs</span>
+<br>
+<br>
+====Missile weapon====
+{{Poison}}
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Edge|{{Ub|=Edge}}]] missile weapon
+|25
+!{{Warn|=Yes}} (LoD only)
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Insight|{{Ub|=Insight}}]] missile weapon {{D2R-inline}}
+|27
+|No (D2R only)
+|}
+<br>
+
+=====Crossbow=====
+{{Poison}}
+|-
+|30||30||3
+|102||102||75
+!align=left|[[Ichorsting|{{U|=Ichorsting Crossbow}}]]
+|18
+|No
+|-
+|150||150||8
+|192||192||200
+!align=left|[[Pus Spitter|{{U|=Pus Spitter Siege Crossbow}}]]
+|36
+|No
+|}
+<br>
+
+====Axe====
+{{Poison}}
+|-
+|38||38||3
+|128||128||75
+!align=left|[[Rakescar|{{U|=Rakescar War Axe}}]]
+|27||No
+|-
+|250||250||10
+|256||256||250
+!align=left|[[Guardian Naga|{{U|=Guardian Naga Naga}}]]
+|48||No
+|}
+<br>
+
+====Claw====
+{{Poison}}
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Pattern|{{Ub|=Pattern}}]] claw {{D2R-inline}}
+|23||No (D2R only)
+|}
+<br>
+
+====Dagger====
+{{Poison}}
+|-
+|180||180||4
+|460||460||100
+!align=left|[[The Jade Tan Do|{{U|=The Jade Tan Do Kris}}]]
+|19||No
+|-
+|488||488||10
+|500||500||250
+!align=left|[[Blackbog's Sharp|{{U|=Blackbog's Sharp Cinquedeas}}]]
+|38||No
+|}
+<br>
+
+====Hammer====
+{{Poison}}
+|-
+|204||204||6
+|349||349||150
+|align=left|[[Immortal King's Stone Crusher|{{Sb|=Immortal King's Stone Crusher Ogre Maul}}]] (5 items)
+|76
+|No
+|}
+<br>
+
+====Javelin====
+{{Poison}}
+|-
+|293||293||10
+|300||300||250
+!align=left|[[Gargoyle's Bite|{{U|=Gargoyle's Bite Winged Harpoon}}]]
+|70
+|No
+|}
+<br>
+
+====Polearm====
+{{Poison}}
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Insight|{{Ub|=Insight}}]] polearm
+|27
+!{{Warn|=Yes}} (LoD only)
+|}
+<br>
+
+====Scepter====
+{{Poison}}
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Holy Thunder|{{Ub|=Holy Thunder}}]] scepter
+|21||No
+|-
+|160||160||4
+|409||409||100
+!align=left|[[The Fetid Sprinkler|{{U|=The Fetid Sprinkler Holy Water Sprinkler}}]]
+|38||No
+|}
+<br>
+
+====Spear====
+{{Poison}}
+|-
+|325||325||10
+|333||333||250
+!align=left|[[Viperfork|{{U|=Viperfork Mancatcher}}]]
+|71||No
+|-
+|394||394||10
+|403||403||250
+!align=left|[[Arioc's Needle|{{U|=Arioc's Needle Hyperion Spear}}]]
+|81||No
+|}
+<br>
+
+====Staff====
+{{Poison}}
+|-
+|12||12||3
+|40||40||75
+!align=left|[[Serpent Lord|{{U|=Serpent Lord Long Staff}}]]
+|9||No
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Insight|{{Ub|=Insight}}]] staff
+|27
+!{{Warn|=Yes}} (LoD only)
+|}
+<br>
+
+====Sword====
+{{Poison}}
+|-
+|28||56||6
+|48||96||150
+!align=left|[[Hellplague|{{U|=Hellplague Long Sword}}]]
+|22||No
+|-
+|75||75||5
+|154||154||125
+|align=left|[[Spirit|{{Ub|=Spirit}}]] sword
+|25
+!{{Warn|=Yes}} (LoD only)
+|-
+|113||113||6
+|192||192||150
+!align=left|[[Blacktongue|{{U|=Blacktongue Bastard Sword}}]]
+|26||No
+|-
+|50||50||2
+|255||255||50
+!align=left|[[Bul-Kathos' Tribal Guardian|{{S|=Bul-Kathos' Tribal Guardian Mythical Sword}}]]
+|66||No
+|-
+|300||300||8
+|384||384||200
+!align=left|[[Plague Bearer|{{U|=Plague Bearer Rune Sword}}]]
+|41||No
+|-
+|250||250||6
+|426||426||150
+!align=left|[[The Vile Husk|{{U|=The Vile Husk Tusk Sword}}]]
+|44||No
+|}
+<br>
+
+===Shield===
+{{Poison}}
+|-
+|80||80||4
+|204||204||100
+!align=left|[[Radament's Sphere|{{U|=Radament's Sphere Ancient Shield}}]]
+|50||No
+|}
+<br>
+
+====Shrunken head====
+{{Poison affix}}
+|-
+|2||7||3
+|8||24||75
+!align=left|Shrunken head
+| -||1
+|-
+|5||14||3
+|16||48||75
+!align=left|Shrunken head
+| -||15
+|-
+|13||28||4
+|32||72||100
+!align=left|Shrunken head
+| -||25
+|-
+|25||50||4
+|64||128||100
+!align=left|{{M|=Shrunken head}}
+| -||33
+|}
+
+
+*One of the above always spawns on any [[shrunken head]] which isn't [[Unique (item)|Unique]] or [[Set]] quality. 
+*Required Level (Rlvl) only applies when a shrunken head is magic or rare quality. 
+<br>
+
+===Ring===
+{{Poison affix}}
+|-
+|50||50||3
+|171||171||75
+!align=left|{{R|=Ring of Blight}}
+|33||45
+|}
+<br>
+
+===Belt===
+{{Poison}}
+|-
+|12||12||3
+|40||40||75
+!align=left|[[Snakecord|{{U|=Snakecord Light Belt}}]]
+|12||No
+|}
+<br>
+
+===Gloves===
+{{Poison}}
+|-
+|9||11||3
+|30||36||75
+!align=left|[[Sander's Taboo|{{S|=Sander's Taboo Heavy Gloves}}]]
+|28||No
+|-
+|60||60||4
+|153||153||100
+!align=left|[[Venom Grip|{{U|=Venom Grip Demonhide Gloves}}]]
+|29||No
+|}
+<br>
+
+===Set bonus===
+{{Poison}}
+|-
+|5||9||3
+|16||32||75
+|align=left|[[Berserker's Arsenal|{{Ub|=Berserker's Arsenal}}]] (Full)
+|3||No
+|-
+|8||8||3
+|25||25||80
+|align=left|[[Infernal Tools|{{Ub|=Infernal Tools}}]] (2 items)
+|5||No
+|-
+|22||22||3
+|75||75||75
+|align=left|[[The Disciple|{{Ub|=The Disciple}}]] (3 items)
+|49||No
+|}
+<br>
+
+==Skill==
+*[[Skill]] level is set when the player uses the skill: adding or removing [[skill bonus]]es won't have any effect on rate or length if there's a delay between using the skill and applying poison damage.
+*While skills are normally treated as separate sources of poison damage whose rates (and accompanying lengths) compete with those of other skills and [[item]]s, [[Poison Dagger]] and the [[javelin]]s (but not the clouds) of [[Poison Javelin]] and [[Plague Javelin]] combine skill damage rate with any item rates added to [[attack]] [[damage]]; the length for which this combined rate is applied is calculated by summing skill and item lengths, and dividing by the number of items. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/92845-clarifications-on-110-poison-needed/&do=findComment&comment=1144804]
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!width=25% rowspan=2 align=left|Source
+!colspan=3|Poison Damage
+!colspan=2|Frame Rate (1/256)
+!width=10% rowspan=2|Frames
+|-align=center
+!width=13%|Min
+!width=13%|Max
+!width=13%|Seconds
+!width=13%|Min
+!width=13%|Max
+|-
+!align=left|{{M|=Toxic [[Small Charm]] of Anthrax}}
+|313||313||11
+|291||291||275
+|-
+!align=left|[[Blackbog's Sharp|{{U|=Blackbog's Sharp Cinquedeas}}]]
+|488||488||10
+|500||500||250
+|-
+!align=left|[[Perfect Emerald]]
+|100||100||7.16
+|143||143||179
+|-
+!align=left|Level 30 [[Poison Dagger]]
+|12,383||12,909||13.6
+|9324||9720||340
+|-align=right
+!align=left colspan=4|Total
+!align=right|10258
+!align=right|10654
+!align=right|1044
+|}
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|width=33%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Min poison{{0|0}}
+|= 348 * 10258/256
+|-
+|= 13,944
+|}
+|width=34%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Max poison{{0|0}}
+|= 348 * 10654/256
+|-
+|= 14,482
+|}
+|width=33%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Seconds{{0|0}}
+|= [1,044/3] /25
+|-
+|= 13.92
+|}
+|}
+
+
+*If the only item used were {{Ub|=Blackbog's Sharp Cinquedeas}}, 9824-10220 rate for 590 ((250+340)/1) frames would apply 22,641-23,553 poison damage over 23.6 (590/25) seconds. Although the rate is lower with only one item, the length can be significantly longer and results in far more damage from a single stab.
+*{{Warn|=Character screen does not display total poison damage correctly when skill and item rates combine: it simply adds total poison damage from items to skill damage.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122723-poison-dagger-and-the-character-screen/&do=findComment&comment=1526667]
+<br>
+
+===Amazon===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Poison Javelin]] <sup>1 2</sup>
+!width=5% align=center|Min
+|16*slvl + 16||32*slvl - 112||48*slvl - 368||64*slvl - 720||{{Warn|=96}}*slvl - 1616
+|rowspan=4|6
+|-
+!align=center|Max
+|16*slvl + 32||36*slvl - 128||52*slvl - 384||68*slvl - 736||{{Warn|=84}}*slvl - 1184
+|-
+!align=center|+%
+|colspan=5 align=center|12*Plague Javelin.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|(50*slvl + 150) /25
+|-valign=top
+!align=left rowspan=4 width=20%|[[Plague Javelin]] <sup>2</sup>
+!align=center|Min
+|48*slvl + 32||96*slvl - 352||160*slvl - 1376||320*slvl - 4896||480*slvl - 9376
+|rowspan=4|18
+|-
+!align=center|Max
+|48*slvl + 80||96*slvl - 304||160*slvl - 1328||320*slvl - 4848||480*slvl - 9328
+|-
+!align=center|+%
+|colspan=5 align=center|10*Poison Javelin.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|(10*slvl + 65) /25
+|}
+<span style=font-size:90%><sup>1</sup> {{Warn|=Level > 36 Poison Javelin displays higher minimum than maximum damage because the minimum rate added per level for level > 28 is higher than the maximum rate added. When this occurs, the minimum damage effectively becomes the maximum and the maximum damage becomes the minimum.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/115688-poison-and-plague-javelins/]<br>
+<sup>2</sup> Javelins apply combined rates of [[skill]] and [[attack]] poison damage from [[item]]s and [[Venom (skill)|Venom]], over their combined lengths divided by the number of items (combined skill length only when Venom is cast). {{Warn|=Character screen simply adds total attack poison damage to skill damage.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122723-poison-dagger-and-the-character-screen/&do=findComment&comment=1526667]</span>
+<br>
+<br>
+===Assassin===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=3 width=20%|[[Venom (skill)|Venom]]
+!width=5% align=center|Min
+|384*slvl + 1152||512*slvl + 128||640*slvl - 1920||768*slvl - 4736||896*slvl - 8320
+|rowspan=3|30
+|-
+!align=center|Max
+|384*slvl + 1664||512*slvl + 640||640*slvl - 1408||768*slvl - 4224||896*slvl - 7808
+|-
+!align=center|Sec
+|colspan=5 align=center|0.4 (10/25)
+|}
+
+
+Venom's damage rate is added to those from [[item]]s added to [[attack]]s for its 4*slvl + 116 second duration. However, its 10 frame length overrides those of any items.
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!width=25% rowspan=2 align=left|Source
+!colspan=3|Poison Damage
+!colspan=2|Frame Rate (1/256)
+!width=10% rowspan=2|Frames
+|-align=center
+!width=13%|Min
+!width=13%|Max
+!width=13%|Seconds
+!width=13%|Min
+!width=13%|Max
+|-
+!align=left|{{M|=Toxic [[Small Charm]] of Anthrax}}
+|313||313||11
+|291||291||<font color=silver>275
+|-
+!align=left|[[Blackbog's Sharp|{{U|=Blackbog's Sharp Cinquedeas}}]]
+|488||488||10
+|500||500||<font color=silver>250
+|-
+!align=left|[[Perfect Emerald]]
+|100||100||7.16
+|143||143||<font color=silver>179
+|-
+!align=left|Level 15 Venom
+|305||325||0.4
+|7808||8320||10
+|-
+!align=left colspan=4|Total
+!align=right|8742
+!align=right|9254
+!align=right|10
+|}
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|width=33%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Min poison{{0|0}}
+|= 10 * 8742/256
+|-
+|= 341
+|}
+|width=34%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Max poison{{0|0}}
+|= 10 * 9254/256
+|-
+|= 361
+|}
+|width=33%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Seconds{{0|0}}
+|= 10/25
+|-
+|= 0.4
+|}
+|}
+
+
+Venom's length does '''not''' override those of the skills [[Poison Dagger]], [[Poison Javelin]] and [[Plague Javelin]]. Casting Venom can thus significantly increase the rate applied by these skills while not reducing length. Since Venom effectively creates a '''single''' source which sums the rates of Venom and items but which only applies for Venom's length, the length is the sum of the skill length and that of Venom. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/92845-clarifications-on-110-poison-needed/&do=findComment&comment=1144804]
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!width=25% rowspan=2 align=left|Source
+!colspan=3|Poison Damage
+!colspan=2|Frame Rate (1/256)
+!width=10% rowspan=2|Frames
+|-align=center
+!width=13%|Min
+!width=13%|Max
+!width=13%|Seconds
+!width=13%|Min
+!width=13%|Max
+|-
+!align=left|{{M|=Toxic Small Charm of Anthrax}}
+|313||313||11
+|291||291||<font color=silver>275
+|-
+!align=left|{{U|=Blackbog's Sharp Cinquedeas}}
+|488||488||10
+|500||500||<font color=silver>250
+|-
+!align=left|Perfect Emerald
+|100||100||7.16
+|143||143||<font color=silver>179
+|-
+!align=left|Level 30 Poison Dagger
+|12,383||12,909||13.6
+|9324||9720||340
+|-
+!align=left|Level 15 Venom
+|305||325||0.4
+|7808||8320||10
+|-
+!align=left colspan=4|Total
+!align=right|18066
+!align=right|18974
+!align=right|350
+|}
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|width=33%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Min poison{{0|0}}
+|= 350 * 18066/256
+|-
+|= 24,699
+|}
+|width=34%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!rowspan=2|Max poison{{0|0}}
+|= 350 * 18974/256
+|-
+|= 25,941
+|}
+|width=33%|
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-valign=top
+!width=72 rowspan=2|Seconds
+|= 350/25
+|-
+|= 14
+|}
+|}
+
+
+{{Warn|=Character screen does not display total poison damage correctly when skill, item and Venom rates combine: it correctly calculates total poison damage from items and Venom, but then simply adds this to skill damage.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122723-poison-dagger-and-the-character-screen/&do=findComment&comment=1526667]
+<br>
+<br>
+===Druid===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Rabies]]
+!width=5% align=center|Min
+|32*slvl + 16||40*slvl - 48||56*slvl - 304||88*slvl - 1008||128*slvl - 2128
+|rowspan=4|18
+|-
+!align=center|Max
+|32*slvl + 80||40*slvl + 16||56*slvl - 240||88*slvl - 944||128*slvl - 2064
+|-
+!align=center|+%
+|colspan=5 align=center|18*[[Poison Creeper]].blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|(10*slvl + 90) /25
+|}
+<br>
+
+===Necromancer===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Poison Dagger]] <sup>1</sup>
+!width=5% align=center|Min
+|20*slvl + 16||30*slvl - 64||40*slvl - 224||46*slvl - 356||52*slvl - 524
+|rowspan=4|6
+|-
+!align=center|Max
+|20*slvl + 60||30*slvl - 20||40*slvl - 180||46*slvl - 312||52*slvl - 480
+|-
+!align=center|+%
+|colspan=5 align=center|20 * Poison Explosion.blvl+Poison Nova.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|(10*slvl + 40) /25
+|-valign=top
+!align=left rowspan=4 width=20%|[[Poison Explosion]]
+!align=center|Min
+|32*slvl + 96||64*slvl - 160||96*slvl - 672||128*slvl - 1376||160*slvl - 2272
+|rowspan=4|18
+|-
+!align=center|Max
+|32*slvl + 352||64*slvl + 96||96*slvl - 416||128*slvl - 1120||160*slvl - 2016
+|-
+!align=center|+%
+|colspan=5 align=center|15 * Poison Dagger.blvl+Poison Nova.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|(10*slvl + 40) /25
+|-valign=top
+!align=left rowspan=4 width=20%|[[Poison Nova]]
+!align=center|Min
+|64*slvl + 192||96*slvl - 64||144*slvl - 832||224*slvl - 2592||256*slvl - 3488
+|rowspan=4|30
+|-
+!align=center|Max
+|64*slvl + 400||96*slvl + 144||144*slvl - 624||224*slvl - 2384||256*slvl - 3280
+|-
+!align=center|+%
+|colspan=5 align=center|10 * Poison Dagger.blvl+Poison Explosion.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|2 (50/25)
+|}
+<span style=font-size:90%><sup>1</sup> Poison Dagger applies combined rates of [[skill]] and [[attack]] poison damage from [[item]]s and [[Venom (skill)|Venom]], over their combined lengths divided by the number of items (combined skill length only when Venom is cast). {{Warn|=Character screen simply adds total attack poison damage to skill damage.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122723-poison-dagger-and-the-character-screen/&do=findComment&comment=1526667]</span>
+<br>
+<br>
+==Pet==
+
+===Druid===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Pet]]
+!colspan=5|[[Skill]] level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=3 width=20%|[[Poison Creeper]]
+!width=5% align=center|Min
+|7*slvl + 5||12*slvl - 35||15*slvl - 83||17*slvl - 127||19*slvl - 183
+|rowspan=3|1
+|-
+!align=center|Max
+|7*slvl + 9||12*slvl - 31||15*slvl - 79||17*slvl - 123||19*slvl - 179
+|-
+!align=center|Sec
+|colspan=5 align=center|4 (100/25)
+|}
+<br>
+
+===Necromancer===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Pet]]
+!colspan=5|[[Missile]] level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Raise Skeletal Mage|Necromage]]
+!width=5% align=center|Min
+|lvl+5||2*lvl - 3||4*lvl - 35||6*lvl - 79||8*lvl - 135
+|rowspan=4|12
+|-
+!align=center|Max
+|lvl+5||2*lvl - 3||4*lvl - 35||6*lvl - 79||8*lvl - 135
+|-
+!align=center|Sec
+|colspan=5 align=center|(250*lvl + 250) /25
+|-
+!align=center|Lvl
+|colspan=5 align=center|if(slvl < 4 , 0 , [slvl-2 /2] ) + [[Skeleton Mastery]].slvl
+|}
+<br>
+
+==Monster==
+{{Number table}} width=100%
+|-align=center
+!colspan=2 align=left|[[Monster]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-valign=top
+!align=left rowspan=3|[[Poison Enchanted]] {{U|=monster}}
+!width=5% align=center|Min
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*0.66] * (mlvl*10 + 300) /256
+|[MonLvl*0.66] * (mlvl*10 + 300) /256
+|[MonLvl*0.66] * (mlvl*10 + 300) /256
+|-
+!align=center|Max
+|MonLvl * (mlvl*10 + 300) /256
+|MonLvl * (mlvl*10 + 300) /256
+|MonLvl * (mlvl*10 + 300) /256
+|-
+!align=center|Sec
+|(mlvl*0.4 + 12) /25
+|(mlvl*0.4 + 12) /25
+|(mlvl*0.4 + 12) /25
+|-valign=top
+!align=left rowspan=3|Poison Enchanted minion
+!align=center|Min
+|{{E}}
+|[MonLvl*0.33] * (mlvl*10 + 300) /256
+|[MonLvl*0.33] * (mlvl*10 + 300) /256
+|-
+!align=center|Max
+|{{E}}
+|[MonLvl*0.66] * (mlvl*10 + 300) /256
+|[MonLvl*0.66] * (mlvl*10 + 300) /256
+|-
+!align=center|Sec
+|{{E}}
+|(mlvl*0.4 + 12) /25
+|(mlvl*0.4 + 12) /25
+|-valign=top
+!align=left rowspan=3|[[Spectral Hit]] [[Unique (monster)|{{U|=Unique}}]]
+!align=center|Min
+|[MonLvl*0.66] * 40/256
+|[MonLvl*0.66] * 40/256
+|[MonLvl*0.66] * 40/256
+|-
+!align=center|Max
+|MonLvl * 40/256
+|MonLvl * 40/256
+|MonLvl * 40/256
+|-
+!align=center|Sec
+|1.6 (40/25)
+|1.6 (40/25)
+|1.6 (40/25)
+|}
+[https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1498403]
+
+
+Poison Enchanted monster can also fire invisible [[missile]]s:
+
+
+{{Stat}}
+|-
+!align=left|Minimum Poison Damage
+|6*mlvl * 800/256
+|-
+!align=left|Maximum Poison Damage
+|(6*mlvl + 10) * 800/256
+|-
+!align=left|Length (Seconds)
+|32 (800/25)
+|}
+[https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1498403]
+
+
+Poison damage and length is added to [[attack]] damage of some monsters, while others can fire [[missile]]s or use [[skill]]s applying it. Monster poison attack damage and length is calculated as follows:
+
+
+{{Stat}}
+|-
+!align=left|Frame Rate (1/256)
+| [ [MonLvl * ElD/100] * (15 + # players) /16] * 10
+|-
+!align=left|Frames
+| [ElDur * (15 + # players) /16] * 2
+|}
+
+
+ElD and ElDur are the entries in the relevant ElMin/MaxD and ElDur columns of MonStats.txt respectively. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/117649-poison-damage/&do=findComment&comment=1489128]
+<br>
+<br>
+==Calculation==
+;Download
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/117649-poison-damage/&do=findComment&comment=1461575 Poison damage calculator.xls] (onderduiker) <small>Updated 24 November 2012</small>
+
+
+;Online
+*[https://planetdiablo.eu/diablo2/calcs/skills/110/index.php?lang=en PlanetDiablo.eu Diablo 2 Skill-Calculator] (PlanetDiablo.eu) <small>[[Skill]]s only</small>
+*[http://www.d2chars.de/calcs/poisoncalc.php Gift Kalkulator] (D2Chars.de) <small>[[Poison Dagger]], [[Poison Explosion]] and [[Poison Nova]] with [[item]]s, +% [[Poison Skill Damage|PSD]], [[Lower Resist|LR]], -% [[Enemy Poison Resistance|EPR]] and [[Poison Resist|PR]] %</small>
+*[http://tph.tuwien.ac.at/~gottwald/skillcalc.html Skill Calculator] (Dieter Gottwald) <small>Poison Dagger, Poison Explosion and Poison Nova with +% PSD and PR %</small>
+*[http://d2wissen.d2chars.de/calc/110/giftschaden-x.html Kalkulatoren: Gift-Schaden] (D2Wissen.de) <small>Items with [[Venom (skill)|Venom]], Poison Dagger, [[Poison Javelin]] or [[Plague Javelin]] and +% PSD</small>
+
+
+Below is a summary of all the steps in the calculation of poison damage. To express total damage in points applied over a length in seconds:
+
+
+{|cellpadding=0 cellspacing=0 style=text-align:left
+|-
+!width=72 align=left|Points
+!width=360 align=left|= [ Rate * Frames /256 ]
+!width=72 align=left|Seconds
+!align=left|= Frames /25
+|-
+|{{0|0}}
+|-
+!align=left|Rate
+!align=left|= [ ( [ [B * S] * M] + [ (I + [V * M] ) * M] ) * R]
+!align=left|Frames
+!align=left|= [F * R]
+|-
+|{{0|0}}
+|-valign=top
+|colspan=2|
+{|cellpadding=0 cellspacing=0 style="text-align:left; font-size:90%"
+!width=72 align=left|[ ]
+|colspan=4|Round down
+|-
+!align=left|B
+|colspan=4|Skill rate
+|-
+!align=left|I
+|colspan=4|Item rates
+|-
+!align=left|V
+|colspan=4|Venom rate
+|-
+!align=left|M
+|width=216 colspan=2|+X% Poison Skill Damage
+|M = (100+X) /100
+|-
+!align=left|S
+|colspan=2|+X% poison damage synergy
+|S = (100+X) /100
+|-valign=top
+!rowspan=9 align=left|R
+| colspan=2|Resist
+|R = (100-X) /100
+|-valign=top
+|width=48 rowspan=3|If
+|width=168|P >= 100 and P - [L/5] < 100
+|-
+|then X = P - [L/5]
+|-
+|else R = 0
+|-valign=top
+|rowspan=2|If
+|P < 100
+|-
+|then X = max(P - (L+E) , -100)
+|-
+!width=48 align=left|P
+|Poison Resist X%
+|P = X
+|-
+!align=left|L
+|Lower Resist (PR -X%)
+|L = X
+|-
+!align=left|E
+| -X% EPR
+|E = X
+|}
+|colspan=2|
+{|cellpadding=0 cellspacing=0 style="text-align:left; font-size:90%"
+|-valign=top
+!width=72 rowspan=4 align=left|F
+|width=96|Items
+|width=180|= item lengths / items
+|-
+|Items + Skill
+|= (skill + item lengths) / items
+|-
+|Items + Venom
+|= Venom length
+|-
+|Skill + Venom
+|= skill + Venom lengths
+|-valign=top
+!rowspan=6 align=left|R
+|Resist||R = (100-X) /100
+|-valign=top
+|rowspan=3|If||P < 100
+|-
+|then X = max(P-E , -100)
+|-
+|else F = 1
+|-
+!align=left|P
+|Poison Length Reduced by X%||P = X
+|-
+!align=left|E
+| -X% Enemy Poison Resistance||E = X
+|}
+|}
+
+
+*Ideally damage is calculated measuring rate in 1/256ths and length in frames. It's also possible to calculate damage measuring rate in poison damage/second and length in seconds. However, the result will only be an approximation and rounding down should only be done at the end of the calculation for maximum accuracy.
+*If a single item has both a prefix and a suffix applying poison damage, then the rates and lengths of both are simply added. 
+*[[Gem]]s, [[jewel]]s and [[rune]]s all count as separate items, even if they're [[socket]]ed in a single item.
+*Item and Venom rate are only added to the skill rates of Poison Dagger and the [[javelin]]s (but not the clouds) of Poison Javelin and Plague Javelin. {{Warn|=Character screen does not display total poison damage correctly when skill, item and Venom rates combine: it correctly calculates total poison damage from items and Venom, but then simply adds this to skill damage.}}
+*+% PSD isn't applied to item and Venom rate when applied by ranged attacks.
+*{{Warn|=Length is calculated differently when multiple items applying poison damage are used with skills that apply less than 100% weapon damage.
+**Poison length = [sum of lengths / (sources - 1) ]
+***[[Multiple Shot]]
+***[[Strafe]]
+***[[Blade Sentinel]] using one-handed weapon
+***[[Blade Fury]] using one-handed weapon
+**Poison length = sum of lengths
+***Blade Sentinel using two-handed weapon
+***Blade Fury using two-handed weapon}}
+<br>
+
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/122086-kkkkaaaaoooozzzz/ KKKKAAAAOOOOZZZZ] (D2 Assassin)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/120090-open-wounds/ Open Wounds] (D2 Technical)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/122723-poison-dagger-and-the-character-screen/ Poison Dagger and the character screen] (D2 Necromancer)
+*[https://planetdiablo.eu/forum/threads/schadensunterbrechung-giftnova-und-anderer-schaden.1639530/ Schadensunterbrechung: Giftnova und anderer Schaden] (PlanetDiablo.eu)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/101657-diablo-ii-basin-wiki/ Diablo II Basin Wiki] (D2 Technical)
+*Bkelly, [http://web.archive.org/web/20080125084439/http://www.diabloii.net/strategy/x-articles/taopoison.shtml The Tao of Poison] (Internet Archive)
+*LastCorpse, [https://planetdiablo.eu/forum/threads/giftdauer-bei-srcdam-128-missiles.1743741/ Giftdauer bei SrcDam <128 Missiles] (PlanetDiablo.eu)
+*Librarian, [http://www.mannm.org/d2library/faqtoids/eledam_eng.html#pois poison damage] (FAQtoids)
+*Meej, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/92845-clarifications-on-110-poison-needed/ Clarifications on 1.10 Poison needed] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121166-any-damage-stops-unit-damage-regeneration/ ANY damage stops unit damage regeneration] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/ Monster Resistances and Immunities Guide] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/115688-poison-and-plague-javelins/ Poison and Plague Javelins] (D2 Javazon)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/117649-poison-damage/ Poison Damage] (D2 Technical)
+*Othin, [http://www.mannm.org/d2library/Othin/toxicfairy02_basics.html Poison Basics] (D2library)
+
+
+[[Category:Modifiers]]
+[[Category:Damage modifiers]]

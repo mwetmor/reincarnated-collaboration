@@ -1,0 +1,988 @@
+{{Resistance nav}}
+{{Intro}}
+{{Mb|=Cold Resist}} modifies cold damage and cold or [[freeze length]] (including [[Freezes Target]]) by a percentage, after Magic Damage Reduced has been applied; CR -100% is the floor, while CR > 99% makes a unit [[Immune to Cold]] and prevents it from being chilled or frozen. 
+*Player and [[mercenary]] normally have a ceiling of CR 75%, but this can be increased to CR 95% by applying +% [[Maximum Cold Resist]] (although any excess can offset penalties that might otherwise reduce it below this ceiling). [[Difficulty]] level penalties of CR -40% in Nightmare and CR -100% in Hell (-20% and -50% respectively in [[Classic]] games) also apply to them.
+*It is only applied whenever a new source of cold damage or cold or freeze length is applied, so removing it afterwards will have no effect on current length; adding it after a target is chilled or frozen will have no effect either.
+*Drinking a [[Thawing Potion]] after cold or freeze length has been applied will remove it.
+*Cold damage tends to be more moderate than lightning or fire, but in the absence of [[Cannot be Frozen]], resistance becomes more important to counter cold length or freeze length and its slowing of [[attack rate]] and [[movement speed]] (particularly for [[melee]] attackers).
+*Conversely, this means it is more important to reduce enemy resistance when applying cold or freeze length, using [[Conviction]], [[Lower Resist]] and -% [[Enemy Cold Resistance]]. However, cold or freeze length will never be applied to units with 0 [[chill effectiveness]].
+|}
+
+
+==Item==
+
+===Potion===
+{{Skill bonus}}
+|-
+| +50%
+!align=left|[[Thawing Potion]] <sup>1</sup>
+|1
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Each potion adds 30 seconds to the duration for which the bonuses apply (+10% [[Maximum Cold Resist]] is also applied)</span>
+<br/>
+<br/>
+===Charm===
+
+====Small Charm====
+{{Affix bonus}}
+|-
+| +(3-5)%
+!align=left|{{M|=Azure Small Charm}}
+|1
+|1
+|-
+| +(6-7)%
+!align=left|{{M|=Lapis Small Charm}}
+|10
+|14
+|-
+| +(8-9)%
+!align=left|{{M|=Cobalt Small Charm}}
+|20
+|27
+|-
+| +(10-11)%
+!align=left|{{M|=Sapphire Small Charm}}
+|32
+|40
+|}
+<br/>
+
+====Large Charm====
+{{Affix bonus}}
+|-
+| +(4-7)%
+!align=left|{{M|=Azure Large Charm}}
+|1
+|1
+|-
+| +(8-10)%
+!align=left|{{M|=Lapis Large Charm}}
+|12
+|16
+|-
+| +(11-12)%
+!align=left|{{M|=Cobalt Large Charm}}
+|18
+|25
+|-
+| +(13-15)%
+!align=left|{{M|=Sapphire Large Charm}}
+|27
+|35
+|}
+<br/>
+
+====Grand Charm====
+{{Skill bonus}}
+|-
+|{{Warn|=-(70-90)%}}
+|align=left|[[Cold Rupture|{{Ub|=Cold Rupture Grand Charm}}]] {{D2R-inline}}
+|75
+|No (D2R LoD only)
+|-
+|{{Warn|=-(70-90)%}}
+|align=left|[[Latent Cold Rupture|{{Ub|=Latent Cold Rupture Grand Charm}}]]{{RotW-inline}}
+|75
+|No
+|-
+|{{Warn|=-70%}}
+|align=left|[[Renewed Cold Rupture|{{Ub|=Renewed Cold Rupture Grand Charm}}]]{{RotW-inline}}
+|75
+|No
+|}
+
+{{Affix bonus}}
+|-
+| +(7-15)%
+!align=left|{{M|=Azure Grand Charm}}
+|1
+|1
+|-
+| +(16-20)%
+!align=left|{{M|=Lapis Grand Charm}}
+|7
+|10
+|-
+| +(21-25)%
+!align=left|{{M|=Cobalt Grand Charm}}
+|15
+|20
+|-
+| +(26-30)%
+!align=left|{{M|=Sapphire Grand Charm}}
+|22
+|30 
+|}
+<br/>
+
+===Any socket===
+{{Affix bonus}}
+|-
+| +(5-15)%
+!align=left|{{R|=Lapis Lazuli Jewel}} <sup>1</sup>
+|1
+|2
+|-
+| +(16-30)%
+!align=left|{{R|=Sapphire Jewel}} <sup>1</sup>
+|14
+|19
+|}
+<span style=font-size:90%><sup>1</sup> Both prefixes are in the same [[affix]] group as [[Fire Resist]], [[Lightning Resist]] and [[Poison Resist]] prefixes</span>
+<br/>
+<br/>
+===Helm===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure helm}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure helm}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis helm}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt helm}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Thul Rune|{{Cb|=Thul Rune}}]] in socket
+|23
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +25%
+|align=left|[[Cathan's Visage|{{Sb|=Cathan's Visage Mask}}]]
+|11
+|No
+|-
+| +37%
+|align=left|[[Hwanin's Splendor|{{Sb|=Hwanin's Splendor Grand Crown}}]]
+|45
+|No
+|-
+| +(20-40)%
+|align=left|[[Rockstopper|{{Ub|=Rockstopper Sallet}}]]
+|31
+|No
+|-
+| +40%
+|align=left|[[Milabrega's Diadem|{{Sb|=Milabrega's Diadem Crown}}]] (2 items)
+|17
+|No
+|-
+| +(40-60)%
+|align=left|[[Hearth|{{Ub|=Hearth}}]] helm {{D2R-inline}}
+|35
+!{{Warn|=Yes}} (D2R only)
+|}
+<br/>
+
+====Circlet====
+{{Skill bonus}}
+|-
+| +(31-40)%
+!align=left|{{R|=Sapphire circlet}}
+|18
+|25
+|}
+<br/>
+
+====Pelt====
+{{Skill bonus}}
+|-
+| +(40-50)%
+|align=left|[[Aldur's Stony Gaze|{{Sb|=Aldur's Stony Gaze Hunter's Guise}}]]
+|36
+|No
+|}
+<br/>
+
+===Amulet===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure Amulet}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure Amulet}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis Amulet}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt Amulet}}
+|13
+|18
+|-
+| +(31-40)%
+!align=left|{{R|=Sapphire Amulet}}
+|18
+|25
+|}
+
+
+{{Skill bonus}}
+|-
+| +18%
+|align=left|[[Telling of Beads|{{Sb|=Telling of Beads Amulet}}]]
+|30
+|No
+|-
+| +20%
+|align=left|[[Vidala's Snare|{{Sb|=Vidala's Snare Amulet}}]]
+|14
+|No
+|-
+| +25%
+|align=left|[[Civerb's Icon|{{Sb|=Civerb's Icon Amulet}}]] (2 items)
+|9
+|No
+|}
+<br/>
+
+===Body armor===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure body armor}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure body armor}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis body armor}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt body armor}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Thul Rune|{{Cb|=Thul Rune}}]] in socket
+|23
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +15%
+|align=left|[[Arctic Furs|{{Sb|=Arctic Furs Quilted Armor}}]] (3 items)
+|2
+|No
+|-
+| +15%
+|align=left|[[Hawkmail|{{Ub|=Hawkmail Scale Mail}}]]
+|15
+|No
+|-
+| +20%
+|align=left|[[Greyform|{{Ub|=Greyform Quilted Armor}}]]
+|7
+|No
+|-
+| +(15-25)%
+|align=left|[[Horazon's Dominion|{{Sb|=Horazon's Dominion Russet Armor}}]] {{RotW-inline}}
+|55
+|No
+|-
+| +30%
+|align=left|[[Iceblink|{{Ub|=Iceblink Splint Mail}}]]
+|22
+|No
+|-
+| +30%
+|align=left|[[Peace|{{Ub|=Peace}}]] body armor
+|29
+|No
+|-
+| +30%
+|align=left|[[Treachery|{{Ub|=Treachery}}]] body armor
+|43
+|No
+|-
+| +30%
+|align=left|[[Duress|{{Ub|=Duress}}]] body armor <sup>1</sup>
+|47
+|No
+|-
+| +35%
+|align=left|[[Corpsemourn|{{Ub|=Corpsemourn Ornate Plate}}]]
+|55
+|No
+|-
+| +40%
+|align=left|[[Tal Rasha's Guardianship|{{Sb|=Tal Rasha's Guardianship Lacquered Plate}}]]
+|71
+|No
+|-
+| +40%
+|align=left|[[Immortal King's Soul Cage|{{Sb|=Immortal King's Soul Cage Sacred Armor}}]] (3 items)
+|76
+|No
+|-
+| +50%
+|align=left|[[Duriel's Shell|{{Ub|=Duriel's Shell Cuirass}}]]
+|41
+|No
+|-
+| +(40-60)%
+|align=left|[[Steel Carapace|{{Ub|=Steel Carapace Shadow Plate}}]]
+|66
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Cold Resist 45% displayed due to +15% [[All Resistances]]</span>
+<br/>
+<br/>
+
+===Weapon===
+{{Affix bonus}}
+|-
+| +(5-10)%
+!align=left|{{R|=Azure weapon}}
+|3
+|5
+|-
+| +(11-20)%
+|align=left|{{Rb|=Lapis weapon}} <sup>1</sup>
+|26
+|35
+|-
+| +(21-30)%
+|align=left|{{Rb|=Cobalt weapon}} <sup>1</sup>
+|41
+|55
+|}
+<span style=font-size:90%><sup>1</sup> Excluding [[orb]]s</span>
+<br/>
+<br/>
+====Axe====
+{{Skill bonus}}
+|-
+| +15%
+|align=left|[[Coldkill|{{Ub|=Coldkill Hatchet}}]]
+|36
+|No
+|-
+| +50%
+|align=left|[[Axe of Fechmar|{{Ub|=Axe of Fechmar Large Axe}}]]
+|8
+|No
+|}
+<br/>
+
+====Bow====
+{{Skill bonus}}
+|-
+| +26%
+|align=left|[[Wizendraw|{{Ub|=Wizendraw Long Battle Bow}}]]
+|26
+|No
+|-
+| +35%
+|align=left|[[Endlesshail|{{Ub|=Endlesshail Double Bow}}]]
+|36
+|No
+|}
+<br/>
+
+====Dagger====
+{{Skill bonus}}
+|-
+| +25%
+|align=left|[[The Diggler|{{Ub|=The Diggler Dirk}}]]
+|11
+|No
+|}
+<br/>
+
+====Hammer====
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Bonesnap|{{Ub|=Bonesnap Maul}}]]
+|24
+|No
+|}
+<br/>
+
+====Orb====
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure orb}}
+|1
+|1-4
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis orb}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt orb}}
+|13
+|18
+|-
+| +(31-40)%
+!align=left|{{R|=Sapphire orb}}
+|18
+|25
+|}
+<br/>
+
+====Rod====
+{{Affix bonus}}
+|-
+| +(31-40)%
+!align=left|{{R|=Sapphire rod}}
+|18
+|25
+|}
+<br/>
+
+=====Staff=====
+{{Skill bonus}}
+|-
+| +33%
+|align=left|[[Leaf|{{Ub|=Leaf}}]] staff
+|19
+|No
+|}
+<br/>
+
+====Sword====
+{{Skill bonus}}
+|-
+| +20%
+|align=left|[[Shadowfang|{{Ub|=Shadowfang Two-handed Sword}}]]
+|12
+|No
+|}
+<br/>
+
+===Shield===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure shield}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure shield}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis shield}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt shield}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +12%
+|align=left|[[Chipped Sapphire]] in socket
+|1
+|No
+|-
+| +16%
+|align=left|[[Flawed Sapphire]] in socket
+|5
+|No
+|-
+| +22%
+|align=left|[[Sapphire]] in socket
+|12
+|No
+|-
+| +28%
+|align=left|[[Flawless Sapphire]] in socket
+|15
+|No
+|-
+| +40%
+|align=left|[[Perfect Sapphire]] in socket
+|18
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +35%
+|align=left|[[Thul Rune|{{Cb|=Thul Rune}}]] in socket
+|23
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Ancients' Pledge|{{Ub|=Ancients' Pledge}}]] shield <sup>1</sup>
+|21
+|No
+|-
+| +35%
+|align=left|[[Spirit|{{Ub|=Spirit}}]] shield
+|25
+!{{Warn|=Yes}} (LoD only)
+|-
+| +60%
+|align=left|[[Stormshield|{{Ub|=Stormshield Monarch}}]]
+|73
+|No
+|-
+| +(40-80)%
+|align=left|[[Medusa's Gaze|{{Ub|=Medusa's Gaze Aegis}}]]
+|76
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Cold Resist 43% displayed due to +13% [[All Resistances]]</span>
+<br/>
+<br/>
+===Ring===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure Ring}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure Ring}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis Ring}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt Ring}}
+|13
+|18
+|}
+<br/>
+
+===Belt===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure belt}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure belt}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis belt}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt belt}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +10%
+|align=left|[[Arctic Binding|{{Sb|=Arctic Binding Light Belt}}]] (3 items) <sup>1</sup>
+|2
+|No
+|-
+| +10%
+|align=left|[[Wilhelm's Pride|{{Sb|=Wilhelm's Pride Battle Belt}}]]
+|42
+|No
+|-
+| +20%
+|align=left|[[Hsarus' Iron Stay|{{Sb|=Hsarus' Iron Stay Belt}}]]
+|3
+|No
+|-
+| +40%
+|align=left|[[Arctic Binding|{{Sb|=Arctic Binding Light Belt}}]] <sup>1</sup>||2||No
+|-
+| +40%
+|align=left|[[Trang-Oul's Girth|{{Sb|=Trang-Oul's Girth Troll Belt}}]] (3 items)
+|62
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Cold Resist +50% is displayed when 3 items or more are equipped</span>
+<br/>
+<br/>
+===Boots===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure boots}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure boots}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis boots}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt boots}}
+|13
+|18
+|-
+| +(31-40)%
+!align=left|{{R|=Sapphire boots}}
+|18
+|25
+|}
+
+
+{{Skill bonus}}
+|-
+| +(5-10)%
+|align=left|[[Safety|{{Cb|=Safety boots}}]]
+|13
+|No
+|-
+| +(15-25)%
+|align=left|[[Natalya's Soul|{{Sb|=Natalya's Soul Mesh Boots}}]]
+|25
+|No
+|-
+| +40%
+|align=left|[[Sigon's Sabot|{{Sb|=Sigon's Sabot Greaves}}]]
+|6
+|No
+|}
+<br/>
+
+===Gloves===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Azure gloves}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Azure gloves}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Lapis gloves}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Cobalt gloves}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +(5-10)%
+|align=left|[[Safety|{{Cb|=Safety gloves}}]]
+|13
+|No
+|-
+| +30%
+|align=left|[[Iratha's Cuff|{{Sb|=Iratha's Cuff Light Gauntlets}}]]
+|15
+|No
+|-
+| +30%
+!align=left|[[Trang-Oul's Claws|{{S|=Trang-Oul's Claws Heavy Bracers}}]]
+|45
+|No
+|}
+<br/>
+
+==Skill==
+
+===Paladin===
+{{Text table}} width=100%
+!width=25% align=left|[[Skill]]
+!width=65% align=left|Cold Resist %
+!width=10% align=center|Min [[Requirements|Rlvl]]
+|-
+!align=left|[[Resist Cold]]
+|min(35 + [115 * [110*slvl / slvl+6] /100] , 150) to self and [[ally|allies]] in (4*slvl + 28) /3  yard [[radius]]
+|align=right|6
+|-
+!align=left|[[Conviction]] <sup>1 2</sup>
+|{{Warn|=- min(5*slvl + 25 , 150) to enemies in 13 1/3 yard radius}}
+|align=right|30
+|-
+!align=left|[[Salvation]]
+|min(50 + [70 * [110*slvl / slvl+6] /100] , 120) to self and allies in (4*slvl + 28) /3 yard radius
+|align=right|30
+|}
+<span style=font-size:90%><sup>1</sup> CR -% is rounded down to 1/5 when a [[unit]] is [[Immune to Cold]], or becomes so due to [[Unique (monster)|Unique]] bonus(es)<br/>
+<sup>2</sup> Not applied to a unit already supplying higher level Conviction  [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/&do=findComment&comment=1410135] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120415-higher-conviction-overwriting-lower-conviction/&do=findComment&comment=1491149]</span>
+<br/>
+
+===Warlock===
+====Consume====
+{{Consume}}
+|-
+|rowspan=30|[[Consume]].slvl * 3 + 5
+|[[Gorebelly]] (blunderbore2)
+|-
+|[[Dark Hunter]] (corruptrogue1)
+|-
+|[[Vile Hunter]] (corruptrogue2)
+|-
+|[[Dark Stalker]] (corruptrogue3)
+|-
+|[[Black Rogue]] (corruptrogue4)
+|-
+|[[Flesh Hunter]] (corruptrogue5)
+|-
+|[[Flesh Archer]] (cr_archer5)
+|-
+|[[Dark Archer]] (cr_archer7)
+|-
+|[[Flesh Lancer]] (cr_lancer5)
+|-
+|[[Flayer]] (fetish3)
+|-
+|[[Flayer]] (fetishblow3)
+|-
+|[[Moon Clan]] (goatman1)
+|-
+|[[Night Clan]] (goatman7)
+|-
+|[[Hell Clan]] (goatman8)
+|-
+|[[Death Clan]] (goatman10)
+|-
+|[[Overseer]] (overseer1)
+|-
+|[[Lasher]] (overseer2)
+|-
+|[[Overlord]] (overseer3)
+|-
+|[[Blood Boss]] (overseer4)
+|-
+|[[Hell Whip]] (overseer5)
+|-
+|[[Agony Worm]] (painworm3)
+|-
+|[[Anguish Worm]] (painworm5)
+|-
+|[[Siren]] (succubuswitch1)
+|-
+|[[Hell Witch]] (succubuswitch5)
+|-
+|[[Flesh Beast]] (vilechild1)
+|-
+|[[Stygian Dog]] (vilechild2)
+|-
+|[[Grotesque Wyrm]] (vilechild3)
+|-
+|[[Flesh Spawner]] (vilemother1)
+|-
+|[[Stygian Hag]] (vilemother2)
+|-
+|[[Grotesque]] (vilemother3)
+|-
+|rowspan=16|[[Consume]].slvl * 3 + 10
+|[[Flesh Hunter]] (corruptrogue6)
+|-
+|[[Dark Archer]] (cr_archer8)
+|-
+|[[Carver Shaman]] (fallenshaman6)
+|-
+|[[Devilkin Shaman]] (fallenshaman7)
+|-
+|[[Dark Shaman]] (fallenshaman8)
+|-
+|[[Greater Hell Spawn]] (minion11)
+|-
+|[[Hell Whip]] (overseer6)
+|-
+|[[Siren]] (succubuswitch6)
+|-
+|[[Hell Witch]] (succubuswitch7)
+|-
+|[[Vile Witch]] (succubuswitch8)
+|-
+|[[Vile Witch]] (succubuswitch9)
+|-
+|[[Insane Hell Spawn]] (suicideminion11)
+|-
+|[[Grotesque Wyrm]] (vilechild4)
+|-
+|[[Flesh Beast]] (vilechild5)
+|-
+|[[Grotesque]] (vilemother4)
+|-
+|[[Flesh Spawner]] (vilemother5)
+|-
+|rowspan=5|[[Consume]].slvl * 3 + 20
+|[[Coldcrow|{{Ub|=Coldcrow}}]]
+|-
+|[[Battlemaid Sarina|{{Ub|=Battlemaid Sarina}}]]
+|-
+|[[Toorc Icefist|{{Ub|=Toorc Icefist}}]]
+|-
+|[[Shenk the Overseer|{{Ub|=Shenk the Overseer}}]]
+|-
+|[[Sharptooth Slayer|{{Ub|=Sharptooth Slayer}}]]
+|}
+
+==Pet==
+
+===Druid===
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Oak Sage]]
+|25%
+|25%
+|25%
+|-
+!align=left|[[Heart of Wolverine]]
+|25%
+|25%
+|25%
+|-
+!align=left|[[Spirit of Barbs]]
+|25%
+|25%
+|25%
+|}
+<br/>
+
+===Necromancer===
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Clay Golem]]
+|50%
+|50%
+|50%
+|-
+!align=left|[[Bone Wall]]
+|70%
+|90%
+|90%
+|-
+!align=left|[[Bone Prison]]
+|70%
+|90%
+|90%
+|-
+!align=left|[[Revive]]d
+|[[Monster]] CR %
+|Monster CR %
+|Monster CR %
+|}
+<br/>
+
+===Warlock===
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Summon Goatman|Goatman]]
+|50%
+|50%
+|50%
+|-
+!align=left|[[Summon Tainted|Tainted]]
+|20%
+|20%
+|20%
+|-
+!align=left|[[Summon Defiler|Defiler]]
+|33%
+|50%
+|50%
+|}
+<br/>
+
+==Monster==
+Consult individual [[monster]] pages for cold resistance of a particular monster, or individual [[area]] pages for cold resistance of all monsters in a particular area.
+*Several [[Unique (monster)|Unique]] bonuses apply CR bonuses to that monster, in the order in which their labels are displayed. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/&do=findComment&comment=1409307] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/&do=findComment&comment=1409496] If a bonus results in CR > 99%, it is only applied if a monster has less than two immunities beforehand (in which case it either becomes [[Immune to Cold]], or increasingly so).
+**CR +75% is applied by the [[Cold Enchanted]] bonus. 
+**CR +40% is applied by the [[Magic Resistant]] bonus, but only if the monster has CR < 100%. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/&do=findComment&comment=1408867]
+**CR +20% is applied by the [[Spectral Hit]] bonus, but only if the monster has CR <  75%. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/&do=findComment&comment=1408668]
+<br/>
+
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/120415-higher-conviction-overwriting-lower-conviction/ Higher conviction overwriting lower conviction] (D2 Technical)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/ Which elements are most resisted in Hell?] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Damage modifiers]]

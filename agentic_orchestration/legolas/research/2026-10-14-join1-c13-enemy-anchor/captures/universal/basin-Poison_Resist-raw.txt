@@ -1,0 +1,935 @@
+{{Resistance nav}}
+{{Intro}}
+{{Mb|=Poison Resist}} modifies poison damage rate by a percentage; PR -100% is the floor, while PR > 99% makes a unit [[Immune to Poison]]. 
+*Player and [[mercenary]] normally have a ceiling of PR 75%, but this can be increased to PR 95% by applying +% [[Maximum Poison Resist]] (although any excess can offset penalties that might otherwise reduce it below this ceiling). [[Difficulty]] level penalties of PR -40% in Nightmare and PR -100% in Hell (-20% and -50% respectively in [[Classic]] games) also apply to them.
+*It is only applied whenever a new source of poison is applied, so removing it afterwards will have no effect on damage rate applied for current length; adding it after a target is poisoned will have no effect either. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/&do=findComment&comment=1419063]
+*It tends to be less important for player and mercenary due to the time it takes for poison damage to apply its total amount, allowing them to use an [[Antidote Potion]] or [[Shrine|Well]], or return to town to be healed, to cure themselves immediately (a player can also use a Resist Poison [[Shrine]]).
+*Conversely, this means it is more important to reduce enemy resistance when applying poison damage, using [[Lower Resist]] and -% [[Enemy Poison Resistance]]. 
+|}
+
+
+==Item==
+
+===Potion===
+{{Skill bonus}}
+|-
+| +50%
+!align=left|[[Antidote Potion]] <sup>1</sup>
+|1
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Each potion adds 30 seconds to duration for which bonuses apply (+10% [[Maximum Poison Resist]] is also applied)</span>
+<br/>
+<br/>
+===Charm===
+
+====Small Charm====
+{{Affix bonus}}
+|-
+| +(3-5)%
+!align=left|{{M|=Beryl Small Charm}}
+|1
+|1
+|-
+| +(6-7)%
+!align=left|{{M|=Viridian Small Charm}}
+|10
+|14
+|-
+| +(8-9)%
+!align=left|{{M|=Jade Small Charm}}
+|20
+|27
+|-
+| +(10-11)%
+!align=left|{{M|=Emerald Small Charm}}
+|32
+|40
+|}
+<br/>
+
+====Large Charm====
+{{Affix bonus}}
+|-
+| +(4-7)%
+!align=left|{{M|=Beryl Large Charm}}
+|1
+|1
+|-
+| +(8-10)%
+!align=left|{{M|=Viridian Large Charm}}
+|12
+|16
+|-
+| +(11-12)%
+!align=left|{{M|=Jade Large Charm}}
+|18
+|25
+|-
+| +(13-15)%
+!align=left|{{M|=Emerald Large Charm}}
+|27
+|35
+|}
+<br/>
+
+====Grand Charm====
+{{Skill bonus}}
+|-
+|{{Warn|=-(70-90)%}}
+|align=left|[[Rotting Fissure|{{Ub|=Rotting Fissure Grand Charm}}]] {{D2R-inline}}
+|75
+|No (D2R LoD only)
+|-
+|{{Warn|=-(70-90)%}}
+|align=left|[[Latent Rotting Fissure|{{Ub|=Latent Rotting Fissure Grand Charm}}]]{{RotW-inline}}
+|75
+|No
+|-
+|{{Warn|=-70%}}
+|align=left|[[Renewed Rotting Fissure|{{Ub|=Renewed Rotting Fissure Grand Charm}}]]{{RotW-inline}}
+|75
+|No
+|}
+
+{{Affix bonus}}
+|-
+| +(7-15)%
+!align=left|{{M|=Beryl Grand Charm}}
+|1
+|1
+|-
+| +(16-20)%
+!align=left|{{M|=Viridian Grand Charm}}
+|7
+|10
+|-
+| +(21-25)%
+!align=left|{{M|=Jade Grand Charm}}
+|15
+|20
+|-
+| +(26-30)%
+!align=left|{{M|=Emerald Grand Charm}}
+|22
+|30 
+|}
+<br/>
+
+===Any socket===
+{{Affix bonus}}
+|-
+| +(5-15)%
+!align=left|{{R|=Beryl Jewel}}
+|1
+|2
+|-
+| +(16-30)%
+!align=left|{{R|=Jade Jewel}}
+|14
+|19
+|}
+<span style=font-size:90%><sup>1</sup> Both prefixes are in the same [[affix]] group as [[Fire Resist]], [[Lightning Resist]] and [[Cold Resist]] prefixes</span>
+<br/>
+<br/>
+===Helm===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl helm}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl helm}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian helm}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade helm}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Tal Rune|{{Cb|=Tal Rune}}]] in socket
+|17
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +25%
+|align=left|[[Wormskull|{{Ub|=Wormskull Bone Helm}}]]
+|21
+|No
+|-
+| +50%
+|align=left|[[Undead Crown|{{Ub|=Undead Crown Crown}}]]
+|29
+|No
+|-
+| +(40-60)%
+|align=left|[[Cure|{{Ub|=Cure}}]] helm {{D2R-inline}}
+|35
+!{{Warn|=Yes}} (D2R only)
+|-
+| +70%
+|align=left|[[Andariel's Visage|{{Ub|=Andariel's Visage Demonhead}}]]
+|83
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+====Circlet====
+{{Affix bonus}}
+|-
+| +(31-40)%
+!align=left|{{R|=Emerald circlet}}
+|18
+|25
+|}
+<br/>
+
+===Amulet===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl Amulet}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl Amulet}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian Amulet}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade Amulet}}
+|13
+|18
+|-
+| +(31-40)%
+!align=left|{{R|=Emerald Amulet}}
+|18
+|25
+|}
+
+
+{{Skill bonus}}
+|-
+| +25%
+!align=left|[[The Horadric Staff#Amulet of the Viper|{{U|=Amulet of the Viper}}]]
+| -
+|No
+|-
+| +30%
+|align=left|[[Iratha's Collar|{{Sb|=Iratha's Collar Amulet}}]]
+|15
+|No
+|-
+| +(35-50)%
+|align=left|[[Telling of Beads|{{Sb|=Telling of Beads Amulet}}]]
+|30
+|No
+|-
+| +75%
+|align=left|[[Atma's Scarab|{{Ub|=Atma's Scarab Amulet}}]]
+|60
+|No
+|}
+<br/>
+
+===Body armor===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl body armor}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl body armor}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian body armor}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade body armor}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Tal Rune|{{Cb|=Tal Rune}}]] in socket
+|17
+|No
+|-
+| +20%
+|align=left|[[Duriel's Shell|{{Ub|=Duriel's Shell Cuirass}}]]
+|41
+|No
+|-
+| +25%
+|align=left|[[Horazon's Dominion|{{Sb|=Horazon's Dominion Russet Armor}}]] (2 items) {{RotW-inline}}
+|55 or 57 or 62 or 67
+|
+|-
+| +25%
+|align=left|[[Natalya's Shadow|{{Sb|=Natalya's Shadow Loricated Mail}}]]
+|73
+|No
+|-
+| +27%
+|align=left|[[Hwanin's Refuge|{{Sb|=Hwanin's Refuge Tigulated Mail}}]]
+|30
+|No
+|-
+| +30%
+|align=left|[[Stealth|{{Ub|=Stealth}}]] body armor
+|17
+|No
+|-
+| +40%
+!align=left|[[Trang-Oul's Scales|{{S|=Trang-Oul's Scales Chaos Armor}}]]
+|49
+|No
+|-
+| +50%
+|align=left|[[Immortal King's Soul Cage|{{Sb|=Immortal King's Soul Cage Sacred Armor}}]]
+|76
+|No
+|-
+| +90%
+|align=left|[[Venom Ward|{{Ub|=Venom Ward Breast Plate}}]]
+|20
+|No
+|-
+| +100%
+|align=left|[[Bramble|{{Ub|=Bramble}}]] body armor
+|61
+|No
+|}
+<br/>
+
+===Weapon===
+{{Affix bonus}}
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl weapon}}
+|3
+|5
+|-
+| +(11-20)%
+|align=left|{{Rb|=Viridian weapon}} <sup>1</sup>
+|26
+|35
+|-
+| +(21-30)%
+|align=left|{{Rb|=Jade weapon}} <sup>1</sup>
+|41
+|55
+|}
+<span style=font-size:90%><sup>1</sup> Excluding [[orb]]s</span>
+<br/>
+<br/>
+====Axe====
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Guardian Naga|{{Ub|=Guardian Naga Naga}}]]
+|48
+|No
+|-
+| +50%
+|align=left|[[Rakescar|{{Ub|=Rakescar War Axe}}]]
+|27
+|No
+|}
+<br/>
+
+====Crossbow====
+{{Skill bonus}}
+|-
+| +30%
+|align=left|[[Leadcrow|{{Ub|=Leadcrow Light Crossbow}}]]
+|9
+|No
+|}
+<br/>
+
+====Dagger====
+{{Skill bonus}}
+|-
+| +95%
+|align=left|[[The Jade Tan Do|{{Ub|=The Jade Tan Do Kris}}]]
+|19
+|No
+|}
+<br/>
+
+====Orb====
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl orb}}
+|1
+|1-4
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian orb}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade orb}}
+|13
+|18
+|-
+| +(31-40)%
+!align=left|{{R|=Emerald orb}}
+|18
+|25
+|}
+<br/>
+
+====Rod====
+{{Affix bonus}}
+|-
+| +(31-40)%
+!align=left|{{R|=Emerald rod}}
+|18
+|25
+|}
+<br/>
+
+=====Scepter=====
+{{Skill bonus}}
+|-
+| +20%
+|align=left|[[Knell Striker|{{Ub|=Knell Striker Scepter}}]]
+|5
+|No
+|}
+<br/>
+
+=====Staff=====
+{{Skill bonus}}
+|-
+| +25%
+!align=left|[[The Horadric Staff#Horadric Staff|{{U|=Horadric Staff}}]]
+| -
+|No
+|-
+| +50%
+|align=left|[[Serpent Lord|{{Ub|=Serpent Lord Long Staff}}]]
+|9
+|No
+|}
+<br/>
+
+====Spear====
+{{Skill bonus}}
+|-
+| +(30-50)%
+|align=left|[[Viperfork|{{Ub|=Viperfork Mancatcher}}]]
+|71
+|No
+|}
+<br/>
+
+====Sword====
+{{Skill bonus}}
+|-
+| +45%
+|align=left|[[Plague Bearer|{{Ub|=Plague Bearer Rune Sword}}]]
+|41
+|No
+|-
+| +50%
+|align=left|[[Blacktongue|{{Ub|=Blacktongue Bastard Sword}}]]
+|26
+|No
+|-
+| +50%
+|align=left|[[The Vile Husk|{{Ub|=The Vile Husk Tusk Sword}}]]
+|44
+|No
+|}
+<br/>
+
+===Shield===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl shield}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl shield}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian shield}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade shield}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +12%
+|align=left|[[Chipped Emerald]] in socket
+|1
+|No
+|-
+| +16%
+|align=left|[[Flawed Emerald]] in socket
+|5||No
+|-
+| +22%
+|align=left|[[Emerald]] in socket
+|12
+|No
+|-
+| +28%
+|align=left|[[Flawless Emerald]] in socket
+|15
+|No
+|-
+| +40%
+|align=left|[[Perfect Emerald]] in socket
+|18
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +35%
+|align=left|[[Tal Rune|{{Cb|=Tal Rune}}]] in socket
+|17
+|No
+|-
+| +20%
+|align=left|[[Wall of the Eyeless|{{Ub|=Wall of the Eyeless Bone Shield}}]]
+|20
+|No
+|-
+| +(25-26)%
+|align=left|[[Civerb's Ward|{{Sb|=Civerb's Ward Large Shield}}]] (3 items)
+|9
+|No
+|-
+| +35%
+|align=left|[[Ancients' Pledge|{{Ub|=Ancients' Pledge}}]] shield <sup>1</sup>
+|21
+|No
+|-
+| +35%
+|align=left|[[Spirit|{{Ub|=Spirit}}]] shield
+|25
+!{{Warn|=Yes}} (LoD only)
+|-
+| +(30-40)%
+|align=left|[[Head Hunter's Glory|{{Ub|=Head Hunter's Glory Troll Nest}}]]
+|75
+|No
+|-
+| +75%
+|align=left|[[Radament's Sphere|{{Ub|=Radament's Sphere Ancient Shield}}]]
+|50
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Poison Resist +48% displayed due to +13% [[All Resistances]]</span>
+<br/>
+<br/>
+====Shrunken head====
+{{Skill bonus}}
+|-
+| +40%
+!align=left|[[Trang-Oul's Wing|{{S|=Trang-Oul's Wing Cantor Trophy}}]]
+|54
+|No
+|}
+<br/>
+
+===Ring===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl Ring}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl Ring}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian Ring}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade Ring}}
+|13||18
+|}
+
+
+{{Skill bonus}}
+|-
+| +(20-30)%
+|align=left|[[Nature's Peace|{{Ub|=Nature's Peace Ring}}]]
+|69
+!{{Warn|=Yes}} (LoD only)
+|-
+| +55%
+|align=left|[[Carrion Wind|{{Ub|=Carrion Wind Ring}}]]
+|60
+|No
+|}
+<br/>
+
+===Belt===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl belt}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl belt}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian belt}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade belt}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +(5-10)%
+|align=left|[[Safety|{{Cb|=Safety belt}}]]
+|13
+|No
+|-
+| +25%
+|align=left|[[Infernal Sign|{{Sb|=Infernal Sign Heavy Belt}}]] (2 items)
+|5
+|No
+|-
+| +25%
+|align=left|[[Snakecord|{{Ub|=Snakecord Light Belt}}]]
+|12
+|No
+|}
+<br/>
+
+===Boots===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl boots}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl boots}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian boots}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade boots}}
+|13
+|18
+|-
+| +(31-40)%
+!align=left|{{R|=Emerald boots}}
+|18
+|25
+|}
+
+
+{{Skill bonus}}
+|-
+| +(5-10)%
+|align=left|[[Safety|{{Cb|=Safety boots}}]]
+|13
+|No
+|-
+| +(40-70)%
+|align=left|[[Sandstorm Trek|{{Ub|=Sandstorm Trek Scarabshell Boots}}]]
+|64
+|No
+|}
+<br/>
+
+===Gloves===
+{{Affix bonus}}
+|-
+| +5%
+!align=left|{{R|=Beryl gloves}}
+|1
+|1-4
+|-
+| +(5-10)%
+!align=left|{{R|=Beryl gloves}}
+|3
+|5
+|-
+| +(11-20)%
+!align=left|{{R|=Viridian gloves}}
+|9
+|12
+|-
+| +(21-30)%
+!align=left|{{R|=Jade gloves}}
+|13
+|18
+|}
+
+
+{{Skill bonus}}
+|-
+| +10%
+|align=left|[[The Hand of Broc|{{Ub|=The Hand of Broc Leather Gloves}}]]
+|5
+|No
+|-
+| +30%
+|align=left|[[Venom Grip|{{Ub|=Venom Grip Demonhide Gloves}}]]
+|29
+|No
+|-
+| +50%
+|align=left|[[Death's Hand|{{Sb|=Death's Hand Leather Gloves}}]]
+|6
+|No
+|}
+<br/>
+
+===Set bonus===
+{{Skill bonus}}
+|-
+| +15%
+|align=left|[[Milabrega's Regalia|{{Ub|=Milabrega's Regalia}}]] (Full)
+|17
+|No
+|-
+| +25%
+|align=left|[[Cow King's Leathers|{{Ub|=Cow King's Leathers}}]] (2 items)
+|18
+|No
+|}
+<br/>
+
+==Skill==
+
+===Necromancer===
+{{Text table}} width=100%
+!width=25% align=left|[[Skill]]
+!width=65% align=left|Poison Resist %
+!width=10% align=center|Min [[Requirements|Rlvl]]
+|-valign=top
+!align=left|[[Lower Resist]] <sup>1 2</sup>
+| {{Warn|=- min(25 + [45 * [110*slvl / slvl+6] /100] , 70) in (2*slvl + 12) /3 yard [[radius]] for 2*slvl + 18 s}}
+|align=right|30
+|}
+<span style=font-size:90%><sup>1</sup> PR -% is rounded down to 1/5 when a [[unit]] is [[Immune to Poison]], or becomes so due to the [[Poison Enchanted]] bonus<br/>
+<sup>2</sup> Not applied to units that [[Curse#Cannot be cursed|cannot be cursed]]</span>
+
+
+*It is only applied whenever a new source of [[Poison Damage|poison]] is applied, so removing it afterwards will have no effect on damage rate applied for current length; adding it after a target is poisoned will have no effect either. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/&do=findComment&comment=1419063]
+
+
+[[File:Poison Dagger.png|center|frame|This [[Regurgitator#Corpse Spitter|Corpse Spitter]] needed to be [[curse]]d with Lower Resist to remove its poison immunity, but once it had been stabbed to apply poison damage it could be cursed with [[Decrepify]] and remain poisoned until death (although any subsequent poison damage would not be applied since it is once again immune).]]
+
+
+*{{Warn|=Since [[1.13c|1.13]], [[Oblivion Knight]]s no longer cast Lower Resist.}}
+<br/>
+
+===Warlock===
+====Consume====
+{{Consume}}
+|-
+|-
+|rowspan=13|[[Consume]].slvl * 3 + 5
+|[[Soul Killer]] (fetishblow4)
+|-
+|[[Menace Worm]] (painworm4)
+|-
+|[[Putrid Defiler]] (putriddefiler1)
+|-
+|[[Wretched Defiler]] (putriddefiler2)
+|-
+|[[Fetid Defiler]] (putriddefiler3)
+|-
+|[[Rancid Defiler]] (putriddefiler4)
+|-
+|[[Rank Defiler]] (putriddefiler5)
+|-
+|[[Corpulent]] (regurgitator1)
+|-
+|[[Corpse Spitter]] (regurgitator2)
+|-
+|[[Maw Fiend]] (regurgitator3)
+|-
+|[[Vile Temptress]] (succubus2)
+|-
+|[[Blood Temptress]] (succubus5)
+|-
+|[[Venom Lord]] (venomlord)
+|-
+|[[Consume]].slvl * 3 + 10
+|[[Maw Fiend]] (regurgitator4)
+|-
+|rowspan=2|[[Consume]].slvl * 3 + 20
+|[[Ismail Vilehand|{{Ub|=Ismail Vilehand}}]]
+|-
+|[[Achmel the Cursed|{{Ub|=Achmel the Cursed}}]]<sup>1)</sup>
+|}
+<span style=font-size:90%><sup>1</sup> {{Warn|=Achmel the Cursed, despite not being a demon, can be [[Bind Demon|bound]] and consumed.}}
+<br/>
+
+==Pet==
+
+===Druid===
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Oak Sage]]
+|{{IP|=170%}}
+|{{IP|=200%}}
+|{{IP|=200%}}
+|-
+!align=left|[[Heart of Wolverine]]
+|{{IP|=200%}}
+|{{IP|=200%}}
+|{{IP|=200%}}
+|-
+!align=left|[[Spirit of Barbs]]
+|{{IP|=200%}}
+|{{IP|=200%}}
+|{{IP|=200%}}
+|}
+<br/>
+
+===Necromancer===
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Blood Golem]]
+|20%
+|20%
+|20%
+|-
+!align=left|[[Bone Wall]]
+|70%
+|{{IP|=200%}}
+|{{IP|=200%}}
+|-
+!align=left|[[Bone Prison]]
+|70%
+|{{IP|=200%}}
+|{{IP|=200%}}
+|-
+!align=left|[[Iron Golem]]
+|{{IP|=100%}}
+|{{IP|=100%}}
+|{{IP|=100%}}
+|-
+!align=left|[[Revive]]d
+|[[Monster]] PR %
+|Monster PR %
+|Monster PR %
+|}
+<br/>
+
+===Warlock===
+{|{{Number table}} width=75%
+|-style=text-align:center
+!width=25% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Summon Goatman|Goatman]]
+|20%
+|20%
+|20%
+|-
+!align=left|[[Summon Tainted|Tainted]]
+|20%
+|20%
+|20%
+|-
+!align=left|[[Summon Defiler|Defiler]]
+|50%
+|50%
+|{{IP|=100%}}
+|}
+<br/>
+
+==Monster==
+Consult individual [[monster]] pages for poison resistance of a particular monster, or individual [[area]] pages for poison resistance of all monsters in a particular area.
+*PR +75% is applied by the [[Poison Enchanted]] bonus. If this results in PR > 99%, it is only applied if a monster has less than two immunities beforehand (in which case it either becomes [[Immune to Poison]], or increasingly so).
+<br/>
+
+==Reference==
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113633-monster-resistances-and-immunities-guide/ Monster Resistances and Immunities Guide] (D2 Technical)
+
+
+[[Category:Damage]]
+[[Category:Damage modifiers]]

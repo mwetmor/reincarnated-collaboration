@@ -1,0 +1,355 @@
+{
+ "commission": "C-13 / KP-426 universal player laws (both D2 kits)",
+ "law": "LoD 1.13 expansion",
+ "txt_pin": "fabd/diablo2 @ 45112569deb9384738ccafe5c24ebbb71f41c7c9 code/d2_113_data",
+ "code_pin": "ThePhrozenKeep/D2MOO @ 5596f5cb6c5251a0a07c6637d26458b06099d516 (1.10f reconstruction)",
+ "grades": {
+  "DATAMINED": "read from the 1.13 txt tables or the kit record",
+  "MODEL-VERIFIED": "D2MOO 1.10f code structure confirmed by >= 1 community source (Basin/Arreat)",
+  "INFERRED": "single source or code-by-absence",
+  "UNKNOWN": "as stated"
+ },
+ "version_caveat": "D2MOO reconstructs 1.10f; no 1.13 change to these laws was found in the sources read (Basin pages describe current LoD/D2R behaviour and agree).",
+ "laws": {
+  "control_received": {
+   "stun": {
+    "law": "Stun length on a PLAYER is capped at 250 frames (10 s) and is not difficulty-scaled. Players are NOT incapacitated: any hit landing during stun length forces hit recovery (even zero damage). The most recent stun source replaces the remaining length.",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp ExecuteEvents stun block (min(len,250) for non-monster defenders; gethit forced while STATE_STUNNED)",
+     "Basin Stun_length"
+    ]
+   },
+   "freeze": {
+    "law": "There is NO frozen-solid state for players in PvM: freeze length (and Freezes Target) applied to a player is applied as COLD length (chill). Only normal/minion monsters are frozen.",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp SUNITDMG_ApplyFreezeState (UNIT_PLAYER -> ApplyColdState)",
+     "Basin Freeze_length",
+     "Basin Freezes_Target"
+    ]
+   },
+   "difficulty_divisors": {
+    "law": "DifficultyLevels MonsterColdDivisor / MonsterFreezeDivisor (Hell 4/4, NM 2/2) apply ONLY when the DEFENDER is a monster. Against players there is NO Hell/PvM duration halving; instead the Hell resist penalty enters the length reduction (see chill.length_law), which LENGTHENS chill for an under-resisted player (up to x2).",
+    "values": {
+     "MonsterColdDivisor": {
+      "Normal": "1",
+      "Nightmare": "2",
+      "Hell": "4"
+     },
+     "MonsterFreezeDivisor": {
+      "Normal": "1",
+      "Nightmare": "2",
+      "Hell": "4"
+     }
+    },
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp ApplyColdState/ApplyFreezeState (divisor inside the UNIT_MONSTER branch)",
+     "Basin Cold_Damage ('Cold length applied by player, mercenary or pets is reduced to 1/2 in Nightmare and 1/4 in Hell')",
+     "Basin Cold_Resist (penalties -40/-100 apply to players)"
+    ]
+   },
+   "cannot_be_frozen": {
+    "law": "Item stat item_cannotbefrozen: sets the incoming hit's cold length AND freeze length to 0 (no chill). Checked before resistances. Does not stop Holy Freeze or Decrepify slows.",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp CalculateTotalDamage",
+     "Basin Cannot_be_Frozen",
+     "Arreat Resistances"
+    ]
+   },
+   "half_freeze_duration": {
+    "law": "item_halffreezeduration: halves cold length and freeze length once (multiple sources do not stack); multiplies with cold resist (CR 75% + HFD -> 1/8).",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp (/=2 once, else-if after CBF)",
+     "Basin Half_Freeze_Duration",
+     "Arreat Resistances"
+    ]
+   },
+   "knockback": {
+    "law": "Player knockback mode (PLRMODE_KNOCKBACK) moves the player and enters hit recovery; does not apply while frozen. Distance: Basin 'up to three sub-tiles'; D2MOO sets path distance 5 (path units, not confirmed to be sub-tiles).",
+    "grade": "MODEL-VERIFIED (partial: distance units conflict)",
+    "sources": [
+     "D2MOO PlrModes.cpp sub_6FC7F600 PLRMODE_KNOCKBACK",
+     "Basin Knockback"
+    ]
+   },
+   "immobilize_like": {
+    "law": "No root/immobilize exists for players in 1.13 PvM. The movement/attack slows that do apply (cold length, Holy Freeze from Aura-Enchanted uniques, Decrepify/Slows Target) SUM, with floors of 25% velocity and 15% attack rate. Holy Freeze is not reduced by CR or CBF and is capped by chill effectiveness (-50 for players).",
+    "floors": {
+     "velocity_pct_min": 25,
+     "attack_rate_min": 15
+    },
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO Units.cpp (velocity < 25 -> 25; attack rate clamp 15..175)",
+     "Basin Cold_Damage/Decrepify/Holy_Freeze ('no unit can be reduced below 15% attack rate or 25% velocity')"
+    ]
+   }
+  },
+  "chill": {
+   "slow": {
+    "velocity_pct": -50,
+    "attack_rate": -50,
+    "other_anim_rate": -50,
+    "casting": "NOT slowed: player cast animation speed = (100 + EFCR) x base, which reads no attack-rate or velocity stat",
+    "block_and_hit_recovery": "NOT slowed (FBR/FHR branches read only their own stat)",
+    "barbarian_whirlwind": "WW runs in the attack/sequence branch (attack rate) so chill slows its cadence (INFERRED from the branch; WW cadence law is the sister packet's)",
+    "grade": "MODEL-VERIFIED for velocity/attack (code + Basin chill effectiveness -50 for players + Arreat 'move and attack much more slowly'); casting-unaffected is code + Basin's silence (MODEL-VERIFIED partial)",
+    "sources": [
+     "D2MOO SUnitDmg.cpp GetColdEffect/ApplyColdState",
+     "D2MOO Units.cpp UpdateCastAnimRateAndVelocity / UpdateAttackAnimRateAndVelocity / UpdateRunWalkAnimRateAndVelocity",
+     "Basin Chill_effectiveness",
+     "Arreat Resistances"
+    ]
+   },
+   "length_law": {
+    "formula": "frames = cold_len_of_hit (CBF -> 0; HFD -> /2) x (100 - CR_eff)/100, CR_eff = displayed cold resist incl. Hell -100 penalty, clamped to [-100, min(75 + max_cold_res, 95)]; min 1 frame. No difficulty divisor for player defenders.",
+    "examples": {
+     "CR_eff 75 (capped)": 0.25,
+     "CR_eff 0": 1.0,
+     "CR_eff -100 (unresisted in Hell)": 2.0
+    },
+    "refresh": "a new chill only EXTENDS the remaining length (expire frame = max(old, new)); magnitude fixed at -50",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp CalculateTotalDamage/ApplyResistancesAndAbsorb (Clen row: STAT_COLDRESIST, STAT_MAXCOLDRESIST)",
+     "Basin Cold_Resist",
+     "Basin Cold_Damage (overwrite rule)"
+    ]
+   }
+  },
+  "poison_and_dots": {
+   "stacking": {
+    "law": "Poisons do not sum. A new poison REPLACES the current one (rate and length) iff its per-frame rate >= the current rate; a weaker poison is ignored (Basin adds: the monster's hit still applies one frame of its poison as well).",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp ApplyPoisonDamage",
+     "Basin Poison_Damage"
+    ]
+   },
+   "length_reduction": {
+    "formula": "frames = poison_len x (100 - PLR_eff)/100, PLR_eff = item PLR + Hell penalty (-100; NM -40), clamped [-100, 75] (no max-PLR stat). An unresisted Hell player takes x2 length; PLR 100 net -> x1.",
+    "hell_penalty": -100,
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO SUnitDmg.cpp (Plen row resist = STAT_ITEM_POISONLENGTHRESIST; penalty added for non-monster defenders except DR/magic; max 75)",
+     "Basin Poison_Length_Reduced"
+    ]
+   },
+   "damage_reduction": "poison DAMAGE is reduced by poison resist (Pois row, Hell -100 penalty, cap 75/95) \u2014 rate is resisted, length by PLR (MODEL-VERIFIED: code + Basin Poison_Resist).",
+   "lethality": {
+    "law": "Poison (any negative HPREGEN) cannot kill a player: life is floored at 1 point (256/256) by the regen step; a subsequent direct hit can kill.",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO PlrModes.cpp EVENTS_HpRegen (nLife < 256 -> 256)",
+     "Basin Poison_Damage"
+    ]
+   },
+   "burn": {
+    "law": "dwBurnDamage DoT uses the same replace-if-stronger rule as poison; it has no resist row in the damage table (length/rate unreduced in this path). Few monster attacks use it.",
+    "grade": "INFERRED (single code source)",
+    "sources": [
+     "D2MOO SUnitDmg.cpp ApplyBurnDamage"
+    ]
+   }
+  },
+  "stamina": {
+   "units": "stamina is stored in 1/256 points (ItemStatCost stamina/maxstamina ValShift 8); 25 frames/s",
+   "drain": {
+    "per_frame_256": "2 x CharStats RunDrain (40) x (body-armor speed/10 + 1, integer) x (1 - Slower Stamina Drain%), min 1",
+    "base_points_per_s": 3.90625,
+    "armor_speed_factor": {
+     "0": 1,
+     "5": 1,
+     "10": 2
+    },
+    "when": "only in PLRMODE_RUN outside town; same RunDrain (20) for both classes",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO PlrModes.cpp sub_6FC7F780",
+     "CharStats RunDrain (DATAMINED)",
+     "Basin Stamina_Drain"
+    ]
+   },
+   "zero_rule": {
+    "law": "at 0 stamina the run request becomes WALK (TOWNWALK in town); running resumes once stamina > 0 (regen while walking needs >= 1 point)",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO PlrModes.cpp sub_6FC7F600 / sub_6FC7F780",
+     "Basin Stamina"
+    ]
+   },
+   "regen": {
+    "law": "per frame +max_stamina/256 when standing (neutral/town-neutral), +max_stamina/512 when walking (only if current >= 1 point) or town-walking, 0 while running/attacking/casting (unless Heal Stamina >= 1000%); x(1 + Heal Stamina %/100)",
+    "full_refill_seconds": {
+     "standing": 10.24,
+     "walking": 20.48
+    },
+    "grade": "MODEL-VERIFIED (partial: Basin states no regen law; second source is the code-consistent Basin drain page only)",
+    "sources": [
+     "D2MOO PlrModes.cpp EVENTS_StaminaRegen",
+     "ItemStatCost staminarecoverybonus (Heal Stamina Plus %)"
+    ]
+   },
+   "base_by_level_vitality": {
+    "Sorceress": {
+     "formula": "74 + 1*(clvl-1) + 1*(Vitality_total - 10)  [items' Vitality counts: vitality op 9 -> maxstamina]",
+     "clvl90_examples_from_sorc_sheet": {
+      "MAXBLOCK_quests (vit 75)": 228,
+      "NODEX_quests (vit 380)": 533
+     }
+    },
+    "Barbarian": {
+     "formula": "92 + 1*(clvl-1) + 1*(Vitality_total - 25); Battle Orders adds skill_staminapercent (op 1) \u2014 J4a F12",
+     "note": "Barbarian Vitality is unpinned by his kit record"
+    },
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "CharStats stamina/StaminaPerLevel/StaminaPerVitality (DATAMINED, 4/4 = +1)",
+     "Basin Stamina class tables (74/92 start, +1/+1)",
+     "J4a F12"
+    ]
+   }
+  },
+  "mana_regen_barbarian": {
+   "law": "IDENTICAL to the Sorceress's H09 (J4b formulas.json): per frame mult = max(1, floor(max_mana_256/(25 x CharStats.ManaRegen))) with ManaRegen = 120 for BOTH classes; regen_256 = floor(mult x (100 + manarecoverybonus)/100) + manarecovery; ~120 s from 0 to full at 0% bonus. Resolves J4a F12's open item (ManaRegen 120 meaning).",
+   "barbarian_ManaRegen": 120,
+   "sorceress_ManaRegen": 120,
+   "grade": "MODEL-VERIFIED",
+   "sources": [
+    "D2MOO PlrModes.cpp EVENTS_ManaRegen",
+    "CharStats ManaRegen (DATAMINED)",
+    "Basin Regenerate_Mana",
+    "J4b H09"
+   ]
+  },
+  "life_regen": {
+   "natural": {
+    "law": "players have NO natural life regeneration (damage regeneration is monster/merc/pet only)",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "Basin Damage_regeneration",
+     "Arreat Characters ('Life does not regenerate by itself') \u2014 captures/potions/arreat-basics-characters.shtml"
+    ]
+   },
+   "replenish_life": {
+    "law": "Replenish Life +N = item stat hpregen N, added raw each frame to hitpoints stored in 1/256 points: N/256 life per frame = N x 25/256 life/s (~N/10 /s). Sums with negative poison/OW hpregen (net); applies while poisoned. Regen step floors life at 1 point.",
+    "units": "hpregen ValShift none vs hitpoints ValShift 8 (ItemStatCost)",
+    "grade": "MODEL-VERIFIED",
+    "sources": [
+     "D2MOO PlrModes.cpp EVENTS_HpRegen",
+     "ItemStatCost hpregen/hitpoints (DATAMINED)",
+     "Basin Replenish_Life"
+    ]
+   }
+  },
+  "barbarian_belt": {
+   "kit_record_belt": null,
+   "finding": "d2-ww-barb.json names NO belt (gear lists runewords Grief/Fortitude/Enigma/BotD/Death/Beast/Last Wish/Obedience/Insight only). The Barbarian's belt slot count is therefore a CONDUCTOR DEFAULT, not a record value.",
+   "reference_table_armor_belt_type_to_slots": {
+    "0": {
+     "bases": [
+      "Belt(M)"
+     ],
+     "numboxes_belts_index": 12
+    },
+    "1": {
+     "bases": [
+      "Sash(L)"
+     ],
+     "numboxes_belts_index": 8
+    },
+    "3": {
+     "bases": [
+      "Girdle(H)"
+     ],
+     "numboxes_belts_index": 16
+    },
+    "4": {
+     "bases": [
+      "Light Belt"
+     ],
+     "numboxes_belts_index": 8
+    },
+    "5": {
+     "bases": [
+      "Heavy Belt"
+     ],
+     "numboxes_belts_index": 12
+    },
+    "6": {
+     "bases": [
+      "Demonhide Sash",
+      "Sharkskin Belt",
+      "Mesh Belt",
+      "Battle Belt",
+      "War Belt",
+      "Spiderweb Sash",
+      "Vampirefang Belt",
+      "Mithril Coil",
+      "Troll Belt",
+      "Colossus Girdle"
+     ],
+     "numboxes_belts_index": 16
+    }
+   },
+   "no_belt": 4,
+   "arreat_boxes_parsed": {
+    "Sash": 8,
+    "Light Belt": 8,
+    "Belt": 12,
+    "Heavy Belt": 12,
+    "Plated Belt": 16,
+    "Demonhide Sash": 16,
+    "Sharkskin Belt": 16,
+    "Mesh Belt": 16,
+    "Battle Belt": 16,
+    "War Belt": 16,
+    "Spiderweb Sash": 16,
+    "Vampirefang Belt": 16,
+    "Mithril Coil": 16,
+    "Troll Belt": 16,
+    "Colossus Girdle": 16
+   },
+   "grade": "kit-record absence: DATAMINED (record read); slot table: MODEL-VERIFIED (Armor.txt belt column DATAMINED + Arreat #Boxes + Belts index numboxes from a D2R 3.0 mirror \u2014 Belts.txt is absent from the 1.13 mirror)",
+   "sources": [
+    "research/curated/kits-export/d2-ww-barb.json",
+    "Armor.txt belt column",
+    "Arreat normal/exceptional/elite belts #Boxes",
+    "blizzhackers d2data belts.json (D2R 3.0)"
+   ]
+  }
+ },
+ "inputs_sha256": {
+  "code:SUnitDmg.cpp": "56ab5e14f7aceb18681f1c1e720e89c63bfe2a25e2e41b8aa9907652a7c9daf7",
+  "code:Units.cpp": "33ba297df989677f3c59b118f5a48773dc7affa1ea24dd3ae68d1f2f7c3908a5",
+  "code:PlrModes.cpp": "50ec9bbde8a1783c092382792023c36457b64ed7896d7bff87659b19446f4865",
+  "txt:CharStats.txt": "210a6f1371a475442a6f9b27a2d03b2bebc2e3e93c1e586583c112596301a8b3",
+  "txt:ItemStatCost.txt": "4d743b7f3e260a6647f259de25a931fd2554d52315d316eac467f110ee096c27",
+  "txt:DifficultyLevels.txt": "aaa1a5d93df8c62707cf05308d82418ae7058ac1ac15ac768331f2abe440ff88",
+  "txt:Armor.txt": "6ce5a09e8c6bc07dddea916412f18e57af860f7c870e3ef9e3003ea8beeaaf99",
+  "basin:basin-Holy_Freeze-raw.txt": "9759a19354f5b67bfa9cdd0c014631dec4cfb4def4ed3d5be376d6ade6bd910c",
+  "basin:basin-Decrepify-raw.txt": "7fa1ee25943e0c46b6fbe828c158b5e80062bdddf74991ff6ae047e2eca3ede6",
+  "basin:basin-Freeze_length-raw.txt": "f36fc3d4eaccbb5fed7eedee23cbdc40405049e50b226960f6894bb41b34b7b8",
+  "basin:basin-Half_Freeze_Duration-raw.txt": "2501b5734e881f9ea450885de8660aa2b9e8ed992cfd52c48f74058867cbaf1d",
+  "basin:basin-Cannot_be_Frozen-raw.txt": "2690a0039fdcab7f49d96a693f3e61f8f561700fea53d5cc2a656887a0c3c57b",
+  "basin:basin-Stamina_Drain-raw.txt": "ab1c686034742a87ac36e35473982c5050c0c758e34ce1c7512301065aa185b3",
+  "basin:basin-Poison_Damage-raw.txt": "49386f727e1e492ab7c85873ddebd2242617bd763111ffd412c2facbbcb3075b",
+  "basin:basin-Freezes_Target-raw.txt": "b9cb831a81c904c03855d5da84da5f5ca3d6dcbcbff4dbb484161d79bfe94922",
+  "basin:basin-Cold_Damage-raw.txt": "0d99263aad0f88126b5ef8c090c39a5b65778735c0b8e429ba1e2a228e917c61",
+  "basin:basin-Stun_length-raw.txt": "9d9383f9938c576969b899c4c15fb39a1c49ec1dd5e65f6b32fb68b9099d5ca7",
+  "basin:basin-Damage_regeneration-raw.txt": "da49aab36dfb5a8274b68bbb086215dd59c958519e2b9dba7dc71fc226d23019",
+  "basin:basin-Cold_Resist-raw.txt": "113411ac0605211b3742368e021cf6d64e84b2f3b29698293d7594622ae3f870",
+  "basin:basin-Poison_Resist-raw.txt": "7933e226777029be858e46507be180f60ebd3b669a8bca6ace73ed492aa9e2bd",
+  "basin:basin-Regenerate_Mana-raw.txt": "36ef5134543afcbc3aec799c19cd398580c351d1a787f682e563ce2f3d277dc1",
+  "basin:basin-Stamina-raw.txt": "16906a1e2fa77cb1aac7db98102b14c5df4b78f9b15a8ec7ac919147c8856917",
+  "basin:basin-Chill_effectiveness-raw.txt": "1f3b4c718d17e3c3f368e6eed34d23fcc2c293516ab60efc3513eab591761348",
+  "basin:basin-Replenish_Life-raw.txt": "a3208a7ad3316389dbfec2abc09c51634d82990c61c9ea13162dbf6dd9186a96",
+  "basin:basin-Poison_Length_Reduced-raw.txt": "07b6bd7644c3afe9c44335a647780050b24ff7c48d8c1add365e5e95ddc9ec19",
+  "basin:basin-Knockback-raw.txt": "980b646e5f46cdc06982004d7796b6e68d04e37e794454ba76d9e57765d7a8e6",
+  "arreat:basics/resistances": "9ae08507a47b07bb02d4450ac742712539707d9ecabe64c8fad93bdc39d776bf"
+ }
+}

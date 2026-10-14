@@ -1,0 +1,458 @@
+{{Attribute nav}}
+{{Intro}}
+{{Mb|=Regenerate Mana %}} increases the rate at which a player character regenerates mana:
+
+
+Mana regenerated per second = 25 * [ [256 * Maximum Mana / (25*120) ] * (100 + Regenerate Mana) /100] /256 [https://www.mannm.org/d2library/faqtoids/mana_eng.html#manareg]
+
+
+*In the absence of any additional Regenerate Mana percentage from the sources listed below, any character will regenerate from zero to maximum mana in ~120 seconds (2 minutes), regardless of maximum mana. However, while a character with 600 mana and another with 1,200 mana will take the same amount of time to regenerate from zero to maximum mana, the former will do so at a rate of 4 <sub>251/256</sub> mana per second while the latter will do so at a rate of 9 <sub>246/256</sub> mana per second.
+*Ideally mana regeneration should equal mana consumption to allow skills to be used indefinitely, although practically this normally isn't necessary since skill usage is finite, and there are intervals between skill usage which allow mana to regenerate without consumption.
+*For example, a skill like [[Tornado]] with 10 mana cost and 10 frame [[cast rate]] consumes 25 (10 * 25/10) mana per second when cast continuously: a [[Druid (Diablo II)|Druid]] with 3,000 maximum mana would regenerate 25 mana per second, allowing him to cast it indefinitely. However, while a Druid with just 1,500 mana would only regenerate 12.5 mana per second, it would take 120 (1500 / (25-12.5) ) seconds or two '''minutes''' to run out of mana when casting continuously, which shouldn't normally be necessary for that length of time.
+*Alternatively, Regenerate Mana 600% would allow the Druid to cast indefinitely with as little as 434 maximum mana:
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-
+|width=96|25
+|= 25 * [ [256 * Maximum Mana / (25*120) ] * (100+600) /100] /256
+|-
+|256
+|= [ [256 * Maximum Mana / 3000] * 700 /100]
+|-
+|{256/7}
+|= [256 * Maximum Mana / 3000]
+|-
+|Maximum Mana
+|= {37 * 3000/256}
+|-
+|Maximum Mana
+|= 434
+|}
+|}
+
+
+==Shrine==
+*Mana Recharge [[Shrine]] applies Regenerate Mana 400% to player who activates it.
+<br>
+
+==Skill==
+{{Text table}} width=75%
+|-
+!width=13% align=center|Value
+!width=26%|[[Skill]]
+!width=48%|Target
+!width=13% align=center|Min [[Requirements|Rlvl]]
+|-
+|align=right|18+(12*slvl)%
+![[Warmth]]
+|Self
+|align=right|1
+|-
+|align=right|275+(25*slvl)%
+![[Meditation]]
+|Self and [[ally|allied]] players in (28 + (4*slvl) ) /3 yard [[radius]]
+|align=right|24
+|}
+<br>
+
+==Helm==
+{{Skill bonus}}
+|-
+|8%
+|align=left|[[Chipped Skull]] in helm socket
+|1
+|No
+|-
+|8%
+|align=left|[[Flawed Skull]] in helm socket
+|5
+|No
+|-
+|12%
+|align=left|[[Skull]] in helm socket
+|12
+|No
+|-
+|12%
+|align=left|[[Flawless Skull]] in helm socket
+|15
+|No
+|-
+|19%
+|align=left|[[Perfect Skull]] in helm socket
+|18
+|No
+|-
+|15%
+|align=left|[[Eth Rune|{{Cb|=Eth Rune}}]] in helm socket
+|15
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster helm}}]]
+|13
+|No
+|}
+<br>
+
+===Pelt===
+{{Skill bonus}}
+|-
+|17%
+!align=left|[[Aldur's Stony Gaze|{{S|=Aldur's Stony Gaze Hunter's Guise}}]]
+|36
+|No
+|}
+<br>
+
+==Amulet==
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster Amulet}}]]
+|13
+|No
+|-
+|20%
+!align=left|[[Arcanna's Sign|{{S|=Arcanna's Sign Amulet}}]]
+|15
+|No
+|-
+|40%
+!align=left|[[Civerb's Icon|{{S|=Civerb's Icon Amulet}}]]
+|9
+|No
+|}
+<br>
+
+==Body armor==
+{{Skill bonus}}
+|-
+|8%
+|align=left|[[Chipped Skull]] in body armor socket
+|1
+|No
+|-
+|8%
+|align=left|[[Flawed Skull]] in body armor socket
+|5
+|No
+|-
+|12%
+|align=left|[[Skull]] in body armor socket
+|12
+|No
+|-
+|12%
+|align=left|[[Flawless Skull]] in body armor socket
+|15
+|No
+|-
+|19%
+|align=left|[[Perfect Skull]] in body armor socket
+|18
+|No
+|-
+|15%
+|align=left|[[Eth Rune|{{Cb|=Eth Rune}}]] in body armor socket
+|15
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster body armor}}]]
+|13
+|No
+|-
+|(10-15)%
+!align=left|[[Steel Carapace|{{U|=Steel Carapace Shadow Plate}}]]
+|66
+|No
+|-
+|(10-15)%
+!align=left|[[Ormus' Robes|{{U|=Ormus' Robes Dusk Shroud}}]]
+|75
+|No
+|-
+|15%
+|align=left|[[Stealth|{{Ub|=Stealth}}]] body armor
+|17
+|No
+|-
+|15%
+|align=left|[[Bramble|{{Ub|=Bramble}}]] body armor
+|61
+|No
+|-
+|25%
+!align=left|[[Heavenly Garb|{{U|=Heavenly Garb Light Plate}}]]
+|29
+|No
+|}
+<br>
+
+==Melee weapon==
+{{Skill bonus}}
+|-
+|16%
+|align=left|[[Eternity|{{Ub|=Eternity}}]] melee weapon
+|63
+|No
+|}
+<br>
+
+===Axe===
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Skull Splitter|{{U|=Skull Splitter Military Pick}}]]
+|21
+|No
+|-
+|25%
+!align=left|[[Spellsteel|{{U|=Spellsteel Bearded Axe}}]]
+|39
+|No
+|}
+<br>
+
+===Dagger===
+{{Skill bonus}}
+|-
+|15%
+!align=left|[[Wizardspike|{{U|=Wizardspike Bone Knife}}]]
+|61
+|No
+|}
+<br>
+
+===Rod===
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster rod}}]]
+|13
+|No
+|}
+<br>
+
+====Scepter====
+{{Skill bonus}}
+|-
+|10%
+!align=left|[[Zakarum's Hand|{{U|=Zakarum's Hand Rune Scepter}}]]
+|37
+|No
+|-
+|15%
+!align=left|[[Hand of Blessed Light|{{U|=Hand of Blessed Light Divine Scepter}}]]
+|42
+|No
+|}
+<br>
+
+====Staff====
+{{Skill bonus}}
+|-
+|5%
+|align=left|[[Arcanna's Deathwand|{{Sb|=Arcanna's Deathwand War Staff}}]] (3 items)
+|15
+|No
+|-
+|10%
+!align=left|[[Mang Song's Lesson|{{U|=Mang Song's Lesson Archon Staff}}]]
+|82
+!{{Warn|=Yes}} (LoD only)
+|-
+|(15-30)%
+|align=left|[[Obsession|{{Ub|=Obsession}}]] staff {{D2R-inline}}
+|69
+|No (D2R only)
+|-
+|43%
+!align=left|[[Spire of Lazarus|{{U|=Spire of Lazarus Gnarled Staff}}]]
+|18
+|No
+|}
+<br>
+
+====Wand====
+{{Skill bonus}}
+|-
+|5%
+!align=left|[[Torch of Iro|{{U|=Torch of Iro Wand}}]]
+|5
+|No
+|}
+<br>
+
+==Missile weapon==
+{{Skill bonus}}
+|-
+|20%
+|align=left|[[Harmony|{{Ub|=Harmony}}]] missile weapon
+|39
+!{{Warn|=Yes}} (LoD only)
+|}
+<br>
+
+==Shield==
+{{Skill bonus}}
+|-
+|15%
+|align=left|[[Eth Rune|{{Cb|=Eth Rune}}]] in shield socket
+|15
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster shield}}]]
+|13
+|No
+|-
+|15%
+|align=left|[[Rhyme|{{Ub|=Rhyme}}]] shield
+|29
+|No
+|-
+|15%
+|align=left|[[Splendor|{{Ub|=Splendor}}]] shield
+|37
+|No
+|}
+<br>
+
+===Shrunken head===
+{{Skill bonus}}
+|-
+|33%
+!align=left|[[Homunculus|{{U|=Homunculus Heirophant Trophy}}]]
+|42
+|No
+|}
+<br>
+
+==Ring==
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster Ring}}]]
+|13
+|No
+|-
+|20%
+!align=left|[[Manald Heal|{{U|=Manald Heal Ring}}]]
+|15
+|No
+|}
+<br> 
+
+==Belt==
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster belt}}]]
+|13
+|No
+|-
+|15%
+!align=left|[[Gloom's Trap|{{U|=Gloom's Trap Mesh Belt}}]]
+|36
+|No
+|-
+|30%
+!align=left|[[Lenymo|{{U|=Lenymo Sash}}]]
+|7
+|No
+|}
+<br>
+
+==Boots==
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster boots}}]]
+|13
+|No
+|-
+|10%
+!align=left|[[Marrowwalk|{{U|=Marrowwalk Boneweave Boots}}]]
+|66
+|No
+|}
+<br>
+
+==Gloves==
+{{Skill bonus}}
+|-
+|(4-10)%
+!align=left|[[Caster|{{C|=Caster gloves}}]]
+|13
+|No
+|-
+|25%
+!align=left|[[Magefist|{{U|=Magefist Light Gauntlets}}]]
+|23
+|No
+|}
+<br>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+|8%
+|align=left|[[Angelic Raiment|{{Ub|=Angelic Raiment}}]] (Full)
+|12
+|No
+|-
+|12%
+|align=left|[[Arcanna's Tricks|{{Ub|=Arcanna's Tricks}}]] (3 items)
+|15
+|No (D2R only)
+|-
+|15%
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (2 items)
+|49
+|No
+|-
+|16%
+|align=left|[[Cathan's Traps|{{Ub|=Cathan's Traps}}]] (2 items)
+|11
+|No (D2R only)
+|-
+|30%
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (3 items) <sup>1</sup>
+|54/62
+|No
+|-
+|45%
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (4 items) <sup>1</sup>
+|62/65
+|No
+|-
+|60%
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (Full) <sup>1</sup>
+|65
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Regenerate Mana 15% is added with each additional item equipped.</span>
+<br>
+<br>
+
+==Reference==
+*Librarian, [https://www.mannm.org/d2library/faqtoids/mana_eng.html#manareg mana regeneration] (FAQtoids)
+
+
+[[Category:Modifiers]]
+[[Category:Attribute modifiers]]

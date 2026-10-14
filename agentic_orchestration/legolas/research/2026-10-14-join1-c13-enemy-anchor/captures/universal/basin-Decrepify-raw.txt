@@ -1,0 +1,177 @@
+{{Skill page
+|Nav=Curses
+|File=Curses
+|RS=Terror
+|SS=None
+|Type=Curse
+|Tier=5
+|Rlvl=24
+|Req=None
+|Town=No
+|Mana=11
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=This curse gives the victim a glimpse of his own mortality, briefly aging the victim. Imagining itself with an infirm body of advanced age, the afflicted believes it is no longer capable of youthful exertions.}}
+
+
+==Detail==
+{{Stat}}
+|-
+!align=left|- [[Attack rate]]
+|50
+|-
+!align=left|-% [[Movement speed]]
+|50
+|-
+!align=left|-[[% Damage]]
+|50
+|-
+!align=left|[[Damage Resist]] -%
+|50
+|-
+!align=left|[[Radius]] (Yards)
+|4
+|-
+!align=left|Duration (Seconds)
+|3.4 + (0.6*slvl)
+|}
+
+
+[[File:Decrepify.gif|center|frame|Overlay above [[curse]]d target.]]
+
+
+[[File:Decrepify.png|center|frame|Radius, centered on [[Unique (monster)|Unique]] [[Corrupt Rogue|{{Ub|=Dark Hunter}}]].]]
+
+
+*[[Cast rate]]
+*Attack rate and movement speed reduction adds to that applied by [[Cold Damage|cold length]], [[Slows Target]], and [[Holy Freeze]], although no unit can be reduced below 15% attack rate or 25% velocity. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/93022-about-slows-target-mechanics/&do=findComment&comment=1143042]
+** In D2R it also adds to that applied by [[Impale]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/127638-d2r-impale-slowing-technical-details/]
+*Will reduce physical attack damage by 50% in the absence of +% Damage. If +% Damage is applied, then Decrepify -% Damage is subtracted from it.
+*-% Damage does not apply to physical cast damage, including the following:
+**[[Bone Fetish]] death explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1464450]
+**[[Suicide Minion]] death explosion
+**[[Fire Enchanted]] explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1464380]
+**[[Nihlathak (boss)|{{Ub|=Nihlathak}}]] corpse explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1464624]
+*DR -50% is reduced to DR -10% (1/5) against [[Immune to Physical]] monsters: this is applied to [[undead]] before [[Sanctuary (skill)|Sanctuary]].
+**In D2R it works at full effectiveness (DR -50%) against [[Physical Immunity Sundered]] monsters.
+<br/>
+
+==Source==
+*[[Oblivion Knight]] will cast it at [[melee]] range: {{Warn|=it can be cast at long range, but has no effect}}.
+*[[Baal|{{Ub|=Baal}}]] casts it in [[Throne of Destruction]].
+<br/>
+
+===[[Skill bonus]]===
+*+(1-3) Decrepify ([[Necromancer]] Only) can spawn on ilvl >24 [[wand]]s and [[shrunken head]]s.
+
+
+{{Skill bonus}}
+|-
+| +2
+!align=left|[[Ume's Lament|{{U|=Ume's Lament Grim Wand}}]]
+|28
+|No
+|}
+<br/>
+
+===[[Charges]]===
+{{Skill charges}}
+|-
+|3
+|30
+!align=left|[[Spellsteel|{{U|=Spellsteel Bearded Axe}}]]
+|39
+|No
+|-
+|4
+|35
+|align=left|[[Void|{{Ub|=Void}}]] dagger {{RotW-inline}}
+|69
+|No
+|}
+<br/>
+
+===[[Chance to Cast]]===
+*Cast on target's location.
+<br/>
+
+====[[On Striking]]====
+{{Skill chance}}
+|-
+|1
+|5
+!align=left|[[The Fetid Sprinkler|{{U|=The Fetid Sprinkler Holy Water Sprinkler}}]]
+|38
+|No
+|-
+|1
+|30
+|align=left|[[Wrath|{{Ub|=Wrath}}]] missile weapon
+|63
+!{{Warn|=Yes}}
+|-
+|1
+|33
+!align=left|[[The Reaper's Toll|{{U|=The Reaper's Toll Thresher}}]]
+|75
+!{{Warn|=Yes}}
+|-
+|15
+|20
+|align=left|[[Lawbringer|{{Ub|=Lawbringer}}]] hammer/scepter/sword
+|43
+!{{Warn|=Yes}}
+|}
+<br/>
+
+====[[When Struck]]====
+*Cast on attacker's location.
+
+
+{{Skill chance}}
+|-
+|1
+|15
+|align=left|[[Ars Tor'Baalos|{{Ub|=Ars Tor'Baalos Blasphemous Compendium}}]] {{RotW-inline}}
+|73
+|No
+|}
+<br/>
+
+====[[When You Kill an Enemy]]====
+{{Skill chance}}
+|-
+|6
+|50
+!align=left|[[Executioner's Justice|{{U|=Executioner's Justice Glorious Axe}}]]
+|75
+!{{Warn|=Yes}}
+|}
+<br/>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left|Duration (Seconds)
+|4||4.6||5.2||5.8||6.4||7||7.6||8.2||8.8||9.4||10||10.6||11.2||11.8||12.4||13||13.6||14.2||14.8||15.4
+|}
+
+
+{{Levels 21-40}}
+|-
+!align=left|Duration (Seconds)
+|16||16.6||17.2||17.8||18.4||19||19.6||20.2||20.8||21.4||22||22.6||23.2||23.8||24.4||25||25.6||26.2||26.8||27.4
+|}
+
+
+{{Levels 41-60}}
+|-
+!align=left|Duration (Seconds)
+|28||28.6||29.2||29.8||30.4||31||31.6||32.2||32.8||33.4||34||34.6||35.2||35.8||36.4||37||37.6||38.2||38.8||39.4
+|}
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/necromancer-curses.shtml Curses] (Arreat Summit)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)

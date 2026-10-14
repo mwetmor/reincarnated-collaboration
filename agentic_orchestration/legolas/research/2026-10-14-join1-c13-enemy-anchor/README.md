@@ -241,7 +241,23 @@ The row-for-row table is in `potions_notes.md`.
 
 ## 9. Universal player laws (KP-426)
 
-See `universal_player_laws_notes.md` and `universal_player_laws.json`. The section is filled from that fork's output; the summary is appended below at commit time.
+See `universal_player_laws_notes.md` and `universal_player_laws.json`; `scripts/universal_player_laws.py` regenerates the JSON byte-identical and asserts the table values against a second source. Rows apply to both D2 kits. MODEL-VERIFIED unless marked.
+
+| Row | Law |
+|---|---|
+| Stun | Capped at **250 frames (10 s)**; not scaled by difficulty. Players are not incapacitated, but any hit during a stun forces hit recovery. The newest stun replaces the old one |
+| Freeze | **Players have no frozen state**: freeze length and Freezes Target become chill. **Cannot Be Frozen** zeroes cold and freeze length; **Half Freeze Duration** halves it once and does not stack |
+| Hell divisor | The Hell /4 cold and freeze divisors (DifficultyLevels) apply **only when a monster is the target**. For players, the Hell −100 resist penalty enters the length calculation, so an under-resisted player is chilled up to about twice as long |
+| Knockback | Puts the player into hit recovery. **Distance is partial and conflicted:** Basin says up to 3 subtiles; D2MOO sets path distance 5 in unknown units |
+| Immobilize | **No root effect for players.** Slows add together, floored at 25 % movement speed and 15 % attack rate |
+| Chill | **−50 % movement speed and attack rate.** **Casting, block speed and hit-recovery speed are NOT slowed** (those read only FCR/FBR/FHR). Whirlwind is slowed (INFERRED). Length = cold length × (100 − effective cold resist)/100, effective resist including the Hell penalty, capped at 75 (95 with max-res items). A new chill only extends the remaining time |
+| Poison | **A new poison replaces the current one only if its per-frame rate is equal or higher.** Length × (100 − PLR_eff)/100, with PLR_eff including the Hell −100 penalty, clamped −100 to 75. **Poison cannot kill a player** (life floored at 1). Burn follows the same replace rule (INFERRED, code only) |
+| Stamina | Drain **40/256 per run frame (3.906/s)**, the same for both classes, × body-armour speed factor, outside town only. At 0, running becomes walking. Regen: full in 10.24 s standing, 20.48 s walking, none while running, attacking or casting (code only: partial). **Base: Sorceress 74 + (clvl − 1) + (Vit − 10); Barbarian 92 + (clvl − 1) + (Vit − 25)**; item Vitality counts |
+| Mana regen (Barbarian) | **Identical to the Sorceress's H09 law.** CharStats ManaRegen = 120 for both, about 120 s from empty to full. This closes the J4a F12 open item |
+| Life regen | **None naturally for players.** Replenish Life +N heals **N × 25/256 life per second** and keeps working while poisoned |
+| Barbarian belt | **`d2-ww-barb.json` names no belt**, so the count is a **conductor default.** Reference (checked against Arreat): no belt 4 slots; normal belts 8 / 12 / 16; every exceptional and elite belt 16 |
+
+Gaps: the code is 1.10f, and no source shows a 1.13 change. Knockback distance is unresolved. Stamina regen and burn rest on one source. Belts.txt is not in the 1.13 mirror, so the belt table uses a D2R index that matches Arreat on all 7 bases checked. Out of scope but noticed: D2MOO's hit-recovery threshold varies by attack type, which conflicts with the community "1/12 of max life" rule.
 
 ## 10. Yard → metre key (jack-ryan routed item)
 

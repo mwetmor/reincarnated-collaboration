@@ -1,0 +1,165 @@
+{{Skill page
+|Nav=OA
+|File=Offensive Auras
+|RS=Holy Fire
+|SS=Resist Cold, Salvation
+|Type=Personal buff and hostile debuff aura
+|Tier=4
+|Rlvl=18
+|Req=None
+|Town=Yes
+|Mana=None 
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=Using this aura, the Paladin causes the temperature of the air around him to drop drastically, freezing the flesh of his enemies. Those so affected will find their movement drastically hindered and are easily dispatched back to the Hells from whence they spawned.}}
+
+
+==Detail==
+{{Skill}}
+|-
+!align=left|Minimum Radial [[Cold Damage]]
+|slvl+1||(2*slvl) - 7||(3*slvl) - 23||(4*slvl) - 45||(5*slvl) - 73
+|-
+!align=left|Maximum Radial Cold Damage
+|slvl+2||(2*slvl) - 6||(3*slvl) - 22||(4*slvl) - 44||(5*slvl) - 72
+|-
+!align=left|Minimum Weapon Cold Damage
+|(5*slvl) + 5||(10*slvl) - 35||(15*slvl) - 115||(20*slvl) - 225||(25*slvl) - 365
+|-
+!align=left|Maximum Weapon Cold Damage
+|(5*slvl) + 10||(10*slvl) - 30||(15*slvl) - 110||(20*slvl) - 220||(25*slvl) - 360
+|}
+
+
+{{Stat}}
+|-
+!align=left|[[Radius]] (Yards)
+|(10 + (2*slvl) ) / 3
+|-
+!align=left|{{S|=+% Cold Damage}}
+|(15*[[Resist Cold]].blvl) + (7*[[Salvation]].blvl)
+|-
+!align=left|-% [[Attack rate]]
+|min(25 + [35 * [ (110*slvl) / (slvl+6)] / 100] , 60)
+|-
+!align=left|-% [[Movement speed]]
+|min(25 + [35 * [ (110*slvl) /(slvl+6) ] / 100] , 60)
+|}
+
+
+[[File:Holy Freeze.gif|center|frame|Overlay displayed at feet when active.]]
+
+
+*Radial cold damage is applied to hostile targets within radius once every two seconds. If a target is within the radius of multiple auras, then the radial cold damage of all of them is applied.
+*Weapon cold damage is only applied by the supplier, and it is added to both the arrows and explosions of [[Freezing Arrow]].
+*+% [[Cold Skill Damage]] is applied to skill damage before it's added to weapon damage, then it's applied a second time to [[melee]] attacks.
+*No cold length is applied: HF is a separate source of attack rate and movement speed reduction which adds to that of cold length, [[Slows Target]], and [[Decrepify]], although no unit can be reduced below 15% attack rate or 25% velocity. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/93022-about-slows-target-mechanics/&do=findComment&comment=1143042]
+** In D2R it also adds to that applied by [[Impale]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/127638-d2r-impale-slowing-technical-details/]
+*[[Cold Resist]] or [[Cannot be Frozen]] won't reduce or negate the slowing effect, so [[Immune to Cold]] targets may still be slowed. However, the value applied is the maximum (least negative) of HF or the target's [[chill effectiveness]]. Consequently HF will never apply more than -50 attack rate and -50% movement speed at level >11, and 0 chill effectiveness results in no slowing or radial cold damage being applied. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120504-chill-effectiveness/]
+*Can slow [[Aura Enchanted]] [[Unique (monster)|Unique]] monster, even if it has higher level HF. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120504-chill-effectiveness/]
+*Does not slow or apply radial cold damage to [[Evil]]s. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120504-chill-effectiveness/&do=findComment&comment=1492459]
+<br>
+
+==Source==
+*Defensive [[Desert Mercenary]] hired in Nightmare (or in Hell in D2R) supplies Holy Freeze.
+*[[Aura Enchanted]] Unique monster supplies level max( [mlvl/7] , 1).
+*[[Duriel|{{Ub|=Duriel}}]] always supplies level 5 in Normal and level 6 in Nightmare and Hell (this applies to him in the [[Pandemonium Event]] as well).
+<br>
+
+===[[Skill bonus]]===
+*+(1-3) Holy Freeze ([[Paladin (Diablo II)|Paladin]] Only) can spawn on ilvl >18 [[scepter]]s.
+
+
+{{Skill bonus}}
+|-
+| +2
+!align=left|[[Zakarum's Hand|{{U|=Zakarum's Hand Rune Scepter}}]]
+|37||No
+|}
+<br>
+
+===[[Aura When Equipped]]===
+{{Skill bonus}}
+|-
+|12
+|align=left|[[Doom|{{Ub|=Doom}}]] axe/polearm/hammer
+|67||No
+|-
+|18
+|align=left|[[Ice|{{Ub|=Ice}}]] missile weapon
+|65
+!{{Warn|=Yes}}
+|}
+<br>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left|Radius (Yards)
+|4||4 2/3||5 1/3||6||6 2/3||7 1/3||8||8 2/3||9 1/3||10||10 2/3||11 1/3||12||12 2/3||13 1/3||14||14 2/3||15 1/3||16||16 2/3
+|-
+!align=left|Minimum Radial Cold Damage
+|2||3||4||5||6||7||8||9||11||13||15||17||19||21||23||25||28||31||34||37
+|-
+!align=left|Maximum Radial Cold Damage
+|3||4||5||6||7||8||9||10||12||14||16||18||20||22||24||26||29||32||35||38
+|-
+!align=left|Minimum Weapon Cold Damage
+|10||15||20||25||30||35||40||45||55||65||75||85||95||105||115||125||140||155||170||185
+|-
+!align=left|Maximum Weapon Cold Damage
+|15||20||25||30||35||40||45||50||60||70||80||90||100||110||120||130||145||160||175||190
+|-
+!align=left|-% Attack Rate and Movement Speed
+|30||34||37||40||42||44||45||46||48||48||49||50||51||51||52||53||53||53||54||54
+|}
+
+
+{{Levels 21-40}}
+|-
+!align=left|Radius (Yards)
+|17 1/3||18||18 2/3||19 1/3||20||20 2/3||21 1/3||22||22 2/3||23 1/3||24||24 2/3||25 1/3||26||26 2/3||27 1/3||28||28 2/3||29 1/3||30
+|-
+!align=left|Minimum Radial Cold Damage
+|40||43||47||51||55||59||63||67||72||77||82||87||92||97||102||107||112||117||122||127
+|-
+!align=left|Maximum Radial Cold Damage
+|41||44||48||52||56||60||64||68||73||78||83||88||93||98||103||108||113||118||123||128
+|-
+!align=left|Minimum Weapon Cold Damage
+|200||215||235||255||275||295||315||335||360||385||410||435||460||485||510||535||560||585||610||635
+|-
+!align=left|Maximum Weapon Cold Damage
+|205||220||240||260||280||300||320||340||365||390||415||440||465||490||515||540||565||590||615||640
+|-
+!align=left|-% Attack Rate and Movement Speed
+|54||55||55||55||55||56||56||56||56||56||57||57||57||57||57||57||57||58||58||58
+|}
+
+
+{{Levels 41-60}}
+|-
+!align=left|Radius (Yards)
+|30 2/3||31 1/3||32||32 2/3||33 1/3||34||34 2/3||35 1/3||36||36 2/3||37 1/3||38||38 2/3||39 1/3||40||40 2/3||41 1/3||42||42 2/3||43 1/3
+|-
+!align=left|Minimum Radial Cold Damage
+|132||137||142||147||152||157||162||167||172||177||182||187||192||197||202||207||212||217||222||227
+|-
+!align=left|Maximum Radial Cold Damage
+|133||138||143||148||153||158||163||168||173||178||183||188||193||198||203||208||213||218||223||228
+|-
+!align=left|Minimum Weapon Cold Damage
+|660||685||710||735||760||785||810||835||860||885||910||935||960||985||1,010||1,035||1,060||1,085||1,110||1,135
+|-
+!align=left|Maximum Weapon Cold Damage
+|665||690||715||740||765||790||815||840||865||890||915||940||965||990||1,015||1,040||1,065||1,090||1,115||1,140
+|-
+!align=left|-% Attack Rate and Movement Speed
+|58||58||58||58||58||58||58||58||59||59||59||59||59||59||59||59||59||59||59||60
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/paladin-offense.shtml Offensive Auras] (Arreat Summit)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120504-chill-effectiveness/ Chill Effectiveness] (D2 Technical)
