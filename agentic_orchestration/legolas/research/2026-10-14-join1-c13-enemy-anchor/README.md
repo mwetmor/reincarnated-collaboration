@@ -432,3 +432,54 @@ The derivation ladder (E0 → E5) and the line-up-weighted figures are in `gd_da
 - **The primary r_DMG barely moves** (×98.9 → ×97.1). **The 2.4:1 asymmetry against r_HP ×40.5 stands** (97.1 / 40.5 = 2.40).
 - **The use-weighted variant moves down** (×58.9 → ×47.0), so the asymmetry under use weighting is **about 1.16:1**, not 1.5:1. Weighted by how often the oracle actually swings each slot, GD's damage scale is close to its HP scale.
 - **The basic-swing variant flips** from ×164.4 to ×79.0. It now sits below the primary, as a basic swing should.
+
+---
+
+## 13. Stage 6 (KP-431): D2 monster attack rating and hit chance against the NODEX Sorceress, R1
+
+Files: `d2_hit_chance_r1.json` (per-type rows, each with every attack), `scripts/d2_hit_chance_r1.py`, `verification_hit_chance.log`. This serves gamora's L-24 quantile matching, which is rank-preserving per role pair.
+
+**Defender:** the KP-428 default sheet NODEX_quests: Defence 1,060 / **1,203** / 1,347, plus **+250 against missiles** (Spirit), clvl 90.
+
+**Attacker:** R1 normal monsters, monster level = alvl 85, players 1.
+
+### Laws
+
+| Id | Law | Grade |
+|---|---|---|
+| H1 | `CtH = clamp(2·alvl·⌊100·AR/(AR+Def)⌋/(alvl+dlvl), 5, 95)`, integer arithmetic. Sources: D2MOO `SUNITDMG_IsHitSuccessful`; Basin Attack; J4a F05 | MODEL-VERIFIED |
+| H2 | AR per slot = MonStats `A1TH/A2TH/S1TH(H)` × MonLvl `L-TH(H)` / 100 | DATAMINED via MODEL-VERIFIED scaling |
+| H3 | Defence: melee rolls against Defence; a missile rolls against Defence + the vs-missile bonus | MODEL-VERIFIED |
+| H4 | A missile rolls only if `Missiles.txt ToHit` is set; otherwise it **auto-hits (100 %, no clamp)** | MODEL-VERIFIED |
+
+**Not folded into the figures:** H5 (melee hits a *running* Sorceress without a roll) and block (3 % on NODEX, which applies after a successful roll). Both are noted only.
+
+### Role per attack (DATAMINED flags)
+
+| Role | Rule |
+|---|---|
+| **melee** | An A1/A2/S1 slot with no `MissA1/MissA2/MissS1` missile, even on a `rangedtype` monster |
+| **ranged-physical** | A slot that fires a missile with `ToHit` set (archers' arrows, blowguns) |
+| **caster** | A slot whose missile has no `ToHit`, and every damaging monster **skill** hit from stage 3 (`d2_skill_damage.json`). Auto-hit |
+
+A type's role is the role of its **highest-damage** attack.
+
+### Results
+
+Defence mid; median [p25–p75] (min–max):
+
+| Role | Types | Attacks | Attack AR | Hit % per attack | Hit % at def lo / hi | **Hit % per type (best attack), equal** | Champion (def mid) |
+|---|---|---|---|---|---|---|---|
+| **melee** | 57 | 91 | 4,089 [3,578–5,112] (2,385–11,382) | 74 [71–77] (64–87) | 76 / 72 | **74 [71–78] (64–87)** | ≥ 81 |
+| **ranged-physical** | 3 | 3 | 5,112 [4,430–5,112] | 74 [71.5–74] (69–74) | 76 / 73 | **74 [71.5–74] (69–74)** | ≥ 81 |
+| **caster** | 6 | 36 | — | **100** | 100 | **100** | 100 |
+| all | 66 | 130 | 4,089 [3,578–5,112] | 76 [72–100] | 78 / 74 | 74 [71–78] (64–100) | ≥ 83 |
+
+- **The slot-weighted (spawn-slot) variant** gives melee 74 [72–78] (64–87). That is the same weighting as r_HP's slot variant; the equal-per-type figure matches r_HP's primary.
+- **The D2 melee spread to preserve:** IQR 7 points (71–78), range 23 points (64–87). gamora's linear form had compressed it to IQR 3 / range 7.
+- **Champion figures are a lower bound:** AR ×1.49 at alvl+2, applied through the level term only; the attack rating is not re-looked-up at the higher level.
+- **Missiles roll against a higher defence** (+250 from Spirit), which is why ranged-physical sits about 0–3 points below melee at the same AR.
+
+### Gaps
+- **4 R1 types have no per-slot attack in this table:** `fetishshaman8` (stream-only inferno) and `skmage_ltng4`, `skmage_ltng6`, `skmage_pois6` (their A1 fires a Missiles.txt missile with no ToHit, and the damage is not computed). **They are casters, so they auto-hit**; for role counts, casters are 10 types.
+- **Grades:** AR is DATAMINED; hit chance is computed (INFERRED) through MODEL-VERIFIED laws; the role split is DATAMINED flags plus H4.

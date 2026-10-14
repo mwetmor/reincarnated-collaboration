@@ -1,0 +1,2829 @@
+{
+ "law": "LoD 1.13, Hell, alvl 85, players-1; defender = Sorceress NODEX_quests (KP-428 default), clvl 90",
+ "defence": {
+  "lo": 1060,
+  "mid": 1203,
+  "hi": 1347,
+  "vs_missile_extra": 250
+ },
+ "grades": {
+  "AR per slot": "DATAMINED (MonStats x MonLvl, MODEL-VERIFIED scaling)",
+  "hit chance": "MODEL-VERIFIED law (D2MOO + Basin + J4a F05) applied to DATAMINED inputs; values INFERRED (computed)",
+  "role split": "DATAMINED flags (rangedtype, MissA1/A2/S1, Missiles.ToHit) + MODEL-VERIFIED H4",
+  "champion row": "INFERRED lower-bound form: AR x1.49 at alvl+2 for the level term only (TH not re-looked-up at +2)"
+ },
+ "notes": [
+  "casters auto-hit: 100 %, unclamped (H4); they are NOT blockable unless the missile carries physical damage",
+  "a running Sorceress is hit by melee without a roll (H5) \u2014 not applied in these figures",
+  "block (NODEX 3 %) applies after a successful hit roll and is not folded in"
+ ],
+ "summary": {
+  "melee": {
+   "n_types_by_best_attack_role": 57,
+   "n_attacks": 91,
+   "type_best_attack_hit_pct_def_mid": {
+    "equal": {
+     "n": 56,
+     "median": 74.0,
+     "p25": 71.0,
+     "p75": 78.0,
+     "min": 64,
+     "max": 87
+    },
+    "slot": {
+     "n": 69,
+     "median": 74,
+     "p25": 72.0,
+     "p75": 78.0,
+     "min": 64,
+     "max": 87
+    }
+   },
+   "attack_AR": {
+    "equal": {
+     "n": 90,
+     "median": 4089.0,
+     "p25": 3578.0,
+     "p75": 5112.0,
+     "min": 2385,
+     "max": 11382
+    }
+   },
+   "attack_hit_pct_def_lo_mid_hi": {
+    "def_lo": {
+     "n": 90,
+     "median": 76.0,
+     "p25": 74.0,
+     "p75": 79.0,
+     "min": 67,
+     "max": 88
+    },
+    "def_mid": {
+     "n": 90,
+     "median": 74.0,
+     "p25": 71.0,
+     "p75": 77.0,
+     "min": 64,
+     "max": 87
+    },
+    "def_hi": {
+     "n": 90,
+     "median": 72.0,
+     "p25": 69.0,
+     "p75": 76.0,
+     "min": 61,
+     "max": 86
+    }
+   },
+   "attack_hit_pct_champion_def_mid": {
+    "n": 90,
+    "median": 81.0,
+    "p25": 79.0,
+    "p75": 84.0,
+    "min": 72,
+    "max": 91
+   }
+  },
+  "ranged_physical": {
+   "n_types_by_best_attack_role": 3,
+   "n_attacks": 3,
+   "type_best_attack_hit_pct_def_mid": {
+    "equal": {
+     "n": 3,
+     "median": 74,
+     "p25": 71.5,
+     "p75": 74.0,
+     "min": 69,
+     "max": 74
+    },
+    "slot": {
+     "n": 6,
+     "median": 74.0,
+     "p25": 74.0,
+     "p75": 74.0,
+     "min": 69,
+     "max": 74
+    }
+   },
+   "attack_AR": {
+    "equal": {
+     "n": 3,
+     "median": 5112,
+     "p25": 4430.0,
+     "p75": 5112.0,
+     "min": 3748,
+     "max": 5112
+    }
+   },
+   "attack_hit_pct_def_lo_mid_hi": {
+    "def_lo": {
+     "n": 3,
+     "median": 76,
+     "p25": 73.5,
+     "p75": 76.0,
+     "min": 71,
+     "max": 76
+    },
+    "def_mid": {
+     "n": 3,
+     "median": 74,
+     "p25": 71.5,
+     "p75": 74.0,
+     "min": 69,
+     "max": 74
+    },
+    "def_hi": {
+     "n": 3,
+     "median": 73,
+     "p25": 70.5,
+     "p75": 73.0,
+     "min": 68,
+     "max": 73
+    }
+   },
+   "attack_hit_pct_champion_def_mid": {
+    "n": 3,
+    "median": 81,
+    "p25": 79.0,
+    "p75": 81.0,
+    "min": 77,
+    "max": 81
+   }
+  },
+  "caster": {
+   "n_types_by_best_attack_role": 6,
+   "n_attacks": 36,
+   "type_best_attack_hit_pct_def_mid": {
+    "equal": {
+     "n": 6,
+     "median": 100.0,
+     "p25": 100.0,
+     "p75": 100.0,
+     "min": 100,
+     "max": 100
+    },
+    "slot": {
+     "n": 6,
+     "median": 100.0,
+     "p25": 100.0,
+     "p75": 100.0,
+     "min": 100,
+     "max": 100
+    }
+   },
+   "attack_AR": {
+    "equal": null
+   },
+   "attack_hit_pct_def_lo_mid_hi": {
+    "def_lo": {
+     "n": 36,
+     "median": 100.0,
+     "p25": 100.0,
+     "p75": 100.0,
+     "min": 100,
+     "max": 100
+    },
+    "def_mid": {
+     "n": 36,
+     "median": 100.0,
+     "p25": 100.0,
+     "p75": 100.0,
+     "min": 100,
+     "max": 100
+    },
+    "def_hi": {
+     "n": 36,
+     "median": 100.0,
+     "p25": 100.0,
+     "p75": 100.0,
+     "min": 100,
+     "max": 100
+    }
+   },
+   "attack_hit_pct_champion_def_mid": {
+    "n": 36,
+    "median": 100.0,
+    "p25": 100.0,
+    "p75": 100.0,
+    "min": 100,
+    "max": 100
+   }
+  },
+  "all": {
+   "n_types_by_best_attack_role": 66,
+   "n_attacks": 130,
+   "type_best_attack_hit_pct_def_mid": {
+    "equal": {
+     "n": 65,
+     "median": 74,
+     "p25": 71.0,
+     "p75": 78.0,
+     "min": 64,
+     "max": 100
+    },
+    "slot": {
+     "n": 81,
+     "median": 74,
+     "p25": 72.0,
+     "p75": 78.0,
+     "min": 64,
+     "max": 100
+    }
+   },
+   "attack_AR": {
+    "equal": {
+     "n": 93,
+     "median": 4089,
+     "p25": 3578.0,
+     "p75": 5112.0,
+     "min": 2385,
+     "max": 11382
+    }
+   },
+   "attack_hit_pct_def_lo_mid_hi": {
+    "def_lo": {
+     "n": 129,
+     "median": 78,
+     "p25": 74.0,
+     "p75": 100.0,
+     "min": 67,
+     "max": 100
+    },
+    "def_mid": {
+     "n": 129,
+     "median": 76,
+     "p25": 72.0,
+     "p75": 100.0,
+     "min": 64,
+     "max": 100
+    },
+    "def_hi": {
+     "n": 129,
+     "median": 74,
+     "p25": 70.0,
+     "p75": 100.0,
+     "min": 61,
+     "max": 100
+    }
+   },
+   "attack_hit_pct_champion_def_mid": {
+    "n": 129,
+    "median": 83,
+    "p25": 80.0,
+    "p75": 100.0,
+    "min": 72,
+    "max": 100
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "batdemon4",
+   "alvl": 85,
+   "slot_weight": 3,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 81,
+   "max_ar": 6816,
+   "max_ar_hit_pct_def_mid": 81,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3408,
+     "dmg_mid": 64.5,
+     "hit_pct": {
+      "def_lo": 73,
+      "def_mid": 70,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 6816,
+     "dmg_mid": 186.60000000000002,
+     "hit_pct": {
+      "def_lo": 83,
+      "def_mid": 81,
+      "def_hi": 80
+     },
+     "hit_pct_champion_def_mid": 87
+    }
+   ]
+  },
+  {
+   "id": "batdemon7",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 81,
+   "max_ar": 6816,
+   "max_ar_hit_pct_def_mid": 81,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3408,
+     "dmg_mid": 64.5,
+     "hit_pct": {
+      "def_lo": 73,
+      "def_mid": 70,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 6816,
+     "dmg_mid": 192.45,
+     "hit_pct": {
+      "def_lo": 83,
+      "def_mid": 81,
+      "def_hi": 80
+     },
+     "hit_pct_champion_def_mid": 87
+    }
+   ]
+  },
+  {
+   "id": "bloodlord5",
+   "alvl": 85,
+   "slot_weight": 3,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 80,
+   "max_ar": 6134,
+   "max_ar_hit_pct_def_mid": 80,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 6134,
+     "dmg_mid": 119.095,
+     "hit_pct": {
+      "def_lo": 82,
+      "def_mid": 80,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 86
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 6134,
+     "dmg_mid": 95.5,
+     "hit_pct": {
+      "def_lo": 82,
+      "def_mid": 80,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 86
+    },
+    {
+     "slot": "skill:BloodLordFrenzy",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 95.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "blunderbore4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 70,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3748,
+     "dmg_mid": 110.0,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 80
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 3408,
+     "dmg_mid": 131.5,
+     "hit_pct": {
+      "def_lo": 73,
+      "def_mid": 70,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    }
+   ]
+  },
+  {
+   "id": "bonefetish4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 68,
+   "max_ar": 3067,
+   "max_ar_hit_pct_def_mid": 68,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3067,
+     "dmg_mid": 81.0,
+     "hit_pct": {
+      "def_lo": 71,
+      "def_mid": 68,
+      "def_hi": 67
+     },
+     "hit_pct_champion_def_mid": 77
+    }
+   ]
+  },
+  {
+   "id": "bonefetish7",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 68,
+   "max_ar": 3067,
+   "max_ar_hit_pct_def_mid": 68,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3067,
+     "dmg_mid": 81.0,
+     "hit_pct": {
+      "def_lo": 71,
+      "def_mid": 68,
+      "def_hi": 67
+     },
+     "hit_pct_champion_def_mid": 77
+    }
+   ]
+  },
+  {
+   "id": "cantor6",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "caster",
+   "best_attack": "skill:ZakarumLightning",
+   "best_attack_hit_pct_def_mid": 100,
+   "max_ar": 3067,
+   "max_ar_hit_pct_def_mid": 68,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3067,
+     "dmg_mid": 91.375,
+     "hit_pct": {
+      "def_lo": 71,
+      "def_mid": 68,
+      "def_hi": 67
+     },
+     "hit_pct_champion_def_mid": 77
+    },
+    {
+     "slot": "skill:ZakarumLightning",
+     "role": "caster",
+     "missile": "missile:monsterlight",
+     "ar": null,
+     "dmg_mid": 127.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "clawviper10",
+   "alvl": 85,
+   "slot_weight": 2,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 77,
+   "max_ar": 5112,
+   "max_ar_hit_pct_def_mid": 77,
+   "attacks": [
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 5112,
+     "dmg_mid": 160.5,
+     "hit_pct": {
+      "def_lo": 79,
+      "def_mid": 77,
+      "def_hi": 76
+     },
+     "hit_pct_champion_def_mid": 84
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5112,
+     "dmg_mid": 110.0,
+     "hit_pct": {
+      "def_lo": 79,
+      "def_mid": 77,
+      "def_hi": 76
+     },
+     "hit_pct_champion_def_mid": 84
+    },
+    {
+     "slot": "skill:Charge",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 110.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "clawviper5",
+   "alvl": 85,
+   "slot_weight": 3,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 76,
+   "max_ar": 4600,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4600,
+     "dmg_mid": 143.0,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4600,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "skill:SerpentCharge",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 66.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "corruptrogue3",
+   "alvl": 85,
+   "slot_weight": 2,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 75,
+   "max_ar": 4430,
+   "max_ar_hit_pct_def_mid": 75,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4430,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 77,
+      "def_mid": 75,
+      "def_hi": 73
+     },
+     "hit_pct_champion_def_mid": 82
+    }
+   ]
+  },
+  {
+   "id": "cr_archer3",
+   "alvl": 85,
+   "slot_weight": 2,
+   "rangedtype": true,
+   "type_role": "ranged_physical",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 5112,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "ranged_physical",
+     "missile": "cr_arrow3",
+     "ar": 5112,
+     "dmg_mid": 81.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 73
+     },
+     "hit_pct_champion_def_mid": 81
+    }
+   ]
+  },
+  {
+   "id": "cr_archer5",
+   "alvl": 85,
+   "slot_weight": 3,
+   "rangedtype": true,
+   "type_role": "ranged_physical",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 5112,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "ranged_physical",
+     "missile": "cr_arrow5",
+     "ar": 5112,
+     "dmg_mid": 84.8,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 73
+     },
+     "hit_pct_champion_def_mid": 81
+    }
+   ]
+  },
+  {
+   "id": "cr_lancer8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "caster",
+   "best_attack": "skill:MonPowerStrike",
+   "best_attack_hit_pct_def_mid": 100,
+   "max_ar": 4771,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4771,
+     "dmg_mid": 186.5,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 143.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:Jab",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 143.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:MonPowerStrike",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 242.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "dkmag2",
+   "alvl": 85,
+   "slot_weight": 2,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 93.0,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    },
+    {
+     "slot": "skill:DoomKnightMissile",
+     "role": "caster",
+     "missile": "srvdo148: mean of hit variants undeadmissile2-4 (poison variant 1 is a DoT, reported in flags)",
+     "ar": null,
+     "dmg_mid": 90.33333333333334,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:MonBoneSpirit",
+     "role": "caster",
+     "missile": "missile:monbonespirit",
+     "ar": null,
+     "dmg_mid": 84.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "doomknight2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 79,
+   "max_ar": 5793,
+   "max_ar_hit_pct_def_mid": 79,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5793,
+     "dmg_mid": 127.0,
+     "hit_pct": {
+      "def_lo": 81,
+      "def_mid": 79,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 85
+    },
+    {
+     "slot": "skill:DoomKnightMissile",
+     "role": "caster",
+     "missile": "srvdo148: mean of hit variants undeadmissile2-4 (poison variant 1 is a DoT, reported in flags)",
+     "ar": null,
+     "dmg_mid": 115.66666666666666,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:MonBoneSpirit",
+     "role": "caster",
+     "missile": "missile:monbonespirit",
+     "ar": null,
+     "dmg_mid": 84.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "doomknight3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "caster",
+   "best_attack": "skill:DoomKnightMissile",
+   "best_attack_hit_pct_def_mid": 100,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 93.0,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    },
+    {
+     "slot": "skill:DoomKnightMissile",
+     "role": "caster",
+     "missile": "srvdo148: mean of hit variants undeadmissile2-4 (poison variant 1 is a DoT, reported in flags)",
+     "ar": null,
+     "dmg_mid": 115.66666666666666,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:MonBoneSpirit",
+     "role": "caster",
+     "missile": "missile:monbonespirit",
+     "ar": null,
+     "dmg_mid": 84.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "fallen3",
+   "alvl": 85,
+   "slot_weight": 2,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 68,
+   "max_ar": 3067,
+   "max_ar_hit_pct_def_mid": 68,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3067,
+     "dmg_mid": 72.1,
+     "hit_pct": {
+      "def_lo": 71,
+      "def_mid": 68,
+      "def_hi": 67
+     },
+     "hit_pct_champion_def_mid": 77
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 2896,
+     "dmg_mid": 72.0,
+     "hit_pct": {
+      "def_lo": 70,
+      "def_mid": 68,
+      "def_hi": 66
+     },
+     "hit_pct_champion_def_mid": 76
+    }
+   ]
+  },
+  {
+   "id": "fetish8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 69,
+   "max_ar": 3237,
+   "max_ar_hit_pct_def_mid": 69,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3237,
+     "dmg_mid": 77.1,
+     "hit_pct": {
+      "def_lo": 72,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    }
+   ]
+  },
+  {
+   "id": "fetishblow8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "ranged_physical",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 69,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 69,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "ranged_physical",
+     "missile": "blowgun",
+     "ar": 3748,
+     "dmg_mid": 3.1,
+     "hit_pct": {
+      "def_lo": 71,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 77
+    }
+   ]
+  },
+  {
+   "id": "fingermage2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 83.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:FingerMageSpider",
+     "role": "caster",
+     "missile": "missile:fingermagespider",
+     "ar": null,
+     "dmg_mid": 49.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "fingermage3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 83.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:FingerMageSpider",
+     "role": "caster",
+     "missile": "missile:fingermagespider",
+     "ar": null,
+     "dmg_mid": 53.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "fingermage5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 83.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:FingerMageSpider",
+     "role": "caster",
+     "missile": "missile:fingermagespider",
+     "ar": null,
+     "dmg_mid": 53.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "frogdemon3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 70,
+   "max_ar": 3408,
+   "max_ar_hit_pct_def_mid": 70,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3408,
+     "dmg_mid": 86.1,
+     "hit_pct": {
+      "def_lo": 73,
+      "def_mid": 70,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    }
+   ]
+  },
+  {
+   "id": "imp5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "caster",
+   "best_attack": "skill:Imp Fireball",
+   "best_attack_hit_pct_def_mid": 100,
+   "max_ar": null,
+   "max_ar_hit_pct_def_mid": null,
+   "attacks": [
+    {
+     "slot": "skill:ImpBolt",
+     "role": "caster",
+     "missile": "missile:imp charged bolt",
+     "ar": null,
+     "dmg_mid": 0.140625,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:Imp Fireball",
+     "role": "caster",
+     "missile": "missile:impfireball",
+     "ar": null,
+     "dmg_mid": 80.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "megademon2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 124.5,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    }
+   ]
+  },
+  {
+   "id": "megademon3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 124.5,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    }
+   ]
+  },
+  {
+   "id": "megademon5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 109.75,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    }
+   ]
+  },
+  {
+   "id": "minion11",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3408,
+     "dmg_mid": 84.0,
+     "hit_pct": {
+      "def_lo": 73,
+      "def_mid": 70,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 3748,
+     "dmg_mid": 88.5,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 80
+    }
+   ]
+  },
+  {
+   "id": "mosquito4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 68,
+   "max_ar": 3067,
+   "max_ar_hit_pct_def_mid": 68,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3067,
+     "dmg_mid": 597.5,
+     "hit_pct": {
+      "def_lo": 71,
+      "def_mid": 68,
+      "def_hi": 67
+     },
+     "hit_pct_champion_def_mid": 77
+    }
+   ]
+  },
+  {
+   "id": "mummy3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 71,
+   "max_ar": 3578,
+   "max_ar_hit_pct_def_mid": 71,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3578,
+     "dmg_mid": 87.8,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 71,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    }
+   ]
+  },
+  {
+   "id": "mummy4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 71,
+   "max_ar": 3578,
+   "max_ar_hit_pct_def_mid": 71,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3578,
+     "dmg_mid": 87.8,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 71,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    }
+   ]
+  },
+  {
+   "id": "mummy6",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 71,
+   "max_ar": 3578,
+   "max_ar_hit_pct_def_mid": 71,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3578,
+     "dmg_mid": 105.975,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 71,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    }
+   ]
+  },
+  {
+   "id": "overseer4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 87,
+   "max_ar": 11382,
+   "max_ar_hit_pct_def_mid": 87,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4600,
+     "dmg_mid": 81.0,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 11382,
+     "dmg_mid": 119.5,
+     "hit_pct": {
+      "def_lo": 88,
+      "def_mid": 87,
+      "def_hi": 86
+     },
+     "hit_pct_champion_def_mid": 91
+    }
+   ]
+  },
+  {
+   "id": "putriddefiler3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3623,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3623,
+     "dmg_mid": 55.0,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    }
+   ]
+  },
+  {
+   "id": "putriddefiler4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3665,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3665,
+     "dmg_mid": 56.0,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 79
+    }
+   ]
+  },
+  {
+   "id": "reanimatedhorde6",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 76,
+   "max_ar": 4600,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4600,
+     "dmg_mid": 86.0,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 3408,
+     "dmg_mid": 86.0,
+     "hit_pct": {
+      "def_lo": 73,
+      "def_mid": 70,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "skill:Charge",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 86.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "regurgitator3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 71,
+   "max_ar": 3578,
+   "max_ar_hit_pct_def_mid": 71,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3578,
+     "dmg_mid": 110.0,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 71,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    }
+   ]
+  },
+  {
+   "id": "sandmaggot1",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 65,
+   "max_ar": 2556,
+   "max_ar_hit_pct_def_mid": 65,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 2556,
+     "dmg_mid": 86.0,
+     "hit_pct": {
+      "def_lo": 68,
+      "def_mid": 65,
+      "def_hi": 63
+     },
+     "hit_pct_champion_def_mid": 73
+    }
+   ]
+  },
+  {
+   "id": "sandmaggot2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 65,
+   "max_ar": 2556,
+   "max_ar_hit_pct_def_mid": 65,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 2556,
+     "dmg_mid": 86.0,
+     "hit_pct": {
+      "def_lo": 68,
+      "def_mid": 65,
+      "def_hi": 63
+     },
+     "hit_pct_champion_def_mid": 73
+    }
+   ]
+  },
+  {
+   "id": "sandmaggot5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 65,
+   "max_ar": 2556,
+   "max_ar_hit_pct_def_mid": 65,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 2556,
+     "dmg_mid": 86.0,
+     "hit_pct": {
+      "def_lo": 68,
+      "def_mid": 65,
+      "def_hi": 63
+     },
+     "hit_pct_champion_def_mid": 73
+    }
+   ]
+  },
+  {
+   "id": "sandraider10",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "S1",
+   "best_attack_hit_pct_def_mid": 84,
+   "max_ar": 8520,
+   "max_ar_hit_pct_def_mid": 84,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5112,
+     "dmg_mid": 90.5,
+     "hit_pct": {
+      "def_lo": 79,
+      "def_mid": 77,
+      "def_hi": 76
+     },
+     "hit_pct_champion_def_mid": 84
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 6134,
+     "dmg_mid": 119.5,
+     "hit_pct": {
+      "def_lo": 82,
+      "def_mid": 80,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 86
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 8520,
+     "dmg_mid": 196.0,
+     "hit_pct": {
+      "def_lo": 85,
+      "def_mid": 84,
+      "def_hi": 83
+     },
+     "hit_pct_champion_def_mid": 89
+    }
+   ]
+  },
+  {
+   "id": "sandraider3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "S1",
+   "best_attack_hit_pct_def_mid": 84,
+   "max_ar": 8520,
+   "max_ar_hit_pct_def_mid": 84,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5964,
+     "dmg_mid": 83.5,
+     "hit_pct": {
+      "def_lo": 81,
+      "def_mid": 80,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 86
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 6134,
+     "dmg_mid": 119.5,
+     "hit_pct": {
+      "def_lo": 82,
+      "def_mid": 80,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 86
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 8520,
+     "dmg_mid": 239.0,
+     "hit_pct": {
+      "def_lo": 85,
+      "def_mid": 84,
+      "def_hi": 83
+     },
+     "hit_pct_champion_def_mid": 89
+    }
+   ]
+  },
+  {
+   "id": "sandraider9",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "S1",
+   "best_attack_hit_pct_def_mid": 84,
+   "max_ar": 8520,
+   "max_ar_hit_pct_def_mid": 84,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5112,
+     "dmg_mid": 90.5,
+     "hit_pct": {
+      "def_lo": 79,
+      "def_mid": 77,
+      "def_hi": 76
+     },
+     "hit_pct_champion_def_mid": 84
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 6134,
+     "dmg_mid": 119.5,
+     "hit_pct": {
+      "def_lo": 82,
+      "def_mid": 80,
+      "def_hi": 78
+     },
+     "hit_pct_champion_def_mid": 86
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 8520,
+     "dmg_mid": 196.0,
+     "hit_pct": {
+      "def_lo": 85,
+      "def_mid": 84,
+      "def_hi": 83
+     },
+     "hit_pct_champion_def_mid": 89
+    }
+   ]
+  },
+  {
+   "id": "scarab2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4771,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 85.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4771,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3237,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 72,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "skill:Jab",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "scarab3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4771,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 83.75,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4771,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3237,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 72,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "skill:Jab",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "scarab5",
+   "alvl": 85,
+   "slot_weight": 3,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4771,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 84.8,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4771,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3237,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 72,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "skill:Jab",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "scarab7",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4771,
+   "max_ar_hit_pct_def_mid": 76,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 84.8,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4771,
+     "dmg_mid": 80.6,
+     "hit_pct": {
+      "def_lo": 78,
+      "def_mid": 76,
+      "def_hi": 74
+     },
+     "hit_pct_champion_def_mid": 83
+    },
+    {
+     "slot": "S1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3237,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 72,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    },
+    {
+     "slot": "skill:Jab",
+     "role": "caster",
+     "missile": "skill",
+     "ar": null,
+     "dmg_mid": 52.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "skeleton1",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4260,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4260,
+     "dmg_mid": 69.0,
+     "hit_pct": {
+      "def_lo": 77,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 82
+    }
+   ]
+  },
+  {
+   "id": "skeleton3",
+   "alvl": 85,
+   "slot_weight": 2,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4260,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 4260,
+     "dmg_mid": 69.0,
+     "hit_pct": {
+      "def_lo": 77,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 82
+    }
+   ]
+  },
+  {
+   "id": "succubus4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5282,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5282,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 76
+     },
+     "hit_pct_champion_def_mid": 84
+    },
+    {
+     "slot": "skill:SuccubusBolt",
+     "role": "caster",
+     "missile": "missile:succubusmiss",
+     "ar": null,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "succubuswitch5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:SuccubusBolt",
+     "role": "caster",
+     "missile": "missile:succubusmiss",
+     "ar": null,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "succubuswitch8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:SuccubusBolt",
+     "role": "caster",
+     "missile": "missile:succubusmiss",
+     "ar": null,
+     "dmg_mid": 67.0,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "suicideminion6",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": null,
+   "max_ar": null,
+   "max_ar_hit_pct_def_mid": null,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 0,
+     "dmg_mid": 120.0,
+     "hit_pct": {
+      "def_lo": null,
+      "def_mid": null,
+      "def_hi": null
+     },
+     "hit_pct_champion_def_mid": null
+    }
+   ]
+  },
+  {
+   "id": "swarm2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 64,
+   "max_ar": 2385,
+   "max_ar_hit_pct_def_mid": 64,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 2385,
+     "dmg_mid": 196.5,
+     "hit_pct": {
+      "def_lo": 67,
+      "def_mid": 64,
+      "def_hi": 61
+     },
+     "hit_pct_champion_def_mid": 72
+    }
+   ]
+  },
+  {
+   "id": "unraveler4",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 128.8,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    },
+    {
+     "slot": "skill:UnHolyBolt",
+     "role": "caster",
+     "missile": "missile:unholybolt1",
+     "ar": null,
+     "dmg_mid": 94.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "unraveler8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 158.35,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    },
+    {
+     "slot": "skill:UnHolyBoltEx",
+     "role": "caster",
+     "missile": "missile:unholybolt1",
+     "ar": null,
+     "dmg_mid": 67.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "unraveler9",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 78,
+   "max_ar": 5452,
+   "max_ar_hit_pct_def_mid": 78,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 5452,
+     "dmg_mid": 158.35,
+     "hit_pct": {
+      "def_lo": 80,
+      "def_mid": 78,
+      "def_hi": 77
+     },
+     "hit_pct_champion_def_mid": 85
+    },
+    {
+     "slot": "skill:UnHolyBoltEx",
+     "role": "caster",
+     "missile": "missile:unholybolt1",
+     "ar": null,
+     "dmg_mid": 67.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "vampire7",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "caster",
+   "best_attack": "skill:VampireFireball",
+   "best_attack_hit_pct_def_mid": 100,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 126.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:VampireFireball",
+     "role": "caster",
+     "missile": "missile:vampirefireball",
+     "ar": null,
+     "dmg_mid": 136.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:VampireMeteor",
+     "role": "caster",
+     "missile": "skill(via missile vampiremeteorcenter with Skill set)",
+     "ar": null,
+     "dmg_mid": 62.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:VampireMissile",
+     "role": "caster",
+     "missile": "missile:firehead",
+     "ar": null,
+     "dmg_mid": 88.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "vampire8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "caster",
+   "best_attack": "skill:VampireFireball",
+   "best_attack_hit_pct_def_mid": 100,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 126.0,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:VampireFireball",
+     "role": "caster",
+     "missile": "missile:vampirefireball",
+     "ar": null,
+     "dmg_mid": 136.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:VampireMeteor",
+     "role": "caster",
+     "missile": "skill(via missile vampiremeteorcenter with Skill set)",
+     "ar": null,
+     "dmg_mid": 62.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    },
+    {
+     "slot": "skill:VampireMissile",
+     "role": "caster",
+     "missile": "missile:firehead",
+     "ar": null,
+     "dmg_mid": 88.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "vilemother3",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3748,
+     "dmg_mid": 100.0,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 80
+    }
+   ]
+  },
+  {
+   "id": "vilemother5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3748,
+     "dmg_mid": 94.4,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 80
+    }
+   ]
+  },
+  {
+   "id": "willowisp6",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 292.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:Chain Lightning",
+     "role": "caster",
+     "missile": "skill(via missile chainlightning with Skill set)",
+     "ar": null,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "willowisp7",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": true,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 74,
+   "max_ar": 4089,
+   "max_ar_hit_pct_def_mid": 74,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 4089,
+     "dmg_mid": 292.5,
+     "hit_pct": {
+      "def_lo": 76,
+      "def_mid": 74,
+      "def_hi": 72
+     },
+     "hit_pct_champion_def_mid": 81
+    },
+    {
+     "slot": "skill:Chain Lightning",
+     "role": "caster",
+     "missile": "skill(via missile chainlightning with Skill set)",
+     "ar": null,
+     "dmg_mid": 78.5,
+     "hit_pct": {
+      "def_lo": 100,
+      "def_mid": 100,
+      "def_hi": 100
+     },
+     "hit_pct_champion_def_mid": 100
+    }
+   ]
+  },
+  {
+   "id": "wraith8",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A1",
+   "best_attack_hit_pct_def_mid": 69,
+   "max_ar": 3237,
+   "max_ar_hit_pct_def_mid": 69,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3237,
+     "dmg_mid": 198.5,
+     "hit_pct": {
+      "def_lo": 72,
+      "def_mid": 69,
+      "def_hi": 68
+     },
+     "hit_pct_champion_def_mid": 78
+    }
+   ]
+  },
+  {
+   "id": "zombie2",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3578,
+     "dmg_mid": 95.5,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 71,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 3748,
+     "dmg_mid": 105.5,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 80
+    }
+   ]
+  },
+  {
+   "id": "zombie5",
+   "alvl": 85,
+   "slot_weight": 1,
+   "rangedtype": false,
+   "type_role": "melee",
+   "best_attack": "A2",
+   "best_attack_hit_pct_def_mid": 72,
+   "max_ar": 3748,
+   "max_ar_hit_pct_def_mid": 72,
+   "attacks": [
+    {
+     "slot": "A1",
+     "role": "melee",
+     "missile": null,
+     "ar": 3578,
+     "dmg_mid": 102.5,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 71,
+      "def_hi": 69
+     },
+     "hit_pct_champion_def_mid": 79
+    },
+    {
+     "slot": "A2",
+     "role": "melee",
+     "missile": null,
+     "ar": 3748,
+     "dmg_mid": 105.5,
+     "hit_pct": {
+      "def_lo": 74,
+      "def_mid": 72,
+      "def_hi": 70
+     },
+     "hit_pct_champion_def_mid": 80
+    }
+   ]
+  }
+ ]
+}
