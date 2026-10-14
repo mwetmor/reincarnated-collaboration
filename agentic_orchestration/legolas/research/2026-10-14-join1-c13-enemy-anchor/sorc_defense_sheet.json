@@ -1,0 +1,239 @@
+{
+ "clvl": 90,
+ "gear_resolution": "kit-record items resolved in 1.13 tables (J4b \u00a7 3): Eschuta's Temper | Spirit Monarch | Chains of Honor | Harlequin Crest (Flickering Flame has no 1.13 row) | Magefist | Arachnid Mesh | Mara's Kaleidoscope",
+ "resist_sources": "CoH res-all 50 + Um rune (armor) 15 = 65; Mara 20-30; Spirit runes in a shield: Tal res-pois 35, Thul res-cold 35, Ort res-ltng 35 (Amn thorns 14) \u2014 NO fire res on Spirit",
+ "hell_resist_penalty": -100,
+ "resist_cap": 75,
+ "resists_after_hell_penalty": {
+  "anya_0": {
+   "fire": [
+    -15,
+    -5
+   ],
+   "cold": [
+    20,
+    30
+   ],
+   "light": [
+    20,
+    30
+   ],
+   "poison": [
+    20,
+    30
+   ]
+  },
+  "anya_30": {
+   "fire": [
+    15,
+    25
+   ],
+   "cold": [
+    50,
+    60
+   ],
+   "light": [
+    50,
+    60
+   ],
+   "poison": [
+    50,
+    60
+   ]
+  }
+ },
+ "damage_reduced_pct": 18,
+ "dr_sources": "Harlequin red-dmg% 10 + Ber rune (armor) red-dmg% 8; player DR% cap 50",
+ "magic_absorb_flat": [
+  3,
+  8
+ ],
+ "block_law": {
+  "formula": "min(75, (BlockFactor + shield block + item block) x (Dex - 15) / (2 x clvl)); /3 while running (after the cap)",
+  "BlockFactor_sorceress": 20,
+  "monarch_block": 22,
+  "block_base": 42,
+  "dex_for_75pct_at_clvl90": 337
+ },
+ "fbr": {
+  "pinned_FBR": 0,
+  "block_anim_ticks_at_FBR0": 9,
+  "seconds": 0.36,
+  "law": "ticks = ceil(256*5/floor(256*(50+EFBR)/100) - 1) (animation packet \u00a7 3.4)"
+ },
+ "profiles": {
+  "MAXBLOCK_quests": {
+   "stat_points": 460,
+   "str_spend": 119,
+   "dex_spend": 305,
+   "vit_spend": 36,
+   "totals": {
+    "str": 156,
+    "dex": 337,
+    "vit": 75
+   },
+   "life": 394,
+   "life_note": "no Battle Orders/CTA, no +life charms (unpinned)",
+   "defense_items": {
+    "Spirit Monarch (uit, no ED)": [
+     133,
+     148
+    ],
+    "Harlequin Crest (uap, no ED)": [
+     98,
+     141
+    ],
+    "Magefist (tgl, +20-30% ED, +10)": [
+     20,
+     24
+    ],
+    "Arachnid Mesh (ulc, +90-120% ED)": [
+     104,
+     136
+    ],
+    "Chains of Honor on Archon Plate (utp, +70% ED) [BASE UNPINNED: reference choice]": [
+     697,
+     890
+    ]
+   },
+   "defense_from_dex": 84,
+   "defense_total_range": [
+    1136,
+    1423
+   ],
+   "defense_vs_missile_extra": 250,
+   "block_pct_stationary_or_walking": 75,
+   "block_pct_running": 25
+  },
+  "MAXBLOCK_noquests": {
+   "stat_points": 445,
+   "str_spend": 119,
+   "dex_spend": 305,
+   "vit_spend": 21,
+   "totals": {
+    "str": 156,
+    "dex": 337,
+    "vit": 60
+   },
+   "life": 364,
+   "life_note": "no Battle Orders/CTA, no +life charms (unpinned)",
+   "defense_items": {
+    "Spirit Monarch (uit, no ED)": [
+     133,
+     148
+    ],
+    "Harlequin Crest (uap, no ED)": [
+     98,
+     141
+    ],
+    "Magefist (tgl, +20-30% ED, +10)": [
+     20,
+     24
+    ],
+    "Arachnid Mesh (ulc, +90-120% ED)": [
+     104,
+     136
+    ],
+    "Chains of Honor on Archon Plate (utp, +70% ED) [BASE UNPINNED: reference choice]": [
+     697,
+     890
+    ]
+   },
+   "defense_from_dex": 84,
+   "defense_total_range": [
+    1136,
+    1423
+   ],
+   "defense_vs_missile_extra": 250,
+   "block_pct_stationary_or_walking": 75,
+   "block_pct_running": 25
+  },
+  "NODEX_quests": {
+   "stat_points": 460,
+   "str_spend": 119,
+   "dex_spend": 0,
+   "vit_spend": 341,
+   "totals": {
+    "str": 156,
+    "dex": 32,
+    "vit": 380
+   },
+   "life": 1004,
+   "life_note": "no Battle Orders/CTA, no +life charms (unpinned)",
+   "defense_items": {
+    "Spirit Monarch (uit, no ED)": [
+     133,
+     148
+    ],
+    "Harlequin Crest (uap, no ED)": [
+     98,
+     141
+    ],
+    "Magefist (tgl, +20-30% ED, +10)": [
+     20,
+     24
+    ],
+    "Arachnid Mesh (ulc, +90-120% ED)": [
+     104,
+     136
+    ],
+    "Chains of Honor on Archon Plate (utp, +70% ED) [BASE UNPINNED: reference choice]": [
+     697,
+     890
+    ]
+   },
+   "defense_from_dex": 8,
+   "defense_total_range": [
+    1060,
+    1347
+   ],
+   "defense_vs_missile_extra": 250,
+   "block_pct_stationary_or_walking": 3,
+   "block_pct_running": 1
+  },
+  "NODEX_noquests": {
+   "stat_points": 445,
+   "str_spend": 119,
+   "dex_spend": 0,
+   "vit_spend": 326,
+   "totals": {
+    "str": 156,
+    "dex": 32,
+    "vit": 365
+   },
+   "life": 974,
+   "life_note": "no Battle Orders/CTA, no +life charms (unpinned)",
+   "defense_items": {
+    "Spirit Monarch (uit, no ED)": [
+     133,
+     148
+    ],
+    "Harlequin Crest (uap, no ED)": [
+     98,
+     141
+    ],
+    "Magefist (tgl, +20-30% ED, +10)": [
+     20,
+     24
+    ],
+    "Arachnid Mesh (ulc, +90-120% ED)": [
+     104,
+     136
+    ],
+    "Chains of Honor on Archon Plate (utp, +70% ED) [BASE UNPINNED: reference choice]": [
+     697,
+     890
+    ]
+   },
+   "defense_from_dex": 8,
+   "defense_total_range": [
+    1060,
+    1347
+   ],
+   "defense_vs_missile_extra": 250,
+   "block_pct_stationary_or_walking": 3,
+   "block_pct_running": 1
+  }
+ },
+ "stat_allocation_rule": "str to Monarch req (156) net of item str; MAXBLOCK = dex to 75% block; NODEX = base dex; remainder to vit; energy base. The kit record pins NO attributes, so both profiles are INFERRED"
+}

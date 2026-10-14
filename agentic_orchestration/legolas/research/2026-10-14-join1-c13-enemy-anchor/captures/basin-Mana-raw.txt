@@ -1,0 +1,1271 @@
+{{Attribute nav}}
+{{Intro}}
+[[File:Mana.png|thumb|600px|Current and maximum mana are displayed both on the character screen and by the blue contents of the globe in the bottom right of the screen, which empties as mana is consumed. Holding the cursor over the globe displays numerical values, which since [[1.13c|1.13]] will remain even when the cursor has been removed after clicking once on the bottom of the globe (clicking a second time will undo this).]]
+|}
+
+
+{{Mb|=Mana}} is a player character's spiritual essence, and it is normally consumed whenever an active skill is used (with the exception of common skills and [[Sacrifice]], which have no mana cost). Mana displayed is rounded down to the nearest point, but the smallest unit is actually 1/256 point. Mana varies depending on chosen class at start of game:
+
+
+{{Classes table}}
+|-
+|15||25||10||20||25||15||35||20
+|}
+
+
+Mana gained as a character gains levels also varies depending on class:
+
+
+{{Classes table}}
+|-
+| +1.5||+1.5||+1||+2||+2||+1.5||+2||+1.5
+|}
+
+
+Mana can be increased by allocating attribute points to Energy. Mana gained from each additional point also varies depending on class:
+
+
+{{Classes table}}
+|-
+| +1.5||+1.75||+1||+2||+2||+1.5||+2||+2
+|}
+
+
+Active skills cannot be used unless a player character has sufficient mana to cover their mana cost (although if a player character has maximum mana >= maximum life, then Blood Mana [[curse]] can be cast by a [[Succubus]], [[Stygian Fury]] or [[Baal|{{Ub|=Baal}}]], resulting in mana cost being taken from life instead).  Most skills whose skill damage increases with skill level also increase mana cost, although a few skills ''reduce'' it as skill level increases:
+
+
+{{Text table}} width=71%
+|-
+!width=20%|Class
+!width=20%|Skill
+!width=40%|Mana cost
+!width=20% align=center|Minimum at slvl
+|-valign=top
+!rowspan=3|Amazon
+![[Magic Arrow]]
+|Max (1.625 - (0.125*slvl), 0)
+|align=right|13
+|-
+![[Guided Arrow]]
+|Max (8.25 - (0.25*slvl), 1)
+|align=right|29
+|-
+![[Decoy]]
+|Max(19.75 - (0.75*slvl) , 1) 
+|align=right|25
+|-
+!Barbarian
+![[Double Swing]]
+|Max (1.125 - (0.125*slvl) , 0)
+|align=right|9
+|-
+!Necromancer
+![[Bone Prison]]
+|Max (28-slvl, 1)
+|align=right|27
+|-
+!Sorceress
+![[Teleport]]
+|Max (25-slvl , 1)
+|align=right|24
+|}
+
+
+{{Warn|=If minimum mana cost > 0, skills can be used with less than this minimum as skill level continues to increase: level >32 Guided Arrow, level >26 Decoy, level >27 Bone Prison and level >24 Teleport will still cost 1 mana, but they can be used with '''no''' mana.}} Otherwise, a player character will normally stop using a skill when there is insufficient mana. However, some attack skills will use a [[melee]] Attack with no mana to continue attacking a selected target:
+
+
+{{Text table}} width=75%
+|-align=center
+!width=11%|Amazon
+!width=11%|Assassin
+!width=11%|Barbarian
+!width=11%|Druid
+!width=11%|Necromancer
+!width=11%|Paladin
+!width=11%|Sorceress
+!width=11%|Warlock
+!width=12%|Item-only
+|-valign=top
+|
+*[[Jab]]
+*[[Power Strike]]
+*[[Impale]]
+*[[Charged Strike]]
+*[[Fend]]
+*[[Lightning Strike]]
+|
+*[[Martial Arts]]
+|
+*[[Bash]]
+*[[Double Swing]]
+*[[Stun]]
+*[[Concentrate]]
+*[[Frenzy]]
+*[[Whirlwind]]
+*[[Berserk]]
+|
+*[[Feral Rage]]
+*[[Maul]]
+*[[Rabies]]
+*[[Fire Claws]]
+*[[Hunger]]
+|
+*[[Poison Dagger]]
+|
+*[[Sacrifice]]
+*[[Smite]]
+*[[Zeal]]
+*[[Charge]]
+*[[Vengeance]]
+*[[Conversion]]
+*[[Holy Shield]]
+*[[Fist of the Heavens]]
+|{{E}}
+|<!--TODO-->
+|{{E}}
+|}
+
+
+Almost all are melee attack skills, with the notable omission of a Druid's [[Fury (skill)|Fury]] (this is potentially dangerous, since a [[Werewolf]] with insufficient mana to use it will stop attacking). Holy Shield and Fist of the Heavens are the exceptions, with the latter in particular being potentially dangerous: a Paladin casting at a selected target at range does not stop when there is insufficient mana, he starts approaching the target to engage in melee combat!
+
+
+Unlike life, mana naturally regenerates. Player character can also return to maximum mana upon gaining a level, returning to town and visiting a [[Townsperson#Heal|healer]], or activating a Mana or Refilling [[Shrine]] in the wilderness. Each drink from a [[Shrine|well]] in the wilderness will restore 50% of maximum mana.
+
+
+Player character can also drink a [[Full Rejuvenation Potion]] to restore maximum mana (while each [[Rejuvenation Potion]] will restore 35% of maximum mana). Mana [[potion]]s can also be drunk to restore mana over time; any excess which isn't required to restore maximum mana may not be redundant, since further mana can be consumed while recovering. The amount restored from drinking any mana potion depends on class:
+
+
+{{Classes table}}
+|-
+|100%
+|100%
+|{{Warn|=-1/3}}
+|{{S|=+1/3}}
+|{{S|=+1/3}}
+|100%
+|{{S|=+1/3}}
+|{{S|=+1/3}}
+|}
+[https://d2mods.info/forum/viewtopic.php?f=8&t=40504]
+
+
+Recovery from potions also has a chance to double based on total Energy. Other methods of recovering mana are described on separate pages.
+
+
+==Charm==
+
+===Small Charm===
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{M|=Lizard's Small Charm}}
+|12
+|16
+|-
+| +(3-7)
+!align=left|{{M|=Lizard's Small Charm}}
+|12
+|16
+|-
+| +(8-12)
+!align=left|{{M|=Snake's Small Charm}}
+|24
+|32
+|-
+| +(13-17)
+!align=left|{{M|=Serpent's Small Charm}}
+|40
+|48
+|}
+<br/>
+
+===Large Charm===
+{{Affix bonus}}
+|-
+| +(2-4)
+!align=left|{{M|=Lizard's Large Charm}}
+|1
+|1
+|-
+| +(5-7)
+!align=left|{{M|=Lizard's Large Charm}}
+|6
+|9
+|-
+| +(8-12)
+!align=left|{{M|=Lizard's Large Charm}}
+|12
+|17
+|-
+| +(13-18)
+!align=left|{{M|=Snake's Large Charm}}
+|18
+|25
+|-
+| +(19-23)
+!align=left|{{M|=Snake's Large Charm}}
+|25
+|33
+|-
+| +(24-29)
+!align=left|{{M|=Serpent's Large Charm}}
+|33
+|41
+|-
+| +(30-34)
+!align=left|{{M|=Serpent's Large Charm}}
+|41
+|49
+|}
+<br/>
+
+===Grand Charm===
+{{Affix bonus}}
+|-
+| +(3-7)
+!align=left|{{M|=Lizard's Grand Charm}}
+|1
+|1
+|-
+| +(8-13)
+!align=left|{{M|=Lizard's Grand Charm}}
+|5
+|7
+|-
+| +(14-20)
+!align=left|{{M|=Lizard's Grand Charm}}
+|9
+|13
+|-
+| +(21-26)
+!align=left|{{M|=Snake's Grand Charm}}
+|14
+|19
+|-
+| +(27-33)
+!align=left|{{M|=Snake's Grand Charm}}
+|18
+|25
+|-
+| +(34-39)
+!align=left|{{M|=Snake's Grand Charm}}
+|23
+|31
+|-
+| +(40-46)
+!align=left|{{M|=Serpent's Grand Charm}}
+|29
+|37
+|-
+| +(47-52)
+!align=left|{{M|=Serpent's Grand Charm}}
+|35
+|43
+|-
+| +(53-59)
+!align=left|{{M|=Serpent's Grand Charm}}
+|41
+|49
+|}
+<br/>
+
+==Any socket==
+{{Affix bonus}}
+|-
+| +(5-10)
+!align=left|{{R|=Zircon Jewel}}
+|2
+|3
+|-
+| +(11-15)
+!align=left|{{R|=Jacinth Jewel}}
+|12
+|17
+|-
+| +(16-20)
+!align=left|{{M|=Turquoise Jewel}}
+|21
+|29
+|}
+<br/>
+
+==Helm==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Chipped Sapphire]] in helm socket
+|1
+|No
+|-
+| +17
+|align=left|[[Flawed Sapphire]] in helm socket
+|5
+|No
+|-
+| +24
+|align=left|[[Sapphire]] in helm socket
+|12
+|No
+|-
+| +31
+|align=left|[[Flawless Sapphire]] in helm socket
+|15
+|No
+|-
+| +38
+|align=left|[[Perfect Sapphire]] in helm socket
+|18
+|No
+|}
+
+
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's helm}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's helm}}
+|2
+|3
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[Wormskull|{{U|=Wormskull Bone Helm}}]]
+|21
+|No
+|-
+| +15
+!align=left|[[Biggin's Bonnet|{{U|=Biggin's Bonnet Cap}}]]
+|3
+|No
+|-
+| +15
+!align=left|[[Milabrega's Diadem|{{S|=Milabrega's Diadem Crown}}]]
+|17
+|No
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster helm}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[Cathan's Visage|{{S|=Cathan's Visage Mask}}]]
+|11
+|No
+|-
+| +25
+!align=left|[[M'avina's True Sight|{{S|=M'avina's True Sight Diadem}}]]
+|59
+|No
+|-
+| +30
+!align=left|[[Sigon's Visor|{{S|=Sigon's Visor Great Helm}}]]
+|6
+|No
+|-
+| +30
+!align=left|[[Tal Rasha's Horadric Crest|{{S|=Tal Rasha's Horadric Crest Death Mask}}]]
+|66
+|No
+|-
+| +33
+|align=left|[[Radiance|{{Ub|=Radiance}}]] helm
+|27
+|No
+|-
+| +35
+!align=left|[[Crown of Thieves|{{U|=Crown of Thieves Grand Crown}}]]
+|49
+|No
+|-
+| +(50-75)
+|align=left|[[Flickering Flame|{{Ub|=Flickering Flame}}]] helm {{D2R-inline}}
+|55
+|No (D2R only)
+|-
+| +150
+!align=left|[[Trang-Oul's Guise|{{S|=Trang-Oul's Guise Bone Visage}}]]
+|65
+|No
+|}
+<br/>
+
+===Circlet===
+{{Affix bonus}}
+|-
+| +(5-10)
+!align=left|{{R|=Snake's circlet}}
+|4
+|6
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's circlet}}
+|10
+|14
+|-
+| +(21-30)
+!align=left|{{R|=Drake's circlet}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's circlet}}
+|18
+|24
+|-
+| +(41-60)
+!align=left|{{R|=Wyrm's circlet}}
+|22
+|30
+|-
+| +(61-90)
+!align=left|{{R|=Great Wyrm's circlet}}
+|29
+|37
+|-
+| +(91-120)
+!align=left|{{M|=Bahamut's circlet}}
+|37
+|45
+|}
+<br/>
+
+==Amulet==
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's Amulet}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's Amulet}}
+|2
+|3
+|-
+| +(5-10)
+!align=left|{{R|=Snake's Amulet}}
+|4
+|6
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's Amulet}}
+|10
+|14
+|-
+| +(21-30)
+!align=left|{{R|=Drake's Amulet}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's Amulet}}
+|18
+|24
+|-
+| +(41-60)
+!align=left|{{R|=Wyrm's Amulet}}
+|22
+|30
+|-
+| +(61-90)
+!align=left|{{R|=Great Wyrm's Amulet}}
+|29
+|37
+|-
+| +(91-120)
+!align=left|{{M|=Bahamut's Amulet}}
+|37
+|45
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[The Horadric Staff#Amulet of the Viper|{{U|=Amulet of the Viper}}]]
+|0
+|No
+|-
+| +15
+!align=left|[[Arcanna's Sign|{{S|=Arcanna's Sign Amulet}}]]
+|15
+|No
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster Amulet}}]]
+|13
+|No
+|-
+| +42
+!align=left|[[Tal Rasha's Adjudication|{{S|=Tal Rasha's Adjudication Amulet}}]]
+|67
+|No
+|-
+| +45
+!align=left|[[Crescent Moon (amulet)|{{U|=Crescent Moon Amulet}}]]
+|50
+|No
+|}
+<br/>
+
+==Body Armor==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Chipped Sapphire]] in body armor socket
+|1
+|No
+|-
+| +17
+|align=left|[[Flawed Sapphire]] in body armor socket
+|5
+|No
+|-
+| +24
+|align=left|[[Sapphire]] in body armor socket
+|12
+|No
+|-
+| +31
+|align=left|[[Flawless Sapphire]] in body armor socket
+|15
+|No
+|-
+| +38
+|align=left|[[Perfect Sapphire]] in body armor socket
+|18
+|No
+|}
+
+
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's body armor}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's body armor}}
+|2
+|3
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's body armor}}
+|27
+|37
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's body armor}}
+|39
+|52
+|}
+
+
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[The Centurion|{{U|=The Centurion Hard Leather Armor}}]]
+|14
+|No
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster body armor}}]]
+|13
+|No
+|-
+| +(75-100)
+|align=left|[[Horazon's Dominion|{{Sb|=Horazon's Dominion Russet Armor}}]] {{RotW-inline}}
+|55
+|No
+|-
+| +(100-150)
+|align=left|[[Bone|{{Ub|=Bone}}]] body armor
+|47
+|No
+|-
+| +(100-150)
+|align=left|[[Rain|{{Ub|=Rain}}]] body armor
+|49
+|No
+|}
+<br/>
+
+==Weapon==
+{{Affix bonus}}
+|-
+| +(11-20)
+|align=left|{{Rb|=Serpent's weapon}} <sup>1</sup>
+|27
+|37
+|}
+<span style=font-size:90%><sup>1</sup> Excluding [[Item type#Melee|rods]]</span>
+<br/>
+<br/>
+===Axe===
+{{Skill bonus}}
+|-
+| +20
+|align=left|[[Tancred's Crowbill|{{Sb|=Tancred's Crowbill Military Pick}}]] (2 items)
+|20
+|No
+|-
+| +25
+!align=left|[[Brainhew|{{U|=Brainhew Great Axe}}]]
+|25
+|No
+|-
+| +100
+!align=left|[[Spellsteel|{{U|=Spellsteel Bearded Axe}}]]
+|39
+|No
+|}
+<br/>
+
+===Bow===
+{{Skill bonus}}
+|-
+| +30
+!align=left|[[Wizendraw|{{U|=Wizendraw Long Battle Bow}}]]
+|26
+|No
+|-
+| +35
+!align=left|[[Riphook|{{U|=Riphook Razor Bow}}]]
+|31
+|No
+|-
+| +40
+!align=left|[[Endlesshail|{{U|=Endlesshail Double Bow}}]]
+|36
+|No
+|}
+<br/>
+
+===Crossbow===
+{{Skill bonus}}
+|-
+| +36
+!align=left|[[Demon Machine|{{U|=Demon Machine Cho-Ko-Nu}}]]
+|49
+|No
+|}
+<br/>
+
+===Dagger===
+{{Skill bonus}}
+|-
+|{{Warn|=-5}}
+!align=left|[[Gull|{{U|=Gull Dagger}}]]
+|4
+|No
+|-
+| +50
+!align=left|[[Spectral Shard|{{U|=Spectral Shard Blade}}]]
+|25
+|No
+|}
+<br/>
+
+===Mace===
+{{Skill bonus}}
+|-
+| +100
+!align=left|[[Baezil's Vortex|{{U|=Baezil's Vortex Knout}}]]
+|45
+|No
+|}
+<br/>
+
+===Orb===
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|Orb
+|2
+|3
+|-
+| +(5-10)
+!align=left|Orb
+|9
+|12
+|-
+| +(11-20)
+!align=left|Orb
+|16
+|23
+|-
+| +(21-30)
+!align=left|Orb
+|26
+|34
+|-
+| +(31-40)
+!align=left|Orb
+|37
+|45
+|-
+| +(41-60)
+!align=left|Orb
+|48
+|56
+|-
+| +(61-80)
+!align=left|{{M|=Orb}}
+|59
+|67
+|}
+
+
+*One of the above or + [[Life#Orb|Life]] always spawns on any [[orb]] which isn't [[Unique (item)|Unique]] or [[Set]] quality.
+*Required Level (Rlvl) only applies when an orb is magic or rare quality.
+
+
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's orb}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's orb}}
+|2
+|3
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's orb}}
+|27
+|37
+|-
+| +(21-30)
+!align=left|{{R|=Drake's orb}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's orb}}
+|18
+|24
+|-
+| +(41-60)
+!align=left|{{R|=Wyrm's orb}}
+|22
+|30
+|-
+| +(61-90)
+!align=left|{{R|=Great Wyrm's orb}}
+|29
+|37
+|-
+| +(91-120)
+!align=left|{{M|=Bahamut's orb}}
+|37
+|45
+|}
+
+
+{{Skill bonus}}
+|-
+| +77
+!align=left|[[Tal Rasha's Lidless Eye|{{S|=Tal Rasha's Lidless Eye Swirling Crystal}}]]
+|65
+|No
+|}
+<br/>
+
+===Rod===
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's rod}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's rod}}
+|2
+|3
+|-
+| +(5-10)
+!align=left|{{R|=Snake's rod}}
+|4
+|6
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's rod}}
+|10
+|14
+|-
+| +(21-30)
+!align=left|{{R|=Drake's rod}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's rod}}
+|18
+|24
+|-
+| +(41-60)
+!align=left|{{R|=Wyrm's rod}}
+|22
+|30
+|-
+| +(61-90)
+!align=left|{{R|=Great Wyrm's rod}}
+|29
+|37
+|-
+| +(91-120)
+!align=left|{{M|=Bahamut's rod}}
+|37
+|45
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster rod}}]]
+|13
+|No
+|}
+<br/>
+
+====Scepter====
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[Knell Striker|{{U|=Knell Striker Scepter}}]]
+|5
+|No
+|}
+<br/>
+
+====Staff====
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[The Horadric Staff#Horadric Staff|{{U|=Horadric Staff}}]]
+| -
+|No
+|-
+| +10
+!align=left|[[Serpent Lord|{{U|=Serpent Lord Long Staff}}]]
+|9
+|No
+|-
+| +30
+!align=left|[[Bane Ash|{{U|=Bane Ash Short Staff}}]]
+|5
+|No
+|-
+| +50
+|align=left|[[Cathan's Rule|{{Sb|=Cathan's Rule Battle Staff}}]] (2 items)
+|11
+|No
+|-
+| +50
+|align=left|[[Arcanna's Deathwand|{{Sb|=Arcanna's Deathwand War Staff}}]] (2 items)
+|15
+|No
+|-
+| +70
+!align=left|[[Naj's Puzzler|{{S|=Naj's Puzzler Elder Staff}}]]
+|78
+|No
+|-
+| +175
+!align=left|[[Razorswitch|{{U|=Razorswitch Jo Staff}}]]
+|28
+|No
+|}
+<br/>
+
+====Wand====
+{{Skill bonus}}
+|-
+| +13
+!align=left|[[Maelstrom|{{U|=Maelstrom Yew Wand}}]]
+|14
+|No
+|-
+| +13
+|align=left|[[White|{{Ub|=White}}]] wand
+|35
+|No
+|-
+| +25
+!align=left|[[Sander's Superstition|{{S|=Sander's Superstition Bone Wand}}]]
+|25
+|No
+|-
+| +40
+!align=left|[[Ume's Lament|{{U|=Ume's Lament Grim Wand}}]]
+|28
+|No
+|-
+| +(25-50)
+!align=left|[[Gravenspine|{{U|=Gravenspine Bone Wand}}]]
+|20
+|No
+|}
+<br/>
+
+===Sword===
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[Blade of Ali Baba|{{U|=Blade of Ali Baba Tulwar}}]]
+|35
+|No
+|-
+| +20
+!align=left|[[Kinemil's Awl|{{U|=Kinemil's Awl Giant Sword}}]]
+|23
+|No
+|-
+| +30
+!align=left|[[Gleamscythe|{{U|=Gleamscythe Falchion}}]]
+|13
+|No
+|-
+| +(89-112)
+|align=left|[[Spirit|{{Ub|=Spirit}}]] sword
+|25
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+==Shield==
+{{Skill bonus}}
+|-
+| +50
+|align=left|[[Sur Rune|{{Cb|=Sur Rune}}]] in shield socket
+|61
+|No
+|}
+
+
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's shield}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's shield}}
+|2
+|3
+|-
+| +(5-10)
+!align=left|{{R|=Snake's shield}}
+|4
+|6
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's shield}}
+|10
+|14
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster shield}}]]
+|13
+|No
+|-
+| +(21-22)
+|align=left|[[Civerb's Ward|{{Sb|=Civerb's Ward Large Shield}}]] (2 items)
+|9
+|No
+|-
+| +(20-40)
+|align=left|[[Vigilance|{{Ub|=Vigilance}}]] shield {{RotW-inline}}
+|53
+|No
+|-
+| +50
+|align=left|[[Dragon|{{Ub|=Dragon}}]] shield
+|61
+!{{Warn|=Yes}} (LoD only)
+|-
+| +100
+!align=left|[[Taebaek's Glory|{{S|=Taebaek's Glory Ward}}]]
+|81
+|No
+|-
+| +(89-112)
+|align=left|[[Spirit|{{Ub|=Spirit}}]] shield
+|25
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+==Ring==
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's Ring}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's Ring}}
+|2
+|3
+|-
+| +(5-10)
+!align=left|{{R|=Snake's Ring}}
+|4
+|6
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's Ring}}
+|10
+|14
+|-
+| +(21-30)
+!align=left|{{R|=Drake's Ring}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's Ring}}
+|18
+|24
+|-
+| +(41-60)
+!align=left|{{R|=Wyrm's Ring}}
+|22
+|30
+|-
+| +(61-90)
+!align=left|{{R|=Great Wyrm's Ring}}
+|29
+|37
+|-
+| +(91-120)
+!align=left|{{M|=Bahamut's Ring}}
+|37
+|45
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster Ring}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[The Stone of Jordan|{{U|=The Stone of Jordan Ring}}]]
+|29
+|No
+|-
+| +40
+!align=left|[[Raven Frost|{{U|=Raven Frost Ring}}]]
+|45
+|No
+|}
+<br/>
+
+==Belt==
+{{Affix bonus}}
+|-
+| +(1-2)
+!align=left|{{R|=Lizard's belt}}
+|1
+|1-2
+|-
+| +(3-5)
+!align=left|{{R|=Lizard's belt}}
+|2
+|3
+|-
+| +(5-10)
+!align=left|{{R|=Snake's belt}}
+|4
+|6
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's belt}}
+|10
+|14
+|}
+
+
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[Lenymo|{{U|=Lenymo Sash}}]]
+|7
+|No
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster belt}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[Nightsmoke|{{U|=Nightsmoke Belt}}]]
+|20
+|No
+|-
+| +30
+!align=left|[[Tal Rasha's Fine-Spun Cloth|{{S|=Tal Rasha's Fine-Spun Cloth Mesh Belt}}]]
+|53
+|No
+|-
+| +(25-50)
+!align=left|[[Trang-Oul's Girth|{{S|=Trang-Oul's Girth Troll Belt}}]]
+|47
+|No
+|}
+<br/>
+
+==Boots==
+{{Affix bonus}}
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's boots}}
+|27
+|37
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's boots}}
+|39
+|52
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster boots}}]]
+|13
+|No
+|}
+<br/>
+
+==Gloves==
+{{Affix bonus}}
+|-
+| +(11-20)
+!align=left|{{R|=Serpent's gloves}}
+|27
+|37
+|-
+| +(31-40)
+!align=left|{{R|=Dragon's gloves}}
+|39
+|52
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Caster|{{C|=Caster gloves}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[The Hand of Broc|{{U|=The Hand of Broc Leather Gloves}}]]
+|5
+|No
+|}
+<br/>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Infernal Tools|{{Ub|=Infernal Tools}}]] (3 items)
+|5
+|No
+|-
+| +20
+|align=left|[[Sigon's Complete Steel|{{Ub|=Sigon's Complete Steel}}]] (Full)
+|6
+|No
+|-
+| +20
+|align=left|[[Cathan's Traps|{{Ub|=Cathan's Traps}}]] (Full)
+|11
+|No
+|-
+| +25
+|align=left|[[Arcanna's Tricks|{{Ub|=Arcanna's Tricks}}]] (2 items)
+|15
+|No (LoD only)
+|-
+| +50
+|align=left|[[Angelic Raiment|{{Ub|=Angelic Raiment}}]] (3 items)
+|12
+|No
+|-
+| +50
+|align=left|[[Arcanna's Tricks|{{Ub|=Arcanna's Tricks}}]] (2 items)
+|15
+|No (D2R only)
+|-
+| +50
+|align=left|[[Arcanna's Tricks|{{Ub|=Arcanna's Tricks}}]] (Full) <sup>1</sup>
+|15
+|No (LoD only)
+|-
+| +50
+|align=left|[[Sander's Folly|{{Ub|=Sander's Folly}}]] (Full)
+|28
+|No
+|-
+| +75
+|align=left|[[Arcanna's Tricks|{{Ub|=Arcanna's Tricks}}]] (Full) <sup>2</sup>
+|15
+|No (D2R only)
+|-
+| +100
+|align=left|[[The Disciple|{{Ub|=The Disciple}}]] (Full)
+|65
+|No
+|-
+| +100
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (Full)
+|65
+|No
+|-
+| +100
+|align=left|[[Naj's Ancient Vestige|{{Ub|=Naj's Ancient Vestige}}]] (Full)
+|78
+|No
+|-
+| +150
+|align=left|[[Aldur's Watchtower|{{Ub|=Aldur's Watchtower}}]] (Full)
+|76
+|No
+|}
+<span style=font-size:90%><sup>1</sup> This includes +25 Mana from equipping two items.</span><br/>
+<span style=font-size:90%><sup>2</sup> This includes +50 Mana from equipping two items.</span>
+<br/>
+<br/>
+
+==Reference==
+*[https://d2mods.info/forum/viewtopic.php?f=8&t=40504 Hp/Mp Potions (double heal and char class boni)] (Phrozen Keep)
+
+
+[[Category:Modifiers]]
+[[Category:Attribute modifiers]]

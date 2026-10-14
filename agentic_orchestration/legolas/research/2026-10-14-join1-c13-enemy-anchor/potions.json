@@ -1,0 +1,415 @@
+{
+ "_what": "C-13 census row 21 (KP-423): D2 LoD 1.13 potion laws + GD Warlord potion as the KC2 oracle carries it",
+ "_law": "LoD 1.13 data (fabd/diablo2 @ 45112569deb9384738ccafe5c24ebbb71f41c7c9); code D2MOO @ 5596f5cb (1.10f reconstruction)",
+ "d2": {
+  "health": [
+   {
+    "code": "hp1",
+    "display": "Minor Healing Potion",
+    "misc_internal_name": "Lesser Healing Potion",
+    "total_hp_by_class": {
+     "amazon": 45.0,
+     "paladin": 45.0,
+     "assassin": 45.0,
+     "barbarian": 60.0,
+     "sorceress": 30.0,
+     "necromancer": 30.0,
+     "druid": 30.0
+    },
+    "sorceress_total_hp": 30.0,
+    "duration_frames": 192,
+    "duration_s": 7.68,
+    "sorceress_hp_per_frame": 0.15625,
+    "sorceress_hp_per_s": 3.90625,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "hp2",
+    "display": "Light Healing Potion",
+    "misc_internal_name": "Light Healing Potion",
+    "total_hp_by_class": {
+     "amazon": 90.0,
+     "paladin": 90.0,
+     "assassin": 90.0,
+     "barbarian": 120.0,
+     "sorceress": 60.0,
+     "necromancer": 60.0,
+     "druid": 60.0
+    },
+    "sorceress_total_hp": 60.0,
+    "duration_frames": 160,
+    "duration_s": 6.4,
+    "sorceress_hp_per_frame": 0.375,
+    "sorceress_hp_per_s": 9.375,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "hp3",
+    "display": "Healing Potion",
+    "misc_internal_name": "Healing Potion",
+    "total_hp_by_class": {
+     "amazon": 150.0,
+     "paladin": 150.0,
+     "assassin": 150.0,
+     "barbarian": 200.0,
+     "sorceress": 100.0,
+     "necromancer": 100.0,
+     "druid": 100.0
+    },
+    "sorceress_total_hp": 100.0,
+    "duration_frames": 171,
+    "duration_s": 6.84,
+    "sorceress_hp_per_frame": 0.5847953216374269,
+    "sorceress_hp_per_s": 14.619883040935672,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "hp4",
+    "display": "Greater Healing Potion",
+    "misc_internal_name": "Strong Healing Potion",
+    "total_hp_by_class": {
+     "amazon": 270.0,
+     "paladin": 270.0,
+     "assassin": 270.0,
+     "barbarian": 360.0,
+     "sorceress": 180.0,
+     "necromancer": 180.0,
+     "druid": 180.0
+    },
+    "sorceress_total_hp": 180.0,
+    "duration_frames": 192,
+    "duration_s": 7.68,
+    "sorceress_hp_per_frame": 0.9375,
+    "sorceress_hp_per_s": 23.4375,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "hp5",
+    "display": "Super Healing Potion",
+    "misc_internal_name": "Greater Healing Potion",
+    "total_hp_by_class": {
+     "amazon": 480.0,
+     "paladin": 480.0,
+     "assassin": 480.0,
+     "barbarian": 640.0,
+     "sorceress": 320.0,
+     "necromancer": 320.0,
+     "druid": 320.0
+    },
+    "sorceress_total_hp": 320.0,
+    "duration_frames": 256,
+    "duration_s": 10.24,
+    "sorceress_hp_per_frame": 1.25,
+    "sorceress_hp_per_s": 31.25,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   }
+  ],
+  "mana": [
+   {
+    "code": "mp1",
+    "display": "Minor Mana Potion",
+    "misc_internal_name": "Lesser Mana Potion",
+    "total_mana_by_class": {
+     "sorceress": 40.0,
+     "necromancer": 40.0,
+     "druid": 40.0,
+     "amazon": 30.0,
+     "paladin": 30.0,
+     "assassin": 30.0,
+     "barbarian": 20.0
+    },
+    "sorceress_total_mana": 40.0,
+    "duration_frames": 128,
+    "duration_s": 5.12,
+    "sorceress_mana_per_frame": 0.3125,
+    "sorceress_mana_per_s": 7.8125,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "mp2",
+    "display": "Light Mana Potion",
+    "misc_internal_name": "Light Mana Potion",
+    "total_mana_by_class": {
+     "sorceress": 80.0,
+     "necromancer": 80.0,
+     "druid": 80.0,
+     "amazon": 60.0,
+     "paladin": 60.0,
+     "assassin": 60.0,
+     "barbarian": 40.0
+    },
+    "sorceress_total_mana": 80.0,
+    "duration_frames": 128,
+    "duration_s": 5.12,
+    "sorceress_mana_per_frame": 0.625,
+    "sorceress_mana_per_s": 15.625,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "mp3",
+    "display": "Mana Potion",
+    "misc_internal_name": "Mana Potion",
+    "total_mana_by_class": {
+     "sorceress": 160.0,
+     "necromancer": 160.0,
+     "druid": 160.0,
+     "amazon": 120.0,
+     "paladin": 120.0,
+     "assassin": 120.0,
+     "barbarian": 80.0
+    },
+    "sorceress_total_mana": 160.0,
+    "duration_frames": 128,
+    "duration_s": 5.12,
+    "sorceress_mana_per_frame": 1.25,
+    "sorceress_mana_per_s": 31.25,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "mp4",
+    "display": "Greater Mana Potion",
+    "misc_internal_name": "Strong Mana Potion",
+    "total_mana_by_class": {
+     "sorceress": 300.0,
+     "necromancer": 300.0,
+     "druid": 300.0,
+     "amazon": 225.0,
+     "paladin": 225.0,
+     "assassin": 225.0,
+     "barbarian": 150.0
+    },
+    "sorceress_total_mana": 300.0,
+    "duration_frames": 128,
+    "duration_s": 5.12,
+    "sorceress_mana_per_frame": 2.34375,
+    "sorceress_mana_per_s": 58.59375,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   },
+   {
+    "code": "mp5",
+    "display": "Super Mana Potion",
+    "misc_internal_name": "Greater Mana Potion",
+    "total_mana_by_class": {
+     "sorceress": 500.0,
+     "necromancer": 500.0,
+     "druid": 500.0,
+     "amazon": 375.0,
+     "paladin": 375.0,
+     "assassin": 375.0,
+     "barbarian": 250.0
+    },
+    "sorceress_total_mana": 500.0,
+    "duration_frames": 128,
+    "duration_s": 5.12,
+    "sorceress_mana_per_frame": 3.90625,
+    "sorceress_mana_per_s": 97.65625,
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell03 + Arreat amounts + PureDiablo durations)"
+   }
+  ],
+  "rejuvenation": [
+   {
+    "code": "rvs",
+    "display": "Rejuvenation Potion",
+    "pct_max_life": 35,
+    "pct_max_mana": 35,
+    "delivery": "instant (len empty -> STATLIST_AddUnitStat, clamped to max)",
+    "class_modifier": "none (pSpell05 calls no class-bonus function)",
+    "double_chance": "none (pSpell05 has no Vitality/Energy roll)",
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell05 + Arreat 'Heals 35%/100% Life and Mana, instantly')"
+   },
+   {
+    "code": "rvl",
+    "display": "Full Rejuvenation Potion",
+    "pct_max_life": 100,
+    "pct_max_mana": 100,
+    "delivery": "instant (len empty -> STATLIST_AddUnitStat, clamped to max)",
+    "class_modifier": "none (pSpell05 calls no class-bonus function)",
+    "double_chance": "none (pSpell05 has no Vitality/Energy roll)",
+    "grade": "MODEL-VERIFIED (Misc.txt DATAMINED + D2MOO pSpell05 + Arreat 'Heals 35%/100% Life and Mana, instantly')"
+   }
+  ],
+  "double_fill": {
+   "law": "per drink: chance = P(rand()%100 < floor(randLimited(Vit)/2)) for health (Energy for mana); success doubles the amount; rejuvs excluded",
+   "uses_stat": "current total Vitality / Energy (STAT_VITALITY / STAT_ENERGY incl. items)",
+   "table_pct": {
+    "10": {
+     "code_exact_pct": 2.0,
+     "arreat_formula_pct": 2.0
+    },
+    "50": {
+     "code_exact_pct": 12.0,
+     "arreat_formula_pct": 12.0
+    },
+    "100": {
+     "code_exact_pct": 24.5,
+     "arreat_formula_pct": 24.5
+    },
+    "150": {
+     "code_exact_pct": 37.0,
+     "arreat_formula_pct": 37.0
+    },
+    "200": {
+     "code_exact_pct": 49.5,
+     "arreat_formula_pct": 49.5
+    },
+    "250": {
+     "code_exact_pct": 59.6,
+     "arreat_formula_pct": 59.6
+    },
+    "300": {
+     "code_exact_pct": 66.3333,
+     "arreat_formula_pct": 66.3333
+    },
+    "400": {
+     "code_exact_pct": 74.75,
+     "arreat_formula_pct": 74.75
+    },
+    "500": {
+     "code_exact_pct": 79.8,
+     "arreat_formula_pct": 79.8
+    }
+   },
+   "grade": "MODEL-VERIFIED (D2MOO pSpell03 + Arreat basics/characters.shtml formulas)"
+  },
+  "delivery": {
+   "frames": "25 fps; total amount <<8 (1/256 points) is laid on a timed stat list (state healthpot/manapot) as a per-frame regen of total/len",
+   "second_potion": "same state: duration EXTENDS (remaining + len) and the per-frame rate is recomputed as (new total + remaining old) / (remaining + len). Totals add; the rate does not stack. A smaller potion on top of a larger one SLOWS the fill",
+   "second_potion_grade": "MODEL-VERIFIED (D2MOO pSpell03 + Arreat 'will not cause you to replenish life any faster' + PureDiablo averaging example)",
+   "cast_interaction": "drinking is an item-use request with no player-mode gate and no animation in the code path (ItemMode.cpp sub_6FC49220); it neither interrupts nor delays a cast",
+   "cast_interaction_grade": "INFERRED (single code source, by absence; no community statement found)",
+   "hit_cancels": "no: the potion stat list is removed only at its expiry frame; nothing in the damage path (SUnitDmg.cpp) removes healthpot/manapot",
+   "hit_cancels_grade": "INFERRED (code by absence; Arreat's advice to 'run away long enough for them to heal fully' is consistent, not explicit)",
+   "cooldown": "none in code; the limit is the belt and inventory",
+   "cooldown_grade": "INFERRED (no use-delay in pSpell03 or the belt-use path)"
+  },
+  "belt": {
+   "kit_belt": "Arachnid Mesh (unique), base Spiderweb Sash `ulc`",
+   "armor_txt_belt_type": 6,
+   "numboxes": 16,
+   "rows": 4,
+   "columns": 4,
+   "rules": [
+    "only the bottom row (slots 0-3) is hotkeyed (1-4)",
+    "drinking a bottom-row potion drops the potions above it down that column (ItemMode.cpp sub_6FC49140; PureDiablo 'like a vending machine')",
+    "picking up a potion auto-belts it into a column holding the same potion type, else into an empty bottom slot if Misc.txt autobelt=1 (D2Inventory.cpp INVENTORY_GetFreeBeltSlot; PureDiablo 'Picking up potions restocks the belt')",
+    "inventory potions do NOT refill the belt automatically; shift-click moves them (Arreat potions page)"
+   ],
+   "capacity_sorc": "16 belt potions, plus any carried in inventory (no hotkey)",
+   "grade": "MODEL-VERIFIED for 16 boxes (Armor.txt belt=6 DATAMINED; Arreat elite belts #Boxes 16; Basin Rows 4; numboxes 16 from a D2R 3.0 mirror because Belts.txt is absent from the 1.13 mirror)"
+  },
+  "class_modifiers_sorceress": {
+   "health": 1.0,
+   "mana": 2.0,
+   "all_classes_life": {
+    "amazon": 1.5,
+    "paladin": 1.5,
+    "assassin": 1.5,
+    "barbarian": 2.0,
+    "sorceress": 1.0,
+    "necromancer": 1.0,
+    "druid": 1.0
+   },
+   "all_classes_mana": {
+    "sorceress": 2.0,
+    "necromancer": 2.0,
+    "druid": 2.0,
+    "amazon": 1.5,
+    "paladin": 1.5,
+    "assassin": 1.5,
+    "barbarian": 1.0
+   },
+   "grade": "MODEL-VERIFIED (D2MOO D2Common Items.cpp + Arreat potions tables + Basin Consumable + PureDiablo tables)"
+  }
+ },
+ "gd": {
+  "record": "records/skills/default/defaulthealthpotion.dbr",
+  "hot_modifier_record": "records/skills/itemskillsgdx3/potionmodifiers/healthpotion_healovertime.dbr",
+  "display": "Tonic of Mending (+ Sansochromatis HoT modifier, allocated rank 1)",
+  "heal_flat": 800.0,
+  "heal_pct_instant": 25.0,
+  "heal_pct_over_time": 25.0,
+  "cooldown_s": 12.0,
+  "charges": 1,
+  "actuation_threshold_frac_by_limb": {
+   "I4_EXCURSION_MAX": 0.49,
+   "TRACE_CONSISTENT": 0.22972972972972974,
+   "NEVER": 0.0
+  },
+  "default_limb": "I4_EXCURSION_MAX (load_kit default)",
+  "player_hp_max": 20005.0,
+  "instant_hp": 5801.25,
+  "instant_frac_of_max": 0.2899900024993752,
+  "over_time_hp": 5001.25,
+  "over_time_duration_s_oracle": 12.0,
+  "over_time_hp_per_s_oracle": 416.7708333333333,
+  "over_time_duration_grade": "MEASURED-ABSENT in the substrate; the oracle spreads it over the 12.0 s cooldown (C-I4-5, its LOWER limb)",
+  "total_per_drink_hp": 10802.5,
+  "total_frac_of_max": 0.5399900024993751,
+  "healing_increase_note": "Resilience characterHealIncreasePercent +24 % multiplies the potion and ADCtH, not regen (sustain_procs ROW_DISPOSITIONS resilience; D-6)",
+  "control_state_gate": "RequestUseItem decoded PERMITTED in every control state; not gated (counterplay docstring, S-5)",
+  "use_limit": "cooldown only; the oracle keeps no inventory count",
+  "instant_cast_field": "True (pm4g_consumables.csv instant_cast for defaulthealthpotion.dbr)",
+  "grade": "MEASURED per the oracle (pm4g_consumables.csv rows, sha pinned in counterplay.py)"
+ },
+ "comparison_rows": [
+  {
+   "row": "amount",
+   "d2_sorc": "Super Healing 320 HP flat (x2 on a Vitality roll); Rejuv 35 % / Full Rejuv 100 % of max life and mana",
+   "gd_warlord": "800 flat + 25 % max HP instant (5801.2 of 20005) + 25 % max HP over time (5001.2)"
+  },
+  {
+   "row": "delivery",
+   "d2_sorc": "health/mana: over time (per-frame regen); rejuv: instant",
+   "gd_warlord": "instant portion + over-time portion"
+  },
+  {
+   "row": "duration",
+   "d2_sorc": "health 6.4-10.24 s by tier (Super 256 frames = 10.24 s); mana 5.12 s; rejuv 0",
+   "gd_warlord": "instant: 0; over-time: duration MEASURED-ABSENT, oracle spreads over 12.0 s"
+  },
+  {
+   "row": "cooldown / limit",
+   "d2_sorc": "no cooldown; 16 belt slots (4 hotkeyed) + inventory",
+   "gd_warlord": "12.0 s cooldown, 1 charge; unlimited uses in the oracle"
+  },
+  {
+   "row": "stacking",
+   "d2_sorc": "same-type drinks add totals and extend duration; rate never rises",
+   "gd_warlord": "cannot overlap: cooldown 12 s equals the oracle's over-time window"
+  },
+  {
+   "row": "interruption",
+   "d2_sorc": "not interrupted by hits; drinking does not interrupt a cast (both INFERRED)",
+   "gd_warlord": "RequestUseItem permitted in every control state; instant_cast True"
+  },
+  {
+   "row": "actuation",
+   "d2_sorc": "player choice (no data)",
+   "gd_warlord": "oracle threshold theta: I4_EXCURSION_MAX=0.4900, TRACE_CONSISTENT=0.2297, NEVER=0.0000"
+  }
+ ],
+ "sources_sha256": {
+  "captures/potions/Misc.txt": "d01a37412cc170b744ae4cde66f5f5130e97f69274bad60b2d3ef0f470d7e207",
+  "raw/Armor.txt": "6ce5a09e8c6bc07dddea916412f18e57af860f7c870e3ef9e3003ea8beeaaf99",
+  "captures/potions/blizzhackers-d2data-belts.json": "c1f6b1f096da661a229b728b79f2fa4c73cab3bef4b5e2c8b1f76966acb7a9df",
+  "engine data/kc2/pm4g_consumables.csv": "6956bfcbf0b02020d4404633cb11c71f0744dee2e902130648199119ac0c1797",
+  "engine simulation/kc2/counterplay.py": "f375323d8b2178f40f937fff663687390129298ee29f47988fdd8f12161e4e99",
+  "engine simulation/kc2/sustain_procs.py": "dc8bb228ded75043aafe0f7c8c399e8c32c050704ea14fa33b1dd9923c415bc4"
+ },
+ "verification_log": [
+  "hp1: Misc calc1=30 len=192 == Arreat (30, 45, 60) and PureDiablo 7.68 s: OK",
+  "hp2: Misc calc1=60 len=160 == Arreat (60, 90, 120) and PureDiablo 6.4 s: OK",
+  "hp3: Misc calc1=100 len=171 == Arreat (100, 150, 200) and PureDiablo 6.84 s: OK",
+  "hp4: Misc calc1=180 len=192 == Arreat (180, 270, 360) and PureDiablo 7.68 s: OK",
+  "hp5: Misc calc1=320 len=256 == Arreat (320, 480, 640) and PureDiablo 10.24 s: OK",
+  "mp1: Misc calc1=20 len=128 == Arreat (20, 30, 40) and PureDiablo 5.12 s: OK",
+  "mp2: Misc calc1=40 len=128 == Arreat (40, 60, 80) and PureDiablo 5.12 s: OK",
+  "mp3: Misc calc1=80 len=128 == Arreat (80, 120, 160) and PureDiablo 5.12 s: OK",
+  "mp4: Misc calc1=150 len=128 == Arreat (150, 225, 300) and PureDiablo 5.12 s: OK",
+  "mp5: Misc calc1=250 len=128 == Arreat (250, 375, 500) and PureDiablo 5.12 s: OK",
+  "rvs: pSpell 5, 35% life / 35% mana, instant: OK",
+  "rvl: pSpell 5, 100% life / 100% mana, instant: OK",
+  "double-heal chance: code-exact == Arreat closed forms (both branches, stat 10..500): OK",
+  "Spiderweb Sash ulc: Armor.txt belt type 6; belts table numboxes 16 (D2R mirror) == Arreat #Boxes 16 == Basin Rows 4: OK"
+ ]
+}

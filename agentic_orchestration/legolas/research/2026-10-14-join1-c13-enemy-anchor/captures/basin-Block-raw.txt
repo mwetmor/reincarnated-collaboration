@@ -1,0 +1,899 @@
+{{Attack nav}}
+{{Intro}}
+Player character equipping a [[shield]], an [[auric shield]] or a [[shrunken head]] normally has a Chance to Block a successful enemy attack, which applies after a successful hit check but before an [[Amazon]] [[dodge]]s, [[avoid]]s or [[evade]]s. This prevents damage and other [[:Category:Modifiers|modifiers]] being applied, although it does not prevent [[missile]] piercing due to [[Pierce]] and [[Piercing Attack]].
+*The following can be blocked:
+**[[Melee]] attacks
+**[[Arrows]] fired by [[bow]]s
+**[[Bolts]] fired by [[crossbow]]s
+**[[Javelin]]s
+**[[Throwing axe]]s
+**[[Throwing knife|Throwing knives]]
+**Missiles applying physical damage
+**[[Bone Fetish]] death explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1464450]
+**[[Suicide Minion]] death explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120127-nihlathaks-skeletons/&do=findComment&comment=1487888]
+**[[Fire Enchanted]] explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1464380]
+*The following '''cannot''' be blocked:
+**Level >49 [[Fire Arrow]]
+**Level >49 [[Cold Arrow]]
+**[[Lightning Bolt]]
+**[[Molten Boulder]] explosion
+**[[Tornado]] periodic [[radius|radial]] damage
+**[[Armageddon]] radial impact damage
+**[[Corpse Explosion]]
+**[[Paladin (Diablo II)|Paladin]] [[Smite]]
+**[[Charge|Charging]] [[Claw Viper]]s and [[Reanimated Horde]]
+**[[Nihlathak (boss)|{{Ub|=Nihlathak}}]] corpse explosion [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1464624]
+|}
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-
+!width=8% align=left|[[Classic]]
+|colspan=2|Chance to Block = min(Shield+Bonus , 75) %
+|-
+!align=left|[[Expansion]]
+|colspan=2|Chance to Block = min( (Shield+Bonus) * ([[Dexterity]]-15) / (clvl*2) , 75) %
+|-
+|{{0|0}}
+|-
+|
+|width=9%|Shield
+|width=83%|Base Chance to Block of shield, auric shield or shrunken head
+|-
+|
+|Bonus
+|{{Mb|=Increased Chance of Blocking}} from items and [[Holy Shield]]
+|-
+|
+|Dexterity
+|Dexterity (including bonuses)
+|-
+|
+|clvl
+|Character level
+|}
+
+
+*[http://d2wissen.d2chars.de/calc/110/blockrate-x.html Kalkulatoren: Blockrate] (D2Wissen.de)
+*Ceiling of 75% Chance to Block applies when stationary (whether idle, attacking or casting), walking or using [[Whirlwind]]. Chance to Block is reduced to 1/3 while running, ''after'' this ceiling is applied (so maximum 25% Chance to Block while running). [https://www.mannm.org/d2library/faqtoids/block_eng.html#ibc]
+*Chance to Block displayed on the shield itself is the sum of its base value, a class [[Block#Base Chance to Block|bonus]] and Increased Chance of Blocking on the shield itself (including Holy Shield when active). Although 75% ceiling is applied to its ''displayed'' Chance to Block, any excess and Increased Chance of Blocking from other items is still taken into account when calculating ''actual'' Chance to Block displayed when cursor is over [[Defense]] field in character screen.
+*Minimum Dexterity required for maximum 75% Chance to Block is 15 + {150*clvl / (Shield + Bonus) }.
+
+
+==Base Chance to Block==
+Every [[shield]], [[auric shield]] and [[shrunken head]] has a base Chance to Block, to which a [[class]] bonus is added.
+
+
+{{Number table}} width=100%
+|-align=center
+!width=12% align=left|Class
+!width=11%|[[Amazon]]
+!width=11%|[[Assassin]]
+!width=11%|[[Barbarian (Diablo II)|Barbarian]]
+!width=11%|[[Druid (Diablo II)|Druid]]
+!width=11%|[[Necromancer]]
+!width=11%|[[Paladin (Diablo II)|Paladin]]
+!width=11%|[[Sorceress]]
+!width=11%|[[Warlock (Diablo II)|Warlock]]
+|-
+!align=left|Chance to Block
+| +25%
+| +25%
+| +25%
+| +20%
+| +20%
+| +30%
+| +20% 
+| +25%
+|}
+
+
+These bonuses have already been applied to all values below.
+<br/>
+<br/>
+===Shield===
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+|width=30%|
+{{Number table}} width=100%
+|-valign=top
+!width=40% align=left rowspan=2|Normal
+!colspan=3 align=center|Chance to Block
+|-valign=top align=center
+!width=20%|
+[[Druid (Diablo II)|Dru]]<br/>
+[[Necromancer|Nec]]<br/>
+[[Sorceress|Sor]]
+!width=20%|
+[[Amazon|Ama]]<br/>
+[[Assassin|Ass]]<br/>
+[[Barbarian (Diablo II)|Bar]]<br/>
+[[Warlock (Diablo II)|War]]
+!width=20%|
+[[Paladin (Diablo II)|Pal]]
+|-
+|align=left|[[Buckler]]
+|20%||25%||30%
+|-
+|align=left|[[Small Shield]]
+|25%||30%||35%
+|-
+|align=left|[[Large Shield]]
+|32%||37%||42%
+|-
+|align=left|[[Spiked Shield]]
+|30%||35%||40%
+|-
+|align=left|[[Kite Shield]]
+|28%||33%||38%
+|-
+|align=left|[[Bone Shield]]
+|40%||45%||50%
+|-
+|align=left|[[Tower Shield]]
+|44%||49%||54%
+|-
+|align=left|[[Gothic Shield]]
+|36%||41%||46%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-valign=top
+!width=40% align=left rowspan=2|Exceptional
+!colspan=3 align=center|Chance to Block
+|-valign=top align=center
+!width=20%|
+Dru<br/>
+Nec<br/>
+Sor
+!width=20%|
+Ama<br/>
+Ass<br/>
+Bar<br/>
+War
+!width=20%|
+Pal
+|-
+|align=left|[[Defender]]
+|30%||35%||40%
+|-
+|align=left|[[Round Shield]]
+|32%||37%||42%
+|-
+|align=left|[[Scutum]]
+|34%||39%||44%
+|-
+|align=left|[[Barbed Shield]]
+|37%||42%||47%
+|-
+|align=left|[[Dragon Shield]]
+|38%||43%||48%
+|-
+|align=left|[[Grim Shield]]
+|40%||45%||50%
+|-
+|align=left|[[Pavise]]
+|44%||49%||54%
+|-
+|align=left|[[Ancient Shield]]
+|36%||41%||46%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-valign=top
+!width=40% align=left rowspan=2|Elite
+!colspan=3 align=center|Chance to Block
+|-valign=top align=center
+!width=20%|
+Dru<br/>
+Nec<br/>
+Sor
+!width=20%|
+Ama<br/>
+Ass<br/>
+Bar<br/>
+War
+!width=20%|
+Pal
+|-
+|align=left|[[Heater]]
+|42%||47%||52%
+|-
+|align=left|[[Luna]]
+|40%||45%||50%
+|-
+|align=left|[[Hyperion]]
+|44%||49%||54%
+|-
+|align=left|[[Blade Barrier]]
+|40%||45%||50%
+|-
+|align=left|[[Monarch]]
+|42%||47%||52%
+|-
+|align=left|[[Troll Nest]]
+|40%||45%||50%
+|-
+|align=left|[[Aegis]]
+|44%||49%||54%
+|-
+|align=left|[[Ward]]
+|44%||49%||54%
+|}
+|}
+<br/>
+
+===Auric shield===
+[[Auric shield]] can only be equipped by a [[Paladin (Diablo II)|Paladin]]. Table values refer to Paladin: other [[class]]es will see a different block percentage (due to a different class bonus).
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Normal
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Targe]]
+|40%
+|-
+|align=left|[[Rondache]]
+|45%
+|-
+|align=left|[[Heraldic Shield]]
+|50%
+|-
+|align=left|[[Aerin Shield]]
+|52%
+|-
+|align=left|[[Crown Shield]]
+|55%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Exceptional
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Akaran Targe]]
+|40%
+|-
+|align=left|[[Akaran Rondache]]
+|45%
+|-
+|align=left|[[Protector Shield]]
+|50%
+|-
+|align=left|[[Gilded Shield]]
+|52%
+|-
+|align=left|[[Royal Shield]]
+|55%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Elite
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Sacred Targe]]
+|60%
+|-
+|align=left|[[Sacred Rondache]]
+|58%
+|-
+|align=left|[[Kurast Shield]]
+|55%
+|-
+|align=left|[[Zakarum Shield]]
+|52%
+|-
+|align=left|[[Vortex Shield]]
+|49%
+|}
+|}
+<br/>
+
+===Shrunken head===
+[[Shrunken head]] can only be equipped by a [[Necromancer]]. Table values refer to Necromancer: other [[class]]es will see a different block percentage (due to a different class bonus).
+
+{|cellpadding=0 cellspacing=0 width=100%
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Normal
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Preserved Head]]
+|23%
+|-
+|align=left|[[Zombie Head]]
+|25%
+|-
+|align=left|[[Unraveller Head]]
+|28%
+|-
+|align=left|[[Gargoyle Head]]
+|30%
+|-
+|align=left|[[Demon Head]]
+|32%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Exceptional
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Mummified Trophy]]
+|23%
+|-
+|align=left|[[Fetish Trophy]]
+|25%
+|-
+|align=left|[[Sexton Trophy]]
+|28%
+|-
+|align=left|[[Cantor Trophy]]
+|30%
+|-
+|align=left|[[Hierophant Trophy]]
+|32%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Elite
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Minion Skull]]
+|23%
+|-
+|align=left|[[Hellspawn Skull]]
+|25%
+|-
+|align=left|[[Overseer Skull]]
+|28%
+|-
+|align=left|[[Succubus Skull]]
+|30%
+|-
+|align=left|[[Bloodlord Skull]]
+|32%
+|}
+|}
+<br/>
+
+===Grimoire===
+[[Grimoire]] can only be equipped by a [[Warlock (Diablo II)|Warlock]]. Table values refer to Warlock: other [[class]]es will see a different block percentage (due to a different class bonus).
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Normal
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Old Book]]
+|28%
+|-
+|align=left|[[Tome]]
+|30%
+|-
+|align=left|[[Codex]]
+|33%
+|-
+|align=left|[[Compendium]]
+|35%
+|-
+|align=left|[[Grimoire]]
+|37%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Exceptional
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Burnt Text]]
+|28%
+|-
+|align=left|[[Dark Tome]]
+|30%
+|-
+|align=left|[[Dark Codex]]
+|33%
+|-
+|align=left|[[Possessed Compendium]]
+|35%
+|-
+|align=left|[[Possessed Grimoire]]
+|37%
+|}
+|width=5%|
+|width=30%|
+{{Number table}} width=100%
+|-
+!width=60% align=left|Elite
+!width=40% align=center|Chance to Block
+|-
+|align=left|[[Forgotten Volume]]
+|28%
+|-
+|align=left|[[Occult Tome]]
+|30%
+|-
+|align=left|[[Occult Codex]]
+|33%
+|-
+|align=left|[[Blasphemous Compendium]]
+|35%
+|-
+|align=left|[[Blasphemous Grimoire]]
+|37%
+|}
+|}
+<br/>
+
+==Increased Chance of Blocking==
+{{Mb|=Increased Chance of Blocking}} adds a percentage to Chance to Block when a [[shield]], an [[auric shield]] or a [[shrunken head]] is equipped: it does '''not''' apply to [[Weapon Block]].
+<br/>
+<br/>
+===Skill===
+[[Holy Shield]] applies min(10 + [30 * [ (110*slvl) / (slvl+6) ] / 100] , 40) % Increased Chance of Blocking for 5 + (25*slvl) seconds when cast.
+<br/>
+<br/>
+
+===Amulet===
+{{Skill bonus}}
+|-
+|(1-10)%
+!align=left|[[Safety|{{C|=Safety Amulet}}]]
+|14
+|No
+|}
+<br/>
+
+===Body armor===
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Guardian Angel|{{U|=Guardian Angel Templar Coat}}]]
+|45
+|No
+|-
+|25%
+!align=left|[[Twitchthroe|{{U|=Twitchthroe Studded Leather}}]]
+|16
+|No
+|}
+<br/>
+
+===Sword===
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Swordguard|{{U|=Swordguard Executioner Sword}}]]
+|48
+|No
+|}
+<br/>
+
+===Shield===
+{{Affix bonus}}
+|-
+|10%
+!align=left|{{R|=Shield of Blocking}}
+|1
+|1
+|-
+|20%
+!align=left|{{R|=Shield of Deflecting}}
+|8
+|11
+|}
+
+
+{{Skill bonus}}
+|-
+|7%
+|align=left|[[Eld Rune|{{Cb|=Eld Rune}}]] in socket
+|11
+|No
+|-
+|(5-10)%
+!align=left|[[Caster|{{C|=Caster shield}}]]
+|14
+|No
+|-
+|(5-10)%
+!align=left|[[Hit Power|{{C|=Hit Power shield}}]]
+|14
+|No
+|-
+|10%
+!align=left|[[Bverrit Keep|{{U|=Bverrit Keep Tower Shield}}]]
+|19
+|No
+|-
+|10%
+!align=left|[[The Ward|{{U|=The Ward Gothic Shield}}]]
+|26
+|No
+|-
+|15%
+!align=left|[[Civerb's Ward|{{S|=Civerb's Ward Large Shield}}]]
+|9
+|No
+|-
+|20%
+!align=left|[[Pelta Lunata|{{U|=Pelta Lunata Buckler}}]]
+|2
+|No
+|-
+|20%
+!align=left|[[Sigon's Guard|{{S|=Sigon's Guard Tower Shield}}]]
+|6
+|No
+|-
+|20%
+!align=left|[[Swordback Hold|{{U|=Swordback Hold Spiked Shield}}]]
+|15
+|No
+|-
+|20%
+|align=left|[[Rhyme|{{Ub|=Rhyme}}]] shield
+|29
+|No
+|-
+|20%
+!align=left|[[Stormchaser|{{U|=Stormchaser Scutum}}]]
+|35
+|No
+|-
+|20%
+|align=left|[[Sanctuary (Rune Word)|{{Ub|=Sanctuary}}]] shield
+|49
+|No 
+|-
+|20%
+!align=left|[[Radament's Sphere|{{U|=Radament's Sphere Ancient Shield}}]]
+|50
+|No
+|-
+|25%
+!align=left|[[Steelclash|{{U|=Steelclash Kite Shield}}]]
+|17
+|No
+|-
+|25%
+!align=left|[[Moser's Blessed Circle|{{U|=Moser's Blessed Circle Round Shield}}]]
+|31
+|No
+|-
+|25%
+!align=left|[[Stormshield|{{U|=Stormshield Monarch}}]]
+|73
+|No
+|-
+|25%
+!align=left|[[Taebaek's Glory|{{S|=Taebaek's Glory Ward}}]]
+|81
+|No
+|-
+|(20-30)%
+!align=left|[[Spirit Ward|{{U|=Spirit Ward Ward}}]]
+|68
+|No
+|-
+|30%
+!align=left|[[Umbral Disk|{{U|=Umbral Disk Small Shield}}]]
+|9
+|No
+|-
+|30%
+!align=left|[[Stormguild|{{U|=Stormguild Large Shield}}]]
+|13
+|No
+|-
+|30%
+!align=left|[[Visceratuant|{{U|=Visceratuant Defender}}]]
+|28
+|No
+|-
+|30%
+!align=left|[[Gerke's Sanctuary|{{U|=Gerke's Sanctuary Pavise}}]]
+|44
+|No
+|-
+|55%
+!align=left|[[Whitstan's Guard|{{S|=Whitstan's Guard Round Shield}}]]
+|29
+|No
+|}
+<br/>
+
+====Auric shield====
+{{Skill bonus}}
+|-
+|20%
+!align=left|[[Griswold's Honor|{{S|=Griswold's Honor Vortex Shield}}]]
+|68
+|No
+|-
+|20%
+!align=left|[[Alma Negra|{{U|=Alma Negra Sacred Rondache}}]]
+|77
+|No
+|-
+|30%
+!align=left|[[Herald of Zakarum|{{U|=Herald of Zakarum Gilded Shield}}]]
+|42
+|No
+|}
+<br/>
+
+====Shrunken head====
+{{Skill bonus}}
+|-
+|30%
+!align=left|[[Trang-Oul's Wing|{{S|=Trang-Oul's Wing Cantor Trophy}}]]
+|54
+|No
+|-
+|40%
+!align=left|[[Homunculus|{{U|=Homunculus Hierophant Trophy}}]]
+|42
+|No
+|}
+<br/>
+
+====Grimoire====
+{{Skill bonus}}
+
+|-
+| 20%
+|align=left|[[Horazon's Secrets|{{Sb|=Horazon's Secrets Occult Codex}}]] {{RotW-inline}}
+|57
+|No
+|}
+
+===Set bonus===
+{{Skill bonus}}
+|-
+|30%
+|align=left|[[Isenhart's Armory|{{Ub|=Isenhart's Armory}}]] (Full)
+|8
+|No
+|}
+<br/>
+
+==Mercenary==
+No [[mercenary]] has a Chance to Block: [[Iron Wolf]] can equip a [[shield]] but its Chance to Block does not apply and thus he cannot block.
+<br/>
+<br/>
+==Pet==
+[[Pet]]s have no Chance to Block, with the exception of a [[Raise Skeleton|Necroskeleton]] with shield.
+*Necroskeleton only has 3% Chance to Block with shield, otherwise it cannot block. Arrows will still be lodged in shield arm even without shield, so this is '''not''' an indication one is present. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/110242-monsters-chance-to-block/&do=findComment&comment=1517009]
+*[[Iron Golem]] summoned from a [[shield]] does not apply its Chance to Block and thus it cannot block.
+<br/>
+
+==Monster==
+[[Monster]] cannot block unless positive values are entered in ToBlock fields of MonStats.txt '''and''' either of the following conditions are met:
+*Block animation is defined in AnimData.d2 '''and''' enabled in MonStats2.txt.
+*NoShldBlock field is flagged in MonStats.txt. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/110242-monsters-chance-to-block/&do=findComment&comment=1421610]
+Monster block chance is capped at 75%. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112384-what-is-the-effect-of-defense/#findComment-1577320]
+<br/>
+Following only have Chance to Block with a shield. Those with no value for Normal only spawn in [[Act 5]] in Nightmare and Hell, those with no value for Normal and Nightmare only spawn in [[Pandemonium Event]].
+
+
+{{Number table}} width=50%
+|-valign=top
+!colspan=2 rowspan=2 align=left|Monster
+!colspan=3 align=center|Chance to Block
+|-align=center
+!width=17%|Normal
+!width=16%|Nightmare
+!width=17%|Hell
+|-valign=top
+|width=25% rowspan=6 align=left|[[Corrupt Rogue]]
+|width=25% align=left|[[Corrupt Rogue#Dark Hunter|Dark Hunter]]
+|12%||12%||12%
+|-
+|align=left|[[Corrupt Rogue#Vile Hunter|Vile Hunter]]
+|18%||18%||18%
+|-
+|align=left|[[Corrupt Rogue#Dark Stalker|Dark Stalker]]
+|25%||25%||25%
+|-
+|align=left|[[Corrupt Rogue#Black Rogue|Black Rogue]]
+|33%||33%||33%
+|-
+|align=left|[[Corrupt Rogue#Flesh Hunter|Flesh Hunter]]
+|40%||40%||40%
+|-
+|align=left|[[Corrupt Rogue#Flesh Hunter 2|Flesh Hunter]]
+|{{E}}||{{E}}||40%
+|-valign=top
+|rowspan=8 align=left|[[Fallen]]
+|align=left|[[Fallen#Fallen|Fallen]]
+|9%||9%||9%
+|-
+|align=left|[[Fallen#Carver|Carver]]
+|16%||16%||16%
+|-
+|align=left|[[Fallen#Devilkin|Devilkin]]
+|25%||25%||25%
+|-
+|align=left|[[Fallen#Dark One|Dark One]]
+|36%||36%||36%
+|-
+|align=left|[[Fallen#Warped One|{{U|=Warped One}}]]
+|49%||49%||49%
+|-
+|align=left|[[Fallen#Carver 2|Carver]]
+|{{E}}||49%||49%
+|-
+|align=left|[[Fallen#Devilkin 2|Devilkin]]
+|{{E}}||49%||49%
+|-
+|align=left|[[Fallen#Dark One 2|Dark One]]
+|{{E}}||49%||49%
+|-valign=top
+|rowspan=5 align=left|[[Sabre Cat]]
+|align=left|[[Sabre Cat#Huntress|Huntress]]
+|15%||15%||15%
+|-
+|align=left|[[Sabre Cat#Saber Cat|Saber Cat]]
+|20%||20%||20%
+|-
+|align=left|[[Sabre Cat#Night Tiger|Night Tiger]]
+|25%||25%||25%
+|-
+|align=left|[[Sabre Cat#Hell Cat|Hell Cat]]
+|30%||30%||30%
+|-
+|align=left|[[Sabre Cat#Saber Cat 2|Saber Cat]]
+|{{E}}||15%||15%
+|-valign=top
+|rowspan=8 align=left|[[Skeleton]]
+|align=left|[[Skeleton#Skeleton|Skeleton]]
+|10%||10%||10%
+|-
+|align=left|[[Skeleton#Returned|Returned]]
+|15%||15%||15%
+|-
+|align=left|[[Skeleton#Bone Warrior|Bone Warrior]]
+|20%||20%||20%
+|-
+|align=left|[[Skeleton#Burning Dead|Burning Dead]]
+|25%||25%||25%
+|-
+|align=left|[[Skeleton#Horror|Horror]]
+|30%||30%||30%
+|-
+|align=left|[[Skeleton#Bone Warrior 2|Bone Warrior]]
+|{{E}}||30%||30%
+|-
+|align=left|[[Skeleton#Returned 2|Returned]]
+|{{E}}||30%||30%
+|-
+|align=left|[[Skeleton#Returned 3|Returned]]
+|{{E}}||{{E}}||30%
+|-valign=top
+|rowspan=8 align=left|[[Slinger]]
+|align=left|[[Slinger#Slinger|Slinger]]
+|15%||15%||15%
+|-
+|align=left|[[Slinger#Spear Cat|Spear Cat]]
+|16%||16%||16%
+|-
+|align=left|[[Slinger#Hell Slinger|Hell Slinger]]
+|19%||19%||19%
+|-
+|align=left|[[Slinger#Spear Cat 2|Spear Cat]]
+|16%||16%||16%
+|-
+|align=left|[[Slinger#Night Slinger|Night Slinger]]
+|17%||17%||17%
+|-
+|align=left|[[Slinger#Slinger 2|Slinger]]
+|{{E}}||19%||19%
+|-
+|align=left|[[Slinger#Slinger 3|Slinger]]
+|{{E}}||19%||19%
+|-
+|align=left|[[Slinger#Slinger 4|Slinger]]
+|{{E}}||19%||19%
+|}
+
+
+Following have Chance to Block without block animation:
+
+
+{{Number table}} width=50%
+|-valign=top
+!colspan=2 rowspan=2 align=left|Monster
+!colspan=3 align=center|Chance to Block
+|-align=center
+!width=17%|Normal
+!width=16%|Nightmare
+!width=17%|Hell
+|-
+|width=25% align=left|[[Doom Knight]] <sup>1</sup>
+|width =25% align=left|[[Doom Knight#Doom Knight|Doom Knight]]
+|24%||24%||24%
+|-valign=top
+|align=left rowspan=5|[[Greater Mummy]] <sup>2</sup>
+|align=left|[[Greater Mummy#Hollow One|Hollow One]]
+|0%||15%||33%
+|-
+|align=left|[[Greater Mummy#Guardian|Guardian]]
+|0%||15%||33%
+|-
+|align=left|[[Greater Mummy#Unraveler|Unraveler]]
+|0%||15%||33%
+|-
+|align=left|[[Greater Mummy#Horadrim Ancient|Horadrim Ancient]]
+|0%||15%||33%
+|-
+|align=left|[[Greater Mummy#Unraveler 2|{{U|=Unraveler}}]]
+|0%||15%||33%
+|-
+!align=left colspan=2|[[Andariel|{{U|=Andariel}}]]
+|0%||20%||40%
+|-
+!align=left colspan=2|[[Duriel|{{U|=Duriel}}]]
+|0%||25%||50%
+|-
+!align=left colspan=2|[[Mephisto|{{U|=Mephisto}}]]
+|20%||40%||50%
+|-
+!align=left colspan=2|[[Diablo|{{U|=Diablo}}]]
+|25%||40%||50%
+|-
+!align=left colspan=2|[[Baal|{{U|=Baal}}]]
+|40%||45%||55%
+|-
+|align=left colspan=2|{{Ub|=Baal}} clone
+|40%||45%||55%
+|-
+|align=left colspan=2|[[Diablo (World Event)|{{Ub|=Diablo}}]] clone
+|{{E}}||{{E}}||50%
+|-
+!align=left colspan=2|[[Lilith|{{U|=Lilith}}]]
+|{{E}}||{{E}}||40%
+|-
+|align=left colspan=2|Uber [[Duriel (Pandemonium Event)|{{Ub|=Duriel}}]]
+|{{E}}||{{E}}||50%
+|-
+|align=left colspan=2|Uber [[Mephisto (Pandemonium Event)|{{Ub|=Mephisto}}]]
+|{{E}}||{{E}}||50%
+|-
+|align=left colspan=2|Uber [[Diablo (Pandemonium Event)|{{Ub|=Diablo}}]]
+|{{E}}||{{E}}||50%
+|-
+|align=left colspan=2|Uber [[Baal (Pandemonium Event)|{{Ub|=Baal}}]]
+|{{E}}||{{E}}||55%
+|}
+<span style=font-size:90%><sup>1</sup> Only applies to Doom Knights in [[Act 4]]: those in Act 5 (including Pandemonium Event) cannot block.<br/>
+<sup>2</sup> Only applies to Greater Mummies in [[Act 2]] and [[Act 3]], and [[Achmel the Cursed|{{Ub|=Achmel the Cursed}}]] and his Unraveler minions in Act 5: all others in Act 5 cannot block.</span>
+<br/>
+<br/>
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/110242-monsters-chance-to-block/ Monster's Chance to Block] (D2 Technical)
+*Librarian, [https://www.mannm.org/d2library/faqtoids/block_eng.html Gimme Shelter: About Blocking] (FAQtoids)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Attack modifiers]]

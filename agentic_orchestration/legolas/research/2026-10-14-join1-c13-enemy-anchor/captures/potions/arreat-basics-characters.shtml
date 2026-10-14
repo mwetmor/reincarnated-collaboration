@@ -1,0 +1,919 @@
+<html>
+<head>
+	<title>The Arreat Summit - Basics: Character Information</title>
+	<link rel="stylesheet" type="text/css" href="/diablo2exp/includes/d2-strat.css">
+	<script language="JavaScript" src="/diablo2exp/includes/d2.js"></script>
+</head>
+
+<body background="/images/battle/diablo2exp/images/bg2.jpg" bgcolor=black text="#AFAFAF" link="#928A70" vlink="#706850" marginwidth=0 marginheight=0 topmargin=0 leftmargin=0><link rel="stylesheet" type="text/css" href="/includes/anylink.css" />
+
+<script type="text/javascript" src="/includes/anylink.js">
+
+/***********************************************
+* AnyLink CSS Menu script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" height="18">
+<tr>
+<td align="left"><a href="http://www.blizzard.com" width="107" height="18"><img src="/images/thin_logo.gif" width="107" height="18" border="0"></a></td>
+<td align="right" width="100%" height="18" style="background-image:url(/images/thin_bg.gif); background-position:left;">
+	<table cellpadding="0" cellspacing="0" border="0" height="18">
+	<tr>
+	
+	<td width="136" height="18" background="/images/thin_wc.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'wc')"><img src="/images/pixel.gif" width="136" height="18" border="0"></a><br><div id="wc" class="anylinkcss" style="width:136; position:absolute;">
+<a href ="/war3/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/war3/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Strategy</a>
+<a href ="/war3/ladder/game-select.aspx" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Ladder</a>
+<a href ="/war3/ladder/w3xp-tournaments.aspx?Gateway=Lordaeron" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Tournaments</a>
+<a href ="https://us.forums.blizzard.com/en/warcraft3/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+
+   
+   
+   				</td>
+				
+				
+				
+				<td width="107" height="18" background="/images/thin_d.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'dia')"><img src="/images/pixel.gif" width="107" height="18" border="0"></a><br><div id="dia" class="anylinkcss" style="width:107; position:absolute;">
+
+<a href ="/diablo2exp/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/diablo2exp/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Strategy</a>
+<a href ="/diablo2exp/faq/ladder.shtml" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Ladder FAQ</a>
+<a href ="https://us.battle.net/forums/en/bnet/12790218/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+   
+   </td>
+				<td width="152" height="18" background="/images/thin_sc.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'sc')"><img src="/images/pixel.gif" width="152" height="18" border="0"></a><br><div id="sc" class="anylinkcss" style="width:145; position:absolute;">
+<a href ="/scc/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/scc/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Strategy</a>
+<a href ="https://us.battle.net/forums/en/starcraft/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+   </td>
+ 
+ 
+ </tr>
+   </table>
+   </div></div>
+   </td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+<table border=0 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td background=0 valign=top>
+
+<!--- MAIN MENU ------------------------------------------------------------------------------->
+	<table border=0 cellpadding=0 cellspacing=0>
+	<tr>
+	<td background=0><a href="http://us.blizzard.com/en-us/games/d2/" onMouseOut="offImg('logo')" onMouseOver="ovrImg('logo')" ><img src="/images/battle/diablo2exp/images/d2-logo-off.gif" name="logo" alt="Diablo II: Lord of Destruction" border=0 width=116 height=82></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/" onMouseOut="offImg('news')" onMouseOver="ovrImg('news')" onClick="actImg('news')"><img src="/images/battle/diablo2exp/images/menu/menu-news-off.gif" name="news" alt="News" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/basics/"><img src="/images/battle/diablo2exp/images/menu/menu-basics-act.gif" name="basics" alt="Basics" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/classes/" onMouseOut="offImg('classes')" onMouseOver="ovrImg('classes')" onClick="actImg('classes')"><img src="/images/battle/diablo2exp/images/menu/menu-classes-off.gif" name="classes" alt="Character Classes" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/skills/" onMouseOut="offImg('skills')" onMouseOver="ovrImg('skills')" onClick="actImg('skills')"><img src="/images/battle/diablo2exp/images/menu/menu-skills-off.gif" name="skills" alt="Skills" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/items/" onMouseOut="offImg('items')" onMouseOver="ovrImg('items')" onClick="actImg('items')"><img src="/images/battle/diablo2exp/images/menu/menu-items-off.gif" name="items" alt="Items" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/monsters/" onMouseOut="offImg('monsters')" onMouseOver="ovrImg('monsters')" onClick="actImg('monsters')"><img src="/images/battle/diablo2exp/images/menu/menu-monsters-off.gif" name="monsters" alt="Monsters" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/npcs/" onMouseOut="offImg('npcs')" onMouseOver="ovrImg('npcs')" onClick="actImg('npcs')"><img src="/images/battle/diablo2exp/images/menu/menu-npcs-off.gif" name="npcs" alt="NPCs" border=0 width=116 height=37></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/quests/" onMouseOut="offImg('quests')" onMouseOver="ovrImg('quests')" onClick="actImg('quests')"><img src="/images/battle/diablo2exp/images/menu/menu-quests-off.gif" name="quests" alt="Quests" border=0 width=116 height=38></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/shrines.shtml" onMouseOut="offImg('shrines')" onMouseOver="ovrImg('shrines')" onClick="actImg('shrines')"><img src="/images/battle/diablo2exp/images/menu/menu-shrines-off.gif" name="shrines" alt="Shrines" border=0 width=116 height=38></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/maps/" onMouseOut="offImg('maps')" onMouseOver="ovrImg('maps')" onClick="actImg('maps')"><img src="/images/battle/diablo2exp/images/menu/menu-maps-off.gif" name="maps" alt="Maps" border=0 width=116 height=38></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="/diablo2exp/faq/" onMouseOut="offImg('faq')" onMouseOver="ovrImg('faq')" onClick="actImg('faq')"><img src="/images/battle/diablo2exp/images/menu/menu-faq-off.gif" name="faq" alt="F.A.Q." border=0 width=116 height=38></a></td>
+	</tr>
+	
+	<tr>
+	<td background=0><a href="/diablo2exp/files.shtml" onMouseOut="offImg('files')" onMouseOver="ovrImg('files')" onClick="actImg('files')"><img src="/images/battle/diablo2exp/images/menu/menu-files-off.gif" name="files" alt="Files" border=0 width=116 height=38></a></td>
+	</tr>
+
+	<tr>
+	<td background=0><img src="/images/battle/diablo2exp/images/menu/menu-bottom.gif" border=0 width=116 height=27></td>
+	</tr>
+
+	<tr>
+	<td background=0><a href="http://www.battle.net"><img src="/images/battle/diablo2exp/images/blizz-logo.gif" alt="Battle.net" border=0 width=116 height=78></a></td>
+	</tr>
+	</table>
+</td>
+
+<td background=0 valign=top width=90%>
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/battle/diablo2exp/images/mid-top-back.gif" align=left width=50%><img src="/images/battle/diablo2exp/images/mid-top-left.gif" border=0 width=65 height=13></td>
+	<td background="/images/battle/diablo2exp/images/mid-top-back.gif" align=right width=50%><img src="/images/battle/diablo2exp/images/mid-top-right.gif" border=0 width=73 height=13></td>
+	</tr>
+	</table>
+
+<!--- SUBMENU BAR ----------------------------------------------------------------------------->
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background=0><img src="/images/battle/diablo2exp/images/mid-linkbar-left.gif" border=0 width=20 height=35></td>
+	<td background="/images/battle/diablo2exp/images/mid-linkbar-back.gif" align=center width=100%>
+		<font face="arial,helvetica" size=1><small>
+
+<a class="tiny" href="/diablo2exp/basics/">Basics</a> |
+<a class="tiny" href="characters.shtml">Characters</a> |
+<a class="tiny" href="charactertypes.shtml">Realm Character Types</a> |
+<a class="tiny" href="controls.shtml">Controls</a> |
+<a class="tiny" href="experience.shtml">Experience</a> |
+<a class="tiny" href="resistances.shtml">Resistances</a> |
+<a class="tiny" href="vendors.shtml">Vendors</a> 
+<BR>
+
+<a class="tiny" href="gambling.shtml">Gambling</a> | 
+<a class="tiny" href="difficulty.shtml">Difficulty Levels</a> |
+<a class="tiny" href="trading.shtml">Trading</a> |
+<a class="tiny" href="hirelings.shtml">Hirelings</a> |
+<a class="tiny" href="parties.shtml">Parties</a> |
+<a class="tiny" href="pvp.shtml">PvP</a> |
+<a class="tiny" href="hardcore.shtml">Hardcore</a> |
+<a class="tiny" href="bnetchat.shtml">Battle.net Avatars</a> |
+<a class="tiny" href="glossary.shtml">Glossary</a> 
+    <br>
+
+		</small></font>
+	</td>
+	<td background=0><img src="/images/battle/diablo2exp/images/mid-linkbar-right.gif" border=0 width=21 height=35></td>
+	</tr>
+	</table>
+
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/battle/diablo2exp/images/mid-linkbarbot-back.gif" align=left width=50%><img src="/images/battle/diablo2exp/images/mid-linkbarbot-left.gif" border=0 width=30 height=8></td>
+	<td background="/images/battle/diablo2exp/images/mid-linkbarbot-back.gif" align=right width=50%><img src="/images/battle/diablo2exp/images/mid-linkbarbot-right.gif" border=0 width=36 height=8></td>
+	</tr>
+
+	<tr>
+	<td background="/images/battle/diablo2exp/images/mid-mid-back.gif" colspan=2><img src="/images/shared/blank.gif" border=0 width=576 height=7></td>
+	</tr>
+	</table>
+
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/battle/diablo2exp/images/mid-textboxtop-back.gif" align=left width=50%><img src="/images/battle/diablo2exp/images/mid-textboxtop-left.gif" border=0 width=36 height=23></td>
+	<td background="/images/battle/diablo2exp/images/mid-textboxtop-back.gif" align=right width=50%><img src="/images/battle/diablo2exp/images/mid-textboxtop-right.gif" border=0 width=36 height=23></td>
+	</tr>
+	</table>
+
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/battle/diablo2exp/images/mid-textboxleft.gif"><img src="/images/shared/blank.gif" border=0 width=20 height=5></td>
+	<td background="/images/battle/diablo2exp/images/blackbg.gif" width=100%>
+
+
+		<br>
+<!--- HEADER GRAPHIC ---------------------------->
+		<table border=0 cellpadding=0 cellspacing=0 width=100%>
+		<tr>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif"><img src="/images/battle/diablo2exp/images/headers/header-left.gif" border=0 width=80 height=60></td>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif" align=center width=100%><img src="/images/battle/diablo2exp/images/headers/basics-charinfo.gif" alt="Character Information" border=0 width=350 height=60></td>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif"><img src="/images/battle/diablo2exp/images/headers/header-right.gif" border=0 width=80 height=60></td>
+		</tr>
+		</table>
+<!--- END HEADER GRAPHIC ------------------------>
+		<br>
+
+		<table border=0 cellpadding=10 cellspacing=0 width=100%>
+		<tr>
+		<td background="/images/battle/diablo2exp/images/blackbg.gif" align=left width=100%>
+			<font face="arial,helvetica" size=-1><span>
+			<p>
+
+<!--- MAIN CONTENT --------------------------------------------------------------------------->
+
+<b>Character Names</b><br>
+Character names must be between 2 and 15 characters long. Characters names can only use upper and lower case letters (A-Z).  
+Names can contain either one dash ( - ) or one underscore ( _ ), as long as it is not the first or last character 
+of the name. Spaces and numbers are not allowed in Diablo II character names.
+<P>
+
+		<b>Character Level, Experience, and Allocating Stats and Skill Points</b><br>
+When your character earns enough experience points to gain another level, the "New Stats" and "New Skill" buttons will 
+appear at the bottom left and right corners of the screen in 640x480 resolution. In 800x600 resolution the buttons will appear
+on the interface bar.
+Wait until you're somewhere safe, then click on the buttons 
+to bring up the Character Attributes and Skill Tree screens and allocate your points. 
+<p>
+
+Each time you gain a level, you receive 5 attribute points to distribute among your 4 attributes: Strength, which affects 
+damage; Dexterity, which affects the ability to hit and avoid attacks; Vitality, which affects life; and Energy, which 
+affects mana. Click on the "+" button next to an attribute to increase that attribute.
+<P>
+
+Each time you gain a level, you can add 1 point to a skill.  You can only choose from skills whose level requirements and 
+prerequisites have been met.  Click on all three tabs and move your cursor over the available skills (listed in white) 
+to review their detailed effects before you make your decision.  
+<P>
+
+See the experience required for each level <a href="levels.shtml">here</a>.
+<P>
+
+<!------CHARACTER DEATH-------->
+<b>What Happens When Your Character Dies?</b><br>
+
+In Diablo II, as in real life, death is something you should strive to avoid. If your Hit Points drop to zero during the 
+game, you have died. 
+<P>
+
+If you are killed, your character will lose a percentage of the total gold both carried and stored in the Stash. This 
+percentage is equal to your character's level but will not exceed 20%. After this 'death penalty' is deducted, the rest 
+of the gold your character was carrying falls to the ground in a pile. If the penalty exceeds the amount of gold you 
+were carrying, the remainder of the penalty is deducted from your Stash. 
+
+In Single Player, dying will not take away all your gold. No gold is lost from your Stash, and 500 gold per character 
+level is exempt from the death penalty. For example, if a 10th level Single-Player character with 5,000 gold dies, 
+he will lose no gold. 
+<P>
+
+
+As an additional death penalty, your character will lose some experience if he dies while in Nightmare or Hell difficulties. 
+You will lose 5% of the experience required to attain the next level on Nightmare and 10% on Hell, but you will 
+never drop down to a lower level. In games of Diablo II: Lord of Destruction, if you recover your 
+corpse at the location of its demise, you can regain 75% of the experience points you lost. If, however, you 
+choose to 'Save and Exit' out of your current game in order to restart and recover your body in town, you will 
+not regain any of your lost experience. Nightmare and Hell Difficulty players should ask themselves
+whether they want to risk losing more experience by attempting to recover their body to regain 75% of
+their experience. If you die several more times you'll end up losing more experience than you gain
+by recovering your body. Sometimes it is safer to leave the game to recover your corpse giving up the
+experience you might have regained by recovering your corpse.
+<P>
+
+Press the Esc key after dying to restart in town. Your corpse will remain in the place where you died. You will have to 
+return to your corpse in order to retrieve your equipment. When you find your corpse, left-click on it to pick up and 
+re-equip your items (hint: when you are near your corpse, it will appear as a purple "X" on your Automap). Make sure you 
+have room in your inventory to pick up all the items on your corpse, though -- if you don't, any items you can't hold will 
+remain on your old corpse. Be sure to collect any gold you might have dropped when you died, too.
+<P>
+
+If your character has no corpse when he dies, one will be created, and your equipped items will remain on that corpse. If your character already has a corpse, another corpse (up to a maximum of 16) will be created and your most recently equipped items will remain with the new corpse.  Be careful about equipping valuable equipment when you already have a corpse out in the field, if you exit a realm game with more than one corpse on the ground, only the corpse having the most valuable equipment (gold equivalent value) will be saved. Also, if you die and you already have 16 corpses, your items will fall to the ground, and anyone can take them. Unequipped items, however, will always remain in your inventory.
+<P>
+
+When you find your corpse, click on it to take all of its equipped items. Only you (and anyone you permit) can 
+loot your corpse. 
+<P>
+
+After re-equipping your items, you might want to confirm that you are using your weapon of choice, and not your "backup" 
+equipment or some item you accidentally picked up from the area surrounding your corpse.
+<P>
+
+If you exit a game without retrieving your corpse, one will be placed in town in the next game you 
+create or join.
+<P>
+
+<B>NOTE</B>: A "Hardcore" character cannot be reincarnated if it dies -- you will simply return to Battle.net chat as a ghost. 
+Hardcore characters cannot create or join games once they have died.
+<P>
+
+<b><font color=red>Multiple Corpses/Losing Items!</font></b><br>
+A player may have up to 16 corpses. 
+<P>
+<B>Realm Characters</B>: The corpse with the most gold value (in items) will be saved between games. So keep
+this in mind when putting on equipment to recover your corpse. Your original body with your equipment should save unless
+you manage to equip yourself with a greater value of equipment, die, then leave the game.
+<P>
+<B>Open Characters</B>: Only your oldest corpse is saved between games. Make sure you go back and recover your original
+body with your equipment before leaving the game.
+<P>
+
+<b>Warning on recovering your corpse</b><br>
+If you needed +Strength or +Dexterity items to equip other weapons or pieces of armor, you may have to re-equip these items 
+manually.  When you click on your corpse, the game attempts to re-equip your items to where they were before your death, but 
+this depends largely on the order in which your items are picked up. For example, armor that requires more than your base 
+Strength will not be equipped if the game attempts to place it before placing the item that increased your Strength enough 
+to wear the armor.  In this case, the armor will return to your inventory; if you do not have enough room, it will remain 
+on the corpse.  Check your inventory and make sure that all of your items have been re-equipped correctly.
+<P>
+
+<b>Body Count</b><br>
+
+<b>Having Difficulty recovering your corpse?</b><br>
+If you can't find your corpse, or if it's too dangerous to retrieve it with your current equipment, simply exit and 
+re-enter the game.  
+
+Your corpse, and all of its items, will appear near your starting point in town. 
+
+
+
+
+ The only drawback 
+is that you will lose any gold your character dropped when he died
+ and you will give up the chance to regain 75% of your lost experience on 
+Nightmare and Hell Difficulty. 
+This is a good option for Nightmare and Hell 
+difficulties, in which death results in lost experience.  
+
+The corpse will appear at your starting point, typically near the point where Town 
+Portals appear in town: In Lut Gholein, this area is at the bottom right of town.  
+In Kurast, it is next to Meshif.  You should be able to find your corpse easily 
+if you explore the town.
+<P>
+
+<b>Character Saving/Loading and Corpses</b><br>
+Periodically, Battle.net will automatically save every character playing in every Diablo II game.  Your character will 
+also be saved when you choose "Save and Exit Game" from the 'Esc' menu.  If you die and leave a game without retrieving 
+your corpse, it will be placed in town at the beginning of the next game you join or start.
+<P>
+
+The character save data includes character Attributes, inventory, Skills, Skill hot keys, control configuration, Waypoints 
+activated, the character's corpse (if one exists), the list of completed Quests, and the contents of the character's Stash. 
+<P>
+			</span></font>
+		</td>
+		</tr>
+		</table>
+
+		<br>
+
+<!--- HEADER GRAPHIC ---------------------------->
+		<table border=0 cellpadding=0 cellspacing=0 width=100%>
+		<tr>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif"><img src="/images/battle/diablo2exp/images/headers/header-left.gif" border=0 width=80 height=60></td>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif" align=center width=100%><img src="/images/battle/diablo2exp/images/headers/basics-charattr.gif" alt="Character Information" border=0 width=325 height=60></td>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif"><img src="/images/battle/diablo2exp/images/headers/header-right.gif" border=0 width=80 height=60></td>
+		</tr>
+		</table>
+<!--- END HEADER GRAPHIC ------------------------>
+
+		<br>
+
+		<table border=0 cellpadding=10 cellspacing=0 width=100%>
+		<tr>
+		<td background="/images/battle/diablo2exp/images/blackbg.gif" align=left width=100%>
+			<font face="arial,helvetica" size=-1><span>
+			<p>
+
+Your character has several Attributes corresponding to the abilities he or she will use during the game. Each character class 
+begins with different starting values to represent individual class training. 
+<P>
+
+There is no limit to how high you can increase your Attributes. However, since you only receive 5 attribute points per 
+level (plus 5 additional points as a reward for completing one of the Quests), there is a limit to the amount of attribute 
+points that you can earn. 
+<P>
+
+<b>Strength</b> affects the amount of damage your attacks inflict and the type of armor and weapons you can equip.  Your Attack Damage is 
+listed to the right of your Strength; it shows you the damage the attacks assigned to your left- and right-attack icons will 
+deal. No weapon or piece of armor requires more than 253 Strength.  Increasing your Strength above 253 will only give minor 
+increases in damage, so you should probably spend your points elsewhere. 
+Because Paladins and Barbarians are the only ones 
+likely to wear the heavier armor, these are the only classes that should bother increasing their strength to 253.  Amazon 
+bows never require more than 134 Strength, although you may want to increase your Amazon's Strength above this if you want 
+to use stronger belts and armor. Amazon Spears and Crossbows require as much as 152 Strength.
+Necromancers and Sorceresses typically spend less points in Strength, however, they may wish to place more points in
+Strength to wear certain Unique and Set items designed for them.
+It might be wise to devote a few more points to Strength so that you can wear stronger armor, too.  Before 
+spending too many of your hard-won points, remember that magical armor often has reduced Strength requirements; if you're 
+a little picky about your items, you can get by with a lower Strength.  Some items have Attributes that lower the required 
+Strength.  (Note: this does use up one of the item's attributes, but it's not much of an issue if you find a Rare piece of 
+armor, with up to 6 magical attributes.)
+<P>
+
+Any character can wear items that increase Strength.  Consider these items if you don't meet the requirements for an item  
+you want to use.
+<P>
+
+<blockquote>
+	<b>Attack Damage</b> - 
+	
+The first field represents the damage for the
+action assigned to your Left Action Icon, while the second field
+represents the damage for the Right Action Icon, regardless of whether
+the action is an attack, a skill, or a spell. The higher the number,
+the more damage your character will do per attack. If a field is
+blank, the action assigned to that slot does not cause direct damage.
+<P>
+
+For Thrown and Melee Weapons:
+<P>
+
+Final_Min_Damage = Weapon_Min_Damage * (Str + 100) / 100<BR>
+Final_Max_Damage = Weapon_Max_Damage * (Str + 100) / 100 
+<P>
+
+For Bows and Crossbows:
+<P>
+
+Final_Min_Damage = Weapon_Min_Damage * (Dex + 100) / 100<BR>
+Final_Max_Damage = Weapon_Max_Damage * (Dex + 100) / 100
+<P>
+
+Total Damage: 
+<P>
+Minimum Damage = (Weapon Minimum Damage + (+x To Minimum Damage)) * (1 + StatsBonus + (+x% Enhanced Damage) / 100) * Modifier<BR>
+Maximum Damage = (Weapon Maximum Damage + (+x To Maximum Damage)) * (1 + StatsBonus + (+x% Enhanced Damage) / 100) * Modifier
+<P>
+
++x % Enhanced Damage = all +x % Enhanced Damage from different items
+(jewels in armor/helm/shield, Lionheart etc.) and skills (both your
+skills, and others auras and Heart of Wolverine). +x% Enhanced Damage
+versus demons/undead is put here as well.
+-x% dmg from skills like Weaken, Taunt (monster only) and Battle Cry
+is put here. If monsters have no StatsBonus or Skill Enhanced Damage%, then -x% dmg
+will lower their dmg by the stated amount. When they have an aura
+(Might/Fanatacism), the -x% reduces the skill Enhanced Damage%.
+<P>
+'+x To Minimum/Maximum Damage' in this case is from items other than
+the weapon (armor and charms).
+<P>
+Damage +x (ie, The Redeemer) is the same as +Minimum/Maximum Damage,
+with the +Minimum and +Maximum being equal to the amount shown. The
+Character Screen does not take Damage +x into account when calculating
+total damage.
+<P>
+StatsBonus = a damage bonus you get from your strength and/or
+Dexterity (depends on what kind of weapon you're using).
+Hammers (War Hammer, Maul, Great Maul and their upgrades) : 1.10*str / 100
+Daggers, Throwing Weapons and Assassin Claws: (0.75*str / 100) +
+(0.75*dex / 100)
+Bows and Crossbows: dex / 100<BR>
+Amazon Only Spears/Javelins: (0.80*str / 100) + (0.50 *dex /100)<BR>
+Other Weapons: str / 100<BR>
+Rounded down to 0.01 accuracy (ie, for Hammers 157 Strength is a StatsBonus of 1.72)
+<P>
+Modifier<BR>
+Default = 1<BR>
+Multiple Shot/Strafe/Lightning Bolt = 0.75<BR>
+Critical Hit/Deadly Strike = 2<BR>
+Blade Fury (1-handed weapons) = 0.75<BR>
+Blade Sentinel/Blade Fury (2-handed weapons) = 0.375<BR>
+Blade Shield = 0.25
+<P>
++x % Enhanced Damage jewels in weapons enhances the weapon damage
+directly, but if you place the jewels in armor/shield/helm, the bonus
+will be added along with the Stats-bonus and skills.
+</blockquote>
+
+<b>Dexterity</b> reflects your character's agility.  Your ability to defend against attacks and your success in hitting targets with 
+your melee and ranged attacks are both determined by your dexterity.  These attributes are expressed as your Attack Rating 
+and Defense Rating:
+<P>
+
+<blockquote>
+<b>Attack Ratings</b> - The first field represents the Attack Rating for the action linked to your Left Action Icon, while the 
+second field represents the action for the Right Action Icon.  The higher the value, the more often you will hit in 
+battle.  Magical attacks and non-combat skills do not have Attack Ratings, and if these are selected in an Action 
+Icon, that field will be blank.
+<P>
+
+Melee fighters need at least 50-75% Attack Rating to hit their targets reliably.  If you are a melee fighter and your 
+hits are missing too often, add more points to Dexterity or find (or gamble for) a Dexterity-boosting item.  Additionally, 
+you will have a better chance of hitting your targets if your character is a higher level than your target.  Spend 
+some time leveling up if you're having trouble hitting even after boosting your Dexterity.
+<P>
+
+Chance to Hit: 100 * AR / (AR + DR) * 2 * alvl / (alvl + dlvl)
+<P>
+where AR = Attack Rating of Attacker; DR = Defense Rating of Defender;
+alvl = Level of Attacker; dlvl = Level of Defender.
+<P>
+
+<P>
+The Class Bonus to level of attacker is:
+<P>
+20 for Barbarians and Paladins<BR>
+15 for Assassins<BR>
+5 for Amazons and Druids<BR>
+-10 for Necromancers<BR>
+-15 for Sorceresses<BR>
+<P>
+Melee attacks will never have less than 5% or more than 95% chance to hit.
+<P>
+
+<b>Defense Rating</b> - This reflects your ability to dodge attacks in combat.  The higher the value, the less often your 
+character will be hit.  Highlight your Defense Rating with your cursor to display the 
+percentage change a creature would need to hit you successfully for the
+last monster you have fought.
+<P>
+
+If you remove all equipment that affects your Defense Rating, your Defense Rating = Dex / 4 (round down).
+<P>
+
+Melee attacks will never have less than 5% or more than 95% chance to hit.
+<P>
+
+<B>Will a higher Defense Rating reduce the amount of damage I receive when I'm hit?</B><BR>
+No, a higher Defense Rating reduces the chance that monster will hit you.
+<P>
+
+<B>I put on armor that has a Defense Rating of 100, but my character's overall Defense Rating increases by 200. Why?</B><BR>
+Your Dexterity bonus might account for this, as might passive skills (such as Barbarian Iron skin) or any magical bonuses 
+that boost Defense Rating.
+<P>
+
+</blockquote>
+
+<b>Vitality</b> determines your character's Life and Stamina.
+<P>
+
+<blockquote>
+<b>Stamina</b> affects how far you can run before tiring out and needing to rest. 
+<p>
+
+<b>Life</b> represents the amount of damage your character can endure before dying.  Life does not regenerate by itself; it must be 
+replenished either by using healing potions, equipping items that Replenish Life, or visiting a healer.
+<P>
+
+<B>Chance of Double Heal</B><BR>
+Your Vitality determines your chance of restoring twice the normal Hit Points from a Healing Potion:
+<P>
+
+Chance of Double Heal for Vitality up to 200 if Vitality is even: (Vit - 2) / 4<br/>
+Chance of Double Heal for Vitality up to 200 if Vitality is odd: (Vit - 1) * (Vit - 1) / (4 * Vit)<br/>
+Chance of Double Heal for 200 Vitality and up: 100 * (Vit - 101) / Vit<br/><br/>
+
+The quality and type of potion used does not affect the formula.
+<P>
+
+<B>Replenish Life Forumula</B><BR>
+(25 * "+Replenish Life") / 256 = Life Gained Per Second
+<P>
+
+For example, if +5 Replenish Life:
+<P>
+(25 * 5) / 256 = .48828 Life Per Second
+<P>
+An easier-to-use approximation is +Replenish Life/10 = .50
+</blockquote>
+<p>
+
+<B>Energy</B> determines how much Mana your character possesses. 
+<P>
+
+<blockquote>
+<B>Mana</B> is your character's spiritual essence. Each time certain skills
+are used, such as the Sorceress's Fire Bolt or the Barbarian's Double
+Swing, some mana is consumed. Without items with Regenerate Mana
++x%, or the Sorceress' passive skill Warmth, your Mana pool will be
+fully replenished in 120 seconds (or 2 minutes), if it were completely
+empty at first.
+<P>
+
+<B>Chance of Double Mana Regeneration</B><BR>
+Your Energy determines your chance of receiving twice the normal Mana points from a Mana Potion:
+<P>
+
+
+Chance of Double Mana for Energy up to 200 if Energy is even: (Energy - 2) / 4<br/>
+Chance of Double Mana for Energy up to 200 if Energy is odd: (Energy - 1) * (Energy - 1) / (4 * Energy)<br/>
+Chance of Double Mana for 200 Energy and up: 100 * (Energy - 101) / Energy
+<P>
+
+The quality and type of potion used does not affect the formula.
+<P>
+
+<B>Mana Regeneration Formula</B><BR>
+The following formula is used to calculate how much Mana a character can regenerate per second:
+<P>
+
+25 * [[256 * max_mana / (25 * 120)] * (100 + %Mana Regeneration) / 100] / 256<P>
+
+Totals within the [ ] brackets are rounded down.<P>
+
+For example, with 900 Mana and level 20 Warmth (+258% Mana Regeneration), we regenerate 26.5625 Mana/second.<P>
+
+<blockquote>
+25 * [[(256 * 900) / (25 * 120)] * (100 + 258) / 100] / 256<P>
+
+25 * [[230400 / 3000] * (358 / 100)] / 256<P>
+
+25 * [76 * 3.58] / 256<P>
+
+25 * [272] / 256 = 26.5625 Mana/second 
+</blockquote>
+
+This simpler formula gives an approximation: (M * R) / 120.
+M = Maximum Mana<BR>
+R = (100 + %Mana Regeneration) / 100 
+<P>
+
+(900 * (100 + 258) / 100) / 120 = 26.85
+<P>
+
+Increasing your Mana (with items, for example) is a good way to increase Mana Regeneration.
+</blockquote>
+<p>
+
+<!---------STAMINA--------------------->
+
+<B>Stamina</B> affects how far you can run. Having more stamina means you can run farther before tiring out. 
+<blockquote>
+
+<B>Heavier Armor Drains Stamina Faster and Reduces Run/Walk Speed</B><BR>
+Wearing Medium or Heavy Armor and/or Shield drains your Stamina faster
+and reduces your Run/Walk speed. Light Armor does not affect Stamina
+Drain nor Run/Walk speed. The penalty for equipping Heavy Shields and
+Armor stacks, so -10% from a Shield and -10% from Armor would make you
+run 20% slower, as an estimate. If you're having serious problems with
+Stamina, switch to Medium or Light Armor and/or Shield.
+<P>
+
+<Blockquote>
+<B>Light Armor</b> (ArmorSpeed=0)<BR>
+Quilted Armor/Ghost Armor/Dusk Shroud<br>
+Leather Armor/Serpentskin Armor/Wyrmhide<br>
+Hard Leather Armor/Demonhide Armor/Scarab Husk<br>
+Studded Leather Armor/Trellised Armor/Wire Fleece<br>
+Breast Plate/Cuirass/Great Hauberk<br>
+Light Plate/Mage Plate/Archon Plate<br>
+<p>
+
+<B>Light Shields</b><BR>
+Necromancer Shrunken Heads<BR>
+Paladin Shields<BR>
+Buckler/Defender/Heater<BR>
+Small/Round/Luna<BR>
+Kite/Dragon/Monarch<BR>
+Bone/Grim/Troll Nest<BR>
+Spiked/Barbed/Blade Barrier
+<p>
+
+
+<B>Medium Armor</B> (ArmorSpeed=5; 5% speed decrease)<BR>
+Ring Mail/Linked Mail/Diamond Mail<BR>
+Chain Mail/Mesh Armor/Boneweave<BR>
+Splint Mail/Russet Armor/Balrog Skin<BR>
+Field Plate/Sharktooth Armor/Kraken Shell<BR>
+Gothic Plate/Embossed Plate/Lacquered Plate<BR>
+Ancient Armor/Ornate Armor/Sacred Armor
+<P>
+
+<B>Medium Shields</B> (5% speed decrease)<BR>
+Large/Scutum/Hyperion<BR>
+Gothic/Ancient/Ward
+<P>
+
+<B>Heavy Armor</B> (ArmorSpeed=10; 10% speed decrease)<BR>
+Scale Mail/Tigulated Mail/Loricated Mail<BR>
+Plate Mail/Templar Coat/Hellforged Plate<BR>
+Full Plate/Chaos Armor/Shadow Plate
+<P>
+
+<B>Heavy Shields</B> (10% speed decrease)<BR>
+Tower/Pavise/Aegis
+</blockquote>
+
+<B>Stamina Gain</B><BR>
+Standing still: Max_Stamina / 256<BR>
+Walking in town: [Max_Stamina / 2] / 256<BR>
+Walking outside town (if Stamina>0): [Max_Stamina / 2] / 256
+<P>
+
+
+Example:<BR> 
+A character with a max Stamina of 167 and a +52% stamina recovery rate is currently walking in town. He will then regain 
+<P>
+25 * ([[167 / 2] * (100 + 52) / 100] / 256) = 12.305 Stamina per second
+<P>
+
+<b>Stamina Loss</b><br>
+25 * (40 * (1 + [ArmorSpeed / 10]) * ItemDrainRate / 256) 
+<P>
+
+ArmorSpeed is the value listed for your currently equipped armor and shield (add them up).<BR>
+ItemDrainRate is any percentage bonus your items give you to x% Slower Stamina Drain. The Treads of Cthon (50%) are one of the items to have this.
+<P>
+
+Example:<BR>
+Light Armor: 25 * (40 * (1 + [0 / 10]) / 256) = 25 (40 / 256) = 3.91 Stamina per second.
+<P>
+ 
+<B>How does one fix Stamina problems?</B><BR>
+If you find you are running out of Stamina too quickly, equip magic items that add to Max Stamina and that regenerate Stamina. 
+Also, next time you level up, devote more points to Vitality.
+<P>
+
+<B>Other Stamina-Replenishing Options</B><BR>
+Stamina Shrines give you unlimited Stamina for a limited time. Stamina Shrines regenerate, so you can use them multiple times.
+<P>
+
+Some items possess Magical Attributes that increase your walking or running speeds.  Using these items does not use more 
+Stamina than normal movement.
+<P>
+
+
+You can find items of Pacing, Haste, Speed, and Unique and Set items
+that increase walking and running speed. These items do not take
+any additional Stamina and allow your character to walk or run faster.
+<P>
+Stamina Potions act as a Stamina Shrine by giving you unlimited
+Stamina for 30 Seconds, and drinking additional Stamina Potions adds
+30 seconds to that timer per Stamina Potion drunk.
+<P>
+Some Magical Items have Magical Attributes that will help you regain Stamina.<P>
+
+The Druid <a href="/diablo2exp/skills/druid-shapeshifting.shtml#werewolf">Werewolf</a> form gives a bonus to
+Stamina. 
+<P>
+
+The Barbarian's Passive Combat Skills can offer <a href="/diablo2exp/skills/barbarian-combatmasteries.shtml#increasedstamina">Increased Stamina</a> 
+and <a href="/diablo2exp/skills/barbarian-combatmasteries.shtml#increasedspeed">Increased Speed</a>.  He can also use the 
+<a href="/diablo2exp/skills/barbarian-warcries.shtml#battleorders">Battle Orders</a>
+Warcry to increase Max Stamina, Life, and Mana for himself, his Hirelings, and his whole party.
+<p>
+
+The Paladin has a Defensive Aura called <a href="/diablo2exp/skills/paladin-defense.shtml#vigor">Vigor</a>, which increases Stamina 
+Recovery Rate, Maximum Stamina, and Speed.
+<p>
+</blockquote>
+
+
+<!-------BLOCKING------------->
+<B>Blocking</B><BR>
+Blocking determines your chance to defend against physical melee and ranged attacks. If you block an
+attack you will receive no damage. If you run your mouse over your Defense on the Character Screen you 
+will see a percentage to block if you are carrying a Shield or Necromancer Shrunken Heads. 
+If you do not have a shield or Shrunken Heads you will not see this listed.
+
+<P>
+When a player blocks, that is, after a hit has already occurred, probability is computed that a player will 
+block as follows: 
+<blockquote>
+Total Blocking = (Blocking * (Dexterity - 15)) / (Character Level * 2)<P>
+</font>
+Blocking = A total of the Blocking on all of your items.
+</blockquote>
+<P>
+
+To raise your % Chance to Block spend more points in Dexterity in addition to getting higher
+% Chance to Block via items.
+The block value itself is a combination of a value inherent to that particular player class, and any other block 
+bonuses from items. This value is capped at 75%. If the roll of the dice denies a true block, or if the player
+can't block at all, then and only then, are skills such as Amazon Avoid and Assassin Weapon Block checked
+for blocking.<P>
+
+Note that if a player is running, the Total Blocking percentage is reduced to 1/3rd of its original value, with a cap of
+25%.
+
+
+
+
+			</span></font>
+		</td>
+		</tr>
+		</table>
+
+		<br>
+		
+<!--- HEADER GRAPHIC ---------------------------->
+		<table border=0 cellpadding=0 cellspacing=0 width=100%>
+		<tr>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif"><img src="/images/battle/diablo2exp/images/headers/header-left.gif" border=0 width=80 height=60></td>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif" align=center width=100%><img src="/images/battle/diablo2exp/images/headers/basics-chartitles.gif" alt="Character Titles" border=0 width=275 height=60></td>
+		<td background="/images/battle/diablo2exp/images/headers/header-back.gif"><img src="/images/battle/diablo2exp/images/headers/header-right.gif" border=0 width=80 height=60></td>
+		</tr>
+		</table>
+<!--- END HEADER GRAPHIC ------------------------>
+
+		<br>
+		
+		<table border=0 cellpadding=10 cellspacing=0 width=100%>
+		<tr>
+		<td background="/images/battle/diablo2exp/images/blackbg.gif" align=left width=100%>
+			<font face="arial,helvetica" size=-1><span>
+			<p>
+
+When you defeat Baal, your character will receive an honorary title in front of his name.  Male characters (Barbarian, 
+Paladin, Druid and Necromancer) receive male titles, and female characters (Sorceress, Assassin, and Amazon) receive female titles.  
+Bear this in mind when naming your character, so that you can avoid a mismatched honorific (like Matriarch Joe).  Your title 
+will depend on which difficulty level you completed.
+<P>
+
+<b>Normal Mode</b>
+
+<blockquote>
+<b>Normal Difficulty</b>:     Slayer<br>
+<b>Nightmare Difficulty</b>:  Champion<br>
+<b>Hell Difficulty</b>: Patriarch, Matriarch<br>
+</blockquote>
+
+<b>Hardcore Mode</b>
+
+<blockquote>
+<b>Normal Difficulty</b>:     Destroyer<br>
+<b>Nightmare Difficulty</b>:  Conqueror<br>
+<b>Hell Difficulty</b>: Guardian<br>
+</blockquote>
+
+<B>Can you reject a Character title?</B><BR>
+No, this honorific is bestowed upon your character automatically.
+<P>
+
+<B>Can you get rid of a Character title?</B><BR>
+No, however you can upgrade your title by defeating the game on the higher difficulty levels, such as Nightmare or Hell.
+<P>
+
+<!--- END MAIN CONTENT ----------------------------------------------------------------------->
+<p>
+<center>
+<br/>
+<br>
+<font face="arial,helvetica" size=1><small>
+<a class="tiny" href="http://us.blizzard.com/en-us/company/about/privacy.html">Online Privacy Policy</a><br>
+<a class="tiny" href="/tou.shtml">Battle.net Terms of Use Agreement</a><br>
+<a class="tiny" href="http://us.blizzard.com/en-us/company/about/legal-faq.html">&copy;2019 Blizzard Entertainment. All rights reserved.</a>
+</small></font>
+</center>
+<!--- Google Analytics -------------------------------->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-544112-16");
+pageTracker._setDomainName("battle.net");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<div style="display:none;">
+<iframe src="http://view.atdmt.com/NTB/iview/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01?click=" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="1" height="1">
+<script language="JavaScript" type="text/javascript">
+document.write('<a href="http://clk.atdmt.com/NTB/go/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/" target="_blank"><img src="http://view.atdmt.com/NTB/view/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/"/></a>');
+</script>
+<noscript>
+<a href="http://clk.atdmt.com/NTB/go/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/" target="_blank">
+<img border="0" src="http://view.atdmt.com/NTB/view/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/" />
+</a>
+</noscript>
+</iframe>
+</div>
+			</span></font>
+		</td>
+		</tr>
+		</table>
+
+	</td>
+	<td background="/images/battle/diablo2exp/images/mid-textboxright.gif"><img src="/images/shared/blank.gif" border=0 width=21 height=5></td>
+	</tr>
+	</table>
+
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/battle/diablo2exp/images/mid-textboxbot-back.gif" align=left width=50%><img src="/images/battle/diablo2exp/images/mid-textboxbot-left.gif" border=0 width=132 height=98></td>
+	<td background="/images/battle/diablo2exp/images/mid-textboxbot-back.gif" align=right width=50%><img src="/images/battle/diablo2exp/images/mid-textboxbot-right.gif" border=0 width=106 height=98></td>
+	</tr>
+	</table>
+
+<!--- NAVIGATION BAR ------------------------------------------------------------------------->
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background=0 align=left width=100%><br><a href="/"  onMouseOut="offImg('exit')" onMouseOver="ovrImg('exit')"><img src="/images/battle/diablo2exp/images/botmenu-close-off.gif" name="exit" alt="Exit" border=0 width=43 height=43></a></td>
+	<td background=0><br><a href="/diablo2exp/basics/" onMouseOut="offImg('prev')" onMouseOver="ovrImg('prev')"><img src="/images/battle/diablo2exp/images/botmenu-prev-off.gif" name="prev" alt="Previous" border=0 width=44 height=43></a></td>
+	<td background=0><br><a href="charactertypes.shtml" onMouseOut="offImg('next')" onMouseOver="ovrImg('next')"><img src="/images/battle/diablo2exp/images/botmenu-next-off.gif" name="next" alt="Next" border=0 width=45 height=43></a></td>
+	</tr>
+	</table>
+
+	<br>
+</td>
+
+<td background=0 valign=top width=10%>
+	<img src="/images/shared/blank.gif" border=0 width=10 height=1>
+</td>
+</tr>
+</table>
+
+
+</body>
+</html>

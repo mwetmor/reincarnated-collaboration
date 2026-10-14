@@ -1,0 +1,1456 @@
+{{Attack nav}}
+{{Intro}}
+{|cellpadding=0 cellspacing=0 width=100%
+|
+[[File:Defense.png|thumb|600px|Player character's defense is displayed to the right of [[Dexterity]] on the character screen. [[Attack#Chance to hit|Chance to hit]] of last target (or a [[Fallen#Fallen|Fallen]] at start of first game) is displayed when cursor is over Defense field.]]
+|}
+
+
+{{Mb|=Defense}} affects chance to hit when an attack skill is used which requires a hit check to apply its damage and other effects. It is the sum of [Dexterity/4] and defense added by equipped items, and charms in [[Expansion]] games. The following [[item type]]s have defense values of their own, normally selected randomly from a range specified for each individual item:
+
+
+{|border=1 cellpadding=2 rules=all style="empty-cells:show; text-align:center; font-size:90%" width=100%
+!colspan=3|[[Item type#Armor|Armor]]
+|-valign=top
+|width=33%|
+'''[[Helm]]'''<br/>
+[[Circlet]]<br/>
+[[Pelt]]<br/>
+[[Primal helm]]
+|width=34%|
+[[Body armor]]<br/>
+[[Belt]]<br/>
+[[Boots]]<br/>
+[[Gloves]]
+|width=33%|
+'''[[Shield]]'''<br/>
+[[Auric shield]]<br/>
+[[Shrunken head]]<br/>
+[[Grimoire]]
+|}
+
+
+If any of these items is low quality, its defense value is reduced by 25%; if any of these items is [[ethereal]], its defense value is increased by 50% (rounded down to the nearest point). Any Enhanced Defense percentage on that item is then applied (rounding down to the nearest point), and then any + Defense and + Defense (Based on Character Level) bonuses from the items listed below are added before any further defense modifiers are applied.
+|}
+
+
+==Charm==
+
+===Small Charm===
+{{Affix bonus}}
+|-
+| +1
+!align=left|{{M|=Stout Small Charm}}
+|1
+|1
+|-
+| +(4-8)
+!align=left|{{M|=Stout Small Charm}}
+|15
+|21
+|-
+| +(15-20)
+!align=left|{{M|=Burly Small Charm}}
+|28
+|36
+|-
+| +(20-30)
+!align=left|{{M|=Stalwart Small Charm}}
+|40
+|48
+|}
+<br/>
+
+===Large Charm===
+{{Affix bonus}}
+|-
+| +(2-3)
+!align=left|{{M|=Stout Large Charm}}
+|1
+|1
+|-
+| +(4-6)
+!align=left|{{M|=Stout Large Charm}}
+|10
+|14
+|-
+| +(8-12)
+!align=left|{{M|=Stout Large Charm}}
+|15
+|20
+|-
+| +(13-18)
+!align=left|{{M|=Burly Large Charm}}
+|19
+|26
+|-
+| +(20-30)
+!align=left|{{M|=Burly Large Charm}}
+|24
+|32
+|-
+| +(30-40)
+!align=left|{{M|=Stalwart Large Charm}}
+|30
+|38
+|-
+| +(45-60)
+!align=left|{{M|=Stalwart Large Charm}}
+|37
+|45
+|}
+<br/>
+
+===Grand Charm===
+{{Affix bonus}}
+|-
+| +(3-5)
+!align=left|{{M|=Stout Grand Charm}}
+|1
+|1
+|-
+| +(6-9)
+!align=left|{{M|=Stout Grand Charm}}
+|5
+|7
+|-
+| +(10-12)
+!align=left|{{M|=Stout Grand Charm}}
+|9
+|12
+|-
+| +(13-15)
+!align=left|{{M|=Burly Grand Charm}}
+|12
+|17
+|-
+| +(16-22)
+!align=left|{{M|=Burly Grand Charm}}
+|16
+|22
+|-
+| +(23-30)
+!align=left|{{M|=Burly Grand Charm}}
+|20
+|27
+|-
+| +(33-40)
+!align=left|{{M|=Stalwart Grand Charm}}
+|24
+|32
+|-
+| +(44-50)
+!align=left|{{M|=Stalwart Grand Charm}}
+|29
+|37
+|-
+| +(60-100)
+!align=left|{{M|=Stalwart Grand Charm}}
+|34
+|42
+|}
+<br/>
+
+==Any socket==
+{{Affix bonus}}
+|-
+| +(5-8)
+!align=left|{{R|=Blanched Jewel}}
+|1
+|1
+|-
+| +(9-20)
+!align=left|{{R|=Eburine Jewel}}
+|12
+|16
+|-
+| +(21-40)
+!align=left|{{R|=Bone Jewel}}
+|24
+|32
+|-
+| +(41-64)
+!align=left|{{M|=Ivory Jewel}}
+|56
+|64
+|}
+<br/>
+
+==Helm==
+{{Skill bonus}}
+|-
+| +15
+|align=left|[[El Rune|{{Cb|=El Rune}}]] in socket
+|11
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Nadir|{{Ub|=Nadir}}]] helm
+|13
+|No
+|-
+| +10
+!align=left|[[Coif of Glory|{{U|=Coif of Glory Helm}}]]
+|14
+|No
+|-
+| +14
+!align=left|[[Biggin's Bonnet|{{U|=Biggin's Bonnet Cap}}]]
+|3
+|No
+|-
+| +15
+!align=left|[[Berserker's Headgear|{{S|=Berserker's Headgear Helm}}]]
+|3
+|No
+|-
+| +(10-20)
+!align=left|[[Duskdeep|{{U|=Duskdeep Full Helm}}]]
+|17
+|No
+|-
+| +25
+!align=left|[[Sigon's Visor|{{S|=Sigon's Visor Great Helm}}]]
+|6
+|No
+|-
+| +25
+!align=left|[[The Face of Horror|{{U|=The Face of Horror Mask}}]]
+|20
+|No
+|-
+| +40
+!align=left|[[Undead Crown|{{U|=Undead Crown Crown}}]]
+|29
+|No
+|-
+| +45
+!align=left|[[Tal Rasha's Horadric Crest|{{S|=Tal Rasha's Horadric Crest Death Mask}}]]
+|66
+|No
+|-
+| +50
+!align=left|[[Ondal's Almighty|{{S|=Ondal's Almighty Spired Helm}}]]
+|69
+|No
+|-
+| +75
+!align=left|[[Cow King's Horns|{{S|=Cow King's Horns War Hat}}]]
+|25
+|No
+|-
+| +(80-100)
+!align=left|[[Trang-Oul's Guise|{{S|=Trang-Oul's Guise Bone Visage}}]]
+|65
+|No
+|-
+| +100
+!align=left|[[Sazabi's Mental Sheath|{{S|=Sazabi's Mental Sheath Basinet}}]]
+|43
+|No
+|-
+| +140
+!align=left|[[Veil of Steel|{{U|=Veil of Steel Spired Helm}}]]
+|73
+|No
+|-
+| +(100-150)
+!align=left|[[Crown of Ages|{{U|=Crown of Ages Corona}}]]
+|82
+|No
+|-
+| +(135-175)
+!align=left|[[Natalya's Totem|{{S|=Natalya's Totem Grim Helm}}]]
+|59
+|No
+|-
+| +(150-220)
+|align=left|[[Dream|{{Ub|=Dream}}]] helm
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+| +261
+|align=left|[[Delirium|{{Ub|=Delirium}}]] helm
+|51
+|No
+|-
+| +(250-320)
+!align=left|[[Giant Skull|{{U|=Giant Skull Bone Visage}}]]
+|65
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +(lvl)
+!align=left|[[Sander's Paragon|{{S|=Sander's Paragon Cap}}]]
+|25
+|No
+|-
+| +(2*lvl)
+|align=left|[[Infernal Cranium|{{Sb|=Infernal Cranium Cap}}]] (2 items)
+|5
+|No
+|-
+| +(2*lvl)
+|align=left|[[Cathan's Visage|{{Sb|=Cathan's Visage Mask}}]] (2 items)
+|11
+|No
+|-
+| +(2*lvl)
+|align=left|[[Iratha's Coil|{{Sb|=Iratha's Coil Crown}}]] (2 items)
+|15
+|No
+|-
+| +(2*lvl)
+!align=left|[[Darksight Helm|{{U|=Darksight Helm Basinet}}]]
+|38
+|No
+|-
+| +(3*lvl)
+|align=left|[[Arcanna's Head|{{Sb|=Arcanna's Head Skull Cap}}]] (2 items)
+|15
+|No
+|}
+<br/>
+
+===Circlet===
+{{Skill bonus}}
+|-
+| +75
+!align=left|[[Naj's Circlet|{{S|=Naj's Circlet Circlet}}]]
+|28
+|No
+|-
+| +(50-120)
+!align=left|[[Kira's Guardian|{{U|=Kira's Guardian Tiara}}]]
+|77
+!{{Warn|=Yes}} (LoD only)
+|-
+| +150
+!align=left|[[M'avina's True Sight|{{S|=M'avina's True Sight Diadem}}]]
+|64
+|No
+|-
+| +(100-200)
+!align=left|[[Griffon's Eye|{{U|=Griffon's Eye Diadem}}]]
+|76
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+===Pelt===
+{{Skill bonus}}
+|-
+| +90
+!align=left|[[Aldur's Stony Gaze|{{S|=Aldur's Stony Gaze Hunter's Guise}}]]
+|36
+|No
+|}
+<br/>
+
+===Primal helm===
+{{Skill bonus}}
+|-
+| +125
+!align=left|[[Immortal King's Will|{{S|=Immortal King's Will Avenger Guard}}]]
+|47
+|No
+|}
+<br/>
+
+==Amulet==
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[The Mahim-Oak Curio|{{U|=The Mahim-Oak Curio Amulet}}]]
+|25
+|No
+|-
+| +25
+|align=left|[[Civerb's Icon|{{Sb|=Civerb's Icon Amulet}}]] (Full)
+|9
+|No
+|-
+| +100
+!align=left|[[The Cat's Eye|{{U|=The Cat's Eye Amulet}}]]
+|50
+|No
+|-
+| +(300-350)
+!align=left|[[Metalgrid|{{U|=Metalgrid Amulet}}]]
+|81
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+==Body armor==
+{{Affix bonus}}
+|-
+| +(3*lvl)
+!align=left|{{R|=Faithful body armor}} <sup>1</sup>
+|22
+|30
+|}
+<span style=font-size:90%><sup>1</sup> Same group as [[Enhanced Defense]] prefixes</span>
+
+
+{{Skill bonus}}
+|-
+| +(1.25*lvl)
+!align=left|[[Duriel's Shell|{{U|=Duriel's Shell Cuirass}}]]
+|41
+|No
+|-
+| +(2*lvl)
+|align=left|[[Isenhart's Case|{{Sb|=Isenhart's Case Breast Plate}}]] (2 items)
+|8
+|No
+|-
+| +(2*lvl)
+|align=left|[[Tancred's Spine|{{Sb|=Tancred's Spine Full Plate Mail}}]] (2 items)
+|20
+|No
+|-
+| +(2*lvl)
+!align=left|[[Atma's Wail|{{U|=Atma's Wail Embossed Plate}}]]
+|51
+|No
+|-
+| +(2.5*lvl)
+!align=left|[[Vidala's Ambush|{{S|=Vidala's Ambush Leather Armor}}]]
+|14
+|No
+|-
+| +(3*lvl)
+|align=left|[[Arctic Furs|{{Sb|=Arctic Furs Quilted Armor}}]] (2 items)
+|2
+|No
+|-
+| +(3*lvl)
+|align=left|[[Berserker's Hauberk|{{Sb|=Berserker's Hauberk Splint Mail}}]] (2 items)
+|3
+|No
+|-
+| +(3*lvl)
+!align=left|[[Iron Pelt|{{U|=Iron Pelt Trellised Armor}}]]
+|33
+|No
+|-
+| +(4*lvl)
+!align=left|[[M'avina's Embrace|{{S|=M'avina's Embrace Kraken Shell}}]]
+|70
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +15
+|align=left|[[El Rune|{{Cb|=El Rune}}]] in socket
+|11
+|No
+|-
+| +15
+|align=left|[[Fortitude|{{Ub|=Fortitude}}]] body armor
+|59
+!{{Warn|=Yes}} (LoD only)
+|-
+| +15
+!align=left|[[Cathan's Mesh|{{S|=Cathan's Mesh Chain Mail}}]]
+|11
+|No
+|-
+| +(10-20)
+!align=left|[[Ormus' Robes|{{U|=Ormus' Robes Dusk Shroud}}]]
+|75
+|No
+|-
+| +20
+!align=left|[[Greyform|{{U|=Greyform Quilted Armor}}]]
+|7
+|No
+|-
+| +25
+!align=left|[[Blinkbat's Form|{{U|=Blinkbat's Form Leather Armor}}]]
+|12
+|No
+|-
+| +25
+!align=left|[[Twitchthroe|{{U|=Twitchthroe Studded Leather}}]]
+|16
+|No
+|-
+| +30
+!align=left|[[The Centurion|{{U|=The Centurion Hard Leather Armor}}]]
+|14
+|No
+|-
+| +40
+!align=left|[[Isenhart's Case|{{S|=Isenhart's Case Breast Plate}}]]
+|8
+|No
+|-
+| +50
+|align=left|[[Bane's Wraithskin|{{Sb|=Bane's Wraithskin Hard Leather Armor}}]] {{RotW-inline}}
+|8
+|No
+|-
+| +50
+!align=left|[[Vidala's Ambush|{{S|=Vidala's Ambush Leather Armor}}]]
+|14
+|No
+|-
+| +50
+!align=left|[[The Gladiator's Bane|{{U|=The Gladiator's Bane Wire Fleece}}]]
+|85
+|No
+|-
+| +(40-60)
+!align=left|[[Toothrow|{{U|=Toothrow Sharktooth Armor}}]]
+|48
+|No
+|-
+| +100
+|align=left|[[Arcanna's Flesh|{{Sb|=Arcanna's Flesh Light Plate}}]] (2 items)
+|15
+|No
+|-
+| +(100-150)
+!align=left|[[Leviathan|{{U|=Leviathan Kraken Shell}}]]
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+| +150
+|align=left|[[Angelic Mantle|{{Sb|=Angelic Mantle Ring Mail}}]] (2 items)
+|12
+|No
+|-
+| +200
+!align=left|[[Rattlecage|{{U|=Rattlecage Gothic Plate}}]]
+|29
+|No
+|-
+| +200
+!align=left|[[Hwanin's Refuge|{{S|=Hwanin's Refuge Tigulated Mail}}]]
+|30
+|No
+|-
+| +(150-225)
+!align=left|[[Natalya's Shadow|{{S|=Natalya's Shadow Loricated Mail}}]]
+|73
+|No
+|-
+| +300
+|align=left|[[Bramble|{{Ub|=Bramble}}]] body armor
+|61
+|No
+|-
+| +300
+!align=left|[[Naj's Light Plate|{{S|=Naj's Light Plate Hellforge Plate}}]]
+|71
+|No
+|-
+| +300
+!align=left|[[Aldur's Deception|{{S|=Aldur's Deception Shadow Plate}}]]
+|76
+|No
+|-
+| +350
+!align=left|[[M'avina's Embrace|{{S|=M'avina's Embrace Kraken Shell}}]]
+|70
+|No
+|-
+| +360
+|align=left|[[Dragon|{{Ub|=Dragon}}]] body armor
+|61
+!{{Warn|=Yes}} (LoD only)
+|-
+| +400
+!align=left|[[Sazabi's Ghost Liberator|{{S|=Sazabi's Ghost Liberator Balrog Skin}}]]
+|67
+|No
+|-
+| +400
+!align=left|[[Tal Rasha's Guardianship|{{S|=Tal Rasha's Guardianship Lacquered Plate}}]]
+|71
+|No
+|-
+| +400
+!align=left|[[Immortal King's Soul Cage|{{S|=Immortal King's Soul Cage Sacred Armor}}]]
+|76
+|No
+|-
+| +(305-415)
+!align=left|[[Dark Adherent|{{S|=Dark Adherent Dusk Shroud}}]]
+|49
+|No
+|-
+| +500
+!align=left|[[Haemosu's Adamant|{{S|=Haemosu's Adamant Cuirass}}]]
+|44
+|No
+|-
+| +500
+!align=left|[[Griswold's Heart|{{S|=Griswold's Heart Ornate Plate}}]]
+|45
+|No
+|-
+| +(750-775)
+|align=left|[[Enigma|{{Ub|=Enigma}}]] body armor
+|65
+|No
+|}
+<br/>
+
+==Amazon spear==
+{{Skill bonus}}
+|-
+| +(400-600)
+!align=left|[[Stoneraven|{{U|=Stoneraven Matriarchal Spear}}]]
+|64
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+==Axe==
+{{Skill bonus}}
+|-
+| +20
+!align=left|[[Bladebone|{{U|=Bladebone Double Axe}}]]
+|15
+|No
+|-
+| +75
+!align=left|[[Warlord's Trust|{{U|=Warlord's Trust Military Axe}}]]
+|35
+|No
+|}
+<br/>
+
+==Dagger==
+{{Skill bonus}}
+|-
+| +50
+!align=left|[[Blackbog's Sharp|{{U|=Blackbog's Sharp Cinquedeas}}]]
+|38
+|No
+|}
+<br/>
+
+==Hammer==
+{{Skill bonus}}
+|-
+| +35
+!align=left|[[Hell's Forge#Hell Forge Hammer|{{U|=Hell Forge Hammer}}]]
+|1
+|No
+|}
+<br/>
+
+==Mace==
+{{Skill bonus}}
+|-
+| +25
+!align=left|[[The General's Tan Do Li Ga|{{U|=The General's Tan Do Li Ga Flail}}]]
+|21
+|No
+|}
+<br/>
+
+==Missile weapon==
+{{Skill bonus}}
+|-
+| +25
+|align=left|[[Zephyr|{{Ub|=Zephyr}}]] missile weapon
+|21
+|No
+|}
+<br/>
+
+===Crossbow===
+{{Skill bonus}}
+|-
+| +(75-150)
+!align=left|[[Buriza-Do Kyanon|{{U|=Buriza-Do Kyanon Ballista}}]]
+|41
+|No
+|-
+| +321
+!align=left|[[Demon Machine|{{U|=Demon Machine Cho-Ko-Nu}}]]
+|49
+|No
+|}
+<br/>
+
+==Polearm==
+{{Skill bonus}}
+|-
+|{{Warn|=-8}}
+!align=left|[[Dimoak's Hew|{{U|=Dimoak's Hew Bardiche}}]]
+|8
+|No
+|-
+| +(200-300)
+|align=left|[[Obedience|{{Ub|=Obedience}}]] polearm
+|41
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+==Scepter==
+{{Skill bonus}}
+|-
+| +50
+!align=left|[[Hand of Blessed Light|{{U|=Hand of Blessed Light Divine Scepter}}]]
+|42
+|No
+|}
+<br/>
+
+==Spear==
+{{Skill bonus}}
+|-
+| +(200-300)
+|align=left|[[Obedience|{{Ub|=Obedience}}]] spear {{D2R-inline}}
+|41
+|No (D2R only)
+|}
+<br/>
+
+==Staff==
+{{Skill bonus}}
+|-
+| +(2*lvl)
+|align=left|[[Leaf|{{Ub|=Leaf}}]] staff
+|19
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +30
+!align=left|[[The Iron Jang Bong|{{U|=The Iron Jang Bong War Staff}}]]
+|28
+|No
+|-
+| +100
+!align=left|[[Ribcracker|{{U|=Ribcracker Quarterstaff}}]]
+|31
+|No
+|-
+| +(450-550)
+!align=left|[[Ondal's Wisdom|{{U|=Ondal's Wisdom Elder Staff}}]]
+|66
+|No
+|}
+<br/>
+
+==Sword==
+{{Skill bonus}}
+|-
+| +20
+!align=left|[[Gleamscythe|{{U|=Gleamscythe Falchion}}]]
+|13
+|No
+|-
+| +25
+!align=left|[[Rixot's Keen|{{U|=Rixot's Keen Short Sword}}]]
+|2
+|No
+|-
+| +30
+!align=left|[[Cloudcrack|{{U|=Cloudcrack Gothic Sword}}]]
+|45
+|No
+|-
+| +75
+!align=left|[[The Atlantean|{{U|=The Atlantean Ancient Sword}}]]
+|42
+|No
+|-
+| +(5*lvl)
+!align=left|[[Swordguard|{{U|=Swordguard Executioner Sword}}]]
+|48
+|No
+|}
+<br/>
+
+==Shield==
+{{Affix bonus}}
+|-
+| +(0.5*lvl)
+!align=left|{{R|=Faithful shield}} <sup>1</sup>
+|22
+|30
+|}
+<span style=font-size:90%><sup>1</sup> Same group as [[Enhanced Defense]] prefixes</span>
+
+
+{{Skill bonus}}
+|-
+| +(2.5*lvl)
+|align=left|[[Hsarus' Iron Fist|{{Sb|=Hsarus' Iron Fist Buckler}}]] (2 items)
+|3
+|No
+|-
+| +(3.75*lvl)
+!align=left|[[Stormshield|{{U|=Stormshield Monarch}}]]
+|73
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +8
+|align=left|[[Chipped Amethyst]] in socket
+|1
+|No
+|-
+| +12
+|align=left|[[Flawed Amethyst]] in socket
+|5
+|No
+|-
+| +18
+|align=left|[[Amethyst]] in socket
+|12
+|No
+|-
+| +24
+|align=left|[[Flawless Amethyst]] in socket
+|15
+|No
+|-
+| +30
+|align=left|[[Perfect Amethyst]] in socket
+|18
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +15
+|align=left|[[El Rune|{{Cb|=El Rune}}]] in socket
+|11
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[Swordback Hold|{{U|=Swordback Hold Spiked Shield}}]]
+|15
+|No
+|-
+| +10
+!align=left|[[Wall of the Eyeless|{{U|=Wall of the Eyeless Bone Shield}}]]
+|20
+|No
+|-
+| +15
+!align=left|[[Civerb's Ward|{{S|=Civerb's Ward Large Shield}}]]
+|9
+|No
+|-
+| +17
+!align=left|[[Cleglaw's Claw|{{S|=Cleglaw's Claw Small Shield}}]]
+|4
+|No
+|-
+| +20
+!align=left|[[Steelclash|{{U|=Steelclash Kite Shield}}]]
+|17
+|No
+|-
+| +25
+!align=left|[[Milabrega's Orb|{{S|=Milabrega's Orb Kite Shield}}]]
+|17
+|No
+|-
+| +30
+!align=left|[[Pelta Lunata|{{U|=Pelta Lunata Buckler}}]]
+|2
+|No
+|-
+| +30
+!align=left|[[Umbral Disk|{{U|=Umbral Disk Small Shield}}]]
+|9
+|No
+|-
+| +30
+!align=left|[[Stormguild|{{U|=Stormguild Large Shield}}]]
+|13
+|No
+|-
+| +30
+!align=left|[[Bverrit Keep|{{U|=Bverrit Keep Tower Shield}}]]
+|19
+|No
+|-
+| +40
+!align=left|[[Isenhart's Parry|{{S|=Isenhart's Parry Gothic Shield}}]]
+|8
+|No
+|-
+| +40
+!align=left|[[The Ward|{{U|=The Ward Gothic Shield}}]]
+|26
+|No
+|-
+| +50
+!align=left|[[Taebaek's Glory|{{S|=Taebaek's Glory Ward}}]]
+|81
+|No
+|-
+| +(150-220)
+|align=left|[[Dream|{{Ub|=Dream}}]] shield
+|65
+!{{Warn|=Yes}} (LoD only)
+|-
+| +360
+|align=left|[[Dragon|{{Ub|=Dragon}}]] shield
+|61
+!{{Warn|=Yes}} (LoD only)
+|-
+| +(320-420)
+!align=left|[[Head Hunter's Glory|{{U|=Head Hunter's Glory Troll Nest}}]]
+|75
+|No
+|}
+<br/>
+
+===Auric shield===
+{{Skill bonus}}
+|-
+| +108
+!align=left|[[Griswold's Honor|{{S|=Griswold's Honor Vortex Shield}}]]
+|68
+|No
+|}
+<br/>
+
+===Shrunken head===
+{{Skill bonus}}
+|-
+| +125
+!align=left|[[Trang-Oul's Wing|{{S|=Trang-Oul's Wing Cantor Trophy}}]]
+|54
+|No
+|}
+<br/>
+
+==Belt==
+{{Affix bonus}}
+|-
+| +(0.5*lvl)
+!align=left|{{R|=Faithful belt}} <sup>1</sup>
+|22
+|30
+|}
+<span style=font-size:90%><sup>1</sup> Same group as [[Enhanced Defense]] prefixes</span>
+
+
+{{Skill bonus}}
+|-
+| +(1.5*lvl)
+!align=left|[[Hwanin's Blessing|{{S|=Hwanin's Blessing Belt}}]]
+|35
+|No
+|-
+| +(2*lvl)
+|align=left|[[Sigon's Wrap|{{Sb|=Sigon's Wrap Plated Belt}}]] (2 items)
+|6
+|No
+|-
+| +(2.5*lvl)
+|align=left|[[Hsarus' Iron Stay|{{Sb|=Hsarus' Iron Stay Belt}}]] (2 items)
+|3
+|No
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[Snakecord|{{U|=Snakecord Light Belt}}]]
+|12
+|No
+|-
+| +15
+!align=left|[[Nightsmoke|{{U|=Nightsmoke Belt}}]]
+|20
+|No
+|-
+| +15
+!align=left|[[String of Ears|{{U|=String of Ears Demonhide Sash}}]]
+|29
+|No
+|-
+| +15
+!align=left|[[Razortail|{{U|=Razortail Sharkskin Belt}}]]
+|32
+|No
+|-
+| +20
+!align=left|[[Death's Guard|{{S|=Death's Guard Sash}}]]
+|6
+|No
+|-
+| +25
+!align=left|[[Infernal Sign|{{S|=Infernal Sign Heavy Belt}}]]
+|5
+|No
+|-
+| +25
+!align=left|[[Iratha's Cord|{{S|=Iratha's Cord Heavy Belt}}]]
+|15
+|No
+|-
+| +25
+!align=left|[[Goldwrap|{{U|=Goldwrap Heavy Belt}}]]
+|27
+|No
+|-
+| +30
+!align=left|[[Arctic Binding|{{S|=Arctic Binding Light Belt}}]]
+|2
+|No
+|-
+| +30
+!align=left|[[Bladebuckle|{{U|=Bladebuckle Plated Belt}}]]
+|29
+|No
+|-
+| +36
+!align=left|[[Immortal King's Detail|{{S|=Immortal King's Detail War Belt}}]]
+|29
+|No
+|-
+| +50
+!align=left|[[M'avina's Tenet|{{S|=M'avina's Tenet Sharkskin Belt}}]]
+|45
+|No
+|-
+| +50
+!align=left|[[Credendum|{{S|=Credendum Mithril Coil}}]]
+|65
+|No
+|-
+| +60
+|align=left|[[Tal Rasha's Fine-Spun Cloth|{{Sb|=Tal Rasha's Fine-Spun Cloth Mesh Belt}}]] (2 items)
+|53
+|No
+|-
+| +(75-100)
+!align=left|[[Trang-Oul's Girth|{{S|=Trang-Oul's Girth Troll Belt}}]]
+|62
+|No
+|-
+| +141
+|align=left|[[Immortal King's Detail|{{Sb|=Immortal King's Detail War Belt}}]] (2 items)
+|30
+|No
+|}
+<br/>
+
+==Boots==
+{{Affix bonus}}
+|-
+| +(0.5*lvl)
+!align=left|{{R|=Faithful boots}} <sup>1</sup>
+|22
+|30
+|}
+<span style=font-size:90%><sup>1</sup> Same group as [[Enhanced Defense]] prefixes</span>
+
+
+{{Skill bonus}}
+|-
+| +6
+!align=left|[[Hotspur|{{U|=Hotspur Boots}}]]
+|5
+|No
+|-
+| +12
+!align=left|[[Gorefoot|{{U|=Gorefoot Heavy Boots}}]]
+|9
+|No
+|-
+| +12
+!align=left|[[Treads of Cthon|{{U|=Treads of Cthon Chain Boots}}]]
+|15
+|No
+|-
+| +15
+!align=left|[[Goblin Toe|{{U|=Goblin Toe Light Plated Boots}}]]
+|22
+|No
+|-
+| +15
+!align=left|[[Infernostride|{{U|=Infernostride Demonhide Boots}}]]
+|29
+|No
+|-
+| +25
+!align=left|[[Rite of Passage (item)|{{S|=Rite of Passage Demonhide Boots}}]]
+|29
+|No
+|-
+| +(25-35)
+!align=left|[[Cow King's Hooves|{{S|=Cow King's Hooves Heavy Boots}}]]
+|13
+|No
+|-
+| +35
+!align=left|[[Tearhaunch|{{U|=Tearhaunch Greaves}}]]
+|29
+|No
+|-
+| +(40-60)
+|align=left|[[Wraithstep|{{Ub|=Wraithstep Mirrored Boots}}]] {{RotW-inline}}
+|67
+|No
+|-
+| +75
+!align=left|[[Immortal King's Pillar|{{S|=Immortal King's Pillar War Boots}}]]
+|31
+|No
+|-
+| +(75-125)
+!align=left|[[Natalya's Soul|{{S|=Natalya's Soul Mesh Boots}}]]
+|25
+|No
+|-
+| +235
+|align=left|[[Immortal King's Pillar|{{Sb|=Immortal King's Pillar War Boots}}]] (4 items)
+|47/76
+|No
+|}
+<br/>
+
+==Gloves==
+{{Affix bonus}}
+|-
+| +(0.5*lvl)
+!align=left|{{R|=Faithful gloves}} <sup>1</sup>
+|22
+|30
+|}
+<span style=font-size:90%><sup>1</sup> Same group as [[Enhanced Defense]] prefixes</span>
+
+
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[The Hand of Broc|{{U|=The Hand of Broc Leather Gloves}}]]
+|5
+|No
+|-
+| +10
+!align=left|[[Bloodfist|{{U|=Bloodfist Heavy Gloves}}]]
+|9
+|No
+|-
+| +10
+!align=left|[[Magefist|{{U|=Magefist Light Gauntlets}}]]
+|23
+|No
+|-
+| +15
+!align=left|[[Chance Guards|{{U|=Chance Guards Chain Gloves}}]]
+|15
+|No
+|-
+| +(15-25)
+!align=left|[[Venom Grip|{{U|=Venom Grip Demonhide Gloves}}]]
+|29
+|No
+|-
+| +(20-25)
+!align=left|[[Sander's Taboo|{{S|=Sander's Taboo Heavy Gloves}}]]
+|28
+|No
+|-
+| +25
+!align=left|[[Laying of Hands|{{S|=Laying of Hands Bramble Mitts}}]]
+|63
+|No
+|-
+| +30
+!align=left|[[Frostburn|{{U|=Frostburn Gauntlets}}]]
+|29
+|No
+|-
+| +30
+!align=left|[[Trang-Oul's Claws|{{S|=Trang-Oul's Claws Heavy Bracers}}]]
+|45
+|No
+|-
+| +(45-50)
+!align=left|[[M'avina's Icy Clutch|{{S|=M'avina's Icy Clutch Battle Gauntlets}}]]
+|32
+|No
+|-
+| +65
+!align=left|[[Immortal King's Forge|{{S|=Immortal King's Forge War Gauntlets}}]]
+|30
+|No
+|-
+| +185
+|align=left|[[Immortal King's Forge|{{Sb|=Immortal King's Forge War Gauntlets}}]] (3 items)
+|31
+|No
+|-
+| +(170-210)
+!align=left|[[Steelrend|{{U|=Steelrend Ogre Gauntlets}}]]
+|70
+|No
+|}
+<br/>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+| +25
+|align=left|[[Bul-Kathos' Children|{{Ub|=Bul-Kathos' Children}}]] (Full)
+|66
+|No (LoD only)
+|-
+| +50
+|align=left|[[Cleglaw's Brace|{{Ub|=Cleglaw's Brace}}]] (2 items)
+|4
+|No
+|-
+| +50
+|align=left|[[Civerb's Vestments|{{Ub|=Civerb's Vestments}}]] (Full)
+|9
+|No (D2R only)
+|-
+| +50
+|align=left|[[Iratha's Finery|{{Ub|=Iratha's Finery}}]] (2 items)
+|15
+|No
+|-
+| +50
+|align=left|[[Sander's Folly|{{Ub|=Sander's Folly}}]] (2 items)
+|20
+|No
+|-
+| +75
+|align=left|[[Berserker's Arsenal|{{Ub|=Berserker's Arsenal}}]] (Full)
+|3
+|No
+|-
+| +100
+|align=left|[[Cleglaw's Brace|{{Ub|=Cleglaw's Brace}}]] (Full)
+|4
+|No
+|-
+| +100
+|align=left|[[Sigon's Complete Steel|{{Ub|=Sigon's Complete Steel}}]] (3 items)
+|6
+|No
+|-
+| +100
+|align=left|[[Cow King's Leathers|{{Ub|=Cow King's Leathers}}]] (Full)
+|25
+|No (D2R only)
+|-
+| +100
+|align=left|[[Hwanin's Majesty|{{Ub|=Hwanin's Majesty}}]] (2 items)
+|30
+|No
+|-
+| +100
+|align=left|[[Orphan's Call|{{Ub|=Orphan's Call}}]] (Full)
+|42
+|No
+|-
+| +100
+|align=left|[[M'avina's Battle Hymn|{{Ub|=M'avina's Battle Hymn}}]] (Full)
+|70
+|No
+|-
+| +150
+|align=left|[[The Disciple|{{Ub|=The Disciple}}]] (2 items)
+|30
+|No
+|-
+| +150
+|align=left|[[Tal Rasha's Wrappings|{{Ub|=Tal Rasha's Wrappings}}]] (Full)
+|71
+|No
+|-
+| +150
+|align=left|[[Aldur's Watchtower|{{Ub|=Aldur's Watchtower}}]] (Full)
+|76
+|No
+|-
+| +175
+|align=left|[[Naj's Ancient Vestige|{{Ub|=Naj's Ancient Vestige}}]] (2 items)
+|71
+|No
+|-
+| +200
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (Full)
+|65
+|No
+|-
+| +200
+|align=left|[[Bul-Kathos' Children|{{Ub|=Bul-Kathos' Children}}]] (Full)
+|66
+|No (D2R only)
+|-
+| +200
+|align=left|[[Natalya's Odium|{{Ub|=Natalya's Odium}}]] (3 items)
+|73
+|No
+|-
+| +300
+|align=left|[[Hwanin's Majesty|{{Ub|=Hwanin's Majesty}}]] (3 items)
+|35
+|No
+|-
+| +300
+|align=left|[[Horazon's Splendor|{{Ub|=Horazon's Splendor}}]] (4 items) {{RotW-inline}}
+|62 or 67
+|No
+|-
+| +350
+|align=left|[[Natalya's Odium|{{Ub|=Natalya's Odium}}]] (Full)
+|79
+|No
+|}
+<br/>
+
+==Pet==
+{|border=1 cellpadding=2 rules=all style="empty-cells:show; text-align:center; font-size:90%" width=100%
+|-
+!width=12% align=left|[[Class]]
+!width=13% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-valign=top
+!rowspan=2 align=left|[[Amazon]]
+!align=left|[[Decoy]]
+|141 + [[MonLvl#Defense rating|MonLvl]]
+|152 + MonLvl
+|164 + MonLvl
+|-
+!align=left|[[Valkyrie]] <sup>1</sup>
+|141 + MonLvl + (3*slvl)
+|152 + MonLvl + (3*slvl)
+|164 + MonLvl + (3*slvl)
+|-valign=top
+!align=left rowspan=2|[[Assassin]]
+!align=left|[[Shadow Warrior]] <sup>1</sup>
+|colspan=3|196 + (3*slvl)
+|-
+!align=left|[[Shadow Master]] <sup>1</sup>
+|colspan=3|196 + (2.5*slvl)
+|-valign=top
+!align=left rowspan=9|[[Druid (Diablo II)|Druid]]
+!align=left|[[Poison Creeper]]
+|colspan=3|25 [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120448-druid-vines-and-barbarian-warcries/&tab=comments#comment-1491597]
+|-
+!align=left|[[Oak Sage]]
+|colspan=3|49 + MonLvl
+|-
+!align=left|[[Summon Spirit Wolf|Spirit Wolf]]
+|colspan=3|67 + MonLvl
+|-
+!align=left|[[Carrion Vine]]
+|colspan=3|92 [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120448-druid-vines-and-barbarian-warcries/&tab=comments#comment-1491597]
+|-
+!align=left|[[Heart of Wolverine]]
+|colspan=3|123 + MonLvl
+|-
+!align=left|[[Summon Dire Wolf|Dire Wolf]]
+|colspan=3|116 + MonLvl
+|-
+!align=left|[[Solar Creeper]]
+|colspan=3|165 [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120448-druid-vines-and-barbarian-warcries/&tab=comments#comment-1491597]
+|-
+!align=left|[[Spirit of Barbs]]
+|colspan=3|196 + MonLvl
+|-
+!align=left|[[Summon Grizzly|Grizzly]]
+|colspan=3|245 + MonLvl
+|-valign=top
+!align=left rowspan=8|[[Necromancer]]
+!align=left|[[Raise Skeleton|Necroskeleton]]
+|5 + (15 * (slvl + [[Skeleton Mastery|SM]].slvl) ) + MonLvl
+|5 + (15 * (slvl + SM.slvl) ) + MonLvl 
+|6 + (15 * (slvl + SM.slvl) ) + MonLvl
+|-
+!align=left|[[Clay Golem]]
+|colspan=3|100 + MonLvl + (35 * Iron Golem.blvl)
+|-
+!align=left|[[Bone Wall]]
+|35
+|174
+|334
+|-
+!align=left|[[Raise Skeletal Mage|Necromage]]
+|24 + (10 * (slvl + SM.slvl) ) + MonLvl
+|26 + (10 * (slvl + SM.slvl) ) + MonLvl
+|28 + (10 * (slvl + SM.slvl) ) + MonLvl
+|-
+!align=left|[[Blood Golem]]
+|colspan=3|120 + MonLvl + (35 * Iron Golem.blvl)
+|-
+!align=left|[[Bone Prison]]
+|35
+|174
+|334
+|-
+!align=left|[[Iron Golem]] <sup>1</sup>
+|colspan=3|140 + (35*slvl) + MonLvl
+|-
+!align=left|[[Fire Golem]]
+|colspan=3|200 + MonLvl + (35 * Iron Golem.blvl)
+|}
+<span style=font-size:90%><sup>1</sup> Defense from equipped [[item]]s is also added.</span>
+
+
+*When defense includes a MonLvl value, 100% of the value for the relevant [[difficulty]] level and pet [[Attack#Level|level]] is used.
+*Defense of [[Conversion|converted]] and [[Mind Blast|mind blasted]] is determined using clvl when clvl < mlvl; otherwise, mlvl continues to be used. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/&do=findComment&comment=1505822] Defense of [[Revive]]d always continues to use mlvl.
+*Defense of [[Reanimate]]d [[Skeleton#Returned|Returned]] is the same as that of a normal Returned that would spawn in the same [[area]] and difficulty level.
+<br/>
+
+==Monster==
+[[Monster]] defense varies depending on [[difficulty]] level, monster [[Attack#Level|level]] and monster type:
+
+
+Base defense = <nowiki>[</nowiki>[[MonLvl#Defense|MonLvl]] * MonStats/100] [https://d2mods.info/forum/kb/viewarticle?a=354]
+
+
+*MonLvl values for the relevant difficulty and monster level (without any [[Champion]], [[Unique (monster)|Unique]] or minion bonus) [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495104] are modified by percentage values stored in the MonStats.txt file, which vary depending on monster type.
+*{{Warn|=[[Attack#Chance to hit|Chance to hit]] displayed by character screen also uses MonStats.txt value for monster level to select MonLvl value in all three difficulty levels, but this only applies to [[boss]]es in Nightmare and Hell: otherwise, [[area]] level determines mlvl in Nightmare and Hell.}} [https://www.diabloii.net/forums/threads/lcs-attack-rating-and-chance-to-hit-formulas.837129/post-8387692] For example, any [[Fallen#Fallen|Fallen]] in Normal is level 1 with 5 defense. In Hell, the character screen calculates chance to hit based on any Fallen being level 67 with 933 defense in [[Ladder]] and [[Single Player]] games: however, this is only true if it spawns in a level 67 area like the [[Blood Moor]]; if it spawns in a level 83 area like the [[Underground Passage Level 2]], then it is level '''83''' with '''1,131''' defense.
+*[[Stone Skin]] [[Unique (monster)|Unique]] bonus doubles monster defense (including any defense from equipped [[item]]s) [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118463-stone-skin-unique-modifier/&do=findComment&comment=1472371] before [[Inner Sight]] or any [[% Defense]] is applied, although - [[Monster Defense per hit]] applies to monster defense before this bonus. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118463-stone-skin-unique-modifier/&do=findComment&comment=1468820] {{Warn|=Chance to hit displayed by character screen does '''not''' take this bonus into account.}}
+<br/>
+
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/117464-defense-of-summoned-wolves-and-grizzly/ Def of summoned Wolfs and Grizzly] (D2 Druid)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/120448-druid-vines-and-barbarian-warcries/ Druid Vines and Barbarian Warcries] (D2 Druid)
+*[https://www.diabloii.net/forums/threads/lcs-attack-rating-and-chance-to-hit-formulas.837129/ LCS attack rating and chance to hit formulas] (Diabloii.net)
+*Kingpin, [https://d2mods.info/forum/kb/viewarticle?a=354 MonLvl.txt File Guide] (Phrozen Keep)
+*Librarian, [https://www.mannm.org/d2library/faqtoids/cth_eng.html Come and Get it: Attack and Defense Ratings] (FAQtoids)
+*Nefarius, [https://d2mods.info/forum/viewtopic.php?t=42436 Boss Status Modifications (1.11b)] (Phrozen Keep)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118463-stone-skin-unique-modifier/ Stone Skin Unique Modifier] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Attack modifiers]]

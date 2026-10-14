@@ -1,0 +1,1433 @@
+{{Attribute nav}}
+{{Intro}}
+[[File:Life.png|thumb|600px|Current and maximum life are displayed both on the character screen and by the contents of the globe in the bottom left of the screen, which empties as life depletes (and turns green when the player character is [[Poison Damage|poisoned]]). Holding the cursor over the globe displays numerical values, which since [[1.13c|1.13]] will remain even when the cursor has been removed after clicking once on the bottom of the globe (clicking a second time will undo this).]]
+|}
+
+
+{{Mb|=Life}} determines how much damage can be sustained before dying. Life displayed is rounded down to the nearest point, but the smallest unit is actually 1/256 point. Life varies depending on chosen class at start of game:
+
+
+{{Classes table}}
+|-
+|50||50||55||55||45||55||40||55
+|}
+
+
+Life gained as a character gains levels also varies depending on class:
+
+
+{{Classes table}}
+|-
+| +2||+2||+2||+1.5||+1.5||+2||+1||+2
+|}
+
+
+Life can be increased by allocating attribute points to Vitality. Life gained from each additional point also varies depending on class:
+
+
+{{Classes table}}
+|-
+| +3||+3||+4||+2||+2||+3||+2||+3
+|}
+
+
+Unlike mana, life does not naturally regenerate. Player character returns to maximum life upon gaining a level (as does a [[mercenary]] upon gaining a level). Returning to town and clicking on a [[Townsperson#Heal|healer]] will instantly heal to maximum life for a player character and any mercenary or [[pet]]s, while each drink from a [[Shrine|well]] in the wilderness will heal 50% of maximum life for all. Activating a Health or Refilling [[Shrine]] in the wilderness will only heal the player character to maximum life.
+
+
+Player character (and mercenary in [[Expansion]] games) can drink a [[Full Rejuvenation Potion]] to heal to maximum life (while each [[Rejuvenation Potion]] will heal 35% of maximum life). Healing [[potion]]s can also be drunk to heal life over time; any excess which isn't required to heal to maximum life may not be redundant, since further life can be lost while healing. The amount healed from drinking any healing potion depends on class:
+
+
+{{Classes table}}
+|-
+|100%
+|100%
+|{{S|=+1/3}}
+|{{Warn|=-1/3}}
+|{{Warn|=-1/3}}
+|100%
+|{{Warn|=-1/3}}
+|{{Warn|=-1/3}}
+|}
+[https://d2mods.info/forum/viewtopic.php?f=8&t=40504]
+
+
+Healing from potions also has a chance to double based on total Vitality. Other methods of recovering life are described on separate pages.
+
+
+==Charm==
+
+===Small Charm===
+{{Affix bonus}}
+|-
+| +(5-10)
+!align=left|{{M|=Small Charm of Life}}
+|14
+|1
+|-
+| +(11-15)
+!align=left|{{M|=Small Charm of Sustenance}}
+|17
+|23
+|-
+| +(16-20)
+!align=left|{{M|=Small Charm of Vita}}
+|39
+|47
+|}
+<br/>
+
+===Large Charm===
+{{Affix bonus}}
+|-
+| +(6-10)
+!align=left|{{M|=Large Charm of Life}}
+|9
+|1
+|-
+| +(11-15)
+!align=left|{{M|=Large Charm of Life}}
+|9
+|12
+|-
+| +(16-20)
+!align=left|{{M|=Large Charm of Sustenance}}
+|19
+|26
+|-
+| +(21-25)
+!align=left|{{M|=Large Charm of Sustenance}}
+|34
+|42
+|-
+| +(26-30)
+!align=left|{{M|=Large Charm of Vita}}
+|50
+|58
+|-
+| +(31-35)
+!align=left|{{M|=Large Charm of Vita}}
+|66
+|74
+|}
+<br/>
+
+===Grand Charm===
+{{Affix bonus}}
+|-
+| +(5-10)
+!align=left|{{M|=Grand Charm of Life}}
+|1
+|1
+|-
+| +(11-15)
+!align=left|{{M|=Grand Charm of Life}}
+|6
+|9
+|-
+| +(16-20)
+!align=left|{{M|=Grand Charm of Life}}
+|14
+|19
+|-
+| +(21-25)
+!align=left|{{M|=Grand Charm of Sustenance}}
+|23
+|31
+|-
+| +(26-30)
+!align=left|{{M|=Grand Charm of Sustenance}}
+|37
+|45
+|-
+| +(31-35)
+!align=left|{{M|=Grand Charm of Sustenance}}
+|53
+|61
+|-
+| +(36-40)
+!align=left|{{M|=Grand Charm of Vita}}
+|69
+|77
+|-
+| +(41-45)
+!align=left|{{M|=Grand Charm of Vita}}
+|83
+|91
+|-
+| +(46-50)
+!align=left|{{M|=Grand Charm of Vita}} <sup>1</sup>
+|97
+|{{Warn|=110}}
+|}
+<span style=font-size:90%><sup>1</sup> Although enabled, this suffix cannot spawn in unmodified game (affix level is capped at {{Warn|=99}}). Hence, {{Mb|=+45 to Life}} is the maximum on {{Mb|=Grand Charm}}.</span>
+<br/>
+<br/>
+
+==Any Socket==
+{{Affix bonus}}
+|-
+| +(3-8)
+!align=left|{{R|=Jewel of Spirit}}
+|1
+|1
+|-
+| +(9-20)
+!align=left|{{M|=Jewel of Hope}}
+|37
+|45
+|}
+<br/>
+
+==Helm==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Chipped Ruby]] in helm socket
+|1
+|No
+|-
+| +17
+|align=left|[[Flawed Ruby]] in helm socket
+|5
+|No
+|-
+| +24
+|align=left|[[Ruby]] in helm socket
+|12
+|No
+|-
+| +31
+|align=left|[[Flawless Ruby]] in helm socket
+|15
+|No
+|-
+| +38
+|align=left|[[Perfect Ruby]] in helm socket
+|18
+|No
+|}
+
+
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Helm of the Jackal}}
+|6
+|8
+|-
+| +(6-10)
+!align=left|{{R|=Helm of the Fox}}
+|13
+|17
+|-
+| +(11-20)
+!align=left|{{R|=Helm of the Wolf}}
+|26
+|34
+|-
+| +(21-30)
+!align=left|{{R|=Helm of the Tiger}}
+|43
+|51
+|-
+| +(31-40)
+!align=left|{{R|=Helm of the Mammoth}}
+|60
+|68
+|}
+
+
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[Biggin's Bonnet|{{U|=Biggin's Bonnet Cap}}]]
+|3
+|No
+|-
+| +15
+!align=left|[[Milabrega's Diadem|{{S|=Milabrega's Diadem Crown}}]]
+|17
+|No
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood helm}}]]
+|13
+|No
+|-
+| +50
+!align=left|[[Crown of Thieves|{{U|=Crown of Thieves Grand Crown}}]]
+|49
+|No
+|-
+| +60
+!align=left|[[Tal Rasha's Horadric Crest|{{S|=Tal Rasha's Horadric Crest Death Mask}}]]
+|66
+|No
+|}
+<br/>
+
+===Circlet===
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Circlet of the Jackal}}
+|1
+|1
+|-
+| +(6-10)
+!align=left|{{R|=Circlet of the Fox}}
+|5
+|7
+|-
+| +(11-20)
+!align=left|{{R|=Circlet of the Wolf}}
+|11
+|15
+|-
+| +(21-30)
+!align=left|{{R|=Circlet of the Tiger}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Circlet of the Mammoth}}
+|18
+|25
+|-
+| +(41-60)
+!align=left|{{R|=Circlet of the Colossus}}
+|22
+|30
+|-
+| +(61-80)
+!align=left|{{M|=Circlet of the Squid}}
+|30
+|40
+|-
+| +(81-100)
+!align=left|{{M|=Circlet of the Whale}}
+|37
+|50
+|}
+<br/>
+
+===Pelt===
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Pelt of the Jackal}}
+|3
+|4
+|-
+| +(6-10)
+!align=left|{{R|=Pelt of the Fox}}
+|8
+|11
+|-
+| +(11-20)
+!align=left|{{R|=Pelt of the Wolf}}
+|20
+|27
+|-
+| +(21-30)
+!align=left|{{R|=Pelt of the Tiger}}
+|35
+|43
+|-
+| +(31-40)
+!align=left|{{R|=Pelt of the Mammoth}}
+|51
+|59
+|-
+| +(41-60)
+!align=left|{{M|=Pelt of the Colossus}}
+|67
+|75
+|}
+<br/>
+
+===Primal helm===
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Primal helm of the Jackal}}
+|1
+|1
+|-
+| +(6-10)
+!align=left|{{R|=Primal helm of the Fox}}
+|5
+|7
+|-
+| +(11-20)
+!align=left|{{R|=Primal helm of the Wolf}}
+|11
+|15
+|-
+| +(21-30)
+!align=left|{{R|=Primal helm of the Tiger}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Primal helm of the Mammoth}}
+|18
+|25
+|-
+| +(41-60)
+!align=left|{{R|=Primal helm of the Colossus}}
+|22
+|30
+|-
+| +(61-80)
+!align=left|{{M|=Primal helm of the Squid}}
+|30
+|40
+|-
+| +(81-100)
+!align=left|{{M|=Primal helm of the Whale}}
+|37
+|50
+|}
+<br/>
+
+==Amulet==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Amulet of the Jackal}}
+|1
+|1
+|-
+| +(6-10)
+!align=left|{{R|=Amulet of the Fox}}
+|5
+|7
+|-
+| +(11-20)
+!align=left|{{R|=Amulet of the Wolf}}
+|11
+|15
+|-
+| +(21-30)
+!align=left|{{R|=Amulet of the Tiger}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Amulet of the Mammoth}}
+|18
+|25
+|-
+| +(41-60)
+!align=left|{{R|=Amulet of the Colossus}}
+|22
+|30
+|-
+| +(61-80)
+!align=left|{{M|=Amulet of the Squid}}
+|30
+|40
+|-
+| +(81-100)
+!align=left|{{M|=Amulet of the Whale}}
+|37
+|50
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[The Horadric Staff#Amulet of the Viper|{{U|=Amulet of the Viper}}]]
+| -
+|No
+|-
+| +15
+!align=left|[[Vidala's Snare|{{S|=Vidala's Snare Amulet}}]]
+|14
+|No
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood Amulet}}]]
+|13
+|No
+|-
+| +50
+!align=left|[[Tal Rasha's Adjudication|{{S|=Tal Rasha's Adjudication Amulet}}]]
+|67
+|No
+|-
+| +75
+|align=left|[[Angelic Wings|{{Sb|=Angelic Wings Amulet}}]] (2 items)
+|12
+|No
+|}
+<br/>
+
+==Body armor==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Chipped Ruby]] in body armor socket
+|1
+|No
+|-
+| +17
+|align=left|[[Flawed Ruby]] in body armor socket
+|5
+|No
+|-
+| +24
+|align=left|[[Ruby]] in body armor socket
+|12
+|No
+|-
+| +31
+|align=left|[[Flawless Ruby]] in body armor socket
+|15
+|No
+|-
+| +38
+|align=left|[[Perfect Ruby]] in body armor socket
+|18
+|No
+|}
+
+
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Body armor of the Jackal}}
+|1
+|1
+|-
+| +(6-10)
+!align=left|{{R|=Body armor of the Fox}}
+|5
+|7
+|-
+| +(11-20)
+!align=left|{{R|=Body armor of the Wolf}}
+|11
+|15
+|-
+| +(21-30)
+!align=left|{{R|=Body armor of the Tiger}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Body armor of the Mammoth}}
+|18
+|25
+|-
+| +(41-60)
+!align=left|{{R|=Body armor of the Colossus}}
+|22
+|30
+|-
+| +(61-80)
+!align=left|{{M|=Body armor of the Squid}}
+|30
+|40
+|-
+| +(81-100)
+!align=left|{{M|=Body armor of the Whale}}
+|37
+|50
+|}
+
+
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[The Centurion|{{U|=The Centurion Hard Leather Armor}}]]
+|14
+|No
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood body armor}}]]
+|13
+|No
+|-
+| +25
+!align=left|[[Iron Pelt|{{U|=Iron Pelt Trellised Armor}}]]
+|33
+|No
+|-
+| +30
+!align=left|[[Cow King's Hide|{{S|=Cow King's Hide Studded Leather}}]]
+|18
+|No
+|-
+| +40
+!align=left|[[Tancred's Spine|{{S|=Tancred's Spine Full Plate Mail}}]]
+|20
+|No
+|-
+| +50
+|align=left|[[Lionheart|{{Ub|=Lionheart}}]] body armor
+|41
+|No
+|-
+| +60
+!align=left|[[Shaftstop|{{U|=Shaftstop Mesh Armor}}]]
+|38
+|No
+|-
+| +65
+!align=left|[[Naj's Light Plate|{{S|=Naj's Light Plate Hellforge Plate}}]]
+|71
+|No
+|-
+| +(50-75)
+!align=left|[[Sazabi's Ghost Liberator|{{S|=Sazabi's Ghost Liberator Balrog Skin}}]]
+|67
+|No
+|-
+| +75
+!align=left|[[Haemosu's Adamant|{{S|=Haemosu's Adamant Cuirass}}]]
+|44
+|No
+|-
+| +100
+!align=left|[[Hwanin's Refuge|{{S|=Hwanin's Refuge Tigulated Mail}}]]
+|30
+|No
+|-
+| +(100-150)
+|align=left|[[Principle|{{Ub|=Principle}}]] body armor
+|53
+|No
+|}
+<br/>
+
+==Axe==
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood axe}}]]
+|13
+|No
+|-
+| +25
+!align=left|[[Hellslayer|{{U|=Hellslayer Decapitator}}]]
+|66
+|No
+|}
+<br/>
+
+==Bow==
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[Pluckeye|{{U|=Pluckeye Short Bow}}]]
+|7
+|No
+|-
+| +50
+!align=left|[[Cliffkiller|{{U|=Cliffkiller Long Siege Bow}}]]
+|41
+|No
+|}
+<br/>
+
+==Club==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Club of the Jackal}}
+|6
+|8
+|-
+| +(6-10)
+!align=left|{{R|=Club of the Fox}}
+|13
+|17
+|-
+| +(11-20)
+!align=left|{{R|=Club of the Wolf}}
+|26
+|34
+|-
+| +(21-30)
+!align=left|{{R|=Club of the Tiger}}
+|43
+|51
+|-
+| +(31-40)
+!align=left|{{R|=Club of the Mammoth}}
+|60
+|68
+|}
+<br/>
+
+==Crossbow==
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[Leadcrow|{{U|=Leadcrow Light Crossbow}}]]
+|9
+|No
+|-
+| +15
+!align=left|[[Doomslinger|{{U|=Doomslinger Repeating Crossbow}}]]
+|28
+|No
+|-
+| +30
+!align=left|[[Langer Briser|{{U|=Langer Briser Arbalest}}]]
+|32
+|No
+|}
+<br/>
+
+==Hammer==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Hammer of the Jackal}}
+|6
+|8
+|-
+| +(6-10)
+!align=left|{{R|=Hammer of the Fox}}
+|13
+|17
+|-
+| +(11-20)
+!align=left|{{R|=Hammer of the Wolf}}
+|26
+|34
+|-
+| +(21-30)
+!align=left|{{R|=Hammer of the Tiger}}
+|43
+|51
+|-
+| +(31-40)
+!align=left|{{R|=Hammer of the Mammoth}}
+|60
+|68
+|}
+
+
+{{Skill bonus}}
+|-
+| +50
+!align=left|[[Schaefer's Hammer|{{U|=Schaefer's Hammer Legendary Mallet}}]]
+|79
+|No
+|}
+<br/>
+
+==Mace==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Mace of the Jackal}}
+|6
+|8
+|-
+| +(6-10)
+!align=left|{{R|=Mace of the Fox}}
+|13
+|17
+|-
+| +(11-20)
+!align=left|{{R|=Mace of the Wolf}}
+|26
+|34
+|-
+| +(21-30)
+!align=left|{{R|=Mace of the Tiger}}
+|43
+|51
+|-
+| +(31-40)
+!align=left|{{R|=Mace of the Mammoth}}
+|60
+|68
+|}
+<br/>
+
+==Orb==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|Orb
+|3
+|1
+|-
+| +(6-10)
+!align=left|Orb
+|8
+|11
+|-
+| +(11-20)
+!align=left|Orb
+|20
+|27
+|-
+| +(21-30)
+!align=left|Orb
+|35
+|43
+|-
+| +(31-40)
+!align=left|Orb
+|51
+|59
+|-
+| +(41-60)
+!align=left|{{M|=Orb}}
+|67
+|75
+|}
+
+
+*One of the above or + [[Mana#Orb|Mana]] always spawns on any [[orb]] which isn't [[Unique (item)|Unique]] or [[Set]] quality.
+*Required Level (Rlvl) only applies when an orb is magic or rare quality.
+
+
+{{Skill bonus}}
+|-
+| +57
+!align=left|[[Tal Rasha's Lidless Eye|{{S|=Tal Rasha's Lidless Eye Swirling Crystal}}]]
+|65
+|No
+|}
+<br/>
+
+==Spear==
+{{Skill bonus}}
+|-
+| +26
+!align=left|[[Bloodthief|{{U|=Bloodthief Brandistock}}]]
+|17
+|No
+|-
+| +30
+!align=left|[[The Tannr Gorerod|{{U|=The Tannr Gorerod Pike}}]]
+|27
+|No
+|}
+<br/>
+
+==Staff==
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[The Horadric Staff#Horadric Staff|{{U|=Horadric Staff}}]]
+| -
+|No
+|-
+| +80
+!align=left|[[Razorswitch|{{U|=Razorswitch Jo Staff}}]]
+|28
+|No
+|}
+<br/>
+
+==Sword==
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[Blood Crescent|{{U|=Blood Crescent Scimitar}}]]
+|7
+|No
+|-
+| +80
+!align=left|[[The Grandfather|{{U|=The Grandfather Colossus Blade}}]]
+|81
+|No
+|}
+<br/>
+
+==Wand==
+{{Skill bonus}}
+|-
+| +40
+!align=left|[[Suicide Branch|{{U|=Suicide Branch Burnt Wand}}]]
+|33
+|No
+|-
+| +50
+!align=left|[[Blackhand Key|{{U|=Blackhand Key Grave Wand}}]]
+|41
+|No
+|}
+<br/>
+
+==Shield==
+{{Skill bonus}}
+|-
+| +50
+|align=left|[[Jah Rune|{{Cb|=Jah Rune}}]] in shield socket
+|65
+|No
+|}
+
+
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Shield of the Jackal}}
+|3
+|4
+|-
+| +(6-10)
+!align=left|{{R|=Shield of the Fox}}
+|8
+|11
+|-
+| +(11-20)
+!align=left|{{R|=Shield of the Wolf}}
+|20
+|27
+|-
+| +(21-30)
+!align=left|{{R|=Shield of the Tiger}}
+|35
+|43
+|-
+| +(31-40)
+!align=left|{{R|=Shield of the Mammoth}}
+|51
+|59
+|-
+| +(41-60)
+!align=left|{{M|=Shield of the Colossus}}
+|67
+|75
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood shield}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[Umbral Disk|{{U|=Umbral Disk Small Shield}}]]
+|9
+|No
+|-
+| +50
+|align=left|[[Milabrega's Orb|{{Sb|=Milabrega's Orb Kite Shield}}]] (2 items)
+|17
+|No
+|-
+| +(20-40)
+|align=left|[[Vigilance|{{Ub|=Vigilance}}]] shield {{RotW-inline}}
+|53
+|No
+|-
+| +50
+!align=left|[[Lance Guard|{{U|=Lance Guard Barbed Shield}}]]
+|35
+|No
+|-
+| +50
+|align=left|[[Dream|{{Ub|=Dream}}]] shield
+|65
+!{{Warn|=Yes}}
+|-
+| +50
+|align=left|[[Phoenix|{{Ub|=Phoenix}}]] shield
+|65
+!{{Warn|=Yes}}
+|}
+<br/>
+
+===Grimoire===
+{{Skill bonus}}
+|-
+| +(30-50)
+|align=left|[[Horazon's Secrets|{{Sb|=Horazon's Secrets Occult Codex}}]] {{RotW-inline}}
+|57
+|No
+|}
+
+==Ring==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Ring of the Jackal}}
+|6
+|8
+|-
+| +(6-10)
+!align=left|{{R|=Ring of the Fox}}
+|13
+|17
+|-
+| +(11-20
+!align=left|{{R|=Ring of the Wolf}}
+|26
+|34
+|-
+| +(21-30)
+!align=left|{{R|=Ring of the Tiger}}
+|43
+|51
+|-
+| +(31-40)
+!align=left|{{R|=Ring of the Mammoth}}
+|60
+|68
+|}
+
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood Ring}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[Angelic Halo|{{S|=Angelic Halo Ring}}]]
+|12
+|No
+|-
+| +20
+!align=left|[[Manald Heal|{{U|=Manald Heal Ring}}]]
+|15
+|No
+|-
+| +40
+!align=left|[[Dwarf Star|{{U|=Dwarf Star Ring}}]]
+|45
+|No
+|}
+<br/>
+
+==Belt==
+{{Affix bonus}}
+|-
+| +(1-5)
+!align=left|{{R|=Belt of the Jackal}}
+|1
+|1
+|-
+| +(6-10)
+!align=left|{{R|=Belt of the Fox}}
+|5
+|7
+|-
+| +(11-20)
+!align=left|{{R|=Belt of the Wolf}}
+|11
+|15
+|-
+| +(21-30)
+!align=left|{{R|=Belt of the Tiger}}
+|15
+|20
+|-
+| +(31-40)
+!align=left|{{R|=Belt of the Mammoth}}
+|18
+|25
+|-
+| +(41-60)
+!align=left|{{R|=Belt of the Colossus}}
+|22
+|30
+|-
+| +(61-80)
+!align=left|{{M|=Belt of the Squid}}
+|30
+|40
+|-
+| +(81-100)
+!align=left|{{M|=Belt of the Whale}}
+|37
+|50
+|}
+
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood belt}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[Hsarus' Iron Stay|{{S|=Hsarus' Iron Stay Belt}}]]
+|3
+|No
+|-
+| +20
+!align=left|[[Infernal Sign|{{S|=Infernal Sign Heavy Belt}}]]
+|5
+|No
+|-
+| +20
+!align=left|[[Sigon's Wrap|{{S|=Sigon's Wrap Plated Belt}}]]
+|6
+|No
+|-
+| +20
+|align=left|[[Bane's Authority|{{Sb|=Bane's Authority Light Belt}}]] {{RotW-inline}}
+|8
+|No
+|-
+| +66
+!align=left|[[Trang-Oul's Girth|{{S|=Trang-Oul's Girth Troll Belt}}]]
+|47
+|No
+|}
+<br/>
+
+==Boots==
+{{Skill bonus}}
+|-
+| +10
+!align=left|[[Treads of Cthon|{{U|=Treads of Cthon Chain Boots}}]]
+|15
+|No
+|-
+| +15
+!align=left|[[Hotspur|{{U|=Hotspur Boots}}]]
+|5
+|No
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood boots}}]]
+|13
+|No
+|-
+| +44
+!align=left|[[Immortal King's Pillar|{{S|=Immortal King's Pillar War Boots}}]]
+|31
+|No
+|-
+| +50
+!align=left|[[Aldur's Advance|{{S|=Aldur's Advance Battle Boots}}]]
+|45
+|No
+|-
+| +(45-65)
+!align=left|[[Waterwalk|{{U|=Waterwalk Sharkskin Boots}}]]
+|32
+|No
+|}
+<br/>
+
+==Gloves==
+{{Skill bonus}}
+|-
+| +(10-20)
+!align=left|[[Blood|{{C|=Blood gloves}}]]
+|13
+|No
+|-
+| +20
+!align=left|[[Arctic Mitts|{{S|=Arctic Mitts Light Gauntlets}}]]
+|2
+|No
+|-
+| +20
+!align=left|[[Ghoulhide|{{U|=Ghoulhide Heavy Bracers}}]]
+|36
+|No
+|-
+| +(30-40)
+|align=left|[[Horazon's Hold|{{Sb|=Horazon's Hold Demonhide Gloves}}]] {{RotW-inline}}
+|48
+|No
+|-
+| +40
+!align=left|[[Bloodfist|{{U|=Bloodfist Heavy Gloves}}]]
+|9
+|No
+|-
+| +40
+!align=left|[[Sander's Taboo|{{S|=Sander's Taboo Heavy Gloves}}]]
+|28
+|No
+|}
+<br/>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+| +35
+|align=left|[[Orphan's Call|{{Ub|=Orphan's Call}}]] (2 items) <sup>1</sup>
+|34
+|No
+|-
+| +50
+|align=left|[[Arctic Gear|{{Ub|=Arctic Gear}}]] (3 items)
+|2
+|No
+|-
+| +50
+|align=left|[[Berserker's Arsenal|{{Ub|=Berserker's Arsenal}}]] (2 items)
+|3
+|No
+|-
+| +50
+|align=left|[[Arcanna's Tricks|{{Ub|=Arcanna's Tricks}}]] (3 items)
+|15
+|No
+|-
+| +85
+|align=left|[[Orphan's Call|{{Ub|=Orphan's Call}}]] (Full) <sup>1</sup>
+|42
+|No
+|-
+| +100
+|align=left|[[Cow King's Leathers|{{Ub|=Cow King's Leathers}}]] (Full)
+|25
+|No (D2R only)
+|-
+| +150
+|align=left|[[Griswold's Legacy|{{Ub|=Griswold's Legacy}}]] (Full)
+|69
+|No
+|-
+| +150
+|align=left|[[Tal Rasha's Wrappings|{{Ub|=Tal Rasha's Wrappings}}]] (Full)
+|71
+|No
+|-
+| +150
+|align=left|[[Immortal King|{{Ub|=Immortal King}}]] (Full)
+|76
+|No
+|}
+<span style=font-size:90%><sup>1</sup> Another 50 life is added upon equipping the full [[set]], for +85 Life in total.</span>
+<br/>
+<br/>
+
+==Pet==
+{|border=1 cellpadding=2 rules=all style="empty-cells:show; text-align:center; font-size:90%" width=100%
+|-
+!width=12% align=left|[[Class]]
+!width=13% align=left|[[Pet]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-valign=top
+!rowspan=2 align=left|[[Amazon]]
+!align=left|[[Decoy]]
+|colspan=3|[character life * 0.5 * (100 + (10*slvl) ) / 100]
+|-valign=top
+!align=left|[[Valkyrie]] <sup>1</sup>
+|colspan=3|[ (400 to 480) * (80 + (20 * (slvl + Decoy.blvl) ) ) / 100]
+|-valign=top
+!align=left rowspan=2|[[Assassin]]
+!align=left|[[Shadow Warrior]] <sup>1</sup>
+|colspan=3|376 * (85 + (15*slvl) ) /100
+|-
+!align=left|[[Shadow Master]] <sup>1</sup>
+|colspan=3|376 * (85 + (15*slvl) ) /100
+|-valign=top
+!align=left rowspan=9|[[Druid (Diablo II)|Druid]]
+!align=left|[[Poison Creeper]]
+|colspan=3|[ (42 to 58) * (75 + (25*slvl) ) /100]
+|-
+!align=left|[[Oak Sage]]
+|colspan=3|[ (56 to 64) * (70 + (30*slvl) ) /100]
+|-
+!align=left|[[Summon Spirit Wolf|Spirit Wolf]]
+|colspan=3|[ (60 to 82) * (100 + if([[Summon Dire Wolf]].slvl > 0, 25 + (25 * SDW.slvl), 0) ) /100]
+|-
+!align=left|[[Carrion Vine]]
+|colspan=3|[ (80 to 110) * (75 + (25*slvl) ) /100]
+|-
+!align=left|[[Heart of Wolverine]]
+|colspan=3|[ (128 to 144) * (75 + (25*slvl) ) /100]
+|-
+!align=left|[[Summon Dire Wolf|Dire Wolf]]
+|colspan=3|[ (98 to 130) * (125 + (25*slvl) ) /100]
+|-
+!align=left|[[Solar Creeper]]
+|colspan=3|[ (138 to 192) * (80 + (20*slvl) ) /100] 
+|-
+!align=left|[[Spirit of Barbs]]
+|colspan=3|[ (200 to 226) * (75 + (25*slvl) ) /100]
+|-
+!align=left|[[Summon Grizzly|Grizzly]]
+|colspan=3|[ (550 to 750) * (100 + if(Summon Dire Wolf.slvl > 0, 25 + (25 * SDW.slvl), 0) ) /100]
+|-valign=top
+!align=left rowspan=8|[[Necromancer]]
+!align=left|[[Raise Skeleton|Necroskeleton]]
+|21 + (8 * [[Skeleton Mastery]].slvl)
+|30 + (8 * Skeleton Mastery.slvl)
+|42 + (8 * Skeleton Mastery.slvl)
+|-
+!align=left|[[Clay Golem]]
+|[100 * (65 + (35*slvl) ) /100]
+|[175 * (65 + (35*slvl) ) /100]
+|[275 * (65 + (35*slvl) ) /100]
+|-
+!align=left|[[Bone Wall]]
+|19
+|147
+|431
+|-
+!align=left|[[Raise Skeletal Mage|Necromage]]
+|61 + (8 * Skeleton Mastery.slvl) 
+|88 + (8 * Skeleton Mastery.slvl)
+|123 + (8 * Skeleton Mastery.slvl)
+|-
+!align=left|[[Blood Golem]]
+|[201 * (100 + (20 * [[Golem Mastery|GM]].slvl) ) /100]
+|[388 * (100 + (20 * GM.slvl) ) /100]
+|[637 * (100 + (20 * GM.slvl) ) /100]
+|-
+!align=left|[[Bone Prison]]
+|19
+|147
+|431
+|-
+!align=left|[[Iron Golem]] <sup>1</sup>
+|306
+|595
+|980
+|-
+!align=left|[[Fire Golem]]
+|313
+|613
+|1,013
+|}
+<span style=font-size:90%><sup>1</sup>+ Life from equipped [[item]]s is also added.</span>
+
+
+*Necromancer pets also have +% Life as follows:
+
+
+{{Text table}} width=50%
+|-
+!width=24%|Pet
+!width=76%|+% Life
+|-
+!Necroskeleton
+|if(slvl < 4, 0, (50*slvl) - 150)
+|-
+|'''Golem''' <sup>1<sup>
+|(20 * [[Golem Mastery]].slvl) + (5 * Blood Golem.blvl)
+|-
+!Bone Wall
+|(25*slvl) + (10 * ([[Bone Armor]].blvl + Bone Prison.blvl) )
+|-
+!Necromage
+|if(slvl < 4, 0, (7*slvl) - 21)
+|-
+!Bone Prison
+|(25*slvl) + (8 * (Bone Armor.blvl + Bone Wall.blvl) )
+|-
+![[Revive]]d
+|200 + (5 * Skeleton Mastery.slvl)
+|}
+<span style=font-size:90%><sup>1</sup> Excluding Blood Golem</span>
+
+
+*[http://tph.tuwien.ac.at/~gottwald/druid_pet_calculator.html Druid Pet Calculator]
+*[http://tph.tuwien.ac.at/~gottwald/necro_pet_calculator.html Necromancer Pet Calculator]
+*{{Warn|=Calculators apply +% [[Maximum Life]] from [[Battle Orders]] and [[Oak Sage]] incorrectly: this is applied '''after''' any +% life, not added to it.}}
+*[[Revive]]d life is calculated in the same way as a [[Life#Monster|monster]]'s base life (it does not increase with player count). However, if clvl < mlvl then clvl is used to calculate life and it is multiplied by clvl/mlvl; otherwise, mlvl continues to be used.
+*Life of [[Conversion|converted]] and [[Mind Blast|mind blasted]] is also calculated in the same way as monster's base life (it does not increase with player count). However, if clvl < mlvl then clvl is used to calculate life; otherwise, mlvl continues to be used. {{Warn|=Upon expiry of [[Conversion]], if clvl < mlvl then life is 1/256.}}  [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118210-handling-pis-with-conversion/] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/&do=findComment&comment=1505822] [https://planetdiablo.eu/forum/threads/der-bekehrungs-bug.1663002/]
+*[[Reanimate]]d [[Skeleton#Returned|Returned]] have the same base life as a normal Returned that would spawn in the same [[area]] and [[difficulty]] level (it does not increase with player count).
+<br/>
+
+==Monster==
+[[Monster]] life varies depending on [[difficulty]] level, monster [[Attack#Level|level]] and monster type:
+
+
+Base life = <nowiki>[</nowiki>[[MonLvl#Life|MonLvl]] * MonStats/100] [https://d2mods.info/forum/kb/viewarticle?a=354]
+
+
+*MonLvl values for the relevant difficulty and monster level (without any [[Champion]], [[Unique (monster)|Unique]] or minion bonus) [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495104] are modified by percentage values stored in the MonStats.txt file, which vary depending on monster type.
+
+*Monster life increases by 50% with each additional player in the game at time of spawning:
+
+
+{{Number table}} width=25%
+|-align=center
+!width=50%|Players
+!width=50%|Life
+|-
+!align=center|1
+|100% (*1){{0|.0}}
+|-
+!align=center|2
+|150% (*1.5)
+|-
+!align=center|3
+|200% (*2){{0|.0}}
+|-
+!align=center|4
+|250% (*2.5)
+|-
+!align=center|5
+|300% (*3){{0|.0}}
+|-
+!align=center|6
+|350% (*3.5)
+|-
+!align=center|7
+|400% (*4){{0|.0}}
+|-
+!align=center|8
+|450% (*4.5)
+|}
+
+
+*Champion, Unique (including [[Super Unique]]) and minion monster life is further modified as follows:
+
+
+{{Number table}} width=100%
+|-align=center
+!width=25% align=left|Monster
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-
+!align=left|[[Berserker|{{M|=Berserker}}]]
+|75%
+|62.5%
+|50%
+|-
+!align=left|[[Possessed|{{M|=Possessed}}]]
+|600%
+|500%
+|400%
+|-
+!align=left|Other {{M|=Champions}}
+|300%
+|250%
+|200%
+|-
+!align=left|{{U|=Unique}}
+|400%
+|300%
+|300%
+|-
+!align=left|Minion
+|200%
+|175%
+|150%
+|}
+[https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/]
+
+
+*If a [[boss]] receives random Unique bonuses in Nightmare and Hell, the Unique life bonus also applies in all [[difficulty]] levels (so this applies to [[Griswold|{{Ub|=Griswold}}]], [[Radament|{{Ub|=Radament}}]] and [[Nihlathak (boss)|{{Ub|=Nihlathak}}]]).
+<br/>
+
+==Reference==
+*[https://d2mods.info/forum/viewtopic.php?f=8&t=40504 Hp/Mp Potions (double heal and char class boni)] (Phrozen Keep)
+*Kingpin, [https://d2mods.info/forum/kb/viewarticle?a=354 MonLvl.txt File Guide] (Phrozen Keep)
+*Nefarius, [https://d2mods.info/forum/viewtopic.php?t=42436 Boss Status Modifications (1.11b)] (Phrozen Keep)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Attribute modifiers]]

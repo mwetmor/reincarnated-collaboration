@@ -1,0 +1,165 @@
+{{Monster nav}}
+{{Intro}}
+Champions have 20% chance of being selected when a random Champion or Unique pack spawns. They can also spawn from Evil Urns in Act 5 and Monster [[Shrine]]s throughout the game, and in some set locations:
+*[[Tristram (Act 1)|Tristram]]
+*[[Crystalline Passage]] (guarding entrance to [[Frozen River]])
+*[[Glacial Trail]] (guarding entrance to Drifter Cavern)
+*[[Drifter Cavern]]
+*[[Halls of Vaught]] (end of hall)
+*[[Frozen Tundra]] (guarding entrance to Ancients' Way)
+*[[Ancients' Way]] (guarding entrance to Icy Cellar)
+*[[Icy Cellar]] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+|}
+
+
+*They spawn in groups of 2-4: all but one are always Champion, with the remaining having an equal chance of being Champion, Berserker, Fanatic, Ghostly or Possessed. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+*If the following spawn as Champions, any minions receive the life and level bonuses of Unique minions:
+**[[Fallen]]
+**[[Fallen Shaman]]
+**[[Scarab Demon]]
+**[[Fetish]]
+**[[Blow Pipe Fetish]]
+**[[Fetish Shaman]]
+**[[Siege Beast]]
+**[[Overseer]]
+*For all Champion types except Berserkers, level is normally monster level +2: this level is used for [[Attack#Chance to hit|chance to hit]], [[Aura Enchanted|aura]] and [[Cursed|curse]] level calculation, selecting relevant [[MonLvl]] values to calculate base [[MonLvl#Attack rating|attack rating]] and [[MonLvl#Damage|damage]] of all types, and the clvl/mlvl modifier applied to [[experience]] when clvl < mlvl; base level continues to be used to calculate base [[MonLvl#Defense rating|defense]], [[MonLvl#Life|life]] and [[MonLvl#Experience|experience]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495104] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1520493]
+*[[Ignore Target's Defense]] does not apply but -% [[Target Defense]] from items is 100% effective.
+*[[Freeze length]] chills instead; only minions can be frozen.
+*[[Stun length]] only has 10% chance of being applied, but suffers no other penalty.
+*Effects [[altering AI]] cannot be applied directly.
+*+[[% Damage]] from Champion bonuses is halved then rounded down when applied to [[Willowisp]] Champion melee physical damage due to a now undocumented change in [[1.13a|1.13]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/119499-patch-113-realm-is-alive/&do=findComment&comment=1481905] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/119790-113b-ptr-is-live/&do=findComment&comment=1483768] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/119882-113-live-ladder-reset/&do=findComment&comment=1485259]
+*Life drained by [[Open Wounds]] is halved.
+
+
+==Champion==
+{{Difficulty}}
+|-
+!align=left|% Base [[Life]]
+|300||250||200
+|-
+!align=left|% Base [[Experience]]
+|300||300||300
+|-
+!align=left|+[[% Attack Rating]]
+|67||56||49
+|-
+!align=left|+[[% Damage]]
+|90||75||66
+|}
+
+
+*+20% [[walk/run speed]] [https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+<br>
+
+==Berserker==
+{{Difficulty}}
+|-
+!align=left|% Base [[Life]]
+|75||62.5||50
+|-
+!align=left|% Base Experience
+|500||500||500
+|-
+!align=left|+[[% Attack Rating]]
+|270||225||198
+|-
+!align=left|+[[% Damage]]
+|270||225||198
+|}
+[https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+
+
+*Unlike other Champion types, Berserker level is monster level +3 (the same as Unique monsters and their minions): this level is used for [[Attack#Chance to hit|chance to hit]], [[Aura Enchanted|aura]] and [[Cursed|curse]] level calculation, selecting relevant [[MonLvl]] values to calculate base [[MonLvl#Attack rating|attack rating]] and [[MonLvl#Damage|damage]] of all types, and the clvl/mlvl modifier applied to [[experience]] when clvl < mlvl; base level continues to be used to calculate base [[MonLvl#Defense rating|defense]], [[MonLvl#Life|life]] and [[MonLvl#Experience|experience]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495104] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1520493]
+<br>
+
+==Fanatic==
+{{Difficulty}}
+|-
+!align=left|% Base [[Life]]
+|300||250||200
+|-
+!align=left|% Base [[Experience]]
+|300||300||300
+|-
+!align=left|[[% Defense]]
+| -70|| -70|| -70
+|-
+!align=left|+[[% Attack Rating]]
+|67||56||49
+|-
+!align=left|+[[% Damage]]
+|90||75||66
+|}
+
+
+*+100% [[walk/run speed]] [https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+<br>
+
+==Ghostly==
+{{Difficulty}}
+|-
+!align=left|% Base [[Life]]
+|300||250||200
+|-
+!align=left|% Base [[Experience]]
+|300||300||300
+|-
+!align=left|+[[% Attack Rating]]
+|67||56||49
+|-
+!align=left|+[[% Damage]]
+|90||75||66
+|-
+!align=left|Minimum [[Cold Damage]]
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*33/100]
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*33/100]
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*33/100]
+|-
+!align=left|Maximum Cold Damage
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*50/100]
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*50/100]
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*50/100]
+|-
+!align=left|Cold Length (Seconds)
+|6||6||6
+|}
+[https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+
+
+*They are easily identifiable since they are translucent.
+*Cold damage does not increase with player count, but a critical hit will double it. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+*[[Damage Resist]] is set to 80%. {{Warn|=This even applies to [[Immune to Physical]] monsters: although Immune to Physical will still be displayed, physical damage will harm them, and DR -% applied by [[Decrepify]] and [[Amplify Damage]] will still be 100% effective, not 20%.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/&do=findComment&comment=1408483] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+
+
+[[File:Ghostly Champion.png|frame|center|Although the [[Barbarian (Diablo II)|Barbarian]] [[War Cry]]'s physical damage obviously doesn't damage the Immune to Physical {{Mb|=Champion [[Blood Lord]]}}, it does damage the 'Immune to Physical' {{Mb|=Ghostly Blood Lord}} since it has actually been set to DR 80%.]]
+<br>
+
+==Possessed==
+{{Difficulty}}
+|-
+!align=left|% Base [[Life]]
+|600||500||400
+|-
+!align=left|% Base [[Experience]]
+|300||300||300
+|-
+!align=left|+[[% Attack Rating]]
+|67||56||49
+|-
+!align=left|+[[% Damage]]
+|90||75||66
+|}
+
+
+*+20% [[walk/run speed]]
+*Possessed cannot be [[curse]]d, although [[Cloak of Shadows]] and [[Battle Cry]] still apply. [https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241]
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/monsters/bonus.shtml Special Monster Bonuses] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/119882-113-live-ladder-reset/ 1.13 LIVE -- LADDER RESET] (D2 General)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/119790-113b-ptr-is-live/ 1.13b PTR is Live] (D2 General)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/119499-patch-113-realm-is-alive/ Patch 1.13 Realm is alive] (D2 Technical)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/112167-which-elements-are-most-resisted-in-hell/ Which elements are most resisted in Hell?] (D2 Technical)
+*Nefarius, [https://d2mods.info/forum/viewtopic.php?t=42436 Boss Status Modifications (1.11b)] (Phrozen Keep)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)

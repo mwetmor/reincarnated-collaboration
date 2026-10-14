@@ -1,0 +1,979 @@
+{
+ "gd_role_split": {
+  "weight_board_actors": {
+   "trash": {
+    "hp_lo": {
+     "p25": 168177.0,
+     "median": 243295.0,
+     "p75": 408903.0,
+     "min": 32770.0,
+     "max": 819665.0,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 6856.288,
+     "median": 8056.343,
+     "p75": 9591.421,
+     "min": 995.806,
+     "max": 13623.735,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "dmg_folded_max_slot": {
+     "p25": 9933.072,
+     "median": 16293.278,
+     "p75": 23746.015,
+     "min": 4406.694,
+     "max": 38237.365,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 683.0,
+     "median": 779.0,
+     "p75": 855.0,
+     "min": 105.0,
+     "max": 1252.5,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "OA_best": {
+     "p25": 2340.225,
+     "median": 2416.1953,
+     "p75": 2479.082,
+     "min": 2157.5812,
+     "max": 2700.4338,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "DA_best": {
+     "p25": 2167.115,
+     "median": 2203.587,
+     "p75": 2334.052,
+     "min": 2011.527,
+     "max": 2598.41,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "armor": {
+     "p25": 612.0,
+     "median": 915.0,
+     "p75": 933.0,
+     "min": 407.0,
+     "max": 1266.0,
+     "weight_total": 123.0,
+     "n": 47
+    },
+    "swing_period_s": {
+     "p25": 0.5961,
+     "median": 0.9333,
+     "p75": 1.0976,
+     "min": 0.5632,
+     "max": 1.7,
+     "weight_total": 123.0,
+     "n": 47
+    }
+   },
+   "champion-hero": {
+    "hp_lo": {
+     "p25": 443554.0,
+     "median": 447590.0,
+     "p75": 569330.0,
+     "min": 271764.0,
+     "max": 576596.0,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 11281.415,
+     "median": 13456.329,
+     "p75": 15986.451,
+     "min": 6302.599,
+     "max": 20377.319,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "dmg_folded_max_slot": {
+     "p25": 18342.068,
+     "median": 22576.819,
+     "p75": 30815.346,
+     "min": 8479.251,
+     "max": 44315.638,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 945.0,
+     "median": 1139.5,
+     "p75": 1348.5,
+     "min": 547.0,
+     "max": 1685.5,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "OA_best": {
+     "p25": 2613.2595,
+     "median": 2656.6165,
+     "p75": 2658.5265,
+     "min": 2612.3045,
+     "max": 2740.3755,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "DA_best": {
+     "p25": 2511.5135,
+     "median": 2553.5145,
+     "p75": 2557.3945,
+     "min": 2424.622,
+     "max": 2682.407,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "armor": {
+     "p25": 991.0,
+     "median": 1308.0,
+     "p75": 1308.0,
+     "min": 665.0,
+     "max": 1308.0,
+     "weight_total": 33.0,
+     "n": 29
+    },
+    "swing_period_s": {
+     "p25": 0.8778,
+     "median": 1.1378,
+     "p75": 1.1826,
+     "min": 0.5961,
+     "max": 1.4954,
+     "weight_total": 33.0,
+     "n": 29
+    }
+   },
+   "boss+nemesis": {
+    "hp_lo": {
+     "p25": 1969083.0,
+     "median": 1979872.0,
+     "p75": 2262574.0,
+     "min": 1161397.0,
+     "max": 3722896.0,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 0.0,
+     "median": 1748.421,
+     "p75": 2054.546,
+     "min": 0.0,
+     "max": 5675.232,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "dmg_folded_max_slot": {
+     "p25": 18464.282,
+     "median": 24517.404,
+     "p75": 30027.093,
+     "min": 14033.989,
+     "max": 63857.058,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 933.0,
+     "median": 1137.5,
+     "p75": 1317.5,
+     "min": 635.5,
+     "max": 1616.5,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "OA_best": {
+     "p25": 2598.5525,
+     "median": 2664.4475,
+     "p75": 2690.4713,
+     "min": 2596.165,
+     "max": 2945.189,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "DA_best": {
+     "p25": 2490.804,
+     "median": 2538.0915,
+     "p75": 2541.0015,
+     "min": 2473.441,
+     "max": 2770.0885,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "armor": {
+     "p25": 1751.0,
+     "median": 1751.0,
+     "p75": 1751.0,
+     "min": 1751.0,
+     "max": 1834.0,
+     "weight_total": 32.0,
+     "n": 19
+    },
+    "swing_period_s": {
+     "p25": 0.5067,
+     "median": 0.8727,
+     "p75": 1.0519,
+     "min": 0.5067,
+     "max": 1.3889,
+     "weight_total": 32.0,
+     "n": 19
+    }
+   },
+   "all": {
+    "hp_lo": {
+     "p25": 173091.0,
+     "median": 408903.0,
+     "p75": 569330.0,
+     "min": 32770.0,
+     "max": 3722896.0,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 5842.154,
+     "median": 8056.343,
+     "p75": 10033.958,
+     "min": 0.0,
+     "max": 20377.319,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "dmg_folded_max_slot": {
+     "p25": 12075.964,
+     "median": 19318.145,
+     "p75": 25486.991,
+     "min": 4406.694,
+     "max": 63857.058,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 735.5,
+     "median": 815.0,
+     "p75": 990.0,
+     "min": 105.0,
+     "max": 1685.5,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "OA_best": {
+     "p25": 2357.415,
+     "median": 2479.9892,
+     "p75": 2647.49,
+     "min": 2157.5812,
+     "max": 2945.189,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "DA_best": {
+     "p25": 2186.03,
+     "median": 2337.35,
+     "p75": 2514.4235,
+     "min": 2011.527,
+     "max": 2770.0885,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "armor": {
+     "p25": 612.0,
+     "median": 933.0,
+     "p75": 1308.0,
+     "min": 407.0,
+     "max": 1834.0,
+     "weight_total": 188.0,
+     "n": 95
+    },
+    "swing_period_s": {
+     "p25": 0.6049,
+     "median": 0.9333,
+     "p75": 1.0976,
+     "min": 0.5067,
+     "max": 1.7,
+     "weight_total": 188.0,
+     "n": 95
+    }
+   }
+  },
+  "weight_ref_bodies": {
+   "trash": {
+    "hp_lo": {
+     "p25": 138013.0,
+     "median": 237258.0,
+     "p75": 373665.0,
+     "min": 39311.0,
+     "max": 576596.0,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 1626.17,
+     "median": 6702.205,
+     "p75": 8390.043,
+     "min": 995.806,
+     "max": 13524.338,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "dmg_folded_max_slot": {
+     "p25": 3884.175,
+     "median": 10098.935,
+     "p75": 16293.278,
+     "min": 1351.455,
+     "max": 31929.101,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 634.5,
+     "median": 766.5,
+     "p75": 836.0,
+     "min": 105.0,
+     "max": 1348.5,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "OA_best": {
+     "p25": 2035.58,
+     "median": 2157.5812,
+     "p75": 2351.6372,
+     "min": 1916.205,
+     "max": 2600.2238,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "DA_best": {
+     "p25": 2011.527,
+     "median": 2150.334,
+     "p75": 2203.587,
+     "min": 1752.925,
+     "max": 2598.41,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "armor": {
+     "p25": 612.0,
+     "median": 915.0,
+     "p75": 933.0,
+     "min": 407.0,
+     "max": 1308.0,
+     "weight_total": 97.0001,
+     "n": 41
+    },
+    "swing_period_s": {
+     "p25": 0.9333,
+     "median": 1.0976,
+     "p75": 1.1378,
+     "min": 0.5632,
+     "max": 1.3889,
+     "weight_total": 97.0001,
+     "n": 41
+    }
+   },
+   "champion-hero": {
+    "hp_lo": {
+     "p25": 420287.0,
+     "median": 443554.0,
+     "p75": 571406.0,
+     "min": 219147.0,
+     "max": 702448.0,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 1883.7,
+     "median": 2496.485,
+     "p75": 2667.6,
+     "min": 1465.1,
+     "max": 17698.679,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "dmg_folded_max_slot": {
+     "p25": 3135.86,
+     "median": 5696.6,
+     "p75": 6475.2,
+     "min": 2016.56,
+     "max": 27979.208,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 855.0,
+     "median": 1035.0,
+     "p75": 1170.0,
+     "min": 794.5,
+     "max": 1597.5,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "OA_best": {
+     "p25": 2043.22,
+     "median": 2175.9649999999997,
+     "p75": 2176.92,
+     "min": 1952.495,
+     "max": 2612.3045,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "DA_best": {
+     "p25": 1961.7659999999998,
+     "median": 2150.7219999999998,
+     "p75": 2151.692,
+     "min": 1714.61,
+     "max": 2520.9225,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "armor": {
+     "p25": 991.0,
+     "median": 991.0,
+     "p75": 1308.0,
+     "min": 612.0,
+     "max": 1308.0,
+     "weight_total": 17.0,
+     "n": 18
+    },
+    "swing_period_s": {
+     "p25": 0.6889,
+     "median": 1.1467,
+     "p75": 1.303,
+     "min": 0.6756,
+     "max": 2.0333,
+     "weight_total": 17.0,
+     "n": 18
+    }
+   },
+   "boss+nemesis": {
+    "hp_lo": {
+     "p25": 1969083.0,
+     "median": 1982645.0,
+     "p75": 2295755.0,
+     "min": 1413094.0,
+     "max": 3722896.0,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 0.0,
+     "median": 1756.261,
+     "p75": 3044.601,
+     "min": 0.0,
+     "max": 4545.456,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "dmg_folded_max_slot": {
+     "p25": 15467.694,
+     "median": 24261.119,
+     "p75": 28502.284,
+     "min": 3851.12,
+     "max": 51115.519,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 937.5,
+     "median": 1312.5,
+     "p75": 1412.5,
+     "min": 635.5,
+     "max": 1864.5,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "OA_best": {
+     "p25": 2167.37,
+     "median": 2248.3540000000003,
+     "p75": 2664.4475,
+     "min": 2161.64,
+     "max": 2922.776,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "DA_best": {
+     "p25": 2119.876,
+     "median": 2475.381,
+     "p75": 2593.8665,
+     "min": 2115.0260000000003,
+     "max": 2611.8115,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "armor": {
+     "p25": 1751.0,
+     "median": 1751.0,
+     "p75": 1751.0,
+     "min": 1751.0,
+     "max": 1834.0,
+     "weight_total": 19.0,
+     "n": 20
+    },
+    "swing_period_s": {
+     "p25": 0.6756,
+     "median": 1.0,
+     "p75": 1.1067,
+     "min": 0.5067,
+     "max": 1.4,
+     "weight_total": 19.0,
+     "n": 20
+    }
+   },
+   "all": {
+    "hp_lo": {
+     "p25": 202027.0,
+     "median": 274977.0,
+     "p75": 447590.0,
+     "min": 39311.0,
+     "max": 3722896.0,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "dmg_folded_basic_hit": {
+     "p25": 1626.17,
+     "median": 4400.319,
+     "p75": 8056.343,
+     "min": 0.0,
+     "max": 17698.679,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "dmg_folded_max_slot": {
+     "p25": 3884.175,
+     "median": 9780.888,
+     "p75": 16760.128,
+     "min": 1351.455,
+     "max": 51115.519,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "dmg_raw_basic_hit": {
+     "p25": 664.0,
+     "median": 813.5,
+     "p75": 902.5,
+     "min": 105.0,
+     "max": 1864.5,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "OA_best": {
+     "p25": 2045.1299999999999,
+     "median": 2175.9649999999997,
+     "p75": 2351.6372,
+     "min": 1916.205,
+     "max": 2922.776,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "DA_best": {
+     "p25": 2049.0175,
+     "median": 2150.7219999999998,
+     "p75": 2271.8264999999997,
+     "min": 1714.61,
+     "max": 2611.8115,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "armor": {
+     "p25": 612.0,
+     "median": 915.0,
+     "p75": 1246.0,
+     "min": 407.0,
+     "max": 1834.0,
+     "weight_total": 133.0001,
+     "n": 79
+    },
+    "swing_period_s": {
+     "p25": 0.8178,
+     "median": 1.0519,
+     "p75": 1.1467,
+     "min": 0.5067,
+     "max": 2.0333,
+     "weight_total": 133.0001,
+     "n": 79
+    }
+   }
+  }
+ },
+ "ratios_gd_over_d2": {
+  "R1_alvl85_all": {
+   "HP_trash_vs_normal": {
+    "gd_median": 243295.0,
+    "d2_median": 6000.5,
+    "ratio_median": 40.54578785101241,
+    "ratio_p25_p75": [
+     34.8246622146296,
+     48.99682463603139
+    ],
+    "d2_slot_weighted_median": 5718.0
+   },
+   "HP_championhero_vs_champion": {
+    "gd_median": 447590.0,
+    "d2_median": 11745.0,
+    "ratio_median": 38.10898254576416
+   },
+   "HP_boss_vs_boss_superunique": null,
+   "DMG_trash_basic_vs_normal_maxattack": {
+    "gd_median_folded": 8056.343,
+    "gd_median_raw": 779.0,
+    "d2_median": 93.0,
+    "ratio_median_folded": 86.62734408602151,
+    "ratio_median_raw": 8.376344086021506,
+    "ratio_p25_p75_folded": [
+     82.11123353293412,
+     74.46755434782608
+    ]
+   },
+   "AR_vs_OA_RAW_NUMBERS_FLAGGED": {
+    "gd_OA_median_trash": 2416.1953,
+    "d2_AR_median_normal": 4089,
+    "ratio_median": 0.5909012717045732
+   },
+   "DEF_vs_DA_RAW_NUMBERS_FLAGGED": {
+    "gd_DA_median_trash": 2203.587,
+    "d2_def_median_normal": 1816.0,
+    "ratio_median": 1.2134289647577092
+   },
+   "RES_fire": {
+    "d2": {
+     "dist_equal": {
+      "n": 70,
+      "median": 33.0,
+      "p25": 0.0,
+      "p75": 57.5,
+      "min": 0,
+      "max": 145
+     },
+     "n_immune": 12,
+     "n_types": 70,
+     "after_kit_pierce_0": "monster resists are NOT reduced by the Hell ResistPenalty (that penalty is player-side)"
+    },
+    "gd_note": "GD BOARD/REF fire res: median 0, p75 25, range -20..80, no >= 100 cell (gd_notes.md)"
+   }
+  },
+  "R2_chaos_sanctum": {
+   "HP_trash_vs_normal": {
+    "gd_median": 243295.0,
+    "d2_median": 8345.5,
+    "ratio_median": 29.152836858187047,
+    "ratio_p25_p75": [
+     23.656913771275846,
+     36.24383974472611
+    ],
+    "d2_slot_weighted_median": 8345.5
+   },
+   "HP_championhero_vs_champion": {
+    "gd_median": 447590.0,
+    "d2_median": 16691.0,
+    "ratio_median": 26.816248277514827
+   },
+   "HP_boss_vs_boss_superunique": {
+    "gd_median": 1979872.0,
+    "d2_values": {
+     "diablo": 113812.0,
+     "Grand Vizier of Chaos": 11745.0,
+     "Lord De Seis": 16691.0,
+     "Infector of Souls": 28437.0
+    },
+    "d2_median": 22564.0,
+    "ratio_median": 87.74472611239142
+   },
+   "DMG_trash_basic_vs_normal_maxattack": {
+    "gd_median_folded": 8056.343,
+    "gd_median_raw": 779.0,
+    "d2_median": 93.0,
+    "ratio_median_folded": 86.62734408602151,
+    "ratio_median_raw": 8.376344086021506,
+    "ratio_p25_p75_folded": [
+     77.69164872521246,
+     88.19697471264368
+    ]
+   },
+   "AR_vs_OA_RAW_NUMBERS_FLAGGED": {
+    "gd_OA_median_trash": 2416.1953,
+    "d2_AR_median_normal": 5452,
+    "ratio_median": 0.4431759537784299
+   },
+   "DEF_vs_DA_RAW_NUMBERS_FLAGGED": {
+    "gd_DA_median_trash": 2203.587,
+    "d2_def_median_normal": 1898,
+    "ratio_median": 1.161004741833509
+   },
+   "RES_fire": {
+    "d2": {
+     "dist_equal": {
+      "n": 3,
+      "median": 60,
+      "p25": 30.0,
+      "p75": 95.0,
+      "min": 0,
+      "max": 130
+     },
+     "n_immune": 1,
+     "n_types": 3,
+     "after_kit_pierce_0": "monster resists are NOT reduced by the Hell ResistPenalty (that penalty is player-side)"
+    },
+    "gd_note": "GD BOARD/REF fire res: median 0, p75 25, range -20..80, no >= 100 cell (gd_notes.md)"
+   }
+  },
+  "R3_worldstone_throne": {
+   "HP_trash_vs_normal": {
+    "gd_median": 243295.0,
+    "d2_median": 6000.5,
+    "ratio_median": 40.54578785101241,
+    "ratio_p25_p75": [
+     36.276315789473685,
+     46.014601004346545
+    ],
+    "d2_slot_weighted_median": 6188.75
+   },
+   "HP_championhero_vs_champion": {
+    "gd_median": 447590.0,
+    "d2_median": 11436.0,
+    "ratio_median": 39.13868485484435
+   },
+   "HP_boss_vs_boss_superunique": {
+    "gd_median": 1979872.0,
+    "d2_values": {
+     "baalcrab": 493701.0
+    },
+    "d2_median": 493701.0,
+    "ratio_median": 4.010265322533274
+   },
+   "DMG_trash_basic_vs_normal_maxattack": {
+    "gd_median_folded": 8056.343,
+    "gd_median_raw": 779.0,
+    "d2_median": 107.8625,
+    "ratio_median_folded": 74.69086104994786,
+    "ratio_median_raw": 7.222157839842392,
+    "ratio_p25_p75_folded": [
+     82.73047360482654,
+     60.3661143891118
+    ]
+   },
+   "AR_vs_OA_RAW_NUMBERS_FLAGGED": {
+    "gd_OA_median_trash": 2416.1953,
+    "d2_AR_median_normal": 4089.0,
+    "ratio_median": 0.5909012717045732
+   },
+   "DEF_vs_DA_RAW_NUMBERS_FLAGGED": {
+    "gd_DA_median_trash": 2203.587,
+    "d2_def_median_normal": 1857.0,
+    "ratio_median": 1.186638126009693
+   },
+   "RES_fire": {
+    "d2": {
+     "dist_equal": {
+      "n": 36,
+      "median": 33.0,
+      "p25": 23.75,
+      "p75": 66.0,
+      "min": 0,
+      "max": 145
+     },
+     "n_immune": 7,
+     "n_types": 36,
+     "after_kit_pierce_0": "monster resists are NOT reduced by the Hell ResistPenalty (that penalty is player-side)"
+    },
+    "gd_note": "GD BOARD/REF fire res: median 0, p75 25, range -20..80, no >= 100 cell (gd_notes.md)"
+   }
+  },
+  "R4_alvl81plus": {
+   "HP_trash_vs_normal": {
+    "gd_median": 243295.0,
+    "d2_median": 5872.5,
+    "ratio_median": 41.429544487015754,
+    "ratio_p25_p75": [
+     36.276315789473685,
+     39.257200460829495
+    ],
+    "d2_slot_weighted_median": 5740.5
+   },
+   "HP_championhero_vs_champion": {
+    "gd_median": 447590.0,
+    "d2_median": 11709.0,
+    "ratio_median": 38.22615082415236
+   },
+   "HP_boss_vs_boss_superunique": null,
+   "DMG_trash_basic_vs_normal_maxattack": {
+    "gd_median_folded": 8056.343,
+    "gd_median_raw": 779.0,
+    "d2_median": 99.0,
+    "ratio_median_folded": 81.37720202020202,
+    "ratio_median_raw": 7.8686868686868685,
+    "ratio_p25_p75_folded": [
+     86.24261635220125,
+     75.22683137254903
+    ]
+   },
+   "AR_vs_OA_RAW_NUMBERS_FLAGGED": {
+    "gd_OA_median_trash": 2416.1953,
+    "d2_AR_median_normal": 3998.0,
+    "ratio_median": 0.60435100050025
+   },
+   "DEF_vs_DA_RAW_NUMBERS_FLAGGED": {
+    "gd_DA_median_trash": 2203.587,
+    "d2_def_median_normal": 1757,
+    "ratio_median": 1.2541758679567445
+   },
+   "RES_fire": {
+    "d2": {
+     "dist_equal": {
+      "n": 327,
+      "median": 33,
+      "p25": 0.0,
+      "p75": 66.0,
+      "min": 0,
+      "max": 145
+     },
+     "n_immune": 64,
+     "n_types": 327,
+     "after_kit_pierce_0": "monster resists are NOT reduced by the Hell ResistPenalty (that penalty is player-side)"
+    },
+    "gd_note": "GD BOARD/REF fire res: median 0, p75 25, range -20..80, no >= 100 cell (gd_notes.md)"
+   }
+  }
+ },
+ "hit_chance_in_each_law": {
+  "MAXBLOCK_quests": {
+   "sorc_defense_mid": 1279,
+   "d2_normal_melee_hit_pct": {
+    "p25": 71,
+    "median": 74,
+    "p75": 77,
+    "min": 63,
+    "max": 86,
+    "weight_total": 80,
+    "n": 64
+   },
+   "d2_champion_melee_hit_pct_lowerbound": {
+    "p25": 79,
+    "median": 81,
+    "p75": 84,
+    "min": 71,
+    "max": 90,
+    "weight_total": 80,
+    "n": 64
+   },
+   "then_block_pct": 75
+  },
+  "NODEX_quests": {
+   "sorc_defense_mid": 1203,
+   "d2_normal_melee_hit_pct": {
+    "p25": 72,
+    "median": 75,
+    "p75": 78,
+    "min": 64,
+    "max": 87,
+    "weight_total": 80,
+    "n": 64
+   },
+   "d2_champion_melee_hit_pct_lowerbound": {
+    "p25": 80,
+    "median": 82,
+    "p75": 85,
+    "min": 72,
+    "max": 91,
+    "weight_total": 80,
+    "n": 64
+   },
+   "then_block_pct": 3
+  },
+  "gd_monster_vs_warlord": {
+   "m2p_p_hit_pct": {
+    "p25": 83.1778,
+    "median": 86.7851,
+    "p75": 91.6186,
+    "min": 77.1484,
+    "max": 99.9799,
+    "weight_total": 188.0,
+    "n": 95
+   },
+   "m2p_pth_effective": {
+    "p25": 83.1778,
+    "median": 86.7851,
+    "p75": 91.6186,
+    "min": 77.1484,
+    "max": 99.9799,
+    "weight_total": 188.0,
+    "n": 95
+   },
+   "source": "pm4o_oa_da.csv m2p_* columns (BOARD, body-weighted)"
+  }
+ },
+ "yard_metre_anchors": {
+  "literal_yard": {
+   "m_per_yd": 0.9144,
+   "grade": "DEFINITIONAL (label-literal; neither game states it in-world)"
+  },
+  "body_radius": {
+   "gd_human_actorRadius_m": [
+    0.38,
+    0.4
+   ],
+   "d2_player_footprint": "COLLISION_UNIT_SIZE_SMALL (1 subtile); 1 subtile = 2/3 yd -> half-width 1/3 yd",
+   "m_per_yd": 1.1700000000000002,
+   "grade": "INFERRED (D2 footprint-as-diameter is an assumption; GD radius DATAMINED pm4_body_radii.csv)"
+  },
+  "melee_reach": {
+   "gd_meleeTargetDistance_m": 2.4,
+   "d2_player_melee_reach_subtiles": "weapon melee range + 1 (Units.cpp IsInMeleeRange: range + bonus + 1 >= distance)",
+   "d2_reach_yd_assumed": 2.0,
+   "m_per_yd": 1.2,
+   "grade": "INFERRED (D2 reach in subtiles depends on weapon rangeadder; 3 subtiles = 2 yd assumed for a 1-handed reach)"
+  },
+  "run_speed": {
+   "gd_warlord_moving_speed_m_s": 4.55,
+   "d2_base_run_yd_s": 9,
+   "m_per_yd": 0.5055555555555555,
+   "grade": "INFERRED (Basin reads CharStats RunVelocity 9 as yd/s; GD figure is the pilot's measured moving speed with gear, not a base)"
+  },
+  "sensitivity_set_m_per_yd": [
+   0.67,
+   0.9144,
+   1.0,
+   1.17,
+   1.2,
+   1.5
+  ],
+  "radii_in_metres": {
+   "0.67": {
+    "fire_ball_2.667yd": 1.787,
+    "meteor_4yd": 2.68,
+    "ww_search_3.333yd": 2.233
+   },
+   "0.9144": {
+    "fire_ball_2.667yd": 2.438,
+    "meteor_4yd": 3.658,
+    "ww_search_3.333yd": 3.048
+   },
+   "1.0": {
+    "fire_ball_2.667yd": 2.667,
+    "meteor_4yd": 4.0,
+    "ww_search_3.333yd": 3.333
+   },
+   "1.17": {
+    "fire_ball_2.667yd": 3.12,
+    "meteor_4yd": 4.68,
+    "ww_search_3.333yd": 3.9
+   },
+   "1.2": {
+    "fire_ball_2.667yd": 3.2,
+    "meteor_4yd": 4.8,
+    "ww_search_3.333yd": 4.0
+   },
+   "1.5": {
+    "fire_ball_2.667yd": 4.0,
+    "meteor_4yd": 6.0,
+    "ww_search_3.333yd": 5.0
+   }
+  }
+ },
+ "inputs_sha256": {
+  "d2_enemy_quantities.json": "f31a5fab383e1b68eaf1dc6aec0e61d696b0408d8b2c0d0724da32ae9a7c184f",
+  "gd_enemy_quantities.json": "bf4d7cc31749ce8257deb1e5ecb07930cb6a94f2a34081d00417b821093c0190",
+  "pm4o_oa_da.csv": "5c55998d0127ed776f8130d530fe02e035c17d7070dfe0e3fe7565a9b02cc564"
+ }
+}
