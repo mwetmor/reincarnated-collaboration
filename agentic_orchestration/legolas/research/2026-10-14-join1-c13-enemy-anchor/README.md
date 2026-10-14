@@ -30,7 +30,7 @@ Grades: **DATAMINED** (read from game data) · **MODEL-VERIFIED** (D2MOO code st
 |---|---|---|---|---|
 | **HP** | 6,000 [4,829–8,346] | 243k [168k–409k] | **×40.5** [34.8–49.0] | both DATAMINED; ratio INFERRED |
 | HP, champion ↔ champion-hero | 11,745 | 448k | ×38.1 | as above |
-| ~~**Damage per hit** (pre-mitigation)~~ **SUPERSEDED by § 12.3: r_DMG = ×98.9 [74.5–118.2]** | 93 [84–129] (melee/attack columns only ⚑) | 8.06k folded [6.86k–9.59k] (779 raw) | **×86.6 folded** (p25/p25 ×82.1, p75/p75 ×74.5) / ×8.4 raw | flagged ⚑ |
+| ~~**Damage per hit** (pre-mitigation)~~ **SUPERSEDED: r_DMG of record = ×97.1 [85.9–110.4] (§ 12.4, stage 5)** | 93 [84–129] (melee/attack columns only ⚑) | 8.06k folded [6.86k–9.59k] (779 raw) | **×86.6 folded** (p25/p25 ×82.1, p75/p75 ×74.5) / ×8.4 raw | flagged ⚑ |
 | AR ↔ OA (raw numbers) | 4,089 | 2,416 | ×0.59 | **⚑ MISLEADING. Use hit chance (§ 4.2)** |
 | Defense ↔ DA (raw numbers) | 1,816 | 2,204 | ×1.21 | **⚑ MISLEADING. Use hit chance** |
 | Armour | none on D2 monsters | 915 (70 % absorption) | — | **⚑ NOT A RATIO** |
@@ -339,7 +339,7 @@ Grade: **structure MODEL-VERIFIED (code); per-skill values INFERRED (computed; n
 
 27 of 70 R1 types have a damaging skill hit; 10 have a stream skill. Most of the 55 skill-bearing types carry utility skills (raise, curse, teleport, nest).
 
-### 12.2 GD side: reconciled (stage 4)
+### 12.2 GD side: reconciled (stage 4). ⚑ Its FIGURES are superseded by § 12.4; the damage-path table stands
 
 Files: `gd_damage_reconcile.json` and `scripts/gd_damage_reconcile.py`. The script was written by the GD fork; **I reviewed it and re-ran it.** The re-run is identical except the `wall_s` timer (4.9 against 5.0), and engine `simulation/kc2` and `data/kc2` are untouched.
 
@@ -380,7 +380,7 @@ Files: `gd_damage_reconcile.json` and `scripts/gd_damage_reconcile.py`. The scri
 
 Why dynamic sits below static: it weights by **use** (frequent cheap basic swings and specials), while static takes each cell's **maximum** slot. It is also one salt over the line-up's bodies, not the board's. **Neither instrument is wrong; they answer different weightings.** Dynamic pairs with D2's mean attack; static max slot pairs with D2's best attack.
 
-### 12.3 r_DMG, bound (`r_dmg.json`, `scripts/r_dmg_bind.py`, `verification_r_dmg.log`)
+### 12.3 r_DMG, bound at stage 4 (`c81376a83`). ⚑ SUPERSEDED by § 12.4: primary ×98.9 → ×97.1; basic-swing ×164.4 → ×79.0; use-weighted ×58.9 → ×47.0
 
 **r_DMG = GD static record max slot (trash) ÷ D2 best attack including skills (normal).** This pairs like r_HP.
 
@@ -396,3 +396,39 @@ Grades: GD per-cell values are DATAMINED inputs through the oracle's own MODEL-V
 **With r_HP ×40.5, the anchored asymmetry is about 2.4:1 at R1** (GD enemies hit about 99× harder against about 40× more durable). Under the use-weighted sensitivity it is about 1.5:1.
 
 **Baal's hard-coded waves:** not attempted (optional).
+
+### 12.4 Stage 5: engine-native figures of record (supersede the stage-4 numbers in §§ 12.2–12.3)
+
+**What happened.** The GD fork kept running after `c81376a83`. It then rewrote `gd_damage_reconcile.json` and `scripts/gd_damage_reconcile.py` (the 6-line diff adds `engine_head` and a `HEADLINE` field) and added `gd_damage_reconcile_notes.md`. Both edits are **reviewed and committed here**. I re-ran the final script: the output is identical except the wall-clock field and the per-hit `engine_id` (an object memory address); the 957 dynamic hits match field for field otherwise. Engine `simulation/kc2` and `data/kc2` are untouched.
+
+**Which figures are of record, and why.**
+- **ENGINE-NATIVE E5** (`engine_native_static_summaries`) is of record. Every board and line-up slot is composed with the salt-0 M0 run's **own** per-wave `ThreatEngine` folds, the same objects that resolved the hits. It is **cross-checked against the dynamic capture: 684 of 688 non-granted hits are exact**; the 4 misses are chance-gated rows.
+- **The stage-4 `static_summaries` is SUPERSEDED (audit only).** It was a reconstruction from a re-loaded roster, without the run's winner-surface, fire-range and self-cast loaders, so it did not reproduce the engine's profiles. Its trash basic median of 15,981 is about 2× the engine's 7,683.
+- **The dynamic figure is also re-captured.** It is now taken at `CompositionFold.instant`, not at `mitigate`, which is shared by leech and Vitality rows. That gives 309 trash hits, against stage 4's 425.
+
+**GD trash per hit, BOARD body-weighted, 47 cells / 123 bodies (E5 = record):**
+
+| Instrument | Median [IQR] (min–max) |
+|---|---|
+| **Max slot (PRIMARY)** | **9,435 [7,175–14,927]** (4,632–24,580). Stage 4 had 9,610 |
+| Basic slot | 7,683 [6,178–14,927]. Stage 4 had 15,981 (superseded) |
+| Mean damaging slot | 7,481 [6,003–9,947] |
+| Use-weighted, dynamic (1 salt) | 4,472 [2,851–5,609], 309 hits; chthonianservitor_b01 alone lands 100 |
+
+The derivation ladder (E0 → E5) and the line-up-weighted figures are in `gd_damage_reconcile_notes.md` §§ 3–4. Notably, **E5 ÷ the stage-1 "folded" form is ×0.656 on max slot**: the composition step alone multiplies by ×0.555, and Brutal/Corrupted adds ×1.171.
+
+**r_DMG of record** (`r_dmg.json`, `verification_r_dmg.log`); the D2 side is unchanged from stage 3:
+
+| Rule | **r_DMG primary = E5 max slot ÷ D2 best [IQR ratio]** | E5 max slot ÷ D2 mean | E5 mean ÷ D2 mean | Use-weighted ÷ D2 mean | E5 basic ÷ D2 best |
+|---|---|---|---|---|---|
+| **R1** | **×97.1 [85.9–110.4]** | ×99.1 | ×78.6 | ×47.0 [38.9–49.7] | ×79.0 |
+| R2 | ×81.6 [72.1–124.3] | ×96.5 | ×76.6 | ×45.8 | ×66.4 |
+| R3 | ×86.0 [88.6–94.3]* | ×91.3 | ×72.4 | ×43.3 | ×70.0 |
+| R4 | ×89.4 [89.7–113.1]* | ×98.3 | ×77.9 | ×46.6 | ×72.8 |
+
+\* The IQR is a ratio of quartiles (p25/p25, p75/p75), so it need not bracket the median ratio.
+
+**Do any conclusions change?**
+- **The primary r_DMG barely moves** (×98.9 → ×97.1). **The 2.4:1 asymmetry against r_HP ×40.5 stands** (97.1 / 40.5 = 2.40).
+- **The use-weighted variant moves down** (×58.9 → ×47.0), so the asymmetry under use weighting is **about 1.16:1**, not 1.5:1. Weighted by how often the oracle actually swings each slot, GD's damage scale is close to its HP scale.
+- **The basic-swing variant flips** from ×164.4 to ×79.0. It now sits below the primary, as a basic swing should.

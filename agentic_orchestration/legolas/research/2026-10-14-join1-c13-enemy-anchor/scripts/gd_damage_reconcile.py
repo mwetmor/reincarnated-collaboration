@@ -404,7 +404,11 @@ def main(out: Path, salt: int):
         h["engine_static_per_hit"] = sv[h["slot"]]
     doc = {
         "what": "C-13 KP-428 (2): GD per-hit monster damage under the oracle's configuration of record (V311-FULL)",
-        "engine_head": None,
+        "engine_head": __import__("subprocess").run(["git", "-C", str(ENG), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip(),
+        "HEADLINE": "engine_native_static_summaries (E5 = RECORD) + dynamic.summaries (use-weighted). The `static_summaries` / "
+                    "`static_ablation_ladder_trash` / `per_cell` block is a RECONSTRUCTION built from a re-loaded roster WITHOUT the "
+                    "run's winner_surface / fire-range / self-cast loaders; it does NOT reproduce the engine's profiles and is "
+                    "SUPERSEDED by the engine-native block (kept for audit only).",
         "inputs_sha256": {"pm4o_oa_da.csv": sha(DATA / "pm4o_oa_da.csv"),
                           "kc2_referent_lineup_v3p11.csv": sha(DATA / "kc2_referent_lineup_v3p11.csv"),
                           "gd_enemy_quantities.json (prior)": sha(PKT / "gd_enemy_quantities.json")},
