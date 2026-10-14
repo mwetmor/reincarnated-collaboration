@@ -117,3 +117,42 @@ The predicate "a melee weapon swing, **or a projectile with a non-zero Physical 
 ## References
 - engine `e96c96a9`, `8c922eb1`, `94ed4e42`; `data/kc2/pm2_tg2_attack_damage.csv` (the projectile census above, read-only)
 - collab `agentic_orchestration/legolas/research/2026-10-14-join1-c13-enemy-anchor/README.md` §§ 6–7 (block, hit law and running exemption sources), `r_dmg.json`
+
+---
+
+## Addendum — C-13 stage 6 (collab `475e9fb44`, README § 13, `d2_hit_chance_r1.json`): the role pairing and what the quantile map still needs
+
+**The input is good.** It covers:
+- the D2 law H1, `clamp(⌊2·alvl·⌊100·AR/(AR+Def)⌋/(alvl+dlvl)⌋, 5, 95)` (integer, MODEL-VERIFIED);
+- AR per slot (DATAMINED);
+- the +250 vs-missile Defence (H3);
+- `ToHit`-only rolling (H4);
+- the NO-DEX sheet at Defence 1,060 / 1,203 / 1,347.
+
+The spread to preserve is melee IQR 7 / range 23, against the linear form's 3 / 7. That confirms ADDENDUM-4 § 2's finding. Casters auto-hit at 100 %, consistent with L-24.
+
+**Is the role pairing well-defined? Only once two axes are separated. As now written, they are conflated. WARN-2 is extended here; it must be folded before the build.**
+- **ADDENDUM-4 pairs by RANK** (trash ↔ normal, champion-hero ↔ champion, boss/nemesis ↔ unique). **Stage 6 classifies by ATTACK KIND** (melee / ranged-physical / caster), and assigns a **type's** role from its **highest-damage attack**.
+- In the file, **26 of 66 R1 types have attacks of more than one role** (e.g. `bloodlord5`, `cantor6`, `doomknight2`). A per-type role is therefore a summary. **It must not key the GD map**: a GD body keyed by its best attack would send all its weapon swings to auto-hit if that best attack is a spell.
+- **The well-defined form:**
+  - **(a) Rank tier → the quantile TABLE.** A GD body gets one `AR_eq` from its OA rank within its tier, because GD OA is per body, not per slot.
+  - **(b) Attack kind → the LAW, per GD slot**, via `physical_contact` (WARN-3: Pierce included):
+    - a weapon swing rolls against Defence;
+    - a physical or Pierce projectile rolls against Defence + 250;
+    - anything else auto-hits.
+  - Running auto-hit and block act in the sim, not in the table. Stage 6 correctly leaves them unfolded.
+
+**What the quantile map still needs before build:**
+1. **The D2 AR table's population, declared.**
+   - Use R1 types' **physical-contact attacks' AR**. Pool melee and ranged-physical: their AR distributions are close (melee 4,089 [3,578–5,112]; ranged 5,112 [4,430–5,112]), and the missile-vs-melee difference is a *Defence* term that the law applies (H3).
+   - **Exclude caster attacks:** their AR is never used.
+   - State **per attack or per type maximum**, and **equal-per-type or spawn-slot weighting**. Stage 6 gives both: equal 74 [71–78], slot 74 [72–78]. The equal-per-type variant matches r_HP's PRIMARY convention, which is the coherent choice.
+   - **Do not build a separate ranged-physical table:** n = 3 types / 3 attacks is degenerate for a quantile function.
+2. **Uniques are still not supplied.** Stage 6 gives champions only as a **lower bound** ("≥ 81": AR ×1.49 through the level term only, with no re-lookup at alvl + 2), and no unique AR distribution. So boss/nemesis remain on the champion table, labelled. The owed item stands; stage 6 did not discharge it. Print it as an interim on the fidelity table.
+3. **WARN-2's items 1–3 stand unchanged:**
+   - the GD attacker population, including pets, summons, pre-pass and REF-only bodies, each with a tier or a bind refusal;
+   - the tie, interpolation and clamp rules;
+   - the landed-attack-weighted CtH printed beside the construction-weighted one.
+4. **A ready-made positive control:** use stage 6's per-attack rows (130 attacks × 3 Defence values, with `hit_pct`) as the **bit-exact grid for L-24 `d2-ar-def`'s H1 transcription**, with one perturbed row as its negative control. Then the engine form and the port share legolas's computed values as their reference.
+
+**The verdict is unchanged:** GO-WITH-AMENDMENTS, with WARN-2 extended by the two-axis rule and items 1–4. These items must be folded into ADDENDUM-6 before the consolidated port-site list goes to Matt.
