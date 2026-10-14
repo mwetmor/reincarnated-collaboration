@@ -1,5 +1,6 @@
 # JOIN-1 J0: the D2 Fire Sorceress INTERNAL / BOUNDARY census (J-S3b)
 
+> ⚑ **ADDENDUM 3 2026-10-14 (§ 9; conductor ruling KC2 KP-423, `edf2b88bc`): D2 potions (health, mana, rejuvenation; the belt as the count limit) were an OMISSION and join as ONE row, row 21, BOUNDARY / WIDEN. A third named finding moves the count 20 → 21 and fraction (b) 12 → 13.** § 9 governs over § 8.3.
 > ⚑ **ADDENDUM 2 2026-10-14 (§ 8; conductor ruling KC2 KP-421, `145c880aa`): § 7.4's held item is ADMITTED as row 20, the INTAKE HIT LAW, BOUNDARY / WIDEN. A second named finding moves the count 19 → 20 and fraction (b) 11 → 12.** § 8 governs over § 7.4 and § 7.5.
 > ⚑ **ADDENDUM 2026-10-14 (§ 7; Matt, KC2 KP-420; JOIN-1 charter v0.8): her shield block JOINS as row 19, BOUNDARY / WIDEN. The count moves 18 → 19 and the fraction-(b) population 10 → 11, as a NAMED FINDING after her J0 anchor.** § 6 C-4 is superseded. One question is held for the conductor (§ 7.4, D-1). § 7 governs over anything above it.
 
@@ -275,3 +276,86 @@ Defence's row in the § 7.3 operand table (*"held, see § 7.4"*) now reads: **ro
 - **jack-ryan:** delta-gate rows 19 and 20 and the 20 / 12 denominators.
 
 *Addendum 2 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
+
+---
+
+## 9 · Addendum 3, 2026-10-14: D2 potions join as row 21 (conductor ruling, KC2 KP-423). Count 20 → 21, a third NAMED FINDING
+
+**Source of the change.** Conductor gandalf, KC2-PLAY ledger **KP-423** (`gandalf/notes/2026-09-20-kc2-play-run-charter.md`, collab `edf2b88bc`). gamora's J4b ADDENDUM-2 (engine `20ff8684`) found that **neither this census nor P0 mentions potions**, yet the sealed oracle gives the Warlord a health potion. **Ruling:** *"admit D2 potions (health / mana / rejuvenation, with the belt as the count limit) as row 21."* Rows 1–20 and their classes are unchanged. §§ 7–8 are left as committed (`20790cd34`, `9096b2e97`). Where § 9 corrects § 8.3, § 9 governs.
+
+**This was an omission, not an exclusion, and the record should say so plainly.** P0 § 7.2 warns that "not censused" and "censused and excluded" must stay distinguishable. Potions were not censused at all. The census enumerated her pinned `Skills.txt` rows, `Missiles.txt` and the kit record's skills. A potion is none of these: it is a **universal player consumable**, not a skill of her kit. So no record this seat read carried a field for it. This is the same blind spot that § 11 of the P0 note named for B-15: an engine law with no field on the kit's own records. The § 7.3 sweep of her defensive sheet also missed it, because it read the sheet's *stats*, not its *consumables*. The fix is noted as a method lesson in § 9.6.
+
+### 9.1 · The GD referent (read-only, engine HEAD `20ff8684`)
+
+- **Potion law:** `counterplay.Kit` K-4, MEASURED from the consumable CSV. Rows `defaulthealthpotion.dbr` (800 flat + 25 % of max HP instant, 12.0 s cooldown, 1 charge) and `healthpotion_healovertime.dbr` (25 % over time, spread over the potion's own 12 s cooldown) (`counterplay.py:451–465`, `:707–731`).
+- **Drink trigger:** a threshold theta on the HP fraction, **IDENTIFIED** from the reference player's 60 fps HP-bar trace (OBS-H2-5, `potion_threshold_frac()`). Under the oracle's split rule it is evaluated at the **end-of-tick sample** it was identified against (`sustain_procs.SPLIT_RULE`). It is driven on the **run-wide** clock (`run.py:3595–3627`).
+- **Permission:** the drink is `RequestUseItem`, decoded **PERMITTED in every control state**, so it is deliberately not gated by `refuse_actives` (`counterplay.py:627`, `run.py:3627–3629`).
+- **Pool:** **life only.** The oracle has no mana or energy potion anywhere (grep over `counterplay.py`).
+- **Supply:** **no count is consumed.** `potion_charges` is read into the Kit and never decremented, so the only supply limit is the 12 s cooldown. The GD referent for a count limit is therefore *"unbounded, cooldown-gated"*. That is an **implicit oracle assumption, not a measurement**, because nothing measured the reference player's stack.
+
+### 9.2 · Row 21
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **21** | **D2 belt potions: health and mana potions restore their pool over a duration; rejuvenation restores a share of both pools at once; every drink spends one potion from a finite belt.** The kit record's loadout names the belt (**Arachnid Mesh**, `d2-fire-sorc.json` `item_alterations`). Heals land on her anchored life; mana lands on her native mana pool (row 2) | **MV, not sourced this session**, for all the D2 laws: heal and restore amounts and durations by tier, the rejuvenation shares, drink and concurrency rules, belt slots for her belt, and whether the belt refills. legolas adds these to C-13 (KP-423). **NONE** for every magnitude until then. The belt's presence is **att** (kit record) | **BOUNDARY** (the player's consumable-sustain layer × the run-wide clock × agency) | `counterplay` K-4 (§ 9.1): instant flat + %, plus heal-over-time across a 12 s cooldown; life only; trigger = IDENTIFIED theta; permitted under every control state; no count consumed | **WIDEN.** Candidate lever **L-S7 `player_potion_model`** {`gd` (K-4 at its measured values; count unbounded, cooldown-gated, **DECLARED**) \| `d2-belt`}. Settable. The id is registered by the delta Gate-2 |
+
+**Why BOUNDARY rather than INTERNAL.** I considered INTERNAL seriously, because row 2 (mana income) is INTERNAL and a mana potion is a mana income. It does not hold, for two reasons. First, a potion is **not a mechanism of her kit**. It is the game's universal player consumable, the same in every D2 build, just as GD's `defaulthealthpotion` belongs to every GD character, not to the Warlord's kit. Second, in the oracle it is driven by the **world**, not by a kit record: the run's counterplay/sustain layer, a bound player policy, the run-wide clock and a decoded control-state permission. Those are rulebook terms. The precedent is row 17 and P0 B-16: a universal engine law acting on the player is BOUNDARY, even where it touches a native pool.
+
+**Why WIDEN rather than AS-IS.** GD's form cannot express D2's law at any setting of its existing terms:
+- **Heal shape.** GD's potion is an instant plus a drip over its own cooldown. D2 health and mana potions restore over a duration with no cooldown. Zeroing GD's instant and cooldown does not reproduce D2's rule, because the drip is spread over the cooldown and D2's concurrency rule (pending legolas) has no GD term.
+- **Pools.** The oracle's potion restores life only. It has no mana target and no two-pool instant (rejuvenation).
+- **Count.** The oracle consumes no count. D2's belt is a finite supply, spent per drink.
+
+**Why WIDEN rather than GD-EMPTY.** GD has a potion rule with measured values, and the `gd` setting reproduces REFERENT-v1 exactly. That is the WIDEN default property (P0 § 7.1; cf. row 19's measured zero). The mana and rejuvenation pieces have no GD counterpart in the oracle. They are terms the `d2` setting adds inside the lever, the same way row 19's block step and lock are. They are not a GD-silent boundary question of their own. ⚑ **One sub-term carries no GD measurement and must be labelled:** the count limit's `gd` value ("unbounded, cooldown-gated") is DECLARED, not MEASURED (§ 9.1). The registry prints it that way, per P0 § 7.1's rule that silence must not be laundered into a measured default.
+
+**Falsifiers.** For WIDEN over AS-IS: any setting of the K-4 terms that reproduces a D2 duration-based restore with D2's drink rules, a mana target and a consumed count. For BOUNDARY over INTERNAL: a reading in which her potions are records of her kit rather than the game's universal consumable, for example a kit-specific potion skill in her pinned rows (there is none).
+
+### 9.3 · One row, not two: health and mana potions are not separate rows under my method
+
+**My method does not require a split, so I am not stopping.** P0 § 1 makes a row for one distinct mechanism, or one distinct question the boundary must answer.
+
+- **One mechanism.** Health, mana and rejuvenation potions are one law: drink one belt potion, restore pool P by amount X over duration d. Rejuvenation is the same law with d = 0 and two pools. The target pool and the magnitude are **operands** of that law. The precedents are row 1 (two skills' mana spend in one row), row 3 (three damage sources in one row) and row 5 (mastery plus gear in one row).
+- **One boundary question, with a shared constraint.** All three are drunk under one policy, on one clock, under one control-state permission, and **from one belt**. The belt is a single count limit across all potion types. Splitting by pool would split that constraint across rows and count the supply question twice.
+- **The unit rule is an operand difference, not a mechanism difference.** Under gamora's ADDENDUM-1 unit rule, life restored is a kit-life quantity (× r_DMG) and mana restored is kit-internal (native). Rejuvenation carries both units in one drink. That is a per-pool operand rule, already stated in ADDENDUM-1.
+- **The nearest thing to a split, named so it can be checked.** The **mana drink trigger** has no GD referent (§ 9.4). A trigger with no referent is a *setting* of the row's policy term, labelled DECLARED-INVENTED. It is not a separate boundary question. Row 17 is the precedent: its GD referent is `NONE` and its JOIN default is DECLARED-INVENTED, inside one row (A-5). If jack-ryan's delta gate reads the mana trigger as a distinct question instead, the split would be 21 → 22, and I would record it as a further named finding.
+
+### 9.4 · Her drink policy, and the units
+
+- **The drink policy is JUDGED (conductor, KP-423), mirroring the Warlord's threshold law where D2 is silent.** D2 has no drink policy: the player decides.
+- **Health potions:** the mirror is GD's IDENTIFIED theta on the HP fraction. ⚑ Under the oracle's split rule, an identified threshold is evaluated at the scalar it was identified against, the **end-of-tick** HP fraction. A mirror that evaluated it on a different scalar (for example the within-tick floor) would be a different law, so gamora's ADDENDUM-3 states which scalar it uses.
+- **Mana potions and the mana half of rejuvenation:** the Warlord has no mana potion, so there is **no GD threshold to mirror.** Any mana trigger is **DECLARED-INVENTED** inside the JUDGED policy, and is labelled so wherever it runs (P0 § 7.1). This bears directly on gamora's Meteor-starvation prediction, which KP-423 re-registers after row 21 is built.
+- **Control-state permission:** GD's referent is PERMITTED in every control state (§ 9.1). The D2 setting (whether she can drink during hit recovery, the block lock or her cast lock, rows 17, 19 and 9) is part of legolas's sourcing. Until it is sourced, any JOIN setting is labelled.
+- **Units:** heal amounts are **D2 units × r_DMG** (kit-life quantities, ADDENDUM-1 unit rule). Mana restored is **native** (kit-internal). Durations are native D2 frames on the WARN-2 integer timeline. The belt count is a native integer.
+
+### 9.5 · THIRD NAMED FINDING: the Sorceress's denominators after KP-423
+
+**Reason:** conductor ruling **KP-423** (collab `edf2b88bc`). Potions were an omission found by gamora (engine `20ff8684`), and the ruling stands on Matt's KP-420. **This addition comes after her J0 Gate-2 anchor** (charter v0.5.1 (1), `b48500a4d`), so it is a named finding (charter § 4.5), printed with its reason. It is not a silent re-map. It is the third such finding, after § 7.5 (KP-420, block) and § 8.3 (KP-421, intake hit law). It makes coverage harder and lands before J4b is graded.
+
+| Fraction | J0 anchor | After KP-420 | After KP-421 | **After KP-423 (this finding)** | Why |
+|---|---|---|---|---|---|
+| **(a)** all rows | 18 | 19 | 20 | **21** | row 21 added |
+| **(b)** all BOUNDARY rows | 10 | 11 | 12 | **13** | row 21 is BOUNDARY |
+
+**Corrected frozen record (after KP-423): 21 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| INTERNAL | 7 | 1–7 |
+| **BOUNDARY** | **13** | **AS-IS 2**: 13, 15 · **WIDEN 7**: 8, 9, 10, 17, 19, 20, **21** · **GD-EMPTY 4**: 11, 12, 14, 16 |
+| OUT-OF-ARENA | 1 | 18 |
+| HELD | 0 | — |
+
+**Restated in one line:** INTERNAL 7 · BOUNDARY 13 · OUT-OF-ARENA 1 · HELD 0 = **21**. Candidate levers surfaced since the J0 Gate-2: L-S5 (row 19), the intake-direction settings of L-04/L-05/L-06 (row 20; gamora calls this L-S6), and **L-S7 `player_potion_model`** (row 21).
+
+### 9.6 · Consequences beyond her census (named, not acted on)
+
+- **⚑ The Barbarian has the same omission.** P0's D2 WW Barbarian record (16 rows after P0 § 11) has no potion row either. Under KP-420 (f), he inherits the enemy-anchored key with both sides anchored, and his comparison against the Warlord carries the same bias KP-423 ground (2) names. **Adding a row to his frozen record is the conductor's call, not this seat's** (the A-4 precedent). If admitted, it is a named finding against J-S2: **16 → 17, his (b) 11 → 12.**
+- **Method lesson for every later census.** Enumerating a kit's own records cannot see **universal player laws that carry no field on those records**. This census has now missed three: monster hit recovery from melee (B-15), potions (row 21), and, until KP-420 made it a question, the intake hit law (row 20). Each later census should run one explicit sweep of the universal player layer (consumables, recovery, avoidance, the intake hit law, control-state permissions) against the GD oracle's player-side modules, in addition to the kit-record enumeration.
+
+**Owed downstream (not this seat's):**
+- **legolas:** the 1.13 potion laws for C-13: amounts and durations by tier, rejuvenation, drink and concurrency rules, belt slots for Arachnid Mesh, refill, and drinking under control states.
+- **gamora:** ADDENDUM-3, covering row 21's form, the drink-policy scalar (§ 9.4), the labelled mana trigger and a negative control.
+- **jack-ryan:** a later delta covering row 21, including the § 9.3 one-row reading.
+- **The conductor:** the Barbarian disposition (§ 9.6).
+
+*Addendum 3 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `20ff8684`.
