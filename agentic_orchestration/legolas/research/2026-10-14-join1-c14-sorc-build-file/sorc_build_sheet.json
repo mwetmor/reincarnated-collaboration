@@ -1,0 +1,297 @@
+{
+ "variant": "Standard (guide tab 'Standard' = d2planner gca1a0l6 set 2)",
+ "bo_slvl_law": "CTA oskill BO 6 + all-skills worn while the swap is active (CTA 1, switch Spirit 2, Shako 2, CoH 2, Arachnid 1, Annihilus 1); +1 more if Battle Command is cast first (guide: 'cast Battle Command 2 times, Battle Orders')",
+ "bo_slvl": {
+  "with_charms": 15,
+  "with_charms_after_BC": 16,
+  "no_charms": 14,
+  "no_charms_after_BC": 15,
+  "planner_own_figure": 14
+ },
+ "sheets": {
+  "charms_noBO": {
+   "with_charms": true,
+   "bo_slvl": null,
+   "bo_pct": 0,
+   "clvl": 99,
+   "attributes_total": {
+    "str": 156,
+    "dex": 67,
+    "int": 97,
+    "vit": 535
+   },
+   "attributes_from_items": {
+    "str": 72,
+    "dex": 42,
+    "int": 62,
+    "vit": 94
+   },
+   "str_requirement_monarch": 156,
+   "str_requirement_met": true,
+   "life": 1651,
+   "mana": 639,
+   "defence_items": {
+    "Harlequin Crest (Shako 141)": 141,
+    "Spirit Monarch (148, no ED)": 148,
+    "Chains of Honor (superior Dusk Shroud 468 x1.85)": 865,
+    "Magefist (12 x1.30 + 10)": 25,
+    "Arachnid Mesh (63 x2.20)": 138,
+    "War Traveler (48 x2.90)": 139
+   },
+   "defence": 1472,
+   "defence_vs_missile": 1722,
+   "block_pct": 11,
+   "block_pct_running": 3,
+   "resists_after_hell_anya_capped": {
+    "fire": 75,
+    "cold": 75,
+    "light": 75,
+    "poison": 75
+   },
+   "resists_uncapped": {
+    "fire": 90,
+    "cold": 125,
+    "light": 125,
+    "poison": 125
+   },
+   "fcr": 105,
+   "fcr_frames": 8,
+   "fhr": 60,
+   "fhr_frames": 8,
+   "fbr": 0,
+   "fbr_frames": 9,
+   "dr_pct": 18,
+   "magic_absorb_flat": 8,
+   "plus_skills": {
+    "all": 8,
+    "sorceress": 6,
+    "fire_tree": 11,
+    "to_fire_skills_total": 25
+   },
+   "slvl": {
+    "Fire Ball": 45,
+    "Meteor": 45,
+    "Fire Mastery": 45,
+    "Fire Bolt": 45,
+    "Inferno": 45,
+    "Warmth": 26,
+    "Enchant": 28,
+    "Frozen Armor": 15
+   },
+   "mf_pct": 427
+  },
+  "charms_BO": {
+   "with_charms": true,
+   "bo_slvl": 16,
+   "bo_pct": 80,
+   "clvl": 99,
+   "attributes_total": {
+    "str": 156,
+    "dex": 67,
+    "int": 97,
+    "vit": 535
+   },
+   "attributes_from_items": {
+    "str": 72,
+    "dex": 42,
+    "int": 62,
+    "vit": 94
+   },
+   "str_requirement_monarch": 156,
+   "str_requirement_met": true,
+   "life": 2821,
+   "mana": 1032,
+   "defence_items": {
+    "Harlequin Crest (Shako 141)": 141,
+    "Spirit Monarch (148, no ED)": 148,
+    "Chains of Honor (superior Dusk Shroud 468 x1.85)": 865,
+    "Magefist (12 x1.30 + 10)": 25,
+    "Arachnid Mesh (63 x2.20)": 138,
+    "War Traveler (48 x2.90)": 139
+   },
+   "defence": 1472,
+   "defence_vs_missile": 1722,
+   "block_pct": 11,
+   "block_pct_running": 3,
+   "resists_after_hell_anya_capped": {
+    "fire": 75,
+    "cold": 75,
+    "light": 75,
+    "poison": 75
+   },
+   "resists_uncapped": {
+    "fire": 90,
+    "cold": 125,
+    "light": 125,
+    "poison": 125
+   },
+   "fcr": 105,
+   "fcr_frames": 8,
+   "fhr": 60,
+   "fhr_frames": 8,
+   "fbr": 0,
+   "fbr_frames": 9,
+   "dr_pct": 18,
+   "magic_absorb_flat": 8,
+   "plus_skills": {
+    "all": 8,
+    "sorceress": 6,
+    "fire_tree": 11,
+    "to_fire_skills_total": 25
+   },
+   "slvl": {
+    "Fire Ball": 45,
+    "Meteor": 45,
+    "Fire Mastery": 45,
+    "Fire Bolt": 45,
+    "Inferno": 45,
+    "Warmth": 26,
+    "Enchant": 28,
+    "Frozen Armor": 15
+   },
+   "mf_pct": 427
+  },
+  "nocharms_noBO": {
+   "with_charms": false,
+   "bo_slvl": null,
+   "bo_pct": 0,
+   "clvl": 99,
+   "attributes_total": {
+    "str": 116,
+    "dex": 27,
+    "int": 57,
+    "vit": 495
+   },
+   "attributes_from_items": {
+    "str": 32,
+    "dex": 2,
+    "int": 22,
+    "vit": 54
+   },
+   "str_requirement_monarch": 156,
+   "str_requirement_met": false,
+   "life": 1256,
+   "mana": 559,
+   "defence_items": {
+    "Harlequin Crest (Shako 141)": 141,
+    "Spirit Monarch (148, no ED)": 148,
+    "Chains of Honor (superior Dusk Shroud 468 x1.85)": 865,
+    "Magefist (12 x1.30 + 10)": 25,
+    "Arachnid Mesh (63 x2.20)": 138,
+    "War Traveler (48 x2.90)": 139
+   },
+   "defence": 1462,
+   "defence_vs_missile": 1712,
+   "block_pct": 2,
+   "block_pct_running": 0,
+   "resists_after_hell_anya_capped": {
+    "fire": 15,
+    "cold": 50,
+    "light": 50,
+    "poison": 50
+   },
+   "resists_uncapped": {
+    "fire": 15,
+    "cold": 50,
+    "light": 50,
+    "poison": 50
+   },
+   "fcr": 105,
+   "fcr_frames": 8,
+   "fhr": 55,
+   "fhr_frames": 9,
+   "fbr": 0,
+   "fbr_frames": 9,
+   "dr_pct": 18,
+   "magic_absorb_flat": 8,
+   "plus_skills": {
+    "all": 7,
+    "sorceress": 3,
+    "fire_tree": 4,
+    "to_fire_skills_total": 14
+   },
+   "slvl": {
+    "Fire Ball": 34,
+    "Meteor": 34,
+    "Fire Mastery": 34,
+    "Fire Bolt": 34,
+    "Inferno": 34,
+    "Warmth": 15,
+    "Enchant": 17,
+    "Frozen Armor": 11
+   },
+   "mf_pct": 345
+  },
+  "nocharms_BO": {
+   "with_charms": false,
+   "bo_slvl": 15,
+   "bo_pct": 77,
+   "clvl": 99,
+   "attributes_total": {
+    "str": 116,
+    "dex": 27,
+    "int": 57,
+    "vit": 495
+   },
+   "attributes_from_items": {
+    "str": 32,
+    "dex": 2,
+    "int": 22,
+    "vit": 54
+   },
+   "str_requirement_monarch": 156,
+   "str_requirement_met": false,
+   "life": 2139,
+   "mana": 937,
+   "defence_items": {
+    "Harlequin Crest (Shako 141)": 141,
+    "Spirit Monarch (148, no ED)": 148,
+    "Chains of Honor (superior Dusk Shroud 468 x1.85)": 865,
+    "Magefist (12 x1.30 + 10)": 25,
+    "Arachnid Mesh (63 x2.20)": 138,
+    "War Traveler (48 x2.90)": 139
+   },
+   "defence": 1462,
+   "defence_vs_missile": 1712,
+   "block_pct": 2,
+   "block_pct_running": 0,
+   "resists_after_hell_anya_capped": {
+    "fire": 15,
+    "cold": 50,
+    "light": 50,
+    "poison": 50
+   },
+   "resists_uncapped": {
+    "fire": 15,
+    "cold": 50,
+    "light": 50,
+    "poison": 50
+   },
+   "fcr": 105,
+   "fcr_frames": 8,
+   "fhr": 55,
+   "fhr_frames": 9,
+   "fbr": 0,
+   "fbr_frames": 9,
+   "dr_pct": 18,
+   "magic_absorb_flat": 8,
+   "plus_skills": {
+    "all": 7,
+    "sorceress": 3,
+    "fire_tree": 4,
+    "to_fire_skills_total": 14
+   },
+   "slvl": {
+    "Fire Ball": 34,
+    "Meteor": 34,
+    "Fire Mastery": 34,
+    "Fire Bolt": 34,
+    "Inferno": 34,
+    "Warmth": 15,
+    "Enchant": 17,
+    "Frozen Armor": 11
+   },
+   "mf_pct": 345
+  }
+ }
+}
