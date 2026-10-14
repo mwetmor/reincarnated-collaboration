@@ -1,5 +1,6 @@
 # JOIN-1 J0: the D2 Fire Sorceress INTERNAL / BOUNDARY census (J-S3b)
 
+> ⚑ **ADDENDUM 2 2026-10-14 (§ 8; conductor ruling KC2 KP-421, `145c880aa`): § 7.4's held item is ADMITTED as row 20, the INTAKE HIT LAW, BOUNDARY / WIDEN. A second named finding moves the count 19 → 20 and fraction (b) 11 → 12.** § 8 governs over § 7.4 and § 7.5.
 > ⚑ **ADDENDUM 2026-10-14 (§ 7; Matt, KC2 KP-420; JOIN-1 charter v0.8): her shield block JOINS as row 19, BOUNDARY / WIDEN. The count moves 18 → 19 and the fraction-(b) population 10 → 11, as a NAMED FINDING after her J0 anchor.** § 6 C-4 is superseded. One question is held for the conductor (§ 7.4, D-1). § 7 governs over anything above it.
 
 > ⚑ **GATE-2 PASSED WITH WARN (jack-ryan, collab `b48500a4d`; charter v0.5.1; KP-165). The count (18) and every row's class are FROZEN.** Forward corrections asked of this seat are in **§ 6**. The text above § 6 is left exactly as committed (`b4d151a4a`), so where § 6 corrects a line, § 6 governs.
@@ -220,3 +221,57 @@ If the conductor admits it, it is **row 20, BOUNDARY / WIDEN** (L-04/L-05 and L-
 Operands for row 4: Fire Bolt (36) and Inferno (41), unchanged. Candidate lever surfaced: **L-S5 `player_block_model`** (§ 7.2), for registration at the delta Gate-2. **Owed downstream (not this seat's):** legolas sources the block-chance law, the full-negate rule and the block-eligibility rule with grades. These go with the KP-420 enemy-anchor leg, together with the Q7 gear values (FBR, Dexterity, shield base block). gamora's design addendum carries the row-19 build pieces and the § 7.3 declared physical map. jack-ryan delta-gates the class and the denominators.
 
 *Addendum signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `f72316b7`.
+
+---
+
+## 8 · Addendum 2, 2026-10-14: the intake hit law joins as row 20 (conductor ruling, KC2 KP-421). Count 19 → 20, a second NAMED FINDING
+
+**Source of the change.** Conductor gandalf, KC2-PLAY ledger **KP-421** (`gandalf/notes/2026-09-20-kc2-play-run-charter.md`, collab `145c880aa`), ruling on this seat's held item **D-1** (§ 7.4): *"admit it as row 20, BOUNDARY / WIDEN."* The conductor gave three grounds. (1) KP-420 rules native mechanics on anchored magnitudes in **both** directions. (2) The row matches rows 9, 10 and 19. (3) It makes coverage harder, not easier. § 7.4 is **resolved: admitted**. Rows 1–19 and their classes are unchanged. § 7 is left as committed (`20790cd34`). Where § 8 corrects § 7.4 or § 7.5, § 8 governs.
+
+### 8.1 · Row 20
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **20** | **Intake hit resolution: a monster's attack lands on her by D2's law, AR against her Defence, with level terms, clamped to [5 %, 95 %]. D2 monster hits on the player have no PTH crit tier.** Her Defence comes from her D2 sheet (KP-420 (b) and (d)) | **MV** (D2 community hit law, the intake twin of the AR formula P0 WW row 9 cites; legolas sources the formula and its grades in the KP-420 enemy-anchor leg) / **NONE** for both operands: her Defence (the kit record has no stat values; legolas Q7) and the anchored monster AR (KP-420 (a), the leg in flight) | **BOUNDARY** (hit resolution, **intake** direction) | `threat.probability_to_hit(oa, da)`: a two-term blend with `PTH_MINIMUM = 55`. `resolve_hit` derives the crit tier from the **same** PTH and roll (`PTH_THRESHOLDS` → `PTH_MULTIPLIERS`). On REFERENT-v1's board every body's PTH lies in 91.41–99.98, so every hit lands at exactly one crit tier (`threat.py:1892–1897`; that is a fact of this board, not a rule) | **WIDEN.** It takes the **intake-direction** settings of **L-04 `pth_floor_pct`** (GD 55; D2 5), **L-05 `pth_ceiling_pct`** (GD unbounded; D2 95) and **L-06 `crit_model`** (GD `pth-tiered`; D2 no tier on intake; cf. the charter's intake L-06 setting, v0.6.7 / KP-321). **GD default:** `probability_to_hit(oa, da)`, minimum 55, with crit tiers. **D2 setting:** AR vs Defence, 5–95 %, no tiers. Magnitudes are anchored per KP-420 |
+
+**Notes on the class.**
+
+- **WIDEN, by P0 WW row 9's own reasoning.** The two *functions* differ. Under E-1, a kit running under GD's function would be a measured cost, not inexpressibility. What GD's form cannot express is the **clamps** and the **untiered** intake. Those are what make the row WIDEN. GD's default reproduces REFERENT-v1, as a WIDEN default must.
+- **Defence ↔ DA.** Under the `d2` setting, her Defence is the operand of D2's own law, so it needs no conversion. Under the `gd` setting, she would need a DA, and a Defence → DA map would be an **invented** mapping. **That setting must be labelled DECLARED-INVENTED wherever it runs** (P0 § 7.1 discipline: never launder an invented value into a default).
+- **Lever registration.** The registry decides whether the intake-direction settings are per-direction values of L-04/L-05/L-06 or new ids. W1 requires only that they be **stated per direction**. Registration belongs to the delta Gate-2, not to this seat.
+- **Coupling.** The row composes with row 19 (D2 checks block on a hit that has landed) and with row 17 (a landed hit can put her into hit recovery). The D2 order is hit, then block, then damage. gamora's addendum fixes that order in the intake resolve step. It is a law detail, not a further row.
+
+**Falsifiers.** For WIDEN over AS-IS: any GD intake path whose floor or ceiling can be set to 5 and 95 and whose crit tier can be separated from the hit roll. P0 found none (`resolve_hit` derives both from one PTH and one roll). For the D2 setting's form: a D2 primary source showing that monster attacks on the player use a law other than AR against Defence with the 5–95 % clamp.
+
+### 8.2 · § 7.3 correction: Defence
+
+Defence's row in the § 7.3 operand table (*"held, see § 7.4"*) now reads: **row 20 (§ 8.1).** Life, resists and physical damage reduction stay operands, exactly as § 7.3 states. With row 20 admitted, every item of KP-420 (b)'s defence list ("life, resists, defence, block") is accounted for: two rows (19 and 20) and three operands.
+
+### 8.3 · SECOND NAMED FINDING: the Sorceress's denominators after KP-421
+
+**Reason:** conductor ruling **KP-421** (collab `145c880aa`), on held item D-1. The ruling follows from Matt's KP-420. **This addition comes after her J0 Gate-2 anchor** (charter v0.5.1 (1), `b48500a4d`), so it is a named finding (charter § 4.5), printed against that anchor with its reason. It is not a silent re-map. It is the second such finding, after § 7.5's (KP-420, block). It makes coverage harder and lands before J4b is graded.
+
+| Fraction | J0 anchor (v0.5.1) | After KP-420 (§ 7.5) | **After KP-421 (this finding)** | Why |
+|---|---|---|---|---|
+| **(a)** rows mapped / all rows | 18 | 19 | **20** | row 20 added |
+| **(b)** population = all BOUNDARY rows (Gate-2 W2; v0.5.1 (2)) | 10 | 11 | **12** | row 20 is BOUNDARY |
+
+§ 7.5's conditional line (*"if the conductor admits intake hit resolution as a row … 20 and 12"*) is hereby **discharged**: admitted.
+
+**Corrected frozen record (after KP-421): 20 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| INTERNAL | 7 | 1–7 |
+| **BOUNDARY** | **12** | **AS-IS 2**: 13, 15 · **WIDEN 6**: 8, 9, 10, 17, 19, **20** · **GD-EMPTY 4**: 11, 12, 14, 16 |
+| OUT-OF-ARENA | 1 | 18 |
+| HELD | 0 | — |
+
+**Restated in one line:** INTERNAL 7 · BOUNDARY 12 · OUT-OF-ARENA 1 · HELD 0 = **20**. Operands for row 4: Fire Bolt (36) and Inferno (41), unchanged. Candidate levers surfaced since the J0 Gate-2: **L-S5 `player_block_model`** (row 19), and the **intake-direction settings of L-04/L-05/L-06** (row 20). Both are for registration at the delta Gate-2.
+
+**Owed downstream (not this seat's):**
+- **legolas:** source the D2 intake hit law (AR vs Defence, level terms, clamp) with grades, in the KP-420 enemy-anchor leg, alongside § 7.5's block items.
+- **gamora:** carry row 20's intake settings, the hit → block → damage order and the labelling of the DECLARED-INVENTED `gd`-setting Defence → DA map in the design addendum.
+- **jack-ryan:** delta-gate rows 19 and 20 and the 20 / 12 denominators.
+
+*Addendum 2 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
