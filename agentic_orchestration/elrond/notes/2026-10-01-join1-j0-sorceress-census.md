@@ -1,5 +1,6 @@
 # JOIN-1 J0: the D2 Fire Sorceress INTERNAL / BOUNDARY census (J-S3b)
 
+> ⚑ **ADDENDUM 4 2026-10-14 (§ 10; conductor ruling KC2 KP-426, `99d55f74e`): the universal-player-layer sweep admits SIX rows, 22–27 (5 BOUNDARY, 1 INTERNAL). A fourth named finding moves the count 21 → 27 and fraction (b) 13 → 18.** Curses/debuffs received and monster mana drains/cooldown lockout are EXCLUDED with fidelity-cost lines. § 10 governs over § 9.5.
 > ⚑ **ADDENDUM 3 2026-10-14 (§ 9; conductor ruling KC2 KP-423, `edf2b88bc`): D2 potions (health, mana, rejuvenation; the belt as the count limit) were an OMISSION and join as ONE row, row 21, BOUNDARY / WIDEN. A third named finding moves the count 20 → 21 and fraction (b) 12 → 13.** § 9 governs over § 8.3.
 > ⚑ **ADDENDUM 2 2026-10-14 (§ 8; conductor ruling KC2 KP-421, `145c880aa`): § 7.4's held item is ADMITTED as row 20, the INTAKE HIT LAW, BOUNDARY / WIDEN. A second named finding moves the count 19 → 20 and fraction (b) 11 → 12.** § 8 governs over § 7.4 and § 7.5.
 > ⚑ **ADDENDUM 2026-10-14 (§ 7; Matt, KC2 KP-420; JOIN-1 charter v0.8): her shield block JOINS as row 19, BOUNDARY / WIDEN. The count moves 18 → 19 and the fraction-(b) population 10 → 11, as a NAMED FINDING after her J0 anchor.** § 6 C-4 is superseded. One question is held for the conductor (§ 7.4, D-1). § 7 governs over anything above it.
@@ -359,3 +360,79 @@ Defence's row in the § 7.3 operand table (*"held, see § 7.4"*) now reads: **ro
 - **The conductor:** the Barbarian disposition (§ 9.6).
 
 *Addendum 3 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `20ff8684`.
+
+---
+
+## 10 · Addendum 4, 2026-10-14: the universal-player-layer sweep (conductor ruling, KC2 KP-426). Count 21 → 27, a fourth NAMED FINDING
+
+**Source of the change.** Conductor gandalf, KC2-PLAY ledger **KP-426** (collab `99d55f74e`). It rules on this seat's sweep batch, which KP-424 commissioned: *"ONE universal-player-layer sweep for both D2 kits before any J4b build."* That sweep is the method lesson of § 9.6, applied once instead of one omission at a time. **Method:** the oracle's player-side modules under `simulation/kc2/`, read-only at engine HEAD `20ff8684`, checked against every law D2 1.13 applies to any character. **Every D2 law cited in §§ 10.1–10.2 is MV, unsourced this session; legolas sources them in C-13.** Rows 1–21 and their classes are unchanged. §§ 7–9 are left as committed. **Lever ids registered since § 9 (KP-425):** row 19 → **L-23 `player_block_model`**; row 20 → **L-24 `intake_hit_law`** (intake only). These replace the provisional L-S5 and L-S6.
+
+### 10.1 · Rows 22–27
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **22** | **GD control families landing on a D2 player.** Stun, Sleep, Trap, Immobilize, Knockdown, Freeze and Petrify, delivered by GD monster skills. D2 players have no sleep, trap or petrify state; D2's own stun and freeze run on D2 duration rules. Cannot Be Frozen and Half Freeze Duration are her sheet's operands (none is on her pinned items) | MV / NONE (her D2 control-resistance operands are unset; legolas's leg) | **BOUNDARY** (CC/status on the PLAYER) | `control_application`: one timeline per family on the target, **longest wins**, never additive; exactly **one** involuntary effect acts, chosen by the decoded ladder; per-family resists from sheet 519 (`player_control_resists()`, `None` ≠ 0); `suppression_matrix()` governs what a controlled player may request. ⚑ **`gd` value: PENDING gamora, armed in V311-FULL?** If the fold is not armed in the sealed configuration, GD's referent is "observed, not applied" (`control_states`, `applied: False`) | **WIDEN → L-12 `control_family_registry`, receiving direction,** plus a D2 duration law setting. The registry must say how each GD family lands on a D2 player, including the three D2 has no state for, and refuse loudly on an unmapped family (P0 § 7.1) |
+| **23** | **DoTs landing on a D2 player** (GD burn, frostburn, poison, bleed, and the rest) | MV (D2 per-type rules, e.g. a new poison replacing a weaker one; poison length reduction) / NONE | **BOUNDARY** (damage over time × tick clock, intake) | `dot_timeline`: decoded (`Game.dll`, D-4c), keyed `(damage_type, ATTACKER)`, 100 ms buckets, same source **MAX**, distinct sources **ADD** | **WIDEN.** The `gd` setting is the decoded rule; the `d2` setting applies D2's per-type rules on the receiver. The magnitude still goes through row 25's family map and her resists |
+| **24** | **Chill: in D2, cold damage slows the player.** It is a rider on the damage type, not a control row. Cannot Be Frozen and cold length reduction are operands | MV / NONE | **BOUNDARY** (status on the PLAYER, triggered by damage type) | **None.** GD's slows are `debuff`/`modifier` kinds, which `threat.NON_HEALTH_KINDS` routes off the health path and never applies. No damage-triggered slow on the player exists in `kc2/` | **WIDEN**, GD referent **`NONE`**, with a **DECLARED-INVENTED** JOIN default `off` that reproduces REFERENT-v1. This is the row 17 / A-5 precedent. Kept separate from row 22 by ruling (KP-426): the trigger is a damage type, not a GD control family. ⚑ Whether chill slows casting (and so couples to row 8) is part of legolas's sourcing |
+| **25** | **Intake damage-family map:** GD damage families that have no D2 resistance. Pierce, Chaos, Aether, Vitality ("Life"), Acid, Bleeding and the folded "Elemental", plus their DoT forms | DM (GD's family list in `RESIST_PCT`) / **DECLARED** (each map entry is a choice; D2's own resist set is fire, cold, lightning, poison, plus physical and magic reduction) | **BOUNDARY** (damage type vs resistance, intake; B8 registry) | `threat.RESIST_PCT`: per family, form `× (1 − res/100)`; an unmapped family raises `KeyError` (GL-12: "name it in RESIST_PCT … do not guess a resistance") | **AS-IS in form, DECLARED in operand** (the row 13 and 15 shape). This is the intake twin of row 15, stated per direction (W1). The map is gamora's to declare, entry by entry. § 7.3's fire, cold, lightning, poison and physical entries become its first five rows |
+| **26** | **World and arena modifiers on the player.** The Vanguard Banner (`offensiveTotalDamageModifier +100 %` within 8 m) and the player-side mutator clauses: Cruel (×0.92 outgoing for 1 s after any monster hit), Resilient (+8 % max poison/acid and bleeding resistance), Ascended (+8 % damage, added into the pool; ×1.08 as the sensitivity). Leeching's use of her leech resistance is an operand (§ 10.3) | DM (`defenses.py`, `mutators.py`; Ed IV `*_u.dbr`, sha-pinned) / DM | **BOUNDARY** (world → kit composition) | `defenses` (the banner multiplier, per tick from the player's position) and `mutators` (hook sites in `resolve_attack` and `run.simulate_wave`). ⚑ **`gd` value: PENDING gamora, armed in V311-FULL?** for the banner fold. MIGRATION records V311-FULL as including the six mutators | **AS-IS.** GD's form (a dimensionless multiplier, or an addend into the damage pool) expresses each clause unchanged. What must be **declared** is where each lands in D2's composition: Ascended adds into row 5's pool (the oracle's primary limb), with ×1.08 as the sensitivity; Cruel and the banner multiply total outgoing; Resilient's +8 % goes onto her D2 max poison resist (D2 has no bleed resist to raise) |
+| **27** | **Stamina.** Running drains stamina; at zero she walks. Battle Orders and Energy do not apply to her; her stamina pool and run drain come from her D2 sheet | MV / NONE | **INTERNAL** (her own resource, gating her speed) | None. GD has no stamina; the referent's movement is MEASURED (`movement`, `player_locomotion`) | Native: a resource primitive on her own state, like mana in rows 1–2. It binds because the JOIN pilot moves her (the referent moves about 63 % of the time, `REF_FRAC_MOVING_FIGHT`). Her run speed and FRW are operands (§ 10.3) |
+
+**Why each class, briefly.**
+- **Rows 22–24 are WIDEN, not GD-EMPTY.** Each has a GD setting that reproduces REFERENT-v1: the decoded control law, the decoded DoT rule, and for row 24 the declared-invented `off`. That is the row 17 precedent.
+- **Rows 22–24 are not AS-IS.** GD's form cannot express D2's receiver-side laws. D2 has no sleep, trap or petrify; it stacks DoTs per type, not per attacker; and it chills on damage type.
+- **Rows 25 and 26 are AS-IS.** GD's form expresses them; only operands and placement are declared.
+- **Row 27 is INTERNAL** by the row 1–2 precedent.
+
+**Falsifiers.**
+- Row 22 WIDEN → AS-IS: a D2 primary source showing that D2 players have states equivalent to all seven GD families under a longest-wins law.
+- Row 23: a D2 source showing that DoTs on the player stack per attacker the way D-4c's rule does.
+- Row 24 → no row: a D2 source showing that cold damage does not chill players in 1.13.
+- Row 25 → WIDEN: a GD family whose intake needs a form other than `× (1 − res/100)` against her D2 sheet.
+- Row 26 → WIDEN: a clause whose placement in D2's composition has no GD-form analogue.
+
+### 10.2 · Excluded, with fidelity-cost lines (KP-426)
+
+| Excluded | Why | Fidelity-cost line |
+|---|---|---|
+| **Curses and debuffs received** | D2 curses need D2 casters; the arena's monsters are GD bodies. GD's own debuff and modifier kinds are routed off the health path for **both** arms (`threat.NON_HEALTH_KINDS`, a declared under-read). This is a **referent gap**, not a join question | "GD monster debuffs and modifiers on the player are not applied in either arm (referent under-read). A D2 kit's curse-received law (D2 curse durations on players) is therefore moot. Direction: both arms take less than at home; the margin's direction is unknown." |
+| **Monster mana drains and cooldown lockout** (`SlowManaLeach`, `ManaBurnDrain`, `Disruption`) | Routed off the health path for **both** arms as declared under-reads (`threat.NON_HEALTH_DAMAGE_TYPES`, `DECODED_NON_HEALTH_TYPES`). Another referent gap | ⚑ **"Monster energy and mana drains and the Disruption cooldown lockout are not applied in either arm (referent under-read). THIS EXCLUSION FAVOURS THE SORCERESS:** she is a mana-bound kit (row 1; the Meteor starvation prediction) with a cooldown on Meteor (row 7), so an unapplied drain or lockout spares her more than it spares the Warlord. Her anchored margin is biased UPWARD by an unknown amount from this line." |
+
+### 10.3 · Operands confirmed by KP-426 (no rows)
+
+- **Life regen and Replenish Life** → `PLAYER_REGEN_HP_PER_S`, D2 units × r_DMG.
+- **Run speed and FRW, and body radius** → locomotion and geometry, through the declared D2-units-to-metres conversion that row 13 also needs.
+- **Defence against GD's %-current-life attacks** (`intake.PclLimb`'s answering defence) → **0**. D2 has no such stat, so 0 is a D2 fact, not an invented value.
+- **Her resistance to monster life leech** (`LEECH_MULTIPLIER`, the Leeching mutator) → **0**, so the multiplier is 1.0. D2 has no such stat.
+- **Cannot Be Frozen, Half Freeze Duration, cold and poison length reduction** → operands of rows 22–24.
+- **The Hell resist penalty, cap and +max, and physical damage reduction** → as § 7.3, and now as entries in row 25's map.
+- **Her own life leech** → 0: D2 spells do not leech.
+
+### 10.4 · FOURTH NAMED FINDING: the Sorceress's denominators after KP-426
+
+**Reason:** conductor ruling **KP-426** (collab `99d55f74e`), the universal-player-layer sweep commissioned at KP-424. **This addition comes after her J0 Gate-2 anchor**, so it is a named finding (charter § 4.5), printed with its reason. It is not a silent re-map. It is the fourth such finding (after KP-420, KP-421 and KP-423). It makes coverage harder and lands before any J4b build.
+
+| Fraction | J0 anchor | KP-420 | KP-421 | KP-423 | **KP-426 (this finding)** |
+|---|---|---|---|---|---|
+| **(a)** all rows | 18 | 19 | 20 | 21 | **27** (+22…27) |
+| **(b)** all BOUNDARY rows | 10 | 11 | 12 | 13 | **18** (+22…26; row 27 is INTERNAL) |
+
+**Corrected frozen record (after KP-426): 27 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| **INTERNAL** | **8** | 1–7, **27** |
+| **BOUNDARY** | **18** | **AS-IS 4**: 13, 15, **25**, **26** · **WIDEN 10**: 8, 9, 10, 17, 19, 20, 21, **22**, **23**, **24** · **GD-EMPTY 4**: 11, 12, 14, 16 |
+| OUT-OF-ARENA | 1 | 18 |
+| HELD | 0 | — |
+
+**Restated in one line:** INTERNAL 8 · BOUNDARY 18 · OUT-OF-ARENA 1 · HELD 0 = **27**.
+
+**Pending (not a count change):** the `gd` values of row 22 and of row 26's banner clause wait on gamora's answer: is the fold armed in V311-FULL? The classes do not depend on it. If a fold is unarmed, its `gd` setting is "observed, not applied", and that setting still reproduces REFERENT-v1.
+
+**Owed downstream (not this seat's):**
+- **legolas:** source the D2 laws behind rows 22–24 and 27 (control states and durations for players, the DoT rules on players, chill, stamina) with grades, in C-13.
+- **gamora:** declare row 25's map entry by entry and row 26's placements, and answer the two V311-FULL questions.
+- **jack-ryan:** delta-gate rows 21–27 and the 27 / 18 denominators.
+
+*Addendum 4 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `20ff8684`.
