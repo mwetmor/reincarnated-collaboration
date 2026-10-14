@@ -436,3 +436,17 @@ Defence's row in the § 7.3 operand table (*"held, see § 7.4"*) now reads: **ro
 - **jack-ryan:** delta-gate rows 21–27 and the 27 / 18 denominators.
 
 *Addendum 4 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `20ff8684`.
+
+---
+
+## 11 · Corrigendum, 2026-10-14 (jack-ryan census delta Gate-2 INFO-3, collab `1a4bee308`; KC2 KP-427). Text only, no class or count change
+
+**The taxonomy rule, stated once for this census:**
+- **BOUNDARY / GD-EMPTY:** the `d2` side needs a **built body or entity** that the oracle does not have. Examples here: rows 11, 12, 14 and 16 (the L-14 and L-19 to L-21 build items).
+- **BOUNDARY / WIDEN with GD referent `NONE`:** a **settable switch whose `off` reproduces REFERENT-v1**. Its `off` default is labelled DECLARED-INVENTED. Examples here: rows 17 and 24.
+
+A `NONE` referent can occur in either class. **What decides the class is whether reproducing the referent takes a switch or a build.**
+
+**Correction to § 7.2.** In row 19's reasoning, the bullet "Not GD-EMPTY" opens: *"P0 § 7.1 reserves GD-EMPTY for a boundary question with no GD rule at all, where the registry's referent must read `NONE`."* That definition also describes rows 17 and 24, which are WIDEN. It is **superseded by the rule above**. Row 19's own class is unchanged: its referent is a measured 0.0, and `gd` reproduces REFERENT-v1 by a setting, so it is WIDEN under either wording. P0 § 7.1 carries the same rule (P0 § 14).
+
+*Corrigendum signed:* elrond, 2026-10-14.

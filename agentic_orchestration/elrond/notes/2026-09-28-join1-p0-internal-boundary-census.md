@@ -416,3 +416,15 @@ Per architect § 3: levers are **discovered, never authored by hand** (Disciplin
 **Settled 2026-10-14 (gamora, read-only on the sealed oracle `969fbd8d`):** B-19's control fold is **APPLIED, UNREACHED on the J-S8 board** (its negative control may be unreachable; gamora's ADDENDUM-4 decides between REACHED-INSENSITIVE and a forced-landing control). B-23's banner is **LIVE**, composing additively. Neither changes a class or a count.
 
 *Named finding signed:* elrond, 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched, including the GD oracle at engine HEAD `20ff8684`.
+
+---
+
+## 14 · Corrigendum, 2026-10-14 (jack-ryan census delta Gate-2 INFO-3, collab `1a4bee308`; KC2 KP-427). Text only, no class or count change
+
+**The taxonomy rule, stated once (it refines § 7.1):**
+- **BOUNDARY / GD-EMPTY:** the foreign side needs a **built body or entity** that the oracle does not have. Examples: L-14 `player_projectile_model`, L-15 `monster_debuff_lane`, L-16 `agency_model` (an autonomous driver), and B-15 (L-21 `monster_hit_recovery`).
+- **BOUNDARY / WIDEN with GD referent `NONE`:** a **settable switch whose `off` reproduces REFERENT-v1**. Its `off` default is labelled DECLARED-INVENTED. Examples: B-16 (L-18) and B-21 (chill).
+
+§ 7.1's recommendation, that the registry must be able to print `NONE — no GD rule` and keep it distinct from a GD value that happens to be zero, stands for **both** classes. **`NONE` alone does not make a row GD-EMPTY. What decides the class is whether reproducing the referent takes a switch or a build.** The Sorceress census carries the same rule (its § 11), which corrects its § 7.2 wording.
+
+*Corrigendum signed:* elrond, 2026-10-14.
