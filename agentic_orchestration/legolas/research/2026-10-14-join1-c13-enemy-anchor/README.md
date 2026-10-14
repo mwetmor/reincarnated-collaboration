@@ -30,7 +30,7 @@ Grades: **DATAMINED** (read from game data) · **MODEL-VERIFIED** (D2MOO code st
 |---|---|---|---|---|
 | **HP** | 6,000 [4,829–8,346] | 243k [168k–409k] | **×40.5** [34.8–49.0] | both DATAMINED; ratio INFERRED |
 | HP, champion ↔ champion-hero | 11,745 | 448k | ×38.1 | as above |
-| **Damage per hit** (pre-mitigation) | 93 [84–129] (melee/attack columns only ⚑) | 8.06k folded [6.86k–9.59k] (779 raw) | **×86.6 folded** (p25/p25 ×82.1, p75/p75 ×74.5) / ×8.4 raw | flagged ⚑ |
+| ~~**Damage per hit** (pre-mitigation)~~ **SUPERSEDED by § 12.3: r_DMG = ×98.9 [74.5–118.2]** | 93 [84–129] (melee/attack columns only ⚑) | 8.06k folded [6.86k–9.59k] (779 raw) | **×86.6 folded** (p25/p25 ×82.1, p75/p75 ×74.5) / ×8.4 raw | flagged ⚑ |
 | AR ↔ OA (raw numbers) | 4,089 | 2,416 | ×0.59 | **⚑ MISLEADING. Use hit chance (§ 4.2)** |
 | Defense ↔ DA (raw numbers) | 1,816 | 2,204 | ×1.21 | **⚑ MISLEADING. Use hit chance** |
 | Armour | none on D2 monsters | 915 (70 % absorption) | — | **⚑ NOT A RATIO** |
@@ -171,6 +171,21 @@ Full numbers are in `ratio_table.json → ratios_gd_over_d2` for each rule. Pair
 
 ## 6. The Sorceress's defensive sheet (Q5), clvl 90, LoD 1.13 (`sorc_defense_sheet.json`)
 
+> **⚑ Conductor defaults, KP-428 (2026-10-14):**
+> - **Allocation: NODEX is the default.** MAXBLOCK is a sensitivity.
+> - **The Anya scrolls are done** (the "quests" columns: 460 stat points, resists +30).
+> - **Chains of Honor sits on Archon Plate.**
+> - **The Barbarian's belt is 16 slots.**
+>
+> So the **default sheet** is NODEX_quests:
+> - **life 1,004**;
+> - **defence 1,060–1,347** (+250 vs missiles);
+> - **block 3 %**;
+> - **resists after the Hell penalty: fire +15…+25, cold/lightning/poison 50…60**;
+> - Damage Reduced 18 %.
+>
+> MAXBLOCK_quests (life 394, block 75 %, 25 % running) is the sensitivity.
+
 **Gear:** the kit record resolved in the 1.13 tables (J4b § 3): Eschuta's Temper, Spirit Monarch, Chains of Honor, Harlequin Crest (Flickering Flame has no 1.13 row), Magefist, Arachnid Mesh, Mara's Kaleidoscope.
 
 **The record pins no attributes and no Chains of Honor base**, so the sheet is given for two INFERRED stat profiles. In both, Strength goes to the Monarch requirement (156) net of the +27 Strength on items, and the remainder goes to Vitality. 460 points assumes the three Lam Esen quests (445 without).
@@ -289,7 +304,7 @@ Gaps: the code is 1.10f, and no source shows a 1.13 change. Knockback distance i
 
 ---
 
-## 12. KP-428 follow-up: r_DMG, stage 3 (2026-10-14). The GD side is PENDING
+## 12. KP-428 follow-up: r_DMG (stage 3 = D2 skill damage; stage 4 = GD reconcile + bound r_DMG)
 
 ### 12.1 D2 monster skill damage (done) — `d2_skill_damage.json`, `scripts/d2_skill_damage.py`, `verification_skill_damage.log`
 
@@ -324,17 +339,60 @@ Grade: **structure MODEL-VERIFIED (code); per-skill values INFERRED (computed; n
 
 27 of 70 R1 types have a damaging skill hit; 10 have a stream skill. Most of the 55 skill-bearing types carry utility skills (raise, curse, teleport, nest).
 
-### 12.2 GD side (PENDING)
+### 12.2 GD side: reconciled (stage 4)
 
-The reconcile against `config_of_record.json` and the oracle's runtime damage path is still running in the fork. It will land as `gd_damage_reconcile.{json,md}` and `scripts/gd_damage_reconcile.py`. **Until it lands, r_DMG is bounded by the stage-1 GD figures:**
+Files: `gd_damage_reconcile.json` and `scripts/gd_damage_reconcile.py`. The script was written by the GD fork; **I reviewed it and re-ran it.** The re-run is identical except the `wall_s` timer (4.9 against 5.0), and engine `simulation/kc2` and `data/kc2` are untouched.
 
-| Rule | Provisional r_DMG, folded (upper) | Provisional r_DMG, raw (lower) |
+**What the sealed referent applies is neither "folded" (a × om) nor raw.** It is the GD Game.dll composition, applied per instant row before player mitigation:
+
+| Step | Term | Oracle location |
 |---|---|---|
-| R1 | **×82.9** | **×8.0** |
-| R2 | ×69.7 | ×6.7 |
-| R3 | ×73.4 | ×7.1 |
-| R4 | ×76.4 | ×7.4 |
+| 1 | `om` = offense fold `mult_for(kind, type)`: the wave and Ultimate damage pool | `threat.py:2038` |
+| 2 | `a_mult, t_mult, own_add` = global-magnitude multipliers: the attribute term, Dex for Physical/Pierce and Int otherwise | `threat.py:2076` |
+| 3 | C-11a attribute-scope correction to `a_mult` | `threat.py:2082` |
+| 4 | `om += own_add`: the body's own total-damage passives join the **same additive pool** | `threat.py:2083` |
+| 5 | `om += mutators.pct_add(r)`: Brutal/Corrupted +50 % on instant Pierce/Chaos | `threat.py:2101` |
+| 6 | `_im = CompositionFold.instant(...)`: **`m × max(0, a_mult + (om − 1))`**, plus a wave physical term on Physical/Pierce (restoring the clamp at charLevel ≥ 101) | `threat.py:2230`; `gd_composition.py:130–150` (L143 / L147 / L150) |
+| 7 | `mitigate(_im × mult, type)`, then `direct += applied × n_volley × band_scale` | `threat.py:2232`, `2235` |
 
-These use the GD BOARD trash basic hit (folded 8,056, raw 779) over the D2 best attack including skills.
+- **The attribute term is ADDITIVE with the pool, not multiplicative.** That is why the stage-1 "folded" (a × om) was the wrong form.
+- **But the record also carries terms stage 1 omitted:** weapon-swing rows, Brutal/Corrupted flat rows (85 Pierce and 85 Chaos), the wave physical term and C-11b.
+- **Net result: on the same cells, record ÷ stage-1 folded = ×2.02 [1.65–2.10]** (30 cells).
+- Configuration: the v3.11 driver's V311-FULL composition, arm M0, which `config_of_record.json` marks "THE CONTROL — the model of record". Crit adds ×1.0005 at the board PTH (sealed d100 law). Non-health, DoT, leech and %-current-life rows are excluded and counted (335 of 1,250 dynamic hits carry %-current-life).
 
-**Baal's hard-coded waves:** not attempted.
+**Ablation ladder** (trash, basic swing, body-weighted median):
+
+| Step | Value |
+|---|---|
+| A0, prior form | 22.4k |
+| + C-11b | 24.3k |
+| + C-11a | 24.3k |
+| **+ composition (GD form)** | **13.7k** |
+| + Brutal/Corrupted (= the V311-FULL record) | **16.0k** |
+
+**GD trash per hit, BOARD body-weighted:**
+
+| Instrument | Median [IQR] | Population |
+|---|---|---|
+| **Static record, max slot** | **9,610 [6,219–15,981]** | 43 cells, 112 bodies. **PRIMARY**: like-for-like with D2's best attack |
+| Static record, basic swing | 15,981 [14,562–16,449] | only the 16 cells (55 bodies) that have a basic weapon swing |
+| Dynamic, per landed hit, weighted by the oracle's own slot choice | 5,609 [2,941–10,795] | 1 salt, arm M0, 425 trash hits. Slot mix: basic 189, special2 69, special1 58, tree attack 45, initial 42 |
+
+Why dynamic sits below static: it weights by **use** (frequent cheap basic swings and specials), while static takes each cell's **maximum** slot. It is also one salt over the line-up's bodies, not the board's. **Neither instrument is wrong; they answer different weightings.** Dynamic pairs with D2's mean attack; static max slot pairs with D2's best attack.
+
+### 12.3 r_DMG, bound (`r_dmg.json`, `scripts/r_dmg_bind.py`, `verification_r_dmg.log`)
+
+**r_DMG = GD static record max slot (trash) ÷ D2 best attack including skills (normal).** This pairs like r_HP.
+
+| Rule | **r_DMG primary [IQR ratio p25/p25 – p75/p75]** | Sens: mean attack (static ÷ D2 mean) | Sens: use-weighted (dynamic ÷ D2 mean) | Sens: basic swing ÷ D2 best |
+|---|---|---|---|---|
+| **R1** | **×98.9 [74.5–118.2]** | ×100.9 | ×58.9 [40.1–95.6] | ×164.4 |
+| R2 | ×83.1 [62.4–133.1] | ×98.3 | ×57.4 | ×138.2 |
+| R3 | ×87.6 [76.8–100.9] | ×93.0 | ×54.3 | ×145.6 |
+| R4 | ×91.1 [77.7–121.1] | ×100.1 | ×58.4 | ×151.5 |
+
+Grades: GD per-cell values are DATAMINED inputs through the oracle's own MODEL-VERIFIED composition. D2 values are INFERRED (computed through code laws). **The ratio is INFERRED.**
+
+**With r_HP ×40.5, the anchored asymmetry is about 2.4:1 at R1** (GD enemies hit about 99× harder against about 40× more durable). Under the use-weighted sensitivity it is about 1.5:1.
+
+**Baal's hard-coded waves:** not attempted (optional).

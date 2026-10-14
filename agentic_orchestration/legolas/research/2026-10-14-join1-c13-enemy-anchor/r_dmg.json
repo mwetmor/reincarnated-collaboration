@@ -1,0 +1,157 @@
+{
+ "gd": {
+  "PRIMARY static record max-slot (body-weighted, 43 cells)": {
+   "p25": 6218.82,
+   "median": 9609.756,
+   "p75": 15981.44,
+   "min": 2585.81,
+   "max": 24580.083,
+   "weight_total": 112.0,
+   "n": 43
+  },
+  "SENS static record basic swing (16 cells with a basic swing)": {
+   "p25": 14562.302,
+   "median": 15981.44,
+   "p75": 16448.727,
+   "min": 6886.866,
+   "max": 24580.083,
+   "weight_total": 55.0,
+   "n": 16
+  },
+  "SENS dynamic per landed hit, use-weighted by oracle slot choice (1 salt, M0, 425 trash hits)": {
+   "p25": 2940.8427906976744,
+   "median": 5608.558779534884,
+   "p75": 10794.91551020408,
+   "min": 609.62,
+   "max": 35152.69528239203,
+   "weight_total": 425.0,
+   "n": 425
+  }
+ },
+ "rules": {
+  "R1_alvl85_all": {
+   "d2_best": {
+    "n": 66,
+    "median": 97.2,
+    "p25": 83.5,
+    "p75": 135.25,
+    "min": 3.1,
+    "max": 597.5
+   },
+   "d2_mean": {
+    "n": 66,
+    "median": 95.2,
+    "p25": 73.3125,
+    "p75": 112.925,
+    "min": 3.1,
+    "max": 597.5
+   },
+   "r_DMG_primary": 98.86580246913579,
+   "r_DMG_primary_iqr_ratio": [
+    74.47688622754491,
+    118.1622181146026
+   ],
+   "sens_mean_attack (static max-slot / D2 mean)": 100.9428151260504,
+   "sens_use_weighted (dynamic / D2 mean)": 58.91343255813953,
+   "sens_use_weighted_iqr_ratio": [
+    40.11379765657527,
+    95.59367288203747
+   ],
+   "sens_basic_swing (static basic / D2 best)": 164.41810699588478
+  },
+  "R2_chaos_sanctum": {
+   "d2_best": {
+    "n": 3,
+    "median": 115.66666666666666,
+    "p25": 99.58333333333333,
+    "p75": 120.08333333333333,
+    "min": 83.5,
+    "max": 124.5
+   },
+   "d2_mean": {
+    "n": 3,
+    "median": 97.72222222222221,
+    "p25": 83.11111111111111,
+    "p75": 111.11111111111111,
+    "min": 68.5,
+    "max": 124.5
+   },
+   "r_DMG_primary": 83.08146397694524,
+   "r_DMG_primary_iqr_ratio": [
+    62.44840167364017,
+    133.08624566273423
+   ],
+   "sens_mean_attack (static max-slot / D2 mean)": 98.33746901648664,
+   "sens_use_weighted (dynamic / D2 mean)": 57.39286983037403,
+   "sens_use_weighted_iqr_ratio": [
+    35.38447208058699,
+    97.15423959183673
+   ],
+   "sens_basic_swing (static basic / D2 best)": 138.16806916426515
+  },
+  "R3_worldstone_throne": {
+   "d2_best": {
+    "n": 33,
+    "median": 109.75,
+    "p25": 81.0,
+    "p75": 158.35,
+    "min": 3.1,
+    "max": 292.5
+   },
+   "d2_mean": {
+    "n": 33,
+    "median": 103.36500000000001,
+    "p25": 68.5,
+    "p75": 120.0,
+    "min": 3.1,
+    "max": 198.5
+   },
+   "r_DMG_primary": 87.56041913439635,
+   "r_DMG_primary_iqr_ratio": [
+    76.77555555555556,
+    100.92478686454058
+   ],
+   "sens_mean_attack (static max-slot / D2 mean)": 92.96914816427223,
+   "sens_use_weighted (dynamic / D2 mean)": 54.25974729874603,
+   "sens_use_weighted_iqr_ratio": [
+    42.93201154303174,
+    89.95762925170067
+   ],
+   "sens_basic_swing (static basic / D2 best)": 145.61676537585421
+  },
+  "R4_alvl81plus": {
+   "d2_best": {
+    "n": 309,
+    "median": 105.5,
+    "p25": 80.0,
+    "p75": 132.0,
+    "min": 3.1,
+    "max": 597.5
+   },
+   "d2_mean": {
+    "n": 309,
+    "median": 96.0,
+    "p25": 74.225,
+    "p75": 116.6875,
+    "min": 3.1,
+    "max": 597.5
+   },
+   "r_DMG_primary": 91.0877345971564,
+   "r_DMG_primary_iqr_ratio": [
+    77.73525,
+    121.07151515151516
+   ],
+   "sens_mean_attack (static max-slot / D2 mean)": 100.101625,
+   "sens_use_weighted (dynamic / D2 mean)": 58.422487286821706,
+   "sens_use_weighted_iqr_ratio": [
+    39.6206505988235,
+    92.51132735043669
+   ],
+   "sens_basic_swing (static basic / D2 best)": 151.48284360189575
+  }
+ },
+ "inputs_sha256": {
+  "gd_damage_reconcile.json": "35df451e5325bb5ee41a3678295fccc743e2f67d486beba62e083274245a0966",
+  "d2_skill_damage.json": "fbb4c903e8a01fed3b637ee45122e62dd5579e8320fe88afcd4756578cc1639a"
+ }
+}
