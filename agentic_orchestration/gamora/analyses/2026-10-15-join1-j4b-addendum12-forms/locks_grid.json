@@ -1057,6 +1057,74 @@
      "gethit": true,
      "hitrec": true,
      "landed": true,
+     "preempt": "before_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 6,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     6,
+     "hitrec",
+     "CAST",
+     "HITREC",
+     14,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_preempted_after_action",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 14,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
      "preempt": "after_action"
     }
    ],

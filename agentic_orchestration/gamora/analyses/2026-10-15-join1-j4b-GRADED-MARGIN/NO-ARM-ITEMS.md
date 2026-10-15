@@ -60,6 +60,20 @@
 - Row **18** has its prerequisite operands but no legality-check row.
 - **Against the prediction of 32 / 32** (31 / 32 if row 18 is ruled unmappable), the pack criterion gives 29 / 32. Whether design-text operands count as mapped is jack-ryan's grading call, and it is printed both ways: **29 / 32 (pack rows only)** or **31 / 32 (counting design-text operands; row 18 open)**.
 
+
+**⚑ drax's confirmation, folded (relayed by the conductor):**
+- **Row 18 (build legality): the port has NO legality check.** Only `RB-K-blvl.inferno` is read, so row 18 is **not implemented**, either in the pack or in the port.
+- **Row 27 (stamina): wiring shown.**
+  - sealed hook `kc2rt_fight.gd:8232`;
+  - adapter `kc2rb_port.gd:651`;
+  - lane `:333` / `:1213`;
+  - S15 reach 1,421;
+  - forms 0 / 22,700 bit-unequal.
+- **Fraction (a), all three readings side by side:**
+  - **pack rows:** 29 / 32 (rows 18, 23 and 24 missing);
+  - **implementation:** **31 / 32.** Rows 23 / 24 are implemented from design-text operands, and row 18 is not implemented.
+- **The registered prediction was 32 / 32, or 31 / 32 if row 18 is ruled unmappable.** The implementation count matches only the second form. **jack-ryan grades it.**
+
 ## 2 · The row-identity negative controls on the existing grains (prereg § 2)
 
 | Row | Registered NC (row identity) | Result |
