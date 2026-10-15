@@ -1,0 +1,3511 @@
+{
+ "corpus_db_FILE_sha256_in": "2617c0c101d8d924cb327e50137b1b3a61b1a8cbd81a24632d2ebe3469eaa26b",
+ "ROWSET_in": {
+  "gd-eor-warlord-referent": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
+  "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
+  "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
+ },
+ "new_kit": "d2-fire-sorc-c14",
+ "rule": "R-D2S1",
+ "build_file_sha256": "ee5b8b2238d313f7b03cececfa708e17b11768bc5b4d47319d7426fe2b6c0cfe",
+ "raw_files_sha256": {
+  "CharStats.txt": "210a6f1371a475442a6f9b27a2d03b2bebc2e3e93c1e586583c112596301a8b3",
+  "Armor.txt": "6ce5a09e8c6bc07dddea916412f18e57af860f7c870e3ef9e3003ea8beeaaf99",
+  "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07",
+  "Missiles.txt": "9d6794a50e8b1931e476a4d666bfe4048d7d1dada454f19659d74a8825adef53",
+  "Weapons.txt": "706f39eafa8393e428b049ef7f629eb59096435f62f849b6ab2b144b704ccd4b",
+  "Gems.txt": "52ea3e27a905f0bb2dc2bf0d60835e6f980f16e797c91e85aeccee561e219145"
+ },
+ "n_kit_numeric_rows": 571,
+ "rows_by_scale": {
+  "d2_input_level": 19,
+  "d2_input_stat_points": 4,
+  "d2_input_hard_points": 13,
+  "d2_input_item_stat": 233,
+  "d2_input_charstats": 19,
+  "d2_input_base_item": 116,
+  "d2_input_skill_param": 144,
+  "d2_input_missile_param": 23
+ },
+ "sql_sha256": "fbb773f303d50e96a0911eab2692de2576dfaa1c0ea97f0060e7903a24f94670",
+ "rows": [
+  {
+   "numeric_key": "v_clvl",
+   "source_value": 99.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"level\": 99 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.level"
+  },
+  {
+   "numeric_key": "v_statpoints_str",
+   "source_value": 74.0,
+   "source_scale": "d2_input_stat_points",
+   "source_anchor": "\"str\": 74 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.stats.str (points spent)"
+  },
+  {
+   "numeric_key": "v_statpoints_dex",
+   "source_value": 0.0,
+   "source_scale": "d2_input_stat_points",
+   "source_anchor": "\"dex\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.stats.dex (points spent)"
+  },
+  {
+   "numeric_key": "v_statpoints_int",
+   "source_value": 0.0,
+   "source_scale": "d2_input_stat_points",
+   "source_anchor": "\"int\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.stats.int (points spent)"
+  },
+  {
+   "numeric_key": "v_statpoints_vit",
+   "source_value": 431.0,
+   "source_scale": "d2_input_stat_points",
+   "source_anchor": "\"vit\": 431 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.stats.vit (points spent)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill036",
+   "source_value": 17.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"36\": 17 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"36\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill037",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"37\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"37\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill040",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"40\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"40\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"41\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"41\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill042",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"42\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"42\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill043",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"43\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"43\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill046",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"46\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"46\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill047",
+   "source_value": 20.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"47\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"47\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill051",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"51\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"51\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill052",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"52\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"52\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill054",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"54\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"54\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill056",
+   "source_value": 20.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"56\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"56\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_hardpoints_skill061",
+   "source_value": 20.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"61\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"61\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_quest_d0_denofevil",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"denofevil\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[0]"
+  },
+  {
+   "numeric_key": "v_quest_d0_lamessenstome",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"lamessenstome\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[0]"
+  },
+  {
+   "numeric_key": "v_quest_d0_prisonofice",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"prisonofice\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[0]"
+  },
+  {
+   "numeric_key": "v_quest_d0_radamentslair",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"radamentslair\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[0]"
+  },
+  {
+   "numeric_key": "v_quest_d0_thefallenangel",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"thefallenangel\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[0]"
+  },
+  {
+   "numeric_key": "v_quest_d0_thegoldenbird",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"thegoldenbird\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[0]"
+  },
+  {
+   "numeric_key": "v_quest_d1_denofevil",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"denofevil\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[1]"
+  },
+  {
+   "numeric_key": "v_quest_d1_lamessenstome",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"lamessenstome\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[1]"
+  },
+  {
+   "numeric_key": "v_quest_d1_prisonofice",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"prisonofice\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[1]"
+  },
+  {
+   "numeric_key": "v_quest_d1_radamentslair",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"radamentslair\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[1]"
+  },
+  {
+   "numeric_key": "v_quest_d1_thefallenangel",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"thefallenangel\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[1]"
+  },
+  {
+   "numeric_key": "v_quest_d1_thegoldenbird",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"thegoldenbird\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[1]"
+  },
+  {
+   "numeric_key": "v_quest_d2_denofevil",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"denofevil\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[2]"
+  },
+  {
+   "numeric_key": "v_quest_d2_lamessenstome",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"lamessenstome\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[2]"
+  },
+  {
+   "numeric_key": "v_quest_d2_prisonofice",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"prisonofice\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[2]"
+  },
+  {
+   "numeric_key": "v_quest_d2_radamentslair",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"radamentslair\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[2]"
+  },
+  {
+   "numeric_key": "v_quest_d2_thefallenangel",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"thefallenangel\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[2]"
+  },
+  {
+   "numeric_key": "v_quest_d2_thegoldenbird",
+   "source_value": 1.0,
+   "source_scale": "d2_input_level",
+   "source_anchor": "\"thegoldenbird\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.quests[2]"
+  },
+  {
+   "numeric_key": "v_head_uap_defense",
+   "source_value": 141.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 141 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248)"
+  },
+  {
+   "numeric_key": "v_head_uap_sockets",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248)"
+  },
+  {
+   "numeric_key": "v_head_uap_socket0_r24",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[0]\": \"r24\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248)"
+  },
+  {
+   "numeric_key": "v_head_uap_damageresist",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"damageresist\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_dexterity",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"dexterity\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_energy",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"energy\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_item_allskills",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_item_hp_perlevel",
+   "source_value": 12.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_hp_perlevel\": 12 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_item_magicbonus",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_item_mana_perlevel",
+   "source_value": 12.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_mana_perlevel\": 12 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_strength",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"strength\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_head_uap_vitality",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['43'] (worn at head; base uap; unique248) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_defense",
+   "source_value": 148.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 148 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm_uit_sockets",
+   "source_value": 4.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 4 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm_uit_socket0_r07",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[0]\": \"r07\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm_uit_socket1_r10",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[1]\": \"r10\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm_uit_socket2_r09",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[2]\": \"r09\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm_uit_socket3_r11",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[3]\": \"r11\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm_uit_armorclass_vs_missile",
+   "source_value": 250.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"armorclass_vs_missile\": 250 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_item_absorbmagic",
+   "source_value": 8.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_absorbmagic\": 8 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_item_allskills",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_item_fastercastrate",
+   "source_value": 35.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastercastrate\": 35 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_item_fastergethitrate",
+   "source_value": 55.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastergethitrate\": 55 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_maxmana",
+   "source_value": 112.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxmana\": 112 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm_uit_vitality",
+   "source_value": 22.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 22 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_sockets",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284)"
+  },
+  {
+   "numeric_key": "v_rarm_oba_ethereal",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284)"
+  },
+  {
+   "numeric_key": "v_rarm_oba_socket0_r24",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[0]\": \"r24\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284)"
+  },
+  {
+   "numeric_key": "v_rarm_oba_coldresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_energy",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"energy\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_fireresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_item_addclassskills#1",
+   "source_value": 3.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addclassskills#1\": 3 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_item_armor_percent",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_armor_percent\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_item_fastercastrate",
+   "source_value": 30.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastercastrate\": 30 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_item_magicbonus",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_item_manaafterkill",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_manaafterkill\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_item_skillongethit#54#25",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_skillongethit#54#25\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_lightresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_poisonresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_rarm_oba_vitality",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['5'] (worn at rarm; base oba; unique284) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_defense",
+   "source_value": 148.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 148 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm2_uit_sockets",
+   "source_value": 4.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 4 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm2_uit_socket0_r07",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[0]\": \"r07\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm2_uit_socket1_r10",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[1]\": \"r10\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm2_uit_socket2_r09",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[2]\": \"r09\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm2_uit_socket3_r11",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[3]\": \"r11\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155)"
+  },
+  {
+   "numeric_key": "v_larm2_uit_armorclass_vs_missile",
+   "source_value": 250.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"armorclass_vs_missile\": 250 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_item_absorbmagic",
+   "source_value": 8.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_absorbmagic\": 8 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_item_allskills",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_item_fastercastrate",
+   "source_value": 35.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastercastrate\": 35 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_item_fastergethitrate",
+   "source_value": 55.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastergethitrate\": 55 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_maxmana",
+   "source_value": 112.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxmana\": 112 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_larm2_uit_vitality",
+   "source_value": 22.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 22 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['3'] (worn at larm2; base uit; runeword155) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_sockets",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_ethereal",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": true -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_socket0_r11",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[0]\": \"r11\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_socket1_r08",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[1]\": \"r08\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_socket2_r23",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[2]\": \"r23\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_socket3_r24",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[3]\": \"r24\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_socket4_r27",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[4]\": \"r27\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039)"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_hpregen",
+   "source_value": 12.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"hpregen\": 12 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_allskills",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_fasterattackrate",
+   "source_value": 40.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fasterattackrate\": 40 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_maxdamage_percent",
+   "source_value": 240.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_maxdamage_percent\": 240 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_mindamage_percent",
+   "source_value": 240.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_mindamage_percent\": 240 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_nonclassskill#146",
+   "source_value": 4.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_nonclassskill#146\": 4 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_nonclassskill#149",
+   "source_value": 6.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_nonclassskill#149\": 6 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_rarm2_crs_item_nonclassskill#155",
+   "source_value": 6.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_nonclassskill#155\": 6 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['7'] (worn at rarm2; base crs; runeword039) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_defense",
+   "source_value": 48.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 48 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240)"
+  },
+  {
+   "numeric_key": "v_feet_xtb_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240)"
+  },
+  {
+   "numeric_key": "v_feet_xtb_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240)"
+  },
+  {
+   "numeric_key": "v_feet_xtb_item_armor_percent",
+   "source_value": 190.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_armor_percent\": 190 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_item_attackertakesdamage",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_attackertakesdamage\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_item_fastermovevelocity",
+   "source_value": 25.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastermovevelocity\": 25 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_item_magicbonus",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_item_staminadrainpct",
+   "source_value": 40.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_staminadrainpct\": 40 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_maxdamage",
+   "source_value": 25.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxdamage\": 25 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_maxdurability",
+   "source_value": 30.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxdurability\": 30 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_mindamage",
+   "source_value": 15.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"mindamage\": 15 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_strength",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"strength\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_feet_xtb_vitality",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['8'] (worn at feet; base xtb; unique240) stats"
+  },
+  {
+   "numeric_key": "v_lrin_rin_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['31'] (worn at lrin; base rin)"
+  },
+  {
+   "numeric_key": "v_lrin_rin_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['31'] (worn at lrin; base rin)"
+  },
+  {
+   "numeric_key": "v_lrin_rin_item_magicbonus",
+   "source_value": 40.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 40 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['31'] (worn at lrin; base rin) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_defense",
+   "source_value": 468.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 468 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040)"
+  },
+  {
+   "numeric_key": "v_tors_uui_sockets",
+   "source_value": 4.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 4 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040)"
+  },
+  {
+   "numeric_key": "v_tors_uui_socket0_r14",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[0]\": \"r14\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040)"
+  },
+  {
+   "numeric_key": "v_tors_uui_socket1_r22",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[1]\": \"r22\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040)"
+  },
+  {
+   "numeric_key": "v_tors_uui_socket2_r30",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[2]\": \"r30\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040)"
+  },
+  {
+   "numeric_key": "v_tors_uui_socket3_r24",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"socketedItems[3]\": \"r24\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040)"
+  },
+  {
+   "numeric_key": "v_tors_uui_coldresist",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_fireresist",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_item_allskills",
+   "source_value": 2.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 2 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_item_armor_percent",
+   "source_value": 85.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_armor_percent\": 85 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_item_demondamage_percent",
+   "source_value": 200.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_demondamage_percent\": 200 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_item_maxdurability_percent",
+   "source_value": 15.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_maxdurability_percent\": 15 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_item_undeaddamage_percent",
+   "source_value": 100.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_undeaddamage_percent\": 100 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_lifedrainmindam",
+   "source_value": 8.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lifedrainmindam\": 8 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_lightresist",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_poisonresist",
+   "source_value": 50.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 50 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_tors_uui_strength",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"strength\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['46'] (worn at tors; base uui; runeword040) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_defense",
+   "source_value": 12.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 12 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105)"
+  },
+  {
+   "numeric_key": "v_glov_tgl_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105)"
+  },
+  {
+   "numeric_key": "v_glov_tgl_armorclass",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"armorclass\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_firemaxdam",
+   "source_value": 6.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"firemaxdam\": 6 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_firemindam",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"firemindam\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_item_armor_percent",
+   "source_value": 30.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_armor_percent\": 30 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_item_elemskill#1",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_elemskill#1\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_item_fastercastrate",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastercastrate\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_glov_tgl_manarecoverybonus",
+   "source_value": 25.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"manarecoverybonus\": 25 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['27'] (worn at glov; base tgl; unique105) stats"
+  },
+  {
+   "numeric_key": "v_belt_ulc_defense",
+   "source_value": 63.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"defense\": 63 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373)"
+  },
+  {
+   "numeric_key": "v_belt_ulc_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373)"
+  },
+  {
+   "numeric_key": "v_belt_ulc_item_allskills",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373) stats"
+  },
+  {
+   "numeric_key": "v_belt_ulc_item_armor_percent",
+   "source_value": 120.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_armor_percent\": 120 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373) stats"
+  },
+  {
+   "numeric_key": "v_belt_ulc_item_charged_skill#278#3",
+   "source_value": 11.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_charged_skill#278#3\": 11 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373) stats"
+  },
+  {
+   "numeric_key": "v_belt_ulc_item_fastercastrate",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastercastrate\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373) stats"
+  },
+  {
+   "numeric_key": "v_belt_ulc_item_maxmana_percent",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_maxmana_percent\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373) stats"
+  },
+  {
+   "numeric_key": "v_belt_ulc_item_slow",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_slow\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['35'] (worn at belt; base ulc; unique373) stats"
+  },
+  {
+   "numeric_key": "v_rrin_rin_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['31'] (worn at rrin; base rin)"
+  },
+  {
+   "numeric_key": "v_rrin_rin_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['31'] (worn at rrin; base rin)"
+  },
+  {
+   "numeric_key": "v_rrin_rin_item_magicbonus",
+   "source_value": 40.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 40 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['31'] (worn at rrin; base rin) stats"
+  },
+  {
+   "numeric_key": "v_neck_amu_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['95'] (worn at neck; base amu)"
+  },
+  {
+   "numeric_key": "v_neck_amu_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['95'] (worn at neck; base amu)"
+  },
+  {
+   "numeric_key": "v_neck_amu_item_addskill_tab#3",
+   "source_value": 3.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 3 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['95'] (worn at neck; base amu) stats"
+  },
+  {
+   "numeric_key": "v_neck_amu_item_magicbonus",
+   "source_value": 35.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 35 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['95'] (worn at neck; base amu) stats"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_item_magicbonus",
+   "source_value": 7.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 7 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv02_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv02; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_item_magicbonus",
+   "source_value": 7.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 7 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv03_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv03; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_item_magicbonus",
+   "source_value": 7.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 7 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv04_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv04; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_item_magicbonus",
+   "source_value": 7.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 7 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv05_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv05; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_item_magicbonus",
+   "source_value": 7.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 7 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv06_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv06; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_item_magicbonus",
+   "source_value": 7.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 7 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv07_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['17'] (worn at inv07; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1)"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_coldresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_fireresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_item_fastergethitrate",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_fastergethitrate\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_lightresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv08_cm1_poisonresist",
+   "source_value": 5.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 5 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['47'] (worn at inv08; base cm1) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381)"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381)"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_coldresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_dexterity",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"dexterity\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_energy",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"energy\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_fireresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_item_addexperience",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addexperience\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_item_allskills",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_allskills\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_lightresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_poisonresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_strength",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"strength\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv09_cm1_vitality",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['14'] (worn at inv09; base cm1; unique381) stats"
+  },
+  {
+   "numeric_key": "v_inv12_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv12; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv12_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv12; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv12_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv12; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv12_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv12; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv13_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv13; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv13_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv13; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv13_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv13; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv13_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv13; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv14_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv14; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv14_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv14; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv14_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv14; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv14_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv14; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv15_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv15; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv15_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv15; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv15_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv15; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv15_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv15; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv16_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv16; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv16_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv16; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv16_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv16; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv16_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv16; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv17_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv17; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv17_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv17; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv17_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv17; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv17_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv17; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv18_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv18; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv18_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv18; base cm3)"
+  },
+  {
+   "numeric_key": "v_inv18_cm3_item_addskill_tab#3",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addskill_tab#3\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv18; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv18_cm3_maxhp",
+   "source_value": 45.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"maxhp\": 45 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['13'] (worn at inv18; base cm3) stats"
+  },
+  {
+   "numeric_key": "v_inv19_cm3_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['16'] (worn at inv19; base cm3; unique359)"
+  },
+  {
+   "numeric_key": "v_inv19_cm3_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['16'] (worn at inv19; base cm3; unique359)"
+  },
+  {
+   "numeric_key": "v_inv19_cm3_item_goldbonus",
+   "source_value": 160.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_goldbonus\": 160 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['16'] (worn at inv19; base cm3; unique359) stats"
+  },
+  {
+   "numeric_key": "v_inv19_cm3_item_magicbonus",
+   "source_value": 40.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_magicbonus\": 40 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['16'] (worn at inv19; base cm3; unique359) stats"
+  },
+  {
+   "numeric_key": "v_inv19_cm3_item_reducedprices",
+   "source_value": 15.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_reducedprices\": 15 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['16'] (worn at inv19; base cm3; unique359) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_sockets",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"sockets\": 0 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400)"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_ethereal",
+   "source_value": 0.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"ethereal\": false -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400)"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_coldresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"coldresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_dexterity",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"dexterity\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_energy",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"energy\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_fireresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"fireresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_item_addclassskills#3#x",
+   "source_value": 1.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_addclassskills#3#x\": 1 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_item_charged_skill#62#30",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_charged_skill#62#30\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_item_lightradius",
+   "source_value": 8.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_lightradius\": 8 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_item_skillonhit#197#5",
+   "source_value": 10.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"item_skillonhit#197#5\": 10 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_lightresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"lightresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_poisonresist",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"poisonresist\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_strength",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"strength\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "v_inv21_cm2_vitality",
+   "source_value": 20.0,
+   "source_scale": "d2_input_item_stat",
+   "source_anchor": "\"vitality\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) items['15'] (worn at inv21; base cm2; unique400) stats"
+  },
+  {
+   "numeric_key": "d_charstats_str",
+   "source_value": 10.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'str' = 10 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_dex",
+   "source_value": 25.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'dex' = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_int",
+   "source_value": 35.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'int' = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_vit",
+   "source_value": 10.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'vit' = 10 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_stamina",
+   "source_value": 74.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'stamina' = 74 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_hpadd",
+   "source_value": 30.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'hpadd' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_ManaRegen",
+   "source_value": 120.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'ManaRegen' = 120 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_ToHitFactor",
+   "source_value": -15.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'ToHitFactor' = -15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_WalkVelocity",
+   "source_value": 6.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'WalkVelocity' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_RunVelocity",
+   "source_value": 9.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'RunVelocity' = 9 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_RunDrain",
+   "source_value": 20.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'RunDrain' = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_LifePerLevel",
+   "source_value": 4.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'LifePerLevel' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_StaminaPerLevel",
+   "source_value": 4.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'StaminaPerLevel' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_ManaPerLevel",
+   "source_value": 8.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'ManaPerLevel' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_LifePerVitality",
+   "source_value": 8.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'LifePerVitality' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_StaminaPerVitality",
+   "source_value": 4.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'StaminaPerVitality' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_ManaPerMagic",
+   "source_value": 8.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'ManaPerMagic' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_StatPerLevel",
+   "source_value": 5.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'StatPerLevel' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_charstats_BlockFactor",
+   "source_value": 20.0,
+   "source_scale": "d2_input_charstats",
+   "source_anchor": "CharStats.txt row 'Sorceress' column 'BlockFactor' = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_crs_reqstr",
+   "source_value": 43.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Weapons.txt code 'crs' (Crystal Sword) column 'reqstr' = 43 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_crs_mindam",
+   "source_value": 5.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Weapons.txt code 'crs' (Crystal Sword) column 'mindam' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_crs_maxdam",
+   "source_value": 15.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Weapons.txt code 'crs' (Crystal Sword) column 'maxdam' = 15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_oba_speed",
+   "source_value": 10.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Weapons.txt code 'oba' (Swirling Crystal) column 'speed' = 10 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_oba_mindam",
+   "source_value": 18.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Weapons.txt code 'oba' (Swirling Crystal) column 'mindam' = 18 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_oba_maxdam",
+   "source_value": 42.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Weapons.txt code 'oba' (Swirling Crystal) column 'maxdam' = 42 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_minac",
+   "source_value": 9.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'minac' = 9 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_maxac",
+   "source_value": 11.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'maxac' = 11 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_block",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'block' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_reqstr",
+   "source_value": 45.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'reqstr' = 45 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_speed",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'speed' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_mindam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'mindam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_tgl_maxdam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'tgl' (Light Gauntlets) column 'maxdam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_minac",
+   "source_value": 98.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'minac' = 98 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_maxac",
+   "source_value": 141.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'maxac' = 141 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_block",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'block' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_reqstr",
+   "source_value": 50.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'reqstr' = 50 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_speed",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'speed' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_mindam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'mindam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uap_maxdam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uap' (Shako) column 'maxdam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_minac",
+   "source_value": 133.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'minac' = 133 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_maxac",
+   "source_value": 148.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'maxac' = 148 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_block",
+   "source_value": 22.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'block' = 22 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_reqstr",
+   "source_value": 156.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'reqstr' = 156 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_speed",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'speed' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_mindam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'mindam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uit_maxdam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uit' (Monarch) column 'maxdam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_minac",
+   "source_value": 55.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'minac' = 55 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_maxac",
+   "source_value": 62.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'maxac' = 62 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_block",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'block' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_reqstr",
+   "source_value": 50.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'reqstr' = 50 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_speed",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'speed' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_mindam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'mindam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_ulc_maxdam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'ulc' (Spiderweb Sash) column 'maxdam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_minac",
+   "source_value": 361.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'minac' = 361 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_maxac",
+   "source_value": 467.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'maxac' = 467 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_block",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'block' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_reqstr",
+   "source_value": 77.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'reqstr' = 77 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_speed",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'speed' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_mindam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'mindam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_uui_maxdam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'uui' (Dusk Shroud) column 'maxdam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_minac",
+   "source_value": 39.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'minac' = 39 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_maxac",
+   "source_value": 47.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'maxac' = 47 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_block",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'block' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_reqstr",
+   "source_value": 95.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'reqstr' = 95 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_speed",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'speed' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_mindam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'mindam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_base_xtb_maxdam",
+   "source_value": 0.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Armor.txt code 'xtb' (Battle Boots) column 'maxdam' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_weapon1_dmg-pois_param",
+   "source_value": 125.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) weaponMod1 'dmg-pois' Param = 125 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_weapon1_dmg-pois_min",
+   "source_value": 154.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) weaponMod1 'dmg-pois' Min = 154 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_weapon1_dmg-pois_max",
+   "source_value": 154.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) weaponMod1 'dmg-pois' Max = 154 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_helm1_res-pois_min",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) helmMod1 'res-pois' Min = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_helm1_res-pois_max",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) helmMod1 'res-pois' Max = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_shield1_res-pois_min",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) shieldMod1 'res-pois' Min = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r07_shield1_res-pois_max",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r07' (Tal Rune) shieldMod1 'res-pois' Max = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r08_weapon1_dmg-fire_min",
+   "source_value": 5.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r08' (Ral Rune) weaponMod1 'dmg-fire' Min = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r08_weapon1_dmg-fire_max",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r08' (Ral Rune) weaponMod1 'dmg-fire' Max = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r08_helm1_res-fire_min",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r08' (Ral Rune) helmMod1 'res-fire' Min = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r08_helm1_res-fire_max",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r08' (Ral Rune) helmMod1 'res-fire' Max = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r08_shield1_res-fire_min",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r08' (Ral Rune) shieldMod1 'res-fire' Min = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r08_shield1_res-fire_max",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r08' (Ral Rune) shieldMod1 'res-fire' Max = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r09_weapon1_dmg-ltng_min",
+   "source_value": 1.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r09' (Ort Rune) weaponMod1 'dmg-ltng' Min = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r09_weapon1_dmg-ltng_max",
+   "source_value": 50.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r09' (Ort Rune) weaponMod1 'dmg-ltng' Max = 50 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r09_helm1_res-ltng_min",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r09' (Ort Rune) helmMod1 'res-ltng' Min = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r09_helm1_res-ltng_max",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r09' (Ort Rune) helmMod1 'res-ltng' Max = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r09_shield1_res-ltng_min",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r09' (Ort Rune) shieldMod1 'res-ltng' Min = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r09_shield1_res-ltng_max",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r09' (Ort Rune) shieldMod1 'res-ltng' Max = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_weapon1_dmg-cold_param",
+   "source_value": 75.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) weaponMod1 'dmg-cold' Param = 75 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_weapon1_dmg-cold_min",
+   "source_value": 3.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) weaponMod1 'dmg-cold' Min = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_weapon1_dmg-cold_max",
+   "source_value": 14.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) weaponMod1 'dmg-cold' Max = 14 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_helm1_res-cold_min",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) helmMod1 'res-cold' Min = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_helm1_res-cold_max",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) helmMod1 'res-cold' Max = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_shield1_res-cold_min",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) shieldMod1 'res-cold' Min = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r10_shield1_res-cold_max",
+   "source_value": 35.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r10' (Thul Rune) shieldMod1 'res-cold' Max = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r11_weapon1_lifesteal_min",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r11' (Amn Rune) weaponMod1 'lifesteal' Min = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r11_weapon1_lifesteal_max",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r11' (Amn Rune) weaponMod1 'lifesteal' Max = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r11_helm1_thorns_min",
+   "source_value": 14.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r11' (Amn Rune) helmMod1 'thorns' Min = 14 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r11_helm1_thorns_max",
+   "source_value": 14.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r11' (Amn Rune) helmMod1 'thorns' Max = 14 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r11_shield1_thorns_min",
+   "source_value": 14.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r11' (Amn Rune) shieldMod1 'thorns' Min = 14 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r11_shield1_thorns_max",
+   "source_value": 14.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r11' (Amn Rune) shieldMod1 'thorns' Max = 14 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r14_weapon1_howl_min",
+   "source_value": 32.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r14' (Dol Rune) weaponMod1 'howl' Min = 32 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r14_weapon1_howl_max",
+   "source_value": 32.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r14' (Dol Rune) weaponMod1 'howl' Max = 32 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r14_helm1_regen_min",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r14' (Dol Rune) helmMod1 'regen' Min = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r14_helm1_regen_max",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r14' (Dol Rune) helmMod1 'regen' Max = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r14_shield1_regen_min",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r14' (Dol Rune) shieldMod1 'regen' Min = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r14_shield1_regen_max",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r14' (Dol Rune) shieldMod1 'regen' Max = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r22_weapon1_openwounds_min",
+   "source_value": 25.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r22' (Um Rune) weaponMod1 'openwounds' Min = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r22_weapon1_openwounds_max",
+   "source_value": 25.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r22' (Um Rune) weaponMod1 'openwounds' Max = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r22_helm1_res-all_min",
+   "source_value": 15.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r22' (Um Rune) helmMod1 'res-all' Min = 15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r22_helm1_res-all_max",
+   "source_value": 15.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r22' (Um Rune) helmMod1 'res-all' Max = 15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r22_shield1_res-all_min",
+   "source_value": 22.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r22' (Um Rune) shieldMod1 'res-all' Min = 22 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r22_shield1_res-all_max",
+   "source_value": 22.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r22' (Um Rune) shieldMod1 'res-all' Max = 22 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r23_weapon1_noheal_min",
+   "source_value": 1.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r23' (Mal Rune) weaponMod1 'noheal' Min = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r23_weapon1_noheal_max",
+   "source_value": 1.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r23' (Mal Rune) weaponMod1 'noheal' Max = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r23_helm1_red-mag_min",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r23' (Mal Rune) helmMod1 'red-mag' Min = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r23_helm1_red-mag_max",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r23' (Mal Rune) helmMod1 'red-mag' Max = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r23_shield1_red-mag_min",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r23' (Mal Rune) shieldMod1 'red-mag' Min = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r23_shield1_red-mag_max",
+   "source_value": 7.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r23' (Mal Rune) shieldMod1 'red-mag' Max = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r24_weapon1_mag%_min",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r24' (Ist Rune) weaponMod1 'mag%' Min = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r24_weapon1_mag%_max",
+   "source_value": 30.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r24' (Ist Rune) weaponMod1 'mag%' Max = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r24_helm1_mag%_min",
+   "source_value": 25.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r24' (Ist Rune) helmMod1 'mag%' Min = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r24_helm1_mag%_max",
+   "source_value": 25.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r24' (Ist Rune) helmMod1 'mag%' Max = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r24_shield1_mag%_min",
+   "source_value": 25.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r24' (Ist Rune) shieldMod1 'mag%' Min = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r24_shield1_mag%_max",
+   "source_value": 25.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r24' (Ist Rune) shieldMod1 'mag%' Max = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r27_weapon1_dmg%_min",
+   "source_value": 50.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r27' (Ohm Rune) weaponMod1 'dmg%' Min = 50 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r27_weapon1_dmg%_max",
+   "source_value": 50.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r27' (Ohm Rune) weaponMod1 'dmg%' Max = 50 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r27_helm1_res-cold-max_min",
+   "source_value": 5.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r27' (Ohm Rune) helmMod1 'res-cold-max' Min = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r27_helm1_res-cold-max_max",
+   "source_value": 5.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r27' (Ohm Rune) helmMod1 'res-cold-max' Max = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r27_shield1_res-cold-max_min",
+   "source_value": 5.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r27' (Ohm Rune) shieldMod1 'res-cold-max' Min = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r27_shield1_res-cold-max_max",
+   "source_value": 5.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r27' (Ohm Rune) shieldMod1 'res-cold-max' Max = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r30_weapon1_crush_min",
+   "source_value": 20.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r30' (Ber Rune) weaponMod1 'crush' Min = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r30_weapon1_crush_max",
+   "source_value": 20.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r30' (Ber Rune) weaponMod1 'crush' Max = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r30_helm1_red-dmg%_min",
+   "source_value": 8.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r30' (Ber Rune) helmMod1 'red-dmg%' Min = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r30_helm1_red-dmg%_max",
+   "source_value": 8.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r30' (Ber Rune) helmMod1 'red-dmg%' Max = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r30_shield1_red-dmg%_min",
+   "source_value": 8.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r30' (Ber Rune) shieldMod1 'red-dmg%' Min = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_gem_r30_shield1_red-dmg%_max",
+   "source_value": 8.0,
+   "source_scale": "d2_input_base_item",
+   "source_anchor": "Gems.txt code 'r30' (Ber Rune) shieldMod1 'red-dmg%' Max = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_mana",
+   "source_value": 5.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'mana' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_manashift",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'manashift' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_HitShift",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'HitShift' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMin",
+   "source_value": 6.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMin' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMinLev1",
+   "source_value": 3.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMinLev1' = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMinLev2",
+   "source_value": 4.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMinLev2' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMinLev3",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMinLev3' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMinLev4",
+   "source_value": 18.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMinLev4' = 18 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMinLev5",
+   "source_value": 54.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMinLev5' = 54 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMax",
+   "source_value": 12.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMax' = 12 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMaxLev1",
+   "source_value": 3.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMaxLev1' = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMaxLev2",
+   "source_value": 6.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMaxLev2' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMaxLev3",
+   "source_value": 10.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMaxLev3' = 10 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMaxLev4",
+   "source_value": 20.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMaxLev4' = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_EMaxLev5",
+   "source_value": 56.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'EMaxLev5' = 56 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_Param8",
+   "source_value": 16.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'Param8' = 16 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill036_reqlevel",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 36 ('Fire Bolt') column 'reqlevel' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_mana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'mana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_manashift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'manashift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_minmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'minmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_Param1",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'Param1' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_Param2",
+   "source_value": 12.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'Param2' = 12 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill037_reqlevel",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 37 ('Warmth') column 'reqlevel' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_mana",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'mana' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_manashift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'manashift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param1",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param1' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param2",
+   "source_value": 5.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param2' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param3",
+   "source_value": 3000.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param3' = 3000 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param4",
+   "source_value": 300.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param4' = 300 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param5",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param5' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param6",
+   "source_value": 3.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param6' = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param7",
+   "source_value": 250.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param7' = 250 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_Param8",
+   "source_value": 5.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'Param8' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill040_reqlevel",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 40 ('Frozen Armor') column 'reqlevel' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_mana",
+   "source_value": 36.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'mana' = 36 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_lvlmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'lvlmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_manashift",
+   "source_value": 2.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'manashift' = 2 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_minmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'minmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_HitShift",
+   "source_value": 2.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'HitShift' = 2 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMin",
+   "source_value": 32.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMin' = 32 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMinLev1",
+   "source_value": 24.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMinLev1' = 24 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMinLev2",
+   "source_value": 26.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMinLev2' = 26 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMinLev3",
+   "source_value": 28.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMinLev3' = 28 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMinLev4",
+   "source_value": 32.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMinLev4' = 32 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMinLev5",
+   "source_value": 36.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMinLev5' = 36 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMax",
+   "source_value": 64.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMax' = 64 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMaxLev1",
+   "source_value": 24.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMaxLev1' = 24 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMaxLev2",
+   "source_value": 27.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMaxLev2' = 27 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMaxLev3",
+   "source_value": 29.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMaxLev3' = 29 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMaxLev4",
+   "source_value": 33.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMaxLev4' = 33 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_EMaxLev5",
+   "source_value": 37.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'EMaxLev5' = 37 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_Param1",
+   "source_value": 20.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'Param1' = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_Param2",
+   "source_value": 3.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'Param2' = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_Param3",
+   "source_value": 6.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'Param3' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_Param8",
+   "source_value": 13.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'Param8' = 13 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill041_reqlevel",
+   "source_value": 6.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 41 ('Inferno') column 'reqlevel' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_mana",
+   "source_value": 9.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'mana' = 9 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_manashift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'manashift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_Param1",
+   "source_value": 5.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'Param1' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_Param2",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'Param2' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_Param3",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'Param3' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_Param4",
+   "source_value": 25.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'Param4' = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill042_reqlevel",
+   "source_value": 6.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 42 ('Static Field') column 'reqlevel' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_mana",
+   "source_value": 10.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'mana' = 10 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_lvlmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'lvlmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_manashift",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'manashift' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_HitShift",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'HitShift' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMin",
+   "source_value": 12.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMin' = 12 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMinLev1",
+   "source_value": 13.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMinLev1' = 13 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMinLev2",
+   "source_value": 23.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMinLev2' = 23 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMinLev3",
+   "source_value": 28.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMinLev3' = 28 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMinLev4",
+   "source_value": 33.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMinLev4' = 33 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMinLev5",
+   "source_value": 38.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMinLev5' = 38 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMax",
+   "source_value": 28.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMax' = 28 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMaxLev1",
+   "source_value": 15.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMaxLev1' = 15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMaxLev2",
+   "source_value": 25.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMaxLev2' = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMaxLev3",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMaxLev3' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMaxLev4",
+   "source_value": 35.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMaxLev4' = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_EMaxLev5",
+   "source_value": 40.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'EMaxLev5' = 40 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_Param8",
+   "source_value": 14.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'Param8' = 14 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill047_reqlevel",
+   "source_value": 12.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 47 ('Fire Ball') column 'reqlevel' = 12 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_mana",
+   "source_value": 34.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'mana' = 34 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_lvlmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'lvlmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_manashift",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'manashift' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_delay",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'delay' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMin",
+   "source_value": 80.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMin' = 80 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMinLev1",
+   "source_value": 23.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMinLev1' = 23 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMinLev2",
+   "source_value": 39.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMinLev2' = 39 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMinLev3",
+   "source_value": 79.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMinLev3' = 79 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMinLev4",
+   "source_value": 81.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMinLev4' = 81 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMinLev5",
+   "source_value": 83.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMinLev5' = 83 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMax",
+   "source_value": 100.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMax' = 100 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMaxLev1",
+   "source_value": 25.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMaxLev1' = 25 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMaxLev2",
+   "source_value": 41.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMaxLev2' = 41 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMaxLev3",
+   "source_value": 81.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMaxLev3' = 81 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMaxLev4",
+   "source_value": 83.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMaxLev4' = 83 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_EMaxLev5",
+   "source_value": 85.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'EMaxLev5' = 85 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_Param1",
+   "source_value": 6.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'Param1' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_Param2",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'Param2' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_Param3",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'Param3' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_Param4",
+   "source_value": 15.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'Param4' = 15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_Param8",
+   "source_value": 5.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'Param8' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill056_reqlevel",
+   "source_value": 24.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 56 ('Meteor') column 'reqlevel' = 24 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_mana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'mana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_manashift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'manashift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_minmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'minmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_Param1",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'Param1' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_Param2",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'Param2' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill061_reqlevel",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 61 ('Fire Mastery') column 'reqlevel' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_mana",
+   "source_value": 7.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'mana' = 7 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_manashift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'manashift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_Param1",
+   "source_value": 750.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'Param1' = 750 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_Param2",
+   "source_value": 250.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'Param2' = 250 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_Param3",
+   "source_value": 35.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'Param3' = 35 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_Param4",
+   "source_value": 3.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'Param4' = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_Param8",
+   "source_value": 125.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'Param8' = 125 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill149_reqlevel",
+   "source_value": 24.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 149 ('Battle Orders') column 'reqlevel' = 24 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_mana",
+   "source_value": 11.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'mana' = 11 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_lvlmana",
+   "source_value": 0.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'lvlmana' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_manashift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'manashift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_minmana",
+   "source_value": 1.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'minmana' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_Param1",
+   "source_value": 125.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'Param1' = 125 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_Param2",
+   "source_value": 250.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'Param2' = 250 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_Param8",
+   "source_value": 125.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'Param8' = 125 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_skill155_reqlevel",
+   "source_value": 30.0,
+   "source_scale": "d2_input_skill_param",
+   "source_anchor": "Skills.txt Id 155 ('Battle Command') column 'reqlevel' = 30 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_fireball_Vel",
+   "source_value": 20.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'fireball' column 'Vel' = 20 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_fireball_Range",
+   "source_value": 50.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'fireball' column 'Range' = 50 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_fireball_Size",
+   "source_value": 1.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'fireball' column 'Size' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_fireball_sHitPar1",
+   "source_value": 4.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'fireball' column 'sHitPar1' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorcenter_Range",
+   "source_value": 60.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorcenter' column 'Range' = 60 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorcenter_Size",
+   "source_value": 1.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorcenter' column 'Size' = 1 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorcenter_HitShift",
+   "source_value": 8.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorcenter' column 'HitShift' = 8 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorcenter_sHitPar1",
+   "source_value": 0.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorcenter' column 'sHitPar1' = 0 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_Range",
+   "source_value": 90.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'Range' = 90 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_Size",
+   "source_value": 2.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'Size' = 2 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_EMin",
+   "source_value": 15.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'EMin' = 15 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MinELev1",
+   "source_value": 4.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MinELev1' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MinELev2",
+   "source_value": 5.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MinELev2' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MinELev3",
+   "source_value": 6.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MinELev3' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MinELev4",
+   "source_value": 6.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MinELev4' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MinELev5",
+   "source_value": 6.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MinELev5' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MaxELev1",
+   "source_value": 4.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MaxELev1' = 4 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MaxELev2",
+   "source_value": 5.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MaxELev2' = 5 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MaxELev3",
+   "source_value": 6.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MaxELev3' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MaxELev4",
+   "source_value": 6.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MaxELev4' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_MaxELev5",
+   "source_value": 6.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'MaxELev5' = 6 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_HitShift",
+   "source_value": 3.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'HitShift' = 3 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  },
+  {
+   "numeric_key": "d_missile_meteorfire_DamageRate",
+   "source_value": 41.0,
+   "source_scale": "d2_input_missile_param",
+   "source_anchor": "Missiles.txt 'meteorfire' column 'DamageRate' = 41 (fabd/diablo2 @ 45112569 code/d2_113_data)"
+  }
+ ],
+ "scratch_A": {
+  "guards": [
+   "GUARD pre: OTHER kits kit_numeric count=562 / sum(source)=110620.681632653 / sum(rdr)=70298.0983204098",
+   "GUARD pre: gd-eor-warlord-referent grade IS NULL (expect 1)=1",
+   "GUARD pre: d2-fire-sorc-c14 absent (expect 0)=0",
+   "GUARD pre: R-D2S1 absent (expect 0)=0",
+   "GUARD post: d2-fire-sorc-c14 kit_numeric rows (expect 571)=571",
+   "GUARD post: d2-fire-sorc-c14 rows with rdr_value <> source_value (expect 0)=0",
+   "GUARD post: gd-eor-warlord-referent grade=EXACT / terminal=MAPPED",
+   "GUARD post: OTHER kits kit_numeric count (must equal pre)=562 / sum(source)=110620.681632653 / sum(rdr)=70298.0983204098"
+  ],
+  "integrity": "ok",
+  "foreign_key_violations": 0,
+  "ROWSET_post": {
+   "gd-eor-warlord-referent": "b7118b110971f0e2269ef16ac4ca5f435ee12a896a51bad51ebfda106c4ee41f",
+   "d2-fire-sorc-c14": "6062c960c64f5a0476166ffccd26ee368fc6ae8afe135a23653896dfb24f30af",
+   "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
+   "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
+  }
+ },
+ "scratch_B": {
+  "guards": [
+   "GUARD pre: OTHER kits kit_numeric count=562 / sum(source)=110620.681632653 / sum(rdr)=70298.0983204098",
+   "GUARD pre: gd-eor-warlord-referent grade IS NULL (expect 1)=1",
+   "GUARD pre: d2-fire-sorc-c14 absent (expect 0)=0",
+   "GUARD pre: R-D2S1 absent (expect 0)=0",
+   "GUARD post: d2-fire-sorc-c14 kit_numeric rows (expect 571)=571",
+   "GUARD post: d2-fire-sorc-c14 rows with rdr_value <> source_value (expect 0)=0",
+   "GUARD post: gd-eor-warlord-referent grade=EXACT / terminal=MAPPED",
+   "GUARD post: OTHER kits kit_numeric count (must equal pre)=562 / sum(source)=110620.681632653 / sum(rdr)=70298.0983204098"
+  ],
+  "integrity": "ok",
+  "foreign_key_violations": 0,
+  "ROWSET_post": {
+   "gd-eor-warlord-referent": "b7118b110971f0e2269ef16ac4ca5f435ee12a896a51bad51ebfda106c4ee41f",
+   "d2-fire-sorc-c14": "6062c960c64f5a0476166ffccd26ee368fc6ae8afe135a23653896dfb24f30af",
+   "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
+   "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
+  }
+ },
+ "scratch_A_equals_B": true,
+ "predicted_post_apply_ROWSET": {
+  "gd-eor-warlord-referent": "b7118b110971f0e2269ef16ac4ca5f435ee12a896a51bad51ebfda106c4ee41f",
+  "d2-fire-sorc-c14": "6062c960c64f5a0476166ffccd26ee368fc6ae8afe135a23653896dfb24f30af",
+  "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
+  "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
+ },
+ "unchanged_as_required": {
+  "d2-fire-sorc": true,
+  "gd-eor-warlord": true
+ },
+ "js4b_moved_only_by_grade": true
+}
