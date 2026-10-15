@@ -361,3 +361,108 @@ Arachnid Mesh is the unique on **Spiderweb Sash `ulc`**. 1.13 `Armor.txt` gives 
 - Corroboration: Arreat elite belts list #Boxes 16; Basin lists Rows 4; a D2R mirror gives numboxes 16. **Belts.txt is not in the 1.13 mirror.**
 - **Grade: MODEL-VERIFIED.**
 - This was delivered in C-13 (`../2026-10-14-join1-c13-enemy-anchor/potions.json → d2.belt`, `potions_notes.md` item 10) and is restated here so the build file carries it.
+
+---
+
+## 8. Stage 4 (gamora ADDENDUM-9): six 1.13 facts
+
+Files: `c14_stage4.json`, `scripts/c14_stage4.py`, `verification_stage4.log`. Captures: `captures/stage4/`, which holds D2MOO `SUnitDmg.cpp/.h` and `MissMode.cpp`, plus Basin Absorb, Magic Absorb, Attacker Takes Damage, Mana After Each Kill, Cold Damage and Chill effectiveness. Code lines refer to D2MOO `5596f5cb` (1.10f).
+
+### 8.1 Monster chill magnitude: NOT a flat −50 %
+
+**Law.** Chill sets `velocitypercent`, `attackrate` **and** `other_animrate` all to the target's **chill effectiveness**.
+- **For a monster** that is its **MonStats `coldeffect` column for the current difficulty** (`coldeffect(H)` in Hell).
+- **Players, mercenaries and pets: −50.**
+- Source: `SUnitDmg.cpp` `GetColdEffect` L85–99 and `ApplyColdState` L1552–1611; Basin Chill effectiveness ("determines the attack rate and movement speed modifiers"). **MODEL-VERIFIED.**
+
+**So chill slows movement AND attack rate (and other animation rates) equally.**
+
+**Hell values are smaller than Normal** (DATAMINED): Oblivion Knight −50 / −33 / −25 across Normal / Nightmare / Hell; Diablo −25 / −15 / **−10**; Baal **−15**; Mephisto **−10**.
+
+**R1 population, Hell** (70 types; DATAMINED):
+
+| Chill effectiveness | Types |
+|---|---|
+| −40 | 5 |
+| −33 | 35 |
+| −25 | 24 |
+| 0 | 6 |
+
+- Median **−33** [−33 to −25].
+- **coldeffect ≥ 0 means no chill and no freeze** (`ApplyColdState` returns on 0; `ApplyFreezeState` returns if coldeffect ≥ 0).
+- Bosses: Diablo −10, Baal −15. Seal bosses use their class value: Grand Vizier −25, Lord De Seis −25, Infector −33.
+- Floors (Basin Cold Damage): no unit goes below 25 % movement speed or 15 % attack rate.
+- Chill length on monsters: ÷ MonsterColdDivisor (Hell 4), minimum 1 frame (`ApplyColdState` L1569–1578).
+
+**⚑ CONFLICT: who is chilled instead of frozen.**
+- **D2MOO `ApplyFreezeState` (L1665–1675)** converts freeze into chill only for **bosses, monsters with type-flag 8 (unique, which superuniques also carry) and hirelings**. **Champions (flag 4) are not in that test, so the code FREEZES champions.**
+- **Basin** (Champion page: *"Freeze length chills instead; only minions can be frozen"*; Freeze length; Chill effectiveness) says **champions are chilled**.
+- I do not pick. The code is 1.10f, and Basin may reflect 1.11–1.13 behaviour. **My stage-2 and stage-3 sentences "champions … are only chilled" rest on Basin alone and inherit this conflict.**
+
+### 8.2 Does flat magic absorb heal? YES, by the amount absorbed
+
+**Code** (`SUnitDmg.cpp` L1040–1056 and L1292–1297):
+1. Magic damage after magic resist and flat Magic Damage Reduced has % absorb (capped at 40) taken off.
+2. Then **flat absorb** takes off `min(absorb×256, remaining)`.
+3. **Both absorbed amounts are added to `dwAbsLife`, which is healed** (current HP + absorbed, capped at max) before the remaining damage is subtracted.
+
+Basin Magic Absorb: *"decreases any magic damage then heals life equivalent to that damage decrease"*; actual healing = min(max − current, absorbed). **MODEL-VERIFIED.**
+
+**For her: Spirit's Magic Absorb +8 heals up to 8 life per magic hit, and only on magic-damage hits.** It does nothing against fire, cold, lightning or physical.
+
+### 8.3 Are thorns reduced by the attacker's physical resist? YES. Flat DR applies too
+
+`EventFunc06_AttackerTakesDamage` (stage-2 capture `SkillItem.cpp` L1009–1027) builds a **physical** hit (`dwPhysDamage = value << 8`, result flags 0x4021) and runs it through `SUNITDMG_ExecuteEvents(…, bMissile = 1)`. That path calls `CalculateTotalDamage`, which applies the physical row: the target's damage-resist % and flat physical damage reduction. Basin: *"The only way to increase damage is to reduce attacker Damage Resist (Amplify Damage, Decrepify)"*, i.e. damage resist governs it. **MODEL-VERIFIED.**
+
+- **Triggers only on a successful melee hit on her.** Thorns can't be blocked.
+- **War Traveler's thorns 10 = 10 physical per melee hit taken, × (100 − attacker DR %)/100, minus the attacker's flat DR.**
+- **Thorns kills do NOT trigger on-kill effects:** the 0x20 result flag suppresses the KILL event; Basin lists Attacker Takes Damage as excluded.
+
+### 8.4 Kill credit for owned missiles: "mana after each kill" DOES fire
+
+Missile damage is executed with **the missile's owner as the attacker**: `MissMode.cpp` L4755–4760 `SUNITDMG_ExecuteEvents(pGame, pOwner, …)`. `ExecuteEvents` fires `UNITEVENT_KILL` on that attacker when the target dies and the 0x20 flag is absent (`SUnitDmg.cpp` L1396–1400). `EventFunc17_ManaAfterKill` adds the mana for a player owner.
+
+Basin Mana After Each Kill excludes only mercenary/pet/trap/convert kills, passive radial auras (Holy Fire, Freeze, Shock, Sanctuary radial; Blade Shield) and returned damage. **It does not exclude missiles or ground effects.**
+
+**So a Fire Ball explosion or a Meteor impact or burning-ground kill credits her: +5 mana (the Oculus).** Grade: **MODEL-VERIFIED** for missiles in general. **INFERRED for the Meteor ground fire specifically**: same owner path, but I did not trace `meteorfire`'s result flags line by line.
+
+**Static Field cannot kill** (it leaves at least 1 HP).
+
+### 8.5 Does a BLOCKED strike trigger the Oculus "when struck"? NO
+
+- `EventFunc21_SkillOnGetHit` (`SkillItem.cpp` L1683–1708) requires **`DAMAGERESULTFLAG_GETHIT` (0x4)** on the hit.
+- Item events fire only when **`SUCCESSFULHIT`** is set (`ExecuteEvents` L1131–1146).
+- **A block sets BLOCK and clears SUCCESSFULHIT** (`GetResultFlags`; `MissMode.cpp` L4707–4729). For melee, GETHIT is set only on a surviving successful hit.
+- Basin When Struck: *"whenever the user … is hit by a melee attack … or a missile attack"*; a blocked attack is not a hit.
+
+**MODEL-VERIFIED.** Corollaries from the same gate:
+- **No proc while she is uninterruptible** (GETHIT is withheld).
+- **No proc from spells or pure-skill missiles** (§ 6.4).
+
+### 8.6 Integer rounding of freeze length: resist first, then the Hell divisor, both floored
+
+**Order** (code):
+1. **`floor(L × (100 − coldres) / 100)`** in `CalculateTotalDamage`, stat-table row "Flen" (`SUnitDmg.cpp` L770; `CalculatePercentage`). Resist is capped at 100; **negative resist lengthens it**.
+2. Cannot Be Frozen sets it to 0, or Half Freeze Duration halves it with integer `/2` (L867–878). Monsters normally have neither.
+3. `ApplyFreezeState`: if `coldeffect(H) ≥ 0`, no freeze; else **`floor(… / MonsterFreezeDivisor)`** (Hell 4).
+4. For bosses, uniques and hirelings, the same value goes to `ApplyColdState`: **`floor(… / MonsterColdDivisor)`** (Hell 4), **minimum 1 frame**.
+
+Basin Cold Damage agrees that resist reduces length and that the difficulty penalty is 1/4 in Hell. **MODEL-VERIFIED.**
+
+**Her Frozen Armor at slvl 16 = 75 frames.** Hell, by target cold resist:
+
+| Cold res | after resist | **frozen (normal/minion)** | **chilled (unique/boss)** |
+|---|---|---|---|
+| −50 | 112 | 28 | 28 |
+| −25 | 93 | 23 | 23 |
+| 0 | 75 | **18 (0.72 s)** | 18 |
+| 20 | 60 | 15 | 15 |
+| 33 | 50 | **12 (0.48 s)** | 12 |
+| 50 | 37 | **9 (0.36 s)** | 9 |
+| 60 | 30 | 7 | 7 |
+| 75 | 18 | 4 | 4 |
+| ≥ 99 | 0 | 0 | 0 |
+
+⚑ **This supersedes the unfloored 0.75 / 0.50 / 0.375 s in § 7.3 and § 6.3.**
+
+For R1's cold resists, look up each type's `ResCo(H)` in this table (`c14_stage4.json → chill_effectiveness_R1.rows`).

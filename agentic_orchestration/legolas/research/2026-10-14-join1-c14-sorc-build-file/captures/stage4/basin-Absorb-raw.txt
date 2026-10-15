@@ -1,0 +1,183 @@
+{{Absorb nav}}
+Absorb decreases damage then heals life equivalent to that damage decrease, after resistance has been applied.
+#Damage equivalent to percentage Absorb is subtracted from damage remaining after resistance.
+#Damage equivalent to integer Absorb is subtracted from damage remaining after percentage Absorb.
+#Healing equivalent to total damage absorbed is applied.
+#Damage remaining after percentage and integer Absorb is applied.
+
+
+The net result depends on current [[life]] at time of healing: actual healing = min(maximum life - current life , total damage absorbed), so maximum healing only occurs when current life ≤ maximum life - total damage absorbed.
+
+
+There is a ceiling of 40% Absorb, so there can never be a net life gain from % Absorb. Thus it performs a similar function to resistance, so when current life ≤ maximum life - total damage absorbed, effective percentage damage decrease as a result of resistance and percentage Absorb is as follows:
+
+
+Percentage damage decrease = Resist + (100-Resist * Absorb/50)
+
+
+{{Number table}} width=75%
+|-valign=top align=center
+!width=11% rowspan=2|Resist
+!colspan=8|Absorb
+|-align=center
+!width=11%|5%
+!width=11%|10%
+!width=11%|15%
+!width=12%|20%
+!width=11%|25%
+!width=11%|30%
+!width=11%|35%
+!width=11%|40%
+|-
+!{{Warn|=-100%}}
+|{{Warn|=-80.0%}}
+|{{Warn|=-60.0%}}
+|{{Warn|=-40.0%}}
+|{{Warn|=-20.0%}}
+|0.0%
+|20.0%
+|40.0%
+|60.0%
+|-
+!{{Warn|=-75%}}
+|{{Warn|=-57.5%}}
+|{{Warn|=-40.0%}}
+|{{Warn|=-22.5%}}
+|{{Warn|=-5.0%}}
+|12.5%
+|30.0%
+|47.5%
+|65.0%
+|-
+!{{Warn|=-50%}}
+|{{Warn|=-35.0%}}
+|{{Warn|=-20.0%}}
+|{{Warn|=-5.0%}}
+|10.0%
+|25.0%
+|40.0%
+|55.0%
+|70.0%
+|-
+!{{Warn|=-25%}}
+|{{Warn|=-12.5%}}
+|0.0%
+|12.5%
+|25.0%
+|37.5%
+|50.0%
+|62.5%
+|75.0%
+|-
+!0%
+|10.0%
+|20.0%
+|30.0%
+|40.0%
+|50.0%
+|60.0%
+|70.0%
+|80.0%
+|-
+!25%
+|32.5%
+|40.0%
+|47.5%
+|55.0%
+|62.5%
+|70.0%
+|77.5%
+|85.0%
+|-
+!50%
+|55.0%
+|60.0%
+|65.0%
+|70.0%
+|75.0%
+|80.0%
+|85.0%
+|90.0%
+|-
+!{{U|=75%}}
+|77.5%
+|80.0%
+|82.5%
+|85.0%
+|87.5%
+|90.0%
+|92.5%
+|95.0%
+|-
+!{{U|=80%}}
+|82.0%
+|84.0%
+|86.0%
+|88.0%
+|90.0%
+|92.0%
+|94.0%
+|96.0%
+|-
+!{{U|=85%}}
+|86.5%
+|88.0%
+|89.5%
+|91.0%
+|92.5%
+|94.0%
+|95.5%
+|97.0%
+|-
+!{{U|=90%}}
+|91.0%
+|92.0%
+|93.0%
+|94.0%
+|95.0%
+|96.0%
+|97.0%
+|98.0%
+|-
+!{{U|=95%}}
+|95.5%
+|96.0%
+|96.5%
+|97.0%
+|97.5%
+|98.0%
+|98.5%
+|99.0%
+|}
+
+
+So for example, Resist 75% and 20% Absorb can reduce damage by 85%, equivalent to Resist 85% (so 20% Absorb is equivalent to +10% Maximum Resist with Resist +10%).
+
+
+However, when Resist -125% is applied, Resist 85% is decreased to {{Warn|=-40%}}: when applied to Resist 75% and 20% Absorb, it is decreased to -50%, increasing damage from 15% to 150%; 150% damage can be decreased by 20% Absorb (30% damage) then equivalent healing (30% damage) is applied, decreasing 150% damage to 90%; 90% damage is equivalent to Resist 10% (or (75-125) + (100-(75-125) * 20/50) ).
+
+
+Some more examples:
+*[[Lightning Resist]] 75%, 20% Lightning Absorb and Lightning Absorb +20 would apply to 60 lightning damage as follows:
+#LR 75% decreases 60 to 15
+#20% LA decreases 15 to 12 (-3)
+#LA +20 decreases 12 to 0 (-12)
+#15 (3+12) healing applied
+#0 damage applied
+*Player with 45/100 life would be healed for 15 ( min(100-45 , 15) ) life, resulting in 60 (45+15-0) life after damage applied (+15 life).
+*Player with 90/100 life would be healed for 10 ( min(100-90 , 15) ) life, resulting in 100 (90+10-0) life after damage applied (+10 life).
+
+
+*LR 75%, 20% LA and LA +20 would apply to 180 lightning damage as follows:
+#LR 75% decreases 180 to 45
+#20% LA decreases 45 to 36 (-9)
+#LA +20 decreases 36 to 16 (-20)
+#29 (9+20) healing applied
+#16 damage applied
+*Player with 45/100 life would be healed for 29 ( min (100-45 , 29) ) life, resulting in 58 (45+29-16) life after damage applied (+13 life).
+*Player with 90/100 life would be healed for 10 ( min (100-90 , 29) ) life, resulting in 84 (90+10-16) life after damage applied (-6 life).
+
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/basics/resistances.shtml Resistances] (Arreat Summit)
+*[http://classic.battle.net/diablo2exp/items/magic.shtml#sma Special Magic Effects] (Arreat Summit)

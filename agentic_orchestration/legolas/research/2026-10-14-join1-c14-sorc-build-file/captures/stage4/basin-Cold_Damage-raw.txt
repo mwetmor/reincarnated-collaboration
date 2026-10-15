@@ -1,0 +1,1295 @@
+{{Damage nav}}
+{{Intro}}
+[[File:Cold Damage.gif|right|frame|Cold damage overlay]]
+{{Mb|=Cold Damage}} is normally less damaging than fire, but any accompanying cold length can chill, reducing [[attack rate]] and [[movement speed]], and summing with [[Slows Target]], [[Decrepify]], [[Holy Freeze]], and (D2R only) [[Impale]], although no unit can be reduced below 15% attack rate or 25% velocity. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/93022-about-slows-target-mechanics/&do=findComment&comment=1143042] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/127638-d2r-impale-slowing-technical-details/] The magnitude of this effect is determined by the target's [[chill effectiveness]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120504-chill-effectiveness/]
+*Damage of multiple types can be applied by the same attack, but only one damage overlay is displayed at a time: this means that cold damage can still be applied even if the only overlay displayed is for fire, lightning or poison damage.
+*It is not added to [[Smite]] or [[Lightning Bolt]].
+*Targets turn blue until the slowing effect of cold length expires. This takes precedence over turning green while poisoned, but poison damage is still applied (although there will be no visual indication that it has expired unless cold length expires first).
+*Cold length applied by player, [[mercenary]] or [[pet]]s is reduced to 1/2 in Nightmare and 1/4 in Hell.
+*[[Cold Resist]] reduces both cold damage '''and''' cold length.
+*[[Half Freeze Duration]] will halve cold length but it has no effect on cold damage.
+*[[Cannot be Frozen]] prevents cold length from being applied.
+*Cold length does not apply to units that are [[Immune to Cold]] or which have 0 chill effectiveness.
+*Drinking a [[Thawing Potion]] after cold length has been applied will remove it.
+*When cold length is applied to a target that has already been chilled, it will overwrite the existing length if it is equal to or greater than the existing length.
+*If a monster dies while chilled, there is 20% chance that it will shatter and leave no [[corpse]] as long as at least 1 frame (0.04 second) of cold length applied after its cold resistance (but before any [[difficulty]] level penalty). This does not prevent it from dropping [[item]]s, but it will prevent a [[Barbarian (Diablo II)|Barbarian]] from using [[Find Potion]] or [[Find Item]].
+|}
+
+
+==Item==
+
+===Charm===
+
+====Small Charm====
+{{Cold affix}}
+|-
+|(1-2)||(2-4)
+|25||1
+!align=left|{{M|=Snowy Small Charm}}
+|20
+|27
+|-
+|(3-4)||(5-8)
+|25||1
+!align=left|{{M|=Shivering Small Charm}}
+|34
+|42
+|-
+|(5-7)||(9-14)
+|25||1
+!align=left|{{M|=Boreal Small Charm}}
+|58
+|66
+|-
+|(8-10)||(15-20)
+|25||1
+!align=left|{{M|=Hibernal Small Charm}}
+|83
+|91
+|}
+
+
+{{Cold affix}}
+|-
+|1||2
+|25||1
+!align=left|{{M|=Small Charm of Frost}}
+|10
+|14
+|-
+|2||(3-4)
+|25||1
+!align=left|{{M|=Small Charm of the Icicle}}
+|15
+|21
+|-
+|3||(5-6)
+|25||1
+!align=left|{{M|=Small Charm of the Glacier}}
+|25
+|33
+|-
+|(4-5)||(7-9)
+|25||1
+!align=left|{{M|=Small Charm of Winter}}
+|38
+|46
+|}
+<br/>
+
+====Large Charm====
+{{Cold affix}}
+|-
+|(2-3)||(3-5)
+|25||1
+!align=left|{{M|=Snowy Large Charm}}
+|13
+|18
+|-
+|(4-5)||(6-10)
+|25||1
+!align=left|{{M|=Shivering Large Charm}}
+|21
+|29
+|-
+|(6-10)||(11-20)
+|25||1
+!align=left|{{M|=Boreal Large Charm}}
+|41
+|49
+|-
+|(11-15)||(21-30)
+|25||1
+!align=left|{{M|=Hibernal Large Charm}}
+|61
+|69
+|}
+
+
+{{Cold affix}} 
+|-
+|1||(2-3)
+|25||1
+!align=left|{{M|=Large Charm of Frost}}
+|6
+|9
+|-
+|2||(4-5)
+|25||1
+!align=left|{{M|=Large Charm of the Icicle}}
+|11
+|15
+|-
+|3||(6-8)
+|25||1
+!align=left|{{M|=Large Charm of the Glacier}}
+|18
+|25
+|-
+|(4-6)||(9-12)
+|25||1
+!align=left|{{M|=Large Charm of Winter}}
+|27
+|35
+|}
+<br/>
+
+====Grand Charm====
+{{Cold affix}}
+|-
+|1||(2-3)
+|25||1
+!align=left|{{M|=Snowy Grand Charm}}
+|6
+|9
+|-
+|(2-4)||(4-8)
+|25||1
+!align=left|{{M|=Shivering Grand Charm}}
+|11
+|15
+|-
+|(5-7)||(9-15)
+|25||1
+!align=left|{{M|=Boreal Grand Charm}}
+|22
+|30
+|-
+|(8-13)||(16-25)
+|25||1
+!align=left|{{M|=Hibernal Grand Charm}}
+|38||45
+|}
+
+
+{{Cold affix}}
+|-
+|1||2
+|25||1
+!align=left|{{M|=Grand Charm of Frost}}
+|3
+|5
+|-
+|2||(3-4)
+|25||1
+!align=left|{{M|=Grand Charm of the Icicle}}
+|6
+|8
+|-
+|3||(5-7)
+|25||1
+!align=left|{{M|=Grand Charm of the Glacier}}
+|11
+|15
+|-
+|(4-6)||(8-11)
+|25||1
+!align=left|{{M|=Grand Charm of Winter}}
+|17
+|23
+|}
+<br/>
+
+===Any socket===
+{{Cold affix}}
+|-
+|1||(3-5)
+|50||2
+!align=left|{{R|=Jewel of Frigidity}}
+|12
+|16
+|-
+|(2-3)||(6-10)
+|50||2
+!align=left|{{R|=Jewel of the Icicle}}
+|29
+|37
+|-
+|(4-5)||(11-15)
+|50||2
+!align=left|{{R|=Jewel of the Glacier}}
+|50
+|58
+|}
+
+
+{{Cold}}
+|-
+|10||30
+|125||5
+|align=left| [[Protector's Frost|{{Ub|=Protector's Frost Colossal Jewel}}]] {{RotW-inline}}
+|75
+|No
+|-
+|24||38
+|3||0.12
+!align=left|[[Rainbow Facet|{{U|=Rainbow Facet Jewel}}]]
+|49
+|No
+|}
+<br/>
+
+===Helm===
+{{Cold}}
+|-
+|6||22
+|100||4
+!align=left|[[Vampire Gaze|{{U|=Vampire Gaze Grim Helm}}]]
+|41
+|No
+|}
+<br/>
+
+====Circlet====
+{{Cold affix}}
+|-
+|(6-9)||(19-30)
+|25||1
+!align=left|{{R|=Snowy circlet}}
+|18
+|25
+|}
+<br/>
+
+===Amulet===
+{{Cold affix}}
+|-
+|1||(3-6)
+|50||2
+!align=left|{{R|=Amulet of Frost}}
+|41
+|55
+|}
+
+
+{{Cold}}
+|-
+|(1-2)||(3-5)
+|(50-250)||(2-10)
+!align=left|[[The Eye of Etlich|{{U|=The Eye of Etlich Amulet}}]]
+|15
+|No
+|}
+<br/>
+
+===Body armor===
+{{Cold}}
+|-
+|37||133
+|50||2
+|align=left|[[Duress|{{Ub|=Duress}}]] body armor
+|47
+|No
+|}
+<br/>
+
+===Weapon===
+{{Cold affix}}
+|-
+|(6-9)||(19-30)
+|25||1
+!align=left|{{R|=Snowy weapon}}
+|18
+|25
+|-
+|(10-15)||(31-45)
+|50||2
+!align=left|{{R|=Shivering weapon}}
+|26
+|35
+|-
+|(16-23)||(46-90)
+|75||3
+!align=left|{{R|=Boreal weapon}}
+|40
+|50
+|-
+|(24-45)||(91-140)
+|100||4
+!align=left|{{R|=Hibernal weapon}}
+|60
+|70
+|}
+
+
+{{Cold affix}}
+|-
+|1||1
+|25||1
+|align=left|{{Rb|=Weapon of Frost}} <sup>1</sup>
+|1
+|1-3
+|-
+|1||(1-2)
+|50||2
+|align=left|{{Rb|=Weapon of Frost}} <sup>2</sup>
+|3
+|4
+|-
+|1||(3-4)
+|75||3
+|align=left|{{Rb|=Weapon of the Icicle}} <sup>2</sup>
+|9
+|13
+|-
+|(2-4)||(4-15)
+|100||4
+|align=left|{{Rb|=Weapon of the Glacier}} <sup>2</sup>
+|20
+|27
+|}
+<span style=font-size:90%><sup>1</sup> Excluding [[orb]], [[staff]] and [[wand]]<br/>
+<sup>2</sup> Excluding orb and wand</span>
+
+
+{{Cold}}
+|-
+|1||3
+|25||1
+|align=left|[[Chipped Sapphire]] in socket
+|1
+|No
+|-
+|3||5
+|35||1.4
+|align=left|[[Flawed Sapphire]] in socket
+|5
+|No
+|-
+|4||7
+|50||2
+|align=left|[[Sapphire]] in socket
+|12
+|No
+|-
+|6||10
+|60||2.4
+|align=left|[[Flawless Sapphire]] in socket
+|15
+|No
+|-
+|10||14
+|75||3
+|align=left|[[Perfect Sapphire]] in socket
+|18
+|No
+|-
+|3||14
+|75||3
+|align=left|[[Thul Rune|{{Cb|=Thul Rune}}]] in socket
+|23
+|No
+|}
+<br/>
+
+====Melee weapon====
+{{Cold affix}}
+|-
+|(5-9)||(16-50)
+|150||6
+|align=left|{{Rb|=Melee weapon of Winter}} <sup>1</sup>
+|37
+|45
+|}
+<span style=font-size:90%><sup>1</sup> Excluding [[orb]] and [[wand]]</span>
+<br/>
+<br/>
+=====Axe=====
+{{Cold}}
+|-
+|40||40
+|50||2
+!align=left|[[Coldkill|{{U|=Coldkill Hatchet}}]]
+|36
+|No
+|-
+|50||200
+|100||4
+|align=left|[[Famine|{{Ub|=Famine}}]] axe
+|65
+|No
+|-
+|176||397
+|100||4
+!align=left|[[Gimmershred|{{U|=Gimmershred Flying Axe}}]]
+|70
+|No
+|}
+<br/>
+
+=====Claw=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Pattern|{{Ub|=Pattern}}]] claw {{D2R-inline}}
+|23
+|No (D2R only)
+|-
+|50||50
+|100||4
+!align=left|[[Natalya's Mark|{{S|=Natalya's Mark Scissors Suwayyah}}]]
+|79
+|No
+|}
+<br/>
+
+=====Club=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Black|{{Ub|=Black}}]] club
+|35
+|No
+|-
+|205||455
+|125||5
+!align=left|[[Nord's Tenderizer|{{U|=Nord's Tenderizer Truncheon}}]]
+|68
+|No
+|}
+<br/>
+
+=====Dagger=====
+{{Cold}}
+|-
+|3
+|14
+|align=left|[[Void|{{Ub|=Void}}]] dagger {{RotW-inline}}
+|69
+|No
+|}
+<br/>
+
+=====Hammer=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Black|{{Ub|=Black}}]] hammer
+|35
+|No
+|-
+|130||180
+|(130-180)||(5.2-7.2)
+|align=left|[[Lawbringer|{{Ub|=Lawbringer}}]] hammer
+|43
+!{{Warn|=Yes}} (LoD only)
+|-
+|50||200
+|100||4
+|align=left|[[Famine|{{Ub|=Famine}}]] hammer
+|65
+|No
+|-
+|127||364
+|150||6
+|align=left|[[Immortal King's Stone Crusher|{{Sb|=Immortal King's Stone Crusher Ogre Maul}}]] (4 items)
+|76
+|No
+|}
+<br/>
+
+=====Mace=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Black|{{Ub|=Black}}]] mace
+|35
+|No
+|-
+|3||14
+|75||3
+|align=left|[[Heart of the Oak|{{Ub|=Heart of the Oak}}]] mace
+|57
+|No
+|-
+|63||112
+|125||5
+!align=left|[[Sureshrill Frost|{{U|=Sureshrill Frost Flanged Mace}}]]
+|39
+|No
+|-
+|1||200
+|(1-200)||(0.04-8)
+!align=left|[[Baranar's Star|{{U|=Baranar's Star Devil Star}}]]
+|65
+|No
+|-
+|100||220
+|(100-220)||(4-8.8)
+|align=left|[[Voice of Reason|{{Ub|=Voice of Reason}}]] mace
+|43
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Polearm=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Obedience|{{Ub|=Obedience}}]] polearm
+|41
+!{{Warn|=Yes}} (LoD only)
+|-
+|4||44
+|(4-44)||(0.16-1.76)
+!align=left|[[The Reaper's Toll|{{U|=The Reaper's Toll Thresher}}]]
+|75
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Scepter=====
+{{Cold}}
+|-
+|3||5
+|75||3
+!align=left|[[Stormeye|{{U|=Stormeye War Scepter}}]]
+|23
+|No
+|-
+|3||14
+|75||3
+|align=left|[[King's Grace|{{Ub|=King's Grace}}]] scepter
+|25
+|No
+|-
+|130||180
+|(130-180)||(5.2-7.2)
+|align=left|[[Lawbringer|{{Ub|=Lawbringer}}]] scepter
+|43
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Spear=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Obedience|{{Ub|=Obedience}}]] spear {{D2R-inline}}
+|41
+|No (D2R only)
+|}
+<br/>
+
+=====Staff=====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Heart of the Oak|{{Ub|=Heart of the Oak}}]] staff
+|57
+|No
+|}
+<br/>
+
+=====Sword=====
+{{Cold}}
+|-
+|3||5
+|50||2
+!align=left|[[Gleamscythe|{{U|=Gleamscythe Falchion}}]]
+|13
+|No
+|-
+|3||14
+|75||3
+|align=left|[[King's Grace|{{Ub|=King's Grace}}]] sword
+|25
+|No
+|-
+|3||14
+|75||3
+|align=left|[[Spirit|{{Ub|=Spirit}}]] sword
+|25
+!{{Warn|=Yes}} (LoD only)
+|-
+|10||30
+|150||6
+!align=left|[[Shadowfang|{{U|=Shadowfang Two-handed Sword}}]]
+|12
+|No
+|-
+|25||35
+|50||2
+!align=left|[[Sazabi's Cobalt Redeemer|{{S|=Sazabi's Cobalt Redeemer Cryptic Sword}}]]
+|73
+|No
+|-
+|25||75
+|75||3
+|align=left|[[Death's Touch|{{Sb|=Death's Touch War Sword}}]] (2 items)
+|6
+|No
+|-
+|50||140
+|75||3
+!align=left|[[Bing Sz Wang|{{U|=Bing Sz Wang Dacian Falx}}]]
+|43
+|No
+|-
+|130||180
+|(130-180)||(5.2-7.2)
+|align=left|[[Lawbringer|{{Ub|=Lawbringer}}]] sword
+|43
+!{{Warn|=Yes}} (LoD only)
+|-
+|100||220
+|(100-220)||(4-8.8)
+|align=left|[[Voice of Reason|{{Ub|=Voice of Reason}}]] sword
+|43
+!{{Warn|=Yes}} (LoD only)
+|-
+|237||486
+|150||6
+!align=left|[[Frostwind|{{U|=Frostwind Cryptic Sword}}]]
+|70
+|No
+|-
+|250||500
+|250||10
+!align=left|[[Azurewrath|{{U|=Azurewrath Phase Blade}}]]
+|85
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Wand=====
+{{Cold}}
+|-
+|4||8
+|75||3
+!align=left|[[Gravenspine|{{U|=Gravenspine Bone Wand}}]]
+|20
+|No
+|-
+|25||75
+|50||2
+!align=left|[[Sander's Superstition|{{S|=Sander's Superstition Bone Wand}}]]
+|25
+|No
+|}
+<br/>
+
+====Missile weapon====
+{{Cold}}
+|-
+|3||14
+|75||3
+|align=left|[[Mist|{{Ub|=Mist}}]] missile weapon {{D2R-inline}}
+|67
+|No (D2R only)
+|-
+|55||160
+|(55-160)||(2.2-6.4)
+|align=left|[[Harmony|{{Ub|=Harmony}}]] missile weapon
+|39
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+=====Bow=====
+{{Cold}}
+|-
+|15||30
+|75||3
+!align=left|[[Endlesshail|{{U|=Endlesshail Double Bow}}]]
+|36
+|No
+|-
+|20||30
+|75||3
+|align=left|[[Arctic Horn|{{Sb|=Arctic Horn Short War Bow}}]] (3 items)
+|2
+|No
+|}
+<br/>
+
+=====Crossbow=====
+{{Cold}}
+|-
+|32||196
+|200||8
+!align=left|[[Buriza-Do Kyanon|{{U|=Buriza-Do Kyanon Ballista}}]]
+|41
+|No
+|-
+|63||324
+|33||1.32
+!align=left|[[Hellrack|{{U|=Hellrack Colossus Crossbow}}]]
+|76
+|No
+|}
+<br/>
+
+====Throwing weapon====
+{{Cold}}
+|-
+|176||397
+|100||4
+!align=left|[[Gimmershred|{{U|=Gimmershred Flying Axe}}]]
+|70
+|No
+|}
+<br/>
+
+===Shield===
+{{Cold}}
+|-
+|27||53
+|150||6
+!align=left|[[Tiamat's Rebuke|{{U|=Tiamat's Rebuke Dragon Shield}}]]
+|38
+|No
+|}
+<br/>
+
+===Ring===
+{{Cold}}
+|-
+|15||45
+|100||4
+!align=left|[[Raven Frost|{{U|=Raven Frost Ring}}]]
+|45
+|No
+|}
+<br/>
+
+===Belt===
+{{Cold affix}}
+|-
+|1||(3-6)
+|50||2
+!align=left|{{R|=Belt of Frost}}
+|41
+|55
+|}
+
+
+{{Cold}}
+|-
+|13||21
+|75||3
+!align=left|[[Snowclash|{{U|=Snowclash Battle Belt}}]]
+|42
+|No
+|}
+<br/> 
+
+===Gloves===
+{{Cold}}
+|-
+|1||6
+|50||2
+!align=left|[[Frostburn|{{U|=Frostburn Gauntlets}}]]
+|29
+|No
+|-
+|6||18
+|150||6
+!align=left|[[M'avina's Icy Clutch|{{S|=M'avina's Icy Clutch Battle Gauntlets}}]]
+|32
+|No
+|-
+|137||270
+|250||10
+|align=left|[[M'avina's Icy Clutch|{{Sb|=M'avina's Icy Clutch Battle Gauntlets}}]] (4 items)
+|32
+|No
+|}
+<br/> 
+
+===Set bonus===
+{{Cold}}
+|-
+|6||14
+|100||4
+|align=left|[[Arctic Gear|{{Ub|=Arctic Gear}}]] (Full)
+|2
+|No (LoD only)
+|-
+|15||20
+|50||2
+|align=left|[[Vidala's Rig|{{Ub|=Vidala's Rig}}]] (Full)
+|14
+|No (LoD only)
+|-
+|0||[1.5*clvl]
+| ||
+|align=left|[[Vidala's Rig|{{Ub|=Vidala's Rig}}]] (Full)
+|14
+|No (D2R only)
+|-
+|0||[2*clvl]
+|100||4
+|align=left|[[Arctic Gear|{{Ub|=Arctic Gear}}]] (Full)
+|2
+|No (D2R only)
+|}
+<br/>
+
+==Skill==
+
+===Amazon===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Cold Arrow]] <sup>1</sup>
+!width=5% align=center|Min
+|2*slvl + 1||2.5*slvl - 3||4.0*slvl - 27||8.0*slvl - 115||21*slvl - 479
+|rowspan=4|6
+|-
+!align=center|Max
+|2*slvl + 2||2.5*slvl - 2||4.5*slvl - 34||8.5*slvl - 122||22*slvl - 500
+|-
+!align=center|+%
+|colspan=5 align=center|12*Ice Arrow.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|1.2*slvl + 2.8
+|-valign=top
+!align=left rowspan=3|[[Ice Arrow]] <sup>2</sup>
+!align=center|Min
+|6*slvl||12*slvl - 48||18*slvl - 144||26*slvl - 320||36*slvl - 600
+|rowspan=3|18
+|-
+!align=center|Max
+|6*slvl + 4||13*slvl - 52||19*slvl - 148||27*slvl - 324||38*slvl - 632
+|-
+!align=center|+%
+|colspan=5 align=center|8*Cold Arrow.blvl
+|-valign=top
+|align=left rowspan=3|'''[[Freezing Arrow]]''' <sup>2</sup><br/>Explosion
+!align=center|Min
+|10*slvl + 30||15*slvl - 10||20*slvl - 90||22*slvl - 134||24*slvl - 190
+|rowspan=3|30
+|-
+!align=center|Max
+|10*slvl + 40||15*slvl||20*slvl - 80||22*slvl - 124||24*slvl - 180
+|-
+!align=center|+%
+|colspan=5 align=center|12*Cold Arrow.blvl
+|}
+<span style=font-size:90%>
+<sup>1</sup> Converts min(2*slvl + 1 , 100) % physical [[attack]] damage to cold damage as well<br/>
+<sup>2</sup> [[Freeze length]] is applied, but cold length from [[item]]s is added and converted to freeze length; cold damage from items and [[Holy Freeze]] is also added</span>
+<br/>
+<br/>
+===Assassin===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Blades of Ice]]
+!width=5% align=center|Min
+|8*slvl + 7||10*slvl - 9||20*slvl - 169||30*slvl - 389||40*slvl - 669
+|rowspan=4|24
+|-
+!align=center|Max
+|8*slvl + 27||10*slvl + 11||22*slvl - 181||32*slvl - 401||42*slvl - 681
+|-
+!align=center|+%
+|colspan=5 align=center|8*[[Phoenix Strike]].blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|0.4*slvl + 3.8
+|}
+<br/>
+
+===Druid===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+|align=left rowspan=4 width=20%|'''[[Arctic Blast]]''' (1/256) <sup>1</sup>
+!width=5% align=center|Min
+|64*slvl + 20||72*slvl - 44||80*slvl - 172||96*slvl - 524||116*slvl - 1084
+|rowspan=4|6
+|-
+!align=center|Max
+|64*slvl + 96||76*slvl||84*slvl - 128||100*slvl - 480||124*slvl - 1152
+|-
+!align=center|+%
+|colspan=5 align=center|15 * [[Cyclone Armor]].blvl+Hurricane.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|0.6*slvl + 3.4
+|-valign=top
+!align=left rowspan=4|[[Hurricane]]
+!align=center|Min
+|7*slvl + 18||10*slvl - 6||12*slvl - 38||14*slvl - 82||16*slvl - 138
+|rowspan=4|30
+|-
+!align=center|Max
+|7*slvl + 43||10*slvl + 19||12*slvl - 13||14*slvl - 57||16*slvl - 113
+|-
+!align=center|+%
+|colspan=5 align=center|9 * [[Twister]].blvl+[[Tornado]].blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|2
+|}
+<span style=font-size:90%>
+<sup>1</sup> Actual cold damage per second is * 25/512; {{Warn|=displayed cold damage per second is * 25/256}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/86981-inferno-arctic-blast-bug/&do=findComment&comment=1144136] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/86981-inferno-arctic-blast-bug/&do=findComment&comment=1479637]
+</span>
+<br/>
+<br/>
+===Paladin===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!width=20% align=left rowspan=2|[[Vengeance]]
+!width=5% align=center| +%
+|colspan=5 align=center|6*slvl + 64 + 10*[[Resist Cold]].blvl + 2*[[Salvation]].blvl of physical [[attack]] damage
+|rowspan=2|18
+|-
+!align=center|Sec
+|colspan=5 align=center|0.6*slvl + 0.6
+|-valign=top
+|align=left rowspan=3|'''[[Holy Freeze]]'''<br/>[[Radius|Radial]]
+!align=center|Min
+|slvl+1||2*slvl - 7||3*slvl - 23||4*slvl - 45||5*slvl - 73
+|rowspan=6|18
+|-
+!align=center|Max
+|slvl+2||2*slvl - 6||3*slvl - 22||4*slvl - 44||5*slvl - 72
+|-
+!align=center|+%
+|colspan=5 align=center|15*Resist Cold.blvl + 7*Salvation.blvl
+|-valign=top
+|align=left rowspan=3|'''Holy Freeze'''<br/>Attack
+!align=center|Min
+|5*slvl + 5||10*slvl - 35||15*slvl - 115||20*slvl - 225||25*slvl - 365
+|-
+!align=center|Max
+|5*slvl + 10||10*slvl - 30||15*slvl - 110||20*slvl - 220||25*slvl - 360
+|-
+!align=center|+%
+|colspan=5 align=center|15*Resist Cold.blvl + 7*Salvation.blvl
+|}
+<br/>
+
+===Sorceress===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Skill]]
+!colspan=5|Skill level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Ice Bolt]]
+!width=5% align=center|Min
+|slvl+2||2*slvl - 6||3*slvl - 22||4*slvl - 44||5*slvl - 72
+|rowspan=4|1
+|-
+!align=center|Max
+|1.5*slvl + 3.5||2.5*slvl - 4.5||3.5*slvl - 20.5||4.5*slvl - 42.5||5.5*slvl - 70.5
+|-
+!align=center|+%
+|colspan=5 align=center|15 * Frost Nova.blvl+Ice Blast.blvl+Glacial Spike.blvl+Blizzard.blvl+Frozen Orb.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|1.4*slvl + 4.6
+|-valign=top
+!align=left rowspan=4|[[Frost Nova]]
+!align=center|Min
+|2*slvl||3*slvl - 8||4*slvl - 24||5*slvl - 46||6*slvl - 74
+|rowspan=4|6
+|-
+!align=center|Max
+|2.5*slvl + 1.5||3.5*slvl - 6.5||4.5*slvl - 22.5||5.5*slvl - 44.5||6.5*slvl - 72.5
+|-
+!align=center|+%
+|colspan=5 align=center|10 * Blizzard.blvl+Frozen Orb.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|slvl+7
+|-valign=top
+!align=left rowspan=3|[[Ice Blast]] <sup>1</sup>
+!align=center|Min
+|7*slvl + 1||14*slvl - 55||21*slvl - 167||28*slvl - 321||35*slvl - 517
+|rowspan=3|6
+|-
+!align=center|Max
+|7.5*slvl + 4.5||14.5*slvl - 51.5||21.5*slvl - 163.5||28.5*slvl - 317.5||35.5*slvl - 513.5
+|-
+!align=center|+%
+|colspan=5 align=center|8 * Ice Bolt.blvl+Blizzard.blvl+Frozen Orb.blvl
+|-valign=top
+!align=left rowspan=4|[[Shiver Armor]]
+!align=center|Min
+|2*slvl + 4||3*slvl - 4||4*slvl - 20||5*slvl - 42||6*slvl - 70
+|rowspan=4|12
+|-
+!align=center|Max
+|2.5*slvl + 5.5||3.5*slvl - 2.5||4.5*slvl - 18.5||5.5*slvl - 40.5||6.5*slvl - 68.5
+|-
+!align=center|+%
+|colspan=5 align=center|9 * [[Frozen Armor]].blvl+Chilling Armor.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|4
+|-valign=top
+!align=left rowspan=3|[[Glacial Spike]] <sup>1</sup>
+!align=center|Min
+|7*slvl + 9||13*slvl - 39||14*slvl - 55||15*slvl - 77||16*slvl - 105
+|rowspan=3|18
+|-
+!align=center|Max
+|7.5*slvl + 16.5||13.5*slvl - 31.5||14.5*slvl - 47.5||15.5*slvl - 69.5||16.5*slvl - 97.5
+|-
+!align=center|+%
+|colspan=5 align=center|5 * Ice Bolt.blvl+Ice Blast.blvl+Frozen Orb.blvl
+|-valign=top
+!align=left rowspan=4|[[Blizzard]]
+!align=center|Min
+|15*slvl + 30||30*slvl - 90||45*slvl - 330||55*slvl - 550||65*slvl - 830
+|rowspan=4|24
+|-
+!align=center|Max
+|16*slvl + 59||31*slvl - 61||46*slvl - 301||56*slvl - 521||66*slvl - 801
+|-
+!align=center|+%
+|colspan=5 align=center|5 * Ice Bolt.blvl+Ice Blast.blvl+Glacial Spike.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|4
+|-valign=top
+!align=left rowspan=4|[[Chilling Armor]]
+!align=center|Min
+|slvl+3||2*slvl - 5||3*slvl - 21||4*slvl - 43||5*slvl - 71
+|rowspan=4|24
+|-
+!align=center|Max
+|1.5*slvl + 4.5||2.5*slvl - 3.5||3.5*slvl - 19.5||4.5*slvl - 41.5||5.5*slvl - 69.5
+|-
+!align=center|+%
+|colspan=5 align=center|7 * Frozen Armor.blvl+Shiver Armor.blvl
+|-
+!align=center|Sec
+|4||slvl-4||slvl-4||slvl-4||slvl-4
+|-valign=top
+!align=left rowspan=4|[[Frozen Orb]]
+!align=center|Min
+|10*slvl + 30||12*slvl + 14||14*slvl - 18||14.5*slvl - 29||15*slvl - 43
+|rowspan=4|30
+|-
+!align=center|Max
+|10.5*slvl + 34.5||12.5*slvl + 18.5||14.5*slvl - 13.5||15*slvl - 24.5||15.5*slvl - 38.5
+|-
+!align=center|+%
+|colspan=5 align=center|2*Ice Bolt.blvl
+|-
+!align=center|Sec
+|colspan=5 align=center|slvl+7
+|}
+<span style=font-size:90%>
+<sup>1</sup> [[Freeze length]] is applied, not cold length</span>
+<br/>
+<br/>
+==Missile==
+
+===Assassin===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Missile]]
+!colspan=5|[[Skill]] level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+|align=left rowspan=4|'''[[Phoenix Strike]]''' <sup>1</sup><br/> Third charge
+!width=5% align=center|Min
+|4*slvl + 12||8*slvl - 20||12*slvl - 84||20*slvl - 260||28*slvl - 484
+|rowspan=4|30
+|-
+!align=center|Max
+|4*slvl + 28||8*slvl - 4||13*slvl - 84||21*slvl - 260||29*slvl - 484
+|-
+!align=center|+%
+|colspan=5 align=center|10*[[Blades of Ice]].blvl
+|-
+!align=center|Sec
+|0.4*slvl + 3.6||0.6*slvl + 2||0.8*slvl - 1.2||0.8*slvl - 1.2||0.8*slvl - 1.2
+|}
+<span style=font-size:90%>
+<sup>1</sup> [[Freeze length]] is applied, not cold length</span>
+<br/>
+<br/>
+==Pet==
+
+===Necromancer===
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 colspan=2 align=left|[[Pet]]
+!colspan=5|[[Missile]] level
+!width=10% rowspan=2|Min [[Requirements|Rlvl]]
+|-align=center
+!width=13%|1-8
+!width=13%|9-16
+!width=13%|17-22
+!width=13%|23-28
+!width=13%|> 28
+|-valign=top
+!align=left rowspan=4 width=20%|[[Raise Skeletal Mage|Necromage]]
+!width=5% align=center|Min
+|lvl||2*lvl - 8||3*lvl - 24||4*lvl - 46||5*lvl - 74
+|rowspan=4|12
+|-
+!align=center|Max
+|3+lvl||2*lvl - 5||3*lvl - 21||4*lvl - 43||5*lvl - 71
+|-
+!align=center|Sec
+|colspan=5 align=center|Missile level (lvl)
+|-
+!align=center|Lvl
+|colspan=5 align=center|if(slvl < 4 , 0 , [slvl-2 /2] ) + [[Skeleton Mastery]].slvl
+|}
+<br/>
+
+==Monster==
+{{Number table}} width=100%
+|-align=center
+!colspan=2 align=left|[[Monster]]
+!width=25%|Normal
+!width=25%|Nightmare
+!width=25%|Hell
+|-valign=top
+!width=20% align=left rowspan=3|[[Ghostly|{{M|=Ghostly}}]]
+!width=5% align=center|Min
+|[{{0|}}[[MonLvl#Damage|MonLvl]]*0.33]
+|[MonLvl*0.33]
+|[MonLvl*0.33]
+|-
+!align=center|Max
+|[MonLvl*0.5]
+|[MonLvl*0.5]
+|[MonLvl*0.5]
+|-
+!align=center|Sec
+| 6 || 6 || 6
+|-valign=top
+!align=left rowspan=3|[[Cold Enchanted]] [[Unique (monster)|{{U|=Unique}}]]
+!align=center|Min
+|[MonLvl*0.66]
+|[MonLvl*0.66]
+|[MonLvl*0.66]
+|-
+!align=center|Max
+|MonLvl
+|MonLvl
+|MonLvl
+|-
+!align=center|Sec
+|mlvl*0.2 + 4||mlvl*0.2 + 4||mlvl*0.2 + 4
+|-valign=top
+!align=left rowspan=3|Cold Enchanted minion
+!align=center|Min
+|{{E}}
+|[MonLvl*0.33]
+|[MonLvl*0.33]
+|-
+!align=center|Max
+|{{E}}
+|[MonLvl*0.5]
+|[MonLvl*0.5]
+|-
+!align=center|Sec
+|mlvl*0.2 + 4||mlvl*0.2 + 4||mlvl*0.2 + 4
+|-valign=top
+!align=left rowspan=3|[[Spectral Hit]] {{U|=Unique}}
+!align=center|Min
+|[MonLvl*0.66]
+|[MonLvl*0.66]
+|[MonLvl*0.66]
+|-
+!align=center|Max
+|MonLvl
+|MonLvl
+|MonLvl
+|-
+!align=center|Sec
+|1.6||1.6||1.6
+|}
+[https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495241] [https://d2mods.info/forum/viewtopic.php?t=42436] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495521]
+
+
+When a Cold Enchanted Unique releases a level [mlvl/2] coldunique nova, it applies the following:
+
+
+{{Skill}}
+|-
+!align=left|Minimum Cold Damage
+|4*lvl + 2||5*lvl - 6||6*lvl - 22||8*lvl - 66||10*lvl - 122
+|-
+!align=left|Maximum Cold Damage
+|4*lvl + 4||5*lvl - 4||6*lvl - 20||8*lvl - 64||10*lvl - 120
+|-
+!align=left|Cold Length (Seconds)
+|align=center colspan=5|lvl+2
+|}
+[https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/&do=findComment&comment=1495521]
+
+
+*Level > 19 [[Aura Enchanted]] monsters can be enchanted with max( [mlvl/7] , 1) [[Holy Freeze]].
+*Cold damage and length is added to [[attack]] damage of some monsters, while others can fire [[missile]]s or use [[skill]]s applying it.
+<br/>
+
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/86981-inferno-arctic-blast-bug/ Inferno & Arctic Blast Bug] (D2 Technical)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/121345-item-cold-damage-unspecified-cold-length/ Item cold damage: unspecified cold length] (D2 Technical)
+*Nefarius, [https://d2mods.info/forum/viewtopic.php?t=42436 Boss Status Modifications (1.11b)] (Phrozen Keep)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/120504-chill-effectiveness/ Chill Effectiveness] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118104-monster-bonuses-death-damage-and-corpse-explosion/ Monster Bonuses, Death Damage and Corpse Explosion] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Damage modifiers]]
