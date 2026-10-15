@@ -7,6 +7,79 @@
 
 ---
 
+## join1-j4b-d2-stamping-2026-10-14 (APPLY): gamora's D2 stamping package v3. Referent grade CLOSE, new kit `d2-fire-sorc-c14` (597 input rows), rule R-D2S1. 2026-10-15. **APPLIED 2026-10-15T03:53Z**
+
+**Authority:**
+- Rulings: conductor **KP-442** (new kit_id `d2-fire-sorc-c14`; the referent's mapping grade is the kit-level `kit_mapping` cell; inputs only), **KP-443** (grade CLOSE) and **KP-444** (skillProgression spent).
+- Package: gamora stamping package **v3**, collab `d2e28cbc6` (generator engine `ce810948`).
+- Gate: jack-ryan **PASS**, collab `e6ce1a4a3` (addendum 2).
+
+**Package:** `agentic_orchestration/gamora/analyses/2026-10-14-join1-j4b-d2-stamping/`:
+- `corpus_j4b_d2_stamping_2026_10_14.sql`, sha256 `f9985251f76c0c099be48e4ca28d7192d56339e4ca1a1adff20857b7f690114a`;
+- `stamping_table.json`, sha256 `6e927324a0e6e7f281f30944ef9c9a4f6ffa01c6d04994738457d484ce6a12c2`.
+
+**Script:** `research/scripts/corpus_j4b_d2_stamping_apply_2026_10_14.py`, run `--dry-run` then `--apply`.
+- It runs the package statement by statement inside one enclosing transaction; the package's BEGIN/COMMIT lines are not executed.
+- The package's SELECT guards are printed but not trusted; the guards are computed independently.
+- Records: `research/scripts/corpus_j4b_d2_stamping_records_2026_10_14.py`.
+
+| Step | FILE sha256 | Result |
+|---|---|---|
+| refuse-gate | `corpus.db` = `2617c0c1…a26b`; SQL = `f9985251…`; disk 31.3 GiB free (> 20) | held |
+| dry-run (in-memory copy) | — | every guard PASS; the four ROWSETs exactly as predicted |
+| backup | `corpus.db.pre-j4b-d2-stamping-20261015T035301Z-backup` = `2617c0c1…a26b` | copied, digest asserted |
+| apply | `2617c0c1…a26b` → **`c7012de3134a1e646031f9bfff23ec33df3656e84aa3ee8224582e9854c203e8`** | PASS |
+
+The FILE digest was not predictable in advance: the `corpus_schema_meta` row carries its apply timestamp. The ROWSETs were predicted and matched.
+
+**Writes:**
+- **`kit_mapping`, referent:** `grade` NULL → **CLOSE**, `terminal_state` → **MAPPED**, and the corrected deviation note (KP-443). That is one row; the referent's `kit_numeric` is untouched.
+- **`normalization_rule` +1:** `R-D2S1` v1, IDENTITY over 8 `d2_input_*` scales, owner gamora, active. The JOIN anchors are applied at the adapter boundary, never in the corpus.
+- **New kit `d2-fire-sorc-c14`:**
+  - `canon_corpus` +1: source `c14-build-file`, `roster_status = parked`, **no `canon_engine_key` row**. It is asserted absent from `v_combat_kits` and `v_corpus_substrate`.
+  - `kit_mapping` +1: grade NULL, owed after the B0-N re-run and the J4b gate.
+  - `kit_citations` +3: the planner profile, the guide, and the 1.13 tables.
+  - `kit_numeric` **+597 INPUT rows** (VERBATIM planner values plus DATAMINED 1.13), all `rdr = source`, `R-D2S1` v1. Rows by scale: level 19, stat points 4, hard points 38, item stats 233, CharStats 19, base items 117, skill params 144, missile params 23.
+- `corpus_schema_meta` +1.
+
+**Guards (all held):**
+- **Referent, moved only by its grade row:** every one of its rows in every ROWSET table other than `kit_mapping` is digest-identical before and after.
+- **Every other kit's ROWSET is unchanged.** All 590 kits were digested before and after; the only one that moved is the referent.
+- The other-kit `kit_numeric` full-row digest is unchanged: `b7c58549…`, 562 rows.
+- `normalization_rule` is unchanged except for the new `R-D2S1`.
+- Table row counts changed only by the deltas above.
+- The c14 key set equals `stamping_table.json`'s 597 keys, with 0 rows where `rdr ≠ source`.
+- `integrity_check` ok and `foreign_key_check` empty, both inside the transaction and on re-open.
+
+| ROWSET | Before | After |
+|---|---|---|
+| **J-S4b** `gd-eor-warlord-referent` | `c96d8975…` | **`59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7`** (predicted; moved only by the grade row) |
+| **`d2-fire-sorc-c14`** (new) | — | **`bbc2db8943086e85bf2504ccd4f4ed77fbcd87d9c84e692cdb2bf26a069db87b`** (predicted) |
+| `d2-fire-sorc` | `db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618` | unchanged |
+| `gd-eor-warlord` | `1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc` | unchanged |
+
+**Records:**
+- `kits-export/gd-eor-warlord-referent.json` (FILE `1c0e7f92…2b50`): `mapping.grade = CLOSE`, `terminal_state = MAPPED`, `deviation_notes` from the DB. The grade unknown is marked RESOLVED. `corpus_rowset.digest = 59099b7d…`, with history.
+- Its manifest (FILE `e2b173cf…0e58`): the rowset digest, the current FILE, and a revision recording the package, gate and scripts.
+- **NEW** `kits-export/d2-fire-sorc-c14.json` (FILE `44ea93d8…2fe0`): a verbatim dump of the kit's ROWSET rows, untransformed.
+- **NEW** `kits-export/d2-fire-sorc-c14.manifest.json` (FILE `8fb4c087…f507`): the ROWSET with counts, the build file and 1.13 table digests, the package, gate and corpus FILE.
+
+**Carried, not changed here:**
+- The KP-306 stale-`source_anchor` refresh stays **re-deferred** by the conductor (KP-443 INFO-3). It is no longer tied to the grade mint.
+- The 82 referent rows remain unstamped, as recorded in the deviation note.
+- F4 (KP-442): `d2-fire-sorc`'s `kit_numeric` rows are D2R web values. Nothing reads them as the 1.13 kit, and c14 inherits nothing from them.
+
+**Reversibility:** restore the backup. By SQL, in FK order:
+1. `DELETE FROM kit_numeric`, then `kit_citations`, then `kit_mapping`, then `canon_corpus`, each `WHERE kit_id='d2-fire-sorc-c14'`.
+2. `DELETE FROM normalization_rule WHERE rule_id='R-D2S1'`.
+3. `UPDATE kit_mapping SET grade=NULL, terminal_state=NULL, deviation_notes=<the 2026-10-02 UNGRADED note> WHERE kit_id='gd-eor-warlord-referent'`.
+
+The J-S4b ROWSET then returns to `c96d8975…`.
+
+**ADR-004:** no engine file written. **J-S4 re-pins:** J-S4b is now `59099b7d…`.
+
+---
+
 ## join1-j2-rcv1-conversion-rule-2026-10-07 (APPLY) — R-CV1 v1 CONFIRMED with the rule owner's predicate amendment (conductor KP-326) and applied: 3 referent conversion rows stamped — 2026-10-07 — **APPLIED 2026-10-07T18:55Z**
 
 **Authority:** conductor **KP-326** confirmed R-CV1 v1 **with** the rule owner's amendment. gamora's note (`agentic_orchestration/gamora/notes/2026-10-07-rcv1-rule-owner-objection.md`, collab `16f23ca88`) objected only to the predicate, and converts to SIGN-OFF once the amendment is in. This supersedes the PROPOSED entry below on two points, and nothing else:

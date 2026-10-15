@@ -1140,8 +1140,8 @@
     "grade": "SAVE (55 nodes) + PACK trigger rows"
   },
   "mapping": {
-    "grade": null,
-    "terminal_state": null,
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
     "mapping_provenance": "referent-save-js4b",
     "mapping_json": {
       "skills": [
@@ -1266,7 +1266,8 @@
       "scaffold": null,
       "option_c_substrate_flags": null,
       "fidelity_notes": "J-S4b referent record, minted from the measured save + the KC2 pack of record v3.11 + GD Edition IV records. Geometry tokens are mapped from each skill's DATAMINED engine class by elrond at J-S4b; no prose source. Ordinal 0 is EoR (primary); bar slots are in bar_ordinal. Mapping grade is NOT assigned here (owed at the J4a deconfound)."
-    }
+    },
+    "deviation_notes": "GRADED CLOSE at JOIN-1 J4b (jack-ryan BLOCK on EXACT, collab bb83a9eeb + f658a08b0; conductor KP-443): the referent kit is the oracle's own measured kit, and through the binder the JOIN[Warlord] golden master reproduces J-S8 7/7 at ROWSET level at every rulebook pin from KP-330 through engine 833fee62 (collab 0cd2c3570), but the corpus rows do not carry it exactly: KP-306's agreement_check has 15 DISAGREE rows plus one categorical, including a CONSUMED one (eor_rank_total 26 on the record vs 20 in the oracle, binding B-09), and only 11 of the 38 bindings reach the configuration. Of the 82 kit_numeric rows still unstamped, 31 ARE bound under KP-305's provisional identity convention and 51 are unconsumed."
   },
   "numeric": [
     {
@@ -4120,8 +4121,8 @@
       "settle": "the normalization-rule owner (gamora): no active rule covers their scales (gd_energy, gd_rank, gd_pct_sheet, gd_pct (non-conversion), gd_flat_damage, ...); per-row reasons in stamping_table.json"
     },
     {
-      "what": "EoR mapping grade (EXACT/CLOSE/APPROX/GAPPED)",
-      "settle": "the J4a deconfound re-grade against the sealed pack (charter s4.2); not a data-steward call"
+      "what": "EoR mapping grade (EXACT/CLOSE/APPROX/GAPPED) -- RESOLVED: CLOSE",
+      "settle": "RESOLVED 2026-10-15: graded CLOSE / MAPPED (jack-ryan BLOCK on EXACT, collab bb83a9eeb + f658a08b0; conductor KP-443), applied by elrond from gamora's stamping package v3 (collab d2e28cbc6). The deviation note is in mapping.deviation_notes."
     },
     {
       "what": "EoR rank of record for the ORACLE's operands (15 vs 20 vs 26)",
@@ -4176,7 +4177,7 @@
       "skill_geometry_band",
       "verify_ledger"
     ],
-    "digest": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
+    "digest": "59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7",
     "row_counts": {
       "canon_corpus": 1,
       "kit_mapping": 1,
@@ -4207,6 +4208,11 @@
         "date": "2026-10-07",
         "digest": "c96d8975ca4d5e0511174c2ba5d6560329b1e049749e49137f7f45ab592ad0e9",
         "event": "R-CV1 conversion stamping (3 rows; KP-326)"
+      },
+      {
+        "date": "2026-10-15",
+        "digest": "59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7",
+        "event": "J4b mapping grade CLOSE (kit_mapping row only; KP-442/443)"
       }
     ]
   },

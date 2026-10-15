@@ -1,0 +1,108 @@
+{
+  "kit_id": "d2-fire-sorc-c14",
+  "minted": "2026-10-15",
+  "by": "elrond",
+  "schema_meta_version": "join1-j4b-d2-stamping-2026-10-14",
+  "files": {
+    "export": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/kits-export/d2-fire-sorc-c14.json",
+      "sha256": "44ea93d840da29721b2d076fd289ed8fba6e36e9068282846dc3dce6c0a82fe0",
+      "kind": "FILE"
+    },
+    "package_sql": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-14-join1-j4b-d2-stamping/corpus_j4b_d2_stamping_2026_10_14.sql",
+      "sha256": "f9985251f76c0c099be48e4ca28d7192d56339e4ca1a1adff20857b7f690114a",
+      "kind": "FILE"
+    },
+    "stamping_table": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-14-join1-j4b-d2-stamping/stamping_table.json",
+      "sha256": "6e927324a0e6e7f281f30944ef9c9a4f6ffa01c6d04994738457d484ce6a12c2",
+      "kind": "FILE"
+    },
+    "gate": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/qa/findings/2026-10-14-join1-j4b-d2-stamping-gate.md",
+      "sha256": "05ea0b5ccf43c1446a197e8bf91fe8a0f39fbb4703ec40ce0a83bea1b6962fc0",
+      "kind": "FILE"
+    },
+    "build_file_verbatim": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/2026-10-14-join1-c14-sorc-build-file/build_file_standard_verbatim.json",
+      "sha256": "ee5b8b2238d313f7b03cececfa708e17b11768bc5b4d47319d7426fe2b6c0cfe",
+      "kind": "FILE"
+    },
+    "build_sheet": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/2026-10-14-join1-c14-sorc-build-file/sorc_build_sheet.json",
+      "sha256": "a118544bc6b59c1c46206d80ef62f54dbcbccd24495cd3943bffdf52c69124a2",
+      "kind": "FILE"
+    },
+    "apply_script": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/corpus_j4b_d2_stamping_apply_2026_10_14.py",
+      "sha256": "d8e251e13e90a79ff020d57516fb30f89363c1e30f2676eeae0a89077075f2f2",
+      "kind": "FILE"
+    },
+    "records_script": {
+      "path": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/scripts/corpus_j4b_d2_stamping_records_2026_10_14.py",
+      "sha256": "44b958a7f324e742480c16c9e6f81fcb5c5db4bd2bb2117e5d58116a16b3236f",
+      "kind": "FILE"
+    }
+  },
+  "raw_1_13_tables_sha256": {
+    "CharStats.txt": "210a6f1371a475442a6f9b27a2d03b2bebc2e3e93c1e586583c112596301a8b3",
+    "Armor.txt": "6ce5a09e8c6bc07dddea916412f18e57af860f7c870e3ef9e3003ea8beeaaf99",
+    "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07",
+    "Missiles.txt": "9d6794a50e8b1931e476a4d666bfe4048d7d1dada454f19659d74a8825adef53",
+    "Weapons.txt": "706f39eafa8393e428b049ef7f629eb59096435f62f849b6ab2b144b704ccd4b",
+    "Gems.txt": "52ea3e27a905f0bb2dc2bf0d60835e6f980f16e797c91e85aeccee561e219145",
+    "Properties.txt": "df39332fbe0c17cbee3d1f42f0caf63f9d76076b36f2f633c6d712d5c38af4e8"
+  },
+  "rowsets": {
+    "d2-fire-sorc-c14": {
+      "digest": "bbc2db8943086e85bf2504ccd4f4ed77fbcd87d9c84e692cdb2bf26a069db87b",
+      "counts": {
+        "canon_corpus": 1,
+        "kit_mapping": 1,
+        "kit_numeric": 597,
+        "kit_composition": 0,
+        "kit_citations": 3,
+        "kit_dossier": 0,
+        "kit_deviation": 0,
+        "kit_delta_t4": 0,
+        "kit_acceptance_assert": 0,
+        "kit_door_arg": 0,
+        "skill_geometry_band": 0,
+        "verify_ledger": 0
+      },
+      "kind": "ROWSET"
+    },
+    "d2-fire-sorc": {
+      "digest": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
+      "kind": "ROWSET",
+      "note": "unchanged (guarded)"
+    },
+    "gd-eor-warlord": {
+      "digest": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc",
+      "kind": "ROWSET",
+      "note": "unchanged (guarded)"
+    },
+    "gd-eor-warlord-referent": {
+      "digest": "59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7",
+      "kind": "ROWSET",
+      "note": "moved only by its kit_mapping grade row"
+    }
+  },
+  "rowset_law": "ROWSET digest law (J-S4 pin): for each table in ROWSET_TABLES, every row WHERE kit_id = ?, ordered by\n    rowid, serialised as json.dumps(dict(row), sort_keys=True, separators=(',',':'), ensure_ascii=False);\n    lines '<table>\\t<json>' joined by '\\n' in ROWSET_TABLES order; sha256 of the UTF-8 bytes.",
+  "corpus_db": {
+    "pre_FILE_sha256": "2617c0c101d8d924cb327e50137b1b3a61b1a8cbd81a24632d2ebe3469eaa26b",
+    "post_FILE_sha256": "c7012de3134a1e646031f9bfff23ec33df3656e84aa3ee8224582e9854c203e8",
+    "backup": "corpus.db.pre-j4b-d2-stamping-20261015T035301Z-backup"
+  },
+  "rows_by_scale": {
+    "d2_input_level": 19,
+    "d2_input_stat_points": 4,
+    "d2_input_hard_points": 38,
+    "d2_input_item_stat": 233,
+    "d2_input_charstats": 19,
+    "d2_input_base_item": 117,
+    "d2_input_skill_param": 144,
+    "d2_input_missile_param": 23
+  }
+}
