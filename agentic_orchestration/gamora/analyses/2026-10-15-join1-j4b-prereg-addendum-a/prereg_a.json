@@ -1,0 +1,76 @@
+{
+ "M_c": {
+  "REGISTER_M_c_ge_warlord": true,
+  "capacity_ratio_by_wave": {
+   "151": 7.152840254535806,
+   "152": 3.988622229852215,
+   "153": 5.590857383168399,
+   "154": 3.0235601776689895,
+   "155": 2.316349164422804,
+   "156": 4.0327050021084965,
+   "157": 5.737498738403919,
+   "158": 3.4571009820366085,
+   "159": 2.3260824596813316,
+   "160": 2.785707392836167
+  },
+  "capacity_ratio_min": 2.316349164422804,
+  "casts_per_s": 3.125,
+  "fire_ball_gd_per_hit_preres": 827626.24417529,
+  "her_applied_per_cast_single_target": 384359.7827366316,
+  "her_capacity_per_tick": 98050.96498383458,
+  "his_realised_per_tick_by_wave": {
+   "151": 13707.976341518022,
+   "152": 24582.66522459499,
+   "153": 17537.733171127333,
+   "154": 32428.977504071663,
+   "155": 42329.95892407579,
+   "156": 24313.944345685766,
+   "157": 17089.49656538152,
+   "158": 28362.192916352677,
+   "159": 42152.83279220779,
+   "160": 35197.86939431838
+  },
+  "mana_have_per_wave": 4604.0264668367345,
+  "mana_need_per_wave": 3449.2090816326527,
+  "mean_wave_s_his": 36.91461224489796,
+  "meteor_gd_per_hit_preres": 1657418.5203609334
+ },
+ "arms": {
+  "primary": {
+   "REGISTER_M_a_ge_warlord": false,
+   "cell_waves_over_threshold": 7,
+   "life": 221684.19154991762,
+   "life_plus_belt": 2095744.666588002,
+   "max_ratio_intake_ub_over_pool": 2.027765716825518,
+   "r_DMG": 78.58354893651813,
+   "threshold_0p8": 1676595.7332704016
+  },
+  "use_weighted": {
+   "REGISTER_M_a_ge_warlord": false,
+   "cell_waves_over_threshold": 32,
+   "life": 132526.99448529413,
+   "life_plus_belt": 1252875.723476891,
+   "max_ratio_intake_ub_over_pool": 3.391939923884606,
+   "r_DMG": 46.97872899159665,
+   "threshold_0p8": 1002300.5787815128
+  },
+  "worst_case": {
+   "REGISTER_M_a_ge_warlord": false,
+   "cell_waves_over_threshold": 3,
+   "life": 273819.1269062904,
+   "life_plus_belt": 2588614.7803842113,
+   "max_ratio_intake_ub_over_pool": 1.6416808009943926,
+   "r_DMG": 97.06456111531031,
+   "threshold_0p8": 2070891.824307369
+  }
+ },
+ "her_intake_ub_max": 4249679.186127076,
+ "her_intake_ub_max_at": [
+  "M-POL-2-NULL",
+  0,
+  160
+ ],
+ "her_intake_ub_mean": 555596.6578689566,
+ "n_cell_waves": 250,
+ "warlord_landed_fraction_G1": 0.8499418913861366
+}
