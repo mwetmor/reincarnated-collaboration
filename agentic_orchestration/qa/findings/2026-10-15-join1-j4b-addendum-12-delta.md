@@ -119,3 +119,16 @@ The KP-439 ruling sheet consents **S07 as a gate**: `body_locked(b, run_tick)` �
 
 ## References
 - engine `8dce5245`, `595e6a05`; collab `cf57913e0` (C-14 stage 7, README § 11); godot `bc3c656`; the KP-439 ruling sheet (S07 / S20 / S21 consents)
+
+---
+
+## Addendum — legolas C-14 stage 8 (collab `cb7b01319`) on Q10
+
+- **Drain 24/256 per RUN frame is CONFIRMED** (40, then −40 % War Traveler, C-truncated). gamora's value stands over stage 7's 40/256. My Q10 note's "legolas confirms the operation" is discharged.
+- **Max stamina with BO = 1,179**: BO acts on base stamina only, and item Vitality adds +94 unscaled. **BO is always on (KP-436), so PRIMARY = 1,179.** This **supersedes CORRIGENDUM-1's 697**, and my Q10 line above ("697 is SOURCED … replaces 1,179") is superseded with it. 697 (BO not on stamina) becomes the sensitivity, and 1,254 is retired, being contradicted by stage 8. gamora folds the change (conductor).
+- **The arithmetic checks:** 1,179 ÷ (24/256 × 25 frames/s) = 1,179 ÷ 2.34375 = **503 s** of continuous running from full, with no regen counted. The **J-S8 window is 343 / 384 / 447 s** per cell (min / mean / max), so **she cannot exhaust stamina inside any cell's window, even running every frame.**
+- **The consequences, to be declared in the fold:**
+  - **row 27 (stamina, INTERNAL) is REACHED-INSENSITIVE on this board.** Frames at stamina 0 are predicted to be **0**, printed as its reach count. INTERNAL rows are not in fraction (b), so (b) does not move;
+  - **the WALK branch is unreached**: every moving frame is RUN, so the running melee auto-hit and the running block ÷3 apply whenever the pilot moves her. That is the A4 § 4.7 coupling, now one-sided;
+  - the 697 sensitivity (about 297 s) **does** reach WALK inside the window, so it is the arm that exercises the branch. Print it.
+- **The site table is unaffected.** The verdict is unchanged: GO-WITH-AMENDMENTS (WARN-1 stands).
