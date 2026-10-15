@@ -524,3 +524,163 @@ The synergy laws are J4b H01–H03: synergies read hard points only. **Unchanged
 **Superseded:** stage 5's **17 / 1 / 1** hard points (sheet 43 / 27 / 27; synergies +518 / +185 / +3 %). **Reason:** stage 5 read `profile.skills` alone, which is 86 points and leaves 24 unspent. KP-444 rules those 24 are spent.
 
 Stages 2–4 are unaffected either way: Frozen Armor and Static Field have 1 hard point in both readings, and no damage was computed.
+
+---
+
+## 11. Stage 7: facts for drax's J4b kit open questions
+
+Source questions: `reincarnated-godot/kc2_play/join/J4B-KIT-OPEN-QUESTIONS.md` (godot `bc3c656`; read-only). Gamora rules them in ADDENDUM-12.
+
+Files: `c14_stage7.json`, `scripts/c14_stage7.py`, `verification_stage7.log`. Captures: `captures/stage7/` (D2MOO `D2Seed.cpp/.h`, `Path.cpp`, `PathMisc.cpp`, `PathUtil.cpp`, `Step.cpp`; Basin Fire Ball, Meteor, Missile, Stamina, Faster Run/Walk). They are also reused from C-13: `captures/d2moo-MissMode.cpp`, `-Missiles.cpp`, `-SUnitDmg.cpp`, `-Units.cpp`, `captures/potions/`, `universal_player_laws.json`.
+
+Code is D2MOO `5596f5cb` (1.10f). "Code" grades are **MODEL-VERIFIED** when a community source agrees, and **code-only** otherwise.
+
+### The RNG primitive (for Q1–Q4)
+
+D2's per-unit seed is a two-word LCG (`D2Seed.h`):
+- `SEED_RollRandomNumber`: `lSeed = nHighSeed + 0x6AC690C5 · nLowSeed` (64-bit). The new low word is the next `nLowSeed`, the high word the next `nHighSeed`. It returns the 64-bit value; `ITEMS_RollRandomNumber` is used with `% 100` or `& mask`.
+- `SEED_RollLimitedRandomNumber(n)` returns **`roll & (n−1)` if n is a power of two, otherwise `(uint32)roll % n`**. **The result is in [0, n−1].**
+
+Grade: code-only. This seed form is long-standing community knowledge, but no second source was captured this stage.
+
+### Q1 · Spell damage roll (context)
+
+- **Each damage type** is rolled as **`min + RollLimited(missile.pSeed, max − min)`** in 1/256 points (`MissMode.cpp` `MISSMODE_RollDamageValue` L281–314).
+  - So the range is **[min, max − 1/256]**: the maximum is exclusive by 1/256.
+  - Mastery (Fire Mastery %) is applied to min and max **before** the roll.
+  - The draw is on the **missile's own seed**, not the caster's.
+- **Fire Ball:** `SrvHit01` rolls **once per explosion** (`MISSMODE_GetDamageValue`), then applies **that same damage to every unit in the 4-subtile radius** (`sub_6FD10200`; L2087–2121).
+- **Meteor impact:** `SrvHit14` rolls **once per impact** (`FillDamageParams`) and applies it to all units in radius (L2746–2795).
+- **How the missile's seed is initialised from the caster was not traced.**
+
+Grade: code-only. Basin agrees that radius targets share the explosion, but does not address the roll.
+
+### Q2 · Meteor pyre per-frame value: ROLLED EACH COLLISION, not fixed
+
+- Each pyre missile (`meteorfire`, `pSrvDoFunc` 5, `pSrvDmgFunc` 3) collides with an overlapping unit and calls `MISSMODE_FillDamageParams`. That **rolls fire = min + RollLimited(missile.pSeed, max − min)** from the missile's min/max bit rate (H03) on **every collision**.
+- `SrvDmg03` then draws **`(RollRandomNumber(missile.pSeed) & 127) < 19`** for a soft hit (L4387–4396).
+- A collision occurs every frame for DamageRate-41 missiles (Basin Missile: *"those with 41 typically apply damage every frame (25 times per second)"*).
+
+**So: one fire roll plus one soft-hit draw per pyre missile, per overlapped unit, per frame, on that pyre missile's seed.** Grade: **MODEL-VERIFIED** (code + Basin frame rate).
+
+### Q3 · Potion double-fill draw form (context)
+
+`SkillItem.cpp` `pSpell03` L196 (health) and L212 (mana):
+
+```
+if (Vit > 0 && (RollRandomNumber(unit.pSeed) % 100) < RollLimited(unit.pSeed, Vit) / 2)  value *= 2
+```
+
+- Two draws on **the drinker's own seed**.
+- **⚑ The order of the two draws is not fixed by the reconstruction:** C++ leaves operand evaluation order unspecified, and only the original binary's instruction order settles it. **UNVERIFIED.**
+- The probability law itself is MODEL-VERIFIED (C-13 potions: matches Arreat on both branches).
+
+### Q4 · Block and Oculus draw forms (context)
+
+- **Block** (`SUnitDmg.cpp` `ApplyBlockOrDodge` L2722–2735): `chance = UNITS_GetBlockRate(..)`, then **÷3 if running**. Then **`RollRandomNumber(defender.pSeed) % 100 < chance` → block.** That is an **integer d100 on the defender's (her) seed**.
+- **Oculus when struck** (`SkillItem.cpp` `EventFunc21` L1683–1708): requires **`DAMAGERESULTFLAG_GETHIT`**, then **`RollRandomNumber(owner.pSeed) % 100 < 25`**, an **integer d100 on her seed**.
+- Both are MODEL-VERIFIED (code, plus Basin's percent semantics).
+- **How the port serves these as streams is a JOIN design matter, not a D2 fact.**
+
+### Q5 · Fire Ball geometry
+
+| Item | Value | Grade |
+|---|---|---|
+| **Velocity units** | Missile path velocity = `(Vel << 8) · 75/100` (`Missiles.cpp` L123–146) = **3,840** for Vel 20. Per frame the position advances by `direction(|v| = 0x1000) × velocity >> 8` in FP16 coordinates (65,536 per subtile; `PathMisc.cpp`, `Step.cpp` `lutTanToDirection`) → **61,440 / 65,536 = 0.9375 subtile per frame = 23.44 subtiles/s = 15.6 yd/s** at 2/3 yd per subtile | MODEL-VERIFIED: the code reproduces the d2mods convention `Vel·Range/32` yd exactly |
+| **Range** | 50 frames (2.0 s) → **46.9 subtiles = 31.25 yd** | DATAMINED + code |
+| **Collision size** | `Size` 1 (small-unit footprint); `CollideType` 3; **`CollideKill` 1: it stops at the first unit (or wall) and does not pass through** | DATAMINED |
+| **Explosion** | 4-subtile (2⅔ yd) radius **centred on the missile's position at impact**, one shared roll | MODEL-VERIFIED (H06) |
+| **End of range / wall** | `HandleMissileCollision` calls the hit handler with `a4 = 1` when the frame count runs out or it hits a wall. With `a4 = 1` the handler falls through to the server hit function, so **the fireball explodes at range end and on walls**. `AlwaysExplode` is blank; the `a4` path makes it unnecessary | **Code-only, single reading of a complex control flow: moderate confidence** |
+
+Aim and target choice are NOT D2 data questions (Q6 is out of this scope).
+
+### Q7 · The 18 pyre offsets and footprint (DATAMINED from code)
+
+`MISSMODE_CreateMeteor_MoltenBoulderSubmissiles`, J4b `primary_rows.json → missile_notes`. Subtiles from the impact point; all 18 spawn.
+
+```
+dx:  2 -2  0  0 -3  0  3 -1  1 -1  2 -4 -3 -1  0  1  3  4
+dy: -2 -2  2  5  3  3  3  2  1 -1 -1 -2 -2 -3 -4 -3 -3 -2
+```
+
+- **Each pyre missile is `Size` 2** (Missiles.txt `meteorfire`), static, colliding every frame.
+- How many overlap a target depends on its size and position (Basin: a size-2 target at centre typically overlaps 3, up to 6). Copied into `c14_stage7.json`.
+- Overlap against GD radii is a JOIN modelling choice.
+
+### Q8 · Monster hit recovery in 1.13
+
+`SUnitDmg.cpp` L2090–2228; `sub_6FCC1870` returns TRUE meaning **no** get-hit.
+
+**When it can happen:** only if the hit carries **`GETHIT`**.
+- Fire Ball's missile has `GetHit` = 1.
+- Pyre missiles do not; they carry only the 19/128 **soft hit**, which sets AI state 19 and refreshes the unit but is **not** a GetHit mode change.
+
+**No get-hit if any of these holds:**
+- the monster is **frozen**;
+- the hit is **pure poison**;
+- total damage **< 1 point**;
+- the monster's **MonStats2 `mGH` (GetHit mode) flag is 0**.
+
+**Threshold by hit class.** Divisor 8 for 1H swing/thrust and bow/crossbow; 32 for 2H swing vs small and club; 64 for 2H swing vs large; **16 for everything else, including spells**.
+
+| Damage dealt | GetHit chance |
+|---|---|
+| < maxHP/16 | **0** |
+| < maxHP/8 | **50 %** (`rand & 1`) |
+| < maxHP/4 | **75 %** (no get-hit iff `rand & 3 == 0`) |
+| otherwise | **100 %** |
+
+**Length:** the monster's GH animation frames. **UNKNOWN from the txt tables** (they live in AnimData.d2).
+
+**Who is immune:**
+- **Diablo and Baal have `mGH` = 0, so they are immune to hit recovery** (DATAMINED). Mephisto and the Chaos seal classes have it.
+- R1: **69 of 70 types have it.**
+- Uniques share their base type's flag; there is no unique or champion branch in this function.
+
+Grade: code-only for the thresholds; `mGH` is DATAMINED.
+
+⚑ drax's note of "softhit 19/128" is the **pyre's soft-hit chance**, not the GetHit threshold.
+
+### Q10 · Stamina and movement for the build-file sheet
+
+| Item | Value | Grade |
+|---|---|---|
+| **Max stamina at clvl 99** (Vitality 535 incl. items) | **697** = 74 + 98 + (535 − 10) | MODEL-VERIFIED (C-13 universal laws: CharStats + Basin) |
+| With BO +80 % | **1,254** if BO's `skill_staminapercent` applies to the total | INFERRED (op not traced this stage) |
+| **Armour speed** | **Dusk Shroud 0, Monarch 0** (Armor.txt `speed`) → **no drain multiplier**. Drain 2 × RunDrain 20 × 1 = **40/256 per running frame = 3.906/s** | DATAMINED + MODEL-VERIFIED |
+| **Walk / Run velocity** | CharStats **WalkVelocity 6, RunVelocity 9** (Basin reads these as yd/s) | DATAMINED |
+| **FRW 25** (War Traveler) | FRW_eff = ⌊150·25/(150+25)⌋ = **21** → **walk 6·1.21 = 7.26**, **run 9 + 6·0.21 = 10.26** (same units) | MODEL-VERIFIED (animation packet § 3.7: Basin + D2MOO) |
+
+### Q11 · Chill on a monster's attack animation
+
+`Units.cpp` `UNITS_UpdateAttackAnimRateAndVelocity` L1340–1417:
+
+```
+rate      = clamp(IAS_eff + STAT_ATTACKRATE, 15, 175)
+animSpeed = rate · baseAnimSpeed / 100          (integer floor)
+```
+
+- `STAT_ATTACKRATE` starts at 100 for monsters (`Monster.cpp`), and chill adds its `coldeffect` (stage 4 § 8.1).
+- The frame counter advances by `animSpeed` (1/256 frame) each tick, and the attack ends when `current + speed ≥ frameCount·256`. So **ticks = ceil(256·frames / floor(rate·baseSpeed/100))**.
+- Example, base 256 and a 16-frame attack: **16 ticks normally; −25 → 22; −33 → 24; −40 → 27; −50 → 32** (`c14_stage7.json` has 8/12/16/20-frame examples).
+- Non-attack modes use `velocitypercent` and `other_animrate` the same way.
+- Grade: code-only. Basin's chill page gives the magnitude but not the rounding.
+
+### Q14 · Belt drink order, and the Super Mana ×2
+
+- **D2 has no "drink health" key.** The bottom row's four hotkeys each drink **that column's** bottom potion, and the column then drops down (`ItemMode.cpp`; PureDiablo; C-13 `potions_notes.md` item 10).
+- **Choosing between a Full Rejuvenation and a Super Healing column is player behaviour, not a D2 rule**, so it is a JOIN policy ruling. D2 would drink whichever column the player presses.
+- **Super Mana: the listed Sorceress value (500) ALREADY includes the ×2 class factor.** C-13 `potions.json` lists `total_mana_by_class` (Sorceress 500, Barbarian 250) and `sorceress_total_mana`. **Do not apply the class factor again.** MODEL-VERIFIED (code `ITEMS_GetBonusManaBasedOnClass` + Arreat tables).
+- Rejuvenation has no class factor.
+
+### Q17 · DoT duration units on players
+
+- D2 lengths are **integer frames at 25 fps** (`dwPoisLen`, `dwBurnLen`, …, in `D2DamageStrc`).
+- The player's poison length is floored: **`floor(len × (100 − PLR_eff) / 100)`**, with PLR_eff including the Hell −100 penalty and clamped to [−100, 75] (C-13 universal laws).
+- Poison damage is per frame in 1/256 points. Burn has no resist row.
+- **D2 itself never converts seconds.** Mapping GD seconds to D2 frames (e.g. `ceil(25·s)`) is a JOIN adapter choice.
+- Grade: MODEL-VERIFIED (code + Basin Poison Length Reduced).
+
+### Not in this stage's scope (from drax's list)
+
+Q6 (targeting), Q9 (regen placement), Q12 (HITREC comparator), Q13 (Resilient cap), Q15 (Cruel window) and Q16 (wave boundaries) are design or pack questions, not D2 facts. Q12's D2 side is answered by Q8: the code uses strict `<` against maxHP/divisor.

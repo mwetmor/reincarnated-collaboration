@@ -1,0 +1,934 @@
+{{Movement nav}}
+{{Intro}}
+*{{Mb|=Faster Run/Walk}} from items increases walk and run speed (but not [[Charge]] speed). However, unlike other velocity modifiers it is not applied directly, but subject to diminishing returns:
+
+
+:Effective Faster Run/Walk = [ (150 * FR/W) / (150 + FR/W) ] [https://www.lurkerlounge.com/forums/thread-11997-post-1655.html#pid1655]
+
+
+*For example, 100 FR/W only increases walk speed by 60%, not 100% [ (150*100) / (150+100) ]; 200 FR/W only increases walk speed by 85%, not 200% [ (150*200) / (150+200) ].
+*FR/W required to achieve a specific velocity or EFR/W bonus can be calculated as follows:
+
+
+:FR/W = { (150 * EFR/W) / (150 - EFR/W) }
+
+
+*For example, to increase walk speed by 100% requires 300% FR/W { (150*100) / (150-100) }.
+*Every 1% EFR/W increases walk and run speeds by 0.06 yards per second, although FR/W alone can never apply a velocity bonus equal to or greater than 150%. Conversion tables for FR/W and EFR/W are below.
+|}
+
+
+{|cellspacing=0 cellpadding=0
+|width=144|
+{{Number table}}
+|-align=center valign=top
+!width=43|{{M|=EFR/W}}
+!width=43|FR/W
+|-
+!{{M|=1}}
+|2
+|-
+!{{M|=2}}
+|3
+|-
+!{{M|=3}}
+|4
+|-
+!{{M|=4}}
+|5
+|-
+!{{M|=5}}
+|6
+|-
+!{{M|=6}}
+|7
+|-
+!{{M|=7}}
+|8
+|-
+!{{M|=8}}
+|9
+|-
+!{{M|=9}}
+|10
+|-
+!{{M|=10}}
+|11
+|-
+!{{M|=11}}
+|12
+|-
+!{{M|=12}}
+|14
+|-
+!{{M|=13}}
+|15
+|-
+!{{M|=14}}
+|16
+|-
+!{{M|=15}}
+|17
+|-
+!{{M|=16}}
+|18
+|-
+!{{M|=17}}
+|20
+|-
+!{{M|=18}}
+|21
+|-
+!{{M|=19}}
+|22
+|-
+!{{M|=20}}
+|24
+|-
+!{{M|=21}}
+|25
+|-
+!{{M|=22}}
+|26
+|-
+!{{M|=23}}
+|28
+|-
+!{{M|=24}}
+|29
+|-
+!{{M|=25}}
+|30
+|}
+|width=144|
+{{Number table}}
+|-align=center valign=top
+!width=43|{{M|=EFR/W}}
+!width=43|FR/W
+|-
+!{{M|=26}}
+|32
+|-
+!{{M|=27}}
+|33
+|-
+!{{M|=28}}
+|35
+|-
+!{{M|=29}}
+|36
+|-
+!{{M|=30}}
+|38
+|-
+!{{M|=31}}
+|40
+|-
+!{{M|=32}}
+|41
+|-
+!{{M|=33}}
+|43
+|-
+!{{M|=34}}
+|44
+|-
+!{{M|=35}}
+|46
+|-
+!{{M|=36}}
+|48
+|-
+!{{M|=37}}
+|50
+|-
+!{{M|=38}}
+|51
+|-
+!{{M|=39}}
+|53
+|-
+!{{M|=40}}
+|55
+|-
+!{{M|=41}}
+|57
+|-
+!{{M|=42}}
+|59
+|-
+!{{M|=43}}
+|61
+|-
+!{{M|=44}}
+|63
+|-
+!{{M|=45}}
+|65
+|-
+!{{M|=46}}
+|67
+|-
+!{{M|=47}}
+|69
+|-
+!{{M|=48}}
+|71
+|-
+!{{M|=49}}
+|73
+|-
+!{{M|=50}}
+|75
+|}
+|width=144|
+{{Number table}}
+|-align=center valign=top
+!width=43|{{M|=EFR/W}}
+!width=43|FR/W
+|-
+!{{M|=51}}
+|78
+|-
+!{{M|=52}}
+|80
+|-
+!{{M|=53}}
+|82
+|-
+!{{M|=54}}
+|85
+|-
+!{{M|=55}}
+|87
+|-
+!{{M|=56}}
+|90
+|-
+!{{M|=57}}
+|92
+|-
+!{{M|=58}}
+|95
+|-
+!{{M|=59}}
+|98
+|-
+!{{M|=60}}
+|100
+|-
+!{{M|=61}}
+|103
+|-
+!{{M|=62}}
+|106
+|-
+!{{M|=63}}
+|109
+|-
+!{{M|=64}}
+|112
+|-
+!{{M|=65}}
+|115
+|-
+!{{M|=66}}
+|118
+|-
+!{{M|=67}}
+|122
+|-
+!{{M|=68}}
+|125
+|-
+!{{M|=69}}
+|128
+|-
+!{{M|=70}}
+|132
+|-
+!{{M|=71}}
+|135
+|-
+!{{M|=72}}
+|139
+|-
+!{{M|=73}}
+|143
+|-
+!{{M|=74}}
+|147
+|-
+!{{M|=75}}
+|150
+|}
+|width=144|
+{{Number table}}
+|-align=center valign=top
+!width=43|{{M|=EFR/W}}
+!width=43|FR/W
+|-
+!{{M|=76}}
+|155
+|-
+!{{M|=77}}
+|159
+|-
+!{{M|=78}}
+|163
+|-
+!{{M|=79}}
+|167
+|-
+!{{M|=80}}
+|172
+|-
+!{{M|=81}}
+|177
+|-
+!{{M|=82}}
+|181
+|-
+!{{M|=83}}
+|186
+|-
+!{{M|=84}}
+|191
+|-
+!{{M|=85}}
+|197
+|-
+!{{M|=86}}
+|202
+|-
+!{{M|=87}}
+|208
+|-
+!{{M|=88}}
+|213
+|-
+!{{M|=89}}
+|219
+|-
+!{{M|=90}}
+|225
+|-
+!{{M|=91}}
+|232
+|-
+!{{M|=92}}
+|238
+|-
+!{{M|=93}}
+|245
+|-
+!{{M|=94}}
+|252
+|-
+!{{M|=95}}
+|260
+|-
+!{{M|=96}}
+|267
+|-
+!{{M|=97}}
+|275
+|-
+!{{M|=98}}
+|283
+|-
+!{{M|=99}}
+|292
+|-
+!{{M|=100}}
+|300
+|}
+|width=144|
+{{Number table}}
+|-align=center valign=top
+!width=43|{{M|=EFR/W}}
+!width=43|FR/W
+|-
+!{{M|=101}}
+|310
+|-
+!{{M|=102}}
+|319
+|-
+!{{M|=103}}
+|329
+|-
+!{{M|=104}}
+|340
+|-
+!{{M|=105}}
+|350
+|-
+!{{M|=106}}
+|362
+|-
+!{{M|=107}}
+|374
+|-
+!{{M|=108}}
+|386
+|-
+!{{M|=109}}
+|399
+|-
+!{{M|=110}}
+|413
+|-
+!{{M|=111}}
+|427
+|-
+!{{M|=112}}
+|443
+|-
+!{{M|=113}}
+|459
+|-
+!{{M|=114}}
+|475
+|-
+!{{M|=115}}
+|493
+|-
+!{{M|=116}}
+|512
+|-
+!{{M|=117}}
+|532
+|-
+!{{M|=118}}
+|554
+|-
+!{{M|=119}}
+|576
+|-
+!{{M|=120}}
+|600
+|-
+!{{M|=121}}
+|626
+|-
+!{{M|=122}}
+|654
+|-
+!{{M|=123}}
+|684
+|-
+!{{M|=124}}
+|716
+|-
+!{{M|=125}}
+|750
+|}
+|
+{{Number table}}
+|-align=center valign=top
+!width=43|{{M|=EFR/W}}
+!width=43|FR/W
+|-
+!{{M|=126}}
+|788
+|-
+!{{M|=127}}
+|829
+|-
+!{{M|=128}}
+|873
+|-
+!{{M|=129}}
+|922
+|-
+!{{M|=130}}
+|975
+|-
+!{{M|=131}}
+|1,035
+|-
+!{{M|=132}}
+|1,100
+|-
+!{{M|=133}}
+|1,174
+|-
+!{{M|=134}}
+|1,257
+|-
+!{{M|=135}}
+|1,350
+|-
+!{{M|=136}}
+|1,458
+|-
+!{{M|=137}}
+|1,581
+|-
+!{{M|=138}}
+|1,725
+|-
+!{{M|=139}}
+|1,896
+|-
+!{{M|=140}}
+|2,100
+|-
+!{{M|=141}}
+|2,350
+|-
+!{{M|=142}}
+|2,663
+|-
+!{{M|=143}}
+|3,065
+|-
+!{{M|=144}}
+|3,600
+|-
+!{{M|=145}}
+|4,350
+|-
+!{{M|=146}}
+|5,475
+|-
+!{{M|=147}}
+|7,350
+|-
+!{{M|=148}}
+|11,100
+|-
+!{{M|=149}}
+|22,350
+|-
+!{{M|=150}}
+|&infin;
+|}
+|}
+
+
+==Charm==
+
+===Small Charm===
+{{Affix bonus}}
+|-
+| +3
+!align=left|{{M|=Small Charm of Inertia}}
+|27
+|35
+|}
+<br/>
+
+===Large Charm===
+{{Affix bonus}}
+|-
+| +5
+!align=left|{{M|=Large Charm of Inertia}}
+|18
+|24
+|}
+<br/>
+
+===Grand Charm===
+{{Affix bonus}}
+|-
+| +7
+!align=left|{{M|=Grand Charm of Inertia}}
+|14
+|19 
+|}
+<br/>
+
+==Helm==
+{{Skill bonus}}
+|-
+| +15
+!align=left|[[Peasant Crown|{{U|=Peasant Crown War Hat}}]]
+|28
+|No
+|-
+| +20
+!align=left|[[Valkyrie Wing|{{U|=Valkyrie Wing Winged Helm}}]]
+|44
+|No
+|}
+<br/>
+
+===Circlet===
+{{Affix bonus}}
+|-
+| +10
+!align=left|{{R|=Circlet of Pacing}}
+|8
+|12
+|-
+| +20
+!align=left|{{R|=Circlet of Haste}}
+|16
+|22
+|-
+| +30
+!align=left|{{R|=Circlet of Speed}}
+|29
+|37
+|}
+<br/>
+
+==Amulet==
+{{Skill bonus}}
+|-
+| +(5-10)
+!align=left|[[Blood|{{C|=Blood Amulet}}]]
+|14
+|No
+|-
+| +30
+!align=left|[[The Cat's Eye|{{U|=The Cat's Eye Amulet}}]]
+|50
+|No
+|}
+<br/>
+
+==Body armor==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Blinkbat's Form|{{Ub|=Blinkbat's Form Leather Armor}}]] {{CL-inline}} {{Exp-inline}}
+|12
+|No
+|-
+| +10
+|align=left|[[Hawkmail|{{Ub|=Hawkmail Scale Mail}}]]
+|15
+|No
+|-
+| +20
+|align=left|[[Tyrael's Might|{{Ub|=Tyrael's Might Sacred Armor}}]]
+|84
+|{{Warn|=Yes}} (LoD only)
+|-
+| +25
+|align=left|[[Stealth|{{Ub|=Stealth}}]] body armor
+|17
+|No
+|-
+| +30
+|align=left|[[Blinkbat's Form|{{Ub|=Blinkbat's Form Leather Armor}}]] {{RotW-inline}}
+|12
+|Yes
+|-
+| +40
+|align=left|[[Trang-Oul's Scales|{{Sb|=Trang-Oul's Scales Chaos Armor}}]]
+|49
+|No
+|-
+| +45
+|align=left|[[Enigma|{{Ub|=Enigma}}]] body armor
+|65
+|No
+|-
+| +65
+|align=left|[[Hysteria|{{Ub|=Hysteria}}]] body armor {{D2R-inline}}
+|39
+|{{Warn|=Yes}} (D2R only)
+|}
+<br/>
+
+==Melee weapon==
+{{Skill bonus}}
+|-
+| +20
+|align=left|[[Wind|{{Ub|=Wind}}]] melee weapon
+|61
+|No
+|}
+<br/>
+
+===Dagger===
+{{Skill bonus}}
+|-
+| +20
+|align=left|[[Bane's Oathmaker|{{Sb|=Bane's Oathmaker Kris}}]] {{RotW-inline}}
+|8
+|No
+|}
+<br/>
+
+===Polearm===
+{{Skill bonus}}
+|-
+| +35
+|align=left|[[Infinity|{{Ub|=Infinity}}]] polearm
+|63
+!{{Warn|=Yes}} (LoD only)
+|}
+<br/>
+
+===Spear===
+{{Skill bonus}}
+|-
+| +35
+|align=left|[[Infinity|{{Ub|=Infinity}}]] spear {{D2R-inline}}
+|63
+|No (D2R only)
+|}
+<br/>
+
+===Sword===
+{{Skill bonus}}
+|-
+| +20
+|align=left| [[Bloodletter|{{Ub|=Bloodletter Gladius}}]] {{RotW-inline}}
+|30
+|Yes
+|-
+| +20
+|align=left|[[Crainte Vomir|{{Ub|=Crainte Vomir Espandon}}]]
+|42
+|No
+|}
+<br/>
+
+==Missile weapon==
+{{Skill bonus}}
+|-
+| +25
+|align=left|[[Zephyr|{{Ub|=Zephyr}}]] missile weapon
+|21
+|No
+|}
+<br/>
+
+==Amazon javelin==
+{{Skill bonus}}
+|-
+| +30
+!align=left|[[Titan's Revenge|{{U|=Titan's Revenge Ceremonial Javelin}}]]
+|42
+|No
+|}
+<br/>
+
+==Shield==
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Vigilance|{{Ub|=Vigilance}}]] shield {{RotW-inline}}
+|53
+|No
+|}
+<br/>
+
+===Shrunken head===
+{{Skill bonus}}
+|-
+| +20
+!align=left|[[Boneflame|{{U|=Boneflame Succubus Skull}}]]
+|72
+|No
+|}
+<br/>
+
+==Belt==
+{{Skill bonus}}
+|-
+| +(10-20)
+|align=left|[[Gheed's Wager|{{Ub|=Gheed's Wager Troll Belt}}]] {{RotW-inline}}
+|71
+|No
+|-
+| +20
+!align=left|[[M'avina's Tenet|{{S|=M'avina's Tenet Sharkskin Belt}}]]
+|45
+|No
+|}
+<br/>
+
+==Boots==
+{{Affix bonus}}
+|-
+| +10
+!align=left|{{R|=Boots of Pacing}}
+|8
+|12
+|-
+| +20
+!align=left|{{R|=Boots of Haste}}
+|16
+|22
+|-
+| +30
+!align=left|{{R|=Boots of Speed}}
+|29
+|37
+|-
+| +30
+!align=left|{{M|=Boots of Transportation}}
+|57
+|65
+|-
+| +40
+!align=left|{{M|=Boots of Acceleration}}
+|43
+|51
+|}
+
+
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Horazon's Legacy|{{Sb|=Horazon's Legacy Mirrored Boots}}]] (2 items) {{RotW-inline}}
+|67
+|No
+|-
+| +20
+!align=left|[[Hsarus' Iron Heel|{{S|=Hsarus' Iron Heel Chain Boots}}]]
+|3
+|No
+|-
+| +20
+!align=left|[[Sigon's Sabot|{{S|=Sigon's Sabot Greaves}}]]
+|6
+|No
+|-
+| +20
+!align=left|[[Gorefoot|{{U|=Gorefoot Heavy Boots}}]]
+|9
+|No
+|-
+| +20
+!align=left|[[Tearhaunch|{{U|=Tearhaunch Greaves}}]]
+|29
+|No
+|-
+| +20
+!align=left|[[Infernostride|{{U|=Infernostride Demonhide Boots}}]]
+|29
+|No
+|-
+| +20
+!align=left|[[Waterwalk|{{U|=Waterwalk Sharkskin Boots}}]]
+|32
+|No
+|-
+| +20
+!align=left|[[Sandstorm Trek|{{U|=Sandstorm Trek Scarabshell Boots}}]]
+|64
+|No
+|-
+| +20
+!align=left|[[Marrowwalk|{{U|=Marrowwalk Boneweave Boots}}]]
+|66
+|No
+|-
+| +25
+!align=left|[[War Traveler|{{U|=War Traveler Battle Boots}}]]
+|42
+|No
+|-
+| +30
+!align=left|[[Cow King's Hooves|{{S|=Cow King's Hooves Heavy Boots}}]]
+|13
+|No
+|-
+| +30
+!align=left|[[Vidala's Fetlock|{{S|=Vidala's Fetlock Light Plated Boots}}]]
+|14
+|No
+|-
+| +30
+!align=left|[[Treads of Cthon|{{U|=Treads of Cthon Chain Boots}}]]
+|15
+|No
+|-
+| +30
+|align=left|[[Tancred's Hobnails|{{Sb|=Tancred's Hobnails Boots}}]] (2 items)
+|20
+|No
+|-
+| +30
+!align=left|[[Rite of Passage (item)|{{S|=Rite of Passage Demonhide Boots}}]]
+|29
+|No
+|-
+| +30
+!align=left|[[Silkweave|{{U|=Silkweave Mesh Boots}}]]
+|36
+|No
+|-
+| +30
+!align=left|[[Gore Rider|{{U|=Gore Rider War Boots}}]]
+|47
+|No
+|-
+| +30
+|align=left|[[Horazon's Legacy|{{Sb|=Horazon's Legacy Mirrored Boots}}]] {{RotW-inline}}
+|67
+|No
+|-
+| +30
+|align=left|[[Wraithstep|{{Ub|=Wraithstep Mirrored Boots}}]] {{RotW-inline}}
+|67
+|No
+|-
+| +30
+!align=left|[[Shadow Dancer|{{U|=Shadow Dancer Myrmidon Greaves}}]]
+|71
+!{{Warn|=Yes}} (LoD only)
+|-
+| +40
+!align=left|[[Sander's Riprap|{{S|=Sander's Riprap Heavy Boots}}]]
+|20
+|No
+|-
+| +40
+!align=left|[[Natalya's Soul|{{S|=Natalya's Soul Mesh Boots}}]]
+|25
+|No
+|-
+| +40
+!align=left|[[Immortal King's Pillar|{{S|=Immortal King's Pillar War Boots}}]]
+|31
+|No
+|-
+| +40
+!align=left|[[Aldur's Advance|{{S|=Aldur's Advance Battle Boots}}]]
+|45
+|No
+|}
+<br/>
+
+==Set bonus==
+{{Skill bonus}}
+|-
+| +20
+|align=left|[[Isenhart's Armory|{{Ub|=Isenhart's Armory}}]] (Full)
+|8
+|No
+|-
+| +20
+|align=left|[[Iratha's Finery|{{Ub|=Iratha's Finery}}]] (3 items)
+|15
+|No
+|-
+| +30
+|align=left|[[Hwanin's Majesty|{{Ub|=Hwanin's Majesty}}]] (Full)
+|45
+|No
+|-
+| +40
+|align=left|[[Sazabi's Grand Tribute|{{Ub|=Sazabi's Grand Tribute}}]] (2 items)
+|67
+|No
+|}
+<br/>
+
+==Reference==
+*[https://www.lurkerlounge.com/forums/thread-11997.html Movement Speeds] (Lurker Lounge)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/82370-runwalk-speed/ Run/walk speed] (D2 Technical)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122557-clarification-of-movement-speed/ Clarification of movement speed] (D2 Technical)
+
+
+[[Category:Modifiers]]
+[[Category:Movement modifiers]]

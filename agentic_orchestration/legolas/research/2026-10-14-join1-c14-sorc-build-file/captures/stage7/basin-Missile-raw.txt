@@ -1,0 +1,186 @@
+{{Unit nav}}
+{{Intro}}
+|}
+
+
+==Damage rate==
+Effectiveness of [[Damage Reduced]] and [[Magic Damage Reduced]] is reduced when applied to the damage of the following missile attacks:
+
+
+{{Text table}} width=67%
+|-align=center
+!colspan=3|Damage Rate
+|-align=center
+!width=33%|41/1024 (~1/25)
+!width=34%|82/1024 (~2/25)
+!width=33%|205/1024 (~1/5)
+|-valign=top
+|
+*[[Arctic Blast]]
+*[[Armageddon]] fire
+*[[Fire Wall]]
+*[[Firestorm]]
+*[[Immolation Arrow]] pyre
+*[[Meteor]] pyre
+*[[Molten Boulder]] fire
+*[[Catapult]] meteor pyre
+*[[The Countess|{{Ub|=Countess}}]] fire wall
+*[[Diablo (World Event)|{{Ub|=Diablo}}]] armageddon fire
+*[[Diablo|{{Ub|=Diablo}}]] firestorm
+*[[Vampire]] fire wall
+*Vampire meteor pyre
+|
+*[[Inferno]]
+*[[Wake of Inferno]]
+*{{Ub|=Diablo}} lightning
+*[[Fetish Shaman]] inferno
+*[[Megademon]] inferno
+*[[Claw Viper|Salamander]] fire cloud
+|
+*[[Wake of Fire]]
+|}
+
+
+*Value normally corresponds to the number of times each missile collides with a target (and thus applies damage) per second: those with 41 typically apply damage every frame (25 times per second), those with 82 typically apply damage every other frame (25/2 times per second) with a stream of missiles (although Arctic Blast is 41, it should be in this category with Inferno). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/86981-inferno-arctic-blast-bug/&do=findComment&comment=1484215] Wake of Fire can apply damage every 5 frames (5 times per second) due to its 4 frame Next Delay.
+*Vast majority apply [[Fire Damage]], although Arctic Blast applies [[Cold Damage]], {{Ub|=Diablo}} firestorm applies fire and physical damage and {{Ub|=Diablo}} lightning applies [[Lightning Damage]] and physical damage.
+*Intent is to prevent integer damage reduction from being too powerful a counter when small amounts of damage are applied by multiple missile collisions. In Hell {{Ub|=Diablo}} lightning only applies maximum 26.25 base physical and 52.5 lightning damage per collision, which would otherwise be easily negated by DR 40 and [[Lightning Resist]] 75% (base physical damage would be negated and excess DR would then negate base lightning damage after resistance applied); but due to this modification, DR '''492''' (an impossible amount in an unmodified game) is actually required to achieve this (DR 40 and LR 75% only reduce maximum base damage by ~46%).
+*However, since damage is typically smaller the more missile collisions are used to apply it, this modification is normally less effective as the number of missile collisions involved increases. In Hell {{Ub|=Diablo}} firestorm only applies maximum base 2 <sub>48/256</sub> fire and <sub>240/256</sub> physical damage per collision, although up to 30 missiles can collide with a player with each cast and each missile can apply damage up to 35 times, resulting in up to '''1,050''' collisions (compared to just 17 collisions for each lightning cast at a single stationary target); thus despite the modification, DR 37 and [[Fire Resist]] 75% would still negate base physical damage and excess DR would then negate base fire damage after resistance applied.
+<br>
+
+==Last collide==
+Last collide is a property of missiles which normally prevents those which are not destroyed upon collision from colliding with the same target more than once (since a missile can collide with a target multiple times as it passes through it, or remains over it).
+
+
+[[File:Last Collide.png|frame|center|[[Lightning Spire]] bolts are [[size]] 2 and have last collide enabled, so although they aren't destroyed on collision they normally only collide with the [[Sorceress]] once (as indicated by equipped items applying 100% [[Chance to Cast]] [[Nova]] [[When Struck]]). However, when a [[Desert Mercenary]] is close enough adjacent for a bolt to collide with both of them simultaneously, '''he''' then becomes its last target and the bolt can collide with her a second time before it is out of range.]]
+<br>
+
+==Next delay==
+Next delay is an internal timer applied to a monster after a missile from a particular set of skills collides with it.  Missiles from these skills will not collide with the monster until the timer expires.  Next Delay duration is measured in frames. [https://www.mannm.org/d2library/faqtoids/nhd_eng.html]
+
+
+;Skills
+{{Text table}} width=67%
+|-align=center
+!width=33% align=left|Class
+!width=34%|Skill
+!width=33%|Duration in Frames
+|-valign=top
+![[Amazon]]
+|
+*[[Multiple Shot]]
+*[[Strafe]]
+*[[Lightning Strike]]
+|
+*4
+*4
+*4
+|-valign=top
+![[Assassin]]
+|
+*[[Shock Web]]
+*[[Blade Sentinel]]
+*[[Wake of Fire]]
+*[[Claws of Thunder]]
+*[[Phoenix Strike]]
+|
+*25
+*25
+*4
+*4
+*4
+|-valign=top
+![[Barbarian (Diablo II)|Barbarian]]
+|
+*[[Battle Cry]]
+*[[War Cry]]
+*[[Battle Orders]]
+*[[Battle Command]]
+*[[Grim Ward]]
+|
+*4
+*6
+*4
+*4
+*6
+|-valign=top
+![[Druid (Diablo II)|Druid]]
+|
+*[[Twister]]
+*[[Tornado]]
+*[[Volcano]]
+*[[Shock Wave]]
+|
+*25
+*25
+*10
+*4
+|-valign=top
+![[Necromancer]]
+|
+*[[Teeth]]
+*[[Poison Nova]]
+|
+*4
+*4
+|-valign=top
+![[Paladin (Diablo II)|Paladin]]
+|
+*None
+|
+|-valign=top
+![[Sorceress]]
+|
+*[[Chain Lightning]]
+*[[Nova]]
+*[[Frost Nova]]
+|
+*4
+*4
+*4
+|}
+<br>
+
+==Speed and range==
+*Distance is measured in yards, while speed is measured in yards per second. In this case, a yard is defined as the distance between opposite corners of a sub-tile [https://www.theamazonbasin.com/forums/index.php?/forums/topic/122557-clarification-of-movement-speed/], into which the world surface is normally invisibly divided, like a chess board: a yard measures 32 pixels horizontally and 16 pixels vertically due to the game's [https://en.wikipedia.org/wiki/Isometric_graphics_in_video_games isometric graphics]. 
+
+
+[[File:Sub-tile.png|center|thumb|400px|Enlargement of a single sub-tile.]]
+
+
+*Consequently, the dimensions of the visible screen are as follows:
+
+
+{{Number table}} width=33%
+|-valign=top align=center
+!width=33% rowspan=2|Resolution
+!colspan=2|Visible Area
+|-align=center
+!width=34%|Pixels
+!width=33%|Yards
+|-align=center
+|640 x 480||640 x 432||20 x 27{{0|.0}}
+|-align=center
+|800 x 600||800 x 552||25 x 34.5
+|}
+
+
+[[File:Radius.png|center|thumb|600px|Relationship between yards and [[radius]] at 800 x 600 resolution.]]
+
+
+*Missile speed is specified in terms of pixels travelled each frame, so in terms of yards per second it is calculated as follows for those with constant non-zero speed:
+
+
+:Missile speed = 25 * pixels / 32 [https://d2mods.info/forum/kb/viewarticle?a=364]
+
+
+*Missiles only exist for a specified number of frames before expiring, so missile range in yards is calculated as follows for those with constant non-zero speed:
+
+
+:Missile range = frames * pixels / 32 [https://d2mods.info/forum/kb/viewarticle?a=364]
+<br>
+
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/86981-inferno-arctic-blast-bug/ Inferno & Arctic Blast Bug] (D2 Technical)
+*Gustafsson, Tommi, [http://web.archive.org/web/20070608234103/http://users.tkk.fi/~tgustafs/mdrmod.html Magic Damage Reduction Modification vs. Frame-Based Attacks] (Internet Archive)
+*Librarian, [https://www.mannm.org/d2library/faqtoids/nhd_eng.html Get it While You Can: NextHitDelay - NHD] (FAQtoids)
+*Nefarius and Brother Laz, [https://d2mods.info/forum/kb/viewarticle?a=364 Missiles.txt File Guide v. 2] (Phrozen Keep)

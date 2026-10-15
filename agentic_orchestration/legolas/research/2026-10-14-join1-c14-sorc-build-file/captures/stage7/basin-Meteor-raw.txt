@@ -1,0 +1,331 @@
+{{Skill page
+|Nav=FS
+|File=Fire Spells
+|RS=Fire Ball, Fire Wall
+|SS=Fire Bolt, Inferno, Fire Ball
+|Type=Long range single target missile cast<br>Radial damage
+|Tier=5
+|Rlvl=24
+|Req=None
+|Town=No
+|Mana=16.5 + (0.5*slvl)
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=Reaching out to the heavens, the Sorceress calls down a falling star to strike her adversaries. This is one of the strongest of her spells, capable of reducing large areas to cinders. During the Vactayan uprising, a Sorceress by the name of Hepsheeba took pity on the plight of the revolutionaries, and joined their cause. During the final battle of the conflict she cast this spell to great effect, single-handedly destroying the entirety of Lord Bareen's troops and delivering the Vactayans from his tyranny.}}
+
+
+==Detail==
+{{Skill}}
+|-
+!align=left|Minimum [[Fire Damage]]
+|(23*slvl) + 57||(39*slvl) - 71||(79*slvl) - 711||(81*slvl) - 755||(83*slvl) - 811
+|-
+!align=left|Maximum Fire Damage
+|(25*slvl) + 75||(41*slvl) - 53||(81*slvl) - 693||(83*slvl) - 737||(85*slvl) - 793
+|-
+!align=left|Minimum Fire Bit Rate
+|(32*slvl) + 88||(40*slvl) + 24||(48*slvl) - 104||(48*slvl) - 104||(48*slvl) - 104
+|-
+!align=left|Maximum Fire Bit Rate
+|(32*slvl) + 168||(40*slvl) + 104||(48*slvl) - 24||(48*slvl) - 24||(48*slvl) - 24
+|}
+
+
+{{Stat}}
+|-
+!align=left|[[Delay]] (seconds)
+|1.2, global (LoD)<br/>1.2, local (D2R)
+|-
+!align=left|{{S|=+% Fire Damage}}
+|5 * ([[Fire Bolt]].blvl+[[Fire Ball]].blvl)
+|-
+!align=left|[[Radius]] (yards)
+|4
+|-
+!align=left|{{S|=+% Pyre Fire Damage}}
+|3 * [[Inferno]].blvl
+|-
+!align=left|Frames
+|14 + (15*slvl)
+|-
+!align=left|[[Damage Rate]]
+|41/1024 (~1/25)
+|}
+
+
+*There is a 2.4 second (60 frame) delay between point of casting (action frame) and impact, so anticipated position of target needs to be judged, or target needs to be stationary.
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|
+[[File:Meteor target.gif|frame|right|Meteor target indicator]]
+|width=3|
+|
+[[File:Meteor.gif|frame|left|Meteor]]
+|}
+
+
+*Fire damage is applied within radius upon impact, while a pyre whose [[missile]]s apply fire bit rate every frame is created within that radius.
+
+
+[[File:Meteor.png|frame|center|Pyre contains 18 static [[size]] 2 missiles which always spawn in the same location within the 4 yard radius of impact damage.]]
+
+
+*Displayed fire damage per second assumes three of these missiles apply damage to target (bit rate * 3 * 25/256). However, the number of missiles applying damage to target varies depending on its size and position relative to casting point. Sub-tiles in the diagrams below are color-coded according to how many missiles will collide with a target centered over them; only positions where number of missiles applying damage is equal to or greater than that for a selected stationary target are displayed.
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+|width=33%|
+[[File:Meteor (size 1).png|thumb|260px|center|Selected stationary [[Size#Size 1|size 1]] target takes '''no''' damage from any pyre missiles.]]
+|width=34%|
+[[File:Meteor (size 2).png|thumb|260px|center|Selected stationary [[Size#Size 2|size 2]] target takes damage from three pyre missiles. Up to six pyre missiles can apply damage to a size 2 target in a different position, doubling displayed fire damage per second.]]
+|width=33%|
+[[File:Meteor (size 3).png|thumb|260px|center|Selected stationary [[Size#Size 3|size 3]] target takes damage from five pyre missiles, 2/3 more than displayed fire damage per second. Up to seven pyre missiles can apply damage to a size 3 target in three other positions, multiplying displayed fire damage per second by 2 1/3.]]
+|}
+
+
+*Actual fire damage per second for a single pyre is bit rate * missiles * 25/256. When cast continuously this is multiplied by frames / [[cast rate]] to calculate maximum fire damage per second after the first pyre has expired. Cast rate is delay (1.2 seconds or 30 frames) plus action frame, so [[Sorceress#Cast rate|Sorceress cast rate]] is 30 + (4-7) or 34-37 frames, depending on [[Faster Cast Rate]].
+*When cast continuously, maximum fire damage per second can be approximated from displayed fire damage per second by multiplying it by (missiles * frames) / (3 * cast rate).
+*Since the vast majority of targets can be killed by impact damage before pyre damage becomes significant, it only becomes significant against targets with high [[life]] or high [[Fire Resist]] (or both), like [[Evil]]s. Although in theory pyre damage could be maximised by '''not''' selecting the target but targeting the ground instead, this is normally impractical (and sometimes impossible) as the target gets in the way of targeting the ground.
+*Since unit [[damage regeneration]] does not apply when as little as 1 bit (1/256 point) damage is applied in a frame, units that are not [[Immune to Fire]] will not regenerate while positioned over fire. [https://planetdiablo.eu/forum/threads/schadensunterbrechung-giftnova-und-anderer-schaden.1639530/] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121166-any-damage-stops-unit-damage-regeneration/]
+<br>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Meteor (Sorceress Only) can spawn on ilvl >24 [[orb]]s and [[Staff|staves]].
+
+
+{{Skill bonus}}
+|-
+| +3
+!align=left|[[Ormus' Robes|{{U|=Ormus' Robes Dusk Shroud}}]]
+|75||No
+|}
+<br>
+
+===[[Oskill]]===
+{{Skill bonus}}
+|-
+| +10
+|align=left|[[Trang-Oul's Avatar|{{Ub|=Trang-Oul's Avatar}}]] (4 items)
+|nec: 62-65 other: 65||No
+|}
+<br>
+
+===[[Charges]]===
+{{Skill charges}}
+|-
+|11||60
+!align=left|[[Moonfall|{{U|=Moonfall Jagged Star}}]]
+|42||No
+|}
+<br>
+
+===[[Charged suffix]]===
+{{Skill charged}}
+|-valign=top
+|39||54||69||84||99||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|33||37||41||45||48||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Orb]]
+*[[Staff]]
+|24||30||30
+|-valign=top
+|61||98||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|22||25||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Club]]
+*[[Dagger]]
+|24||60||60
+|}
+<br>
+
+===[[Chance to Cast]]===
+
+====[[On Striking]]====
+{{Skill chance}}
+|-
+|4||2
+!align=left|[[Hellmouth|{{U|=Hellmouth War Gauntlets}}]]
+|47||No
+|-
+|6||2
+!align=left|[[Skystrike|{{U|=Skystrike Edge Bow}}]]
+|28||No
+|-
+|6||5
+!align=left|[[Moonfall|{{U|=Moonfall Jagged Star}}]]
+|42||No
+|}
+<br>
+
+====[[When Struck]]====
+{{Skill chance}}
+|-
+|(13-20)||2
+!align=left|[[The Rising Sun|{{U|=The Rising Sun Amulet}}]]
+|65||No
+|}
+<br>
+
+====[[When You Die]]====
+{{Skill chance}}
+|-
+|31||100
+!align=left|[[Rainbow Facet|{{U|=Rainbow Facet Jewel}}]]
+|49||No
+|-
+|45||100
+|align=left|[[Destruction|{{Ub|=Destruction}}]] polearm/sword
+|65
+!{{Warn|=Yes}}
+|-
+|48||100
+|align=left|[[Hand of Justice|{{Ub|=Hand of Justice}}]] weapon
+|67||No
+|}
+<br>
+
+==Levels 1-60==
+*Displayed fire damage per second is rounded down to the nearest point.
+
+
+{{Levels 1-10}}
+|-
+!align=left|Mana Cost
+|17||17.5||18||18.5||19||19.5||20||20.5||21||21.5
+|-
+!align=left|Minimum Fire Damage
+|80||103||126||149||172||195||218||241||280||319
+|-
+!align=left|Maximum Fire Damage
+|100||125||150||175||200||225||250||275||316||357
+|-
+!align=left|Displayed Minimum Fire Damage/S
+|35||44||53||63||72||82||91||100||112||124
+|-
+!align=left|Displayed Maximum Fire Damage/S
+|58||67||77||86||96||105||114||124||135||147
+|-
+!align=left|Seconds
+|1.16||1.76||2.36||2.96||3.56||4.16||4.76||5.36||5.96||6.56
+|}
+
+
+{{Levels 11-20}}
+|-
+!align=left|Mana Cost
+|22||22.5||23||23.5||24||24.5||25||25.5||26||26.5
+|-
+!align=left|Minimum Fire Damage
+|358||397||436||475||514||553||632||711||790||869
+|-
+!align=left|Maximum Fire Damage
+|398||439||480||521||562||603||684||765||846||927
+|-
+!align=left|Displayed Minimum Fire Damage/S
+|135||147||159||171||182||194||208||222||236||250
+|-
+!align=left|Displayed Maximum Fire Damage/S
+|159||171||182||194||206||217||232||246||260||274
+|-
+!align=left|Seconds
+|7.16||7.76||8.36||8.96||9.56||10.16||10.76||11.36||11.96||12.56
+|}
+
+
+{{Levels 21-30}}
+|-
+!align=left|Mana Cost
+|27||27.5||28||28.5||29||29.5||30||30.5||31||31.5
+|-
+!align=left|Minimum Fire Damage
+|948||1,027||1,108||1,189||1,270||1,351||1,432||1,513||1,596||1,679
+|-
+!align=left|Maximum Fire Damage
+|1,008||1,089||1,172||1,255||1,338||1,421||1,504||1,587||1,672||1,757
+|-
+!align=left|Displayed Minimum Fire Damage/S
+|264||278||292||307||321||335||349||363||377||391
+|-
+!align=left|Displayed Maximum Fire Damage/S
+|288||302||316||330||344||358||372||386||400||414
+|-
+!align=left|Seconds
+|13.16||13.76||14.36||14.96||15.56||16.16||16.76||17.36||17.96||18.56
+|}
+
+
+{{Levels 31-40}}
+|-
+!align=left|Mana Cost
+|32||32.5||33||33.5||34||34.5||35||35.5||36||36.5
+|-
+!align=left|Minimum Fire Damage
+|1,762||1,845||1,928||2,011||2,094||2,177||2,260||2,343||2,426||2,509
+|-
+!align=left|Maximum Fire Damage
+|1,842||1,927||2,012||2,097||2,182||2,267||2,352||2,437||2,522||2,607
+|-
+!align=left|Displayed Minimum Fire Damage/S
+|405||419||433||447||461||475||489||503||517||532
+|-
+!align=left|Displayed Maximum Fire Damage/S
+|428||442||457||471||485||499||513||527||541||555
+|-
+!align=left|Seconds
+|19.16||19.76||20.36||20.96||21.56||22.16||22.76||23.36||23.96||24.56
+|}
+
+
+{{Levels 41-50}}
+|-
+!align=left|Mana Cost
+|37||37.5||38||38.5||39||39.5||40||40.5||41||41.5
+|-
+!align=left|Minimum Fire Damage
+|2,592||2,675||2,758||2,841||2,924||3,007||3,090||3,173||3,256||3,339
+|-
+!align=left|Maximum Fire Damage
+|2,692||2,777||2,862||2,947||3,032||3,117||3,202||3,287||3,372||3,457
+|-
+!align=left|Displayed Minimum Fire Damage/S
+|546||560||574||588||602||616||630||644||658||672
+|-
+!align=left|Displayed Maximum Fire Damage/S
+|569||583||597||611||625||639||653||667||682||696
+|-
+!align=left|Seconds
+|25.16||25.76||26.36||26.96||27.56||28.16||28.76||29.36||29.96||30.56
+|}
+
+
+{{Levels 51-60}}
+|-
+!align=left|Mana Cost
+|42||42.5||43||43.5||44||44.5||45||45.5||46||46.5
+|-
+!align=left|Minimum Fire Damage
+|3,422||3,505||3,588||3,671||3,754||3,837||3,920||4,003||4,086||4,169
+|-
+!align=left|Maximum Fire Damage
+|3,542||3,627||3,712||3,797||3,882||3,967||4,052||4,137||4,222||4,307
+|-
+!align=left|Displayed Minimum Fire Damage/S
+|686||700||714||728||742||757||771||785||799||813
+|-
+!align=left|Displayed Maximum Fire Damage/S
+|710||724||738||752||766||780||794||808||822||836
+|-
+!align=left|Seconds
+|31.16||31.76||32.36||32.96||33.56||34.16||34.76||35.36||35.96||36.56
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/sorceress-fire.shtml Fire Spells] (Arreat Summit)
+*[https://planetdiablo.eu/forum/threads/schadensunterbrechung-giftnova-und-anderer-schaden.1639530/ Schadensunterbrechung: Giftnova und anderer Schaden] (PlanetDiablo.eu)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121166-any-damage-stops-unit-damage-regeneration/ ANY damage stops unit damage regeneration] (D2 Technical)

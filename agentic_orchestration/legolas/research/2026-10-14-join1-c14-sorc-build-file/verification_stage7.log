@@ -1,0 +1,39 @@
+{
+"fire_ball": {
+"Vel": 20,
+"path_velocity": 3840,
+"fp16_per_frame": 61440,
+"subtiles_per_frame": 0.9375,
+"subtiles_per_s": 23.4375,
+"yd_per_s_at_2_3": 15.625,
+"range_frames": 50,
+"travel_subtiles": 46.875,
+"travel_yd": 31.25,
+"size": 1,
+"explosion_radius_subtiles": 4,
+"CollideKill": 1,
+"AlwaysExplode": "",
+"Explosion": ""
+},
+"stamina": {
+"vit_total": 535,
+"max_stamina_noBO": 697,
+"max_stamina_BO80_if_op1_on_total": 1254,
+"armor_speed": {
+"Dusk Shroud": 0,
+"Monarch": 0
+},
+"drain_256_per_frame": 40,
+"drain_points_per_s": 3.90625
+},
+"movement": {
+"WalkVelocity": 6,
+"RunVelocity": 9,
+"FRW": 25,
+"FRW_eff": 21,
+"walk": 7.26,
+"run": 10.26,
+"unit": "CharStats velocity units (Basin reads as yd/s)"
+}
+}
+{'8_frames': {0: 8, -25: 11, -33: 12, -40: 14, -50: 16}, '12_frames': {0: 12, -25: 16, -33: 18, -40: 21, -50: 24}, '16_frames': {0: 16, -25: 22, -33: 24, -40: 27, -50: 32}, '20_frames': {0: 20, -25: 27, -33: 30, -40: 34, -50: 40}}
