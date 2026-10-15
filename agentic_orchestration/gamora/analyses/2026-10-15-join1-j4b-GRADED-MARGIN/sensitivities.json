@@ -1,0 +1,128 @@
+{
+ "asymmetry": {
+  "runs_gate": {
+   "pass": true,
+   "n_cells": 25,
+   "missing": 0,
+   "raised": [],
+   "non_terminal": []
+  },
+  "obs1_her": {
+   "n_cells": 25,
+   "n_complete": 25,
+   "truncated": [],
+   "complete": true
+  },
+  "obs1_comparator": {
+   "n_cells": 25,
+   "n_complete": 25,
+   "truncated": [],
+   "complete": true
+  },
+  "M_a": {
+   "her": 25,
+   "him": 17
+  },
+  "T": {
+   "n_cells": 25,
+   "total_her": 25000000000,
+   "total_him": 17000035564,
+   "n_pos": 8,
+   "n_neg": 0,
+   "n_tie": 17,
+   "p_two_sided": 0.0078125,
+   "verdict": "TRUE"
+  },
+  "M_b_cleared": {
+   "n_cells": 25,
+   "total_her": 250,
+   "total_him": 250,
+   "n_pos": 0,
+   "n_neg": 0,
+   "n_tie": 25,
+   "p_two_sided": 1.0,
+   "verdict": "TRUE"
+  },
+  "M_d": {
+   "n_cells": 25,
+   "total_her": 6645913.53002141,
+   "total_him": 21130092.01448043,
+   "n_pos": 0,
+   "n_neg": 25,
+   "n_tie": 0,
+   "p_two_sided": 5.960464477539063e-08,
+   "verdict": "TRUE"
+  },
+  "M_c": {
+   "waves": [
+    159,
+    160
+   ],
+   "dropped_cells": [],
+   "n_pairs": 25,
+   "registration": "PREREG-ADDENDUM-B (engine a4d77ae2) \u00a7 3",
+   "registration_caveats": [
+    "The narrowing to waves {159, 160} rests on a measured-arrival PROXY: the latest tick at which a roster body first took the WARLORD's damage. It depends on his disc reach (a body is 'arrived' when it enters his reach, not hers).",
+    "It counts roster bodies only; enemy pets / summons are excluded from tail_share (they are in M-c itself).",
+    "The registered reading (Mover.spawn_t_s release schedule) marks all 10 waves kill-limited; the proxy marks only 159 and 160. The registration is the conjunction; the primary-only set is not registered."
+   ],
+   "go_wave_tag_mismatches": {
+    "her": 0,
+    "him": 0
+   },
+   "n_cells": 25,
+   "total_her": 3069650.995438131,
+   "total_him": 2119293.5885737417,
+   "n_pos": 25,
+   "n_neg": 0,
+   "n_tie": 0,
+   "p_two_sided": 5.960464477539063e-08,
+   "verdict": "TRUE"
+  },
+  "M_c_whole_cell_info": {
+   "n_cells": 25,
+   "total_her": 1990857.3664541233,
+   "total_him": 949734.4244222824,
+   "n_pos": 25,
+   "n_neg": 0,
+   "n_tie": 0,
+   "p_two_sided": 5.960464477539063e-08,
+   "verdict": "INFO ONLY -- not registered (PREREG-ADDENDUM-B)"
+  },
+  "family_registry": {
+   "offense": {
+    "Fire": "EXERCISED",
+    "Lightning": "EXERCISED",
+    "Cold": "UNEXERCISED-IN-JOIN-1",
+    "Poison": "UNEXERCISED-IN-JOIN-1",
+    "Magic": "UNEXERCISED-IN-JOIN-1"
+   }
+  }
+ },
+ "his_no_summons": {
+  "waves": [
+   159,
+   160
+  ],
+  "dropped_cells": [],
+  "n_pairs": 25,
+  "registration": "PREREG-ADDENDUM-B (engine a4d77ae2) \u00a7 3",
+  "registration_caveats": [
+   "The narrowing to waves {159, 160} rests on a measured-arrival PROXY: the latest tick at which a roster body first took the WARLORD's damage. It depends on his disc reach (a body is 'arrived' when it enters his reach, not hers).",
+   "It counts roster bodies only; enemy pets / summons are excluded from tail_share (they are in M-c itself).",
+   "The registered reading (Mover.spawn_t_s release schedule) marks all 10 waves kill-limited; the proxy marks only 159 and 160. The registration is the conjunction; the primary-only set is not registered."
+  ],
+  "go_wave_tag_mismatches": {
+   "her": 0,
+   "him": 0
+  },
+  "n_cells": 25,
+  "total_her": 3069650.995438131,
+  "total_him": 2022944.1630109565,
+  "n_pos": 25,
+  "n_neg": 0,
+  "n_tie": 0,
+  "p_two_sided": 5.960464477539063e-08,
+  "verdict": "TRUE"
+ }
+}
