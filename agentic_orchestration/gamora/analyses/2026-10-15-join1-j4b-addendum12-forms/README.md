@@ -21,3 +21,10 @@ Nothing here has been shipped to drax. The conductor releases.
 - **`locks_grid.json`:** L-21 is now RESET (`reanchor_at` = lock end).
 - **`tape_sample_…`:** now on `block:d2-fire-sorc-c14`. The stream ids carry the kit id, so every seed changed.
 - Emitted at engine `3f54a448`; J4b suites 129/129 in the dedicated worktree.
+
+## Re-emitted after ADDENDUM-13 + CORRIGENDUM-1 (the L-21 world form)
+- **`locks_grid.json`:** 56 scenarios, now including the Warlord's sources through the same trigger law, with the WORLD qualifying map in `l21.qualifying`.
+- **New forms:**
+  - `BodyLock.qualifying_hit` (engine `e4c0ab52`; failing tests `bac5b8b8`);
+  - `ledger_pass` (engine `e003e656`; failing tests `b0db74e8`). Its own tests cover the mixed-ledger case.
+- Emitted at engine `e003e656`; J4b suites pass in the dedicated worktree.

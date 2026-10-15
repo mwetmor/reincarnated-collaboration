@@ -9,6 +9,21 @@
   ],
   "length_frames": 8,
   "polarity_50": "odd_gets",
+  "qualifying": {
+   "d2-fire-sorc-c14": {
+    "fire_ball": true,
+    "meteor": false,
+    "meteorfire": false,
+    "static_field": false,
+    "thorns": false
+   },
+   "warlord": {
+    "eyeofreckoning1": true,
+    "eyeofreckoning1_bleed": false,
+    "eyeofreckoning2": true,
+    "summon": true
+   }
+  },
   "rule_75": "none_iff_mod4_zero"
  },
  "params": {
@@ -3061,6 +3076,7 @@
      "drew": false,
      "gethit": false,
      "locked_until": 0,
+     "qualifies": true,
      "reanchor_at": null,
      "tier": "none"
     }
@@ -3087,6 +3103,7 @@
      "drew": true,
      "gethit": true,
      "locked_until": 8,
+     "qualifies": true,
      "reanchor_at": 8,
      "tier": "draw50"
     }
@@ -3113,6 +3130,7 @@
      "drew": true,
      "gethit": false,
      "locked_until": 0,
+     "qualifies": true,
      "reanchor_at": null,
      "tier": "draw50"
     }
@@ -3139,6 +3157,7 @@
      "drew": true,
      "gethit": false,
      "locked_until": 0,
+     "qualifies": true,
      "reanchor_at": null,
      "tier": "draw75"
     }
@@ -3165,6 +3184,7 @@
      "drew": true,
      "gethit": true,
      "locked_until": 8,
+     "qualifies": true,
      "reanchor_at": 8,
      "tier": "draw75"
     }
@@ -3191,6 +3211,7 @@
      "drew": false,
      "gethit": true,
      "locked_until": 8,
+     "qualifies": true,
      "reanchor_at": 8,
      "tier": "always"
     }
@@ -3217,6 +3238,7 @@
      "drew": false,
      "gethit": false,
      "locked_until": 0,
+     "qualifies": true,
      "reanchor_at": null,
      "tier": "none"
     }
@@ -3253,6 +3275,7 @@
      "drew": false,
      "gethit": true,
      "locked_until": 8,
+     "qualifies": true,
      "reanchor_at": 8,
      "tier": "always"
     },
@@ -3261,10 +3284,184 @@
      "drew": false,
      "gethit": true,
      "locked_until": 13,
+     "qualifies": true,
      "reanchor_at": 13,
      "tier": "always"
     }
    ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.2c00000000000p+7",
+      "frozen": false,
+      "kit": "warlord",
+      "source": "eyeofreckoning1",
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "warlord_disc_qualifies",
+   "observed": [
+    {
+     "attack": "reset",
+     "drew": true,
+     "gethit": true,
+     "locked_until": 8,
+     "qualifies": true,
+     "reanchor_at": 8,
+     "tier": "draw50"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.f400000000000p+8",
+      "frozen": false,
+      "kit": "warlord",
+      "source": "eyeofreckoning2",
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "warlord_soulfire_qualifies",
+   "observed": [
+    {
+     "attack": "reset",
+     "drew": false,
+     "gethit": true,
+     "locked_until": 8,
+     "qualifies": true,
+     "reanchor_at": 8,
+     "tier": "always"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.c200000000000p+9",
+      "frozen": false,
+      "kit": "warlord",
+      "source": "eyeofreckoning1_bleed",
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "warlord_bleed_never",
+   "observed": [
+    {
+     "attack": null,
+     "drew": false,
+     "gethit": false,
+     "locked_until": 0,
+     "qualifies": false,
+     "reanchor_at": null,
+     "tier": "none"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.f400000000000p+7",
+      "frozen": false,
+      "kit": "warlord",
+      "source": "summon",
+      "u": "0x1.0000000000000p-29"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "warlord_summon_qualifies",
+   "observed": [
+    {
+     "attack": null,
+     "drew": true,
+     "gethit": false,
+     "locked_until": 0,
+     "qualifies": true,
+     "reanchor_at": null,
+     "tier": "draw75"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.c200000000000p+9",
+      "frozen": false,
+      "source": "meteor",
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "her_meteor_never",
+   "observed": [
+    {
+     "attack": null,
+     "drew": false,
+     "gethit": false,
+     "locked_until": 0,
+     "qualifies": false,
+     "reanchor_at": null,
+     "tier": "none"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.c200000000000p+9",
+      "frozen": false,
+      "source": "meteorfire",
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "her_pyre_never",
+   "observed": [
+    {
+     "attack": null,
+     "drew": false,
+     "gethit": false,
+     "locked_until": 0,
+     "qualifies": false,
+     "reanchor_at": null,
+     "tier": "none"
+    }
+   ]
   }
- ]
+ ],
+ "world_lock_ticks_at_196": 4
 }
