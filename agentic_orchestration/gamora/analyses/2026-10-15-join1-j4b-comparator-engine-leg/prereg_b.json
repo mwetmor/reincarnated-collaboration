@@ -1,0 +1,149 @@
+{
+ "M_c_registered_waves": [
+  "159",
+  "160"
+ ],
+ "M_c_registered_waves_primary_reading": [
+  "151",
+  "152",
+  "153",
+  "154",
+  "155",
+  "156",
+  "157",
+  "158",
+  "159",
+  "160"
+ ],
+ "M_c_status": "REGISTERED: M-c(her) >= M-c(Warlord) over these waves, paired over the 25 cells, FALSE only on a strict reversal",
+ "inputs": {
+  "G7": "7bf295d29de3655d2a257b9d0dbe63bc6989cccf27a939563573092b6a83a71d",
+  "GO": "78a5b80e6dcd17b71dbb95909f535b132dad6a121f2f880184e978c8dc914601",
+  "GS": "86f203991e5fea26ffb74c8d3c5b3d1e54776226402b62a4aa4e8c42783adb2f",
+  "prereg_a": "39652b5ea033e6047e3acc3eebf35e80ac496d534a253d87dff4a67902f0a918"
+ },
+ "non_qualifying_waves": [
+  "151",
+  "152",
+  "153",
+  "154",
+  "155",
+  "156",
+  "157",
+  "158"
+ ],
+ "provenance": "reads only the Warlord's re-emitted G7 and the sidecar's GS/GO + prereg_a.json; no emission of her kit read",
+ "rule": "CORRIGENDUM-1 \u00a7 1 (engine d7f916a8); tail >= 0.25 median over cells, capacity >= 1.67",
+ "waves": {
+  "151": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 7.152840254535806,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.027184466019417475,
+   "tail_share_max": 0.9466811751904244,
+   "tail_share_median": 0.9025844930417495,
+   "tail_share_min": 0.8185185185185185
+  },
+  "152": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 3.988622229852215,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.04221635883905013,
+   "tail_share_max": 0.9459757442116868,
+   "tail_share_median": 0.8664850136239782,
+   "tail_share_min": 0.8333333333333334
+  },
+  "153": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 5.590857383168399,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.026041666666666668,
+   "tail_share_max": 0.9272997032640949,
+   "tail_share_median": 0.9112318840579711,
+   "tail_share_min": 0.8787128712871287
+  },
+  "154": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 3.0235601776689895,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.2345679012345679,
+   "tail_share_max": 1.0,
+   "tail_share_median": 1.0,
+   "tail_share_min": 1.0
+  },
+  "155": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 2.316349164422804,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.051771117166212535,
+   "tail_share_max": 1.0,
+   "tail_share_median": 1.0,
+   "tail_share_min": 1.0
+  },
+  "156": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 4.0327050021084965,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.11284046692607004,
+   "tail_share_max": 0.9384422110552764,
+   "tail_share_median": 0.9166666666666666,
+   "tail_share_min": 0.8857808857808858
+  },
+  "157": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 5.737498738403919,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.028286189683860232,
+   "tail_share_max": 0.9322268326417704,
+   "tail_share_median": 0.9258698940998488,
+   "tail_share_min": 0.9048543689320389
+  },
+  "158": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 3.4571009820366085,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.048484848484848485,
+   "tail_share_max": 0.851963746223565,
+   "tail_share_median": 0.8178438661710037,
+   "tail_share_min": 0.7644230769230769
+  },
+  "159": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 2.3260824596813316,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": true,
+   "sensitivity_first_hit_tail_median": 0.2978723404255319,
+   "tail_share_max": 0.9184692179700499,
+   "tail_share_median": 0.8619718309859155,
+   "tail_share_min": 0.8262411347517731
+  },
+  "160": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 2.785707392836167,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": true,
+   "sensitivity_first_hit_tail_median": 0.37484194404373916,
+   "tail_share_max": 1.0,
+   "tail_share_median": 1.0,
+   "tail_share_min": 1.0
+  }
+ }
+}
