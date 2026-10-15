@@ -444,3 +444,34 @@ Matt: *"Mercenaries are out. Period."*, for every kit, without exception. His ki
 KP-437 admitted the Sorceress's flat magic absorb (Spirit, 8) as her row 32, **BOUNDARY / WIDEN, GD `NONE`**, with **ONE lever serving both D2 kits**: candidate **`flat_family_absorb`**. That reverses KP-431's exclusion. **His deferred loadout items flat "Damage Reduced by N" and "Magic Damage Reduced by N"** (§ 13, deferred to his pin) **use this lever when his pin is set.** GD's only flat per-hit reduction is armour, gated to physical damage; D2 subtracts the full amount. If his pin carries either stat, it enters as a row of his own under this lever, recorded as its own named finding then. His count stays **25 / 18** until that pin.
 
 *Note signed:* elrond, 2026-10-14.
+
+---
+
+## 17 · Symmetry audit, 2026-10-15 (Matt, KC2 KP-453): the D2 WW Barbarian's BOUNDARY rows, world-side vs kit-side. Text only, no count change (25 / 18 stand)
+
+The ruling, the conductor's reading and the test are as in Sorceress census § 14. A WORLD rule must apply to every kit in a comparison; a KIT rule stays native. The Warlord arm is `JOIN[warlord, gd-decoded @ X]`, at GD defaults. His J4a profile is not built yet, so "asymmetry" below means **what would be asymmetric if he joined at his `d2` settings.**
+
+| Row | Mechanism | Side | One-line reason | Asymmetry if joined at `d2`? |
+|---|---|---|---|---|
+| 1 | moving spin channel | KIT | his skill's form (AS-IS) | no |
+| 2 | frame cadence (L-01) | KIT | his attack-speed table | no (world clock shared) |
+| 3 | dual-wield packets (L-02) | KIT | his weapons | no |
+| 4 | target selection along the path | KIT | his footprint; body positions from the shared board | no |
+| 8 | max-HP change policy (L-03) | KIT | his own life pool under Battle Orders | no |
+| 9 | offense hit law (L-04/L-05) | KIT | his attack's D2 AR law, the mirror of Sorceress row 20; the monster's defence is an anchored operand | no |
+| 10 | crit (L-06 `independent-proc`) | KIT | his gear's procs | no |
+| 11 | Crushing Blow (L-07/L-08) | **MIXED** | KIT: the %-current-life form. WORLD: the monster's answering defence vs %-life (L-08) | no in practice (the Warlord deals no %-life damage); the world half reads the same monster operand |
+| 12 | physical vs monster resistance and immunity | **WORLD** | how monsters mitigate physical; the same law for the Warlord's physical | no |
+| B-15 | monster hit recovery (L-21) | **WORLD** | the monster's reaction to being hit (KP-453) | ⚑ **YES** unless the Warlord's L-21-ON arm is used: his melee hits trigger D2 GETHIT by engine law. KP-453 (2) applies to him at J4a |
+| B-16 | his hit recovery (L-18) | KIT | his FHR law | no |
+| B-17 | potions (L-S7) | KIT | his own consumable | no |
+| B-18 | intake hit law (L-24) | KIT | his D2 Defence law | no |
+| B-19 | control received (L-12) | KIT (receiver) | his D2 states; GD delivery is identical | no |
+| B-20 | DoTs received | KIT (receiver) | his D2 DoT rule | no |
+| B-21 | chill | KIT (receiver) | his body's D2 cold response | no |
+| B-22 | intake family map | KIT | his resist table | no |
+| B-23 | world and arena modifiers | **WORLD** | arena rules | ⚑ scope check, as Sorceress § 14 note 1: state the scope per damage class (his WW hits are direct damage; Crushing Blow is proportional) |
+
+**Count:** WORLD 3 (12, B-15, B-23) · MIXED 1 (11) · KIT 14. Total 18 = his BOUNDARY rows.
+
+*Audit signed:* elrond, 2026-10-15.

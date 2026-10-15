@@ -569,3 +569,59 @@ The rotation rule for when she casts Static is owed by gamora (KP-437). It is a 
 - **jack-ryan:** a delta Gate-2 on rows 28–32 and 32 / 23.
 
 *Addendum 6 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
+
+---
+
+## 14 · Symmetry audit, 2026-10-15 (Matt, KC2 KP-453): which BOUNDARY rows are WORLD-side. Text only, no class or count change (32 / 23 stand)
+
+**Ruling being applied.** Matt, KC2 **KP-453** (collab `9781c57b8`): *"flinch should be added as a capability for GD kits and other kits or it could not balance across the kits of the game."*
+
+The conductor's reading has two parts:
+- A boundary rule that describes how the **WORLD** reacts must apply to **every kit in a comparison**.
+- A rule that describes the **KIT's own** mechanics stays native.
+
+**The test I applied to each row:** whose behaviour does the rule describe? If it is the monsters' or the arena's response, the row is **WORLD**. If it is her skills, her items, or her body's own receiver laws, the row is **KIT**.
+
+**The current comparison profiles:**
+- **Warlord arm:** `JOIN[warlord, gd-decoded @ X]`. Every lever sits at its GD default, except L-06 at `gd-decoded` and the shared world clock X.
+- **Her arm:** every BOUNDARY row is ACTIVE at its `d2` setting (J4b ADDENDUM-1).
+
+So any WORLD row where her setting differs from GD is a live asymmetry. This audit was written alongside gamora's ADDENDUM-13, which designs the Warlord-side mappings.
+
+| Row | Mechanism | Side | One-line reason | Asymmetry today? |
+|---|---|---|---|---|
+| 8 | cast cadence (L-01) | KIT | her cast animation and FCR table | no (the world clock X is shared) |
+| 9 | cast lock (L-17) | KIT | her body during her own cast | no |
+| 10 | spell hit and crit (L-06 `no-roll-no-crit`) | KIT | a property of her skills (no AR term, DM) | no |
+| 11 | projectile in flight (L-14) | KIT | her missile's delivery | no |
+| 12 | remote delayed impact (L-19) | KIT | her missile's delivery | no |
+| 13 | splash footprint | KIT | her footprint; the body positions come from the shared board | no |
+| 14 | placed burning zone (L-20) | KIT | her missile's delivery | no |
+| 15 | fire vs monster resistance | **WORLD** | how monsters mitigate a damage family; one offense dispatch (C-1 / W1b) serves every kit | no: the same law for his physical and her fire |
+| 16 | monster hit recovery (L-21) | **WORLD** | the monster's reaction to being hit (KP-453) | ⚑ **YES:** hers is `d2` ON, his is GD `NONE`/off. Being remedied by KP-453 (2): a Warlord L-21-ON arm with a DECLARED trigger mapping (gamora) |
+| 17 | her hit recovery (L-18) | KIT | her body's FHR law (D2 class table plus gear) | no |
+| 19 | block (L-23) | KIT | her shield and her sheet (the conductor names it) | no |
+| 20 | intake hit law (L-24) | KIT | her D2 Defence law (the conductor names it) | no |
+| 21 | potions (L-S7) | KIT | each kit drinks its own game's consumable; he keeps K-4 | no |
+| 22 | control families received (L-12, receiving) | KIT (receiver) | her D2 states and durations; the **delivery** (GD monster control rows) is world and identical for both arms | no |
+| 23 | DoTs received | KIT (receiver) | her D2 per-type DoT rule; the GD DoT delivered is identical | no |
+| 24 | chill | KIT (receiver) | her body's D2 response to cold damage; his GD receiver laws stay native | no |
+| 25 | intake family map | KIT | her resist table | no |
+| 26 | world and arena modifiers (banner, Cruel, Resilient, Ascended) | **WORLD** | arena rules | ⚑ **scope check** (see note 1) |
+| 28 | Static, % of current life with the Hell floor (L-07/L-08) | **MIXED** | KIT: the %-current-life form and the D2 Hell floor (a Static law). WORLD: whether a monster's own defence reduces %-life damage (L-08 *mitigable*, the monster's answering stat) | no in practice: the Warlord deals no %-life damage. The world half must read the same monster operand any kit would |
+| 29 | Frozen Armor freeze on melee attackers | **MIXED** | KIT: the trigger and source (her buff, physical melee hits on her). WORLD: how a monster reacts to freeze and chill (normals frozen; champions and above chilled only; cold-res scaling; Hell ÷4), in the built monster control body shared with L-21 | ⚑ **latent, see note 2**. No live asymmetry: the Warlord's record carries no monster-CC source (export read 2026-10-15) |
+| 30 | Oculus teleport when struck | KIT | her item proc | no |
+| 31 | thorns | KIT | her item; the monster merely takes damage | no |
+| 32 | flat magic absorb | KIT | her sheet stat | no |
+
+**Count:** WORLD 3 (rows 15, 16, 26) · MIXED 2 (rows 28, 29) · KIT 18. Total 23 = her BOUNDARY rows.
+
+**Note 1 (row 26, the scope of world modifiers).** In the oracle the Warlord's world modifiers reach these streams:
+- the banner multiplies his disc (`banner_factor`) and his pet and summon hits (`damage_against(…, dmg_mult)`, `run.py:3070/3127`);
+- Cruel and Ascended reach his disc, Soulfire and bleed (`run.py:2942–2953`).
+
+Her ADDENDUM-12 Q15 scope is FB, Meteor and the pyre, which excludes Static (row 28) and thorns (row 31). That is defensible by **damage class**: proportional damage and retaliation are not ordinary outgoing damage. But **the symmetry rule requires the scope to be stated per damage class, once, for every kit** (direct / DoT / proportional / retaliation / summon), not per kit. gamora confirms in ADDENDUM-13 that the Warlord's streams fall into the same classes under the same rule.
+
+**Note 2 (row 29, latent).** The monster control body built for her (frozen and chilled monster states, shared with L-21) is, **by KP-453's principle, a world capability.** Any kit's monster-CC source should reach it under the same monster reaction law. The Warlord's record has none, so nothing changes in this comparison. A future GD kit with stuns or freezes on monsters inherits it rather than getting a second body.
+
+*Audit signed:* elrond, 2026-10-15. Run JOIN-1, conductor gandalf. Read-only on corpus.db and the engine (`kc2/run.py`, the referent export).
