@@ -1,0 +1,16 @@
+wave  n   tail(reg) med/min   capacity  KL(reg)  tail(proxy) med  KL(proxy)  M-c registered
+151  25  0.903/0.819      7.15      yes      0.027            no         no
+152  25  0.866/0.833      3.99      yes      0.042            no         no
+153  25  0.911/0.879      5.59      yes      0.026            no         no
+154  25  1.000/1.000      3.02      yes      0.235            no         no
+155  25  1.000/1.000      2.32      yes      0.052            no         no
+156  25  0.917/0.886      4.03      yes      0.113            no         no
+157  25  0.926/0.905      5.74      yes      0.028            no         no
+158  25  0.818/0.764      3.46      yes      0.048            no         no
+159  25  0.862/0.826      2.33      yes      0.298            yes        YES
+160  25  1.000/1.000      2.79      yes      0.375            yes        YES
+proxy caveats (INFO-4):
+  - measured-arrival proxy = latest tick a roster body FIRST took the Warlord's damage: it depends on HIS disc reach (a body counts as arrived when it enters his reach, not hers), so it classifies waves for him, not for her kit
+  - roster bodies only: enemy pets / summons are excluded from tail_share (they remain in M-c itself)
+  - registered reading (Mover.spawn_t_s) measures release onto the board, not arrival; registration = the conjunction
+{"M_c_registered_waves": ["159", "160"], "primary_reading": ["151", "152", "153", "154", "155", "156", "157", "158", "159", "160"]}

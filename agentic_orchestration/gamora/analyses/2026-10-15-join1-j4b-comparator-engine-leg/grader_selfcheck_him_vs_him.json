@@ -1,0 +1,100 @@
+{
+ "M_a": {
+  "her": 17,
+  "him": 17
+ },
+ "M_b_cleared": {
+  "n_cells": 25,
+  "n_neg": 0,
+  "n_pos": 0,
+  "n_tie": 25,
+  "p_two_sided": 1.0,
+  "total_her": 250,
+  "total_him": 250,
+  "verdict": "TRUE"
+ },
+ "M_c": {
+  "dropped_cells": [],
+  "go_wave_tag_mismatches": {
+   "her": 0,
+   "him": 0
+  },
+  "n_cells": 25,
+  "n_neg": 0,
+  "n_pairs": 25,
+  "n_pos": 0,
+  "n_tie": 25,
+  "p_two_sided": 1.0,
+  "registration": "PREREG-ADDENDUM-B (engine a4d77ae2) \u00a7 3",
+  "registration_caveats": [
+   "The narrowing to waves {159, 160} rests on a measured-arrival PROXY: the latest tick at which a roster body first took the WARLORD's damage. It depends on his disc reach (a body is 'arrived' when it enters his reach, not hers).",
+   "It counts roster bodies only; enemy pets / summons are excluded from tail_share (they are in M-c itself).",
+   "The registered reading (Mover.spawn_t_s release schedule) marks all 10 waves kill-limited; the proxy marks only 159 and 160. The registration is the conjunction; the primary-only set is not registered."
+  ],
+  "total_her": 2119293.5885737417,
+  "total_him": 2119293.5885737417,
+  "verdict": "TRUE",
+  "waves": [
+   159,
+   160
+  ]
+ },
+ "M_c_whole_cell_info": {
+  "n_cells": 25,
+  "n_neg": 0,
+  "n_pos": 0,
+  "n_tie": 25,
+  "p_two_sided": 1.0,
+  "total_her": 949734.4244222824,
+  "total_him": 949734.4244222824,
+  "verdict": "INFO ONLY -- not registered (PREREG-ADDENDUM-B)"
+ },
+ "M_d": {
+  "n_cells": 25,
+  "n_neg": 0,
+  "n_pos": 0,
+  "n_tie": 25,
+  "p_two_sided": 1.0,
+  "total_her": 21130092.01448043,
+  "total_him": 21130092.01448043,
+  "verdict": "TRUE"
+ },
+ "T": {
+  "n_cells": 25,
+  "n_neg": 0,
+  "n_pos": 0,
+  "n_tie": 25,
+  "p_two_sided": 1.0,
+  "total_her": 120564,
+  "total_him": 120564,
+  "verdict": "TRUE"
+ },
+ "family_registry": {
+  "offense": {
+   "Cold": "UNEXERCISED-IN-JOIN-1",
+   "Fire": "UNEXERCISED-IN-JOIN-1",
+   "Lightning": "UNEXERCISED-IN-JOIN-1",
+   "Magic": "UNEXERCISED-IN-JOIN-1",
+   "Poison": "UNEXERCISED-IN-JOIN-1"
+  }
+ },
+ "obs1_comparator": {
+  "complete": true,
+  "n_cells": 25,
+  "n_complete": 25,
+  "truncated": []
+ },
+ "obs1_her": {
+  "complete": true,
+  "n_cells": 25,
+  "n_complete": 25,
+  "truncated": []
+ },
+ "runs_gate": {
+  "missing": 0,
+  "n_cells": 25,
+  "non_terminal": [],
+  "pass": true,
+  "raised": []
+ }
+}

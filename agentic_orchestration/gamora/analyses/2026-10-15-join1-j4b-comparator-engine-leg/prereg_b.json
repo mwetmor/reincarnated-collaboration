@@ -33,6 +33,11 @@
   "158"
  ],
  "provenance": "reads only the Warlord's re-emitted G7 and the sidecar's GS/GO + prereg_a.json; no emission of her kit read",
+ "proxy_caveats": [
+  "measured-arrival proxy = latest tick a roster body FIRST took the Warlord's damage: it depends on HIS disc reach (a body counts as arrived when it enters his reach, not hers), so it classifies waves for him, not for her kit",
+  "roster bodies only: enemy pets / summons are excluded from tail_share (they remain in M-c itself)",
+  "registered reading (Mover.spawn_t_s) measures release onto the board, not arrival; registration = the conjunction"
+ ],
  "rule": "CORRIGENDUM-1 \u00a7 1 (engine d7f916a8); tail >= 0.25 median over cells, capacity >= 1.67",
  "waves": {
   "151": {
