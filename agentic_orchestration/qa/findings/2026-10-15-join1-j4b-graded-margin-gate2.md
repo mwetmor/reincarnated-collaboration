@@ -84,3 +84,52 @@ NC-ANCHOR is registered "Unconditional", so its non-run needs a **recorded dispo
 ## References
 - `reincarnated-engine/src/reincarnated/simulation/math/join1-j4b-grading-prereg-2026-10-15{,-ADDENDUM-A,-ADDENDUM-A-CORRIGENDUM-1,-ADDENDUM-A-CORRIGENDUM-2,-PREREG-ADDENDUM-B,-PREREG-ADDENDUM-C}.md`
 - grains `/Users/admin/Games/join3c-bulk/gb-fix/arms/{her,his}/`; `reincarnated-godot/kc2_play/tools/kc2p_join2_emit.gd`; `reincarnated-godot/evidence/join1/j4b-hook/comparator-port/`
+
+---
+
+## ADDENDUM (same day) — Meteor cast delay (gamora § 4 / KP-476) and row 22
+
+### (a) gamora's bound, re-derived independently: CONFIRMED
+**Method.** I walked her J4B-ROWS `casts` with my own script.
+- I applied the rebase shift exactly as the replay does: the previous cast is re-expressed on each new epoch by F_b.
+- A Meteor counts as early if its start is fewer than 35 f after the previous Meteor start (delay 30 from the action, plus the action frame 5).
+- Removal bound per early Meteor: **(the largest Meteor explosion in that cell's waves 159/160, summed over all bodies hit) + (the largest burning-ground field in that cell's waves 159/160)**.
+- I also computed a removal that links each early Meteor to its own explosion (at action + 60) and its own field.
+
+**Results:**
+- **9 early Meteors in waves 159/160, in 7 cells**, which matches gamora.
+- **Under the max-cast × n bound, no cell flips.** The closest is **M-POL-2-NULL s2: 98,614 vs his 90,504**, identical to gamora's figure. The linked removal is weaker still (closest 97,453 vs 74,481, W1-NULL s4).
+- **25/0 holds.**
+
+**Caveats:**
+- The bound takes out the early cast's damage and adds nothing back for the Fire Ball she would otherwise have cast, so it is conservative in that respect.
+- It does not model second-order timeline shifts: kill order and mana. The 9 % worst-cell headroom makes a flip from at most 2 shifted casts per cell implausible, but that is not proven.
+
+**Count difference:** I find **39** early Meteors across all waves against gamora's **45**. The 159/160 set is identical, so the bound is unaffected. gamora should reconcile the count for the contract row (likely the preempt or first-of-wave accounting).
+
+### (b) Can the primary carry PASS-WITH-NOTES with the Meteor item open?
+**On this item alone: yes, with a label.** It does not need to wait:
+- Two of the three cases (preempted, no target) are **undefined in registration**, so the port has not violated a registered rule.
+- The wave-boundary case follows KP-476's parity ruling.
+- The bound shows **no pair can flip**.
+- KP-476 already commits to a fail-first fix, a rerun and a **CORRECTED-AFTER-RESULT** re-grade if the port departs.
+
+**Required label on every print:** "Meteor-delay semantics OPEN (KP-476); replay check absent at grading; direction bound: no pair flips (jack-ryan re-derived)".
+
+**However, the primary must still wait for BLOCK-1** (the HP-chain identity on her arm). This addendum does not lift it.
+
+### (c) Does drax's KP-440 forced-landing run discharge row 22? **No, only partially.**
+Row 22's registered NC is: **forced-landing unit control, 8 families × 3 settings, row identity, a fail-first registry deletion, plus the zero-exposure count on J-S8.**
+
+What PROBE-1, PROBE-2 and `ba7a7c4` show:
+- **8 families × 1 setting (`d2-strict`)** in one cell (M0/0), all landing as A4 § 4.2;
+- **row identity** for those 8.
+
+What is still missing:
+- the other two settings;
+- the fail-first **registry deletion**;
+- a named **J-S8 zero-exposure count**.
+
+Row 22 therefore stays **NO VERDICT** for ACTIVE. Its "Predicted RI" is recorded **FALSE AS PRE-STATED**, as WARN-2 above says.
+
+**Action added:** drax runs the two remaining settings and the registry-deletion fail-first, and cites the J-S8 count. gamora adds the KP-476 label and reconciles 39 vs 45.
