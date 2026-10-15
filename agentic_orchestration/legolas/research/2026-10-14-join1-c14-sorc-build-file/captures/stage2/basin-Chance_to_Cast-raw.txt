@@ -1,0 +1,269 @@
+{{Skill nav}}
+{{Intro}}
+{{Mb|=Chance to Cast}} gives a percentage chance to use a skill when triggered by an event and without costing any [[mana]].
+*Skill level cannot be increased, but equipping multiple Chances to Cast of the same skill, level '''and''' event will result in the individual percentages being added together to apply a single Chance to Cast of that skill, level and event (although >100% Chance to Cast is redundant). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/]
+*Skills used receive passive bonuses including synergy bonuses, but they do not apply bonuses to other skills.
+*The existence of [[pet]]s summoned will be unstable unless player invests skill points in the native skill or acquires it from an oskill. Pets will not be summoned by [[mercenary]].
+*When equipping [[two weapons]], Chance to Cast on Attack, on Striking and When You Kill an Enemy are restricted to the weapon on which they spawn (Chance to Cast on one weapon will not apply to the other). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1421385]
+*No Chance to Cast of any kind is applied by [[Whirlwind]].
+|}
+
+
+==Skill level==
+Chance to Cast normally specifies a set skill level (slvl), however on certain items the slvl depends on the generating source: it is calculated from the item level (ilvl) and the required level (rlvl) of the skill. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/84782-random-level-of-ctc-skill/] The table below specifies the ilvl required for a particular slvl, depending on the rlvl of the skill.
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!rowspan=2 width=20%|Rlvl
+!colspan=21|Slvl
+|-align=center
+!width=4%|1
+!width=4%|2
+!width=4%|3
+!width=4%|4
+!width=4%|5
+!width=4%|6
+!width=4%|7
+!width=4%|8
+!width=4%|9
+!width=4%|10
+!width=4%|11
+!width=4%|12
+!width=4%|13
+!width=4%|14
+!width=4%|15
+!width=4%|16
+!width=4%|17
+!width=4%|18
+!width=4%|19
+!width=4%|20
+|-
+!align=center|1
+|1||5||9||13||17||21||25||29||33||37||41||45||49||53||57||61||65||69||73||77
+|-
+!align=center|6
+|1||10||14||18||22||26||30||34||38||42||46||50||54||58||62||66||70||74||78||82
+|-
+!align=center|12
+|1||16||20||24||28||32||36||40||44||48||52||56||60||64||68||72||76||80||84||88
+|-
+!align=center|18
+|1||22||26||30||34||38||42||46||50||54||58||62||66||70||74||78||82||86||90||94
+|-
+!align=center|24
+|1||28||32||36||40||44||48||52||56||60||64||68||72||76||80||84||88||92||96||100<sup>1)</sup>
+|-
+!align=center|30
+|1||34||38||42||46||50||54||58||62||66||70||74||78||82||86||90||94||98||102<sup>1)</sup>||{{E}}
+|}
+
+
+This applies to the seven [[Unique (item)|Unique]] items listed below. In practice, the lowest slvl available is determined by the level of the Unique item or the level of the base type, whichever is higher. The table specifies the minimum ilvl corresponding to a particular slvl. Given the ilvl (level of the source generating the item) the slvl is then fixed by ilvl and rlvl:
+
+
+{{Number table}} width=100%
+|-valign=top align=center
+!width=22% align=left rowspan=2|Unique Item
+!width=6% rowspan=2|Level
+!width=12% align=left rowspan=2|Skill
+!width=6% rowspan=2|Rlvl
+!colspan=14|Slvl
+!width=6% rowspan=2|Chance
+!width=6% rowspan=2|Event
+|-align=center
+!width=3%|7
+!width=3%|8
+!width=3%|9
+!width=3%|10
+!width=3%|11
+!width=3%|12
+!width=3%|13
+!width=3%|14
+!width=3%|15
+!width=3%|16
+!width=3%|17
+!width=3%|18
+!width=3%|19
+!width=3%|20
+|-
+!align=left|[[Lightsabre|{{U|=Lightsabre Phase Blade}}]]
+|73
+|align=left|[[Chain Lightning]]
+|18
+|{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||70||74||78||82||86||90||94
+|5%
+|align=left|[[On Attack|Attack]]
+|-
+!align=left|[[Hellslayer|{{U|=Hellslayer Decapitator}}]]
+|73
+|align=left|[[Fire Ball]]
+|12
+|{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||72||76||80||84||88
+|10%
+|align=left|Attack
+|-
+!align=left|[[Stormrider|{{U|=Stormrider Tabar}}]]
+|49
+|align=left|[[Charged Bolt]]
+|1
+|{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||49||53||57||61||65||69||73||77
+|10%
+|align=left|[[On Striking|Striking]]
+|-
+!align=left|[[The Rising Sun|{{U|=The Rising Sun Amulet}}]]
+|73
+|align=left|[[Meteor]]
+|24
+|{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||72||76||80||84||88||92||96||100<sup>1)</sup>
+|2%
+|align=left|[[When Struck|Struck]]
+|-
+!align=left|[[Snowclash|{{U|=Snowclash Battle Belt}}]]
+|49
+|align=left|[[Blizzard]]
+|24
+|48||52||56||60||64||68||72||76||80||84||88||92||96||100<sup>1)</sup>
+|5%
+|align=left|Struck
+|-
+!align=left|[[Boneslayer Blade|{{U|=Boneslayer Blade Gothic Axe}}]]
+|50
+|align=left|[[Holy Bolt]]
+|6
+|{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||50||54||58||62||66||70||74||78||82
+|50%
+|align=left|Struck
+|-
+!align=left|[[Stormspire|{{U|=Stormspire Giant Thresher}}]]
+|85
+|align=left|Charged Bolt
+|1
+|{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||77
+|2%
+|align=left|Struck
+|}
+<span style=font-size:90%><sup>1</sup> such high ilvl is obtainable only from {{Ub|=Griswold}}, {{Ub|=Radament}} and {{Ub|=Nihlathak}} in [[Terror Zone]]s with high enough clvl (at least 92) [https://diablo2.io/forums/snowclash-lvl-20-blizzard-t1658460.html]</span>
+
+<br/>
+
+==Casting order== 
+Casting order is normally irrelevant: if two or more skills are triggered by the same event, '''all''' are cast on the same frame. Only two situations make the order matter:
+
+1. Two or more triggered skills fire [[missile]]s with [[Next Delay]], where only the first to hit a given target will apply to that target.
+
+2. Two or more [[curse]]s are triggered, where only the last will apply.
+
+Whether it matters or not, the ordering depends (with descending priority) on the trigger event, the equip order, the display order, and finally the skill level of the triggered skills.
+
+===Trigger event===
+{{Text table}} width=67%
+|-align=center
+!width=20% align=left|Event
+|width=40%|'''Curses''' [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1423612]
+|width=40%|'''Other''' [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1424858]
+|-valign=top
+!Active
+|
+#[[On Striking]]
+#[[On Attack]]
+#[[When You Kill an Enemy]]
+#[[When You Level-up]]
+|
+#[[On Attack]]
+#[[On Striking]]
+#[[When You Kill an Enemy]]
+#[[When You Level-up]]
+|-valign=top
+!Passive
+|
+#[[When Struck]]
+#[[When You Die]]
+|
+#[[When Struck]]
+#[[When You Die]]
+|}
+
+===Equipping order===
+When the trigger event is the same, equipping order determines casting order: [[curse]]s are cast in the reverse order to which they were equipped (first equipped, last cast) [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1423842], while [[skill]]s are cast in equipping order (first equipped, first cast). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1425021] However, after recovery of corpse following [[death (Basic)|death]], charms in inventory are already equipped then the game attempts to equip remaining items in the following order:
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+|width=25%|
+[[File:Equipment.png|left|frame]]
+|width=75% style=font-size:90%|
+;Equipping order
+#[[Helm|Head]]
+#[[Amulet|Neck]]
+#[[Body armor|Torso]]
+#'''[[Item type#Weapon|Right arm]]'''
+#'''[[Shield|Left arm]]'''
+#Right [[ring]]
+#Left ring
+#[[Belt|Waist]]
+#[[Boots|Feet]]
+#[[Gloves|Hands]] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/88974-when-you-grab-your-body/&do=findComment&comment=1097119]
+|}
+
+
+Finally, any [[Two weapons#Swap weapons|swap weapons]] (II) on the right then left arm will be equipped in [[Expansion]] games. After recovering a corpse, if item [[requirements]] cannot be met without +[[Strength (attribute)|Strength]] (or +[[Dexterity]]) bonuses from items equipped later, then items normally equipped before will now be equipped '''after''' those later items.
+
+
+Items are also equipped upon entering a game, although the attempted equipping order changes slightly: charms are now equipped after gloves, and finally right arm then left arm. [http://www.mannm.org/d2library/faqtoids/str_eng.html#eqord] After swapping weapons in Expansion games, the game also attempts to equip right arm before left arm (all other items normally remain equipped, unless bonuses from swapped items were needed to equip them).
+
+
+{{Warn|=Bonuses from [[gem]]s, [[rune]]s or [[jewel]]s [[socket]]ed in a weapon can only be used once it is equipped: otherwise, these bonuses are '''not''' used to equip it, or any later items dependent upon it. Furthermore, Requirements -% from a [[Hel Rune|{{Cb|=Hel Rune}}]] or {{Rb|=Jewel of Freedom}} socketed in an item is '''not''' used when equipping it: the item will only be equipped if a character's Strength and Dexterity (excluding any bonuses from the item itself) meet the reduced requirements, or if Strength and Dexterity (including any bonuses from the item itself) meet the requirements of the base item (ethereal or otherwise). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/101632-strength-dexterity-and-weapon-swap/&do=findComment&comment=1271267] If the item '''can''' be equipped, equipping order can be affected if it cannot be equipped before Requirements -% is taken into account.}}
+
+===Displayed order===
+When the trigger event and item are the same, casting order is determined by the displayed order: [[curse]]s are cast in descending order (first displayed to last), [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1423916] while other skills are cast in ascending order (last displayed to first). [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1424858] The table lists curses and other skills in casting order, not displayed order:
+
+
+{{Text table}} width=67%
+|-align=center
+!width=50%%|Curse
+!width=50%|Other
+|-valign=top
+|
+#[[Taunt]]
+#[[Howl]]
+#[[Lower Resist]]
+#[[Decrepify]]
+#[[Attract]]
+#[[Life Tap]]
+#[[Confuse]]
+#[[Terror]]
+#[[Iron Maiden]]
+#[[Weaken]]
+#[[Dim Vision]]
+#[[Amplify Damage]]
+#[[Hit Blinds Target]]
+#[[Hit Causes Monster to Flee]]
+|
+#[[Frost Nova]]
+#[[Nova]]
+#[[Chain Lightning]]
+#[[Teeth]]
+#[[Poison Nova]]
+#[[Twister]]
+#[[Volcano]]
+#[[Tornado]]
+|}
+
+
+Howl may be cast second, but due to its mechanics it is actually applied last. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1423916] Twister, Volcano and Tornado mechanics will often result in variations between casting and application order.
+
+===Skill level===
+When the trigger event, item and skill are the same, casting order is determined by ascending order of skill level: the lowest is cast first and the highest is cast last. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1424858]
+
+==Triggered delay skills==
+Triggering skills with [[delay]] '''does not''' make the order above matter: even if more than one skill with delay is triggered, all will still execute without the delay interfering.[https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1424010] However, after triggering a delay skill, an 11-frame delay is applied from the action frame. During this delay '''no''' active skills can be used, not even the normal Attack, Identify, or Town Portal skills, although Scrolls of Identify and Town Portal placed in the belt can be used. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1483932] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1483969]
+
+This 11-frame delay does not interrupt an attack sequence if Chance to Cast is applied during that sequence. The delay can be applied from the action frame of any individual attack in the sequence, so if it is applied by an attack early in the sequence then the delay may end before that sequence ends. If multiple attacks in a sequence apply Chance to Cast, the delay is applied from the last attack in the sequence to apply it. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1487929]
+
+==Reference==
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/101632-strength-dexterity-and-weapon-swap/ Strength, dexterity and weapon swap] (D2 Technical)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/88974-when-you-grab-your-body/ When you grab your body] (D2 Technical)
+*adeyke, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/84782-random-level-of-ctc-skill/ Random level of CTC skill] (D2 Technical)
+*librarian, [http://www.mannm.org/d2library/faqtoids/str_eng.html The Pusher: Strength] (FAQtoids)
+*onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/ Chance to Cast and curse tests] (D2 Technical)

@@ -1,0 +1,68 @@
+{{Movement nav}}
+*Freeze length can freeze normal or minion monsters, and chill all other units, when applied, as long as they are not [[Immune to Cold]] and they do not have 0 [[chill effectiveness]].
+*Length of freezing or chilling is affected by target [[Cold Resist]] and difficulty level penalties (1/2 in Nightmare and 1/4 in Hell).
+*Applied independently of [[Cold Damage|cold length]] and [[Freezes Target|Freezes target]]: 2 second freeze length and 10 second cold length will both be applied, resulting in 2 seconds freezing and 10 seconds chilling of eligible targets.
+*Item cold length is converted to freeze length and added to that of [[Ice Arrow]], and [[Freezing Arrow]] explosions.
+
+
+{{Text table}}
+|-valign=top align=center
+!width=144 rowspan=2 align=left|Skill
+!width=64 rowspan=2|Min Rlvl
+!colspan=3|Freeze Length (Frames) at Level
+!colspan=3|Freeze Length (Seconds) at Level
+!width=64 rowspan=2|Condition
+|-align=center
+!width=128|1-8
+!width=128|9-16
+!width=128|>16
+!width=128|1-8
+!width=128|9-16
+!width=128|>16
+|-
+![[Frozen Armor]]
+|align=right|1
+|colspan=3 align=center|(27 + (3*slvl)) * (100 + (5*([[Shiver Armor]].blvl + [[Chilling Armor]].blvl))) / 100
+|colspan=3 align=center|(1.08 + (0.12*slvl)) * (100 + (5*(Shiver Armor.blvl + Chilling Armor.blvl))) / 100
+|Dmg in melee
+|-
+![[Ice Blast]]
+|align=right|6
+|colspan=3 align=center|(70 + (5*slvl)) * (100 + (10*Glacial Spike.blvl)) / 100
+|colspan=3 align=center|(2.8 + (0.2*slvl)) * (100 + (10*Glacial Spike.blvl)) / 100
+|Collision
+|-
+![[Glacial Spike]]
+|align=right|18
+|colspan=3 align=center|(47 + (3*slvl)) * (100 + (3*[[Blizzard]].blvl)) / 100
+|colspan=3 align=center|(1.88 + (0.12*slvl) * (100 + (3*Blizzard.blvl)) / 100
+|Radius
+|-
+![[Ice Arrow]]
+|align=right|18
+|colspan=3 align=center|(45 + (5*slvl)) * (100 + (5*Freezing Arrow.blvl)) / 100
+|colspan=3 align=center|(1.8 + (0.2*slvl)) * (100 + (5*Freezing Arrow.blvl)) / 100
+|On striking
+|-
+|'''[[Blades of Ice]]''' (charge 3)
+|align=right|24
+|colspan=3 align=center|90 + (10*slvl)
+|colspan=3 align=center|3.6 + (0.4*slvl)
+|Radius
+|-
+![[Freezing Arrow]]
+|align=right|30
+|colspan=3 align=center|50 * (100 + (5*Ice Arrow.blvl)) / 100
+|colspan=3 align=center|2 * (100 + (5*Ice Arrow.blvl)) / 100
+|Radius
+|-
+|'''[[Phoenix Strike]]''' (charge 3)
+|align=right|30
+|align=center|90 + (10*slvl)
+|align=center|50 + (15*slvl)
+|align=center|(20*slvl) - 30
+|align=center|3.6 + (0.4*slvl)
+|align=center|2 + (0.6*slvl)
+|align=center|(0.8*slvl) - 1.2
+|Collision
+|}

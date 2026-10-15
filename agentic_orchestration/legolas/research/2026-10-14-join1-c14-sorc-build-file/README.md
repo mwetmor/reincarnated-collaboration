@@ -179,3 +179,93 @@ Also in the inventory: Horadric Cube and Tome of Town Portal.
 - **Maxroll guide page** and **d2planner profile `gca1a0l6`** (captured, sha256 above). Author Teo1904. Guide last updated 2026-05-22; profile dated 2026-02-04.
 - **1.13 tables** `fabd/diablo2 @ 45112569`: CharStats, Armor, Weapons, UniqueItems, Runes, Gems, Properties, ItemStatCost, Skills.
 - **Prior packets:** J4a F03/F12, J4b § 3, the animation packet (FCR/FHR/FBR), C-13 § 6 (default sheet, KP-428).
+
+---
+
+## 6. Stage 2 (KP-436): Standard variant as written, Battle Orders always on, mercenaries out
+
+Files: `c14_stage2.json`, `scripts/c14_stage2.py`, `verification_stage2.log`. The Basin and D2MOO captures are in `captures/stage2/`.
+
+### 6.1 Hit chance against the build-file sheet
+
+**Defender:** Defence **1,472** vs melee and **1,722** vs missiles, dlvl **99**. Battle Orders does not change defence. **This supersedes the C-13 NO-DEX tables** (§ 13 and § 14.2 there are marked).
+
+**Method:** the same AR rows, roles, weighting and laws as C-13 stages 6–7 (`CtH = clamp(2·alvl·⌊100·AR/(AR+Def)⌋/(alvl+dlvl), 5, 95)`; missiles roll only if `ToHit` is set; casters auto-hit). Grades: INFERRED values through MODEL-VERIFIED laws on DATAMINED AR. The level term falls because dlvl rises from 90 to 99.
+
+Per-type best attack; median [p25–p75] (min–max), equal weight; normal monster level 85:
+
+| Attacker | **Build-file sheet** | With Frozen Armor precast (def 2,944 / 3,194) | (superseded NO-DEX) |
+|---|---|---|---|
+| Normal, melee (57 types) | **67 [64–72] (56–81)**; slot-weighted 67 | 53 [49–59] (40–72) | 74 [71–78] |
+| Normal, ranged-physical (3) | **68 [65–68] (62–68)** | 56 [52–56] | 74 |
+| Normal, caster (6, or 10 with C-13's 4) | **100 (auto-hit)** | 100 | 100 |
+| Champion (lower bound) | **74 [72–78]** | 62 [59–68] | ≥ 81 |
+| Unique (+3 levels) | **69 [66–73.25] (58–82)** | 54 [51–60.25] | 76 [74–80.25] |
+| Unique with Extra Strong | **77 [75–80] (68–86)** | 65 [63–70.25] | 84 [82–87] |
+
+**Named** (melee / vs missile defence):
+
+| Monster | Build-file sheet | With Frozen Armor |
+|---|---|---|
+| Grand Vizier of Chaos | 77 / 75 | 65 / 64 |
+| Lord De Seis | 80 / 79 | 71 / 69 |
+| Infector of Souls | 74 / 71 | 61 / 59 |
+| Diablo | 81 / 79 | 71 / 69 |
+| Baal | 86 / 85 | 76 / 75 |
+
+**Frozen Armor is not in KP-436's ruling,** so it is given only as a sensitivity. The guide precasts it ("cast Frozen Armor"), and at slvl 15 it doubles defence (§ 6.3).
+
+### 6.2 Battle Orders: slvl and duration, settled
+
+**Items worn on the swap, and their +skills that reach BO** (an oskill takes +all-skills bonuses; Basin Oskill):
+
+| Item | +skills to BO |
+|---|---|
+| Call to Arms | +1 all, +6 BO oskill, +6 BC oskill |
+| Spirit Monarch (switch shield) | +2 all |
+| Harlequin Crest | +2 all |
+| Chains of Honor | +2 all |
+| Arachnid Mesh | +1 all |
+| Annihilus | +1 all |
+| **Not counted** | Magefist (+1 fire), amulet (+3 fire), the 7 grand charms (+1 fire), Hellfire Torch (+3 Sorceress), and the Oculus, which is swapped out of the main hand |
+
+**BO slvl = 6 + 9 = 15 without Battle Command, 16 after it.** Battle Command gives +1 all skills and also applies to itself.
+
+| | BO % | Duration |
+|---|---|---|
+| Without BC (slvl 15) | +77 % | **170 s** |
+| **After BC (slvl 16)** | **+80 %** | **180 s** |
+
+- **Duration formula:** 750 + 250·(slvl−1) frames (Skills.txt row 149, `auralencalc`). The synergy term (Shout.blvl + BC.blvl) × 125 is **0**, because blvl counts hard points and she has none.
+- **BC itself:** slvl 15 on the first cast, 16 on the second. The second cast lasts 125 + 250·15 frames = **155 s**.
+- **The planner's 14 / +74 %** equals 6 + 8. It omits one +1 source, and **its data does not let me tell which**. My count is 15/16 from the item list above. INFERRED.
+- **⚑ For the census:** if Battle Command is also treated as always on, every skill gets +1. That makes Fire Ball, Meteor and Fire Mastery slvl 46 and Frozen Armor 16. KP-436 rules only BO.
+
+### 6.3 Frozen Armor law at the build file's slvl 15
+
+slvl = 1 hard + 8 all skills + 6 Sorceress skills (Oculus 3, Torch 3), +1 if BC is active.
+
+| Quantity | Formula | Value at slvl 15 | Grade |
+|---|---|---|---|
+| **Defence bonus** | `skill_armor_percent` = ln12 = 30 + 5·(slvl−1) % | **+100 %** of total defence | DATAMINED (Skills.txt row 40) |
+| **Duration** | ln34 = 3000 + 300·(slvl−1) frames (synergies 0) | **7,200 frames = 288 s** | DATAMINED |
+| **Freeze on melee attacker** | Event `damagedinmelee`, **only if the hit dealt physical damage > 0** (D2MOO `SkillSor.cpp` `EventFunc02_FrozenArmor`). Freeze length = calc1 = ln56 = 30 + 3·(slvl−1) frames | **72 frames = 2.88 s base** | MODEL-VERIFIED |
+
+**Who gets frozen:** freeze length **freezes normal and minion monsters, and only CHILLS champions, uniques, superuniques and bosses** (Basin Freeze length; C-13 KP-426). Cold-immune targets are unaffected.
+
+**Length against monsters in Hell:** × (100 − cold resist)/100, then ÷4 (Hell MonsterFreezeDivisor). So a normal monster is frozen **0.72 s** at cold resist 0, **0.48 s** at 33 and **0.36 s** at 50.
+
+**Ranged and spell attacks never trigger it** (melee event only).
+
+### 6.4 The two proc items
+
+| Item | Proc (1.13 data) | Trigger (Basin) | What it does here |
+|---|---|---|---|
+| **The Oculus** | `gethit-skill` par 54: **25 % chance, level 1 Teleport, when struck** | Hit by melee, or by a missile carrying weapon or monster damage. **Not** by missiles that apply only their own or skill damage, so most monster spells do not trigger it | Teleport is cast on the user (Basin's "cast on user" column). **She is moved involuntarily.** The destination rule for an untargeted Teleport cast is **UNVERIFIED**: D2MOO `SrvDo027` teleports to the skill's target XY, and I did not trace how a when-struck cast sets that target. **A mechanism with no census row** |
+| **Hellfire Torch** | `hit-skill` par 197: **5 % chance, level 10, on striking.** Skill 197 is **DiabWall, i.e. Diablo's Firestorm**, not the Druid's Firestorm (Id 225) | **Only a weapon attack** that is not missed, blocked or dodged | **Fire Ball and Meteor are spells, so the Torch's Firestorm effectively never fires for this kit** (INFERRED from the trigger law). Its Hydra charges are unused unless spent manually |
+
+### 6.5 Changes to the census
+
+- **BO always on** (KP-436): use the "Charms + BO 16" sheet. Life **2,821**, mana 1,032, all else as in § 3.
+- **Mercenaries out** (KP-436): Infinity's Conviction and the Might aura are gone. Fire immunes stay immune.
+- **Still unruled:** Frozen Armor (precast; +100 % defence and freezes melee attackers); Battle Command (+1 all skills); the Oculus teleport.

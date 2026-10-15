@@ -1,0 +1,177 @@
+{{Skill page
+|Nav=Elemental
+|File=Elemental
+|RS=None
+|SS=Molten Boulder, Fissure
+|Type=Medium range multi-missile cast
+|Tier=1
+|Rlvl=1
+|Req=None
+|Town=No
+|Mana=4
+|ANM=No
+|WD=No
+|LB=Yes}}
+{{U|=Wielding this ability, the Druid projects waves of molten earth that spread outward and burn a wide swath of destruction through his foes.}}
+
+
+==Detail==
+{{Skill}}
+|-
+!align=left|Minimum [[Fire Damage|Fire]] Bit Rate
+|12*slvl||(20*slvl) - 64||(28*slvl) - 192||(56*slvl) - 808||(84*slvl) - 1592
+|-
+!align=left|Maximum Fire Bit Rate
+|(12*slvl) + 12||(24*slvl) - 84||(32*slvl) - 212||(60*slvl) - 828||(92*slvl) - 1724
+|}
+
+
+{{Stat}}
+|-
+!align=left|{{S|=+% Fire Damage}}
+|23 * ([[Molten Boulder]].blvl+[[Fissure]].blvl)
+|-
+!align=left|Frames
+|14
+|-
+!align=left|[[Damage Rate]]
+|41/1024 (~1/25)
+|-
+!align=left|[[Delay]] (seconds)
+|0.6, global (LoD)<br/>0.6, local (D2R)
+|}
+
+
+
+*Cannot be cast while a [[Werewolf]] or [[Werebear]].
+*Fires three piercing [[missile]]s that leave trails of fire in their wake. Each of these missiles travels for 40 frames (1.6 seconds): the central missile travels in a straight line towards the target, while the other two follow more random paths. However, when cast continuously the three missiles will follow the same paths each time if the point targeted doesn't change.
+*Each missile spawns static fires in the third frame after casting and every other frame thereafter until expiry, spawning 19 fires each or 57 in total. These fires apply damage.
+
+
+[[File:Firestorm.png|center|thumb|600px|Firestorm has a [[radius|range]] of ~10 yards, but is best cast at a target at point-blank range.]]
+
+
+*{{Warn|=Displayed fire damage per second is calculated based on three fires applying their bit rate every frame of a second (3 * bit rate * 25/256). Each fire actually applies its bit rate for just 14 frames (bit rate * 14/256): however, it's been observed that up to 5 fires apply to [[size]] 1 targets, up to 9 apply to size 2 targets and up to 14 apply to size 3 targets.}}
+*Due to its comparatively short delay, Firestorm will be cast at least once per second and [[Faster Cast Rate]] can increase that frequency: actual fire damage per second can be up to twice that displayed for size 2 targets and up to triple that displayed for size 3 targets.
+*Actual fire damage per second = (missiles * bit rate * 14/256) * 25 / (delay + action frame) [https://www.theamazonbasin.com/forums/index.php?/forums/topic/119393-fire-druid-guide/&do=findComment&comment=1479886]
+<br>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Firestorm ([[Druid (Diablo II)|Druid]] Only) can spawn on ilvl <25 [[pelt]]s. 
+<br>
+
+===[[Charges]]===
+{{Skill charges}}
+|-
+|12||60
+!align=left|[[Spellsteel|{{U|=Spellsteel Bearded Axe}}]]
+|39||No
+|}
+<br>
+
+===[[Charged suffix]]===
+{{Skill charged}}
+|-
+|10||19||28||37||46||55||64||73||82||91
+|33||37||41||45||48||52||56||60||63||67
+|align=left|
+*[[Club]]
+|1||7||7
+|-
+|17||33||49||65||81||97||{{E}}||{{E}}||{{E}}||{{E}}
+|22||25||27||30||32||35||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Staff]]
+|1||14||14
+|}
+<br>
+
+===[[Chance to Cast]]===
+
+====[[On Striking]]====
+{{Skill chance}}
+|-
+|12||4
+!align=left|[[Hellmouth|{{U|=Hellmouth War Gauntlets}}]]
+|47||No
+|-
+|16||12
+!align=left|[[Flamebellow|{{U|=Flamebellow Balrog Blade}}]]
+|71||No
+|-
+|22||40
+|align=left|[[Phoenix|{{Ub|=Phoenix}}]] weapon/shield
+|65
+!{{Warn|=Yes}}
+|}
+<br>
+
+==Levels 1-60==
+*Displayed [[Fire Damage|fire damage]] per second = 3 * bit rate * 25/256
+
+
+{{Levels 1-10}}
+|-
+!align=left|Minimum Fire Bit Rate
+|12||24||36||48||60||72||84||96||116||136
+|-
+!align=left|Maximum Fire Bit Rate
+|24||36||48||60||72||84||96||108||132||156
+|}
+
+
+{{Levels 11-20}}
+|-
+!align=left|Minimum Fire Bit Rate
+|156||176||196||216||236||256||284||312||340||368
+|-
+!align=left|Maximum Fire Bit Rate
+|180||204||228||252||276||300||332||364||396||428
+|}
+
+
+{{Levels 21-30}}
+|-
+!align=left|Minimum Fire Bit Rate
+|396||424||480||536||592||648||704||760||844||928
+|-
+!align=left|Maximum Fire Bit Rate
+|460||492||552||612||672||732||792||852||944||1,036
+|}
+
+
+{{Levels 31-40}}
+|-
+!align=left|Minimum Fire Bit Rate
+|1,012||1,096||1,180||1,264||1,348||1,432||1,516||1,600||1,684||1,768
+|-
+!align=left|Maximum Fire Bit Rate
+|1,128||1,220||1,312||1,404||1,496||1,588||1,680||1,772||1,864||1,956
+|}
+
+
+{{Levels 41-50}}
+|-
+!align=left|Minimum Fire Bit Rate
+|1,852||1,936||2,020||2,104||2,188||2,272||2,356||2,440||2,524||2,608
+|-
+!align=left|Maximum Fire Bit Rate
+|2,048||2,140||2,232||2,324||2,416||2,508||2,600||2,692||2,784||2,876
+|}
+
+
+{{Levels 51-60}}
+|-
+!align=left|Minimum Fire Bit Rate
+|2,692||2,776||2,860||2,944||3,028||3,112||3,196||3,280||3,364||3,448
+|-
+!align=left|Maximum Fire Bit Rate
+|2,968||3,060||3,152||3,244||3,336||3,428||3,520||3,612||3,704||3,796
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/druid-elemental.shtml Elemental] (Arreat Summit)
+*-teacup, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/119393-fire-druid-guide/ Fire Druid Guide] (D2 Druid)

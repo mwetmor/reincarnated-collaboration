@@ -437,6 +437,8 @@ The derivation ladder (E0 → E5) and the line-up-weighted figures are in `gd_da
 
 ## 13. Stage 6 (KP-431): D2 monster attack rating and hit chance against the NODEX Sorceress, R1
 
+> **⚑ SUPERSEDED (KP-436, 2026-10-14):** these hit chances are against the NO-DEX default sheet. Matt ruled the build-file sheet (C-14, Standard variant, clvl 99, Defence 1,472 / 1,722). The tables of record are in `../2026-10-14-join1-c14-sorc-build-file/` README § 6 and `c14_stage2.json`. The attack-rating inputs and role rows here are unchanged and are reused by C-14.
+
 Files: `d2_hit_chance_r1.json` (per-type rows, each with every attack), `scripts/d2_hit_chance_r1.py`, `verification_hit_chance.log`. This serves gamora's L-24 quantile matching, which is rank-preserving per role pair.
 
 **Defender:** the KP-428 default sheet NODEX_quests: Defence 1,060 / **1,203** / 1,347, plus **+250 against missiles** (Spirit), clvl 90.
@@ -506,6 +508,8 @@ The ratio is GD engine-native E5 mean damaging slot (trash, body-weighted: 7,481
 - Grade: INFERRED (the ratio of a GD figure composed by the oracle's MODEL-VERIFIED path and an INFERRED D2 figure).
 
 ### 14.2 D2 unique / superunique / boss attack rating, R1 areas, Hell, players 1
+
+> **⚑ The HIT % values below are SUPERSEDED (KP-436):** they are against the NO-DEX sheet. The tables of record against the build-file sheet are in C-14 README § 6. The attack-rating values and the U1–U4 laws here stand.
 
 Defender: NODEX, Defence 1,203 melee and 1,453 against missiles; clvl 90.
 

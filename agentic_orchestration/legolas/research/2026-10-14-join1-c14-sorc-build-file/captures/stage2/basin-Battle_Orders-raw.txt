@@ -1,0 +1,105 @@
+{{Skill page
+|Nav=Warcries
+|File=Warcries
+|RS=Shout
+|SS=Shout, Battle Command
+|Type=Medium range defensive buff
+|Tier=5
+|Rlvl=24
+|Req=None
+|Town=No
+|Mana=7
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=Although skillful in single combat, the Barbarian warrior also has a talent for group tactics. It is this ability that makes him a natural leader in combat. An experienced warrior can use this skill to better array his forces in battle, enhancing their ability to overcome the enemy.}}
+
+
+==Detail==
+{{Stat}}
+|-
+!align=left|+% Maximum [[Stamina]]/[[Maximum Life|Life]]/[[Maximum Mana|Mana]]
+|32 + (3*slvl)
+|-
+!align=left|Duration (Seconds)
+|20 + (10*slvl)
+|-
+!align=left|{{S|=Duration (Seconds)}}
+|5 * ([[Shout]].blvl+[[Battle Command]].blvl)
+|-
+!align=left|[[Next Delay]] (Frames)
+|4
+|}
+
+
+*Applies to both current and maximum stamina, life and mana of caster and all allied players, [[mercenary|mercenaries]] and [[pet]]s within area of effect.
+**Only applies to base stamina, including that from levelling up, points invested in [[Vitality]] and + Maximum Stamina items.
+**Only applies to base [[life]] including that from levelling up, points invested in [[Vitality]] and + Life items.
+**Only applies to base [[mana]] including that from levelling up, points invested in [[Energy]] and + Mana items.
+
+
+[[File:Battle Orders.png|center|thumb|600px|Area of effect has ~12 2/3 yard [[radius]]. Although gaps appear between [[missile]]s as they move further away, these are not normally large enough for targets to be missed.]]
+
+
+[[File:Battle Orders.gif|center|frame|Overlay displayed at feet when active.]]
+
+
+*[[Cast rate]]
+*Last Battle Orders cast is applied, so higher level can be overwritten by lower level cast later.
+*{{Warn|=When active on a mercenary when he or she gains a level, it is reapplied: current life is reduced to maximum life '''before''' Battle Orders was cast when current life with it is greater.}} When current life upon levelling up is less than or equal to maximum life before Battle Orders was cast, it applies to both current and maximum life as usual.
+<br/>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Battle Orders ([[Barbarian (Diablo II)|Barbarian]] Only) can spawn on ilvl >24 [[primal helm]]s. 
+
+
+{{Skill bonus}}
+|-
+| +(1-2)
+!align=left|[[Halaberd's Reign|{{U|=Halaberd's Reign Conqueror Crown}}]]
+|77||No
+|}
+<br/>
+
+===[[Oskill]]===
+{{Skill bonus}}
+|-
+| +(1-6)
+|align=left|[[Call to Arms|{{Ub|=Call to Arms}}]] weapon
+|57||No
+|}
+<br/>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left| +% Maximum Stamina/Life/Mana
+| 35 || 38 || 41 || 44 || 47 || 50 || 53 || 56 || 59 || 62 || 65 || 68 || 71 || 74 || 77 || 80 || 83 || 86 || 89 || 92
+|-
+!align=left| Duration (seconds)
+| 30 || 40 || 50 || 60 || 70 || 80 || 90 || 100 || 110 || 120 || 130 || 140 || 150 || 160 || 170 || 180 || 190 || 200 || 210 || 220
+|}
+
+{{Levels 21-40}}
+|-
+!align=left| +% Maximum Stamina/Life/Mana
+| 95 || 98 || 101 || 104 || 107 || 110 || 113 || 116 || 119 || 122 || 125 || 128 || 131 || 134 || 137 || 140 || 143 || 146 || 149 || 152
+|-
+!align=left| Duration (seconds)
+| 230 || 240 || 250 || 260 || 270 || 280 || 290 || 300 || 310 || 320 || 330 || 340 || 350 || 360 || 370 || 380 || 390 || 400 || 410 || 420
+|}
+
+{{Levels 41-60}}
+|-
+!align=left| +% Maximum Stamina/Life/Mana
+| 155 || 158 || 161 || 164 || 167 || 170 || 173 || 176 || 179 || 182 || 185 || 188 || 191 || 194 || 197 || 200 || 203 || 206 || 209 || 212
+|-
+!align=left| Duration (seconds)
+| 430 || 440 || 450 || 460 || 470 || 480 || 490 || 500 || 510 || 520 || 530 || 540 || 550 || 560 || 570 || 580 || 590 || 600 || 610 || 620
+|}
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/barbarian-warcries.shtml Warcries] (Arreat Summit)
