@@ -1,0 +1,526 @@
+{
+ "P2_pass": true,
+ "P3b_all_targets_in_KIT_d2_fire_sorc": true,
+ "compared": {
+  "blvl.blaze": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "blvl.enchant": {
+   "derived": 3,
+   "equal": true,
+   "pack": 3
+  },
+  "blvl.fire_ball": {
+   "derived": 20,
+   "equal": true,
+   "pack": 20
+  },
+  "blvl.fire_bolt": {
+   "derived": 20,
+   "equal": true,
+   "pack": 20
+  },
+  "blvl.fire_mastery": {
+   "derived": 20,
+   "equal": true,
+   "pack": 20
+  },
+  "blvl.fire_wall": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "blvl.frozen_armor": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "blvl.inferno": {
+   "derived": 20,
+   "equal": true,
+   "pack": 20
+  },
+  "blvl.meteor": {
+   "derived": 20,
+   "equal": true,
+   "pack": 20
+  },
+  "blvl.static_field": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "blvl.telekinesis": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "blvl.teleport": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "blvl.warmth": {
+   "derived": 1,
+   "equal": true,
+   "pack": 1
+  },
+  "buffs": {
+   "derived": {
+    "battle_command": {
+     "duration_s": 155.0,
+     "mana_cost": 11.0,
+     "skills_plus": 1,
+     "slvl": 16
+    },
+    "battle_orders": {
+     "duration_s": 180.0,
+     "life_mana_pct": 80,
+     "mana_cost": 7.0,
+     "slvl": 16
+    },
+    "frozen_armor": {
+     "duration_s": 300.0,
+     "slvl": 16
+    }
+   },
+   "equal": true,
+   "pack_fields_not_derived": [
+    ".omitted_cost_printed",
+    ".policy"
+   ],
+   "unequal_fields": []
+  },
+  "double_fill_stats": {
+   "derived": {
+    "energy": 97,
+    "vitality": 535
+   },
+   "equal": true,
+   "pack_fields_not_derived": [],
+   "unequal_fields": []
+  },
+  "fire_ball": {
+   "derived": {
+    "fire_max_raw": 721.5,
+    "fire_min_raw": 668.5,
+    "hitshift": 7,
+    "mana_cost": 27.5,
+    "missile": {
+     "explosion_radius_subtiles": 4,
+     "range_frames": 50,
+     "size": 1,
+     "vel": 20
+    },
+    "slvl": 46,
+    "synergy_pct": 560
+   },
+   "equal": true,
+   "pack_fields_not_derived": [
+    ".missile.dies_on_first_hit"
+   ],
+   "unequal_fields": []
+  },
+  "fire_mastery_pct": {
+   "derived": 345,
+   "equal": true,
+   "pack": 345
+  },
+  "frozen_armor": {
+   "derived": {
+    "defence_pct": 105,
+    "duration_frames": 7500,
+    "freeze_frames_base": 75,
+    "frozen_frames_hell_at_res_cold_0_33_50": [
+     18,
+     12,
+     9
+    ],
+    "mana_cost": 7.0,
+    "slvl": 16
+   },
+   "equal": true,
+   "pack_fields_not_derived": [
+    ".rounding",
+    ".trigger"
+   ],
+   "unequal_fields": []
+  },
+  "mana_after_kill": {
+   "derived": 5,
+   "equal": true,
+   "pack": 5
+  },
+  "mana_regen_class": {
+   "derived": 120,
+   "equal": true,
+   "pack": 120
+  },
+  "manarecoverybonus_items": {
+   "derived": 25,
+   "equal": true,
+   "pack": 25
+  },
+  "mastery_item_pct": {
+   "derived": 0,
+   "equal": true,
+   "pack": 0
+  },
+  "meteor": {
+   "derived": {
+    "action_to_impact_frames": 60,
+    "delay_frames": 30,
+    "hitshift": 8,
+    "impact_fire_max_raw": 3117.0,
+    "impact_fire_min_raw": 3007.0,
+    "impact_radius_subtiles": 6,
+    "mana_cost": 39.5,
+    "slvl": 46,
+    "synergy_pct": 200
+   },
+   "equal": true,
+   "pack_fields_not_derived": [],
+   "unequal_fields": []
+  },
+  "meteor_pyre": {
+   "derived": {
+    "bitrate_max_256ths_per_frame": 2184,
+    "bitrate_min_256ths_per_frame": 2104,
+    "damage_rate_1024ths": 41,
+    "lifetime_frames_code": 705,
+    "missile_size": 2,
+    "slvl": 46,
+    "synergy_pct": 60
+   },
+   "equal": true,
+   "pack_fields_not_derived": [
+    ".damage_rate_meaning",
+    ".gethit_softhit",
+    ".n_missiles"
+   ],
+   "unequal_fields": []
+  },
+  "sheet.absorb_magic_flat": {
+   "derived": 8,
+   "equal": true,
+   "pack": 8
+  },
+  "sheet.block_pct": {
+   "derived": 11,
+   "equal": true,
+   "pack": 11
+  },
+  "sheet.block_pct_running": {
+   "derived": 3,
+   "equal": true,
+   "pack": 3
+  },
+  "sheet.clvl": {
+   "derived": 99,
+   "equal": true,
+   "pack": 99
+  },
+  "sheet.defence_melee": {
+   "derived": 3017,
+   "equal": true,
+   "pack": 3017
+  },
+  "sheet.defence_missile": {
+   "derived": 3267,
+   "equal": true,
+   "pack": 3267
+  },
+  "sheet.dr_pct": {
+   "derived": 18,
+   "equal": true,
+   "pack": 18
+  },
+  "sheet.fbr_frames": {
+   "derived": 9,
+   "equal": true,
+   "pack": 9
+  },
+  "sheet.fcr_frames": {
+   "derived": 8,
+   "equal": true,
+   "pack": 8
+  },
+  "sheet.fhr_frames": {
+   "derived": 8,
+   "equal": true,
+   "pack": 8
+  },
+  "sheet.life": {
+   "derived": 2821,
+   "equal": true,
+   "pack": 2821
+  },
+  "sheet.mana": {
+   "derived": 1032,
+   "equal": true,
+   "pack": 1032
+  },
+  "sheet.res.cold": {
+   "derived": 75,
+   "equal": true,
+   "pack": 75
+  },
+  "sheet.res.fire": {
+   "derived": 75,
+   "equal": true,
+   "pack": 75
+  },
+  "sheet.res.lightning": {
+   "derived": 75,
+   "equal": true,
+   "pack": 75
+  },
+  "sheet.res.poison": {
+   "derived": 75,
+   "equal": true,
+   "pack": 75
+  },
+  "slvl.enchant": {
+   "derived": 29,
+   "equal": true,
+   "pack": 29
+  },
+  "slvl.fire_ball": {
+   "derived": 46,
+   "equal": true,
+   "pack": 46
+  },
+  "slvl.fire_bolt": {
+   "derived": 46,
+   "equal": true,
+   "pack": 46
+  },
+  "slvl.fire_mastery": {
+   "derived": 46,
+   "equal": true,
+   "pack": 46
+  },
+  "slvl.frozen_armor": {
+   "derived": 16,
+   "equal": true,
+   "pack": 16
+  },
+  "slvl.inferno": {
+   "derived": 46,
+   "equal": true,
+   "pack": 46
+  },
+  "slvl.meteor": {
+   "derived": 46,
+   "equal": true,
+   "pack": 46
+  },
+  "slvl.static_field": {
+   "derived": 16,
+   "equal": true,
+   "pack": 16
+  },
+  "slvl.teleport": {
+   "derived": 16,
+   "equal": true,
+   "pack": 16
+  },
+  "slvl.warmth": {
+   "derived": 27,
+   "equal": true,
+   "pack": 27
+  },
+  "static_field": {
+   "derived": {
+    "mana_cost": 9.0,
+    "min_damage": 0,
+    "pct_current_life": 25,
+    "radius_subtiles": 20,
+    "slvl": 16
+   },
+   "equal": true,
+   "pack_fields_not_derived": [
+    ".can_kill",
+    ".can_miss",
+    ".delay_frames",
+    ".family",
+    ".immune_at_res_ge",
+    ".negative_resist_ignored"
+   ],
+   "unequal_fields": []
+  },
+  "thorns": {
+   "derived": {
+    "d2_damage": 10
+   },
+   "equal": true,
+   "pack_fields_not_derived": [
+    ".family",
+    ".gd_form",
+    ".on_kill_effects",
+    ".source",
+    ".thorns_mitigable",
+    ".trigger"
+   ],
+   "unequal_fields": []
+  },
+  "warmth_pct": {
+   "derived": 342,
+   "equal": true,
+   "pack": 342
+  }
+ },
+ "corpus_FILE": "c7012de3134a1e646031f9bfff23ec33df3656e84aa3ee8224582e9854c203e8",
+ "derived_absent_from_pack": [
+  "slvl.blaze",
+  "slvl.fire_wall",
+  "slvl.telekinesis"
+ ],
+ "equal": [
+  "blvl.blaze",
+  "blvl.enchant",
+  "blvl.fire_ball",
+  "blvl.fire_bolt",
+  "blvl.fire_mastery",
+  "blvl.fire_wall",
+  "blvl.frozen_armor",
+  "blvl.inferno",
+  "blvl.meteor",
+  "blvl.static_field",
+  "blvl.telekinesis",
+  "blvl.teleport",
+  "blvl.warmth",
+  "buffs",
+  "double_fill_stats",
+  "fire_ball",
+  "fire_mastery_pct",
+  "frozen_armor",
+  "mana_after_kill",
+  "mana_regen_class",
+  "manarecoverybonus_items",
+  "mastery_item_pct",
+  "meteor",
+  "meteor_pyre",
+  "sheet.absorb_magic_flat",
+  "sheet.block_pct",
+  "sheet.block_pct_running",
+  "sheet.clvl",
+  "sheet.defence_melee",
+  "sheet.defence_missile",
+  "sheet.dr_pct",
+  "sheet.fbr_frames",
+  "sheet.fcr_frames",
+  "sheet.fhr_frames",
+  "sheet.life",
+  "sheet.mana",
+  "sheet.res.cold",
+  "sheet.res.fire",
+  "sheet.res.lightning",
+  "sheet.res.poison",
+  "slvl.enchant",
+  "slvl.fire_ball",
+  "slvl.fire_bolt",
+  "slvl.fire_mastery",
+  "slvl.frozen_armor",
+  "slvl.inferno",
+  "slvl.meteor",
+  "slvl.static_field",
+  "slvl.teleport",
+  "slvl.warmth",
+  "static_field",
+  "thorns",
+  "warmth_pct"
+ ],
+ "js4b_grade": [
+  "CLOSE",
+  "MAPPED"
+ ],
+ "kit": "d2-fire-sorc-c14",
+ "layers_of_compared": {
+  "blvl.blaze": "KIT:d2-fire-sorc",
+  "blvl.enchant": "KIT:d2-fire-sorc",
+  "blvl.fire_ball": "KIT:d2-fire-sorc",
+  "blvl.fire_bolt": "KIT:d2-fire-sorc",
+  "blvl.fire_mastery": "KIT:d2-fire-sorc",
+  "blvl.fire_wall": "KIT:d2-fire-sorc",
+  "blvl.frozen_armor": "KIT:d2-fire-sorc",
+  "blvl.inferno": "KIT:d2-fire-sorc",
+  "blvl.meteor": "KIT:d2-fire-sorc",
+  "blvl.static_field": "KIT:d2-fire-sorc",
+  "blvl.telekinesis": "KIT:d2-fire-sorc",
+  "blvl.teleport": "KIT:d2-fire-sorc",
+  "blvl.warmth": "KIT:d2-fire-sorc",
+  "buffs": "KIT:d2-fire-sorc",
+  "double_fill_stats": "KIT:d2-fire-sorc",
+  "fire_ball": "KIT:d2-fire-sorc",
+  "fire_mastery_pct": "KIT:d2-fire-sorc",
+  "frozen_armor": "KIT:d2-fire-sorc",
+  "mana_after_kill": "KIT:d2-fire-sorc",
+  "mana_regen_class": "KIT:d2-fire-sorc",
+  "manarecoverybonus_items": "KIT:d2-fire-sorc",
+  "mastery_item_pct": "KIT:d2-fire-sorc",
+  "meteor": "KIT:d2-fire-sorc",
+  "meteor_pyre": "KIT:d2-fire-sorc",
+  "sheet.absorb_magic_flat": "KIT:d2-fire-sorc",
+  "sheet.block_pct": "KIT:d2-fire-sorc",
+  "sheet.block_pct_running": "KIT:d2-fire-sorc",
+  "sheet.clvl": "KIT:d2-fire-sorc",
+  "sheet.defence_melee": "KIT:d2-fire-sorc",
+  "sheet.defence_missile": "KIT:d2-fire-sorc",
+  "sheet.dr_pct": "KIT:d2-fire-sorc",
+  "sheet.fbr_frames": "KIT:d2-fire-sorc",
+  "sheet.fcr_frames": "KIT:d2-fire-sorc",
+  "sheet.fhr_frames": "KIT:d2-fire-sorc",
+  "sheet.life": "KIT:d2-fire-sorc",
+  "sheet.mana": "KIT:d2-fire-sorc",
+  "sheet.res.cold": "KIT:d2-fire-sorc",
+  "sheet.res.fire": "KIT:d2-fire-sorc",
+  "sheet.res.lightning": "KIT:d2-fire-sorc",
+  "sheet.res.poison": "KIT:d2-fire-sorc",
+  "slvl.enchant": "KIT:d2-fire-sorc",
+  "slvl.fire_ball": "KIT:d2-fire-sorc",
+  "slvl.fire_bolt": "KIT:d2-fire-sorc",
+  "slvl.fire_mastery": "KIT:d2-fire-sorc",
+  "slvl.frozen_armor": "KIT:d2-fire-sorc",
+  "slvl.inferno": "KIT:d2-fire-sorc",
+  "slvl.meteor": "KIT:d2-fire-sorc",
+  "slvl.static_field": "KIT:d2-fire-sorc",
+  "slvl.teleport": "KIT:d2-fire-sorc",
+  "slvl.warmth": "KIT:d2-fire-sorc",
+  "static_field": "KIT:d2-fire-sorc",
+  "thorns": "KIT:d2-fire-sorc",
+  "warmth_pct": "KIT:d2-fire-sorc"
+ },
+ "n_rdr_ne_source": 0,
+ "n_rows": 597,
+ "not_derived": {
+  "belt.columns": "C-13 potions.json (belt), not a kit input",
+  "belt.composition": "JUDGED policy",
+  "belt.health_trigger_frac": "K-4 oracle threshold (referent)",
+  "belt.mana_trigger": "DECLARED-INVENTED policy",
+  "belt.refill": "JUDGED policy",
+  "belt.rows": "C-13 potions.json",
+  "belt.slots": "C-13 potions.json",
+  "crit_model_spell": "lever setting",
+  "hellfire_torch_firestorm": "disposition",
+  "hr_threshold_frac": "JUDGED",
+  "kit_id": "WARN-1: not keyed",
+  "oculus_teleport_on_struck": "proc law (C-14 \u00a7 7.2), item trigger only",
+  "offense_replaces": "identity policy",
+  "on_struck_order": "R-5 policy",
+  "potion_class_factors": "C-13 potions.json",
+  "res_map": "row-25 KIT map (adapter declaration)",
+  "resource_law": "identity",
+  "rotation_policy": "pilot policy",
+  "spell_lane_vocab": "identity",
+  "static_rule": "JUDGED policy"
+ },
+ "pack_digest": "dee7cf58a2de8c939ea52bd9598f29130189fb2baffbe237d8a64a7e7d13e187",
+ "rules": [
+  "R-D2S1"
+ ],
+ "skills_txt_transcription_vs_corpus_bad": [],
+ "unequal": []
+}
