@@ -1,0 +1,239 @@
+{
+ "M0": {
+  "verdict": "PASS",
+  "violations": [],
+  "cells": {
+   "M0|0": {
+    "registered": 15780.723730564658,
+    "landed": 8889.020858500031,
+    "mirror_dropped": 6891.702872064643,
+    "running_at_end": 0.0,
+    "residual": -1.6370904631912708e-11
+   },
+   "M0|1": {
+    "registered": 8226.289012160001,
+    "landed": 2083.3815822467236,
+    "mirror_dropped": 6142.907429913283,
+    "running_at_end": 0.0,
+    "residual": -5.4569682106375694e-12
+   },
+   "M0|2": {
+    "registered": 7981.826022386787,
+    "landed": 2054.6504370695666,
+    "mirror_dropped": 5927.175585317222,
+    "running_at_end": 0.0,
+    "residual": -9.094947017729282e-13
+   },
+   "M0|3": {
+    "registered": 2209.4839939600006,
+    "landed": 1210.414180601277,
+    "mirror_dropped": 999.0698133587202,
+    "running_at_end": 0.0,
+    "residual": 3.410605131648481e-12
+   },
+   "M0|4": {
+    "registered": 9858.648697700643,
+    "landed": 5723.497186344189,
+    "mirror_dropped": 4135.151511356456,
+    "running_at_end": 0.0,
+    "residual": -1.8189894035458565e-12
+   }
+  },
+  "identity": "registered == landed + mirror_dropped + running_at_end",
+  "as_first_stated": {
+   "identity": "registered == landed + mirror_dropped",
+   "verdict": "PASS",
+   "violations": []
+  }
+ },
+ "M-POL-2": {
+  "verdict": "PASS",
+  "violations": [],
+  "cells": {
+   "M-POL-2|0": {
+    "registered": 7342.826079197717,
+    "landed": 4955.027577597215,
+    "mirror_dropped": 2387.7985016005005,
+    "running_at_end": 0.0,
+    "residual": 1.8189894035458565e-12
+   },
+   "M-POL-2|1": {
+    "registered": 10198.697405640933,
+    "landed": 4879.394037936426,
+    "mirror_dropped": 4579.448870960323,
+    "running_at_end": 739.8544967441862,
+    "residual": -2.2737367544323206e-12
+   },
+   "M-POL-2|2": {
+    "registered": 9904.692420766789,
+    "landed": 2297.437466816286,
+    "mirror_dropped": 7607.2549539505035,
+    "running_at_end": 0.0,
+    "residual": 0.0
+   },
+   "M-POL-2|3": {
+    "registered": 3917.9480385000015,
+    "landed": 994.263293047839,
+    "mirror_dropped": 2923.68474545216,
+    "running_at_end": 0.0,
+    "residual": 2.7284841053187847e-12
+   },
+   "M-POL-2|4": {
+    "registered": 12918.131654767449,
+    "landed": 8402.05954596743,
+    "mirror_dropped": 4516.072108800002,
+    "running_at_end": 0.0,
+    "residual": 1.7280399333685637e-11
+   }
+  },
+  "identity": "registered == landed + mirror_dropped + running_at_end",
+  "as_first_stated": {
+   "identity": "registered == landed + mirror_dropped",
+   "verdict": "HALT",
+   "violations": [
+    "M-POL-2|1"
+   ]
+  }
+ },
+ "M-POL-2-NULL": {
+  "verdict": "PASS",
+  "violations": [],
+  "cells": {
+   "M-POL-2-NULL|0": {
+    "registered": 4028.317538500002,
+    "landed": 959.2946623124801,
+    "mirror_dropped": 3069.0228761875205,
+    "running_at_end": 0.0,
+    "residual": 9.094947017729282e-13
+   },
+   "M-POL-2-NULL|1": {
+    "registered": 6838.802929540002,
+    "landed": 1448.8636215112024,
+    "mirror_dropped": 5389.939308028802,
+    "running_at_end": 0.0,
+    "residual": -2.7284841053187847e-12
+   },
+   "M-POL-2-NULL|2": {
+    "registered": 9757.798169630001,
+    "landed": 2857.665995839925,
+    "mirror_dropped": 6900.132173790083,
+    "running_at_end": 0.0,
+    "residual": -6.366462912410498e-12
+   },
+   "M-POL-2-NULL|3": {
+    "registered": 5974.57800082,
+    "landed": 1847.3203346422415,
+    "mirror_dropped": 4127.257666177763,
+    "running_at_end": 0.0,
+    "residual": -4.547473508864641e-12
+   },
+   "M-POL-2-NULL|4": {
+    "registered": 9234.003469190508,
+    "landed": 4682.567468090488,
+    "mirror_dropped": 4551.436001100021,
+    "running_at_end": 0.0,
+    "residual": -9.094947017729282e-13
+   }
+  },
+  "identity": "registered == landed + mirror_dropped + running_at_end",
+  "as_first_stated": {
+   "identity": "registered == landed + mirror_dropped",
+   "verdict": "PASS",
+   "violations": []
+  }
+ },
+ "W1": {
+  "verdict": "PASS",
+  "violations": [],
+  "cells": {
+   "W1|0": {
+    "registered": 8344.504592843723,
+    "landed": 4937.4859204974755,
+    "mirror_dropped": 3407.0186723462402,
+    "running_at_end": 0.0,
+    "residual": 7.275957614183426e-12
+   },
+   "W1|1": {
+    "registered": 13223.567230803726,
+    "landed": 5620.213369665367,
+    "mirror_dropped": 7603.353861138324,
+    "running_at_end": 0.0,
+    "residual": 3.54702933691442e-11
+   },
+   "W1|2": {
+    "registered": 6285.206362870002,
+    "landed": 1643.645767854301,
+    "mirror_dropped": 4641.560595015702,
+    "running_at_end": 0.0,
+    "residual": -1.8189894035458565e-12
+   },
+   "W1|3": {
+    "registered": 5725.813689386788,
+    "landed": 1427.6419990065253,
+    "mirror_dropped": 4298.171690380261,
+    "running_at_end": 0.0,
+    "residual": 1.8189894035458565e-12
+   },
+   "W1|4": {
+    "registered": 8078.215478906787,
+    "landed": 2347.8469855927665,
+    "mirror_dropped": 5730.368493314021,
+    "running_at_end": 0.0,
+    "residual": 0.0
+   }
+  },
+  "identity": "registered == landed + mirror_dropped + running_at_end",
+  "as_first_stated": {
+   "identity": "registered == landed + mirror_dropped",
+   "verdict": "PASS",
+   "violations": []
+  }
+ },
+ "W1-NULL": {
+  "verdict": "PASS",
+  "violations": [],
+  "cells": {
+   "W1-NULL|0": {
+    "registered": 20270.976195475298,
+    "landed": 13303.183082233692,
+    "mirror_dropped": 6967.793113241578,
+    "running_at_end": 0.0,
+    "residual": 2.7284841053187847e-11
+   },
+   "W1-NULL|1": {
+    "registered": 6235.377957960001,
+    "landed": 1713.914356508402,
+    "mirror_dropped": 4521.463601451602,
+    "running_at_end": 0.0,
+    "residual": -2.7284841053187847e-12
+   },
+   "W1-NULL|2": {
+    "registered": 17465.14090000743,
+    "landed": 6745.481231839758,
+    "mirror_dropped": 10719.659668167678,
+    "running_at_end": 0.0,
+    "residual": -5.4569682106375694e-12
+   },
+   "W1-NULL|3": {
+    "registered": 5481.09272304,
+    "landed": 1556.8307102294375,
+    "mirror_dropped": 3924.262012810561,
+    "running_at_end": 0.0,
+    "residual": 1.8189894035458565e-12
+   },
+   "W1-NULL|4": {
+    "registered": 11337.20691748419,
+    "landed": 6018.546362515869,
+    "mirror_dropped": 5318.660554968323,
+    "running_at_end": 0.0,
+    "residual": -9.094947017729282e-13
+   }
+  },
+  "identity": "registered == landed + mirror_dropped + running_at_end",
+  "as_first_stated": {
+   "identity": "registered == landed + mirror_dropped",
+   "verdict": "PASS",
+   "violations": []
+  }
+ }
+}

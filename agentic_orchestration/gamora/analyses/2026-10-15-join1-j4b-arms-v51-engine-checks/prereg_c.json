@@ -1,0 +1,154 @@
+{
+ "M_c_registered_waves": [
+  "159",
+  "160"
+ ],
+ "M_c_registered_waves_primary_reading": [
+  "151",
+  "152",
+  "153",
+  "154",
+  "155",
+  "156",
+  "157",
+  "158",
+  "159",
+  "160"
+ ],
+ "M_c_status": "REGISTERED: M-c(her) >= M-c(Warlord) over these waves, paired over the 25 cells, FALSE only on a strict reversal",
+ "inputs": {
+  "G7": "8b402fa729fc8a69dcb1ff30ce82b633743c1c734f6720843423041d7d2c9ca3",
+  "GO": "dba048f7e2cbb25c35ce999dd8a3af4aa466d135e64b0fb6f190d291562b96cc",
+  "GS": "86f203991e5fea26ffb74c8d3c5b3d1e54776226402b62a4aa4e8c42783adb2f",
+  "prereg_a": "39652b5ea033e6047e3acc3eebf35e80ac496d534a253d87dff4a67902f0a918"
+ },
+ "non_qualifying_waves": [
+  "151",
+  "152",
+  "153",
+  "154",
+  "155",
+  "156",
+  "157",
+  "158"
+ ],
+ "provenance": "reads only the Warlord's re-emitted G7 and the sidecar's GS/GO + prereg_a.json; no emission of her kit read",
+ "proxy_caveats": [
+  "measured-arrival proxy = latest tick a roster body FIRST took the Warlord's damage: it depends on HIS disc reach (a body counts as arrived when it enters his reach, not hers), so it classifies waves for him, not for her kit",
+  "roster bodies only: enemy pets / summons are excluded from tail_share (they remain in M-c itself)",
+  "registered reading (Mover.spawn_t_s) measures release onto the board, not arrival; registration = the conjunction"
+ ],
+ "rule": "CORRIGENDUM-1 \u00a7 1 (engine d7f916a8); tail >= 0.25 median over cells, capacity >= 1.67",
+ "waves": {
+  "151": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 7.152840254535806,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.02894736842105263,
+   "tail_share_max": 0.9545454545454546,
+   "tail_share_median": 0.8888888888888888,
+   "tail_share_min": 0.8403908794788274
+  },
+  "152": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 3.988622229852215,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.050156739811912224,
+   "tail_share_max": 0.9411764705882353,
+   "tail_share_median": 0.851963746223565,
+   "tail_share_min": 0.8178438661710037
+  },
+  "153": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 5.590857383168399,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.025896414342629483,
+   "tail_share_max": 0.9355263157894737,
+   "tail_share_median": 0.9090909090909091,
+   "tail_share_min": 0.8619718309859155
+  },
+  "154": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 3.0235601776689895,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.2471655328798186,
+   "tail_share_max": 1.0,
+   "tail_share_median": 1.0,
+   "tail_share_min": 1.0
+  },
+  "155": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 2.316349164422804,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.05813953488372093,
+   "tail_share_max": 1.0,
+   "tail_share_median": 1.0,
+   "tail_share_min": 1.0
+  },
+  "156": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 4.0327050021084965,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.11428571428571428,
+   "tail_share_max": 0.9322268326417704,
+   "tail_share_median": 0.9070208728652751,
+   "tail_share_min": 0.8855140186915887
+  },
+  "157": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 5.737498738403919,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.03104575163398693,
+   "tail_share_max": 0.9310829817158931,
+   "tail_share_median": 0.9090909090909091,
+   "tail_share_min": 0.882494004796163
+  },
+  "158": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 3.4571009820366085,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": false,
+   "sensitivity_first_hit_tail_median": 0.05995203836930456,
+   "tail_share_max": 0.9,
+   "tail_share_median": 0.8463949843260188,
+   "tail_share_min": 0.75
+  },
+  "159": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 2.3260824596813316,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": true,
+   "sensitivity_first_hit_tail_median": 0.26239067055393583,
+   "tail_share_max": 0.891832229580574,
+   "tail_share_median": 0.8571428571428571,
+   "tail_share_min": 0.8
+  },
+  "160": {
+   "KILL_LIMITED": true,
+   "M_c_registered_on_wave": true,
+   "capacity_ratio": 2.785707392836167,
+   "n_cells": 25,
+   "sensitivity_KILL_LIMITED": true,
+   "sensitivity_first_hit_tail_median": 0.44370860927152317,
+   "tail_share_max": 1.0,
+   "tail_share_median": 1.0,
+   "tail_share_min": 1.0
+  }
+ }
+}
