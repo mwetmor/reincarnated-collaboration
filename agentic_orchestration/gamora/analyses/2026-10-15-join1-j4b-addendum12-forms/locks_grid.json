@@ -1,0 +1,3261 @@
+{
+ "form": "join2_rulebook/d2/locks.py",
+ "l21": {
+  "attack_on_gethit": "freeze",
+  "divisors": [
+   16,
+   8,
+   4
+  ],
+  "length_frames": 8,
+  "polarity_50": "odd_gets",
+  "rule_75": "none_iff_mod4_zero"
+ },
+ "params": {
+  "bl_frames": 9,
+  "block_pct": 11,
+  "block_pct_running": 3,
+  "fbr": 0,
+  "fhr_frames": 8,
+  "hr_frac": "0x1.5555555555555p-4",
+  "life_max": "0x1.2c00000000000p+10"
+ },
+ "scenarios": [
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_basic",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 4,
+     "op": "cast"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     4,
+     "cast:refused",
+     "CAST",
+     "CAST",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_refused_during_cast",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": false
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 8,
+     "op": "cast"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     8,
+     "cast",
+     "NONE",
+     "CAST",
+     16,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_allowed_at_end",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "CAST",
+     "end": 16,
+     "ok": true
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": false,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hit:none",
+     "NONE",
+     "NONE",
+     0,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "not_landed_nothing",
+   "observed": [
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": false,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+5",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [],
+   "mode": "player",
+   "name": "landed_below_threshold",
+   "observed": [
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+6",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "hitrec_at_exact_threshold_ge",
+   "observed": [
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.8ff5c28f5c28fp+6",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [],
+   "mode": "player",
+   "name": "no_hitrec_just_below",
+   "observed": [
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.f400000000000p+8",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.4000000000000p-29"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "block_success_first_anim",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.9000000000000p+5",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.6000000000000p-29"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [],
+   "mode": "player",
+   "name": "block_fail_at_pct",
+   "observed": [
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": true,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.9000000000000p+5",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.9a00000000000p-25"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "block_r32_mod_100",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": true,
+      "stunned": false,
+      "u": "0x1.8000000000000p-31"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": true,
+      "stunned": false,
+      "u": "0x1.0000000000000p-31"
+     },
+     "f": 20,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     20,
+     "block",
+     "NONE",
+     "BLOCK",
+     29,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "running_block_pct_3",
+   "observed": [
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": true,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 29,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.4000000000000p-29"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 5,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ],
+    [
+     5,
+     "hitrec",
+     "BLOCK",
+     "HITREC",
+     13,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "no_draw_inside_block_then_hitrec_replaces",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 13,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.4000000000000p-30"
+     },
+     "f": 3,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     8,
+     false
+    ],
+    [
+     3,
+     "block",
+     "HITREC",
+     "BLOCK",
+     12,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "draw_inside_hitrec_block_replaces",
+   "observed": [
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 12,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 15,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 16,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ],
+    [
+     15,
+     "block:gated",
+     "NONE",
+     "NONE",
+     9,
+     true
+    ],
+    [
+     16,
+     "block",
+     "NONE",
+     "BLOCK",
+     25,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "block_gate_at_15_no_anim_at_16_anim",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 25,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.c200000000000p+9",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 10,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ],
+    [
+     10,
+     "block:gated",
+     "NONE",
+     "NONE",
+     9,
+     true
+    ]
+   ],
+   "mode": "player",
+   "name": "gated_block_still_negates",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 4,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     4,
+     "hitrec",
+     "CAST",
+     "HITREC",
+     12,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_preempted_before_action",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 12,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": "before_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 5,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     5,
+     "hitrec",
+     "CAST",
+     "HITREC",
+     13,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_preempted_at_action",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 13,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": "after_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 2,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     2,
+     "block",
+     "CAST",
+     "BLOCK",
+     11,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "block_preempts_cast",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 11,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": "before_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.4000000000000p+3",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x1.9000000000000p-27"
+     },
+     "f": 1,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "draw_inside_cast",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "CAST",
+     "block_anim": false,
+     "blocked": false,
+     "drew": true,
+     "end": 8,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "end": 30
+     },
+     "f": 0,
+     "op": "control"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.f400000000000p+8",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 5,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "control",
+     "NONE",
+     "CONTROL_GD",
+     30,
+     false
+    ],
+    [
+     5,
+     "hitrec:ignored",
+     "CONTROL_GD",
+     "CONTROL_GD",
+     30,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "control_ignores_hitrec_placement",
+   "observed": [
+    {
+     "act": "CONTROL_GD",
+     "end": 30,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "CONTROL_GD",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 30,
+     "gethit": true,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "end": 30
+     },
+     "f": 0,
+     "op": "control"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 5,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 31,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "control",
+     "NONE",
+     "CONTROL_GD",
+     30,
+     false
+    ],
+    [
+     5,
+     "block:ignored",
+     "CONTROL_GD",
+     "CONTROL_GD",
+     30,
+     false
+    ],
+    [
+     31,
+     "block",
+     "NONE",
+     "BLOCK",
+     40,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "control_block_negates_no_anim_last_block_unchanged",
+   "observed": [
+    {
+     "act": "CONTROL_GD",
+     "end": 30,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "CONTROL_GD",
+     "block_anim": false,
+     "blocked": true,
+     "drew": true,
+     "end": 30,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 40,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "end": 30
+     },
+     "f": 0,
+     "op": "control"
+    },
+    {
+     "args": {},
+     "f": 10,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 30,
+     "op": "cast"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "control",
+     "NONE",
+     "CONTROL_GD",
+     30,
+     false
+    ],
+    [
+     10,
+     "cast:refused",
+     "CONTROL_GD",
+     "CONTROL_GD",
+     30,
+     false
+    ],
+    [
+     30,
+     "cast",
+     "NONE",
+     "CAST",
+     38,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_refused_under_control",
+   "observed": [
+    {
+     "act": "CONTROL_GD",
+     "end": 30,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "CONTROL_GD",
+     "end": 30,
+     "ok": false
+    },
+    {
+     "act": "CAST",
+     "end": 38,
+     "ok": true
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "dead"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.c200000000000p+9",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 1,
+     "op": "hit"
+    },
+    {
+     "args": {},
+     "f": 2,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 3,
+     "op": "move"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "death",
+     "NONE",
+     "DEATH",
+     4611686018427387904,
+     false
+    ],
+    [
+     1,
+     "hit:none",
+     "DEATH",
+     "DEATH",
+     4611686018427387904,
+     false
+    ],
+    [
+     2,
+     "cast:refused",
+     "DEATH",
+     "DEATH",
+     4611686018427387904,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "dead_absorbs",
+   "observed": [
+    {
+     "act": "DEATH",
+     "end": 4611686018427387904,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "DEATH",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 4611686018427387904,
+     "gethit": false,
+     "hitrec": false,
+     "landed": false,
+     "preempt": null
+    },
+    {
+     "act": "DEATH",
+     "end": 4611686018427387904,
+     "ok": false
+    },
+    {
+     "act": "DEATH",
+     "end": 4611686018427387904,
+     "move": "dead"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "move"
+    },
+    {
+     "args": {},
+     "f": 1,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 2,
+     "op": "move"
+    },
+    {
+     "args": {},
+     "f": 9,
+     "op": "move"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 10,
+     "op": "hit"
+    },
+    {
+     "args": {},
+     "f": 11,
+     "op": "move"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.f400000000000p+8",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 30,
+     "op": "hit"
+    },
+    {
+     "args": {},
+     "f": 31,
+     "op": "move"
+    },
+    {
+     "args": {
+      "end": 50
+     },
+     "f": 40,
+     "op": "control"
+    },
+    {
+     "args": {},
+     "f": 41,
+     "op": "move"
+    }
+   ],
+   "log": [
+    [
+     1,
+     "cast",
+     "NONE",
+     "CAST",
+     9,
+     false
+    ],
+    [
+     10,
+     "block",
+     "NONE",
+     "BLOCK",
+     19,
+     false
+    ],
+    [
+     30,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     38,
+     false
+    ],
+    [
+     40,
+     "control",
+     "NONE",
+     "CONTROL_GD",
+     50,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "move_states",
+   "observed": [
+    {
+     "act": "NONE",
+     "end": 0,
+     "move": "ok"
+    },
+    {
+     "act": "CAST",
+     "end": 9,
+     "ok": true
+    },
+    {
+     "act": "CAST",
+     "end": 9,
+     "move": "refused_cast"
+    },
+    {
+     "act": "NONE",
+     "end": 9,
+     "move": "ok"
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 19,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "end": 19,
+     "move": "refused_lock"
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 38,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "HITREC",
+     "end": 38,
+     "move": "refused_lock"
+    },
+    {
+     "act": "CONTROL_GD",
+     "end": 50,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "CONTROL_GD",
+     "end": 50,
+     "move": "control"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 6,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     8,
+     false
+    ],
+    [
+     6,
+     "hitrec",
+     "HITREC",
+     "HITREC",
+     14,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "hitrec_during_hitrec_replaces",
+   "observed": [
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 14,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": true,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "stun_forces_hitrec_at_zero",
+   "observed": [
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": true,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "stun_but_blocked_no_hitrec",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 3,
+     "op": "rebase"
+    },
+    {
+     "args": {},
+     "f": 4,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 5,
+     "op": "cast"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     0,
+     "rebase:3",
+     null,
+     "CAST",
+     5,
+     false
+    ],
+    [
+     4,
+     "cast:refused",
+     "CAST",
+     "CAST",
+     5,
+     false
+    ],
+    [
+     5,
+     "cast",
+     "NONE",
+     "CAST",
+     13,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "rebase_mid_cast",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "CAST",
+     "end": 5
+    },
+    {
+     "act": "CAST",
+     "end": 5,
+     "ok": false
+    },
+    {
+     "act": "CAST",
+     "end": 13,
+     "ok": true
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 3,
+     "op": "rebase"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 1,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     0,
+     "rebase:3",
+     null,
+     "CAST",
+     5,
+     false
+    ],
+    [
+     1,
+     "hitrec",
+     "CAST",
+     "HITREC",
+     9,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "rebase_preserves_action_offset",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "CAST",
+     "end": 5
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 9,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": "before_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {},
+     "f": 20,
+     "op": "rebase"
+    },
+    {
+     "args": {},
+     "f": 0,
+     "op": "move"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     8,
+     false
+    ],
+    [
+     0,
+     "rebase:20",
+     null,
+     "NONE",
+     0,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "rebase_expired_lock",
+   "observed": [
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "NONE",
+     "end": 0
+    },
+    {
+     "act": "NONE",
+     "end": 0,
+     "move": "ok"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 10,
+     "op": "hit"
+    },
+    {
+     "args": {},
+     "f": 20,
+     "op": "rebase"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 4,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 6,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     10,
+     "block",
+     "NONE",
+     "BLOCK",
+     19,
+     false
+    ],
+    [
+     0,
+     "rebase:20",
+     null,
+     "NONE",
+     0,
+     false
+    ],
+    [
+     4,
+     "block:gated",
+     "NONE",
+     "NONE",
+     0,
+     true
+    ],
+    [
+     6,
+     "block",
+     "NONE",
+     "BLOCK",
+     15,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "rebase_last_block",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 19,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "NONE",
+     "end": 0
+    },
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": true,
+     "drew": true,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 15,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": false,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hit:none",
+     "NONE",
+     "NONE",
+     0,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "blockable_not_landed_no_draw",
+   "observed": [
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": false,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "block_pct": 0
+     },
+     "f": 0,
+     "op": "params"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.4000000000000p+3",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [],
+   "mode": "player",
+   "name": "block_pct_zero_still_draws",
+   "observed": [
+    {},
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": false,
+     "drew": true,
+     "end": 0,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 0,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 3,
+     "op": "dead"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     3,
+     "death",
+     "CAST",
+     "DEATH",
+     4611686018427387904,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "death_preempts_cast",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "DEATH",
+     "end": 4611686018427387904,
+     "placed": true,
+     "preempt": "before_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "cast"
+    },
+    {
+     "args": {
+      "end": 20
+     },
+     "f": 2,
+     "op": "control"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "cast",
+     "NONE",
+     "CAST",
+     8,
+     false
+    ],
+    [
+     2,
+     "control",
+     "CAST",
+     "CONTROL_GD",
+     20,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "control_preempts_cast",
+   "observed": [
+    {
+     "act": "CAST",
+     "end": 8,
+     "ok": true
+    },
+    {
+     "act": "CONTROL_GD",
+     "end": 20,
+     "placed": true,
+     "preempt": "before_action"
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "end": 10
+     },
+     "f": 0,
+     "op": "control"
+    },
+    {
+     "args": {
+      "end": 8
+     },
+     "f": 5,
+     "op": "control"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "control",
+     "NONE",
+     "CONTROL_GD",
+     10,
+     false
+    ],
+    [
+     5,
+     "control",
+     "CONTROL_GD",
+     "CONTROL_GD",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "control_replaces_control",
+   "observed": [
+    {
+     "act": "CONTROL_GD",
+     "end": 10,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "CONTROL_GD",
+     "end": 8,
+     "placed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {},
+     "f": 0,
+     "op": "dead"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.f400000000000p+8",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 1,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "death",
+     "NONE",
+     "DEATH",
+     4611686018427387904,
+     false
+    ],
+    [
+     1,
+     "hit:none",
+     "DEATH",
+     "DEATH",
+     4611686018427387904,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "hitrec_never_replaces_death",
+   "observed": [
+    {
+     "act": "DEATH",
+     "end": 4611686018427387904,
+     "placed": true,
+     "preempt": null
+    },
+    {
+     "act": "DEATH",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 4611686018427387904,
+     "gethit": false,
+     "hitrec": false,
+     "landed": false,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ],
+    [
+     0,
+     "hitrec",
+     "BLOCK",
+     "HITREC",
+     8,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "two_hits_same_frame",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {},
+     "f": 7,
+     "op": "cast"
+    },
+    {
+     "args": {},
+     "f": 8,
+     "op": "cast"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     8,
+     false
+    ],
+    [
+     7,
+     "cast:refused",
+     "HITREC",
+     "HITREC",
+     8,
+     false
+    ],
+    [
+     8,
+     "cast",
+     "NONE",
+     "CAST",
+     16,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "cast_refused_under_hitrec",
+   "observed": [
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 8,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "HITREC",
+     "end": 8,
+     "ok": false
+    },
+    {
+     "act": "CAST",
+     "end": 16,
+     "ok": true
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.2c00000000000p+7",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 9,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ],
+    [
+     9,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     17,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "hitrec_after_block_expiry",
+   "observed": [
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 17,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "fbr": 40
+     },
+     "f": 0,
+     "op": "params"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 20,
+     "op": "hit"
+    },
+    {
+     "args": {
+      "blockable": true,
+      "dmg": "0x0.0p+0",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 21,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "block",
+     "NONE",
+     "BLOCK",
+     9,
+     false
+    ],
+    [
+     20,
+     "block:gated",
+     "NONE",
+     "NONE",
+     9,
+     true
+    ],
+    [
+     21,
+     "block",
+     "NONE",
+     "BLOCK",
+     30,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "custom_fbr_gate",
+   "observed": [
+    {},
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "NONE",
+     "block_anim": false,
+     "blocked": true,
+     "drew": true,
+     "end": 9,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    },
+    {
+     "act": "BLOCK",
+     "block_anim": true,
+     "blocked": true,
+     "drew": true,
+     "end": 30,
+     "gethit": false,
+     "hitrec": false,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 40,
+    "fhr_frames": 8,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "fhr_frames": 5
+     },
+     "f": 0,
+     "op": "params"
+    },
+    {
+     "args": {
+      "blockable": false,
+      "dmg": "0x1.9000000000000p+6",
+      "landed": true,
+      "running": false,
+      "stunned": false,
+      "u": null
+     },
+     "f": 0,
+     "op": "hit"
+    }
+   ],
+   "log": [
+    [
+     0,
+     "hitrec",
+     "NONE",
+     "HITREC",
+     5,
+     false
+    ]
+   ],
+   "mode": "player",
+   "name": "custom_fhr_len",
+   "observed": [
+    {},
+    {
+     "act": "HITREC",
+     "block_anim": false,
+     "blocked": false,
+     "drew": false,
+     "end": 5,
+     "gethit": true,
+     "hitrec": true,
+     "landed": true,
+     "preempt": null
+    }
+   ],
+   "params": {
+    "bl_frames": 9,
+    "block_pct": 11,
+    "block_pct_running": 3,
+    "fbr": 0,
+    "fhr_frames": 5,
+    "hr_frac": "0x1.5555555555555p-4",
+    "life_max": "0x1.2c00000000000p+10"
+   }
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.8c00000000000p+6",
+      "frozen": false,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "below_16th_none",
+   "observed": [
+    {
+     "attack": null,
+     "drew": false,
+     "gethit": false,
+     "locked_until": 0,
+     "tier": "none"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.9000000000000p+6",
+      "frozen": false,
+      "u": "0x1.8000000000000p-31"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "tier50_odd_gets",
+   "observed": [
+    {
+     "attack": "freeze",
+     "drew": true,
+     "gethit": true,
+     "locked_until": 8,
+     "tier": "draw50"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.2c00000000000p+7",
+      "frozen": false,
+      "u": "0x1.0000000000000p-30"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "tier50_even_not",
+   "observed": [
+    {
+     "attack": null,
+     "drew": true,
+     "gethit": false,
+     "locked_until": 0,
+     "tier": "draw50"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.9000000000000p+7",
+      "frozen": false,
+      "u": "0x1.0000000000000p-29"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "tier75_mod4_zero_not",
+   "observed": [
+    {
+     "attack": null,
+     "drew": true,
+     "gethit": false,
+     "locked_until": 0,
+     "tier": "draw75"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.8f00000000000p+8",
+      "frozen": false,
+      "u": "0x1.2000000000000p-29"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "tier75_mod4_nonzero_gets",
+   "observed": [
+    {
+     "attack": "freeze",
+     "drew": true,
+     "gethit": true,
+     "locked_until": 8,
+     "tier": "draw75"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.9000000000000p+8",
+      "frozen": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "quarter_always_no_draw",
+   "observed": [
+    {
+     "attack": "freeze",
+     "drew": false,
+     "gethit": true,
+     "locked_until": 8,
+     "tier": "always"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.c200000000000p+9",
+      "frozen": true,
+      "u": "0x1.0000000000000p-32"
+     },
+     "f": 0,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "frozen_none",
+   "observed": [
+    {
+     "attack": null,
+     "drew": false,
+     "gethit": false,
+     "locked_until": 0,
+     "tier": "none"
+    }
+   ]
+  },
+  {
+   "events": [
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.c200000000000p+9",
+      "frozen": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 0,
+     "op": "gh"
+    },
+    {
+     "args": {
+      "H": "0x1.9000000000000p+10",
+      "d": "0x1.c200000000000p+9",
+      "frozen": false,
+      "u": "0x0.0p+0"
+     },
+     "f": 5,
+     "op": "gh"
+    }
+   ],
+   "mode": "monster",
+   "name": "relock",
+   "observed": [
+    {
+     "attack": "freeze",
+     "drew": false,
+     "gethit": true,
+     "locked_until": 8,
+     "tier": "always"
+    },
+    {
+     "attack": "freeze",
+     "drew": false,
+     "gethit": true,
+     "locked_until": 13,
+     "tier": "always"
+    }
+   ]
+  }
+ ]
+}
