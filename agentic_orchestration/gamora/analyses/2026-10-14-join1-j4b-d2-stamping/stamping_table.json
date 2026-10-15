@@ -17,18 +17,18 @@
   "Gems.txt": "52ea3e27a905f0bb2dc2bf0d60835e6f980f16e797c91e85aeccee561e219145",
   "Properties.txt": "df39332fbe0c17cbee3d1f42f0caf63f9d76076b36f2f633c6d712d5c38af4e8"
  },
- "n_kit_numeric_rows": 572,
+ "n_kit_numeric_rows": 597,
  "rows_by_scale": {
   "d2_input_level": 19,
   "d2_input_stat_points": 4,
-  "d2_input_hard_points": 13,
+  "d2_input_hard_points": 38,
   "d2_input_item_stat": 233,
   "d2_input_charstats": 19,
   "d2_input_base_item": 117,
   "d2_input_skill_param": 144,
   "d2_input_missile_param": 23
  },
- "sql_sha256": "4ba866897f06bd76a38999dc27b50851c4f6489a6e259279bd25a96d765f29e8",
+ "sql_sha256": "f9985251f76c0c099be48e4ca28d7192d56339e4ca1a1adff20857b7f690114a",
  "rows": [
   {
    "numeric_key": "v_clvl",
@@ -137,6 +137,156 @@
    "source_value": 20.0,
    "source_scale": "d2_input_hard_points",
    "source_anchor": "\"61\": 20 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skills[\"61\"] (hard points)"
+  },
+  {
+   "numeric_key": "v_progression_00_skill036",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[0]\": \"36\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[0] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_01_skill036",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[1]\": \"36\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[1] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_02_skill036",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[2]\": \"36\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[2] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_03_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[3]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[3] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_04_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[4]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[4] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_05_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[5]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[5] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_06_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[6]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[6] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_07_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[7]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[7] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_08_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[8]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[8] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_09_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[9]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[9] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_10_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[10]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[10] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_11_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[11]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[11] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_12_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[12]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[12] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_13_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[13]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[13] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_14_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[14]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[14] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_15_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[15]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[15] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_16_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[16]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[16] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_17_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[17]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[17] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_18_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[18]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[18] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_19_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[19]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[19] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_20_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[20]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[20] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_21_skill041",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[21]\": \"41\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[21] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_22_skill052",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[22]\": \"52\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[22] (one hard point)"
+  },
+  {
+   "numeric_key": "v_progression_23_skill052",
+   "source_value": 1.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillProgression[23]\": \"52\" -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillProgression[23] (one hard point)"
+  },
+  {
+   "numeric_key": "v_skillpos",
+   "source_value": 24.0,
+   "source_scale": "d2_input_hard_points",
+   "source_anchor": "\"skillPos\": 24 -- build_file_standard_verbatim.json (legolas C-14, sha256 ee5b8b2238d313f7...; https://planners.maxroll.gg/profiles/d2/gca1a0l6 (embedded by https://maxroll.gg/d2/guides/meteor-sorceress, tab 'Standard' = data-d2planner-set 2)) profile.skillPos (progression entries spent; KP-444)"
   },
   {
    "numeric_key": "v_quest_d0_denofevil",
@@ -3469,16 +3619,16 @@
    "GUARD pre: gd-eor-warlord-referent grade IS NULL (expect 1)=1",
    "GUARD pre: d2-fire-sorc-c14 absent (expect 0)=0",
    "GUARD pre: R-D2S1 absent (expect 0)=0",
-   "GUARD post: d2-fire-sorc-c14 kit_numeric rows (expect 572)=572",
+   "GUARD post: d2-fire-sorc-c14 kit_numeric rows (expect 597)=597",
    "GUARD post: d2-fire-sorc-c14 rows with rdr_value <> source_value (expect 0)=0",
-   "GUARD post: gd-eor-warlord-referent grade=EXACT / terminal=MAPPED",
+   "GUARD post: gd-eor-warlord-referent grade=CLOSE / terminal=MAPPED",
    "GUARD post: OTHER kits kit_numeric count (must equal pre)=562 / sum(source)=110620.681632653 / sum(rdr)=70298.0983204098"
   ],
   "integrity": "ok",
   "foreign_key_violations": 0,
   "ROWSET_post": {
-   "gd-eor-warlord-referent": "b7118b110971f0e2269ef16ac4ca5f435ee12a896a51bad51ebfda106c4ee41f",
-   "d2-fire-sorc-c14": "d21dee9b6ddfb71283374fc6de88e80d630fe3ce4a7b885ccee00c797a492db9",
+   "gd-eor-warlord-referent": "59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7",
+   "d2-fire-sorc-c14": "bbc2db8943086e85bf2504ccd4f4ed77fbcd87d9c84e692cdb2bf26a069db87b",
    "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
    "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
   }
@@ -3489,24 +3639,24 @@
    "GUARD pre: gd-eor-warlord-referent grade IS NULL (expect 1)=1",
    "GUARD pre: d2-fire-sorc-c14 absent (expect 0)=0",
    "GUARD pre: R-D2S1 absent (expect 0)=0",
-   "GUARD post: d2-fire-sorc-c14 kit_numeric rows (expect 572)=572",
+   "GUARD post: d2-fire-sorc-c14 kit_numeric rows (expect 597)=597",
    "GUARD post: d2-fire-sorc-c14 rows with rdr_value <> source_value (expect 0)=0",
-   "GUARD post: gd-eor-warlord-referent grade=EXACT / terminal=MAPPED",
+   "GUARD post: gd-eor-warlord-referent grade=CLOSE / terminal=MAPPED",
    "GUARD post: OTHER kits kit_numeric count (must equal pre)=562 / sum(source)=110620.681632653 / sum(rdr)=70298.0983204098"
   ],
   "integrity": "ok",
   "foreign_key_violations": 0,
   "ROWSET_post": {
-   "gd-eor-warlord-referent": "b7118b110971f0e2269ef16ac4ca5f435ee12a896a51bad51ebfda106c4ee41f",
-   "d2-fire-sorc-c14": "d21dee9b6ddfb71283374fc6de88e80d630fe3ce4a7b885ccee00c797a492db9",
+   "gd-eor-warlord-referent": "59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7",
+   "d2-fire-sorc-c14": "bbc2db8943086e85bf2504ccd4f4ed77fbcd87d9c84e692cdb2bf26a069db87b",
    "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
    "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
   }
  },
  "scratch_A_equals_B": true,
  "predicted_post_apply_ROWSET": {
-  "gd-eor-warlord-referent": "b7118b110971f0e2269ef16ac4ca5f435ee12a896a51bad51ebfda106c4ee41f",
-  "d2-fire-sorc-c14": "d21dee9b6ddfb71283374fc6de88e80d630fe3ce4a7b885ccee00c797a492db9",
+  "gd-eor-warlord-referent": "59099b7d779f44b5d56076058a0539af97b9497dd2e298868b8020c4fe598ac7",
+  "d2-fire-sorc-c14": "bbc2db8943086e85bf2504ccd4f4ed77fbcd87d9c84e692cdb2bf26a069db87b",
   "d2-fire-sorc": "db01da528164eeec5935b0d0d1836f94ec748ebbd11118e2cf2360f7a26ed618",
   "gd-eor-warlord": "1819fd0c1e277469ff81016ae5e32cafa46ba4944e30d12f35d1ec2bf108c7cc"
  },
