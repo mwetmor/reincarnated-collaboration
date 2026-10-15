@@ -188,6 +188,8 @@ Files: `c14_stage2.json`, `scripts/c14_stage2.py`, `verification_stage2.log`. Th
 
 ### 6.1 Hit chance against the build-file sheet
 
+> **⚑ KP-437:** Frozen Armor is now always on. **The primary table is § 7.3** (with Frozen Armor at slvl 16, +105 %). The "build-file sheet" column below becomes the no-Frozen-Armor **sensitivity**, and the slvl-15 Frozen Armor column is superseded by § 7.3.
+
 **Defender:** Defence **1,472** vs melee and **1,722** vs missiles, dlvl **99**. Battle Orders does not change defence. **This supersedes the C-13 NO-DEX tables** (§ 13 and § 14.2 there are marked).
 
 **Method:** the same AR rows, roles, weighting and laws as C-13 stages 6–7 (`CtH = clamp(2·alvl·⌊100·AR/(AR+Def)⌋/(alvl+dlvl), 5, 95)`; missiles roll only if `ToHit` is set; casters auto-hit). Grades: INFERRED values through MODEL-VERIFIED laws on DATAMINED AR. The level term falls because dlvl rises from 90 to 99.
@@ -269,3 +271,93 @@ slvl = 1 hard + 8 all skills + 6 Sorceress skills (Oculus 3, Torch 3), +1 if BC 
 - **BO always on** (KP-436): use the "Charms + BO 16" sheet. Life **2,821**, mana 1,032, all else as in § 3.
 - **Mercenaries out** (KP-436): Infinity's Conviction and the Might aura are gone. Fire immunes stay immune.
 - **Still unruled:** Frozen Armor (precast; +100 % defence and freezes melee attackers); Battle Command (+1 all skills); the Oculus teleport.
+
+---
+
+## 7. Stage 3 (KP-437): Static Field added; Battle Command and Frozen Armor always on
+
+Files: `c14_stage3.json`, `scripts/c14_stage3.py` (derived from the stage-2 script; Frozen Armor slvl 16 is primary), `verification_stage3.log`. Captures: `captures/stage2/basin-Static_Field-raw.txt`, `d2moo-SkillsTbls.h`, `d2moo-SkillSor.cpp`, `d2moo-SkillItem.cpp`.
+
+### 7.1 Static Field, 1.13 law, at her slvl 16
+
+Her slvl is 1 hard + 8 all skills + 6 Sorceress skills + 1 Battle Command. No lightning-tree bonuses are worn.
+
+| Item | Law and value | Grade / source |
+|---|---|---|
+| **Radius** | `aurarangecalc` ln12 = 5 + (slvl−1)·1 subtiles. **slvl 16 → 20 subtiles = 13⅓ yd** | DATAMINED (Skills.txt row 42, Param1 5, Param2 1); Basin "(4+slvl)·2/3" agrees. MODEL-VERIFIED |
+| **Damage** | **25 % of the target's CURRENT life per cast** (calc1 = par4 = 25; minimum damage calc2 = par3 = 0). It is not scaled by slvl or by +% lightning damage | D2MOO `SkillSor.cpp` `SrvDo020_StaticField` / `AuraCallback_StaticField`; Basin. MODEL-VERIFIED |
+| **Hell floor** | In expansion games, **no effect if the target's current life is ≤ 50 % of max life** (DifficultyLevels `StaticFieldMin` Hell 50; Nightmare 33, Normal 0). The test runs **before** the damage, so one cast can take a target from just above 50 % to below it (e.g. 55 % → 41.25 %) | D2MOO (check before damage) + Basin ("unless target already has < 50 % life in Hell"). MODEL-VERIFIED |
+| **Boss / unique rule** | **None in code.** It applies to every unit in the aura filter, bosses included, subject to the same 50 % floor | D2MOO callback (no rank branch); Basin lists none. MODEL-VERIFIED |
+| **Resist** | **Lightning family.** Damage is reduced by **positive** lightning resist (LR 50 % halves it; LR ≥ 100 means immune). **Negative LR does not increase it**: the code pre-divides by (100 − LR) so the later resist step cancels out. **This kit has no −% enemy lightning resist** | D2MOO callback; Basin (resist reduces, negative LR does not increase it; only item −ELR can). MODEL-VERIFIED |
+| **Can it miss?** | **No.** Radial aura callback, no to-hit roll, no block (no physical damage) | D2MOO. MODEL-VERIFIED |
+| **Mana** | **9 per cast at every level** (mana 9, manashift 8, lvlmana 0, minmana 1) | DATAMINED; Basin "Mana = 9" |
+| **Casting delay** | **None** (`delay` blank). It casts at her normal FCR, 8 frames at FCR 105. The separate Lightning/Chain Lightning table does not apply | DATAMINED; animation packet § 3.1 |
+| **Timing** | Instant on the cast frame; it hits every eligible enemy in radius once per cast | D2MOO (`SrvDo020` runs the aura callback once) |
+
+### 7.2 The Oculus Teleport destination: SOURCED, not UNVERIFIED
+
+1. Teleport's Skills.txt row has **`ItemTarget = 2`** (and `ItemEffect` 1). DATAMINED.
+2. In D2MOO, `SkillsTbls.h` names `SKILLSITEMTARGET_RANDOM = 2` as *"Random walkable location in a radius of size 20"*.
+3. `SKILLITEM_HandleItemEffectSkill` → **`SKILLITEM_FindTargetPosition`** makes up to **10 tries** at `(x ± rand%40 − 20, y ± rand%40 − 20)` around **her own position**, i.e. a uniform square from −20 to +19 subtiles on each axis (**about ±13⅓ yd**). It takes the **first non-colliding (walkable) point**. **If all 10 tries collide, nothing is cast.**
+4. Teleport (`SrvDo027`) then moves her there, unless the area forbids Teleport (Levels.txt `Teleport` flag; towns).
+
+So **a struck proc teleports her to a random walkable spot within about 13 yd of where she stood**, not toward or away from the attacker. Grade: **MODEL-VERIFIED** (DATAMINED `ItemTarget` plus the D2MOO code path). Trigger and chance are unchanged from § 6.4: 25 %, level 1, when struck by melee or by a weapon/monster-damage missile.
+
+### 7.3 FINAL primary hit tables, WITH Frozen Armor (slvl 16, +105 %)
+
+**Defence by attack kind:** **3,017 vs melee** (1,472 × 2.05) and **3,267 vs missiles** (+250 Spirit), clvl 99. Casters auto-hit. Same AR rows, roles and laws as C-13 stages 6–7.
+
+Per-type best attack; median [p25–p75] (min–max), equal weight:
+
+| Attacker | **PRIMARY (Frozen Armor 16)** | Without Frozen Armor (sensitivity; = stage 2) |
+|---|---|---|
+| Normal, melee (57 types) | **52 [49–59] (40–72)**; slot-weighted 52 | 67 [64–72] |
+| Normal, ranged-physical (3) | **56 [52–56] (48–56)** | 68 |
+| Normal, caster | **100** | 100 |
+| Champion (lower bound) | **61 [58–67]** | 74 |
+| Unique (+3 levels) | **54 [51–60.25] (41–74)** | 69 |
+| Unique with Extra Strong | **64 [63–70] (53–80)** | 77 |
+
+**Named bosses** (melee / vs missile):
+
+| Monster | Primary | Without Frozen Armor |
+|---|---|---|
+| Grand Vizier of Chaos | **64 / 64** | 77 / 75 |
+| Lord De Seis | **70 / 69** | 80 / 79 |
+| Infector of Souls | **61 / 59** | 74 / 71 |
+| Diablo | **70 / 69** | 81 / 79 |
+| Baal | **76 / 75** | 86 / 85 |
+
+Grades: INFERRED (computed) through MODEL-VERIFIED laws on DATAMINED attack ratings. **The stage-2 build-file table without Frozen Armor is now the sensitivity.**
+
+**Frozen Armor at slvl 16:**
+- +105 % defence; duration 3,000 + 300·15 = 7,500 frames = **300 s**.
+- Freeze on attackers 30 + 3·15 = **75 frames (3.0 s) base**. In Hell a normal monster is frozen 0.75 / 0.50 / 0.375 s at cold resist 0 / 33 / 50. **Champions, uniques and bosses are only chilled.**
+- It triggers only on melee hits that deal physical damage (§ 6.3 law).
+
+### 7.4 Her final sheet (KP-435/436/437)
+
+Standard variant, clvl 99, charms, BO / BC / Frozen Armor always on, mercenaries out:
+
+| Quantity | Value |
+|---|---|
+| Life / mana | **2,821 / 1,032** (BO 16, +80 %) |
+| **Defence** vs melee / vs missile | **3,017 / 3,267** (Frozen Armor +105 %) |
+| Block | 11 % (3 % running) |
+| Resists after Hell + Anya | 75 / 75 / 75 / 75 (uncapped 90 / 125 / 125 / 125) |
+| FCR / FHR / FBR | 105 (8 frames) / 60 (8) / 0 (9) |
+| DR / magic absorb | 18 % / 8 flat |
+| **+skills** | all 9 (8 + BC 1), Sorceress 6, fire tree 11 → **+26 to her fire skills** |
+| **slvl** | **Fire Ball 46, Meteor 46, Fire Mastery 46, Fire Bolt 46, Inferno 46**, Warmth 27, Enchant 29, **Static Field 16**, Frozen Armor 16, Teleport 16 |
+| Castables | Fire Ball, Meteor, **Static Field** (KP-437) |
+| Buffs, always on | Battle Orders 16 (180 s), Battle Command 16 (155 s), Frozen Armor 16 (300 s) |
+| MF | 427 % |
+
+Life, mana, block and resists are unchanged by BC: BC adds skill levels only, and Battle Orders was already counted at 16.
+
+### 7.5 Belt (owed item): Arachnid Mesh
+
+Arachnid Mesh is the unique on **Spiderweb Sash `ulc`**. 1.13 `Armor.txt` gives `belt = 6` (DATAMINED), which is **16 slots = 4 rows × 4 columns**. Only the bottom row is hotkeyed.
+- Corroboration: Arreat elite belts list #Boxes 16; Basin lists Rows 4; a D2R mirror gives numboxes 16. **Belts.txt is not in the 1.13 mirror.**
+- **Grade: MODEL-VERIFIED.**
+- This was delivered in C-13 (`../2026-10-14-join1-c13-enemy-anchor/potions.json → d2.belt`, `potions_notes.md` item 10) and is restated here so the build file carries it.

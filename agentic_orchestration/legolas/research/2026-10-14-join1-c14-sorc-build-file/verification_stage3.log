@@ -1,0 +1,59 @@
+PRIMARY_buildfile_FrozenArmor16 3017 3267
+   melee 57 normal (52.0, 49.0, 59.0, 40, 72) slot 52 champ (61.0, 58.0, 67.0)
+   ranged_physical 3 normal (56, 52.0, 56.0, 48, 56) slot 56.0 champ (64, 61.0, 64.0)
+   caster 6 normal (100.0, 100.0, 100.0, 100, 100) slot 100.0 champ (100.0, 100.0, 100.0)
+   all 66 normal (52, 49.0, 59.0, 40, 100) slot 53 champ (61, 58.0, 67.0)
+   unique (54.0, 51.0, 60.25, 41, 74) ES (64.0, 63.0, 70.0, 53, 80)
+    {'name': 'Grand Vizier of Chaos', 'level': 88, 'ar': 7015, 'hit_melee': 64, 'hit_vs_missile_def': 64}
+    {'name': 'Lord De Seis', 'level': 88, 'ar': 9354, 'hit_melee': 70, 'hit_vs_missile_def': 69}
+    {'name': 'Infector of Souls', 'level': 88, 'ar': 5635, 'hit_melee': 61, 'hit_vs_missile_def': 59}
+    {'name': 'diablo', 'level': 94, 'ar': 8062, 'hit_melee': 70, 'hit_vs_missile_def': 69}
+    {'name': 'baalcrab', 'level': 99, 'ar': 9850, 'hit_melee': 76, 'hit_vs_missile_def': 75}
+sens_no_FrozenArmor 1472 1722
+   melee 57 normal (67.0, 64.0, 72.0, 56, 81) slot 67 champ (74.0, 72.0, 78.0)
+   ranged_physical 3 normal (68, 65.0, 68.0, 62, 68) slot 68.0 champ (75, 73.0, 75.0)
+   caster 6 normal (100.0, 100.0, 100.0, 100, 100) slot 100.0 champ (100.0, 100.0, 100.0)
+   all 66 normal (67, 64.0, 72.0, 56, 100) slot 68 champ (74, 72.0, 78.0)
+   unique (69.0, 66.0, 73.25, 58, 82) ES (77.0, 75.0, 80.0, 68, 86)
+    {'name': 'Grand Vizier of Chaos', 'level': 88, 'ar': 7015, 'hit_melee': 77, 'hit_vs_missile_def': 75}
+    {'name': 'Lord De Seis', 'level': 88, 'ar': 9354, 'hit_melee': 80, 'hit_vs_missile_def': 79}
+    {'name': 'Infector of Souls', 'level': 88, 'ar': 5635, 'hit_melee': 74, 'hit_vs_missile_def': 71}
+    {'name': 'diablo', 'level': 94, 'ar': 8062, 'hit_melee': 81, 'hit_vs_missile_def': 79}
+    {'name': 'baalcrab', 'level': 99, 'ar': 9850, 'hit_melee': 86, 'hit_vs_missile_def': 85}
+{
+"swap_items_plus_skills": {
+"Call to Arms (switch weapon)": {
+"all_skills": 1,
+"oskill_BO": 6,
+"oskill_BC": 6
+},
+"Spirit Monarch (switch shield)": {
+"all_skills": 2
+},
+"Harlequin Crest": {
+"all_skills": 2
+},
+"Chains of Honor": {
+"all_skills": 2
+},
+"Arachnid Mesh": {
+"all_skills": 1
+},
+"Annihilus (charm)": {
+"all_skills": 1
+},
+"not applying: Magefist (+1 fire), amulet (+3 fire), 7 GC (+1 fire), Hellfire Torch (+3 sorc), Oculus (main hand, swapped out)": {}
+},
+"all_skills_on_swap": 9,
+"BO_slvl_without_BC": 15,
+"BO_slvl_after_BC": 16,
+"BO_pct_without_BC": 77,
+"BO_pct_after_BC": 80,
+"BO_duration_s_without_BC": 170.0,
+"BO_duration_s_after_BC": 180.0,
+"BO_synergy_term": "(Shout.blvl + Battle Command.blvl) x 125 frames = 0: blvl counts hard points, and the Sorceress has none",
+"BC_slvl_first_cast": 15,
+"BC_slvl_second_cast": 16,
+"BC_duration_s_second_cast": 155.0,
+"planner_figure": "14 / +74 
+{'slvl': 16, 'slvl_note': '1 hard + 8 all-skills + 6 Sorceress skills (Oculus 3, Torch 3) + 1 Battle Command (always on, KP-437)', 'defence_pct': 105, 'duration_frames': 7500, 'duration_s': 300.0, 'freeze_length_frames_base': 75, 'freeze_length_s_base': 3.0, 'freeze_s_vs_normal_Hell_res0': 0.75, 'freeze_s_vs_normal_Hell_res33': 0.502, 'freeze_s_vs_normal_Hell_res50': 0.375}
