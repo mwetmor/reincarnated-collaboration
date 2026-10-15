@@ -115,3 +115,37 @@ KP-306 kept the stale "AGREES / = 0.2" `source_anchor` text "until the next J-S4
 - the re-predicted J-S4b ROWSET.
 
 `d2-fire-sorc-c14`'s **`d21dee9b…`**, the 572 rows and R-D2S1 are **approved as in v2**. elrond applies v3 after a narrow delta here.
+
+---
+
+## Addendum 2 — narrow delta on STAMPING PACKAGE v3: collab `d2e28cbc6` (generator engine `ce810948`). **BLOCK LIFTED: PASS. elrond may apply v3.**
+
+**The BLOCK grounds are discharged:**
+- `grade = 'CLOSE'`, `terminal_state = 'MAPPED'` (KP-443).
+- The deviation note now states every element § (1) and § (2) required:
+  - the binder identity, with 7/7 at every pin KP-330 → `833fee62`;
+  - **15 DISAGREE plus one categorical**;
+  - the **consumed** `eor_rank_total` (26 vs 20, B-09);
+  - **11 of 38** bindings reaching;
+  - **31 of the 82 unstamped rows bound** under KP-305's provisional convention, and **51 unconsumed**.
+
+**KP-444 (24 skillProgression points SPENT) is verified against the verbatim planner.** `build_file_standard_verbatim.json` → `profile.skillPos = 24` and `profile.skillProgression` = 3 × "36", 19 × "41", 2 × "52". v3 stores them as 24 VERBATIM `v_progression_NN_skillXXX` rows plus `v_skillpos = 24`. Base hard points 17 / 1 / 1 plus the progression give **Fire Bolt 20, Inferno 20, Enchant 3**.
+
+⚑ **Correction to my Addendum 1:** I wrote there that legolas's sheet "hard-coded 20 / 20 / 3" wrongly, and that the control would be RED against it. **Under KP-444 his 20 / 20 / 3 is correct.** The planner's base hard points omit the spent progression. That part of Addendum 1 is withdrawn. **legolas's C-14 sheet stands as the reference**, and the positive control runs against it.
+
+**Independent re-check of v3: all predictions reproduce.**
+- **SQL:** sha256 **`f9985251…`**, matching. It has 597 `kit_numeric` INSERTs.
+- **Scratch apply** on a fresh copy of the corpus of record (`2617c0c1…`):
+  - **J-S4b `59099b7d779f44b5…`** and **`d2-fire-sorc-c14` `bbc2db8943086e85…`**, both as predicted;
+  - `d2-fire-sorc` `db01da52…` and `gd-eor-warlord` `1819fd0c…` unchanged;
+  - **only J-S4b moved among the 591 existing kits**;
+  - the J-S4b `kit_numeric` count and sums are identical before and after (104 / 39,950.58 / 321.49), so **J-S4b moved only by its grade row**;
+  - the referent reads `CLOSE` / `MAPPED`, and `d2-fire-sorc-c14`'s grade is NULL;
+  - 597 rows with 0 where `rdr ≠ source`; integrity ok; FK clean.
+- **The sheet derivation** (engine `2af94243`, `join2_rulebook/d2/sheet.py`): `tests/test_join4b_d2_sheet.py` runs **5 / 5 green** on the current checkout. Its commit records the positive control `b51b4759` as GREEN: C-14 bit-exact on 2,821 / 1,032 / 3,017 / 3,267 / 11 / 75 / slvl 46, 46, 29, with negative controls and `SheetInputMissing` refusing.
+
+**Carried, not blocking:**
+- INFO-1 (CharStats in fourths; the adapter owns the ÷4, and the passing control covers it);
+- INFO-2 (the castable pin governs over the hard points);
+- INFO-3 (the conductor's explicit re-deferral of KP-306's stale `source_anchor` refresh);
+- INFO-4 (the `d2_input_base_item` label on a Properties parameter).
