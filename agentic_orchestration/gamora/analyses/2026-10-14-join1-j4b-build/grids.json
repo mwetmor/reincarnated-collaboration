@@ -1,0 +1,107 @@
+{
+ "all_nc_red": true,
+ "all_pass": true,
+ "engine_head": "833fee6238627b907590ebbeee4b9706c9db30c0",
+ "grids": {
+  "G-ABS-DOT": {
+   "bad": 0,
+   "pass": true,
+   "rows": 1
+  },
+  "G-FREEZE": {
+   "NC(res 0 frozen +1)": {
+    "red": true
+   },
+   "bad": 0,
+   "fa_L_75": true,
+   "first_bad": null,
+   "pass": true,
+   "rows": 22
+  },
+  "G-H1-C13": {
+   "NC(row 0 attack 0 def_mid +1)": {
+    "red": true
+   },
+   "bad": 0,
+   "first_bad": null,
+   "pass": true,
+   "rows": 576,
+   "tally": {
+    "caster": 108,
+    "null": 3,
+    "rolled": 279,
+    "unique": 186
+   }
+  },
+  "G-H1-C14": {
+   "NC(row 0 attack 0 hit +1)": {
+    "red": true
+   },
+   "bad": 0,
+   "caster_or_null_attacks": 37,
+   "first_bad": null,
+   "note": "unique / ES halves: per-attack values computed from stage-7 AR at the FA Defence and checked against stage 3's per-attack rows AND its summaries (jack-ryan INFO-1)",
+   "pass": true,
+   "rows_rolled": 372,
+   "unique": {
+    "max": 74,
+    "median": 54.0,
+    "min": 41
+   },
+   "unique_es": {
+    "max": 80,
+    "median": 64.0,
+    "min": 53
+   },
+   "unique_summary_reproduced": true
+  },
+  "G-LVL": {
+   "NC(fire_ball slvl 46 min +1)": {
+    "bad": 1,
+    "red": true
+   },
+   "bad": 0,
+   "first_bad": null,
+   "pass": true,
+   "rows": 600
+  },
+  "G-REFUSE": {
+   "bad": 0,
+   "cases": 5,
+   "messages": {
+    "AttackerTierUnresolved": "AttackerTierUnresolved: 'nobody'",
+    "ControlFamilyUnmapped": "ControlFamilyUnmapped: 'Banish'",
+    "DotFamilyUnmapped": "DotFamilyUnmapped: 'SlowMystery'",
+    "IntakeFamilyUnmapped": "IntakeFamilyUnmapped: ['Acid']",
+    "PortOnlyKit": "PortOnlyKit: d2-fire-sorc: D2 kits are PORT-EMITTED (ENGINE-GRID + ROW-REPLAY); the engine does not emit them"
+   },
+   "pass": true
+  },
+  "G-REGEN": {
+   "bad": 0,
+   "base_refill_frames": 3003,
+   "cases": 5,
+   "pass": true
+  },
+  "G-SKILLS-TXT": {
+   "bad": 0,
+   "cells": 85,
+   "first_bad": null,
+   "pass": true
+  },
+  "G-TIME": {
+   "bad": 0,
+   "pass": true,
+   "rows": 20000
+  }
+ },
+ "inputs_sha256": {
+  "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07",
+  "c14_stage3": "3290ab0a84f0e693f7c4dff08d14bc01658aa232293f0cc8fb3b129ec04ccf80",
+  "c14_stage4": "58a7c8c620876fd133090f4a6a767e205def04e8283f774d4278a1e8c605c151",
+  "d2_hit_chance_r1": "2a857cab46f6bdc9416a69591a2f24cdf96ddcd217987045404d7348556d7dcb",
+  "d2_unique_ar_r1": "e0f5b91ee67eca5174b00fdd4182ec2d0078703c6eab36a4408475534d0826ef",
+  "primary_rows": "0ade1f7f6fe16950cfd36165952438bcfc0974581044b385d40ea5dcbfeebe32"
+ },
+ "kc2_tree": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7"
+}
