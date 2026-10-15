@@ -1,0 +1,137 @@
+{
+ "artifact": "JOIN-1 KP-439 pack v4: first cut (superseded) + RE-CUT gate evidence, controls with raw outputs",
+ "author": "star-lord",
+ "first_cut": {
+  "G-10": {
+   "name_status": [
+    "A\tsrc/reincarnated/export/kc2_rulebook_pack_v4.py",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/manifest.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/anchor_d2_gd.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/families.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/hooks.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/hooks_j4b.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/kit_d2_fire_sorc.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/kit_warlord.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/kit_warlord_crit.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/laws.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/laws_crit.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/meta.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/offense_da.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/offense_da_population.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813/rulebook/world_gd.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-cut-receipt-20261014_230813.json"
+   ],
+   "ok": true
+  },
+  "G-8": {
+   "note": "both NO VERDICT (gamora committed 4d5d4611 / 270407d7 / 84f5498f during the runs); not re-run: superseded by the re-cut",
+   "run_1": {
+    "Bprime": true,
+    "dir": "s47v4",
+    "instrument_pinned": true,
+    "reason": "HEAD moved during the run: 4d5d4611b16053d19218d4564f369c3bfb914a7c -> 270407d7cef9698b7e96548fd177aafc4837f6b7",
+    "verdict": "NO VERDICT"
+   },
+   "run_2": {
+    "Bprime": true,
+    "dir": "s47v4-r2",
+    "instrument_pinned": true,
+    "reason": "HEAD moved during the run: 270407d7cef9698b7e96548fd177aafc4837f6b7 -> 84f5498fd1781621eccbd50faa99ae903fc5a3cd",
+    "verdict": "NO VERDICT"
+   }
+  },
+  "controls_as_predicted": true,
+  "controls_raw": {
+   "NC-V4-a": "controls/NC-V4-a.raw.log",
+   "NC-V4-b": "controls/NC-V4-b.raw.log",
+   "NC-V4-c,d": "controls/NC-V4-c-d.raw.log"
+  },
+  "cut": "2f4f61e0",
+  "pack_digest": "48c6d891c3c7201c47498a70bf95695013661447a34ae378baae3c958fcc9495",
+  "prereg": "71a91d55",
+  "status": "SUPERSEDED (stale: ADDENDUM-10 c9a6cd47 landed 22:59, 8 min before the 23:07 prereg; listed as pending). Never bound."
+ },
+ "recut": {
+  "G-10": {
+   "name_status": [
+    "A\tsrc/reincarnated/export/kc2_rulebook_pack_v4_recut.py",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/manifest.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/anchor_d2_gd.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/families.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/hooks.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/hooks_j4b.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/kit_d2_fire_sorc.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/kit_warlord.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/kit_warlord_crit.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/laws.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/laws_crit.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/meta.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/offense_da.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/offense_da_population.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/rulebook/world_gd.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/tables/anchor_ar_eq_table.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/tables/anchor_ar_eq_table_unique.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246/tables/physical_contact_table.json",
+    "A\tsrc/reincarnated/output/kc2-rulebook-pack-v4-cut-receipt-20261014_232246.json"
+   ],
+   "ok": true,
+   "predicted": 19
+  },
+  "G-8": {
+   "Bprime": true,
+   "cut_is_ancestor": true,
+   "head_end": "c3cf0e3dbff79b8ad74438515d2b2165d895ea91",
+   "head_start": "c3cf0e3dbff79b8ad74438515d2b2165d895ea91",
+   "heavy_lock": "none taken",
+   "instrument_pinned": true,
+   "ok": true,
+   "oracle_children_opened_file_scan": {
+    "head": {
+     "instrument_sees_data_reads": true,
+     "module_hits": [],
+     "n_opened": 631,
+     "pack_path_hits": []
+    },
+    "sealed": {
+     "instrument_sees_data_reads": true,
+     "module_hits": [],
+     "n_opened": 718,
+     "pack_path_hits": []
+    }
+   },
+   "reason": "HEAD fixed; A and B and B' pass",
+   "s47v4_evidence_FILE_sha256": "d575d3114e2b6fd5aea36ae5b398f505cd77cfc249a7040642fc3c2e342bd27d",
+   "verdict": "ORACLE BYTE-IDENTICAL"
+  },
+  "controls": {
+   "NC-V4R-a": {
+    "as_predicted": true,
+    "log": "recut/controls/NC-V4R-table-drift.raw.log",
+    "observed": "HALT; 1 difference (fire_ball, 46, fire_min, 669.0 vs 668.5)"
+   },
+   "NC-V4R-b": {
+    "as_predicted": true,
+    "log": "recut/controls/NC-V4R-value-drift.raw.log",
+    "observed": "HALT; 1 failure RB-K-life_d2 (pre-rename id)"
+   },
+   "NC-V4R-c": {
+    "as_predicted": true,
+    "log": "recut/controls/NC-V4R-table-digest.raw.log",
+    "observed": "HALT; 1 failure RB-A-anchor_ar_eq_table"
+   },
+   "NC-V4R-d": {
+    "as_predicted": true,
+    "log": "recut/controls/NC-V4R-d-e.raw.log",
+    "observed": "verify rc 1, ['tables/physical_contact_table.json']; load_layer refused"
+   },
+   "NC-V4R-e": {
+    "as_predicted": true,
+    "log": "recut/controls/NC-V4R-d-e.raw.log",
+    "observed": "10/10 refused; clean JOIN kit 73 rows"
+   }
+  },
+  "cut": "c3cf0e3d",
+  "pack_digest": "022a7068df5634d68a2774bb18aec938de5602ca05c223b8aa63f3236f381d95",
+  "prereg_delta": "216bf806"
+ }
+}

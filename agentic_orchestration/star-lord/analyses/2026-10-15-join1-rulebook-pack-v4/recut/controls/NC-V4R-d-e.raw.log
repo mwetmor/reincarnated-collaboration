@@ -1,0 +1,47 @@
+clean dry pack: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v4rdry7/kc2-rulebook-pack-v4-20261014_232121
+NC-V4R-e load_operands 'ORACLE' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4R-e load_layer 'ORACLE' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V4R-e load_operands 'PLAY' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4R-e load_layer 'PLAY' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V4R-e load_operands 'join' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4R-e load_layer 'join' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V4R-e load_operands '' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4R-e load_layer '' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config '' refused (A-12).
+NC-V4R-e load_operands None REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4R-e load_layer None REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config None refused (A-12).
+clean JOIN kit rows 73
+tampered copy: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v4rnc_d_pack
+offset 185828 was o
+NC-V4R-d verify rc 1
+{
+ "ROWSET_equal_manifest": false,
+ "ROWSET_rederived": {
+  "rulebook/anchor_d2_gd.json": "3823b560f4bbb69770165dced36ff3d49e3db7e899535b19253edaf11cc674e5",
+  "rulebook/families.json": "26d88b36cc6d3e965f17ff76eaac6dec547dd7249e4c8a124f04135bf44907a4",
+  "rulebook/hooks.json": "6a856ca35e5b42082b7a804b35cb529ada185afa64322166641e75ebe3ced5f3",
+  "rulebook/hooks_j4b.json": "6e25bb65911a8f51f4d267e922bb89d6701c27458ba02370a31d6bb48a244ec9",
+  "rulebook/kit_d2_fire_sorc.json": "b33ea90845bceed14ebab95fb4e9a3574e67cfd8b7392bfc11fb3a124ecef319",
+  "rulebook/kit_warlord.json": "3b47b5e4bd80c3a8229ebe4125063d751fc4a5d0d0cb9c6b605acf2ebf4ba1f6",
+  "rulebook/kit_warlord_crit.json": "9be797233f931d8d6927da725abd0ef2f990444221cd14a348dbdfc28f541071",
+  "rulebook/laws.json": "efaf306cc885ebdcb4677abe4f56aaaef593e256fb36a8ca7d1eda0b9cad49eb",
+  "rulebook/laws_crit.json": "9c6bf3457ff513cd639732864d763e26be138026ab26554f8c8c007b89acad66",
+  "rulebook/meta.json": "132aea5809038b13272ce794a67444277602a902a264144e524521acaac148d3",
+  "rulebook/offense_da.json": "a74e96228d9536f4cfbecc36a9f999db6927c37f9a72ebce15c367621a8dd093",
+  "rulebook/offense_da_population.json": "cfa9cda683c40f56277a843e680acee169d5a6c5e8e8bcf279626996e0b73862",
+  "rulebook/world_gd.json": "f0f30cf9a4babe9bfab75d996e4cc98aedcfb7ba2e3062257656bf50d3337d0c",
+  "tables/anchor_ar_eq_table.json": "536637a111877b5c81e7b4421c1aed2b53011e1242654a8932781a88267d757c",
+  "tables/anchor_ar_eq_table_unique.json": "d2594c518499a8b7b18df02d037f24a1831c20587e1ff3a03cdebff042aae96c",
+  "tables/physical_contact_table.json": "9a034d563b01c49e466896f064f374a61944af02a2570b2280b6ed802dfc16c4"
+ },
+ "dir": "v4rnc_d_pack",
+ "manifest_FILE_sha256": "f8ba4202b34d907ac60b60f63e9e585a576398f357fb73e3c37faa067f52d530",
+ "manifest_pack_digest": "022a7068df5634d68a2774bb18aec938de5602ca05c223b8aa63f3236f381d95",
+ "member_failures": [
+  "tables/physical_contact_table.json"
+ ],
+ "n_members": 16,
+ "recomputed_pack_digest": "8c4420b1f5ee4ce63fe02780c33053d7912e28127d6240f7a33c2a4f5377b232",
+ "self_consistent": false
+}
+
+NC-V4R-d load_layer REFUSED: pack digest / member digest check failed: ['tables/physical_contact_table.json']
