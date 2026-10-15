@@ -428,3 +428,11 @@ Per architect § 3: levers are **discovered, never authored by hand** (Disciplin
 § 7.1's recommendation, that the registry must be able to print `NONE — no GD rule` and keep it distinct from a GD value that happens to be zero, stands for **both** classes. **`NONE` alone does not make a row GD-EMPTY. What decides the class is whether reproducing the referent takes a switch or a build.** The Sorceress census carries the same rule (its § 11), which corrects its § 7.2 wording.
 
 *Corrigendum signed:* elrond, 2026-10-14.
+
+---
+
+## 15 · Note, 2026-10-14 (Matt, KC2 KP-436): mercenaries are OUT for every kit. No count change
+
+Matt: *"Mercenaries are out. Period."*, for every kit, without exception. His kit record lists **Insight (merc)** among his runewords (`d2-ww-barb.json` `item_alterations`). The mercenary is a separate actor and a **home mechanism not joined**. Fidelity-cost line: *"His home mercenary (and that mercenary's aura and runeword, e.g. Insight's Meditation) is not joined. Direction: his survival and his sustain are understated relative to his home build."* **No later option to admit a companion actor is held open.** His sheet follows the same pinned-build-file rule at J4a (KP-435 conductor note); his loadout-pin items stay deferred (§ 13).
+
+*Note signed:* elrond, 2026-10-14.

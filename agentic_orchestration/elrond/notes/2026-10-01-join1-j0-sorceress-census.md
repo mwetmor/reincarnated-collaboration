@@ -450,3 +450,20 @@ A `NONE` referent can occur in either class. **What decides the class is whether
 **Correction to § 7.2.** In row 19's reasoning, the bullet "Not GD-EMPTY" opens: *"P0 § 7.1 reserves GD-EMPTY for a boundary question with no GD rule at all, where the registry's referent must read `NONE`."* That definition also describes rows 17 and 24, which are WIDEN. It is **superseded by the rule above**. Row 19's own class is unchanged: its referent is a measured 0.0, and `gd` reproduces REFERENT-v1 by a setting, so it is WIDEN under either wording. P0 § 7.1 carries the same rule (P0 § 14).
 
 *Corrigendum signed:* elrond, 2026-10-14.
+
+---
+
+## 12 · Addendum 5, 2026-10-14: her build file is pinned (Matt, KC2 KP-435 / KP-436); the mercenary is OUT. No row added, count unchanged at 27 / 18
+
+**Source.** Matt, KC2 **KP-435** (her endgame sheet comes from a pinned build file) and **KP-436** (collab `0ac88e6ef`). The build file is legolas C-14, `agentic_orchestration/legolas/research/2026-10-14-join1-c14-sorc-build-file/`: the Maxroll S14 Meteor guide, **Standard** variant, verbatim (planner profile `gca1a0l6`, `build_file_standard_verbatim.json`), resolved in 1.13 (`sorc_build_sheet.json`). Matt's three rulings:
+1. the Standard variant, as written;
+2. **Battle Orders always on**, as a precast buff held for the run (a sheet operand, checked against fight length);
+3. **"Mercenaries are out. Period."**, for every kit.
+
+**What this addendum records.**
+
+- **The mercenary: a home mechanism not joined.** The build file equips an Act 2 mercenary (type 11, level 98): Infinity on an ethereal Giant Thresher (Conviction aura level 12), ethereal Fortitude, ethereal Andariel's Visage. The guide's prose names a Might-aura mercenary and pairs him with Static Field "to take out Immunes". **The mercenary is a separate actor, and he does not join.** Fidelity-cost line: *"Her home mercenary (Infinity Conviction: lowers enemy resists, and in 1.13 can break some fire immunities; Might; his own damage, body and aggro) is not joined. Direction: her offense against high-fire-resist bodies, and her survival (he draws attacks), are both UNDERSTATED relative to her home build."* **By Matt's ruling, no later option to admit a companion actor is held open.**
+- **The sheet source changes; the census does not.** Her sheet operands (life, mana, Defence, block, resists, FCR/FHR/FBR, damage reduction, +skills) are now read from the pinned build file instead of the KP-428 defaults. Every one of them is already an operand of an existing row. The sheet is data; it adds no mechanism.
+- **The build-file sweep against this census is with the conductor** (one batch, returned 2026-10-14). **No row is added here.** Any row the conductor admits is recorded as its own named finding.
+
+*Addendum 5 signed:* elrond, 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
