@@ -1,7 +1,7 @@
 {
  "form": "join2_rulebook/d2/locks.py",
  "l21": {
-  "attack_on_gethit": "freeze",
+  "attack_on_gethit": "reset",
   "divisors": [
    16,
    8,
@@ -3061,6 +3061,7 @@
      "drew": false,
      "gethit": false,
      "locked_until": 0,
+     "reanchor_at": null,
      "tier": "none"
     }
    ]
@@ -3082,10 +3083,11 @@
    "name": "tier50_odd_gets",
    "observed": [
     {
-     "attack": "freeze",
+     "attack": "reset",
      "drew": true,
      "gethit": true,
      "locked_until": 8,
+     "reanchor_at": 8,
      "tier": "draw50"
     }
    ]
@@ -3111,6 +3113,7 @@
      "drew": true,
      "gethit": false,
      "locked_until": 0,
+     "reanchor_at": null,
      "tier": "draw50"
     }
    ]
@@ -3136,6 +3139,7 @@
      "drew": true,
      "gethit": false,
      "locked_until": 0,
+     "reanchor_at": null,
      "tier": "draw75"
     }
    ]
@@ -3157,10 +3161,11 @@
    "name": "tier75_mod4_nonzero_gets",
    "observed": [
     {
-     "attack": "freeze",
+     "attack": "reset",
      "drew": true,
      "gethit": true,
      "locked_until": 8,
+     "reanchor_at": 8,
      "tier": "draw75"
     }
    ]
@@ -3182,10 +3187,11 @@
    "name": "quarter_always_no_draw",
    "observed": [
     {
-     "attack": "freeze",
+     "attack": "reset",
      "drew": false,
      "gethit": true,
      "locked_until": 8,
+     "reanchor_at": 8,
      "tier": "always"
     }
    ]
@@ -3211,6 +3217,7 @@
      "drew": false,
      "gethit": false,
      "locked_until": 0,
+     "reanchor_at": null,
      "tier": "none"
     }
    ]
@@ -3242,17 +3249,19 @@
    "name": "relock",
    "observed": [
     {
-     "attack": "freeze",
+     "attack": "reset",
      "drew": false,
      "gethit": true,
      "locked_until": 8,
+     "reanchor_at": 8,
      "tier": "always"
     },
     {
-     "attack": "freeze",
+     "attack": "reset",
      "drew": false,
      "gethit": true,
      "locked_until": 13,
+     "reanchor_at": 13,
      "tier": "always"
     }
    ]

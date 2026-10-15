@@ -16,3 +16,8 @@ The forms were built in the engine, each commit ALONE (failing tests first, then
 - **`tape_sample_M0_s0_block.json`:** a 100-value sample tape (`block:d2-fire-sorc`, M0 salt 0), showing the serving format.
 
 Nothing here has been shipped to drax. The conductor releases.
+
+## Re-emitted after CORRIGENDUM-4 (engine `ae5b67bb`; code `d071f249` / `3f54a448`; failing tests `e0973a8e`)
+- **`locks_grid.json`:** L-21 is now RESET (`reanchor_at` = lock end).
+- **`tape_sample_…`:** now on `block:d2-fire-sorc-c14`. The stream ids carry the kit id, so every seed changed.
+- Emitted at engine `3f54a448`; J4b suites 129/129 in the dedicated worktree.
