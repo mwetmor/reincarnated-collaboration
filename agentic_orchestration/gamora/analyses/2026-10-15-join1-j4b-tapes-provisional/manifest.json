@@ -1,0 +1,1728 @@
+{
+ "cells": [
+  [
+   "M0",
+   0
+  ],
+  [
+   "M0",
+   1
+  ],
+  [
+   "M0",
+   2
+  ],
+  [
+   "M0",
+   3
+  ],
+  [
+   "M0",
+   4
+  ],
+  [
+   "M-POL-2",
+   0
+  ],
+  [
+   "M-POL-2",
+   1
+  ],
+  [
+   "M-POL-2",
+   2
+  ],
+  [
+   "M-POL-2",
+   3
+  ],
+  [
+   "M-POL-2",
+   4
+  ],
+  [
+   "M-POL-2-NULL",
+   0
+  ],
+  [
+   "M-POL-2-NULL",
+   1
+  ],
+  [
+   "M-POL-2-NULL",
+   2
+  ],
+  [
+   "M-POL-2-NULL",
+   3
+  ],
+  [
+   "M-POL-2-NULL",
+   4
+  ],
+  [
+   "W1",
+   0
+  ],
+  [
+   "W1",
+   1
+  ],
+  [
+   "W1",
+   2
+  ],
+  [
+   "W1",
+   3
+  ],
+  [
+   "W1",
+   4
+  ],
+  [
+   "W1-NULL",
+   0
+  ],
+  [
+   "W1-NULL",
+   1
+  ],
+  [
+   "W1-NULL",
+   2
+  ],
+  [
+   "W1-NULL",
+   3
+  ],
+  [
+   "W1-NULL",
+   4
+  ]
+ ],
+ "emitter": "gamora_join4b_tapes_2026_10_15.py",
+ "files": [
+  {
+   "arm": "M0",
+   "file": "M0_s0/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 0,
+   "sha256": "3cbff6caceedffa1409b9f2f95a6b68d8260462d9ddc254250e7a85d49c00f93",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "a4b2766fbe58aa321f67a893293aed01c466883965bf68d29ac6de97e5adffc0",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "355eebd4c3d95d7c5043e5aa2359b8933f9196b01a13c04870fca22028c37e3c",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 0,
+   "sha256": "d0db7f6a4655ea25574b7c822ef9bb7f82def0373fd2e8281473574510e230e5",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "22acb231c518d3b1316458a167a7bf59ffddf8d0a9db6f9cb6579dc4f1d2e833",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "1f15c0bf2d7f842ccba5d44c571408de2f69f9baba1881b8a856ebe2fda8d639",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "d1bf94b3708f74ca9e9118fd96edbc4ca18785b7d7e822eba3dd75a7417e8e62",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s0/gethit__warlord.json",
+   "n": 200000,
+   "salt": 0,
+   "sha256": "d141cffcb3c868b2db895b85cc4771921d003331774492759ed30d25d24d1450",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 1,
+   "sha256": "5c69266a20f87ef6fb28517554fee8f8ac68e7d4095eff06b38c168cba28e65f",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "81f4b279897fdc3c17549d85d41a4137719d489ac4e44f0c05bc28d2d4f0f0e5",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "135ef12f29c8008ac37c9e0b326d9d5821ec5f35ed03c839d76e83efe90b4ea2",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 1,
+   "sha256": "2a914ef86ccfe4bd4fc55ad9f57d1b00653e64a50df77f68d51cbf947c8ca9a2",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "858637ace730ca3bc019273e2599d6ed278f85d5e7d374aef2c02ddec6dd71c2",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "4a90dafbda428201a597e04b3ca40442bfabbd0fd15432533e1e98358e9eca6a",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "30de790b6be6f8999a1f0e375f6c5204ceb056a73567f51aaebefc70e4cdb14c",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s1/gethit__warlord.json",
+   "n": 200000,
+   "salt": 1,
+   "sha256": "15e3d3794ffbfa559387cc5b95f953aa01732d9ae5fa0c73f91c5f398fff6ea0",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 2,
+   "sha256": "df75de98777f9c30abfd5d95d3206aae1238371dabef0ae1366bf502e7c83b94",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "804e77b107648e0febfc85fa58766b323dfc36ab807d13fb3719925f0282ba27",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "b8aa6e082e6ea113a692ce2a8c34d068273618afb0ddc14b9a24c41b32f1bc5e",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 2,
+   "sha256": "086dfe9aa729586b42c2829d648268c27def1aec03350c3d89533eb7e92b6582",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "643fb7868f2549e998d5983b1836d1996b6bedbe3a93f56fff8b0c51b9e99947",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "4ffe6ee16ad7c2aaf2060632e9eceb207d2277988b7ea30fe12dd28ffbd6467b",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "3dcfa222a5116a80716ed13b0b9463e97194005d3e00c7c20f09217b1110ec74",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s2/gethit__warlord.json",
+   "n": 200000,
+   "salt": 2,
+   "sha256": "938c1ebc81f44973f8392739e7e92afd8103745619862b4df10123fcfb1eaaea",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 3,
+   "sha256": "69dfe32c3a40ee3cb01b721c9e83f62703d8585a3259d3cca3e4aed312adc6fe",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "8dfa0b6dac205f89b976386d3030d3a3635c496880f435f20be6ab531a39ca7e",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "874a15f2d43305f9d79063af12a5969c2d5df0507e019bce7137d70c252f7c05",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 3,
+   "sha256": "c184e3337d12d3bb877fdab5dba37ab6fe68d04a1ccd0b348f0e5360576a6591",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "fc3a2ec1e851e2f533a65b71d2531cff5e33feb1b1a6f35bdfa4d8cb1f735871",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "25306192cade88a3dde1267f4d6d1361cb29db842e0b45ac4858e888e16796d5",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "6845767a3019a939a4e0983893b33ad5ccc4ebba27b26d461359c18bcf7ce3f7",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s3/gethit__warlord.json",
+   "n": 200000,
+   "salt": 3,
+   "sha256": "e3acd3cf2903014972ec79ab4a2c8a07d28bc64b0ab8f9a86d05e15947448b2a",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 4,
+   "sha256": "f24f2a502acd6089385b92063fb754350529bef6cdfacedf8b92be13d0322b8d",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "b8aaaa254e8d53104b084ccd8e9bf138427d2d13a13a0bc1557d9e2f141480b2",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "76ca21b17ddb40b052adaee356a6a88a9bc6093cdbb7deb8dd4adc8ee6e3c973",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 4,
+   "sha256": "de326407cfa8210e6817e3ec0d49dea89ef9ab2793b8ca6aca212dca55dcdd6b",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "ea6e284c4c6dfcd4ae48f0c537da9408501c466bc845bf60c9faead0c45c538f",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "8534dc2dec7814830f34b8a187bdd72cc5e1b67cb57e1239eeffb1d25404f131",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "fc50a04309819d5edd57a420207a8f4ed00b93570fe8b7ae0d72021fde031d1d",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M0",
+   "file": "M0_s4/gethit__warlord.json",
+   "n": 200000,
+   "salt": 4,
+   "sha256": "1a1612c6096d2da477ba8e40742c8daa97b2308cc148c96467f3a9d4ec9c2b6f",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 0,
+   "sha256": "7325a43d7cf8cc74f95619157006020e5e68696bca690256bfd56d1719d5c9ae",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "6848e186c49787661087304cf9b7da725c350651eb451c898a7825db7343aa99",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "669656c695906e0e28e47a1dab8b21488fce2eba6cd517b69a423d7b6efc11a4",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 0,
+   "sha256": "f392bd3146a59642121e22e2a8d4d040c38336a2c8d3eb4ee5dfad85e6fd764d",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "ce44ac1c5f9694bf69a043a361feaddf1249adbd2acc5b65014cc4d45e0e640a",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "0609b3ba624c5d4e6a64d10e296382cd0004cf508a0ba0159c360d0b04464293",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "075b8f1e088ce3b1064b54dd1ef8493ec20c1b36c2b2ed9e13318e558610c608",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s0/gethit__warlord.json",
+   "n": 200000,
+   "salt": 0,
+   "sha256": "c636d8f1de575d988a27b42c4172914673e89928962dbb72b577a6a001608b44",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 1,
+   "sha256": "afcd82d385d4860d0617f5d4911e33018c9426d74037c4245b042cf64d573dea",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "210acb6e46b20d4537b018961e963698996596198f4c7b1d2a8f2dada9d029dc",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "565753dd0d34a08788b84985d237b74c2aeceb627aa5844993f492d4ee04a666",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 1,
+   "sha256": "b8dd5b7e589ae7a9c3943d73d6a0acea31dd2331ff6de8cdd7259f6b543c6ec5",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "49247e20c900a75c321d9747a75493e49c71cf796ed706d4b7ae6e9e35cc50e7",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "e21a830df86ae02029cf8173938aa478018009b921344d70cb70ae4d612ddfec",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "6aca129da33e7d870b886a7ea7798d60c60f790121da981c720ff7f6f7c60285",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s1/gethit__warlord.json",
+   "n": 200000,
+   "salt": 1,
+   "sha256": "9bd13a205f463e76cec81003ddffdd380208d8119d7384e9f29f5a5927c61b86",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 2,
+   "sha256": "2885b52227b6acd7e5f34db1ef405ec7749867925848a5b5162b85d7a8963d57",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "ac54debcd35acd104e2fa94f8beda03f1f74a70dc7e962f38e295224c3b30c1b",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "f2ac592e23e82319266f55b7264781738cd2106d5b0e2cea51ef3b43c1f293c1",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 2,
+   "sha256": "d673bbaba8b9a60120523bfa1957c21dd5f4eb364af61646903ce2c586b28dd5",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "7c23df5c66a3541cbfe8ec038fb3ddce3828edde4b3474310b812d7719dbc086",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "7f3e72c9120a5abe45626a844524d66ddf0e765c33f9808acdab317551e129b3",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "cc75581dc890f392ecfb624b7ded5624ae212e4331a97cf897d9c7f80498144e",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s2/gethit__warlord.json",
+   "n": 200000,
+   "salt": 2,
+   "sha256": "53ce25c4da5ffc478a3ed5783bdc90270871cdc054b235039a7ad740bd10ead4",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 3,
+   "sha256": "1cca6c22eed23be091ef2727539e64c7c852b3ed5c70ae1400e23d3ca3d0cad8",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "67d567faadabedefca16f99ff6df32be98271df5f4afc294bb3d390fb4e1f7d0",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "42fa83ed3d92debff8d039828f9040294b2c0bfb2280568b4659cbfc746db1f9",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 3,
+   "sha256": "8084b49b1ef86b8aa76ddf230988766ee207318f0b12fd407ce29d76d73e5213",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "815174f188da688716ebee055c311702ec7726214b48cbd3ffd41487ec649692",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "85c7aa95d2bbe3a0347c86902e235c364ab61de7c882a3edaf0b24ec8297305f",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "cdb1099d78c556bd4b70c1f716991e21f91c4c5c4a9a83900c7de21db1202b66",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s3/gethit__warlord.json",
+   "n": 200000,
+   "salt": 3,
+   "sha256": "e58c1e933be85bf7a87d01e0870159a8f025e7a1491fc2aaa2520ee188404b6c",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 4,
+   "sha256": "69abf8a0bebec1ee52e457e305a5d9d7b6c3d4fc72bd685ea0597486e5d0d1b7",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "81aec54f07675fefa01e9fb2c6e62a4badd930cfb3dd4a445384059f8bc5cbfc",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "00e379a983cdcec30ab7057be87dd6f2b202cc79b2051afd0406e8dc3d7bd205",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 4,
+   "sha256": "3a8a5940dcadac77da805dd7b24dca913535403a970a80ab1b7766a2f45fc1f2",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "6c5ff87331c3614d2007299769bc8eb0987046e39f2c13a26a12b356208621d6",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "06d18c77ce57341b3342443541a1ab4777a44b2744e72ffe47d4154a36828e38",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "76a7e859875aec22e83bfb0b254cd822e229a6aa0b471ba9c4e3e19fff9256dd",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2",
+   "file": "M-POL-2_s4/gethit__warlord.json",
+   "n": 200000,
+   "salt": 4,
+   "sha256": "1952093b7c2ab84cb2886c0d51d6df446bd122d9f994508a988359b6eb81fb85",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 0,
+   "sha256": "958c13c805ee71f92b323a8e8a3c4ed48f11c37da1164ff2852404f08ccc1f72",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "8cdb4d609ab68b7f94c28b8c937ae14d13c0b86b838016ac5711fcbc47f30247",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "4d9a51c1f94c3232ab20b2b15de7ec530d65cf8b04cf42143cb9336881f36eba",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 0,
+   "sha256": "8ecb09b45afc801c027acda361fd5e67ccffbf59fd1fa2419edbf9c41c91bc5f",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "8eb28577f003bd8f402dee70bee23a1cd192268a683832fdbe47a40c777de8cc",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "0d30a3f5f98b7153193c2f67b1553bf7cbfdea87c2d7d4908792fe7fd29b7ed8",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "d41d8d69525bb1c5ce4972d35409a10408a039770346b8d466a6608e1b3c812c",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s0/gethit__warlord.json",
+   "n": 200000,
+   "salt": 0,
+   "sha256": "f3c54ebd647aa3eaa4fafe149d5f1ed571db1c1f7c2df1d578b70dc1a25bce48",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 1,
+   "sha256": "cb6e503e3592a2f549fa39d9ea24f0e09f79ff8957a987a10a75312ea08ef349",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "053f73b0f88bbbf72cb11e747c1244c7da1ac8ae8cac397a47b85d3f3006c6ac",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "2ed5c16a3d99fc33e423e7008712832aa8c2ea98e381619c914257762630f0e5",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 1,
+   "sha256": "324af68abfd536047cc02cb2c11aecd958fb7956ce82c02e29e2b6cef4eba7b8",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "153a68ca85f515b5adc8b8c375bfcdaf07a785269f422554c1e174792eaa45b7",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "a50a452343f37b3a1d9e9acc74a0aec921552eff8de6ddbf54c6df82478a10cb",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "b3933edcf1554d342e7784516779b745f7d0ff43c085ee1ea06e21b5dbe92a0c",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s1/gethit__warlord.json",
+   "n": 200000,
+   "salt": 1,
+   "sha256": "ca936c1882bb0056ac9f16acafdcac909ef94d85e392453d7c44e4c92c37fa31",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 2,
+   "sha256": "e304a4afbf4c8582dcaefa47559f15007e5d415ddbd08110fde3ba67ecbf236f",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "e9a32873968640dd8d9885c0dce85f788c97aedc01b7a8a656e6e953aa1f1551",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "2c2fd4db0e9fc5a0d17c7f60dbbcb6075767b7733c45a14e8036c6e18e2a063f",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 2,
+   "sha256": "54ceda9c7f538c3c159f1f480883283594639528ccc0bc0adcf4de491ecec5ac",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "c6528c2cd1bd3edd5b987c4b31fbe0f85598b41ff71fc30c7b4b30fc177eb77c",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "608661b97d7e1ef35389fc23b8fcb9d3bd3476508aefa7cdb391927ba4020f08",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "05380dffcc4534493a98dc701fd580f62edc95dbf03a0bd5067b5caf91ecd397",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s2/gethit__warlord.json",
+   "n": 200000,
+   "salt": 2,
+   "sha256": "c284471569488afb716a5ed309b9cf09d88355248e28519cd25aff85768d5ccf",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 3,
+   "sha256": "5f030b102e05025a6e4de409438666d96271b42a8ae836a4036615c88bd7ab5f",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "b47c8a33e64e486f2fc87229ef8403f62df528d32d5c48d178b242fb791e98c0",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "b3aaac22464e918a272289a5a5725df50701807456d2dddb4f01527e4be69553",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 3,
+   "sha256": "5d999983c7936af64358ce822cc9b2d2ec84f886a46916ecb27e6b170d3113fc",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "471b87f38f917b5a9204fd5d658674162816deadc4d73e26f600344c070c1ffb",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "8b8a546b5630a505c69ebaec058e7be49eb6c5fd4684d06f2e14c77da146489a",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "949442a449cf868f48c59f6cecc4e205ab75a970281bbc79ae87e04cec81e41a",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s3/gethit__warlord.json",
+   "n": 200000,
+   "salt": 3,
+   "sha256": "64718381ee9531bc82dceaf2217512f21a89666458d1b8c1f67fbc8affb34505",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 4,
+   "sha256": "67dcb29b71aa574f8cff0be5892ed7de135aba762576ede646c00d48c3647d9c",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "a07d1b2908fb63bfeaa6635bdfa528fe7037c505d051b409a7d239e2028a61d9",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "46e6b45417251c213a611dcc3dc0499751edabb5fca5bef2895eae27f5919ada",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 4,
+   "sha256": "b69996110a03c05860ca457e7e78ea2225a6c154baca3fc41b1a598802910056",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "5515a16c5eb05d345e0e6de7c8d4f93427d79752a9979fb5c784e4d0a4482180",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "9e9017ff6e60842a8de7d2081ff2467422587d79af94d0f3bec85368c606ae81",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "0adc072e676326685d29700bd7314c9d210532b7c8614c5af418ab095cc9487a",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "M-POL-2-NULL",
+   "file": "M-POL-2-NULL_s4/gethit__warlord.json",
+   "n": 200000,
+   "salt": 4,
+   "sha256": "9536ab2fc6319cac5b67aaa26aa3d7fe4ed3ff6e9bdb42b3508968b486071681",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 0,
+   "sha256": "aef435451e513dea956fe8be1acb40cef850a75aae8af49c0cbe06b72c5866c7",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "e9f4fe32697d5f082484c5467067c17c7b0b18e551d71c55768fbb1811145be8",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "483ee9d3b680b3c747991a5c280bf2b198b16e139fca2ab909e75a5ceadda86d",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 0,
+   "sha256": "0f080e9aeb85223b4b72f35ba28512b3b692b5bc6abcd279f777a60e23705196",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "16c3e1141bf8171287f67e77c79555a47c21e077011030581e35291f057e3fb0",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "498b27eb2b050526289fef0de067d33aeaa469d5f8f58a0e21f37260c0434d99",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "864e80527a666c24d3295cb76c6dfee4ec66278bd2b81c7d4fc10048bf59002a",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s0/gethit__warlord.json",
+   "n": 200000,
+   "salt": 0,
+   "sha256": "29f4cd30e1e24cf773059ae3e294d3e9251bd70c9f282645c6c3658b6a26db51",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 1,
+   "sha256": "09fe86c9818b77af58dc27cb49f485dbd23764d68da5dbf92b51f4b23624c5d2",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "11fbc7d444090b3dc03b7ab67f2afa9b120928a7b87c49679ca4dc33eae70008",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "d08a5ded99c9e8d93f1ee790553c043a27c9d445070a7325681255a3018e7318",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 1,
+   "sha256": "0c5fd31c6c72013c54b16280e3b0b8e3a523bd3e9f8e354a3576a2004f4d3622",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "e12bab849342b8bc274686a9afe68871d47f592e12957731cca1cc2395d73eeb",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "86896d6c83d92e78a6614808de63913108345b825f178d32847856c5d3dcafca",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "9e5759593796ba63cbe6c76f7d1dc4de32dd918d3072acb7d0823e8b3cda5554",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s1/gethit__warlord.json",
+   "n": 200000,
+   "salt": 1,
+   "sha256": "b119fe01512ff76738f8b0b5e122fcdec7e54c47ec30e69fdc89db070a75987e",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 2,
+   "sha256": "ab2c13017d3227292ab174654dd9ac6b225906e5abd89d2de61d5a09d49ab63e",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "f4213977bb66d3420e836b7687a09a298bf441303fba076e161f7c8f423861c1",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "fa9d2f9e8fb3b3b45aa9ae354d563f4044d72e67bee1ae58715b0704e8ee1c14",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 2,
+   "sha256": "9521fe1b3c4628c409f90f7ae9adac0933a1dc9be648996bf5e031a7db4a56a3",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "88ba6e9b45a614fe32efcd7045102076b2cd835eb58021eee40314a623989ffc",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "3d68401e478b2dadab6d4b84f7b119c8da182c4617fdaf3caafb48f37ab5f921",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "d643bd30cd96bdd51699a903aad6463b712faef9012a993edab33dcab1316fd4",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s2/gethit__warlord.json",
+   "n": 200000,
+   "salt": 2,
+   "sha256": "f97f9a7cc4419b833fde2a4114ffc5b171e63db7686805fc1344c09a13350d03",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 3,
+   "sha256": "16e59d45a2e61dd11bf3be5172721da0e7c8b2099ace0bb8cbfc0d7fce3f6cd3",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "3bbd214fc9d7a6a24cee023f79d3e37042d716c13cccefccc7c4f89fd2971425",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "67cb79ae5aa066a20a5f05c0423a747997c86c7678c1166dfe65a0981f85fbc0",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 3,
+   "sha256": "87af71054525e6763b56cde1c566364701d45884282986f489b71797a90d4f9d",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "11cef998de4c0bf1b781abf6755e84fdc0ed803ba0ea6689f7ca2f37caef8643",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "e789ce1da960bcf93a7a51c407d4d6ab19a62ca0772a6e6de3e64f2eeb423c3e",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "567ae945f03d412b7b80b614929b52a35251281b60c2095c60c0984373dd7010",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s3/gethit__warlord.json",
+   "n": 200000,
+   "salt": 3,
+   "sha256": "5d37d9b393b886ebf046a32de8594037c688580df7d8b4cba29eb0ade88db949",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 4,
+   "sha256": "f36701e57b7c42fd81e1cf8ba66a4a23f4ec476dbbdfb3430f69fe6f9cb1d63d",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "423929fb47af3938b7c9af684efa692026bfada396aebf8bbc05c8331be0610a",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "97f5426b590db6cf501ed75497817c1539fb5d6d1832fdd1c6f686e139a1a009",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 4,
+   "sha256": "15776b019d16e5614ab73351708d187ba96f6f1021364284b0d50dc98ee6529c",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "d5bf42b9d33cfc5bb4066f356d6f87475ae53c3ccce11ecb67cce73f7153c202",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "6c5178a63e777f62883876d4c9701a7d2b81aceacc64a08d97888900fbf5d01c",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "258eedb45fe3fee418a4b408916def578dd5031b5a32a35b187899b770e728bb",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1",
+   "file": "W1_s4/gethit__warlord.json",
+   "n": 200000,
+   "salt": 4,
+   "sha256": "feb092d477b3e4c4362063c8c20868ba8e1c8d8b9e2bc2d59d713d59742ab3e6",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 0,
+   "sha256": "38d915b9695fb6be8d9004e4c8c015cd75556c6ead8f2b0522d5f3b8ee7f2da5",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "0c0ebd5fc247b6436defb0061236514abcbeaaeab6f56f70b9fe65857e4b7fe5",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 0,
+   "sha256": "e8b3dd26eb12ce6d1f5574c928082310fb4da6cb60b27a032917b46e6c0bb304",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 0,
+   "sha256": "68d1d657416e68a2559c380fac90804d756b54c5e7cea6edc8085aa0fd3a2d91",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "1ffc2581fbb43a4babd03d7c8e0abf4dfa4d77fb458010b636fffa4054ae1dc4",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "77d09c8be2f9b8434e77343fc514496039d390434d16c47d2549a5092bbd8c53",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 0,
+   "sha256": "064680825686ee90801584af6e624990c68fe01b6aa390fc503ec559b683a260",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s0/gethit__warlord.json",
+   "n": 200000,
+   "salt": 0,
+   "sha256": "4168b51ca59741d0a4e49db8d157c316cf7365611562ba2b568734737591cb2c",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 1,
+   "sha256": "2cfb9ee9a534e4d03f3c2078f335c9cd034b81d8b2bd31c5ef397a6d41a252b8",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "b9dbab7229350a460d1284890d4a9b2d3b3ef2fd0c60af96eb5ec70555a3a876",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 1,
+   "sha256": "a76c9834078e416c13040a1174ddb05caad70c2267a03e53527a6256ab9337b8",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 1,
+   "sha256": "c9a80d524215d16d24da60f85087d8b6d530ccaa03a58c818445cbbaaf0a27da",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "3b5f7ef28f9aa3b892aa9eb978225093d6ff1dabed54b0a2feb8c477131b7d32",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "2ca790c8970f53c3ad8cf77047ae5cb4dd4859b011c46a367179e704f6a8ba04",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 1,
+   "sha256": "72f6be637d7cdb4fe355e6cc9f7d8eb260ce1ac16ec027a552b9c1dbcc4ee58b",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s1/gethit__warlord.json",
+   "n": 200000,
+   "salt": 1,
+   "sha256": "b13f422b343df9b2262faae6dcf51e3771570b68e4e16d378fdece259c403523",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 2,
+   "sha256": "3eaaf2158f5f91aea4ed0189a5bfd8a51a61bc4fee241b3650fbeb7abcebceb3",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "99f20583174434c22270d4d48de7aa34d8011c8251582dd824c60b38b36acc29",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 2,
+   "sha256": "7a0bef42456aa4d48ed600f0d9ab08381b3e7e67d91f110c920dc26ff6d97b29",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 2,
+   "sha256": "a6ab7c86ca16af31121eb3603224f51810509cc79ac24500034d3f4a39445a77",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "83c325d6f63feeb39c0fb17c4478d1d4344ee65a8fe348533b3cf522001dc6fe",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "bee9c44d4204876d9169b1d0f1796c105a2ed319c68f01e47d9b4625cfb2ffca",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 2,
+   "sha256": "f8b78c80ee66a4b003cde4c7e5f04ef779ce96cb97e6fad72daec3877fc6e9f4",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s2/gethit__warlord.json",
+   "n": 200000,
+   "salt": 2,
+   "sha256": "d00ff2038cd47c8175deafa9d3262027813ce79110b54bb301a5e53e06ca6074",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 3,
+   "sha256": "85796e3a853cf0a6a67f0319dfd125be65a4caa04146b7da1ec379da887ca54f",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "754ed8594068d78f02fb0dadc1cbf66fbf958f2b9d30866b822b7b01babe7378",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 3,
+   "sha256": "5b154970e22f6395ae2e48d88bb3ebd85fd8f3bc512986d3600bf37522382432",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 3,
+   "sha256": "59d75d4b8d7eb2d3cc799341d2f9f4a4f5e5495d27399ae3c7ab6fc01eabb821",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "99217de23c52e7b6c9cae6b37a38bde7f0c3c2efe0e05a64bde8f8cee1fa28b8",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "11fa0a14cb8b339d521f5b55749d51246bd5dbd6ea6ff752efb06e333832a02e",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 3,
+   "sha256": "81e16c16f4991b7561cd61567e2c508b9ce2c8461cf352dd76324665506c4ab7",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s3/gethit__warlord.json",
+   "n": 200000,
+   "salt": 3,
+   "sha256": "4e82f65595f5fdd2a793954856f3ef6e97ba44ba1d967192a821c62d4673fe08",
+   "stream_id": "gethit:warlord"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/dmg__d2-fire-sorc-c14.json",
+   "n": 20000,
+   "salt": 4,
+   "sha256": "3ed8b7068f9bce57d0097ba7624ae3d581d558a67b6ce05b69ead90c50f6fd26",
+   "stream_id": "dmg:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/pyre__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "aa72f2caf4c0631d79027ebe413b9f2a1737b91c1e8b0f50416acca2d9fb33ae",
+   "stream_id": "pyre:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/softhit__d2-fire-sorc-c14.json",
+   "n": 500000,
+   "salt": 4,
+   "sha256": "c3b1de2366170f55aaafc3064aa5a4da164a8cca52df960f94f05aa93cf09ae8",
+   "stream_id": "softhit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/potion__d2-fire-sorc-c14.json",
+   "n": 2000,
+   "salt": 4,
+   "sha256": "6be0b468d67375755a25a770ad5742d79e5fae50e85b1c2dfe7b41339b6e48fb",
+   "stream_id": "potion:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/block__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "04b4bbb36e4061c26aef8848672f0000cf3fcd44c93cf55b3d7d4cc638d64ac5",
+   "stream_id": "block:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/oculus__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "d442ee2c5e2606d5201233c5bbbfb23ea9cab7e09665d436f619827faa9f538d",
+   "stream_id": "oculus:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/gethit__d2-fire-sorc-c14.json",
+   "n": 50000,
+   "salt": 4,
+   "sha256": "071e3e72441c1bcbdf5ae9a9860190bd1cafcf9fee9db1e1459e905ab841d8e8",
+   "stream_id": "gethit:d2-fire-sorc-c14"
+  },
+  {
+   "arm": "W1-NULL",
+   "file": "W1-NULL_s4/gethit__warlord.json",
+   "n": 200000,
+   "salt": 4,
+   "sha256": "d1e0431954db73c350b575c28e68442849e83b07cb2e95f6c2895a43c7510284",
+   "stream_id": "gethit:warlord"
+  }
+ ],
+ "law": "random.Random(seed_of(arm, salt, stream_id)).random(); seed_of = sha256(f'{arm}|{salt}|{stream_id}')[:8] big",
+ "n_spec": {
+  "block:d2-fire-sorc-c14": 50000,
+  "dmg:d2-fire-sorc-c14": 20000,
+  "gethit:d2-fire-sorc-c14": 50000,
+  "gethit:warlord": 200000,
+  "oculus:d2-fire-sorc-c14": 50000,
+  "potion:d2-fire-sorc-c14": 2000,
+  "pyre:d2-fire-sorc-c14": 500000,
+  "softhit:d2-fire-sorc-c14": 500000
+ },
+ "streams": [
+  "dmg:d2-fire-sorc-c14",
+  "pyre:d2-fire-sorc-c14",
+  "softhit:d2-fire-sorc-c14",
+  "potion:d2-fire-sorc-c14",
+  "block:d2-fire-sorc-c14",
+  "oculus:d2-fire-sorc-c14",
+  "gethit:d2-fire-sorc-c14",
+  "gethit:warlord"
+ ]
+}
