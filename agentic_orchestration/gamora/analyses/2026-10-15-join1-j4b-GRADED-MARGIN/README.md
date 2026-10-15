@@ -1,6 +1,9 @@
 # JOIN-1 · J4b · THE GRADED MARGIN: the D2 Fire Sorceress vs `JOIN[warlord, gd-decoded @ 196]`, computed ONCE under PREREG-ADDENDUM-C (gamora, 2026-10-15)
 
+> ⚑ **STATUS (jack-ryan BLOCK, collab `4bf8738a9`; KP-477): the PRIMARY is NO VERDICT until BLOCK-1 clears.** BLOCK-1 is the registered per-cell HP-chain identity with the monster-leech term (ADDENDUM-A CORR-1 § 2, CORR-2 §§ 2–3), which has not yet been evaluated on HER arm. The margin will be re-issued in a separate commit once drax's leech telemetry and GO-BODIES land. The M-c figures below cannot move.
+>
 > **Labels carried on every print:**
+> - **Meteor-delay semantics OPEN** (KP-476). The replay check was absent at grading. Direction bound: no pair flips (jack-ryan `4959e1100` confirms).
 > - **COMPLETENESS PASSES UNDER A POST-HOC RULE** (jack-ryan `826520a1d`; Gate-2 `39433b107`);
 > - **ADDENDUM-13 CORR-4 § 2 is FALSE AS PRE-STATED** (KP-463);
 > - the read-ahead and FALSE-AS-PRE-STATED probe limbs are carried **by reference** (KP-456 / KP-459; jack-ryan Gate-2 § 6).
@@ -18,7 +21,7 @@
 
 ---
 
-## THE VERDICT: the PRIMARY registration (flinch-on vs flinch-on): **TRUE**
+## THE PRIMARY registration (flinch-on vs flinch-on): computed TRUE, held as **NO VERDICT pending BLOCK-1**
 
 **M-c (her) ≥ M-c (Warlord) over waves {159, 160}:**
 
@@ -48,13 +51,14 @@ The prediction was "≥", and it would be FALSE only on a strict reversal. **The
 | Item (as registered) | Result |
 |---|---|
 | **M-a vs the Warlord: UN-PREDICTED in every arm** | printed only: **her 25 / 25 survive; he survives 18 / 25** (flinch-on). Flinch-off baseline 17 / 25 |
-| M-b, M-d: UN-PREDICTED | printed only: M-d Σ intake **her 6.65 M vs his 17.91 M** (her lower in 24 / 25 cells). M-b: G7 carries no `wave_end` tag, so "cleared" counts waves reached, **250 / 250 for both**. Printed, not interpreted |
+| M-b, M-d, T: UN-PREDICTED | **printed, un-predicted** (never a verdict). T uses H = 40,000 (CORRIGENDUM-H, engine `b75ce6fe`): Σ T her 1,000,000 vs his 749,609. |
+| (M-b / M-d, continued) | printed only: M-d Σ intake **her 6.65 M vs his 17.91 M** (her lower in 24 / 25 cells). M-b: G7 carries no `wave_end` tag, so "cleared" counts waves reached, **250 / 250 for both**. Printed, not interpreted |
 | M-c (her) ≥ M-c (Warlord), whole cell (ADDENDUM-A § B) | **superseded** by B / C (wave-restricted). The whole-cell figure is printed as INFO: her 1,990,857 vs his 942,824 (25 / 0) |
-| **NC-J4b-ANCHOR** (M-c anchored > raw; M-a anchored ≥ raw) | **NO VERDICT.** The `raw` arm is not in the released grain set (not run) |
+| **NC-J4b-ANCHOR** (M-c anchored > raw; M-a anchored ≥ raw) | **BEING RUN.** The tier-1 `raw` arm is authorised (KP-473) and will be graded as drax files it |
 | **Arm orderings** (use-weighted ≤ primary on M-a and T; primary ≤ worst-case on T) | **NO VERDICT.** The worst-case (×97.06) and use-weighted (×46.98) r_DMG arms were not run |
 | **Offered damage per tick: R2 ≤ R1 ≤ non-ladder** | **NO VERDICT.** The R2 and non-ladder r_HP arms were not run |
 | **The § 2 negative controls, per row, and fraction (b)** | **NO VERDICT.** The per-row NC runs are not in the released grain set. Reach counts are printed below |
-| Fraction (a): 32 / 32 rows mapped | **NO VERDICT.** It is not measured from grains; it is a census / implementation property, outside this computation |
+| Fraction (a): 32 / 32 rows mapped | computed from the census and the pack (INFO-1): see `NO-ARM-ITEMS.md` § 1 |
 | **PREREG-ADDENDUM-B (off / off sensitivity pairing)** | **NO VERDICT.** Her flinch-off arm was not run |
 | Asymmetry line (her flinch-on vs his flinch-off), printed, not registered | 25 pairs, her 3,069,651 vs his 2,119,294, 25 / 0, p = 5.96e-8. M-a: her 25 vs his 17 |
 | His M-c **without summons** (CORR-1 sensitivity) | 25 pairs, his 2,022,944, 25 / 0. Unchanged |
@@ -68,7 +72,7 @@ The prediction was "≥", and it would be FALSE only on a strict reversal. **The
   - **The engine-side 16a recorder (oracle run attributes) was never built,** so that sub-item is **NO VERDICT**.
   - **Bias on her margin: 0** (nothing landed on her).
 - **WARN-2, REACHED-INSENSITIVE (named rows):**
-  - **Row 22** (control received, predicted RI): **10 landings** across her 25 cells, so it was **reached**. RI does not hold. ACTIVE still needs its NC, which is NO VERDICT above.
+  - **Row 22** (control received, predicted RI): **FALSE AS PRE-STATED** (prereg § 8). There were 10 landings across her 25 cells, so the row was reached. **Fraction (b)'s predicted form (22 ACTIVE + 1 RI / 23) falls with it.** ACTIVE still needs its NC, which is NO VERDICT above.
   - **Row 9** (cast root): `move_refused_cast` **28,765**. Reached.
   - **Row 24**, the freeze → chill clause: tied to row 22, which was reached (control rows include Freeze → chill).
   - **Row 26**, the Resilient bleed clause: **RI by declaration.** `resilient_bleed_noop` fired 62 times, counted.

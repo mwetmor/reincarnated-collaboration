@@ -1,4 +1,10 @@
 {
+ "labels": [
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics OPEN (KP-476); replay check absent at grading; direction bound: no pair flips"
+ ],
  "runs_gate": {
   "pass": true,
   "n_cells": 25,
@@ -22,15 +28,16 @@
   "her": 25,
   "him": 18
  },
+ "H": 40000,
  "T": {
   "n_cells": 25,
-  "total_her": 25000000000,
-  "total_him": 18000029609,
+  "total_her": 1000000,
+  "total_him": 749609,
   "n_pos": 7,
   "n_neg": 0,
   "n_tie": 18,
   "p_two_sided": 0.015625,
-  "verdict": "TRUE"
+  "verdict": "printed, un-predicted"
  },
  "M_b_cleared": {
   "n_cells": 25,
@@ -40,7 +47,7 @@
   "n_neg": 0,
   "n_tie": 25,
   "p_two_sided": 1.0,
-  "verdict": "TRUE"
+  "verdict": "printed, un-predicted"
  },
  "M_d": {
   "n_cells": 25,
@@ -50,7 +57,7 @@
   "n_neg": 24,
   "n_tie": 0,
   "p_two_sided": 1.5497207641601562e-06,
-  "verdict": "TRUE"
+  "verdict": "printed, un-predicted"
  },
  "M_c": {
   "waves": [
@@ -96,5 +103,11 @@
    "Poison": "UNEXERCISED-IN-JOIN-1",
    "Magic": "UNEXERCISED-IN-JOIN-1"
   }
+ },
+ "print_fix": {
+  "by": "jack-ryan BLOCK 4bf8738a9 WARN-1 / KP-477",
+  "grader": "0ab979a7",
+  "M_c_block_identical_to_aaa1f6a3f": true,
+  "status": "PRIMARY = NO VERDICT pending BLOCK-1 (the leech-reconciled HP-chain identity on HER arm, ADDENDUM-A CORR-1 s2 / CORR-2 ss2-3)"
  }
 }
