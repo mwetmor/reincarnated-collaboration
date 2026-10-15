@@ -1,0 +1,93 @@
+{
+ "what": "JOIN-1 J4b r_HP sensitivity-arm operands (legolas C-13); binding instrument for the arms pack v5.1 does not carry",
+ "statistic": "r_HP = median(GD BOARD trash hp_lo, body-weighted by n_actors_this_wave) / median(D2 normal-monster hp_mid, equal weight per distinct (MonStats Id, alvl)); D2 hp_mid = (MinHP(H)+MaxHP(H))/2 after MonLvl scaling at the area level (Hell, players-1)",
+ "gd_numerator": {
+  "value": 243295.0,
+  "source": "gd_enemy_quantities.json per_cell hp_lo (oracle monster_stats.ehp_lookup_band_b, LO limb), BOARD population pm4o_oa_da.csv monster rows, role trash, weight n_actors_this_wave; via ratio_table.json gd_role_split"
+ },
+ "reference_primary": {
+  "name": "R1 (pack RB-A-anchor_r_hp)",
+  "population_rule": "R1_alvl85_all",
+  "d2_column_set": "ladder/single-player L-HP(H)",
+  "n_types": 70,
+  "d2_median_hp_mid": 6000.5,
+  "median_rows": [
+   {
+    "id": "fingermage5",
+    "alvl": 85,
+    "hp_min": 4945,
+    "hp_max": 6800,
+    "hp_mid": 5872.5
+   },
+   {
+    "id": "putriddefiler3",
+    "alvl": 85,
+    "hp_min": 4669,
+    "hp_max": 7588,
+    "hp_mid": 6128.5
+   }
+  ],
+  "gd_median_hp_lo": 243295.0,
+  "r_hp": 40.54578785101241
+ },
+ "operands": {
+  "anchor_r_hp_R2": {
+   "population_rule": "R2_chaos_sanctum",
+   "d2_column_set": "ladder/single-player L-HP(H)",
+   "n_types": 3,
+   "d2_median_hp_mid": 8345.5,
+   "median_rows": [
+    {
+     "id": "doomknight3",
+     "alvl": 85,
+     "hp_min": 7418,
+     "hp_max": 9273,
+     "hp_mid": 8345.5
+    }
+   ],
+   "gd_median_hp_lo": 243295.0,
+   "r_hp": 29.152836858187047,
+   "status": "CONFIRMED: equals the value gamora cites as registered (29.152836858187047)",
+   "derivation": "Chaos Sanctum (Levels.txt Id 108) nmon types doomknight3, fingermage3, megademon3 at alvl 85; median of 3 = doomknight3"
+  },
+  "anchor_r_hp_nonladder": {
+   "population_rule": "R1_alvl85_all",
+   "d2_column_set": "non-ladder Battle.net HP(H)",
+   "n_types": 70,
+   "d2_median_hp_mid": 4500.5,
+   "median_rows": [
+    {
+     "id": "fingermage5",
+     "alvl": 85,
+     "hp_min": 3709,
+     "hp_max": 5100,
+     "hp_mid": 4404.5
+    },
+    {
+     "id": "putriddefiler3",
+     "alvl": 85,
+     "hp_min": 3502,
+     "hp_max": 5691,
+     "hp_mid": 4596.5
+    }
+   ],
+   "gd_median_hp_lo": 243295.0,
+   "r_hp": 54.059548939006774,
+   "status": "EXACT value (replaces the approximation R1/0.75 = 54.06105046801655)",
+   "derivation": "R1 population (every Hell area at alvl 85, 70 types) re-run with the non-ladder MonLvl life column HP(H) in place of L-HP(H); median of 70 = mean of the 35th/36th rows"
+  }
+ },
+ "grades": {
+  "inputs": "DATAMINED (J-S7 pins re-verified by scripts/d2_enemy_anchor.py)",
+  "scaling": "MODEL-VERIFIED (D2MOO CalculateMonsterStatsByLevel; Basin MonLvl)",
+  "ratio": "INFERRED (as the primary)"
+ },
+ "blindness": "derived only from committed C-13 inputs; no J4b graded-margin result file was opened",
+ "inputs_sha256": {
+  "ratio_table.json": "95f2d19f9c37158e416e860d6f7268a311a2e62e93a950f10b120b893f3bceca",
+  "gd_enemy_quantities.json": "bf4d7cc31749ce8257deb1e5ecb07930cb6a94f2a34081d00417b821093c0190",
+  "d2_enemy_quantities.json": "f31a5fab383e1b68eaf1dc6aec0e61d696b0408d8b2c0d0724da32ae9a7c184f",
+  "d2_enemy_quantities_nonladder.json": "2da3e39b818422734550f76eef079dd0e3b45b4437d1a6e9e20f05395214237b",
+  "scripts/d2_enemy_anchor.py": "f6fa2a770450c930cb4fd82972b5404040fecec9f0dc7061db12cc47c9c8be83"
+ }
+}
