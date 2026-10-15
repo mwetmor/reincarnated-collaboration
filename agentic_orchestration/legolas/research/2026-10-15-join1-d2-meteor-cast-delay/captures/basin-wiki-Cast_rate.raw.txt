@@ -1,0 +1,198 @@
+{{Animation nav}}
+
+==Delay==
+Some [[skill]]s apply a delay when used: while the delay is active, that skill (in case of local delay) or any skill with a delay (in case of global delay) cannot be used. Nothing reduces the length of these delays but, since they begin at the action frame (the frame in the attack or casting animation in which the action is actually executed), increasing attack speed or cast rate will slightly reduce the interval between actions since the action frame will occur earlier in the animation: interval = action frame + delay.<br/>
+In LoD all delays are global, and there is no mechanic of local delays. The latter was introduced in D2R patch 2.4[https://news.blizzard.com/en-us/diablo2/23788293/diablo-ii-resurrected-patch-2-4-ladder-now-live#class], and most delays were converted into local delays. It had the most impact on the [[Elemental]] Fire Druids.
+
+{{Text table}} width=50%
+|-
+!width=33% rowspan=3|Class
+!width=34% rowspan=3|Skill
+!width=16.5% colspan=3 align=center|Delay (Seconds)
+|-valign=top
+|rowspan=2 align=center|'''LoD'''<br/>(Global)
+!colspan=2 align=center|D2R
+|-valign=top
+|align=center|Local
+|align=center|Global
+|-valign=top
+!rowspan=4|[[Amazon]]
+|[[Poison Javelin]]
+|align=center|0.6
+|align=center|0.6
+|{{E}}
+|-
+|[[Plague Javelin]]
+|align=center|4{{0|.0}}
+|align=center|1{{0|.0}}
+|{{E}}
+|-
+|[[Immolation Arrow]]
+|align=center|1{{0|.0}}
+|align=center|0.6
+|{{E}}
+|-
+|[[Valkyrie]]
+|align=center|6{{0|.0}}
+|align=center|0.6
+|{{E}}
+|-valign=top
+!rowspan=5|[[Assassin]]
+|[[Shock Web]]
+|align=center|0.6
+|align=center|0.6
+|{{E}}
+|-
+|[[Blade Sentinel]]
+|align=center|2{{0|.0}}
+|align=center|1{{0|.0}}
+|{{E}}
+|-
+|[[Shadow Warrior]]
+|align=center|6{{0|.0}}
+|align=center|0.6
+|{{E}}
+|-
+|[[Dragon Flight]]
+|align=center|1{{0|.0}}
+|{{E}}
+|{{E}}
+|-
+|[[Shadow Master]]
+|align=center|6{{0|.0}}
+|align=center|0.6
+|{{E}}
+|-valign=top
+!rowspan=8|[[Druid (Diablo II)|Druid]]
+|[[Werewolf]]
+|align=center|1{{0|.0}}
+|{{E}}
+|align=center|1{{0|.0}}
+|-
+|[[Firestorm]]
+|align=center|0.6
+|align=center|0.6
+|{{E}}
+|-
+|[[Werebear]]
+|align=center|1{{0|.0}}
+|{{E}}
+|align=center|1{{0|.0}}
+|-
+|[[Molten Boulder]]
+|align=center|2{{0|.0}}
+|align=center|1{{0|.0}}
+|{{E}}
+|-
+|[[Fissure]]
+|align=center|2{{0|.0}}
+|align=center|2{{0|.0}}
+|{{E}}
+|-
+|[[Volcano]]
+|align=center|4{{0|.0}}
+|align=center|4{{0|.0}}
+|{{E}}
+|-
+|[[Armageddon]]
+|align=center|6{{0|.0}}
+|{{E}}
+|{{E}}
+|-
+|[[Hurricane]]
+|align=center|6{{0|.0}}
+|{{E}}
+|{{E}}
+|-valign=top
+![[Paladin (Diablo II)|Paladin]]
+|[[Fist of the Heavens]]
+|align=center|1{{0|.0}}
+|align=center|0.4
+|{{E}}
+|-valign=top
+!rowspan=5|[[Sorceress]]
+|[[Fire Wall]]
+|align=center|1.4
+|align=center|1.4
+|{{E}}
+|-
+|[[Meteor]]
+|align=center|1.2
+|align=center|1.2
+|{{E}}
+|-
+|[[Blizzard]]
+|align=center|1.8
+|align=center|1.8
+|{{E}}
+|-
+|[[Hydra]]
+|align=center|1.6
+|{{E}}
+|{{E}}
+|-
+|[[Frozen Orb]]
+|align=center|1{{0|.0}}
+|align=center|1{{0|.0}}
+|{{E}}
+|-valign=top
+!rowspan=9|[[Warlock (Diablo II)|Warlock]]
+|[[Summon Goatman]]
+|align=center|N/A
+|align=center|0.6
+|{{E}}
+|-
+|[[Death Mark]]
+|align=center|N/A
+|align=center|0.8
+|{{E}}
+|-
+|[[Summon Tainted]]
+|align=center|N/A
+|align=center|0.6
+|{{E}}
+|-
+|[[Summon Defiler]]
+|align=center|N/A
+|align=center|0.6
+|{{E}}
+|-
+|[[Blade Warp]]
+|align=center|N/A
+|align=center|0.8
+|{{E}}
+|-
+|[[Flame Wave]]
+|align=center|N/A
+|align=center|0.6
+|{{E}}
+|-
+|[[Miasma Chain]]
+|align=center|N/A
+|align=center|1.28
+|{{E}}
+|-
+|[[Apocalypse]]
+|align=center|N/A
+|align=center|1.8
+|{{E}}
+|-
+|[[Abyss]]
+|align=center|N/A
+|align=center|1.2
+|{{E}}
+
+|}
+
+
+
+The only exception is when skills with delays are cast by [[Chance to Cast]] items: multiple skills with delays can be cast. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1424010] However, while the skill delays are not applied, an 11 frame delay is applied from the action frame: during this delay '''no''' active skills can be used, although [[Scroll of Identify|Scrolls of Identify]] and [[Scroll of Town Portal|Town Portal]] placed in the [[belt]] can be used. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1483932] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1483969]
+
+
+This 11 frame delay does not interrupt an attack sequence if Chance to Cast is applied during that sequence. The delay can be applied from the action frame of any individual attack in the sequence, so if it's applied by an attack early in the sequence then the delay may end before that sequence ends. If multiple attacks in a sequence apply Chance to Cast, the delay is applied from the last attack in the sequence to apply it. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1487929]
+<br/>
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/castingdelays.shtml Casting Delays] (Arreat Summit)
+*Onderduiker, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/ Chance to Cast and curse tests] (D2 Technical)

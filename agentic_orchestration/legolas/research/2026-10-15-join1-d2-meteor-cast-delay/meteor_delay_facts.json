@@ -1,0 +1,317 @@
+{
+ "captures_sha256": {
+  "basin-wiki-Cast_rate.raw.txt": "eb2165c0266090d129f9e80e3f50c55bf218951670b574e611141fa5c64a9ea3",
+  "basin-wiki-Meteor.raw.txt": "6025e4d37111f3ffab1d9b0eb9ac2500c3e682ff69ad704bc895d7378bbff737",
+  "blizzard-d2r-2.4-balance-ptr-notes.html": "2f78ebb78bbdffce36ea0d4cb1adf445000107cab9fb896d911657477bd1df2c",
+  "d2data/skills.json": "b40393a3b024c8363ee2c77b52a4b2330ec90b1c06b1afe38b0f434f47f35956",
+  "d2moo-D2Common-D2Collision.h": "7a2f8d220a5ead4a3dad69c073b1cef6ac98cbfb1906e0ac6980e4ba65c5aac5",
+  "d2moo-D2Common-D2Skills.cpp": "31c9e990fa41cd82ba9951355b1ff5b7d5733848fb3118b923dab573564251f5",
+  "d2moo-D2Common-D2StatList.cpp": "8c1710c5cd14295f67aaadf905f827e01475197137f9af2cc191d23a85a613d4",
+  "d2moo-D2Common-DataTbls-SkillsTbls.cpp": "af6ff0c8e0edceb3d2ae9ae22a92c6203e2206906adc66a67275b1d0a7756fb9",
+  "d2moo-D2Common-Units-Player.h": "a400c4addccb2bffb0b51d2eca86040b94cc57b9b219c16a329915bab61db518",
+  "d2moo-D2Common-Units-Units.cpp": "33ba297df989677f3c59b118f5a48773dc7affa1ea24dd3ae68d1f2f7c3908a5",
+  "d2moo-D2Game-GAME-Event.cpp": "5b8169e38ddbb4a27c67536fb21807250508683a78fe6743b1700933a3c05c0d",
+  "d2moo-D2Game-GAME-Event.h": "fc355f45ea843c3d658de0c26d943a85e20ad3a74b795332a12b824663c1544d",
+  "d2moo-D2Game-MONSTER-MonsterMode.cpp": "e39beb79272be251a739b587a92d765684c1fa5cb02ee500c1c5763f5f05531a",
+  "d2moo-D2Game-PLAYER-Player.cpp": "d22428034a002b53f4694512d9d87c91e857fbebf55ee553452a6e246e9ab147",
+  "d2moo-D2Game-PLAYER-PlrMsg.cpp": "ffeff8d5a1448ed72f250fe647d3ee8ae53034cf47e6dd29cae11878d5d63056",
+  "d2moo-D2Game-Skills.cpp": "ae7608f7c95eafd3d2b632af8ece88a1f6784490416e2f9ced3706bcbdd1dbcc",
+  "d2moo-D2Game-UNIT-SUnit.cpp": "c09096cf3ca18c1e08e6a949e17e240f67bb64f000a96025f5e2872dfb19cb5b",
+  "d2moo-D2Game-UNIT-SUnitDmg.cpp": "56ab5e14f7aceb18681f1c1e720e89c63bfe2a25e2e41b8aa9907652a7c9daf7",
+  "d2moo-PlrModes.cpp": "50ec9bbde8a1783c092382792023c36457b64ed7896d7bff87659b19446f4865",
+  "d2moo-SkillSor.cpp": "d29924357129d31dd87971dbc663802ab9d32d1e14d5724a980532b89e095a88"
+ },
+ "d2moo_anchors": {
+  "CastAtXY_msg": {
+   "file": "d2moo-D2Game-PLAYER-PlrMsg.cpp",
+   "line": 812,
+   "needle": "int32_t __fastcall sub_6FC83340("
+  },
+  "Cast_allows_gethit_block": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 1594,
+   "needle": "nMode == PLRMODE_GETHIT || nMode == PLRMODE_BLOCK"
+  },
+  "CheckSkillDelay_def": {
+   "file": "d2moo-D2Common-D2Skills.cpp",
+   "line": 1870,
+   "needle": "BOOL __fastcall SKILLS_CheckSkillDelay("
+  },
+  "Collide_missile_barrier_4": {
+   "file": "d2moo-D2Common-D2Collision.h",
+   "line": 43,
+   "needle": "COLLIDE_MISSILE_BARRIER = 0x0004,"
+  },
+  "Collide_wall_1": {
+   "file": "d2moo-D2Common-D2Collision.h",
+   "line": 41,
+   "needle": "COLLIDE_WALL = 0x0001,"
+  },
+  "CreateMissile_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1520,
+   "needle": "D2UnitStrc* __fastcall D2GAME_CreateMissile_6FD115E0("
+  },
+  "CreateMissile_range100": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1549,
+   "needle": "if (UNITS_GetDistanceToCoordinates(pUnit, x, y) > 100)"
+  },
+  "DeletePerFrameEvents": {
+   "file": "d2moo-D2Game-UNIT-SUnit.cpp",
+   "line": 1466,
+   "needle": "void __fastcall D2GAME_DeletePlayerPerFrameEvents_6FCBCE50("
+  },
+  "DoFrame_wrapper": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2745,
+   "needle": "void __fastcall sub_6FD13410("
+  },
+  "Event_REMOVESTATE_12": {
+   "file": "d2moo-D2Game-GAME-Event.h",
+   "line": 31,
+   "needle": "EVENTTYPE_REMOVESTATE = 12,"
+  },
+  "Expire_le": {
+   "file": "d2moo-D2Common-D2StatList.cpp",
+   "line": 1855,
+   "needle": "if (pCurrent->dwExpireFrame <= nFrame)"
+  },
+  "Handler_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2445,
+   "needle": "int32_t __fastcall D2GAME_SKILLS_Handler_6FD12BA0("
+  },
+  "Handler_delay_eval": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2574,
+   "needle": "const int32_t nDelay = SKILLS_EvaluateSkillFormula(pUnit, pSkillsTxtRecord->dwDelay, nSkillId, nSkillLevel);"
+  },
+  "Handler_mana_at_do": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2563,
+   "needle": "if (!gpSkillSrvStartFnTable_6FD408B0[pSkillsTxtRecord->wSrvStartFunc] || pSkillsTxtRecord->dwFlags[1] & gdwBitMasks[SKILLSFLAGINDEX2_USEMANAONDO])"
+  },
+  "Handler_nResult_gate": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2554,
+   "needle": "    if (!nResult)"
+  },
+  "Interrupt_flag_gate": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 113,
+   "needle": "if (!(pUsedSkillsTxtRecord->dwFlags[0] & gdwBitMasks[SKILLSFLAGINDEX_INTERRUPT]))"
+  },
+  "Meteor_collide_mask5": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 4005,
+   "needle": "return !COLLISION_CheckMaskWithSizeXY(pRoom, nX, nY, pMissilesTxtRecord->nSize, pMissilesTxtRecord->nSize, 5u);"
+  },
+  "Meteor_do_func": {
+   "file": "d2moo-SkillSor.cpp",
+   "line": 896,
+   "needle": "int32_t __fastcall SKILLS_SrvDo028_Meteor_Blizzard_Eruption_BaalTaunt_Catapult("
+  },
+  "Meteor_point_check": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 3981,
+   "needle": "int32_t __fastcall sub_6FD15340("
+  },
+  "ModeChange_event_sched": {
+   "file": "d2moo-D2Game-UNIT-SUnit.cpp",
+   "line": 1523,
+   "needle": "EVENT_SetEvent(pGame, pUnit, EVENTTYPE_MODECHANGE, nFrame, nEvent, nParam);"
+  },
+  "Player_gethit_trigger": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 2031,
+   "needle": "sub_6FC817D0(pGame, pUnit, nullptr, 4, pDamage->dwDmgTotal, 0, 0);"
+  },
+  "PlrActionFrame": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 1059,
+   "needle": "int32_t __fastcall sub_6FC80EE0("
+  },
+  "PlrEvent_dispatch": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 1422,
+   "needle": "void __fastcall sub_6FC81600("
+  },
+  "PlrMode_CAST": {
+   "file": "d2moo-D2Common-Units-Player.h",
+   "line": 23,
+   "needle": "PLRMODE_CAST,"
+  },
+  "PlrMode_enum_start": {
+   "file": "d2moo-D2Common-Units-Player.h",
+   "line": 11,
+   "needle": "enum D2C_PlayerModes"
+  },
+  "RemoveState_handler": {
+   "file": "d2moo-D2Game-MONSTER-MonsterMode.cpp",
+   "line": 2094,
+   "needle": "STATLIST_UpdateStatListsExpiration(pUnit, pGame->dwGameFrame);"
+  },
+  "SetDelay_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1744,
+   "needle": "void __fastcall D2GAME_SKILLS_SetDelay_6FD11C00("
+  },
+  "SetDelay_expire": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1746,
+   "needle": "const int32_t nExpireFrame = nDelay + pGame->dwGameFrame;"
+  },
+  "SetDelay_players_only": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1747,
+   "needle": "if (pUnit && !pUnit->dwUnitType && nDelay)"
+  },
+  "StartXY_Block": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 822,
+   "needle": "void __fastcall PLRMODE_StartXY_Block("
+  },
+  "StartXY_Cast": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 852,
+   "needle": "void __fastcall PLRMODE_StartXY_AttackCastThrowKickSpecialSequence("
+  },
+  "StartXY_GetHit": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 840,
+   "needle": "void __fastcall PLRMODE_StartXY_GetHit("
+  },
+  "Start_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2336,
+   "needle": "int32_t __fastcall sub_6FD12950("
+  },
+  "Start_no_stfunc_return": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2417,
+   "needle": "SkillStartFunc pfSkillStart = gpSkillSrvStartFnTable_6FD408B0[pSkillsTxtRecord->wSrvStartFunc];"
+  },
+  "Txt_interrupt_bit": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 516,
+   "needle": "{ \"interrupt\", TXTFIELD_BIT, 31, 4, NULL },"
+  },
+  "UseState_blocked": {
+   "file": "d2moo-D2Common-D2Skills.cpp",
+   "line": 1605,
+   "needle": "return SKILLUSTATE_BLOCKED;"
+  }
+ },
+ "d2r_skills_meteor": {
+  "delay_column_present": {
+   "expected": false,
+   "ok": true,
+   "value": false
+  },
+  "globaldelay": {
+   "expected": null,
+   "ok": true,
+   "value": null
+  },
+  "localdelay": {
+   "expected": 30,
+   "ok": true,
+   "value": 30
+  },
+  "srvdofunc": {
+   "expected": 28,
+   "ok": true,
+   "value": 28
+  },
+  "srvstfunc": {
+   "expected": null,
+   "ok": true,
+   "value": null
+  },
+  "usemanaondo": {
+   "expected": null,
+   "ok": true,
+   "value": null
+  }
+ },
+ "failures": [],
+ "inputs": {
+  "Missiles.txt": "9d6794a50e8b1931e476a4d666bfe4048d7d1dada454f19659d74a8825adef53",
+  "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07"
+ },
+ "lod113_missiles_meteorcenter": {
+  "Range": {
+   "expected": "60",
+   "ok": true,
+   "value": "60"
+  },
+  "Size": {
+   "expected": "1",
+   "ok": true,
+   "value": "1"
+  }
+ },
+ "lod113_skills_meteor": {
+  "Id": {
+   "expected": "56",
+   "ok": true,
+   "value": "56"
+  },
+  "anim": {
+   "expected": "SC",
+   "ok": true,
+   "value": "SC"
+  },
+  "delay": {
+   "expected": "30",
+   "ok": true,
+   "value": "30"
+  },
+  "interrupt": {
+   "expected": "1",
+   "ok": true,
+   "value": "1"
+  },
+  "perdelay": {
+   "expected": "",
+   "ok": true,
+   "value": ""
+  },
+  "srvdofunc": {
+   "expected": "28",
+   "ok": true,
+   "value": "28"
+  },
+  "srvmissile": {
+   "expected": "",
+   "ok": true,
+   "value": ""
+  },
+  "srvmissilea": {
+   "expected": "meteorcenter",
+   "ok": true,
+   "value": "meteorcenter"
+  },
+  "srvstfunc": {
+   "expected": "",
+   "ok": true,
+   "value": ""
+  },
+  "usemanaondo": {
+   "expected": "",
+   "ok": true,
+   "value": ""
+  }
+ },
+ "state_skilldelay_refs_in_captures": {
+  "d2moo-D2Common-D2Skills.cpp": [
+   1872
+  ],
+  "d2moo-D2Game-Skills.cpp": [
+   1749,
+   1758,
+   1761
+  ]
+ }
+}
