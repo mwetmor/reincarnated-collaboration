@@ -1,0 +1,122 @@
+{
+ "labels": [
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics OPEN (KP-476); replay check absent at grading; direction bound: no pair flips",
+  "Meteor-delay semantics OPEN (KP-476 / KP-481): the corrected-port re-grade will print CORRECTED-AFTER-RESULT beside this one",
+  "WARN-2 row 22 (control received) FALSE AS PRE-STATED (reached, 10 landings; predicted RI)",
+  "4 tie-frame Meteors resolved by the registered order; D2 melee order would fire them (favours her) (KP-485)"
+ ],
+ "runs_gate": {
+  "pass": true,
+  "n_cells": 25,
+  "missing": 0,
+  "raised": [],
+  "non_terminal": []
+ },
+ "obs1_her": {
+  "n_cells": 25,
+  "n_complete": 25,
+  "truncated": [],
+  "complete": true
+ },
+ "obs1_comparator": {
+  "n_cells": 25,
+  "n_complete": 25,
+  "truncated": [],
+  "complete": true
+ },
+ "M_a": {
+  "her": 25,
+  "him": 18
+ },
+ "H": 40000,
+ "T": {
+  "n_cells": 25,
+  "total_her": 1000000,
+  "total_him": 749609,
+  "n_pos": 7,
+  "n_neg": 0,
+  "n_tie": 18,
+  "p_two_sided": 0.015625,
+  "verdict": "printed, un-predicted"
+ },
+ "M_b_cleared": {
+  "n_cells": 25,
+  "total_her": 250,
+  "total_him": 250,
+  "n_pos": 0,
+  "n_neg": 0,
+  "n_tie": 25,
+  "p_two_sided": 1.0,
+  "verdict": "printed, un-predicted"
+ },
+ "M_d": {
+  "n_cells": 25,
+  "total_her": 6645913.53002141,
+  "total_him": 17914764.67636391,
+  "n_pos": 1,
+  "n_neg": 24,
+  "n_tie": 0,
+  "p_two_sided": 1.5497207641601562e-06,
+  "verdict": "printed, un-predicted"
+ },
+ "M_c": {
+  "waves": [
+   159,
+   160
+  ],
+  "dropped_cells": [],
+  "n_pairs": 25,
+  "registration": "PREREG-ADDENDUM-B (engine a4d77ae2) \u00a7 3",
+  "registration_caveats": [
+   "The narrowing to waves {159, 160} rests on a measured-arrival PROXY: the latest tick at which a roster body first took the WARLORD's damage. It depends on his disc reach (a body is 'arrived' when it enters his reach, not hers).",
+   "It counts roster bodies only; enemy pets / summons are excluded from tail_share (they are in M-c itself).",
+   "The registered reading (Mover.spawn_t_s release schedule) marks all 10 waves kill-limited; the proxy marks only 159 and 160. The registration is the conjunction; the primary-only set is not registered."
+  ],
+  "go_wave_tag_mismatches": {
+   "her": 0,
+   "him": 0
+  },
+  "n_cells": 25,
+  "total_her": 3069650.995438131,
+  "total_him": 2023172.6200132994,
+  "n_pos": 25,
+  "n_neg": 0,
+  "n_tie": 0,
+  "p_two_sided": 5.960464477539063e-08,
+  "verdict": "TRUE"
+ },
+ "M_c_whole_cell_info": {
+  "n_cells": 25,
+  "total_her": 1990857.3664541233,
+  "total_him": 942823.8187668318,
+  "n_pos": 25,
+  "n_neg": 0,
+  "n_tie": 0,
+  "p_two_sided": 5.960464477539063e-08,
+  "verdict": "INFO ONLY -- not registered (PREREG-ADDENDUM-B)"
+ },
+ "family_registry": {
+  "offense": {
+   "Fire": "EXERCISED",
+   "Lightning": "EXERCISED",
+   "Cold": "UNEXERCISED-IN-JOIN-1",
+   "Poison": "UNEXERCISED-IN-JOIN-1",
+   "Magic": "UNEXERCISED-IN-JOIN-1"
+  }
+ },
+ "reissue": {
+  "of": "aaa1f6a3f (THE GRADED MARGIN, the result of record)",
+  "grader": "0ab979a7 (unchanged at 79b48d47)",
+  "her_grains": "hpchain (pins de73dfb8, 75/75); the graded inputs are byte-identical to aaa1f6a3f's, plus GO-BODIES/HPCHAIN",
+  "his_grains": "gb-fix flinch-on (pins 1a17de52), as graded",
+  "H": 40000,
+  "M_c_block_identical_to_aaa1f6a3f": true,
+  "M_c_block_sha256_indent1": "195503bc0e6fc5304f1211dbc0f0872edfb29ee6b31e9bb852d589901ce03aa0",
+  "per_cell_identical_to_aaa1f6a3f": "25/25",
+  "BLOCK_1": "identity evaluated by gamora, PASS on both arms (collab d56403c40); release of the BLOCK is jack-ryan's",
+  "status": "PRIMARY TRUE AS GRADED (aaa1f6a3f stands as the result of record), subject to jack-ryan releasing BLOCK-1"
+ }
+}
