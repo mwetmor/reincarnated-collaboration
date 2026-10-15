@@ -28,6 +28,8 @@
 - **If (f) is RED, or any other cell moves, HALT to the conductor.** That would mean the table fix is not the whole cause, or that it moves something else. A re-gate follows in that case.
 - When (f) lands GREEN, a one-line delta note citing drax's commit closes this.
 
+**(f) RESTATED, ACCEPTED (2026-10-15, conductor relay).** The smoke count is corrected to 12/25 (godot `8ccfcbb`), and (f) now runs on gamora's tapes of record. drax's pre-committed rule 1–4 (v5.1: 25/25 terminal, no refusal; v5: every refusal is `PhysicalContactUnmapped` on the default weapon attack, set printed beside the smoke's 12; every non-refusing cell 7/7 with byte-identical J4B-ROWS / GO / GH / GR; any departure HALTs) **replaces "the same 10 cells" as the discharge criterion**, with one addition: **v5 must refuse at least one cell on the tapes of record** (a fail-first must go RED, #80). An empty v5 set is reported, and the RED leg then rests on the labelled smoke's 12.
+
 ## Findings
 
 **INFO-1 · B' still does not list v5 / v5.1** (pack dirs and tools); owed by gamora, carried from v5 INFO-3. The opened scan shows 0 opens.
