@@ -30,6 +30,14 @@
 
 **(f) RESTATED, ACCEPTED (2026-10-15, conductor relay).** The smoke count is corrected to 12/25 (godot `70c3277`; the earlier citation `8ccfcbb` does not exist; (f) runner + comparer at godot `346e025`, committed before any run), and (f) now runs on gamora's tapes of record. drax's pre-committed rule 1–4 (v5.1: 25/25 terminal, no refusal; v5: every refusal is `PhysicalContactUnmapped` on the default weapon attack, set printed beside the smoke's 12; every non-refusing cell 7/7 with byte-identical J4B-ROWS / GO / GH / GR; any departure HALTs) **replaces "the same 10 cells" as the discharge criterion**, with one addition: **v5 must refuse at least one cell on the tapes of record** (a fail-first must go RED, #80). An empty v5 set is reported, and the RED leg then rests on the labelled smoke's 12.
 
+**CONDITION (f) MET (2026-10-15; godot `77f45e4`; runner/comparer `346e025` 14:00 and binder `b42afa4` 15:35 both precede the run at 19:45Z).** I re-derived it from the committed `cells.json` and `compare.json`, plus the bulk grains:
+- **limb 1:** v5.1 25/25 terminal with 0 refusals;
+- **limb 2:** v5 refuses 9, all `PhysicalContactUnmapped` on `defaultweaponattack.dbr`; this is ≥ 1, so the RED is real;
+- **partition:** the 9 refusing + 16 non-refusing cells cover all 25;
+- **limb 3:** computed over **all 16** non-refusing cells, each 7/7 (16 `diffs/`, all equal), with J4B-ROWS byte-identical and the GO / GH / GR per-cell lines byte-identical (none empty) — my own recompute;
+- **pack binding:** the provenance binds `c403ca5d` / `8079f8ef` as labelled.
+**v5.1 is quotable for graded contact-table-dependent results.**
+
 ## Findings
 
 **INFO-1 · B' still does not list v5 / v5.1** (pack dirs and tools); owed by gamora, carried from v5 INFO-3. The opened scan shows 0 opens.
