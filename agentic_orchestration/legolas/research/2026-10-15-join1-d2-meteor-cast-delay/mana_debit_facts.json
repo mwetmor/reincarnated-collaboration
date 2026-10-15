@@ -1,0 +1,413 @@
+{
+ "d2moo_anchors": {
+  "Collide_door": {
+   "file": "d2moo-D2Common-D2Collision.h",
+   "line": 53,
+   "needle": "COLLIDE_DOOR = 0x0800,"
+  },
+  "Collide_missile_barrier": {
+   "file": "d2moo-D2Common-D2Collision.h",
+   "line": 43,
+   "needle": "COLLIDE_MISSILE_BARRIER = 0x0004,"
+  },
+  "Consume_debit": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1106,
+   "needle": "STATLIST_AddUnitStat(pPlayer, STAT_MANA, -nManaCost, 0);"
+  },
+  "Consume_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1063,
+   "needle": "int32_t __fastcall D2GAME_SKILLMANA_Consume_6FD10A50("
+  },
+  "Consume_insufficient_noop": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1101,
+   "needle": "if (STATLIST_UnitGetStatValue(pPlayer, STAT_MANA, 0) < nManaCost)"
+  },
+  "Consume_level_gt1": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1085,
+   "needle": "if (nSkillLevel > 1)"
+  },
+  "DeletePerFrameEvents": {
+   "file": "d2moo-D2Game-UNIT-SUnit.cpp",
+   "line": 1466,
+   "needle": "void __fastcall D2GAME_DeletePlayerPerFrameEvents_6FCBCE50("
+  },
+  "DoFrame_wrapper": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2745,
+   "needle": "void __fastcall sub_6FD13410("
+  },
+  "DoTable_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 160,
+   "needle": "static const SkillDoFunc gpSkillSrvDoFnTable_6FD40A20[] ="
+  },
+  "GetSkillLevel_bonus": {
+   "file": "d2moo-D2Common-D2Skills.cpp",
+   "line": 1993,
+   "needle": "if (bBonus && pSkill->nOwnerGUID == D2UnitInvalidGUID)"
+  },
+  "Handler_a5_gate": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2559,
+   "needle": "    if (a5)"
+  },
+  "Handler_debit_at_do": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2563,
+   "needle": "if (!gpSkillSrvStartFnTable_6FD408B0[pSkillsTxtRecord->wSrvStartFunc] || pSkillsTxtRecord->dwFlags[1] & gdwBitMasks[SKILLSFLAGINDEX2_USEMANAONDO])"
+  },
+  "Handler_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2445,
+   "needle": "int32_t __fastcall D2GAME_SKILLS_Handler_6FD12BA0("
+  },
+  "Handler_dofunc_call": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2504,
+   "needle": "nResult = pDoFunc(pGame, pUnit, nSkillId, nSkillLevel);"
+  },
+  "Handler_nResult_gate": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2554,
+   "needle": "    if (!nResult)"
+  },
+  "Handler_srvmissile_branch": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2507,
+   "needle": "const int32_t nSrvMissile = pSkillsTxtRecord->wSrvMissile;"
+  },
+  "Handler_srvmissile_create": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2548,
+   "needle": "sub_6FD11420(pGame, pSkillsTxtRecord->wSrvMissile, pUnit, nSkillId, nSkillLevel, nX, nY, nTargetX, nTargetY, 0);"
+  },
+  "Handler_srvmissile_nResult1": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2551,
+   "needle": "        nResult = 1;"
+  },
+  "Handler_usemanaondo_check": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2490,
+   "needle": "if (nDoFunc < 0 || nDoFunc >= std::size(gpSkillSrvDoFnTable_6FD40A20) || bLivingUnit && pSkillsTxtRecord->dwFlags[1] & gdwBitMasks[SKILLSFLAGINDEX2_USEMANAONDO] && !sub_6FD10CE0(pUnit))"
+  },
+  "Interrupt_flag_gate": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 113,
+   "needle": "if (!(pUsedSkillsTxtRecord->dwFlags[0] & gdwBitMasks[SKILLSFLAGINDEX_INTERRUPT]))"
+  },
+  "LOS_enum_flying4": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.h",
+   "line": 112,
+   "needle": "SKILLSLOS_PLAYER_FLYING = 4,"
+  },
+  "LOS_raytrace": {
+   "file": "d2moo-D2Common-D2Skills.cpp",
+   "line": 3184,
+   "needle": "BOOL __stdcall D2Common_11026(int nX, int nY, D2UnitStrc* pUnit, uint16_t nColMask)"
+  },
+  "ManaCheck_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1178,
+   "needle": "int32_t __fastcall sub_6FD10CE0("
+  },
+  "Meteor_def": {
+   "file": "d2moo-SkillSor.cpp",
+   "line": 896,
+   "needle": "int32_t __fastcall SKILLS_SrvDo028_Meteor_Blizzard_Eruption_BaalTaunt_Catapult("
+  },
+  "MissileCreator_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1463,
+   "needle": "D2UnitStrc* __fastcall sub_6FD11420("
+  },
+  "MissileCreator_zero_target_fail": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1493,
+   "needle": "if (!missileParams.nTargetX || !missileParams.nTargetY)"
+  },
+  "Missile_create_from_params": {
+   "file": "d2moo-D2Game-MISSILES-Missiles.cpp",
+   "line": 70,
+   "needle": "D2UnitStrc* __fastcall MISSILES_CreateMissileFromParams("
+  },
+  "StartStat_startmana": {
+   "file": "d2moo-D2Common-D2Skills.cpp",
+   "line": 1858,
+   "needle": "BOOL __fastcall D2Common_SKILLMANA_CheckStartStat_6FDB1400("
+  },
+  "StartTable_index0_null": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 64,
+   "needle": "constexpr SkillStartFunc gpSkillSrvStartFnTable_6FD408B0[] ="
+  },
+  "StartXY_Block": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 822,
+   "needle": "void __fastcall PLRMODE_StartXY_Block("
+  },
+  "StartXY_Cast": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 852,
+   "needle": "void __fastcall PLRMODE_StartXY_AttackCastThrowKickSpecialSequence("
+  },
+  "StartXY_GetHit": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 840,
+   "needle": "void __fastcall PLRMODE_StartXY_GetHit("
+  },
+  "StartXY_Neutral": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 159,
+   "needle": "void __fastcall PLRMODE_StartXY_Neutral("
+  },
+  "Start_LOS_fail_return": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2405,
+   "needle": "if (!D2Common_11026(nX, nY, pUnit, nCollisionMask))"
+  },
+  "Start_LOS_gate": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2364,
+   "needle": "if (pSkillsTxtRecord->nLineOfSight != SKILLSLOS_NONE)"
+  },
+  "Start_LOS_mask_flying": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2396,
+   "needle": "nCollisionMask = COLLIDE_DOOR | COLLIDE_MISSILE_BARRIER;"
+  },
+  "Start_debit_if_stfunc": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2427,
+   "needle": "const int32_t nResult = pfSkillStart(pGame, pUnit, nSkillId, nSkillLevel);"
+  },
+  "Start_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2336,
+   "needle": "int32_t __fastcall sub_6FD12950("
+  },
+  "Start_fail_forces_neutral": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2678,
+   "needle": "sub_6FC817D0(pGame, pUnit, 0, 5, 0, 0, 1);"
+  },
+  "Start_mana_sufficiency_check": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2344,
+   "needle": "if (!pSkillsTxtRecord || !a5 && !sub_6FD10CE0(pUnit))"
+  },
+  "Start_stfunc_lookup": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2417,
+   "needle": "SkillStartFunc pfSkillStart = gpSkillSrvStartFnTable_6FD408B0[pSkillsTxtRecord->wSrvStartFunc];"
+  },
+  "StaticField_aura_walk": {
+   "file": "d2moo-SkillSor.cpp",
+   "line": 433,
+   "needle": "sub_6FD0FE80(pGame, pUnit, 0, 0, nAuraRange, pSkillsTxtRecord->dwAuraFilter, SKILLS_AuraCallback_StaticField, &staticField, 0, __FILE__, __LINE__);"
+  },
+  "StaticField_def": {
+   "file": "d2moo-SkillSor.cpp",
+   "line": 406,
+   "needle": "int32_t __fastcall SKILLS_SrvDo020_StaticField("
+  },
+  "Txt_AttackNoMana": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 514,
+   "needle": "{ \"AttackNoMana\", TXTFIELD_BIT, 28, 4, NULL },"
+  },
+  "Txt_lineofsight": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 499,
+   "needle": "{ \"lineofsight\", TXTFIELD_BYTE, 0, 399, NULL },"
+  },
+  "Txt_srvdofunc": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 358,
+   "needle": "{ \"srvdofunc\", TXTFIELD_WORD, 0, 46, NULL },"
+  },
+  "Txt_srvmissile": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 366,
+   "needle": "{ \"srvmissile\", TXTFIELD_NAMETOWORD, 0, 70, &sgptDataTables->pMissilesLinker },"
+  },
+  "Txt_srvstfunc": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 357,
+   "needle": "{ \"srvstfunc\", TXTFIELD_WORD, 0, 44, NULL },"
+  },
+  "Txt_startmana": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 530,
+   "needle": "{ \"startmana\", TXTFIELD_WORD, 0, 388, NULL },"
+  },
+  "Txt_usemanaondo": {
+   "file": "d2moo-D2Common-DataTbls-SkillsTbls.cpp",
+   "line": 529,
+   "needle": "{ \"usemanaondo\", TXTFIELD_BIT, 37, 4, NULL },"
+  }
+ },
+ "d2r": {
+  "Fire Ball": {
+   "AttackNoMana": null,
+   "InTown": null,
+   "LineOfSight": null,
+   "decquant": null,
+   "interrupt": 1,
+   "lvlmana": 1,
+   "mana": 10,
+   "manashift": 7,
+   "minmana": 1,
+   "periodic": null,
+   "srvdofunc": null,
+   "srvmissile": "fireball",
+   "srvstfunc": null,
+   "startmana": null,
+   "usemanaondo": null
+  },
+  "Fire Bolt": {
+   "AttackNoMana": null,
+   "InTown": null,
+   "LineOfSight": null,
+   "decquant": null,
+   "interrupt": 1,
+   "lvlmana": 0,
+   "mana": 5,
+   "manashift": 7,
+   "minmana": 1,
+   "periodic": null,
+   "srvdofunc": null,
+   "srvmissile": "firebolt",
+   "srvstfunc": null,
+   "startmana": null,
+   "usemanaondo": null
+  },
+  "Meteor": {
+   "AttackNoMana": null,
+   "InTown": null,
+   "LineOfSight": 4,
+   "decquant": null,
+   "interrupt": 1,
+   "lvlmana": 1,
+   "mana": 34,
+   "manashift": 7,
+   "minmana": 1,
+   "periodic": null,
+   "srvdofunc": 28,
+   "srvmissile": null,
+   "srvstfunc": null,
+   "startmana": null,
+   "usemanaondo": null
+  },
+  "Static Field": {
+   "AttackNoMana": null,
+   "InTown": null,
+   "LineOfSight": 4,
+   "decquant": null,
+   "interrupt": 1,
+   "lvlmana": 0,
+   "mana": 9,
+   "manashift": 8,
+   "minmana": 1,
+   "periodic": null,
+   "srvdofunc": 20,
+   "srvmissile": null,
+   "srvstfunc": null,
+   "startmana": null,
+   "usemanaondo": null
+  }
+ },
+ "do_table_index0": "nullptr,",
+ "failures": [],
+ "handler_order_lines": {
+  "Handler_a5_gate": 2559,
+  "Handler_debit_at_do": 2563,
+  "Handler_def": 2445,
+  "Handler_dofunc_call": 2504,
+  "Handler_nResult_gate": 2554,
+  "Handler_srvmissile_create": 2548,
+  "Handler_srvmissile_nResult1": 2551
+ },
+ "inputs": {
+  "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07"
+ },
+ "lod113": {
+  "Fire Ball": {
+   "AttackNoMana": "",
+   "Id": "47",
+   "InTown": "",
+   "LineOfSight": "",
+   "decquant": "",
+   "interrupt": "1",
+   "lvlmana": "1",
+   "mana": "10",
+   "manashift": "7",
+   "minmana": "1",
+   "periodic": "",
+   "srvdofunc": "",
+   "srvmissile": "fireball",
+   "srvstfunc": "",
+   "startmana": "",
+   "usemanaondo": ""
+  },
+  "Fire Bolt": {
+   "AttackNoMana": "",
+   "Id": "36",
+   "InTown": "",
+   "LineOfSight": "",
+   "decquant": "",
+   "interrupt": "1",
+   "lvlmana": "0",
+   "mana": "5",
+   "manashift": "7",
+   "minmana": "1",
+   "periodic": "",
+   "srvdofunc": "",
+   "srvmissile": "firebolt",
+   "srvstfunc": "",
+   "startmana": "",
+   "usemanaondo": ""
+  },
+  "Meteor": {
+   "AttackNoMana": "",
+   "Id": "56",
+   "InTown": "",
+   "LineOfSight": "4",
+   "decquant": "",
+   "interrupt": "1",
+   "lvlmana": "1",
+   "mana": "34",
+   "manashift": "7",
+   "minmana": "1",
+   "periodic": "",
+   "srvdofunc": "28",
+   "srvmissile": "",
+   "srvstfunc": "",
+   "startmana": "",
+   "usemanaondo": ""
+  },
+  "Static Field": {
+   "AttackNoMana": "",
+   "Id": "42",
+   "InTown": "",
+   "LineOfSight": "4",
+   "decquant": "",
+   "interrupt": "1",
+   "lvlmana": "0",
+   "mana": "9",
+   "manashift": "8",
+   "minmana": "1",
+   "periodic": "",
+   "srvdofunc": "20",
+   "srvmissile": "",
+   "srvstfunc": "",
+   "startmana": "",
+   "usemanaondo": ""
+  }
+ },
+ "start_table_index0": "nullptr,"
+}

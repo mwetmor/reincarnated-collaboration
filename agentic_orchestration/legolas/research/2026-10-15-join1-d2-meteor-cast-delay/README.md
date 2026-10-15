@@ -26,7 +26,7 @@
   - it is within distance 100 (`UNITS_GetDistanceToCoordinates`),
   - it is not blocked by wall or missile-barrier collision at missile size 1.
 
-  If the point fails these checks, the cast animation plays, but no delay is set and no mana is spent.
+  If the point fails these checks, the cast animation plays, but no delay is set and no mana is spent. (Erratum: a point with a door or missile barrier on the line of sight is instead aborted at start, with no animation; see Q4.)
 - **Resets:** nothing in the 1.10f code resets the delay. It ends only at expiry, or when the player unit is created or destroyed (joining or leaving a game). **Level or area change does not reset it.**
 
 ## Findings
@@ -108,6 +108,7 @@ The call chain, with each link cited:
   `D2GAME_CreateMissile_6FD115E0` (L1520) then fails if `UNITS_GetDistanceToCoordinates > 100` (L1549). That metric is max(|dx|,|dy|) + min/2 in unit coordinates (`Units.cpp`). **DATAMINED.**
 - **Verdict:** an empty ground point gives a successful do-function, so mana is spent and the delay is set. An invalid point (wall or barrier, out of range, or no point) still plays the full cast animation, but `nResult` = 0, so **no missile, no mana, no delay**. **DATAMINED (1.10f); INFERRED for D2R.**
 - **Port note:** if the J4b AI can aim at an invalid point, the D2-faithful outcome is a wasted cast animation with no delay. The port's contract would need a row for that case.
+- **ERRATUM (KP-481 follow-up, same day):** this answer missed Meteor's start-time line-of-sight gate (`lineofsight` = 4, mask DOOR | MISSILE_BARRIER, `Skills.cpp` L2364-2408 and L2678). A point whose ray from her is blocked by a door or missile barrier is **aborted at start**, on the request frame, with **no animation**. Only the do-function failures above (collision at the point, distance > 100, no point) play the animation first. See `README-KP481-mana-debit.md`.
 
 ### Q5. Does D2 ever reset the delay? No; it only expires
 
@@ -132,5 +133,6 @@ The call chain, with each link cited:
 4. **The `sub_6FC81890` CAST clause** `dwGameFrame <= ENDANIM-frame + 5` is not relied upon here. Only its explicit GETHIT/BLOCK disjunct is cited.
 
 ## Files
+- `README-KP481-mana-debit.md`, `verify_mana_debit.py` and `mana_debit_facts.json`: the KP-481 follow-up (mana-debit timing for Fire Bolt, Fire Ball, Static Field and Meteor), plus the Q4 erratum.
 - `captures/`: the D2MOO sources (`d2moo-*.cpp/.h`), `d2data/skills.json`, the Basin raw pages and the Blizzard 2.4 notes HTML. Their sha256 values are in `meteor_delay_facts.json`.
 - `verify_meteor_delay.py` re-derives the values and line anchors. `meteor_delay_facts.json` is its output.
