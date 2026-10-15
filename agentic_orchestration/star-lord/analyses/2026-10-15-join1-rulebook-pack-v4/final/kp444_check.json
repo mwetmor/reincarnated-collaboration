@@ -1,0 +1,57 @@
+{
+ "ruling": "KP-444 (collab 2e679e429): skillProgression IS SPENT; hard points = profile.skills + skillProgression (110)",
+ "inputs": {
+  "build_file_standard_verbatim.json": "ee5b8b2238d313f7b03cececfa708e17b11768bc5b4d47319d7426fe2b6c0cfe",
+  "sorc_build_sheet.json (stage 5, live)": "a118544bc6b59c1c46206d80ef62f54dbcbccd24495cd3943bffdf52c69124a2",
+  "stamping_table.json (gamora v2, 591ebde87)": "c70ce5b75f37c5c0bbb827e4c08061d8d27020f9bb1c79caba5a79f4718f8d8b"
+ },
+ "profile_skills_sum": 86,
+ "skillProgression_n": 24,
+ "skillProgression": {
+  "Fire Bolt": 3,
+  "Inferno": 19,
+  "Enchant": 2
+ },
+ "hard_points_KP444": {
+  "Fire Bolt": 20,
+  "Warmth": 1,
+  "Frozen Armor": 1,
+  "Inferno": 20,
+  "Static Field": 1,
+  "Telekinesis": 1,
+  "Blaze": 1,
+  "Fire Ball": 20,
+  "Fire Wall": 1,
+  "Enchant": 3,
+  "Teleport": 1,
+  "Meteor": 20,
+  "Fire Mastery": 20
+ },
+ "hard_points_sum": 110,
+ "stamping_v2_hardpoint_rows_equal_profile_skills": true,
+ "pack_blvl_equals_KP444": true,
+ "slvl_rederived_from_stage5_sheet_bonus_plus_KP444_hard_plus_BC1": {
+  "Fire Bolt": 46,
+  "Inferno": 46,
+  "Enchant": 29,
+  "Fire Ball": 46,
+  "Meteor": 46,
+  "Fire Mastery": 46,
+  "Warmth": 27,
+  "Frozen Armor": 16,
+  "Static Field": 16,
+  "Teleport": 16
+ },
+ "pack_slvl_equals_rederived": true,
+ "synergies_KP444": {
+  "fire_ball_pct": 560,
+  "meteor_pct": 200,
+  "burning_ground_pct": 60
+ },
+ "pack_synergies": {
+  "fire_ball": 560,
+  "meteor": 200,
+  "meteor_pyre": 60
+ },
+ "pack_synergies_equal": true
+}

@@ -149,5 +149,13 @@
  "still_outstanding": [
   "INFO-V3-1 class_rules_disagree description fix: at the next cut that touches offense_da (v4 final carries it byte-identical)",
   "jack-ryan packs gate before drax binds"
- ]
+ ],
+ "hard_points_KP444": {
+  "history": "coordinator relayed gamora's 17/1/1 correction (legolas stage 5, collab b4d5e2920), then superseded it by KP-444 (collab 2e679e429): skillProgression IS SPENT -> 20/20/3, 110 points",
+  "result": "pack dee7cf58 ALREADY carries the KP-444 values (blvl FBolt 20 / Inferno 20 / Enchant 3; slvl 46 / 46 / 29; synergies 560 / 200 / 60). NO re-cut",
+  "anchor_cited": "blvl.* points_to build_file_standard_verbatim.json profile.skills AND profile.skillProgression (FILE ee5b8b22)",
+  "check": "final/kp444_check.json (script kp444_check.py): every blvl/slvl/synergy equal; gamora stamping v2 hard-point rows == profile.skills",
+  "tool_rerun_note": "the tool pins sorc_build_sheet.json FILE 7c1ea68d (the pre-stage-5 bytes, git b4d5e2920~1); the live file has since changed (stage 5), so a re-run HALTs at PINS until the sheet returns to those bytes. The pack is the durable record; the slvl rows' source pointer carries FILE 7c1ea68d",
+  "not_in_pack": "no KP-444 citation inside the pack rows (adding one is a re-cut)"
+ }
 }
