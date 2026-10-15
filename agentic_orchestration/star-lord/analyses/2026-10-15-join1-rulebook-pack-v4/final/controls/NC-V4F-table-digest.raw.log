@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v4_final.py", line 1169, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v4_final.py", line 1153, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v4_final.py", line 1074, in main_build
+    raise RulebookPackHalt(f"gate failed: {json.dumps({'checks': gates['checks'], 'failures': gates['failures']})[:4000]}")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: {"checks": 31, "failures": [{"row": "RB-A-anchor_ar_eq_table", "check": "table FILE sha == gamora manifest; emitter at 833fee62; kc2 tree"}]}
+rc=1

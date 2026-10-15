@@ -1,0 +1,153 @@
+{
+ "artifact": "JOIN-1 KP-441 kc2-rulebook-pack-v4 FINAL CUT (anchor_m_per_yd = 1.2 JUDGED)",
+ "author": "star-lord (export seam); conductor gandalf",
+ "ruling": "KP-441 (collab 3dd6e947a): 1.2 m per D2 yard, JUDGED; source legolas C-13 README § 10; sensitivities {0.67, 0.9144, 1.0, 1.17, 1.5}",
+ "tool": {
+  "path": "src/reincarnated/export/kc2_rulebook_pack_v4_final.py",
+  "FILE_sha256": "621aa8aef52635d365fb3c0bb512a0b7a694b3a967319c7071209f47ba09320b",
+  "predicted_in_prereg": "621aa8aef52635d365fb3c0bb512a0b7a694b3a967319c7071209f47ba09320b",
+  "choice": "a NEW file (the re-cut tool copied + the row, its check, meta, census pin, env names, yard-drift control); kc2_rulebook_pack_v4_recut.py stays unedited so it still reproduces 022a7068"
+ },
+ "prereg_delta": {
+  "commit": "03502344",
+  "path": "src/reincarnated/export/math/2026-10-15-kc2-rulebook-pack-v4-final-prereg-delta.md",
+  "alone": true
+ },
+ "cut": {
+  "commit": "bcc3ab03",
+  "dir": "src/reincarnated/output/kc2-rulebook-pack-v4-20261014_233315",
+  "receipt": "src/reincarnated/output/kc2-rulebook-pack-v4-cut-receipt-20261014_233315.json",
+  "pack_digest": "dee7cf58a2de8c939ea52bd9598f29130189fb2baffbe237d8a64a7e7d13e187",
+  "manifest_FILE_sha256": "724dc54acd9e06ae0c306c1c5038866985a14821a512edadc4ec5c7dc4324d23",
+  "self_consistent": true,
+  "verdict": "PASS",
+  "census": {
+   "anchor_rows": 24,
+   "grades": {
+    "DATA-DERIVED": 7,
+    "DATAMINED": 11,
+    "DECLARED-INVENTED": 2,
+    "INFERRED": 28,
+    "JUDGED": 24,
+    "MODEL-VERIFIED": 18,
+    "VERBATIM": 17
+   },
+   "hook_rows": 10,
+   "kit_rows": 73
+  },
+  "predicted": {
+   "pack_digest": "dee7cf58a2de8c939ea52bd9598f29130189fb2baffbe237d8a64a7e7d13e187",
+   "manifest_FILE_sha256": "724dc54acd9e06ae0c306c1c5038866985a14821a512edadc4ec5c7dc4324d23"
+  },
+  "as_predicted": true
+ },
+ "delta_vs_recut_022a7068": {
+  "members_changed": [
+   "rulebook/anchor_d2_gd.json (row RB-A-anchor_m_per_yd only)",
+   "rulebook/meta.json"
+  ],
+  "members_byte_identical": 14,
+  "prereg_wording_erratum": "prereg § 1 says '15 of 16 members' byte-identical; the true count is 14 of 16 (anchor_d2_gd and meta change). Its member digests and the pack prediction were exact; only that prose count is wrong. The prereg is not edited"
+ },
+ "gates": {
+  "G-1_v311_rowsets_rederived_unchanged": true,
+  "G-2_checks": true,
+  "G-3_loaders": true,
+  "G-4_carried_byte_identical": true,
+  "G-7_js8_untouched": true,
+  "G-9_port_boundary_scan": true,
+  "pre_equals_post_all": true
+ },
+ "G-2": {
+  "generator_self_test": {
+   "failures": [],
+   "n_failures": 0,
+   "n_values_compared": 900
+  },
+  "n_checks": 31,
+  "n_failures": 0,
+  "ok": true
+ },
+ "G-8_s47v4": {
+  "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for § 4.7 claims from E3)",
+  "instrument_FILE_sha256": "a4bcd3278a61bbe518eb6b2c3f1cb84dd4660d2ca6e9e695bdd6cf4fae382878",
+  "attempt1": {
+   "where": "main worktree",
+   "verdict": "NO VERDICT",
+   "reason": "HEAD moved during the run: bcc3ab0336438ae7268e99be414fb77c3ed8094d -> 5b001f8855ee0847f8112da020257c5c29566314",
+   "dir": "final/s47v4-attempt1-NO-VERDICT",
+   "note": "gamora committed 5b001f88 (doc only) mid-run; kept on record"
+  },
+  "attempt2": {
+   "where": "dedicated worktree /Users/admin/Games/reincarnated-engine-v4final-s47 detached at bcc3ab03",
+   "verdict": "ORACLE BYTE-IDENTICAL",
+   "reason": "HEAD fixed; A and B and B' pass",
+   "HEAD": "bcc3ab0336438ae7268e99be414fb77c3ed8094d",
+   "dir": "final/s47v4-attempt2"
+  },
+  "opened_file_scan": {
+   "witness_children": [
+    {
+     "witness": "79036.json",
+     "n_opened_py": 515,
+     "n_import_events": 522,
+     "opened_forbidden": 0,
+     "paths_naming_rulebook": []
+    },
+    {
+     "witness": "79202.json",
+     "n_opened_py": 569,
+     "n_import_events": 522,
+     "opened_forbidden": 0,
+     "paths_naming_rulebook": []
+    }
+   ],
+   "import_closure_files_naming_rulebook": [],
+   "result": "0 opened paths in or naming any rulebook pack in either ORACLE child"
+  }
+ },
+ "G-10": {
+  "expected": "tool + 17 pack files + receipt = 19",
+  "observed_git_show_stat": 19
+ },
+ "controls": {
+  "NC-V4F-a": {
+   "log": "final/controls/NC-V4F-table-drift.raw.log",
+   "observed": "HALT; generator self-test 1 difference (fire_ball, 46, fire_min, 669.0 vs 668.5)",
+   "as_predicted": true
+  },
+  "NC-V4F-b": {
+   "log": "final/controls/NC-V4F-value-drift.raw.log",
+   "observed": "HALT; checks 31, 1 failure RB-K-life_d2",
+   "as_predicted": true
+  },
+  "NC-V4F-c": {
+   "log": "final/controls/NC-V4F-table-digest.raw.log",
+   "observed": "HALT; checks 31, 1 failure RB-A-anchor_ar_eq_table",
+   "as_predicted": true
+  },
+  "NC-V4F-f": {
+   "log": "final/controls/NC-V4F-yard-drift.raw.log",
+   "observed": "HALT; checks 31, 1 failure RB-A-anchor_m_per_yd",
+   "as_predicted": true
+  },
+  "NC-V4F-d": {
+   "log": "final/controls/NC-V4F-d-e.raw.log",
+   "observed": "verify rc 1, member_failures ['tables/physical_contact_table.json']; load_layer refused",
+   "as_predicted": true
+  },
+  "NC-V4F-e": {
+   "log": "final/controls/NC-V4F-d-e.raw.log",
+   "observed": "10/10 refused; JOIN reads anchor_m_per_yd 1.2 JUDGED; kit 73 rows",
+   "as_predicted": true
+  }
+ },
+ "superseded_on_disk": {
+  "first_cut": "48c6d891 (engine 2f4f61e0) src/reincarnated/output/kc2-rulebook-pack-v4-20261014_230813",
+  "recut": "022a7068 (engine c3cf0e3d) src/reincarnated/output/kc2-rulebook-pack-v4-20261014_232246"
+ },
+ "still_outstanding": [
+  "INFO-V3-1 class_rules_disagree description fix: at the next cut that touches offense_da (v4 final carries it byte-identical)",
+  "jack-ryan packs gate before drax binds"
+ ]
+}

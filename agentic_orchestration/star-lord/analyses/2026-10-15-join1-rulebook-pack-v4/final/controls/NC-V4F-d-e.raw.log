@@ -1,0 +1,39 @@
+clean dry pack: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v4final/dry1/kc2-rulebook-pack-v4-20261014_233107
+NC-V4F-e load_operands 'ORACLE' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4F-e load_layer 'ORACLE' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V4F-e load_operands 'PLAY' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4F-e load_layer 'PLAY' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V4F-e load_operands 'join' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4F-e load_layer 'join' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V4F-e load_operands '' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4F-e load_layer '' REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config '' refused (A-12).
+NC-V4F-e load_operands None REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V4F-e load_layer None REFUSED: kc2-rulebook-pack-v4 is opened only by a JOIN session; config None refused (A-12).
+NC-V4F-e JOIN anchor_m_per_yd: 1.2 JUDGED beside: {'sensitivity_set_m_per_yd': (0.67, 0.9144, 1.0, 1.17, 1.5), 'in_world_anchors_m_per_yd': {'melee_reach': 1.2, 'body_radius': 1.17}, 'literal_yard': 0.9144, 'c13_sensitivity_set_m_per_yd': (0.67, 0.9144, 1.0, 1.17, 1.2, 1.5)}
+NC-V4F-e JOIN kit rows: 73
+on": "3b47b5e4bd80c3a8229ebe4125063d751fc4a5d0d0cb9c6b605acf2ebf4ba1f6",
+  "rulebook/kit_warlord_crit.json": "9be797233f931d8d6927da725abd0ef2f990444221cd14a348dbdfc28f541071",
+  "rulebook/laws.json": "efaf306cc885ebdcb4677abe4f56aaaef593e256fb36a8ca7d1eda0b9cad49eb",
+  "rulebook/laws_crit.json": "9c6bf3457ff513cd639732864d763e26be138026ab26554f8c8c007b89acad66",
+  "rulebook/meta.json": "db5d574d1862b19f3231b01c532db059e2db18009d6b0ce6a351ed34f99f0d33",
+  "rulebook/offense_da.json": "a74e96228d9536f4cfbecc36a9f999db6927c37f9a72ebce15c367621a8dd093",
+  "rulebook/offense_da_population.json": "cfa9cda683c40f56277a843e680acee169d5a6c5e8e8bcf279626996e0b73862",
+  "rulebook/world_gd.json": "f0f30cf9a4babe9bfab75d996e4cc98aedcfb7ba2e3062257656bf50d3337d0c",
+  "tables/anchor_ar_eq_table.json": "536637a111877b5c81e7b4421c1aed2b53011e1242654a8932781a88267d757c",
+  "tables/anchor_ar_eq_table_unique.json": "d2594c518499a8b7b18df02d037f24a1831c20587e1ff3a03cdebff042aae96c",
+  "tables/physical_contact_table.json": "33112d1a1e2461c046f0bb1b9c7b5c55f0181f8c229ace9af6cccc2d3259b600"
+ },
+ "dir": "nc_d_pack",
+ "manifest_FILE_sha256": "724dc54acd9e06ae0c306c1c5038866985a14821a512edadc4ec5c7dc4324d23",
+ "manifest_pack_digest": "dee7cf58a2de8c939ea52bd9598f29130189fb2baffbe237d8a64a7e7d13e187",
+ "member_failures": [
+  "tables/physical_contact_table.json"
+ ],
+ "n_members": 16,
+ "recomputed_pack_digest": "28725d2d22275aef22d9f89d17123de99802cc8d3311fca6a05f65c68d742b5e",
+ "self_consistent": false
+}
+
+NC-V4F-d verify rc 1
+NC-V4F-d load_layer REFUSED: pack digest / member digest check failed: ['tables/physical_contact_table.json']
+rc=0
