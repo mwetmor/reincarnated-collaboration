@@ -55,7 +55,7 @@ The guide offers five build variants. **This packet resolves "Standard", and tha
 | **clvl** | **99** (merc 98), difficulty Hell, all quests done in all three difficulties |
 | **Stats added** | **Str 74, Dex 0, Energy 0, Vit 431** (505 points = 98×5 + 15 from Lam Esen) |
 | **Skills** (hard points; Skills.txt ids) | Fire Bolt 17, Warmth 1, Frozen Armor 1, Inferno 1, Static Field 1, Telekinesis 1, Blaze 1, Fire Ball 20, Fire Wall 1, Enchant 1, Teleport 1, Meteor 20, Fire Mastery 20 (86 points) |
-| Skill progression | Plus 24 more points: Fire Bolt +3, Inferno +19, Enchant +2. **Final at 99: Fire Bolt 20, Inferno 20, Enchant 3** (110 points = 98 + 12 quest). This matches the guide's "max in order Meteor, Fire Mastery, Fire Ball, Fire Bolt, Inferno, Enchant" |
+| Skill progression | The planner also carries `skillProgression`, 24 entries: Fire Bolt ×3, Inferno ×19, Enchant ×2. ~~**Final at 99: Fire Bolt 20, Inferno 20, Enchant 3** (110 points = 98 + 12 quest)~~ **⚑ SUPERSEDED (stage 5, § 9):** the sheet now uses the verbatim `profile.skills` (Fire Bolt 17, Inferno 1, Enchant 1). Whether to spend the 24 progression points is a ruling item (§ 9) |
 
 **Gear** (planner items with their rolls):
 
@@ -141,8 +141,8 @@ Also in the inventory: Horadric Cube and Tome of Town Portal.
 | FBR | 0 → 9 frames | same | same | same | 0 |
 | DR % / magic absorb | 18 / 8 flat | same | same | same | 18 / 3–8 |
 | **+skills to her fire skills** | **+25** (all 8, Sorceress 6, fire 11) | same | +14 | same | +11–13 |
-| **slvl** Fire Ball / Meteor / Fire Mastery / Fire Bolt / Inferno | **45 / 45 / 45 / 45 / 45** | same | 34 each | same | 31–33 (Fire Bolt unpinned) |
-| slvl Warmth / Enchant / Frozen Armor | 26 / 28 / 15 | same | 15 / 17 / 11 | same | — |
+| **slvl** Fire Ball / Meteor / Fire Mastery / Fire Bolt / Inferno | **45 / 45 / 45 / ~~45~~ 42 / ~~45~~ 26** | same | 34 / 34 / 34 / ~~34~~ 31 / ~~34~~ 15 | same | 31–33 (Fire Bolt unpinned) |
+| slvl Warmth / Enchant / Frozen Armor | 26 / ~~28~~ 26 / 15 | same | 15 / ~~17~~ 15 / 11 | same | — |
 | MF % | 427 | same | 345 | same | — |
 
 **⚑ Without charms the guide's allocation does not meet the Monarch's Strength requirement** (116 < 156): Annihilus and the Torch supply 40 of it. A no-charm sheet would have to move 40 points from Vitality to Strength, costing 80 life. That is a modelling choice for you, not something I picked; the column above keeps the guide's allocation.
@@ -348,7 +348,7 @@ Standard variant, clvl 99, charms, BO / BC / Frozen Armor always on, mercenaries
 | FCR / FHR / FBR | 105 (8 frames) / 60 (8) / 0 (9) |
 | DR / magic absorb | 18 % / 8 flat |
 | **+skills** | all 9 (8 + BC 1), Sorceress 6, fire tree 11 → **+26 to her fire skills** |
-| **slvl** | **Fire Ball 46, Meteor 46, Fire Mastery 46, Fire Bolt 46, Inferno 46**, Warmth 27, Enchant 29, **Static Field 16**, Frozen Armor 16, Teleport 16 |
+| **slvl** | **Fire Ball 46, Meteor 46, Fire Mastery 46**, Fire Bolt ~~46~~ **43**, Inferno ~~46~~ **27**, Warmth 27, Enchant ~~29~~ **27**, **Static Field 16**, Frozen Armor 16, Teleport 16. **⚑ Corrected in stage 5 (§ 9)** |
 | Castables | Fire Ball, Meteor, **Static Field** (KP-437) |
 | Buffs, always on | Battle Orders 16 (180 s), Battle Command 16 (155 s), Frozen Armor 16 (300 s) |
 | MF | 427 % |
@@ -466,3 +466,38 @@ Basin Cold Damage agrees that resist reduces length and that the difficulty pena
 ⚑ **This supersedes the unfloored 0.75 / 0.50 / 0.375 s in § 7.3 and § 6.3.**
 
 For R1's cold resists, look up each type's `ResCo(H)` in this table (`c14_stage4.json → chill_effectiveness_R1.rows`).
+
+---
+
+## 9. Stage 5: verbatim hard points (correction found by gamora)
+
+**The defect.** `scripts/sorc_build_sheet.py` hard-coded Fire Bolt 20, Inferno 20 and Enchant 3. That assumed the planner's 24-entry `skillProgression` had been spent on top of `profile.skills`. **The verbatim `profile.skills` is Fire Bolt 17, Inferno 1, Enchant 1** (86 points).
+
+**The fix.** The script now **reads every hard point from the verbatim planner JSON** (Skills.txt Id → points) and computes the synergies from them. It also has a final row with Battle Command on.
+
+**Every other sheet field reproduces bit-exactly** against the stage-1 JSON: life, mana, defence, block, resists, FCR/FHR, +skills, MF and Strength check (checked field by field).
+
+### Corrected values
+
+| | Superseded (stage 1 / § 7.4) | **Corrected (verbatim hard points)** |
+|---|---|---|
+| Hard points Fire Bolt / Inferno / Enchant | 20 / 20 / 3 | **17 / 1 / 1** |
+| **Final sheet slvl** (BO + BC + FA on) Fire Bolt / Inferno / Enchant | 46 / 46 / 29 | **43 / 27 / 27** |
+| Charms, no BC: Fire Bolt / Inferno / Enchant | 45 / 45 / 28 | 42 / 26 / 26 |
+| No charms: Fire Bolt / Inferno / Enchant | 34 / 34 / 17 | 31 / 15 / 15 |
+| **Fire Ball synergy** 14 % × (Fire Bolt + Meteor hard points) | +560 % | **+518 %** (14 × 37) |
+| **Meteor impact synergy** 5 % × (Fire Bolt + Fire Ball) | +200 % | **+185 %** (5 × 37) |
+| **Meteor burning-ground synergy** 3 % × Inferno | +60 % | **+3 %** (3 × 1) |
+
+The synergy laws are J4b H01–H03: synergies read hard points only. **Unchanged:** Fire Ball, Meteor and Fire Mastery slvl 46 (45 without BC), Warmth 27, Static Field 16, Frozen Armor 16.
+
+### Did stages 2–4 use the wrong hard points? No.
+- Those stages use only Battle Orders/Battle Command (oskills, 0 hard points), **Frozen Armor (hard 1)** and **Static Field (hard 1)**. Both are correct in the verbatim data, so FA slvl 15/16 (§§ 6.3, 7.3, 8.6) and Static Field slvl 16 (§ 7.1) stand.
+- **No stage of C-14 computed Fire Ball or Meteor DAMAGE**, so no damage figure needs re-issuing. Any damage figure built downstream from § 7.4's synergies must use +518 / +185 / +3 %.
+- The C-13 packet is unaffected: it used no hard-point values from this build.
+
+### ⚑ Ruling item (raised, not decided)
+**`profile.skills` totals 86 hard points at clvl 99, but a clvl-99 character with all quests has 110** (98 levels + 12 from quests: 2 + 1 + 1 per difficulty).
+- The planner's `skillProgression` holds **exactly the 24 missing points**: Fire Bolt +3, Inferno +19, Enchant +2.
+- Spending them reproduces the guide's prose order: *"Max out … 1. Meteor 2. Fire Mastery 3. Fire Ball 4. Fire Bolt 5. Inferno 6. Enchant."*
+- **This stage follows the instruction (verbatim `profile.skills`).** If the conductor or Matt rule that the progression points are spent, the stage-1 values return: Fire Bolt 46, Inferno 46, Enchant 29; synergies +560 / +200 / +60 %. **I do not pick.**

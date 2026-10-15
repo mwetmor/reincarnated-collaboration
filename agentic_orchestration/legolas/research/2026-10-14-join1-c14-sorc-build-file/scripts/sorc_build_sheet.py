@@ -38,7 +38,7 @@ def rd(n):
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
-def sheet(with_charms: bool, bo_slvl: int | None, plan, clvl=99):
+def sheet(with_charms: bool, bo_slvl: int | None, plan, clvl=99, battle_command: bool = False):
     cs = {r["class"]: r for r in rd("CharStats.txt")}["Sorceress"]
     arm = {r["code"]: r for r in rd("Armor.txt")}
     p = plan["profiles"][1]                                   # 'Standard'
@@ -75,10 +75,21 @@ def sheet(with_charms: bool, bo_slvl: int | None, plan, clvl=99):
     sorcsk = 3 + (3 if with_charms else 0)                               # Oculus, Torch
     firesk = 1 + 3 + (7 if with_charms else 0)                           # Magefist, amulet, 7 GC
     plus_fire = allsk + sorcsk + firesk
-    hard = {"Fire Ball": 20, "Meteor": 20, "Fire Mastery": 20, "Fire Bolt": 20, "Inferno": 20, "Warmth": 1, "Enchant": 3,
-            "Frozen Armor": 1}
-    slvl = {k: v + plus_fire if k not in ("Frozen Armor",) else v + allsk + sorcsk for k, v in hard.items()}
-    slvl["Warmth"] = 1 + plus_fire
+    # ⚑ STAGE 5 (2026-10-14): hard points are READ from the verbatim planner `profile.skills` (Skills.txt Id -> points),
+    #   no longer hard-coded. The stage-1 values (Fire Bolt 20, Inferno 20, Enchant 3) assumed `skillProgression` had been
+    #   spent; the verbatim allocation is Fire Bolt 17, Inferno 1, Enchant 1 (86 points; see README § 9 ⚑ ruling item).
+    names = {r["Id"]: r["skill"] for r in rd("Skills.txt")}
+    tree = {r["Id"]: r.get("skilldesc", "") for r in rd("Skills.txt")}
+    hard = {names[k]: int(v) for k, v in p["skills"].items()}
+    fire_ids = {"36", "37", "41", "46", "47", "51", "52", "56", "61", "62"}   # Sorceress fire tree (Skills.txt / SkillDesc page 1 col 1)
+    bc = 1 if battle_command else 0
+    slvl = {}
+    for k, v in p["skills"].items():
+        n = names[k]
+        slvl[n] = int(v) + (plus_fire if k in fire_ids else allsk + sorcsk) + bc
+    synergy = {"Fire Ball_pct": 14 * (hard["Fire Bolt"] + hard["Meteor"]),
+               "Meteor_impact_pct": 5 * (hard["Fire Bolt"] + hard["Fire Ball"]),
+               "Meteor_burning_ground_pct": 3 * hard["Inferno"]}
     mf = 50 + 50 + 25 + 30 + 25 + 50 + 40 + 40 + 35 + ((6 * 7 + 40) if with_charms else 0)
     return {"with_charms": with_charms, "bo_slvl": bo_slvl, "bo_pct": bo_pct, "clvl": clvl,
             "attributes_total": tot, "attributes_from_items": item, "str_requirement_monarch": int(arm["uit"]["reqstr"]),
@@ -88,7 +99,8 @@ def sheet(with_charms: bool, bo_slvl: int | None, plan, clvl=99):
             "resists_uncapped": resists_raw, "fcr": fcr, "fcr_frames": bp(SORC_FCR, fcr), "fhr": fhr,
             "fhr_frames": bp(SORC_FHR, fhr), "fbr": 0, "fbr_frames": 9, "dr_pct": 18, "magic_absorb_flat": 8,
             "plus_skills": {"all": allsk, "sorceress": sorcsk, "fire_tree": firesk, "to_fire_skills_total": plus_fire},
-            "slvl": slvl, "mf_pct": mf}
+            "hard_points_verbatim": hard, "battle_command_on": battle_command, "slvl": slvl, "synergies_hard_point_based": synergy,
+            "mf_pct": mf}
 
 
 def main(out: Path):
@@ -106,6 +118,7 @@ def main(out: Path):
             "charms_BO": sheet(True, bo_charms + 1, plan),
             "nocharms_noBO": sheet(False, None, plan),
             "nocharms_BO": sheet(False, bo_nocharm + 1, plan),
+            "FINAL_charms_BO_BC_FA (KP-436/437)": sheet(True, bo_charms + 1, plan, battle_command=True),
         },
     }
     out.write_text(json.dumps(res, indent=1))
@@ -113,7 +126,7 @@ def main(out: Path):
         print(k, "BO", s["bo_slvl"], f"+{s['bo_pct']}%", "| life", s["life"], "mana", s["mana"], "def", s["defence"], "/", s["defence_vs_missile"],
               "block", s["block_pct"], "res", s["resists_after_hell_anya_capped"], "raw", s["resists_uncapped"],
               "FCR", s["fcr"], s["fcr_frames"], "FHR", s["fhr"], s["fhr_frames"], "str ok", s["str_requirement_met"], s["attributes_total"],
-              "slvl FB", s["slvl"]["Fire Ball"], "Warmth", s["slvl"]["Warmth"], "+fire", s["plus_skills"], "MF", s["mf_pct"])
+              "slvl", {k: s["slvl"][k] for k in ("Fire Ball", "Meteor", "Fire Mastery", "Fire Bolt", "Inferno", "Warmth", "Enchant", "Frozen Armor", "Static Field")}, "syn", s["synergies_hard_point_based"], "MF", s["mf_pct"])
 
 
 if __name__ == "__main__":
