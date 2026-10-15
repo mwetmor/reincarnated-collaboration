@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5p1.py", line 385, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5p1.py", line 368, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5p1.py", line 281, in main_build
+    raise RulebookPackHalt(f"gate failed: {pre_fail}: " + json.dumps({k: G[k] for k in pre_fail}, default=str)[:3000])
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: ['a_ar_tables_byte_identical']: {"a_ar_tables_byte_identical": {"tables": {"tables/anchor_ar_eq_table.json": {"v5": "8144c2345110568e53d4abfb17343a83572bac25d8176d0791795295306ee514", "new_folder": "d34bf144cef3c20d838787840503bb2d7add565aa34fc2026a4a4a60ae9794fa", "new_manifest": "8144c2345110568e53d4abfb17343a83572bac25d8176d0791795295306ee514", "ok": false}, "tables/anchor_ar_eq_table_unique.json": {"v5": "75cf28ece43c76adfa067a8e5378a4a0077ca6a14ad58d14780ffe012e8c497f", "new_folder": "75cf28ece43c76adfa067a8e5378a4a0077ca6a14ad58d14780ffe012e8c497f", "new_manifest": "75cf28ece43c76adfa067a8e5378a4a0077ca6a14ad58d14780ffe012e8c497f", "ok": true}}, "ok": false}}
+rc=1

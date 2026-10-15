@@ -1,0 +1,164 @@
+{
+ "artifact": "JOIN-1 kc2-rulebook-pack-v5.1 (narrow patch of v5 c403ca5d; jack-ryan v5 gate WARN-1, conditions (a)-(g))",
+ "author": "star-lord; conductor gandalf",
+ "prereg": {
+  "base": "0b78936c",
+  "delta": "48d49953"
+ },
+ "tool": {
+  "FILE_sha256": "14a8eb354cf2c90c080629f6cc8801220e1740998ec193df8e2df7fd5829b482",
+  "path": "src/reincarnated/export/kc2_rulebook_pack_v5p1.py"
+ },
+ "inputs": {
+  "gamora_folder": "collab cc466d4be 2026-10-15-join1-j4b-contact-table-v51",
+  "manifest": "b8d121de…",
+  "emitter": "engine a8cda203 (run head d52dd775)"
+ },
+ "cut": {
+  "commit": "fa65d30b",
+  "dir": "src/reincarnated/output/kc2-rulebook-pack-v5.1-20261015_134952",
+  "pack_digest": "8079f8ef8c925abb7d4fca32c23ff0dd1444b3ec8e4b0e4fb318d8441e382028",
+  "manifest_FILE_sha256": "6be53dfaf466a374e60fbd4d709fb8a2c83b3b6aacf683ca1d6defc743239756",
+  "as_predicted": true,
+  "verdict": "PASS"
+ },
+ "conditions": {
+  "a": true,
+  "b": {
+   "added_equal_added_keys_json": true,
+   "added_not_defaultweaponattack": [],
+   "added_not_true_swing": [],
+   "bleeding_only_unchanged": true,
+   "counts_new": {
+    "contact": 1139,
+    "slots": 2526
+   },
+   "counts_old": {
+    "contact": 800,
+    "slots": 2187
+   },
+   "n_added": 339,
+   "n_added_keys_json": 339,
+   "n_changed": 0,
+   "n_new": 2526,
+   "n_old": 2187,
+   "n_removed": 0,
+   "ok": true,
+   "pierce_only_unchanged": true,
+   "table_FILE_equals_manifest": true,
+   "top_level_keys_equal": true
+  },
+  "c": {
+   "allowed": [
+    [
+     "RB-A-physical_contact_table",
+     "points_to"
+    ],
+    [
+     "RB-A-physical_contact_table",
+     "provenance"
+    ],
+    [
+     "RB-A-physical_contact_table",
+     "value"
+    ]
+   ],
+   "ar_rows_byte_identical": true,
+   "diff_fields": [
+    [
+     "RB-A-physical_contact_table",
+     "points_to"
+    ],
+    [
+     "RB-A-physical_contact_table",
+     "provenance"
+    ],
+    [
+     "RB-A-physical_contact_table",
+     "value"
+    ]
+   ],
+   "n_rows": [
+    24,
+    24
+   ],
+   "ok": true,
+   "top_level_equal": true
+  },
+  "d_meta": {
+   "allowed": [
+    "pack",
+    "format",
+    "supersedes",
+    "inputs",
+    "v5_1"
+   ],
+   "keys": [
+    "format",
+    "inputs",
+    "pack",
+    "supersedes",
+    "v5_1"
+   ],
+   "ok": true
+  },
+  "d_members": {
+   "n": 14,
+   "ok": true
+  },
+  "e": {
+   "added": [],
+   "compared": 122,
+   "diffs": [
+    "rulebook/anchor_d2_gd.json:physical_contact_table"
+   ],
+   "missing": [],
+   "ok": true
+  },
+  "f": "PENDING: drax port leg (10/25 FAIL on v5 -> GREEN on v5.1)",
+  "g_loaders": {
+   "gd_operands_equal_to_v3": true,
+   "n_operands": 35,
+   "n_refused": 25,
+   "offense_da_equal_to_v3": true,
+   "ok": true
+  },
+  "g_s47v4": {
+   "where": "NEW dedicated worktree /Users/admin/Games/reincarnated-engine-v51-s47 detached at fa65d30b (the earlier reincarnated-engine-v4final-s47 had been removed by someone else)",
+   "verdict": "ORACLE BYTE-IDENTICAL",
+   "reason": "HEAD fixed; A and B and B' pass",
+   "HEAD": "fa65d30b3b43ab8d86b20da2eabb520332df43cb",
+   "opened_file_scan": [
+    {
+     "witness": "32989.json",
+     "n_opened_py": 515,
+     "opened_forbidden": 0,
+     "paths_naming_rulebook": []
+    },
+    {
+     "witness": "33115.json",
+     "n_opened_py": 569,
+     "opened_forbidden": 0,
+     "paths_naming_rulebook": []
+    }
+   ],
+   "import_closure_files_naming_rulebook": []
+  }
+ },
+ "added_keys_n": 339,
+ "added_keys_in_receipt": true,
+ "controls": {
+  "NC-V51-slot": "HALT (b): n_added 338, added_equal_added_keys_json false",
+  "NC-V51-slot-b": "HALT (b): n_changed 1",
+  "NC-V51-ar": "HALT (a): first AR FILE differs",
+  "NC-V51-anchor": "HALT (c): diff includes (RB-A-anchor_ar_eq_table, provenance)",
+  "NC-V51-d": "verify rc 1, member_failures [contact table]; load_layer refused",
+  "NC-V51-e": "25/25 refused; JOIN reads contact FILE 81dba57f",
+  "all_as_predicted": true,
+  "carried_by_reference": "NC-V5-a..i (collab bacf73940)"
+ },
+ "G-10": {
+  "expected": 20,
+  "observed": 20
+ }
+}

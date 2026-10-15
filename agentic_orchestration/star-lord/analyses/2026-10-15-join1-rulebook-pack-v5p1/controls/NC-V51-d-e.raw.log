@@ -1,0 +1,44 @@
+clean dry pack: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v51/dry2/kc2-rulebook-pack-v5.1-20261015_134830
+NC-V51-e load_operands 'ORACLE' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V51-e load_layer rulebook/anchor_d2_gd.json 'ORACLE' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V51-e load_layer rulebook/kit_d2_fire_sorc.json 'ORACLE' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V51-e load_layer rulebook/hooks_j4b.json 'ORACLE' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V51-e load_layer rulebook/world_l21.json 'ORACLE' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V51-e load_operands 'PLAY' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V51-e load_layer rulebook/anchor_d2_gd.json 'PLAY' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V51-e load_layer rulebook/kit_d2_fire_sorc.json 'PLAY' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V51-e load_layer rulebook/hooks_j4b.json 'PLAY' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V51-e load_layer rulebook/world_l21.json 'PLAY' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V51-e load_operands 'join' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V51-e load_layer rulebook/anchor_d2_gd.json 'join' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V51-e load_layer rulebook/kit_d2_fire_sorc.json 'join' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V51-e load_layer rulebook/hooks_j4b.json 'join' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V51-e load_layer rulebook/world_l21.json 'join' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V51-e load_operands '' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V51-e load_layer rulebook/anchor_d2_gd.json '' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config '' refused (A-12).
+NC-V51-e load_layer rulebook/kit_d2_fire_sorc.json '' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config '' refused (A-12).
+NC-V51-e load_layer rulebook/hooks_j4b.json '' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config '' refused (A-12).
+NC-V51-e load_layer rulebook/world_l21.json '' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config '' refused (A-12).
+NC-V51-e load_operands None REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V51-e load_layer rulebook/anchor_d2_gd.json None REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config None refused (A-12).
+NC-V51-e load_layer rulebook/kit_d2_fire_sorc.json None REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config None refused (A-12).
+NC-V51-e load_layer rulebook/hooks_j4b.json None REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config None refused (A-12).
+NC-V51-e load_layer rulebook/world_l21.json None REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config None refused (A-12).
+NC-V51-e refused 25 / 25
+NC-V51-e JOIN physical_contact_table {'member': 'tables/physical_contact_table.json', 'FILE_sha256': '81dba57f57b46014adb945b65acec319f14638a145274057f0095a7c5a56e97c', 'bytes': 418610}
+{
+ "ROWSET_equal_manifest": false,
+ "dir": "nc_d_pack",
+ "manifest_FILE_sha256": "6be53dfaf466a374e60fbd4d709fb8a2c83b3b6aacf683ca1d6defc743239756",
+ "manifest_pack_digest": "8079f8ef8c925abb7d4fca32c23ff0dd1444b3ec8e4b0e4fb318d8441e382028",
+ "member_failures": [
+  "tables/physical_contact_table.json"
+ ],
+ "n_members": 17,
+ "recomputed_pack_digest": "ca98ba7e1989a3f652383caecc7c2100b4632f90ca3481f3aa121da9049bae35",
+ "self_consistent": false
+}
+
+NC-V51-d verify rc 1
+NC-V51-d load_layer REFUSED: pack digest / member digest check failed: ['tables/physical_contact_table.json']
+rc=0

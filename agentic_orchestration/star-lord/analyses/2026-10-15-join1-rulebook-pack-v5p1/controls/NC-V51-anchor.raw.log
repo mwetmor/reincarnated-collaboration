@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5p1.py", line 385, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5p1.py", line 368, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5p1.py", line 281, in main_build
+    raise RulebookPackHalt(f"gate failed: {pre_fail}: " + json.dumps({k: G[k] for k in pre_fail}, default=str)[:3000])
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: ['c_anchor_one_row']: {"c_anchor_one_row": {"diff_fields": [["RB-A-anchor_ar_eq_table", "provenance"], ["RB-A-physical_contact_table", "points_to"], ["RB-A-physical_contact_table", "provenance"], ["RB-A-physical_contact_table", "value"]], "allowed": [["RB-A-physical_contact_table", "points_to"], ["RB-A-physical_contact_table", "provenance"], ["RB-A-physical_contact_table", "value"]], "ar_rows_byte_identical": false, "top_level_equal": true, "n_rows": [24, 24], "ok": false}}
+rc=1
