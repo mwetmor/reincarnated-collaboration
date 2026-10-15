@@ -436,3 +436,11 @@ Per architect § 3: levers are **discovered, never authored by hand** (Disciplin
 Matt: *"Mercenaries are out. Period."*, for every kit, without exception. His kit record lists **Insight (merc)** among his runewords (`d2-ww-barb.json` `item_alterations`). The mercenary is a separate actor and a **home mechanism not joined**. Fidelity-cost line: *"His home mercenary (and that mercenary's aura and runeword, e.g. Insight's Meditation) is not joined. Direction: his survival and his sustain are understated relative to his home build."* **No later option to admit a companion actor is held open.** His sheet follows the same pinned-build-file rule at J4a (KP-435 conductor note); his loadout-pin items stay deferred (§ 13).
 
 *Note signed:* elrond, 2026-10-14.
+
+---
+
+## 16 · Note, 2026-10-14 (conductor, KC2 KP-437): his deferred flat damage reduction will use the shared `flat_family_absorb` lever. No count change
+
+KP-437 admitted the Sorceress's flat magic absorb (Spirit, 8) as her row 32, **BOUNDARY / WIDEN, GD `NONE`**, with **ONE lever serving both D2 kits**: candidate **`flat_family_absorb`**. That reverses KP-431's exclusion. **His deferred loadout items flat "Damage Reduced by N" and "Magic Damage Reduced by N"** (§ 13, deferred to his pin) **use this lever when his pin is set.** GD's only flat per-hit reduction is armour, gated to physical damage; D2 subtracts the full amount. If his pin carries either stat, it enters as a row of his own under this lever, recorded as its own named finding then. His count stays **25 / 18** until that pin.
+
+*Note signed:* elrond, 2026-10-14.

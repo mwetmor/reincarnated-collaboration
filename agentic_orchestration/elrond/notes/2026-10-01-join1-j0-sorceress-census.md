@@ -1,5 +1,6 @@
 # JOIN-1 J0: the D2 Fire Sorceress INTERNAL / BOUNDARY census (J-S3b)
 
+> ⚑ **ADDENDUM 6 2026-10-14 (§ 13; Matt and conductor, KC2 KP-437, `a3749e8d5`): Static Field JOINS her castables (J-S3b pin amended to Fire Ball + Meteor + Static Field); the build-file sweep admits rows 28–32. A fifth named finding moves the count 27 → 32 and fraction (b) 18 → 23.** Battle Command and Frozen Armor are ALWAYS ON (operands). § 13 governs over § 10.4.
 > ⚑ **ADDENDUM 4 2026-10-14 (§ 10; conductor ruling KC2 KP-426, `99d55f74e`): the universal-player-layer sweep admits SIX rows, 22–27 (5 BOUNDARY, 1 INTERNAL). A fourth named finding moves the count 21 → 27 and fraction (b) 13 → 18.** Curses/debuffs received and monster mana drains/cooldown lockout are EXCLUDED with fidelity-cost lines. § 10 governs over § 9.5.
 > ⚑ **ADDENDUM 3 2026-10-14 (§ 9; conductor ruling KC2 KP-423, `edf2b88bc`): D2 potions (health, mana, rejuvenation; the belt as the count limit) were an OMISSION and join as ONE row, row 21, BOUNDARY / WIDEN. A third named finding moves the count 20 → 21 and fraction (b) 12 → 13.** § 9 governs over § 8.3.
 > ⚑ **ADDENDUM 2 2026-10-14 (§ 8; conductor ruling KC2 KP-421, `145c880aa`): § 7.4's held item is ADMITTED as row 20, the INTAKE HIT LAW, BOUNDARY / WIDEN. A second named finding moves the count 19 → 20 and fraction (b) 11 → 12.** § 8 governs over § 7.4 and § 7.5.
@@ -467,3 +468,104 @@ A `NONE` referent can occur in either class. **What decides the class is whether
 - **The build-file sweep against this census is with the conductor** (one batch, returned 2026-10-14). **No row is added here.** Any row the conductor admits is recorded as its own named finding.
 
 *Addendum 5 signed:* elrond, 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
+
+---
+
+## 13 · Addendum 6, 2026-10-14: the build-file census ruled (Matt and conductor, KC2 KP-437). Static Field joins; rows 28–32; count 27 → 32, a fifth NAMED FINDING
+
+**Sources.**
+- Matt, KC2 **KP-437** (collab `a3749e8d5`): *"Add Static Field (Recommended)."*
+- The conductor's rulings on this seat's build-file sweep (the batch after § 12, `3d1a6edca`).
+- legolas C-14 stage 2 (collab `96f519ed3`) for the Frozen Armor freeze law and the Oculus trigger.
+
+Rows 1–27 and their classes are unchanged. §§ 7–12 are left as committed. Where § 13 corrects § 1's pin table or § 10.4, § 13 governs. **The D2 laws cited below are graded as stated. Anything marked MV is still owed by legolas** (KP-437: the Oculus destination rule and the 1.13 Static Field law).
+
+### 13.1 · The castable pin is amended: Fire Ball + Meteor + Static Field
+
+**Matt amended J-S3b** (KP-437): her castables are **Fire Ball (47), Meteor (56) and Static Field (42)**. The ground is the pinned build file: the guide uses Static against bosses (*"Use Static Field to get bosses down to half of their Life"*), and the arena has bosses and nemeses (KP-434). This amends § 1's pin table: Static Field becomes a castable row. The operand rows (36, 41, 61, 37) and the exclusions (Teleport 54, and every other row not referenced) are unchanged.
+
+**Static Field enters the existing rows as operands, with one new row (32):**
+
+| Existing row | What Static adds there | Evidence |
+|---|---|---|
+| 1 (per-cast mana) | `mana = 9`, `lvlmana = 0`, `manashift = 8`, `minmana = 1` | DM (`Skills.txt` Id 42) |
+| 8 (cadence), 9 (cast lock) | `anim = SC`, the same cast animation as Fire Ball and Meteor | DM |
+| 10 (no hit roll, no crit) | its to-hit fields are empty, like 47 and 56 | DM (field absence) |
+| 13 (footprint) | a radius around the caster (`srvdofunc = 20`; radius by level, MV). GD's player-centred disc expresses it, AS-IS | DM / MV |
+| 15 (family) | `EType = ltng`: D2 lightning → GD `Lightning`, through the offense family dispatch (C-1) | DM |
+| 17 (interruptible) | `interrupt = 1` | DM |
+| 18 (legality) | `reqlevel = 6`, no prerequisite skill | DM |
+
+The rotation rule for when she casts Static is owed by gamora (KP-437). It is a JUDGED policy, not a row.
+
+### 13.2 · Rows 28–32
+
+| # | Mechanism | Evidence (mechanism / magnitude) | Class | GD's rule (read-only ref) | Verdict |
+|---|---|---|---|---|---|
+| **28** | **Static Field: damage equal to 25 % of the target's CURRENT life, with a D2 Hell floor of 50 %** (it cannot bring a monster below half its life in Hell) | DM (`Param4 = 25`, `calc1 = par4`) / MV (the Hell 50 % floor; whether monster lightning resistance reduces it; legolas's 1.13 Static law, KP-437) | **BOUNDARY** (damage vs a monster's state; offense) | The oracle has proportional damage on **intake only** (`intake.PclLimb`, `gd_defensive_percent_current_life`). The offense side takes absolutes (`threat.mitigate(damage: float, …)`); there is no offense-side % of current life | **WIDEN → L-07 `proportional_damage_offense`** at `pct-current`, plus a **floor term** (D2 Hell 50 %), and **L-08 `proportional_damage_mitigable`** (does lightning resistance reduce it?). Precedent: P0 WW row 11, Crushing Blow. GD default `off` reproduces REFERENT-v1 |
+| **29** | **Frozen Armor freezes monsters that hit her in melee.** Law (legolas C-14 stage 2, KP-437): **physical melee hits only**; **normal monsters and minions are frozen** for 72 frames (skill level 15: `ln56` = 30 + 3·(slvl − 1)) **× (100 − cold res)/100, ÷ 4 in Hell**; **champions and above are chilled only**; cold-immune monsters are unaffected | DM (`Skills.txt` Id 40: `aurastate = frozenarmor`, `calc1 = ln56…`, `Param5 = 30`, `Param6 = 3`) / DM + MV (the Hell ÷4, the resist scaling and the champion rule; legolas grades them) | **BOUNDARY** (CC/status on MONSTERS, triggered by their melee hit on her) | No monster control model: `control_application` is the player-as-victim lane only (P0 § 7.1) | **GD-EMPTY.** It needs a **built monster control body** (a frozen state and a chilled state on monsters), shared with **L-21 `monster_hit_recovery`** (KP-437). The trigger uses the JUDGED attack-role map (melee vs ranged) already set for L-23. GD default: absent, which reproduces REFERENT-v1 (the Warlord has no Frozen Armor) |
+| **30** | **The Oculus: a 25 % chance to cast level-1 Teleport when struck.** It repositions her involuntarily. Trigger: melee and weapon-damage missile hits only (legolas C-14 stage 2) | DM (`item_skillongethit#54#25`) / MV (the trigger set). The **destination rule is UNVERIFIED**: legolas sources it from D2MOO, else it is JUDGED (KP-437) | **BOUNDARY** (B7: movement ↔ engagement; an involuntary player reposition) | None. The oracle repositions the player only by the Warlord's own dashes (`movement.py`, from his movement skills), never on a hit | **WIDEN, GD `NONE`,** with a DECLARED-INVENTED default `off` that reproduces REFERENT-v1. Candidate lever **`player_reposition_on_struck`**. The d2 setting reuses the oracle's player reposition primitive with a new trigger and destination rule. It is an **item proc, not a castable**, so Teleport's exclusion from the pin stands |
+| **31** | **War Traveler thorns: an attacker who hits her in melee takes 10 damage** | DM (`item_attackertakesdamage 10`) / DM | **BOUNDARY** (player damage to a monster, triggered by intake) | None. The oracle has no player retaliation; Ascended's +4 % retaliation clause is INERT (`mutators.py`) | **WIDEN, GD `NONE`,** default `off`. Candidate lever **`player_retaliation`** {`off` \| `d2-thorns`}. ⚑ When it is on, **row 26's Ascended retaliation clause becomes reachable** for her. Thorns damage is an enemy-damaging quantity, so it is × r_HP under the unit rule |
+| **32** | **Spirit: flat magic absorb 8.** Each hit of the D2 "magic" family is reduced by a flat 8 | DM (`item_absorbmagic 8`) / DM (the value); MV (whether absorb also heals) | **BOUNDARY** (damage type vs a flat per-hit reduction, intake) | GD's only flat per-hit reduction is **armour, gated to Physical / SlowPhysical** (`intake.py`). No other family has a flat leg. Which GD families count as D2 "magic" is decided by **row 25's map** | **WIDEN, GD `NONE`,** default `off`. Candidate lever **`flat_family_absorb`**. **ONE lever serving both D2 kits:** the Barbarian's deferred flat Damage Reduced by N and Magic Damage Reduced use it at his pin (P0 § 16). **This reverses KP-431's exclusion.** That exclusion rested on a dedicated build being out of proportion for a 3–8 stat; a lever shared across both kits changes that balance (KP-437 (5)) |
+
+**Why each class, briefly.**
+- **Row 28 is WIDEN**, by the P0 WW row 11 precedent: GD's form expresses proportional damage only on intake; a switch added on offense defaults `off`.
+- **Row 29 is GD-EMPTY** under the § 11 taxonomy rule: the d2 side needs a built monster control body.
+- **Rows 30–32 are WIDEN with a `NONE` referent:** in each, a switch set to `off` reproduces the referent.
+
+**Falsifiers.**
+- Row 28: a D2 source showing that Static Field has no Hell floor, or that it deals a fixed amount rather than a share of current life.
+- Row 29: any monster control state in `kc2/`.
+- Row 30: an oracle path that repositions the player on a hit.
+- Row 31: any live player retaliation in `kc2/`.
+- Row 32: a GD intake path that applies a flat reduction to a non-physical family.
+
+### 13.3 · Folded into existing rows, and always-on buffs
+
+- **S-5, mana after each kill (+5, The Oculus):** folded into **row 2** (mana income) as an operand. gamora states the kill-credit rule, including kills by Meteor's burning ground (row 14).
+- **Battle Orders, Battle Command and Frozen Armor: ALWAYS ON** (Matt for BO, KP-436; the conductor for BC and Frozen Armor, KP-437, because the guide's buff sequence is BC, BC, BO, Frozen Armor). Each is a **sheet operand**, not a row:
+  - **Battle Orders:** +% life and mana.
+  - **Battle Command:** +1 to all skills, an operand of **row 6** (it raises skill level, not base level). Her Fire Ball and Meteor are **skill level 46**.
+  - **Frozen Armor:** +100 % Defence at skill level 15 (`ln12` = 30 + 5·(slvl − 1)), an operand of **row 20**. Her primary Defence includes it (about 2,900 against melee). The no-Frozen-Armor hit tables are a sensitivity (KP-437 (1)).
+  - Every buff duration (BO about 180 s, BC about 155 s, Frozen Armor 288 s) is **checked against the fight window** (gamora, ADDENDUM-9). A re-cast mechanism is not modelled.
+- **Spirit's +250 Defence vs missiles** is an operand of row 20. Row 20's d2 setting reads her Defence **by attack kind** (melee or missile) from the JUDGED role map.
+
+### 13.4 · Excluded, with reasons and fidelity lines (KP-437 (7))
+
+| Excluded | Reason | Fidelity line |
+|---|---|---|
+| **Hellfire Torch: Firestorm on striking** | Triggered by weapon attacks; it never fires for a spell kit, at home or here | none: it does not fire at home either |
+| **Venom charges (Arachnid) and Hydra charges (Torch)** | Manual-use charges the guide does not use. Venom adds poison to attacks only | none: the guide does not use them |
+| **Battle Cry (on Call to Arms)** | Not in the guide's buff sequence | none |
+| **Attack-only riders:** CoH life leech and bonus vs demons/undead; Magefist +1–6 fire; War Traveler +15–25 damage; Arachnid "slows target"; Oculus +20 % ED; Call to Arms ED and replenish life (while swapped only) | They do not apply to her spells, or apply only while the swap weapon is held | none |
+| **Teleport (54) as a castable** | J-S3b's exclusion stands: a movement ↔ engagement question for a later kit | *"Her own Teleport is not joined: her repositioning and kiting are UNDERSTATED, so her survival is understated."* |
+| **Telekinesis (43)** | Utility (objects at range) and situational knockback; in no rotation | *"Telekinesis not joined: a situational knockback/stun on single targets is absent; direction small, toward understating her survival."* |
+| **Enchant (52)** | It adds fire damage to a target's ATTACKS. With the mercenary out she has no ally, and she makes no attacks. Row 4's synergy formulas do not reference it (DM) | *"Enchant not joined: it has no effect on a spell-only kit without an ally (mercenaries OUT, KP-436)."* |
+| **Magic find, gold %, prices, XP %, light radius, Horadric Cube, Tome of Town Portal** | No loot, economy or travel in the arena | none |
+
+### 13.5 · FIFTH NAMED FINDING: the Sorceress's denominators after KP-437
+
+**Reason:** **KP-437** (collab `a3749e8d5`): Matt's addition of Static Field to her castables, and the conductor's admission of S-1 to S-4 from the build-file sweep. **This addition comes after her J0 Gate-2 anchor**, so it is a named finding (charter § 4.5), printed with its reason. It is not a silent re-map. It is the fifth such finding (after KP-420, KP-421, KP-423 and KP-426).
+
+| Fraction | J0 anchor | KP-420 | KP-421 | KP-423 | KP-426 | **KP-437 (this finding)** |
+|---|---|---|---|---|---|---|
+| **(a)** all rows | 18 | 19 | 20 | 21 | 27 | **32** (+28…32) |
+| **(b)** all BOUNDARY rows | 10 | 11 | 12 | 13 | 18 | **23** (+28…32) |
+
+**Corrected frozen record (after KP-437): 32 rows.**
+
+| Class | Count | Rows |
+|---|---|---|
+| **INTERNAL** | **8** | 1–7, 27 |
+| **BOUNDARY** | **23** | **AS-IS 4**: 13, 15, 25, 26 · **WIDEN 14**: 8, 9, 10, 17, 19, 20, 21, 22, 23, 24, **28**, **30**, **31**, **32** · **GD-EMPTY 5**: 11, 12, 14, 16, **29** |
+| OUT-OF-ARENA | 1 | 18 |
+| HELD | 0 | — |
+
+**Restated in one line:** INTERNAL 8 · BOUNDARY 23 · OUT-OF-ARENA 1 · HELD 0 = **32**. **Castables:** Fire Ball (47), Meteor (56), Static Field (42). **Operand rows:** Fire Bolt (36), Inferno (41), Fire Mastery (61), Warmth (37).
+
+**Owed downstream (not this seat's):**
+- **legolas:** the Oculus destination rule (from D2MOO, else JUDGED), and the 1.13 Static Field law (the Hell floor, resist interaction, radius by level).
+- **gamora:** ADDENDUM-9, covering the build-file sheet, rows 28–32, the Static rotation rule, the kill-credit rule and the buff-duration check.
+- **jack-ryan:** a delta Gate-2 on rows 28–32 and 32 / 23.
+
+*Addendum 6 signed:* elrond (data steward and archivist), 2026-10-14. Run JOIN-1, conductor gandalf. Read-only on every store touched.
