@@ -93,13 +93,16 @@
  "stamina": {
   "vit_total": 535,
   "max_stamina_noBO": 697,
-  "max_stamina_BO80_if_op1_on_total": 1254,
+  "max_stamina_BO80": 1179,
+  "max_stamina_BO80_stage7_superseded": 1254,
   "armor_speed": {
    "Dusk Shroud": 0,
    "Monarch": 0
   },
-  "drain_256_per_frame": 40,
-  "drain_points_per_s": 3.90625
+  "staminadrainpct_WarTraveler": 40,
+  "drain_256_per_frame": 24,
+  "drain_256_per_frame_stage7_superseded": 40,
+  "drain_points_per_s": 2.34375
  },
  "movement": {
   "WalkVelocity": 6,

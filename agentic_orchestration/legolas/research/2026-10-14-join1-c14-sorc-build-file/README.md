@@ -646,8 +646,8 @@ Grade: code-only for the thresholds; `mGH` is DATAMINED.
 | Item | Value | Grade |
 |---|---|---|
 | **Max stamina at clvl 99** (Vitality 535 incl. items) | **697** = 74 + 98 + (535 − 10) | MODEL-VERIFIED (C-13 universal laws: CharStats + Basin) |
-| With BO +80 % | **1,254** if BO's `skill_staminapercent` applies to the total | INFERRED (op not traced this stage) |
-| **Armour speed** | **Dusk Shroud 0, Monarch 0** (Armor.txt `speed`) → **no drain multiplier**. Drain 2 × RunDrain 20 × 1 = **40/256 per running frame = 3.906/s** | DATAMINED + MODEL-VERIFIED |
+| With BO +80 % | ~~**1,254** if BO's `skill_staminapercent` applies to the total~~ **1,179**. **⚑ Corrected in stage 8 (§ 12)** | ~~INFERRED~~ MODEL-VERIFIED (§ 12) |
+| **Armour speed** | **Dusk Shroud 0, Monarch 0** (Armor.txt `speed`) → **no drain multiplier**. Drain 2 × RunDrain 20 × 1 = ~~**40/256 per running frame = 3.906/s**~~ **24/256 = 2.344/s after War Traveler's 40 % slower stamina drain. ⚑ Corrected in stage 8 (§ 12)** | DATAMINED + MODEL-VERIFIED |
 | **Walk / Run velocity** | CharStats **WalkVelocity 6, RunVelocity 9** (Basin reads these as yd/s) | DATAMINED |
 | **FRW 25** (War Traveler) | FRW_eff = ⌊150·25/(150+25)⌋ = **21** → **walk 6·1.21 = 7.26**, **run 9 + 6·0.21 = 10.26** (same units) | MODEL-VERIFIED (animation packet § 3.7: Basin + D2MOO) |
 
@@ -684,3 +684,44 @@ animSpeed = rate · baseAnimSpeed / 100          (integer floor)
 ### Not in this stage's scope (from drax's list)
 
 Q6 (targeting), Q9 (regen placement), Q12 (HITREC comparator), Q13 (Resilient cap), Q15 (Cruel window) and Q16 (wave boundaries) are design or pack questions, not D2 facts. Q12's D2 side is answered by Q8: the code uses strict `<` against maxHP/divisor.
+
+---
+
+## 12. Stage 8: stamina drain with "slower stamina drain", and BO on max stamina
+
+Captures: `captures/stage8/d2moo-PlrModes.cpp`, `d2moo-D2StatList.cpp`. Script `scripts/c14_stage7.py` is updated, and `c14_stage7.json` and `verification_stage7.log` are regenerated.
+
+### Run drain with War Traveler's 40 % slower stamina drain: 24/256 per frame (gamora is right)
+
+`PlrModes.cpp` L255–293, run mode, outside town:
+
+```
+L  = 2 × CharStats RunDrain                 (Sorceress 20 → 40, in 1/256 points per frame)
+L *= torso-armour speed / 10 + 1           (integer; Dusk Shroud speed 0 → ×1)
+L += L × item_staminadrainpct / −100       (C integer division, truncates toward zero)
+L  = max(L, 1)
+```
+
+- **The percentage applies AFTER the armour-speed multiplier,** as a subtraction of L × pct / 100 truncated toward zero. For non-multiples it rounds the reduction down in magnitude, i.e. keeps the drain slightly higher.
+- `item_staminadrainpct` is the summed item stat. Here **War Traveler's 40 % is the only source**, so **40 + (−16) = 24/256 per running frame = 2.34 points per second**.
+- At 0 stamina, running becomes walking (unchanged).
+- Grade: **MODEL-VERIFIED.** Code is primary. Basin Stamina Drain (C-13 capture) describes "slower stamina drain" as a percentage reduction of the drain; the order relative to the armour factor and the truncation are code-only.
+- **Supersedes stage 7's 40/256 (3.906/s),** which omitted War Traveler's stat.
+
+### Battle Orders on max stamina: 1,179, not 1,254
+
+- BO's `skill_staminapercent` is **op 1 on `maxstamina`** (ItemStatCost; DATAMINED).
+- In `D2StatList.cpp` (case 1, L209–225), for a player owner, op 1 adds **`ComputeStatPercentage(nPreviousOpStatValue, …)`**. `nPreviousOpStatValue` is the stat's accumulated value **before** the op terms are added. That is the same arithmetic as op 11, which J4a F03 already showed does not reach item-Vitality life.
+- **Basin Battle Orders:** *"Only applies to base stamina, including that from levelling up, points invested in Vitality and + Maximum Stamina items."*
+
+**So BO multiplies base stamina only:** 74 + (99 − 1) + (allocated Vitality 441 − 10) = **603**, × 1.80 = **1,085**, plus the item Vitality's +94 (1 per point) = **1,179**.
+- Grade: **MODEL-VERIFIED** (code + Basin).
+- **Supersedes stage 7's INFERRED 1,254.**
+- No-BO max stamina is unchanged at **697**.
+
+### Seconds of running from full
+
+| Max stamina | Drain 24/256 per frame | Seconds of running |
+|---|---|---|
+| 1,179 (with BO) | 2.344/s | ≈ **503 s** |
+| 697 (without BO) | 2.344/s | ≈ 297 s |

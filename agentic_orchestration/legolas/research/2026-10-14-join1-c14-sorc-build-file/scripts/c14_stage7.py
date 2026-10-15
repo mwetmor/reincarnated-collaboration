@@ -25,11 +25,21 @@ doc = {
                   "size": 1, "explosion_radius_subtiles": 4, "CollideKill": 1, "AlwaysExplode": "", "Explosion": ""},
     "meteor_pyre_offsets_subtiles": [{"dx": x, "dy": y} for x, y in zip(off["x"], off["y"])],
     "meteor_pyre_missile_size": 2,
-    "stamina": {"vit_total": vit, "max_stamina_noBO": stam, "max_stamina_BO80_if_op1_on_total": stam * 180 // 100,
-                "armor_speed": {"Dusk Shroud": 0, "Monarch": 0}, "drain_256_per_frame": 2 * 20 * 1, "drain_points_per_s": 40 / 256 * 25},
+    # ⚑ STAGE 8: War Traveler item_staminadrainpct 40 applies after armour speed (PlrModes.cpp L265-286):
+    #   L = 2*RunDrain*(speed/10+1) = 40; L += L*40/-100 (C truncation toward zero) -> 24; min 1.
+    #   BO skill_staminapercent op 1 (D2StatList.cpp case 1 = % of the pre-op accumulated base, like op 11): applies to
+    #   74 + (clvl-1) + (allocated Vit - 10) [+ flat +stamina items], NOT to item-Vitality stamina (Basin Battle Orders).
+    "stamina": {"vit_total": vit, "max_stamina_noBO": stam,
+                "max_stamina_BO80": (74 + 98 + (441 - 10)) * 180 // 100 + (vit - 441),
+                "max_stamina_BO80_stage7_superseded": stam * 180 // 100,
+                "armor_speed": {"Dusk Shroud": 0, "Monarch": 0}, "staminadrainpct_WarTraveler": 40,
+                "drain_256_per_frame": (lambda L: max(1, L + int(L * 40 / -100)))(2 * 20 * (0 // 10 + 1)),
+                "drain_256_per_frame_stage7_superseded": 40},
     "movement": {"WalkVelocity": 6, "RunVelocity": 9, "FRW": frw, "FRW_eff": frw_eff,
                  "walk": 6 * (100 + frw_eff) / 100, "run": 9 + 6 * frw_eff / 100, "unit": "CharStats velocity units (Basin reads as yd/s)"},
     "chill_tick_examples_basespeed256": {f"{n}_frames": {c: chill_ticks(n, coldeffect=c) for c in (0, -25, -33, -40, -50)} for n in (8, 12, 16, 20)},
 }
 (P / "c14_stage7.json").write_text(json.dumps(doc, indent=1))
-print(json.dumps({k: doc[k] for k in ("fire_ball", "stamina", "movement")}, indent=0)[:1500]); print(doc["chill_tick_examples_basespeed256"])
+doc["stamina"]["drain_points_per_s"] = doc["stamina"]["drain_256_per_frame"] / 256 * 25
+(P / "c14_stage7.json").write_text(json.dumps(doc, indent=1))
+print(json.dumps({k: doc[k] for k in ("fire_ball", "stamina", "movement")}, indent=0)[:1700]); print(doc["chill_tick_examples_basespeed256"])
