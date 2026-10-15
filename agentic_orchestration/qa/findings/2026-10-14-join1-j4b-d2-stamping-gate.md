@@ -89,3 +89,29 @@ KP-306 kept the stale "AGREES / = 0.2" `source_anchor` text "until the next J-S4
 - `research/curated/kits-export/gd-eor-warlord-referent.json` (`agreement_check`)
 - `gamora/analyses/2026-10-06-join1-b0n-numeric-selfjoin/runs/NCB1/binding_table.json`
 - KC2 KP-305 / 306 / 307 / 442
+
+---
+
+## Addendum — the gate re-targeted to STAMPING PACKAGE v2: collab `591ebde87` (generator engine `2f70b989`)
+
+**v2 supersedes `af12f6af7` for the apply.** The conductor confirms `e3ae2d7a0` was a mistyped hash.
+
+**Independent re-check of v2: ALL predictions reproduce.**
+- **SQL:** re-hashed, sha256 **`4ba86689…`**, matching. It has **572** `kit_numeric` INSERTs.
+- **Scratch apply** on a fresh copy of the corpus of record (`2617c0c1…`):
+  - J-S4b **`b7118b110971f0e2…`** (unchanged from v1, as predicted);
+  - `d2-fire-sorc-c14` **`d21dee9b6ddfb712…`**, as predicted;
+  - `d2-fire-sorc` `db01da52…` and `gd-eor-warlord` `1819fd0c…` unchanged;
+  - **only J-S4b moved among the 591 existing kits**;
+  - 572 rows with 0 where `rdr ≠ source`; integrity ok; FK clean.
+- **The added row is correct.** `d_prop_randclassskill_val1 = 3` matches `Properties.txt` in the datamine mirror: code `randclassskill`, `val1 = 3`, `func1 = 36`, `stat1 = item_addclassskills`. The Hellfire Torch planner field carries the **rolled class**, and the +3 magnitude is the property's own `val1`. Storing it as its own DATAMINED input row is right under the anchor law.
+  - *INFO-4:* it is filed under scale `d2_input_base_item`, but it is a Properties parameter, not an item base. It is still covered by R-D2S1's enumeration, so this is a label nuance only. A future `d2_input_property` scale would read more precisely; that would be a rule-text amendment, not a blocker.
+- **gamora's hard-point finding: CONFIRMED on the inputs.** The rows store the verbatim planner values: Fire Bolt (36) **17**, Inferno (41) **1**, Enchant (52) **1**. legolas's sheet hard-coded 20 / 20 / 3. **The verbatim INPUTS govern, so v2 is correct.**
+  - ⚑ **Consequence for the owed positive control:** the adapter's sheet derivation must reproduce legolas's sheet bit-exactly. **Until legolas re-issues it at 17 / 1 / 1, that control is expected RED on Fire Bolt / Inferno synergy and slvl terms.** Run it against the corrected sheet only, and record the re-issue's hash as the reference. A control against the uncorrected sheet would fail for a reason that is not the adapter's.
+
+**The verdict is unchanged: BLOCK (narrow).** v2 still writes **`grade = 'EXACT'`** for the referent. Every ground in § (1) and § (2) above is untouched by v2. Regenerate **v3** with:
+- `grade = 'CLOSE'`;
+- the corrected deviation note (15 DISAGREE plus the categorical row, `eor_rank_total` consumed, 11/38 reach, 31 consumed / 51 unconsumed unstamped);
+- the re-predicted J-S4b ROWSET.
+
+`d2-fire-sorc-c14`'s **`d21dee9b…`**, the 572 rows and R-D2S1 are **approved as in v2**. elrond applies v3 after a narrow delta here.
