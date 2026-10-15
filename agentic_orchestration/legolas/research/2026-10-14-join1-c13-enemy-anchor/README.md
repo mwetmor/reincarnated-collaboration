@@ -550,3 +550,33 @@ The boss rows are the melee roll only. **Most boss and superunique damage is ski
 - GD champion-hero ↔ the stage-6 champion figure (≥ 81 %), or plain uniques (**76 [74–80]**).
 
 Grades: AR inputs are DATAMINED; the laws are as marked; hit % is INFERRED (computed).
+
+---
+
+## 15. Non-ladder r_HP (owed to gamora's J4b ADDENDUM-4 § 1.1 / NO-VERDICT-ARMS § 3b), 2026-10-15
+
+Files: `d2_enemy_quantities_nonladder.json` (the classic-column re-run), `r_hp_nonladder.json`, `scripts/r_hp_nonladder.py`, `verification_r_hp_nonladder.log`.
+- `scripts/d2_enemy_anchor.py` gained an `argv[2]` column switch: `ladder` (default) or `classic`.
+- **The default output re-runs byte-identical** to the committed `d2_enemy_quantities.json` (sha256 `f31a5fab…`).
+- The re-run is read-only, and its inputs are pinned by sha256 in `r_hp_nonladder.json`.
+- **No J4b graded result was read.**
+
+**The value.** Non-ladder r_HP = **54.059548939006774**. IQR ratio (p25/p25, p75/p75) is 46.43–65.33.
+
+**Basis: identical to the primary r_HP R1 ×40.54578785101241** (`ratio_table.json` R1 `HP_trash_vs_normal`).
+- **Numerator** (unchanged): GD BOARD trash, body-weighted median `hp_lo` = **243,295**.
+- **Denominator:** the D2 R1 normal-monster median of `hp_mid` (mean of MonStats MinHP(H)/MaxHP(H) × MonLvl / 100), equal weight per distinct (MonStats Id, alvl), 70 types.
+- **Only the MonLvl life column changes:** **`HP(H)`, the non-ladder Battle.net column**, instead of **`L-HP(H)`**, the single-player/ladder column used by the primary. Basin MonLvl: at level 85, 4,637 vs 6,182.
+
+**The median-setting rows** (35th and 36th of 70, same two types in both column sets):
+
+| Type | Primary (`L-HP(H)`) | Non-ladder (`HP(H)`) |
+|---|---|---|
+| `fingermage5` (MinHP/MaxHP(H) scaled at mlvl 85) | 4,945–6,800, mid 5,872.5 | 3,709–5,100, mid 4,404.5 |
+| `putriddefiler3` | 4,669–7,588, mid 6,128.5 | 3,502–5,691, mid 4,596.5 |
+| **Median** | **6,000.5** | **4,500.5** |
+
+**Arithmetic:** 243,295 / 4,500.5 = **54.059548939006774**.
+- That is ×1.33330 of the primary, not exactly ×4/3: the integer floors per monster differ slightly from the 0.75 column ratio.
+- R1 / 0.75 would give 54.06105.
+- Grade: the inputs are DATAMINED (J-S7 pins re-verified by the script) via MODEL-VERIFIED scaling (D2MOO `CalculateMonsterStatsByLevel`; Basin MonLvl). The ratio is INFERRED, like the primary.

@@ -39,6 +39,13 @@ RESF = [("phys", "ResDm(H)"), ("magic", "ResMa(H)"), ("fire", "ResFi(H)"), ("lig
         ("cold", "ResCo(H)"), ("poison", "ResPo(H)")]
 
 # --- population rules (README § 1) -------------------------------------------------------------
+# ⚑ Column set (L2b). Default "ladder" = single-player/ladder `L-` columns (the primary, unchanged). "classic" = the
+#   non-ladder Battle.net columns for the two quantities that differ (Basin MonLvl: Hell life and defence; attack
+#   rating, damage and experience are identical in all versions): HP(H) and AC(H). Selected by argv[2].
+COLSET = sys.argv[2] if len(sys.argv) > 2 else "ladder"
+assert COLSET in ("ladder", "classic")
+HPCOL, ACCOL = ("L-HP(H)", "L-AC(H)") if COLSET == "ladder" else ("HP(H)", "AC(H)")
+
 RULES = {
     "R1_alvl85_all": {"desc": "every Hell area at the maximum area level 85 (Levels.txt MonLvl3Ex == 85)",
                       "select": lambda r: r["MonLvl3Ex"] == "85"},
@@ -140,8 +147,8 @@ def main(out: Path):
         La = ml[min(base_lvl + lvl_add, max(ml))]
         def r_(col_ml, val, row):
             return val if noratio else ratio(i(row[col_ml]), val)
-        hp_min, hp_max = r_("L-HP(H)", i(m["MinHP(H)"]), L), r_("L-HP(H)", i(m["MaxHP(H)"]), L)
-        ac = r_("L-AC(H)", i(m["AC(H)"]), L)
+        hp_min, hp_max = r_(HPCOL, i(m["MinHP(H)"]), L), r_(HPCOL, i(m["MaxHP(H)"]), L)
+        ac = r_(ACCOL, i(m["AC(H)"]), L)
         attacks = {}
         for slot in ("A1", "A2", "S1"):
             mn, mx, th = i(m[f"{slot}MinD(H)"]), i(m[f"{slot}MaxD(H)"]), i(m[f"{slot}TH(H)"])
@@ -272,6 +279,7 @@ def main(out: Path):
 
     doc = {
         "commission": "C-13 enemy anchor (JOIN-1, KP-420/421/423)", "law": "LoD 1.13 expansion, Hell, players-1",
+        **({"column_set": "classic (non-ladder Battle.net): HP(H), AC(H)"} if COLSET == "classic" else {}),
         "source": "fabd/diablo2 @ 45112569deb9384738ccafe5c24ebbb71f41c7c9 code/d2_113_data",
         "file_sha256": {f: sha(RAW / f) for f in FILES},
         "umod_hell": umod,
