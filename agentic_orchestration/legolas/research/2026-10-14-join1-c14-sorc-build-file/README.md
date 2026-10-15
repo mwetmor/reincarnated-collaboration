@@ -55,7 +55,7 @@ The guide offers five build variants. **This packet resolves "Standard", and tha
 | **clvl** | **99** (merc 98), difficulty Hell, all quests done in all three difficulties |
 | **Stats added** | **Str 74, Dex 0, Energy 0, Vit 431** (505 points = 98×5 + 15 from Lam Esen) |
 | **Skills** (hard points; Skills.txt ids) | Fire Bolt 17, Warmth 1, Frozen Armor 1, Inferno 1, Static Field 1, Telekinesis 1, Blaze 1, Fire Ball 20, Fire Wall 1, Enchant 1, Teleport 1, Meteor 20, Fire Mastery 20 (86 points) |
-| Skill progression | The planner also carries `skillProgression`, 24 entries: Fire Bolt ×3, Inferno ×19, Enchant ×2. ~~**Final at 99: Fire Bolt 20, Inferno 20, Enchant 3** (110 points = 98 + 12 quest)~~ **⚑ SUPERSEDED (stage 5, § 9):** the sheet now uses the verbatim `profile.skills` (Fire Bolt 17, Inferno 1, Enchant 1). Whether to spend the 24 progression points is a ruling item (§ 9) |
+| Skill progression | The planner also carries `skillProgression`, 24 entries: Fire Bolt ×3, Inferno ×19, Enchant ×2. **Final at 99: Fire Bolt 20, Inferno 20, Enchant 3** (110 points = 98 + 12 quest). **Of record per KP-444 (stage 6, § 10):** the 24 progression points are spent. (Stage 5's 17 / 1 / 1 is superseded.) |
 
 **Gear** (planner items with their rolls):
 
@@ -141,8 +141,8 @@ Also in the inventory: Horadric Cube and Tome of Town Portal.
 | FBR | 0 → 9 frames | same | same | same | 0 |
 | DR % / magic absorb | 18 / 8 flat | same | same | same | 18 / 3–8 |
 | **+skills to her fire skills** | **+25** (all 8, Sorceress 6, fire 11) | same | +14 | same | +11–13 |
-| **slvl** Fire Ball / Meteor / Fire Mastery / Fire Bolt / Inferno | **45 / 45 / 45 / ~~45~~ 42 / ~~45~~ 26** | same | 34 / 34 / 34 / ~~34~~ 31 / ~~34~~ 15 | same | 31–33 (Fire Bolt unpinned) |
-| slvl Warmth / Enchant / Frozen Armor | 26 / ~~28~~ 26 / 15 | same | 15 / ~~17~~ 15 / 11 | same | — |
+| **slvl** Fire Ball / Meteor / Fire Mastery / Fire Bolt / Inferno | **45 / 45 / 45 / 45 / 45** (stage-5 42 / 26 superseded, § 10) | same | 34 each (stage-5 31 / 15 superseded) | same | 31–33 (Fire Bolt unpinned) |
+| slvl Warmth / Enchant / Frozen Armor | 26 / 28 / 15 (stage-5 Enchant 26 superseded) | same | 15 / 17 / 11 | same | — |
 | MF % | 427 | same | 345 | same | — |
 
 **⚑ Without charms the guide's allocation does not meet the Monarch's Strength requirement** (116 < 156): Annihilus and the Torch supply 40 of it. A no-charm sheet would have to move 40 points from Vitality to Strength, costing 80 life. That is a modelling choice for you, not something I picked; the column above keeps the guide's allocation.
@@ -348,7 +348,7 @@ Standard variant, clvl 99, charms, BO / BC / Frozen Armor always on, mercenaries
 | FCR / FHR / FBR | 105 (8 frames) / 60 (8) / 0 (9) |
 | DR / magic absorb | 18 % / 8 flat |
 | **+skills** | all 9 (8 + BC 1), Sorceress 6, fire tree 11 → **+26 to her fire skills** |
-| **slvl** | **Fire Ball 46, Meteor 46, Fire Mastery 46**, Fire Bolt ~~46~~ **43**, Inferno ~~46~~ **27**, Warmth 27, Enchant ~~29~~ **27**, **Static Field 16**, Frozen Armor 16, Teleport 16. **⚑ Corrected in stage 5 (§ 9)** |
+| **slvl** | **Fire Ball 46, Meteor 46, Fire Mastery 46, Fire Bolt 46, Inferno 46**, Warmth 27, **Enchant 29**, **Static Field 16**, Frozen Armor 16, Teleport 16. **Of record per KP-444 (§ 10);** stage-5 43 / 27 / 27 superseded |
 | Castables | Fire Ball, Meteor, **Static Field** (KP-437) |
 | Buffs, always on | Battle Orders 16 (180 s), Battle Command 16 (155 s), Frozen Armor 16 (300 s) |
 | MF | 427 % |
@@ -469,7 +469,7 @@ For R1's cold resists, look up each type's `ResCo(H)` in this table (`c14_stage4
 
 ---
 
-## 9. Stage 5: verbatim hard points (correction found by gamora)
+## 9. Stage 5: verbatim hard points (correction found by gamora). ⚑ ITS VALUES ARE SUPERSEDED BY § 10 (KP-444)
 
 **The defect.** `scripts/sorc_build_sheet.py` hard-coded Fire Bolt 20, Inferno 20 and Enchant 3. That assumed the planner's 24-entry `skillProgression` had been spent on top of `profile.skills`. **The verbatim `profile.skills` is Fire Bolt 17, Inferno 1, Enchant 1** (86 points).
 
@@ -501,3 +501,26 @@ The synergy laws are J4b H01–H03: synergies read hard points only. **Unchanged
 - The planner's `skillProgression` holds **exactly the 24 missing points**: Fire Bolt +3, Inferno +19, Enchant +2.
 - Spending them reproduces the guide's prose order: *"Max out … 1. Meteor 2. Fire Mastery 3. Fire Ball 4. Fire Bolt 5. Inferno 6. Enchant."*
 - **This stage follows the instruction (verbatim `profile.skills`).** If the conductor or Matt rule that the progression points are spent, the stage-1 values return: Fire Bolt 46, Inferno 46, Enchant 29; synergies +560 / +200 / +60 %. **I do not pick.**
+
+---
+
+## 10. Stage 6 (KP-444): the 24 `skillProgression` points ARE SPENT
+
+**The ruling.** The clvl-99 build with all quests has 110 points (98 levels + 12 quest), and the guide's prose gives the max-out order. So the planner's 24 `skillProgression` entries are spent on top of `profile.skills`.
+
+**The script** (`scripts/sorc_build_sheet.py`) now derives the hard points as the **verbatim `profile.skills` plus one point per verbatim `skillProgression` entry**. Both are read from the captured JSON; nothing is hard-coded. It **asserts the total equals 110**.
+
+### Of record
+
+| Quantity | Value |
+|---|---|
+| Hard points Fire Bolt / Inferno / Enchant | **20 / 20 / 3** |
+| **Final sheet slvl** (BO + BC + Frozen Armor on): Fire Ball / Meteor / Fire Mastery / Fire Bolt / Inferno / Enchant | **46 / 46 / 46 / 46 / 46 / 29** |
+| Charms, no BC | 45 / 45 / 45 / 45 / 45 / 28 |
+| No charms | 34 / 34 / 34 / 34 / 34 / 17 |
+| **Synergies** (J4b H01–H03, hard points only) | **Fire Ball +560 %** (14 × (20 + 20)) · **Meteor impact +200 %** (5 × (20 + 20)) · **burning ground +60 %** (3 × 20) |
+| Unchanged | Warmth 27, Static Field 16, Frozen Armor 16, Teleport 16; every non-skill sheet field |
+
+**Superseded:** stage 5's **17 / 1 / 1** hard points (sheet 43 / 27 / 27; synergies +518 / +185 / +3 %). **Reason:** stage 5 read `profile.skills` alone, which is 86 points and leaves 24 unspent. KP-444 rules those 24 are spent.
+
+Stages 2–4 are unaffected either way: Frozen Armor and Static Field have 1 hard point in both readings, and no damage was computed.

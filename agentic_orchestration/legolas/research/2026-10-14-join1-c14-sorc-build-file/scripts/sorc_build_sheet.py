@@ -80,13 +80,19 @@ def sheet(with_charms: bool, bo_slvl: int | None, plan, clvl=99, battle_command:
     #   spent; the verbatim allocation is Fire Bolt 17, Inferno 1, Enchant 1 (86 points; see README § 9 ⚑ ruling item).
     names = {r["Id"]: r["skill"] for r in rd("Skills.txt")}
     tree = {r["Id"]: r.get("skilldesc", "") for r in rd("Skills.txt")}
-    hard = {names[k]: int(v) for k, v in p["skills"].items()}
+    # ⚑ STAGE 6 (KP-444): the 24 `skillProgression` points ARE SPENT (110 points at clvl 99 with all quests).
+    #   Hard points = verbatim `profile.skills` + one point per verbatim `skillProgression` entry. Both read, nothing hard-coded.
+    pts = {k: int(v) for k, v in p["skills"].items()}
+    for sid in p.get("skillProgression", []):
+        pts[str(sid)] = pts.get(str(sid), 0) + 1
+    assert sum(pts.values()) == (clvl - 1) + 12, sum(pts.values())   # 98 level points + 12 quest points
+    hard = {names[k]: v for k, v in pts.items()}
     fire_ids = {"36", "37", "41", "46", "47", "51", "52", "56", "61", "62"}   # Sorceress fire tree (Skills.txt / SkillDesc page 1 col 1)
     bc = 1 if battle_command else 0
     slvl = {}
-    for k, v in p["skills"].items():
+    for k, v in pts.items():
         n = names[k]
-        slvl[n] = int(v) + (plus_fire if k in fire_ids else allsk + sorcsk) + bc
+        slvl[n] = v + (plus_fire if k in fire_ids else allsk + sorcsk) + bc
     synergy = {"Fire Ball_pct": 14 * (hard["Fire Bolt"] + hard["Meteor"]),
                "Meteor_impact_pct": 5 * (hard["Fire Bolt"] + hard["Fire Ball"]),
                "Meteor_burning_ground_pct": 3 * hard["Inferno"]}
