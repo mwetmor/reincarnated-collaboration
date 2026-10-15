@@ -45,7 +45,7 @@
 
 ## 4 · ⚑ FINDING: the engine row replay does not check the Meteor cooldown, and the grains show short gaps
 - **The gap:** ADDENDUM-1 § E said *"The row replay checks every cast against the rule."* My replay's cast class checks cost, action frame and spacing ≥ 8, but **not the Meteor delay** (30 frames from the action, i.e. 35 frames from the cast start). **The replay was incomplete on this point.**
-- **What the grains show** (on the rebased timeline): of 1,550 Meteor casts, **45 start fewer than 35 frames after the previous Meteor.**
+- **What the grains show** (on the rebased timeline): of 1,755 Meteor cast rows, **45 start fewer than 35 frames after the previous Meteor.**
   - 18 follow a preempted Meteor (14 preempted before its action, 4 after).
   - 21 are the first Meteor of a new wave.
   - Everything is consistent with the port setting `meteor_ready` only when an action **resolves with a target** (`kc2rb_d2lane.gd:571–579`; 141 actions had no target, typically when the board empties at wave end).
