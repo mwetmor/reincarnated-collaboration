@@ -1,0 +1,242 @@
+{
+ "captures_sha256": {
+  "d2moo-D2Common-D2Skills.cpp": "31c9e990fa41cd82ba9951355b1ff5b7d5733848fb3118b923dab573564251f5",
+  "d2moo-D2Common-D2StatList.cpp": "8c1710c5cd14295f67aaadf905f827e01475197137f9af2cc191d23a85a613d4",
+  "d2moo-D2Game-GAME-CCmd.cpp": "da8987bf45c94dd65ecb731d3c9bdda9d50a84ecf62a9958593bce029a14a192",
+  "d2moo-D2Game-GAME-Event.cpp": "5b8169e38ddbb4a27c67536fb21807250508683a78fe6743b1700933a3c05c0d",
+  "d2moo-D2Game-GAME-Game.cpp": "78061da7a02c64406efcf0d78cc64ccadd98b0a5b51948923e9e066235743a0f",
+  "d2moo-D2Game-MISSILES-MissMode.cpp": "a2a8429d1df17d98251db47b46b8d102babe97fedc5a7449e11083726b1d0697",
+  "d2moo-D2Game-MISSILES-Missiles.cpp": "d9298e6d685c9d00323fa982c26d2dbfcb7289e266d642bb92f45f4d851141d5",
+  "d2moo-D2Game-MONSTER-MonsterMode.cpp": "e39beb79272be251a739b587a92d765684c1fa5cb02ee500c1c5763f5f05531a",
+  "d2moo-D2Game-PLAYER-PlrMsg.cpp": "ffeff8d5a1448ed72f250fe647d3ee8ae53034cf47e6dd29cae11878d5d63056",
+  "d2moo-D2Game-Skills.cpp": "ae7608f7c95eafd3d2b632af8ece88a1f6784490416e2f9ced3706bcbdd1dbcc",
+  "d2moo-D2Game-UNIT-SUnit.cpp": "c09096cf3ca18c1e08e6a949e17e240f67bb64f000a96025f5e2872dfb19cb5b",
+  "d2moo-D2Game-UNIT-SUnitDmg.cpp": "56ab5e14f7aceb18681f1c1e720e89c63bfe2a25e2e41b8aa9907652a7c9daf7",
+  "d2moo-PlrModes.cpp": "50ec9bbde8a1783c092382792023c36457b64ed7896d7bff87659b19446f4865"
+ },
+ "checks": {
+  "frame_increment_before_events": true,
+  "gethit_trigger_inside_damage_exec": true,
+  "melee_damage_applied_inside_SrvDo001": true,
+  "missile_before_player_before_monster": true,
+  "net_entry_separate_from_update": true
+ },
+ "d2moo_anchors": {
+  "IterateEvents_def": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 179,
+   "needle": "void __fastcall EVENT_IterateEvents(D2GameStrc* pGame)"
+  },
+  "SrvDo001_alloc_combat": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2064,
+   "needle": "SUNITDMG_AllocCombat(pGame, pUnit, pTarget, &damage, 128);"
+  },
+  "SrvDo001_apply_now": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2074,
+   "needle": "SUNITDMG_DrainItemDurability(pGame, pUnit, pTarget, 0);"
+  },
+  "SrvDo001_def": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 2025,
+   "needle": "int32_t __fastcall SKILLS_SrvDo001_Attack_LeftHandSwing("
+  },
+  "UpdateProgress_def": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 1790,
+   "needle": "void __fastcall GAME_UpdateProgress(D2GameStrc* pGame)"
+  },
+  "bucket_missile_inf": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 186,
+   "needle": "EVENT_ExecuteMissileEvents(pGame, pTimerQueue, pTimerQueue->pInfinite[nMissileEventIdx], 0);"
+  },
+  "bucket_missile_slot": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 187,
+   "needle": "EVENT_ExecuteMissileEvents(pGame, pTimerQueue, pTimerQueue->pHead[nMissileEventIdx][pTimerQueue->nArrayIndex], 1);"
+  },
+  "bucket_monster_inf": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 194,
+   "needle": "EVENT_ExecuteMonsterEvents(pGame, pTimerQueue, pTimerQueue->pInfinite[nMonsterEventIdx], 0);"
+  },
+  "bucket_monster_slot": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 195,
+   "needle": "EVENT_ExecuteMonsterEvents(pGame, pTimerQueue, pTimerQueue->pHead[nMonsterEventIdx][pTimerQueue->nArrayIndex], 1);"
+  },
+  "bucket_player_inf": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 190,
+   "needle": "EVENT_ExecutePlayerEvents(pGame, pTimerQueue, pTimerQueue->pInfinite[nPlayerEventIdx], 0);"
+  },
+  "bucket_player_slot": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 191,
+   "needle": "EVENT_ExecutePlayerEvents(pGame, pTimerQueue, pTimerQueue->pHead[nPlayerEventIdx][pTimerQueue->nArrayIndex], 1);"
+  },
+  "cast_req_handler": {
+   "file": "d2moo-D2Game-PLAYER-PlrMsg.cpp",
+   "line": 812,
+   "needle": "int32_t __fastcall sub_6FC83340("
+  },
+  "cast_req_usable_only": {
+   "file": "d2moo-D2Game-PLAYER-PlrMsg.cpp",
+   "line": 847,
+   "needle": "if (nSkillUseState == SKILLUSTATE_USABLE)"
+  },
+  "ccmd_def": {
+   "file": "d2moo-D2Game-GAME-CCmd.cpp",
+   "line": 218,
+   "needle": "void __fastcall CCMD_ProcessClientMessage(void* pData, int32_t nPacketSize)"
+  },
+  "ccmd_immediate_handler": {
+   "file": "d2moo-D2Game-GAME-CCmd.cpp",
+   "line": 234,
+   "needle": "D2GAME_PACKET_Handler_6FC89320(pGame, pPlayer, pPacket, nPacketSize)"
+  },
+  "damage_exec_fn": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 1934,
+   "needle": "void __fastcall SUNITDMG_ExecuteMissileDamage("
+  },
+  "delay_check_blocked": {
+   "file": "d2moo-D2Common-D2Skills.cpp",
+   "line": 1605,
+   "needle": "return SKILLUSTATE_BLOCKED;"
+  },
+  "delete_per_frame_events": {
+   "file": "d2moo-D2Game-UNIT-SUnit.cpp",
+   "line": 1466,
+   "needle": "void __fastcall D2GAME_DeletePlayerPerFrameEvents_6FCBCE50("
+  },
+  "expire_le": {
+   "file": "d2moo-D2Common-D2StatList.cpp",
+   "line": 1855,
+   "needle": "if (pCurrent->dwExpireFrame <= nFrame)"
+  },
+  "frame_increment": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 1794,
+   "needle": "++pGame->dwGameFrame;"
+  },
+  "gethit_start_deletes_events": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 840,
+   "needle": "void __fastcall PLRMODE_StartXY_GetHit("
+  },
+  "infinite_list_select": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 409,
+   "needle": "return &pGame->pTimerQueue->pInfinite[nIndex];"
+  },
+  "infinite_push_head": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 528,
+   "needle": "*ppEventTimer = pNewTimer;"
+  },
+  "infinite_timer_expire_minus1": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 514,
+   "needle": "pNewTimer->nExpireFrame = -1;"
+  },
+  "iterate_events_call": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 1868,
+   "needle": "    EVENT_IterateEvents(pGame);"
+  },
+  "lock_by_client": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 2378,
+   "needle": "D2GameStrc* __fastcall GAME_GetGameByClientId(int32_t nClientId)"
+  },
+  "lock_game_cs": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 2445,
+   "needle": "D2_LOCK(pGame->lpCriticalSection);"
+  },
+  "melee_exec_damage": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 2388,
+   "needle": "SUNITDMG_ExecuteMissileDamage(pGame, pAttacker, pDefender, &damageCopy);"
+  },
+  "melee_exec_fn": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 2283,
+   "needle": "void __fastcall SUNITDMG_DrainItemDurability("
+  },
+  "missile_basic_collision": {
+   "file": "d2moo-D2Game-MISSILES-MissMode.cpp",
+   "line": 4866,
+   "needle": "return MISSMODE_HandleMissileCollision(pGame, pMissile);"
+  },
+  "missile_damage_exec": {
+   "file": "d2moo-D2Game-MISSILES-MissMode.cpp",
+   "line": 4760,
+   "needle": "SUNITDMG_ExecuteMissileDamage(pGame, pOwner, pDefender, pDamage);"
+  },
+  "missile_event_handler": {
+   "file": "d2moo-D2Game-MISSILES-MissMode.cpp",
+   "line": 5194,
+   "needle": "void __fastcall MISSMODE_SrvDoHandler(D2GameStrc* pGame, D2UnitStrc* pMissile, D2C_EventTypes nEventType)"
+  },
+  "missile_per_frame_timer": {
+   "file": "d2moo-D2Game-MISSILES-Missiles.cpp",
+   "line": 54,
+   "needle": "sub_6FC35570(pGame, pMissile, EVENTTYPE_MODECHANGE, 0, 0);"
+  },
+  "monster_event_dispatch": {
+   "file": "d2moo-D2Game-MONSTER-MonsterMode.cpp",
+   "line": 2126,
+   "needle": "void __fastcall MONSTERMODE_EventHandler("
+  },
+  "net_dispatch": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 1715,
+   "needle": "CCMD_ProcessClientMessage(buffer, nSize);"
+  },
+  "net_entry": {
+   "file": "d2moo-D2Game-GAME-Game.cpp",
+   "line": 1694,
+   "needle": "void __fastcall GAME_ProcessNetworkMessages()"
+  },
+  "player_event_dispatch": {
+   "file": "d2moo-PlrModes.cpp",
+   "line": 1422,
+   "needle": "void __fastcall sub_6FC81600("
+  },
+  "player_gethit_trigger": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 2031,
+   "needle": "sub_6FC817D0(pGame, pUnit, nullptr, 4, pDamage->dwDmgTotal, 0, 0);"
+  },
+  "removestate_handler": {
+   "file": "d2moo-D2Game-MONSTER-MonsterMode.cpp",
+   "line": 2094,
+   "needle": "STATLIST_UpdateStatListsExpiration(pUnit, pGame->dwGameFrame);"
+  },
+  "sched_first_step_plus1": {
+   "file": "d2moo-D2Game-UNIT-SUnit.cpp",
+   "line": 1498,
+   "needle": "            ++nFrame;"
+  },
+  "sched_from_current_frame": {
+   "file": "d2moo-D2Game-UNIT-SUnit.cpp",
+   "line": 1475,
+   "needle": "    int32_t nFrame = pGame->dwGameFrame;"
+  },
+  "setdelay_expire": {
+   "file": "d2moo-D2Game-Skills.cpp",
+   "line": 1746,
+   "needle": "const int32_t nExpireFrame = nDelay + pGame->dwGameFrame;"
+  },
+  "slot_exact_frame_match": {
+   "file": "d2moo-D2Game-GAME-Event.cpp",
+   "line": 219,
+   "needle": "if (pTimer->nExpireFrame == pGame->dwGameFrame)"
+  }
+ },
+ "failures": []
+}

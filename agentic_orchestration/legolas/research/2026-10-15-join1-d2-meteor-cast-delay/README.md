@@ -128,11 +128,12 @@ The call chain, with each link cited:
 ## Knowledge gaps not resolved
 
 1. **D2R server code is closed.** Every timing, interrupt and no-target claim for D2R is INFERRED from 1.10f code plus unchanged D2R table fields and Basin's statement. The value (30) and local scope are DATAMINED for D2R.
-2. **Same-frame ordering at F+30.** Within one game frame, it is not established whether event processing (state removal) runs before or after the incoming cast packets. A recast is possible on frame F+30 or F+31 (±1 frame). This was not resolved from the captured code.
+2. **Same-frame ordering at F+30.** Within one game frame, it is not established whether event processing (state removal) runs before or after the incoming cast packets. A recast is possible on frame F+30 or F+31 (±1 frame). This was not resolved from the captured code. **RESOLVED (tie-order follow-up):** cast requests are processed between frame updates, under the game lock. A request is accepted at the earliest at stamp F+30 (the delay is removed during update F+30), and the new animation starts at F+31. See `README-tie-order-and-recast.md` § 2.
 3. **25 frames per second** is not shown in the captured code. Grade: MODEL-VERIFIED via Basin's "1.2 s = 30 frames" and "2.4 s = 60 frames", which is consistent with the 60-frame Missiles.txt range.
 4. **The `sub_6FC81890` CAST clause** `dwGameFrame <= ENDANIM-frame + 5` is not relied upon here. Only its explicit GETHIT/BLOCK disjunct is cited.
 
 ## Files
+- `README-tie-order-and-recast.md`, `verify_tie_order.py` and `tie_order_facts.json`: the same-frame hit-vs-action order and the recast stamp (closes gap 2).
 - `README-KP481-mana-debit.md`, `verify_mana_debit.py` and `mana_debit_facts.json`: the KP-481 follow-up (mana-debit timing for Fire Bolt, Fire Ball, Static Field and Meteor), plus the Q4 erratum.
 - `captures/`: the D2MOO sources (`d2moo-*.cpp/.h`), `d2data/skills.json`, the Basin raw pages and the Blizzard 2.4 notes HTML. Their sha256 values are in `meteor_delay_facts.json`.
 - `verify_meteor_delay.py` re-derives the values and line anchors. `meteor_delay_facts.json` is its output.
