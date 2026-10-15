@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 1436, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 1420, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 1319, in main_build
+    A, K, H, info = build(gates, control)    # value-drift (NON-GRADED): life_d2 written as 2822 -> its check fails
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 338, in build
+    raise RulebookPackHalt("c14_stage7.json is not the pinned FILE")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: c14_stage7.json is not the pinned FILE
+rc=1

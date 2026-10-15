@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 1436, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 1420, in main
+    res = main_build(out / f"{PACK_NAME}-{stamp}", is_cut=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Games/reincarnated-engine/src/reincarnated/export/kc2_rulebook_pack_v5.py", line 1321, in main_build
+    raise RulebookPackHalt(f"gate failed: {json.dumps({'checks': gates['checks'], 'failures': gates['failures']})[:4000]}")
+_kc2_rulebook_pack_v0_for_v1.RulebookPackHalt: gate failed: {"checks": 39, "failures": [{"row": "RB-A-anchor_m_per_yd", "check": "value 1.2 == C-13 melee_reach m_per_yd; body_radius rounds to 1.17; literal 0.9144; sensitivities + 1.2 == C-13's set; C-13 README \u00a7 10 carries 1.2 and 1.17; KP-441 ledger row at 3dd6e947a"}]}
+rc=1

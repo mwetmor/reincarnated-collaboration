@@ -1,0 +1,141 @@
+{
+ "artifact": "JOIN-1 kc2-rulebook-pack-v5 (v4 FINAL + ADDENDUM-12/13 rows; gamora FINAL names A13 CORR-2 § 5 @ c99ac644)",
+ "author": "star-lord; conductor gandalf",
+ "prereg": {
+  "base": "5c03c3c7",
+  "delta": "a1016c9a"
+ },
+ "tool": {
+  "FILE_sha256": "24315c733c8d58b2d076400a5fad9e3a56b646ccb1ef153a3dcfa2f63205a063",
+  "path": "src/reincarnated/export/kc2_rulebook_pack_v5.py"
+ },
+ "cut": {
+  "commit": "d3f71b97",
+  "dir": "src/reincarnated/output/kc2-rulebook-pack-v5-20261015_081830",
+  "pack_digest": "c403ca5d1e3da6f35e66014a532f80421bc41e1adf130d97cf632bd35e468fce",
+  "manifest_FILE_sha256": "cb4bba4892d2330d4aa63b31c50d76078c8cf2ed81d23a38d98c94bed6492f78",
+  "self_consistent": true,
+  "predicted": {
+   "pack_digest": "c403ca5d1e3da6f35e66014a532f80421bc41e1adf130d97cf632bd35e468fce",
+   "manifest_FILE_sha256": "cb4bba4892d2330d4aa63b31c50d76078c8cf2ed81d23a38d98c94bed6492f78"
+  },
+  "as_predicted": true,
+  "census": {
+   "anchor_rows": 24,
+   "grades": {
+    "DATA-DERIVED": 7,
+    "DATAMINED": 12,
+    "DECLARED-INVENTED": 4,
+    "INFERRED": 29,
+    "JUDGED": 30,
+    "MODEL-VERIFIED": 24,
+    "VERBATIM": 16
+   },
+   "hook_rows": 11,
+   "kit_rows": 79,
+   "world_rows": 8
+  },
+  "verdict": "PASS"
+ },
+ "gates": {
+  "G-1_v311_rowsets_rederived_unchanged": true,
+  "G-2_checks": true,
+  "G-3_loaders": true,
+  "G-4_carried_byte_identical": true,
+  "G-5b_v4_values_and_grades_unchanged": true,
+  "G-7_js8_untouched": true,
+  "G-9_port_boundary_scan": true,
+  "pre_equals_post_all": true
+ },
+ "G-2": {
+  "generator_self_test": {
+   "failures": [],
+   "n_failures": 0,
+   "n_values_compared": 900
+  },
+  "n_checks": 39,
+  "n_failures": 0,
+  "ok": true
+ },
+ "G-5b": {
+  "compared": 105,
+  "diffs": [],
+  "exempt_seen": {
+   "kit_id": {
+    "v4": "'d2-fire-sorc'",
+    "v5": "'d2-fire-sorc-c14'",
+    "why": "KP-442 kit id fix (v4 gate WARN-1)"
+   },
+   "oculus_teleport_on_struck": {
+    "v4": "{'chance_pct': 25, 'skill_level': 1, 'tries': 10, 'square_subtiles': (-20, 19), 'around': 'HER position', 'stream': 'oculus:d2-fire-sorc', 'draws': '1 per eligible landed hit + 2 per try (one search p",
+    "v5": "{'chance_pct': 25, 'skill_level': 1, 'tries': 10, 'square_subtiles': (-20, 19), 'around': 'HER position', 'stream': 'oculus:d2-fire-sorc-c14', 'draws': '1 per eligible landed hit + 2 per try (one sear",
+    "why": "its stream id carries the kit id (oculus:d2-fire-sorc-c14; CORR-4 (a))"
+   }
+  },
+  "missing": [],
+  "ok": true
+ },
+ "G-3_refusals": {
+  "load_layer:''": true,
+  "load_layer:'ORACLE'": true,
+  "load_layer:'PLAY'": true,
+  "load_layer:'join'": true,
+  "load_layer:None": true,
+  "load_layer_world:''": true,
+  "load_layer_world:'ORACLE'": true,
+  "load_layer_world:'PLAY'": true,
+  "load_layer_world:'join'": true,
+  "load_layer_world:None": true,
+  "load_operands:''": true,
+  "load_operands:'ORACLE'": true,
+  "load_operands:'PLAY'": true,
+  "load_operands:'join'": true,
+  "load_operands:None": true
+ },
+ "G-8_s47v4": {
+  "where": "dedicated worktree /Users/admin/Games/reincarnated-engine-v4final-s47, re-pointed detached to d3f71b97",
+  "verdict": "ORACLE BYTE-IDENTICAL",
+  "reason": "HEAD fixed; A and B and B' pass",
+  "HEAD": "d3f71b97a28112568079c4d272868da2528df53b",
+  "opened_file_scan": {
+   "witness_children": [
+    {
+     "witness": "18249.json",
+     "n_opened_py": 515,
+     "opened_forbidden": 0,
+     "paths_naming_rulebook": []
+    },
+    {
+     "witness": "18322.json",
+     "n_opened_py": 569,
+     "opened_forbidden": 0,
+     "paths_naming_rulebook": []
+    }
+   ],
+   "import_closure_files_naming_rulebook": []
+  }
+ },
+ "G-10": {
+  "expected": "tool + 18 + receipt = 20",
+  "observed": 20
+ },
+ "controls": {
+  "NC-V5-a": "table-drift: HALT self-test 1 difference (fire_ball 46 fire_min)",
+  "NC-V5-b": "value-drift: HALT checks 39, 1 failure RB-K-life_d2",
+  "NC-V5-c": "table-digest: HALT 1 failure RB-A-anchor_ar_eq_table",
+  "NC-V5-f": "yard-drift: HALT 1 failure RB-A-anchor_m_per_yd",
+  "NC-V5-g": "offset-drift: HALT 1 failure RB-K-meteor_pyre.offsets_subtiles",
+  "NC-V5-h": "stamina-drift: HALT 1 failure RB-K-stamina_max",
+  "NC-V5-i": "stage7-digest: HALT 'c14_stage7.json is not the pinned FILE'",
+  "NC-V5-d": "verify rc 1, member_failures [tables/physical_contact_table.json]; load_layer refused",
+  "NC-V5-e": "15/15 refused; JOIN reads l21_length_frames 8, stamina_max 1179, kit_id d2-fire-sorc-c14",
+  "all_as_predicted": true,
+  "logs": "controls/"
+ },
+ "notes": [
+  "KP-454 (rows 22/23/24 d2 primary): no v5 row carries that setting; recorded in meta.rulings_cited",
+  "slvl rows held at v4's 10 skills (stage-6 sheet lists 3 more); res_uncapped keys verbatim 'light' per gamora § 5 (sheet.res.* say 'lightning')",
+  "v4 evidence erratum (v4 gate INFO-1): kp444_check.json's 'stage 5' label is stage 6; recorded in v5 meta.sheet_pin",
+  "still owed: INFO-V3-1 (offense_da untouched); B' forbidden_dirs v4/v5 entries (gamora)"
+ ]
+}

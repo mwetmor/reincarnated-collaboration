@@ -1,0 +1,125 @@
+{
+ "head": {
+  "end": "d3f71b97a28112568079c4d272868da2528df53b",
+  "instrument_pin_end": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "83463b557e7ce0ed1e6d2566f384264d55317e11",
+     "blob_live": "83463b557e7ce0ed1e6d2566f384264d55317e11",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "blob_live": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pin_start": {
+   "files": {
+    "src/reincarnated/simulation/scripts/gamora_join2_s47_v4_2026_10_07.py": {
+     "blob_equal": true,
+     "blob_head": "83463b557e7ce0ed1e6d2566f384264d55317e11",
+     "blob_live": "83463b557e7ce0ed1e6d2566f384264d55317e11",
+     "clean": true,
+     "tracked": true
+    },
+    "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py": {
+     "blob_equal": true,
+     "blob_head": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "blob_live": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+     "clean": true,
+     "tracked": true
+    }
+   },
+   "pass": true
+  },
+  "instrument_pinned": true,
+  "kc2_tree_end": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "kc2_tree_start": "7496a28a9126be568a2ee714d3f8f5e5dbc17af7",
+  "moved": false,
+  "start": "d3f71b97a28112568079c4d272868da2528df53b"
+ },
+ "instrument": "gamora_join2_s47_v4_2026_10_07.py (E2e; supersedes v3 for \u00a7 4.7 claims from E3)",
+ "instrument_FILE_sha256": "1c2f710b07669a34ed2bc9065cdd774816d18d0a95702b6c80e62f27d5525763",
+ "limb_A_sealed_vs_head": {
+  "command": "gamora_kc2_play_v3p11_oracle_2026_10_02 graded V311-FULL (5 arms x 5 salts)",
+  "equal": true,
+  "excluded_keys": [
+   "wall_s"
+  ],
+  "head": {
+   "FILE_sha256": "0e6ac7c8c9359c4f7e10a0aed9cc886a6ace04c2ded249b0459e53bac8901bb8",
+   "canonical_sha256": "f04ef6d0aa323918652d696794e14754acf60af62460cad464e0ec25253c6a93",
+   "commit_end": "d3f71b97a28112568079c4d272868da2528df53b",
+   "commit_start": "d3f71b97a28112568079c4d272868da2528df53b"
+  },
+  "pass": true,
+  "sealed": {
+   "FILE_sha256": "9a05a03cbaa2dc1d95ce6a316914d345606d5a0feae9d43644794d432d3134b3",
+   "canonical_sha256": "f04ef6d0aa323918652d696794e14754acf60af62460cad464e0ec25253c6a93",
+   "clean_after": true,
+   "clean_before": true,
+   "commit": "969fbd8d3cb7d07d05c22c80ee925dd34444118c",
+   "tag": "kc2/referent-v1-sealed-r2-oracle",
+   "tree": "/Users/admin/Games/reincarnated-engine-join1-v311"
+  }
+ },
+ "limb_B_import_closure": {
+  "HEAD": "d3f71b97a28112568079c4d272868da2528df53b",
+  "files_changed_between_seal_and_HEAD": [],
+  "files_dirty_vs_HEAD": [],
+  "instrument_files_excluded": [
+   {
+    "blob": "9ef3cd5c41dad24e8ca7997a830b60f1f290fe85",
+    "file": "src/reincarnated/simulation/scripts/join2_bprime_witness_hook_v2/sitecustomize.py",
+    "sha256": "44bfb0de088c2b93936b578ce986966859e79c6910fc10647bc84f857fd2c0cb"
+   }
+  ],
+  "kit_compiler_loaded": [],
+  "n_engine_files_loaded_or_opened": 213,
+  "n_reincarnated_modules": 141,
+  "n_tracked": 213,
+  "pass": true,
+  "untracked_are_bytecode_only": true
+ },
+ "limb_Bprime_summary": {
+  "census_differs": [],
+  "env_stripped": [],
+  "pass": true,
+  "path_hits": {
+   "head": [],
+   "sealed": []
+  },
+  "witness": {
+   "children_of_root": [
+    18249,
+    18322
+   ],
+   "n_pids": 2,
+   "pass": true,
+   "tree_ok": true
+  },
+  "witness_hits": []
+ },
+ "limb_C_vs_pass4_artifact": {
+  "declared_exceptions": [
+   "hunt: pilot_derivation_referent.json -> kc2_hunt_pilot_derivation_v3p9.json",
+   "pilot_move: pilot_move_derivation_referent.json -> kc2_pilot_move_derivation_v3p10.json"
+  ],
+  "equal_after_declared_exceptions": true,
+  "n_declared": 10,
+  "pass4_FILE_sha256": "62aecaa6c7a53429e878705db1172ebbea552eb8e5ea47cee1acc5864c00522b",
+  "pass4_artifact": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/analyses/2026-10-02-kc2-v3p11-oracle-pass4/graded_V311-FULL.json",
+  "rename_problems": [],
+  "renames_applied": 10
+ },
+ "verdict": "ORACLE BYTE-IDENTICAL",
+ "verdict_reason": "HEAD fixed; A and B and B' pass",
+ "verdict_rule": "HEAD fixed (start == end, kc2 tree too) AND A AND B AND B'; C reported"
+}

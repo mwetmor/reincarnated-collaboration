@@ -1,0 +1,41 @@
+clean dry pack: /private/tmp/claude-501/-Users-admin-Games-reincarnated-collaboration/ac232ef8-034a-45e4-8e9f-65834cd599f9/scratchpad/v5/dry3/kc2-rulebook-pack-v5-20261015_081630
+NC-V5-e load_operands 'ORACLE' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'ORACLE' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V5-e load_layer KIT 'ORACLE' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V5-e load_layer WORLD 'ORACLE' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'ORACLE' refused (A-12).
+NC-V5-e load_operands 'PLAY' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'PLAY' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V5-e load_layer KIT 'PLAY' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V5-e load_layer WORLD 'PLAY' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'PLAY' refused (A-12).
+NC-V5-e load_operands 'join' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config 'join' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V5-e load_layer KIT 'join' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V5-e load_layer WORLD 'join' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config 'join' refused (A-12).
+NC-V5-e load_operands '' REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config '' refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V5-e load_layer KIT '' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config '' refused (A-12).
+NC-V5-e load_layer WORLD '' REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config '' refused (A-12).
+NC-V5-e load_operands None REFUSED: kc2-rulebook-pack-v0 is opened only by a JOIN session; config None refused (ADDENDUM-E1 § A-12: the port's ORACLE and PLAY configurations never open it; neither does the engine ORACLE).
+NC-V5-e load_layer KIT None REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config None refused (A-12).
+NC-V5-e load_layer WORLD None REFUSED: kc2-rulebook-pack-v5 is opened only by a JOIN session; config None refused (A-12).
+NC-V5-e refused 15 / 15
+NC-V5-e JOIN l21_length_frames 8 stamina_max 1179 kit_id d2-fire-sorc-c14
+83a084ab85176aec57851c3ddda58b79d8ff367ce1ebd8862e02ba10e9",
+  "rulebook/offense_da.json": "a74e96228d9536f4cfbecc36a9f999db6927c37f9a72ebce15c367621a8dd093",
+  "rulebook/offense_da_population.json": "cfa9cda683c40f56277a843e680acee169d5a6c5e8e8bcf279626996e0b73862",
+  "rulebook/world_gd.json": "f0f30cf9a4babe9bfab75d996e4cc98aedcfb7ba2e3062257656bf50d3337d0c",
+  "rulebook/world_l21.json": "7c260b7835d220f737fcdaa885d01e05eea55b472e46e6fb4f4767cc363a83e9",
+  "tables/anchor_ar_eq_table.json": "536637a111877b5c81e7b4421c1aed2b53011e1242654a8932781a88267d757c",
+  "tables/anchor_ar_eq_table_unique.json": "d2594c518499a8b7b18df02d037f24a1831c20587e1ff3a03cdebff042aae96c",
+  "tables/physical_contact_table.json": "33112d1a1e2461c046f0bb1b9c7b5c55f0181f8c229ace9af6cccc2d3259b600"
+ },
+ "dir": "nc_d_pack",
+ "manifest_FILE_sha256": "cb4bba4892d2330d4aa63b31c50d76078c8cf2ed81d23a38d98c94bed6492f78",
+ "manifest_pack_digest": "c403ca5d1e3da6f35e66014a532f80421bc41e1adf130d97cf632bd35e468fce",
+ "member_failures": [
+  "tables/physical_contact_table.json"
+ ],
+ "n_members": 17,
+ "recomputed_pack_digest": "000986150b20847c0f6dadc1e3bee0f3b279255c573544def087da184c5b455a",
+ "self_consistent": false
+}
+
+NC-V5-d verify rc 1
+NC-V5-d load_layer REFUSED: pack digest / member digest check failed: ['tables/physical_contact_table.json']
+rc=0
