@@ -1,0 +1,218 @@
+{
+ "labels": [
+  "POST-HOC SEMANTICS: the tier-2 lever meanings ruled at KP-476 / KP-479 (TIER2 sheet 05c345ab + CORR-1 7b9d9002) were fixed after the margin of record was seen",
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)"
+ ],
+ "data": {
+  "arm": "dot-gd",
+  "pins": {
+   "pin_file": "/Users/admin/Games/join3c-bulk/t2/dot-gd/grains_sha256.json",
+   "pin_file_sha256": "ea7d1d2cd4253926f284511537476e7e3a79aee55e0cc5e77d9b79be5c28de5c",
+   "n": 75,
+   "ok": 75
+  },
+  "replay": {
+   "verdicts": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "prov_mm": 0,
+   "bad_by_class": {
+    "tape": 0,
+    "packet": 0,
+    "mana": 0,
+    "cast": 0,
+    "potion": 0,
+    "struck": 0,
+    "rebase": 0,
+    "control": 0,
+    "dot": 0,
+    "locks": 0,
+    "gh": 0,
+    "gr": 0,
+    "action": 0
+   },
+   "n_by_class": {
+    "tape": 34964,
+    "packet": 25781,
+    "mana": 72454,
+    "cast": 8682,
+    "potion": 124,
+    "struck": 970,
+    "rebase": 225,
+    "control": 11,
+    "dot": 0,
+    "locks": 8894,
+    "gh": 15486,
+    "gr": 1035,
+    "action": 8707
+   },
+   "binding": {
+    "r_dmg": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    },
+    "r_hp": {
+     "row": "RB-A-anchor_r_hp",
+     "hex": "404445dc60555383",
+     "value": 40.54578785101241,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    }
+   }
+  },
+  "identity": {
+   "cells": 25,
+   "worst_rel": 7.691266749278563e-17,
+   "fails": [],
+   "off_ledger_falls": 0
+  },
+  "gates": {
+   "runs": {
+    "pass": true,
+    "n_cells": 25,
+    "missing": 0,
+    "raised": [],
+    "non_terminal": []
+   },
+   "obs1": {
+    "n_cells": 25,
+    "n_complete": 25,
+    "truncated": [],
+    "complete": true
+   },
+   "per_arm": {
+    "M0": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "M-POL-2-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "W1": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    }
+   }
+  },
+  "counters_total": {
+   "arm": {
+    "block_draws": 555,
+    "blocks": 43,
+    "casts": 8682,
+    "fa_chill": 133,
+    "fa_freeze": 183,
+    "fb_explosions": 5489,
+    "hitrec": 119,
+    "kills": 7614,
+    "mana_credit_frames": 72454,
+    "meteor_impacts": 1418,
+    "move_refused_cast": 28798,
+    "n_action_no_target": 133,
+    "n_fire_ball_at_start_point": 117,
+    "packets": 25465,
+    "packets_in": 1398,
+    "potions": 124,
+    "pyre_frames": 178703,
+    "resilient_bleed_noop": 51,
+    "softhit_true": 1990,
+    "static_casts": 772,
+    "thorns": 316,
+    "oculus_draws": 42,
+    "n_meteor_at_start_point": 16,
+    "oculus_procs": 6,
+    "oculus_teleports": 6,
+    "n_action_carried": 2
+   },
+   "primary": {
+    "block_draws": 541,
+    "blocks": 41,
+    "casts": 8663,
+    "fa_chill": 129,
+    "fa_freeze": 178,
+    "fb_explosions": 5481,
+    "hitrec": 115,
+    "kills": 7600,
+    "mana_credit_frames": 72304,
+    "meteor_impacts": 1413,
+    "move_refused_cast": 28744,
+    "n_action_no_target": 132,
+    "packets": 25261,
+    "packets_in": 1368,
+    "potions": 123,
+    "pyre_frames": 177871,
+    "resilient_bleed_noop": 51,
+    "softhit_true": 1954,
+    "static_casts": 774,
+    "thorns": 307,
+    "oculus_draws": 40,
+    "oculus_procs": 5,
+    "oculus_teleports": 5,
+    "n_action_carried": 2
+   }
+  },
+  "unpredicted": {
+   "M_a": {
+    "arm": 25,
+    "primary": 25
+   },
+   "M_c_whole": {
+    "arm": 1988715.7957592227,
+    "primary": 1991085.1699609745
+   }
+  },
+  "item": {
+   "registered": "NC-J4b-ROW23: per landed DoT application, intake d2 <= gd, paired over cells, sign test; totals NOT graded",
+   "n_applications": {
+    "d2": 462,
+    "gd": 0
+   },
+   "cells_formable": 0,
+   "verdict": "NO VERDICT (the gd arm carries no per-application rows)",
+   "why": "Under gd the DoT receiver is the sealed oracle dot_timeline; its registrations are not exported (J4B-ROWS dots empty, GC 0), so the per-application form cannot be formed. Totals are NOT graded (A4 s 4.3)."
+  }
+ }
+}

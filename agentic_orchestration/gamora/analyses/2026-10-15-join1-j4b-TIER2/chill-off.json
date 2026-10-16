@@ -1,0 +1,218 @@
+{
+ "labels": [
+  "POST-HOC SEMANTICS: the tier-2 lever meanings ruled at KP-476 / KP-479 (TIER2 sheet 05c345ab + CORR-1 7b9d9002) were fixed after the margin of record was seen",
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)"
+ ],
+ "data": {
+  "arm": "chill-off",
+  "pins": {
+   "pin_file": "/Users/admin/Games/join3c-bulk/t2/chill-off/grains_sha256.json",
+   "pin_file_sha256": "1ce7f525a72458ed706b1a41944382f697c303160ded9465a449615be08dd343",
+   "n": 75,
+   "ok": 75
+  },
+  "replay": {
+   "verdicts": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "prov_mm": 0,
+   "bad_by_class": {
+    "tape": 0,
+    "packet": 0,
+    "mana": 0,
+    "cast": 0,
+    "potion": 0,
+    "struck": 0,
+    "rebase": 0,
+    "control": 0,
+    "dot": 0,
+    "locks": 0,
+    "gh": 0,
+    "gr": 0,
+    "action": 0
+   },
+   "n_by_class": {
+    "tape": 29791,
+    "packet": 23228,
+    "mana": 71152,
+    "cast": 8523,
+    "potion": 120,
+    "struck": 869,
+    "rebase": 225,
+    "control": 11,
+    "dot": 445,
+    "locks": 8704,
+    "gh": 15412,
+    "gr": 1021,
+    "action": 8548
+   },
+   "binding": {
+    "r_dmg": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    },
+    "r_hp": {
+     "row": "RB-A-anchor_r_hp",
+     "hex": "404445dc60555383",
+     "value": 40.54578785101241,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    }
+   }
+  },
+  "identity": {
+   "cells": 25,
+   "worst_rel": 7.557667230392451e-17,
+   "fails": [],
+   "off_ledger_falls": 0
+  },
+  "gates": {
+   "runs": {
+    "pass": true,
+    "n_cells": 25,
+    "missing": 0,
+    "raised": [],
+    "non_terminal": []
+   },
+   "obs1": {
+    "n_cells": 25,
+    "n_complete": 25,
+    "truncated": [],
+    "complete": true
+   },
+   "per_arm": {
+    "M0": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "M-POL-2": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "W1": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 2,
+     "terminal": 2
+    }
+   }
+  },
+  "counters_total": {
+   "arm": {
+    "block_draws": 481,
+    "blocks": 33,
+    "casts": 8523,
+    "fa_chill": 108,
+    "fa_freeze": 155,
+    "fb_explosions": 5440,
+    "hitrec": 99,
+    "kills": 7551,
+    "mana_credit_frames": 71152,
+    "meteor_impacts": 1375,
+    "move_refused_cast": 28290,
+    "n_action_no_target": 138,
+    "n_fire_ball_at_start_point": 108,
+    "packets": 22965,
+    "packets_in": 1262,
+    "potions": 120,
+    "pyre_frames": 167918,
+    "resilient_bleed_noop": 66,
+    "softhit_true": 1642,
+    "static_casts": 738,
+    "t2_chill_suppressed": 123,
+    "thorns": 263,
+    "n_action_carried": 4,
+    "n_meteor_at_start_point": 30,
+    "oculus_draws": 38,
+    "oculus_procs": 5,
+    "oculus_teleports": 5
+   },
+   "primary": {
+    "block_draws": 541,
+    "blocks": 41,
+    "casts": 8663,
+    "fa_chill": 129,
+    "fa_freeze": 178,
+    "fb_explosions": 5481,
+    "hitrec": 115,
+    "kills": 7600,
+    "mana_credit_frames": 72304,
+    "meteor_impacts": 1413,
+    "move_refused_cast": 28744,
+    "n_action_no_target": 132,
+    "packets": 25261,
+    "packets_in": 1368,
+    "potions": 123,
+    "pyre_frames": 177871,
+    "resilient_bleed_noop": 51,
+    "softhit_true": 1954,
+    "static_casts": 774,
+    "thorns": 307,
+    "oculus_draws": 40,
+    "oculus_procs": 5,
+    "oculus_teleports": 5,
+    "n_action_carried": 2
+   }
+  },
+  "unpredicted": {
+   "M_a": {
+    "arm": 25,
+    "primary": 25
+   },
+   "M_c_whole": {
+    "arm": 2015217.0839995614,
+    "primary": 1991085.1699609745
+   }
+  },
+  "item": {
+   "registered": "NC-J4b-ROW24: row identity on chilled ticks; per-moving-tick displacement d2 <= off, sign test",
+   "verdict": "NO VERDICT: the contract carries no per-tick player displacement trace (NO-ARM-ITEMS s 2)",
+   "fa_chill_counter_NOT_row24": {
+    "note": "fa_chill counts monsters chilled by HER Frozen Armor (row 29); it is NOT chill on her (row 24). The contract carries no chill-on-her count.",
+    "arm": 108,
+    "primary": 129
+   }
+  }
+ }
+}

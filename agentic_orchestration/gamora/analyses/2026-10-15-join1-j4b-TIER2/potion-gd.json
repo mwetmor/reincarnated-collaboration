@@ -1,0 +1,232 @@
+{
+ "labels": [
+  "POST-HOC SEMANTICS: the tier-2 lever meanings ruled at KP-476 / KP-479 (TIER2 sheet 05c345ab + CORR-1 7b9d9002) were fixed after the margin of record was seen",
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)"
+ ],
+ "data": {
+  "arm": "potion-gd",
+  "pins": {
+   "pin_file": "/Users/admin/Games/join3c-bulk/t2/potion-gd/grains_sha256.json",
+   "pin_file_sha256": "eb656d5533e06f4d6c7db6d7a47376a3e742d8350b3f52e5fb010adc0ae6832b",
+   "n": 75,
+   "ok": 75
+  },
+  "replay": {
+   "verdicts": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "prov_mm": 0,
+   "bad_by_class": {
+    "tape": 0,
+    "packet": 0,
+    "mana": 0,
+    "cast": 0,
+    "potion": 0,
+    "struck": 0,
+    "rebase": 0,
+    "control": 0,
+    "dot": 0,
+    "locks": 0,
+    "gh": 0,
+    "gr": 0,
+    "action": 0
+   },
+   "n_by_class": {
+    "tape": 28725,
+    "packet": 27201,
+    "mana": 80517,
+    "cast": 7354,
+    "potion": 0,
+    "struck": 1986,
+    "rebase": 211,
+    "control": 18,
+    "dot": 899,
+    "locks": 7658,
+    "gh": 15790,
+    "gr": 958,
+    "action": 7379
+   },
+   "binding": {
+    "r_dmg": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    },
+    "r_hp": {
+     "row": "RB-A-anchor_r_hp",
+     "hex": "404445dc60555383",
+     "value": 40.54578785101241,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    }
+   }
+  },
+  "identity": {
+   "cells": 25,
+   "worst_rel": 9.475400745606114e-17,
+   "fails": [],
+   "off_ledger_falls": 0
+  },
+  "gates": {
+   "runs": {
+    "pass": true,
+    "n_cells": 25,
+    "missing": 0,
+    "raised": [],
+    "non_terminal": []
+   },
+   "obs1": {
+    "n_cells": 25,
+    "n_complete": 25,
+    "truncated": [],
+    "complete": true
+   },
+   "per_arm": {
+    "M0": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 1,
+     "terminal": 1
+    },
+    "M-POL-2-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    }
+   }
+  },
+  "counters_total": {
+   "arm": {
+    "block_draws": 1281,
+    "blocks": 88,
+    "casts": 7354,
+    "casts_refused_mana": 18124,
+    "fa_chill": 223,
+    "fa_freeze": 684,
+    "fb_explosions": 4850,
+    "hitrec": 168,
+    "kills": 7468,
+    "mana_credit_frames": 80517,
+    "meteor_impacts": 831,
+    "move_refused_cast": 24491,
+    "n_action_carried": 4,
+    "n_action_no_target": 60,
+    "n_fire_ball_at_start_point": 57,
+    "oculus_draws": 66,
+    "packets": 26294,
+    "packets_in": 2775,
+    "pyre_frames": 125345,
+    "resilient_bleed_noop": 154,
+    "softhit_true": 1594,
+    "static_casts": 1056,
+    "t2_k4_drinks": 65,
+    "thorns": 907,
+    "oculus_procs": 9,
+    "oculus_teleports": 9,
+    "n_meteor_at_start_point": 3
+   },
+   "primary": {
+    "block_draws": 541,
+    "blocks": 41,
+    "casts": 8663,
+    "fa_chill": 129,
+    "fa_freeze": 178,
+    "fb_explosions": 5481,
+    "hitrec": 115,
+    "kills": 7600,
+    "mana_credit_frames": 72304,
+    "meteor_impacts": 1413,
+    "move_refused_cast": 28744,
+    "n_action_no_target": 132,
+    "packets": 25261,
+    "packets_in": 1368,
+    "potions": 123,
+    "pyre_frames": 177871,
+    "resilient_bleed_noop": 51,
+    "softhit_true": 1954,
+    "static_casts": 774,
+    "thorns": 307,
+    "oculus_draws": 40,
+    "oculus_procs": 5,
+    "oculus_teleports": 5,
+    "n_action_carried": 2
+   }
+  },
+  "unpredicted": {
+   "M_a": {
+    "arm": 14,
+    "primary": 25
+   },
+   "M_c_whole": {
+    "arm": 1712351.312871779,
+    "primary": 1991085.1699609745
+   }
+  },
+  "item": {
+   "registered": "NC-ROW21: d2-belt >= gd on survival and on realised casts/s in the mana-bound phase",
+   "survival": {
+    "d2_belt": 25,
+    "arm": 14,
+    "verdict": "TRUE"
+   },
+   "casts_per_s": {
+    "n_cells": 25,
+    "total_her": 74.79746903284062,
+    "total_him": 57.121726536851725,
+    "n_pos": 25,
+    "n_neg": 0,
+    "n_tie": 0,
+    "p_two_sided": 5.960464477539063e-08,
+    "verdict": "TRUE",
+    "operationalisation": "whole-cell casts/s (the mana-bound phase is not delimited in registration): POST-HOC"
+   },
+   "drinks": {
+    "arm": null,
+    "primary": 123
+   }
+  }
+ }
+}
