@@ -1,0 +1,198 @@
+{
+ "labels": [
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
+  "KP-473: 'use-weighted <= primary' on M-a and T is SATISFIED AT THE CEILING, UNINFORMATIVE; ADDENDUM-B off/off is LOW EVIDENTIAL VALUE: informed by the flinch-on margin"
+ ],
+ "data": {
+  "pins": {
+   "use-weighted": {
+    "pin_file_sha256": "829fd0aca9567f04fcc44f4cd879a2dc8083eb24141357a83604b75952ed06f5",
+    "n": 75,
+    "ok": 75
+   },
+   "raw": {
+    "pin_file_sha256": "71bddef452992d63494180b126a5ee5d8a98769acf593fb7cf540c074c3126e7",
+    "n": 75,
+    "ok": 75
+   },
+   "flinch-off": {
+    "pin_file_sha256": "38b2b3d6e3e59b070a2e89a11919dc38c6b157559d3a1b6d94adc15132302497",
+    "n": 50,
+    "ok": 50
+   },
+   "worst-case": {
+    "pin_file_sha256": "d520d521d7873d75390395db6efd36d2fc56dbf8cd61c098d3a9191f0e197403",
+    "n": 75,
+    "ok": 75
+   },
+   "row22": {
+    "pin_file_sha256": "18730c80a7dd5997dd1018499e345152bc76624726aa97b5bc576f819c5878e8",
+    "n": 55,
+    "ok": 55
+   }
+  },
+  "replay": {
+   "use-weighted": {
+    "verdicts": [
+     "PASS",
+     "PASS",
+     "PASS",
+     "PASS",
+     "PASS"
+    ],
+    "prov_mm": 0,
+    "binding": {
+     "row": "RB-A-anchor_r_dmg_use",
+     "hex": "40477d46fdd946ff",
+     "value": 46.97872899159665,
+     "anchor": "enemy-anchored"
+    },
+    "bad": 0,
+    "checks": {
+     "tape": 34329,
+     "tape_bad": 0,
+     "packet": 25527,
+     "packet_bad": 0,
+     "mana": 74492,
+     "mana_bad": 0,
+     "cast": 8856,
+     "cast_bad": 0,
+     "potion": 133,
+     "potion_bad": 0,
+     "struck": 984,
+     "struck_bad": 0,
+     "rebase": 225,
+     "rebase_bad": 0,
+     "control": 6,
+     "control_bad": 0,
+     "dot": 427,
+     "dot_bad": 0,
+     "locks": 9166,
+     "locks_bad": 0,
+     "gh": 15888,
+     "gh_bad": 0,
+     "gr": 1079,
+     "gr_bad": 0,
+     "action": 8881,
+     "action_bad": 0
+    }
+   },
+   "raw": {
+    "verdicts": [
+     "PASS",
+     "PASS",
+     "PASS",
+     "PASS",
+     "PASS"
+    ],
+    "prov_mm": 0,
+    "binding": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "anchor": "raw"
+    },
+    "bad": 0,
+    "checks": {
+     "tape": 9645,
+     "tape_bad": 0,
+     "packet": 5067,
+     "packet_bad": 0,
+     "mana": 3896,
+     "mana_bad": 0,
+     "cast": 461,
+     "cast_bad": 0,
+     "potion": 34,
+     "potion_bad": 0,
+     "struck": 173,
+     "struck_bad": 0,
+     "rebase": 0,
+     "rebase_bad": 0,
+     "control": 0,
+     "control_bad": 0,
+     "dot": 98,
+     "dot_bad": 0,
+     "locks": 649,
+     "locks_bad": 0,
+     "gh": 1028,
+     "gh_bad": 0,
+     "gr": 111,
+     "gr_bad": 0,
+     "action": 486,
+     "action_bad": 0
+    }
+   },
+   "flinch-off": {
+    "verdicts": [
+     "PASS",
+     "PASS",
+     "PASS",
+     "PASS",
+     "PASS"
+    ],
+    "prov_mm": 0,
+    "binding": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "anchor": "enemy-anchored"
+    },
+    "bad": 0,
+    "checks": {
+     "tape": 32195,
+     "tape_bad": 0,
+     "packet": 25384,
+     "packet_bad": 0,
+     "mana": 73228,
+     "mana_bad": 0,
+     "cast": 8748,
+     "cast_bad": 0,
+     "potion": 129,
+     "potion_bad": 0,
+     "struck": 1215,
+     "struck_bad": 0,
+     "rebase": 225,
+     "rebase_bad": 0,
+     "control": 15,
+     "control_bad": 0,
+     "dot": 534,
+     "dot_bad": 0,
+     "locks": 9001,
+     "locks_bad": 0,
+     "gh": 25,
+     "gh_bad": 0,
+     "gr": 0,
+     "gr_bad": 0,
+     "action": 8773,
+     "action_bad": 0
+    }
+   }
+  },
+  "identity": {
+   "use-weighted": {
+    "cells": 25,
+    "worst_rel": 6.714218773401853e-17,
+    "fails": [],
+    "off_ledger_falls": 0
+   },
+   "raw": {
+    "cells": 25,
+    "worst_rel": 2.3407920824699546e-16,
+    "fails": [],
+    "off_ledger_falls": 0
+   },
+   "flinch-off": {
+    "cells": 25,
+    "worst_rel": 6.257172140907475e-17,
+    "fails": [],
+    "off_ledger_falls": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "labels": [
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
+  "KP-473: 'use-weighted <= primary' on M-a and T is SATISFIED AT THE CEILING, UNINFORMATIVE; ADDENDUM-B off/off is LOW EVIDENTIAL VALUE: informed by the flinch-on margin"
+ ],
+ "data": {
+  "flinch_off_l21_readback": {
+   "WORLD lever via the adapter's kc2rb_d2_flinch (records her Fire Ball targets; RESET at S25 once the sealed KP-452 lines land)": 25
+  },
+  "R0_identical_to_car2_M0_0": {
+   "GO": true,
+   "GH": true,
+   "GHR": true,
+   "GR": true,
+   "GC": true,
+   "GM": true,
+   "GB": true,
+   "GO-BODIES": true,
+   "HPCHAIN": true,
+   "J4B-ROWS": true,
+   "G1": true,
+   "G2": true,
+   "G3": true,
+   "G4": true,
+   "G5": true,
+   "G6": true,
+   "G7": true
+  },
+  "R1": {
+   "n_rows": 9,
+   "n_forced": 8,
+   "families_forced": [
+    "Stun",
+    "Freeze",
+    "Knockdown",
+    "TakeHit",
+    "Sleep",
+    "Trap",
+    "Petrify",
+    "Immobilize"
+   ],
+   "bad_vs_engine_form": []
+  },
+  "R2": {
+   "n_rows": 8,
+   "n_forced": 8,
+   "families_forced": [
+    "Stun",
+    "Freeze",
+    "Knockdown",
+    "TakeHit",
+    "Sleep",
+    "Trap",
+    "Petrify",
+    "Immobilize"
+   ],
+   "bad_vs_engine_form": []
+  },
+  "R3_gd_lane_rows": 0,
+  "R4_refusal": [],
+  "R4_laws_sha_before_after": [
+   "797625db0531123603343e64c5257decfd845a38b5feb945a26403271085c698",
+   "797625db0531123603343e64c5257decfd845a38b5feb945a26403271085c698"
+  ],
+  "R3_provenance_has_n_applications": false,
+  "zero_exposure_car2": {
+   "by_family": {
+    "Stun": 11
+   },
+   "total": 11,
+   "cells_with_any": 10,
+   "families_zero": [
+    "Freeze",
+    "Immobilize",
+    "Knockdown",
+    "Petrify",
+    "Sleep",
+    "TakeHit",
+    "Trap"
+   ]
+  }
+ }
+}

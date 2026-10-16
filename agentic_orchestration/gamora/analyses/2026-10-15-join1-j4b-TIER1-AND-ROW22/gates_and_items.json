@@ -1,0 +1,387 @@
+{
+ "labels": [
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
+  "KP-473: 'use-weighted <= primary' on M-a and T is SATISFIED AT THE CEILING, UNINFORMATIVE; ADDENDUM-B off/off is LOW EVIDENTIAL VALUE: informed by the flinch-on margin"
+ ],
+ "data": {
+  "gates": {
+   "use-weighted": {
+    "runs": {
+     "pass": true,
+     "n_cells": 25,
+     "missing": 0,
+     "raised": [],
+     "non_terminal": []
+    },
+    "obs1": {
+     "n_cells": 25,
+     "n_complete": 25,
+     "truncated": [],
+     "complete": true
+    },
+    "per_arm": {
+     "M0": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 1479
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "M-POL-2": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 1428
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "M-POL-2-NULL": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 1473
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "W1": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 1452
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "W1-NULL": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 1452
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 3,
+       "terminal": 3
+      }
+     }
+    }
+   },
+   "raw": {
+    "runs": {
+     "pass": true,
+     "n_cells": 25,
+     "missing": 0,
+     "raised": [],
+     "non_terminal": []
+    },
+    "obs1": {
+     "n_cells": 25,
+     "n_complete": 25,
+     "truncated": [],
+     "complete": true
+    },
+    "per_arm": {
+     "M0": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 36
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "M-POL-2": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 42
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "M-POL-2-NULL": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 39
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "W1": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 40
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     },
+     "W1-NULL": {
+      "dot": "PASS",
+      "effect": {
+       "verdict": "PASS",
+       "a_attack_in_window": 0,
+       "b_own_move_in_window": 0,
+       "c_reset": 0,
+       "dying_not_at_death": 0,
+       "windows": 33
+      },
+      "completeness": {
+       "verdict": "PASS",
+       "P": "PASS",
+       "orphans": 0,
+       "terminal": 0
+      }
+     }
+    }
+   },
+   "flinch-off": {
+    "runs": {
+     "pass": true,
+     "n_cells": 25,
+     "missing": 0,
+     "raised": [],
+     "non_terminal": []
+    },
+    "obs1": {
+     "n_cells": 25,
+     "n_complete": 25,
+     "truncated": [],
+     "complete": true
+    },
+    "per_arm": {
+     "M0": {
+      "dot": "PASS",
+      "effect": "VACUOUS (L-21 off: no GH, no lock windows)",
+      "completeness": "VACUOUS (L-21 off: no GH/GHR/GB)"
+     },
+     "M-POL-2": {
+      "dot": "PASS",
+      "effect": "VACUOUS (L-21 off: no GH, no lock windows)",
+      "completeness": "VACUOUS (L-21 off: no GH/GHR/GB)"
+     },
+     "M-POL-2-NULL": {
+      "dot": "PASS",
+      "effect": "VACUOUS (L-21 off: no GH, no lock windows)",
+      "completeness": "VACUOUS (L-21 off: no GH/GHR/GB)"
+     },
+     "W1": {
+      "dot": "PASS",
+      "effect": "VACUOUS (L-21 off: no GH, no lock windows)",
+      "completeness": "VACUOUS (L-21 off: no GH/GHR/GB)"
+     },
+     "W1-NULL": {
+      "dot": "PASS",
+      "effect": "VACUOUS (L-21 off: no GH, no lock windows)",
+      "completeness": "VACUOUS (L-21 off: no GH/GHR/GB)"
+     }
+    }
+   }
+  },
+  "items": {
+   "NC_ANCHOR": {
+    "M_c": {
+     "n_cells": 25,
+     "total_her": 1991085.1699609745,
+     "total_him": 311690.5262250746,
+     "n_pos": 25,
+     "n_neg": 0,
+     "n_tie": 0,
+     "p_two_sided": 5.960464477539063e-08,
+     "verdict": "TRUE",
+     "registered": "M-c anchored > raw (strict; whole-cell M-c = sum applied / sum ticks, prereg s3 / A-CORR-1 s2)"
+    },
+    "M_a": {
+     "anchored": 25,
+     "raw": 0,
+     "verdict": "TRUE"
+    },
+    "M_c_159_160_info": {
+     "n_cells": 0,
+     "total_her": 0,
+     "total_him": 0,
+     "n_pos": 0,
+     "n_neg": 0,
+     "n_tie": 0,
+     "p_two_sided": 1.0,
+     "verdict": "INFO ONLY (waves 159/160; not the registered form)"
+    },
+    "raw_cells_reaching_159": 0,
+    "raw_T": 1940,
+    "raw_waves_reached": 25
+   },
+   "ORDER_use_weighted_le_primary": {
+    "M_a": {
+     "use_weighted": 25,
+     "primary": 25,
+     "verdict": "TRUE -- SATISFIED AT THE CEILING, UNINFORMATIVE (primary 25/25)"
+    },
+    "T": {
+     "n_cells": 25,
+     "total_her": 1000000,
+     "total_him": 1000000,
+     "n_pos": 0,
+     "n_neg": 0,
+     "n_tie": 25,
+     "p_two_sided": 1.0,
+     "verdict": "TRUE -- SATISFIED AT THE CEILING, UNINFORMATIVE (primary T = 25 x H)"
+    },
+    "use_weighted_vs_Warlord_unpredicted": {
+     "M_a": {
+      "use_weighted": 25,
+      "him": 18
+     },
+     "T": {
+      "n_cells": 25,
+      "total_her": 1000000,
+      "total_him": 749609,
+      "n_pos": 7,
+      "n_neg": 0,
+      "n_tie": 18,
+      "p_two_sided": 0.015625,
+      "verdict": "printed, un-predicted"
+     },
+     "M_c_159_160": {
+      "n_cells": 25,
+      "total_her": 3038999.151204817,
+      "total_him": 2023172.6200132994,
+      "n_pos": 24,
+      "n_neg": 1,
+      "n_tie": 0,
+      "p_two_sided": 1.5497207641601562e-06,
+      "verdict": "printed, un-predicted (not a registered arm comparison)"
+     }
+    },
+    "use_weighted_cells_reaching_159": 25,
+    "use_weighted_deaths": []
+   },
+   "ORDER_primary_le_worst_case_T": {
+    "verdict": "PENDING -- not graded: the worst-case M0 arm is being re-emitted as a disclosed precaution; graded once after the confirmation lands (pins of the filed set verified 75/75)"
+   },
+   "ADDENDUM_B_off_off": {
+    "n_cells": 25,
+    "total_her": 2917588.7237807745,
+    "total_him": 2119293.5885737417,
+    "n_pos": 24,
+    "n_neg": 1,
+    "n_tie": 0,
+    "p_two_sided": 1.5497207641601562e-06,
+    "verdict": "TRUE",
+    "dropped": [],
+    "label": "LOW EVIDENTIAL VALUE: informed by the flinch-on margin",
+    "M_a": {
+     "her_off": 25,
+     "his_off": 17,
+     "verdict": "printed, un-predicted"
+    },
+    "ratio_min_med_max": [
+     0.9792815347964605,
+     1.4253148109714182,
+     1.8020665882002258
+    ]
+   },
+   "ROW16": {
+    "reach_on_car2": {
+     "GH_decisions": 7712,
+     "GH_flinch_windows": 7085,
+     "counters": {
+      "flinch": 0,
+      "gethit_draws": 0,
+      "l21_n_reanchor": 1034
+     }
+    },
+    "off_control_flinch_off": {
+     "GH_present": false,
+     "counters": {
+      "flinch": 0,
+      "gethit_draws": 0,
+      "l21_n_reanchor": 0,
+      "l21_setting_WORLD lever via the adapter's kc2rb_d2_flinch (records her Fire Ball targets; RESET at S25 once the sealed KP-452 lines land)": 25
+     },
+     "replay": "PASS 25/25 every class, 0 bad (gamora, engine 5f637abe)",
+     "effect_gates": "VACUOUS (no windows)"
+    }
+   }
+  }
+ }
+}
