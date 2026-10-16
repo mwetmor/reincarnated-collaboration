@@ -1,0 +1,615 @@
+{
+ "labels": [
+  "POST-HOC SEMANTICS: the tier-2 lever meanings ruled at KP-476 / KP-479 (TIER2 sheet 05c345ab + CORR-1 7b9d9002) were fixed after the margin of record was seen",
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
+  "INSTRUMENT ADDED AFTER RUN: --body-off binding (engine 640fdc76; rerun label accepted 84fd698e)",
+  "CELL RERUN UNDER KP-500: the 25-cell grade below substitutes drax's rerun of each refused cell (godot fb4d5a9; fix 12d4eff); the 24-cell grade with the refusal named stays of record beside it"
+ ],
+ "data": {
+  "grade_25": {
+   "body-fire_ball": {
+    "runs_gate": {
+     "pass": true,
+     "n_cells": 25,
+     "missing": 0,
+     "raised": [],
+     "non_terminal": []
+    },
+    "obs1": true,
+    "item_25": {
+     "n_cells": 25,
+     "total_her": 3433234495.9245477,
+     "total_him": 2823389413.984944,
+     "n_pos": 25,
+     "n_neg": 0,
+     "n_tie": 0,
+     "p_two_sided": 5.960464477539063e-08,
+     "verdict": "FALSE"
+    },
+    "rerun_cell": {
+     "cell": "W1|2",
+     "applied_off": 146393165.1573426,
+     "applied_primary": 106994842.09033597,
+     "survived": true
+    },
+    "M_c_per_tick_whole_not_graded": {
+     "total_her": 1296775.6745721584,
+     "total_him": 1991085.1699609745,
+     "n_pos": 0,
+     "n_neg": 25,
+     "n_tie": 0,
+     "p_two_sided": 5.960464477539063e-08
+    },
+    "M_a": 25
+   },
+   "body-meteor": {
+    "runs_gate": {
+     "pass": true,
+     "n_cells": 25,
+     "missing": 0,
+     "raised": [],
+     "non_terminal": []
+    },
+    "obs1": true,
+    "item_25": {
+     "n_cells": 25,
+     "total_her": 2975958450.4504666,
+     "total_him": 2823389413.984944,
+     "n_pos": 22,
+     "n_neg": 3,
+     "n_tie": 0,
+     "p_two_sided": 0.00015652179718017578,
+     "verdict": "FALSE"
+    },
+    "rerun_cell": {
+     "cell": "M0|3",
+     "applied_off": 120045101.88686012,
+     "applied_primary": 110992040.07963234,
+     "survived": true
+    },
+    "M_c_per_tick_whole_not_graded": {
+     "total_her": 1843276.3483891797,
+     "total_him": 1991085.1699609745,
+     "n_pos": 2,
+     "n_neg": 23,
+     "n_tie": 0,
+     "p_two_sided": 1.9431114196777344e-05
+    },
+    "M_a": 25
+   },
+   "body-pyre": {
+    "runs_gate": {
+     "pass": true,
+     "n_cells": 25,
+     "missing": 0,
+     "raised": [],
+     "non_terminal": []
+    },
+    "obs1": true,
+    "item_25": {
+     "n_cells": 25,
+     "total_her": 2822735472.641879,
+     "total_him": 2823389413.984944,
+     "n_pos": 10,
+     "n_neg": 10,
+     "n_tie": 5,
+     "p_two_sided": 1.0,
+     "verdict": "TRUE"
+    },
+    "rerun_cell": {
+     "cell": "M-POL-2-NULL|3",
+     "applied_off": 110864981.6990578,
+     "applied_primary": 109599562.00351247,
+     "survived": true
+    },
+    "M_c_per_tick_whole_not_graded": {
+     "total_her": 1977261.669052918,
+     "total_him": 1991085.1699609745,
+     "n_pos": 8,
+     "n_neg": 12,
+     "n_tie": 5,
+     "p_two_sided": 0.5034446716308594
+    },
+    "M_a": 25
+   }
+  },
+  "rerun_cell_checks": {
+   "K4fb": {
+    "identity_rel": 1.781301200859066e-16,
+    "off_ledger_falls": 0,
+    "G5": [
+     {
+      "arm": "W1",
+      "salt": 2,
+      "terminal_wave": 160,
+      "terminal_reason": "survived_window",
+      "death_tick": null,
+      "final_hp": 163254.51389670212,
+      "n_ticks": 2879
+     }
+    ],
+    "label": "J4B-T2-body-fire_ball-rerun-W1_2",
+    "kit_readback_equal": {
+     "anchor": true,
+     "r_hp": true,
+     "r_dmg": true,
+     "l21": true,
+     "kit": true,
+     "pack_digest": true
+    },
+    "top_level_equal": {
+     "runtime_tag": true,
+     "rulebook_commit": true,
+     "rulebook_tree_oid": true,
+     "operand_pack": true,
+     "operand_dump_sha256": true,
+     "join_tool_sha256": false,
+     "mirror_files_sha256": false
+    },
+    "control_dropped": {
+     "control_dropped:Confusion": 1,
+     "control_dropped:Petrify": 2
+    },
+    "prefix_before_refusal_tick_identical": {
+     "G1": [
+      true,
+      369,
+      369
+     ],
+     "G2": [
+      true,
+      944,
+      944
+     ],
+     "G3": [
+      false,
+      7,
+      10
+     ],
+     "G4": [
+      true,
+      1928,
+      1928
+     ],
+     "GO": [
+      true,
+      5456,
+      5456
+     ],
+     "GH": [
+      true,
+      491,
+      491
+     ],
+     "GR": [
+      true,
+      21,
+      21
+     ],
+     "GM": [
+      true,
+      0,
+      0
+     ],
+     "GB": [
+      false,
+      222,
+      407
+     ]
+    },
+    "gates": {
+     "runs": true,
+     "obs1": true,
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    }
+   },
+   "K4met": {
+    "identity_rel": 3.1032422313847664e-17,
+    "off_ledger_falls": 0,
+    "G5": [
+     {
+      "arm": "M0",
+      "salt": 3,
+      "terminal_wave": 160,
+      "terminal_reason": "survived_window",
+      "death_tick": null,
+      "final_hp": 52111.227317390614,
+      "n_ticks": 1703
+     }
+    ],
+    "label": "J4B-T2-body-meteor-rerun-M0_3",
+    "kit_readback_equal": {
+     "anchor": true,
+     "r_hp": true,
+     "r_dmg": true,
+     "l21": true,
+     "kit": true,
+     "pack_digest": true
+    },
+    "top_level_equal": {
+     "runtime_tag": true,
+     "rulebook_commit": true,
+     "rulebook_tree_oid": true,
+     "operand_pack": true,
+     "operand_dump_sha256": true,
+     "join_tool_sha256": false,
+     "mirror_files_sha256": false
+    },
+    "control_dropped": {
+     "control_dropped:Confusion": 1
+    },
+    "prefix_before_refusal_tick_identical": {
+     "G1": [
+      true,
+      55,
+      55
+     ],
+     "G2": [
+      true,
+      119,
+      119
+     ],
+     "G3": [
+      false,
+      7,
+      10
+     ],
+     "G4": [
+      true,
+      1150,
+      1150
+     ],
+     "GO": [
+      true,
+      2672,
+      2672
+     ],
+     "GH": [
+      true,
+      210,
+      210
+     ],
+     "GR": [
+      true,
+      30,
+      30
+     ],
+     "GM": [
+      true,
+      279,
+      279
+     ],
+     "GB": [
+      false,
+      200,
+      321
+     ]
+    },
+    "gates": {
+     "runs": true,
+     "obs1": true,
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    }
+   },
+   "K4pyre": {
+    "identity_rel": 2.415147110462434e-17,
+    "off_ledger_falls": 0,
+    "G5": [
+     {
+      "arm": "M-POL-2-NULL",
+      "salt": 3,
+      "terminal_wave": 160,
+      "terminal_reason": "survived_window",
+      "death_tick": null,
+      "final_hp": 136136.58986672276,
+      "n_ticks": 1495
+     }
+    ],
+    "label": "J4B-T2-body-pyre-rerun-M-POL-2-NULL_3",
+    "kit_readback_equal": {
+     "anchor": true,
+     "r_hp": true,
+     "r_dmg": true,
+     "l21": true,
+     "kit": true,
+     "pack_digest": true
+    },
+    "top_level_equal": {
+     "runtime_tag": true,
+     "rulebook_commit": true,
+     "rulebook_tree_oid": true,
+     "operand_pack": true,
+     "operand_dump_sha256": true,
+     "join_tool_sha256": false,
+     "mirror_files_sha256": false
+    },
+    "control_dropped": {
+     "control_dropped:Confusion": 1
+    },
+    "prefix_before_refusal_tick_identical": {
+     "G1": [
+      true,
+      31,
+      31
+     ],
+     "G2": [
+      true,
+      89,
+      89
+     ],
+     "G3": [
+      false,
+      7,
+      10
+     ],
+     "G4": [
+      true,
+      955,
+      955
+     ],
+     "GO": [
+      true,
+      672,
+      672
+     ],
+     "GH": [
+      true,
+      123,
+      123
+     ],
+     "GR": [
+      true,
+      13,
+      13
+     ],
+     "GM": [
+      true,
+      162,
+      162
+     ],
+     "GB": [
+      false,
+      164,
+      294
+     ]
+    },
+    "gates": {
+     "runs": true,
+     "obs1": true,
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    }
+   }
+  },
+  "replay": {
+   "K4fb": {
+    "W1|2": {
+     "cell": "W1|2",
+     "checks": {
+      "tape": [
+       17113,
+       0
+      ],
+      "packet": [
+       10496,
+       0
+      ],
+      "mana": [
+       5871,
+       0
+      ],
+      "cast": [
+       682,
+       0
+      ],
+      "potion": [
+       15,
+       0
+      ],
+      "struck": [
+       395,
+       0
+      ],
+      "rebase": [
+       9,
+       0
+      ],
+      "control": [
+       5,
+       0
+      ],
+      "dot": [
+       199,
+       0
+      ],
+      "locks": [
+       760,
+       0
+      ],
+      "gh": [
+       1819,
+       0
+      ],
+      "gr": [
+       53,
+       0
+      ],
+      "action": [
+       683,
+       0
+      ]
+     },
+     "first": [],
+     "bad": 0,
+     "verdict": "PASS",
+     "ghr_orphans": [],
+     "actions_absent": false,
+     "n_body_off_zeroed": 909
+    }
+   },
+   "K4met": {
+    "M0|3": {
+     "cell": "M0|3",
+     "checks": {
+      "tape": [
+       5792,
+       0
+      ],
+      "packet": [
+       3503,
+       0
+      ],
+      "mana": [
+       3470,
+       0
+      ],
+      "cast": [
+       416,
+       0
+      ],
+      "potion": [
+       5,
+       0
+      ],
+      "struck": [
+       75,
+       0
+      ],
+      "rebase": [
+       9,
+       0
+      ],
+      "control": [
+       2,
+       0
+      ],
+      "dot": [
+       30,
+       0
+      ],
+      "locks": [
+       428,
+       0
+      ],
+      "gh": [
+       740,
+       0
+      ],
+      "gr": [
+       47,
+       0
+      ],
+      "action": [
+       417,
+       0
+      ]
+     },
+     "first": [],
+     "bad": 0,
+     "verdict": "PASS",
+     "ghr_orphans": [],
+     "actions_absent": false,
+     "n_body_off_zeroed": 66
+    }
+   },
+   "K4pyre": {
+    "M-POL-2-NULL|3": {
+     "cell": "M-POL-2-NULL|3",
+     "checks": {
+      "tape": [
+       1447,
+       0
+      ],
+      "packet": [
+       1021,
+       0
+      ],
+      "mana": [
+       3047,
+       0
+      ],
+      "cast": [
+       368,
+       0
+      ],
+      "potion": [
+       6,
+       0
+      ],
+      "struck": [
+       44,
+       0
+      ],
+      "rebase": [
+       9,
+       0
+      ],
+      "control": [
+       2,
+       0
+      ],
+      "dot": [
+       20,
+       0
+      ],
+      "locks": [
+       378,
+       0
+      ],
+      "gh": [
+       596,
+       0
+      ],
+      "gr": [
+       40,
+       0
+      ],
+      "action": [
+       369,
+       0
+      ]
+     },
+     "first": [],
+     "bad": 0,
+     "verdict": "PASS",
+     "ghr_orphans": [
+      [
+       298,
+       1495
+      ],
+      [
+       299,
+       1495
+      ],
+      [
+       300,
+       1495
+      ]
+     ],
+     "actions_absent": false,
+     "n_body_off_zeroed": 535
+    }
+   }
+  }
+ }
+}

@@ -90,3 +90,25 @@ Format: "N demonstrated ACTIVE + M REACHED-INSENSITIVE (named) / 23". ACTIVE req
 - **Line:** **13 demonstrated ACTIVE + 0 REACHED-INSENSITIVE / 23**, with 4 failed NCs (11, 12, 13, 19), 2 partial (9, 32) and 4 open (23, 24, 29, 30).
 - **The registered prediction "22 ACTIVE + 1 RI (row 22) / 23" is FALSE AS PRE-STATED.**
 - Row 14's ACTIVE is provisional on the KP-500 rerun.
+
+## Batch 3b: rows 11, 12, 14 on 25 cells — **CELL RERUN UNDER KP-500** (beside the 24-cell grades, which stay of record)
+**The reruns:** godot `fb4d5a9` (fix `12d4eff`, runner `d6cf39b`). The pin file `89d42aa1…` verifies **55 / 55**. Labels are `J4B-T2-body-<x>-rerun-<cell>`; my replay accepts them (engine `84fd698e`, fail-first `1f4e2c21`).
+
+**Checks on each rerun cell** (`kp500-reruns-25cell.json`):
+
+| Rerun | Bound replay | Identity | Gates | Same construction route as the filed 24? |
+|---|---|---|---|---|
+| Fire Ball **W1\|2** | **PASS** every class; 909 zeroed == the lane's counter; 0 mismatches | 1.8e-16, 0 off-ledger | all PASS | **Yes.** Settings readback (anchor, r_HP, r_DMG, L-21, kit, pack digest) equal. Runtime tag, rulebook commit / tree, operand pack and dump equal. **Every row before the refusal tick 1929 is byte-identical** (G1, G2, G4, GO, GH, GR, GM; G3 waves 151–156; 185 GB spans closed before 1929). The only provenance differences are the KP-500 fix itself: `kc2rb_d2lane.gd`, `kc2rb_d2_laws.gd` and the JOIN tool sha. `control_dropped:Confusion` 1. Survived to 160 |
+| Meteor **M0\|3** | **PASS**; 66 zeroed | 3.1e-17, 0 | all PASS | **Yes**, the same checks. Prefix before tick 1151 identical. Confusion dropped 1. Survived |
+| pyre **M-POL-2-NULL\|3** | **PASS**; 535 zeroed | 2.4e-17, 0 | all PASS (3 TERMINAL orphans) | **Yes**, the same checks. Prefix before tick 956 identical. Confusion dropped 1. Survived |
+
+**Registered "Σ damage dealt falls", graded once on 25 cells:**
+
+| Row | 24-cell (of record) | **25-cell, CELL RERUN UNDER KP-500** |
+|---|---|---|
+| **11 Fire Ball** | FALSE (24 / 0) | **FALSE.** 3,433,234,496 vs 2,823,389,414, **25 / 0**, p = 5.96e-8 |
+| **12 Meteor** | FALSE (21 / 3) | **FALSE.** 2,975,958,450 vs 2,823,389,414, 22 / 3, p = 1.6e-4 |
+| **14 burning ground** | TRUE (−0.07 %) | **TRUE, unchanged.** 2,822,735,473 vs 2,823,389,414 (**−653,941, −0.02 %**), 10 / 10 / 5 ties, p = 1.0. Within noise; the rerun cell itself rose (110.9 M vs 109.6 M) |
+
+- **Not graded:** M-c per tick, off vs on: Fire Ball 0 / 25, Meteor 2 / 23, pyre 8 / 12. M-a 25 / 25 in all three.
+- **Row 14 did not flip, so fraction (b) is unchanged:** **13 ACTIVE + 0 RI / 23**. Failed NC: 11, 12, 13, 19. Partial: 9, 32. Open: 23, 24 (trace arms), 29, 30.
