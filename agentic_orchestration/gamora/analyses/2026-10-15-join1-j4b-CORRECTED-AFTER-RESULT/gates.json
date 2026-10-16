@@ -1,0 +1,107 @@
+{
+ "M0": {
+  "effect": {
+   "verdict": "PASS",
+   "a_attack_in_window": 0,
+   "b_own_move_in_window": 0,
+   "c_reset": 0,
+   "dying_not_at_death": 0
+  },
+  "dot": "PASS",
+  "completeness": {
+   "verdict": "PASS",
+   "precondition": {
+    "verdict": "PASS",
+    "n_targets_without_span": 0,
+    "n_records_outside_span": 0,
+    "examples": []
+   },
+   "n_orphans": 0,
+   "n_terminal": 0
+  }
+ },
+ "M-POL-2": {
+  "effect": {
+   "verdict": "PASS",
+   "a_attack_in_window": 0,
+   "b_own_move_in_window": 0,
+   "c_reset": 0,
+   "dying_not_at_death": 0
+  },
+  "dot": "PASS",
+  "completeness": {
+   "verdict": "PASS",
+   "precondition": {
+    "verdict": "PASS",
+    "n_targets_without_span": 0,
+    "n_records_outside_span": 0,
+    "examples": []
+   },
+   "n_orphans": 3,
+   "n_terminal": 3
+  }
+ },
+ "M-POL-2-NULL": {
+  "effect": {
+   "verdict": "PASS",
+   "a_attack_in_window": 0,
+   "b_own_move_in_window": 0,
+   "c_reset": 0,
+   "dying_not_at_death": 0
+  },
+  "dot": "PASS",
+  "completeness": {
+   "verdict": "PASS",
+   "precondition": {
+    "verdict": "PASS",
+    "n_targets_without_span": 0,
+    "n_records_outside_span": 0,
+    "examples": []
+   },
+   "n_orphans": 3,
+   "n_terminal": 3
+  }
+ },
+ "W1": {
+  "effect": {
+   "verdict": "PASS",
+   "a_attack_in_window": 0,
+   "b_own_move_in_window": 0,
+   "c_reset": 0,
+   "dying_not_at_death": 0
+  },
+  "dot": "PASS",
+  "completeness": {
+   "verdict": "PASS",
+   "precondition": {
+    "verdict": "PASS",
+    "n_targets_without_span": 0,
+    "n_records_outside_span": 0,
+    "examples": []
+   },
+   "n_orphans": 0,
+   "n_terminal": 0
+  }
+ },
+ "W1-NULL": {
+  "effect": {
+   "verdict": "PASS",
+   "a_attack_in_window": 0,
+   "b_own_move_in_window": 0,
+   "c_reset": 0,
+   "dying_not_at_death": 0
+  },
+  "dot": "PASS",
+  "completeness": {
+   "verdict": "PASS",
+   "precondition": {
+    "verdict": "PASS",
+    "n_targets_without_span": 0,
+    "n_records_outside_span": 0,
+    "examples": []
+   },
+   "n_orphans": 0,
+   "n_terminal": 0
+  }
+ }
+}
