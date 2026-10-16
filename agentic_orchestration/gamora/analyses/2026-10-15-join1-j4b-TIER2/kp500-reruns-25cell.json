@@ -9,7 +9,9 @@
   "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
   "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
   "INSTRUMENT ADDED AFTER RUN: --body-off binding (engine 640fdc76; rerun label accepted 84fd698e)",
-  "CELL RERUN UNDER KP-500: the 25-cell grade below substitutes drax's rerun of each refused cell (godot fb4d5a9; fix 12d4eff); the 24-cell grade with the refusal named stays of record beside it"
+  "CELL RERUN UNDER KP-500: the 25-cell grade below substitutes drax's rerun of each refused cell (godot fb4d5a9; fix 12d4eff)",
+  "POST-HOC (WARN-1, jack-ryan ec3d78cd5): prereg s 8 makes a 'runs' FAIL a halt, so a body arm with a refused cell is NO VERDICT as registered. The 24-cell grade (refused cell excluded, named) is POST-HOC; the 25-cell grade is CELL RERUN UNDER KP-500 (POST-HOC SEMANTICS). Neither is 'of record'.",
+  "Row 14: NC statistic non-discriminating by construction (as rows 11-13, KP-501); LOW EVIDENTIAL VALUE"
  ],
  "data": {
   "grade_25": {

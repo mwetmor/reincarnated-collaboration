@@ -45,7 +45,9 @@
 
 M-a under each lever, printed only: block-gd 25, potion-gd 14, potion-none 0, dot-gd 25, chill-off 25, resist-referent 25, static-off 25.
 
-## Batch 3: the body-off arms (rows 11–14), graded on the cells that ran; refusals named (KP-500 reruns to follow)
+## Batch 3: the body-off arms (rows 11–14) — POST-HOC 24-cell grades (refused cell excluded, named)
+
+> ⚑ **WARN-1 (jack-ryan `ec3d78cd5`):** prereg § 8 makes a "runs" FAIL a halt. **As registered, a body arm with a refused cell is NO VERDICT.** The 24-cell grades below are therefore **POST-HOC** (refused cell excluded, named). The 25-cell grades (batch 3b) are **CELL RERUN UNDER KP-500 (POST-HOC SEMANTICS)**. **Neither is "of record."** No conclusion changes.
 **Added label:** **INSTRUMENT ADDED AFTER RUN.** My replay's `--body-off` binding (engine `640fdc76`; fail-first `acdc1d9b` / `40e2235c`) was added after these arms ran.
 - The binding: the off body's rows carry offered = d = applied = 0 with the roll still the tape's. For splash, at most one damaging row per explosion.
 - **Every cell's zeroed count equals the lane's own `t2_body_off_packets`** (e.g. M0|1 in body-fire_ball: 911). The label must be `J4B-T2-body-<x>`.
@@ -55,7 +57,7 @@ M-a under each lever, printed only: block-gd 25, potion-gd 14, potion-none 0, do
 - replay PASS on every graded cell, every class, 0 provenance mismatches;
 - leech HP-chain identity holds, 0 off-ledger falls;
 - effect gates, dot conservation and POST-HOC completeness PASS. Every orphan is TERMINAL.
-- **Three of the four arms carry ONE refusal each**, `ControlFamilyUnmapped: Confusion` (diagnosis collab `739da26ae`; KP-500 ruled option A). Each is a **named result, not a drop.** The arm is graded on the other 24 cells.
+- **Three of the four arms carry ONE refusal each**, `ControlFamilyUnmapped: Confusion` (diagnosis collab `739da26ae`; KP-500 ruled option A). Each is named, never dropped silently. The arm is graded POST-HOC on the other 24 cells (WARN-1).
 
 **Registered (base § 9; prereg § 2 rows 11–14):** *"the body off, … her Σ damage dealt falls (paired totals)"*. Here Σ damage dealt = Σ `applied` over the whole cell (HP-capped), paired; FALSE only on a strict reversal.
 
@@ -74,7 +76,7 @@ M-a under each lever, printed only: block-gd 25, potion-gd 14, potion-none 0, do
   - monster leech heal 275 M vs 18 M.
 - So the HP-capped total **grows** while her output per tick **falls** (last column).
 - **The registered metric cannot fall under kill-to-clear with an HP cap.** That is why it is FALSE as registered. Nothing is re-graded.
-- ⚑ **Row 14's TRUE is within noise** (the pyre is a small share of damage; 5 cells are unchanged). **The KP-500 rerun of M-POL-2-NULL|3 can flip it.** The 25-cell grade decides.
+- ⚑ **Row 14: NC statistic non-discriminating by construction (as rows 11–13, KP-501); LOW EVIDENTIAL VALUE.** Its TRUE is within noise (the pyre is a small share of damage; 5 cells are unchanged).
 - **(Third refusal, not in the relay: body-pyre M-POL-2-NULL|3, tick 956.)**
 
 ## Fraction (b), updated after all four body arms (24-cell body grades; rows 23 / 24 await drax's trace arms)
@@ -87,11 +89,11 @@ Format: "N demonstrated ACTIVE + M REACHED-INSENSITIVE (named) / 23". ACTIVE req
 | PARTIAL (NC not fully demonstrable on the contract) | 9 (her displacement during CAST), 32 (per-hit identity needs the S17 packet id) |
 | **OPEN** | **23, 24** (pending the `--rb-row2324-trace` arms, quantities fixed at engine `6587ffe8`); 29 (forced-landing fixture not run); 30 (destinations not in the contract; binomial 5 / 43 printed, no α) |
 
-- **Line:** **13 demonstrated ACTIVE + 0 REACHED-INSENSITIVE / 23**, with 4 failed NCs (11, 12, 13, 19), 2 partial (9, 32) and 4 open (23, 24, 29, 30).
+- **Line:** **13 ACTIVE (row 14 low-evidential) + 0 RI / 23**, with 4 failed NCs (11, 12, 13, 19), 2 partial (9, 32) and 4 open (23, 24, 29, 30).
 - **The registered prediction "22 ACTIVE + 1 RI (row 22) / 23" is FALSE AS PRE-STATED.**
-- Row 14's ACTIVE is provisional on the KP-500 rerun.
+- Row 14 is LOW EVIDENTIAL VALUE (its NC statistic is non-discriminating by construction, KP-501).
 
-## Batch 3b: rows 11, 12, 14 on 25 cells — **CELL RERUN UNDER KP-500** (beside the 24-cell grades, which stay of record)
+## Batch 3b: rows 11, 12, 14 on 25 cells — **CELL RERUN UNDER KP-500 (POST-HOC SEMANTICS)**, beside the POST-HOC 24-cell grades (neither is of record; WARN-1)
 **The reruns:** godot `fb4d5a9` (fix `12d4eff`, runner `d6cf39b`). The pin file `89d42aa1…` verifies **55 / 55**. Labels are `J4B-T2-body-<x>-rerun-<cell>`; my replay accepts them (engine `84fd698e`, fail-first `1f4e2c21`).
 
 **Checks on each rerun cell** (`kp500-reruns-25cell.json`):
@@ -104,11 +106,25 @@ Format: "N demonstrated ACTIVE + M REACHED-INSENSITIVE (named) / 23". ACTIVE req
 
 **Registered "Σ damage dealt falls", graded once on 25 cells:**
 
-| Row | 24-cell (of record) | **25-cell, CELL RERUN UNDER KP-500** |
+| Row | 24-cell, POST-HOC (refused cell excluded, named) | **25-cell, CELL RERUN UNDER KP-500 (POST-HOC SEMANTICS)** |
 |---|---|---|
 | **11 Fire Ball** | FALSE (24 / 0) | **FALSE.** 3,433,234,496 vs 2,823,389,414, **25 / 0**, p = 5.96e-8 |
 | **12 Meteor** | FALSE (21 / 3) | **FALSE.** 2,975,958,450 vs 2,823,389,414, 22 / 3, p = 1.6e-4 |
-| **14 burning ground** | TRUE (−0.07 %) | **TRUE, unchanged.** 2,822,735,473 vs 2,823,389,414 (**−653,941, −0.02 %**), 10 / 10 / 5 ties, p = 1.0. Within noise; the rerun cell itself rose (110.9 M vs 109.6 M) |
+| **14 burning ground** | TRUE (−0.07 %) | **TRUE, unchanged; LOW EVIDENTIAL VALUE** (NC statistic non-discriminating by construction, as rows 11–13, KP-501). 2,822,735,473 vs 2,823,389,414 (**−653,941, −0.02 %**), 10 / 10 / 5 ties, p = 1.0. Within noise; the rerun cell itself rose (110.9 M vs 109.6 M) |
 
 - **Not graded:** M-c per tick, off vs on: Fire Ball 0 / 25, Meteor 2 / 23, pyre 8 / 12. M-a 25 / 25 in all three.
-- **Row 14 did not flip, so fraction (b) is unchanged:** **13 ACTIVE + 0 RI / 23**. Failed NC: 11, 12, 13, 19. Partial: 9, 32. Open: 23, 24 (trace arms), 29, 30.
+- **Row 14 did not flip, so fraction (b) is unchanged:** **13 ACTIVE (row 14 low-evidential) + 0 RI / 23**. Failed NC: 11, 12, 13, 19. Partial: 9, 32. Open: 23, 24 (trace arms), 29, 30.
+
+## THE CHAIN'S RESULTS TABLE (tier 2 plus the census items), as relabelled under jack-ryan's delta Gate-2 (`ec3d78cd5`)
+| Item | Registered | Result |
+|---|---|---|
+| **Fraction (a)** | 32 / 32, or 31 / 32 if row 18 is ruled unmappable | **FALSE AS PRE-STATED: 31 / 32** by implementation (jack-ryan `0fb1ae171`; row 18 not implemented; rows 23 / 24 on design-text operands). 29 / 32 by pack rows is printed beside it |
+| **Fraction (b)** | 22 ACTIVE + 1 RI (row 22) / 23 | **FALSE AS PRE-STATED: 13 ACTIVE (row 14 low-evidential) + 0 RI / 23.** Failed NC: 11, 12, 13, 19. Partial: 9, 32. Open: 23, 24, 29, 30 |
+| r_HP: R2 ≤ R1 ≤ non-ladder (offered per tick) | ordering | TRUE, both links, every cell |
+| Row 19 (block off raises Σ intake) | ≥ | FALSE |
+| Row 21 (d2-belt ≥ gd and ≥ none) | ≥ | TRUE on both (casts/s operationalisation POST-HOC) |
+| Row 23 / 24 | d2 ≤ gd / d2 ≤ off | OPEN (trace arms; quantities fixed at engine `6587ffe8`) |
+| Row 25 (hers ≥ referent map) | ≥ | TRUE |
+| Row 28 (off gives 0 Static packets) | = 0 | TRUE |
+| Rows 11 / 12 / 13 (body off, Σ damage dealt falls) | falls | **NO VERDICT as registered** for 11, 12 and 14 (a refused cell; prereg § 8). **POST-HOC 24-cell: FALSE / FALSE.** Row 13 (no refusal): FALSE. **CELL RERUN UNDER KP-500, 25-cell: FALSE / FALSE** |
+| Row 14 (pyre off, falls) | falls | NO VERDICT as registered (a refused cell). POST-HOC 24-cell TRUE; CELL RERUN 25-cell TRUE. **LOW EVIDENTIAL VALUE** (NC statistic non-discriminating by construction, KP-501) |
