@@ -119,12 +119,41 @@ Format: "N demonstrated ACTIVE + M REACHED-INSENSITIVE (named) / 23". ACTIVE req
 | Item | Registered | Result |
 |---|---|---|
 | **Fraction (a)** | 32 / 32, or 31 / 32 if row 18 is ruled unmappable | **FALSE AS PRE-STATED: 31 / 32** by implementation (jack-ryan `0fb1ae171`; row 18 not implemented; rows 23 / 24 on design-text operands). 29 / 32 by pack rows is printed beside it |
-| **Fraction (b)** | 22 ACTIVE + 1 RI (row 22) / 23 | **FALSE AS PRE-STATED: 13 ACTIVE (row 14 low-evidential) + 0 RI / 23.** Failed NC: 11, 12, 13, 19. Partial: 9, 32. Open: 23, 24, 29, 30 |
+| **Fraction (b)** | 22 ACTIVE + 1 RI (row 22) / 23 | **FALSE AS PRE-STATED: 15 ACTIVE (row 14 low-evidential; rows 23 / 24 INSTRUMENT ADDED AFTER RUN) + 0 RI / 23.** Failed NC: 11, 12, 13, 19. Partial: 9, 32. Open: 29, 30 |
 | r_HP: R2 ≤ R1 ≤ non-ladder (offered per tick) | ordering | TRUE, both links, every cell |
 | Row 19 (block off raises Σ intake) | ≥ | FALSE |
 | Row 21 (d2-belt ≥ gd and ≥ none) | ≥ | TRUE on both (casts/s operationalisation POST-HOC) |
-| Row 23 / 24 | d2 ≤ gd / d2 ≤ off | OPEN (trace arms; quantities fixed at engine `6587ffe8`) |
+| Row 23 / 24 | d2 ≤ gd / d2 ≤ off | **TRUE / TRUE** (trace arms; INSTRUMENT ADDED AFTER RUN; quantities fixed beforehand at engine `6587ffe8`). See batch 4 |
 | Row 25 (hers ≥ referent map) | ≥ | TRUE |
 | Row 28 (off gives 0 Static packets) | = 0 | TRUE |
 | Rows 11 / 12 / 13 (body off, Σ damage dealt falls) | falls | **NO VERDICT as registered** for 11, 12 and 14 (a refused cell; prereg § 8). **POST-HOC 24-cell: FALSE / FALSE.** Row 13 (no refusal): FALSE. **CELL RERUN UNDER KP-500, 25-cell: FALSE / FALSE** |
 | Row 14 (pyre off, falls) | falls | NO VERDICT as registered (a refused cell). POST-HOC 24-cell TRUE; CELL RERUN 25-cell TRUE. **LOW EVIDENTIAL VALUE** (NC statistic non-discriminating by construction, KP-501) |
+
+## Batch 4: rows 23 and 24 on the `--rb-row2324-trace` arms (INSTRUMENT ADDED AFTER RUN), graded ONCE against engine `6587ffe8`
+**Inputs, verified first:**
+- **Pins:** traced primary (godot `10e89c6`), traced dot-gd (`34ae399`) and traced chill-off (`b474a9e`): **85 / 85 each**, committed == bulk.
+- **Every non-trace file is byte-identical to the filed arm** (105 / 105 each, my comparison vs car2, t2 dot-gd and t2 chill-off). Only DRIVE / GDDOT were added.
+- The traced primary's `dots` rows equal car2's.
+
+**Row 23**, per landed DoT application, d2 ≤ gd:
+- **Quantities:** d2 = rate × applied length (`len_eff`) per `replace` row, or rate × 1 per `ignore_one_frame` row. gd = GDDOT `d_effective` (post-table).
+- **Stage:** both post-resist (`mitigation_stage` = `post_resist` on all 469 GDDOT rows), so no rescaling was needed.
+- **Result: TRUE.** 25 pairs, 0 dropped. Σ of per-cell means: d2 7,259.5 vs gd 10,939.7 (×0.664). **1 / 24** (d2 > gd in 1 cell), p = 1.55e-6.
+- Applications: d2 462, gd 469.
+- ⚑ **d_base == d_effective on all 469 gd applications (max |Δ| 0.0), in every cell.** No ordinal diminishing applied anywhere on this data, so **the pre- vs post-table choice is moot here.** The printed pre-diminish line is identical.
+
+**Row 24**, per-moving-tick displacement, d2 ≤ off:
+- **Moving tick:** d > 0 in DRIVE.
+- **Row identity:** on every moving tick, (dx, dy) == scale × (proposed_dx, proposed_dy) and d == |(dx, dy)|, with scale 1.0 unchilled and in [0.25, 0.5] chilled. **0 violations** in both arms (35,473 and 34,909 rows).
+- **Reach:** **112 chill landings on her, in all 25 cells** (1,466 chilled ticks).
+  - The off arm keeps 1 landing (22 chilled ticks). Chill-off removes row 24's cold-rider chill, not row 22's Freeze → chill. That one landing is in M0 / 1, as in the fail-first.
+- **Result: TRUE.** 25 pairs. Σ of per-cell mean metres per moving tick: d2 7.758 vs off 7.871. 9 / 16, p = 0.23.
+  - Under the grading law (FALSE only on a strict reversal of the paired total) this holds. **The effect is small:** chill gates movement only while she moves, and she is mostly casting.
+
+**Fraction (b), updated:**
+- **15 ACTIVE (row 14 low-evidential; rows 23 / 24 INSTRUMENT ADDED AFTER RUN) + 0 RI / 23.**
+- ACTIVE: 8, 10, 14, 15, 16, 17, 20, 21, 22, **23**, **24**, 25 (non-magic), 26, 28, 31.
+- Failed NC: 11, 12, 13, 19.
+- Partial: 9, 32.
+- Open: 29 (forced-landing fixture not run), 30 (destinations not in the contract).
+- **FALSE AS PRE-STATED** against 22 + 1.
