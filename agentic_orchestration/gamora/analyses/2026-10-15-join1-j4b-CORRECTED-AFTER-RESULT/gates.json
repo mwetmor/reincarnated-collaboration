@@ -1,107 +1,120 @@
 {
- "M0": {
-  "effect": {
-   "verdict": "PASS",
-   "a_attack_in_window": 0,
-   "b_own_move_in_window": 0,
-   "c_reset": 0,
-   "dying_not_at_death": 0
-  },
-  "dot": "PASS",
-  "completeness": {
-   "verdict": "PASS",
-   "precondition": {
+ "labels": [
+  "CORRECTED-AFTER-RESULT: printed beside the as-graded margin aaa1f6a3f, which stays the result of record; this figure goes to its own jack-ryan gate",
+  "NOT CONSERVATIVE: the corrections raise her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / KP-481 / KP-487): on car2 the replay check is PRESENT (A1-A6, M1-M4: 8,688 action checks, 0 bad); the as-graded label 'OPEN, replay check absent' applies to aaa1f6a3f only",
+  "WARN-2 row 22 (control received) FALSE AS PRE-STATED (as graded)",
+  "4 tie-frame Meteors resolved by the registered order; D2 melee order would fire them (favours her) (KP-485; recounted on car2: 4)",
+  "KP-490: her missiles in flight at a wave boundary (Fire Balls, Meteors within their 60-frame flight, pyres) are DROPPED at _wave_check, on parity with the oracle's A3; mana stays spent, the Meteor delay carries"
+ ],
+ "data": {
+  "M0": {
+   "effect": {
     "verdict": "PASS",
-    "n_targets_without_span": 0,
-    "n_records_outside_span": 0,
-    "examples": []
+    "a_attack_in_window": 0,
+    "b_own_move_in_window": 0,
+    "c_reset": 0,
+    "dying_not_at_death": 0
    },
-   "n_orphans": 0,
-   "n_terminal": 0
-  }
- },
- "M-POL-2": {
-  "effect": {
-   "verdict": "PASS",
-   "a_attack_in_window": 0,
-   "b_own_move_in_window": 0,
-   "c_reset": 0,
-   "dying_not_at_death": 0
-  },
-  "dot": "PASS",
-  "completeness": {
-   "verdict": "PASS",
-   "precondition": {
+   "dot": "PASS",
+   "completeness": {
     "verdict": "PASS",
-    "n_targets_without_span": 0,
-    "n_records_outside_span": 0,
-    "examples": []
-   },
-   "n_orphans": 3,
-   "n_terminal": 3
-  }
- },
- "M-POL-2-NULL": {
-  "effect": {
-   "verdict": "PASS",
-   "a_attack_in_window": 0,
-   "b_own_move_in_window": 0,
-   "c_reset": 0,
-   "dying_not_at_death": 0
+    "precondition": {
+     "verdict": "PASS",
+     "n_targets_without_span": 0,
+     "n_records_outside_span": 0,
+     "examples": []
+    },
+    "n_orphans": 0,
+    "n_terminal": 0
+   }
   },
-  "dot": "PASS",
-  "completeness": {
-   "verdict": "PASS",
-   "precondition": {
+  "M-POL-2": {
+   "effect": {
     "verdict": "PASS",
-    "n_targets_without_span": 0,
-    "n_records_outside_span": 0,
-    "examples": []
+    "a_attack_in_window": 0,
+    "b_own_move_in_window": 0,
+    "c_reset": 0,
+    "dying_not_at_death": 0
    },
-   "n_orphans": 3,
-   "n_terminal": 3
-  }
- },
- "W1": {
-  "effect": {
-   "verdict": "PASS",
-   "a_attack_in_window": 0,
-   "b_own_move_in_window": 0,
-   "c_reset": 0,
-   "dying_not_at_death": 0
+   "dot": "PASS",
+   "completeness": {
+    "verdict": "PASS",
+    "precondition": {
+     "verdict": "PASS",
+     "n_targets_without_span": 0,
+     "n_records_outside_span": 0,
+     "examples": []
+    },
+    "n_orphans": 3,
+    "n_terminal": 3
+   }
   },
-  "dot": "PASS",
-  "completeness": {
-   "verdict": "PASS",
-   "precondition": {
+  "M-POL-2-NULL": {
+   "effect": {
     "verdict": "PASS",
-    "n_targets_without_span": 0,
-    "n_records_outside_span": 0,
-    "examples": []
+    "a_attack_in_window": 0,
+    "b_own_move_in_window": 0,
+    "c_reset": 0,
+    "dying_not_at_death": 0
    },
-   "n_orphans": 0,
-   "n_terminal": 0
-  }
- },
- "W1-NULL": {
-  "effect": {
-   "verdict": "PASS",
-   "a_attack_in_window": 0,
-   "b_own_move_in_window": 0,
-   "c_reset": 0,
-   "dying_not_at_death": 0
+   "dot": "PASS",
+   "completeness": {
+    "verdict": "PASS",
+    "precondition": {
+     "verdict": "PASS",
+     "n_targets_without_span": 0,
+     "n_records_outside_span": 0,
+     "examples": []
+    },
+    "n_orphans": 3,
+    "n_terminal": 3
+   }
   },
-  "dot": "PASS",
-  "completeness": {
-   "verdict": "PASS",
-   "precondition": {
+  "W1": {
+   "effect": {
     "verdict": "PASS",
-    "n_targets_without_span": 0,
-    "n_records_outside_span": 0,
-    "examples": []
+    "a_attack_in_window": 0,
+    "b_own_move_in_window": 0,
+    "c_reset": 0,
+    "dying_not_at_death": 0
    },
-   "n_orphans": 0,
-   "n_terminal": 0
+   "dot": "PASS",
+   "completeness": {
+    "verdict": "PASS",
+    "precondition": {
+     "verdict": "PASS",
+     "n_targets_without_span": 0,
+     "n_records_outside_span": 0,
+     "examples": []
+    },
+    "n_orphans": 0,
+    "n_terminal": 0
+   }
+  },
+  "W1-NULL": {
+   "effect": {
+    "verdict": "PASS",
+    "a_attack_in_window": 0,
+    "b_own_move_in_window": 0,
+    "c_reset": 0,
+    "dying_not_at_death": 0
+   },
+   "dot": "PASS",
+   "completeness": {
+    "verdict": "PASS",
+    "precondition": {
+     "verdict": "PASS",
+     "n_targets_without_span": 0,
+     "n_records_outside_span": 0,
+     "examples": []
+    },
+    "n_orphans": 0,
+    "n_terminal": 0
+   }
   }
  }
 }

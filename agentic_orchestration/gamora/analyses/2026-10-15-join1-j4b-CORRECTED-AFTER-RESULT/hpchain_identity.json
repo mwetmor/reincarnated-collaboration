@@ -1,208 +1,221 @@
 {
- "cells": 25,
- "worst_rel": 7.691266749278563e-17,
- "fails": [],
- "off_ledger_falls": 0,
- "per_cell": [
-  {
-   "cell": "M0|0",
-   "applied": 106709082.60422437,
-   "hp_fall": 106388859.0,
-   "leech_heal_hp": 320223.60422437714,
-   "residual": -8.207280188798904e-09,
-   "rel": 7.691266749278563e-17
-  },
-  {
-   "cell": "M0|1",
-   "applied": 116309149.35492343,
-   "hp_fall": 115258428.0,
-   "leech_heal_hp": 1050721.35492343,
-   "residual": -2.7939677238464355e-09,
-   "rel": 2.4021908330878575e-17
-  },
-  {
-   "cell": "M0|2",
-   "applied": 113742239.65335654,
-   "hp_fall": 113302705.0,
-   "leech_heal_hp": 439534.6533565402,
-   "residual": -2.9685907065868378e-09,
-   "rel": 2.6099281284015357e-17
-  },
-  {
-   "cell": "M0|3",
-   "applied": 110992040.07963234,
-   "hp_fall": 110857259.0,
-   "leech_heal_hp": 134781.0796323467,
-   "residual": -4.831235855817795e-09,
-   "rel": 4.352776876928811e-17
-  },
-  {
-   "cell": "M0|4",
-   "applied": 119679956.31379071,
-   "hp_fall": 118626274.0,
-   "leech_heal_hp": 1053682.313790707,
-   "residual": 1.862645149230957e-09,
-   "rel": 1.5563551379875667e-17
-  },
-  {
-   "cell": "M-POL-2|0",
-   "applied": 109304974.89873624,
-   "hp_fall": 109003130.0,
-   "leech_heal_hp": 301844.8987362334,
-   "residual": 5.0640664994716644e-09,
-   "rel": 4.6329698205989106e-17
-  },
-  {
-   "cell": "M-POL-2|1",
-   "applied": 114679997.25114417,
-   "hp_fall": 114173530.0,
-   "leech_heal_hp": 506467.25114417856,
-   "residual": -7.799826562404633e-09,
-   "rel": 6.801383632163292e-17
-  },
-  {
-   "cell": "M-POL-2|2",
-   "applied": 112146795.39551882,
-   "hp_fall": 111374928.0,
-   "leech_heal_hp": 771867.395518823,
-   "residual": 1.5133991837501526e-09,
-   "rel": 1.3494805432582384e-17
-  },
-  {
-   "cell": "M-POL-2|3",
-   "applied": 110459634.34179175,
-   "hp_fall": 110156802.0,
-   "leech_heal_hp": 302832.3417917521,
-   "residual": -3.0850060284137726e-09,
-   "rel": 2.792880898797778e-17
-  },
-  {
-   "cell": "M-POL-2|4",
-   "applied": 119504171.2375085,
-   "hp_fall": 116299525.0,
-   "leech_heal_hp": 3204646.237508501,
-   "residual": 4.6566128730773926e-09,
-   "rel": 3.8966111599758386e-17
-  },
-  {
-   "cell": "M-POL-2-NULL|0",
-   "applied": 109082894.10654432,
-   "hp_fall": 108723585.0,
-   "leech_heal_hp": 359309.10654430866,
-   "residual": 7.159542292356491e-09,
-   "rel": 6.563395985225297e-17
-  },
-  {
-   "cell": "M-POL-2-NULL|1",
-   "applied": 111814133.54288372,
-   "hp_fall": 111722002.0,
-   "leech_heal_hp": 92131.54288372074,
-   "residual": 3.230525180697441e-09,
-   "rel": 2.889192160540642e-17
-  },
-  {
-   "cell": "M-POL-2-NULL|2",
-   "applied": 115663942.2976124,
-   "hp_fall": 114672149.0,
-   "leech_heal_hp": 991793.2976124019,
-   "residual": -3.026798367500305e-09,
-   "rel": 2.616890197043531e-17
-  },
-  {
-   "cell": "M-POL-2-NULL|3",
-   "applied": 109599562.00351247,
-   "hp_fall": 108976606.0,
-   "leech_heal_hp": 622956.0035124734,
-   "residual": -1.5133991837501526e-09,
-   "rel": 1.3808441895978113e-17
-  },
-  {
-   "cell": "M-POL-2-NULL|4",
-   "applied": 117615085.47671624,
-   "hp_fall": 116416405.0,
-   "leech_heal_hp": 1198680.4767162316,
-   "residual": 3.725290298461914e-09,
-   "rel": 3.167357557376765e-17
-  },
-  {
-   "cell": "W1|0",
-   "applied": 107575662.44468662,
-   "hp_fall": 107321884.0,
-   "leech_heal_hp": 253778.44468661767,
-   "residual": 3.754394128918648e-09,
-   "rel": 3.4900032624471045e-17
-  },
-  {
-   "cell": "W1|1",
-   "applied": 115809881.86404292,
-   "hp_fall": 113960549.0,
-   "leech_heal_hp": 1849332.8640429294,
-   "residual": -6.51925802230835e-09,
-   "rel": 5.629276118217398e-17
-  },
-  {
-   "cell": "W1|2",
-   "applied": 106994842.09033597,
-   "hp_fall": 106765909.0,
-   "leech_heal_hp": 228933.0903359602,
-   "residual": 4.94765117764473e-09,
-   "rel": 4.6241959714912404e-17
-  },
-  {
-   "cell": "W1|3",
-   "applied": 111687629.78984195,
-   "hp_fall": 111319107.0,
-   "leech_heal_hp": 368522.78984194866,
-   "residual": 1.280568540096283e-09,
-   "rel": 1.1465625535306609e-17
-  },
-  {
-   "cell": "W1|4",
-   "applied": 117587631.34330167,
-   "hp_fall": 117264896.0,
-   "leech_heal_hp": 322735.3433016677,
-   "residual": 1.0477378964424133e-09,
-   "rel": 8.910272997875957e-18
-  },
-  {
-   "cell": "W1-NULL|0",
-   "applied": 111436223.48467036,
-   "hp_fall": 110659258.0,
-   "leech_heal_hp": 776965.4846703641,
-   "residual": -8.149072527885437e-09,
-   "rel": 7.312768032745168e-17
-  },
-  {
-   "cell": "W1-NULL|1",
-   "applied": 115212661.48531856,
-   "hp_fall": 114085366.0,
-   "leech_heal_hp": 1127295.4853185627,
-   "residual": -6.28642737865448e-09,
-   "rel": 5.456368508122307e-17
-  },
-  {
-   "cell": "W1-NULL|2",
-   "applied": 115929384.21229444,
-   "hp_fall": 114800034.0,
-   "leech_heal_hp": 1129350.2122944524,
-   "residual": -7.916241884231567e-09,
-   "rel": 6.828503349707297e-17
-  },
-  {
-   "cell": "W1-NULL|3",
-   "applied": 111938629.81016378,
-   "hp_fall": 111560417.0,
-   "leech_heal_hp": 378212.81016377435,
-   "residual": 6.693881005048752e-09,
-   "rel": 5.979956174558215e-17
-  },
-  {
-   "cell": "W1-NULL|4",
-   "applied": 111913208.90239176,
-   "hp_fall": 111791548.0,
-   "leech_heal_hp": 121660.90239176432,
-   "residual": -2.7794158086180687e-09,
-   "rel": 2.483545808289899e-17
-  }
- ]
+ "labels": [
+  "CORRECTED-AFTER-RESULT: printed beside the as-graded margin aaa1f6a3f, which stays the result of record; this figure goes to its own jack-ryan gate",
+  "NOT CONSERVATIVE: the corrections raise her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / KP-481 / KP-487): on car2 the replay check is PRESENT (A1-A6, M1-M4: 8,688 action checks, 0 bad); the as-graded label 'OPEN, replay check absent' applies to aaa1f6a3f only",
+  "WARN-2 row 22 (control received) FALSE AS PRE-STATED (as graded)",
+  "4 tie-frame Meteors resolved by the registered order; D2 melee order would fire them (favours her) (KP-485; recounted on car2: 4)",
+  "KP-490: her missiles in flight at a wave boundary (Fire Balls, Meteors within their 60-frame flight, pyres) are DROPPED at _wave_check, on parity with the oracle's A3; mana stays spent, the Meteor delay carries"
+ ],
+ "data": {
+  "cells": 25,
+  "worst_rel": 7.691266749278563e-17,
+  "fails": [],
+  "off_ledger_falls": 0,
+  "per_cell": [
+   {
+    "cell": "M0|0",
+    "applied": 106709082.60422437,
+    "hp_fall": 106388859.0,
+    "leech_heal_hp": 320223.60422437714,
+    "residual": -8.207280188798904e-09,
+    "rel": 7.691266749278563e-17
+   },
+   {
+    "cell": "M0|1",
+    "applied": 116309149.35492343,
+    "hp_fall": 115258428.0,
+    "leech_heal_hp": 1050721.35492343,
+    "residual": -2.7939677238464355e-09,
+    "rel": 2.4021908330878575e-17
+   },
+   {
+    "cell": "M0|2",
+    "applied": 113742239.65335654,
+    "hp_fall": 113302705.0,
+    "leech_heal_hp": 439534.6533565402,
+    "residual": -2.9685907065868378e-09,
+    "rel": 2.6099281284015357e-17
+   },
+   {
+    "cell": "M0|3",
+    "applied": 110992040.07963234,
+    "hp_fall": 110857259.0,
+    "leech_heal_hp": 134781.0796323467,
+    "residual": -4.831235855817795e-09,
+    "rel": 4.352776876928811e-17
+   },
+   {
+    "cell": "M0|4",
+    "applied": 119679956.31379071,
+    "hp_fall": 118626274.0,
+    "leech_heal_hp": 1053682.313790707,
+    "residual": 1.862645149230957e-09,
+    "rel": 1.5563551379875667e-17
+   },
+   {
+    "cell": "M-POL-2|0",
+    "applied": 109304974.89873624,
+    "hp_fall": 109003130.0,
+    "leech_heal_hp": 301844.8987362334,
+    "residual": 5.0640664994716644e-09,
+    "rel": 4.6329698205989106e-17
+   },
+   {
+    "cell": "M-POL-2|1",
+    "applied": 114679997.25114417,
+    "hp_fall": 114173530.0,
+    "leech_heal_hp": 506467.25114417856,
+    "residual": -7.799826562404633e-09,
+    "rel": 6.801383632163292e-17
+   },
+   {
+    "cell": "M-POL-2|2",
+    "applied": 112146795.39551882,
+    "hp_fall": 111374928.0,
+    "leech_heal_hp": 771867.395518823,
+    "residual": 1.5133991837501526e-09,
+    "rel": 1.3494805432582384e-17
+   },
+   {
+    "cell": "M-POL-2|3",
+    "applied": 110459634.34179175,
+    "hp_fall": 110156802.0,
+    "leech_heal_hp": 302832.3417917521,
+    "residual": -3.0850060284137726e-09,
+    "rel": 2.792880898797778e-17
+   },
+   {
+    "cell": "M-POL-2|4",
+    "applied": 119504171.2375085,
+    "hp_fall": 116299525.0,
+    "leech_heal_hp": 3204646.237508501,
+    "residual": 4.6566128730773926e-09,
+    "rel": 3.8966111599758386e-17
+   },
+   {
+    "cell": "M-POL-2-NULL|0",
+    "applied": 109082894.10654432,
+    "hp_fall": 108723585.0,
+    "leech_heal_hp": 359309.10654430866,
+    "residual": 7.159542292356491e-09,
+    "rel": 6.563395985225297e-17
+   },
+   {
+    "cell": "M-POL-2-NULL|1",
+    "applied": 111814133.54288372,
+    "hp_fall": 111722002.0,
+    "leech_heal_hp": 92131.54288372074,
+    "residual": 3.230525180697441e-09,
+    "rel": 2.889192160540642e-17
+   },
+   {
+    "cell": "M-POL-2-NULL|2",
+    "applied": 115663942.2976124,
+    "hp_fall": 114672149.0,
+    "leech_heal_hp": 991793.2976124019,
+    "residual": -3.026798367500305e-09,
+    "rel": 2.616890197043531e-17
+   },
+   {
+    "cell": "M-POL-2-NULL|3",
+    "applied": 109599562.00351247,
+    "hp_fall": 108976606.0,
+    "leech_heal_hp": 622956.0035124734,
+    "residual": -1.5133991837501526e-09,
+    "rel": 1.3808441895978113e-17
+   },
+   {
+    "cell": "M-POL-2-NULL|4",
+    "applied": 117615085.47671624,
+    "hp_fall": 116416405.0,
+    "leech_heal_hp": 1198680.4767162316,
+    "residual": 3.725290298461914e-09,
+    "rel": 3.167357557376765e-17
+   },
+   {
+    "cell": "W1|0",
+    "applied": 107575662.44468662,
+    "hp_fall": 107321884.0,
+    "leech_heal_hp": 253778.44468661767,
+    "residual": 3.754394128918648e-09,
+    "rel": 3.4900032624471045e-17
+   },
+   {
+    "cell": "W1|1",
+    "applied": 115809881.86404292,
+    "hp_fall": 113960549.0,
+    "leech_heal_hp": 1849332.8640429294,
+    "residual": -6.51925802230835e-09,
+    "rel": 5.629276118217398e-17
+   },
+   {
+    "cell": "W1|2",
+    "applied": 106994842.09033597,
+    "hp_fall": 106765909.0,
+    "leech_heal_hp": 228933.0903359602,
+    "residual": 4.94765117764473e-09,
+    "rel": 4.6241959714912404e-17
+   },
+   {
+    "cell": "W1|3",
+    "applied": 111687629.78984195,
+    "hp_fall": 111319107.0,
+    "leech_heal_hp": 368522.78984194866,
+    "residual": 1.280568540096283e-09,
+    "rel": 1.1465625535306609e-17
+   },
+   {
+    "cell": "W1|4",
+    "applied": 117587631.34330167,
+    "hp_fall": 117264896.0,
+    "leech_heal_hp": 322735.3433016677,
+    "residual": 1.0477378964424133e-09,
+    "rel": 8.910272997875957e-18
+   },
+   {
+    "cell": "W1-NULL|0",
+    "applied": 111436223.48467036,
+    "hp_fall": 110659258.0,
+    "leech_heal_hp": 776965.4846703641,
+    "residual": -8.149072527885437e-09,
+    "rel": 7.312768032745168e-17
+   },
+   {
+    "cell": "W1-NULL|1",
+    "applied": 115212661.48531856,
+    "hp_fall": 114085366.0,
+    "leech_heal_hp": 1127295.4853185627,
+    "residual": -6.28642737865448e-09,
+    "rel": 5.456368508122307e-17
+   },
+   {
+    "cell": "W1-NULL|2",
+    "applied": 115929384.21229444,
+    "hp_fall": 114800034.0,
+    "leech_heal_hp": 1129350.2122944524,
+    "residual": -7.916241884231567e-09,
+    "rel": 6.828503349707297e-17
+   },
+   {
+    "cell": "W1-NULL|3",
+    "applied": 111938629.81016378,
+    "hp_fall": 111560417.0,
+    "leech_heal_hp": 378212.81016377435,
+    "residual": 6.693881005048752e-09,
+    "rel": 5.979956174558215e-17
+   },
+   {
+    "cell": "W1-NULL|4",
+    "applied": 111913208.90239176,
+    "hp_fall": 111791548.0,
+    "leech_heal_hp": 121660.90239176432,
+    "residual": -2.7794158086180687e-09,
+    "rel": 2.483545808289899e-17
+   }
+  ]
+ }
 }
