@@ -1,0 +1,95 @@
+{
+ "labels": [
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
+  "KP-473: 'use-weighted <= primary' on M-a and T is SATISFIED AT THE CEILING, UNINFORMATIVE; ADDENDUM-B off/off is LOW EVIDENTIAL VALUE: informed by the flinch-on margin",
+  "primary <= worst-case on T: both arms at the T ceiling (25 x H), 25 ties -- TRUE but non-discriminating (stated as fact; not a KP-473 label)"
+ ],
+ "data": {
+  "ITEM": {
+   "n_cells": 25,
+   "total_her": 1000000,
+   "total_him": 1000000,
+   "n_pos": 0,
+   "n_neg": 0,
+   "n_tie": 25,
+   "p_two_sided": 1.0,
+   "verdict": "TRUE",
+   "registered": "primary <= worst-case on T ONLY (prereg s3 item 2; H = 40,000, CORRIGENDUM-H)"
+  },
+  "unpredicted": {
+   "worst_case_M_a": 25,
+   "primary_M_a": 25,
+   "Warlord_M_a": 18,
+   "worst_case_T_vs_Warlord": {
+    "n_cells": 25,
+    "total_her": 1000000,
+    "total_him": 749609,
+    "n_pos": 7,
+    "n_neg": 0,
+    "n_tie": 18,
+    "p_two_sided": 0.015625,
+    "verdict": "printed, un-predicted"
+   }
+  },
+  "gates": {
+   "runs": true,
+   "obs1": true,
+   "per_arm": {
+    "M0": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "M-POL-2": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    }
+   }
+  },
+  "identity": {
+   "cells": 25,
+   "worst_rel": 6.808498541813208e-17,
+   "fails": [],
+   "off_ledger_falls": 0
+  },
+  "pins": "evidence/join1/j4b-hook/car-arms/worst-case/grains_sha256.json sha256 d520d521d7873d75390395db6efd36d2fc56dbf8cd61c098d3a9191f0e197403, 75/75 size+sha256; M0 re-emission confirmed 0/14 differ (drax 595b96c / 1dde4a0)",
+  "replay": "PASS 25/25 every class, 0 bad, r_DMG bound RB-A-anchor_r_dmg_worst hex 40584421c4f1b678, 0 provenance mismatches (engine 5f637abe)"
+ }
+}

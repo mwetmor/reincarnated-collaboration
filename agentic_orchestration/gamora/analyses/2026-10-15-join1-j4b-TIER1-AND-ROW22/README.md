@@ -16,7 +16,7 @@
   | Arm | godot | Pin file sha256 | Files |
   |---|---|---|---|
   | use-weighted | `cd7d653` | `829fd0ac…` | 75 / 75 |
-  | worst-case | `775e29d` | `d520d521…` | 75 / 75 (pins only; see below) |
+  | worst-case | `775e29d` | `d520d521…` | 75 / 75 (M0 re-emission confirmed identical; graded in the addendum row) |
   | raw | `874d88a` | `71bddef4…` | 75 / 75 |
   | flinch-off | `fba409f` | `38b2b3d6…` | 50 / 50 |
   | row 22 | `63af677` / `6efdbae` / `055f706` | `18730c80…` | 55 / 55 |
@@ -45,7 +45,7 @@
 | **use-weighted ≤ primary, M-a** (item 2) | ≤ | **TRUE: SATISFIED AT THE CEILING, UNINFORMATIVE.** 25 vs 25 (the primary is at 25 / 25) |
 | **use-weighted ≤ primary, T** (H = 40,000) | ≤ | **TRUE: SATISFIED AT THE CEILING, UNINFORMATIVE.** 1,000,000 vs 1,000,000 (the primary is at 25 × H) |
 | use-weighted vs the Warlord, M-a / T | **UN-PREDICTED** | printed only: **M-a 25 vs 18**; **T 1,000,000 vs 749,609**. (M-c over 159 / 160, printed only: 3,038,999 vs 2,023,173, 25 pairs) |
-| **primary ≤ worst-case, T** (H = 40,000) | ≤ | **PENDING, not graded.** The worst-case M0 arm is being re-emitted as a disclosed precaution. It will be graded once after the confirmation lands |
+| **primary ≤ worst-case, T** (H = 40,000) | ≤ | **TRUE** (graded once after drax confirmed the M0 re-emission: 0 of 14 files differ, `595b96c` / `1dde4a0`). 1,000,000 vs 1,000,000, **25 ties.** Both arms sit at the T ceiling, so the item is satisfied but **cannot discriminate** (stated as fact). **Worst-case survival, printed un-predicted: 25 / 25** (primary 25, Warlord 18; worst-case T vs the Warlord 1,000,000 vs 749,609). The gates hold: replay PASS 25 / 25 in every class (`_worst`, `40584421c4f1b678`, 0 provenance mismatches); HP-chain identity 25 / 25, 6.8e-17, 0 off-ledger falls; effect, dot and POST-HOC completeness PASS (3 orphans, all TERMINAL) (`worst_case.json`) |
 | **PREREG-ADDENDUM-B off / off:** M-c (her flinch-off) ≥ M-c (his flinch-off), waves {159, 160} | ≥ | **TRUE: LOW EVIDENTIAL VALUE.** 25 pairs, 0 dropped. 2,917,589 vs 2,119,294 (×1.377). **24 / 1**, p = 1.55e-6. Per-cell ratio 0.979 / 1.425 / 1.802; the one reversal is M-POL-2\|3 (115,909 vs 118,361). M-a printed only: 25 vs 17 |
 | **Row 16 negative control** (L-21 off; "row identity on gated actions and motion") | NC passes; ACTIVE iff reach > 0 | **PASS → row 16 ACTIVE.** See the detail below |
 | **Row 22, R0** (explicit d2-strict == today) | byte-identical | **TRUE.** My own check: all 7 G grains, GO, GH, GHR, GR, GC, GM, GB, GO-BODIES, HPCHAIN and J4B-ROWS of M0 / 0 equal car2 M0 / 0 |
@@ -67,7 +67,8 @@
 - **Limit, stated:** "row identity on gated actions and motion" is evidenced here as *nothing is gated when the lever is off*. A byte comparison against a sealed no-lever reference is not in the grain set.
 
 ## Not graded here
-- **primary ≤ worst-case on T:** waits for the worst-case M0 confirmation. It will be graded once, at H = 40,000.
 - The offered ordering R2 ≤ R1 ≤ non-ladder (the tier-2 R2 / non-ladder arms).
 
 *Graded once.* gamora, 2026-10-15. Engine `5f637abe` (replay `90e12d52`, grader `0ab979a7`).
+
+**Tier 1 is closed** with the worst-case row (addendum commit, same day).
