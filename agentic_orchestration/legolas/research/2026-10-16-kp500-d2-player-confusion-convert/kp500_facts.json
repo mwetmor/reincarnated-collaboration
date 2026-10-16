@@ -1,0 +1,287 @@
+{
+ "captures_sha256": {
+  "basin-wiki-Attract.raw.txt": "021d2840204ad916ddd0f78f9b89be6cc8465992262dec81a0be8703de7b96f9",
+  "basin-wiki-Confuse.raw.txt": "e3830384acfcc3c2baf18075dbc2985b627b72f8914b5eec70fb09122bae7fef",
+  "basin-wiki-Conversion.raw.txt": "6d63b6ab5f869ae98f31a059178d92e6b855a5f290691bd46eac07c48150e031",
+  "basin-wiki-Mind_Blast.raw.txt": "0b8e98250967613f4e2821828d523907585e169aba000528df6bb483a197a59f",
+  "basin-wiki-Stun.raw.txt": "a927142b4d1cc35ef0342af61e3016ff054d870283c8e4abc4dc9339efa67691",
+  "d2data/monstats.json": "61519ce4b3992f2fe2e0985c8a3b2580b9e6a52900e3cedf4e28bb06bc1582e7",
+  "d2data/skills.json": "b40393a3b024c8363ee2c77b52a4b2330ec90b1c06b1afe38b0f434f47f35956",
+  "d2moo-D2Common-D2StatList.cpp": "8c1710c5cd14295f67aaadf905f827e01475197137f9af2cc191d23a85a613d4",
+  "d2moo-D2Common-D2States.h": "2d7790a8131d22a8ba598e16a87bf3a7ca78108124a9f81cd13adb166829883e",
+  "d2moo-D2Game-AI-AiStates.h": "23590f1e50c99929533dc122519b5f7fd6567a4c043bccd6a9b6d5721f06184d",
+  "d2moo-D2Game-AI-AiUtil.cpp": "7d4833128ebc2c28ece315130aaced332bd28f86b14c3e1be057b81fc91f127e",
+  "d2moo-D2Game-SKILLS-SkillAss.cpp": "1934bd201f0068215a927f5abb19fbd2ef1004aebefb84aa81bd60ade6bf9974",
+  "d2moo-D2Game-SKILLS-SkillNec.cpp": "07259f95772794dc8e64cbd932c0cfe2950eb02ea52b4cccb9028d2cd36ae97d",
+  "d2moo-D2Game-SKILLS-SkillPal.cpp": "c421857a633b5dd1f441eded1c5f41cbd88b375ba9dd771c3fa802e39591bdf0",
+  "d2moo-D2Game-SKILLS-Skills.cpp": "ae7608f7c95eafd3d2b632af8ece88a1f6784490416e2f9ced3706bcbdd1dbcc",
+  "d2moo-D2Game-UNIT-SUnitDmg.cpp": "56ab5e14f7aceb18681f1c1e720e89c63bfe2a25e2e41b8aa9907652a7c9daf7"
+ },
+ "d2moo_anchors": {
+  "AiCurse_cb": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 295,
+   "needle": "int32_t __fastcall sub_6FD0B450(D2UnitStrc* pUnit, void* pArgs)"
+  },
+  "AiCurse_monster_only": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 302,
+   "needle": "if (!pUnit || pUnit->dwUnitType != UNIT_MONSTER || STATLIST_GetUnitAlignment(pUnit) == UNIT_ALIGNMENT_NEUTRAL)"
+  },
+  "AiStates_enum": {
+   "file": "d2moo-D2Game-AI-AiStates.h",
+   "line": 6,
+   "needle": "enum D2C_AiSpecialState : uint32_t"
+  },
+  "Attract_dofunc": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 559,
+   "needle": "int32_t __fastcall SKILLS_SrvDo059_Attract("
+  },
+  "Attract_radius_cb": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 626,
+   "needle": "int32_t __fastcall sub_6FD0BDA0(D2UnitStrc* pUnit, void* pArg)"
+  },
+  "Attract_radius_gate": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 632,
+   "needle": "&& sub_6FD15190(pUnit, AISPECIALSTATE_INVALID)"
+  },
+  "Attract_target_gate": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 570,
+   "needle": "|| !sub_6FD15190(pTargetUnit, AISPECIALSTATE_INVALID)"
+  },
+  "CanUnitSwitchAi": {
+   "file": "d2moo-D2Game-AI-AiUtil.cpp",
+   "line": 1324,
+   "needle": "BOOL __fastcall AIUTIL_CanUnitSwitchAi(D2UnitStrc* pUnit, D2C_AiSpecialState nAiSpecialState)"
+  },
+  "CanUnitSwitchAi_monster_only": {
+   "file": "d2moo-D2Game-AI-AiUtil.cpp",
+   "line": 1326,
+   "needle": "if (!pUnit || pUnit->dwUnitType != UNIT_MONSTER "
+  },
+  "Confuse_dofunc": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 652,
+   "needle": "int32_t __fastcall SKILLS_SrvDo061_Confuse("
+  },
+  "Confuse_monster_only": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 723,
+   "needle": "if (!pUnit || pUnit->dwUnitType != UNIT_MONSTER || STATLIST_GetUnitAlignment(pUnit) != UNIT_ALIGNMENT_EVIL || !sub_6FCBD900(pParam->pGame, pParam->pUnit, pUnit) || SUNIT_IsDead(pUnit) || !sub_6FD15190(pUnit, AISPECIALSTATE_TERROR))"
+  },
+  "Confuse_target_cb": {
+   "file": "d2moo-D2Game-SKILLS-SkillNec.cpp",
+   "line": 719,
+   "needle": "int32_t __fastcall sub_6FD0C060(D2UnitStrc* pUnit, void* pArg)"
+  },
+  "Conversion_dofunc": {
+   "file": "d2moo-D2Game-SKILLS-SkillPal.cpp",
+   "line": 1110,
+   "needle": "int32_t __fastcall SKILLS_SrvDo079_Conversion("
+  },
+  "Conversion_monster_only": {
+   "file": "d2moo-D2Game-SKILLS-SkillPal.cpp",
+   "line": 1131,
+   "needle": "pTarget->dwUnitType == UNIT_MONSTER && STATLIST_GetUnitAlignment(pTarget) == UNIT_ALIGNMENT_EVIL && sub_6FD15190(pTarget, AISPECIALSTATE_TERROR)"
+  },
+  "Freeze_fn": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 1645,
+   "needle": "void __fastcall SUNITDMG_ApplyFreezeState(D2UnitStrc* pAttacker, D2UnitStrc* pDefender, int32_t nFreezeLength)"
+  },
+  "Freeze_player_becomes_cold": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 1658,
+   "needle": "if (nDefenderType == UNIT_PLAYER)"
+  },
+  "MindBlast_cb": {
+   "file": "d2moo-D2Game-SKILLS-SkillAss.cpp",
+   "line": 2219,
+   "needle": "int32_t __fastcall SKILLS_AuraCallback_MindBlast("
+  },
+  "MindBlast_monster_only": {
+   "file": "d2moo-D2Game-SKILLS-SkillAss.cpp",
+   "line": 2223,
+   "needle": "if (pUnit && pUnit->dwUnitType == UNIT_MONSTER && !MONSTERS_GetHirelingTypeId(pUnit)"
+  },
+  "MindBlast_sets_conversion": {
+   "file": "d2moo-D2Game-SKILLS-SkillAss.cpp",
+   "line": 2240,
+   "needle": "STATLIST_SetState(pConversionStatList, STATE_CONVERSION);"
+  },
+  "STATE_ATTRACT": {
+   "file": "d2moo-D2Common-D2States.h",
+   "line": 73,
+   "needle": "STATE_ATTRACT,"
+  },
+  "STATE_CONFUSE": {
+   "file": "d2moo-D2Common-D2States.h",
+   "line": 75,
+   "needle": "STATE_CONFUSE,"
+  },
+  "STATE_CONVERSION": {
+   "file": "d2moo-D2Common-D2States.h",
+   "line": 69,
+   "needle": "STATE_CONVERSION,"
+  },
+  "Stun_cap_250": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 1335,
+   "needle": "nStunLength = std::min(nStunLength, 250);"
+  },
+  "Stun_nonmonster": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 1333,
+   "needle": "if (!pDefender || pDefender->dwUnitType != UNIT_MONSTER)"
+  },
+  "Stun_state_set": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 1366,
+   "needle": "STATLIST_SetState(pNewStatList, STATE_STUNNED);"
+  },
+  "Stunned_player_forced_gethit": {
+   "file": "d2moo-D2Game-UNIT-SUnitDmg.cpp",
+   "line": 2029,
+   "needle": "if (STATLIST_GetStatListFromUnitAndState(pUnit, STATE_STUNNED) || !sub_6FCC1870(pUnit, pDamage, pDamage->dwHitClass))"
+  },
+  "SwitchAi_wrapper": {
+   "file": "d2moo-D2Game-SKILLS-Skills.cpp",
+   "line": 3909,
+   "needle": "int32_t __fastcall sub_6FD15190(D2UnitStrc* pUnit, D2C_AiSpecialState nAiSpecialState)"
+  }
+ },
+ "d2r_control_skills": [
+  {
+   "auratargetstate": "dimvision",
+   "charclass": "nec",
+   "skill": "Dim Vision",
+   "srvdofunc": 30
+  },
+  {
+   "auratargetstate": "terror",
+   "charclass": "nec",
+   "skill": "Terror",
+   "srvdofunc": 30
+  },
+  {
+   "auratargetstate": "confuse",
+   "charclass": "nec",
+   "skill": "Confuse",
+   "srvdofunc": 61
+  },
+  {
+   "auratargetstate": "attract",
+   "charclass": "nec",
+   "skill": "Attract",
+   "srvdofunc": 59
+  },
+  {
+   "auratargetstate": "conversion",
+   "charclass": "pal",
+   "skill": "Conversion",
+   "srvdofunc": 79
+  },
+  {
+   "auratargetstate": "terror",
+   "charclass": "bar",
+   "skill": "Howl",
+   "srvdofunc": 22
+  },
+  {
+   "auratargetstate": "taunt",
+   "charclass": "bar",
+   "skill": "Taunt",
+   "srvdofunc": 71
+  },
+  {
+   "auratargetstate": "terror",
+   "charclass": "bar",
+   "skill": "Grim Ward",
+   "srvdofunc": 75
+  },
+  {
+   "auratargetstate": null,
+   "charclass": "ass",
+   "skill": "Mind Blast",
+   "srvdofunc": 51
+  }
+ ],
+ "d2r_monstats_rows": 751,
+ "d2r_monsters_with_control_skills": [],
+ "failures": [],
+ "inputs": {
+  "MonStats.txt": "973eedacd121f724f6dca1c7201750f6a4e60480c3d536ef5a9cb36853d38193",
+  "Skills.txt": "59601208f3052205c175753038cedb6e338ef9bdc268f4e92a74b9c7b69cdc07"
+ },
+ "lod113_control_skills": [
+  {
+   "Id": "71",
+   "auratargetstate": "dimvision",
+   "charclass": "nec",
+   "skill": "Dim Vision",
+   "srvdofunc": "30"
+  },
+  {
+   "Id": "77",
+   "auratargetstate": "terror",
+   "charclass": "nec",
+   "skill": "Terror",
+   "srvdofunc": "30"
+  },
+  {
+   "Id": "81",
+   "auratargetstate": "confuse",
+   "charclass": "nec",
+   "skill": "Confuse",
+   "srvdofunc": "61"
+  },
+  {
+   "Id": "86",
+   "auratargetstate": "attract",
+   "charclass": "nec",
+   "skill": "Attract",
+   "srvdofunc": "59"
+  },
+  {
+   "Id": "116",
+   "auratargetstate": "conversion",
+   "charclass": "pal",
+   "skill": "Conversion",
+   "srvdofunc": "79"
+  },
+  {
+   "Id": "130",
+   "auratargetstate": "terror",
+   "charclass": "bar",
+   "skill": "Howl",
+   "srvdofunc": "22"
+  },
+  {
+   "Id": "137",
+   "auratargetstate": "taunt",
+   "charclass": "bar",
+   "skill": "Taunt",
+   "srvdofunc": "71"
+  },
+  {
+   "Id": "150",
+   "auratargetstate": "terror",
+   "charclass": "bar",
+   "skill": "Grim Ward",
+   "srvdofunc": "75"
+  },
+  {
+   "Id": "273",
+   "auratargetstate": "",
+   "charclass": "ass",
+   "skill": "Mind Blast",
+   "srvdofunc": "51"
+  }
+ ],
+ "lod113_monstats_rows": 735,
+ "lod113_monsters_with_control_skills": []
+}

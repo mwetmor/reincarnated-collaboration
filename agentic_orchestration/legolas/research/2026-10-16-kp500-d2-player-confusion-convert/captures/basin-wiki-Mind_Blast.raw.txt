@@ -1,0 +1,140 @@
+{{Skill page
+|Nav=SD
+|File=Shadow Disciplines
+|RS=Cloak of Shadows
+|SS=None
+|Type=Radial medium range cast<br/>Damage, debuff and Knockback
+|Tier=5
+|Rlvl=24
+|Req=None
+|Town=No
+|Mana=15
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=Focusing her anima, an Assassin using this potent ability can crush the will of a group of enemies, stunning them and confusing the feebleminded into attacking their comrades.}}
+
+
+==Detail==
+{{Skill}}
+|-
+!align=left|Minimum Physical Damage
+|(2*slvl) + 8||(5*slvl) - 16||(8*slvl) - 64||(8*slvl) - 64||(8*slvl) - 64
+|-
+!align=left|Maximum Physical Damage
+|(2*slvl) + 18||(5*slvl) - 6||(8*slvl) - 54||(8*slvl) - 54||(8*slvl) - 54
+|}
+
+
+{{Stat}}
+|-
+!align=left|[[Radius]] (yards)
+|2 2/3
+|-
+!align=left|% Chance to Convert
+|min(15 + [25 * [ (110*slvl) / (slvl+6)] / 100] , 40)
+|-
+!align=left|Duration (seconds)
+|6-10
+|-
+!align=left|[[Stun length]] (seconds)
+|min( (0.2*slvl) + 1.8 , 10)
+|}
+
+
+*Target does not need to be selected: all eligible targets within radius will be damaged and knocked back, away from caster.
+
+
+{|cellpadding=0 cellspacing=0 width=100%
+|-valign=top
+|width=50%|
+[[File:Conversion.gif|center|frame|Overlay above convert.]]
+|
+[[File:Stun.gif|center|frame|Overlay above stunned target.]]
+|}
+
+
+[[File:Mind Blast.png|center|frame|Monsters that are converted will not be stunned, although those stunned by an earlier cast will remain so.]]
+
+
+*Only converts normal and minion monsters (with [[Altering AI|a few exceptions]]).
+*When clvl < mlvl, clvl is used to calculate convert [[MonLvl#Defense rating|defense]], [[MonLvl#Attack rating|attack rating]] and [[MonLvl#Damage|damage]], but [[MonLvl#Life|life]] is still calculated using mlvl. When clvl >= mlvl, mlvl continues to be used to calculate all level-adjusted stats. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/&do=findComment&comment=1505822]
+*While converted, monsters are affected by friendly buffs and [[aura]]s and hostile debuffs and auras. Any buff, debuff, [[Poison Damage|poison damage]] or [[Open Wounds]] that has not expired before conversion will remain afterwards.
+*Gain [[experience]] from monsters killed by converts, but not from those killed while converted.
+*Converts will not follow caster, or be transported when using portals or [[Teleport]].
+*Auras may still apply for up to two seconds after expiry.
+*Upon expiry, mlvl is used to calculate all level-adjusted stats again. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118210-handling-pis-with-conversion/&do=findComment&comment=1465523]
+*[[Cast rate]]
+<br/>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Mind Blast ([[Assassin]] Only) can spawn on ilvl >24 Exceptional and Elite [[Hand to Hand 2|claws]] (Hand Scythe and higher). 
+<br/>
+
+===[[Chance to Cast]]===
+
+====[[When Struck]]====
+*Cast on attacker location.
+
+
+{{Skill chance}}
+|-
+|14||6
+|align=left|[[Delirium|{{Ub|=Delirium}}]] helm
+|51||No
+|}
+<br/>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left| Minimum Physical Damage
+| 10 || 12 || 14 || 16 || 18 || 20 || 22 || 24 || 29 || 34 || 39 || 44 || 49 || 54 || 59 || 64 || 72 || 80 || 88 || 96
+|-
+!align=left| Maximum Physical Damage
+| 20 || 22 || 24 || 26 || 28 || 30 || 32 || 34 || 39 || 44 || 49 || 54 || 59 || 64 || 69 || 74 || 82 || 90 || 98 || 106
+|-
+!align=left| Stun Length (seconds)
+| 2 || 2.2 || 2.4 || 2.6 || 2.8 || 3 || 3.2 || 3.4 || 3.6 || 3.8 || 4 || 4.2 || 4.4 || 4.6 || 4.8 || 5 || 5.2 || 5.4 || 5.6 || 5.8
+|-
+!align=left| % Chance to Convert
+| 18 || 21 || 24 || 26 || 27 || 28 || 29 || 30 || 31 || 32 || 32 || 33 || 33 || 34 || 34 || 35 || 35 || 35 || 35 || 36
+|}
+
+{{Levels 21-40}}
+|-
+!align=left| Minimum Physical Damage
+| 104 || 112 || 120 || 128 || 136 || 144 || 152 || 160 || 168 || 176 || 184 || 192 || 200 || 208 || 216 || 224 || 232 || 240 || 248 || 256
+|-
+!align=left| Maximum Physical Damage
+| 114 || 122 || 130 || 138 || 146 || 154 || 162 || 170 || 178 || 186 || 194 || 202 || 210 || 218 || 226 || 234 || 242 || 250 || 258 || 266
+|-
+!align=left| Stun Length (seconds)
+| 6 || 6.2 || 6.4 || 6.6 || 6.8 || 7 || 7.2 || 7.4 || 7.6 || 7.8 || 8 || 8.2 || 8.4 || 8.6 || 8.8 || 9 || 9.2 || 9.4 || 9.6 || 9.8
+|-
+!align=left| % Chance to Convert
+| 36 || 36 || 36 || 37 || 37 || 37 || 37 || 37 || 37 || 37 || 38 || 38 || 38 || 38 || 38 || 38 || 38 || 38 || 38 || 38
+|}
+
+{{Levels 41-60}}
+|-
+!align=left| Minimum Physical Damage
+| 264 || 272 || 280 || 288 || 296 || 304 || 312 || 320 || 328 || 336 || 344 || 352 || 360 || 368 || 376 || 384 || 392 || 400 || 408 || 416
+|-
+!align=left| Maximum Physical Damage
+| 274 || 282 || 290 || 298 || 306 || 314 || 322 || 330 || 338 || 346 || 354 || 362 || 370 || 378 || 386 || 394 || 402 || 410 || 418 || 426
+|-
+!align=left| Stun Length (seconds)
+| 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10 || 10
+|-
+!align=left| % Chance to Convert
+| 38 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 39 || 40
+|}
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/assassin-shadow.shtml Shadow Disciplines] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/ Onderduiker: Clarification Please on Conversion] (D2 Technical)
+*-teacup, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118210-handling-pis-with-conversion/ Handling PIs with conversion] (D2 Paladin)

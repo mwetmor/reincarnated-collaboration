@@ -1,0 +1,128 @@
+{{Skill page
+|Nav=Curses
+|File=Curses
+|RS=Confuse
+|SS=None
+|Type=Curse
+|Tier=5
+|Rlvl=24
+|Req=None
+|Town=No
+|Mana=17
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=This hex causes hallucinations in enemies which force them to stop whatever activity they were engaged in and aid the Necromancer in his attacks. Battling their former allies with an unnatural ferocity, this is a vastly demoralizing turn of events for the enemy. }}
+
+
+==Detail==
+{{Stat}}
+|-
+!align=left|[[Radius]] (Yards)
+|6
+|}
+
+
+{{Difficulty}}
+|-
+!align=left|Duration (Seconds)
+|8.4 + (3.6*slvl)||[ (210 + (90*slvl) ) * 0.5] / 25||[ (210 + (90*slvl) ) * 0.25] / 25
+|}
+
+
+[[File:Attract.gif|center|frame|Overlay above [[curse]]d target.]]
+
+
+*Only applies to one normal or minion monster (with [[Altering AI|a few exceptions]]) within radius, but [[Champion]], [[Unique (monster)|Unique]], [[Super Unique]] and [[boss]] monsters can attack the attracted if it is their closest target. Attracted will also attack anything (normally the closest target again).
+
+
+[[File:Attract.png|center|frame|Although Attract is best cast on a selected target, this is not necessary: an eligible target just needs to be within radius of cursor (monsters do not have to be within radius to attack attracted).]]
+
+
+*Gain [[experience]] from monsters killed by attracted, and those killed while attracted.
+*Target may continue to be attacked after expiry until attacker's next AI check.
+*Friendly [[aura]]s and buffs supplied by players and allies do not apply to attracted, although hostile auras and debuffs still apply.
+*Friendly [[Aura Enchanted]] Unique monster auras do not apply to attracted but buffs which have not expired still do, as do hostile monster auras and debuffs.
+*Cannot be overwritten, even by itself. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1425193]
+*[[Cast rate]]
+<br>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Attract ([[Necromancer]] Only) can spawn on ilvl >24 [[wand]]s and [[shrunken head]]s.
+<br>
+
+===[[Charges]]===
+{{Skill charges}}
+|-
+|17||60
+|align=left|[[Delirium|{{Ub|=Delirium}}]] helm
+|51||No
+|}
+<br>
+
+===[[Charged suffix]]===
+{{Skill charged}}
+|-valign=top
+|39||54||69||84||99||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|67||75||82||90||97||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Dagger]]
+*[[Wand]]
+*[[Shrunken head]]
+|24||30||30
+|-valign=top
+|61||98||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|22||25||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Circlet]]
+*[[Amulet]]
+*[[Ring]]
+|24||60||60
+|}
+<br>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left|Normal Duration (Seconds)
+|12{{0|.00}}||15.6{{0|0}}||19.2{{0|0}}||22.8{{0|0}}||26.4{{0|0}}||30{{0|.00}}||33.6{{0|0}}||37.2{{0|0}}||40.8{{0|0}}||44.4{{0|0}}||48{{0|.00}}||51.6{{0|0}}||55.2{{0|0}}||58.8{{0|0}}||62.4{{0|0}}||66{{0|.00}}||69.6{{0|0}}||73.2{{0|0}}||76.8{{0|0}}||80.4{{0|0}}
+|-
+!align=left|Nightmare Duration (Seconds)
+|6{{0|.00}}||7.8{{0|0}}||9.6{{0|0}}||11.4{{0|0}}||13.2{{0|0}}||15{{0|.00}}||16.8{{0|0}}||18.6{{0|0}}||20.4{{0|0}}||22.2{{0|0}}||24{{0|.00}}||25.8{{0|0}}||27.6{{0|0}}||29.4{{0|0}}||31.2{{0|0}}||33{{0|.00}}||34.8{{0|0}}||36.6{{0|0}}||38.4{{0|0}}||40.2{{0|0}}
+|-
+!align=left|Hell Duration (Seconds)
+|3{{0|.00}}||3.88||4.8{{0|0}}||5.68||6.6{{0|0}}||7.48||8.4{{0|0}}||9.28||10.2{{0|0}}||11.08||12{{0|.00}}||12.88||13.8{{0|0}}||14.68||15.6{{0|0}}||16.48||17.4{{0|0}}||18.28||19.2{{0|0}}||20.08
+|}
+
+
+{{Levels 21-40}}
+|-
+!align=left|Normal Duration (Seconds)
+|84{{0|.00}}||87.6{{0|0}}||91.2{{0|0}}||94.8{{0|0}}||98.4{{0|0}}||102{{0|.00}}||105.6{{0|0}}||109.2{{0|0}}||112.8{{0|0}}||116.4{{0|0}}||120{{0|.00}}||123.6{{0|0}}||127.2{{0|0}}||130.8{{0|0}}||134.4{{0|0}}||138{{0|.00}}||141.6{{0|0}}||145.2{{0|0}}||148.8{{0|0}}||152.4{{0|0}}
+|-
+!align=left|Nightmare Duration (Seconds)
+|42{{0|.00}}||43.8{{0|0}}||45.6{{0|0}}||47.4{{0|0}}||49.2{{0|0}}||51{{0|.00}}||52.8{{0|0}}||54.6{{0|0}}||56.4{{0|0}}||58.2{{0|0}}||60{{0|.00}}||61.8{{0|0}}||63.6{{0|0}}||65.4{{0|0}}||67.2{{0|0}}||69{{0|.00}}||70.8{{0|0}}||72.6{{0|0}}||74.4{{0|0}}||76.2{{0|0}}
+|-
+!align=left|Hell Duration (Seconds)
+|21{{0|.00}}||21.88||22.8{{0|0}}||23.68||24.6{{0|0}}||25.48||26.4{{0|0}}||27.28||28.2{{0|0}}||29.08||30{{0|.00}}||30.88||31.8{{0|0}}||32.68||33.6{{0|0}}||34.48||35.4{{0|0}}||36.28||37.2{{0|0}}||38.08
+|}
+
+
+{{Levels 41-60}}
+|-
+!align=left|Normal Duration (Seconds)
+|156{{0|.00}}||159.6{{0|0}}||163.2{{0|0}}||166.8{{0|0}}||170.4{{0|0}}||174{{0|.00}}||177.6{{0|0}}||181.2{{0|0}}||184.8{{0|0}}||188.4{{0|0}}||192{{0|.00}}||195.6{{0|0}}||199.2{{0|0}}||202.8{{0|0}}||206.4{{0|0}}||210{{0|.00}}||213.6{{0|0}}||217.2{{0|0}}||220.8{{0|0}}||224.4{{0|0}}
+|-
+!align=left|Nightmare Duration (Seconds)
+|78{{0|.00}}||79.8{{0|0}}||81.6{{0|0}}||83.4{{0|0}}||85.2{{0|0}}||87{{0|.00}}||88.8{{0|0}}||90.6{{0|0}}||92.4{{0|0}}||94.2{{0|0}}||96{{0|.00}}||97.8{{0|0}}||99.6{{0|0}}||101.4{{0|0}}||103.2{{0|0}}||105{{0|.00}}||106.8{{0|0}}||108.6{{0|0}}||110.4{{0|0}}||112.2{{0|0}}
+|-
+!align=left|Hell Duration (Seconds)
+|39{{0|.00}}||39.88||40.8{{0|0}}||41.68||42.6{{0|0}}||43.48||44.4{{0|0}}||45.28||46.2{{0|0}}||47.08||48{{0|.00}}||48.88||49.8{{0|0}}||50.68||51.6{{0|0}}||52.48||53.4{{0|0}}||54.28||55.2{{0|0}}||56.08
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/necromancer-curses.shtml Curses] (Arreat Summit)
+* [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/ Chance to Cast and curse tests] (D2 Technical)

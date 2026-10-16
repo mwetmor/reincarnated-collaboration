@@ -1,0 +1,99 @@
+{{Skill page
+|Nav=CSP
+|File=Combat Skills (Paladin)
+|RS=Vengeance
+|SS=None
+|Type=Melee AI single attack
+|Tier=5
+|Rlvl=24
+|Req=Bare hand or melee weapon
+|Town=No
+|Mana=4
+|ANM=Yes
+|WD=100%
+|LB=Yes}}
+{{U|=Through force of will and strength of steel, a noble Paladin with this skill is able to blind his enemies with the glory of the Light. After trading blows with the Paladin and facing the fire of righteousness burning in his eyes, an enemy will sometimes be struck with a divine epiphany and momentarily repent his past undertakings. So complete is the transformation, that the converted will turn to slay its former comrades.}}
+
+
+==Detail==
+{{Stat}}
+|-
+!align=left|% Chance to Convert
+|min( [50 * [ (110*slvl) / (slvl+6) ] / 100] , 50)
+|-
+!align=left|Duration (Seconds)
+|16
+|}
+
+
+*Chance to convert applied on attack.
+*Only converts normal and minion monsters (with [[Altering AI|a few exceptions]]).
+
+
+[[File:Conversion.gif|center|frame|Overlay above convert.]]
+
+
+*When clvl < mlvl, clvl is used to calculate convert [[MonLvl#Defense rating|defense]], [[MonLvl#Attack rating|attack rating]] and [[MonLvl#Damage|damage]], but [[MonLvl#Life|life]] is still calculated using mlvl. When clvl >= mlvl, mlvl continues to be used to calculate all level-adjusted stats. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/&do=findComment&comment=1505822]
+*While converted, monsters are affected by friendly buffs and [[aura]]s and hostile debuffs and auras. Any buff, debuff, [[Poison Damage]] or [[Open Wounds]] that has not expired before conversion will remain afterwards: a monster can be cursed with [[Amplify Damage]] before conversion to maximise damage returned by [[Thorns]]. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/109036-how-effective-is-thorns/&do=findComment&comment=1380476]
+*Converted monsters capable of spawning, healing or resurrecting other converts will not do so; [[Pain Worm]]s from infested converts are not converts, and behave as normal. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/&do=findComment&comment=1505822]
+*Gain [[experience]] from monsters killed by converts, but not from those killed while converted.
+*Converts will not follow [[Paladin (Diablo II)|Paladin]], or be transported when using portals or [[Teleport]].
+*Auras may still apply for up to two seconds after Conversion expires.
+*Upon expiry, mlvl is used to calculate all level-adjusted stats again; {{Warn|=however, when clvl < mlvl then life is 1/256.}} [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118210-handling-pis-with-conversion/] [https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/&do=findComment&comment=1505822] [https://planetdiablo.eu/forum/threads/der-bekehrungs-bug.1663002/]
+<br>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Conversion ([[Paladin (Diablo II)|Paladin]] Only) can spawn on ilvl >24 [[scepter]]s.
+<br>
+
+==Levels 1-60==
+{{Levels 1-10}}
+|-
+!align=left|% Chance to Convert
+|7||13||18||22||25||27||29||31||33||34
+|}
+
+
+{{Levels 11-20}}
+|-
+!align=left|% Chance to Convert
+|35||36||37||38||39||40||40||41||41||42
+|}
+
+
+{{Levels 21-30}}
+|-
+!align=left|% Chance to Convert
+|42||43||43||44||44||44||45||45||45||45
+|}
+
+
+{{Levels 31-40}}
+|-
+!align=left|% Chance to Convert
+|46||46||46||46||46||47||47||47||47||47
+|}
+
+
+{{Levels 41-50}}
+|-
+!align=left|% Chance to Convert
+|47||48||48||48||48||48||48||48||49||49
+|}
+
+
+{{Levels 51-60}}
+|-
+!align=left|% Chance to Convert
+|49||49||49||49||49||49||49||49||49||50
+|}
+<br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/paladin-combat.shtml Combat Skills] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/109036-how-effective-is-thorns/ How Effective is Thorns?] (D2 Paladin)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/121381-onderduiker-clarification-please-on-conversion/ Onderduiker: Clarification Please on Conversion] (D2 Technical)
+*-teacup, [https://www.theamazonbasin.com/forums/index.php?/forums/topic/118210-handling-pis-with-conversion/ Handling PIs with conversion] (D2 Paladin)
+*LastCorpse, [https://planetdiablo.eu/forum/threads/der-bekehrungs-bug.1663002/ Der Bekehrungs-Bug] (PlanetDiablo.eu)

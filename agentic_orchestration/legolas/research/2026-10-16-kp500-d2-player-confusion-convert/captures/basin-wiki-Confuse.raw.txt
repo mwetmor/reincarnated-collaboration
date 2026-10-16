@@ -1,0 +1,162 @@
+{{Skill page
+|Nav=Curses
+|File=Curses
+|RS=Dim Vision
+|SS=None
+|Type=Curse
+|Tier=4
+|Rlvl=18
+|Req=None
+|Town=No
+|Mana=13
+|ANM=No
+|WD=No
+|LB=No}}
+{{U|=Necromancers can tap into the spirit realm, channeling bitter and mischievous spirits into the minds of nearby enemies. The victims are bombarded with the gibbering of the dead, which, indistinguishable from their own thoughts, urge them to strike at friend and foe alike. The discordant wailing of these spirits builds to a crescendo, eventually driving the victim mad.}}
+
+
+==Detail==
+{{Stat}}
+|-
+!align=left|[[Radius]] (Yards)
+|(10 + (2*slvl) ) / 3
+|}
+
+
+{{Difficulty}}
+|-
+!align=left|Duration (Seconds)
+|8 + (2*slvl)||[ (200 + (50*slvl) ) * 0.5] / 25||[ (200 + (50*slvl) ) * 0.25] / 25
+|}
+
+
+[[File:Confuse.gif|center|frame|Overlay above [[curse]]d target.]]
+
+
+*Can only be cast on normal and minion monsters (with [[Altering AI|a few exceptions]]), but [[Champion]], [[Unique (monster)|Unique]], [[Super Unique]] and [[boss]] monsters can attack the confused.
+*Target will continue executing its last action prior to its next AI check, then become confused.
+*Confused can attack anything, including other confused monsters: nearest target is normally attacked.
+*Gain [[experience]] from monsters killed by confused monsters, but not from those killed while confused.
+*Target may remain confused after expiry until its next AI check.
+*Friendly [[aura]]s and buffs supplied by players and allies do not apply to confused monsters, although hostile auras and debuffs still apply.
+*Friendly [[Aura Enchanted]] Unique monster auras and buffs which have not expired still apply to confused monsters, but now so do hostile monster auras and buffs: confused monsters can be cursed, which may overwrite Confuse.
+*Cannot be overwritten by the following:
+**[[Dim Vision]]
+**[[Terror]]
+**[[Attract]]
+**[[Taunt]]
+**[[Grim Ward]]
+**[[Hit Blinds Target]]
+*Also cannot be overwritten by itself: once a monster is confused, Confuse must expire before it can be confused again. [https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/&do=findComment&comment=1425193]
+*[[Cast rate]]
+<br>
+
+==Source==
+
+===[[Skill bonus]]===
+*+(1-3) Confuse ([[Necromancer]] Only) can spawn on ilvl >18 [[wand]]s and [[shrunken head]]s.
+<br>
+
+===[[Charged suffix]]===
+{{Skill charged}}
+|-valign=top
+|31||44||57||70||83||96||{{E}}||{{E}}||{{E}}||{{E}}
+|67||75||82||90||97||105||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Dagger]]
+*[[Wand]]
+*[[Shrunken head]]
+|18||24||24
+|-valign=top
+|45||72||99||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|22||25||27||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Circlet]]
+*[[Ring]]
+|18||48||48
+|}
+<br>
+
+===[[Chance to Cast]]===
+
+====[[On Striking]]====
+*Cast on target's location.
+
+
+{{Skill chance}}
+|-
+|1||10
+!align=left|[[The Fetid Sprinkler|{{U|=The Fetid Sprinkler Holy Water Sprinkler}}]]
+|38||No
+|-
+|18||11
+|align=left|[[Delirium|{{Ub|=Delirium}}]] helm
+|51||No
+|}
+<br>
+
+====[[When Struck]]====
+*Cast on attacker's location.
+
+
+{{Skill chance}}
+|-
+|15||10
+|align=left|[[Dream|{{Ub|=Dream}}]] helm/shield
+|65
+!{{Warn|=Yes}}
+|}
+<br>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left|Radius (Yards)
+|4||4 2/3||5 1/3||6||6 2/3||7 1/3||8||8 2/3||9 1/3||10||10 2/3||11 1/3||12||12 2/3||13 1/3||14||14 2/3||15 1/3||16||16 2/3
+|-
+!align=left|Normal Duration (Seconds)
+|10{{0|.00}}||12{{0|.00}}||14{{0|.00}}||16{{0|.00}}||18{{0|.00}}||20{{0|.00}}||22{{0|.00}}||24{{0|.00}}||26{{0|.00}}||28{{0|.00}}||30{{0|.00}}||32{{0|.00}}||34{{0|.00}}||36{{0|.00}}||38{{0|.00}}||40{{0|.00}}||42{{0|.00}}||44{{0|.00}}||46{{0|.00}}||48{{0|.00}}
+|-
+!align=left|Nightmare Duration (Seconds)
+|5{{0|.00}}||6{{0|.00}}||7{{0|.00}}||8{{0|.00}}||9{{0|.00}}||10{{0|.00}}||11{{0|.00}}||12{{0|.00}}||13{{0|.00}}||14{{0|.00}}||15{{0|.00}}||16{{0|.00}}||17{{0|.00}}||18{{0|.00}}||19{{0|.00}}||20{{0|.00}}||21{{0|.00}}||22{{0|.00}}||23{{0|.00}}||24{{0|.00}}
+|-
+!align=left|Hell Duration (Seconds)
+|2.48||3{{0|.00}}||3.48||4{{0|.00}}||4.48||5{{0|.00}}||5.48||6{{0|.00}}||6.48||7{{0|.00}}||7.48||8{{0|.00}}||8.48||9{{0|.00}}||9.48||10{{0|.00}}||10.48||11{{0|.00}}||11.48||12{{0|.00}}
+|}
+
+
+{{Levels 21-40}}
+|-
+!align=left|Radius (Yards)
+|17 1/3||18||18 2/3||19 1/3||20||20 2/3||21 1/3||22||22 2/3||23 1/3||24||24 2/3||25 1/3||26||26 2/3||27 1/3||28||28 2/3||29 1/3||30
+|-
+!align=left|Normal Duration (Seconds)
+|50{{0|.00}}||52{{0|.00}}||54{{0|.00}}||56{{0|.00}}||58{{0|.00}}||60{{0|.00}}||62{{0|.00}}||64{{0|.00}}||66{{0|.00}}||68{{0|.00}}||70{{0|.00}}||72{{0|.00}}||74{{0|.00}}||76{{0|.00}}||78{{0|.00}}||80{{0|.00}}||82{{0|.00}}||84{{0|.00}}||86{{0|.00}}||88{{0|.00}}
+|-
+!align=left|Nightmare Duration (Seconds)
+|25{{0|.00}}||26{{0|.00}}||27{{0|.00}}||28{{0|.00}}||29{{0|.00}}||30{{0|.00}}||31{{0|.00}}||32{{0|.00}}||33{{0|.00}}||34{{0|.00}}||35{{0|.00}}||36{{0|.00}}||37{{0|.00}}||38{{0|.00}}||39{{0|.00}}||40{{0|.00}}||41{{0|.00}}||42{{0|.00}}||43{{0|.00}}||44{{0|.00}}
+|-
+!align=left|Hell Duration (Seconds)
+|12.48||13{{0|.00}}||13.48||14{{0|.00}}||14.48||15{{0|.00}}||15.48||16{{0|.00}}||16.48||17{{0|.00}}||17.48||18{{0|.00}}||18.48||19{{0|.00}}||19.48||20{{0|.00}}||20.48||21{{0|.00}}||21.48||22{{0|.00}}
+|}
+
+
+{{Levels 41-60}}
+|-
+!align=left|Radius (Yards)
+|30 2/3||31 1/3||32||32 2/3||33 1/3||34||34 2/3||35 1/3||36||36 2/3||37 1/3||38||38 2/3||39 1/3||40||40 2/3||41 1/3||42||42 2/3||43 1/3
+|-
+!align=left|Normal Duration (Seconds)
+|90{{0|.00}}||92{{0|.00}}||94{{0|.00}}||96{{0|.00}}||98{{0|.00}}||100{{0|.00}}||102{{0|.00}}||104{{0|.00}}||106{{0|.00}}||108{{0|.00}}||110{{0|.00}}||112{{0|.00}}||114{{0|.00}}||116{{0|.00}}||118{{0|.00}}||120{{0|.00}}||122{{0|.00}}||124{{0|.00}}||126{{0|.00}}||128{{0|.00}}
+|-
+!align=left|Nightmare Duration (Seconds)
+|45{{0|.00}}||46{{0|.00}}||47{{0|.00}}||48{{0|.00}}||49{{0|.00}}||50{{0|.00}}||51{{0|.00}}||52{{0|.00}}||53{{0|.00}}||54{{0|.00}}||55{{0|.00}}||56{{0|.00}}||57{{0|.00}}||58{{0|.00}}||59{{0|.00}}||60{{0|.00}}||61{{0|.00}}||62{{0|.00}}||63{{0|.00}}||64{{0|.00}}
+|-
+!align=left|Hell Duration (Seconds)
+|22.48||23{{0|.00}}||23.48||24{{0|.00}}||24.48||25{{0|.00}}||25.48||26{{0|.00}}||26.48||27{{0|.00}}||27.48||28{{0|.00}}||28.48||29{{0|.00}}||29.48||30{{0|.00}}||30.48||31{{0|.00}}||31.48||32{{0|.00}}
+|}
+</br>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/necromancer-curses.shtml Curses] (Arreat Summit)
+*[https://www.theamazonbasin.com/forums/index.php?/forums/topic/113968-chance-to-cast-and-curse-tests/ Chance to Cast and curse tests] (D2 Technical)

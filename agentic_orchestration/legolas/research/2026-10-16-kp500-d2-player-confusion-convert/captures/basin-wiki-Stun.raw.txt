@@ -1,0 +1,139 @@
+{{Skill page
+|Nav=CSB
+|File=Combat Skills (Barbarian)
+|RS=Bash
+|SS=Bash, Concentrate, War Cry
+|Type=Melee single stun attack
+|Tier=3
+|Rlvl=12
+|Req=Melee weapon
+|Town=No
+|Mana=2
+|ANM=Yes
+|WD=100%
+|LB=Yes}}
+{{U|=An experienced Barbarian can learn to strike an opponent in areas that promote the maximum effect. By putting enough strength behind a well-placed blow, he can leave an opponent dazed and unable to strike back or flee.}}
+
+
+==Detail==
+{{Stat}}
+|-
+!align=left|+[[% Attack Rating]]
+|10 + (5*slvl)
+|-
+!align=left|{{S|=+% Attack Rating}}
+|5*[[Concentrate]].blvl
+|-
+!align=left|[[% Damage|{{S|=+% Damage}}]]
+|8*[[Bash]].blvl
+|-
+!align=left|{{S|=+% Stun length}}
+|5*[[War Cry]].blvl
+|}
+
+
+{{Skill}}
+|-
+!align=left|[[Stun length]] (Seconds)
+|align=center colspan=2|1 + (0.2*slvl)
+|align=center colspan=3|min(2.92 + (0.08*slvl) , 10)
+|}
+
+
+*Successful attack stuns target.
+
+
+[[File:Stun.gif|center|frame|Overlay above target when stunned.]]
+
+
+
+*Stun receives a synergy bonus from War Cry increasing stun length by 5% per skill point, rounded down to nearest frame (0.04 second) after it is applied. This lowers the skill level at which the 10 second ceiling is reached {{Warn|=(red ceiling levels are beyond reach in the unmodified game)}}:
+
+
+{{Number table}}
+|-valign=top
+!width=211 rowspan=2 align=left|Stun
+!colspan=20 align=center|War Cry.blvl
+|-align=center
+!width=18|1
+!width=18|2
+!width=18|3
+!width=18|4
+!width=18|5
+!width=18|6
+!width=18|7
+!width=18|8
+!width=18|9
+!width=18|10
+!width=18|11
+!width=18|12
+!width=18|13
+!width=18|14
+!width=18|15
+!width=18|16
+!width=18|17
+!width=18|18
+!width=18|19
+!width=18|20
+|-
+!align=left|Ceiling Level
+|{{Warn|=83}}||{{Warn|=78}}||{{Warn|=73}}||{{Warn|=68}}||{{Warn|=64}}||{{Warn|=60}}||{{C|=57}}||53||50||47||45||42||40||38||35||33||32||30||28||26
+|}
+<br/>
+
+==Source==
+*Also used by [[Barbarian (mercenary)|Barbarian]] [[mercenary]].
+<br/>
+
+===[[Skill bonus]]===
+*+(1-3) Stun ([[Barbarian (Diablo II)|Barbarian]] Only) cannot normally spawn on ilvl >11 [[primal helm]]s.
+<br/>
+
+===[[Charged suffix]]===
+{{Skill charged}}
+|-
+|24||36||48||60||72||84||96||{{E}}||{{E}}||{{E}}
+|67||75||82||90||97||105||112||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Primal helm]]
+|12||18||18
+|-
+|33||54||75||96||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|22||25||27||30||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}||{{E}}
+|align=left|
+*[[Melee]]
+|12||36||36
+|}
+<br/>
+
+==Levels 1-60==
+{{Levels 1-20}}
+|-
+!align=left| +% Attack Rating
+| 15 || 20 || 25 || 30 || 35 || 40 || 45 || 50 || 55 || 60 || 65 || 70 || 75 || 80 || 85 || 90 || 95 || 100 || 105 || 110
+|-
+!align=left| Stun length (seconds)
+| 1.2 || 1.4 || 1.6 || 1.8 || 2 || 2.2 || 2.4 || 2.6 || 2.8 || 3 || 3.2 || 3.4 || 3.6 || 3.8 || 4 || 4.2 || 4.28 || 4.36 || 4.44 || 4.52
+|}
+
+{{Levels 21-40}}
+|-
+!align=left| +% Attack Rating
+| 115 || 120 || 125 || 130 || 135 || 140 || 145 || 150 || 155 || 160 || 165 || 170 || 175 || 180 || 185 || 190 || 195 || 200 || 205 || 210
+|-
+!align=left| Stun length (seconds)
+| 4.6 || 4.68 || 4.76 || 4.84 || 4.92 || 5 || 5.08 || 5.16 || 5.24 || 5.32 || 5.4 || 5.48 || 5.56 || 5.64 || 5.72 || 5.8 || 5.88 || 5.96 || 6.04 || 6.12
+|}
+
+{{Levels 41-60}}
+|-
+!align=left| +% Attack Rating
+| 215 || 220 || 225 || 230 || 235 || 240 || 245 || 250 || 255 || 260 || 265 || 270 || 275 || 280 || 285 || 290 || 295 || 300 || 305 || 310
+|-
+!align=left| Stun length (seconds)
+| 6.2 || 6.28 || 6.36 || 6.44 || 6.52 || 6.6 || 6.68 || 6.76 || 6.84 || 6.92 || 7 || 7.08 || 7.16 || 7.24 || 7.32 || 7.4 || 7.48 || 7.56 || 7.64 || 7.72
+|}
+<br/>
+
+==Reference==
+*[http://classic.battle.net/diablo2exp/skills/barbarian-combatskills.shtml Combat Skills] (Arreat Summit)
