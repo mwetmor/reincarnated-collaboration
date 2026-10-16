@@ -1,0 +1,223 @@
+{
+ "labels": [
+  "POST-HOC SEMANTICS: the tier-2 lever meanings ruled at KP-476 / KP-479 (TIER2 sheet 05c345ab + CORR-1 7b9d9002) were fixed after the margin of record was seen",
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)"
+ ],
+ "data": {
+  "arm": "r2",
+  "pins": {
+   "pin_file": "/Users/admin/Games/join3c-bulk/t2/r2/grains_sha256.json",
+   "pin_file_sha256": "dfdd0dcd8f46b47649da790ce79507691c8f03598a1ce00a8a79a401829c74a1",
+   "n": 75,
+   "ok": 75
+  },
+  "replay": {
+   "verdicts": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "prov_mm": 0,
+   "bad_by_class": {
+    "tape": 0,
+    "packet": 0,
+    "mana": 0,
+    "cast": 0,
+    "potion": 0,
+    "struck": 0,
+    "rebase": 0,
+    "control": 0,
+    "dot": 0,
+    "locks": 0,
+    "gh": 0,
+    "gr": 0,
+    "action": 0
+   },
+   "n_by_class": {
+    "tape": 37924,
+    "packet": 28963,
+    "mana": 77573,
+    "cast": 9286,
+    "potion": 131,
+    "struck": 1300,
+    "rebase": 225,
+    "control": 14,
+    "dot": 607,
+    "locks": 9564,
+    "gh": 17588,
+    "gr": 1624,
+    "action": 9311
+   },
+   "binding": {
+    "r_dmg": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    },
+    "r_hp": {
+     "row": "anchor_r_hp_R2",
+     "hex": "403d272050fb8969",
+     "value": 29.152836858187047,
+     "file": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/research/2026-10-14-join1-c13-enemy-anchor/j4b_r_hp_arm_operands.json",
+     "file_sha256": "e245b4a8f7484cd25a8619b253caf16eb584037f22870bf85a446a553ef3264d",
+     "anchor": "enemy-anchored"
+    }
+   }
+  },
+  "identity": {
+   "cells": 25,
+   "worst_rel": 7.261716189923546e-17,
+   "fails": [],
+   "off_ledger_falls": 0
+  },
+  "gates": {
+   "runs": {
+    "pass": true,
+    "n_cells": 25,
+    "missing": 0,
+    "raised": [],
+    "non_terminal": []
+   },
+   "obs1": {
+    "n_cells": 25,
+    "n_complete": 25,
+    "truncated": [],
+    "complete": true
+   },
+   "per_arm": {
+    "M0": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "M-POL-2": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    }
+   }
+  },
+  "counters_total": {
+   "arm": {
+    "block_draws": 800,
+    "blocks": 67,
+    "casts": 9286,
+    "fa_chill": 174,
+    "fa_freeze": 312,
+    "fb_explosions": 5892,
+    "hitrec": 161,
+    "kills": 7912,
+    "mana_credit_frames": 77573,
+    "meteor_impacts": 1521,
+    "move_refused_cast": 30711,
+    "n_action_no_target": 151,
+    "n_fire_ball_at_start_point": 125,
+    "n_meteor_at_start_point": 26,
+    "oculus_draws": 65,
+    "packets": 28477,
+    "packets_in": 1932,
+    "potions": 131,
+    "pyre_frames": 206953,
+    "resilient_bleed_noop": 102,
+    "softhit_true": 2112,
+    "static_casts": 855,
+    "thorns": 486,
+    "oculus_procs": 10,
+    "oculus_teleports": 10,
+    "n_action_carried": 3
+   },
+   "primary": {
+    "block_draws": 541,
+    "blocks": 41,
+    "casts": 8663,
+    "fa_chill": 129,
+    "fa_freeze": 178,
+    "fb_explosions": 5481,
+    "hitrec": 115,
+    "kills": 7600,
+    "mana_credit_frames": 72304,
+    "meteor_impacts": 1413,
+    "move_refused_cast": 28744,
+    "n_action_no_target": 132,
+    "packets": 25261,
+    "packets_in": 1368,
+    "potions": 123,
+    "pyre_frames": 177871,
+    "resilient_bleed_noop": 51,
+    "softhit_true": 1954,
+    "static_casts": 774,
+    "thorns": 307,
+    "oculus_draws": 40,
+    "oculus_procs": 5,
+    "oculus_teleports": 5,
+    "n_action_carried": 2
+   }
+  },
+  "unpredicted": {
+   "M_a": {
+    "arm": 25,
+    "primary": 25
+   },
+   "M_c_whole": {
+    "arm": 1914828.5614278005,
+    "primary": 1991085.1699609745
+   }
+  },
+  "item": {
+   "n_cells": 25,
+   "total_her": 5670849.240688929,
+   "total_him": 7222530.542563357,
+   "n_pos": 0,
+   "n_neg": 25,
+   "n_tie": 0,
+   "p_two_sided": 5.960464477539063e-08,
+   "verdict": "TRUE",
+   "registered": "offered per tick (RAW): R2 <= R1 (paired totals; ADDENDUM-A s C)",
+   "M_c_unordered": {
+    "arm": 1914828.5614278005,
+    "R1": 1991085.1699609745
+   }
+  }
+ }
+}
