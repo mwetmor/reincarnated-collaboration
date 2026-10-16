@@ -1,0 +1,280 @@
+{
+ "labels": [
+  "POST-HOC SEMANTICS: the tier-2 lever meanings ruled at KP-476 / KP-479 (TIER2 sheet 05c345ab + CORR-1 7b9d9002) were fixed after the margin of record was seen",
+  "Primary of reference: the CORRECTED car2 (collab e349130fb; these arms ran on the corrected lane). The as-graded aaa1f6a3f stays the result of record",
+  "NOT CONSERVATIVE: the corrected lane raises her offense (KP-481 mana, KP-481 no-body Meteor/FB, KP-487 CARRY)",
+  "COMPLETENESS: PASS UNDER A POST-HOC RULE (jack-ryan 826520a1d; Gate-2 39433b107)",
+  "ADDENDUM-13 CORR-4 FALSE AS PRE-STATED (s2 orphan test; KP-463)",
+  "probe limbs: read-ahead / FALSE-AS-PRE-STATED limbs carried by reference (KP-456 / KP-459)",
+  "Meteor-delay semantics RULED (KP-476 / 481 / 487); the replay check is present on every arm",
+  "KP-490: her in-flight missiles are dropped at a wave boundary (parity with A3)",
+  "INSTRUMENT ADDED AFTER RUN: the replay's --body-off binding (engine 640fdc76) was added after these arms ran; the body arms' refusals (ControlFamilyUnmapped: Confusion) are named results, graded on the remaining cells (KP-500 reruns to follow, labelled CELL RERUN UNDER KP-500)"
+ ],
+ "data": {
+  "arm": "body-meteor",
+  "pins": {
+   "pin_file": "/Users/admin/Games/join3c-bulk/t2/body-meteor/grains_sha256.json",
+   "pin_file_sha256": "3cc29bccc029dfe70e6e439d555abb60a7aa42ea9d7bad8124254df5cd715dac",
+   "n": 75,
+   "ok": 75
+  },
+  "replay": {
+   "verdicts": [
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS",
+    "PASS"
+   ],
+   "prov_mm": 0,
+   "bad_by_class": {
+    "tape": 0,
+    "packet": 0,
+    "mana": 0,
+    "cast": 0,
+    "potion": 0,
+    "struck": 0,
+    "rebase": 0,
+    "control": 0,
+    "dot": 0,
+    "locks": 0,
+    "gh": 0,
+    "gr": 0,
+    "action": 0
+   },
+   "n_by_class": {
+    "tape": 133353,
+    "packet": 79309,
+    "mana": 81292,
+    "cast": 9702,
+    "potion": 148,
+    "struck": 1696,
+    "rebase": 222,
+    "control": 19,
+    "dot": 953,
+    "locks": 10031,
+    "gh": 18658,
+    "gr": 1134,
+    "action": 9727
+   },
+   "binding": {
+    "r_dmg": {
+     "row": "RB-A-anchor_r_dmg",
+     "hex": "4053a558dda37d80",
+     "value": 78.58354893651813,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    },
+    "r_hp": {
+     "row": "RB-A-anchor_r_hp",
+     "hex": "404445dc60555383",
+     "value": 40.54578785101241,
+     "file": "rulebook/anchor_d2_gd.json",
+     "file_sha256": "26da4dcd0edfa77420e7566638420cf093e5f2dd45cfcfa2547d671478968a44",
+     "anchor": "enemy-anchored"
+    }
+   }
+  },
+  "identity": {
+   "cells": 25,
+   "worst_rel": 6.847930032816268e-17,
+   "fails": [],
+   "off_ledger_falls": 0
+  },
+  "gates": {
+   "runs": {
+    "pass": false,
+    "n_cells": 25,
+    "missing": 0,
+    "raised": [],
+    "non_terminal": [
+     "M0|3"
+    ]
+   },
+   "obs1": {
+    "n_cells": 25,
+    "n_complete": 25,
+    "truncated": [],
+    "complete": true
+   },
+   "per_arm": {
+    "M0": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "M-POL-2-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 3,
+     "terminal": 3
+    },
+    "W1": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    },
+    "W1-NULL": {
+     "effect": "PASS",
+     "dot": "PASS",
+     "completeness": "PASS",
+     "P": "PASS",
+     "orphans": 0,
+     "terminal": 0
+    }
+   }
+  },
+  "refused_cells": {
+   "M0|3": {
+    "terminal": "raised:KeyError",
+    "raised_reason": "j4b_kit_refused: ControlFamilyUnmapped: Confusion (tick 1151)"
+   }
+  },
+  "n_cells_graded": 24,
+  "counters_total": {
+   "arm": {
+    "block_draws": 1044,
+    "blocks": 91,
+    "casts": 9702,
+    "fa_chill": 239,
+    "fa_freeze": 441,
+    "fb_explosions": 6167,
+    "hitrec": 190,
+    "kills": 8008,
+    "mana_credit_frames": 81292,
+    "meteor_impacts": 1598,
+    "move_refused_cast": 32224,
+    "n_action_no_target": 132,
+    "n_fire_ball_at_start_point": 105,
+    "n_meteor_at_start_point": 27,
+    "oculus_draws": 82,
+    "packets": 78629,
+    "packets_in": 2535,
+    "potions": 148,
+    "pyre_frames": 234411,
+    "resilient_bleed_noop": 173,
+    "softhit_true": 9254,
+    "static_casts": 914,
+    "t2_body_off_packets": 1913,
+    "thorns": 680,
+    "oculus_procs": 15,
+    "oculus_teleports": 15,
+    "n_action_carried": 1
+   },
+   "primary": {
+    "block_draws": 541,
+    "blocks": 41,
+    "casts": 8663,
+    "fa_chill": 129,
+    "fa_freeze": 178,
+    "fb_explosions": 5481,
+    "hitrec": 115,
+    "kills": 7600,
+    "mana_credit_frames": 72304,
+    "meteor_impacts": 1413,
+    "move_refused_cast": 28744,
+    "n_action_no_target": 132,
+    "packets": 25261,
+    "packets_in": 1368,
+    "potions": 123,
+    "pyre_frames": 177871,
+    "resilient_bleed_noop": 51,
+    "softhit_true": 1954,
+    "static_casts": 774,
+    "thorns": 307,
+    "oculus_draws": 40,
+    "oculus_procs": 5,
+    "oculus_teleports": 5,
+    "n_action_carried": 2
+   }
+  },
+  "unpredicted": {
+   "M_a": {
+    "arm": 24,
+    "primary": 24
+   },
+   "M_c_whole": {
+    "arm": 1772785.977345809,
+    "primary": 1910946.512863767
+   }
+  },
+  "item": {
+   "n_cells": 24,
+   "total_her": 2855913348.5636067,
+   "total_him": 2712397373.9053116,
+   "n_pos": 21,
+   "n_neg": 3,
+   "n_tie": 0,
+   "p_two_sided": 0.0002771615982055664,
+   "verdict": "FALSE",
+   "registered": "body off -> her sum damage dealt (sum applied, whole cell) falls, paired totals (base s 9; rows 11-14)",
+   "signature_packets_by_source": {
+    "fire_ball": [
+     9307,
+     2351334040.3852577
+    ],
+    "meteor": [
+     1913,
+     0.0
+    ],
+    "meteorfire": [
+     61669,
+     139805861.0506631
+    ],
+    "thorns": [
+     680,
+     235348.02558119953
+    ],
+    "static_field": [
+     5740,
+     439759790.53561336
+    ]
+   }
+  },
+  "diagnostics_not_graded": {
+   "ticks": {
+    "arm": 38731,
+    "primary": 34088
+   },
+   "M_c_per_tick_whole": {
+    "n_cells": 24,
+    "total_her": 1772785.977345809,
+    "total_him": 1910946.512863767,
+    "n_pos": 2,
+    "n_neg": 22,
+    "n_tie": 0,
+    "p_two_sided": 3.5881996154785156e-05,
+    "verdict": "TRUE"
+   },
+   "kills": {
+    "arm": 8008,
+    "primary": 7600
+   },
+   "monster_leech_heal": {
+    "arm": 42723338.10876811,
+    "primary": 17908258.984944068
+   },
+   "M_a": {
+    "arm": 24,
+    "primary": 24
+   }
+  }
+ }
+}

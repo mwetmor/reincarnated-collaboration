@@ -57,6 +57,8 @@ if ARM_NAME == "r2":
 elif ARM_NAME == "nonladder":
     bind = ["--r-hp-row", "anchor_r_hp_nonladder", "--r-hp-hex", "404b079f4cb4c5d6", "--r-hp-operands", OPS]
 bind += ["--r-dmg-row", "RB-A-anchor_r_dmg", "--r-dmg-hex", "4053a558dda37d80"]
+if ARM_NAME.startswith("body-"):
+    bind += ["--body-off", ARM_NAME[len("body-"):]]
 rep = {"verdicts": [], "prov_mm": 0, "bad_by_class": collections.Counter(), "n_by_class": collections.Counter()}
 for A in ARMS:
     o = f"{work}/replay_{A}.json"
@@ -104,7 +106,11 @@ out["gates"] = gates
 
 # ── metrics ──
 prim = g.load_run(SP + "/car2/her")
-cells = sorted(prim["cells"])
+# a cell that RAISED (a refusal) is a named result, never a silent drop: graded on the remaining cells
+refused = {f"{r['arm']}|{r['salt']}": r["terminal_reason"] for r in run["G5"] if str(r["terminal_reason"]).startswith("raised")}
+out["refused_cells"] = {k: pv_r for k, pv_r in refused.items()}
+cells = sorted(c for c in prim["cells"] if g._key(c) not in refused)
+out["n_cells_graded"] = len(cells)
 mp = {c: g.cell_metrics(prim, c, H=H) for c in cells}
 ma = {c: g.cell_metrics(run, c, H=H) for c in cells}
 key = g._key
@@ -125,6 +131,7 @@ def jrows(base):
 
 
 pv_a, pv_p = prov(B), prov(PRIM)
+out["refused_cells"] = {k: {"terminal": v, "raised_reason": pv_a.get(k, {}).get("raised_reason")} for k, v in refused.items()}
 cnt = lambda pv: {k: v["j4b_kit"]["counters"] for k, v in pv.items()}
 ca, cp = cnt(pv_a), cnt(pv_p)
 out["counters_total"] = {"arm": dict(sum((collections.Counter(v) for v in ca.values()), collections.Counter())),

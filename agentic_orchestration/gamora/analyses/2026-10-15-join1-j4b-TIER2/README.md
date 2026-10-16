@@ -44,3 +44,49 @@
 | **static-off** (28; Static removed from her castables) | `f25086a` | `e481518c…` | row 28: **`off` gives zero Static packets** (plus row identity per packet on the primary) | **TRUE.** 0 Static packets over 25 cells (primary 3,103), and no `static_casts` counter fired |
 
 M-a under each lever, printed only: block-gd 25, potion-gd 14, potion-none 0, dot-gd 25, chill-off 25, resist-referent 25, static-off 25.
+
+## Batch 3: the body-off arms (rows 11–14), graded on the cells that ran; refusals named (KP-500 reruns to follow)
+**Added label:** **INSTRUMENT ADDED AFTER RUN.** My replay's `--body-off` binding (engine `640fdc76`; fail-first `acdc1d9b` / `40e2235c`) was added after these arms ran.
+- The binding: the off body's rows carry offered = d = applied = 0 with the roll still the tape's. For splash, at most one damaging row per explosion.
+- **Every cell's zeroed count equals the lane's own `t2_body_off_packets`** (e.g. M0|1 in body-fire_ball: 911). The label must be `J4B-T2-body-<x>`.
+
+**Common to all four arms:**
+- pins 75 / 75, committed == bulk;
+- replay PASS on every graded cell, every class, 0 provenance mismatches;
+- leech HP-chain identity holds, 0 off-ledger falls;
+- effect gates, dot conservation and POST-HOC completeness PASS. Every orphan is TERMINAL.
+- **Three of the four arms carry ONE refusal each**, `ControlFamilyUnmapped: Confusion` (diagnosis collab `739da26ae`; KP-500 ruled option A). Each is a **named result, not a drop.** The arm is graded on the other 24 cells.
+
+**Registered (base § 9; prereg § 2 rows 11–14):** *"the body off, … her Σ damage dealt falls (paired totals)"*. Here Σ damage dealt = Σ `applied` over the whole cell (HP-capped), paired; FALSE only on a strict reversal.
+
+| Row / arm | godot | Cells graded | Refusal (named) | Registered → result | Not graded: M-c per tick (off vs on) |
+|---|---|---|---|---|---|
+| **11 Fire Ball** (`body-fire_ball`) | `e868512` | **24** | **W1\|2**, tick 1929, Confusion (Blugrug, w157) | **FALSE.** Σ applied **rises**: 3,286,841,331 vs 2,716,394,572, **24 / 0** | 1,245,927 vs 1,913,833, **0 / 24** |
+| **12 Meteor** (`body-meteor`) | `a61d1df` | **24** | **M0\|3**, tick 1151, Confusion | **FALSE.** Rises: 2,855,913,349 vs 2,712,397,374, 21 / 3 | 1,772,786 vs 1,910,947, 2 / 22 |
+| **13 splash** (`body-splash`; FB secondaries 0) | `6e018aa` | **25** | none | **FALSE.** Rises: 3,153,829,939 vs 2,823,389,414, **25 / 0**. Signature: 4,770 explosions, 0 with more than one damaging row, 11,464 zeroed secondaries | 1,813,091 vs 1,991,085, 1 / 24 |
+| **14 burning ground** (`body-pyre`) | `df4a2dc` | **24** | **M-POL-2-NULL\|3**, tick 956, Confusion | **TRUE**, barely: 2,711,870,491 vs 2,713,789,852 (−0.07 %), 9 / 10 / 5 ties, p = 1.0 | 1,903,104 vs 1,913,957, 8 / 11 |
+
+**⚑ Why Σ applied rises when a body is removed (diagnostic, printed, not a re-grade):**
+- Every arm clears every wave (her M-a is 24 / 24 or 25 / 25), so Σ applied is the **board's HP removed**: the roster's HP, plus monster leech healing, plus the pets and summons that spawn while a wave lasts.
+- Taking a body away **lengthens the board**:
+  - body-fire_ball: 63,464 vs 34,088 ticks;
+  - kills 8,931 vs 7,600, because more summons spawn;
+  - monster leech heal 275 M vs 18 M.
+- So the HP-capped total **grows** while her output per tick **falls** (last column).
+- **The registered metric cannot fall under kill-to-clear with an HP cap.** That is why it is FALSE as registered. Nothing is re-graded.
+- ⚑ **Row 14's TRUE is within noise** (the pyre is a small share of damage; 5 cells are unchanged). **The KP-500 rerun of M-POL-2-NULL|3 can flip it.** The 25-cell grade decides.
+- **(Third refusal, not in the relay: body-pyre M-POL-2-NULL|3, tick 956.)**
+
+## Fraction (b), updated after all four body arms (24-cell body grades; rows 23 / 24 await drax's trace arms)
+Format: "N demonstrated ACTIVE + M REACHED-INSENSITIVE (named) / 23". ACTIVE requires reach > 0 **and** the row's NC passing.
+
+| Status | Rows |
+|---|---|
+| **ACTIVE** (NC passed, reach > 0) | 8, 10, **14**, 15, 16, 17, 20, **21**, 22, 25 (non-magic families), 26, **28**, 31 |
+| **FAILED NC** (listed, never folded in) | **11, 12, 13** (body off: Σ applied rose), **19** (block off: Σ intake did not rise) |
+| PARTIAL (NC not fully demonstrable on the contract) | 9 (her displacement during CAST), 32 (per-hit identity needs the S17 packet id) |
+| **OPEN** | **23, 24** (pending the `--rb-row2324-trace` arms, quantities fixed at engine `6587ffe8`); 29 (forced-landing fixture not run); 30 (destinations not in the contract; binomial 5 / 43 printed, no α) |
+
+- **Line:** **13 demonstrated ACTIVE + 0 REACHED-INSENSITIVE / 23**, with 4 failed NCs (11, 12, 13, 19), 2 partial (9, 32) and 4 open (23, 24, 29, 30).
+- **The registered prediction "22 ACTIVE + 1 RI (row 22) / 23" is FALSE AS PRE-STATED.**
+- Row 14's ACTIVE is provisional on the KP-500 rerun.
