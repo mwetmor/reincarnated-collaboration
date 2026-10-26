@@ -4,7 +4,7 @@
 
 **Date:** 2026-10-13
 **Author:** gandalf (CANON-STEWARD / SPEC-AUTHOR; RUN-CONDUCTOR of Run C-9 Phase 2, workstream BV2F)
-**Status:** v1.0. Canonized from barrow_v2: Phase 0 → M3′ ratified (R-C9-350) → north extension (site_ph4) → the arena (R-C9-345..396) → the public web build.
+**Status:** v1.1. Canonized from barrow_v2: Phase 0 → M3′ ratified (R-C9-350) → north extension (site_ph4) → the arena (R-C9-345..396) → the public web build. *v1.1 (2026-10-25): §11 gains the post-ship cleanup rule (R-C9-398).*
 **Authority:** Matt 2026-10-13 (session close): *"record everything that enabled completion of the barrow_v2 pipeline … as canonical scene/arena generation pipeline procedure."* The method's DEV register was ratified at M3′ (R-C9-350). DEV-30 (the band stager) is still owed on Matt's ratification list.
 **Supersession:** **PARTIAL.** This supersedes the *"3D scenes crossed off the plan"* clause of `scene-builder-workflow.md` for **painted-onto-3D sites**. The flat painted-2D workflow there stands unchanged for 2D scenes; this doc is its 3D-site sibling.
 **Companion docs:**
@@ -169,6 +169,12 @@
 
 - **Ledger as truth:** every ruling verbatim with Matt's words. The conductor alone commits it (`git commit --only`; `git status --porcelain` before, `git show --stat HEAD` after, `git -C` across repos).
 - **Disk:** lanes halt at 21 GiB and the conductor gate is 20 GiB (one-time releases recorded). The conductor runs build-safe **cleanup manifests**: untracked files only, excluding build inputs, ledger- and QA-cited files, and anything touched in the last 30 minutes. A raw `rm` outside the repo is Matt's.
+- **Post-ship cleanup (v1.1, 2026-10-25, R-C9-398).** Once a scene ships, sort what is left into three groups before deleting anything:
+  - **Rebuildable copies, safe to delete:** the platform build working copies (`pc_arena/`, `app/`) that their `tools/build_*.sh` script re-syncs from `godot/`, and an unzipped export folder that duplicates its zip. Check the zip against its saved sha256 and run `unzip -t` before removing the folder.
+  - **Looks like a build copy but is still read, keep:** a folder can be a live input even when its name says "build". The arena's `level.json` files load the standing-stone GLBs from `barrow_full/web_painted/models/barrow/`, so that folder stays. Run `git grep` over the tracked files for the folder's path before treating it as disposable.
+  - **The painting's work files, keep while any repaint is possible:** the `barrow_v2/fid/` takes and bakes (about 7.7 GB) are what a re-bake needs.
+  
+  **Who deletes:** in practice a conductor's `rm -rf` was refused **inside** the repo too. The conductor prepares and verifies the list and gets Matt's choice, then hands him one `! …` line to run. A refusal is not routed around. The first pass freed 7.1 GB.
 - **Permissions:** a refusal is reported, never routed around. Standing consent lives in configuration Matt sets himself; a relayed ruling is not consent.
 - **Shared Mac:** kill only your own PIDs, use small auto-quit test windows, and use the heavy lock for Godot.
 - **Reference choice is a decision.** Name the exact build to match ("the snow as the deployed phone build runs it", R-C9-379). Two "v1s" existed, and picking the wrong one cost three snow rounds.
@@ -178,9 +184,10 @@
 
 - Ledger: `astra_test_01/burst/runs/C-9/ledger.json`. Milestones M-C9-BV2F-PAINTING-COMPLETE, -SITE-BUILT, -M3P-RATIFIED, -SITE-PH4-BUILT, M-C9-ARENA-W151-PLAYABLE, -10W-BUILT.
 - QA: `agentic_orchestration/qa/findings/2026-10-09-bv2f-site-build-gate2.md`, `2026-10-09-bv2f-r339-delta-gate2.md`.
-- Handoff: `agentic_orchestration/gandalf/notes/2026-10-13-c9-arena-session-handoff.md`.
+- Handoff: `agentic_orchestration/gandalf/notes/2026-10-13-c9-arena-session-handoff.md`, then `2026-10-25-c9-arena-cleanup-handoff.md`.
 
-Tracker-delta: new gap → `canonical/current-to-end-state/current-to-end-state-game.md` (the painted-site scene + arena pipeline is now canon; open items: DEV-30 and the solver-fallback ratification, whirlwind smoke R-C9-396, monsters as live 3D rigs, web download size and phone confirmation).
+Tracker-delta (v1.1): none (an operations rule, not a spec gap).
+Tracker-delta (v1.0): new gap → `canonical/current-to-end-state/current-to-end-state-game.md` (the painted-site scene + arena pipeline is now canon; open items: DEV-30 and the solver-fallback ratification, whirlwind smoke R-C9-396, monsters as live 3D rigs, web download size and phone confirmation).
 
 ---
 

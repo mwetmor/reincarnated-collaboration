@@ -56467,6 +56467,17 @@
         "c6ac9b55f",
         "56a5024bc"
       ]
+    },
+    {
+      "id": "R-C9-398",
+      "by": "gandalf (conductor), on Matt",
+      "ts": "2026-10-25T22:40:14-04:00",
+      "verbatim": "Is there anything related to graphic arts session that we can delete to free up space at this point? [then chose] Delete all three (Recommended) [then] Please record everything we discussed and accomplished this section in our docs. When completed, write a session handoff doc and wind down.",
+      "ruling": "POST-SHIP CLEANUP + SESSION CLOSE. Deleted (Matt's choice, about 7.1 GB, all gitignored and rebuildable): barrow_full/pc_arena/build/BarrowArena-Windows-x64/ (unpacked twin of the zip; zip sha256 f93490a5...207c matched and unzip -t passed before deletion), the pc_arena working copy (.godot, kc2, models, data, scripts, scenes, barrow_v2; re-synced by tools/build_pc_arena.sh), and barrow_full/app/ (the 2026-09-29/30 Mac apps; tools/build_app*.sh). The conductor's rm -rf was REFUSED by the permission system and not routed around; Matt ran the one-line delete himself. Free space 26 -> 33 GiB. Kept on purpose: barrow_full/web_painted/ (a live input; the arena's level.json files load the stone and kit GLBs from web_painted/models/barrow/), the barrow_v2/fid painting work files (about 7.7 GB of re-bake inputs, which need Matt's word before any sweep), godot/.godot, web_arena/, and another session's scratchpad. Canon: painted-site-scene-and-arena-pipeline.md v1.1, section 11 post-ship cleanup rule. Handoff: agentic_orchestration/gandalf/notes/2026-10-25-c9-arena-cleanup-handoff.md.",
+      "cites": [
+        "R-C9-397",
+        "R-C9-387"
+      ]
     }
   ],
   "grok_calls": [

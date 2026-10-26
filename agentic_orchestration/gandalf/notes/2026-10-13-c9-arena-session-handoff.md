@@ -1,6 +1,7 @@
 # C-9 session handoff: barrow_v2 ratified, north extension, the barrow arena on Vercel
 
 > **STATUS:** CURRENT (working-memory, session pointer). **Author:** gandalf (C-9 RUN-CONDUCTOR). **Date:** 2026-10-13.
+> **Next pointer:** `2026-10-25-c9-arena-cleanup-handoff.md` (post-ship disk cleanup, R-C9-398). Everything below still holds.
 > **Read first:** the canonical procedure `canonical/reap-die-rise-game/painted-2d-pipeline/painted-site-scene-and-arena-pipeline.md`; the ledger `astra_test_01/burst/runs/C-9/ledger.json` (rulings through R-C9-397); the review `agentic_orchestration/gandalf/notes/2026-10-13-c9-arena-astra-completion-review.md`.
 
 ## 1. Where things stand
