@@ -34,6 +34,14 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-10-25 — JOIN-1: J4b (D2 FIRE SORCERESS) CLOSED FOR EXECUTION · CALIBRATION GAP SURFACED · JOIN SEQUENCING + BALANCING RECORDED (Q106–Q108 queued)
+
+- **J4b joined and QA-closed** (KC2 KP-458 → KP-507; jack-ryan PASS-WITH-NOTES `9189d6ee6`). Second seal: runtime `fb49080f…`, godot `4e93fa7`, tag `kc2/referent-v1-sealed-r2-runtime-j4b2s26`, Matt's windowed self-test GREEN 85/85. Under the enemy-anchored scale (KP-420) her late-wave damage per tick is ×1.531 the Warlord's (25/0), her intake 35% of his, survival 25/25 vs 18/25. Fraction (a) 31/32, fraction (b) 15+0/23 — both FALSE as pre-stated; four negative controls failed by instrument design. KP-500: Confusion/Convert ruled no-effect on players; a bind-time control-family completeness check now refuses uncovered monster effects.
+- **Calibration gap (KP-508):** her anchor is D2 Hell alvl 85 at players 1 (comfort content); his is waves 151–160 (his frontier); her home margin was never measured. Recommended split: execution certificate granted, calibration withheld; players-8 sensitivity → small GD cohort → D2 home-mode test before the Barbarian. Close-out page corrected.
+- **Design dialogue recorded** (`agentic_orchestration/gandalf/notes/2026-10-17-join-sequencing-and-calibration.md`): join order (Barbarian → house join of pinned pipeline kits → PoE → summoners), power apart from feel (levers = feel, per-kit scalars = power, Homage/House profiles), doc 50 as the band after a wave-type census and a thresholds session, and a two-tier court in which the arena calibrates the fast engine sim. All OPEN on Q106.
+- **Owed:** Q106 (JOIN-1 forward) · Q107 (barrow D-1) · Q108 (disk). Nothing running; sealed runtime unchanged.
+
+
 ### 2026-09-29 — KC2-PLAY SEAL LAP: SUBSTRATE FINAL AT BATON v3.4.2, PORT ON IT, PREREG v1.6 SEALED; GRADED T-A HOLDS FOR Q83(b) · JOIN-1 CHARTER GO ON MATT'S WORD
 
 Unattended seal lap (KC2-PLAY ledger KP-84 → KP-109; governing text `agentic_orchestration/gandalf/notes/2026-09-28-kc2-play-seal-lap-plan.md`). Deltas that GOVERN:
